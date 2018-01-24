@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4117414f4605b73d8aab8acc2e788720deff8b99
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurando o acesso condicional local usando o registro de dispositivo do Azure Active Directory
 Quando você exige que os usuários usem o ingresso no local de trabalho para seus dispositivos pessoais no serviço de registro de dispositivo do Azure AD (Azure Active Directory), seus dispositivos poderão ser marcados como conhecidos para sua organização. Veja abaixo um guia passo a passo para habilitar o acesso condicional em aplicativos locais usando o AD FS (Serviços de Federação do Active Directory) no Windows Server 2012 R2.
@@ -101,19 +101,13 @@ A implantação agora foi concluída e você pode experimentar alguns cenários.
 | Agora que os usuários podem registrar seus dispositivos, você pode criar políticas de acesso de aplicativo no AD FS que permitem apenas dispositivos registrados. Nesta tarefa, você cria uma regra de acesso do aplicativo e uma mensagem personalizada de acesso negado. |[Criar uma política de acesso do aplicativo e uma mensagem personalizada de acesso negado](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Integrar o Azure Active Directory ao Active Directory local
-Esta etapa ajuda você a integrar o locatário do Azure AD ao Active Directory local, usando o Azure AD Connect. Embora as etapas estejam disponíveis no portal clássico do Azure, anote todas as instruções especiais listadas nesta seção.
 
-1. Entre no portal clássico do Azure usando uma conta que é um administrador global no Azure AD.
-2. No painel esquerdo, selecione **Active Directory**.
-3. Na guia **Diretório** , selecione o diretório.
-4. Selecione a guia **Integração de Diretórios** .
-5. Na seção **Implantar e gerenciar**, siga as etapas 1 a 3 para integrar o Azure Active Directory ao diretório local.
-   
-   1. Adicionar domínios.
-   2. Instale e execute o Azure AD Connect usando as instruções descritas em [Instalação personalizada do Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
-   3. Verificar e gerenciar a sincronização de diretórios. Instruções de logon único estão disponíveis nessa etapa.
-   
-   Além disso, configure a federação com o AD FS, conforme descrito em [Instalação personalizada do Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
+**Confira:**
+
+- [Integrar seus diretórios locais com o Azure Active Directory](./connect/active-directory-aadconnect.md) - para rever informações conceituais.
+
+- [Instalação personalizada do Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) - para obter instruções de instalação.
+
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Atualizar o esquema de serviços do Domínio do Active Directory
 > [!NOTE]

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Pontos de verificação e reprodução nas Funções Duráveis (Azure Functions)
 
@@ -63,7 +63,7 @@ Quando o ponto de verificação for concluído, a função de orquestrador estar
 
 Após a conclusão, o histórico da função mostrado anteriormente se parece com o seguinte no Armazenamento de Tabelas do Azure (abreviado para fins de ilustração):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | Nome             | Result                                                    | Status | 
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | NOME             | Result                                                    | Status | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | nulo  | E1_HelloSequence |                                                           |                     | 
@@ -90,7 +90,7 @@ Algumas observações sobre os valores das colunas:
     * **TaskScheduled**: uma função de atividade foi agendada. O nome da função de atividade é capturado na coluna `Name`.
     * **TaskCompleted**: uma função de atividade foi concluída. O resultado da função está na coluna `Result`.
     * **TimerCreated**: um temporizador durável foi criado. A coluna `FireAt` contém a hora, em UTC, agendada para o temporizador expirar.
-    * **TimerFired**: um temporizador durável expirou.
+    * **TimerFired**: um temporizador durável disparado.
     * **EventRaised**: um evento externo foi enviado para a instância de orquestração. A coluna `Name` captura o nome do evento e a coluna `Input` captura sua carga.
     * **OrchestratorCompleted**: a função de orquestrador esperou.
     * **ContinueAsNew**: a função de orquestrador foi concluída e reinicializou a si mesma com estado de nova. A coluna `Result` contém o valor, que é usado como a entrada na instância reiniciada.
@@ -98,7 +98,7 @@ Algumas observações sobre os valores das colunas:
 * **Timestamp**: o carimbo de data/hora, em UTC, do evento do histórico.
 * **Name**: o nome da função que foi invocada.
 * **Input**: a entrada da função formatada em JSON.
-* **Output**: a saída da função, ou seja, o valor retornado.
+* **Result**: a saída da função, ou seja, o valor retornado.
 
 > [!WARNING]
 > Embora ela seja útil como uma ferramenta de depuração, não dependa desta tabela. Ela pode mudar à medida que a extensão de Funções Duráveis evoluir.

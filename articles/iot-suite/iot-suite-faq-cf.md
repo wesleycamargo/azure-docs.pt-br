@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Perguntas frequentes sobre a solução pré-configurada de fábrica conectada do IoT Suite
 
@@ -42,7 +42,7 @@ O OPC UA (Unified Architecture), lançado em 2008, é um padrão de interoperabi
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Por que a Microsoft escolheu o OPC UA para a solução pré-configurada de fábrica conectada?
 
-A Microsoft escolheu OPC UA porque ele é um padrão aberto, comprovado, não proprietário, independente de plataforma e reconhecido no setor. É um requisito para soluções de arquitetura de referência Industrie 4.0 (RAMI4.0) garantindo a interoperabilidade entre um amplo conjunto de processos de fabricação e equipamento. A Microsoft considera a demanda de nossos clientes para criar soluções do Industrie 4.0. O suporte para OPC UA ajuda a reduzir a barreira para os clientes atingirem suas metas e fornece valor comercial imediato para eles.
+A Microsoft escolheu OPC UA porque ele é um padrão aberto, comprovado, não proprietário, independente de plataforma e reconhecido no setor. É um requisito para soluções de arquitetura de referência Industrie 4.0 (RAMI4.0) garantindo a interoperabilidade entre um amplo conjunto de processos de fabricação e equipamento. A Microsoft considera a demanda dos clientes para criar soluções do Industrie 4.0. O suporte para OPC UA ajuda a reduzir a barreira para os clientes atingirem suas metas e fornece valor comercial imediato para eles.
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Como fazer para adicionar um endereço IP público à VM de simulação?
 
@@ -82,7 +82,7 @@ Se você implantou a solução por meio de www.azureiotsuite.com, não poderá e
 1. Para verificar quais contêineres estão ativos, execute `docker ps`.
 1. Para interromper todos os contêineres de simulação, execute `./stopsimulation`.
 1. Para iniciar todos os contêineres de simulação:
-    * Exporte uma variável do shell com o nome **IOTHUB_CONNECTIONSTRING**. Use o valor da configuração **IotHubOwnerConnectionString** no arquivo `<name of your deployment>.config.user`. Por exemplo:
+    * Exporte uma variável do shell com o nome **IOTHUB_CONNECTIONSTRING**. Use o valor da configuração **IotHubOwnerConnectionString** no arquivo `<name of your deployment>.config.user`. Por exemplo: 
 
         ```
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -143,6 +143,64 @@ Inspecione os dados enviados por um dos dispositivos fornecedores:
 * publisher.seattle.corp.contoso
 
 Caso você não veja nenhum dado enviado para o Hub IoT, há um problema com a simulação. Como uma primeira etapa de análise, você deve analisar os arquivos de log dos componentes da simulação. Consulte [Como obter dados de log dos componentes da simulação?](#how-can-i-get-log-data-from-the-simulation-components) Em seguida, tente interromper e iniciar a simulação e, se ainda nenhum dado estiver sendo enviado, atualize a simulação por completo. Consulte [Como fazer para atualizar a simulação na VM?](#how-do-i-update-the-simulation-in-the-vm)
+
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Como habilitar um mapa interativo na minha solução de Alocador conectado?
+
+Para habilitar um mapa interativo em sua solução de Alocador conectado, deve ter uma API existente do Bing Maps para o plano Enterprise. Se você tiver uma API do Bing Maps para o plano Enterprise ao implantar a solução de Alocador conectado no site www.azureiotsuite.com, o mapa interativo será habilitado automaticamente para você.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Como criar uma API do Bing Maps para a conta Enterprise?
+
+Você pode obter um plano gratuito do *Bing Maps for Enterprise do Nível 1 das transações internas*. No entanto, você só pode adicionar dois desses planos a uma assinatura do Azure. Se você não tiver uma API do Bing Maps para a conta Enterprise, crie uma no portal do Azure clicando em **+ Criar um recurso**. Em seguida, procure por **API do Bing Maps for Enterprise** e siga os prompts para criá-la.
+
+![Chave do Bing](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Como obter a QueryKey do API do Bing Maps for Enterprise
+
+Depois de criar sua API do Bing Maps for Enterprise, adicione um recurso do Bing Maps for Enterprise ao grupo de recursos de sua solução de Alocador conectado no portal do Azure.
+
+1. No portal do Azure, navegue até o grupo de recursos que contém seu plano da API do Bing Maps for Enterprise.
+
+1. Clique em **Todas as Configurações** e em **Gerenciamento de Chaves**.
+
+1. Há duas chaves: **MasterKey** e **QueryKey**. Copie o valor **QueryKey**.
+
+1. Para que o script do `build.ps1` capture a chave, defina a variável de ambiente `$env:MapApiQueryKey` em seu ambiente do PowerShell como a **QueryKey** do seu plano. O script de compilação, em seguida, adicionará automaticamente o valor às configurações do Serviço de Aplicativo.
+
+1. Execute uma implantação local ou da nuvem usando o script do `build.ps1`.
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Como habilitar o mapa interativo durante a depuração localmente?
+
+Para habilitar o mapa interativo ao depurar localmente, defina o valor da configuração `MapApiQueryKey` nos arquivos `local.user.config` e `<yourdeploymentname>.user.config` na raiz da sua implantação como o valor da **QueryKey** que você copiou anteriormente.
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Como usar uma imagem diferente na home page do meu painel?
+
+Para alterar a imagem estática mostrada na home page do painel, substitua a imagem `WebApp\Content\img\world.jpg`. Em seguida, recompile e reimplante o WebApp.
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Como usar dispositivos não OPC UA com o Alocador conectado?
+
+Para enviar os dados telemétricos dos dispositivos não OPC UA ao Alocador conectado:
+
+1. [Configurar uma nova estação na topologia do Alocador conectado](iot-suite-connected-factory-configure.md) no arquivo `ContosoTopologyDescription.json`.
+
+1. Ingira os dados telemétricos no formato JSON compatível do Alocador conectado:
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. O formato de `<timestamp>` é: `2017-12-08T19:24:51.886753Z`
+
+1. Reinicie o serviço de aplicativo do Alocador conectado.
 
 ### <a name="next-steps"></a>Próximas etapas
 

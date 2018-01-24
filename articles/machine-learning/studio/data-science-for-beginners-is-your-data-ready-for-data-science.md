@@ -1,6 +1,6 @@
 ---
 title: "Seus dados estão prontos para a ciência de dados? Avaliação de dados – Azure Machine Learning | Microsoft Docs"
-description: "Saiba sobre os quatro critérios para os dados estarem prontos para a ciência de dados. O vídeo Ciência de Dados para Iniciantes 2 tem exemplos concretos para ajudar na avaliação dos dados básicos."
+description: "Quatro critérios que seus dados precisam atender para estarem prontos para ciência de dados. Este vídeo tem exemplos concretos para ajudar na avaliação dos dados básicos."
 keywords: "dados relevantes, avaliar dados, preparar dados, critérios dos dados, dados prontos"
 services: machine-learning
 documentationcenter: na
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 9b5cf776981af0dff57195d5c7f1923b8d9a3862
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Seus dados estão prontos para a ciência de dados?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Série de ciência de dados para iniciantes
 Aprenda como avaliar seus dados para assegurar que eles atendem aos critérios básicos de preparo para a ciência de dados.
 
-Para aproveitar ao máximo da série, assista a todos os vídeos. [Acessar a lista de vídeos](#other-videos-in-this-series)
+Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]

@@ -5,30 +5,30 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Matriz com suporte para esta versão 
 Quando seu código estiver carregando dados usando Fontes de Dados ou Preparação de Dados do Azure Machine Learning, obtendo um dataframe Pandas ou Spark, as seguintes combinações de ambientes de computação de experimento e locais de dados são compatíveis:
 
-|     |Arquivos locais  |Armazenamento do Blob do Azure  |Banco de Dados do SQL Server***  |
+|     |Arquivos locais  |Armazenamento de Blobs do Azure  |Banco de Dados do SQL Server***  |
 |---------|---------|---------|---------|---------|
-|Python local    |     Suportado    |Sem suporte         | Sem suporte        |         |
+|Python local    |     Com suporte    |Sem suporte         | Sem suporte        |         |
 |Docker (Linux VM) Python     |Compatível somente com arquivos de projeto*         | Sem suporte        |        Sem suporte |         |
-|Docker (Linux VM) PySpark     |Compatível somente com arquivos de projeto*     |Suportado         | Com suporte**        |         |
+|Docker (Linux VM) PySpark     |Compatível somente com arquivos de projeto*     |Com suporte         | Com suporte**        |         |
 |Máquina Virtual de Ciência de Dados do Azure em Python     |Compatível somente com arquivos de projeto*         |Sem suporte         |Sem suporte         |         |
 |Máquina Virtual de Ciência de Dados do Azure em PySPark     | Compatível somente com arquivos de projeto*        |Sem suporte         |Sem suporte         |         |
-|Azure HDInsight PySpark     | Sem suporte        |Suportado         |Com suporte**         |         |
+|Azure HDInsight PySpark     | Sem suporte        |Com suporte         |Com suporte**         |         |
 |Azure HDInsight Python     | Sem suporte        | Sem suporte        | Sem suporte        |         |
 
 O Azure Data Lake Store não tem suporte para nenhum destino de computação no momento.
@@ -37,4 +37,4 @@ O Azure Data Lake Store não tem suporte para nenhum destino de computação no 
 
 **Usa o driver do SQL Server Maven JDBC 6.2.1. É necessário garantir que esse pacote (ou um pacote compatível) esteja incluído no arquivo spark_dependencies.yml para o ambiente de computação.
 
-***Compatível com o Banco de Dados SQL do Azure, SQL Data Warehouse do Azure ou SQL Server, desde que o banco de dados possa ser alcançado do ambiente de computação. 
+***Compatível com o Banco de Dados SQL do Azure ou SQL Server, desde que o banco de dados possa ser acessado do ambiente de computação. 

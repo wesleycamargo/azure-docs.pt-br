@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implantar e monitorar módulos do IoT Edge em escala – versão prévia
 
@@ -40,7 +40,7 @@ Para obter mais informações sobre dispositivos gêmeos e marcações, consulte
 
 ## <a name="create-a-deployment"></a>Criar uma implantação
 
-1. Entre no [Portal do Azure][lnk-portal] e navegue até o seu Hub IoT. 
+1. No [Portal do Azure][lnk-portal], vá ao hub IoT. 
 1. Selecione **IoT Edge (versão prévia)**.
 1. Selecione **Adicionar implantação do IoT Edge**.
 
@@ -61,26 +61,25 @@ Se você criar uma implantação sem módulos, ela remove todos os módulos exis
 >[!NOTE]
 >O Azure Machine Learning e o Azure Functions ainda não dão suporte à implantação automatizada do serviço do Azure. Use a implantação de módulo personalizado para adicionar esses serviços manualmente à implantação. 
 
-Para adicionar um módulo de um serviço do Azure, siga estas etapas:
-1. Selecione **Adicionar módulo do IoT Edge do serviço do Azure**.
+Para adicionar um módulo do Azure Stream Analytics, siga estas etapas:
+1. Selecione **Importar módulo IoT Edge do Azure Stream Analytics**.
 1. Use os menus suspensos para selecionar as instâncias de serviço do Azure que você deseja implantar.
-1. Selecione **Salvar** para adicionar os módulos à implantação. 
+1. Selecione **Salvar** para adicionar o módulo à implantação. 
 
 Para adicionar um código personalizado como um módulo ou para adicionar um módulo de serviço do Azure manualmente, siga estas etapas:
-1. Selecione **Adicionar módulo personalizado do IoT Edge**.
+1. Selecione **Adicionar módulo do IoT Edge**.
 1. Dê um **Nome** ao módulo.
-1. No campo **Imagem**, insira a imagem de contêiner do Docker para este módulo: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Use os menus suspensos em **OS** e **Arquitetura** para identificar as propriedades do contêiner do Docker que representa esse módulo. 
-1. Especifique qualquer **opção Create** que deverá ser passada para o contêiner. Para obter mais informações, consulte [docker create][lnk-docker-create].
+1. No campo **URI da Imagem**, insira a imagem de contêiner do Docker para o módulo. 
+1. Especifique qualquer **Opção de criação de contêiner** que deverá ser passada para o contêiner. Para obter mais informações, consulte [docker create][lnk-docker-create].
 1. Use o menu suspenso para selecionar uma **Política de reinicialização**. Escolha uma das seguintes opções: 
    * **Sempre** – o módulo sempre é reiniciado se é desligado por qualquer motivo.
    * **Nunca** – o módulo nunca é reiniciado se é desligado por qualquer motivo.
    * **Se Houver Falha** – o módulo é reiniciado se ele falha, mas não se ele é desligado corretamente. 
    * **Se Não Estiver Íntegro** – o módulo é reiniciado se ele falha ou se retorna um status não íntegro. Cabe a cada módulo implementar a função de status da integridade. 
-1. Use o menu suspenso para selecionar o **Status** de inicialização do módulo. Escolha uma das seguintes opções:
+1. Use o menu suspenso para selecionar o **Status** desejado do módulo. Escolha uma das seguintes opções:
    * **Em Execução** – essa é a opção padrão. O módulo será iniciado imediatamente depois de ser implantado.
    * **Parado** – depois de ser implantado, o módulo permanecerá ocioso até que seja chamado para ser iniciado por você ou por outro módulo.
-1. Selecione **Editar módulo gêmeo** se desejar adicionar marcações ou as propriedades desejadas ao módulo. 
+1. Selecione **Habilitar** se desejar adicionar marcações ou as propriedades desejadas ao módulo gêmeo. 
 1. Selecione **Salvar** para adicionar o módulo à implantação. 
 
 Depois de configurar todos os módulos para uma implantação, selecione **Avançar** para ir para a etapa 3.
@@ -96,7 +95,7 @@ Use a propriedade tags dos dispositivos para direcionar os dispositivos específ
 Como várias implantações podem direcionar o mesmo dispositivo, você deve atribuir a cada implantação um número de prioridade. Se houver um conflito, a implantação com a prioridade mais alta ganhará. Se duas implantações tiverem o mesmo número de prioridade, aquela que foi criada mais recentemente ganhará. 
 
 1. Insira um inteiro positivo para a **Prioridade** da implantação.
-1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa implantação. A condição se baseia nas marcações do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo: `tags.environment='test'`. 
+1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa implantação. A condição se baseia nas marcações do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'`. 
 1. Selecione **Avançar** para ir para a etapa final.
 
 ### <a name="step-5-review-template"></a>Etapa 5: Examinar o modelo
@@ -172,7 +171,7 @@ Quando você exclui uma implantação, todos os dispositivos usam sua próxima i
 Saiba mais sobre como [Implantar módulos em dispositivos do Edge][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

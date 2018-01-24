@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Criar um ambiente completo de máquina virtual do Linux no Azure com o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar suas máquinas virtuais (VMs) no Azure, da mesma forma que faria com qualquer outro recurso. Este artigo mostra como criar um ambiente Linux completo e os recursos de apoio com o Ansible. Você também pode aprender a [Criar uma VM básica com o Ansible](ansible-create-vm.md).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para gerenciar recursos do Azure com o Ansible, você precisará do seguinte:
 
 - Ansible e os módulos do SDK do Python do Azure instalados no sistema host.
@@ -105,7 +105,7 @@ Uma placa de adaptador de rede virtual (NIC) conecta-se à VM para uma determina
 
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
-A etapa final é criar uma máquina virtual e usar todos os recursos criados. A seção a seguir em um guia estratégico do Ansible cria uma VM denominada *myVM* e anexa a NIC virtual denominada *myNIC*. Insira seus próprios dados de chave pública no par *key_data* da seguinte maneira:
+A etapa final é criar uma máquina virtual e usar todos os recursos criados. A seção a seguir em um guia estratégico do Ansible cria uma VM denominada *myVM* e anexa a NIC virtual denominada *myNIC*. Insira seus próprios dados de chave pública completos no par *key_data* da seguinte maneira:
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ A etapa final é criar uma máquina virtual e usar todos os recursos criados. A 
 ```
 
 ## <a name="complete-ansible-playbook"></a>Guia estratégico completo do Ansible
-Para reunir todas essas seções, crie um guia estratégico do Ansible chamado *azure_create_complete_vm.yml* e cole o seguinte conteúdo:
+Para reunir todas essas seções, crie um guia estratégico do Ansible chamado *azure_create_complete_vm.yml* e cole o seguinte conteúdo. Insira seus próprios dados de chave pública completos no par *key_data*:
 
 ```yaml
 - name: Create Azure VM

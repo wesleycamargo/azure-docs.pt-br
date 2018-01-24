@@ -4,7 +4,7 @@ description: "Saiba como instalar o MongoDB em uma VM do Azure que executa o Win
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f3fe9751467a1fc34f4e9d02855c4aff307424a3
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Instalar e configurar o MongoDB em uma VM do Windows no Azure
-[O MongoDB](http://www.mongodb.org) é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Este artigo lhe orienta pela instalação e configuração do MongoDB em uma VM (máquina virtual) do Windows Server 2012 R2 no Azure. Você também pode [instalar o MongoDB em uma VM do Linux no Azure](../linux/install-mongodb.md).
+[O MongoDB](http://www.mongodb.org) é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Este artigo orienta você pela instalação e configuração do MongoDB em uma VM (máquina virtual) do Windows Server 2016 no Azure. Você também pode [instalar o MongoDB em uma VM do Linux no Azure](../linux/install-mongodb.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de instalar e configurar o MongoDB, você precisa criar uma VM e, idealmente, adicionar um disco de dados a ela. Consulte os artigos a seguir para criar uma VM e adicionar um disco de dados:
 
 * Criar uma VM do Windows Server usando o [Portal do Azure](quick-create-portal.md) ou o [Azure PowerShell](quick-create-powershell.md).
@@ -36,23 +36,24 @@ Para começar a instalar e configurar o MongoDB, [Faça logon em sua VM do Windo
 > Os recursos de segurança do MongoDB, como autenticação e associação com o endereço IP, não são habilitados por padrão. Os recursos de segurança devem ser ativados antes de implantar o MongoDB em um ambiente de produção. Para obter mais informações, veja [Segurança e Autenticação do MongoDB](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 
-1. Depois de se conectar à VM usando a Área de Trabalho Remota, abra o Internet Explorer pelo menu **Iniciar** na VM.
+1. Depois de se conectar à VM usando a Área de Trabalho Remota, abra o Internet Explorer pela barra de tarefas.
 2. Selecione **usar as configurações de segurança, privacidade e compatibilidade recomendadas** quando o Internet Explorer abrir pela primeira vez e clique em **OK**.
 3. A configuração de segurança reforçada do Internet Explorer é habilitada por padrão. Adicione o site do MongoDB à lista de sites permitidos:
    
    * Selecione o ícone **Ferramentas** no canto superior direito.
    * Em **Opções da Internet**, selecione a guia **Segurança**, selecione o ícone **Sites confiáveis**.
-   * Clique no botão **Sites**. Adicione *https://\*.mongodb.org* à lista de sites confiáveis e então feche a caixa de diálogo.
+   * Clique no botão **Sites**. Adicione *https://\*.mongodb.com* à lista de sites confiáveis e então feche a caixa de diálogo.
      
      ![Definir as configurações de segurança do Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
-4. Navegue até a página [MongoDB – Downloads](http://www.mongodb.org/downloads) (http://www.mongodb.org/downloads).
-5. Se necessário, selecione o **Community Server** Edition e, em seguida, selecione a última versão estável atual do Windows Server 2008 R2 64 bits e posterior. Para baixar o instalador, clique em **BAIXAR (msi)**.
+4. Navegue até a página [MongoDB – Downloads](http://www.mongodb.com/downloads) (http://www.mongodb.com/downloads).
+5. Se necessário, selecione o **Community Server** Edition e, em seguida, selecione a última versão estável atual do *Windows Server 2008 R2 64 bits e posterior*. Para baixar o instalador, clique em **BAIXAR (msi)**.
    
     ![Baixar o instalador do MongoDB](./media/install-mongodb/download-mongodb.png)
    
     Quando o download for concluído, execute o instalador.
 6. Leia e aceite o contrato de licença. Quando solicitado, selecione a instalação **Completa**.
-7. Na primeira tela, clique em **Instalar**.
+7. Se quiser, escolha instalar também a Compass, uma interface gráfica para o MongoDB.
+8. Na primeira tela, clique em **Instalar**.
 
 ## <a name="configure-the-vm-and-mongodb"></a>Configurar a VM e o MongoDB
 1. As variáveis de caminho não são atualizadas pelo instalador do MongoDB. Sem a localização `bin` do MongoDB na variável de caminho, você precisará especificar o caminho completo sempre que usar um executável do MongoDB. Para adicionar a localização à variável de caminho:
@@ -66,7 +67,7 @@ Para começar a instalar e configurar o MongoDB, [Faça logon em sua VM do Windo
      Adicione o caminho à pasta `bin` do MongoDB. Geralmente, o MongoDB é instalado em *C:\Arquivos de Programas\MongoDB*. Verifique se o caminho de instalação na sua VM. O exemplo a seguir adiciona a localização de instalação padrão do MongoDB à variável `PATH`:
      
      ```
-     ;C:\Program Files\MongoDB\Server\3.2\bin
+     ;C:\Program Files\MongoDB\Server\3.6\bin
      ```
      
      > [!NOTE]
@@ -92,8 +93,7 @@ Para começar a instalar e configurar o MongoDB, [Faça logon em sua VM do Windo
 4. Para obter uma experiência mais robusta do MongoDB, instale o `mongod.exe` como um serviço. Criar um serviço significa que você não precisa deixar um prompt de comando em execução cada vez que você deseje usar o MongoDB. Crie o serviço da seguinte maneira, ajustando o caminho para os diretórios de dados e de log adequadamente:
    
     ```
-    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log `
-        --logappend  --install
+    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
     ```
    
     Isso cria um serviço chamado MongoDB e com a descrição "Mongo DB". Os parâmetros a seguir também são especificados:

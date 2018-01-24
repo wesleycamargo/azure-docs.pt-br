@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>O que são os alertas no Microsoft Azure?
 Este artigo descreve as várias fontes de alertas no Microsoft Azure, as finalidades desses alertas, seus benefícios e como começar a usá-los. Ele se aplica especificamente ao Azure Monitor, mas fornece indicações de outros serviços com alertas. Os alertas oferecem um método de monitoramento no Azure que permite a configuração de condições sobre os dados e o recebimento de notificações quando as condições correspondem aos últimos dados de monitoramento.
+
 
 ## <a name="taxonomy-of-azure-alerts"></a>Taxonomia de alertas do Azure
 O Azure usa os seguintes termos para descrever os alertas e suas funções:
@@ -32,10 +33,15 @@ O Azure usa os seguintes termos para descrever os alertas e suas funções:
 * **Notificação** – a ação realizada após a ativação de um alerta.
 * **Ação** – uma chamada específica enviada a um destinatário de uma notificação (por exemplo, enviando por email um endereço ou publicando em uma URL de webhook). As notificações normalmente podem disparar várias ações.
 
+    > [!NOTE]
+    > Como parte da evolução dos Alertas no Azure, uma nova experiência unificada está disponível em versão prévia. A nova experiência do Alertas (Versão prévia) usa uma taxonomia diferente. Saiba mais sobre [Alertas (Versão prévia)](monitoring-overview-unified-alerts.md). 
+    >
+
 ## <a name="alerts-in-different-azure-services"></a>Alertas nos diferentes serviços do Azure
 Os alertas estão disponíveis em vários serviços de monitoramento do Azure. Para saber mais sobre como e quando usar esses serviços, [confira este artigo](./monitoring-overview.md). Confira uma divisão dos tipos de alerta disponíveis no Azure:
 
-| O Barramento de | Tipo de alerta | Serviços com suporte | Descrição |
+
+| Serviço | Tipo de alerta | Serviços com suporte | DESCRIÇÃO |
 |---|---|---|---|
 | Azure Monitor | [Alertas de métricas](./insights-alerts-portal.md) | [Métricas com suporte do Azure Monitor](./monitoring-supported-metrics.md) | Receba uma notificação quando qualquer métrica no nível da plataforma atender a uma condição específica (por exemplo, a % de CPU em uma VM for maior do que 90 nos últimos cinco minutos). |
 |Azure Monitor | [Alertas de Métrica Quase em Tempo Real (versão prévia)](./monitoring-near-real-time-metric-alerts.md)| [Recursos com suporte no Azure Monitor](./monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for) | Receba uma notificação mais rapidamente do que os alertas de métrica quando uma ou mais métricas no nível da plataforma atender às condições especificadas (por exemplo, o % de CPU em uma VM é maior que 90 e a Entrada de Rede é maior que 500 MB nos últimos 5 minutos). |
@@ -50,10 +56,10 @@ Há três tipos de alertas de dados disponíveis no Azure Monitor – alertas de
 * **Alertas de métrica**: este alerta é disparado quando o valor de uma métrica especificada ultrapassa um limite que você atribui. O alerta gera uma notificação quando o alerta é "Ativado" (quando o limite for ultrapassado, e a condição do alerta for atendida), e também quando for "Resolvido" (quando o limite for ultrapassado novamente e a condição não for mais atendida). Para obter uma lista crescente de métricas disponíveis com suporte do Azure Monitor, consulte [Lista de métricas com suporte no Azure Monitor](monitoring-supported-metrics.md).
 * **Alertas de métrica quase em tempo real (versão prévia)** – esses alertas são semelhantes aos alertas de métrica, mas diferem de algumas maneiras. Em primeiro lugar, como o nome sugere, esses alertas podem ser disparados quase em tempo real (na velocidade de 1 minuto). Eles também dão suporte ao monitoramento de várias métricas (atualmente duas).  O alerta gera uma notificação quando é “Ativado” (quando os limites de cada métrica são ultrapassados ao mesmo tempo e a condição do alerta é atendida) e também quando é “Resolvido” (quando, pelo menos, uma métrica ultrapassa o limite novamente e a condição não é mais atendida).
 
-> [!NOTE]
-> Atualmente, os alertas de métrica quase em tempo real estão em visualização pública. A funcionalidade e a experiência do usuário está sujeita a alterações.
->
->
+    > [!NOTE]
+    > Atualmente, os alertas de métrica quase em tempo real estão em visualização pública. A funcionalidade e a experiência do usuário está sujeita a alterações.
+    >
+    >
 
 * **Alertas do log de atividade** – um alerta do log de streaming que dispara quando um evento do Log de Atividades for gerado correspondendo aos critérios do filtro que você atribuiu. Esses alertas têm apenas um estado, "Ativado", pois o mecanismo de alerta simplesmente aplica os critérios do filtro a qualquer evento novo. Esses alertas podem ser usados para receber uma notificação quando um novo incidente de Integridade do Serviço ocorrer, ou quando um usuário ou aplicativo executar uma operação em sua assinatura, por exemplo, "Excluir a máquina virtual".
 
@@ -91,3 +97,4 @@ Obter informações sobre as regras de alerta e sobre como configurá-las usando
 * Saiba mais sobre [Alertas de Métrica Quase em Tempo Real](monitoring-near-real-time-metric-alerts.md)
 * Saiba mais sobre as [Notificações de Serviço](monitoring-service-notifications.md)
 * Saiba mais sobre [Grupos de Ação](monitoring-action-groups.md)
+* Configurar [Alertas via Alertas (Versão Prévia)](monitor-alerts-unified-usage.md)

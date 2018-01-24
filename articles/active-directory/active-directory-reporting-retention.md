@@ -4,22 +4,22 @@ description: "Políticas de retenção sobre dados de relatório no Active Direc
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 12/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 933d251903f4ca74902e984e7a1581a75345ee7f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Políticas de retenção de relatório do Azure Active Directory
 
@@ -40,8 +40,8 @@ Este tópico fornece respostas para as perguntas mais comuns em conjunto com a r
 
 **R:**
 
-- **Imediatamente** - se você já estiver trabalhando com relatórios no portal clássico do Azure
-- **Em até 2 horas** - se você ainda não tiver ativado os relatórios no portal clássico do Azure
+- **Imediatamente** - se você já estiver trabalhando com relatórios no portal do Azure
+- **Em até 2 horas** - se você ainda não tiver ativado os relatórios no portal do Azure
 
 ---
 **P: Como você pode iniciar a coleta de sinais de segurança?**  
@@ -60,7 +60,7 @@ Este tópico fornece respostas para as perguntas mais comuns em conjunto com a r
 | :--                    | :--           | :--                 | :--                 |
 | Auditoria de Diretório        | 7 dias        | 30 dias             | 30 dias             |
 | Atividade de Entrada       | N/D           | 30 dias             | 30 dias             |
-| Uso do MFA do Azure        | 90 dias       | 90 dias             | 90 dias             |
+| Uso do MFA do Azure        | 30 dias       | 30 dias             | 30 dias             |
 
 **Sinais de Segurança**
 

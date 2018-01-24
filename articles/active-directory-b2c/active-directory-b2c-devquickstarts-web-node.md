@@ -1,32 +1,31 @@
 ---
-title: Adicionar a entrada a um aplicativo Web do Node.js para o Azure B2C | Microsoft Docs
-description: "Como criar um aplicativo Web do Node.js que conecta os usuários usando um locatário do B2C."
+title: Adicionar entrada a um aplicativo Web do Node.js - Azure Active Directory B2C
+description: "Como compilar um aplicativo Web do Node.js que conecta os usuários com o Azure Active Directory B2C."
 services: active-directory-b2c
-documentationcenter: 
-author: dstrockis
+author: PatAltimore
 manager: mtillman
-editor: 
-ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
+editor: dstrockis
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: b306a79d0daa1c6d51557b6abad617182c76e9ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: adicionar entrada a um aplicativo Web do Node.js
 
-**Passport** é middleware de autenticação para o Node.js. Extremamente flexível e modular, o Passport pode ser instalado sem impedimento em qualquer aplicativo Web baseado em Express ou Restify. Um conjunto abrangente de estratégias que dão suporte à autenticação usando um nome de usuário e uma senha, o Facebook, o Twitter e muito mais.
+**Passport** é middleware de autenticação para o Node.js. Flexível e modular, o Passport pode ser instalado sem impedimento em qualquer aplicativo Web baseado em Express ou Restify. Um conjunto abrangente de estratégias que dão suporte à autenticação usando um nome de usuário e uma senha, o Facebook, o Twitter e muito mais.
 
-Desenvolvemos uma estratégia para o Azure AD (Active Directory do Azure). Você instalará esse módulo e, em seguida, adicionará o plug-in `passport-azure-ad` do Azure AD.
+Para o Azure AD (Azure Active Directory), instale esse módulo e, em seguida, adicione o plug-in `passport-azure-ad` do Azure AD.
 
-Para fazer isso, você precisa:
+Você precisa:
 
 1. Registre um aplicativo usando o Azure AD.
 2. Configure seu aplicativo para usar o plug-in `passport-azure-ad`.
@@ -52,15 +51,13 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornec
 - Crie um **Segredo de aplicativo** para seu aplicativo e copie-o. Você precisará dela mais tarde. Observe que esse valor precisa ser [seguido por caracteres de escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) antes de ser usado.
 - Copie a **ID de aplicativo** atribuída ao aplicativo. Você também precisará dela mais tarde.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## <a name="create-your-policies"></a>Criar suas políticas
 
 No Azure AD B2C, toda experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém três experiências de identidade: inscrição, entrada e entrada usando o Facebook. Você precisa criar esta política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar as três políticas, não deixe de:
 
 - Escolher o **Nome de exibição** e outros atributos de inscrição em sua política de inscrição.
 - Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas. Você pode escolher outras declarações também.
-- Copie o **Nome** de cada política depois de criá-la. Ele deve ter o prefixo `b2c_1_`.  Você precisará esses nomes de política mais tarde.
+- Copie o **Nome** de cada política após criá-la. Ele deve ter o prefixo `b2c_1_`.  Você precisará esses nomes de política mais tarde.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -104,7 +101,7 @@ Abra o arquivo `config.js` na raiz do projeto e insira os valores de configuraç
 Abra o arquivo `app.js` na raiz do projeto. Adicione a chamada a seguir para invocar a estratégia `OIDCStrategy` que vem com o `passport-azure-ad`.
 
 
-```JavaScript
+```javascript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
@@ -115,7 +112,7 @@ var log = bunyan.createLogger({
 
 Use a estratégia referenciada para manipular solicitações de entrada.
 
-```JavaScript
+```javascript
 // Use the OIDCStrategy in Passport (Section 2).
 //
 //   Strategies in Passport require a "validate" function that accepts
@@ -158,7 +155,7 @@ O código anterior usa todos os usuários que o servidor autentica. Esse é o re
 
 Adicione os métodos que lhe permitem acompanhar os usuários que se inscreveram, conforme solicitado pelo Passport. Isso inclui a serialização e a desserialização de informações do usuário:
 
-```JavaScript
+```javascript
 
 // Passport session setup. (Section 2)
 
@@ -194,7 +191,7 @@ var findByEmail = function(email, fn) {
 
 Adicione o código para carregar o mecanismo Express. A seguir, você pode ver que usamos o padrão `/views` e `/routes` padrão fornecidos pelo Express.
 
-```JavaScript
+```javascript
 
 // configure Express (Section 2)
 
@@ -221,7 +218,7 @@ app.configure(function() {
 
 Adicione as rotas `POST` que entregarão as solicitações de logon reais ao mecanismo `passport-azure-ad`:
 
-```JavaScript
+```javascript
 
 // Our Auth routes (Section 3)
 
@@ -271,7 +268,7 @@ Seu aplicativo agora está configurado corretamente para se comunicar com o pont
 
 Primeiro, adicione a conta de entrada padrão e métodos de saída ao arquivo `app.js`:
 
-```JavaScript
+```javascript
 
 //Routes (Section 4)
 
@@ -306,7 +303,7 @@ Para examinar esses métodos em detalhes:
 
 Para a última parte de `app.js`, adicione o método `EnsureAuthenticated` que é usado na rota `/account`.
 
-```JavaScript
+```javascript
 
 // Simple route middleware to ensure that the user is authenticated. (Section 4)
 
@@ -323,7 +320,7 @@ function ensureAuthenticated(req, res, next) {
 
 Por fim, crie o próprio servidor em `app.js`.
 
-```JavaScript
+```javascript
 
 app.listen(3000);
 
@@ -336,7 +333,7 @@ O `app.js` já foi concluído. Basta adicionar as rotas e os modos de exibição
 
 Criar a rota `/routes/index.js` no diretório raiz.
 
-```JavaScript
+```javascript
 
 /*
  * GET home page.
@@ -349,7 +346,7 @@ exports.index = function(req, res){
 
 Criar a rota `/routes/user.js` no diretório raiz.
 
-```JavaScript
+```javascript
 
 /*
  * GET users listing.
@@ -364,7 +361,7 @@ Essas rotas simples passam solicitações para seus modos de exibição. Elas in
 
 Crie o modo de exibição `/views/index.ejs` no diretório raiz. Essa é uma página simples que chama as políticas de entrada e saída. Você também pode usá-la para obter informações sobre a conta. Observe que você pode usar o `if (!user)` condicional enquanto o usuário é passado na solicitação para comprovar que o usuário está conectado.
 
-```JavaScript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login/?p=your facebook policy">Sign in with Facebook</a>
@@ -379,7 +376,7 @@ Crie o modo de exibição `/views/index.ejs` no diretório raiz. Essa é uma pá
 
 Crie o modo de exibição `/views/account.ejs` no diretório raiz para que você possa exibir informações adicionais que `passport-azure-ad` colocou na solicitação do usuário.
 
-```Javascript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login">Sign in</a>

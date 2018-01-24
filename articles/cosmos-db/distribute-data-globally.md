@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir os dados globalmente com o Azure Cosmos DB
 O Azure é onipresente: ele tem uma superfície global que abrange mais de 30 regiões geográficas e aumenta continuamente. Com sua presença em todo o mundo, um dos recursos diferenciados que o Azure oferece aos desenvolvedores é a capacidade de criar, implantar e gerenciar aplicativos distribuídos globalmente com facilidade. 
 
-O [Azure Cosmos DB](../cosmos-db/introduction.md) é o serviço multimodelo de banco de dados da Microsoft, distribuído globalmente, para aplicativos críticos. O Azure Cosmos DB fornece distribuição global turnkey, [dimensionamento elástico da produtividade e do armazenamento](../cosmos-db/partition-data.md) no mundo todo, latências de milissegundos de um dígito no 99º percentil, [cinco níveis de consistência bem-definidos](consistency-levels.md) e garantia de alta disponibilidade, tudo isso com suporte de [SLAs líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa dados automaticamente](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento do esquema e do índice. Ele tem vários modelos e dá suporte a modelos de dados de colunas, gráficos, valores-chave e documentos. Como um serviço de nuvem, o Azure Cosmos DB foi cuidadosamente desenvolvido com distribuição global e multilocatário desde o início.
+O [Azure Cosmos DB](../cosmos-db/introduction.md) é o serviço multimodelo de banco de dados da Microsoft, distribuído globalmente, para aplicativos críticos. O Azure Cosmos DB fornece distribuição global turnkey, [dimensionamento elástico da produtividade e do armazenamento](../cosmos-db/partition-data.md) no mundo todo, latências de milissegundos de um dígito no 99º percentil, [cinco níveis de consistência bem-definidos](consistency-levels.md) e garantia de alta disponibilidade, tudo isso com suporte de [SLAs líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa dados automaticamente](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento do esquema e do índice. Ele tem vários modelos e dá suporte a modelos de dados de colunas, grafos, valores-chave e documentos. Como um serviço de nuvem, o Azure Cosmos DB foi cuidadosamente desenvolvido com distribuição global e multilocatário desde o início.
 
 **Uma única coleção do Azure Cosmos DB particionada e distribuída em várias regiões do Azure**
 
@@ -88,7 +88,7 @@ Atualmente, os recursos de failover automático e manual são expostos na granul
 ### <a id="MultiHomingAPIs"></a>APIs de hospedagem múltipla no Azure Cosmos DB
 O Azure Cosmos DB permite que você interaja com o banco de dados usando pontos de extremidade lógicos (independentes de região) ou físicos (específicos à região). Usar pontos de extremidade lógicos garante que o aplicativo possa ser multihomed de forma transparente no caso de failover. Os pontos de extremidade físicos fornecem controle refinado para que o aplicativo redirecione leituras e gravações para regiões específicas.
 
-Encontre informações sobre como configurar preferências de leitura para a [API do DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md), [API do Graph](../cosmos-db/tutorial-global-distribution-graph.md), [API da Tabela](../cosmos-db/tutorial-global-distribution-table.md) e [API do MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) em seus respectivos artigos vinculados.
+Encontre informações sobre como configurar preferências de leitura para a [API do SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), [API do Graph](../cosmos-db/tutorial-global-distribution-graph.md), [API da Tabela](../cosmos-db/tutorial-global-distribution-table.md) e [API do MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) em seus respectivos artigos vinculados.
 
 ### <a id="TransparentSchemaMigration"></a>Migração de esquema e de índice de banco de dados transparente e consistente 
 O Azure Cosmos DB é totalmente [independente de esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). O design exclusivo de seu mecanismo de banco de dados permite que ele indexe de forma automática e síncrona todos os dados que consome, sem a necessidade de esquema ou índices secundários de sua parte. Isso permite que você itere o aplicativo distribuído globalmente com rapidez, sem se preocupar com a migração de esquema e de índice de banco de dados ou a coordenação da implantação de aplicativos de várias fases de alterações de esquema. O Azure Cosmos DB garante que todas as alterações feitas explicitamente por você nas políticas de indexação não resultam na degradação de desempenho ou disponibilidade.  
@@ -219,7 +219,7 @@ O Azure Cosmos DB expõe de forma transparente as métricas de produtividade, la
 ![Métricas do SLA visíveis para o cliente do Azure Cosmos DB](./media/distribute-data-globally/customer-slas.png)
 
 ## <a id="Next Steps"></a>Próximas etapas
-* Para implementar a replicação global em sua conta do Azure Cosmos DB usando o portal do Azure, consulte [Como executar a replicação de banco de dados global do Azure Cosmos DB usando o portal do Azure](tutorial-global-distribution-documentdb.md).
+* Para implementar a replicação global em sua conta do Azure Cosmos DB usando o portal do Azure, consulte [Como executar a replicação de banco de dados global do Azure Cosmos DB usando o portal do Azure](tutorial-global-distribution-sql-api.md).
 * Para saber mais sobre como implementar arquiteturas de vários mestres com o Azure Cosmos DB, consulte [Arquiteturas de banco de dados de vários mestres com o Azure Cosmos DB](multi-region-writers.md).
 * Para saber mais sobre como failovers automáticos e manuais funcionam no Azure Cosmos DB, consulte [Failovers regionais no Azure Cosmos DB](regional-failover.md).
 

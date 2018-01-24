@@ -1,24 +1,16 @@
 ---
-title: "Examinar a arquitetura para a replicação de servidor físico para o Azure | Microsoft Docs"
+title: "Arquitetura de replicação de servidor físico para o Azure no Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece uma visão geral dos componentes e da arquitetura usados ao replicar servidores físicos locais para o Azure com o serviço Azure Site Recovery"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Arquitetura de replicação de servidor físico para o Azure
 
@@ -63,22 +55,18 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 Depois que a replicação é configurada e você executou uma simulação de recuperação de desastre (failover de teste) para verificar se tudo está funcionando conforme o esperado, você pode executar failover e failback conforme necessário. Observe que:
 
 - Não há suporte para failover planejado.
-- Você deve fazer failback para uma VM do VMware local. Isso significa que você precisa de uma infraestrutura VMware no local, mesmo se estiver replicando servidores físicos do local para o Azure.
-
-
-1. Faça failover de uma única máquina ou crie planos de recuperação para fazer failover de várias máquinas virtuais juntas.
-2. Ao executar um failover, as VMs do Azure são criadas com base nos dados replicados no Armazenamento do Azure.
-3. Depois de disparar o failover inicial, você confirma-o para começar a acessar a carga de trabalho da VM do Azure.
-
-Quando o site primário local estiver disponível novamente, você poderá executar o failback.
-
-1. Você precisa configurar uma infraestrutura de failback, incluindo:
+- Você deve fazer failback para uma VM do VMware local. Isso significa que você precisa de uma infraestrutura VMware local, mesmo ao replicar servidores físicos locais para o Azure.
+- Faça failover de uma única máquina ou crie planos de recuperação para fazer failover de várias máquinas virtuais juntas.
+- Ao executar um failover, as VMs do Azure são criadas com base nos dados replicados no Armazenamento do Azure.
+- Depois de disparar o failover inicial, você confirma-o para começar a acessar a carga de trabalho da VM do Azure.
+- Quando o site primário local estiver disponível novamente, você poderá executar o failback.
+- Você precisa configurar uma infraestrutura de failback, incluindo:
     - **Servidor em processo temporário no Azure**: para fazer failback do Azure, você configura uma VM do Azure para atuar como um servidor em processo, a fim de manipular a replicação do Azure. Você pode excluir a VM após a conclusão do failback.
     - **Conexão VPN**: para fazer failback, você precisa de uma conexão VPN (ou Azure ExpressRoute) da rede do Azure para o site local.
     - **Servidor de destino mestre separado**: por padrão, o servidor de destino mestre que foi instalado com o servidor de configuração na VM do VMware local manipula o failback. No entanto, se você precisar fazer failback de grandes volumes de tráfego, deverá configurar um servidor de destino mestre local separado para essa finalidade.
     - **Política de failback**: para replicar volta para seu site local, você precisa de uma política de failback. Isso foi criado automaticamente quando você cria sua política de replicação do local para o Azure.
     - **Infraestrutura de VMware**: você precisa de uma infraestrutura de VMware para failback. Você não pode realizar o failback para um servidor físico.
-2. Depois que os componentes estão em vigor, o failback ocorre em três estágios:
+- Depois que os componentes estão em vigor, o failback ocorre em três estágios:
     - Estágio 1: proteja novamente as VMs do Azure para que elas comecem a replicação para as VMs de VMware locais.
     - Estágio 2: execute um failover para o site local.
     - Estágio 3: depois que as cargas de trabalho tiverem feito failback, você reabilitará a replicação.
@@ -90,5 +78,4 @@ Quando o site primário local estiver disponível novamente, você poderá execu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine a matriz de suporte e siga o tutorial para habilitar o VMware para a replicação do Azure.
-Execute um failover e um failback.
+Siga [este tutorial](tutorial-physical-to-azure.md) para habilitar a replicação de servidor físico para o Azure.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 
 Este tópico fornece as práticas recomendadas para otimização do desempenho do SQL Server na Máquina Virtual do Microsoft Azure. Durante a execução do SQL Server em máquinas virtuais do Azure, recomendamos que você continue usando as mesmas opções de ajuste de desempenho aplicáveis ao SQL Server no ambiente de servidor local. No entanto, o desempenho de um banco de dados relacional em uma nuvem pública depende de muitos fatores como, por exemplo, o tamanho de uma máquina virtual e a configuração dos discos de dados.
 
-Ao criar imagens do SQL Server, [considere o provisionamento de suas VMs no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md). VMs do SQL Server provisionadas no Portal com o Resource Manager implementam todas essas práticas recomendadas, incluindo a configuração de armazenamento.
+Ao criar imagens do SQL Server, [considere o provisionamento de suas VMs no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md). VMs do SQL Server provisionadas no Portal com o Gerenciador de Recursos seguem as práticas recomendadas.
 
 Este artigo concentra-se na obtenção do *melhor* desempenho para o SQL Server em máquinas virtuais do Azure. Se sua carga de trabalho for menos exigente, talvez você não precise de todos os aprimoramentos relacionados abaixo. Considere suas necessidades de desempenho e padrões de carga de trabalho ao avaliar essas recomendações.
 
@@ -90,6 +90,9 @@ Para VMs que têm suporte para Armazenamento Premium (séries DS, DSv2 e GS), é
 ### <a name="data-disks"></a>Discos de dados
 
 * **Usar discos de dados para arquivos de dados e de log**: no mínimo, use dois [discos P30](../premium-storage.md#scalability-and-performance-targets) do Armazenamento Premium: um deles com os arquivos de log e o outro com os arquivos de dados e do TempDB. Cada disco do Armazenamento Premium fornece um número de IOPs e largura de banda (MB/s), dependendo de seu tamanho, conforme descrito neste artigo: [Usando o Armazenamento Premium para discos](../premium-storage.md).
+
+   > [!NOTE]
+   > Quando você provisiona uma VM do SQL Server no portal, tem a opção de editar sua configuração de armazenamento. Dependendo de sua configuração, o Azure configura um ou mais discos. Vários discos são combinados em um único pool de armazenamento com distribuição. Os arquivos de dados e de log residem nessa configuração, em vez de em dois discos separados. Para saber mais, confira [Configuração de armazenamento para VMs do SQL Server](virtual-machines-windows-sql-server-storage-configuration.md).
 
 * **Distribuição de Discos**: para produtividade mais alta, você pode adicionar outros discos de dados e usar a Distribuição de Discos. Para determinar o número de discos de dados, você precisa analisar o número de IOPS e a largura de banda necessários para os arquivos de log e para os arquivos de dados e do TempDB. Observe que diferentes tamanhos de VM têm diferentes limites no número de IOPS e na largura de banda com suporte; consulte as tabelas sobre IOPS por [tamanho de VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use as seguintes diretrizes:
 
@@ -166,4 +169,4 @@ Algumas implantações podem obter outros benefícios de desempenho usando técn
 
 Para conferir as práticas recomendadas de segurança, consulte [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-security.md).
 
-Examine outros tópicos sobre Máquinas Virtuais do SQL Server em [Visão geral do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Revise outros tópicos sobre máquina virtual do SQL Server em [Visão geral do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).

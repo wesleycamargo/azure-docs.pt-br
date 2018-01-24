@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e849f99edfc80f7f175c0829552f39da456a204
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Entrada e saída do aplicativo Web com o Azure AD
+# <a name="azure-ad-java-web-app-getting-started"></a>Introdução ao aplicativo Web Java do Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 O Azure Active Directory (Azure AD) torna simples e direto terceirizar o gerenciamento de identidades de seu aplicativo Web, fornecendo uma única entrada e uma única saída com apenas algumas linhas de código. Você pode conectar e desconectar os usuários de aplicativos Web Java usando a implementação da Microsoft da biblioteca de autenticação do Azure Active Directory para Java (ADAL4J) direcionada à comunidade.
@@ -45,9 +45,9 @@ Para configurar o aplicativo para autenticar usuários, primeiro registre-o em s
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique no nome da conta. Na lista **Diretório** , selecione o locatário do Active Directory em que você deseja registrar o aplicativo.
 3. Clique em **Mais serviços** no painel esquerdo e selecione **Azure Active Directory**.
-4. Clique em **Registros do aplicativo**e, em seguida, selecione **Adicionar**.
+4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Siga os prompts para criar um **Aplicativo Web** e/ou uma WebAPI.
-  * **Nome** descreve o aplicativo para os usuários.
+  * **Nome** descreve o aplicativo aos usuários.
   * A **URL de logon** é a URL base do aplicativo. A URL padrão do esqueleto é http://localhost:8080/adal4jsample/.
 6. Depois de você concluir o registro, o Azure AD atribui uma ID do aplicativo exclusiva ao aplicativo. Copie o valor da página do aplicativo para usar nas próximas seções.
 7. Na página **Configurações** -> **Propriedades** do aplicativo, atualize o URI da ID do Aplicativo. O **URI da ID do Aplicativo** é um identificador exclusivo do aplicativo. A convenção de nomenclatura é `https://<tenant-domain>/<app-name>` (por exemplo, `http://localhost:8080/adal4jsample/`).

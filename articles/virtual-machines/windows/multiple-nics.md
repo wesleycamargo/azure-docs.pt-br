@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Cria e gerencia uma máquina virtual do Windows que tem várias NICs
 As máquinas virtuais (VMs) no Azure podem ter várias placas de interface de rede virtual (NICs) anexadas a elas. Um cenário comum é ter sub-redes diferentes para conectividade de front-end e de back-end ou uma rede dedicada a uma solução de monitoramento ou de backup. Este artigo fornece detalhes sobre como criar uma VM que tem várias NICs anexadas. Você também aprenderá a adicionar ou remover as NICs de uma VM existente. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Verifique se você tem [ a versão mais recente do Azure PowerShell instalada e configurada](/powershell/azure/overview).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myVnet* e *myVM*.
@@ -232,6 +232,60 @@ Você também pode usar `copyIndex()` para acrescentar um número a um nome de r
 ```
 
 Você pode ler um exemplo completo em [criando várias NICs usando modelos do Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o SO convidado para várias NICs
+
+O Azure atribui um gateway padrão ao primeiro adaptador de rede (primário) anexado à máquina virtual. O Azure não atribui um gateway padrão aos adaptadores de rede adicionais (secundários) anexados à máquina virtual. Portanto, por padrão, não é possível se comunicar com os recursos fora da sub-rede na qual um adaptador de rede secundária se encontra. Entretanto, adaptadores de rede secundários podem se comunicar com recursos fora da sub-rede deles, embora as etapas para habilitar a comunicação sejam diferentes para os diversos sistemas operacionais.
+
+1. Em um prompt de comando do Windows, execute o comando `route print`, que retorna uma saída semelhante à seguinte saída para uma máquina virtual com dois adaptadores de rede anexados:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    Neste exemplo, o **Adaptador de Rede nº 4 do Microsoft Hyper-V** (interface 7) é o adaptador de rede secundário que não tem um gateway padrão atribuído a ele.
+
+2. Em um prompt de comando, execute o comando `ipconfig` para ver qual endereço IP é atribuído ao adaptador de rede secundário. Neste exemplo, 192.168.2.4 está atribuído à interface 7. Nenhum endereço de gateway padrão é retornado para o adaptador de rede secundário.
+
+3. Para rotear todo o tráfego destinado a endereços fora da sub-rede do adaptador de rede secundário para o gateway para a sub-rede, execute o seguinte comando:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    O endereço de gateway para a sub-rede é o primeiro endereço IP (terminando em .1) no intervalo de endereços definido para a sub-rede. Se você não quiser para rotear todo o tráfego para fora da sub-rede, adicione rotas individuais para destinos específicos. Por exemplo, se você quiser rotear o tráfego do adaptador de rede secundário para a rede 192.168.3.0, digite o comando:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Para confirmar a comunicação com êxito com um recurso na rede 192.168.3.0, por exemplo, digite o seguinte comando para executar o ping 192.168.3.4 usando a interface 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Talvez seja necessário abrir o ICMP através do firewall do Windows do dispositivo no qual você está fazendo o ping com o seguinte comando:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Para confirmar se a rota adicionada está na tabela de rotas, insira o comando `route print`, que retorna uma saída semelhante ao seguinte texto:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    A rota listada com *192.168.1.1* em **Gateway** é aquela que existe por padrão para o adaptador de rede primário. A rota *192.168.2.1* em **Gateway** é aquela que você adicionou.
 
 ## <a name="next-steps"></a>Próximas etapas
 Analise os [tamanhos de VM do Windows](sizes.md) quando estiver tentando criar uma VM que tem várias NICs. Preste atenção ao número máximo de NICs a que cada VM dá suporte. 

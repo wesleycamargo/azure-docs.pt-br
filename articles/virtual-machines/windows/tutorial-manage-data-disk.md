@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Gerenciar discos do Azure com o PowerShell
 
@@ -47,7 +47,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 
-| Tipo | Tamanho da VM | Tamanho máximo do disco temporário (GB) |
+| type | Tamanho da VM | Tamanho máximo do disco temporário (GB) |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A e D | 800 |
 | [Computação otimizada](sizes-compute.md) | Série F | 800 |
@@ -62,7 +62,7 @@ Os discos de dados extras podem ser adicionados para instalação de aplicativos
 
 ### <a name="max-data-disks-per-vm"></a>Máximo de discos de dados por VM
 
-| Tipo | Tamanho da VM | Máximo de discos de dados por VM |
+| type | Tamanho da VM | Máximo de discos de dados por VM |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A e D | 32 |
 | [Computação otimizada](sizes-compute.md) | Série F | 32 |
@@ -81,7 +81,7 @@ Armazenamento padrão é apoiado por HDDs e oferece armazenamento econômico e e
 
 ### <a name="premium-disk"></a>Disco Premium
 
-Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS e FS. Os discos Premium são apresentados em três tipos (P10, P20, P30, P40, P50), o tamanho do disco determina o tipo de disco. Na escolha do tamanho de um disco, o valor é arredondado para o próximo tipo. Por exemplo, se o tamanho for inferior a 128 GB, o tipo de disco será P10, entre 129 e 512 P20, 512 para P30, P40 para 2TB e P50 4TB . 
+Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS e FS. Os discos Premium são apresentados em cinco tipos (P10, P20, P30, P40, P50), o tamanho do disco determina o tipo de disco. Na escolha do tamanho de um disco, o valor é arredondado para o próximo tipo. Por exemplo, se o tamanho for inferior a 128 GB, o tipo de disco será P10, entre 129 e 512 P20, 512 para P30, P40 para 2TB e P50 4TB . 
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 

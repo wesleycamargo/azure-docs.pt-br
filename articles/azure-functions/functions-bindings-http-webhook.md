@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 6b3da498a613d63515ecb624b87496cf536c0ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associações HTTP e de webhook do Azure Functions
 
@@ -41,14 +41,14 @@ Por padrão, um gatilho HTTP responderá à solicitação com um código de stat
 
 Consulte o exemplo específico a um idioma:
 
-* [Pré-compilado C#](#trigger---c-example)
-* [Script C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script do C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Gatilho - exemplo C#
 
-O exemplo a seguir mostra uma [função C# pré-compilada](functions-dotnet-class-library.md) que procura um parâmetro `name` na cadeia de caracteres de consulta ou no corpo da solicitação HTTP.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que procura por um parâmetro `name` na cadeia de caracteres de consulta ou no corpo da solicitação HTTP.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Consulte o exemplo específico a um idioma:
 
-* [Pré-compilado C#](#webhook---c-example)
-* [Script C#](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [Script do C# (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Webhook - exemplo de C#
 
-O exemplo a seguir mostra uma [função C# pré-compilada](functions-dotnet-class-library.md) que envia um HTTP 200 em resposta a uma solicitação JSON genérica.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que envia um HTTP 200 em resposta a uma solicitação JSON genérica.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Gatilho – atributos
 
-Para funções [C# pré-compiladas](functions-dotnet-class-library.md), use o atributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), definido no pacote do NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 Você pode definir os métodos HTTP permitidos e o nível de autorização nos parâmetros do construtor do atributo, e existem propriedades para o modelo de rota e o tipo de webhook. Para saber mais informações sobre essas configurações, consulte [Gatilho - configuração](#trigger---configuration). Aqui está um atributo `HttpTrigger` em uma assinatura de método:
 
@@ -377,18 +377,19 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Para ver um exemplo completo, consulte [Gatilho – exemplo de C# pré-compilado](#trigger---c-example).
+Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `HttpTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `HttpTrigger`.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
 | **tipo** | n/d| Obrigatório – deve ser definido como `httpTrigger`. |
 | **direction** | n/d| Obrigatório – deve ser definido como `in`. |
 | **name** | n/d| Obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. |
-| **authLevel** |  **AuthLevel** |Determina quais chaves, se houver, precisam estar presentes na solicitação para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Nenhuma chave API é obrigatória.</li><li><code>function</code>&mdash;Uma chave de API específica de função é obrigatória. Esse será o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave mestra é obrigatória.</li></ul> Para saber mais informações, veja a seção sobre [chaves de autorização](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais chaves, se houver, precisam estar presentes na solicitação para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Nenhuma chave API é obrigatória.</li><li><code>function</code>&mdash;Uma chave de API específica de função é obrigatória. Esse será o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave mestra é obrigatória.</li></ul> Para saber mais informações, veja a seção sobre [chaves de autorização](#authorization-keys). |
 | **methods** |**Métodos** | Uma matriz dos métodos HTTP para a qual a função responde. Se não for especificada, a função responderá a todos os métodos HTTP. Consulte [personalização do ponto de extremidade http](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Define o modelo da rota, controlando para quais URLs de solicitação sua função responde. O valor padrão se nenhum for fornecido será `<functionname>`. Para saber mais informações, consulte [personalização do ponto de extremidade http](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configure o gatilho HTTP para atuar como um receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para o provedor especificado. Não defina a propriedade `methods` se você definir essa propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto de extremidade de webhook de finalidade geral sem lógica para um provedor específico. Essa configuração restringe as solicitações àquelas que usam HTTP POST e com o tipo de conteúdo `application/json`.</li><li><code>github</code>&mdash;A função responde a [webhooks do GitHub](https://developer.github.com/webhooks/). Não use a propriedade _authLevel_ com os webhooks do GitHub. Para saber mais informações, consulte a seção sobre webhooks do GitHub posteriormente neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks do Slack](https://api.slack.com/outgoing-webhooks). Não use a propriedade _authLevel_ com os webhooks do Slack. Para saber mais informações, consulte a seção sobre webhooks do Slack posteriormente neste artigo.</li></ul>|
@@ -539,7 +540,7 @@ Use a associação de saída HTTP para responder ao remetente da solicitação H
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-Para C# pré-compilado, não há nenhuma propriedade de configuração de associação de saída específica. Para enviar uma resposta HTTP, faça com que o tipo de retorno da função seja `HttpResponseMessage` ou `Task<HttpResponseMessage>`.
+Para bibliotecas de classes C#, não há propriedades de configuração de associação de saída específica. Para enviar uma resposta HTTP, faça com que o tipo de retorno da função seja `HttpResponseMessage` ou `Task<HttpResponseMessage>`.
 
 Para outras linguagens, uma associação de saída HTTP é definida por um objeto JSON na matriz `bindings` de function.json, como mostrado no exemplo a seguir:
 
@@ -553,7 +554,7 @@ Para outras linguagens, uma associação de saída HTTP é definida por um objet
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*.
 
-|Propriedade  |Descrição  |
+|Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 | **tipo** |Deve ser definido como `http`. |
 | **direction** | Deve ser definido como `out`. |

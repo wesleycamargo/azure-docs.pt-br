@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 8b8d7b026973de9dee6c834404f2ed80b2c9ad21
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Compilar um aplicativo Web Java e MySQL no Azure
+
+> [!NOTE]
+> Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, consulte [Implantar um aplicativo Spring Boot em contêineres no Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+>
 
 Este tutorial mostra como criar um aplicativo Web Java no Azure e conectá-lo a um banco de dados MySQL. Quando tiver terminado, você terá um aplicativo [Spring Boot](https://projects.spring.io/spring-boot/) armazenando dados no [Banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/overview) em execução em [Aplicativos Web do Serviço de Aplicativo do Azure](app-service-web-overview.md).
 
@@ -38,7 +42,7 @@ Neste tutorial, você aprenderá como:
 > * Monitorar o aplicativo no portal do Azure
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 1. [Baixe e instale o Git](https://git-scm.com/)
 1. [Baixe e instale o Java JDK 7 ou superior](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -409,7 +413,7 @@ Vá para o portal do Azure para ver o aplicativo Web que você criou.
 
 Para fazer isso, entre em [https://portal.azure.com](https://portal.azure.com).
 
-No menu à esquerda, clique em **Serviço de Aplicativo**, em seguida, clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda, clique em **Serviço de Aplicativo** e, em seguida, clique no nome do seu aplicativo Web do Azure.
 
 ![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 

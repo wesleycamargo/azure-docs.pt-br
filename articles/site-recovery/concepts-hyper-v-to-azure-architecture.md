@@ -1,24 +1,16 @@
 ---
-title: "Examinar a arquitetura para replicação do Hyper-V para o Azure com o Azure Site Recovery | Microsoft Docs"
+title: "Arquitetura de replicação do Hyper-V para o Azure no Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece uma visão geral dos componentes e da arquitetura usada ao replicar VMs Hyper-V locais (sem VMM) para o Azure com o serviço Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 737cd30b-3994-4b18-9bd4-78c723601310
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa27d75c5a1efe3971cabfe2b6a39433c772a40a
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Arquitetura de replicação do Hyper-V para o Azure
 
@@ -149,6 +141,7 @@ Depois que sua infraestrutura local estiver funcionando novamente, você poderá
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine a matriz de suporte e siga o tutorial para habilitar o Hyper-V para a replicação do Azure.
-Execute um failover e um failback.
+
+Siga [este tutorial](tutorial-prepare-azure.md) para conhecer a replicação do Hyper-V para o Azure.
+
 

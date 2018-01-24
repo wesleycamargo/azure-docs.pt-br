@@ -11,208 +11,99 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 49f2992245d694f85b7b1f1c34339f1445c9d699
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: fdeb9ba55fc8eade95f6fca88f47dd12aa18a480
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="azure-service-bus-geo-disaster-recovery-preview"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure (versão prévia)
+# <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
-Quando datacenters regionais enfrentam tempo de inatividade, é essencial para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, *a recuperação de desastre em área geográfica* e a *replicação geográfica* são recursos importantes para qualquer empresa. O Barramento de serviço do Azure dá suporte à recuperação de desastre em área geográfica e à replicação geográfica no nível do namespace. 
+Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é essencial para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, *a recuperação de desastre em área geográfica* e a *replicação geográfica* são recursos importantes para qualquer empresa. O Barramento de Serviço do Azure dá suporte à recuperação de desastre em área geográfica e à replicação geográfica no nível do namespace. 
 
-A versão prévia da recuperação de desastre em área geográfica está disponível atualmente apenas em duas regiões (**Centro-Norte dos EUA** e **Centro-Sul dos EUA)**.
+O recurso de recuperação de desastres em área geográfica fica globalmente disponível para a SKU Premium do Barramento de Serviço. 
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 
-O artigo [Melhores práticas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço](service-bus-outages-disasters.md) faz uma distinção entre "interrupções" e "desastres" que é importante observar. Uma *interrupção* é uma indisponibilidade temporária do Barramento de Serviço do Azure e pode afetar alguns componentes do serviço, como um repositório de mensagens ou até mesmo o datacenter inteiro. No entanto, depois que o problema for corrigido, o Barramento de Serviço ficará disponível novamente. Normalmente, uma interrupção não causa a perda de mensagens ou de outros dados. Um exemplo de tal interrupção pode ser uma falha de energia no datacenter.
+É importante observar a diferença entre “falhas” e “desastres”. Uma *interrupção* é uma indisponibilidade temporária do Barramento de Serviço do Azure e pode afetar alguns componentes do serviço, como um repositório de mensagens ou até mesmo o datacenter inteiro. No entanto, depois que o problema for corrigido, o Barramento de Serviço ficará disponível novamente. Normalmente, uma interrupção não causa a perda de mensagens ou de outros dados. Um exemplo de tal interrupção pode ser uma falha de energia no datacenter. Algumas falhas são apenas perdas de conexão curtas devido a problemas de rede ou transitórios. 
 
-Um *desastre* é definido como a perda permanente ou de longo prazo de uma [unidade de escala](service-bus-architecture.md#service-bus-scale-units) ou de um data center do Barramento de Serviço. O datacenter pode ou não ficar disponível novamente ou pode ficar inativo por horas ou dias. Outros exemplos desses desastres são incêndios, enchentes ou terremoto. Um desastre que se torne permanente pode causar a perda de algumas mensagens ou outros dados. No entanto, na maioria dos casos, não deve haver perda de dados e as mensagens poderão ser recuperadas depois que do backup do data center.
+Um *desastre* é definido como a perda permanente ou de longo prazo de um cluster do Barramento de Serviço, uma região do Azure ou um datacenter. A região ou o datacenter pode ou não ficar disponível novamente ou pode ficar inativo por horas ou dias. Outros exemplos desses desastres são incêndios, enchentes ou terremoto. Um desastre que se torne permanente pode causar a perda de algumas mensagens, alguns eventos ou outros dados. No entanto, na maioria dos casos, não deve haver perda de dados e as mensagens poderão ser recuperadas depois que do backup do data center.
 
-O recurso de recuperação de desastre em área geográfica do Barramento de Serviço do Azure é uma solução de recuperação de desastre. Os conceitos e o fluxo de trabalho descrito neste artigo se aplicam a cenários de desastre e não a falhas transitórias ou temporárias.  
+O recurso de recuperação de desastre em área geográfica do Barramento de Serviço do Azure é uma solução de recuperação de desastre. Os conceitos e o fluxo de trabalho descrito neste artigo se aplicam a cenários de desastre e não a falhas transitórias ou temporárias. Para uma discussão detalhada sobre a recuperação de desastre no Microsoft Azure, consulte [este artigo](/azure/architecture/resiliency/disaster-recovery-azure-applications).   
 
 ## <a name="basic-concepts-and-terms"></a>Termos e conceitos básicos
 
-O recurso de recuperação de desastre implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário. Observe que o recurso de recuperação de desastre em área geográfica está disponível somente para [namespaces Premium](service-bus-premium-messaging.md). Você não precisa fazer nenhuma alteração de cadeia de conexão, já que a conexão é feita por meio de um alias.
+O recurso de recuperação de desastre implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário. Observe que o recurso de recuperação de desastre em área geográfica está disponível somente para a [SKU Premium](service-bus-premium-messaging.md). Você não precisa fazer nenhuma alteração de cadeia de conexão, já que a conexão é feita por meio de um alias.
 
 Os seguintes termos são usados neste artigo:
 
--  *Alias*: a cadeia de conexão principal.
+-  *Alias*: o nome para uma configuração de recuperação de desastres que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. 
 
--  *Namespace primário/secundário*: descreve os namespaces que correspondem ao alias. O primário é "ativo" e recebe mensagens, o secundário é "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem qualquer alteração no código do aplicativo.
+-  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é “ativo” e recebe mensagens (que pode ser um namespace existente ou novo). O namespace secundário “passivo” e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
 
--  *Metadados*: sua representação de objetos no Barramento de Serviço do Azure. No momento, só há suporte para metadados.
+-  *Metadados*: entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas. 
 
--  *Failover*: o processo de ativação do namespace secundário. Você deve receber mensagens do seu namespace primário antigo depois que ele ficar disponível novamente e, em seguida, excluir o namespace. Para criar outro failover, você pode adicionar um novo namespace secundário ao emparelhamento. Se você quiser reutilizar o namespace principal antigo após um failover, deverá primeiro remover todas as entidades existentes do namespace. Receba todas as mensagens antes de fazer isso.
+-  *Failover*: o processo de ativação do namespace secundário.
 
-## <a name="failover-workflow"></a>Fluxo de trabalho de failover
+## <a name="setup-and-failover-flow"></a>Instalação e fluxo de failover
 
-A seção a seguir é uma visão geral de todo o processo de configuração do failover inicial e como avançar a partir desse ponto.
+A seção a seguir é uma visão geral do processo de failover e explica como configurar o failover inicial. 
 
 ![1][]
 
-Primeiro, configure um namespace primário e um secundário; em seguida, crie um emparelhamento. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. Por fim, você precisa adicionar alguma lógica de gatilho (por exemplo, lógica de negócios que detecta se o namespace não está disponível e inicia o failover). Você pode verificar a disponibilidade do namespace usando a funcionalidade de [procura de mensagens](message-browsing.md) do Barramento de Serviço.
+### <a name="setup"></a>Configuração
 
-Depois de configurar o monitoramento e a recuperação de desastre, você pode examinar o processo de failover. Se o gatilho inicia um failover ou se você inicia o failover manualmente, estas duas etapas são necessárias:
+Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. Por fim, você deve adicionar um monitoramento para detectar se um failover é necessário. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, assim, failovers automáticos raramente são possíveis, uma vez que failovers devem ser executados em sincronia com o subsistema ou a infraestrutura restante.
 
-1. Em caso de outra interrupção, você precisa ser capaz de fazer failover novamente. Portanto, configure um segundo namespace passivo e atualize o emparelhamento. 
-2. Faça pull das mensagens do namespace primário antigo depois que o novo namespace estiver disponível. Depois disso, reutilize ou exclua o namespace primário antigo.
+### <a name="example"></a>Exemplo
+
+Em um exemplo desse cenário, considere uma solução de ponto de venda (PDV) que emita mensagens ou eventos. O Barramento de Serviço transmite esses eventos para soluções de mapeamento ou reformatação solução, que encaminha dados mapeado para outro sistema para processamento adicional. Nesse ponto, todos esses sistemas podem ser hospedados na mesma região do Azure. A decisão sobre quando fazer o failover e em qual parte depende do fluxo de dados em sua infraestrutura. 
+
+Você pode automatizar o failover tanto com sistemas de monitoramento ou com soluções de monitoramento personalizadas. No entanto, essa automação precisa de planejamento e trabalho adicionais, o que está fora do escopo deste artigo.
+
+### <a name="failover-flow"></a>Fluxo do failover
+
+Se você iniciar o failover, as duas etapas são necessárias:
+
+1. Caso ocorra outra interrupção, você deve ser capaz de fazer failover novamente. Portanto, configure outro namespace passivo e atualize o emparelhamento. 
+
+2. Faça pull das mensagens do namespace primário anterior assim que estiver disponível novamente. Depois disso, use esse namespace para mensagens regulares fora de sua configuração de recuperação geográfica ou exclua o namespace primário antigo.
+
+> [!NOTE]
+> Há suporte apenas para semânticas encaminhadas com falha. Nesse cenário, você faz o failover e emparelha novamente com um novo namespace. Não há suporte para failback, em um cluster do SQL por exemplo. 
 
 ![2][]
 
-## <a name="set-up-disaster-recovery"></a>Configurar recuperação de desastre
+## <a name="management"></a>Gerenciamento
 
-Esta seção descreve como criar seu próprio código de recuperação de desastre em área geográfica do Barramento de Serviço. Para fazer isso, você precisa de dois namespaces em locais independentes, por exemplo, Sul dos EUA e Centro-Norte dos EUA. O exemplo a seguir usa o Visual Studio 2017.
+Se você cometeu um erro, por exemplo, emparelhou as regiões erradas durante a configuração inicial, você pode interromper o emparelhamento dos dois namespaces a qualquer momento. Se você quiser usar os namespaces emparelhados como namespaces regulares, exclua o alias.
 
-1.  Crie um novo projeto de **aplicativo de console (.Net Framework)** do no Visual Studio e dê a ele um nome, por exemplo, **SBGeoDR**.
+## <a name="use-existing-namespace-as-alias"></a>Usar namespace existente como alias
 
-2.  Instale os seguintes pacotes NuGet:
-    1.  Microsoft.IdentityModel.Clients.ActiveDirectory
-    2.  Microsoft.Azure.Management.ServiceBus
+Caso tenha um cenário no qual você não pode alterar as conexões de produtores e consumidores, você pode reutilizar o nome do namespace como o nome do alias. Consulte o [exemplo de código no GitHub aqui](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
-3. Verifique se a versão do pacote NuGet Newtonsoft.Json que você está usando é a 10.0.3.
+## <a name="samples"></a>Exemplos
 
-3.  Adicione as seguintes instruções `using` ao arquivo:
+Os [exemplos no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) mostram como configurar e iniciar um failover. Esses exemplos demonstram os conceitos a seguir:
 
-    ```csharp
-    using System.Threading;
-    using Microsoft.Azure.Management.ServiceBus;
-    using Microsoft.Azure.Management.ServiceBus.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-    ```
+- Configurações necessárias no Azure Active Directory para usar o Azure Resource Manager com o Barramento de Serviço. 
+- Etapas necessárias para executar o código de exemplo. 
+- Envio e recebimento do namespace primário atual. 
+- Como usar um namespace existente como alias.
 
-4. Modifique o método `main()` para adicionar dois namespaces premium:
+## <a name="considerations"></a>Considerações
 
-    ```csharp
-    // 1. Create primary namespace (optional).
+Observe as seguintes considerações a serem lembradas desta versão:
 
-    var namespaceParams = new SBNamespace()
-    {
-        Location = "South Central US",
-        Sku = new SBSku()
-        {
-            Name = SkuName.Premium,
-            Capacity = 1
-        }
+1. Em seu planejamento de failover, você também deve considerar o fator tempo. Por exemplo, se você perder a conectividade por mais de 15 a 20 minutos, pode decidir iniciar o failover. 
+ 
+2. O fato de que nenhum dado seja replicado significa que sessões atualmente ativas não são replicadas. Além disso, a detecção duplicada e mensagens programadas podem não funcionar. Novas sessões, mensagens programadas e novas duplicatas funcionarão. 
 
-    };
+3. O failover de uma infraestrutura complexa distribuída deve ser [testado](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) pelo menos uma vez. 
 
-    var namespace1 = client.Namespaces.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, namespaceParams);
-
-    // 2. Create secondary namespace (optional if you already have an empty namespace available).
-
-    var namespaceParams2 = new SBNamespace()
-    {
-        Location = "North Central US",
-        Sku = new SBSku()
-        {
-            Name = SkuName.Premium,
-            Capacity = 1
-        }
-
-    };
-
-    // If you re-run this program while namespaces are still paired this operation will fail with a bad request.
-    // This is because we block all updates on secondary namespaces once it is paired.
-
-    var namespace2 = client.Namespaces.CreateOrUpdate(resourceGroupName, geoDRSecondaryNS, namespaceParams2);
-    ```
-
-5. Habilite o emparelhamento entre os dois espaços e obtenha o alias que você usará posteriormente para se conectar às suas entidades:
-
-    ```csharp
-    // 3. Pair the namespaces to enable DR.
-
-    ArmDisasterRecovery drStatus = client.DisasterRecoveryConfigs.CreateOrUpdate(
-        resourceGroupName,
-        geoDRPrimaryNS,
-        alias,
-        new ArmDisasterRecovery { PartnerNamespace = geoDRSecondaryNS });
-
-    // A similar loop can be used to check if other operations (Failover, BreakPairing, Delete) 
-    // mentioned below have been successful.
-    while (drStatus.ProvisioningState != ProvisioningStateDR.Succeeded)
-    {
-        Console.WriteLine("Waiting for DR to be set up. Current state: " +
-        drStatus.ProvisioningState);
-        drStatus = client.DisasterRecoveryConfigs.Get(
-        resourceGroupName,
-        geoDRPrimaryNS,
-        alias);
-
-        Thread.CurrentThread.Join(TimeSpan.FromSeconds(30));
-    }
-    ```
-
-Você configurou com êxito dois namespaces emparelhados. Agora você pode criar entidades para observar a sincronização de metadados. Se você quiser executar um failover imediatamente a seguir, dê algum tempo para que os metadados façam a sincronização. Você pode adicionar um tempo de suspensão curto, por exemplo:
-
-```csharp
-client.Topics.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", new SBTopic());
-client.Subscriptions.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", "myTopic-Sub1", new SBSubscription());
-
-// sleeping to allow metadata to sync across primary and secondary
-Thread.Sleep(1000 * 60);
-```
-
-Agora, você pode adicionar entidades por meio do portal ou pelo Azure Resource Manager e ver como eles sincronizam. A menos que seu plano seja fazer failover manualmente, você deve criar um aplicativo para monitorar o namespace primário e iniciar o failover se ele ficar indisponível. 
-
-## <a name="initiate-a-failover"></a>Iniciar um failover
-
-O código abaixo mostra como iniciar um failover:
-
-```csharp
-// Note that this failover operation is always run against the secondary namespace 
-// (because primary might be down at time of failover).
-
-client.DisasterRecoveryConfigs.FailOver(resourceGroupName, geoDRSecondaryNS, alias);
-```
-
-Após disparar o failover, adicione um novo namespace passivo e restabeleça o emparelhamento. O código para criar um novo emparelhamento é mostrado na seção anterior. Além disso, você deve remover as mensagens do namespace primário anterior após a conclusão do failover. Para obter exemplos de como receber mensagens de uma fila, confira [Introdução às filas](service-bus-dotnet-get-started-with-queues.md).
-
-## <a name="how-to-disable-geo-disaster-recovery"></a>Como desabilitar a recuperação de desastre em área geográfica
-
-O código abaixo mostra como desabilitar um emparelhamento de namespace:
-
-```csharp
-client.DisasterRecoveryConfigs.BreakPairing(resourceGroupName, geoDRPrimaryNS, alias);
-```
-
-O código abaixo exclui o alias que você criou:
-
-```csharp
-// Delete the DR config (alias).
-// Note that this operation must run against the namespace to which the alias is currently pointing.
-// If you break the pairing and want to delete the namespaces afterwards, you must delete the alias first.
-
-client.DisasterRecoveryConfigs.Delete(resourceGroupName, geoDRPrimaryNS, alias);
-```
-
-## <a name="steps-after-a-failover-failback"></a>Etapas após um failover (failback)
-
-Após um failover, execute as etapas abaixo:
-
-1.  Crie um novo namespace secundário passivo. O código é mostrado em uma seção anterior.
-2.  Remova as mensagens restantes da fila.
-
-## <a name="alias-connection-string-and-test-code"></a>Código de teste e de cadeia de conexão de alias
-
-Se você quer testar o processo de failover, pode escrever um aplicativo de exemplo que envia mensagens para o namespace primário usando o alias. Para fazer isso, obtenha a cadeia de conexão do alias de um namespace ativo. Com a versão prévia atual, não há nenhuma outra interface para obter diretamente a cadeia de conexão. O seguinte exemplo de código conecta antes e depois do failover:
-
-```csharp
-var accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRPrimaryNS, "RootManageSharedAccessKey");
-var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-
-if(aliasPrimaryConnectionString == null)
-{
-    accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRSecondaryNS, "RootManageSharedAccessKey");
-    aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-    aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-}
-```
+4. A sincronização de entidades pode levar algum tempo, cerca de 50 a 100 entidades por minuto. Assinaturas e regras também são contadas como entidades. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

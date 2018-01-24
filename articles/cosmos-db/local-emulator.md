@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 5ea254110a24ea3315d614ebca2d43bda0e1a674
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usar o Emulador do Azure Cosmos DB para desenvolvimento e teste locais
 
@@ -50,7 +50,7 @@ Este artigo aborda as seguintes tarefas:
 > * Chamar o Emulador na linha de comando
 > * Executar o Emulador no Docker para Windows
 > * Coletar arquivos de rastreamento
-> * Solucionar problemas
+> * solução de problemas
 
 É recomendável começar assistindo ao vídeo a seguir, em que Kirill Gavrylyuk mostra como começar a usar o Emulador do Azure Cosmos DB. Observe que o se vídeo refere ao emulador como o Emulador do DocumentDB, mas a ferramenta em si foi renomeada como Emulador do Azure Cosmos DB desde a gravação do vídeo. Todas as informações do vídeo ainda estão corretas para o Emulador do Azure Cosmos DB. 
 
@@ -64,7 +64,7 @@ O Emulador do Azure Cosmos DB fornece uma emulação de alta fidelidade do servi
 Embora tenhamos criado uma emulação local de alta fidelidade do serviço Azure Cosmos DB real, a implementação do Emulador do Azure Cosmos DB é diferente da implementação do serviço. Por exemplo, o Emulador do Azure Cosmos DB usa componentes padrão do sistema operacional, como sistema de arquivos local para persistência e pilha de protocolo HTTPS para conectividade. Isso significa que algumas funcionalidades que dependem da infraestrutura do Azure, como replicação global, latência de único dígito em milissegundos para leituras/gravações e níveis de consistência ajustáveis, não estão disponíveis pelo Emulador do Azure Cosmos DB.
 
 > [!NOTE]
-> No momento o Data Explorer no emulador dá suporte apenas à criação de coleções de API do DocumentDB e de coleções do MongoDB. Atualmente não há suporte para a criação de tabelas e gráficos no Data Explorer no emulador. 
+> No momento o Data Explorer no emulador dá suporte apenas à criação de coleções de API do SQL e de coleções do MongoDB. Atualmente não há suporte para a criação de tabelas e grafos no Data Explorer no emulador. 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Diferenças entre o Emulador e o serviço 
 Como o Emulador do Azure Cosmos DB fornece um ambiente emulado em execução em uma estação de trabalho do desenvolvedor local, há algumas diferenças na funcionalidade entre o emulador e a conta do Azure Cosmos DB na nuvem:
@@ -136,7 +136,7 @@ Você pode executar o emulador em uma rede local. Para habilitar o acesso à red
 Para habilitar o acesso de rede pela primeira vez, o usuário deve desligar o emulador e excluir o diretório de dados do emulador (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Desenvolver com o Emulador
-Depois que o Emulador do Azure Cosmos DB estiver em execução na área de trabalho, você poderá usar qualquer [SDK do Azure Cosmos DB](documentdb-sdk-dotnet.md) com suporte ou a [API REST do Azure Cosmos DB](/rest/api/documentdb/) para interagir com o Emulador. O Emulador do Azure Cosmos DB também inclui um Data Explorer interno que permite criar coleções para as APIs do MongoDB e DocumentDB e exibir e editar documentos sem precisar escrever qualquer código.   
+Depois que o Emulador do Azure Cosmos DB estiver em execução na área de trabalho, você poderá usar qualquer [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md) com suporte ou a [API REST do Azure Cosmos DB](/rest/api/documentdb/) para interagir com o Emulador. O Emulador do Azure Cosmos DB também inclui um Data Explorer interno que permite criar coleções para as APIs do MongoDB e SQL e exibir e editar documentos sem precisar escrever qualquer código.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
@@ -371,7 +371,7 @@ Para abrir o Data Explorer, navegue até a URL a seguir no seu navegador. O pont
     https://<emulator endpoint provided in response>/_explorer/index.html
 
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Use as dicas a seguir para ajudar a solucionar problemas encontrados com o Emulador do Azure Cosmos DB:
 

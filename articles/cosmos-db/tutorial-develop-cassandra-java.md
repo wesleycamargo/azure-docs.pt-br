@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7e1a17517890f8ed738b6afdcbe073a2bf1ebc6f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure Cosmos DB: desenvolver com a API Cassandra no Java
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este tutorial demonstra como criar uma conta do Azure Cosmos DB usando o Portal do Azure e depois criar uma Tabela do Cassandra (documentdb-partition-data.md#partition-keys) usando a [API Cassandra](cassandra-introduction.md). Ao definir uma chave primária quando você cria uma Tabela, seu aplicativo fica preparado para dimensionar com facilidade à medida que seus dados crescem. 
+Este tutorial demonstra como criar uma conta do Azure Cosmos DB usando o Portal do Azure e depois criar uma Tabela do Cassandra (sql-api-partition-data.md#partition-keys) usando a [API Cassandra](cassandra-introduction.md). Ao definir uma chave primária quando você cria uma Tabela, seu aplicativo fica preparado para dimensionar com facilidade à medida que seus dados crescem. 
 
 Este tutorial cobre as seguintes tarefas usando a API Cassandra:
 
@@ -37,7 +37,7 @@ Este tutorial cobre as seguintes tarefas usando a API Cassandra:
 > * Consultar dados
 > * Examinar os SLAs
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Acesso ao programa de versão prévia da API Cassandra do Azure Cosmos DB. Caso ainda não tenha solicitado o acesso, [inscreva-se agora](https://aka.ms/cosmosdb-cassandra-signup).
 

@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: e71680887c4e81eba831ab0b7af9fa2cceed74a0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Tutorial de compartilhamento de bicicleta: preparação de dados avançada com o Azure Machine Learning Workbench
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas profissionais prepararem dados, desenvolverem experiências e implantarem modelos em escala de nuvem.
@@ -33,7 +33,7 @@ Neste tutorial, você usará os serviços do Azure Machine Learning (versão pr�
 >
 > Você pode usar os dados preparados para treinar seus próprios modelos de previsão. Por exemplo, você pode criar um modelo para prever a demanda de bicicleta durante um período de 2 horas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * O Azure Machine Learning Workbench precisa ser instalado localmente. Para obter mais informações, siga o [Guia de início rápido de instalação](quickstart-installation.md).
 * Familiaridade com a criação de um novo projeto no Workbench.
 
@@ -97,7 +97,7 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
 
    ![Imagem dos arquivos/Entrada de diretório](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Seleção de Arquivo**: adicione os dados de clima. Procure e selecione o arquivo `BostonWeather.csv` que você baixou anteriormente. Clique em **Avançar**.
+2. **Seleção de Arquivo**: adicione os dados de clima. Procure e selecione o arquivo `BostonWeather.csv` que você baixou anteriormente. Clique em **Próximo**.
 
    ![Imagem da seleção de arquivo com BostonWeater.csv selecionado](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
 

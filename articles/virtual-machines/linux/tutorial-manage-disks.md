@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gerenciar discos do Azure com o Azure CLI
 
@@ -50,7 +50,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 
-| Tipo | Tamanho da VM | Tamanho máximo do disco temporário (GB) |
+| type | Tamanho da VM | Tamanho máximo do disco temporário (GB) |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A e D | 800 |
 | [Computação otimizada](sizes-compute.md) | Série F | 800 |
@@ -65,7 +65,7 @@ Os discos de dados extras podem ser adicionados para instalação de aplicativos
 
 ### <a name="max-data-disks-per-vm"></a>Máximo de discos de dados por VM
 
-| Tipo | Tamanho da VM | Máximo de discos de dados por VM |
+| type | Tamanho da VM | Máximo de discos de dados por VM |
 |----|----|----|
 | [Propósito geral](sizes-general.md) | Série A e D | 32 |
 | [Computação otimizada](sizes-compute.md) | Série F | 32 |

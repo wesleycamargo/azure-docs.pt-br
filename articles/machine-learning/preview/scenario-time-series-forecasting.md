@@ -7,6 +7,7 @@ author: anta
 manager: ireiter
 editor: anta
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17903df93e11b8d1a5b9c6fbe5fd8e53302f45f4
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Previsão da série temporal de demanda de energia
 
@@ -51,18 +52,16 @@ Este cenário se concentra na previsão da demanda de energia, em que a meta é 
 
 Este cenário fornece detalhes sobre a construção de uma solução de previsão de demanda de energia de aprendizado de máquina. A solução é preparada em um conjunto de dados público do [NYISO (New York Independent System Operator – Operador de Sistemas Independente de Nova York)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), que opera a grade de energia para o Estado de Nova York. O conjunto de dados inclui os dados de demanda de energia por hora para a cidade de Nova York durante um período de cinco anos. Um conjunto de dados adicional contendo as condições climáticas por hora em Nova York durante o mesmo período de tempo foi coletado do [darksky.net](https://darksky.net).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
 - Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](./quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.
 - Este exemplo pressupõe que você esteja executando o Azure ML Workbench no Windows 10 com o [mecanismo do Docker](https://www.docker.com/) instalado localmente. Se você estiver usando o macOS, as instruções serão basicamente as mesmas.
-- Operacionalização do Azure Machine Learning instalada com uma configuração de ambiente de implantação local e uma conta de gerenciamento de modelos criada, conforme descrito neste [guia](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Operacionalização do Azure Machine Learning instalada com uma configuração de ambiente de implantação local e uma conta de gerenciamento de modelos criada, conforme descrito neste [guia](./model-management-configuration.md).
 - Este exemplo requer que você atualize a instalação Pandas para a versão 0.20.3 ou superior e instale o matplotlib. Clique em *Abrir Prompt de Comando* do menu *Arquivo* no Workbench e execute os seguintes comandos para instalar essas dependências:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>Criar um novo projeto de Workbench
@@ -77,7 +76,7 @@ Crie um novo projeto usando este exemplo como modelo:
 
 ## <a name="data-description"></a>Descrição dos dados
 
-Há dois conjuntos de dados: `nyc_demand.csv` e `nyc_weather.csv`:
+Fornecemos dois conjuntos de dados com este exemplo, os quais é possível baixar usando o notebook `1-data-preparation.ipynb`: `nyc_demand.csv` e `nyc_weather.csv`.
 
 **nyc_demand.csv** contém os valores de demanda de energia por hora para a cidade de Nova York, nos anos de 2012-2017. Os dados têm a seguinte estrutura simples:
 

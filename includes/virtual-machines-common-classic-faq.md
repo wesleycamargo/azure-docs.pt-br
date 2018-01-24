@@ -58,7 +58,7 @@ Se tiver problemas com a Área de Trabalho Remota ou o SSH, instale e use a exte
 
 Para VMs Windows, as opções adicionais incluem:
 
-* No portal clássico do Azure, localize a VM e clique em **Redefinir Acesso Remoto** na barra de comandos.
+* No portal do Azure, localize a VM e clique em **Redefinir Acesso Remoto** na barra de comandos.
 * Examine [Solucionar problemas de conexões da Área de Trabalho Remota a uma Máquina Virtual do Azure baseada em Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Use a Comunicação Remota do Windows PowerShell para conectar-se à VM ou crie pontos de extremidade adicionais para outros recursos se conectarem à VM. Para obter detalhes, confira [Como instalar pontos de extremidade em uma máquina virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -85,7 +85,7 @@ Se você esqueceu o nome de usuário ou senha e instalou o agente de VM, você p
 
 Detalhes adicionais:
 
-* Para as imagens do Linux, se você usar o portal clássico do Azure, "azureuser" é fornecido como nome de usuário padrão, mas você pode alterar isso usando "Da Galeria" em vez de "Criação rápida" como a maneira de criar a máquina virtual. Usar "Da Galeria" também permite optar por usar uma senha, uma chave SSH ou ambas para fazer o logon. A conta de usuário é um usuário sem privilégios que tem acesso "sudo" para executar comandos privilegiados. A conta "raiz" está desabilitada.
+* Para as imagens do Linux, se você usar o portal do Azure, "azureuser" é fornecido como nome de usuário padrão, mas você pode alterar isso usando "Da Galeria" em vez de "Criação rápida" como a maneira de criar a máquina virtual. Usar "Da Galeria" também permite optar por usar uma senha, uma chave SSH ou ambas para fazer o logon. A conta de usuário é um usuário sem privilégios que tem acesso "sudo" para executar comandos privilegiados. A conta "raiz" está desabilitada.
 * Para imagens do Windows, você precisará fornecer um nome de usuário e uma senha ao criar a máquina virtual. A conta é adicionada ao grupo Administradores.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>O Azure pode executar antivírus nas minhas máquinas virtuais?
@@ -96,7 +96,7 @@ O Azure oferece diversas opções para soluções antivírus, mas cabe a você g
 * [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Quais são minhas opções de backup e recuperação?
-O Backup do Azure está disponível como visualização em determinadas regiões. Para obter detalhes, veja [Fazer backup de máquinas virtuais do Azure](../articles/backup/backup-azure-vms.md). Existem outras soluções de parceiros certificados. Para descobrir o que está disponível no momento, pesquise no Azure Marketplace.
+O Backup do Azure está disponível como visualização em determinadas regiões. Para obter detalhes, veja [Fazer backup de máquinas virtuais do Azure](../articles/backup/backup-azure-arm-vms.md). Existem outras soluções de parceiros certificados. Para descobrir o que está disponível no momento, pesquise no Azure Marketplace.
 
 Uma outra opção é usar os recursos de instantâneo do armazenamento de blob. Para fazer isso, você precisará fechar a VM antes de qualquer operação que se baseie em um instantâneo de blob. Isso salva gravações de dados pendentes e coloca o sistema de arquivos em um estado consistente.
 
@@ -105,7 +105,7 @@ O Azure cobra um preço por hora com base no tamanho da VM e do sistema operacio
 
 Você será cobrado quando o status da VM for Em execução ou Parada, mas não será cobrado quando o status da VM for Parada (Desalocada). Para colocar uma VM no estado Parada (Desalocada), siga um destes procedimentos:
 
-* Feche ou exclua a VM no portal clássico do Azure.
+* Feche ou exclua a VM no portal do Azure.
 * Use o cmdlet Stop-AzureVM, disponível no módulo do Azure PowerShell.
 * Use a operação de Função de Desligamento na API REST do Gerenciamento de Serviços e especifique StoppedDeallocated para o elemento PostShutdownAction.
 
@@ -118,7 +118,7 @@ Eventos de manutenção não planejados podem ocorrer quando o Azure detectar um
 
 Para qualquer VM autônoma (ou seja, uma VM que não faz parte de um conjunto de disponibilidade), o Azure notifica o Administrador de Serviços de assinatura por email pelo menos uma semana antes da manutenção planejada, porque as máquinas virtuais podem ser reiniciadas durante a atualização. Aplicativos em execução nas VMs podem experimentar tempo de inatividade.
 
-Você também pode usar o portal clássico do Azure ou Azure PowerShell para exibir os logs de reinicialização quando a reinicialização ocorrer devido a uma manutenção planejada. Para obter detalhes, veja [Exibindo logs de reinicialização de VM](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Você também pode usar o portal do Azure ou Azure PowerShell para exibir os logs de reinicialização quando a reinicialização ocorrer devido a uma manutenção planejada. Para obter detalhes, veja [Exibindo logs de reinicialização de VM](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semelhante no mesmo conjunto de disponibilidade. Isso ajuda a garantir que pelo menos uma VM esteja disponível durante a manutenção planejada ou não planejada. O Azure garante determinados níveis de disponibilidade de VM para essa configuração. Para obter detalhes, confira [Gerenciar a disponibilidade de máquinas virtuais](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

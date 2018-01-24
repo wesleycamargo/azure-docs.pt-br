@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Atualização de cofre de Backup para cofre dos Serviços de Recuperação
 Este artigo fornece uma visão geral do que é oferecido pelo sofre dos Serviços de Recuperação, perguntas frequentes sobre a atualização do cofre de Backup existente para o cofre dos Serviços de Recuperação e as etapas pós-atualização. Um cofre dos Serviços de Recuperação é o equivalente do Azure Resource Manager a um cofre de Backup que contém seus dados de backup. Os dados normalmente são cópias de dados ou informações de configuração de VMs (máquinas virtuais), cargas de trabalho, servidores ou estações de trabalho, sejam esses dados locais ou no Azure.
@@ -68,16 +68,16 @@ Depois de atualizar para um cofre dos Serviços de Recuperação, configure rela
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **O plano de atualização afeta meus backups em andamento?**</br>
-Não. Os backups em andamento continuam sem interrupções durante e após a atualização.
+Nº Os backups em andamento continuam sem interrupções durante e após a atualização.
 
 **O que esta atualização significa para as minhas ferramentas existentes?**</br>
-Você precisa atualizar suas ferramentas ou automação existente para o modelo de implantação do Resource Manager para garantir que continuem funcionando após a atualização. Consulte as referências de cmdlets do PowerShell para o [Modelo de implantação do Service Manager](backup-client-automation-classic.md) e o [Modelo de implantação do Resource Manager](backup-client-automation.md).
+Você precisa atualizar suas ferramentas ou automação existente para o modelo de implantação do Resource Manager para garantir que continuem funcionando após a atualização. Consulte as referências de cmdlets do PowerShell para o [Modelo de implantação do Resource Manager](backup-client-automation.md).
 
 **Posso reverter após a atualização?**</br>
-Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
+Nº Não há suporte para reversão após os recursos terem sido atualizados com êxito.
 
 **Posso exibir meu cofre clássico após a atualização?**</br>
-Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
+Nº Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
 
 **Por que não consigo ver servidores protegidos pelo agente de MARS em meu cofre atualizado?**</br>
 Você precisa instalar o agente de MARS mais recente para ver todos os servidores protegidos pelo agente de MARS em seu cofre. Você pode baixar a versão mais recente do agente [aqui]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).

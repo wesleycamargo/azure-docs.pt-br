@@ -12,28 +12,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/13/2017
 ms.author: juluk
-ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o gerenciamento de recursos do Azure.
 Ele dá a você a flexibilidade de escolher a experiência de shell que melhor se adequa ao modo como você trabalha.
 Usuários do Linux podem optar por uma experiência com o Bash, enquanto usuários do Windows podem optar pelo PowerShell.
 
-Inicializar por meio do portal do Azure usando o ícone do Cloud Shell:
+Tente do shell.azure.com usando este botão.
+
+[![](https://shell.azure.com/images/launchcloudshell.png "Inicializar o Azure Cloud Shell")](https://shell.azure.com)
+
+Tente no Portal do Azure usando o ícone do Cloud Shell.
 
 ![Inicialização do portal](media/overview/portal-launch-icon.png)
-
-Aproveite Bash ou PowerShell no menu suspenso de seletor de shell:
-
-![Bash no Cloud Shell](media/overview/overview-bash-pic.png)
-
-![PowerShell no Cloud Shell (versão prévia)](media/overview/overview-ps-pic.png)
 
 ## <a name="features"></a>Recursos
 ### <a name="browser-based-shell-experience"></a>Experiência de shell baseada no navegador
@@ -41,23 +39,29 @@ O Cloud Shell permite o acesso a uma experiência de linha de comando baseada em
 Utilize o Cloud Shell para trabalhar de forma independente de um computador local, de uma maneira que somente a nuvem pode proporcionar.
 
 ### <a name="choice-of-preferred-shell-experience"></a>Opção de experiência de shell preferida
-O Azure Cloud Shell dá a você a flexibilidade de escolher a experiência de shell que melhor se adequa ao modo como você trabalha.
-Os usuários do Linux podem optar por Bash no Shell de nuvem, enquanto os usuários do Windows podem optar por PowerShell no Cloud Shell (visualização).
+Os usuários do Linux podem usar Bash no Cloud Shell, enquanto os usuários do Windows podem usar o PowerShell no Cloud Shell (Versão prévia) no menu suspenso do shell.
+
+![Bash no Cloud Shell](media/overview/overview-bash-pic.png)
+
+![PowerShell no Cloud Shell (versão prévia)](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Estação de trabalho configurada e autenticada do Azure
-O Cloud Shell vem gerenciado pela Microsoft com ferramentas de linha de comando populares e suporte para idiomas já pré-instalados, para que você possa trabalhar mais rapidamente. Adicionalmente, o Cloud Shell é autenticado de maneira segura e automaticamente para cada sessão para ter acesso instantâneo a seus recursos por meio da CLI do Azure 2.0 ou de cmdlets do Azure PowerShell.
+O Cloud Shell é gerenciado pela Microsoft, portanto vem com ferramentas de linha de comando populares e suporte para idiomas. O Cloud Shell também é autenticado de maneira segura e automaticamente para ter acesso instantâneo a seus recursos por meio da CLI do Azure 2.0 ou de cmdlets do Azure PowerShell.
 
 Exiba a lista completa de ferramentas da [experiência do Bash](features.md#tools) e [experiência do PowerShell (Versão prévia).](features-powershell.md#tools)
 
 ### <a name="multiple-access-points"></a>Vários pontos de acesso
-Além de Cloud Shell disponível no portal do Azure, ele também pode ser acessado de:
+O Cloud Shell é uma ferramenta flexível que pode ser usada a partir de:
+* [portal.azure.com](https://portal.azure.com)
+* [shell.azure.com](https://shell.azure.com)
 * [Documentação de "Teste" de 2.0 do CLI do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 * [Aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [Extensão Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Extensão da conta do Azure do VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Conectar seu armazenamento de arquivos do Microsoft Azure
-Os computadores do Cloud Shell são temporários e, assim, exigem que um compartilhamento de Arquivos do Azure seja montado como `clouddrive` para manter seu diretório $Home.
-Na primeira inicialização, o Cloud Shell solicita a criação de um grupo de recursos, uma conta de armazenamento e um compartilhamento de arquivos do Azure em seu nome. Essa é uma etapa única e será anexada automaticamente para todas as sessões. Um único compartilhamento de arquivos do Azure pode ser mapeado e será usado pelo Bash e pelo PowerShell no Cloud Shell (versão prévia).
+Os computadores do Cloud Shell são temporários e exigem que um compartilhamento de Arquivos do Azure seja montado como `clouddrive` para persistência de seus arquivos.
+
+Na primeira inicialização, o Cloud Shell solicita a criação de um grupo de recursos, uma conta de armazenamento e um compartilhamento de Arquivos do Azure em seu nome. Essa é uma etapa única e será anexada automaticamente para todas as sessões. Um compartilhamento de arquivo único pode ser mapeado e será usado pelo Bash e pelo PowerShell no Cloud Shell (Versão prévia).
 
 #### <a name="create-new-storage"></a>Criar novo armazenamento
 ![](media/overview/basic-storage.png)
@@ -77,7 +81,9 @@ Três recursos serão criados em seu nome:
 
 Uma opção avançada é fornecida para associar os recursos existentes ao Cloud Shell.
 No prompt de configuração de armazenamento, clique em “Mostrar configurações avançadas” para mostrar as opções adicionais.
-As listas suspensas são filtradas para sua região do Cloud Shell atribuída e para contas de armazenamento com redundância local/global.
+
+> [!Note]
+> As listas suspensas são filtradas para sua região do Cloud Shell pré-atribuída e para contas de LRS/GRS.
 
 [Saiba mais sobre o armazenamento do Cloud Shell, a atualização de compartilhamentos de arquivos do Azure e como carregar/baixar arquivos.](persisting-shell-storage.md)
 
@@ -87,16 +93,10 @@ As listas suspensas são filtradas para sua região do Cloud Shell atribuída e 
 * O Cloud Shell exige que um compartilhamento de arquivos do Azure seja montado
 * O Cloud Shell usa o mesmo compartilhamento de arquivos para o Bash e o PowerShell
 * É atribuído ao Cloud Shell um computador por conta de usuário
+* Bash persiste $Home usando uma imagem de 5 GB mantida em seu compartilhamento de arquivo
 * As permissões são definidas da mesma forma que para um usuário normal do Linux em Bash
 
 Saiba mais sobre os recursos em [Bash no Cloud Shell](features.md) e [PowerShell no Cloud Shell (Versão prévia)](features-powershell.md).
-
-## <a name="examples"></a>Exemplos
-* Use scripts para automatizar as tarefas de gerenciamento do Azure
-* Gerenciar recursos do Azure simultaneamente por meio do portal do Azure e ferramentas de linha de comando do Azure
-* Testar CLI do Azure 2.0 ou cmdlets do Azure PowerShell
-
-Experimente esses exemplos em início rápido para [Bash no Cloud Shell](quickstart.md) e [PowerShell no Cloud Shell (Versão prévia)](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Preços
 O computador que hospeda o Cloud Shell é gratuito, com um pré-requisito de um compartilhamento de Arquivos do Azure montado. Custos de armazenamento regulares se aplicam.

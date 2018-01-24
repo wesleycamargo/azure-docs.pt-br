@@ -96,6 +96,8 @@
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Mover dados para e do Armazenamento
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Recursos do blob de páginas
+          href: storage-blob-pageblob-overview.md
         - name: Armazenamento Premium
           items:
             - name: Linux

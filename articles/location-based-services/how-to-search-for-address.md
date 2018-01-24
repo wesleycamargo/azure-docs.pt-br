@@ -6,18 +6,18 @@ keywords: "Não adicione ou edite palavras-chave sem consultar seu especialista 
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Como encontrar um endereço usando o serviço de pesquisa Serviços do Azure Baseados na Localização (versão prévia)
 O serviço de pesquisa é um conjunto RESTful de APIs projetado para desenvolvedores procurarem endereços, locais, pontos de interesse, anúncios de empresas e outras informações geográficas. O Serviço de Pesquisa atribui um valor de latitude/longitude para um endereço específico, cruzamento, recurso geográfico ou POI (ponto de interesse). Os valores de latitude e longitude retornados pelas APIs do Serviço de Pesquisa podem ser usados como parâmetros em outros Serviços do Azure Baseados na Localização, como as APIs de Rota e de Fluxo de Tráfego.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Instalar o [aplicativo Postman](https://www.getpostman.com/apps).
 
 Uma conta e chave de assinatura dos Serviços do Azure Baseados na Localização. Para saber mais sobre como criar uma conta e recuperar uma chave de assinatura, confira [Como gerenciar sua conta e chaves dos Serviços do Azure Baseados na Localização](how-to-manage-account-keys.md). 
@@ -44,7 +44,7 @@ A maioria das consultas de pesquisa usa o padrão 'maxFuzzyLevel=1' para ter mel
     | URL de Solicitação | https://atlas.microsoft.com/search/fuzzy/json? |
     | Autorização | Sem autenticação |
 
-    O atributo **json** no caminho da URL determina o formato da resposta. Você está usando json neste artigo pela facilidade de uso e leitura. Você pode encontrar os formatos de resposta disponíveis na definição de **Obter Pesquisa Difusa** em [Referência da API funcional dos Serviços Baseados na Localização] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    O atributo **json** no caminho da URL determina o formato da resposta. Você está usando json neste artigo pela facilidade de uso e leitura. Você pode encontrar os formatos de resposta disponíveis na definição **Obter Pesquisa Difusa** da [referência da API Funcional dos Serviços Com Base na Localização] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Clique em **Params** e digite os seguinte pares Chave/Valor para uso como parâmetros de consulta ou de caminho na URL da solicitação:
 
@@ -156,7 +156,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
     |-----|------------|
     | número | verdadeiro |
 
-    Se o parâmetro de consulta [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é enviado com a solicitação, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição ajustada para o número.
+    Se o parâmetro de consulta [number](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é enviado com a solicitação, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição ajustada para o número.
     
 5. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
@@ -164,7 +164,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
     |-----|------------|
     | spatialKeys | verdadeiro |
 
-    Quando o parâmetro de consulta [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta contém a informação geoespacial principal proprietária de um local especificado.
+    Quando o parâmetro de consulta [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta contém a informação geoespacial principal proprietária de um local especificado.
 
 6. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
@@ -172,7 +172,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
     |-----|------------|
     | returnSpeedLimit | verdadeiro |
     
-    Quando o parâmetro de consulta [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna o limite de velocidade indicado.
+    Quando o parâmetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna o limite de velocidade indicado.
 
 7. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
@@ -180,7 +180,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
     |-----|------------|
     | returnRoadUse | verdadeiro |
 
-    Quando o parâmetro de consulta [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna a matriz de uso de estrada para reversegeocodes no nível da rua.
+    Quando o parâmetro de consulta [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna a matriz de uso de estrada para reversegeocodes no nível da rua.
 
 8. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
@@ -188,7 +188,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
     |-----|------------|
     | roadUse | verdadeiro |
 
-    Você pode restringir a consulta invertida de geocodificação para um tipo específico de estrada usando o parâmetro de consulta [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
+    Você pode restringir a consulta invertida de geocodificação para um tipo específico de estrada usando o parâmetro de consulta [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Pesquise o cruzamento usando Pesquisa Invertida de Endereço de Cruzamento
 
@@ -215,4 +215,4 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
 4. Clique em **Enviar** e analise o corpo da resposta. 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Explorar a documentação da API [serviço de pesquisa dos Serviços Baseados na Localização](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) 
+- Explorar a documentação da API [serviço de pesquisa dos Serviços Baseados na Localização](https://docs.microsoft.com/rest/api/location-based-services/search) 

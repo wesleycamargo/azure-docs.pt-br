@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df5614d8a708b49ee1368c4d7983f45d29920fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Usar o Rascunho com o Serviço de Contêiner do Azure (AKS)
 
-O Rascunho é uma ferramenta de software livre que ajuda a compactar e executar o código em um cluster Kubernetes. O Rascunho é direcionado ao ciclo de iteração de desenvolvimento, conforme o código está sendo desenvolvido, mas antes de confirmar no controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub](https://github.com/Azure/draft/tree/master/docs).
+O Rascunho é uma ferramenta de software livre que ajuda a compactar e executar o código em um cluster Kubernetes. O Rascunho é direcionado ao ciclo de iteração de desenvolvimento, conforme o código está sendo desenvolvido, mas antes de confirmar no controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
 
 Este documento detalha o uso do Rascunho com um cluster do Kubernetes no AKS.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-As etapas detalhadas neste documento pressupõem que você tenha criado um cluster AKS e estabelecido uma conexão kubectl com o cluster. Se você precisar desses itens, veja o [Início rápido do AKS](./kubernetes-walkthrough.md).
+As etapas detalhadas neste documento pressupõem que você tenha criado um cluster AKS e estabelecido uma conexão kubectl com o cluster. Se você precisar desses itens, consulte o [Início rápido do AKS][aks-quickstart].
 
-Você também precisa de um Registro do Docker privado no ACR (Registro de Contêiner do Azure). Para obter instruções sobre como implantar uma instância do ACR, consulte o [Início rápido do Registro de Contêiner do Azure](../container-registry/container-registry-get-started-azure-cli.md).
+Você também precisa de um Registro do Docker privado no ACR (Registro de Contêiner do Azure). Para obter instruções sobre como implantar uma instância do ACR, consulte o [Início rápido do Registro de Contêiner do Azure][acr-quickstart].
 
 ## <a name="install-helm"></a>Instalar o Helm
 
 A CLI do Helm é um cliente executado em seu sistema de desenvolvimento e permite que você inicie, pare e gerencie aplicativos com gráficos Helm.
 
-Para instalar a CLI do Helm em um Mac, use `brew`. Para obter opções adicionais de instalação, consulte [Instalando o Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+Para instalar a CLI do Helm em um Mac, use `brew`. Para obter opções adicionais de instalação, veja [Instalação do Helm][install-helm].
 
 ```console
 brew install kubernetes-helm
@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 A CLI do Rascunho é um cliente executado no sistema de desenvolvimento e que permite que você implante o código rapidamente em um cluster do Kubernetes.
 
-Para instalar a CLI do Rascunho em um Mac, use `brew`. Para obter opções adicionais de instalação, consulte [Guia de instalação do Rascunho](https://github.com/Azure/draft/blob/master/docs/install.md).
+Para instalar a CLI do Rascunho em um Mac, use `brew`. Para obter opções adicionais de instalação, consulte [Guia de instalação do Rascunho][install-draft].
 
 ```console
 brew install draft
@@ -178,7 +178,7 @@ Ao concluir o teste do aplicativo, use `Control+C` para interromper a conexão d
 
 ## <a name="expose-application"></a>Expor aplicativo
 
-Ao testar um aplicativo no Kubernetes, talvez você queira disponibilizar o aplicativo na Internet. Isso pode ser feito usando um serviço do Kubernetes com um tipo de [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) ou um [controlador entrada](https://kubernetes.io/docs/concepts/services-networking/ingress/). Este documento detalha o uso de um serviço do Kubernetes.
+Ao testar um aplicativo no Kubernetes, talvez você queira disponibilizar o aplicativo na Internet. Isso pode ser feito usando um serviço do Kubernetes com um tipo de [LoadBalancer][kubernetes-service-loadbalancer] ou um [controlador entrada][kubernetes-ingress]. Este documento detalha o uso de um serviço do Kubernetes.
 
 
 Primeiro, o pacote do Rascunho precisa ser atualizado para especificar que um serviço com um tipo `LoadBalancer` deve ser criado. Para fazer isso, atualize o tipo de serviço no arquivo `values.yaml`.
@@ -302,4 +302,15 @@ Hello World, I'm Java - Draft Rocks!
 Para obter mais informações sobre o uso do Rascunho, consulte a documentação do Rascunho no GitHub.
 
 > [!div class="nextstepaction"]
-> [Documentação do Rascunho](https://github.com/Azure/draft/tree/master/docs)
+> [Documentação do Rascunho][draft-documentation]
+
+<!-- LINKS - external -->
+[draft-documentation]: https://github.com/Azure/draft/tree/master/docs
+[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
+[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+
+<!-- LINKS - internal -->
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md

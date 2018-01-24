@@ -1,7 +1,7 @@
 ---
 title: "Programação de JavaScript do lado do servidor para o Azure Cosmos DB | Microsoft Docs"
 description: "Saiba como usar o Azure Cosmos DB para escrever procedimentos armazenados, gatilhos de banco de dados e UDFs (funções definidas pelo usuário) em JavaScript. Obtenha dicas de programação de banco de dados e muito mais."
-keywords: Gatilhos de banco de dados, procedimento armazenado, programa de banco de dados, sproc, banco de dados de documentos, azure, Microsoft azure
+keywords: Gatilhos de banco de dados, procedimento armazenado, programa de banco de dados, sproc, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: aliuy
@@ -13,15 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Saiba como a execução transacional e integrada de linguagem do JavaScript pelo Azure Cosmos DB permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente em um JavaScript [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/). Isso permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados. 
 
 Recomendamos que você comece assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação de banco de dados do lado do servidor do Cosmos DB. 
@@ -53,7 +56,7 @@ Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores
   * Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
   * Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
 
-Há suporte para a criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizada por meio da [API REST](/rest/api/documentdb/), do [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs do cliente](documentdb-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
+Há suporte para a criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizada por meio do [portal do Azure](https://portal.azure.com), da [API REST](/rest/api/documentdb/), do [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs do cliente](sql-api-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
 
 Esse tutorial utiliza o [SDK do Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.   
 
@@ -437,7 +440,7 @@ Esse gatilho consulta o documento de metadados e o atualiza com detalhes sobre o
 É importante observar a execução **transacional** de gatilhos no Cosmos DB. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se lançarmos uma exceção a partir do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será retrocedida. Nenhum documento será criado e uma exceção será retornada.  
 
 ## <a id="udf"></a>Funções definidas pelo usuário
-As UDFs (funções definidas pelo usuário) são usadas para estender a gramática da linguagem de consulta SQL da API do DocumentDB e implementar uma lógica de negócios personalizada. Elas podem ser invocadas somente de dentro das consultas. Elas não possuem acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, as UDFs podem ser executadas em réplicas secundárias do serviço Cosmos DB.  
+UDFs (funções definidas pelo usuário) são usadas para estender a gramática da linguagem de consulta SQL do Azure Cosmos DB e para implementar uma lógica de negócios personalizada. Elas podem ser invocadas somente de dentro das consultas. Elas não possuem acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, as UDFs podem ser executadas em réplicas secundárias do serviço Cosmos DB.  
 
 A amostra a seguir cria uma UDF para calcular o imposto de renda com base nas taxas para diversos intervalos de renda, e depois a utiliza dentro de uma consulta para descobrir todas as pessoas que pagaram mais de $20.000 em impostos.
 
@@ -479,7 +482,7 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>API de consulta integrada da linguagem JavaScript
-Além de emitir consultas usando a gramática SQL do DocumentDB, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Azure Cosmos DB.
+Além de emitir consultas usando a gramática SQL do Azure Cosmos DB, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (double-underscore) é um alias para `getContext().getCollection()`.
@@ -642,7 +645,7 @@ As descrições a seguir explicam cada consulta na tabela acima.
 
 
 ## <a name="runtime-support"></a>Suporte de tempo de execução
-A [API do lado do servidor de JavaScript do DocumentDB](http://azure.github.io/azure-documentdb-js-server/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme padronizado pelo [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+A [API do lado do servidor de JavaScript](http://azure.github.io/azure-documentdb-js-server/) do Azure Cosmos DB dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme padronizado pelo [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Segurança
 Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área restrita para que os efeitos de um script não vazem para o outro sem passar pelo isolamento da transação de captura instantânea no nível do banco de dados. Os ambientes de tempo de execução são colocados em pools, porém, seu contexto é limpo após cada execução. Portanto, sua segurança é garantida e cada um deles está livre de qualquer efeito colateral inesperado advindo do outro.
@@ -651,7 +654,7 @@ Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área r
 Os procedimentos armazenados, gatilhos e UDFs são pré-compilados implicitamente para o formato de código de bytes a fim de evitar o custo de compilação no momento da invocação de cada script. Isso assegura que as invocações dos procedimentos armazenados sejam rápidas e possuam baixa pegada.
 
 ## <a name="client-sdk-support"></a>Suporte de SDK de cliente
-Além da API do DocumentDB para o cliente [Node.js](documentdb-sdk-node.md), o Azure Cosmos DB tem SDKs do [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](documentdb-sdk-python.md) para a API do DocumentDB. Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
+Além da API [Node.js](sql-api-sdk-node.md) do Azure Cosmos DB, o Azure Cosmos DB tem SDKs do [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](sql-api-sdk-python.md) também para a API do SQL. Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -684,7 +687,7 @@ Além da API do DocumentDB para o cliente [Node.js](documentdb-sdk-node.md), o A
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
-Esse exemplo mostra como usar a [API do .NET do DocumentDB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) para criar um pré-gatilho e criar um documento com o gatilho habilitado. 
+Esse exemplo mostra como usar a [API do .NET do SQL](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) para criar um pré-gatilho e criar um documento com o gatilho habilitado. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -705,7 +708,7 @@ Esse exemplo mostra como usar a [API do .NET do DocumentDB](/dotnet/api/overview
         });
 
 
-E o exemplo a seguir mostra como criar uma UDF (função definida pelo usuário) e usá-la em uma [consulta SQL da API do DocumentDB](documentdb-sql-query.md).
+E o exemplo a seguir mostra como criar uma função definida pelo usuário (UDF) e utilizá-la em uma [consulta SQL](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -802,7 +805,7 @@ Depois de criar um ou mais procedimentos armazenados, gatilhos e funções defin
 
 Você também pode achar as seguintes referências e recursos úteis em seu caminho para saber mais sobre a programação no servidor do Azure Cosmos DB:
 
-* [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md)
+* [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [Estudo do DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Criar uma definição de OpenAPI para uma função
 APIs REST geralmente são descritas usando uma definição de OpenAPI (anteriormente conhecida como um arquivo [Swagger](http://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados.
@@ -48,9 +48,17 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
 Este tutorial usa uma função acionada por HTTP que usa dois parâmetros: o tempo estimado para criar um reparo da turbina (em horas) e a capacidade de turbina (em quilowatts). A função, em seguida, calcula o custo do reparo e o valor da receita que a turbina proporcionaria em um período de 24 horas.
 
-1. Expanda seu aplicativo de funções, clique no botão **+** ao lado de **Functions** e clique no modelo **HTTPTrigger**. Digite `TurbineRepair` para a função **Nome** e clique em **Criar**.
+1. Expanda seu aplicativo de funções e selecione o botão **+** ao lado de **Functions**. Se essa for a primeira função em seu aplicativo de funções, selecione **Função personalizada**. Exibe o conjunto completo de modelos de função. 
 
-    ![Folha Aplicativos de Funções, Funções +](media/functions-openapi-definition/add-function.png)
+    ![Página de início rápido de funções no portal do Azure](media/functions-openapi-definition/add-first-function.png)
+
+2. No campo de pesquisa, digite `http` e, em seguida, escolha **C#** para o modelo de gatilho HTTP. 
+ 
+    ![Escolha o gatilho HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Digite `TurbineRepair` para sua função **Nome**, escolha `Function` para **[Nível de autenticação](functions-bindings-http-webhook.md#http-auth)** e, em seguida, selecione **Criar**.  
+
+    ![Criar a função disparada por HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Substitua o conteúdo do arquivo run.csx pelo código abaixo e clique em **Salvar**:
 
@@ -117,7 +125,7 @@ Agora você está pronto para gerar a definição de OpenAPI. Essa definição p
 
     1. Na guia **Integrar** da sua nova função do Gatilho de HTTP, altere **Métodos HTTP permitidos** para **Métodos selecionados**
 
-    1. Em **Métodos HTTP selecionados**, desmarque todas as opções, exceto **POST**.
+    1. Em **Métodos HTTP selecionados**, desmarque todas as opções, exceto **POST**, e clique em **Salvar**.
 
         ![Métodos HTTP selecionados](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -264,7 +272,7 @@ Antes de usar a definição de API, é uma boa ideia testá-la na interface do u
 
 1. Volte para a definição de API: **function-demo-energy** > **Recursos de plataforma** > **Definição de API**.
 
-1. No painel direito, clique em **Alterar autenticação**, insira a chave de API que você copiou e clique em **Autenticar**.
+1. No painel direito, clique em **Autenticar**, insira a chave de API que você copiou e clique em **Autenticar**.
 
     ![Autenticar com a chave de API](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -278,7 +286,7 @@ Antes de usar a definição de API, é uma boa ideia testá-la na interface do u
 
     Observe como a interface do usuário usa as descrições da definição de API.
 
-1. Clique em **Enviar uma solicitação**, em seguida, clique na guia **Muito** para ver a saída.
+1. Clique em **Enviar Solicitação**, em seguida, clique na guia **Muito** para ver a saída.
 
     ![Enviar uma solicitação](media/functions-openapi-definition/send-request.png)
 

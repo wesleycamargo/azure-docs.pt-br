@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Noções básicas sobre o tempo de execução do Azure IoT Edge e sua arquitetura - versão prévia
 
@@ -93,13 +93,21 @@ Cada item no dicionário de módulos contém informações específicas sobre um
    * Executando
    * Não Íntegro
    * Com falha
-   * Parada
+   * Parado
 * **restartPolicy**: como o agente do Edge reinicia um módulo. Os valores possíveis incluem:
    * Nunca: o agente do Edge nunca reinicia o módulo.
    * onFailure: se o módulo falhar, o agente do Edge o reiniciará. Se o módulo é desligado corretamente, o agente do Edge não o reinicia.
    * Não íntegro: se o módulo falha ou é considerado não íntegro, o agente do Edge o reinicia.
    * Sempre: se o módulo falha, é considerado não íntegro ou é desligado de alguma forma, o agente do Edge o reinicia. 
-   
+
+Agente do IoT Edge envia a resposta de tempo de execução para o Hub IoT. Aqui está uma lista das possíveis respostas:
+  * 200 - OK
+  * 400 - A configuração de implantação está malformada ou inválida.
+  * 417 - O dispositivo não tem uma configuração de implantação definida.
+  * 412 - A versão do esquema na configuração de implantação é inválida.
+  * 406 - O dispositivo de borda está offline ou não está enviando relatórios de status.
+  * 500 - Ocorreu um erro no tempo de execução de borda.
+
 ### <a name="security"></a>Segurança
 
 O agente do IoT Edge desempenha um papel fundamental na segurança de um dispositivo IoT Edge. Por exemplo, ele executa ações como verificar a imagem de um módulo antes de iniciá-lo. Esses recursos serão adicionados na disponibilidade geral dos recursos do V2. 

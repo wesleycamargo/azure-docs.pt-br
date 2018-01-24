@@ -1,24 +1,16 @@
 ---
-title: "Rever a arquitetura para replicação de VMware no Azure | Microsoft Docs"
+title: "Arquitetura de replicação do VMware para o Azure no Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece uma visão geral dos componentes e da arquitetura usada ao replicar VMs VMware locais para o Azure com o serviço Azure Site Recovery"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Arquitetura de replicação de VMware para o Azure
 
@@ -85,5 +77,4 @@ Quando o site primário local estiver disponível novamente, você poderá execu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine a matriz de suporte e siga o tutorial para habilitar o VMware para a replicação do Azure.
-Execute um failover e um failback.
+Siga [este tutorial](tutorial-vmware-to-azure.md) para habilitar a replicação de VMware para o Azure.

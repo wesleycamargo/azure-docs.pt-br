@@ -5,7 +5,7 @@ keywords: "conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão S
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: support-article
-ms.date: 07/06/2017
+ms.topic: article
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Etapas detalhadas de solução de problemas de SSH para problemas ao se conectar a uma VM do Linux no Azure
 Há muitas razões possíveis para que o cliente de SSH não possa acessar o serviço SSH na VM. Se tiver seguido as [etapas gerais de solução de problemas de SSH](troubleshoot-ssh-connection.md), será necessário solucionar o problema de conexão. Este artigo guiará você pelas etapas detalhadas de solução de problemas para determinar onde a conexão SSH está falhando e como resolver isso.
@@ -39,14 +39,14 @@ As etapas a seguir ajudarão você a isolar a origem da falha e encontrar soluç
 
 2. Selecione **Configurações** para examinar os pontos de extremidade, os endereços IP, os grupos de segurança de rede e outras configurações.
 
-   A VM deve ter um ponto de extremidade definido para o tráfego SSH que você pode exibir nos **Pontos de extremidade** ou no  **[Grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md)**. Os pontos de extremidade nas VMs que foram criados usando o Resource Manager são armazenados em um grupo de segurança de rede. Verifique também se as regras foram aplicadas ao grupo de segurança de rede e se elas são referenciadas na sub-rede.
+   A VM deve ter um ponto de extremidade definido para o tráfego SSH que você pode exibir nos **Pontos de extremidade** ou no  **[Grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md)**. Os pontos de extremidade nas VMs que foram criados usando o Resource Manager são armazenados em um grupo de segurança de rede. Verifique se as regras foram aplicadas ao grupo de segurança de rede e se são referenciadas na sub-rede.
 
-Para verificar a conectividade de rede, verifique os pontos de extremidade configurados e se você pode acessar a VM por meio de outro protocolo, como HTTP ou outro serviço.
+Para verificar a conectividade de rede, verifique os pontos de extremidade configurados e se você pode se conectar à VM por meio de outro protocolo, como HTTP ou outro serviço.
 
 Após essas etapas, tente estabelecer novamente a conexão SSH.
 
 ## <a name="find-the-source-of-the-issue"></a>Descobrir a origem do problema
-O cliente SSH no computador poderá não conseguir acessar o serviço SSH na VM do Azure devido aos problemas ou às configurações incorretas nas seguintes áreas:
+O cliente SSH no computador poderá não conseguir se conectar ao serviço SSH na VM do Azure devido aos problemas ou às configurações incorretas nas seguintes áreas:
 
 * [Computador cliente de SSH](#source-1-ssh-client-computer)
 * [Dispositivo de borda da organização](#source-2-organization-edge-device)
@@ -80,7 +80,7 @@ Para que o dispositivo de borda de sua organização deixe de ser a fonte da fal
 
 ![Diagrama que realça o dispositivo de borda da organização](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Se não tiver um computador que esteja diretamente conectado à Internet, crie uma nova VM do Azure em seu próprio grupo de recursos ou serviço de nuvem e usá-la. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](quick-create-cli.md). Exclua o grupo de recursos ou a VM e o serviço de nuvem ao concluir o teste.
+Se não tiver um computador que esteja diretamente conectado à Internet, crie uma nova VM do Azure em seu próprio grupo de recursos ou serviço de nuvem e use essa nova VM. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](quick-create-cli.md). Exclua o grupo de recursos ou a VM e o serviço de nuvem ao concluir o teste.
 
 Se você puder criar uma conexão SSH com um computador conectado diretamente à Internet, verifique se há o seguinte no dispositivo de borda da organização:
 
@@ -94,7 +94,7 @@ Trabalhe com o administrador da rede para corrigir as configurações dos dispos
 > [!NOTE]
 > Essa fonte aplica-se somente às VMs que foram criadas usando o modelo de implantação clássico. Para as VMs criadas com o Resource Manager, vá para [fonte 4: Grupos de segurança de rede](#nsg).
 
-Para que o ponto de extremidade de serviço de nuvem e uma ACL deixem de ser a fonte da falha, verifique que outra VM do Azure na mesma rede virtual possa fazer conexões SSH com a sua VM.
+Para que o ponto de extremidade de serviço de nuvem e uma ACL deixem de ser a fonte da falha, verifique se outra VM do Azure na mesma rede virtual pode se conectar usando SSH.
 
 ![Diagrama que realça a ACL e o ponto de extremidade do serviço de nuvem](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 

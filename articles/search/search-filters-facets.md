@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de faceta no Azure Search 
 
@@ -33,7 +33,7 @@ A navegação facetada é usada para filtragem direcionada automaticamente nos r
 
 As facetas são dinâmicas e retornadas em uma consulta. As respostas da pesquisa trazem com elas as categorias de faceta usadas para navegar pelos resultados. Se você não estiver familiarizado com facetas, o exemplo a seguir é uma ilustração de uma estrutura de navegação por faceta.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Novo com navegação por faceta e deseja mais detalhes? Consulte [Como implementar a navegação facetada no Azure Search](search-faceted-navigation.md).
 
@@ -48,7 +48,7 @@ Todos os [tipos de campo](https://docs.microsoft.com/rest/api/searchservice/supp
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (consulte [Como facetar tipos de dados complexos](#facet-complex-fields) posteriormente neste artigo.)
++ Edm.Collections
 + Tipos de campo numérico: Edm.Int32, Edm.Int64, Edm.Double
 
 Não é possível usar Edm.GeographyPoint na navegação facetada. Facetas são construídas com texto ou números legíveis para humanos. Dessa maneira, as facetas não têm suporte para coordenadas geográficas. Seria necessário um campo de cidade ou região para facetar por local.

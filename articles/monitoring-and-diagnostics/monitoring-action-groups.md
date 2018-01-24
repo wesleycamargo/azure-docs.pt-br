@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
@@ -29,7 +29,7 @@ Você pode configurar uma lista de ações com grupos de ações. Então, esses 
 Um grupo de ação pode ter até 10 ações de cada tipo. Cada ação é composta das seguintes propriedades:
 
 * **Nome:** um identificador exclusivo dentro do grupo de ações.  
-* **Tipo de ação**: enviar um SMS, enviar um email, chamar um webhook ou enviar dados para uma ferramenta de ITSM.
+* **Tipo de ação**: envie um SMS, um email, chame um webhook, envie dados para uma ferramenta ITSM, chame um aplicativo do Azure ou execute um runbook de Automação.
 * **Detalhes**: o número de telefone correspondente, o endereço de email, o URI de webhook ou os Detalhes de Conexão de ITSM.
 
 Para saber mais sobre como usar modelos do Azure Resource Manager para configurar grupos de ação, veja [Modelos do Resource Manager de grupos de ações](monitoring-create-action-group-with-resource-manager-template.md).
@@ -38,7 +38,7 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 1. No [portal](https://portal.azure.com), selecione **Monitor**. A folha **Monitor** consolida todas as suas configurações e dados em uma exibição de monitoramento.
 
     ![O serviço “Monitor”](./media/monitoring-action-groups/home-monitor.png)
-2. Na seção **Log de atividades**, selecione **Grupos de ações**.
+2. Na seção **Configurações**, selecione **Grupos de ação**.
 
     ![Na guia "Grupos de ações"](./media/monitoring-action-groups/action-groups-blade.png)
 3. Selecione **Adicionar grupo de ações** e preencha os campos.
@@ -56,14 +56,12 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
     a. **Nome**: insira um identificador exclusivo para esta ação.
 
-    b. **Tipo de Ação**: selecione SMS, email, webhook ou ITSM.
+    b. **Tipo de Ação**: selecione SMS, email, webhook, aplicativo do Azure, ITSM ou runbook de Automação.
 
-    c. **Detalhes**: de acordo com o tipo de ação, insira um número de telefone, endereço de email, URI de webhook ou os Detalhes de Conexão de ITSM. Para Ação do ITSM, além disso, especifique **Item de Trabalho** e outros campos necessários para a ferramenta de ITSM. 
+    c. **Detalhes**: de acordo com o tipo de ação, insira um número de telefone, endereço de email, URI de webhook, aplicativo do Azure, conexão de ITSM ou runbook de Automação. Para Ação do ITSM, além disso, especifique **Item de Trabalho** e outros campos necessários para a ferramenta de ITSM. 
 
-> [!NOTE]
-> Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../log-analytics/log-analytics-itsmc-overview.md). Atualmente, a Ação de ITSM funciona apenas em Alertas do Log de Atividades. Em outros tipos de alerta, essa ação é inoperante no momento.
->
->
+   > [!NOTE]
+   > Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../log-analytics/log-analytics-itsmc-overview.md). Atualmente, a Ação de ITSM funciona apenas em Alertas do Log de Atividades. Em outros tipos de alerta, essa ação é inoperante no momento.
 
 8. Selecione **OK** para criar o grupo de ações.
 

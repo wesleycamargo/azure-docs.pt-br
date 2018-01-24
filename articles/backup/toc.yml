@@ -97,6 +97,8 @@
               href: backup-azure-arm-vms.md
             - name: Fazer backup de VMs criptografadas
               href: backup-azure-vms-encryption.md
+            - name: Habilitar o backup de VM durante a criação de VM
+              href: backup-during-vm-creation.md
         - name: Gerenciar e monitorar VMs
           items:
             - name: Gerenciar backups de VM do Azure no Portal do Azure

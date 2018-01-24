@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo Web a uma Rede Virtual do Azure
 Este documento descreve o recurso de visualização de integração de rede virtual do Serviço de Aplicativo do Azure e mostra como configurá-lo com os aplicativos no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se você estiver familiarizado com VNets (Redes Virtuais do Azure), isso é um recurso que permite colocar muitos dos recursos do Azure em uma rede que não pode ser roteada pela Internet, cujo acesso você pode controlar. Essas redes podem ser conectadas às redes locais usando uma variedade de tecnologias de VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure][VNETOverview]. 
@@ -39,7 +39,7 @@ O recurso de integração VNet:
 * requer um plano de preços Standard, Premium ou Isolado 
 * funciona com VNet clássica ou do Gerenciador de Recursos 
 * dá suporte a TCP e UDP
-* funciona com aplicativos Web, móveis e de API
+* funciona com aplicativos Web, móveis, de API e aplicativos de função
 * permite que um aplicativo se conecte somente a uma VNet por vez
 * permite a integração de até cinco VNets com um Plano do Serviço de Aplicativo 
 * permite que a mesma VNet seja usada por vários aplicativos em um Plano do Serviço de Aplicativo
@@ -196,7 +196,7 @@ Devido à maneira como as VPNs Ponto a Site são tratadas, você sempre será co
 
 O último item é o custo dos gateways de VNet. Se você não precisa dos gateways para algo como VPNs Site a Site, está pagando para que eles deem suporte ao recurso Integração VNet. Há detalhes sobre esses custos aqui: [Preço de Gateway de VPN][VNETPricing]. 
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Embora o recurso seja fácil de configurar, isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas ao acessar o ponto de extremidade desejado, há utilitários que você pode usar para testar a conectividade do console do aplicativo. Há duas experiências de console que você pode usar. Uma é o console Kudu e a outra é o console que você pode acessar no Portal do Azure. Para acessar o console do Kudu em seu aplicativo, vá para Ferramentas -> Kudu. Isso é o mesmo que ir para [nomedosite].scm.azurewebsites.net. Depois de aberto, vá para a guia Console de depuração. Para obter a console hospedado no portal do Azure, em seu aplicativo, vá para Ferramentas -> Console. 
 
 #### <a name="tools"></a>Ferramentas
@@ -258,6 +258,10 @@ Agora, se sua VM hospedada na VNet puder acessar seu sistema local, mas seu apli
 * os firewalls locais estão bloqueando o tráfego do intervalo de IP Ponto a Site
 * você tem uma UDR (Rota Definida pelo Usuário) em sua VNet que impede que o tráfego baseado em Ponto a Site acesse sua rede local
 
+## <a name="powershell-automation"></a>Automação do PowerShell
+
+Você pode integrar o Serviço de Aplicativo com uma Rede Virtual do Azure usando o PowerShell. Para um script pronto para uso, consulte [Conectar um aplicativo do Azure no Serviço de Aplicativo do Azure a uma Rede Virtual do Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+
 ## <a name="hybrid-connections-and-app-service-environments"></a>Conexões híbridas e ambientes de serviço de aplicativo
 Há três recursos que habilitam o acesso a recursos hospedados em VNet. Eles são:
 
@@ -269,7 +273,7 @@ As conexões híbridas exigem que você instale um agente de retransmissão cham
 
 O recurso Ambiente de Serviço de Aplicativo permite a execução de uma instância do Serviço de Aplicativo do Azure em sua VNet. Isso permite que seus aplicativos acessem os recursos de sua VNet sem etapas adicionais. Alguns dos outros benefícios de um Ambiente de Serviço de Aplicativo é que você pode usar trabalhos com base em Dv2 com 14 GB de RAM. Outra vantagem é que você pode escalonar o sistema para atender às suas necessidades. Ao contrário dos ambientes multilocatários nos quais o ASP é limitado a 20 instâncias, em um ASE, você pode escalar verticalmente até 100 instâncias do ASP. Uma das coisas que você obtém com um ASE e que não obtém com a Integração VNet é que um Ambiente de Serviço de Aplicativo poder funcionar com uma VPN ExpressRoute. 
 
-Embora haja sobreposição de caso de uso, nenhum desses recursos pode substituir o outro. Saber qual recurso usar depende de suas necessidades. Por exemplo:
+Embora haja sobreposição de caso de uso, nenhum desses recursos pode substituir o outro. Saber qual recurso usar depende de suas necessidades. Por exemplo: 
 
 * Se você for um desenvolvedor e quiser simplesmente executar um site no Azure que acesse o banco de dados na estação de trabalho na sua mesa, a coisa mais fácil de usar é o Conexões Híbridas. 
 * Se você tem uma grande organização que deseja colocar um grande número de propriedades da Web na nuvem pública e gerenciá-las em sua própria rede, a melhor opção é o Ambiente de Serviço de Aplicativo. 
