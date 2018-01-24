@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 13e9b951c46ae1cd16c7f38d5ade8a4f8a156e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressão e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,17 +27,18 @@ ms.lasthandoff: 10/11/2017
 Este artigo fornece detalhes sobre expressões e funções com suporte pelo Azure Data Factory (versão 2). 
 
 ## <a name="introduction"></a>Introdução
-Os valores JSON na definição podem ser literais ou expressões que são avaliadas no tempo de execução. Por exemplo:  
+Os valores JSON na definição podem ser literais ou expressões que são avaliadas no tempo de execução. Por exemplo:   
   
 ```json
 "name": "value"
 ```
 
- ou o  
+ (ou)  
   
 ```json
-"name": "@parameters('password') "
+"name": "@pipeline().parameters.password"
 ```
+
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte [Funções e variáveis no Data Factory V1](v1/data-factory-functions-variables.md).
@@ -53,20 +54,96 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 |"@@"|Uma cadeia de caracteres de 1 caractere que contém '@' será retornada.|  
 |" @"|Uma cadeia de caracteres de 2 caracteres que contém ' @' será retornada.|  
   
- As expressões também podem aparecer dentro de cadeias de caracteres usando um recurso chamado *interpolação de cadeia de caracteres* em que as expressões estão encapsuladas em `@{ ... }`. Por exemplo: `"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`  
+ As expressões também podem aparecer dentro de cadeias de caracteres usando um recurso chamado *interpolação de cadeia de caracteres* em que as expressões estão encapsuladas em `@{ ... }`. Por exemplo: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- Usando interpolação de cadeia de caracteres, o resultado é sempre uma cadeia de caracteres. Digamos que defini `myNumber` como `42` e `myString` como ༖༗:  
+ Usando interpolação de cadeia de caracteres, o resultado é sempre uma cadeia de caracteres. Digamos que defini `myNumber` como `42` e `myString` como `foo`:  
   
 |Valor JSON|Result|  
 |----------------|------------|  
-|"@parameters('myString')"|Retorna `foo` como uma cadeia de caracteres.|  
-|"@{parameters('myString')}"|Retorna `foo` como uma cadeia de caracteres.|  
-|"@parameters('myNumber')"|Retorna `42` como um *número*.|  
-|"@{parameters('myNumber')}"|Retorna `42` como uma *cadeia de caracteres*.|  
-|"A resposta é: @{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: 42`.|  
-|"@concat('A resposta é: ', string(parameters('myNumber')))"|Retorna a cadeia de caracteres `Answer is: 42`|  
-|"A resposta é: @@{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: @{parameters('myNumber')}`.|  
+|"@pipeline().parameters.myString"| Retorna `foo` como uma cadeia de caracteres.|  
+|"@{pipeline().parameters.myString}"| Retorna `foo` como uma cadeia de caracteres.|  
+|"@pipeline().parameters.myNumber"| Retorna `42` como um *número*.|  
+|"@{pipeline().parameters.myNumber}"| Retorna `42` como uma *cadeia de caracteres*.|  
+|"A resposta é: @{pipeline().parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: 42`.|  
+|"@concat('A resposta é: ', string(pipeline().parameters.myNumber))"| Retorna a cadeia de caracteres `Answer is: 42`|  
+|"A resposta é: @@{pipeline().parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: @{pipeline().parameters.myNumber}`.|  
   
+### <a name="examples"></a>Exemplos
+
+#### <a name="a-dataset-with-a-parameter"></a>Um conjunto de dados com um parâmetro
+No exemplo a seguir, o BlobDataset usa um parâmetro denominado **path**. Seu valor é usado para definir um valor para a propriedade **folderPath** usando as seguintes expressões: `@{dataset().path}`. 
+
+```json
+{
+    "name": "BlobDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "@dataset().path"
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "path": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
+
+#### <a name="a-pipeline-with-a-parameter"></a>Um pipeline com um parâmetro
+No exemplo a seguir, o pipeline usa os parâmetros **inputPath** e **outputPath**. O **path** para o conjunto de dados de blob com parâmetros é definido usando os valores desses parâmetros. A sintaxe usada aqui é: `pipeline().parameters.parametername`. 
+
+```json
+{
+    "name": "Adfv2QuickStartPipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.inputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.outputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                }
+            }
+        ],
+        "parameters": {
+            "inputPath": {
+                "type": "String"
+            },
+            "outputPath": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
   
 ## <a name="functions"></a>Funções  
  Você pode chamar funções dentro de expressões. As seções a seguir fornecem informações sobre as funções que podem ser usados em uma expressão.  
@@ -74,11 +151,11 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 ## <a name="string-functions"></a>Funções de cadeia de caracteres  
  As funções a seguir se aplicam somente a cadeias de caracteres. Você também pode usar um número das funções de coleção em cadeias de caracteres.  
   
-|Nome da função|Descrição|  
+|Nome da função|DESCRIÇÃO|  
 |-------------------|-----------------|  
-|concat|Combina qualquer número de cadeias de caracteres. Por exemplo, se parameter1 for `foo,`, a expressão a seguir retornará `somevalue-foo-somevalue`: `concat('somevalue-',parameters('parameter1'),'-somevalue')`<br /><br /> **Número do parâmetro**: 1 ... *n*<br /><br /> **Nome**: cadeia de caracteres *n*<br /><br /> **Descrição**: Obrigatório. As cadeias de caracteres para combinar em uma única cadeia de caracteres.|  
+|concat|Combina qualquer número de cadeias de caracteres. Por exemplo, se parameter1 for `foo,`, a expressão a seguir retornará `somevalue-foo-somevalue`: `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Número do parâmetro**: 1 ... *n*<br /><br /> **Nome**: cadeia de caracteres *n*<br /><br /> **Descrição**: Obrigatório. As cadeias de caracteres para combinar em uma única cadeia de caracteres.|  
 |substring|Retorna um subconjunto de caracteres de uma cadeia de caracteres. Por exemplo, a expressão a seguir:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> retorna:<br /><br /> `foo`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres original da qual é obtida a subcadeia de caracteres.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Índice inicial<br /><br /> **Descrição**: Obrigatório. O índice de onde a subcadeia de caracteres começa no parâmetro 1.<br /><br /> **Número do parâmetro**: 3<br /><br /> **Nome**: Comprimento<br /><br /> **Descrição**: Obrigatório. Comprimento da subcadeia de caracteres.|  
-|substitui|Substitui uma cadeia de caracteres por uma determinada sequência de caracteres. Por exemplo, a expressão:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> retorna:<br /><br /> `the new string`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: cadeia de caracteres<br /><br /> **Descrição**: Obrigatório.  Se parâmetro 2 for encontrado no parâmetro 1, a cadeia de caracteres pesquisada para o parâmetro 2 e atualizada com o parâmetro 3.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Cadeia de caracteres antiga<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres para substituir o parâmetro 3, quando uma correspondência é encontrada no parâmetro 1<br /><br /> **Número do parâmetro**: 3<br /><br /> **Nome**: Cadeia de caracteres nova<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres usada para substituir a cadeia de caracteres no parâmetro 2, quando uma correspondência é encontrada no parâmetro 1.|  
+|substituir|Substitui uma cadeia de caracteres por uma determinada sequência de caracteres. Por exemplo, a expressão:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> retorna:<br /><br /> `the new string`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: cadeia de caracteres<br /><br /> **Descrição**: Obrigatório.  Se parâmetro 2 for encontrado no parâmetro 1, a cadeia de caracteres pesquisada para o parâmetro 2 e atualizada com o parâmetro 3.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Cadeia de caracteres antiga<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres para substituir o parâmetro 3, quando uma correspondência é encontrada no parâmetro 1<br /><br /> **Número do parâmetro**: 3<br /><br /> **Nome**: Cadeia de caracteres nova<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres usada para substituir a cadeia de caracteres no parâmetro 2, quando uma correspondência é encontrada no parâmetro 1.|  
 |GUID| Gera uma cadeia de caracteres global exclusiva (também conhecida como guid). Por exemplo, a saída a seguir pode ser gerada `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Formato<br /><br /> **Descrição**: Opcional. Um especificador de formato único que indica [como formatar o valor desse Guid](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). O parâmetro de formato pode ser "N", "D", "B", "P" ou "X". Se o formato não for fornecido, "D" é usado.|  
 |toLower|Converte uma cadeia de caracteres em letras minúsculas. Por exemplo, o seguinte retorna `two by two is four`: `toLower('Two by Two is Four')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres a ser convertida em letras minúsculas. Se um caractere na cadeia de caracteres não tiver um equivalente em letras minúsculas, ele será incluído inalterado na cadeia de caracteres retornada.|  
 |toUpper|Converte uma cadeia de caracteres em letras maiúsculas. Por exemplo, a expressão a seguir retorna `TWO BY TWO IS FOUR`: `toUpper('Two by Two is Four')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres a ser convertida em letras maiúsculas. Se um caractere na cadeia de caracteres não tiver um equivalente em letras maiúsculas, ele será incluído inalterado na cadeia de caracteres retornada.|  
@@ -92,7 +169,7 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 ## <a name="collection-functions"></a>Funções de coleção  
  Essas funções operam em coleções como matrizes, cadeias de caracteres e, às vezes, dicionários.  
   
-|Nome da função|Descrição|  
+|Nome da função|DESCRIÇÃO|  
 |-------------------|-----------------|  
 |contains|Retorna true se o dicionário contém uma chave, se a lista contém um valor ou a cadeia de caracteres contém uma subcadeia de caracteres. Por exemplo, a expressão a seguir retorna `true:``contains('abacaba','aca')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Dentro da coleção<br /><br /> **Descrição**: Obrigatório. A coleção a ser pesquisada.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Encontrar objeto<br /><br /> **Descrição**: Obrigatório. O objeto a ser encontrado dentro de **Na coleção**.|  
 |length|Retorna o número de elementos em uma matriz ou cadeia de caracteres. Por exemplo, a expressão a seguir retorna `3`: `length('abc')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Coleção<br /><br /> **Descrição**: Obrigatório. A coleção para obter o comprimento.|  
@@ -107,9 +184,9 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 ## <a name="logical-functions"></a>Funções lógicas  
  Essas funções são úteis em condições e podem ser usadas para avaliar qualquer tipo de lógica.  
   
-|Nome da função|Descrição|  
+|Nome da função|DESCRIÇÃO|  
 |-------------------|-----------------|  
-|equals|Retorna true se dois valores são iguais. Por exemplo, se parameter1 for foo, a expressão a seguir retornará `true`: `equals(parameters('parameter1'), 'foo')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Objeto 1<br /><br /> **Descrição**: Obrigatório. O objeto a ser comparado com o **Objeto 2**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Objeto 2<br /><br /> **Descrição**: Obrigatório. O objeto a ser comparado ao **Objeto 1**.|  
+|equals|Retorna true se dois valores são iguais. Por exemplo, se parameter1 for foo, a expressão a seguir retornará `true`: `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Objeto 1<br /><br /> **Descrição**: Obrigatório. O objeto a ser comparado com o **Objeto 2**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Objeto 2<br /><br /> **Descrição**: Obrigatório. O objeto a ser comparado ao **Objeto 1**.|  
 |less|Retorna true se o primeiro argumento for menor do que o segundo. Observe que os valores só podem ser do tipo inteiro, float ou cadeia de caracteres. Por exemplo, a expressão a seguir retorna `true`: `less(10,100)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Objeto 1<br /><br /> **Descrição**: Obrigatório. O objeto para verificar se é menor que o **Objeto 2**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Objeto 2<br /><br /> **Descrição**: Obrigatório. O objeto para verificar se é maior que o **Objeto 1**.|  
 |lessOrEquals|Retorna true se o primeiro argumento for menor ou igual ao segundo. Observe que os valores só podem ser do tipo inteiro, float ou cadeia de caracteres. Por exemplo, a expressão a seguir retorna `true`: `lessOrEquals(10,10)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Objeto 1<br /><br /> **Descrição**: Obrigatório. O objeto para verificar se é menor ou igual ao **Objeto 2**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Objeto 2<br /><br /> **Descrição**: Obrigatório. O objeto para verificar se é maior ou igual ao **Objeto 1**.|  
 |greater|Retorna true se o primeiro argumento for maior do que o segundo. Observe que os valores só podem ser do tipo inteiro, float ou cadeia de caracteres. Por exemplo, a expressão a seguir retorna `false`: `greater(10,10)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Objeto 1<br /><br /> **Descrição**: Obrigatório. O objeto para verificar se é maior que o **Objeto 2**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Objeto 2<br /><br /> **Descrição**: Obrigatório. O objeto para verificar se é menor que o **Objeto 1**.|  
@@ -128,20 +205,20 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
   
 -   flutuante  
   
--   Booliano  
+-   booleano  
   
 -   matrizes  
   
 -   dicionários  
   
-|Nome da função|Descrição|  
+|Nome da função|DESCRIÇÃO|  
 |-------------------|-----------------|  
 |int|Converta o parâmetro em um inteiro. Por exemplo, a expressão a seguir retorna 100 como um número, em vez de como uma cadeia de caracteres: `int('100')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor que é convertido em um inteiro.|  
-|string|Converta o parâmetro em uma cadeia de caracteres. Por exemplo, a expressão a seguir retorna `'10'`: `string(10)`. Você também pode converter um objeto em uma cadeia de caracteres, por exemplo, se o parâmetro **foo** for um objeto com uma propriedade `bar : baz`, o seguinte retornará `{"bar" : "baz"}` `string(parameters('foo'))`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor que é convertido em uma cadeia de caracteres.|  
+|string|Converta o parâmetro em uma cadeia de caracteres. Por exemplo, a expressão a seguir retorna `'10'`: `string(10)`. Você também pode converter um objeto em uma cadeia de caracteres, por exemplo, se o parâmetro **foo** for um objeto com uma propriedade `bar : baz`, o seguinte retornará `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor que é convertido em uma cadeia de caracteres.|  
 |json|Converter o parâmetro para um valor de tipo JSON. É o oposto de cadeia de caracteres(). Por exemplo, a expressão a seguir retorna `[1,2,3]` como uma matriz, em vez de uma cadeia de caracteres:<br /><br /> `parse('[1,2,3]')`<br /><br /> Da mesma forma, você pode converter uma cadeia de caracteres em um objeto. Por exemplo, `json('{"bar" : "baz"}')` retorna:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres que é convertida em um valor de tipo nativo.<br /><br /> A função json dá suporte a entrada xml também. Por exemplo, o valor do parâmetro de:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o json a seguir:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |flutuante|Converte o argumento do parâmetro para um número de ponto flutuante. Por exemplo, a expressão a seguir retorna `10.333`: `float('10.333')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor é convertido em um número de ponto flutuante.|  
 |bool|Converte o parâmetro em um booliano. Por exemplo, a expressão a seguir retorna `false`: `bool(0)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor que é convertido em um booliano.|  
-|coalesce|Retorna o primeiro objeto não nulos nos argumentos passados. Observação: uma cadeia de caracteres vazia não é nula. Por exemplo, se os parâmetros 1 e 2 não forem definidos, isso retornará `fallback`: `coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')`<br /><br /> **Número do parâmetro**: 1 ... *n*<br /><br /> **Nome**: Objeto*n*<br /><br /> **Descrição**: Obrigatório. Os objetos a serem verificados em relação a `null`.|  
+|coalesce|Retorna o primeiro objeto não nulos nos argumentos passados. Observação: uma cadeia de caracteres vazia não é nula. Por exemplo, se os parâmetros 1 e 2 não forem definidos, isso retornará `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número do parâmetro**: 1 ... *n*<br /><br /> **Nome**: Objeto*n*<br /><br /> **Descrição**: Obrigatório. Os objetos a serem verificados em relação a `null`.|  
 |base64|Retorna a representação base64 da cadeia de caracteres de entrada. Por exemplo, a expressão a seguir retorna `c29tZSBzdHJpbmc=`: `base64('some string')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres 1<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres para codificar em uma representação base64.|  
 |base64ToBinary|Retorna uma representação binária de uma cadeia de caracteres codificada em base64. Por exemplo, a expressão a seguir retorna a representação binária de alguma cadeia de caracteres: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres codificada em base64.|  
 |base64ToString|Retorna uma representação de cadeia de caracteres de uma cadeia de caracteres codificada em base64. Por exemplo, a expressão a seguir retorna alguma cadeia de caracteres: `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres<br /><br /> **Descrição**: Obrigatório. A cadeia de caracteres codificada em base64.|  
@@ -157,16 +234,16 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 |uriComponentToBinary|Retorna uma representação binária de uma cadeia de caracteres codificada em URI. Por exemplo, a expressão a seguir retorna uma representação binária de `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Cadeia de caracteres<br /><br />**Descrição**: Obrigatório. Cadeia de caracteres codificada em URI.|  
 |uriComponentToString|Retorna uma representação de cadeia de caracteres de uma cadeia de caracteres codificada em URI. Por exemplo, a expressão a seguir retorna `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Número do parâmetro**: 1<br /><br />**Nome**: Cadeia de caracteres<br /><br />**Descrição**: Obrigatório. Cadeia de caracteres codificada em URI.|  
 |xml|Retorna uma representação XML do valor. Por exemplo, a expressão a seguir retorna um conteúdo xml representado por `'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`. A função xml também dá suporte à entrada de objeto JSON. Por exemplo, o parâmetro `{ "abc": "xyz" }` é convertido em um conteúdo xml `\<abc>xyz\</abc>`<br /><br /> **Número do parâmetro**: 1<br /><br />**Nome**: Valor<br /><br />**Descrição**: Obrigatório. O valor a ser convertido para XML.|  
-|xpath|Retorna uma matriz de nós xml que corresponde à expressão xpath de um valor que avalia a expressão xpath.<br /><br />  **Exemplo 1**<br /><br /> Suponha que o valor do parâmetro ‘p1’ é uma representação do XML a seguir:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Esse código: `xpath(xml(parameters('p1'), '/lab/robot/name')`<br /><br /> retornaria<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> enquanto<br /><br /> 2. Esse código: `xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')`<br /><br /> retornaria<br /><br /> `13`<br /><br /> <br /><br /> **Exemplo 2**<br /><br /> Dado o conteúdo XML a seguir:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Esse código: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> ou o<br /><br /> 2. Esse código: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> retorna<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> e<br /><br /> 3. Esse código: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> retorna<br /><br /> ``bar``<br /><br /> **Número do parâmetro**: 1<br /><br />**Nome**: Xml<br /><br />**Descrição**: Obrigatório. O XML onde é avaliada a expressão XPath.<br /><br /> **Número do parâmetro**: 2<br /><br />**Nome**: XPath<br /><br />**Descrição**: Obrigatório. A expressão XPath a ser avaliada.|  
-|array|Converte o parâmetro em uma matriz.  Por exemplo, a expressão a seguir retorna `["abc"]`: `array('abc')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor que é convertido em uma matriz.|
+|xpath|Retorna uma matriz de nós xml que corresponde à expressão xpath de um valor que avalia a expressão xpath.<br /><br />  **Exemplo 1**<br /><br /> Suponha que o valor do parâmetro ‘p1’ é uma representação do XML a seguir:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Esse código: `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> retornaria<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> enquanto<br /><br /> 2. Esse código: `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> retornaria<br /><br /> `13`<br /><br /> <br /><br /> **Exemplo 2**<br /><br /> Dado o conteúdo XML a seguir:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Esse código: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> ou o<br /><br /> 2. Esse código: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> retorna<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> e<br /><br /> 3. Esse código: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> retorna<br /><br /> ``bar``<br /><br /> **Número do parâmetro**: 1<br /><br />**Nome**: Xml<br /><br />**Descrição**: Obrigatório. O XML onde é avaliada a expressão XPath.<br /><br /> **Número do parâmetro**: 2<br /><br />**Nome**: XPath<br /><br />**Descrição**: Obrigatório. A expressão XPath a ser avaliada.|  
+|matriz|Converte o parâmetro em uma matriz.  Por exemplo, a expressão a seguir retorna `["abc"]`: `array('abc')`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Valor<br /><br /> **Descrição**: Obrigatório. O valor que é convertido em uma matriz.|
 |createArray|Cria uma matriz de parâmetros.  Por exemplo, a expressão a seguir retorna `["a", "c"]`: `createArray('a', 'c')`<br /><br /> **Número do parâmetro**: 1 ... n<br /><br /> **Nome**: Qualquer n<br /><br /> **Descrição**: Obrigatório. Os valores a serem combinados em uma matriz.|
 
 ## <a name="math-functions"></a>Funções matemáticas  
  Essas funções podem ser usadas para qualquer um dos tipos de números: **inteiros** e **floats**.  
   
-|Nome da função|Descrição|  
+|Nome da função|DESCRIÇÃO|  
 |-------------------|-----------------|  
-|adicionar|Retorna o resultado da adição de dois números. Por exemplo, essa função retorna `20.333`: `add(10,10.333)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Soma 1<br /><br /> **Descrição**: Obrigatório. O número a ser adicionar à **Soma 2**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Soma 2<br /><br /> **Descrição**: Obrigatório. O número a ser adicionar à **Soma 1**.|  
+|Adicionar|Retorna o resultado da adição de dois números. Por exemplo, essa função retorna `20.333`: `add(10,10.333)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Soma 1<br /><br /> **Descrição**: Obrigatório. O número a ser adicionar à **Soma 2**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Soma 2<br /><br /> **Descrição**: Obrigatório. O número a ser adicionar à **Soma 1**.|  
 |sub|Retorna o resultado da subtração de dois números. Por exemplo, essa função retorna: `-0.333`:<br /><br /> `sub(10,10.333)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Minuendo<br /><br /> **Descrição**: Obrigatório. O número de onde é removido o **Subtraendo**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Subtraendo<br /><br /> **Descrição**: Obrigatório. O número a ser removido do **Minuendo**.|  
 |mul|Retorna o resultado da multiplicação de dois números. Por exemplo, o seguinte retorna `103.33`:<br /><br /> `mul(10,10.333)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Multiplicando 1<br /><br /> **Descrição**: Obrigatório. O número a ser multiplicado pelo **Multiplicando 2**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Multiplicando 2<br /><br /> **Descrição**: Obrigatório. O número a ser multiplicado pelo **Multiplicando 1**.|  
 |div|Retorna o resultado da divisão de dois números. Por exemplo, o seguinte retorna `1.0333`:<br /><br /> `div(10.333,10)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Dividendo<br /><br /> **Descrição**: Obrigatório. O número a ser dividido pelo **Divisor**.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Divisor<br /><br /> **Descrição**: Obrigatório. O número para o qual o **Dividendo** será dividido.|  
@@ -178,7 +255,7 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
   
 ## <a name="date-functions"></a>Funções de data  
   
-|Nome da função|Descrição|  
+|Nome da função|DESCRIÇÃO|  
 |-------------------|-----------------|  
 |utcnow|Retorna o carimbo de data/hora atual como uma cadeia de caracteres. Por exemplo `2015-03-15T13:27:36Z`:<br /><br /> `utcnow()`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Formato<br /><br /> **Descrição**: Opcional. Um [caractere do especificador de formato único](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor desse carimbo de data/hora. Se o formato não for fornecido, o formato ISO 8601 ("o") será usado.|  
 |addseconds|Adiciona um número inteiro de segundos a um carimbo de data/hora de cadeia de caracteres passado. O número de segundos pode ser positivo ou negativo. O resultado é uma cadeia de caracteres no formato ISO 8601 ("o") por padrão, a menos que um especificador de formato seja fornecido. Por exemplo `2015-03-15T13:27:00Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -36)`<br /><br /> **Número do parâmetro**: 1<br /><br /> **Nome**: Carimbo de data/hora<br /><br /> **Descrição**: Obrigatório. Uma cadeia de caracteres que contém a hora.<br /><br /> **Número do parâmetro**: 2<br /><br /> **Nome**: Segundos<br /><br /> **Descrição**: Obrigatório. O número de segundos a serem adicionados. Pode ser negativo para subtrair segundos.<br /><br /> **Número do parâmetro**: 3<br /><br /> **Nome**: Formato<br /><br /> **Descrição**: Opcional. Um [caractere do especificador de formato único](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor desse carimbo de data/hora. Se o formato não for fornecido, o formato ISO 8601 ("o") será usado.|  

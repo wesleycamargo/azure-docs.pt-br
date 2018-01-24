@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 9/06/2017
+ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Criando aplicativos altamente disponíveis usando RA-GRS
 
@@ -26,7 +26,7 @@ Um recurso comum das infraestruturas baseadas em nuvem como o Armazenamento do A
 
 O Armazenamento do Azure oferece quatro opções de redundância de dados em sua conta de armazenamento:
 
-– LRS (Armazenamento com Redundância Local)
+- LRS (Armazenamento com Redundância Local)
 - ZRS (Armazenamento com Redundância de Zona) 
 - GRS (Armazenamento com Redundância Geográfica)
 - RA-GRS (armazenamento com redundância geográfica com acesso de leitura). 
@@ -208,8 +208,8 @@ A tabela a seguir mostra um exemplo do que pode acontecer quando você atualiza 
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transação A: <br> Inserir funcionário <br> entidade no principal |                                   |                    | Transação A inserida no primário,<br> ainda não replicada. |
 | T1       |                                                            | Transação A <br> replicada para<br> secundário | T1 | A transação A foi replicada para o secundário. <br>Hora da Última Sincronização atualizada.    |
-| T2       | Transação B:<br>Atualização<br> entidade de funcionário<br> no principal  |                                | T1                 | Transação B gravada no principal,<br> ainda não replicada.  |
-| T3       | Transação C:<br> Atualização <br>administrator<br>entidade de função em<br>primary |                    | T1                 | Transação C gravada no principal,<br> ainda não replicada.  |
+| T2       | Transação B:<br>Atualizar<br> entidade de funcionário<br> no principal  |                                | T1                 | Transação B gravada no principal,<br> ainda não replicada.  |
+| T3       | Transação C:<br> Atualizar <br>administrator<br>entidade de função em<br>primary |                    | T1                 | Transação C gravada no principal,<br> ainda não replicada.  |
 | *T4*     |                                                       | Transação C <br>replicada para<br> secundário | T1         | Transação C replicada para o secundário.<br>LastSyncTime não atualizado porque <br>a transação B ainda não foi replicada.|
 | *T5*     | Ler entidades <br>de secundário                           |                                  | T1                 | Você obtém o valor obsoleto para a entidade de funcionário <br> porque a transação B não foi <br> replicada ainda. Você obtém o novo valor para<br> a entidade de função de administrador porque C foi<br> replicada. A Hora da Última Sincronização ainda não<br> foi atualizada porque a transação B<br> não foi replicada. Você pode ver que a<br>entidade da função de administrador está inconsistente <br>porque a data/hora da entidade é posterior <br>à Hora da Última Sincronização. |
 | *T6*     |                                                      | Transação B<br> replicada para<br> secundário | T6                 | *T6* – todas as transações até C <br>foram replicadas; a Hora da Última Sincronização<br> foi atualizada. |

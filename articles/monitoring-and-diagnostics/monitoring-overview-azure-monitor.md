@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Visão geral do Azure Monitor
 Este artigo fornece uma visão geral do Serviço do Azure Monitor no Microsoft Azure. Ele aborda o que o Azure Monitor faz e fornece ponteiros para informações adicionais sobre como usar o Azure Monitor.  Se preferir uma introdução em vídeo, consulte os links em Próximas etapas no final deste artigo. 
@@ -43,7 +43,7 @@ A página é um ponto de partida para a navegação, incluindo a integração. E
 
 Ao abrir a página, selecione uma entre as assinaturas às quais você tem acesso de leitura. Para uma assinatura selecionada, você poderá ver:
 
-- **Alertas disparados e fontes de alerta** – essa tabela mostra as contagens resumidas, as fontes de alerta e quantas vezes os alertas foram disparados na duração selecionada. Ela se aplica alertas de métricas e do log de atividades.
+- **Alertas disparados e fontes de alerta** – essa tabela mostra as contagens resumidas, as fontes de alerta e quantas vezes os alertas foram disparados na duração selecionada. Ela se aplica alertas de métricas e do log de atividades. *<Editar: Alertas (Versão prévia) com a experiência unificada também são mostrados para todos os alertas - eventos, métricas e logs>*
 - **Erros do Log de Atividades** – se um dos recursos do Azure registrar eventos com uma gravidade em nível de erro, você poderá exibir uma contagem de alto nível e clicar para acessar a página do log de atividades para investigar cada evento.
 - **Integridade do Serviço do Azure** – você pode ver uma contagem de problemas do serviço de Integridade do Serviço, eventos de manutenção planejada e avisos de integridade. A Integridade do Serviço do Azure fornece informações personalizadas quando problemas na infraestrutura do Azure afetam os serviços.  Consulte [Integridade do Serviço do Azure](../service-health/service-health-overview.md) para obter mais informações.  
 - **Application Insights** – consulte os KPIs de cada recurso do AppInsights na assinatura atual. Os KPIs são otimizados para o monitoramento de aplicativos do lado do servidor em tipos de aplicativo ASP.NET, aplicativos Web, Java, Node e Geral. Os KPIs incluem métricas de taxa de solicitação, duração da resposta, taxa de falha e % de disponibilidade. 
@@ -55,6 +55,7 @@ Caso você não tenha feito a integração ao Log Analytics ou ao Application In
 ## <a name="azure-monitor-sources---compute-subset"></a>Fontes do Azure Monitor – subconjunto de Computação
 
 ![Modelo para o monitoramento e diagnóstico dos recursos não de computação](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+
 
 Os serviços de Computação listados aqui incluem 
 - Serviços de Nuvem 
@@ -124,13 +125,13 @@ Algumas formas de usar esses dados:
 ### <a name="query"></a>Consultar
 Você pode usar a API REST do Azure Monitor, comandos de CLI (interface de linha de comando) entre plataformas, cmdlets do PowerShell ou o SDK do .NET para acessar os dados no sistema ou no armazenamento do Azure
 
-Alguns exemplos incluem: 
+Os exemplos incluem:
 
 * Obtendo dados para um aplicativo de monitoramento personalizado escrito por você
 * Criando consultas personalizadas e enviando esses dados para um aplicativo de terceiros.
 
 ### <a name="visualize"></a>Visualizar
-Visualizar os dados de monitoramento em gráficos ajuda a localizar tendências mais rapidamente do que examinar os dados em si.  
+Visualizar os dados de monitoramento em grafos ajuda a localizar tendências mais rapidamente do que examinar os dados em si.  
 
 Alguns métodos de visualização incluem:
 
@@ -141,7 +142,10 @@ Alguns métodos de visualização incluem:
 
 
 ### <a name="automate"></a>Automatizar
-Você pode usar os dados de monitoramento para disparar alertas ou até processos inteiros. Os exemplos incluem:
+> [!NOTE]
+> Como parte da evolução contínua de Alertas no Microsoft Azure, agora há uma experiência unificada para o alerta em versão prévia. Obtenha mais detalhes sobre [Alertas do Azure (Versão prévia)](monitoring-overview-unified-alerts.md)
+
+Nos Alertas do Azure padrão, você pode usar os dados de monitoramento para disparar alertas ou até processos inteiros. Os exemplos incluem:
 
 * Use os dados para dimensionar automaticamente as instâncias de computação com base na carga do aplicativo.
 * Envie emails quando uma métrica passar de um limite predeterminado.

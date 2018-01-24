@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f2bf857d2618a8cfe7094c7f3124be20db3ff39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>Ajudar a proteger aplicativos de página única AngularJS usando o AD do Azure
+# <a name="azure-ad-angularjs-getting-started"></a>Introdução ao AngularJS do Azure AD
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -49,7 +49,7 @@ Para permitir que seu aplicativo autentique usuários e obtenha tokens, primeiro
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Se você entrar em vários diretórios, precisará garantir que está exibindo o diretório correto. Para fazer isso, na barra superior, clique em sua conta. Sob o **diretório** lista, escolha o locatário do AD do Azure onde você deseja registrar seu aplicativo.
 3. Clique em **Mais Serviços** no painel esquerdo e selecione **Azure Active Directory**.
-4. Clique em **Registros do aplicativo**e, em seguida, selecione **Adicionar**.
+4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Siga os prompts e crie um novo aplicativo Web e/ou API Web:
   * **Nome** descreve seu aplicativo para os usuários.
   * O **URI de redirecionamento** é o local no qual o AAD retornará tokens. O local padrão deste exemplo é `https://localhost:44326/`.
@@ -154,7 +154,7 @@ O aplicativo de página única integrado ao AD do Azure pode autenticar os usuá
 
 Adal.js facilita a incorporar recursos comuns de identidade em seu aplicativo. Ele se encarrega de todo o trabalho difícil para você - gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma IU de entrada ao usuário, atualização de tokens expirados e mais.
 
-Para referência, o exemplo concluído (sem seus valores de configuração) está disponível no [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
+Para referência, a amostra concluída (sem seus valores de configuração) está disponível no [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode passar para cenários de adicionais. Você talvez queira: [chamar uma API da web CORS de um aplicativo de página única](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).

@@ -2,18 +2,19 @@
 title: "Análise da coleção de documentos – Azure | Microsoft Docs"
 description: "Como resumir e analisar um grande conjunto de documentos, incluindo técnicas como aprendizado de frase, modelagem de tópico e análise de modelos de tópico usando o Azure ML Workbench."
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="document-collection-analysis"></a>Análise da coleção de documentos
 
@@ -53,7 +54,7 @@ As técnicas/algoritmos de aprendizado de máquina usados neste cenário incluem
 
 1. Tendências tópicas e detecção de anomalias
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os pré-requisitos para executar este exemplo são os seguintes:
 
@@ -82,17 +83,17 @@ Neste cenário, os dados brutos coletados são uma série de ações legislativa
 
 Há nove campos de dados no arquivo de dados. Os nomes e as descrições do campo de dados são listados da seguinte maneira.
 
-| Nome do campo | Tipo | Descrição | Contém o valor ausente |
+| Nome do campo | type | DESCRIÇÃO | Contém o valor ausente |
 |------------|------|-------------|---------------|
-| `ID` | Cadeia de caracteres | A ID do projeto de lei/resolução. O formato deste campo é [tipo_do_projeto_de_lei] [número]-[congresso]. Por exemplo, "hconres1-93" significa que o tipo de projeto de lei é "hconres" (sigla para Resolução simultânea da casa, consulte [este documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), o número do projeto de lei é '1' e o número do Congresso é '93'. | Não |
-| `Text` | Cadeia de caracteres | O conteúdo do projeto de lei/resolução. | Não |
-| `Date` | Cadeia de caracteres | A data em que o projeto de lei/resolução foi inicialmente proposto. Em um formato de 'aaaa-mm-dd'. | Não |
-| `SponsorName` | Cadeia de caracteres | O nome do principal responsável que propôs o projeto de lei/resolução. | Sim |
-| `Type` | Cadeia de caracteres | O tipo do título do responsável principal, 'rep' (deputado) ou 'sen' (senador). | Sim |
-| `State` | Cadeia de caracteres | O estado do responsável principal. | Sim |
-| `District` | Número inteiro | O número do distrito do responsável principal se o título do responsável for deputado. | Sim |
-| `Party` | Cadeia de caracteres | O partido do responsável principal. | Sim |
-| `Subjects` | Cadeia de caracteres | Os termos de assunto adicionados cumulativamente pela Biblioteca do Congresso ao projeto de lei. Os termos são concatenados por vírgulas. Esses termos são escritos por uma pessoa na Biblioteca do Congresso e geralmente não estão presentes quando as informações no projeto de lei são publicadas pela primeira vez. Eles podem ser adicionados a qualquer momento. Portanto, no final da vida útil de um projeto de lei, talvez alguns assuntos possam não ser mais relevantes. | Sim |
+| `ID` | Cadeia de caracteres | A ID do projeto de lei/resolução. O formato deste campo é [tipo_do_projeto_de_lei] [número]-[congresso]. Por exemplo, "hconres1-93" significa que o tipo de projeto de lei é "hconres" (sigla para Resolução simultânea da casa, consulte [este documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), o número do projeto de lei é '1' e o número do Congresso é '93'. | Não  |
+| `Text` | Cadeia de caracteres | O conteúdo do projeto de lei/resolução. | Não  |
+| `Date` | Cadeia de caracteres | A data em que o projeto de lei/resolução foi inicialmente proposto. Em um formato de 'aaaa-mm-dd'. | Não  |
+| `SponsorName` | Cadeia de caracteres | O nome do principal responsável que propôs o projeto de lei/resolução. | sim |
+| `Type` | Cadeia de caracteres | O tipo do título do responsável principal, 'rep' (deputado) ou 'sen' (senador). | sim |
+| `State` | Cadeia de caracteres | O estado do responsável principal. | sim |
+| `District` | Número inteiro | O número do distrito do responsável principal se o título do responsável for deputado. | sim |
+| `Party` | Cadeia de caracteres | O partido do responsável principal. | sim |
+| `Subjects` | Cadeia de caracteres | Os termos de assunto adicionados cumulativamente pela Biblioteca do Congresso ao projeto de lei. Os termos são concatenados por vírgulas. Esses termos são escritos por uma pessoa na Biblioteca do Congresso e geralmente não estão presentes quando as informações no projeto de lei são publicadas pela primeira vez. Eles podem ser adicionados a qualquer momento. Portanto, no final da vida útil de um projeto de lei, talvez alguns assuntos possam não ser mais relevantes. | sim |
 
 ## <a name="scenario-structure"></a>Estrutura do cenário
 
@@ -100,7 +101,7 @@ O exemplo de análise de coleção de documentos é organizado em dois tipos de 
 
 Os arquivos neste exemplo são organizados da seguinte maneira.
 
-| Nome do Arquivo | Tipo | Descrição |
+| Nome do Arquivo | type | DESCRIÇÃO |
 |-----------|------|-------------|
 | `aml_config` | Pasta | Pasta de configuração do Azure Machine Learning Workbench, consulte [esta documentação](./experimentation-service-configuration-reference.md) para obter configuração de execução de experimento detalhada |
 | `Code` | Pasta | A pasta de código usada para salvar os scripts Python e o pacote Python |

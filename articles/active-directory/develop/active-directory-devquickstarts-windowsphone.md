@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5edaee6a4adedc440b16e936462df5e224fe8609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Integrar o AD do Azure com um aplicativo do Windows Phone
+# <a name="azure-ad-windows-phone-getting-started"></a>Introdução ao Windows Phone do Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 > [!NOTE]
-> Não há suporte para projetos do Windows Phone 8.1 e de versões anteriores no Visual Studio 2017.  Para obter mais informações, consulte [Direcionamento e compatibilidade da plataforma Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Não há suporte para projetos do Windows Phone 8.1 e versões anteriores no Visual Studio 2017.  Para obter mais informações, consulte [Direcionamento e compatibilidade da plataforma Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 Se você estiver desenvolvendo um aplicativo do Windows Phone 8.1, o Azure AD torna simples e direto autenticar os usuários com suas contas do Active Directory.  Ele também permite que seu aplicativo consuma com segurança qualquer API da Web protegida pelo AD do Azure, como as APIs do Office 365 ou a API do Azure.
 
@@ -36,7 +36,7 @@ Se você estiver desenvolvendo um aplicativo do Windows Phone 8.1, o Azure AD to
 > 
 > 
 
-Para clientes nativos .NET que precisam acessar recursos protegidos, o AD do Azure fornece a biblioteca de autenticação do Active Directory, ou ADAL.  Única finalidade da ADAL é tornar mais fácil para seu aplicativo obter tokens de acesso.  Para demonstrar como isso é fácil, aqui vamos criar um aplicativo "Directory Searcher" do Windows Phone 8.1 que:
+Para clientes nativos .NET que precisam acessar recursos protegidos, o AD do Azure fornece a biblioteca de autenticação do Active Directory, ou ADAL.  A única finalidade da ADAL é tornar mais fácil para seu aplicativo obter tokens de acesso.  Para demonstrar como isso é fácil, aqui vamos criar um aplicativo "Directory Searcher" do Windows Phone 8.1 que:
 
 * Obtém tokens de acesso para chamar a API do Graph do Azure AD usando o [protocolo de autenticação OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * Pesquisa um diretório para usuários com um determinado UPN.
@@ -156,7 +156,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* Você também pode usar o objeto `AuthenticationResult` para exibir informações sobre o usuário em seu aplicativo. No método `QueryGraph(...)` , use o resultado para mostrar a id do usuário na página:
+* Você também pode usar o objeto `AuthenticationResult` para exibir informações sobre o usuário em seu aplicativo. No método `QueryGraph(...)`, use o resultado para mostrar a id do usuário na página:
 
 ```C#
 // Update the Page UI to represent the signed in user

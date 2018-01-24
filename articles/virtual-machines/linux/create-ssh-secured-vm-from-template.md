@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 938304efe5e4a13736a50348bd0531c475149aec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7bd5b8c0534a51c6b6c9e8871be513194d38788
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual do Linux com os modelos do Azure Resource Manager
 Este artigo mostra como implantar rapidamente uma VM (máquina virtual) do Linux com a CLI 2.0 do Azure e modelos do Azure Resource Manager. Você também pode executar essas etapas com a [CLI do Azure 1.0](create-ssh-secured-vm-from-template-nodejs.md).
@@ -30,31 +30,33 @@ Este artigo mostra como implantar rapidamente uma VM (máquina virtual) do Linux
 Os modelos do Azure Resource Manager são arquivos JSON que definem a infraestrutura e a configuração de sua solução do Azure. Usando um modelo, você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente. Para saber mais sobre o formato do modelo e como construí-o, veja [Criar seu primeiro modelo do Azure Resource Manager](../../azure-resource-manager/resource-manager-create-first-template.md). Para exibir a sintaxe JSON para os tipos de recursos, consulte [Definir recursos nos modelos do Azure Resource Manager](/azure/templates/).
 
 
-## <a name="create-resource-group"></a>Criar grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupVM* na região *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a>Criar máquina virtual
-O exemplo a seguir cria uma VM [neste modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) com [az group deployment create](/cli/azure/group/deployment#create). Forneça o valor de sua própria chave pública SSH, como o conteúdo de *~/.ssh/id_rsa.pub*. Se você precisar criar um par de chaves SSH, confira [Como criar um par de chaves SSH para VMs Linux no Azure](mac-create-ssh-keys.md).
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+O exemplo a seguir cria uma VM [neste modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) com [az group deployment create](/cli/azure/group/deployment#create). Somente a autenticação SSH tem permissão. Mediante solicitação, forneça o valor de sua própria chave pública SSH, como o conteúdo de *~/.ssh/id_rsa.pub*. Se você precisar criar um par de chaves SSH, confira [Como criar um par de chaves SSH para VMs Linux no Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
-  --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-Neste exemplo, você especificou um modelo armazenado no GitHub. Também é possível baixar ou criar um modelo e especificar o caminho local com o mesmo parâmetro `--template-file`.
+No exemplo anterior, você especificou um modelo armazenado no GitHub. Também é possível baixar ou criar um modelo e especificar o caminho local com o parâmetro `--template-file`.
 
-Para enviar por SSH à sua VM, obtenha o endereço IP público com [az network public-ip show](/cli/azure/network/public-ip#show):
+
+## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
+Para enviar por SSH à sua VM, obtenha o endereço IP público com [az vm show](/cli/azure/vm#show):
 
 ```azurecli
-az network public-ip show \
+az vm show \
     --resource-group myResourceGroup \
-    --name sshPublicIP \
-    --query [ipAddress] \
+    --name sshvm \
+    --show-details \
+    --query publicIps \
     --output tsv
 ```
 

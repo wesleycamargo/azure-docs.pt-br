@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
@@ -44,23 +44,23 @@ Seu proxy agora existe como um novo ponto de extremidade em seu aplicativo de fu
 
 ## <a name="modify-requests-responses"></a>Modificar solicitações e respostas
 
-Com os proxies do Azure Functions, você pode modificar solicitações e respostas do back-end. Essas transformações podem usar variáveis, conforme definido em [Usar variáveis].
+Com Proxies do Azure Functions, você pode modificar solicitações e respostas do back-end. Essas transformações podem usar variáveis, conforme definido em [Usar variáveis].
 
 ### <a name="modify-backend-request"></a>Modificar a solicitação de back-end
 
 Por padrão, a solicitação de back-end é inicializada como uma cópia da solicitação original. Além de definir a URL de back-end, é possível fazer alterações no método HTTP, cabeçalhos e parâmetros de cadeia de consulta. Os valores modificados podem referenciar as [configurações do aplicativo] e os [parâmetros da solicitação original do cliente].
 
-Atualmente, não há experiência no portal para modificar as solicitações de back-end. Para saber como aplicar essa capacidade a partir de proxies.json, confira [Definir um objeto requestOverrides].
+Atualmente, não há experiência no portal para modificar as solicitações de back-end. Para saber como aplicar essa capacidade a partir de *proxies.json*, confira [Definir um objeto requestOverrides].
 
 ### <a name="modify-response"></a>Modificar a resposta
 
 Por padrão, a resposta do cliente é inicializada como uma cópia da resposta de back-end. Você pode fazer alterações no código de status, na frase de motivo, nos cabeçalhos e no corpo da resposta. Os valores modificados podem referenciar as [configurações do aplicativo], os [parâmetros da solicitação original do cliente] e os [parâmetros da resposta de back-end].
 
-Atualmente, não há experiência no portal para modificar as respostas. Para saber como aplicar essa capacidade a partir de proxies.json, confira [Definir um objeto responseOverrides].
+Atualmente, não há experiência no portal para modificar as respostas. Para saber como aplicar essa capacidade do *proxies.json*, confira [Definir um objeto responseOverrides].
 
 ## <a name="using-variables"></a>Usar variáveis
 
-A configuração de um proxy não precisa ser estática. Você pode condicioná-la a usar as variáveis da solicitação original, da resposta de back-end ou das configurações do aplicativo.
+A configuração de um proxy não precisa ser estática. Você pode condicioná-la para usar variáveis da solicitação do cliente original, da resposta de back-end ou das configurações do aplicativo.
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação de referência
 
@@ -93,16 +93,16 @@ Você também referenciar as [configurações do aplicativo definidas para o apl
 Por exemplo, em uma URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders*, "% ORDER_PROCESSING_HOST %" será substituído pelo valor da configuração ORDER_PROCESSING_HOST.
 
 > [!TIP] 
-> Usar configurações do aplicativo para hosts de back-end quando você tem várias implantações ou ambientes de teste. Dessa forma, você pode garantir que você sempre está se comunicando com o back-end à direita para esse ambiente.
+> Usar configurações do aplicativo para hosts de back-end quando você tem várias implantações ou ambientes de teste. Dessa forma, você pode garantir que está sempre se comunicando com o back-end correto para aquele ambiente.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
-Os proxies que você configura são armazenados em um arquivo proxies.json, localizado na raiz do diretório de aplicativo função. Você pode editar esse arquivo manualmente e implantá-lo como parte do seu aplicativo ao usar qualquer um dos [métodos de implantação](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) que ofereça suporte a funções. O recurso deve ser [habilitado](#enable) para que o arquivo seja processado. 
+Os proxies que você configura são armazenados em um arquivo *proxies.json*, que está localizado na raiz de um diretório de aplicativo de função. Você pode editar esse arquivo manualmente e implantá-lo como parte do seu aplicativo ao usar qualquer um dos [métodos de implantação](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) que ofereça suporte a funções. O recurso de Proxies do Azure Functions deve ser [habilitado](#enable) para o arquivo ser processado. 
 
 > [!TIP] 
-> Se você não tiver definido um dos métodos de implantação, também poderá trabalhar com o arquivo proxies.json no portal. Vá até o aplicativo de funções e selecione **Recursos da plataforma** e,depois, selecione **Editor do Serviço de Aplicativo**. Isso permitirá que você veja toda a estrutura de arquivo do aplicativo de funções e faça alterações.
+> Se você não configurou um dos métodos de implantação, também poderá trabalhar com o arquivo *proxies.json* no portal. Vá até o aplicativo de funções e selecione **Recursos da plataforma** e,depois, selecione **Editor do Serviço de Aplicativo**. Isso permitirá que você veja toda a estrutura de arquivo do aplicativo de funções e faça alterações.
 
-Proxies.json é definido por um objeto de proxies, composto de proxies nomeados e suas definições. Opcionalmente, você pode referenciar um [esquema JSON](http://json.schemastore.org/proxies) para o preenchimento do código, caso seu editor dê suporte a isso. Um arquivo de exemplo pode parecer com o seguinte:
+*Proxies.json* é definido por um objeto de proxies, composto de proxies nomeados e suas definições. Opcionalmente, você pode referenciar um [esquema JSON](http://json.schemastore.org/proxies) para o preenchimento do código, caso seu editor dê suporte a isso. Um arquivo de exemplo pode parecer com o seguinte:
 
 ```json
 {
@@ -129,15 +129,15 @@ Cada proxy tem um nome amigável, como *proxy1*, no exemplo acima. O objeto de d
 * **requestOverrides**: um objeto que define as transformações para a resposta do cliente. Confira [Definir um objeto responseOverrides].
 
 > [!NOTE] 
-> Os proxies do Azure Functions da propriedade route não respeitam a propriedade routePrefix da configuração de host do Functions. Se você quiser incluir um prefixo, como /api, ela deve ser incluída na propriedade de rota.
+> A propriedade de *rota* dos proxies de funções do Azure não honra a propriedade *routePrefix* da configuração de host do Aplicativo de funções. Se você quiser incluir um prefixo, como `/api`, ele deve ser incluído na propriedade de *rota*.
 
 ### <a name="requestOverrides"></a>Definir um objeto requestOverrides
 
 O objeto requestOverrides define as alterações feitas à solicitação quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
-* **backend.request.method**: o método HTTP que será usado para chamar o back-end.
-* **backend.request.querystring.\<ParameterName\>**: um parâmetro de cadeia de consulta que pode ser definido para a chamada ao back-end. Substitua *\<ParameterName\>* pelo nome do parâmetro que você deseja definir. Se a cadeia de caracteres vazia for fornecida, o parâmetro não será incluído na solicitação de back-end.
-* **backend.request.headers.\<HeaderName\>**: um cabeçalho que pode ser definido para a chamada ao back-end. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na solicitação de back-end.
+* **backend.request.method**: O método HTTP que é usado para chamar o back-end.
+* **backend.request.querystring.\<ParameterName\>**: Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada ao back-end. Substitua *\<ParameterName\>* pelo nome do parâmetro que você deseja definir. Se a cadeia de caracteres vazia for fornecida, o parâmetro não será incluído na solicitação de back-end.
+* **backend.Request.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada ao back-end. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na solicitação de back-end.
 
 Os valores podem referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente.
 
@@ -193,7 +193,7 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 }
 ```
 > [!NOTE] 
-> Neste exemplo, o corpo está sendo definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
+> Neste exemplo, o corpo da resposta é definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
 
 ## <a name="enable"></a>Habilitar proxies do Azure Functions
 

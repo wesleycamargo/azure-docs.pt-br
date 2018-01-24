@@ -4,7 +4,7 @@ description: "Criar e implantar um aplicativo altamente disponível em VMs Windo
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d8f161af7753d2cd93a8683e8a93128144b86079
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d190d046f7572c51df0c5c9e14e14a41d93e3248
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Criar um conjunto de dimensionamento de máquinas virtuais e implantar um aplicativo altamente disponível no Windows
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Dimensione o número de VMs no conjunto de dimensionamento manualmente ou defina regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Neste tutorial, você implantará um conjunto de dimensionamento de máquinas virtuais no Azure. Você aprenderá como:
@@ -32,7 +32,7 @@ Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenci
 > * Aumentar ou diminuir o número de instâncias em um conjunto de dimensionamento
 > * Criar regras de dimensionamento automático
 
-Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este tutorial requer o módulo do Azure PowerShell, versão 5.1.1 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="scale-set-overview"></a>Visão geral do conjunto de escala
@@ -217,7 +217,7 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     Select -ExpandProperty Sku
 ```
 
-Manualmente, é possível aumentar ou diminuir o número de máquinas virtuais no conjunto de dimensionamento com [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). O seguinte exemplo define o número de VMs no conjunto de dimensionamento como *5*:
+Manualmente, é possível aumentar ou diminuir o número de máquinas virtuais no conjunto de dimensionamento com [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). O seguinte exemplo aumenta o número de VMs no conjunto de dimensionamento para *3*:
 
 ```powershell
 # Get current scale set
@@ -226,7 +226,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Set and update the capacity of your scale set
-$scaleset.sku.capacity = 5
+$scaleset.sku.capacity = 3
 Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     -Name myScaleSet `
     -VirtualMachineScaleSet $scaleset
@@ -236,7 +236,7 @@ A atualização para o número especificado de instâncias no conjunto de dimens
 
 
 ### <a name="configure-autoscale-rules"></a>Configurar regras de dimensionamento automático
-Em vez de dimensionar manualmente o número de instâncias no conjunto de dimensionamento, defina regras de dimensionamento automático. Essas regras monitoram as instâncias no conjunto de dimensionamento e respondem adequadamente com base nas métricas e nos limites que você define. O exemplo a seguir escala horizontalmente o número de instâncias em um quando a carga média da CPU é maior do que 60% por um período superior a 5 minutos. Se a carga média da CPU cair abaixo de 30% em um período superior a 5 minutos, as instâncias serão reduzidas horizontalmente em uma instância:
+Em vez de dimensionar manualmente o número de instâncias no conjunto de dimensionamento, defina regras de dimensionamento automático. Essas regras monitoram as instâncias no conjunto de dimensionamento e respondem adequadamente com base nas métricas e nos limites que você define. O exemplo a seguir escala horizontalmente o número de instâncias em um quando a carga média da CPU é maior que 60% por um período superior a 5 minutos. Se, em seguida, a carga média da CPU cair abaixo de 30% em um período superior a 5 minutos, as instâncias serão reduzidas horizontalmente em uma instância:
 
 ```powershell
 # Define your scale set information
@@ -245,7 +245,7 @@ $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 
-# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
+# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -258,7 +258,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionDirection Increase `
   -ScaleActionValue 1
 
-# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5 minute period
+# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `

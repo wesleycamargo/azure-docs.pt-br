@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39dea03ef9f42a3ff06dadd94c8d70541cbdc06c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Descobrir, identificar e classificar dados pessoais no Microsoft Azure
 
@@ -183,9 +183,9 @@ O [Azure Search](https://azure.microsoft.com/services/search/) é uma solução 
 
 Para começar com os conceitos básicos, visite o tutorial [Azure Cosmos DB: Como consultar usando o SQL](../cosmos-db/tutorial-query-documentdb.md). O tutorial fornece um documento de exemplo e duas consultas SQL e resultados de exemplo.
 
-Para obter diretrizes detalhadas sobre como criar consultas SQL, visite [Consultas SQL para a API do DocumentDB do Azure Cosmos DB.](../cosmos-db/documentdb-sql-query.md)
+Para obter diretrizes detalhadas sobre como criar consultas SQL, visite [Consultas SQL para a API do DocumentDB do Azure Cosmos DB.](../cosmos-db/sql-api-sql-query.md)
 
-Se estiver conhecendo o Azure Cosmos DB agora e gostaria de saber como criar um banco de dados, adicionar uma coleção e adicionar dados, visite o tutorial do Guia de início rápido [Azure Cosmos DB: Criar um aplicativo Web da API do DocumentDB](../cosmos-db/create-documentdb-dotnet.md). Se desejar fazer isso em uma linguagem diferente do .NET, como Java ou Python, basta escolher sua linguagem preferida depois de acessar o site.
+Se estiver conhecendo o Azure Cosmos DB agora e gostaria de saber como criar um banco de dados, adicionar uma coleção e adicionar dados, visite o tutorial do Guia de início rápido [Azure Cosmos DB: Criar um aplicativo Web da API do SQL](../cosmos-db/create-sql-api-dotnet.md). Se desejar fazer isso em uma linguagem diferente do .NET, como Java ou Python, basta escolher sua linguagem preferida depois de acessar o site.
 
 ## <a name="next-steps"></a>Próximas etapas
 

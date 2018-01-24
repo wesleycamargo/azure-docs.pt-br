@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Loops, Escopos e Debatch dos Aplicativos Lógicos
   
@@ -26,9 +26,9 @@ Os Aplicativos Lógicos fornecem várias maneiras de trabalhar com matrizes, col
   
 ## <a name="foreach-loop-and-arrays"></a>Matrizes e loop ForEach
   
-Os Aplicativos Lógicos permitem que você faça um loop em um conjunto de dados e execute uma ação para cada item.  Isso é possível por meio da ação `foreach` .  No designer, você pode especificar a adição de um loop for each.  Depois de selecionar a matriz em que você deseja iterar, você poderá começar a adicionar ações.  Você pode adicionar várias ações por loop foreach.  Uma vez no loop, você poderá começar a especificar o que deve ocorrer em cada valor da matriz.
+Os Aplicativos Lógicos permitem que você faça um loop em um conjunto de dados e execute uma ação para cada item.  Um loop em uma coleção é possível por meio da ação `foreach`.  No designer, você pode adicionar um loop for each.  Depois de selecionar a matriz em que você deseja iterar, você poderá começar a adicionar ações.  Você pode adicionar várias ações por loop foreach.  Uma vez no loop, você poderá começar a especificar o que deve ocorrer em cada valor da matriz.
 
-Se você estiver usando o modo de exibição de código, poderá especificar um loop for each como o abaixo.  Este é um exemplo de um loop for each que envia um email para cada endereço de email com 'microsoft.com':
+  Este exemplo envia um email para cada endereço de email que contenha 'microsoft.com'. Se você estiver usando o modo de exibição de código, especifique um loop for each como no exemplo a seguir:
 
 ``` json
 {
@@ -66,7 +66,7 @@ Se você estiver usando o modo de exibição de código, poderá especificar um 
 }
 ```
   
-  Uma ação `foreach` pode iterar em matrizes até 5.000 linhas.  Por padrão, cada iteração será executada paralelamente.  
+  Uma ação `foreach` pode iterar em matrizes com milhares de entidades.  Por padrão, as iterações são executadas paralelamente.  Consulte [Limites e configuração](logic-apps-limits-and-config.md) para obter detalhes sobre os limites e a simultaneidade da matriz.
 
 ### <a name="sequential-foreach-loops"></a>Loops ForEach sequenciais
 
@@ -83,13 +83,15 @@ Para habilitar um loop foreach para ser executado sequencialmente, a opção de 
   
 ## <a name="until-loop"></a>Loop Until
   
-  Você pode executar uma ação ou uma série de ações até que uma condição seja atendida.  O cenário mais comum para isso é chamar um ponto de extremidade até você chegar à resposta que está procurando.  No designer, você pode especificar a adição de um loop until.  Depois de adicionar ações dentro do loop, você poderá definir a condição de saída, bem como os limites do loop.  Há um atraso de um minuto entre os ciclos de loop.
+  Você pode executar uma ação ou uma série de ações até que uma condição seja atendida.  O cenário mais comum para o uso de um loop until é chamar um ponto de extremidade até você chegar à resposta que está procurando.  No designer, você pode especificar a adição de um loop until.  Depois de adicionar ações dentro do loop, você poderá definir a condição de saída, bem como os limites do loop.
   
-  Se você estiver usando o modo de exibição de código, poderá especificar um loop unitl como o abaixo.  Este é um exemplo de chamada a um ponto de extremidade HTTP até que o corpo da resposta tenha o valor 'Concluído'.  Ele será concluído quando a 
+  Este exemplo chama um ponto de extremidade HTTP até que o corpo da resposta tenha o valor 'Concluído'.  Ele é concluído quando: 
   
   * Resposta HTTP tiver o status 'Concluído'
-  * Ele tentou por uma hora
+  * Tiver tentando por uma hora
   * Ele entrou em loop 100 vezes
+  
+  Se você estiver usando o modo de exibição de código, especifique um loop until como no exemplo a seguir:
   
   ``` json
   {
@@ -117,9 +119,9 @@ Para habilitar um loop foreach para ser executado sequencialmente, a opção de 
   
 ## <a name="spliton-and-debatching"></a>SplitOn e debatching
 
-Às vezes, um gatilho pode receber uma matriz de itens nos quais deseja fazer debatch e iniciar um fluxo de trabalho por item.  Isso pode ser feito por meio do comando `spliton` .  Por padrão, se o gatilho swagger especificar uma carga que seja uma matriz, um `spliton` será adicionado e iniciará uma execução por item.  SplitOn só pode ser adicionado a um gatilho.  Isso pode ser manualmente configurado ou substituído na exibição de código de definição.  Atualmente, o SplitOn pode fazer debatch em matrizes de até 5.000 itens.  Você não pode ter um `spliton` e também implementar o padrão de resposta síncrona.  Qualquer fluxo de trabalho chamado com uma ação `response` além de `spliton` será executado de forma assíncrona e enviará uma resposta `202 Accepted` imediata.  
+Às vezes, um gatilho pode receber uma matriz de itens nos quais deseja fazer debatch e iniciar um fluxo de trabalho por item.  Esse debatching pode ser feito por meio do comando `spliton`.  Por padrão, se o gatilho swagger especificar uma carga que seja uma matriz, um `spliton` será adicionado. O comando `spliton` inicia uma execução por item na matriz.  Só é possível adicionar SplitOn a um gatilho que possa ser configurado ou substituído manualmente. Você não pode ter um `spliton` e também implementar o padrão de resposta síncrona.  Qualquer fluxo de trabalho chamado com uma ação `response` além de `spliton` será executado de forma assíncrona e enviará uma resposta `202 Accepted` imediata.  
 
-SplitOn pode ser especificado no modo de exibição de código como o exemplo a seguir.  Isso recebe uma matriz de itens e faz debatch em cada linha.
+  Esse exemplo recebe uma matriz de itens e faz debatch em cada linha. SplitOn pode ser especificado no modo de exibição de código como o exemplo a seguir:
 
 ```
 {
@@ -139,7 +141,7 @@ SplitOn pode ser especificado no modo de exibição de código como o exemplo a 
 
 ## <a name="scopes"></a>Escopos
 
-É possível agrupar uma série de ações usando um escopo.  Isso é particularmente útil para implementar o tratamento de exceções.  No designer, você pode adicionar um novo escopo e começar a adicionar ações dentro dele.  É possível definir escopos no modo de exibição de código semelhante ao seguinte:
+É possível agrupar uma série de ações usando um escopo.  Os escopos são particularmente úteis para implementar o tratamento de exceções.  No designer, você pode adicionar um novo escopo e começar a adicionar ações dentro dele.  É possível definir escopos no modo de exibição de código semelhante ao seguinte exemplo:
 
 
 ```

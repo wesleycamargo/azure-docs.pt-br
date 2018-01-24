@@ -1,24 +1,16 @@
 ---
-title: "Revisar a arquitetura para replicação do Hyper-V para um site secundário com o Azure Site Recovery | Microsoft Docs"
+title: "Replicação do Hyper-V para arquitetura de site secundário no Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece uma visão geral da arquitetura para replicação de VMs Hyper-V locais em um VMM do System Center secundário com o Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Replicação do Hyper-V para um site secundário
 
@@ -51,20 +43,18 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 ## <a name="failover-and-failback-process"></a>Processo de failover e failback
 
-1. Você pode fazer o failover de um único computador ou criar planos de recuperação para orquestrar o failover de várias máquinas virtuais.
-2. Você pode executar um failover planejado ou não planejado entre sites locais. Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
+- Você pode fazer o failover de um único computador ou criar planos de recuperação para orquestrar o failover de várias máquinas virtuais.
+- Você pode executar um failover planejado ou não planejado entre sites locais. Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
     - Se você realizar um failover não planejado em um site secundário, depois do failover, as máquinas virtuais no local secundário não serão protegidas.
     - Depois de executar um failover planejado, os computadores no local secundário são protegidos.
-3. Depois da execução do failover inicial, você confirma-o para começar a acessar a carga de trabalho da réplica de VM.
-
-Quando a localização primária estiver disponível novamente, você poderá fazer failback.
-
-1. Você inicia a replicação inversa, para iniciar a replicação do site secundário para o primário. A replicação inversa coloca as máquinas virtuais em um estado protegido, mas o datacenter secundário permanece sendo o local ativo.
-2. Para transformar o site primário em local ativo novamente, inicie um failover planejado do site secundário para o primário, seguido por outra replicação inversa.
+- Depois da execução do failover inicial, você confirma-o para começar a acessar a carga de trabalho da réplica de VM.
+- Quando a localização primária estiver disponível novamente, você poderá fazer failback.
+    - Você inicia a replicação inversa, para iniciar a replicação do site secundário para o primário. A replicação inversa coloca as máquinas virtuais em um estado protegido, mas o datacenter secundário permanece sendo o local ativo.
+    - Para transformar o site primário em local ativo novamente, inicie um failover planejado do site secundário para o primário, seguido por outra replicação inversa.
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine a matriz de suporte e siga o tutorial para habilitar a replicação de Hyper-V entre nuvens de VMM.
-Execute um failover e um failback.
+
+Siga [este tutorial](tutorial-vmm-to-vmm.md) para habilitar a replicação de Hyper-V entre nuvens de VMM.

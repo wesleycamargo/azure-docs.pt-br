@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: eceeccc0d6225613fdd75a92b894290665168fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integrar o AD do Azure com um aplicativo Apache Cordova
+# <a name="azure-ad-cordova-getting-started"></a>Introdução ao Cordova do Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,7 +43,7 @@ Para fazer essas melhorias, você precisa:
 3. Adicionar código para usar o token para consultar a API do Graph e exibir os resultados.
 4. Criar o projeto de implantação Cordova com todas as plataformas de destino, adicionar o plug-in Cordova ADAL e testar a solução em emuladores.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir este tutorial, você precisará:
 
 * Um locatário do Azure AD onde você pode ter uma conta com direitos de desenvolvimento de aplicativo.
@@ -89,7 +89,7 @@ O Azure AD emite tokens somente para aplicativos conhecidos. Antes de poder usar
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. Na lista **Diretório**, escolha o locatário do Azure AD no qual você quer registrar seu aplicativo.
 3. Clique em **Mais Serviços** no painel esquerdo e selecione **Azure Active Directory**.
-4. Clique em **Registros do aplicativo**e, em seguida, selecione **Adicionar**.
+4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Siga os prompts e crie um **Aplicativo cliente nativo**. (Embora os aplicativos Cordova sejam baseados em HTML, estamos criando um aplicativo cliente nativo aqui. A opção **Aplicativo cliente nativo** deve ser selecionada, ou o aplicativo não funcionará).
   * **Nome** descreve seu aplicativo para os usuários.
   * **URI de Redirecionamento** é o URI usado para retornar os tokens para o seu aplicativo. Digite **http://MyDirectorySearcherApp**.

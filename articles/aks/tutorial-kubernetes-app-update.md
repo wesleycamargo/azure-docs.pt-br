@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 95c609ab49fe478eda48b2a2eca6a772d1356d18
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Atualizar um aplicativo no AKS (Serviço de Contêiner do Azure)
 
@@ -33,9 +33,9 @@ Nos tutoriais subsequentes, o Operations Management Suite é configurado para mo
 
 Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêiner, a imagem foi carregada no Registro de Contêiner do Azure e um cluster Kubernetes foi criado. Em seguida, o aplicativo foi executado no cluster Kubernetes. 
 
-Um repositório de aplicativo também foi clonado, o qual inclui o código-fonte do aplicativo e um arquivo do Docker Compose pré-criado usado neste tutorial. Verifique se você criou um clone do repositório e se você alterou os diretórios para o diretório clonado. Dentro está um diretório chamado `azure-vote` e um arquivo chamado `docker-compose.yml`.
+Um repositório de aplicativo também foi clonado, o qual inclui o código-fonte do aplicativo e um arquivo do Docker Compose pré-criado usado neste tutorial. Verifique se você criou um clone do repositório e se você alterou os diretórios para o diretório clonado. Dentro está um diretório chamado `azure-vote` e um arquivo chamado `docker-compose.yaml`.
 
-Se você ainda não completou essas etapas e deseja continuar acompanhando, retorne para [Tutorial 1 – Criar mensagens de contêiner](./tutorial-kubernetes-prepare-app.md). 
+Se você ainda não completou essas etapas e deseja continuar acompanhando, retorne para [Tutorial 1 – Criar mensagens de contêiner][aks-tutorial-prepare-app]. 
 
 ## <a name="update-application"></a>Atualizar aplicativo
 
@@ -61,7 +61,7 @@ Salve e feche o arquivo.
 
 ## <a name="update-container-image"></a>Atualizar imagem de contêiner
 
-Utilize [docker-compose](https://docs.docker.com/compose/) para recriar a imagem de front-end e executar o aplicativo atualizado. O argumento `--build` é usado para instruir o Docker Compose a recriar a imagem do aplicativo.
+Utilize [docker-compose][docker-compose] para recriar a imagem de front-end e executar o aplicativo atualizado. O argumento `--build` é usado para instruir o Docker Compose a recriar a imagem do aplicativo.
 
 ```console
 docker-compose up --build -d
@@ -83,13 +83,13 @@ Obter o nome do servidor de logon com o comando [az acr list](/cli/azure/acr#lis
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Utilize a [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) para marcar a imagem. Substitua `<acrLoginServer>` pelo nome do servidor de logon do Registro de Contêiner do Azure ou pelo nome do host do registro público. Note também que a versão da imagem é atualizada para `redis-v2`.
+Utilize a [docker tag][docker-tag] para marcar a imagem. Substitua `<acrLoginServer>` pelo nome do servidor de logon do Registro de Contêiner do Azure ou pelo nome do host do registro público. Note também que a versão da imagem é atualizada para `redis-v2`.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Utilize [docker push](https://docs.docker.com/engine/reference/commandline/push/) para carregar a imagem no seu registro. Substitua `<acrLoginServer>` pelo nome do servidor de logon do Registro de Contêiner do Azure.
+Utilize [docker push][docker-push] para carregar a imagem no seu registro. Substitua `<acrLoginServer>` pelo nome do servidor de logon do Registro de Contêiner do Azure.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -97,7 +97,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>Implantar aplicativo de atualização
 
-Para garantir o tempo de atividade máximo, várias instâncias do pod de aplicativos devem estar em execução. Verifique essa configuração com o comando [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
+Para garantir o tempo de atividade máximo, várias instâncias do pod de aplicativos devem estar em execução. Verifique essa configuração com o comando [kubectl get pod][kubectl-get].
 
 ```
 kubectl get pod
@@ -120,13 +120,13 @@ Se não houver vários pods executando a imagem do azure-vote-front, dimensione 
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Para atualizar o aplicativo, utilize o comando [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set). Atualize `<acrLoginServer>` com o servidor de logon ou o nome do host do registro de contêiner.
+Para atualizar o aplicativo, utilize o comando [kubectl set][kubectl-set]. Atualize `<acrLoginServer>` com o servidor de logon ou o nome do host do registro de contêiner.
 
 ```azurecli
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Para monitorar a implantação, use o comando [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get). Conforme o aplicativo atualizado é implantado, os pods são encerrados e recriados com a nova imagem de contêiner.
+Para monitorar a implantação, use o comando [kubectl get pod][kubectl-get]. Conforme o aplicativo atualizado é implantado, os pods são encerrados e recriados com a nova imagem de contêiner.
 
 ```azurecli
 kubectl get pod
@@ -167,4 +167,15 @@ Neste tutorial, você atualizou um aplicativo e distribuiu essa atualização pa
 Avance para o próximo tutorial para saber mais sobre como monitorar o Kubernetes com o Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Monitorar Kubernetes com o Log Analytics](./tutorial-kubernetes-monitor.md)
+> [Monitorar Kubernetes com o Log Analytics][aks-tutorial-monitor]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-set]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md

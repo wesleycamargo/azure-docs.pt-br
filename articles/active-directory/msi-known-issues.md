@@ -4,7 +4,7 @@ description: "Problemas conhecidos com a Identidade de Serviço Gerenciado do Az
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/20/2017
+ms.date: 12/12/2017
 ms.author: bryanla
-ms.openlocfilehash: 859cfbeae6701336699b4f3f7a96d6b08c599340
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Problemas conhecidos e perguntas frequentes com Identidade do Serviço Gerenciado (MSI) para o Azure Active Directory
 
@@ -26,13 +26,17 @@ ms.lasthandoff: 10/21/2017
 
 ## <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (FAQs)
 
+### <a name="is-there-a-private-preview-available-for-additional-features"></a>Há uma versão prévia privada disponível, para recursos adicionais?
+
+Sim. Caso queira se registrar para a versão prévia privada, [visite nossa página de inscrição](https://aka.ms/azuremsiprivatepreview).
+
 ### <a name="does-msi-work-with-azure-cloud-services"></a>O MSI funciona com os Serviços de Nuvem do Azure?
 
 Não, nem há previsão de compatibilidade para o MSI com os Serviços de Nuvem do Azure no futuro.
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>A MSI funciona com ADAL (Biblioteca de Autenticação do Active Directory) ou com a MSAL (Biblioteca de Autenticação da Microsoft)?
 
-Não, a MSI ainda não está integrada à ADAL ou à MSAL.
+Não, a MSI ainda não está integrada à ADAL ou à MSAL. Para obter detalhes sobre a aquisição de um token MSI usando o ponto de extremidade REST do MSI, consulte [Como usar uma MSI (Identidade de Serviço Gerenciado) da VM do Azure para aquisição de token](msi-how-to-use-vm-msi-token.md).
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quais são as distribuições Linux com suporte?
 

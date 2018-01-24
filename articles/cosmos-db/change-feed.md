@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 
@@ -34,7 +34,7 @@ O **suporte ao feed de alterações** do Azure Cosmos DB permite que você crie 
 ![Usando o feed de alterações do Azure Cosmos DB para capacitar a análise em tempo real e cenários de computação orientada a eventos](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Suporte a feed de alterações é fornecido para todos os modelos de dados e contêineres no Azure Cosmos DB. No entanto, o feed de alterações é lido usando o cliente do DocumentDB e serializa os itens no formato JSON. Devido à formatação JSON, clientes do MongoDB enfrentarão uma incompatibilidade entre documentos formatado em BSON e o feed de alterações formatado em JSON. 
+> Suporte a feed de alterações é fornecido para todos os modelos de dados e contêineres no Azure Cosmos DB. No entanto, o feed de alterações é lido usando o cliente do SQL e serializa os itens no formato JSON. Devido à formatação JSON, clientes do MongoDB enfrentarão uma incompatibilidade entre documentos formatado em BSON e o feed de alterações formatado em JSON. 
 
 ## <a name="how-does-change-feed-work"></a>Como o feed de alterações funciona?
 
@@ -90,11 +90,11 @@ Os gatilhos podem ser criados no portal do Azure Functions, no portal do Azure C
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Usar o SDK
 
-O [SDK do DocumentDB](documentdb-sdk-dotnet.md) para o Azure Cosmos DB fornece todo o poder de ler e gerenciar um feed de alterações. Porém, todo grande poder gera grandes responsabilidades. Se você quiser gerenciar pontos de verificação, lidar com números de sequência de documento e ter controle granular sobre chaves de partição, usar o SDK pode ser a abordagem certa.
+O [SDK do SQL](sql-api-sdk-dotnet.md) para o Azure Cosmos DB fornece todo o poder de ler e gerenciar um feed de alterações. Porém, todo grande poder gera grandes responsabilidades. Se você quiser gerenciar pontos de verificação, lidar com números de sequência de documento e ter controle granular sobre chaves de partição, usar o SDK pode ser a abordagem certa.
 
-Esta seção explica como usar o SDK do DocumentDB para trabalhar com um feed de alterações.
+Esta seção explica como usar o SDK do SQL para trabalhar com um feed de alterações.
 
-1. Comece lendo os seguintes recursos do appconfig. As instruções sobre como recuperar a chave de autorização e ponto de extremidade estão disponíveis em [Atualizar sua cadeia de conexão](create-documentdb-dotnet.md#update-your-connection-string).
+1. Comece lendo os seguintes recursos do appconfig. As instruções sobre como recuperar a chave de autorização e ponto de extremidade estão disponíveis em [Atualizar sua cadeia de conexão](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Portanto, sua matriz de ponto de verificação está apenas mantendo o LSN para 
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Usando a biblioteca do Processador do Feed de Alterações 
 
-A [biblioteca do Processador de Feed de Alterações do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) pode ajudá-lo a facilmente distribuir o processamento de eventos entre vários consumidores. Essa biblioteca simplifica as alterações de leitura em partições e vários threads operando em paralelo.
+A [biblioteca do Processador de Feed de Alterações do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) pode ajudá-lo a facilmente distribuir o processamento de eventos entre vários consumidores. Essa biblioteca simplifica as alterações de leitura em partições e vários threads operando em paralelo.
 
 O principal benefício da biblioteca do Processador de Feed de Alterações é que você não precisa gerenciar cada partição e token de continuação, nem precisa pesquisar cada coleção manualmente.
 
@@ -276,11 +276,11 @@ Para obter mais informações sobre como usar o Azure Cosmos DB com Azure Functi
 
 Para obter mais informações sobre como usar a biblioteca do Processador de Feed de Alterações, use os seguintes recursos:
 
-* [página de informações](documentdb-sdk-dotnet-changefeed.md) 
+* [página de informações](sql-api-sdk-dotnet-changefeed.md) 
 * [Pacote do Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Código de exemplo mostrando as etapas 1 a 6 acima](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Exemplos adicionais sobre o GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Para obter mais informações sobre como usar o feed de alterações via SDK, use os seguintes recursos:
 
-* [Página de informações do SDK](documentdb-sdk-dotnet.md)
+* [Página de informações do SDK](sql-api-sdk-dotnet.md)

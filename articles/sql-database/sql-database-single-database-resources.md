@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gerenciar recursos para um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -35,6 +35,10 @@ Para definir ou alterar o nível de serviço, o nível de desempenho ou a quanti
 
 ![Definir o nível de serviço e o nível de desempenho](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Clique em **visão geral** para monitorar e/ou cancelar uma operação em andamento.
+
+![Cancelar operação](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > Revise [Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) ao selecionar um nível de serviço P11 ou P15.
 >
@@ -43,11 +47,13 @@ Para definir ou alterar o nível de serviço, o nível de desempenho ou a quanti
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento dos Bancos de Dados SQL do Azure usando o PowerShell, use estes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-| Cmdlet | Descrição |
+| Cmdlet | DESCRIÇÃO |
 | --- | --- |
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Cria um banco de dados |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Obtém um ou mais bancos de dados|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Define propriedades para um banco de dados ou move um banco de dados existente para um pool, elástico. Por exemplo, use a propriedade **MaxSizeBytes** para definir o tamanho máximo de um banco de dados.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Obtém o status das operações de banco de dados. |
+|[Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Cancela a operação de atualização assíncrona no banco de dados.|
 
 
 > [!TIP]
@@ -57,14 +63,15 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento dos Bancos de Dados SQL do Azure usando a CLI do Azure, use estes cmdlets da [CLI do Azure do Banco de Dados SQL](/cli/azure/sql/db). Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. Para criar e gerenciar pools elásticos de SQL, consulte [Pools elásticos](sql-database-elastic-pool.md).
 
-| Cmdlet | Descrição |
+| Cmdlet | DESCRIÇÃO |
 | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Cria uma regra de firewall de servidor|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lista as regras de firewall em um servidor|
 |[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra os detalhes de uma regra de firewall|
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Atualiza uma regra de firewall|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Exclui uma regra de firewall|
-
+|[az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list)|Obtém uma lista das operações executadas no banco de dados.|
+|[az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Cancela a operação assíncrona no banco de dados.|
 
 > [!TIP]
 > Para ver um script de exemplo da CLI do Azure que escala um único Banco de Dados SQL do Azure para um nível de desempenho diferente depois de consultar as informações de tamanho do banco de dados, consulte [Usar a CLI para monitorar e escalar um único Banco de Dados SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -74,7 +81,7 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento dos Bancos de Dados SQL do Azure com Transact-SQL, use estes comando T-SQL. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL e passar comandos Transact-SQL. 
 
-| Command | Descrição |
+| Get-Help | DESCRIÇÃO |
 | --- | --- |
 |[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria um novo banco de dados. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica um Banco de Dados SQL do Azure. |
@@ -92,7 +99,7 @@ ALTER DATABASE <myDatabaseName>
 
 Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento dos Bancos de Dados SQL do Azure, use estas solicitações da API REST.
 
-| Command | Descrição |
+| Get-Help | DESCRIÇÃO |
 | --- | --- |
 |[Banco de Dados – Criar ou Atualizar](/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
 |[Bancos de Dados – Obter](/rest/api/sql/databases/get)|Obtém um banco de dados.|
@@ -102,6 +109,7 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 |[Bancos de Dados – Listar por Pool Elástico Recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retorna uma lista de bancos de dados dentro de um pool elástico recomendado.|
 |[Bancos de Dados – Listar por Servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
 |[Bancos de Dados – Atualizar](/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
+|[Operações - Lista](/rest/api/sql/Operations/List)|Lista todas as operações de API Rest do SQL disponíveis.|
 
 
 

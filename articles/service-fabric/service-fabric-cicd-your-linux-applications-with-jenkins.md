@@ -14,24 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Usar o Jenkins para criar e implantar seus aplicativos do Linux
 Jenkins é uma ferramenta popular para implantação e integração contínua de seus aplicativos. Veja como criar e implantar o aplicativo do Service Fabric do Azure usando o Jenkins.
 
 ## <a name="general-prerequisites"></a>Pré-requisitos gerais
 - Ter o Git instalado localmente. Você pode instalar a versão apropriada do Git da [página de downloads do Git](https://git-scm.com/downloads), com base no seu sistema operacional. Se for novo no Git, saiba mais sobre ele na [documentação do Git](https://git-scm.com/docs).
-- Ter o plug-in Jenkins do Service Fabric à mão. Você pode baixá-lo de [Downloads do Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Caso esteja usando navegador edge, renomeie a extensão do arquivo baixado de. zip para .hpi.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Configurar o Jenkins em um cluster do Service Fabric
 
 Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As próximas seções mostram como configurá-lo em um cluster usando uma conta de armazenamento do Azure para salvar o estado da instância do contêiner.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 1. Ter um cluster Linux do Service Fabric pronto. Um cluster do Service Fabric criado no portal do Azure já tem o Docker instalado. Se estiver realizando a execução localmente no cluster, verifique se o Docker está instalado usando o comando ``docker info``. Se não estiver instalado, instale-o adequadamente usando os seguintes comandos:
 
   ```sh
@@ -118,7 +117,7 @@ ssh user@PublicIPorFQDN -p [port]
 
 Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As seções a seguir mostram como configurá-lo fora de um cluster.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Você precisa ter o Docker instalado. Os comandos abaixo podem ser usados para instalar o Docker do terminal:
 
   ```sh
@@ -129,8 +128,8 @@ Você precisa ter o Docker instalado. Os comandos abaixo podem ser usados para i
 Agora, ao executar ``docker info`` no terminal, você deve ver a saída executada pelo serviço Docker.
 
 ### <a name="steps"></a>Etapas
-  1. Baixar a imagem de contêiner Jenkins do Service Fabric:``docker pull rapatchi/jenkins:v9``
-  2. Executar a imagem de contêiner:``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+  1. Baixar a imagem de contêiner Jenkins do Service Fabric: ``docker pull rapatchi/jenkins:v10``. Esta imagem é fornecida com o plug-in do Service Fabric Jenkins pré-instalado.
+  2. Executar a imagem de contêiner:``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Obter a ID de instância de imagem de contêiner. Você pode listar todos os contêineres do Docker com o comando ``docker ps –a``
   4. Entre no portal do Jenkins usando as seguintes etapas:
 
@@ -151,11 +150,6 @@ Agora, ao executar ``docker info`` no terminal, você deve ver a saída executad
 
 Verifique se o cluster ou a máquina em que a imagem de contêiner Jenkins está hospedada tem um IP público. Isso permite que a instância do Jenkins receba notificações do GitHub.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Instalar o plug-in do Jenkins do Service Fabric por meio do portal
-
-1. Acesse ``http://PublicIPorFQDN:8081``
-2. No painel do Jenkins, selecione **Gerenciar Jenkins** > **Gerenciar plug-ins** > **Avançado**.
-Aqui, você pode carregar um plug-in. Selecione **Escolher arquivo** e selecione o arquivo **serviceFabric.hpi** que você baixou em pré-requisitos ou que pode baixar [daqui](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Quando você seleciona **Carregar**, o Jenkins instala o plug-in automaticamente. Se solicitado, permita a reinicialização.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Criar e configurar um trabalho do Jenkins
 

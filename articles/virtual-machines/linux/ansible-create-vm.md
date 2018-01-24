@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Criar uma máquina virtual básica no Azure com o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar suas máquinas virtuais (VMs) no Azure, da mesma forma que faria com qualquer outro recurso. Este artigo mostra como criar uma VM básica com o Ansible. Você também pode aprender a [Criar um ambiente completo de VM com o Ansible](ansible-create-complete-vm.md).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para gerenciar recursos do Azure com o Ansible, você precisará do seguinte:
 
 - Ansible e os módulos do SDK do Python do Azure instalados no sistema host.
@@ -37,7 +37,7 @@ Para gerenciar recursos do Azure com o Ansible, você precisará do seguinte:
 
 
 ## <a name="create-supporting-azure-resources"></a>Criar recursos de suporte do Azure
-Neste exemplo, criamos um runbook que implanta uma VM em uma infraestrutura existente. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/vm#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Neste exemplo, crie um runbook que implanta uma VM em uma infraestrutura existente. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/vm#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -56,7 +56,7 @@ az network vnet create \
 
 
 ## <a name="create-and-run-ansible-playbook"></a>Criar e executar o guia estratégico do Ansible
-Crie um guia estratégico do Ansible chamado **azure_create_vm.yml** e cole o seguinte conteúdo. Este exemplo cria uma única VM e configura as credenciais de SSH. Insira seus próprios dados de chave pública no par *key_data* da seguinte maneira:
+Crie um guia estratégico do Ansible chamado *azure_create_vm.yml* e cole o seguinte conteúdo. Este exemplo cria uma única VM e configura as credenciais de SSH. Insira seus próprios dados de chave pública completos no par *key_data* da seguinte maneira:
 
 ```yaml
 - name: Create Azure VM

@@ -4,7 +4,7 @@ description: "Este tópico descreve as funções internas para o RBAC (controle 
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o controle de acesso baseado em função do Azure
 O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar as definições de funções internas. No entanto, você pode criar [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md) para atender às necessidades específicas de sua organização.
@@ -28,7 +28,7 @@ O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seg
 ## <a name="roles-in-azure"></a>Funções no Azure
 A tabela a seguir fornece breves descrições das funções internas. Clique no nome da função para ver sua lista detalhada de **ações** e de **não ações**. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade das **não ações** especifica as ações excluídas das ações permitidas.
 
-A ação define o tipo das operações que você pode executar em um determinado tipo de recurso. Por exemplo:
+A ação define o tipo das operações que você pode executar em um determinado tipo de recurso. Por exemplo: 
 - **Gravar** permite que você execute operações PUT, POST, PATCH e DELETE.
 - **Ler** permite que você execute operações GET.
 
@@ -38,7 +38,7 @@ Este artigo aborda apenas as diferentes funções que existem atualmente. Quando
 > As definições de função do Azure estão em constante evolução. Este artigo é mantido tão atualizado quanto possível, mas você sempre poderá encontrar as últimas definições de funções no Azure PowerShell. Use o cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para listar todas as funções atuais. Você pode se aprofundar em uma função específica usando `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` conforme aplicável. Use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) para listar operações de provedores de recursos do Azure específicos.
 
 
-| Nome da função | Descrição |
+| Nome da função | DESCRIÇÃO |
 | --- | --- |
 | [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) |Poder gerenciar o serviço de gerenciamento da API e as APIs |
 | [Função do operador de serviço de gerenciamento da API](#api-management-service-operator-role) | Poder gerenciar o serviço de gerenciamento da API, mas não as APIs propriamente ditas |
@@ -55,7 +55,7 @@ Este artigo aborda apenas as diferentes funções que existem atualmente. Quando
 | [Colaborador da fábrica de dados](#data-factory-contributor) |Pode criar e gerenciar data factories e recursos filho dentro deles. |
 | [Usuário do DevTest Labs](#devtest-labs-user) |Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las. |
 | [Colaborador de zona DNS](#dns-zone-contributor) |Pode gerenciar zonas e registros DNS |
-| [Colaborador de conta do Azure Cosmos DB](#documentdb-account-contributor) |Pode gerenciar contas do Azure Cosmos DB |
+| [Colaborador de Conta do DocumentDB](#documentdb-account-contributor) |Pode gerenciar contas do Azure Cosmos DB |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) |Pode gerenciar contas do Intelligent Systems |
 | Colaborador de aplicativo lógico | Pode gerenciar todos os aspectos de um aplicativo lógico, mas não pode criar um novo. |
 | Operador de aplicativo lógico |Pode iniciar e parar fluxos de trabalho definidos dentro de um aplicativo lógico. |
@@ -371,13 +371,13 @@ Pode gerenciar zonas e registros DNS.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/\* |Criar e gerenciar tíquetes de suporte |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Colaborador de conta do Azure Cosmos DB
-Pode gerenciar contas do Azure Cosmos DB
+### <a name="documentdb-account-contributor"></a>Colaborador de Conta do DocumentDB
+Pode gerenciar contas do Azure Cosmos DB. O Azure Cosmos DB era anteriormente conhecido como DocumentDB.
 
 | **Ações** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
-| Microsoft.DocumentDb/databaseAccounts/* |Criar e gerenciar contas do DocumentDB |
+| Microsoft.DocumentDb/databaseAccounts/* |Criar e gerenciar contas do Azure Cosmos DB |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
@@ -703,7 +703,7 @@ Pode gerenciar servidores e bancos de dados SQL, mas não as políticas relacion
 
 | **Ações** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Ler autorização |
+| Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta do Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
@@ -867,7 +867,7 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 | Microsoft.Web/serverFarms/read |Ler farms de servidores |
 | Microsoft.Web/sites/* |Criar e gerenciar sites (a criação de sites também requer permissões de gravação para o Plano do Serviço de Aplicativo associado) |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Controle de Acesso Baseado em Função](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
 * [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.

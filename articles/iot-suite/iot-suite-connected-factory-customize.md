@@ -1,6 +1,6 @@
 ---
-title: "Personalizar a solução de fábrica conectada – Azure | Microsoft Docs"
-description: "Uma descrição de como personalizar o comportamento da solução pré-configurada de fábrica conectada."
+title: "Personalizar a solução de fábrica Conectada – Azure | Microsoft Docs"
+description: "Uma descrição de como personalizar o comportamento da solução pré-configurada de fábrica Conectada."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 09b146740413e74e3030bf3a6cb660a3cfabd239
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar como a solução de fábrica conectada exibe dados dos servidores OPC UA
+# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar como a solução de fábrica Conectada exibe dados dos servidores OPC UA
 
-A solução de fábrica conectada agrega e exibe dados dos servidores OPC UA conectados à solução. Você pode procurar e enviar comandos para os servidores OPC UA na solução. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
+A solução de fábrica Conectada agrega e exibe dados dos servidores OPC UA conectados à solução. Você pode procurar e enviar comandos para os servidores OPC UA na solução. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
 
 Exemplos de dados agregados na solução incluem a OEE (Eficiência Geral de Equipamentos) e os KPIs (Indicadores Chave de Desempenho) que podem ser exibidos no painel nos níveis da fábrica, da linha e da estação. A captura de tela a seguir mostra os valores de OEE e KPI da estação **Assembly** na **Linha de produção 1**, na fábrica de **Munique**:
 
@@ -33,7 +33,7 @@ A solução permite exibir informações detalhadas de itens de dados específic
 
 ![Gráficos de número de itens fabricados][img-manufactured-items]
 
-Se você clicar em um dos gráficos, poderá explorar os dados ainda mais usando o TSI (Time Series Insights):
+Se você clicar em um dos grafos, poderá explorar os dados ainda mais usando o TSI (Time Series Insights):
 
 ![Explorar dados usando o Time Series Insights][img-tsi]
 
@@ -44,11 +44,11 @@ Este artigo descreve:
 
 ## <a name="data-sources"></a>Fontes de dados
 
-A solução de fábrica conectada exibe dados dos servidores OPC UA conectados à solução. A instalação padrão inclui vários servidores OPC UA que executam uma simulação de fábrica. Você pode adicionar seus próprios servidores OPC UA que [se conectam por meio de um gateway][lnk-connect-cf] à solução.
+A solução de fábrica Conectada exibe dados dos servidores OPC UA conectados à solução. A instalação padrão inclui vários servidores OPC UA que executam uma simulação de fábrica. Você pode adicionar seus próprios servidores OPC UA que [se conectam por meio de um gateway][lnk-connect-cf] à solução.
 
 Você pode procurar itens de dados que um servidor OPC UA conectado pode enviar para a solução no painel:
 
-1. Navegue para a exibição **Selecionar um servidor OPC UA**:
+1. Escolha **Procurar** para navegar para a exibição **Selecionar um servidor OPC UA**:
 
     ![Navegar para a exibição Selecionar um servidor OPC UA][img-select-server]
 
@@ -57,120 +57,35 @@ Você pode procurar itens de dados que um servidor OPC UA conectado pode enviar 
     > [!NOTE]
     > Esse aviso só será exibido uma vez para cada servidor e estabelece uma relação de confiança entre o painel da solução e o servidor.
 
-1. Agora você pode procurar itens de dados que o servidor pode enviar para a solução. Os itens que estão sendo enviados para a solução têm uma marca de seleção verde:
+1. Agora você pode procurar itens de dados que o servidor pode enviar para a solução. Os itens que estão sendo enviados para a solução têm uma marca de seleção:
 
     ![Itens publicados][img-published]
 
-1. Se você for um *Administrador* da solução, poderá optar por publicar um item de dados para disponibilizá-lo na solução de fábrica conectada. Como Administrador, você também pode alterar o valor de itens de dados e chamar métodos no servidor OPC UA.
+1. Se você for um *Administrador* da solução, poderá optar por publicar um item de dados para disponibilizá-lo na solução de fábrica Conectada. Como Administrador, você também pode alterar o valor de itens de dados e chamar métodos no servidor OPC UA.
 
 ## <a name="map-the-data"></a>Mapear os dados
 
-A solução de fábrica conectada mapeia e agrega os itens de dados publicados do servidor OPC UA nas várias exibições da solução. A solução de fábrica conectada é implantada em sua conta do Azure quando você provisiona a solução. Um arquivo JSON da solução de fábrica conectada do Visual Studio armazena essas informações de mapeamento. Exiba e modifique esse arquivo de configuração JSON na solução de fábrica conectada do Visual Studio. Você pode reimplantar a solução depois de fazer uma alteração.
+A solução de fábrica Conectada mapeia e agrega os itens de dados publicados do servidor OPC UA nas várias exibições da solução. A solução de fábrica Conectada é implantada em sua conta do Azure quando você provisiona a solução. Um arquivo JSON da solução de fábrica Conectada do Visual Studio armazena essas informações de mapeamento. Exiba e modifique esse arquivo de configuração JSON na solução de fábrica Conectada do Visual Studio. Você pode reimplantar a solução depois de fazer uma alteração.
 
 Você pode usar o arquivo de configuração para:
 
 - Editar as fábricas simuladas, linhas de produção e estações existentes.
 - Mapear dados de servidores OPC UA reais que estão conectados à solução.
 
-Para clonar uma cópia da solução de fábrica conectada do Visual Studio, use o seguinte comando do Git:
-
-`git clone https://github.com/Azure/azure-iot-connected-factory.git`
-
-O arquivo **ContosoTopologyDescription.json** define o mapeamento dos itens de dados do servidor OPC UA para as exibições no painel da solução de fábrica conectada. Encontre esse arquivo de configuração na pasta **Contoso\Topology** do projeto **WebApp** na solução do Visual Studio.
-
-O conteúdo do arquivo JSON é organizado como uma hierarquia de nós de fábrica, linha de produção e estação. Essa hierarquia define a hierarquia de navegação no painel da fábrica conectada. Os valores em cada nó da hierarquia determinam as informações exibidas no painel. Por exemplo, o arquivo JSON contém os seguintes valores para a fábrica de Munique:
-
-```json
-"Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
-"Name": "Munich",
-"Description": "Braking system",
-"Location": {
-    "City": "Munich",
-    "Country": "Germany",
-    "Latitude": 48.13641,
-    "Longitude": 11.57754
-},
-"Image": "munich.jpg"
-```
-
-O nome, a descrição e a localização aparecem nesta exibição no painel:
-
-![Dados de Munique no painel][img-munich]
-
-Cada fábrica, linha de produção e estação tem uma propriedade de imagem. Encontre esses arquivos JPEG na pasta **Content\img** do projeto **WebApp**. Esses arquivos de imagem são exibidos no painel da fábrica conectada.
-
-Cada estação inclui várias propriedades detalhadas que definem o mapeamento dos itens de dados do OPC UA. Essas propriedades são descritas nas seguintes seções:
-
-### <a name="opcuri"></a>OpcUri
-
-O valor de **OpcUri** é o URI do Aplicativo do OPC UA que identifica exclusivamente o servidor OPC UA. Por exemplo, o valor de **OpcUri** da estação de assembly na linha de produção 1 em Munique tem esta aparência: **urn:scada2194:ua:munich:productionline0:assemblystation**.
-
-Exiba os URIs dos servidores OPC UA conectados no painel da solução:
-
-![Exibir URIs do servidor OPC UA][img-server-uris]
-
-### <a name="simulation"></a>Simulação
-
-As informações do nó **Simulation** são específicas à simulação do OPC UA executada nos servidores do OPC UA provisionados por padrão. Ele não é usado para um servidor OPC UA real.
-
-### <a name="kpi1-and-kpi2"></a>Kpi1 e Kpi2
-
-Esses nós descrevem como os dados da estação contribuem para os dois valores de KPI no painel. Em uma implantação padrão, esses valores de KPI são unidades por hora e kWh por hora. A solução calcula os valores de KPI no nível de uma estação e agrega-os nos níveis da fábrica e da linha de produção.
-
-Cada KPI tem um valor mínimo, máximo e de destino. Cada valor de KPI também pode definir ações de alerta a serem executados pela solução de fábrica conectada. O seguinte trecho mostra as definições de KPI para a estação de assembly na linha de produção 1 em Munique:
-
-```json
-"Kpi1": {
-  "Minimum": 150,
-  "Target": 300,
-  "Maximum": 600
-},
-"Kpi2": {
-  "Minimum": 50,
-  "Target": 100,
-  "Maximum": 200,
-  "MinimumAlertActions": [
-    {
-      "Type": "None"
-    }
-  ]
-}
-```
-
-A captura de tela a seguir mostra os dados de KPI no painel.
-
-![Informações de KPI no painel][lnk-kpi]
-
-### <a name="opcnodes"></a>OpcNodes
-
-Os nós **OpcNodes** identificam os itens de dados publicados do servidor OPC UA e especificam como processar esses dados.
-
-O valor de **NodeId** identifica a NodeID do OPC UA específica do servidor OPC UA. O primeiro nó da estação de assembly na linha de produção 1 em Munique tem um valor igual a **ns=2;i=385**. Um valor de **NodeId** especifica o item de dados a ser lido do servidor OPC UA e **SymbolicName** fornece um nome amigável ao usuário ser usado no painel para os dados.
-
-Outros valores associados a cada nó são resumidos na seguinte tabela:
-
-| Valor | Descrição |
-| ----- | ----------- |
-| Relevância  | Os valores de KPI e OEE com os quais esses dados contribuem. |
-| OpCode     | Como os dados são agregados. |
-| Unidades      | As unidades a serem usadas no painel.  |
-| Visible    | Indica se esse valor será exibido no painel. Alguns valores são usados em cálculos, mas não são exibidos.  |
-| Máximo    | O valor máximo que dispara um alerta no painel. |
-| MaximumAlertActions | Uma ação a ser tomada em resposta a um alerta. Por exemplo, enviar um comando para uma estação. |
-| ConstValue | Um valor constante usado em um cálculo. |
+Para obter mais informações sobre o mapeamento e a agregação dos dados para atender às suas necessidades específicas, consulte [Como configurar a solução pré-configurada de fábrica Conectada](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Implantar as alterações
 
-Quando você terminar de fazer alterações no arquivo **ContosoTopologyDescription.json**, deverá reimplantar a solução de fábrica conectada à sua conta do Azure.
+Quando você terminar de fazer alterações no arquivo **ContosoTopologyDescription.json**, deverá reimplantar a solução de fábrica Conectada à sua conta do Azure.
 
 O repositório **azure-iot-connected-factory** inclui um script **build.ps1** do PowerShell que pode ser usado para recompilar e implantar a solução.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a solução pré-configurada de fábrica conectada lendo os seguintes artigos:
+Saiba mais sobre a solução pré-configurada de fábrica Conectada lendo os seguintes artigos:
 
 * [Passo a passo de solução pré-configurada de fábrica conectada][lnk-rm-walkthrough]
-* [Implantar um gateway para a fábrica conectada][lnk-connect-cf]
+* [Implantar um gateway para a fábrica Conectada][lnk-connect-cf]
 * [Permissões no site azureiotsuite.com][lnk-permissions]
 * [Perguntas frequentes do factory conectado](iot-suite-faq-cf.md)
 * [Perguntas frequentes][lnk-faq]

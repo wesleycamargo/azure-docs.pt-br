@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solucionar problemas da Sincronização de Arquivos do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -42,6 +42,9 @@ Examine o installer.log para determinar a causa da falha de instalação.
 
 > [!Note]  
 > A instalação do agente falhará se sua máquina usar o Microsoft Update e o serviço Windows Update não estiver em execução.
+
+<a id="agent-installation-websitename-failure"></a>**Falha na instalação do agente com esse erro: "O assistente do agente de sincronização de armazenamento foi encerrado prematuramente"**  
+Esse problema pode ocorrer se o nome padrão do site do ISS for alterado. Para contornar esse problema, renomeie o site padrão do IIS como "Default Web Site" e tente novamente a instalação. O problema será corrigido em uma futura atualização do agente. 
 
 <a id="server-registration-missing"></a>**O servidor não está listado em servidores registrados no portal do Azure**  
 Se algum servidor não estiver listado em **Servidores registrados** de um Serviço de Sincronização de Armazenamento:
@@ -102,10 +105,11 @@ Para determinar se sua função de conta de usuário tem as permissões necessá
     * **Atribuição de função** deve ter **Permissões de Leitura** e de **Gravação**.
     * **Definição de função** deve ter **Permissões de Leitura** e de **Gravação**.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Falha na exclusão do ponto de extremidade de nuvem, com este erro: "MgmtInternalError"**  
-Esse problema pode ocorrer quando a conta de armazenamento ou o compartilhamento de arquivos do Azure é excluída antes da exclusão do ponto de extremidade de nuvem. Esse problema será corrigido em uma atualização futura. Nesse momento, você poderá excluir um ponto de extremidade de nuvem depois que excluir a conta de armazenamento ou o compartilhamento de arquivos do Azure.
+<a id="server-endpoint-createjobfailed"></a>**Falha na criação do ponto de extremidade do servidor, com este erro: "MgmtServerJobFailed" (código de erro:-2134375898)**                                                                                                                           
+Esse problema ocorre se o caminho do ponto de extremidade de servidor estiver no volume do sistema e a camada de nuvem estiver habilitada. A camada de nuvem não tem suporte no volume do sistema. Para criar um ponto de extremidade do servidor no volume do sistema, desabilite a disposição em camadas da nuvem ao criar o ponto de extremidade do servidor.
 
-Enquanto isso, para evitar que esse problema ocorra, exclua o ponto de extremidade de nuvem antes de excluir a conta de armazenamento ou o compartilhamento de arquivos do Azure.
+<a id="server-endpoint-deletejobexpired"></a>**Falha na exclusão de ponto de extremidade do servidor, com este erro: "MgmtServerJobExpired"**                
+Esse problema ocorre se o servidor estiver offline ou não tem conectividade de rede. Se o servidor não estiver mais disponível, cancele o registro do servidor no portal que excluirá os pontos de extremidade do servidor. Para excluir os pontos de extremidade do servidor, siga as etapas descritas em [Cancelar o registro de um servidor com a Sincronização de Arquivos do Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Sincronizar
 <a id="afs-change-detection"></a>**Se eu criar um arquivo diretamente em meu compartilhamento de arquivos do Azure usando SMB ou por meio do portal, quanto tempo levará para que o arquivo seja sincronizado com os servidores no grupo de sincronização?**  

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Use Sqoop com Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -94,7 +94,7 @@ Se você preferir usar o Azure PowerShell para criar o cluster e o Banco de Dado
      
         Os seguintes valores estão codificados na seção de variáveis:
         
-        |Nome|Valor|
+        |NOME|Valor|
         |----|-----|
         | Nome da conta de armazenamento padrão | &lt;NomeDoCluster>store |
         | Nome do servidor de banco de dados SQL do Azure. | &lt;NomeDoCluster>dbserver |
@@ -221,7 +221,7 @@ O exemplo do PowerShell executa as seguintes etapas:
    > Além das informações de cadeia de conexão, as etapas nesta seção devem funcionar para o Banco de Dados SQL do Azure ou SQL Server. Essas etapas foram testadas com relação à seguinte configuração:
    > 
    > * **Configuração ponto a site da rede virtual do Azure**: uma rede virtual conectando o cluster HDInsight a um SQL Server em um datacenter privado. Consulte [Configurar um VPN ponto a site no Portal de Gerenciamento](../../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
-   > * **Azure HDInsight 3.1**: confira [Crie clusters Hadoop no HDInsight usando opções de personalização](../hdinsight-hadoop-provision-linux-clusters.md) para saber mais sobre a criação de um cluster em uma rede virtual.
+   > * **Azure HDInsight**: confira [Crie clusters Hadoop no HDInsight usando opções de personalização](../hdinsight-hadoop-provision-linux-clusters.md) para saber mais sobre a criação de um cluster em uma rede virtual.
    > * **SQL Server 2014**: configurado para permitir Autenticação SQL e executando o pacote de configuração do cliente VPN para conectar-se com segurança à rede virtual
    > 
    > 

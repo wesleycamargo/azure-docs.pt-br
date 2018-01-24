@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure
 Este tópico fornece uma visão geral dos conceitos mais importantes dos Serviços de Mídia.
 
-## <a id="assets"></a>Ativos e armazenamento
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Ativos e armazenamento
 ### <a name="assets"></a>Ativos
 Um [Ativo](https://docs.microsoft.com/rest/api/media/operations/asset) contém arquivos digitais (incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda oculta) e os metadados sobre esses arquivos. Depois que os arquivos digitais são carregados em um ativo, eles podem ser usados nos fluxos de trabalho de codificação e streaming dos serviços de mídia.
 
@@ -71,7 +71,7 @@ Um contêiner de blob fornece um agrupamento de um conjunto de blobs. Contêiner
 > 
 > 
 
-### <a id="locators"></a>Localizadores
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Localizadores
 Os [localizadores](https://docs.microsoft.com/rest/api/media/operations/locator) fornecem um ponto de entrada para acessar os arquivos contidos em um ativo. Uma política de acesso é usada para definir as permissões e a duração pela qual um cliente tem acesso a um determinado ativo. Os localizadores podem ter de uma a muitas relações com uma política de acesso, de modo que diferentes localizadores podem fornecer diferentes horas de início e tipos de conexão para diferentes clientes, ao mesmo tempo usando a mesma permissão e as mesmas configurações de duração; no entanto, devido a uma restrição de política de acesso compartilhado definida pelos serviços de armazenamento do Azure, você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. 
 
 Os Serviços de Mídia suportam dois tipos de localizadores: localizadores OnDemandOrigin, usados para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou baixar, de maneira progressiva, mídia; e localizadores de URL SAS, usados para carregar ou baixar arquivos de mídia para\do armazenamento do Azure. 
@@ -127,7 +127,7 @@ Cada programa (evento) está associado a um ativo. Para publicar o programa, voc
 
 Um canal dá suporte a até três programas em execução simultânea, para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um programa, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois programas em execução simultânea. Um programa é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro programa é definido para 10 minutos e esse programa é publicado.
 
-Para obter mais informações, consulte:
+Para obter mais informações, confira:
 
 * [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md)
 * [Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-live-streaming-with-onprem-encoders.md)
@@ -156,7 +156,7 @@ Para obter mais informações, consulte os seguintes artigos:
 - [Proteger com PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Fornecimento
-### <a id="dynamic_packaging"></a>Empacotamento dinâmico
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empacotamento dinâmico
 Ao trabalhar com os Serviços de Mídia, é recomendado codificar seus arquivos de mezanino em uma conjunto MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [Empacotamento Dinâmico](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>ponto de extremidade de streaming
@@ -186,7 +186,7 @@ O download progressivo permite iniciar a reprodução da mídia antes do arquivo
 >[!NOTE]
 >Será necessário descriptografar ativos criptografados se você desejar que eles estejam disponíveis para download progressivo.
 
-Para fornecer aos usuários URLs de download progressivo, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo. Em seguida, é necessário acrescentar o nome do arquivo MP4. Por exemplo:
+Para fornecer aos usuários URLs de download progressivo, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo. Em seguida, é necessário acrescentar o nome do arquivo MP4. Por exemplo: 
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

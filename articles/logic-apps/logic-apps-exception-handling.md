@@ -1,9 +1,9 @@
 ---
-title: "Tratamento de erros e exceções - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Padrões para tratamento de erros e exceções em Aplicativos Lógicos do Azure"
+title: "Tratamento de erros e exceções para Aplicativos Lógicos no Azure | Microsoft Docs"
+description: "Padrões para tratamento de erros e exceções em Aplicativos Lógicos."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
+author: derek1ee
 manager: anneta
 editor: 
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
@@ -13,68 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: LADocs; deli
+ms.openlocfilehash: a74c7d18306359c9152f139299de1208b5932fe5
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos do Azure
+# <a name="handle-errors-and-exceptions-in-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos
 
-Os Aplicativos Lógicos do Azure fornecem ferramentas avançadas e padrões para ajudá-lo a garantir que suas integrações sejam robustas e resistentes a falhas. Qualquer arquitetura de integração apresenta o desafio de lidar adequadamente com o tempo de inatividade ou problemas de sistemas dependentes. Os Aplicativos lógicos transformam o tratamento de erros em uma experiência de qualidade, dando a você as ferramentas necessárias para agir em relação às exceções e aos erros em seus fluxos de trabalho.
+Os Aplicativos Lógicos no Azure fornecem ferramentas avançadas e padrões para ajudá-lo a garantir que suas integrações sejam robustas e resilientes a falhas. Qualquer arquitetura de integração representa o desafio de lidar adequadamente com o tempo de inatividade ou problemas de sistemas dependentes. Os Aplicativos Lógicos tornam o tratamento de erros uma experiência de alto padrão. Eles fornecem as ferramentas necessárias para agir em exceções e erros em seus fluxos de trabalho.
 
 ## <a name="retry-policies"></a>Políticas de repetição
 
-Uma política de repetição é o tipo mais básico de exceção e de tratamento de erros. Se uma solicitação inicial tiver atingido o tempo limite ou falhado (qualquer solicitação que resulte em uma resposta 429 ou 5xx), essa política definirá se e como a ação deverá ser repetida. Há três tipos de políticas de repetição, `exponential`, `fixed` e `none`. Se uma política de repetição não for fornecida na definição do fluxo de trabalho, será utilizada a política padrão. Você poderá configurar as políticas de repetição nas **entradas** para um gatilho ou ação particular, se for nova tentativa. Da mesma forma, nas políticas de repetição do Designer do Aplicativo Lógico (se aplicável) podem ser configuradas em **configurações** para um determinado bloco.
+Uma política de repetição é o tipo mais básico de exceção e de tratamento de erros. Se uma solicitação inicial atingir o tempo limite ou falhar (qualquer solicitação que resulte em uma resposta 429 ou 5xx), uma política de repetição definirá se e como a ação deverá ser repetida. 
 
-Para obter informações sobre as limitações das políticas de repetição, consulte [Configuração e limites de Aplicativos Lógicos](../logic-apps/logic-apps-limits-and-config.md) e para obter mais informações sobre a sintaxe suportada, consulte a [seção de política de repetição em Gatilhos e Ações de Fluxo de Trabalho][retryPolicyMSDN].
+Há quatro tipos de políticas de repetição: padrão, nenhum, intervalo fixo e intervalo exponencial. Se uma política de repetição não for fornecida na definição do fluxo de trabalho, a política padrão, conforme definido pelo serviço, será usada. 
 
-### <a name="exponential-interval"></a>Intervalo exponencial
-O tipo de política `exponential` repetirá uma solicitação com falha após um intervalo de tempo aleatório de um intervalo de crescimento exponencial. Cada tentativa de repetição é garantida para ser enviada em um intervalo aleatório maior que **minimumInterval** e menor que **maximumInterval**. Uma variável aleatória uniforme no intervalo abaixo será gerada para cada repetição até e incluindo a **contagem**:
-<table>
-<tr><th> Intervalo de variável aleatória </th></tr>
-<tr><td>
+Você poderá configurar as políticas de repetição nas *entradas* para um gatilho ou ação particular, se for nova tentativa. Da mesma forma, é possível configurar as políticas de repetição (se aplicáveis) no Designer do Aplicativo Lógico. Para configurar uma política de repetição, no Designer do Aplicativo Lógico, acesse **Configurações** para uma ação específica.
 
-| Número de repetições | Intervalo mínimo | Intervalo mínimo |
-| ------------ |  ------------ |  ------------ |
-| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
-| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
-| 3 | Max(2*interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
-| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
-| ... |
-
-</td></tr></table>
-
-Para políticas de tipo `exponential`, a **contagem** e o **intervalo** serão necessários, enquanto **minimumInterval** e **maximumInterval** poderem ser fornecidos opcionalmente para substituir os valores padrão de PT5S e PT1D, respectivamente.
-
-| Nome do elemento | Obrigatório | Tipo | Descrição |
-| ------------ | -------- | ---- | ----------- |
-| type | Sim | Cadeia de caracteres | `exponential` |
-| count | Sim | Número inteiro | número de tentativas de repetição, deve estar entre 1 e 90  |
-| intervalo | Sim | Cadeia de caracteres | o intervalo de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) deve estar entre PT5S e PT1D |
-| minimumInterval | Não| Cadeia de caracteres | o intervalo mínimo de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) deve estar entre PT5S e o **intervalo** |
-| maximumInterval | Não| Cadeia de caracteres | o intervalo mínimo de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) deve estar entre o **intervalo** e PT1D |
-
-### <a name="fixed-interval"></a>Intervalo fixo
-
-O tipo de política `fixed` repetirá uma solicitação com falha ao aguardar o intervalo de tempo fornecido antes de enviar a próxima solicitação.
-
-| Nome do elemento | Obrigatório | Tipo | Descrição |
-| ------------ | -------- | ---- | ----------- |
-| type | Sim | Cadeia de caracteres | `fixed`|
-| count | Sim | Número inteiro | número de tentativas de repetição, deve estar entre 1 e 90 |
-| intervalo | Sim | Cadeia de caracteres | o intervalo de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) deve estar entre PT5S e PT1D |
-
-### <a name="none"></a>Nenhum
-O tipo de política `none` não tentará novamente uma solicitação com falha.
-
-| Nome do elemento | Obrigatório | Tipo | Descrição |
-| ------------ | -------- | ---- | ----------- |
-| type | Sim | Cadeia de caracteres | `none`|
+Para obter informações sobre as limitações de políticas de repetição, consulte [Limites e configuração de Aplicativos Lógicos](../logic-apps/logic-apps-limits-and-config.md). Para obter mais informações sobre a sintaxe com suporte, consulte a [seção de política de repetição em Gatilhos e ações do fluxo de trabalho][retryPolicyMSDN].
 
 ### <a name="default"></a>Padrão
-Se nenhuma política de repetição for especificada, será utilizada a política padrão. A política padrão é uma política de intervalo exponencial que enviará até 4 tentativas, em intervalos exponencialmente aumentados com escala de 7,5 segundos e limitados entre 5 e 45 segundos. Essa política padrão (utilizada quando **retryPolicy** é indefinida) é equivalente à política nesse exemplo de definição de fluxo de trabalho HTTP:
+
+Se você não definir uma política de repetição (se **retryPolicy** estiver indefinido), será usada a política padrão. A política padrão é uma política de intervalo exponencial que envia até quatro tentativas, em intervalos exponencialmente aumentados com uma escala de 7,5 segundos. O intervalo é limitado a entre 5 e 45 segundos. Essa política padrão é equivalente à política nesse exemplo de definição de fluxo de trabalho HTTP:
 
 ```json
 "HTTP":
@@ -95,9 +57,55 @@ Se nenhuma política de repetição for especificada, será utilizada a polític
 }
 ```
 
-## <a name="catch-failures-with-the-runafter-property"></a>Detectar falhas com a propriedade RunAfter
+### <a name="none"></a>Nenhum
 
-Cada ação de aplicativo lógico declara quais ações devem ser concluídas antes do início da ação, como ordenação de etapas no fluxo de trabalho. Na definição de ação, essa ordem é conhecido como a propriedade `runAfter`. Essa propriedade é um objeto que descreve quais ações e status de ação executam a ação. Por padrão, todas as ações adicionadas por meio do Designer de Aplicativos Lógicos serão definidas como `runAfter` na etapa anterior se a etapa anterior for `Succeeded`. No entanto, você pode personalizar esse valor para disparar ações quando as ações anteriores são `Failed`, `Skipped` ou um conjunto possível desses valores. Se você quisesse adicionar um item a um tópico do Barramento de Serviço designado após uma ação específica `Insert_Row` falhar, usaria a seguinte configuração `runAfter`:
+Se **retryPolicy** estiver definido para **nenhum**, uma solicitação com falha não será repetida.
+
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO |
+| ------------ | -------- | ---- | ----------- |
+| Tipo | sim | Cadeia de caracteres | **nenhum** |
+
+### <a name="fixed-interval"></a>Intervalo fixo
+
+Se **retryPolicy** estiver definido para **fixo**, a política tentará uma solicitação com falha aguardando o intervalo de tempo especificado antes de enviar a próxima solicitação.
+
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO |
+| ------------ | -------- | ---- | ----------- |
+| Tipo | sim | Cadeia de caracteres | **fixo** |
+| count | sim | Número inteiro | Número de tentativas de repetição. Deve ser entre 1 e 90. |
+| intervalo | sim | Cadeia de caracteres | Intervalo de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve ser entre PT5S e PT1D. |
+
+### <a name="exponential-interval"></a>Intervalo exponencial
+
+Se **retryPolicy** estiver definido para **exponencial**, a política tentará uma solicitação com falha após um intervalo de tempo aleatório de um intervalo exponencialmente crescente. Cada tentativa de repetição é garantida para ser enviada em um intervalo aleatório maior que **minimumInterval** e menor que **maximumInterval**. Uma variável aleatória uniforme no intervalo indicado na tabela a seguir é gerada para cada repetição e até e incluindo a **contagem**:
+
+**Intervalo de variável aleatória**
+
+| Número de Repetições | Intervalo mínimo | Intervalo máximo |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
+| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
+| 3 | Max(2 * interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
+| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| ... |
+
+Para políticas de tipo exponencial, a **contagem** e o **intervalo** são necessários. Os valores para **minimumInterval** e **maximumInterval** são opcionais. É possível adicioná-los para substituir os valores padrão de PT5S e PT1D, respectivamente.
+
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO |
+| ------------ | -------- | ---- | ----------- |
+| Tipo | sim | Cadeia de caracteres | **exponencial** |
+| count | sim | Número inteiro | Número de tentativas de repetição. Deve ser entre 1 e 90.  |
+| intervalo | sim | Cadeia de caracteres | Intervalo de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve ser entre PT5S e PT1D. |
+| minimumInterval | Não  | Cadeia de caracteres | Intervalo mínimo de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve estar entre PT5S e o **intervalo**. |
+| maximumInterval | Não  | Cadeia de caracteres | Intervalo mínimo de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve estar entre **intervalo** e PT1D. |
+
+## <a name="catch-failures-with-the-runafter-property"></a>Detectar falhas com a propriedade runAfter
+
+Cada ação de aplicativo lógico declara quais ações deverão ser concluídas antes do início da ação. É semelhante à ordem das etapas no fluxo de trabalho. Na definição de ação, essa solicitação é conhecida como a propriedade **runAfter**. 
+
+A propriedade **runAfter** é um objeto que descreve quais status de ação e ações executam a ação. Por padrão, todas as ações adicionadas usando o Designer do Aplicativo Lógico são definidas para serem executadas após a etapa anterior, se o resultado da etapa anterior for com **Êxito**. 
+
+No entanto, é possível personalizar o valor de **runAfter** para disparar ações quando as ações anteriores tiverem um resultado **Com Falha**, **Ignorado** ou um possível conjunto desses valores. Se você quiser adicionar um item a um tópico do Barramento de Serviço do Microsoft Azure designado após uma ação específica **Insert_Row** falhar, você poderá usar a seguinte configuração **runAfter**:
 
 ```json
 "Send_message": {
@@ -125,7 +133,7 @@ Cada ação de aplicativo lógico declara quais ações devem ser concluídas an
 }
 ```
 
-Observe que a propriedade `runAfter` está definida para ser acionada se a ação `Insert_Row` é `Failed`. Para executar a ação se o status da ação for `Succeeded`, `Failed` ou `Skipped`, use a seguinte sintaxe:
+Observe que **runAfter** está configurada para disparar se o resultado da ação **Insert_Row** for **Com Falha**. Para executar a ação se o status da ação for **Com Êxito**, **Com Falha** ou **Ignorado**, use essa sintaxe:
 
 ```json
 "runAfter": {
@@ -136,21 +144,27 @@ Observe que a propriedade `runAfter` está definida para ser acionada se a açã
 ```
 
 > [!TIP]
-> Ações que são executadas e concluídas com êxito depois que uma ação anterior falha são marcadas como `Succeeded`. Esse comportamento significa que se você detectar todas as falhas em um fluxo de trabalho com êxito, a execução será marcada como `Succeeded`.
+> As ações executadas e concluídas com êxito depois que uma ação anterior falhar serão marcadas como com **Êxito**. Isso significa que, se você capturar todas as falhas no fluxo de trabalho, a própria execução será marcada como com **Êxito**.
 
 ## <a name="scopes-and-results-to-evaluate-actions"></a>Escopos e resultados para avaliar ações
 
-Assim como você pode executar depois de ações individuais, também pode agrupar ações em um mesmo [escopo](../logic-apps/logic-apps-loops-and-scopes.md), o que funciona como um agrupamento lógico de ações. Escopos são úteis para organizar suas ações de aplicativo lógico e para realizar avaliações de agregação do status de um escopo. O escopo em si recebe um status depois que todas as ações em um escopo são concluídas. O status do escopo é determinado com os mesmos critérios que uma execução. Se a ação final em uma ramificação de execução for `Failed` ou `Aborted`, o status será `Failed`.
+É possível agrupar ações dentro de um [escopo](../logic-apps/logic-apps-loops-and-scopes.md), semelhante à forma de execução após as ações individuais. Um escopo age como um agrupamento lógico de ações. 
 
-Para acionar ações específicas para as falhas que ocorreram no escopo, você pode usar `runAfter` com um escopo que está marcado como `Failed`. Se *quaisquer* ações no escopo falharem, a execução após a falha de um escopo permitirá que você crie uma única ação para detectar falhas.
+Escopos são úteis para organizar suas ações de Aplicativo Lógico e para realizar avaliações de agregação do status de um escopo. O escopo em si recebe um status depois que todas as ações em um escopo são concluídas. O status do escopo é determinado com os mesmos critérios que uma execução. Se a ação final em um branch de execução for **Com Falha** ou **Anulado**, o status será **Com Falha**.
 
-### <a name="getting-the-context-of-failures-with-results"></a>Obtendo o contexto de falhas com resultados
+Para disparar ações específicas para quaisquer falhas ocorridas dentro do escopo, você poderá usar **runAfter** com um escopo marcado **Com Falha**. Se *quaisquer* ações no escopo falhar, se você usar **runAfter** para um escopo, será possível criar uma ação única para capturar falhas.
 
-Embora seja útil detectar falhas de um escopo, convém ter o contexto para ajudá-lo a entender exatamente quais ações falharam e quais erros ou códigos de status foram retornados. A função de fluxo de trabalho `@result()` fornece o contexto sobre o resultado de todas as ações em um escopo.
+### <a name="get-the-context-of-failures-with-results"></a>Obter o contexto de falhas com resultados
 
-`@result()` usa um único parâmetro, o nome do escopo, e retorna uma matriz de todos os resultados de ação nesse escopo. Esses objetos de ação incluem os mesmos atributos do objeto `@actions()` , incluindo a hora de início, a hora de término, o status, as entradas, as IDs de correlação e as saídas da ação. Para enviar o contexto de qualquer ação que falhou em um escopo, você pode facilmente combinar uma função `@result()` a um `runAfter`.
+Embora as capturas de falhas de um escopo sejam úteis, também é possível que você queira o contexto para ajudá-lo a entender exatamente quais ações falharam e saber quais erros ou códigos de status foram retornados. A função de fluxo de trabalho **@result()** fornece contexto sobre o resultado de todas as ações em um escopo.
 
-Para executar uma ação *para cada* ação em um escopo que `Failed`, filtre a matriz de resultados para ações que falharam. Você pode combinar `@result()` a uma ação de **[Matriz de Filtro](../connectors/connectors-native-query.md)** e um loop **[ForEach](../logic-apps/logic-apps-loops-and-scopes.md)**. Você pode usar a matriz de resultados filtrados e executar uma ação para cada falha usando o loop **ForEach** . Aqui está um exemplo, seguido de uma explicação detalhada, que envia uma solicitação HTTP POST com o corpo da resposta de qualquer ação que falhou no escopo `My_Scope`.
+A função **@result()** considera um único parâmetro (nome do escopo) e retorna uma matriz de todos os resultados de ação dentro desse escopo. Esses objetos de ação incluem os mesmos atributos que o objeto **@actions()**, incluindo a hora de início da ação, a hora de término da ação, o status da ação, as entradas da ação, as IDs de correlação da ação e as saídas da ação. 
+
+Para enviar o contexto de qualquer ação que falhou dentro de um escopo, você pode facilmente emparelhar uma função **@result()** com uma propriedade **runAfter**.
+
+Para executar uma ação *para cada* ação em um escopo que tenha um resultado **Com Falha**, e filtrar a matriz de resultados para ações que falharam, é possível emparelhar **@result()** com uma ação [Filter_array](../connectors/connectors-native-query.md) e um loop [foreach](../logic-apps/logic-apps-loops-and-scopes.md). Com a matriz de resultados filtrada, você poderá executar uma ação para cada falha usando o loop **foreach**. 
+
+Aqui, está um exemplo que envia uma solicitação HTTP POST com o corpo de resposta de qualquer ação que falhou no escopo My_Scope:
 
 ```json
 "Filter_array": {
@@ -191,22 +205,21 @@ Para executar uma ação *para cada* ação em um escopo que `Failed`, filtre a 
 }
 ```
 
-Aqui está um passo a passo detalhado para descrever o que acontece:
+Aqui, está um passo a passo detalhado para descrever o que acontece no exemplo anterior:
 
-1. Para obter o resultado de todas as ações em `My_Scope`, a ação **Matriz de Filtro** filtra `@result('My_Scope')`.
+1. Para obter o resultado de todas as ações em My_Scope, a ação **Filter_array** filtra **@result('My_Scope')**.
 
-2. A condição de **Matriz de Filtro** é qualquer item `@result()` que tenha um status igual a `Failed`. Essa condição filtra a matriz com todos os resultados de ação de `My_Scope` para uma matriz somente com resultados de ação com falha.
+2. A condição de **Filter_array** é qualquer item **@result()**que tenha um status igual a **Com Falha**. Essa condição filtra a matriz de todos os resultados de ação de My_Scope, para uma matriz com apenas resultados de ação com falha.
 
-3. Execute uma ação **For Each** nas saídas **Matriz Filtrada**. Esta etapa executa uma ação *para cada* resultado de ação com falha que foi filtrado anteriormente.
+3. Execute uma ação **foreach** nas saídas de *matriz filtrada*. Esta etapa executa uma ação *para cada* resultado de ação com falha que foi filtrado anteriormente.
 
-    Se uma única ação no escopo tiver falhado, as ações em `foreach` serão executadas apenas uma vez. 
-    Muitas ações com falha causam uma ação por falha.
+    Se uma ação única no escopo falhou, as ações no **foreach** serão executadas apenas uma vez. Várias ações com falha causam uma ação por falha.
 
-4. Envie um HTTP POST no corpo da resposta do item `foreach` ou `@item()['outputs']['body']`. A forma do item `@result()` é igual à forma `@actions()` e pode ser analisada da mesma maneira.
+4. Envie um HTTP POST no corpo de resposta do item **foreach** ou **@item()['outputs']['body']**. A forma de item **@result()** é a mesma que a forma **@actions()**. É possível analisá-lo da mesma maneira.
 
-5. Inclua dois cabeçalhos personalizados com o nome da ação com falha `@item()['name']` e a ID de rastreamento do cliente executado com falha `@item()['clientTrackingId']`.
+5. Inclua dois cabeçalhos personalizados com o nome da ação com falha **@item()['name']** e a ID de rastreamento do cliente que executou com falha **@item()['clientTrackingId']**.
 
-Para referência, aqui está um exemplo de um único item `@result()`, mostrando as propriedades `name`, `body` e `clientTrackingId` que são analisadas no exemplo anterior. Fora de um `foreach`, `@result()` retorna uma matriz desses objetos.
+Para referência, aqui está um exemplo de um único item **@result()**. Ele mostra as propriedades **nome**, **corpo** e **clientTrackingId** analisadas no exemplo anterior. Fora de uma ação **foreach**, **@result()** retorna uma matriz desses objetos.
 
 ```json
 {
@@ -238,19 +251,20 @@ Para referência, aqui está um exemplo de um único item `@result()`, mostrando
 }
 ```
 
-Para executar diferentes padrões de tratamento de exceções, você pode usar as expressões mostradas anteriormente. Você pode optar por executar uma única ação de tratamento de exceção fora do escopo que aceita toda a matriz filtrada de falhas e remover a `foreach`. Você também pode incluir outras propriedades úteis da resposta `@result()` mostrada anteriormente.
+Para diferentes padrões de tratamento de exceções, é possível usar as expressões descritas anteriormente no artigo. Você pode optar por executar uma única ação de tratamento de exceções fora do escopo que aceita toda a matriz filtrada de falhas e remover o **foreach**. Adicionalmente, é possível incluir outras propriedades úteis da resposta **@result()** response, conforme descrito anteriormente.
 
 ## <a name="azure-diagnostics-and-telemetry"></a>Diagnósticos do Azure e telemetria
 
-Os padrões anteriores são uma ótima maneira de identificar erros e exceções dentro de uma execução, mas você também pode identificar e responder a erros independentemente da execução em si. 
-[Diagnóstico do Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) fornece uma maneira simples de enviar todos os eventos de fluxo de trabalho (incluindo todos os status de execução e de ação) a uma conta de Armazenamento do Azure ou a um Hub de Eventos do Azure. Para avaliar o status de execução, você pode monitorar os logs e as métricas ou publicá-los em qualquer ferramenta de monitoramento que preferir. Uma opção possível é transmitir todos os eventos usando o Hub de Eventos do Azure no [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). No Stream Analytics, você pode dar baixa em consultas nas anomalias, médias ou falhas dos logs de diagnóstico. O Stream Analytics pode enviar a saída facilmente para outras fontes de dados, como filas, tópicos, o SQL, o Azure Cosmos DB e o Power BI.
+Os padrões descritos neste artigo fornecem ótimas maneiras de tratamento de erros e exceções dentro de uma execução, mas você também pode identificar e responder a erros independentes da execução. O [Diagnóstico do Microsoft Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) fornece uma maneira simples de enviar todos os eventos do fluxo de trabalho (incluindo todos os status de ação e execução) para uma conta de armazenamento do Azure ou para um hub de eventos em Hubs de Eventos do Azure. 
+
+Para avaliar os status de execução, você pode monitorar logs e métricas ou publicá-los em qualquer ferramenta de monitoramento que preferir. Uma opção possível é transmitir todos os eventos através dos Hubs de Eventos para o [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). No Stream Analytics é possível gravar consultas dinâmicas com base em quaisquer anomalias, médias ou falhas dos logs de diagnóstico. Você pode usar o Stream Analytics para enviar informações a outras fontes de dados, como filas, tópicos, SQL, Azure Cosmos DB ou Power BI.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Veja como um cliente compila o tratamento de erros com Aplicativos Lógicos do Azure](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-* [Encontrar mais exemplos e cenários dos Aplicativos Lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Saiba como criar implantações automatizadas para aplicativos lógicos](../logic-apps/logic-apps-create-deploy-template.md)
-* [Compilar e implantar aplicativos lógicos no Visual Studio](logic-apps-deploy-from-vs.md)
+* Veja como um cliente [compila o tratamento de erros com os Aplicativos Lógicos no Azure](../logic-apps/logic-apps-scenario-error-and-exception-handling.md).
+* Encontrar mais [exemplos e cenários dos Aplicativos Lógicos](../logic-apps/logic-apps-examples-and-scenarios.md).
+* Saiba como criar [implantações automatizadas para aplicativos lógicos](../logic-apps/logic-apps-create-deploy-template.md).
+* Saiba como [compilar e implantar aplicativos lógicos com o Visual Studio](logic-apps-deploy-from-vs.md).
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

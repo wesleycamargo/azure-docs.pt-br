@@ -3,8 +3,8 @@ title: "Conector do SQL Genérico | Microsoft Docs"
 description: "Este artigo descreve como configurar o conector SQL genérico da Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referência técnica do conector SQL genérico
 Este artigo descreve o conector SQL genérico. O artigo se aplica aos seguintes produtos:
@@ -27,7 +27,7 @@ Este artigo descreve o conector SQL genérico. O artigo se aplica aos seguintes 
 * Forefront Identity Manager 2010 R2 (FIM2010R2)
   * É necessário usar o hotfix 4.1.3671.0 ou posterior [KB3092178](https://support.microsoft.com/kb/3092178).
 
-Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
+Para MIM2016 e FIM2010R2, o conector está disponível para download no [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
 Para ver esse conector em ação, consulte o artigo [Generic SQL Connector step-by-step](active-directory-aadconnectsync-connector-genericsql-step-by-step.md) .
 
@@ -38,12 +38,12 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 
 | Recurso | Suporte |
 | --- | --- |
-| Fonte de dados conectada |O conector é compatível com todos os drivers ODBC de 64 bits. Ele foi testado com o seguinte:  <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
+| Fonte de dados conectada |O conector é compatível com todos os drivers ODBC de 64 bits. Ele foi testado com as seguintes opções:  <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
 | Cenários |<li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de senha</li> |
 | Operações |<li>Importação completa e importação delta, exportação</li><li>Para exportar: Adicionar, Excluir, Atualizar e Substituir</li><li>Definir senha, alterar senha</li> |
 | Esquema |<li>Detecção dinâmica de objetos e atributos</li> |
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
@@ -72,7 +72,7 @@ A tela Conectividade é a primeira quando você cria um novo conector SQL genér
 
 * Caminho do arquivo DSN
 * Autenticação
-  * Nome de usuário
+  * Nome do Usuário
   * Senha
 
 O banco de dados deve dar suporte a um dos seguintes métodos de autenticação:
@@ -231,7 +231,11 @@ O conector SQL genérico oferece suporte a importação completa e Delta usando 
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Tabela/Exibição**  
-Para importar atributos de valores múltiplos de um objeto, você precisa fornecer o nome de tabela/exibição separados por vírgulas em **Nome de tabela/exibições de valores múltiplos** e as respectivas condições de junção em **Condição de junção** com a tabela principal.
+Para importar atributos de valores múltiplos de um objeto, você precisa fornecer o nome de tabela/exibição em **Nome de tabela/exibições de valores múltiplos** e as respectivas condições de junção em **Condição de junção** com a tabela principal. Se houver mais de uma tabela com vários valores na fonte de dados, use a união para uma única exibição.
+
+>[!IMPORTANT]
+O agente de gerenciamento do SQL Genérico só pode trabalhar com uma tabela com vários valores. Não coloque no Nome de tabela/exibições de vários valores mais de um nome de tabela. É a limitação do SQL Genérico.
+
 
 Exemplo: você deseja importar o objeto de funcionário e todos os seus atributos de valores múltiplos. Há duas tabelas chamadas Funcionário (tabela principal) e Departamento (valores múltiplos).
 Faça o seguinte:
@@ -304,5 +308,5 @@ Se você escolher a opção de consulta SQL, a Exportação exigirá três consu
 * **Consulta Delete**: esta consulta será executada se houver objetos para exclusão no conector, na respectiva tabela.
 * Atributo selecionado do esquema, usado como um valor de parâmetro na consulta, por exemplo, `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

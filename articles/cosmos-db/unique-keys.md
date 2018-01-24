@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas no Azure Cosmos DB
 
 Chaves exclusivas oferecem aos desenvolvedores a capacidade de adicionar uma camada de integridade dos dados ao seu banco de dados. Ao criar uma política de chave exclusiva quando um contêiner for criado, você garante a exclusividade de um ou mais valores por [chave de partição](partition-data.md). Depois que um contêiner foi criado com uma política de chave exclusiva, será impedida a criação de itens novos ou atualizados com valores que duplicam valores especificados pela restrição de chave exclusiva.   
 
 > [!NOTE]
-> Chaves exclusivas têm suporte nas versões mais recentes de SDKs do [.NET](documentdb-sdk-dotnet.md) e [.NET Core](documentdb-sdk-dotnet-core.md) do DocumentDB (SQL) e a [API do MongoDB](mongodb-feature-support.md#unique-indexes). A API de Tabela e a API do Graph não dão suporte a chaves exclusivas atualmente. 
+> Chaves exclusivas têm suporte nas versões mais recentes de SDKs SQL do [.NET](sql-api-sdk-dotnet.md) e [.NET Core](sql-api-sdk-dotnet-core.md) e [API do MongoDB](mongodb-feature-support.md#unique-indexes). A API de Tabela e a API do Graph não dão suporte a chaves exclusivas atualmente. 
 > 
 >
 
@@ -54,7 +54,7 @@ Chaves exclusivas devem ser definidas quando o contêiner for criado, e a chave 
 
 Contêineres existentes não podem ser atualizados para usar chaves exclusivas.
 
-Depois que um contêiner é criado com uma política de chave exclusiva, a política não pode ser alterada, a menos que o contêiner seja recriado. Se você tiver dados existentes aos quais gostaria de implementar chaves exclusivas, crie o novo contêiner e depois use a ferramenta de migração de dados apropriada para mover os dados para o novo contêiner. Para contêineres do DocumentDB (SQL), use a [Ferramenta de migração de dados](import-data.md). Para contêineres do MongoDB, use [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md).
+Depois que um contêiner é criado com uma política de chave exclusiva, a política não pode ser alterada, a menos que o contêiner seja recriado. Se você tiver dados existentes aos quais gostaria de implementar chaves exclusivas, crie o novo contêiner e depois use a ferramenta de migração de dados apropriada para mover os dados para o novo contêiner. Para contêineres do SQL, use a [Ferramenta de migração de dados](import-data.md). Para contêineres do MongoDB, use [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md).
 
 Pode ser incluído um máximo de 16 valores de caminho (por exemplo, /firstName, /lastName, /address/zipCode etc.) em cada chave exclusiva. 
 
@@ -64,9 +64,9 @@ Encargos de solicitação de unidade para criar, atualizar e excluir um item sã
 
 Não há suporte para chaves exclusivas esparsas. Se estiverem faltando valores para alguns caminhos exclusivos, eles são tratados como um valor nulo especial, o qual participa da restrição de exclusividade.
 
-## <a name="documentdb-sql-api-sample"></a>Exemplo de API do DocumentDB (SQL)
+## <a name="sql-api-sample"></a>Exemplo de API do SQL
 
-O exemplo de código a seguir mostra como criar um novo contêiner do DocumentDB (SQL) com duas restrições de chave exclusivas. A primeira restrição é a de firstName, lastName e email descrita no exemplo anterior. A segunda restrição é o endereço/CEP dos usuários. Um arquivo JSON de exemplo que usa os caminhos dessa política de chave exclusiva segue o exemplo de código. 
+O exemplo de código a seguir mostra como criar um contêiner do SQL novo com duas restrições de chave exclusivas. A primeira restrição é a de firstName, lastName e email descrita no exemplo anterior. A segunda restrição é o endereço/CEP dos usuários. Um arquivo JSON de exemplo que usa os caminhos dessa política de chave exclusiva segue o exemplo de código. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

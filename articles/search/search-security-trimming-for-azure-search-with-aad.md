@@ -1,6 +1,6 @@
 ---
-title: "Restrições de segurança no Azure Search com o Azure Active Directory | Microsoft Docs"
-description: "Implementar as restrições de segurança usando o filtro do Azure Search e Azure Active Directory."
+title: "Filtros de segurança para a fragmentação dos resultados do Azure Search usando identidades do Active Directory | Microsoft Docs"
+description: "Controle de acesso no conteúdo do Azure Search usando filtros de segurança e identidades do Active Directory."
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Restrições de segurança no Azure Search com o Azure Active Directory
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para a restrição dos resultados do Azure Search usando identidades do Active Directory
 
-Este artigo mostra como usar o Azure Active Directory (AAD) junto com o Azure Search para restringir o acesso a documentos com base na associação de grupo do usuário.
+Este artigo mostra como usar as identidades de segurança do Azure Active Directory (AAD) junto com os filtros no Azure Search para restringir o acesso a documentos com base na associação de grupo do usuário.
 
 Este artigo aborda as seguintes tarefas:
 > [!div class="checklist"]
@@ -29,7 +29,7 @@ Este artigo aborda as seguintes tarefas:
 >[!NOTE]
 > Os trechos de código de exemplo neste artigo são escritos em C#. Você pode encontrar o código-fonte completo [no GitHub](http://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O índice no Azure Search deve ter um [campo segurança](search-security-trimming-for-azure-search.md) para armazenar a lista de identidades de grupo que têm acesso de leitura ao documento. Esse caso de uso pressupõe uma correspondência individual entre um item protegível (como um aplicativo de admissão de faculdade de um indivíduo) e um campo de segurança especificando quem tem acesso a esse item (equipe de admissão).
 
@@ -187,5 +187,6 @@ Neste passo a passo, você aprendeu técnicas para usar logons do AAD para filtr
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Restrições de segurança com o Azure Search](search-security-trimming-for-azure-search.md)
++ [Controle de acesso baseado na identidade usando filtros do Azure Search](search-security-trimming-for-azure-search.md)
 + [Filtros no Azure Search](search-filters.md)
++ [Controle de acesso e segurança de dados no Azure Search](search-security-overview.md)

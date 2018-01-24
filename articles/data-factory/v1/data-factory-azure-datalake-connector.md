@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f74a953d04e8633e802b33903de603b39ac08e9b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiar dados de e para o Data Lake Store usando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,10 +71,10 @@ As seções que a seguir fornecem detalhes sobre as propriedades JSON que são u
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 Um serviço vinculado vincula um armazenamento de dados a um data factory. Crie um serviço vinculado do tipo **AzureDataLakeStore** para vincular os dados do Data Lake Store ao data factory. A tabela a seguir descreve elementos JSON específicos para serviços vinculados do Data Lake Store. Você pode escolher entre a entidade de serviço e a autenticação de credenciais de usuário.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| **tipo** | A propriedade type deve ser definida como **AzureDataLakeStore**. | Sim |
-| **dataLakeStoreUri** | Informações sobre a conta do Azure Data Lake Store. Essas informações usam um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
+| **tipo** | A propriedade type deve ser definida como **AzureDataLakeStore**. | sim |
+| **dataLakeStoreUri** | Informações sobre a conta do Azure Data Lake Store. Essas informações usam um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | sim |
 | **subscriptionId** | ID de assinatura do Azure à qual a conta do Data Lake Store pertence. | Obrigatório para coletor |
 | **resourceGroupName** | Nome do grupo de recursos do Azure ao qual a conta do Data Lake Store pertence. | Obrigatório para coletor |
 
@@ -84,19 +84,19 @@ Para usar a autenticação de entidade de serviço, registre uma entidade de apl
 * Chave do aplicativo 
 * ID do locatário
 
-> [!TIP]
+> [!IMPORTANT]
 > Verifique se você concedeu a permissão apropriada à entidade de serviço no Azure Data Lake Store:
->- Se você usar o Assistente de Cópia para criar pipelines, conceda pelo menos a função **Leitor** no IAM (controle de acesso da conta). Além disso, conceda pelo menos a permissão de **Leitura + Execução** para sua raiz do Data Lake Store (“/”) e seus filhos. Caso contrário, você poderá ver a mensagem "As credenciais fornecidas são inválidas".
->- Para usar o Data Lake Store como origem, conceda pelo menos a permissão de acesso a dados **Leitura + Execução** para listar e copiar o conteúdo de uma pasta ou de **Leitura** para copiar um único arquivo. Nenhum requisito de controle de acesso no nível da conta.
->- Para usar o Data Lake Store como coletor, conceda pelo menos a permissão de acesso a dados **Gravação + Execução** para criar itens filho na pasta. E, se você usar o Azure IR para capacitar a cópia (tanto a origem quanto o coletor estão na nuvem), para permitir ao Data Factory detectar a região do Data Lake Store, conceda pelo menos a função **Leitor** no controle de acesso da conta (IAM). Se você quiser evitar essa função IAM, [especifique executionLocation](data-factory-data-movement-activities.md#global) com o local do Data Lake Store na atividade de cópia.
+>- **Para usar o Data Lake Store como origem**, conceda pelo menos a permissão de acesso a dados **Leitura + Execução** para listar e copiar o conteúdo de uma pasta ou de **Leitura** para copiar um único arquivo. Nenhum requisito de controle de acesso no nível da conta.
+>- **Para usar o Data Lake Store como coletor**, conceda pelo menos a permissão de acesso a dados **Gravação + Execução** para criar itens filho na pasta. E, se você usar o Azure IR para capacitar a cópia (tanto a origem quanto o coletor estão na nuvem), para permitir ao Data Factory detectar a região do Data Lake Store, conceda pelo menos a função **Leitor** no controle de acesso da conta (IAM). Se você quiser evitar essa função IAM, [especifique executionLocation](data-factory-data-movement-activities.md#global) com o local do Data Lake Store na atividade de cópia.
+>- Se você **usar o Assistente de Cópia para criar pipelines**, conceda pelo menos a função **Leitor** no IAM (controle de acesso da conta). Além disso, conceda pelo menos a permissão de **Leitura + Execução** para sua raiz do Data Lake Store (“/”) e seus filhos. Caso contrário, você poderá ver a mensagem "As credenciais fornecidas são inválidas".
 
 Use a autenticação de entidade de serviço especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Especifique a ID do cliente do aplicativo. | Sim |
-| **servicePrincipalKey** | Especifique a chave do aplicativo. | Sim |
-| **tenant** | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim |
+| **servicePrincipalId** | Especifique a ID do cliente do aplicativo. | sim |
+| **servicePrincipalKey** | Especifique a chave do aplicativo. | sim |
+| **tenant** | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | sim |
 
 **Exemplo: autenticação de entidade de serviço**
 ```json
@@ -119,10 +119,16 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 ### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
 Como alternativa, você pode usar a autenticação de credenciais do usuário para copiar de ou para o Data Lake Store especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| **authorization** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | Sim |
-| **sessionId** | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim |
+| **authorization** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | sim |
+| **sessionId** | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | sim |
+
+> [!IMPORTANT]
+> Verifique se você concedeu a permissão apropriada ao usuário no Azure Data Lake Store:
+>- **Para usar o Data Lake Store como origem**, conceda pelo menos a permissão de acesso a dados **Leitura + Execução** para listar e copiar o conteúdo de uma pasta ou de **Leitura** para copiar um único arquivo. Nenhum requisito de controle de acesso no nível da conta.
+>- **Para usar o Data Lake Store como coletor**, conceda pelo menos a permissão de acesso a dados **Gravação + Execução** para criar itens filho na pasta. E, se você usar o Azure IR para capacitar a cópia (tanto a origem quanto o coletor estão na nuvem), para permitir ao Data Factory detectar a região do Data Lake Store, conceda pelo menos a função **Leitor** no controle de acesso da conta (IAM). Se você quiser evitar essa função IAM, [especifique executionLocation](data-factory-data-movement-activities.md#global) com o local do Data Lake Store na atividade de cópia.
+>- Se você **usar o Assistente de Cópia para criar pipelines**, conceda pelo menos a função **Leitor** no IAM (controle de acesso da conta). Além disso, conceda pelo menos a permissão de **Leitura + Execução** para sua raiz do Data Lake Store (“/”) e seus filhos. Caso contrário, você poderá ver a mensagem "As credenciais fornecidas são inválidas".
 
 **Exemplo: autenticação de credenciais do usuário**
 ```json
@@ -147,7 +153,6 @@ O código de autorização gerado usando o botão **Autorizar** expira após um 
 Erro na operação de credencial: invalid_grant – AADSTS70002: Erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID de correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21-09-31Z.
 
 A tabela a seguir mostra os tempos de expiração de diferentes tipos de contas de usuário:
-
 
 | Tipo de usuário | Expira após |
 |:--- |:--- |
@@ -185,18 +190,61 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ```
 Para encontrar detalhes sobre as classes do Data Factory usadas no código, consulte os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Adicione uma referência à versão `2.9.10826.1824` de `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` para a classe `WindowsFormsWebAuthenticationDialog` usada no código.
 
+## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
+
+**Sintoma:** ao copiar dados **para** o Azure Data Lake Store, se a sua atividade de cópia falhar com o seguinte erro:
+
+  ```
+  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
+  ```
+
+**Causa raiz:** existem dois motivos possíveis:
+
+1. O `resourceGroupName` e/ou `subscriptionId` especificado no serviço vinculado do Azure Data Lake Store está incorreto;
+2. O usuário ou a entidade de serviço não tem a permissão necessária.
+
+**Resolução:**
+
+1. Verifique se o `subscriptionId` e `resourceGroupName` especificado no serviço vinculado `typeProperties` realmente são aqueles aos quais sua conta do Data Lake pertence.
+
+2. Certifique-se de conceder pelo menos a função de "**Leitor**" ao usuário ou entidade de serviço na conta do Data Lake. Veja como fazer isso:
+
+    1. Vá para o Portal do Azure -> sua conta do Data Lake Store
+    2. Clique em "Controle de acesso (IAM)" na folha do Data Lake Store
+    3. Clique em "Adicionar" na folha de "Controle de acesso (IAM)"
+    4. Defina "Função" como "Leitor" e selecione o usuário ou a entidade de serviço que você usa para copiar para conceder acesso
+
+3. Se você não quiser conceder a função "Leitor" ao usuário ou à entidade de serviço, uma alternativa é [especificar explicitamente um local de execução](data-factory-data-movement-activities.md#global) na atividade de cópia com o local do seu Data Lake Store. Exemplo:
+
+    ```json
+    {
+      "name": "CopyToADLS",
+      "type": "Copy",
+      ......
+      "typeProperties": {
+        "source": {
+          "type": "<source type>"
+        },
+        "sink": {
+          "type": "AzureDataLakeStoreSink"
+        },
+        "exeuctionLocation": "West US"
+      }
+    }
+    ```
+
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para especificar um conjunto de dados para representar os dados de entrada em um Data Lake Store, defina a propriedade **type** do conjunto de dados para **AzureDataLakeStore**. Defina a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço vinculado do Data Lake Store. Para obter uma lista completa das seções e propriedades JSON disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções de um conjunto de dados no JSON, como **structure**, **availability** e **policy** são similares para todos os tipos de conjunto de dados (Banco de Dados SQL do Azure, Blob do Azure e tabela do Azure, por exemplo). A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização e o formato dos dados no armazenamento de dados. 
 
 A seção **typeProperties** do conjunto de um conjunto de dados do tipo **AzureDataLakeStore** contém a seguinte propriedade:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| **folderPath** |Caminho para o contêiner e a pasta no Data Lake Store. |Sim |
-| **fileName** |O nome do arquivo no Azure Data Lake Store. A propriedade **fileName** é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um **fileName**, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando **fileName** não for especificado, a Cópia incluirá todos os arquivos do **folderPath** para o conjunto de dados de entrada.<br/><br/>Quando **fileName** não for especificado para um conjunto de dados de saída e **preserveHierarchy** não for especificado em um coletor de atividade, o nome do arquivo gerado está no formato Data._Guid_.txt`. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
-| **partitionedBy** |A propriedade **partitionedBy** é opcional. Você pode usá-la para especificar um caminho de pasta dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, **folderPath** pode ser parametrizado para cada hora dos dados. Para encontrar detalhes e exemplos, consulte [A propriedade partitionedBy](#using-partitionedby-property). |Não |
-| **format** | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob **format** para um desses valores. Para obter mais informações, consulte as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) no artigo [Formatos de arquivo aos quais o Azure Data Factory dá suporte](data-factory-supported-file-and-compression-formats.md). <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios com base em arquivo (cópia binária), ignore a seção `format` nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| **compression** | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis de suporte são **Ideal** e **Mais rápido**. Para saber mais, confira [Formatos de arquivo aos quais o Azure Data Factory dá suporte](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| **folderPath** |Caminho para o contêiner e a pasta no Data Lake Store. |sim |
+| **fileName** |O nome do arquivo no Azure Data Lake Store. A propriedade **fileName** é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um **fileName**, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando **fileName** não for especificado, a Cópia incluirá todos os arquivos do **folderPath** para o conjunto de dados de entrada.<br/><br/>Quando **fileName** não for especificado para um conjunto de dados de saída e **preserveHierarchy** não for especificado em um coletor de atividade, o nome do arquivo gerado está no formato Data._Guid_.txt`. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não  |
+| **partitionedBy** |A propriedade **partitionedBy** é opcional. Você pode usá-la para especificar um caminho de pasta dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, **folderPath** pode ser parametrizado para cada hora dos dados. Para encontrar detalhes e exemplos, consulte [A propriedade partitionedBy](#using-partitionedby-property). |Não  |
+| **format** | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob **format** para um desses valores. Para obter mais informações, consulte as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) no artigo [Formatos de arquivo aos quais o Azure Data Factory dá suporte](data-factory-supported-file-and-compression-formats.md). <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios com base em arquivo (cópia binária), ignore a seção `format` nas duas definições de conjunto de dados de entrada e de saída. |Não  |
+| **compression** | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis de suporte são **Ideal** e **Mais rápido**. Para saber mais, confira [Formatos de arquivo aos quais o Azure Data Factory dá suporte](data-factory-supported-file-and-compression-formats.md#compression-support). |Não  |
 
 ### <a name="the-partitionedby-property"></a>A propriedade partitionedBy
 Você pode especificar propriedades **folderPath** e **fileName** dinâmicas para dados de série temporal com a propriedade **partitionedBy**, funções do Data Factory e variáveis do sistema. Para encontrar detalhes, consulte o artigo [Azure Data Factory – Funções e Variáveis do Sistema](data-factory-functions-variables.md).
@@ -234,16 +282,16 @@ As propriedades disponíveis na seção **typeProperties** de uma atividade vari
 
 **AzureDataLakeStoreSource** dá suporte à seguinte propriedade na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| **recursive** |Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. |True (valor padrão), False |Não |
+| **recursive** |Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. |True (valor padrão), False |Não  |
 
 
 **AzureDataLakeStoreSink** dá suporte às seguintes propriedades na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| **copyBehavior** |Especifica o comportamento da cópia. |<b>PreserveHierarchy</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy</b>: todos os arquivos da pasta de origem são criados no primeiro nível da pasta de destino. Os arquivos de destino são criados com nomes gerados automaticamente.<br/><br/><b>MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo ou do blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, o nome do arquivo será gerado automaticamente. |Não |
+| **copyBehavior** |Especifica o comportamento da cópia. |<b>PreserveHierarchy</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy</b>: todos os arquivos da pasta de origem são criados no primeiro nível da pasta de destino. Os arquivos de destino são criados com nomes gerados automaticamente.<br/><br/><b>MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo ou do blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, o nome do arquivo será gerado automaticamente. |Não  |
 
 ### <a name="recursive-and-copybehavior-examples"></a>exemplos de recursive e copyBehavior
 Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursive e copyBehavior.
@@ -253,9 +301,9 @@ Esta seção descreve o comportamento resultante da operação de cópia para di
 | verdadeiro |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:  <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a mesma estrutura da origem<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5. |
 | verdadeiro |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:  <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a Pasta1 de destino é criada com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo5 |
 | verdadeiro |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura:  <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a Pasta1 de destino é criada com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 + Arquivo3 + Arquivo4 + Arquivo5 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente |
-| false |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:  <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
-| false |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
-| false |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente. Nome gerado automaticamente para o Arquivo1<br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
+| falso |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:  <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
+| falso |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
+| falso |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente. Nome gerado automaticamente para o Arquivo1<br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de arquivo e de compactação com suporte
 Para obter detalhes, consulte o artigo [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md).

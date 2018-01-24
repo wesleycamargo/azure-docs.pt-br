@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalar e configurar o Ansible para gerenciar máquinas virtuais no Azure
 Este artigo fornece detalhes sobre como instalar o Ansible e os módulos necessários do SDK do Python no Azure para algumas das distribuições de Linux mais comuns. Você pode instalar o Ansible em outras distribuições ajustando os pacotes instalados para se adaptar a sua plataforma específica. Para criar recursos do Azure de maneira segura, você também aprenderá a criar e definir credenciais para o Ansible usar. 
@@ -34,7 +34,7 @@ Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#creat
 az group create --name myResourceGroupAnsible --location eastus
 ```
 
-Agora crie uma máquina virtual e instale o Ansible para uma das seguintes distribuições:
+Agora, crie uma VM e instale o Ansible para uma das seguintes distribuições de sua escolha:
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
@@ -43,7 +43,7 @@ Agora crie uma máquina virtual e instale o Ansible para uma das seguintes distr
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 Crie uma VM com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -74,7 +74,7 @@ Agora vá para [Criar credenciais do Azure](#create-azure-credentials).
 ### <a name="centos-73"></a>CentOS 7.3
 Crie uma VM com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -106,7 +106,7 @@ Agora vá para [Criar credenciais do Azure](#create-azure-credentials).
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 Crie uma VM com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -125,39 +125,42 @@ Na sua VM, instale os pacotes necessários para os módulos de SDK de Python no 
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel libtool python-pip python-setuptools
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+    python-devel libopenssl-devel libtool python-pip python-setuptools
 
 ## Install Ansible and Azure SDKs via pip
 sudo pip install ansible[azure]
+
+# Remove conflicting Python cryptography package
+sudo pip uninstall -y cryptography
 ```
 
 Agora vá para [Criar credenciais do Azure](#create-azure-credentials).
 
 
 ## <a name="create-azure-credentials"></a>Criar as credenciais do Azure
-O Ansible comunica-se com o Azure usando um nome de usuário e uma senha ou uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o Ansible. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure. Para melhorar a segurança em apenas fornecer um nome de usuário e uma senha, este exemplo cria uma entidade de serviço básica.
+O Ansible comunica-se com o Azure usando um nome de usuário e uma senha ou uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o Ansible. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure. Para aprimorar a segurança, em vez de apenas fornecer um nome de usuário e uma senha, este exemplo cria uma entidade de serviço básica.
 
-Crie uma entidade de serviço com [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e gere as credenciais necessárias para o Ansible:
+Crie uma entidade de serviço em seu computador host com [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e gere as credenciais necessárias para o Ansible:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
 ```
 
 Um exemplo da saída dos comandos anteriores é o seguinte:
 
 ```json
-[
-  "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "72f988bf-86f1-41af-91ab-2d7cd011db47"
-]
+{
+  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 Para se autenticar no Azure, você também precisa obter sua ID de assinatura do Azure com [az account show](/cli/azure/account#show):
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 Você pode usar a saída desses dois comandos na próxima etapa.
@@ -173,7 +176,7 @@ mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-O próprio arquivo de *credenciais* combina a ID da assinatura com a saída da criação de uma entidade de serviço. A saída do comando anterior [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) é a mesma ordem conforme o necessário para *client_id*, *secret* e *tenant*. O arquivo de *credenciais* de exemplo a seguir mostra esses valores correspondentes à saída anterior. Insira seus próprios valores da seguinte maneira:
+O próprio arquivo de *credenciais* combina a ID da assinatura com a saída da criação de uma entidade de serviço. A saída do comando anterior [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) é a mesma conforme o necessário para *client_id*, *secret* e *tenant*. O arquivo de *credenciais* de exemplo a seguir mostra esses valores correspondentes à saída anterior. Insira seus próprios valores da seguinte maneira:
 
 ```bash
 [default]

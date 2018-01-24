@@ -1,5 +1,5 @@
 ---
-title: Executar Cassandra com Linux no Azure | Microsoft Docs
+title: Executar um cluster Cassandra no Linux no Azure a partir do Node.js
 description: "Como executar um cluster Cassandra no Linux em máquinas virtuais do Azure de um aplicativo Node.js"
 services: virtual-machines-linux
 documentationcenter: nodejs
@@ -15,25 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Executando Cassandra com Linux no Azure e acessando-a do Node.js
+# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Executar um cluster Cassandra no Linux no Azure com Node.js
+
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Consulte modelos do Resource Manager para [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) e [Cluster Spark e Cassandra CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## <a name="overview"></a>Visão geral
-O Microsoft Azure é uma plataforma de nuvem aberta que executa tanto os softwares da Microsoft quanto os não pertencentes à Microsoft, que inclui sistemas operacionais, servidores de aplicativos, middlewares de mensagens, bem como bancos de dados SQL e NoSQL de ambos os modelos de software livre e comercial. A criação de serviços resilientes em nuvens públicas, incluindo o Azure, requer um planejamento cuidadoso e uma arquitetura deliberada para ambos os servidores de aplicativos, bem como camadas de armazenamento. A arquitetura de armazenamento distribuída de Cassandra naturalmente ajuda na criação de sistemas altamente disponíveis que são tolerantes a falhas para as falhas de cluster. Cassandra é um banco de dados NoSQL de escala na nuvem mantido pela Apache Software Foundation em cassandra.apache.org; Cassandra é escrito em Java e, portanto, pode ser executado em ambas as plataformas Windows e Linux.
+O Microsoft Azure é uma plataforma de nuvem aberta que executa tanto os softwares da Microsoft como os não pertencentes à Microsoft, que inclui sistemas operacionais, servidores de aplicativos, middlewares de mensagens, bem como bancos de dados SQL e NoSQL de ambos os modelos de software livre e comercial. A criação de serviços resilientes em nuvens públicas, incluindo o Azure, requer um planejamento cuidadoso e uma arquitetura deliberada para ambos os servidores de aplicativos, bem como camadas de armazenamento. A arquitetura de armazenamento distribuída de Cassandra naturalmente ajuda na criação de sistemas altamente disponíveis que são tolerantes a falhas para as falhas de cluster. Cassandra é um banco de dados NoSQL em escala de nuvem mantida pela Apache Software Foundation em cassandra.apache.org. Cassandra é gravado em Java. Portanto, executa em ambas as plataformas Windows e Linux.
 
-O foco deste artigo é mostrar a implantação de Cassandra no Ubuntu como um cluster de centro de único ou de vários dados utilizando Máquinas Virtuais e Redes Virtuais do Microsoft Azure. A implantação do cluster para cargas de trabalho de produção otimizada está fora do escopo deste artigo porque requer configuração de nó em vários discos, design apropriado de topologia em anel e modelagem de dados para dar suporte à replicação necessária, consistência, taxa de transferência e requisitos de alta disponibilidade de dados.
+O foco desse artigo é mostrar a implantação do Cassandra no Ubuntu como um cluster de centro único e vários dados que usa Redes Virtuais e Máquinas Virtuais do Microsoft Azure. A implantação do cluster para cargas de trabalho de produção otimizada está fora do escopo deste artigo porque requer configuração de nó em vários discos, design apropriado de topologia em anel e modelagem de dados para dar suporte à replicação necessária, consistência, taxa de transferência e requisitos de alta disponibilidade de dados.
 
 Este artigo adota uma abordagem fundamental para mostrar o que está envolvido na criação do cluster de Cassandra em comparação com Docker, Chef ou Puppet, os quais podem tornar a implantação da infraestrutura muito mais fácil.  
 
 ## <a name="the-deployment-models"></a>Os modelos de implantação
-A rede do Microsoft Azure permite a implantação de clusters particulares isolados, cujo acesso pode ser restrito para se atingir uma segurança de rede refinada.  Como este artigo é sobre a implantação de Cassandra num nível fundamental, não nos concentraremos no nível de consistência e no design de armazenamento ideal para a taxa de transferência. Aqui está a lista de requisitos de rede para o nosso cluster hipotético:
+A rede do Microsoft Azure permite a implantação de clusters particulares isolados, cujo acesso pode ser restrito para se atingir uma segurança de rede refinada.  Como este artigo é sobre a implantação do Cassandra em um nível fundamental, não se concentra no nível de consistência e no design de armazenamento ideal para a taxa de transferência. Aqui está a lista de requisitos de rede para o cluster hipotético:
 
 * Os sistemas externos não podem acessar o banco de dados de Cassandra desde dentro ou fora do Azure
 * O cluster de Cassandra precisa estar atrás de um balanceador de carga de tráfego de poupança
@@ -42,12 +43,12 @@ A rede do Microsoft Azure permite a implantação de clusters particulares isola
 * Nenhum ponto de extremidade de rede pública diferente de SSH
 * Cada nó de Cassandra precisa de um endereço IP interno fixo
 
-Cassandra pode ser implantado em uma única região do Azure ou em várias regiões, de acordo com a natureza distribuída da carga de trabalho. O modelo de implantação de várias regiões pode ser utilizado para atender os usuários finais mais próximos de uma determinada região geográfica por meio da mesma infraestrutura de Cassandra. A replicação do nó interno de Cassandra cuida da sincronização de gravações de vários mestres provenientes de vários data centers e apresenta uma exibição consistente dos dados para os aplicativos. A implantação de várias regiões também pode ajudar na redução de risco de falhas mais amplas de serviço do Azure. A consistência ajustável e a replicação de topologia de Cassandra ajudará a atender às diversas necessidades de RPO dos aplicativos.
+Cassandra pode ser implantado em uma única região do Azure ou em várias regiões, de acordo com a natureza distribuída da carga de trabalho. É possível usar um modelo de implantação de várias regiões para atender os usuários finais mais próximos de uma geografia específica através da mesma infraestrutura do Cassandra. A replicação do nó interno de Cassandra cuida da sincronização de gravações de vários mestres provenientes de vários data centers e apresenta uma exibição consistente dos dados para os aplicativos. A implantação de várias regiões também pode ajudar na redução de risco de falhas mais amplas de serviço do Azure. A consistência ajustável do Cassandra e a topologia de replicação ajudam a atender às diversas necessidades de RPO dos aplicativos.
 
 ### <a name="single-region-deployment"></a>Implantação de região única
-Começaremos com uma implantação de região única e utilizaremos os aprendizados obtidos na criação de um modelo de várias regiões. A rede virtual do Azure será usada para criar sub-redes isoladas para que os requisitos de segurança da rede mencionados acima possam ser atendidos.  O processo descrito na criação da implantação de região única utiliza o Ubuntu 14.04 LTS e Cassandra 2.08; no entanto, o processo pode facilmente ser adotado para as outras variantes do Linux. A seguir estão algumas das características sistemáticas da implantação de região única.  
+Começamos com uma implantação de região única e utilizaremos os aprendizados obtidos na criação de um modelo de várias regiões. A rede virtual do Azure é usada para criar sub-redes isoladas para que os requisitos de segurança da rede mencionados acima possam ser atendidos.  O processo descrito na criação da implantação da região única usa o Ubuntu 14.04 LTS e o Cassandra 2.08. No entanto, o processo pode ser facilmente adotado para as outras variantes do Linux. A seguir estão algumas das características sistemáticas da implantação de região única.  
 
-**Alta disponibilidade:** os nós Cassandra mostrados na Figura 1 são implantados em dois conjuntos de disponibilidade para que sejam distribuídos entre vários domínios com falha para alta disponibilidade. As VMs anotadas com cada conjunto de disponibilidade são mapeadas para 2 domínios de falha.  O Microsoft Azure usa o conceito de domínio com falha para gerenciar tempo de inatividade não planejado (por exemplo, falhas de hardware ou software), enquanto o conceito de domínio de atualização (por exemplo correção/atualizações de host ou SO de convidado, atualizações de aplicativo) é usado para gerenciar tempo de inatividade agendado. Consulte [Recuperação de desastre e alta disponibilidade para aplicativos Azure](http://msdn.microsoft.com/library/dn251004.aspx) para a função de domínios com falha e de atualização na obtenção de alta disponibilidade.
+**Alta disponibilidade:** os nós Cassandra mostrados na Figura 1 são implantados em dois conjuntos de disponibilidade para que sejam distribuídos entre vários domínios com falha para alta disponibilidade. As VMs anotadas com cada conjunto de disponibilidade são mapeadas para 2 domínios de falha. O Azure usa o conceito de domínio de falha para gerenciar o tempo de inatividade não planejado (por exemplo, falhas de hardware ou software). O conceito de domínio de atualização (por exemplo, atualizações/aplicação de patch de SO convidado ou host, atualizações de aplicativos) é usado para gerenciar o tempo de inatividade programado. Consulte [Recuperação de desastre e alta disponibilidade para aplicativos Azure](http://msdn.microsoft.com/library/dn251004.aspx) para a função de domínios com falha e de atualização na obtenção de alta disponibilidade.
 
 ![Implantação de região única](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -57,13 +58,13 @@ Observe que, no momento da redação deste artigo, o Azure não permite o mapeam
 
 **Tráfego Thrift de Balanceamento de Carga:** as bibliotecas de cliente Thrift dentro do servidor Web se conectam ao cluster por meio de um balanceador de carga interno. Isso exige o processo de adicionar o balanceador de carga interno à sub-rede "data" (confira a Figura 1) no contexto do serviço de nuvem que hospeda o cluster Cassandra. Depois que o balanceador de carga interno for definido, cada nó requer o ponto de extremidade com balanceamento de carga a ser adicionado com as anotações de um conjunto de balanceamento de carga com o nome do balanceador de carga definido anteriormente. Confira [Balanceamento de carga interno do Azure ](../../../load-balancer/load-balancer-internal-overview.md)para obter mais detalhes.
 
-**Sementes de cluster:** é importante selecionar os nós que estejam altamente disponíveis para sementes, pois os nós mais novos vão se comunicar com os nós de propagação para descobrir a topologia do cluster. Um nó de cada conjunto de disponibilidade será designado como nó de propagação para evitar pontos únicos de falha.
+**Sementes de cluster:** é importante selecionar os nós que estejam altamente disponíveis para sementes, pois os nós mais novos se comunicam com os nós de propagação para descobrir a topologia do cluster. Um nó de cada conjunto de disponibilidade será designado como nó de propagação para evitar pontos únicos de falha.
 
 **Fator de replicação e nível de consistência:** a alta disponibilidade interna do Cassandra e a durabilidade dos dados são caracterizadas pelo Fator de Replicação (RF - número de cópias de cada linha armazenada no cluster) e pelo Nível de Consistência (número de réplicas a serem lidas/gravadas antes de retornar o resultado ao chamador). O fator de replicação é especificado durante a criação de KEYSPACE (semelhante a um banco de dados relacional), enquanto o nível de consistência é especificado durante a emissão da consulta CRUD. Confira a documentação do Cassandra em [Configurando para consistência](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter detalhes de consistência e a fórmula para o cálculo de quorum.
 
-Cassandra dá suporte a dois tipos de modelos de integridade de dados – Consistência e Consistência Eventual; o Fator de Replicação e o Nível de Consistência juntos determinarão se os dados serão consistentes logo que uma operação de gravação for concluída ou se estarão eventualmente consistentes. Por exemplo, a especificação de QUORUM como o Nível de Consistência garantirá sempre a Consistência de dados durante qualquer nível de consistência, abaixo do número de réplicas a ser gravado conforme necessário para alcançar o QUORUM (por exemplo, UM) resulta em dados sendo eventualmente consistentes.
+O Cassandra dá suporte a dois tipos de modelos de integridade de dados – Consistência e Consistência Eventual; o Fator de Replicação e o Nível de Consistência juntos determinam se os dados são consistentes assim que uma operação de gravação é concluída ou se estão eventualmente consistentes. Por exemplo, a especificação de QUORUM como o Nível de Consistência garante sempre a Consistência de dados durante qualquer nível de consistência, abaixo do número de réplicas a ser gravado, conforme necessário, para alcançar o QUORUM (por exemplo, UM) resulta em dados sendo eventualmente consistentes.
 
-O cluster de 8 nós mostrado acima, com um fator de replicação de 3 e nível de consistência de leitura/gravação de QUORUM (2 nós são lidos ou gravados para consistência), poderá sobreviver à perda teórica de no máximo 1 nó por grupo de replicação antes de que o aplicativo perceba a falha. Isso pressupõe que todos os key spaces também têm solicitações de balanceamento de leitura/gravação.  A seguir estão os parâmetros que usaremos para o cluster implantado:
+O cluster de 8 nós mostrado acima, com um fator de replicação de 3 e nível de consistência de leitura/gravação de QUORUM (2 nós são lidos ou gravados para consistência), poderá sobreviver à perda teórica de no máximo 1 nó por grupo de replicação antes de que o aplicativo perceba a falha. Isso pressupõe que todos os key spaces também têm solicitações de balanceamento de leitura/gravação.  Os seguintes parâmetros são utilizados para o cluster implantado:
 
 Configuração de cluster de Cassandra de região única:
 
@@ -74,16 +75,16 @@ Configuração de cluster de Cassandra de região única:
 | Nível de consistência (gravação) |QUORUM [(RF/2) +1= 2] O resultado da fórmula é arredondado para baixo |Grava no máximo 2 réplicas antes que a resposta seja enviada ao chamador; a 3ª réplica é gravada como eventualmente consistente. |
 | Nível de consistência (leitura) |QUORUM [(RF/2) +1 = 2] O resultado da fórmula é arredondado para baixo |Grava 2 réplicas antes de enviar a resposta ao chamador. |
 | Estratégia de replicação |NetworkTopologyStrategy consulte [Replicação de dados](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) na documentação de Cassandra para obter mais informações |Entende a topologia de implantação e coloca as réplicas em nós para que todas as réplicas não terminem no mesmo rack |
-| Informante |GossipingPropertyFileSnitch consulte [Informantes](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) na documentação de Cassandra para obter mais informações |NetworkTopologyStrategy usa um conceito de informante para compreender a topologia. GossipingPropertyFileSnitch oferece maior controle ao mapear cada nó para rack e data center. O cluster faz uso de fofocas para propagar essas informações. Isso é muito mais simples na configuração de IP dinâmico em relação a PropertyFileSnitch |
+| Informante |GossipingPropertyFileSnitch, consulte [Opções](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) na documentação do Cassandra para obter mais informações |NetworkTopologyStrategy usa um conceito de informante para compreender a topologia. GossipingPropertyFileSnitch oferece maior controle ao mapear cada nó para rack e data center. O cluster faz uso de fofocas para propagar essas informações. Isso é muito mais simples na configuração de IP dinâmico em relação a PropertyFileSnitch |
 
-**Considerações do azure para o cluster do Cassandra:** o recurso de máquinas virtuais do Microsoft Azure usa o armazenamento de Blob do Azure para persistência de disco; o Armazenamento do Azure salva 3 réplicas de cada disco para alta durabilidade. Isso significa que cada linha de dados inseridos em uma tabela do Cassandra já está armazenada em 3 réplicas e, portanto, a consistência dos dados já estará resolvida, mesmo se o fator de replicação (RF) for 1. O principal problema com o Fator de Replicação ser 1 é que o aplicativo terá um tempo de inatividade, mesmo se um único nó do Cassandra falhar. No entanto, se um nó estiver inativo para os problemas (por exemplo, falhas de hardware, software do sistema) reconhecidos pelo Controlador de Malha do Azure, ele provisionará um novo nó em seu lugar usando as mesmas unidades de armazenamento. O provisionamento de um novo nó para substituir o antigo pode levar alguns minutos.  Da mesma forma, para atividades de manutenção planejada como alterações do sistema operacional convidado, atualizações do Cassandra e alterações de aplicativo, o Controlador de Malha do Azure executa atualizações sem interrupções de nós no cluster.  Atualizações sem interrupção também podem desativar alguns nós por vez; portanto, o cluster pode apresentar um breve tempo de inatividade para algumas partições. No entanto, os dados não serão perdidos devido à redundância interna do Armazenamento do Azure.  
+**Considerações do Azure para o cluster do Cassandra:** o recurso de Máquinas Virtuais do Microsoft Azure usa o Armazenamento de Blob do Azure para persistência de disco e o Armazenamento do Azure salva três réplicas de cada disco para alta durabilidade. Isso significa que cada linha de dados inserida em uma tabela do Cassandra já é armazenada em três réplicas. Portanto, a consistência dos dados será atendida mesmo se o RF (Fator de Replicação) for 1. O principal problema com o Fator de Replicação ser 1 é que o aplicativo terá um tempo de inatividade, mesmo se um único nó do Cassandra falhar. No entanto, se um nó estiver inativo para os problemas (por exemplo, falhas de hardware, software do sistema) reconhecidos pelo Controlador de Malha do Azure, ele provisiona um novo nó em seu lugar usando as mesmas unidades de armazenamento. O provisionamento de um novo nó para substituir o antigo pode levar alguns minutos.  Da mesma forma, para atividades de manutenção planejada como alterações do sistema operacional convidado, atualizações do Cassandra e alterações de aplicativo, o Controlador de Malha do Azure executa atualizações sem interrupções de nós no cluster.  Atualizações sem interrupção também podem desativar alguns nós por vez; portanto, o cluster pode apresentar um breve tempo de inatividade para algumas partições. No entanto, os dados não são perdidos devido à redundância interna do Armazenamento do Microsoft Azure.  
 
-Para sistemas implantados no Azure que não exijam alta disponibilidade (por exemplo, cerca 99,9 que equivale a 8,76 h/ano; confira [Alta disponibilidade](http://en.wikipedia.org/wiki/High_availability) para obter mais detalhes), você poderá executar com RF = 1 e Nível de Consistência = UM.  Para aplicativos com requisitos de alta disponibilidade, RF = 3 e Nível de Consistência = QUORUM tolerarão o tempo de inatividade de um dos nós de uma das réplicas. RF=1 em implantações tradicionais (por exemplo, locais) não pode ser usado devido à possível perda de dados resultante de problemas, como falhas no disco.   
+Para sistemas implantados no Azure que não exigem alta disponibilidade (por exemplo, cerca 99,9 que equivale a 8,76 h/ano; consulte [Alta disponibilidade](http://en.wikipedia.org/wiki/High_availability) para obter mais detalhes), é possível executar com RF = 1 e Nível de Consistência = UM.  Para aplicativos com requisitos de alta disponibilidade, RF = 3 e Nível de Consistência = QUORUM toleram o tempo de inatividade de um dos nós de uma das réplicas. RF=1 em implantações tradicionais (por exemplo, locais) não pode ser usado devido à possível perda de dados resultante de problemas, como falhas no disco.   
 
 ## <a name="multi-region-deployment"></a>Implantação em várias regiões
-A replicação de reconhecimento e o modelo de consistência de data center de Cassandra, descritos acima, ajudam com a implantação de várias regiões fora da caixa sem a necessidade de qualquer ferramenta externa. Isto é bem diferente dos bancos de dados relacionais tradicionais em que a configuração de espelhamento de banco de dados para gravações de vários mestres pode ser bastante complexa. Cassandra em uma configuração de várias regiões pode ajudar com os cenários de uso, incluindo os seguintes:
+A replicação de reconhecimento e o modelo de consistência de data center do Cassandra, descritos acima, ajudam com a implantação em várias regiões sem a necessidade de ferramentas externas. Isso é diferente dos bancos de dados relacionais tradicionais, em que a configuração para o espelhamento de banco de dados para gravações multimestres pode ser complexa. O Cassandra em uma configuração de várias regiões pode ajudar com os cenários de uso, incluindo os cenários:
 
-**Implantação com base em proximidade:** aplicativos multilocatário, com mapeamento claro de usuários locatários para região, podem ser beneficiados pelas baixas latências do cluster de várias regiões. Por exemplo, sistemas de gerenciamento de aprendizado para instituições de ensino podem implantar um cluster distribuído nas regiões leste e oeste dos EUA para atender aos respectivos campus para transacional, bem como análise. Os dados podem ser localmente consistentes no momento das leituras e gravações e podem ser eventualmente consistentes em ambas as regiões da. Existem outros exemplos, como distribuição de mídia, comércio eletrônico e qualquer coisa que sirva à base de usuários concentrada geograficamente é um bom caso de uso esse modelo de implantação.
+**Implantação com base em proximidade:** aplicativos multilocatário, com mapeamento claro de usuários locatários para região, podem ser beneficiados pelas baixas latências do cluster de várias regiões. Por exemplo, sistemas de gerenciamento de aprendizagem para instituições de ensino podem implantar um cluster distribuído nas regiões leste e oeste dos EUA para atender aos respectivos campus para transacional, bem como análise. Os dados podem ser localmente consistentes no momento das leituras e gravações e podem ser eventualmente consistentes em ambas as regiões da. Existem outros exemplos, como distribuição de mídia, comércio eletrônico e qualquer coisa que sirva à base de usuários concentrada geograficamente é um bom caso de uso esse modelo de implantação.
 
 **Alta disponibilidade:** a redundância é um fator importante na obtenção de alta disponibilidade de software e hardware; confira Criando sistemas de nuvem confiáveis no Microsoft Azure para obter detalhes. No Microsoft Azure, o único modo confiável de conseguir redundância real é implantando um cluster de várias regiões. Os aplicativos podem ser implantados em um modo ativo-ativo ou ativo-passivo e se uma das regiões estiver inativa, o Gerenciador de Tráfego do Azure pode redirecionar o tráfego para a região ativa.  Com a implantação de região única, se a disponibilidade for 99,9, uma implantação de duas regiões poderá atingir uma disponibilidade de 99,9999 calculada pela fórmula: (1-(1-0.999) * (1-0.999))*100); confira o artigo anterior para obter detalhes.
 
@@ -98,7 +99,7 @@ Os conjuntos de máquinas virtuais implantados em redes privadas localizadas em 
 
 ### <a name="data-consistency-for-multi-data-center-deployment"></a>Consistência de dados para implantação em vários data centers
 As implantações distribuídas precisam estar cientes do impacto da topologia de cluster na produtividade e alta disponibilidade. O RF e o Nível de Consistência precisam ser selecionados de forma que o quorum não dependa da disponibilidade de todos os data centers.
-Para um sistema que precisa de consistência alta, um LOCAL_QUORUM para o nível de consistência (para leituras e gravações) garantirá que as leituras e gravações locais sejam atendidas por meio dos nós locais enquanto os dados são replicados assincronamente para os data centers remotos.  A tabela 2 resume os detalhes de configuração para o cluster de várias regiões descritos posteriormente na gravação.
+Para um sistema que precisa de consistência alta, um LOCAL_QUORUM para o nível de consistência (para leituras e gravações) garante que as leituras e gravações locais sejam atendidas por meio dos nós locais enquanto os dados são replicados assincronamente para os data centers remotos.  A tabela 2 resume os detalhes de configuração para o cluster de várias regiões descritos posteriormente na gravação.
 
 **Configuração de cluster Cassandra de duas regiões**
 
@@ -106,7 +107,7 @@ Para um sistema que precisa de consistência alta, um LOCAL_QUORUM para o nível
 | --- | --- | --- |
 | Número de nós (N) |8 + 8 |Número total de nós do cluster |
 | Fator de replicação (RF) |3 |Número de réplicas de uma determinada linha |
-| Nível de consistência (gravação) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] O resultado da fórmula é arredondado para baixo |2 nós serão gravados no primeiro data center de forma síncrona; os 2 nós adicionais necessários para o quorum serão gravados assincronamente no 2º data center. |
+| Nível de consistência (gravação) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] O resultado da fórmula é arredondado para baixo |2 nós são gravados no primeiro data center de forma síncrona; os 2 nós adicionais necessários para o quorum são gravados assincronamente no 2º data center. |
 | Nível de consistência (leitura) |LOCAL_QUORUM ((RF/2) +1) = 2 O resultado da fórmula é arredondado para baixo |As solicitações de leitura são satisfeitas por meio de apenas uma região; 2 nós são lidos antes de que a resposta seja enviada de volta ao cliente. |
 | Estratégia de replicação |NetworkTopologyStrategy consulte [Replicação de dados](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) na documentação de Cassandra para obter mais informações |Entende a topologia de implantação e coloca as réplicas em nós para que todas as réplicas não terminem no mesmo rack |
 | Informante |GossipingPropertyFileSnitch consulte [Informantes](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) na documentação de Cassandra para obter mais informações |NetworkTopologyStrategy usa um conceito de informante para compreender a topologia. GossipingPropertyFileSnitch oferece maior controle ao mapear cada nó para rack e data center. O cluster faz uso de fofocas para propagar essas informações. Isso é muito mais simples na configuração de IP dinâmico em relação a PropertyFileSnitch |
@@ -122,18 +123,18 @@ As seguintes versões de software são usadas durante a implantação:
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-Como o download do JRE requer a aceitação manual da licença do Oracle, para simplificar a implantação, baixe todos os softwares necessários para a área de trabalho para carregar mais tarde na imagem de modelo do Ubuntu que estaremos criando como precursora da implantação de cluster.
+É necessário aceitar manualmente a licença Oracle ao fazer o download do JRE. Então, para simplificar a implantação, faça o download de todo o software necessários para a área de trabalho. Em seguida, faça o upload para a imagem do modelo Ubuntu para criar como um precursor da implantação do cluster.
 
-Baixe o software acima em um diretório de downloads conhecido (por exemplo, %TEMP%/downloads no Windows ou ~/Downloads na maioria das distribuições Linux ou Mac) no computador local.
+Faça o download do software acima em um diretório de download conhecido (por exemplo, %TEMP%/downloads no Windows ou ~/Downloads na maioria das distribuições Linux ou Mac) no computador local.
 
 ### <a name="create-ubuntu-vm"></a>CRIAR UMA MV UBUNTU
-Nesta etapa do processo, criaremos a imagem do Ubuntu com o software de pré-requisito para que a imagem possa ser reutilizada para o provisionamento de vários nós de Cassandra.  
+Nessa etapa do processo, você cria a imagem do Ubuntu com o software de pré-requisito para que a imagem possa ser reutilizada para o provisionamento de vários nós do Cassandra.  
 
 #### <a name="step-1-generate-ssh-key-pair"></a>ETAPA 1: gerar o par de chave SSH
-O Azure precisa de uma chave pública X509 que é PEM ou DER codificada no momento de provisionamento. Gerar um par de chaves pública/privada usando as instruções localizadas em Como usar SSH com Linux no Azure. Se você planeja usar putty.exe como um cliente SSH no Windows ou Linux, você precisará converter a chave privada RSA codificada PEM para o formato PPK usando puttygen.exe; as instruções para isso podem ser encontradas na página da Web acima.
+O Azure precisa de uma chave pública X509 que é PEM ou DER codificada no momento de provisionamento. Gerar um par de chaves pública/privada usando as instruções localizadas em Como usar SSH com Linux no Azure. Se você pretende usar o putty.exe como cliente SSH no Windows ou no Linux, será necessário converter a chave privada RSA codificada PEM para o formato PPK usando puttygen.exe. As instruções para isso podem ser encontradas na página da Web acima.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>ETAPA 2: criar uma VM do modelo Ubuntu
-Para criar a VM do modelo, faça logon no portal clássico do Azure e use a seguinte sequência: clique em NOVO, COMPUTAÇÃO, MÁQUINA VIRTUAL, DA GALERIA, UBUNTU, Ubuntu Server 14.04 LTS e clique na seta direita. Para um tutorial que descreva como criar uma VM Linux, consulte Criar uma Máquina Virtual executando o Linux.
+Para criar a VM do modelo, faça logon no Portal do Azure e use a seguinte sequência: clique em NOVO, COMPUTAÇÃO, MÁQUINA VIRTUAL, DA GALERIA, UBUNTU, Ubuntu Server 14.04 LTS e clique na seta direita. Para um tutorial que descreva como criar uma VM Linux, consulte Criar uma Máquina Virtual executando o Linux.
 
 Insira as seguintes informações na tela #1 "Configuração da máquina virtual":
 
@@ -162,7 +163,7 @@ Insira as seguintes informações na tela #2 "Configuração da máquina virtual
 <tr><td>PONTOS DE EXTREMIDADE    </td><td>Usar padrão </td><td>    Use a configuração padrão de SSH </td></tr>
 </table>
 
-Clique na seta para a direita, mantenha os padrões na tela #3 e clique no botão de "verificação" para concluir o processo de provisionamento da VM. Depois de alguns minutos, a VM com o nome "ubuntu-template" deve estar no status "em execução".
+Clique na seta para a direita, deixe os padrões na tela Nº 3. Clique no botão "verificar" para completar o processo de provisionamento de VM. Depois de alguns minutos, a VM com o nome "ubuntu-template" deve estar no status "em execução".
 
 ### <a name="install-the-necessary-software"></a>INSTALAR O SOFTWARE NECESSÁRIO
 #### <a name="step-1-upload-tarballs"></a>ETAPA 1: carregar tarballs
@@ -265,7 +266,7 @@ Acrescente o seguinte ao final:
     export PATH
 
 #### <a name="step-4-install-jna-for-production-systems"></a>Etapa 4: instalar JNA para sistemas de produção
-Use a seguinte sequência de comandos: o comando a seguir instalará jna-3.2.7.jar e jna-platform-3.2.7.jar em /usr/share.java directory sudo apt-get install libjna-java
+Use a seguinte sequência de comandos: o comando a seguir instala jna-3.2.7.jar e jna-platform-3.2.7.jar em /usr/share.java directory sudo apt-get install libjna-java
 
 Crie links simbólicos no diretório $CASS_HOME/lib para que o script de inicialização de Cassandra possa encontrar essas jars:
 
@@ -274,7 +275,7 @@ Crie links simbólicos no diretório $CASS_HOME/lib para que o script de inicial
     ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 #### <a name="step-5-configure-cassandrayaml"></a>Etapa 5: configurar o cassandra.yaml
-Edite cassandra.yaml em cada VM para refletir a configuração necessária para todas as máquinas virtuais [ajustaremos isso durante o provisionamento real]:
+Edite cassandra.yaml em cada VM para refletir a configuração necessária para todas as máquinas virtuais [você ajusta essa configuração durante o provisionamento real]:
 
 <table>
 <tr><th>Nome do campo   </th><th> Valor  </th><th>    Comentários </th></tr>
@@ -293,20 +294,20 @@ Execute a seguinte sequência de ações para capturar a imagem:
 ##### <a name="1-deprovision"></a>1. Desprovisionar
 Use o comando "sudo waagent-deprovision+user" para remover informações específicas da instância de Máquina Virtual. Veja [Como capturar uma Máquina Virtual Linux](capture-image.md) para usar como um modelo para mais detalhes sobre o processo de captura de imagem.
 
-##### <a name="2-shutdown-the-vm"></a>2: desligar a VM
+##### <a name="2-shut-down-the-vm"></a>2: Desligue a VM
 Certifique-se de que a máquina virtual esteja realçada e clique no link DESLIGAMENTO na barra de comandos inferior.
 
 ##### <a name="3-capture-the-image"></a>3: capturar a imagem
-Certifique-se de que a máquina virtual esteja realçada e clique no link CAPTURAR na barra de comandos inferior. Na próxima tela, atribua um NOME DE IMAGEM (por exemplo, hk-cas-2-08-ub-14-04-2014071), uma DESCRIÇÃO DA IMAGEM apropriada, e clique na marca de "verificação" para concluir o processo de captura.
+Certifique-se de que a máquina virtual esteja realçada e clique no link CAPTURAR na barra de comandos inferior. Na próxima tela, atribua um NOME DE IMAGEM (por exemplo, hk-cas-2-08-ub-14-04-2014071), uma DESCRIÇÃO DA IMAGEM apropriada, e clique na marca de "verificação" para concluir o processo de CAPTURA.
 
-Isto levará alguns segundos e a imagem deverá estar disponível na seção MINHAS IMAGENS da galeria de imagens. A VM de origem será automaticamente excluída depois que a imagem for capturada com êxito. 
+Esse processo demora alguns segundos e a imagem deve estar disponível na seção MINHAS IMAGEM da galeria de imagens. A VM de origem é automaticamente excluída após a captura da imagem. 
 
 ## <a name="single-region-deployment-process"></a>Processo de implantação de região única
 **Etapa 1: Criar a Rede Virtual** Faça logon no portal do Azure e crie uma Rede Virtual (clássica) com os atributos mostrados na tabela a seguir. Confira [Criar uma rede virtual (clássica) usando o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para obter as etapas detalhadas do processo.      
 
 <table>
 <tr><th>Nome do atributo da VM</th><th>Valor</th><th>Comentários</th></tr>
-<tr><td>Nome</td><td>vnet-cass-west-us</td><td></td></tr>
+<tr><td>NOME</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Região</td><td>Oeste dos EUA</td><td></td></tr>
 <tr><td>Servidores DNS</td><td>Nenhum</td><td>Ignore isso, pois não estamos usando um servidor DNS</td></tr>
 <tr><td>Espaço de endereço</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -317,25 +318,25 @@ Isto levará alguns segundos e a imagem deverá estar disponível na seção MIN
 Adicione as seguintes sub-redes:
 
 <table>
-<tr><th>Name</th><th>IP Inicial</th><th>CIDR</th><th>Comentários</th></tr>
+<tr><th>NOME</th><th>IP Inicial</th><th>CIDR</th><th>Comentários</th></tr>
 <tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Sub-rede para a web farm</td></tr>
 <tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>Sub-rede para os nós do banco de dados</td></tr>
 </table>
 
 As sub-redes de Web e Dados podem ser protegidas por meio dos grupos de segurança de rede, a cobertura das mesmas está fora do escopo deste artigo.  
 
-**Etapa 2: provisionar máquinas virtuais** Usando a imagem criada anteriormente, criaremos as seguintes máquinas virtuais no servidor de nuvem "hk-c-svc-west" e as associaremos às respectivas sub-redes, conforme mostrado abaixo:
+**Etapa 2: provisionar Máquinas Virtuais** Usando a imagem criada anteriormente, você cria as seguintes máquinas virtuais no servidor de nuvem "hk-c-svc-west" e as associa com as respectivas sub-redes, conforme mostrado abaixo:
 
 <table>
 <tr><th>Nome da máquina    </th><th>Sub-rede    </th><th>Endereço IP    </th><th>Conjunto de disponibilidade</th><th>DC/Rack</th><th>Propagar?</th></tr>
-<tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>Sim</td></tr>
-<tr><td>hk-c2-west-us    </td><td>data    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1    </td><td>Não </td></tr>
-<tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>Sim</td></tr>
-<tr><td>hk-c4-west-us    </td><td>data    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>Não </td></tr>
-<tr><td>hk-c5-west-us    </td><td>data    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>Sim</td></tr>
-<tr><td>hk-c6-west-us    </td><td>data    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>Não </td></tr>
-<tr><td>hk-c7-west-us    </td><td>data    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>Sim</td></tr>
-<tr><td>hk-c8-west-us    </td><td>data    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>Não </td></tr>
+<tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>sim</td></tr>
+<tr><td>hk-c2-west-us    </td><td>data    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1    </td><td>Não  </td></tr>
+<tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>sim</td></tr>
+<tr><td>hk-c4-west-us    </td><td>data    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>Não  </td></tr>
+<tr><td>hk-c5-west-us    </td><td>data    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>sim</td></tr>
+<tr><td>hk-c6-west-us    </td><td>data    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>Não  </td></tr>
+<tr><td>hk-c7-west-us    </td><td>data    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>sim</td></tr>
+<tr><td>hk-c8-west-us    </td><td>data    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>Não  </td></tr>
 <tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
 <tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
 </table>
@@ -347,7 +348,7 @@ A criação da lista de VMs mencionada acima exige o seguinte processo:
 3. Adicione um balanceador de carga interno ao serviço de nuvem e anexe-o à sub-rede "dados"
 4. Para cada VM criada anteriormente, adicione um ponto de extremidade com balanceamento de carga para o tráfego de poupança através de um conjunto de balanceamento de carga conectado ao balanceador de carga interno criado anteriormente
 
-O processo acima pode ser executado usando o portal clássico do Azure; use um computador com o Windows (ou uma VM no Azure, caso você não tenha acesso a um computador com o Windows), use o script do PowerShell a seguir para provisionar todas as 8 VMs automaticamente.
+O processo acima pode ser executado usando o Portal do Azure: use um computador com o Windows (ou uma VM no Azure, caso você não tenha acesso a um computador com o Windows), use o script do PowerShell a seguir para provisionar todas as 8 VMs automaticamente.
 
 **Lista 1: script do PowerShell para provisionamento de máquinas virtuais**
 
@@ -447,25 +448,25 @@ Use as etapas a seguir para testar o cluster:
    
      SELECT * FROM Customers;
 
-Você deve ver uma tela como a mostrada abaixo:
+Você deverá visualizar algo semelhante aos seguintes resultados:
 
 <table>
-  <tr><th> customer_id </th><th> nome </th><th> Sobrenome </th></tr>
+  <tr><th> customer_id </th><th> nome </th><th> sobrenome </th></tr>
   <tr><td> 1 </td><td> John </td><td> Doe </td></tr>
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
-Observe que o keyspace criado na etapa 4 usa SimpleStrategy com um replication_factor de 3. SimpleStrategy é recomendado para implantações únicas de data center, enquanto NetworkTopologyStrategy é recomendado para implantações de vários data centers. Um replication_factor de 3 fornecerá tolerância às falhas do nó.
+O keyspace criado na etapa 4 usa SimpleStrategy com um replication_factor de 3. SimpleStrategy é recomendado para implantações únicas de data center, enquanto NetworkTopologyStrategy é recomendado para implantações de vários data centers. Um replication_factor de 3 fornece tolerância a falhas de nó.
 
 ## <a id="tworegion"> </a>Processo de implantação de várias regiões
-Utilizará a implantação de região única concluída e repetirá o mesmo processo para instalar a segunda região. A principal diferença entre a implantação de região única e a de várias regiões é a configuração de túnel VPN para comunicação entre regiões; começaremos com a instalação de rede, provisionamento de VMs e configuração de Cassandra.
+Use a implantação da região única concluída e repita o mesmo processo para instalar a segunda região. A principal diferença entre a implantação de região única e a de várias regiões é a configuração de túnel VPN para comunicação entre regiões. Você inicia com a instalação da rede, fornece as VMs e configura o Cassandra.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Etapa 1: criar uma rede virtual na 2ª região
-Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal clássico do Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para obter as etapas detalhadas do processo.      
+Faça logon no Portal do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Consulte [Configurar uma rede virtual somente na nuvem no Portal do Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para obter as etapas detalhadas do processo.      
 
 <table>
 <tr><th>Nome do atributo    </th><th>Valor    </th><th>Comentários</th></tr>
-<tr><td>Name    </td><td>vnet-cass-east-us</td><td></td></tr>
+<tr><td>NOME    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Região    </td><td>Leste dos EUA</td><td></td></tr>
 <tr><td>Servidores DNS        </td><td></td><td>Ignore isso, pois não estamos usando um servidor DNS</td></tr>
 <tr><td>Configurar uma VPN ponto a site</td><td></td><td>        Ignore isso</td></tr>
@@ -478,7 +479,7 @@ Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributo
 Adicione as seguintes sub-redes:
 
 <table>
-<tr><th>Name    </th><th>IP Inicial    </th><th>CIDR    </th><th>Comentários</th></tr>
+<tr><th>NOME    </th><th>IP Inicial    </th><th>CIDR    </th><th>Comentários</th></tr>
 <tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Sub-rede para a web farm</td></tr>
 <tr><td>data    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Sub-rede para os nós do banco de dados</td></tr>
 </table>
@@ -495,7 +496,7 @@ Crie duas redes locais para os seguintes detalhes:
 | hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Ao criar a Rede Local, um espaço reservado para o endereço de gateway nos é dado. O endereço do gateway real é preenchido quando o gateway é criado. Certifique-se de que o espaço do endereço corresponda exatamente ao respectivo VNET remoto; neste caso, o VNET criado na região oeste dos EUA. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Etapa 3: mapear rede "Local" para os respectivos VNETs
-No portal clássico do Azure, selecione todas as redes virtuais, clique em "Configurar", marque "Conectar à rede local" e selecione as Redes Locais de acordo com os seguintes detalhes:
+No Portal do Azure, selecione todas as redes virtuais, clique em "Configurar", marque "Conectar à rede local" e selecione as Redes Locais de acordo com os seguintes detalhes:
 
 | Rede Virtual | Rede Local |
 | --- | --- |
@@ -503,7 +504,7 @@ No portal clássico do Azure, selecione todas as redes virtuais, clique em "Conf
 | hk-vnet-east-us |hk-lnet-map-to-west-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Etapa 4: criar Gateways em VNET1 e VNET2
-No painel de ambas as redes virtuais, clique em CRIAR GATEWAY, o que acionará o processo de provisionamento do gateway de VPN. Após alguns minutos, o painel de cada rede virtual deverá exibir o endereço de gateway real.
+No painel de ambas as redes virtuais, clique em CRIAR GATEWAY que aciona o processo de provisionamento do gateway de VPN. Após alguns minutos, o painel de cada rede virtual deverá exibir o endereço de gateway real.
 
 ### <a name="step-5-update-local-networks-with-the-respective-gateway-addresses"></a>Etapa 5: atualizar redes "Local" com os respectivos endereços "Gateway"
 Edite ambas as redes locais para substituir o endereço IP do gateway de espaço reservado com o endereço IP real dos gateways provisionados. Use o seguinte mapeamento:
@@ -518,20 +519,20 @@ Edite ambas as redes locais para substituir o endereço IP do gateway de espaço
 Use o seguinte script do Powershell para atualizar a chave do IPSec de cada gateway de VPN [use a mesma chave para ambos os gateways]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
 ### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>Etapa 7: estabelecer a conexão VNET para VNET
-No portal clássico do Azure, use o menu "PAINEL" das duas redes virtuais para estabelecer a conexão gateway a gateway. Use os itens do menu "CONECTAR" na barra de ferramentas inferior. Após alguns minutos, o painel deverá exibir graficamente os detalhes da conexão.
+No Portal do Azure, use o menu "DASHBOARD" das duas redes virtuais para estabelecer a conexão gateway a gateway. Use os itens do menu "CONECTAR" na barra de ferramentas inferior. Após alguns minutos, o painel deverá exibir graficamente os detalhes da conexão.
 
 ### <a name="step-8-create-the-virtual-machines-in-region-2"></a>Etapa 8: criar as máquinas virtuais na região nº 2
 Criar a imagem do Ubuntu, conforme descrito na implantação da região #1, seguindo as mesmas etapas, ou copie o arquivo VHD de imagem para a conta de armazenamento do Azure localizada na região #2 e crie a imagem. Use esta imagem e crie a seguinte lista de máquinas virtuais em um novo serviço de nuvem hk-c-svc-east-us:
 
 | Nome da máquina | Sub-rede | Endereço IP | Conjunto de disponibilidade | DC/Rack | Propagar? |
 | --- | --- | --- | --- | --- | --- |
-| hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |Sim |
-| hk-c2-east-us |data |10.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |Não |
-| hk-c3-east-us |data |10.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |Sim |
-| hk-c5-east-us |data |10.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |Sim |
-| hk-c6-east-us |data |10.2.2.9 |hk-c-aset-2 |dc =EASTUS rack =rack3 |Não |
-| hk-c7-east-us |data |10.2.2.10 |hk-c-aset-2 |dc =EASTUS rack =rack4 |Sim |
-| hk-c8-east-us |data |10.2.2.11 |hk-c-aset-2 |dc =EASTUS rack =rack4 |Não |
+| hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |sim |
+| hk-c2-east-us |data |10.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |Não  |
+| hk-c3-east-us |data |10.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |sim |
+| hk-c5-east-us |data |10.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |sim |
+| hk-c6-east-us |data |10.2.2.9 |hk-c-aset-2 |dc =EASTUS rack =rack3 |Não  |
+| hk-c7-east-us |data |10.2.2.10 |hk-c-aset-2 |dc =EASTUS rack =rack4 |sim |
+| hk-c8-east-us |data |10.2.2.11 |hk-c-aset-2 |dc =EASTUS rack =rack4 |Não  |
 | hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |N/D |N/D |
 | hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |N/D |N/D |
 
@@ -584,7 +585,7 @@ Você deverá ver a mesma tela exibida para a região oeste:
 Execute mais algumas inserções e veja como são replicadas para a parte west-us do cluster.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Testar o cluster de Cassandra do Node.js
-Usando uma das VMs do Linux encaixotadas anteriormente na camada "web", executaremos um script simples do Node.js para ler os dados inseridos anteriormente
+Usando uma das VMs do Linux criadas na camada "web" anteriormente, você executa um script Node.js simples para a leitura dos dados previamente inseridos
 
 **Etapa 1: instalar o Node.js e o cliente do Cassandra**
 
@@ -644,7 +645,7 @@ Usando uma das VMs do Linux encaixotadas anteriormente na camada "web", executar
            updateCustomer(ksConOptions,params);
         }
    
-        //update will also insert the record if none exists
+        //update also inserts the record if none exists
         function updateCustomer(ksConOptions,params)
         {
           var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';

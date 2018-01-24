@@ -4,7 +4,7 @@ description: "Aprenda a usar o mapeamentos de expressão para transformar valore
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 2811b4d57f69425ef119c88f80b32d24c6c32195
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -27,7 +27,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 * A expressão inteira deve ser definida em termos de funções, que consistem em um nome seguido pelos argumentos entre parênteses:  <br>
   *FunctionName(<<argument 1>>,<<argument N>>)*
-* Você pode aninhar funções dentro umas das outras. Por exemplo: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+* Você pode aninhar funções dentro umas das outras. Por exemplo:  <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * Você pode passar três tipos diferentes de argumentos em funções:
   
   1. Atributos, que devem ser colocados entre colchetes. Por exemplo: [attributeName]
@@ -36,7 +36,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 * Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Acrescentar](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Substitua](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Acrescentar
@@ -46,7 +46,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/repetição | Tipo | Observações |
+| NOME | Obrigatório/repetição | type | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
 | **suffix** |Obrigatório |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
@@ -59,14 +59,14 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/repetição | Tipo | Observações |
+| NOME | Obrigatório/repetição | type | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para conhecer os formatos com suporte, confira [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obrigatório |Cadeia de caracteres |Formato da data de saída. |
 
 - - -
-### <a name="join"></a>Join
+### <a name="join"></a>Ingressar
 **Função:**<br> Join(separator, source1, source2, …)
 
 **Descrição:**<br> Join() é semelhante a Append(), exceto por poder combinar diversos valores de cadeia de caracteres **source** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres de **separator**.
@@ -75,7 +75,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/repetição | Tipo | Observações |
+| NOME | Obrigatório/repetição | type | Observações |
 | --- | --- | --- | --- |
 | **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
 | **source1  … sourceN ** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
@@ -88,7 +88,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/repetição | Tipo | Observações |
+| NOME | Obrigatório/repetição | type | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo. |
 | **iniciar** |Obrigatório |inteiro |Índice na cadeia de caracteres de **source** em que a subcadeia de caracteres deve começar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
@@ -102,7 +102,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/repetição | Tipo | Observações |
+| NOME | Obrigatório/repetição | type | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres booliana |Os valores de **source** esperados são "True" ou "False". |
 
@@ -129,7 +129,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/repetição | Tipo | Observações |
+| NOME | Obrigatório/repetição | type | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
@@ -140,6 +140,18 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 | **template** |Opcional |Cadeia de caracteres |Quando o valor de **template** for fornecido, procuraremos **oldValue** dentro de template e o substituiremos pelo valor de source. |
 
 - - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Função:**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**Descrição:**<br> Retorna um único appRoleAssignment da lista de todos os appRoleAssignments atribuída a um usuário para um determinado aplicativo. Essa função é necessária para converter o objeto appRoleAssignments em uma cadeia de caracteres de nome de função única. Observe que a prática recomendada é garantir que apenas um appRoleAssignment seja atribuído por usuário por vez, e se várias funções forem atribuídas a cadeia de caracteres de função retornada pode não ser previsível.
+
+**Parâmetros:**<br> 
+
+| NOME | Obrigatório/repetição | type | Observações |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Obrigatório |Cadeia de caracteres |Objeto **[appRoleAssignments]**. |
+
+- - -
 ### <a name="stripspaces"></a>StripSpaces
 **Função:**<br> StripSpaces(source)
 
@@ -147,7 +159,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/repetição | Tipo | Observações |
+| NOME | Obrigatório/repetição | type | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |**fonte** a atualizar. |
 
@@ -159,7 +171,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/repetição | Tipo | Observações |
+| NOME | Obrigatório/repetição | type | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |**Source** a atualizar. |
 | **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |

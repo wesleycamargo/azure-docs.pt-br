@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
 A SSE (Criptografia do Serviço de Armazenamento) do Azure para dados em repouso ajuda a proteger seus dados a fim de atender aos compromissos de conformidade e segurança da organização. Com esse recurso, o Armazenamento do Azure criptografa automaticamente seus dados antes de persistir no armazenamento e os descriptografa antes da recuperação. A criptografia, a descriptografia e o gerenciamento de chaves são totalmente transparentes para os usuários.
@@ -159,7 +159,7 @@ R: Não no momento; as chaves são totalmente gerenciadas pela Microsoft.
 
 **P: O SSE é habilitado por padrão quando eu crio uma nova conta de armazenamento?**
 
-R: O SSE não está habilitado por padrão. Você pode usar o portal do Azure para habilitá-lo. Você também pode habilitar esse recurso por meio de programação usando a API REST do Provedor de Recursos de Armazenamento.
+R: a equipe de Armazenamento do Azure está trabalhando para habilitar a criptografia por padrão usando Chaves Gerenciadas da Microsoft para todos os dados gravados no Armazenamento do Azure (Armazenamento de Blobs, Arquivos, Tabelas e Filas) e para todas as contas de armazenamento (contas do Azure Resource Manager e de armazenamento clássico), novas e existentes.
 
 **P: Qual é a diferença para o Azure Disk Encryption?**
 

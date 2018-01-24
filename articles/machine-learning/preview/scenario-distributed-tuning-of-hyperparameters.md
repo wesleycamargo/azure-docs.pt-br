@@ -4,15 +4,17 @@ description: "Este cenário mostra como fazer o ajuste distribuído de hiperpar�
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ajuste distribuído de hiperparâmetros usando o Azure Machine Learning Workbench
 
@@ -26,24 +28,26 @@ A seguir está o link para o repositório GitHub público:
 ## <a name="use-case-overview"></a>Visão geral de casos de uso
 
 Muitos algoritmos de aprendizado de máquina têm um ou mais botões, chamados hiperparâmetros. Esses botões permitem ajustar algoritmos para otimizar o desempenho em dados futuros, medidos de acordo com as métricas especificadas pelo usuário (por exemplo, precisão, AUC, RMSE). O cientista de dados precisa fornecer valores de hiperparâmetros ao criar um modelo em dados de treinamento e antes de ver os dados de teste futuros. Como, baseado nos dados de treinamento conhecidos, nós podemos configurar os valores de hiperparâmetros para que o modelo tenha um bom desempenho nos dados de teste desconhecidos? 
-
+    
 Uma técnica popular para ajustar hiperparâmetros é uma *pesquisa de grade* combinada com a *validação cruzada*. A validação cruzada é uma técnica que avalia quão bem um modelo, treinado em um conjunto de treinamento, é previsto no conjunto de testes. Utilizando essa técnica, primeiro dividimos o conjunto de dados em partições K e, em seguida, treinamos o algoritmo K vezes de forma round-robin. Fazemos isso em todas, exceto em uma das partições, chamada de "partição estendida". Calculamos o valor médio das métricas de modelos K em partições mantidas por K. Esse valor médio, chamado de *estimativa de desempenho de validação cruzada*, depende dos valores de hiperparâmetros usados ao criar modelos de K. Ao ajustar hiperparâmetros, pesquisamos por meio do espaço de valores de hyperparameter candidatos para localizar os que otimizam a estimativa de desempenho de validação cruzada. A pesquisa de grade é uma técnica de pesquisa comum. Na pesquisa de grade, o espaço de valores candidatos de hiperparâmetros múltiplos é um produto cruzado de conjuntos de valores candidatos de hiperparâmetros individuais. 
 
 A pesquisa de grade usando validação cruzada pode ser demorada. Se um algoritmo tiver cinco hiperparâmetros cada um com cinco valores candidatos, usamos K = 5 partições. Em seguida, completamos uma pesquisa de grade, treinando 5<sup>6</sup>= 15625 modelos. Felizmente, a grade de pesquisa usando a validação cruzada é um procedimento constrangedoramente paralelo e todos esses modelos podem ser treinados em paralelo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguindo o [Guia de início rápido de instalação e de criação](./quickstart-installation.md) para instalar o Workbench e criar contas.
 * Este cenário pressupõe que você está executando o Azure ML Workbench no Windows 10 e no MacOS com o mecanismo do Docker instalado localmente. 
 * Para executar o cenário com um contêiner remoto do Docker, provisione a DSVM (Máquina Virtual de Ciência de Dados) do Ubuntu seguindo as [instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 28 Gb de memória. As instâncias D4 de máquinas virtuais têm essa capacidade. 
-* Para executar esse cenário com um cluster Spark, forneça o Cluster HDInsight do Azure seguindo essas [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). É recomendável ter um cluster com pelo menos 
-- seis nós de trabalho
-- oito núcleos
-- 28 GB de memória em ambos os nós de trabalho e cabeçalho. As instâncias D4 de máquinas virtuais têm essa capacidade. É recomendável alterar os seguintes parâmetros para maximizar o desempenho do cluster.
-- spark.executor.instances
-- spark.executor.cores
-- spark.executor.memory 
+* Para executar esse cenário com um cluster Spark, forneça o Cluster HDInsight do Azure seguindo essas [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+Recomendamos ter um cluster com pelo menos:
+    - seis nós de trabalho
+    - oito núcleos
+    - 28 GB de memória em ambos os nós de trabalho e cabeçalho. As instâncias D4 de máquinas virtuais têm essa capacidade.       
+    - Recomendamos alterar os seguintes parâmetros para maximizar o desempenho do cluster:
+        - spark.executor.instances
+        - spark.executor.cores
+        - spark.executor.memory 
 
 Você pode seguir essas [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições na seção "padrões personalizados de Spark".
 

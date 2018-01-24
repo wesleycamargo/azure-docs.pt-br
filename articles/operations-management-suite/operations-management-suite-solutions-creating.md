@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ea959f1e95ea46c07eec3afa9d46bfeb72ca3e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Projetar e compilar uma solução de gerenciamento no OMS (Operations Management Suite) (Visualização)
 > [!NOTE]
@@ -37,7 +37,7 @@ A estratégia básica é iniciar a solução de gerenciamento compilando os comp
 ## <a name="design-your-solution"></a>Projetar sua solução
 O padrão mais comum para uma solução de gerenciamento é mostrado no diagrama a seguir.  Os diferentes componentes nesse padrão são discutidos a seguir.
 
-![Visão geral da solução OMS](media/operations-management-suite-solutions/solution-overview.png)
+![Visão geral da solução OMS](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Fontes de dados

@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1048,7 +1048,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Aplicativos Lógicos</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1304,7 +1304,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Conjuntos de Escala de Máquina Virtual</h3>
-                                                    <p>Gerenciar e dimensionar 10s para 1000s de máquinas virtuais do Linux e do Windows</p>
+                                                    <p>Gerenciar e escalar verticalmente até milhares de máquinas virtuais do Linux e do Windows</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1342,7 +1342,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviço de Aplicativo</h3>
-                                                    <p>Implantar aplicativos Web em Linux usando contêineres</p>
+                                                    <p>Crie rapidamente aplicativos de nuvem poderosos para a Web e para dispositivos móveis</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1380,7 +1380,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviço de Contêiner do Azure (AKS)</h3>
-                                                    <p>Executar o aplicativo em contêineres em escala usando o Kubernetes</p>
+                                                    <p>Simplifique a implantação, o gerenciamento e as operações do Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1538,8 +1538,7 @@ ms.lasthandoff: 01/18/2018
                                                 <div class="cardText">
                                                     <h3>Gateway de Aplicativo
 </h3>
-                                                    <p>
-Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de entrega integrados </p>
+                                                    <p>Crie front-ends da Web seguros, escalonáveis e com alta disponibilidade no Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1596,7 +1595,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Rede de Distribuição de Conteúdo</h3>
-                                                    <p>Entregue conteúdo para usuários finais por meio de uma rede robusta de datacenters globais</p>
+                                                    <p>Assegure uma distribuição de conteúdo segura e confiável, com amplo alcance global</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1672,7 +1671,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Observador de Rede</h3>
-                                                    <p>Monitorar e diagnosticar condições em um nível de cenário de rede</p>
+                                                    <p>Solução de monitoramento de desempenho e diagnóstico de rede</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1715,7 +1714,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Armazenamento de Blob</h3>
-                                                    <p>Armazenamento de objetos extremamente escalonável para dados não estruturados</p>
+                                                    <p>Armazenamento de objetos baseados em REST para dados não estruturados na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1734,7 +1733,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Armazenamento em disco</h3>
-                                                    <p>Armazenamento de discos para VMs</p>
+                                                    <p>Opções de disco persistentes e protegidas para dar suporte a máquinas virtuais</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1753,7 +1752,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Armazenamento de Filas</h3>
-                                                    <p>Filas duráveis para serviços de nuvem em grande volume</p>
+                                                    <p>Escale efetivamente aplicativos de acordo com o tráfego</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1772,7 +1771,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Armazenamento de arquivo</h3>
-                                                    <p>Sistema de arquivos simples, distribuído e de plataforma cruzada</p>
+                                                    <p>Compartilhamentos de arquivo que usam o protocolo SMB 3.0 padrão</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1810,7 +1809,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>O armazenamento em nuvem híbrida para empresas aprimora a segurança de dados</p>
+                                                    <p>Redução de custos com uma solução corporativa de armazenamento híbrido em nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1848,7 +1847,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Coordenar a recuperação de desastre de VMs do Azure, VMs locais e servidores físicos</p>
+                                                    <p>Orquestre proteção e recuperação de nuvens privadas</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1929,7 +1928,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Aplicativos de API</h3>
-                                                    <p>Compilar e consumir APIs de nuvem com facilidade</p>
+                                                    <p>Compile e consuma APIs de nuvem com facilidade</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1948,7 +1947,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Rede de Distribuição de Conteúdo</h3>
-                                                    <p>Entregue conteúdo para usuários finais por meio de uma rede robusta de datacenters globais </p>
+                                                    <p>Assegure uma distribuição de conteúdo segura e confiável, com amplo alcance global</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2024,7 +2023,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Hubs de Notificação</h3>
-                                                    <p>Um mecanismo escalável de notificações por push para enviar milhões de mensagens rapidamente</p>
+                                                    <p>Envie notificações por push para qualquer plataforma de qualquer back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2048,7 +2047,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviço de Contêiner do Azure (AKS)</h3>
-                                                    <p>Executar o aplicativo em contêineres em escala usando o Kubernetes</p>
+                                                    <p>Simplifique a implantação, o gerenciamento e as operações do Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2167,7 +2166,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Banco de dados SQL</h3>
-                                                    <p>Banco de dados como serviço relacional gerenciado</p>
+                                                    <p>Banco de dados SQL como serviço relacional e gerenciado</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2224,7 +2223,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Data Warehouse</h3>
-                                                    <p>Data warehouse como serviço elástico com recursos de classe empresarial</p>
+                                                    <p>Data warehouse como um serviço elástico com recursos de classe empresarial</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2281,7 +2280,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Armazenamento de tabela</h3>
-                                                    <p>Banco de dados multimodelo distribuído globalmente para qualquer escala</p>
+                                                    <p>Repositório de valor de chaves NoSQL usando conjuntos de dados semiestruturados</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2300,7 +2299,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cache Redis</h3>
-                                                    <p>Alta taxa de transferência, acesso a dados de baixa latência para criar aplicativos escalonáveis ​e rápidos</p>
+                                                    <p>Dê poder aos aplicativos com acesso a dados com baixa latência e alta taxa de transferência</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2324,7 +2323,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Provisionar clusters Hadoop, Spark, Servidor R, Hbase e Storm na nuvem</p>
+                                                    <p>Provisionar clusters Hadoop, Spark, R Server, HBase e Storm na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2400,7 +2399,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviços de análise</h3>
-                                                    <p>Modelagem de dados de nível empresarial na nuvem</p>
+                                                    <p>Mecanismo de análise de nível empresarial como serviço</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2457,7 +2456,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Data Warehouse</h3>
-                                                    <p>Data warehouse como serviço elástico com recursos de classe empresarial</p>
+                                                    <p>Data warehouse como um serviço elástico com recursos de classe empresarial</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2476,7 +2475,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Poderosa ferramenta de análise preditiva para habilitar a manutenção previsível</p>
+                                                    <p>Crie, implante e gerencie soluções de análise preditiva com facilidade</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2495,7 +2494,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Catálogo de Dados</h3>
-                                                    <p>Habilite a descoberta automática da fonte de dados em toda a empresa</p>
+                                                    <p>Obtenha mais valor de seus ativos de dados corporativos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2560,7 +2559,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviços de Machine Learning</h3>
-                                                    <p>Poderosa ferramenta de análise preditiva para habilitar a manutenção previsível</p>
+                                                    <p>Traga a inteligência artificial para todos com uma plataforma confiável e escalonável de ponta a ponta que inclui experimentação e gerenciamento de modelos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2836,7 +2835,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Amplie a inteligência da nuvem para os dispositivos Edge</p>
+                                                    <p>Estender a inteligência da nuvem para dispositivos de borda</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2874,13 +2873,13 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviços do Azure Baseados na Localização</h3>
-                                                    <p>Mapas, direções, pesquisa e outros serviços geoespaciais robustos</p>
+                                                    <p>APIs de localização simples e seguras oferecem contexto geoespacial aos dados</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2931,7 +2930,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviços de Machine Learning</h3>
-                                                    <p>Poderosa ferramenta de análise preditiva para habilitar a manutenção previsível</p>
+                                                    <p>Traga a inteligência artificial para todos com uma plataforma confiável e escalonável de ponta a ponta que inclui experimentação e gerenciamento de modelos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2950,7 +2949,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Hubs de Notificação</h3>
-                                                    <p>Um mecanismo escalável de notificações por push para enviar milhões de mensagens rapidamente</p>
+                                                    <p>Envie notificações por push para qualquer plataforma de qualquer back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3032,7 +3031,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3107,7 +3106,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>O armazenamento em nuvem híbrida para empresas aprimora a segurança de dados</p>
+                                                    <p>Redução de custos com uma solução corporativa de armazenamento híbrido em nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3145,7 +3144,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Catálogo de Dados</h3>
-                                                    <p>Habilite a descoberta automática da fonte de dados em toda a empresa</p>
+                                                    <p>Obtenha mais valor de seus ativos de dados corporativos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3226,7 +3225,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Central de Segurança</h3>
-                                                    <p>Prevenir, detectar e responder a ameaças com maior visibilidade</p>
+                                                    <p>Unifique o gerenciamento de segurança e habilite a proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3264,7 +3263,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cofre da Chave</h3>
-                                                    <p>Saiba como gerenciar chaves criptográficas e segredos</p>
+                                                    <p>Garantir e manter o controle das chaves e outros segredos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3340,7 +3339,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Autenticação Multifator</h3>
-                                                    <p>Proteger o acesso a seus dados e aplicativos com um nível adicional de autenticação</p>
+                                                    <p>Adicione segurança para seus dados e aplicativos sem acrescentar complicações para os usuários</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3502,7 +3501,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Política do Azure</h3>
-                                                    <p>Criar, atribuir e, gerenciar definições de política </p>
+                                                    <p>Implemente padrões e governança corporativa em escala para os recursos do Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3521,7 +3520,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Gerenciamento de Custo do Azure</h3>
-                                                    <p>Acompanhar o uso de nuvem e as despesas</p>
+                                                    <p>Otimize os gastos na nuvem e maximize o potencial dela</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3578,7 +3577,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Saiba como transformar dados de computador em inteligência operacional</p>
+                                                    <p>Colete, pesquise e visualize os dados de computador local e na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3692,7 +3691,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Melhorar a eficiência de custo, desempenho, alta disponibilidade e segurança dos recursos do Azure</p>
+                                                    <p>Seu mecanismo personalizado de práticas recomendadas do Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3711,7 +3710,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Integridade de Serviço do Azure</h3>
-                                                    <p>Fornece orientações e suporte personalizado quando problemas nos serviços do Azure afetarem você.</p>
+                                                    <p>Obtenha diretrizes e suporte personalizados quando problemas nos serviços do Azure afetarem você</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3730,7 +3729,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Aplicativos gerenciados</h3>
-                                                    <p>Gerenciar soluções implantadas para clientes</p>
+                                                    <p>Simplifique o gerenciamento de ofertas na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>

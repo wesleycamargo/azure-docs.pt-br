@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Como anexar um disco de dados gerenciado a uma VM Windows no portal do Azure
 
@@ -35,26 +35,26 @@ Você também pode [anexar um disco de dados usando o Powershell](attach-disk-ps
 ## <a name="add-a-data-disk"></a>Adicionar um disco de dados
 1. No menu à esquerda, clique em **Máquinas Virtuais**.
 2. Selecione a máquina virtual na lista.
-3. Na folha da máquina virtual, clique em **Discos**.
-   4. Na folha **Discos**, clique em **+ Adicionar disco de dados**.
-5. No menu suspenso do novo disco, selecione **Criar vazio**.
-6. Na folha **Criar disco gerenciado**, digite um nome para o disco e ajuste as outras configurações, conforme necessário. Quando terminar, clique em **Criar**.
-7. Na folha **Discos**, clique em Salvar para salvar a nova configuração de disco da VM.
-6. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
+3. Na página da máquina virtual, clique em **Discos**.
+4. Na página **Discos**, clique em **+ Adicionar disco de dados**.
+5. No menu suspenso do novo disco, selecione **Criar disco**.
+6. Na página **Criar disco gerenciado**, digite um nome para o disco e ajuste as outras configurações, conforme necessário. Quando terminar, clique em **Criar**.
+7. Na página **Discos**, clique em **Salvar** para salvar a nova configuração de disco da VM.
+6. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de dados**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Inicializar um novo disco de dados
 
 1. Conecte-se à VM.
-1. Clique no menu Iniciar dentro da VM, digite **diskmgmt.msc** e clique em **Enter**. Isso iniciará o snap-in Gerenciamento de Disco.
-2. O Gerenciamento de Disco reconhecerá que você tem um disco novo não inicializado e a janela Inicializar Disco será exibida.
+1. Clique no menu Iniciar dentro da VM, digite **diskmgmt.msc** e clique em **Enter**. O snap-in de gerenciamento de disco é aberto.
+2. O Gerenciamento de Disco reconhece que você tem um disco novo não inicializado, e a janela **Inicializar Disco** será exibida.
 3. Verifique se o novo disco está selecionado e clique em **OK** para inicializá-lo.
-4. O novo disco agora será exibido como **não alocado**. Clique com o botão direito do mouse em qualquer lugar do disco e selecione **Novo volume simples**. O **Assistente para Novo Volume Simples** será iniciado.
+4. O novo disco é exibido como **não alocado**. Clique com o botão direito do mouse em qualquer lugar do disco e selecione **Novo volume simples**. O **Assistente Novo Volume Simples** é aberto.
 5. Percorra as etapas do assistente mantendo todos os padrões. Quando terminar, selecione **Concluir**.
 6. Feche Gerenciamento de Disco.
-7. Você receberá um pop-up que é necessário para formatar o novo disco antes que você possa usá-lo. Clique em **Formatar disco**.
+7. Você recebe um pop-up que é necessário para formatar o novo disco antes que você possa usá-lo. Clique em **Formatar disco**.
 8. Na caixa de diálogo **Formatar novo disco**, verifique as configurações e, em seguida, clique em **Iniciar**.
-9. Você receberá um aviso informando que a formatação dos discos apagará todos os dados; clique em **OK**.
+9. Você recebe um aviso informando que a formatação dos discos apaga todos os dados; clique em **OK**.
 10. Quando a formatação for concluída, clique em **OK**.
 
 ## <a name="use-trim-with-standard-storage"></a>Usar TRIM com o armazenamento padrão

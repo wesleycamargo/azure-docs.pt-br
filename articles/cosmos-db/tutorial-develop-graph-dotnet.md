@@ -1,9 +1,9 @@
 ---
 title: 'Azure Cosmos DB: Desenvolver com a API no .NET | Microsoft Docs'
-description: Aprenda a desenvolver com a API DocumentDB do Azure Cosmos DB usando o .NET
+description: Aprenda como desenvolver com a API do SQL do Azure Cosmos DB usando o .NET
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
@@ -12,39 +12,39 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: denlee
+ms.date: 01/02/2018
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API do Graph no .NET
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este tutorial demonstra como criar uma conta do Azure Cosmos DB usando o portal do Azure e como criar um banco de dados do gráfico e o contêiner. O aplicativo, em seguida, cria uma rede social simple com quatro pessoas que usam a [API do Graph](graph-sdk-dotnet.md) (visualização), em seguida, percorre e consulta o gráfico usando Gremlin.
+Este tutorial demonstra como criar uma conta do Azure Cosmos DB usando o portal do Azure e como criar um banco de dados do grafo e o contêiner. O aplicativo então cria uma rede social simples com quatro pessoas usando a [API do Graph](graph-sdk-dotnet.md) e, em seguida, analisa e consulta o grafo usando o Gremlin.
 
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar uma conta do Azure Cosmos DB 
-> * Criar um banco de dados do gráfico e um contêiner
+> * Criar um banco de dados do grafo e um contêiner
 > * Serializar os vértices e bordas aos objetos .NET
 > * Adicionar vértices e bordas
-> * Consultar o gráfico usando Gremlin
+> * Consultar o grafo usando Gremlin
 
-## <a name="graphs-in-azure-cosmos-db"></a>Gráficos no Azure Cosmos DB
-Você pode usar o Azure Cosmos DB para criar, atualizar e consultar gráficos usando a biblioteca [Microsoft.Azure.Graphs](graph-sdk-dotnet.md). A biblioteca Microsoft.Azure.Graph fornece um método de extensão único `CreateGremlinQuery<T>` sobre a classe `DocumentClient` para executar consultas de Gremlin.
+## <a name="graphs-in-azure-cosmos-db"></a>Grafos no Azure Cosmos DB
+Você pode usar o Azure Cosmos DB para criar, atualizar e consultar grafos usando a biblioteca [Microsoft.Azure.Graphs](graph-sdk-dotnet.md). A biblioteca Microsoft.Azure.Graph fornece um método de extensão único `CreateGremlinQuery<T>` sobre a classe `DocumentClient` para executar consultas de Gremlin.
 
 Gremlin é uma linguagem de programação funcional que oferece suporte a operações de gravação (DML) e operações de consulta e passagem. Abordamos alguns exemplos neste artigo para introdução ao uso do Gremlin. Veja [consultas Gremlin](gremlin-support.md) para obter uma explicação detalhada dos recursos Gremlin disponíveis no Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Certifique-se que você tem o seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/). 
-    * Como alternativa, você pode usar o [Emulador do DocumentDB do Azure](local-emulator.md) para este tutorial.
+    * Como alternativa, você pode usar o [emulador local](local-emulator.md) para este tutorial.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Criar uma conta de banco de dados
@@ -96,15 +96,15 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Criar um banco de dados 
 
-Agora, crie um [banco de dados](documentdb-resources.md#databases) do Azure Cosmos DB usando o método [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) ou o método [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) da classe **DocumentClient** a partir do [SDK .NET do DocumentDB](documentdb-sdk-dotnet.md).  
+Agora, crie um [banco de dados](sql-api-resources.md#databases) do Azure Cosmos DB usando o método [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) ou o método [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) da classe **DocumentClient** a partir do [SDK .NET do SQL](sql-api-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 
 ``` 
  
-## <a name="create-a-graph"></a>Criar um gráfico 
+## <a name="create-a-graph"></a>Criar um grafo 
 
-Em seguida, crie um contêiner de gráfico usando o usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) ou o método [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de entidades de gráfico. 
+Em seguida, crie um contêiner de grafo usando o usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) ou o método [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de entidades de grafo. 
 
 ```csharp 
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
@@ -116,7 +116,7 @@ DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync
 ## <a id="serializing"></a>Serializar os vértices e bordas aos objetos .NET
 O Azure Cosmos DB usa o [formato de arame GraphSON](gremlin-support.md), que define um esquema JSON de vértices, bordas e propriedades. O SDK do .NET do Azure DB Cosmos inclui JSON.NET como uma dependência, e isso nos permite serializar/desserializar GraphSON em objetos .NET com os quais podemos trabalhar no código.
 
-Por exemplo, vamos trabalhar com uma rede social simples com quatro pessoas. Veremos como criar vértices `Person`, adicionar relacionamentos `Knows` entre eles, em seguida, consultar e percorrer o gráfico para localizar relacionamentos "amigo de amigo". 
+Por exemplo, vamos trabalhar com uma rede social simples com quatro pessoas. Veremos como criar vértices `Person`, adicionar relacionamentos `Knows` entre eles, em seguida, consultar e percorrer o grafo para localizar relacionamentos "amigo de amigo". 
 
 O namespace `Microsoft.Azure.Graphs.Elements` fornece as classes `Vertex`, `Edge`, `Property` e `VertexProperty` para desserializar respostas GraphSON para objetos do .NET bem definidos.
 
@@ -215,9 +215,9 @@ client.CreateGremlinQuery(graphCollection, "g.E('thomasKnowsRobin').drop()");
 client.CreateGremlinQuery(graphCollection, "g.V('robin').drop()");
 ```
 
-## <a name="query-the-graph"></a>Consultar o gráfico
+## <a name="query-the-graph"></a>Consultar o grafo
 
-Você também pode executar consultas e passagens usando Gremlin. Por exemplo, o trecho a seguir mostra como contar o número de vértices no gráfico:
+Você também pode executar consultas e passagens usando Gremlin. Por exemplo, o trecho a seguir mostra como contar o número de vértices no grafo:
 
 ```cs
 // Run a query to count vertices
@@ -241,7 +241,7 @@ IDocumentQuery<string> firstNames = client.CreateGremlinQuery<string>(
   $"g.V().hasLabel('person').values('firstName')");
 ```
 
-Até agora, só vimos operadores de consulta que funcionam em qualquer banco de dados. Os gráficos são rápidos e eficientes para operações de passagem quando você precisa navegar até os vértices e bordas relacionadas. Vamos encontrar todos os amigos de Thomas. Fazemos isso usando a etapa `outE` do Gremlin para localizar todos as bordas externas de Thomas, depois passamos para os vértices internos dessas bordas usando a etapa `inV` do Gremlin:
+Até agora, só vimos operadores de consulta que funcionam em qualquer banco de dados. Os grafo são rápidos e eficientes para operações de passagem quando você precisa navegar até os vértices e bordas relacionadas. Vamos encontrar todos os amigos de Thomas. Fazemos isso usando a etapa `outE` do Gremlin para localizar todos as bordas externas de Thomas, depois passamos para os vértices internos dessas bordas usando a etapa `inV` do Gremlin:
 
 ```cs
 // Run a traversal (find friends of Thomas)
@@ -259,7 +259,7 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
   "g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
 
-Você pode criar consultas mais complexas e implementar uma lógica avançada de passagem de gráfico usando o Gremlin, incluindo a combinação de expressões de filtro, executando o loop usando a etapa `loop` e implementando a navegação condicional usando a etapa `choose`. Saiba mais sobre o que você pode fazer com o [Suporte do Gremlin](gremlin-support.md)!
+Você pode criar consultas mais complexas e implementar uma lógica avançada de passagem de grafo usando o Gremlin, incluindo a combinação de expressões de filtro, executando o loop usando a etapa `loop` e implementando a navegação condicional usando a etapa `choose`. Saiba mais sobre o que você pode fazer com o [Suporte do Gremlin](gremlin-support.md)!
 
 Isso é tudo, este tutorial do Azure Cosmos DB está concluído! 
 
@@ -276,12 +276,12 @@ Neste tutorial, você fez o seguinte:
 
 > [!div class="checklist"]
 > * Criou uma conta do Azure Cosmos DB 
-> * Criou um banco de dados do gráfico e um contêiner
+> * Criou um banco de dados do grafo e um contêiner
 > * Serializou vértices e bordas para os objetos .NET
 > * Adicionou vértices e bordas
-> * Consultou o gráfico usando Gremlin
+> * Consultou o grafo usando Gremlin
 
-Agora, você pode criar consultas mais complexas e implementar uma lógica de passagem de gráfico avançada usando o Gremlin. 
+Agora, você pode criar consultas mais complexas e implementar uma lógica de passagem de grafo avançada usando o Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)

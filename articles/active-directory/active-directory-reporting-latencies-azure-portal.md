@@ -4,7 +4,7 @@ description: "Saiba quanto tempo leva para que os eventos de relatório sejam ex
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
 
@@ -37,13 +37,15 @@ Há duas áreas de relatórios de atividade:
 
 A tabela a seguir lista as informações de latência para relatórios de atividade.
 
-| Relatório | Mínimo | Média | Máximo |
-| :-- | --- | --- | --- |
-| Logs de auditoria             | 30 minutos  | 45 minutos | 1 hora     |
-| Entradas               | 15 minutos  | 15 minutos | 2 horas*   |
+| Relatório | Mínimo | Média | Comentários |
+| :-- | --- | --- | :-- |
+| Logs de auditoria | 30 minutos  | 1 hora  |Em alguns casos, pode levar até 2 horas para que os dados de atividade de auditoria sejam exibidos.|
+| Entradas | 15 minutos  | 2 horas |Em alguns casos, pode levar até 24 horas para que os dados de atividade de entrada sejam exibidos. Isso inclui dados de atividade de entradas provenientes de aplicativos herdados do Office. |
 
->[!NOTE]
-> Para alguns dados de atividade de entrada provenientes de aplicativos do Office herdados, pode levar até 8 horas para que os dados de relatório sejam exibidos. 
+
+
+
+
 
 
 ## <a name="security-reports"></a>Relatórios de segurança

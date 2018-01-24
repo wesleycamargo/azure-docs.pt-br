@@ -4,7 +4,7 @@ description: "como configurar consultas entre bancos de dados em partições ver
 services: sql-database
 documentationcenter: 
 manager: jhubbard
-author: torsteng
+author: MladjoA
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
@@ -12,20 +12,20 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 12/12/2017
+ms.author: mlandzic
+ms.openlocfilehash: f3bf919aa4aab8d37a5a97b90138b1f5434eb6ea
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar entre bancos de dados na nuvem com esquemas diferentes (visualização)
 ![Consultar tabelas em bancos de dados diferentes][1]
 
 Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas diferentes bancos de dados. Isso significa que o esquema é diferente em bancos de dados diferentes. Por exemplo, todas as tabelas de inventário estão em um banco de dados, enquanto todas as tabelas relacionadas à contabilidade estão em um segundo banco de dados. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * O usuário deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS.
 * As permissões para ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias para referenciar a fonte de dados subjacente.
 
@@ -43,7 +43,7 @@ Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Criar chave mestra do escopo do banco de dados e credenciais
 A credencial é usada pela consulta elástica para se conectar aos bancos de dados remotos.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
@@ -155,14 +155,14 @@ A consulta a seguir executa uma junção de três vias entre as duas tabelas loc
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento armazenado para a execução remota de T-SQL: sp\_execute_remote
-A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL em bancos de dados remotos. Ele usa os seguintes parâmetros: 
+A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto ao banco de dados remoto. O procedimento armazenado é chamado [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL no banco de dados remoto. Ele usa os seguintes parâmetros: 
 
 * Nome da fonte de dados (nvarchar): o nome da fonte de dados externa do tipo RDBMS. 
-* Consulta (nvarchar): a consulta T-SQL a ser executada em cada fragmento. 
+* Consulta (nvarchar): a consulta T-SQL a ser executada no banco de dados remoto. 
 * Declaração de parâmetro (nvarchar) - opcional: cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro Query (como sp_executesql). 
 * Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
 
-O sp\_execute\_remote usa a fonte de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL especificada nos bancos de dados remotos. Ele usa a credencial da fonte de dados externa para a conexão com o banco de dados do gerenciador de mapa do fragmento e bancos de dados remotos.  
+O sp\_execute\_remote usa a fonte de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL especificada no banco de dados remoto. Ele usa a credencial da fonte de dados externa para a conexão com o banco de dados remoto.  
 
 Exemplo: 
 

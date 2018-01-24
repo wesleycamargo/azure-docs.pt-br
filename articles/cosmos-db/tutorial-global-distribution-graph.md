@@ -4,7 +4,7 @@ description: "Saiba como configurar a distribuição global do Azure Cosmos DB u
 services: cosmos-db
 keywords: "distribuição global, graph, gremlin"
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -13,40 +13,40 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: denlee
+ms.date: 01/02/2018
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: eb55bdee60400b4b14f47a6a0b1d0682b267d26f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Como configurar a distribuição global do Azure Cosmos DB usando a API do Graph
 
-Neste artigo, mostraremos como usar o Portal do Azure para configurar a distribuição global do Azure Cosmos DB e, depois, conectar-se usando a API do Graph (visualização).
+Neste artigo, mostramos como usar o Portal do Azure para configurar a distribuição local do Azure Cosmos DB e, em seguida, conectar-se usando a API do Graph.
 
 Este artigo aborda as seguintes tarefas: 
 
 > [!div class="checklist"]
 > * Configurar a distribuição global usando o Portal do Azure
-> * Configurar a distribuição global usando a [API do Graph](graph-introduction.md) (visualização)
+> * Configurar a distribuição global usando as [APIs do Graph](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Conectar-se a uma região preferencial usando a API do Graph com o SDK do .NET
 
-A API do Graph é exposta como uma biblioteca de extensão sobre o SDK do DocumentDB.
+A API do Graph é exposta como uma biblioteca de extensões sobre a API do SQL.
 
 Para aproveitar a [distribuição global](distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo a política de conexão. Com base na configuração da conta do Azure Cosmos DB, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK para executar operações de gravação e leitura.
 
 Essa lista de preferências é especificada ao inicializar uma conexão usando os SDKs. Os SDKs aceitam um parâmetro opcional "PreferredLocations", que é uma lista ordenada de regiões do Azure.
 
-* **Gravações**: o SDK enviará automaticamente todas as gravações para a região de gravação atual.
-* **Leituras**: todas as leituras serão enviadas para a primeira região disponível na lista PreferredLocations. Se a solicitação falhar, o cliente não fará o envio para a próxima região da lista, e assim por diante. Os SDKs tentarão ler apenas das regiões especificadas em PreferredLocations. Desse modo, se a Conta do CosmosDB estiver disponível em três regiões, por exemplo, mas o cliente especificar apenas duas das regiões de não gravação para PreferredLocations, nenhuma leitura será atendida fora da região de gravação, mesmo no caso de failover.
+* **Gravações**: O SDK envia automaticamente todas as gravações para a região de gravação atual.
+* **Leituras**: Todas as leituras são enviadas para a primeira região disponível na lista PreferredLocations. Se a solicitação falhar, o cliente não fará o envio para a próxima região da lista, e assim por diante.  Os SDKs só tentam fazer a leitura de regiões especificadas na lista PreferredLocations. Portanto, por exemplo, se a conta do Cosmos DB estiver disponível em três regiões, mas o cliente especificar apenas duas das regiões de não gravação para PreferredLocations, nenhuma leitura será atendida fora da região de gravação, mesmo no caso de failover.
 
-O aplicativo pode verificar o ponto de extremidade de gravação e o ponto de extremidade de leitura atuais escolhidos pelo SDK marcando duas propriedades, WriteEndpoint e ReadEndpoint, disponíveis no SDK versão 1.8 e superiores. Se a propriedade PreferredLocations não estiver definida, todas as solicitações serão atendidas na região de gravação atual.
+O aplicativo pode verificar o ponto de extremidade de gravação e o ponto de extremidade de leitura atuais escolhidos pelo SDK marcando duas propriedades, WriteEndpoint e ReadEndpoint, disponíveis no SDK versão 1.8 e superiores. Se a propriedade PreferredLocations não estiver definida, todas as solicitações serão atendidas da região de gravação atual.
 
 ### <a name="using-the-sdk"></a>Usar o SDK
 
@@ -87,7 +87,7 @@ Neste tutorial, você fez o seguinte:
 
 > [!div class="checklist"]
 > * Configurar a distribuição global usando o Portal do Azure
-> * Configurar a distribuição global usando a API do DocumentDB
+> * Configurar a distribuição global usando as APIs do SQL
 
 Agora você pode prosseguir para o próximo tutorial e aprender a desenvolver localmente usando o emulador local do Azure Cosmos DB.
 

@@ -4,7 +4,7 @@ description: "Saiba como criar uma máquina virtual Jenkins no Azure que efetua 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52408184c8cff53f8bb7006fa940b0db4b900db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Como criar uma infraestrutura de desenvolvimento em uma VM Linux no Azure com Jenkins, GitHub e Docker
 Para automatizar as fases de build e teste do desenvolvimento de aplicativos, você pode usar um pipeline de CI/CD (implantação e integração contínuas). Neste tutorial, você cria um pipeline de CI/CD em uma VM do Azure, incluindo como:
@@ -36,12 +36,12 @@ Para automatizar as fases de build e teste do desenvolvimento de aplicativos, vo
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.22 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Criar instância do Jenkins
 Em um tutorial anterior sobre [Como personalizar uma máquina virtual do Linux na primeira inicialização](tutorial-automate-vm-deployment.md), você aprendeu a automatizar a personalização de VM com a inicialização de nuvem. Este tutorial usa um arquivo de inicialização de nuvem para instalar o Jenkins e o Docker em uma VM. Jenkins é um conhecido servidor de automação de código aberto que integra-se perfeitamente com o Azure para habilitar a integração contínua (CI) e fornecimento contínuo (CD). Para ver mais tutoriais sobre como usar o Jenkins, consulte [Jenkins no hub do Azure](https://docs.microsoft.com/azure/jenkins/).
 
-No shell atual, crie um arquivo chamado *cloud-init.txt* e cole a configuração a seguir. Por exemplo, crie o arquivo no Cloud Shell e não em seu computador local. Insira `sensible-editor cloud-init-jenkins.txt` para criar o arquivo e ver uma lista de editores disponíveis. Certifique-se de que o arquivo de inicialização de nuvem inteiro seja copiado corretamente, especialmente a primeira linha:
+No shell atual, crie um arquivo chamado *cloud-init-jenkins.txt* e cole a configuração a seguir. Por exemplo, crie o arquivo no Cloud Shell e não em seu computador local. Insira `sensible-editor cloud-init-jenkins.txt` para criar o arquivo e ver uma lista de editores disponíveis. Certifique-se de que o arquivo de inicialização de nuvem inteiro seja copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -117,11 +117,10 @@ Se o arquivo ainda não está disponível, aguarde alguns minutos para a nuvem-i
 
 Agora, abra um navegador da Web e vá para `http://<publicIps>:8080`. Conclua a configuração inicial do Jenkins da seguinte maneira:
 
-- Insira a *initialAdminPassword* obtida da VM na etapa anterior.
-- Escolha **Selecionar plug-ins para instalar**.
-- Pesquise *GitHub* na caixa de texto na parte superior, selecione o *plug-in do GitHub* e, em seguida, selecione **Instalar**.
-- Para criar uma conta de usuário do Jenkins, preencha o formulário conforme desejado. De uma perspectiva de segurança, você deve criar este primeiro usuário do Jenkins em vez de continuar como a conta do administrador padrão.
-- Quando terminar, selecione **Começar a usar o Jenkins**.
+- Insira o nome de usuário **admin** e, em seguida, forneça a *initialAdminPassword* obtida da VM na etapa anterior.
+- Selecione **Gerenciar o Jenkins** e depois **Gerenciar plug-ins**.
+- Escolha **Disponível** e, em seguida, procure *GitHub* na caixa de texto na parte superior. Marque a caixa de *Plug-in do GitHub* e, em seguida, selecione **Fazer o download agora e instalar após a reinicialização**.
+- Marque a caixa de **Reiniciar Jenkins quando a instalação estiver concluída e não houver trabalhos em execução** e, em seguida, aguarde até que o processo de instalação do plug-in seja concluído.
 
 
 ## <a name="create-github-webhook"></a>Criar um webhook do GitHub
@@ -168,13 +167,13 @@ No Jenkins, um novo build começa na seção **Histórico de build** do canto in
 ## <a name="define-docker-build-image"></a>Definir a imagem de build do Docker
 Para ver o aplicativo do Node.js em execução com base em suas confirmações GitHub, compilaremos uma imagem do Docker para executar o aplicativo. A imagem é compilada de um Dockerfile que define como configurar o contêiner que executa o aplicativo. 
 
-Da conexão do SSH para a VM, altere para o diretório de espaço de trabalho do Jenkins nomeado como o trabalho que você criou em uma etapa anterior. Em nosso exemplo, isso foi nomeado como *HelloWorld*.
+Da conexão do SSH para a VM, altere para o diretório de espaço de trabalho do Jenkins nomeado como o trabalho que você criou em uma etapa anterior. Nesse exemplo, isso foi nomeado como *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Crie um arquivo com esse diretório de espaço de trabalho com `sudo sensible-editor Dockerfile` nese cole o conteúdo a seguir. Certifique-se de que o Dockerfile inteiro foi copiado corretamente, especialmente a primeira linha:
+Crie um arquivo nesse diretório de espaço de trabalho com `sudo sensible-editor Dockerfile` nese cole o conteúdo a seguir. Certifique-se de que o Dockerfile inteiro foi copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 FROM node:alpine

@@ -17,14 +17,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: f53234ddd8362e74c421c18c8d500308f5a232a7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Usar a Consulta Interativa com o HDInsight
-A Consulta Interativa (também chamada de Hive LLAP ou [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um [tipo de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. A Consulta Interativa dá suporte ao cache na memória, o que torna as consultas do Hive mais rápidas e muito mais interativas. 
+A Consulta Interativa (também chamada de Hive LLAP ou [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um [tipo de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. A Consulta Interativa dá suporte ao cache na memória, o que torna as consultas do Hive mais rápidas e muito mais interativas.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
 
 Um cluster de Consulta Interativa é diferente de um cluster Hadoop. Ele contém apenas o serviço do Hive. 
 
@@ -41,8 +43,8 @@ Para executar consultas de Hive, você tem as seguintes opções:
 
 * Usar o Power BI
 
-    Veja [Visualizar Big Data com o Power BI no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-
+    Consulte [Visualizar dados de Hive de consulta interativa com o Power BI no Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) Consulte [Visualizar Big Data com o Power BI no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+ 
 * Usar Zeppelin
 
     Veja [Usar Zeppelin para executar consultas do Hive no Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).

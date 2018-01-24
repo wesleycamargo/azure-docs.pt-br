@@ -1,26 +1,26 @@
 ---
-title: "Introdução ao Node.js do Azure Active Directory | Microsoft Docs"
+title: "Introdução à API Web Node.js do Azure AD | Microsoft Docs"
 description: "Como compilar uma API Web REST do Node.js que se integre ao Azure AD para autenticação."
 services: active-directory
 documentationcenter: nodejs
 author: craigshoemaker
-manager: routlaw
+manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Proteger uma API Web Node.js com o Azure Active Directory
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Introdução à API Web Node.js do Azure Active Directory
 
 Este artigo demonstra como proteger um ponto de extremidade de API [Restify](http://restify.com/) com o [Passport](http://passportjs.org/) usando o módulo [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) para lidar com a comunicação com o AAD (Azure Active Directory). 
 
@@ -65,7 +65,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Os [argumentos](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) para o comando `create` incluem:
 
-| Argumento  | Descrição |
+| Argumento  | DESCRIÇÃO |
 |---------|---------|
 |`display-name` | Nome amigável do registro |
 |`homepage` | URL em que os usuários podem entrar e usar o aplicativo |
@@ -73,7 +73,7 @@ Os [argumentos](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) para o
 
 Antes de você pode se conectar ao Azure Active Directory, você precisa das seguintes informações:
 
-| Nome  | Descrição | Nome da variável no arquivo de configuração |
+| NOME  | DESCRIÇÃO | Nome da variável no arquivo de configuração |
 | ------------- | ------------- | ------------- |
 | Nome do locatário  | O [nome do locatário](active-directory-howto-tenant.md) que você deseja usar para autenticação | `tenantName`  |
 | ID do cliente  | A ID do cliente é o termo de OAuth usado para a _ID do aplicativo_ do AAD. |  `clientID`  |

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
-Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você pode fazer perguntas sobre o Backup do Azure clicando em **comentários** (à direita). Os comentários aparecem na parte inferior deste artigo. Uma conta de Livefyre é necessária para o comentário. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Este artigo responde às perguntas frequentes sobre componentes do Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você pode fazer perguntas sobre o Backup do Azure clicando em **comentários** (à direita). Os comentários aparecem na parte inferior deste artigo. Uma conta de Livefyre é necessária para o comentário. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Para verificar rapidamente as seções neste artigo, use os links à direita, em **Neste artigo**.
 
@@ -30,7 +30,7 @@ Para verificar rapidamente as seções neste artigo, use os links à direita, em
 ## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Há algum limite para o número de cofres que podem ser criados em cada assinatura do Azure? <br/>
-Sim. A partir de setembro de 2016, você pode criar 25 Serviços de Recuperação ou cofres de backup por assinatura. Crie até 25 cofres dos Serviços de Recuperação por região com suporte do Backup do Azure por assinatura. Se você precisar de cofres adicionais, crie outra assinatura.
+Sim. A partir de setembro de 2016, você pode criar 25 cofres dos Serviços de Recuperação por assinatura. Crie até 25 cofres dos Serviços de Recuperação por região com suporte do Backup do Azure por assinatura. Se você precisar de cofres adicionais, crie outra assinatura.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Há limites para o número de servidores/computadores que podem ser registrados em cada cofre? <br/>
 Sim, você pode registrar até 50 computadores por cofre. Para máquinas virtuais IaaS do Azure, o limite é 200 VMs por cofre. Se você precisar registrar mais computadores, crie um novo cofre.
@@ -39,21 +39,13 @@ Sim, você pode registrar até 50 computadores por cofre. Para máquinas virtuai
 Todos os servidores registrados no mesmo cofre poderão recuperar os dados do backup feito por outros servidores *que usem a mesma senha*. Se houver servidores cujos dados de backup que você deseja isolar de outros servidores em sua organização, use uma senha designada para esses servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
 
 ### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Posso "migrar" meus dados de backup ou cofre entre assinaturas? <br/>
-Não. O cofre é criado no nível da assinatura e não pode ser reatribuído a outra assinatura depois de criado.
+Nº O cofre é criado no nível da assinatura e não pode ser reatribuído a outra assinatura depois de criado.
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Os cofres dos Serviços de Recuperação se baseiam no Resource Manager. Os cofres de Backup (modo clássico) ainda têm suporte? <br/>
-Todos os cofres de Backup existentes no [Portal Clássico](https://manage.windowsazure.com) continuarão com suporte. No entanto, não é mais possível usar o Portal Clássico para implantar novos cofres de Backup. A Microsoft recomenda o uso de cofres dos Serviços de Recuperação para todas as implantações, pois aperfeiçoamentos futuros só se aplicam aos cofres dos Serviços de Recuperação. Se você tentar criar um cofre de Backup no Portal Clássico, será redirecionado ao [Portal do Azure](https://portal.azure.com).
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Os cofres dos Serviços de Recuperação se baseiam no Resource Manager. Os cofres de Backup ainda têm suporte? <br/>
+Os cofres de Backup foram convertidos em cofres dos Serviços de Recuperação. Se você não converteu o cofre de Backup em um cofre dos Serviços de Recuperação, o cofre de Backup terá sido convertido em um cofre dos Serviços de Recuperação para você. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Pode migrar um cofre de Backup para um cofre dos Serviços de Recuperação? <br/>
-Sim, agora você pode atualizar o cofre de Backup para um cofre dos Serviços de Recuperação. Para obter detalhes, consulte o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md).
-
-### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Fiz backup de minhas VMs clássicas em um cofre de Backup. Posso migrar minhas VMs de modo clássico para modo do Resource Manager e protegê-los em um cofre dos Serviços de Recuperação?
-Os pontos de recuperação de VM em um cofre de backup não migrarão automaticamente para o cofre dos serviços de recuperação quando você migrar a VM do modo clássico para o modo do Resource Manager. Siga estas etapas para transferir seus backups de VM:
-
-1. No cofre de Backup, vá para a guia **Itens Protegidos** e selecione a VM. Clique em [Parar Proteção](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Deixe a opção *Excluir dados de backup associados***desmarcada**.
-2. Exclua a extensão de backup/instantâneo da VM.
-3. Migre a máquina virtual do modo clássico para o modo do Gerenciador de Recursos. As informações de armazenamento e de rede correspondentes à máquina virtual também precisam ser migradas para o modo do Resource Manager.
-4. Criar um cofre dos Serviços de Recuperação e configure o backup na máquina virtual migrada usando a ação **Backup** na parte superior do painel do cofre. Para obter informações detalhadas sobre como fazer backup de uma VM em um cofre dos Serviços de Recuperação, veja o artigo [Proteger VMs com um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md).
+Todos os cofres de Backup foram convertidos em cofres dos Serviços de Recuperação. Se você não converteu o cofre de Backup em um cofre dos Serviços de Recuperação, o cofre de Backup terá sido convertido em um cofre dos Serviços de Recuperação para você.
 
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure
 Há uma lista detalhada de perguntas nas [Perguntas Frequentes sobre o backup da pasta de arquivos do Azure](backup-azure-file-folder-backup-faq.md)
@@ -73,7 +65,7 @@ Sim. Você pode usar o Servidor de Backup do Azure para fazer backup do VMware v
 Sim.
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>Posso registrar meu Servidor DPM para diversos cofres? <br/>
-Não. Um servidor DPM ou MABS pode ser registrado para apenas um cofre.
+Nº Um servidor DPM ou MABS pode ser registrado para apenas um cofre.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>Há suporte para qual versão do System Center Data Protection Manager? <br/>
 Recomendamos a instalação do agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) no pacote cumulativo de atualizações (UR) mais recente para o System Center Data Protection Manager (DPM). A partir de agosto de 2016, o Pacote Cumulativo de Atualizações 11 é o mais recente.
@@ -84,7 +76,7 @@ Para usar o Backup do Azure com o System Center DPM (Data Protection Manager), i
 
 ## <a name="how-azure-backup-works"></a>Como funciona o Backup do Azure
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos? <br/>
-Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
+Nº Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
 
 Se você cancelar um trabalho de backup para uma VM do Azure, os dados transferidos serão ignorados. O próximo trabalho de backup transfere dados incrementais do último trabalho de backup bem-sucedido.
 
@@ -92,7 +84,7 @@ Se você cancelar um trabalho de backup para uma VM do Azure, os dados transferi
 Sim. Você pode executar os trabalhos de backup no Windows Server ou em estações de trabalho do Windows até três vezes por dia. Você pode executar trabalhos de backup no System Center DPM até duas vezes por dia. Você pode executar um trabalho de backup para VMs IaaS uma vez por dia. Você pode usar a política de agendamento para o Windows Server ou a estação de trabalho do Windows para especificar programações diárias ou semanais. Usando o System Center DPM, especifique o agendamento diário, semanal, mensal e anual.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados submetido a backup?<br/>
- Todos os dados dos quais é feito backup do Azure Backup Agent, SCDPM ou Servidor de Backup do Azure são compactados e criptografados antes de serem transferidos. Depois que a compactação e a criptografia forem aplicadas, os dados no cofre de backup serão de 30 a 40% menores.
+ Todos os dados dos quais é feito backup do Azure Backup Agent, SCDPM ou Servidor de Backup do Azure são compactados e criptografados antes de serem transferidos. Depois que a compactação e a criptografia forem aplicadas, os dados no cofre dos Serviços de Recuperação serão de 30 a 40% menores.
 
 ## <a name="what-can-i-back-up"></a>Do que eu posso fazer backup
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>Quais sistemas operacionais dão suporte ao Backup do Azure? <br/>
@@ -150,7 +142,7 @@ Não, o DPM e o Windows Server/cliente Windows têm políticas de retenção di�
 Sim, a estrutura de retenção de Backup do Azure permite que você tenha total flexibilidade na definição da política de retenção de acordo com suas necessidades.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Posso “agendar um backup” às 18h e especificar “políticas de retenção” em um momento diferente?<br/>
-Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Na imagem a seguir, a política de retenção é especificada para backups realizados à meia-noite e às 18h. <br/>
+Nº As políticas de retenção só podem ser aplicadas em pontos de backup. Na imagem a seguir, a política de retenção é especificada para backups realizados à meia-noite e às 18h. <br/>
 
 ![Retenção e agendamento de Backup](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
@@ -168,7 +160,7 @@ Você pode criar até 9999 pontos de recuperação por instância protegida. Uma
 Não há limite para o número de recuperações do Backup do Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Ao restaurar dados, eu pago pelo tráfego de saída do Azure? <br/>
-Não. As suas recuperações são gratuitas e você não é cobrado pelo tráfego de saída.
+Nº As suas recuperações são gratuitas e você não é cobrado pelo tráfego de saída.
 
 ## <a name="azure-backup-encryption"></a>Criptografia do Backup do Azure
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Os dados são enviados para o Azure criptografados? <br/>
