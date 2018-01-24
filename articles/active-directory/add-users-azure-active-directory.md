@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Início rápido: adicionar novos usuários ao Azure Active Directory
-Este artigo explica como adicionar novos usuários em sua organização ao Azure AD (Azure Active Directory), um por vez, usando o portal do Azure ou sincronizando os dados da conta de usuário do Windows Server AD local. 
+Este artigo explica como usuários em sua organização podem ser excluídos do locatário do Azure AD (Azure Active Directory) dessa organização ou adicionados a ele, usando o Portal do Azure ou sincronizando os dados da conta de usuário do Windows Server AD local. 
 
 ## <a name="add-cloud-based-users"></a>Adicionar usuários baseados em nuvem
 1. Entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -48,8 +48,11 @@ Este artigo explica como adicionar novos usuários em sua organização ao Azure
 
 ### <a name="learn-more"></a>Saiba mais 
 * [Adicionar usuários convidados de outro diretório](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [Atribuir um usuário a uma função no Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
+* [Restaurar um usuário excluído](active-directory-users-restore.md)
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste guia de início rápido, você aprendeu como adicionar novos usuários ao Azure AD Premium. 

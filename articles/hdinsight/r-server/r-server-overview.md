@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introdução ao Servidor R e recursos de R de software livre no HDInsight
 
 O Microsoft R Server está disponível como uma opção de implantação quando você cria clusters HDInsight no Azure. Essa nova funcionalidade fornece aos cientistas de dados, estatísticos e programadores de R o acesso sob demanda a métodos escalonáveis e distribuídos de análise no HDInsight.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Os clusters podem ser dimensionados adequadamente para os projetos e as tarefas em questão e interrompidos quando não são mais necessários. Já que fazem parte do Azure HDInsight, esses clusters recebem suporte de nível empresarial 24 horas por dia e sete dias por semana, apresentam um SLA de 99,9% de tempo de ativação e a capacidade de se integrarem a outros componentes no ecossistema do Azure.
 
@@ -44,7 +46,7 @@ Independentemente da opção de armazenamento primário em uso, você tem a opç
 Também é possível usar os [Arquivos do Azure](../../storage/files/storage-how-to-use-files-linux.md) como uma opção de armazenamento para uso no nó de borda. Os Arquivos do Azure permitem montar um compartilhamento de arquivos que foi criado em um Armazenamento do Azure para o sistema de arquivos do Linux. Para obter mais informações sobre essas opções de armazenamento de dados para R Server no cluster HDInsight, confira [Opções de Armazenamento do Azure para o R Server em clusters HDInsight](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Acessar o Servidor R no cluster
-Você pode se conectar ao Microsoft R Server no nó de borda usando um navegador. Ele é instalado por padrão durante a criação do cluster. Para saber mais, veja [Introdução ao uso do R Server no HDInsight](r-server-get-started.md).
+Você pode se conectar ao Microsoft R Server no nó de borda usando um navegador. Ele é instalado por padrão durante a criação do cluster. Para saber mais, veja [Introdução ao R Server no HDInsight](r-server-get-started.md).
 
 Você também pode se conectar ao R Server usando PuTTY/SSH para acessar o console do R. 
 
@@ -96,7 +98,7 @@ Outra opção de IDE completa é instalar um IDE de área de trabalho e usá-lo 
 Por fim, você pode acessar o console do R Server no nó de borda digitando **R** no prompt de comando do Linux após a conexão via SSH ou PuTY. Ao usar a interface do console, é prático executar um editor de texto para o desenvolvimento de scripts R em outra janela e recortar e colar seções do seu script no console R, conforme necessário.
 
 ## <a name="learn-about-pricing"></a>Saiba mais sobre preços
-As taxas associadas a um cluster HDInsight com servidor R são estruturadas de forma semelhante às taxas para os clusters HDInsight padrão. Elas são baseadas no dimensionamento das VMs subjacentes por nome, data e nós de borda com adição de uma elevação de hora por núcleo. Para saber mais sobre os preços do HDInsight e a disponibilidade de uma avaliação gratuita de 30 dias, confira o [Preço do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+As taxas associadas a um cluster HDInsight com servidor R são estruturadas de forma semelhante às taxas para os clusters HDInsight padrão. Elas são baseadas no dimensionamento das VMs subjacentes por nome, data e nós de borda com adição de uma elevação de hora por núcleo. Para obter mais informações sobre os preços do HDInsight, confira [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para aprender mais sobre como usar o R Server com clusters HDInsight, veja os tópicos a seguir:

@@ -3,10 +3,9 @@ title: Integrar aplicativos com Azure Active Directory
 description: Como adicionar, atualizar ou remover um aplicativo no Azure AD (Azure Active Directory).
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrando aplicativos com o Active Directory do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +110,7 @@ Além disso, antes que um cliente possa acessar uma API Web exposta por um aplic
 - Permissões Delegadas: o aplicativo cliente precisa acessar a API Web como usuário conectado, mas com acesso limitado pela permissão selecionada. Esse tipo de permissão pode ser concedido por um usuário, a menos que a permissão exija consentimento do administrador. 
 
   > [!NOTE]
-  > Adicionar uma permissão delegada a um aplicativo não dá automaticamente consentimento para os usuários dentro do locatário, como ocorria no Portal clássico do Azure. Os usuários ainda devem consentir manualmente com as permissões delegadas adicionadas no tempo de execução, a menos que o administrador clique no botão **Conceder Permissões** da seção **Permissões Necessárias** da página do aplicativo no portal do Azure. 
+  > Adicionar uma permissão delegada a um aplicativo não dá automaticamente consentimento aos usuários no locatário. Os usuários ainda devem consentir manualmente com as permissões delegadas adicionadas no tempo de execução, a menos que o administrador clique no botão **Conceder Permissões** da seção **Permissões Necessárias** da página do aplicativo no portal do Azure. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Para adicionar credenciais do aplicativo ou permissões para acessar APIs Web
 1. Entre no [Portal do Azure](https://portal.azure.com).

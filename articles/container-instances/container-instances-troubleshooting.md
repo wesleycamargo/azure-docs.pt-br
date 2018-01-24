@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/18/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6d8fbddc2f26fe739dd725f417961d7b3d7f77e6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Solucionar problemas de implantação com as Instâncias de Contêiner do Azure
 
@@ -21,15 +21,15 @@ Este artigo mostra como solucionar problemas ao implantar contêineres para Inst
 
 ## <a name="get-diagnostic-events"></a>Obtendo eventos de diagnóstico
 
-Para exibir logs do seu código de aplicativo em um contêiner, você pode usar o comando [az container logs](/cli/azure/container#logs). Mas, se o contêiner não implantar com êxito, você deve examinar as informações de diagnóstico fornecidas pelo provedor de recursos das Instâncias de Contêiner do Azure. Para exibir os eventos para o contêiner, execute o seguinte comando:
+Para exibir logs do seu código de aplicativo em um contêiner, você pode usar o comando [az container logs][az-container-logs]. Mas, se o contêiner não implantar com êxito, você deve examinar as informações de diagnóstico fornecidas pelo provedor de recursos das Instâncias de Contêiner do Azure. Para exibir os eventos para o contêiner, execute o comando [az container show][az-container-show]:
 
 ```azurecli-interactive
-az container show -n mycontainername -g myresourcegroup
+az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-A saída inclui as propriedades principais do contêiner, juntamente com eventos de implantação:
+A saída inclui as propriedades principais do contêiner, juntamente com eventos de implantação (exibidos aqui truncados):
 
-```bash
+```JSON
 {
   "containers": [
     {
@@ -37,45 +37,54 @@ A saída inclui as propriedades principais do contêiner, juntamente com eventos
       "environmentVariables": [],
       "image": "microsoft/aci-helloworld",
       ...
-
-      "events": [
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:52+00:00",
-        "lastTimestamp": "2017-08-03T22:12:52+00:00",
-        "message": "Pulling: pulling image \"microsoft/aci-helloworld\"",
-        "type": "Normal"
+        "events": [
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:49+00:00",
+            "lastTimestamp": "2017-12-21T22:50:49+00:00",
+            "message": "pulling image \"microsoft/aci-helloworld\"",
+            "name": "Pulling",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Successfully pulled image \"microsoft/aci-helloworld\"",
+            "name": "Pulled",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Created container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "name": "Created",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Started container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "name": "Started",
+            "type": "Normal"
+          }
+        ],
+        "previousState": null,
+        "restartCount": 0
       },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Pulled: Successfully pulled image \"microsoft/aci-helloworld\"",
-        "type": "Normal"
-      },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Created: Created container with id 61602059d6c31529c27609ef4ec0c858b0a96150177fa045cf944d7cf8fbab69",
-        "type": "Normal"
-      },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Started: Started container with id 61602059d6c31529c27609ef4ec0c858b0a96150177fa045cf944d7cf8fbab69",
-        "type": "Normal"
-      }
-    ],
-    "name": "helloworld",
+      "name": "mycontainer",
       "ports": [
         {
-          "port": 80
+          "port": 80,
+          "protocol": null
         }
       ],
-    ...
-  ]
+      ...
+    }
+  ],
+  ...
 }
 ```
 
@@ -85,32 +94,35 @@ Há alguns problemas comuns responsáveis pela maioria dos erros na implantaçã
 
 ## <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
 
-Se o Instâncias de Contêiner do Azure não for capaz de efetuar pull da imagem inicialmente, ele tentará novamente por um período, até eventualmente falhar. Se não for possível efetuar pull da imagem, eventos como a seguir serão mostrados:
+Se o Instâncias de Contêiner do Azure não for capaz de efetuar pull da imagem inicialmente, ele tentará novamente por um período, até eventualmente falhar. Se não for possível efetuar pull da imagem, eventos como a seguir serão mostrados na saída do comando [az container show][az-container-show]:
 
 ```bash
 "events": [
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:31+00:00",
-    "lastTimestamp": "2017-08-03T22:19:31+00:00",
-    "message": "Pulling: pulling image \"microsoft/aci-hellowrld\"",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:19+00:00",
+    "lastTimestamp": "2017-12-21T22:57:00+00:00",
+    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "name": "Pulling",
     "type": "Normal"
   },
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:32+00:00",
-    "lastTimestamp": "2017-08-03T22:19:32+00:00",
-    "message": "Failed: Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:19+00:00",
+    "lastTimestamp": "2017-12-21T22:57:00+00:00",
+    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "name": "Failed",
     "type": "Warning"
   },
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:33+00:00",
-    "lastTimestamp": "2017-08-03T22:19:33+00:00",
-    "message": "BackOff: Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:20+00:00",
+    "lastTimestamp": "2017-12-21T22:57:16+00:00",
+    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "name": "BackOff",
     "type": "Normal"
   }
-]
+],
 ```
 
 Para resolver, excluir o contêiner e tente novamente realizar a implantação dele, prestando atenção para digitar corretamente o nome da imagem.
@@ -119,7 +131,7 @@ Para resolver, excluir o contêiner e tente novamente realizar a implantação d
 
 Se o contêiner é executado até a conclusão e reinicia automaticamente, talvez seja necessário definir uma [política de reinício](container-instances-restart-policy.md) de **Em caso de Falha** ou **Nunca**. Se você especificar **Em caso de Falha** e ainda continuar sendo reiniciado, pode haver um problema com o aplicativo ou script executado em seu contêiner.
 
-A API de Instâncias de Contêiner inclui uma propriedade `restartCount`. Para verificar o número de reinicializações para um contêiner, você pode usar o comando [az container show](/cli/azure/container#az_container_show) no 2.0 CLI do Azure. No seguinte exemplo de saída (que foi truncado para fins de brevidade), você pode ver a propriedade `restartCount` no final da saída.
+A API de Instâncias de Contêiner inclui uma propriedade `restartCount`. Para verificar o número de reinicializações de um contêiner, você pode usar o comando [az container show][az-container-show] na CLI do Azure 2.0. No seguinte exemplo de saída (que foi truncado para fins de brevidade), você pode ver a propriedade `restartCount` no final da saída.
 
 ```json
 ...
@@ -179,7 +191,7 @@ REPOSITORY                             TAG                 IMAGE ID            C
 microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
 ```
 
-A chave para manter os tamanhos de imagem pequenos é garantir que sua imagem final não contenha nada que não deja necessário no tempo de execução. Uma forma de fazer isso é com [builds de vários estágios](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Builds de vários estágios tornam fácil assegurar que a imagem final contenha somente os artefatos necessários para seu aplicativo, sem nenhum conteúdo extra que foi necessário no momento do build.
+A chave para manter os tamanhos de imagem pequenos é garantir que sua imagem final não contenha nada que não deja necessário no tempo de execução. Uma forma de fazer isso é com [builds de vários estágios][docker-multi-stage-builds]. Builds de vários estágios tornam fácil assegurar que a imagem final contenha somente os artefatos necessários para seu aplicativo, sem nenhum conteúdo extra que foi necessário no momento do build.
 
 A outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização do contêiner é hospedar a imagem de contêiner usando o Registro de Contêiner do Azure na mesma região em que você pretende usar Instâncias de Contêiner do Azure. Isso reduz o caminho de rede que a imagem de contêiner precisa percorrer, reduzindo significativamente o tempo de download.
 
@@ -191,7 +203,14 @@ Devido a diversas cargas de recursos regionais no Azure, você poderá receber o
 
 Esse erro indica que devido à carga pesada na região em que você está tentando implantar, os recursos especificados para o contêiner não poderão ser alocados no momento. Use uma ou mais das seguintes etapas de mitigação para ajudar a resolver o problema.
 
-* Verifique se suas configurações de implantação do contêiner caem dentro dos parâmetros definidos na [Disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-region-availability.md)
+* Verifique se suas configurações de implantação de contêiner se enquadram nos parâmetros definidos em [Quotas e disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-quotas.md#region-availability)
 * Especificar configurações de CPU e memória inferiores para o contêiner
 * Implantar em uma região diferente do Azure
 * Implantar em um momento posterior
+
+<!-- LINKS - External -->
+[docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+
+<!-- LINKS - Internal -->
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 37f6049f2fc39bfa93135ce7c0d0013d7e37217c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcb52e9de98d881474007410f3db599682e151ce
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Atribuir um usuário às funções de administrador no Azure Active Directory
 Este artigo explica como atribuir uma função administrativa a um usuário no Azure AD (Azure Active Directory). Para obter informações sobre como adicionar novos usuários em sua organização, consulte [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
@@ -30,17 +30,17 @@ Este artigo explica como atribuir uma função administrativa a um usuário no A
 
    ![Abrir o gerenciamento de usuários](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 3. Selecione **Todos os usuários**.
-
-   ![Abrindo o grupo Todos os usuários](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
-1. Selecione um usuário na lista.
-2. Para o usuário selecionado, selecione **Função do diretório**, em seguida, atribua o usuário a uma função na lista **Função do diretório**. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles-azure-portal.md).
+  
+  ![Abrindo o grupo Todos os usuários](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
+4. Selecione um usuário na lista.
+5. Para o usuário selecionado, selecione **Função do diretório**, em seguida, atribua o usuário a uma função na lista **Função do diretório**. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles-azure-portal.md).
 
       ![Atribuindo um usuário a uma função](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicionar um usuário](active-directory-users-create-azure-portal.md)
-* [Redefinir a senha do usuário no novo Portal do Azure](active-directory-users-reset-password-azure-portal.md)
-* [Alterar as informações de trabalho do usuário](active-directory-users-work-info-azure-portal.md)
+* [Início rápido: Adicionar ou excluir usuários no Azure Active Directory](add-users-azure-active-directory.md)
 * [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
-* [Excluir um usuário no Azure AD](active-directory-users-delete-user-azure-portal.md)
+* [Adicionar usuários convidados de outro diretório](active-directory-b2b-what-is-azure-ad-b2b.md) 
+* [Atribuir um usuário a uma função no Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Restaurar um usuário excluído](active-directory-users-restore.md)

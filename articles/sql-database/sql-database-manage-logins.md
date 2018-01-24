@@ -4,7 +4,7 @@ description: "Saiba mais sobre o gerenciamento de segurança de banco de dados S
 keywords: "segurança do banco de dados SQL, gerenciamento de segurança de banco de dados, segurança de logon, segurança de banco de dados, acesso ao banco de dados"
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -16,16 +16,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/23/2017
-ms.author: rickbyh
-ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: 4963e67317f22140c318e29bcd03bce4b9f57ab6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Controle e concessão de acesso de banco de dados
 
-Quando as regras de firewall tiverem sido configuradas, as pessoas podem se conectar a um Banco de Dados SQL como uma das contas de administrador, como o proprietário do banco de dados ou como um usuário do banco de dados.  
+Após as regras de firewall terem sido configuradas, as pessoas poderão se conectar a um Banco de Dados SQL como uma das contas de administrador, como o proprietário do banco de dados ou como um usuário do banco de dados.  
 
 >  [!NOTE]  
 >  Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. 

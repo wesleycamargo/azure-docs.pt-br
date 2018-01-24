@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 66e002b092e02f92a33c6e498b176331ebdc190f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 26dc5d5ffce84206450123132c0633c2aa323e9f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problema ao instalar a extensão do navegador do painel de acesso do aplicativo
 
@@ -32,14 +32,13 @@ O Painel de Acesso exige um navegador com suporte para JavaScript e CSS habilita
 
 Para SSO baseado em senha, os navegadores do usuário final podem ser:
 
--   Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior
-
 -   Edge no Windows 10 Anniversary Edition ou posterior 
 
 -   Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
 
 -   Firefox 26.0 ou posterior, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
+-   Internet Explorer 8, 9, 10 ou 11 – Windows 7 ou posterior (suporte limitado)
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
 
 Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
@@ -64,6 +63,31 @@ Também é possível baixar a extensão para Chrome e Edge diretamente pelos lin
 
 -   [Extensão do Painel de Acesso do Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Como uso a Extensão de Entrada Segura dos Meus Aplicativos?
+Alterar a URL padrão de Meus Aplicativos para a extensão
+
+Se você estiver usando uma URL de Meus Aplicativos diferente de https://myapps.microsoft.com, será necessário configurar a URL padrão seguindo estas etapas:
+1. Enquanto não tiver se conectado à extensão, **clique com o botão direito do mouse** no ícone da extensão.
+2. Clique em **Selecionar URL de Meus Aplicativos** no menu.
+3. **Selecione** a URL padrão.
+4. Clique no ícone da extensão.
+5. Conecte-se à extensão selecionando **Entre para começar**.
+
+Entrar diretamente em um aplicativo do navegador
+1. Depois de instalar a extensão, conecte-se a ela selecionando **Entre para começar**.
+2. Navegue até a **URL de logon** do aplicativo no qual você deseja entrar, ela geralmente é a URL do aplicativo que exibe o formulário de logon.
+3. O estado da extensão deve se alterar e lhe informar que uma senha está disponível, clique então no **ícone da extensão** para entrar.
+
+Iniciar um aplicativo da extensão
+1. Depois de instalar a extensão, conecte-se a ela selecionando **Entre para começar**.
+2. Clique no ícone da extensão para abrir o **menu**.
+3. **Pesquise** por um aplicativo disponível no portal Meus Aplicativos.
+4. Clique no aplicativo de **resultados da pesquisa** para iniciá-lo.
+5. Os três últimos aplicativos iniciados também aparecerão na lista de atalhos **Usados Recentemente**
+
+> [!NOTE]
+> Essas opções só estão disponíveis para o Edge, Chrome e Firefox.
+
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
 
 É possível configurar uma política de grupo que permita instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários.
@@ -76,9 +100,12 @@ Os pré-requisitos incluem:
 
 Siga o tutorial [Como Implantar a Extensão do Painel de Acesso para o Internet Explorer usando Política de Grupo](active-directory-saas-ie-group-policy.md) para obter instruções passo a passo sobre como configurar política de grupo e implantá-la nos usuários.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Solucionar problemas do Painel de Acesso no Internet Explorer
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Solucionar problemas da Extensão do Painel de Acesso no Internet Explorer
 
 Siga o guia [Solucionar problemas da Extensão do Painel de Acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) para acessar uma ferramenta de diagnóstico e as instruções passo a passo sobre como configurar a extensão para o IE.
+
+> [!NOTE]
+> O IE está em suporte limitado e não recebe mais novas atualizações de software. O Edge é o navegador recomendado.
 
 ## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema
 

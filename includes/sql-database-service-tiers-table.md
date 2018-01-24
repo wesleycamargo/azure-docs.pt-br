@@ -22,7 +22,7 @@ sql-database-single-database-resources.md
 | Número máximo de DTUs** | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D  |
+| Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |
 | Máximo de trabalhos simultâneos (solicitações)| 60 | 90 | 120 | 200 |
 | Máximo de logons simultâneos | 60 | 90 | 120 | 200 |
 | Máximo de sessões simultâneas |600 | 900 | 1.200 | 2400 |
@@ -34,7 +34,7 @@ sql-database-single-database-resources.md
 | Número máximo de DTUs** | 200 | 400 | 800 | 1600 | 3000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |N/D  |
+| Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |N/D |
 | Máximo de trabalhos simultâneos (solicitações)| 400 | 800 | 1600 | 3200 |6000 |
 | Máximo de logons simultâneos | 400 | 800 | 1600 | 3200 |6000 |
 | Máximo de sessões simultâneas |4800 | 9600 | 19200 | 30000 |30000 |
@@ -67,7 +67,7 @@ sql-database-single-database-resources.md
 > [!IMPORTANT]
 > \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* Na camada Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. Consulte [Limitações atuais de P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Central do Canadá, Leste do Canadá, França Central, Centro da Alemanha, Leste do Japão, Coreia Central, Centro-Sul dos EUA, Sudeste Asiático, Leste dos EUA 2, Oeste dos EUA, US Gov – Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 >\*\* O máx de DTUs por banco de dados, começando em 200 DTUs e acima em Standard, está na versão prévia.
 >

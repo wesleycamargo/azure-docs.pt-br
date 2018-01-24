@@ -1,5 +1,5 @@
 ---
-title: Como gerenciar registros de dispositivo para o Hub IoT do Azure | Microsoft Docs
+title: Gerenciar registros de dispositivo com o Portal do Azure | Microsoft Docs
 description: "Como gerenciar registros de dispositivo para seu serviço DPS no Portal do Azure"
 services: iot-dps
 keywords: 
@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c230e73f83d8acd0f142e037f70a80c9e0e4107e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06cc215e5c4087c7a38937de10eaa066037ac444
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="how-to-manage-device-enrollments-in-the-iot-hub-device-provisioning-service"></a>Como gerenciar registros de dispositivo no Serviço de Provisionamento de Dispositivos no Hub IoT
+# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerenciar os registros de dispositivo com o Portal do Azure
 
 Um *registro de dispositivos* cria um registro de um único dispositivo ou um grupo de dispositivos que pode em algum momento registrar com o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure. O registro contém a configuração inicial desejada para os dispositivos como parte desse registro, incluindo o Hub IoT desejado. Este artigo mostra como gerenciar registros de dispositivo para o serviço de provisionamento.
 
@@ -27,9 +27,9 @@ Um *registro de dispositivos* cria um registro de um único dispositivo ou um gr
 
 Há duas maneiras em que você pode registrar seus dispositivos com o serviço de provisionamento:
 
-1. Um **grupo de registro** é uma entrada para um grupo de dispositivos que compartilham um mecanismo de atestado comum de certificados X.509, assinados pela mesma AC raiz. É recomendável usar um grupo de registro para um grande número de dispositivos que compartilham uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário. Observe que você só pode registrar dispositivos que usam o mecanismo de atestado X.509 como *grupos de registro*. 
+* Um **Grupo de registros** é uma entrada para um grupo de dispositivos que compartilham um mecanismo de atestado comum de certificados X.509, assinados pelo mesmo certificado de autenticação, que pode ser o [certificado raiz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermediário](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), usado para produzir o certificado do dispositivo no dispositivo físico. É recomendável usar um grupo de registro para um grande número de dispositivos que compartilham uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário. Observe que você só pode registrar dispositivos que usam o mecanismo de atestado X.509 como *grupos de registro*. 
 
-    Você pode criar um grupo de registro no portal para um grupo de dispositivos usando as etapas a seguir.
+    Você pode criar um grupo de registro no portal para um grupo de dispositivos usando as etapas a seguir:
 
     1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.
     2. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.
@@ -40,9 +40,9 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
         ![Grupo de registro no portal](./media/how-to-manage-enrollments/group-enrollment.png)
 
     
-2. Um **registro Individual** é uma entrada para um único dispositivo que pode registrar. Registros individuais podem usar tokens de certificados x509 ou tokens SAS (em um TPM real ou virtual) como mecanismos de atestado. É recomendável usar registros individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual como o mecanismo de Atestado. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
+* Um **registro Individual** é uma entrada para um único dispositivo que pode registrar. Registros individuais podem usar tokens de certificados x509 ou tokens SAS (em um TPM real ou virtual) como mecanismos de atestado. É recomendável usar registros individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual como o mecanismo de Atestado. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
 
-    Você pode criar um registro individual no portal usando as etapas a seguir. 
+    Você pode criar um registro individual no portal usando as etapas a seguir:
 
     1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.
     2. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.
@@ -55,7 +55,7 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
 
 
 ## <a name="update-an-enrollment-entry"></a>Atualizar uma entrada de registro
-Você pode atualizar uma entrada de registro existente no portal usando as etapas a seguir.
+Você pode atualizar uma entrada de registro existente no portal usando as etapas a seguir:
 
 1. Abra o serviço de provisionamento do dispositivo no Portal do Azure e clique em **Gerenciar Registros**. 
 2. Navegue até a entrada de registro que você deseja modificar. Clique na entrada, que abre informações de resumo sobre o registro do dispositivo. 
@@ -66,7 +66,7 @@ Você pode atualizar uma entrada de registro existente no portal usando as etapa
 
 
 ## <a name="remove-a-device-enrollment"></a>Remover um registro do dispositivo
-Em casos em que os dispositivos não precisam ser provisionados para nenhum Hub IoT, você pode remover a entrada de registro relacionado no portal usando as etapas a seguir.
+Em casos em que os dispositivos não precisam ser provisionados para nenhum Hub IoT, você poderá remover a entrada de registro relacionado no portal usando as etapas a seguir:
 
 1. Abra o serviço de provisionamento do dispositivo no Portal do Azure e clique em **Gerenciar Registros**. 
 2. Navegue até a entrada de registro que você deseja remover e selecione-a. 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Adicionar a imagem de VM do Windows Server 2016 para a pilha do Azure Marketplace
 
@@ -67,7 +67,7 @@ Execute os seguintes pré-requisitos do [kit de desenvolvimento](azure-stack-con
 
 2. Faça logon no seu ambiente de pilha do Azure. Execute um dos seguintes scripts, dependendo de você ter implantado em seu ambiente de pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS). (Substitua o Azure AD `tenantName`, `GraphAudience` ponto de extremidade, e `ArmEndpoint` valores para refletir a configuração do ambiente.)  
 
-   * **Active Directory do Azure**. Use o seguinte cmdlet:
+   * **Azure Active Directory**. Use o seguinte cmdlet:
 
     ```PowerShell
     # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
@@ -135,19 +135,23 @@ Execute os seguintes pré-requisitos do [kit de desenvolvimento](azure-stack-con
 
 Para garantir que a imagem de VM do Windows Server 2016 tem a atualização cumulativa mais recente, incluem o `IncludeLatestCU` parâmetro ao executar o `New-AzsServer2016VMImage` cmdlet. Para obter informações sobre parâmetros permitidos para o `New-AzsServer2016VMImage` cmdlet, consulte [parâmetros](#parameters). Leva aproximadamente uma hora para publicar a imagem para a pilha do Azure Marketplace. 
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters-for-new-azsserver2016vmimage"></a>Parâmetros para o novo AzsServer2016VMImage
 
-|Novo AzsServer2016VMImage parâmetros|Obrigatório|DESCRIÇÃO|
-|-----|-----|------|
-|ISOPath|Sim|O caminho totalmente qualificado para o Windows Server 2016 ISO baixado.|
-|net35|Não |O tempo de execução do .NET 3.5 é instalado na imagem do Windows Server 2016. Por padrão, esse valor é definido como **true**.|
-|Versão|Não |Especifica **Core**, **completo**, ou **ambos** imagens do Windows Server 2016. Por padrão, esse valor é definido como **completo**.|
-|VHDSizeInMB|Não |Define o tamanho (em MB) da imagem do VHD a ser adicionado ao seu ambiente de pilha do Azure. Por padrão, esse valor é definido como 40.960 MB.|
-|CreateGalleryItem|Não |Especifica se um item do Marketplace deve ser criado para a imagem do Windows Server 2016. Por padrão, esse valor é definido como **true**.|
-|location |Não  |Especifica o local para o qual a imagem do Windows Server 2016 deve ser publicada.|
-|IncludeLatestCU|Não |Aplica-se a atualização cumulativa mais recente do Windows Server 2016 para o novo VHD (Verifique o script para garantir que ele aponta para a atualização mais recente ou usar uma das duas opções). |
-|CUUri |Não  |Define o Windows Server 2016 a atualização cumulativa para executar a partir de um URI específico. |
-|CUPath |Não  |Define o Windows Server 2016 a atualização cumulativa para executar a partir de um caminho local. Essa opção será útil se você implantou a instância de pilha do Azure em um ambiente desconectado.|
+### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
+
+Cria e carrega um novo Server 2016 Core e, ou uma imagem completa e cria um item do marketplace para ele.
+
+| parâmetros | Obrigatório | Exemplo | DESCRIÇÃO |
+|-----|-----|------|---- |
+|ISOPath|Sim| N:\ISO\en_windows_16_x64_dvd | O caminho totalmente qualificado para o Windows Server 2016 ISO baixado.|
+|Net35|Não | True | O tempo de execução do .NET 3.5 é instalado na imagem do Windows Server 2016. Por padrão, esse valor é definido como **true**.|
+|Versão|Não | Completo |  Especifica **Core**, **completo**, ou **ambos** imagens do Windows Server 2016. Por padrão, esse valor é definido como **completo**.|
+|VHDSizeInMB|Não | 40,960 | Define o tamanho (em MB) da imagem do VHD a ser adicionado ao seu ambiente de pilha do Azure. Por padrão, esse valor é definido como 40.960 MB.|
+|CreateGalleryItem|Não | True | Especifica se um item do Marketplace deve ser criado para a imagem do Windows Server 2016. Por padrão, esse valor é definido como **true**.|
+|location |Não  | D:\ | Especifica o local para o qual a imagem do Windows Server 2016 deve ser publicada.|
+|IncludeLatestCU|Não | Falso | Aplica-se a atualização cumulativa mais recente do Windows Server 2016 para o novo VHD. Verifique o script para garantir que ele aponta para a atualização mais recente ou usar uma das duas opções. |
+|CUUri |Não  | https://yourupdateserver/winservupdate2016 | Define o Windows Server 2016 a atualização cumulativa para executar a partir de um URI específico. |
+|CUPath |Não  | C:\winservupdate2016 | Define o Windows Server 2016 a atualização cumulativa para executar a partir de um caminho local. Essa opção será útil se você implantou a instância de pilha do Azure em um ambiente desconectado.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

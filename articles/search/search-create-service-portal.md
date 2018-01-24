@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço de Azure Search no portal
 
-Aprenda como criar ou provisionar um serviço do Azure Search no portal. Para obter instruções do PowerShell, consulte [Gerenciar o Azure Search com o PowerShell](search-manage-powershell.md).
+Aprenda como criar ou provisionar um serviço do Azure Search no portal. 
+
+Prefere o PowerShell? Use o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda para começar a usá-lo, consulte [Gerenciar o Azure Search com o PowerShell](search-manage-powershell.md) para ter um panorama.
 
 ## <a name="subscribe-free-or-paid"></a>Assinar (gratuito ou pago)
 
@@ -30,7 +32,7 @@ Aprenda como criar ou provisionar um serviço do Azure Search no portal. Para ob
 Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Todos os meses, uma assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure. 
 
 ## <a name="find-azure-search"></a>Encontrar o Azure Search
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Clique no sinal de adição ("+") no canto superior esquerdo.
 3. Selecione **Web + Móvel** > **Azure Search**.
 

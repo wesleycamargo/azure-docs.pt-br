@@ -4,7 +4,7 @@ description: "Saiba como configurar o logon único entre o Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c3ea5175b02e35e7c624ce936d59fd82163b0fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Tutorial: integração do Azure Active Directory com o GoToMeeting
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o GoToMeeting da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-gotomeeting-from-the-gallery"></a>Adicionar o GoToMeeting da galeria
 Para configurar a integração do GoToMeeting ao Azure AD, você precisa adicionar o GoToMeeting, por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
@@ -104,24 +104,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. Na seção **Domínio e URLs do GoToMeeting**, clique em **Mostrar configurações URL avançadas** e execute as seguintes ações -
+3. Na seção **URLs e Domínio do GoToMeeting**, execute as seguintes etapas:
 
-    ![Informações de logon único em Domínio e URLs do GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+    ![Informações de logon único em Domínio e URLs do GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL: `https://authentication.logmeininc.com/saml/sp`
-
-    b. Na caixa de texto **URL de Resposta**, digite a URL: `https://authentication.logmeininc.com/saml/acs`
-
-    c. Na caixa de texto **Estado de retransmissão**, digite uma das seguintes URLs:
-
-    **Para GoToMeeting**: `https://global.gotomeeting.com`
-    
-    **Para GoToTraining**: `https://global.gototraining.com`
-
-    **Para GoToWebinar**: `https://global.gotowebinar.com`
-
-    **Para GoToAssist**: `https://app.gotoassist.com`
-
+    Na caixa de texto **Identificador**, digite a URL: `https://login.citrixonline.com/saml/sp`
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -135,19 +122,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     a. Clique em **Registros do aplicativo**.
     
-    ![Configurar Logon Único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
+    ![Configurar o logon único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
    
     b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
     
-    ![Configurar Logon Único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+    ![Configurar o logon único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
 
     c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
     
-    ![Configurar Logon Único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
+    ![Configurar o logon único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
      
     d. Agora acesse a página de propriedades do **GoToMeeting** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
  
-    ![Configurar Logon Único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
+    ![Configurar o logon único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
 
     e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
 
@@ -155,7 +142,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configuração do GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. Em uma janela de navegador diferente, faça logon no seu [GoToMeeting Organization Center](https://account.citrixonline.com/organization/administration/)
+8. Em uma janela de navegador diferente, faça logon no seu [GoToMeeting Organization Center](https://organization.logmeininc.com/)
 
 9. Na guia **provedor de identidade**, você pode configurar as definições do Azure ao fornecer a **URL de metadados** gerada ou o **Arquivo de metadados** ou **Manual** baixado.
 

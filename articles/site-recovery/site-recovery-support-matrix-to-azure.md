@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do local para o Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/22/2017
 Este artigo resume os componentes e as configurações com suporte do Azure Site Recovery durante a replicação e recuperação no Azure. Para saber mais sobre os requisitos do Azure Site Recovery, confira os [pré-requisitos](site-recovery-prereq.md).
 
 > [!NOTE]
-> Atualize para a versão mais recente do provedor e do agente de Site Recovery para obter compatibilidade com as atualizações na matriz de suporte.
+> Atualize para a versão mais recente do provedor e do agente de Site Recovery para ter compatibilidade com as atualizações na matriz de suporte.
 
 
 ## <a name="support-for-deployment-options"></a>Suporte para opções de implantação
@@ -35,7 +35,7 @@ Este artigo resume os componentes e as configurações com suporte do Azure Site
 --- | --- | ---
 **Portal do Azure** | VMs VMware locais para armazenamento do Azure, com redes e armazenamento clássicos ou do Azure Resource Manager.<br/><br/> Failover em VMs clássicas ou baseadas no Resource Manager. | VMs do Hyper-V locais para o Armazenamento do Azure, com armazenamento e redes clássicas ou do Resource Manager.<br/><br/> Failover em VMs clássicas ou baseadas no Resource Manager.
 **Portal clássico** | Somente modo de manutenção. Não é possível criar novos cofres. | Somente modo de manutenção.
-**PowerShell** | Não há suporte no momento. | Suportado
+**PowerShell** | Com suporte | Com suporte
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Suporte para servidores de gerenciamento do datacenter
@@ -68,45 +68,44 @@ A tabela a seguir resume o suporte a sistemas operacionais replicados em vários
 
  **Servidor VMware/físico** | **Hyper-V (com/sem o VMM)** |
 --- | --- |
-Windows Server 2016 de 64 bits (Server Core, Server com Desktop Experience)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1<br/><br/> Red Hat Enterprise Linux: 5.2 a 5.11, 6.1 a 6.9, 7.0 a 7.3 <br/><br/>CentOS: 5.2 a 5.11, 6.1 a 6.9, 7.0 a 7.3 <br/><br/>Servidor do Ubuntu 14.04 LTS[ (suporte para versões de kernel)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor LTS do Ubuntu 16.04[ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 que executa o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel Versão 3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Não há suporte para a atualização de computadores de replicação de SLES 11 SP3 até SLES 11 SP4. Se um computador replicado tiver sido atualizado do SLES 11 SP3 para o SLES 11 SP4, você precisará desabilitar a replicação e proteger o computador novamente após a atualização). | Qualquer SO convidado [com suporte do Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Windows Server 2016 de 64 bits (Server Core, Server com Desktop Experience)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1<br/><br/> Red Hat Enterprise Linux: 5.2 a 5.11, 6.1 a 6.9, 7.0 a 7.4<br/><br/>CentOS: 5.2 a 5.11, 6.1 a 6.9, 7.0 a 7.4 <br/><br/>Servidor do Ubuntu 14.04 LTS[ (suporte para versões de kernel)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor LTS do Ubuntu 16.04[ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 que executa o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel Versão 3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Não há suporte para a atualização de computadores de replicação de SLES 11 SP3 até SLES 11 SP4. Se um computador replicado tiver sido atualizado do SLES 11 SP3 para o SLES 11 SP4, você precisará desabilitar a replicação e proteger o computador novamente após a atualização). | Qualquer SO convidado [com suporte do Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \* Não há suporte para o Windows Server 2016 Nano Server.
-
->[!IMPORTANT]
->(Aplicável a servidores VMware/físicos replicando no Azure)
 >
-> No Servidor Red Hat Enterprise Linux 7+ e em servidores CentOS 7+, o kernel versão 3.10.0-514 tem suporte a partir da versão 9.8 do serviço de mobilidade do Azure Site Recovery.<br/><br/>
-> Os clientes no kernel 3.10.0-514 com uma versão do serviço de mobilidade inferior à versão 9.8 terão que desabilitar a replicação, atualizar a versão do serviço de mobilidade para versão 9.8 e habilitar a replicação novamente.
+> Em distribuições Linux, há suporte somente para os kernels de estoque que fazem parte da versão/atualização da versão secundária da distribuição.
+>
+> Atualizações de versões principais de uma distribuição Linux em uma máquina virtual do VMware protegida pelo Azure Site Recovery ou em um servidor físico não são compatíveis. Durante a atualização do sistema operacional em versões principais (por exemplo, CentOS 6.* para CentOS 7.*), desabilite a replicação para a máquina, atualize o sistema operacional nela, em seguida, habilite a replicação novamente.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versões com suporte do kernel Ubuntu para servidores VMware/físicos
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic para 3.13.0-117-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic a 3.13.0-121-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic a 3.13.0-128-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic a 3.13.0-132-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-generic a 3.13.0-137-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic a 4.4.0-81-generic,<br/>4.8.0-34-generic a 4.8.0-56-generic,<br/>4.10.0-14-generic a 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-generic a 4.4.0-91-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic a 4.4.0-96-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-generic a 4.4.0-104-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Sistemas de arquivos e configurações de armazenamento de convidado com suporte no Linux (servidores VMware/físicos)
 
-Os seguintes sistemas de arquivos e software de configuração de armazenamento têm suporte em servidores Linux em execução nos servidores VMware ou físicos:
+Os seguintes sistemas de arquivos e software de configuração de armazenamento são compatíveis com servidores Linux em execução nos servidores VMware ou físicos:
 * Sistemas de arquivos: ext3, ext4, ReiserFS (somente Suse Linux Enterprise Server), XFS
 * Gerenciador de volumes: LVM2
-* Software Multipath: Device Mapper
+* Software Multipath: Mapeador de dispositivos
 
 Não há suporte para dispositivos de armazenamento paravirtualizados (dispositivos exportados por drivers paravirtualizados).<br/>
 Não há suporte para dispositivos de E/S de bloco de várias filas.<br/>
 Não há suporte para servidores físicos com o controlador de armazenamento CCISS da HP.<br/>
 
 >[!Note]
-> Em servidores Linux, os diretórios a seguir (se configurados como partições/sistemas de arquivos separados) devem estar no mesmo disco (disco do sistema operacional) no servidor de origem: / (raiz), /boot, /usr, /usr/local, /var e /etc<br/><br/>
-> Recursos de XFSv5 em sistemas de arquivos XFS, como soma de verificação de metadados, têm suporte da versão 9.10 em diante do Serviço de Mobilidade. Se você estiver usando recursos XFSv5, execute o Serviço de Mobilidade versão 9.10 ou mais recente. Você pode usar o utilitário xfs_info para verificar o super-bloco XFS da partição. Se ftype está definido como 1, os recursos XFSv5 estão sendo usados.
+> Em servidores Linux, os diretórios a seguir (se configurados como partições/sistemas de arquivos separados) devem estar no mesmo disco (disco do sistema operacional) no servidor de origem: / (raiz), /boot, /usr, /usr/local, /var e /etc; e /boot deve estar em uma partição do disco em vez de ser um volume de LVM<br/><br/>
 >
 
 
@@ -120,17 +119,17 @@ As tabelas a seguir resumem o suporte à configuração de rede em vários cená
 Agrupamento NIC | Sim<br/><br/>Não há suporte quando computadores físicos são replicados| Sim
 VLAN | Sim | Sim
 IPv4 | Sim | Sim
-IPv6 | Não | Não
+IPv6 | Não  | Não 
 
 ### <a name="guest-vm-network-configuration"></a>Configuração de rede da VM convidada
 
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
-Agrupamento NIC | Não | Não
+Agrupamento NIC | Não  | Não 
 IPv4 | Sim | Sim
-IPv6 | Não | Não
+IPv6 | Não  | Não 
 IP estático (Windows) | Sim | Sim
-IP estático (Linux) | Sim <br/><br/>Máquinas virtuais são configuradas para usar DHCP em failback  | Não
+IP estático (Linux) | Sim <br/><br/>Máquinas virtuais são configuradas para usar DHCP no failback  | Não 
 NIC múltipla | Sim | Sim
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuração de rede da VM do Azure após failover
@@ -145,7 +144,7 @@ NIC múltipla | Sim | Sim
 IP Reservado | Sim | Sim
 IPv4 | Sim | Sim
 Reter o IP de origem | Sim | Sim
-Pontos de extremidade de serviço de rede virtual (Redes virtuais e firewalls de armazenamento do Azure) | Não | Não
+Pontos de Extremidade de Serviço de Rede Virtual (Redes virtuais e firewalls de Armazenamento do Azure) | Não  | Não 
 
 
 ## <a name="support-for-storage"></a>Suporte para armazenamento
@@ -167,18 +166,18 @@ Múltiplos caminhos (MPIO)<br></br>Testado com: Microsoft DSM, EMC PowerPath 5.7
 VMDK | Sim | N/D
 VHD/VHDX | N/D | Sim
 VM ger 2 | N/D | Sim
-EFI/UEFI| Não | Sim
-Disco de cluster compartilhado | Não | Não
-Disco criptografado | Não | Não
-NFS | Não | N/D
-SMB 3.0 | Não | Não
+EFI/UEFI| Não  | Sim
+Disco de cluster compartilhado | Não  | Não 
+Disco criptografado | Não  | Não 
+NFS | Não  | N/D
+SMB 3.0 | Não  | Não 
 RDM | Sim<br/><br/> N/D para servidores físicos | N/D
 Disco > 1 TB | Sim<br/><br/>Até 4.095 GB | Sim<br/><br/>Até 4.095 GB
 Disco com tamanho de setor lógico de 4K e físico de 4K | Sim | Não há suporte para VMs da Geração 1<br/><br/>Não há suporte para VMs da geração 2.
 Disco com tamanho de setor lógico de 4K e físico de 512 bytes | Sim |  Sim
 Volume com discos distribuídos > 1 TB<br/><br/> Gerenciamento de Volume lógico LVM | Sim | Sim
-Espaços de Armazenamento | Não | Sim
-Adição/remoção de disco a quente | Não | Não
+Espaços de Armazenamento | Não  | Sim
+Adição/remoção de disco a quente | Não  | Não 
 Exclusão de disco | Sim | Sim
 Múltiplos caminhos (MPIO) | N/D | Sim
 
@@ -187,13 +186,14 @@ Múltiplos caminhos (MPIO) | N/D | Sim
 LRS | Sim | Sim
 GRS | Sim | Sim
 RA-GRS | Sim | Sim
-Armazenamento frio | Não | Não
-Armazenamento quente| Não | Não
-Blobs de blocos | Não | Não
+Armazenamento frio | Não  | Não 
+Armazenamento quente| Não  | Não 
+Blobs de blocos | Não  | Não 
 Criptografia em repouso (SSE)| Sim | Sim
 Armazenamento Premium | Sim | Sim
-Serviço de importação/exportação | Não | Não
-Pontos de extremidade de serviço de rede virtual (Redes virtuais e firewall de armazenamento do Azure) configurados na conta de armazenamento de destino ou na conta de armazenamento de cache utilizada para armazenar dados de replicação | Não | Não
+Serviço de importação/exportação | Não  | Não 
+Pontos de extremidade de serviço de rede virtual (Redes virtuais e firewall de armazenamento do Azure) configurados na conta de armazenamento de destino ou na conta de armazenamento de cache utilizada para armazenar dados de replicação | Não  | Não 
+Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não  | Não 
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Suporte para configuração de computação do Azure
@@ -228,8 +228,8 @@ Você pode implantar a Recuperação de Site para replicar máquinas virtuais e 
 
 **Ação** | **Servidor VMware/físico** | **Hyper-V (sem Virtual Machine Manager)** | **Hyper-V (com Virtual Machine Manager)**
 --- | --- | --- | ---
-Mover cofre entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não | Não | Não
-Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não | Não | Não
+Mover cofre entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não  | Não  | Não 
+Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não  | Não  | Não 
 
 
 ## <a name="support-for-provider-and-agent"></a>Suporte para o Provedor e o Agente

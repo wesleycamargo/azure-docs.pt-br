@@ -3,7 +3,7 @@ title: "Autenticação baseada em cabeçalho com o PingAccess para Proxy de Apli
 description: "Publique aplicativos com o PingAccess e o Proxy de Aplicativo a fim de oferecer suporte à autenticação baseada em cabeçalho."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -73,6 +73,10 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 4. Selecione **Aplicativo local**.
 5. Preencha os campos obrigatórios com informações sobre seu novo aplicativo. Use as diretrizes a seguir para as configurações:
    - **URL interna**: normalmente, você fornece a URL que levará você até a página de entrada do aplicativo quando você estiver na rede corporativa. Para esse cenário, o conector precisa tratar o proxy do PingAccess como a página inicial do aplicativo. Use este formato: `https://<host name of your PA server>:<port>`. A porta é a 3000 por padrão, mas você pode configurá-la no PingAccess.
+
+    > [!WARNING]
+    > Para este tipo de SSO, a URL interna deve usar https e não pode usar o http.
+
    - **Método de Pré-autenticação**: Azure Active Directory
    - **Converter URL em cabeçalhos**: não
 
@@ -135,7 +139,7 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Opcional - Atualizar a API do Graph para enviar campos personalizados
 
-Para obter uma lista de tokens de segurança que o Azure AD envia para autenticação, confira [Referência de token do Azure AD](./develop/active-directory-token-and-claims.md). Se precisar de uma declaração personalizada que envie outros tokens, use a API do Graph para definir o campo de aplicativo *acceptMappedClaims* como **True**. Você somente pode usar o Azure AD Graph Explorer para fazer essa configuração. 
+Para obter uma lista de tokens de segurança que o Azure AD envia para autenticação, confira [Referência de token do Azure AD](./develop/active-directory-token-and-claims.md). Se você precisar de uma declaração personalizada que envia outros tokens, use Explorador do Graph ou o manifesto do aplicativo no Portal do Azure para definir o campo *acceptMappedClaims* do aplicativo como **True**.    
 
 Este exemplo usa o Explorador do Graph:
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+Este exemplo usa o [Portal do Azure](https://portal.azure.com) para atualizar o campo *acceptedMappedClaims*:
+1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global.
+2. Selecione **Azure Active Directory** > **Registros de aplicativo**.
+3. Selecione seu aplicativo > **Manifesto**.
+4. Selecione **Editar**, procure o campo *acceptedMappedClaims* e altere o valor para **true**.
+![Manifesto de aplicativo](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. Selecione **Salvar**.
 
 >[!NOTE]
 >Para usar uma declaração personalizada, você também deve ter uma política personalizada definida e atribuída ao aplicativo.  Essa política deve incluir todos os atributos personalizados necessários.

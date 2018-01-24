@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Criar o perfil de aplicativos Web dinâmicos do Azure com o Application Insights
 
@@ -227,6 +227,82 @@ Quando você configura o criador de perfil, são feitas atualizações nas confi
 7. No site do Kudu, selecione **Extensões de site**.
 8. Instale o __Application Insights__ da Galeria de Aplicativos Web do Azure.
 9. Reinicie o aplicativo Web.
+
+## <a id="profileondemand"></a>Disparar criador de perfil manualmente
+Quando desenvolvemos o criador de perfil, adicionamos uma interface de linha de comando para podermos testar o criador de perfil nos serviços de aplicativo. Com essa mesma interface, os usuários também podem personalizar como o criador de perfil é iniciado. Em um nível mais geral, o criador de perfil usa o Sistema Kudu do Serviço de Aplicativo para gerenciar a criação de perfil em segundo plano. Quando você instala a extensão do Application Insights, criamos um trabalho Web contínuo que hospeda o criador de perfil. Usaremos essa mesma tecnologia para criar um novo trabalho Web que você pode personalizar de acordo com suas necessidades.
+
+Esta seção explica como:
+
+1.  Criar um trabalho Web que pode iniciar o criador de perfil por dois minutos com o toque de um botão.
+2.  Criar um trabalho Web que pode agendar a execução do criador de perfil.
+3.  Definir argumentos para o criador de perfil.
+
+
+### <a name="set-up"></a>Configurar
+Primeiro vamos nos familiarizar com o painel de controle do trabalho Web. Nas configurações, clique na guia WebJobs.
+
+![folha webjobs](./media/app-insights-profiler/webjobs-blade.png)
+
+Como você pode ver, o painel mostra todos os trabalhos Web que estão atualmente instalados no seu site. Você pode ver o trabalho Web ApplicationInsightsProfiler2, que tem o trabalho do criador de perfil em execução. É aqui que vamos criar nossos novos trabalhos Web para a criação de perfil manual e programada.
+
+Primeiro, vamos obter os binários necessários.
+
+1.  Vá para o site do Kudu. Na guia de ferramentas de desenvolvimento, clique na guia "Advanced Tools" (Ferramentas Avançadas) com o logotipo do Kudu. Clique em "Go" (Ir). Isso o levará a um novo site e fará seu logon automaticamente.
+2.  Em seguida, precisamos baixar os binários do criador de perfil. Navegue até o Explorador de Arquivos pelo Debug Console -> CMD localizado na parte superior da página.
+3.  Clique no site -> wwwroot -> App_Data -> jobs -> continuous. Você deve ver uma pasta "ApplicationInsightsProfiler2". Clique no ícone de download à esquerda da pasta. Isso baixará um arquivo "ApplicationInsightsProfiler2.zip".
+4.  Isso baixará todos os arquivos que serão usados no futuro. Recomendo criar um diretório limpo para mover o arquivo zip antes de continuar.
+
+### <a name="setting-up-the-web-job-archive"></a>Configurando o arquivo de trabalho Web
+Quando você adiciona um novo serviço Web para o site do azure, basicamente cria um arquivo zip com um run.cmd dentro. O run.cmd informa ao sistema de trabalho Web o que fazer quando você executá-lo. Há outras opções que você poderá ler na documentação do trabalho Web, mas, para nosso objetivo, não precisamos de mais nada.
+
+1.  Para iniciar criar uma nova pasta, chamei a minha de "RunProfiler2Minutes".
+2.  Copie os arquivos da pasta ApplicationInsightProfiler2 extraída para essa nova pasta.
+3.  Crie um novo arquivo run.cmd. (Abri esta pasta de trabalho no VS Code antes de iniciar por questão de conveniência)
+4.  Adicione o comando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120` e salve o arquivo.
+a.  O comando `start` manda o criador de perfil iniciar.
+b.  `--engine-mode immediate` diz ao criador de perfil que desejamos iniciar a criação de perfil imediatamente.
+c.  `--single` significa executar e parar automaticamente d.  `--immediate-profiling-duration 120` significa executar o criador de perfil por 120 segundos ou 2 minutos.
+5.  Salve o arquivo.
+6.  Arquive essa pasta; você pode clicar com o botão direito do mouse na pasta e escolher Enviar para -> Pasta compactada (zipada). Isso criará um arquivo .zip usando o nome da pasta.
+
+![comando iniciar criador de perfil](./media/app-insights-profiler/start-profiler-command.png)
+
+Agora temos um. zip de trabalho Web que podemos usar para configurar os trabalhos Web em nosso site.
+
+### <a name="add-a-new-web-job"></a>Adicionar um novo serviço Web
+Em seguida, adicionaremos um novo trabalho Web em nosso site. O exemplo mostra como adicionar um trabalho Web disparado manualmente. Depois de você aprender a fazer isso, o processo será quase o mesmo para os agendados. Você pode ler mais sobre trabalhos disparados agendados por conta própria.
+
+1.  Vá para painel de trabalhos Web.
+2.  Clique no comando Adicionar na barra de ferramentas.
+3.  Nomeie seu trabalho Web (escolhi o nome correspondente ao meu arquivo para maior clareza) e abra-o até ter versões diferentes do run.cmd.
+4.  Na parte de carregamento de arquivo do formulário, clique no ícone Abrir arquivo e encontre o arquivo .zip que criado anteriormente.
+5.  Como tipo, escolha Triggered.
+6.  Como gatilhos, escolha Manual.
+7.  Pressione OK para salvar.
+
+![comando iniciar criador de perfil](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>Executar o criador de perfil
+
+Agora que temos um novo trabalho Web que podemos disparar manualmente, podemos tentar executá-lo.
+
+1.  É proposital só poder ter um processo ApplicationInsightsProfiler.exe executando em um computador de cada vez. Portanto, para começar, desabilite o trabalho Web Contínuo deste painel. Clique na linha e pressione "Stop". Atualize a barra de ferramentas e confirme se o status confirma que o trabalho foi interrompido.
+2.  Clique na linha com o novo trabalho Web adicionado e pressione Executar.
+3.  Com a linha ainda selecionada, clique no comando Logs na barra de ferramentas; isso o levará a um painel de trabalhos Web para esse trabalho Web iniciado. Ele listará as execuções mais recentes e seus resultados.
+4.  Clique na execução recém-iniciada.
+5.  Se tudo correr bem, você deve ver alguns logs de diagnóstico provenientes do criador de perfil confirmando que começamos a criação de perfil.
+
+### <a name="things-to-consider"></a>Itens a serem considerados
+
+Embora esse método seja relativamente simples, há algumas coisas precisam ser levadas em conta.
+
+1.  Como isso não é gerenciado pelo nosso serviço, não temos nenhuma maneira de atualizar os binários de agente para seu trabalho Web. Atualmente, não temos uma página de download estável para nosso binários e, portanto, a única maneira de obter a versão mais recente é atualizando sua extensão e buscando na pasta contínua, como fizemos acima.
+2.  Já que ele usa argumentos de linha de comando que foram originalmente criados para uso de desenvolvedor em vez de uso do usuário final, esses argumentos podem mudar no futuro e, portanto, esteja ciente disso na hora de atualizar. Isso não deve ser um problema porque você pode adicionar um trabalho Web, executá-lo e testar se funciona. Eventualmente, vamos criar uma interface do usuário para fazer isso sem o processo manual, mas é algo a ser levado em conta.
+3.  O recurso trabalhos Web para Serviços de Aplicativos é único porque quando ele executa o trabalho Web, faz com que o processo tenha as mesmas variáveis de ambiente e configurações do aplicativo que o seu site terá. Isso significa que você não precisa passar a chave de instrumentação por meio da linha de comando para o criador de perfil; ele precisa apenas buscar a chave de instrumentação do ambiente. No entanto, se deseja executar o criador de perfil na caixa de desenvolvimento ou em um computador fora dos Serviços de Aplicativos, você precisa fornecer uma chave de instrumentação. Você pode fazer isso passando um argumento `--ikey <instrumentation-key>`. Observe que esse valor deve corresponder à chave de instrumentação que seu aplicativo está usando. A saída do log do criador de perfil dirá qual chave de instrumentação usada na inicialização do criador de perfil e se detectamos atividade da chave de instrumentação enquanto criamos os perfis.
+4.  Os trabalhos Web disparados manualmente podem, na verdade, ser disparados por meio de webhook. Você pode obter essa URL clicando com o botão direito do mouse no trabalho Web no painel e exibindo as propriedades ou escolhendo propriedades na barra de ferramentas depois de selecionar o trabalho Web na tabela. Há muitos artigos online sobre isso e, portanto, não entrarei muito em detalhes, mas isso cria a possibilidade de disparar o criador de perfil de seu pipeline de CI/CD (como VSTS) ou algo como o Microsoft Flow (https://flow.microsoft.com/pt-br/). Dependendo do grau de refinamento desejado para seu run.cmd, que, aliás, pode ser um run.ps1, as possibilidades são infinitas.  
+
+
+
 
 ## <a id="aspnetcore"></a>Suporte do ASP.NET Core
 

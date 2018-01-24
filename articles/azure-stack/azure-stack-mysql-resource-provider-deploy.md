@@ -3,7 +3,7 @@ title: Usar bancos de dados MySQL como PaaS na pilha do Azure | Microsoft Docs
 description: "Saiba como você pode implantar o provedor de recursos MySQL e fornecer os bancos de dados MySQL como um serviço na pilha do Azure"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados MySQL na pilha do Microsoft Azure
 
@@ -90,7 +90,7 @@ A conta do sistema deve ter os seguintes privilégios:
 
 6. [Instale o Azure PowerShell versão 1.2.11](azure-stack-powershell-install.md).
 
-7. Execute o script DeploySqlProvider.ps1.
+7. Execute o script `DeployMySqlProvider.ps1`.
 
 O script executa estas etapas:
 
@@ -155,12 +155,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>Parâmetros de DeploySqlProvider.ps1
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou qualquer parâmetro de validação falha, você precisará fornecer as necessárias.
 
 | Nome do Parâmetro | DESCRIÇÃO | Comentário ou valor padrão |
 | --- | --- | --- |
-| **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade Privleged. | _obrigatório_ |
+| **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _obrigatório_ |
 | **AzCredential** | Forneça as credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure). | _obrigatório_ |
 | **VMLocalCredential** | Defina as credenciais para a conta de administrador local do provedor de recursos MySQL VM. | _obrigatório_ |
 | **PrivilegedEndpoint** | Forneça o endereço IP ou nome DNS do ponto de extremidade com privilégios. |  _obrigatório_ |
@@ -200,7 +200,7 @@ As velocidades de download e o desempenho do sistema, dependendo da instalação
 
     O **servidores de hospedagem MySQL** folha é onde você pode conectar o provedor de recursos do MySQL Server para instâncias do MySQL Server reais que servem como back-end do provedor de recursos.
 
-    ![Servidores de hospedagem](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
+    ![Hosting Servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 3. Preencha o formulário com os detalhes de conexão da sua instância do MySQL Server. Forneça o nome de domínio totalmente qualificado (FQDN) ou um endereço IPv4 válido e não o nome curto de VM. Esta instalação não fornece uma instância do MySQL padrão. O tamanho fornecido ajuda o provedor de recursos a gerenciar a capacidade do banco de dados. Ele deverá estar perto a capacidade física do servidor de banco de dados.
 
@@ -323,7 +323,7 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _obrigatório_ |
 | **AzCredential** | Forneça as credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure). | _obrigatório_ |
 | **VMLocalCredential** | Defina as credenciais para a conta de administrador local do provedor de recursos SQL VM. | _obrigatório_ |
-| **PrivilegedEndpoint** | Forneça o endereço IP ou nome DNS do ponto de extremidade Privleged. |  _obrigatório_ |
+| **PrivilegedEndpoint** | Forneça o endereço IP ou nome DNS do ponto de extremidade com privilégios. |  _obrigatório_ |
 | **DependencyFilesLocalPath** | O arquivo PFX de certificado deve ser colocado nesse diretório também. | _opcional_ (_obrigatório_ para vários nós) |
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx | _obrigatório_ |
 | **MaxRetryCount** | Defina quantas vezes você deseja repetir a cada operação se houver uma falha.| 2 |

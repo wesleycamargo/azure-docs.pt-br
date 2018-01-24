@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -27,6 +27,7 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 ## <a name="known-problems"></a>Problemas conhecidos
 
 - Em alguns casos, habilitar o SSO contínuo pode levar até 30 minutos.
+- Se você desabilitar e habilitar novamente o SSO Contínuo em seu locatário, os usuários não obterão a experiência de logon único até que seus tíquetes de Kerberos armazenados em cache, normalmente válidos por 10 horas, tenham se expirado.
 - O suporte ao navegador Edge não está disponível.
 - A inicialização de clientes do Office, especialmente em situações de computador compartilhado, gera prompts de entrada adicionais para usuários. Os usuários devem inserir seus nomes de usuário com frequência, mas não suas senhas.
 - Se o SSO Contínuo for bem-sucedido, o usuário não terá a oportunidade de selecionar **Manter-me conectado**. Devido a esse comportamento, os cenários de mapeamento do SharePoint e do OneDrive não funcionam.
@@ -68,13 +69,15 @@ Navegue até **Azure Active Directory** > **Entradas** no [Centro de administra�
 Use a lista de verificação a seguir para solucionar problemas de SSO Contínuo:
 
 - Verifique se o recurso de SSO Contínuo está habilitado no Azure AD Connect. Se você não puder habilitar o recurso (por exemplo, devido a uma porta bloqueada), verifique se você cumpriu com todos os [pré-requisitos](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites).
+- Se você habilitou o [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) e o SSO Contínuo em seu locatário, verifique se o problema não está com o Ingresso no Azure AD. O SSO por meio do Ingresso no Azure AD terá precedência sobre SSO Contínuo se o dispositivo estiver registrado no Azure AD e ingressado no domínio. Com o SSO por meio do Ingresso no Azure AD, o usuário verá um bloco de entrada com a informação "Conectado ao Windows".
 - Certifique-se de que ambas as URLs do Azure AD (https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net) façam parte das configurações da zona de Intranet do usuário.
 - Certifique-se de que o dispositivo corporativo tenha ingressado no domínio do Active Directory.
 - Certifique-se de que o usuário esteja conectado ao dispositivo por meio de uma conta de domínio do Active Directory.
 - Verifique se a conta do usuário é de uma floresta do Active Directory na qual o SSO Contínuo foi configurado.
 - Certifique-se de que o dispositivo esteja conectado à rede corporativa.
 - Certifique-se de que a hora do dispositivo esteja sincronizada com a hora do Active Directory e dos Controladores de Domínio, e que tenham cinco minutos ou menos de diferença.
-- Liste os tíquetes Kerberos existentes no dispositivo usando o comando `klist` em um prompt de comando. Certifique-se de que os tíquetes emitidos para a conta do computador `AZUREADSSOACCT` estejam presentes. Os tíquetes Kerberos dos usuários são normalmente válidos durante 12 horas. Você pode ter configurações diferentes no Active Directory.
+- Liste os tíquetes Kerberos existentes no dispositivo usando o comando `klist` em um prompt de comando. Certifique-se de que os tíquetes emitidos para a conta do computador `AZUREADSSOACCT` estejam presentes. Os tíquetes Kerberos dos usuários são normalmente válidos durante 10 horas. Você pode ter configurações diferentes no Active Directory.
+- Se você desabilitou e habilitou novamente o SSO Contínuo em seu locatário, os usuários não obterão a experiência de logon único até que seus tíquetes de Kerberos armazenados em cache tenham se expirado.
 - Limpe os tíquetes Kerberos existentes do dispositivo usando o comando `klist purge` e tente novamente.
 - Para determinar se há problemas relacionados a JavaScript, examine os logs do console do navegador (em **Ferramentas do Desenvolvedor**).
 - Examine os [logs do controlador de domínio](#domain-controller-logs).

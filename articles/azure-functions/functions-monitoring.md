@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -37,7 +37,7 @@ Para um aplicativo de funções enviar dados ao Application Insights, ele precis
 
 * [Criar uma instância conectada do Application Insights ao criar o aplicativo de funções](#new-function-app).
 * [Conectar uma instância do Application Insights a um aplicativo de funções existente](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>Novo aplicativo de funções
 
 Habilitar o Application Insights na página **Criar** do Aplicativo Functions:
@@ -65,6 +65,14 @@ Obter a chave de instrumentação e salvá-la em um aplicativo de funções:
    ![Adicione a chave de instrumentação às configurações do aplicativo](media/functions-monitoring/add-ai-key.png)
 
 1. Clique em **Salvar**.
+
+## <a name="disable-built-in-logging"></a>Desabilitar o registro em log interno
+
+Caso você habilite o Application Insights, recomendamos que desabilite o [registro em log interno que usa o armazenamento do Azure](#logging-to-storage). O registro em log interno é útil para testes com cargas de trabalho leves, mas não se destina ao uso em produção carga alta. Para monitoramento de produção, o Application Insights é recomendado. Se o registro em log interno foi usado na produção, o registro de log pode estar incompleto devido à limitação no Armazenamento do Azure.
+
+Para desabilitar o registro em log interno, exclua a configuração de aplicativo `AzureWebJobsDashboard`. Para obter informações sobre como excluir configurações do aplicativo no portal do Azure, consulte a seção **Configurações do aplicativo** em [Como gerenciar um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md#settings).
+
+Quando você habilita o Application Insights e desabilita o registro em log interno, a guia **Monitor** de uma função no portal do Azure leva você para o Application Insights.
 
 ## <a name="view-telemetry-data"></a>Exibir dados de telemetria
 
@@ -464,58 +472,41 @@ Para relatar um problema com a integração do Application Insights em Functions
 
 ## <a name="monitoring-without-application-insights"></a>Monitorando sem o Application Insights
 
-Recomendamos o Application Insights para monitorar funções porque ele oferece mais dados e maneiras melhores de analisar os dados. Porém, você também pode encontrar telemetria e dados de registro em log nas páginas do portal do Azure para um aplicativo Functions. 
+Recomendamos o Application Insights para monitorar funções porque ele oferece mais dados e maneiras melhores de analisar os dados. Porém, você também pode encontrar telemetria e logs nas páginas do portal do Azure para um aplicativo de funções.
 
-Selecione a guia **Monitor** para uma função e obtenha uma lista de execuções de função. Selecione uma execução de função para examinar a duração, os dados de entrada, os erros e os arquivos de log associados.
+### <a name="logging-to-storage"></a>Registro em log no armazenamento
 
-> [!IMPORTANT]
-> Ao usar o [Plano de hospedagem de consumo](functions-overview.md#pricing) do Azure Functions, o bloco **Monitoramento** no Aplicativo de Funções não mostrará dados. Isso ocorre porque a plataforma gerenciar e dimensionar dinamicamente instâncias de computação para você. Essas métricas não são significativas em um plano de consumo.
+O registro em log interno usa a conta de armazenamento especificada pela cadeia de conexão na configuração `AzureWebJobsDashboard` do aplicativo. Se essa configuração do aplicativo estiver definida, você poderá ver os dados de registro em log no portal do Azure. Em uma página do aplicativo de funções, selecione uma função e selecione a guia **Monitor** para obter uma lista de execuções de função. Selecione uma execução de função para examinar a duração, os dados de entrada, os erros e os arquivos de log associados.
+
+Se você usar o Application Insights e tiver o [registro em log interno desabilitado](#disable-built-in-logging), a guia **Monitor** o levará para o Application Insights.
 
 ### <a name="real-time-monitoring"></a>Monitoramento em tempo real
 
-Monitoramento em tempo real está disponível clicando em **transmissão de evento ao vivo** na guia **Monitor** da função. A transmissão de evento ao vivo é exibida em um grafo em uma nova guia no navegador.
+Você pode transmitir arquivos de log para uma sessão de linha de comando em uma estação de trabalho local usando a [CLI (Interface de Linha de Comando) 2.0 do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Há um problema conhecido que pode causar falha na população dos dados. Talvez seja preciso fechar a guia do navegador que contém a transmissão de evento ao vivo e clicar em **transmissão de evento ao vivo** novamente para permitir que os dados da transmissão do evento sejam preenchidos corretamente. 
-
-Essas estatísticas são em tempo real, mas o grafo real dos dados de execução pode ter aproximadamente 10 segundos de latência.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Monitorar arquivos de log de uma linha de comando
-
-Você pode transmitir arquivos de log para uma sessão de linha de comando em uma estação de trabalho local usando a CLI (Interface de Linha de Comando) 1.0 do Azure ou o PowerShell.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorar arquivos de log do aplicativo de funções com a CLI do Azure 1.0
-
-Para começar, [instale a CLI do Azure 1.0](../cli-install-nodejs.md) e [entre no Azure](/cli/azure/authenticate-azure-cli).
-
-Use os comandos a seguir para habilitar o modo clássico do Gerenciamento de Serviço, escolha a sua assinatura e transmita arquivos de log:
+Para a CLI do Azure 2.0, use os comandos a seguir para entrar, escolha sua assinatura e transmita os arquivos de log:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Monitorar arquivos de log do aplicativo de funções com o PowerShell
-
-Para começar, [instale e configure o Azure PowerShell](/powershell/azure/overview).
-
-Use os comandos a seguir para adicionar sua conta do Azure, escolha sua assinatura e transmita os arquivos de log:
+Para o Azure PowerShell, use os comandos a seguir para adicionar sua conta do Azure, escolha sua assinatura e transmita os arquivos de log:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Para obter mais informações, consulte [Como transmitir logs para aplicativos Web](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Para obter mais informações, consulte [Como transmitir logs](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Saiba mais sobre o Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Para saber mais, consulte os recursos a seguir:
 
-> [!div class="nextstepaction"]
-> [Saiba mais sobre a estrutura de registro em log que o Functions usa](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [Registro em log de ASP.NET Core](/aspnet/core/fundamentals/logging/)

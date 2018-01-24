@@ -1,5 +1,5 @@
 ---
-title: "Atualizar um cofre de Backup para um cofre de Serviços de Recuperação (Versão Prévia) | Microsoft Docs"
+title: "Atualizar um Cofre de backup para um cofre de Serviços de Recuperação | Microsoft Docs"
 description: "Instruções e informações de suporte para atualizar seu cofre de Backup do Azure em um cofre dos Serviços de Recuperação."
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação
 
@@ -34,7 +34,7 @@ Ao atualizar um cofre de Backup para um cofre de Serviços de Recuperação, nã
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Alterações à automação e à ferramenta após a atualização
 
 Ao preparar sua infraestrutura para a atualização do cofre, você deve atualizar sua automação ou ferramentas existentes para garantir que continue funcionando após a atualização.
-Consulte as referências de cmdlets do PowerShell para o [Modelo de implantação do Service Manager](backup-client-automation-classic.md) e o [Modelo de implantação do Resource Manager](backup-client-automation.md).
+Consulte as referências de cmdlets do PowerShell para o [Modelo de implantação do Resource Manager](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Antes de atualizar
@@ -60,7 +60,7 @@ Use o script a seguir para atualizar seus cofres. O exemplo de script a seguir t
 RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** – o número de ID da assinatura de cofre que está sendo atualizado.<br/>
-**VaultName** – o nome do cofre de Backup que está sendo atualizado.<br/>
+**VaultName** – o nome do Cofre de backup que está sendo atualizado.<br/>
 **Local** – local do cofre que está sendo atualizado.<br/>
 **ResourceType** – use BackupVault.<br/>
 **TargetResourceGroupName** – uma vez que você está atualizando o cofre para uma implantação baseada no Resource Manager, especifique um Grupo de recursos. Você pode usar um Grupo de Recursos existente ou criar um fornecendo um novo nome. Se você digitar incorretamente o nome de um Grupo de Recursos, poderá criar um novo Grupo de Recursos. Para saber mais sobre Grupos de Recursos, leia esta [visão geral sobre Grupos de Recursos](../azure-resource-manager/resource-group-overview.md#resource-groups).
@@ -117,10 +117,10 @@ Depois de atualizar para um cofre dos Serviços de Recuperação, configure rela
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **O plano de atualização afeta meus backups em andamento?**</br>
-Não. Os backups em andamento continuam sem interrupções durante e após a atualização.
+Nº Os backups em andamento continuam sem interrupções durante e após a atualização.
 
 **Se eu não planejo atualizar em breve, o que acontecerá com meus cofres?**</br>
-Como todos os novos recursos se aplicam apenas aos cofres dos Serviços de Recuperação, insistimos que você atualize seus cofres. Eventualmente a Microsoft removerá o Portal Clássico. A partir de 1º de setembro de 2017, a Microsoft começará a atualização automática dos cofres de backup para cofres dos Serviços de Recuperação. Após 30 de novembro de 2017, você não poderá mais criar cofres de backup usando o PowerShell. Seu cofre pode ser atualizado automaticamente a qualquer momento até esse prazo. A Microsoft recomenda que você atualize seu cofre assim que possível.
+Como todos os novos recursos se aplicam apenas aos cofres dos Serviços de Recuperação, insistimos que você atualize seus cofres. A partir de 1º de setembro de 2017, a Microsoft começará a atualização automática dos cofres de backup para cofres dos Serviços de Recuperação. Após 30 de novembro de 2017, você não poderá mais criar cofres de backup usando o PowerShell. Seu cofre pode ser atualizado automaticamente a qualquer momento até esse prazo. A Microsoft recomenda que você atualize seu cofre assim que possível.
 
 **O que esta atualização significa para as minhas ferramentas existentes?**</br>
 Atualize suas ferramentas para o modelo de implantação do Resource Manager. Os cofres dos Serviços de Recuperação foram criados para serem usados no modelo de implantação do Resource Manager. É importante o planejamento para o modelo de implantação do Resource Manager, bem como é importante levar em conta as diferenças em seus cofres. 
@@ -129,19 +129,16 @@ Atualize suas ferramentas para o modelo de implantação do Resource Manager. Os
 Isso depende do número de recursos que estão sendo atualizados. Para implantações menores (algumas dezenas de instâncias protegidas), a atualização inteira deve levar menos de 20 minutos. Para implantações maiores, deve levar um máximo de uma hora.
 
 **Posso reverter após a atualização?**</br>
-Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
+Nº Não há suporte para reversão após os recursos terem sido atualizados com êxito.
 
 **Posso validar minha assinatura ou meus recursos para ver se eles podem ser atualizados?**</br>
 Sim. A primeira etapa na atualização valida se os recursos podem ser atualizados. No caso de falha na validação dos pré-requisitos, você recebe mensagens para todos os motivos pelos quais a atualização não pode ser concluída.
 
-**Quais permissões devo ter para disparar a atualização do cofre?**</br>
-Para realizar a atualização do cofre, você deve ser adicionado como coadministrador da assinatura no Portal Clássico do Azure. Isso é necessário mesmo que você já tenha sido listado como proprietário no Portal do Azure. Tente adicionar um coadministrador para a assinatura no portal clássico do Azure para descobrir se você é o coadministrador da assinatura. Se você não conseguir adicionar um coadministrador, contate um administrador de serviços ou o coadministrador da assinatura, que poderá adicionar você como coadministrador.
-
 **Posso atualizar meu cofre de Backup baseado em CSP?**</br>
-Não. No momento não é possível atualizar os cofres de backup baseados em CSP. Adicionaremos suporte para atualizar os cofres de backup baseados em CSP nas próximas versões.
+Nº No momento não é possível atualizar os cofres de backup baseados em CSP. Adicionaremos suporte para atualizar os cofres de backup baseados em CSP nas próximas versões.
 
 **Posso exibir meu cofre clássico após a atualização?**</br>
-Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
+Nº Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
 
 **Ocorreu falha na minha atualização, mas o computador que mantinha o agente que exigia a atualização não existe mais. O que devo fazer nesse caso?**</br>
 Se você precisar usar o armazenamento, os backups desse computador para retenção de longo prazo, você não poderá atualizar o cofre. Nas versões futuras, adicionaremos suporte para atualizar esse cofre.

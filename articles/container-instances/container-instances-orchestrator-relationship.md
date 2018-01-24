@@ -1,19 +1,19 @@
 ---
-title: "Instâncias de Contêiner do Azure e Orquestração de contêiner"
-description: "Entender como as Instâncias de Contêiner do Azure interagem com orquestradores de contêiner"
+title: "Instâncias de Contêiner do Azure e orquestração de contêiner"
+description: "Entender como as Instâncias de Contêiner do Azure interagem com orquestradores de contêiner."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 01/09/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a51e746c501cca0521972b09d145439348d1d22d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4954dcb4cb03407b85ad35aec94920e39644844b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de Contêiner do Azure e orquestradores de contêiner
 
@@ -40,8 +40,6 @@ As Instâncias de Contêiner do Azure permitem uma abordagem em camadas à orque
 
 Como toda a infra-estrutura subjacente das Instâncias de Contêiner é gerenciada pelo Azure, uma plataforma de orquestração não precisa se preocupar em localizar um computador host apropriado no qual executar um único contêiner. A elasticidade da nuvem garante que um esteja sempre disponível. Em vez disso, o orquestrador pode se concentrar nas tarefas que simplificam o desenvolvimento de arquiteturas de vários contêineres, incluindo o dimensionamento e as atualizações coordenadas.
 
-
-
 ## <a name="potential-scenarios"></a>Cenários possíveis
 
 Embora a integração do orquestrador com as Instâncias de Contêiner do Azure ainda seja recente, estimamos que alguns ambientes diferentes podem surgir:
@@ -50,7 +48,7 @@ Embora a integração do orquestrador com as Instâncias de Contêiner do Azure 
 
 Como elas são iniciadas rapidamente e são cobradas pelo segundo, um ambiente baseado exclusivamente em Instâncias de Contêiner do Azure oferece a maneira mais rápida para começar e para lidar com cargas de trabalho altamente variáveis.
 
-### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Combinação de Instâncias de Contêiner e Contêineres em Máquinas Virtuais
+### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Combinação de Instâncias de Contêiner e contêineres em Máquinas Virtuais
 
 Para cargas de trabalho estáveis de longa execução, orquestrar contêineres em um cluster de máquinas virtuais dedicadas geralmente será mais barato do que executar os mesmos contêineres com Instâncias de Contêiner. No entanto, as Instâncias de Contêiner oferecem uma ótima solução para expandir e reduzir rapidamente a capacidade total para lidar com picos de curta duração ou inesperados no uso. Em vez de expandir o número de máquinas virtuais em seu cluster e, em seguida, implantar contêineres adicionais nessas máquinas, o orquestrador pode simplesmente agendar os contêineres adicionais usando as Instâncias de Contêiner e excluí-los quando não forem mais necessários.
 
@@ -75,6 +73,6 @@ Crie seu primeiro contêiner com as Instâncias de Contêiner do Azure usando o 
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/azure/aci-connector-k8s
+[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/
