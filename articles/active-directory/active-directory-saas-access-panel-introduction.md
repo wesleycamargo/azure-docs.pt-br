@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d40f67c354e29f3a58c9d0f1967e0154b5b998d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -62,7 +62,7 @@ Você precisa distribuir a URL a todos os usuários que entrarão nos aplicativo
 
 Para acessar o painel de acesso, você deve ser autenticado usando uma conta corporativa ou de estudante no Azure AD. Você pode ser autenticado no Azure AD diretamente. Como alternativa, se uma organização tiver configurado a federação usando o AD FS (Serviços de Federação do Active Directory) ou outras tecnologias, você pode ser autenticado pelo Windows Server Active Directory.
 
-Se você tiver uma assinatura do Azure ou Office 365 e estiver usando o Portal do Azure ou um aplicativo do Office 365, você verá a lista de aplicativos sem entrar novamente. Se você não está autenticado receberá uma solicitação para entrar usando o nome de usuário e a senha de sua conta no Azure AD. Se sua organização tiver configurado a federação, digitar o nome do usuário será suficiente.
+Se você tiver uma assinatura do Azure ou Office 365 e estiver usando o Portal do Azure ou um aplicativo do Office 365, você verá a lista de aplicativos sem entrar novamente. Se você não estiver autenticado, receberá uma solicitação para entrar usando o nome de usuário e a senha de sua conta no Azure AD. Se sua organização tiver configurado a federação, digitar o nome do usuário será suficiente.
 
 Quando está autenticado, você pode interagir com os aplicativos integrados ao diretório pelo administrador. Para saber como integrar aplicativos ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure?](active-directory-appssoaccess-whatis.md).
 
@@ -70,7 +70,33 @@ Quando está autenticado, você pode interagir com os aplicativos integrados ao 
 
 O painel de acesso exige, pelo menos, um navegador com suporte para JavaScript e CSS habilitado. Para que o usuário possa acessar os aplicativos usando SSO (logon único) baseado em senha, a extensão do painel de acesso deve estar instalada no seu navegador. A extensão é baixada automaticamente quando você seleciona um aplicativo configurado para SSO baseado em senha.
 
-No momento, a extensão do painel de acesso está disponível para os navegadores Internet Explorer 8 e superior, Edge, Chrome e Firefox.
+A extensão do painel de acesso está atualmente disponível para:
+-   Edge no Windows 10 Anniversary Edition ou posterior 
+
+-   Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
+
+-   Firefox 26.0 ou posterior, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
+
+-   Internet Explorer 8, 9, 10 ou 11 – Windows 7 ou posterior (suporte limitado)
+
+## <a name="my-apps-secure-sign-in-extension"></a>Extensão de Entrada Segura dos Meus Aplicativos
+A extensão é necessária para os usuários entrarem em logon único baseado em senha. Usuários que estiveram instalados no passado também podem habilitar recursos adicionais conectando-se à extensão, clicando em **Entrar para começar**. 
+
+- Os usuários podem entrar em aplicativos visitando a **URL de logon** do aplicativo. Quando o usuário navega para a URL de entrada do aplicativo, a extensão detecta isso e fornece a opção para o usuário conectar-se a ela da extensão.
+- Os usuários também podem iniciar qualquer um de seus aplicativos do painel de acesso usando o recurso de **pesquisa rápida** da extensão. 
+- A extensão também mostra aos usuários os três últimos aplicativos que eles iniciaram na seção **Usados Recentemente**.
+
+> [!NOTE]
+> Recursos adicionais estão disponíveis apenas para Edge, Chrome e Firefox.
+>
+>
+
+Se você estiver usando uma URL de Meus Aplicativos diferente de https://myapps.microsoft.com, será necessário configurar a URL padrão seguindo estas etapas:
+1. Enquanto não tiver se conectado à extensão, **clique com o botão direito do mouse** no ícone da extensão.
+2. Clique em **Selecionar URL de Meus Aplicativos** no menu.
+3. **Selecione** a URL padrão.
+4. Clique no ícone da extensão.
+5. Conecte-se à extensão selecionando **Entre para começar**.
 
 ## <a name="mobile-app-support"></a>Suporte a aplicativos móveis
 

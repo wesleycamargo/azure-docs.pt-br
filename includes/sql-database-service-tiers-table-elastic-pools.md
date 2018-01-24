@@ -103,7 +103,7 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* Na camada Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. 
+> \* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Central do Canadá, Leste do Canadá, França Central, Centro da Alemanha, Leste do Japão, Coreia Central, Centro-Sul dos EUA, Sudeste Asiático, Leste dos EUA 2, Oeste dos EUA, US Gov – Virgínia e Europa Ocidental. 
 >
 >\*\*O mín/máx de eDTUs por banco de dados, começando em 200 eDTUs e acima em pools **Standard**, está na versão prévia.
 >

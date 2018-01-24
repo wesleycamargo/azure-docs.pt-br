@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -34,7 +34,7 @@ A Autenticação de Passagem é um recurso gratuito. Você não precisa de nenhu
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>A Autenticação de Passagem está disponível na [nuvem do Microsoft Azure Alemanha](http://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
 
-Não. A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
+Nº A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>O [acesso condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
 
@@ -46,7 +46,7 @@ Sim. A Autenticação de Passagem dá suporte a `Alternate ID` como nome de usu�
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de senha funciona como um fallback da Autenticação de Passagem?
 
-Não. A Autenticação de Passagem _não_ realiza o failover automaticamente para a sincronização de hash de senha. Ela funciona como fallback apenas para [cenários a que a Autenticação de Passagem não dá suporte atualmente](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Nº A Autenticação de Passagem _não_ realiza o failover automaticamente para a sincronização de hash de senha. Ela funciona como fallback apenas para [cenários a que a Autenticação de Passagem não dá suporte atualmente](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Eu posso instalar um conector de [Proxy de Aplicativo Azure AD](../active-directory-application-proxy-get-started.md) no mesmo servidor que um Agente de Autenticação de Passagem?
 
@@ -81,6 +81,12 @@ Sim. Se a Descoberta Automática de Proxy da Web (WPAD) estiver habilitado em se
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Eu posso instalar dois ou mais Agentes de Autenticação de Passagem no mesmo servidor?
 
 Não, você só pode instalar um Agente de Autenticação de Passagem em um único servidor. Se quiser configurar a Autenticação de Passagem para alta disponibilidade, siga as instruções em [Autenticação de passagem do Azure Active Directory: início rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Como fazer para remover um Agente de Autenticação de Passagem?
+
+Enquanto um Agente de Autenticação de Passagem estiver em execução, ele permanecerá ativo e continuamente lidará com solicitações de entrada de usuários. Se você quiser desinstalar um Agente de Autenticação, acesse **Painel de Controle -> Programas -> Programas e Recursos** e desinstale os programas **Agente de Autenticação do Microsoft Azure AD Connect** e o **Atualizador do Agente do Microsoft Azure AD Connect**.
+
+Se você verificar a folha de Autenticação de Passagem no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir a etapa anterior, verá o agente de autenticação exibido como **Inativo**. Isso é _esperado_. O Agente de Autenticação será descartado automaticamente da lista depois de alguns dias.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Já uso o AD FS para entrar no Azure AD. Como fazer para passar dele para a Autenticação de Passagem?
 

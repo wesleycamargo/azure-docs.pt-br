@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/16/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -42,6 +42,14 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## <a name="news-updates"></a>Notícias atualizadas
+###### <a name="january-4-2018"></a>**4 de janeiro de 2018**
+O SO convidado de janeiro foi lançado para Famílias de sistema operacional 4 (WA-GUEST-OS-4.50_201801-01) e 5 (WA-GUEST-OS-5.15_201801-01) e contém patches de segurança importantes.  
+
+###### <a name="january-4-2018"></a>**4 de janeiro de 2018**
+O SO convidado de dezembro foi lançado.
+
+###### <a name="december-14-2017"></a>**14 de dezembro de 2017**
+O SO convidado de novembro foi lançado.
 
 ###### <a name="november-8-2017"></a>**8 de novembro de 2017**
 O SO convidado de outubro foi liberado.
@@ -67,12 +75,6 @@ O SO convidado de junho foi lançado.
 ###### <a name="june-16-2017"></a>**16 de junho de 2017**
 A distribuição do SO convidado de junho começa dia 16 de junho e está projetada para ser lançada em 11 de julho.
 
-###### <a name="june-5-2017"></a>**5 de junho de 2017**
-Talvez o SO convidado tenha sido lançado.
-
-###### <a name="may-17-2017"></a>**17 de maio de 2017**
-Devido a um bug de segurança, estamos desabilitando os seguintes Lançamentos do Sistema Operacional de dezembro de 2016 e janeiro de 2017 que não têm a [correção] do portal: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
-
 
 ## <a name="releases"></a>Lançamentos
 ## <a name="family-5-releases"></a>Versões da Família 5
@@ -88,16 +90,18 @@ Devido a um bug de segurança, estamos desabilitando os seguintes Lançamentos d
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-02 |8 de novembro de 2017 |Post 5.14 |TBD |
-| WA-GUEST-OS-5.11_201709-01 |6 de outubro de 2017 |Post 5.13 |TBD |
-| WA-GUEST-OS-5.10_201708-01 |24 de agosto de 2017 |Post 5.12 |TBD |
+| WA-GUEST-OS-5.15_201801-01 |4 de janeiro de 2018 |Post 5.17 |TBD |
+| WA-GUEST-OS-5.14_201712-01 |4 de janeiro de 2018 |Post 5.16 |TBD |
+| WA-GUEST-OS-5.13_201711-01 |14 de dezembro de 2017 |Post 5.15 |TBD |
+|~~WA-GUEST-OS-5.12_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-5.11_201709-01~~ |6 de outubro de 2017 |14 de dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-5.10_201708-01~~ |24 de agosto de 2017 |14 de dezembro de 2017 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 de agosto de 2017 |8 de novembro de 2017 |TBD |
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |10 de janeiro de 2017 |5 de junho de 2017|TBD |
-|~~WA-GUEST-OS-5.3_201611-01~~ |14 de dezembro de 2016 |9 de maio de 2017 |TBD |
 
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
@@ -111,16 +115,18 @@ Devido a um bug de segurança, estamos desabilitando os seguintes Lançamentos d
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-02 |8 de novembro de 2017 |Post 4.49 |TBD |
-| WA-GUEST-OS-4.46_201709-01 |6 de outubro de 2017 |Post 4.48 |TBD |
-| WA-GUEST-OS-4.45_201708-01 |24 de agosto de 2017 |Post 4.47 |TBD |
+| WA-GUEST-OS-4.50_201801-01 |4 de janeiro de 2018 |Post 4.52 |TBD |
+| WA-GUEST-OS-4.49_201712-01 |4 de janeiro de 2018 |Post 4.51 |TBD |
+| WA-GUEST-OS-4.48_201711-01 |14 de dezembro de 2017 |Post 4.50 |TBD |
+|~~WA-GUEST-OS-4.47_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-4.46_201709-01~~ |6 de outubro de 2017 |14 de dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-4.45_201708-01~~ |24 de agosto de 2017 |14 de dezembro de 2017 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 de agosto de 2017 |8 de novembro de 2017 |TBD |
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |10 de janeiro de 2017 |5 de junho de 2017 |TBD |
-|~~WA-GUEST-OS-4.38_201611-01~~ |14 de dezembro de 2016 |9 de maio de 2017 |TBD |
 
 ## <a name="family-3-releases"></a>Versões da Família 3
 **Windows Server 2012**
@@ -134,16 +140,17 @@ Devido a um bug de segurança, estamos desabilitando os seguintes Lançamentos d
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-02 |8 de novembro de 2017 |Post 3.56 |TBD |
-| WA-GUEST-OS-3.53_201709-01 |6 de outubro de 2017 |Post 3.55 |TBD |
-| WA-GUEST-OS-3.52_201708-01 |24 de agosto de 2017 |Post 3.54 |TBD |
+| WA-GUEST-OS-3.56_201712-01 |4 de janeiro de 2018 |Post 3.58 |TBD |
+| WA-GUEST-OS-3.55_201711-01 |14 de dezembro de 2017 |Post 3.57 |TBD |
+|~~WA-GUEST-OS-3.54_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-3.53_201709-01~~ |6 de outubro de 2017 |14 de dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-3.52_201708-01~~ |24 de agosto de 2017 |14 de dezembro de 2017 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 de agosto de 2017 |8 de novembro de 2017 |TBD |
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |10 de janeiro de 2017 |5 de junho de 2017 |TBD |
-|~~WA-GUEST-OS-3.45_201611-01~~ |14 de dezembro de 2016 |9 de maio de 2017 |TBD |
 
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
@@ -157,9 +164,11 @@ Devido a um bug de segurança, estamos desabilitando os seguintes Lançamentos d
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-02 |8 de novembro de 2017 |Post 2.69 |TBD |
-| WA-GUEST-OS-2.66_201709-01 |6 de outubro de 2017 |Post 2.68 |TBD |
-| WA-GUEST-OS-2.65_201708-01 |24 de agosto de 2017 |Post 2.67 |TBD |
+| WA-GUEST-OS-2.69_201712-01 |4 de janeiro de 2018 |Post 2.71 |TBD |
+| WA-GUEST-OS-2.68_201711-01 |14 de dezembro de 2017 |Post 2.70 |TBD |
+|~~WA-GUEST-OS-2.67_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-2.66_201709-01~~ |6 de outubro de 2017 |14 de dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-2.65_201708-01~~ |24 de agosto de 2017 |14 de dezembro de 2017 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 de agosto de 2017 |8 de novembro de 2017 |TBD |
 |~~WA-GUEST-OS-2.63_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
@@ -167,7 +176,6 @@ Devido a um bug de segurança, estamos desabilitando os seguintes Lançamentos d
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
 |~~WA-GUEST-OS-2.59_201701-01~~ |10 de janeiro de 2017 |5 de junho de 2017 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |10 de janeiro de 2017 |9 de maio de 2017|TBD |
-|~~WA-GUEST-OS-2.57_201611-01~~ |14 de dezembro de 2016 |10 de abril de 2017 |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
@@ -244,4 +252,4 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[correção]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

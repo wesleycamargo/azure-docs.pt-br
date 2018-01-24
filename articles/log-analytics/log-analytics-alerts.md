@@ -4,7 +4,7 @@ description: "Alertas no Log Analytics identificam informações importantes em 
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 6cfd2a46-b6a2-4f79-a67b-08ce488f9a91
 ms.service: log-analytics
@@ -12,23 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Noções básicas sobre alertas no Log Analytics
 
-Alertas no Log Analytics identificam informações importante no repositório de Log Analytics.  Este artigo fornece detalhes de como regras de alerta no Log Analytics funcionam e descreve as diferenças entre diferentes tipos de regras de alerta.
+Alertas no Log Analytics identificam informações importante no repositório de Log Analytics.  Este artigo aborda algumas das decisões de design que devem ser feitas com base na frequência de coleta dos dados que estão sendo consultados, atrasos aleatórios de ingestão de dados possivelmente causados pela latência de rede ou a capacidade de processamento e, por fim, a confirmação dos dados no repositório do Log Analytics.  Ele também fornece detalhes de como regras de alerta no Log Analytics funcionam e descreve as diferenças entre diferentes tipos de regras de alerta.
 
 Para o processo de criação de regras de alerta, consulte os artigos a seguir:
 
 - Criar regras de alerta usando o [Portal do Azure](log-analytics-alerts-creating.md)
 - Criar regras de alerta usando o [modelo do Resource Manager](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
 - Criar regras de alerta usando a [API REST](log-analytics-api-alerts.md)
+
+## <a name="considerations"></a>Considerações
+
+Detalhes sobre a frequência da coleta de dados para várias soluções e tipos de dados estão disponíveis em [Detalhes de coleta de dados](log-analytics-add-solutions.md#data-collection-details), no artigo de visão geral Soluções. Conforme observado neste artigo, frequência de coleta pode ser no mínimo uma vez a cada sete dias, podendo ser configurada até o valor *a cada notificação*. É importante entender e considerar a frequência da coleta de dados antes de configurar um alerta. 
+
+- A frequência da coleta determina com que frequência o agente do OMS em computadores enviará dados para o Log Analytics. Por exemplo, se a frequência de coleta é de 10 minutos e não há nenhum outro atraso no sistema, carimbos de data/hora dos dados transmitidos podem ter qualquer idade entre zero e 10 minutos antes de serem adicionados ao repositório e serem pesquisáveis no Log Analytics.
+
+- Antes de um alerta poder ser disparado, os dados devem ser gravados no repositório para que ele esteja disponível quando consultado. Devido à latência descrita acima, a frequência de coleta não é a mesma que o tempo pelo qual os dados estão disponíveis para consultas. Por exemplo, enquanto os dados puderem ser coletados com precisão a cada 10 min, eles estarão disponíveis no repositório de dados em intervalos irregulares. Hipoteticamente, os dados coletados nos intervalos de zero, 10 e 20 minutos podem estar disponíveis para pesquisa em 25, 28 e 35 minutos, respectivamente, ou em algum outro intervalo irregular influenciado pela latência de ingestão. O pior caso para esses atrasos está documentado no [SLA para Log Analytics](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), que não inclui um atraso introduzido pela frequência de coleta ou latência de rede entre o computador e o serviço Log Analytics.
 
 
 ## <a name="alert-rules"></a>Regras de alerta
@@ -37,11 +45,27 @@ Os alertas são criados por regras de alerta que executam pesquisas de log autom
 
 ![Alertas do Log Analytics](media/log-analytics-alerts/overview.png)
 
+Já que há uma latência prevista com a ingestão de dados de log, o tempo absoluto entre a indexação de dados e o momento em que eles estão disponíveis para pesquisa pode ser imprevisível.  A disponibilidade quase em tempo real dos dados coletados deve ser levada em consideração durante a definição de regras de alerta.    
+
+Há uma compensação entre a confiabilidade e a capacidade de resposta de alertas. Você pode optar por configurar parâmetros de alerta para minimizar falsos alertas e alertas ausentes, ou então você pode escolher parâmetros de alerta para responder rapidamente às condições que estão sendo monitoradas, mas ocasionalmente isso gerará alertas falsos ou ignorados.
+
 Regras de Alerta são definidas pelos detalhes a seguir:
 
 - **Pesquisa de log**.  A consulta que é executada cada vez que a regra de alerta é acionada.  Os registros retornados por essa consulta serão usados para determinar se um alerta é criado.
-- **Janela de tempo**.  Especifica o intervalo de tempo para a consulta.  A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo atual.  Este pode ser qualquer valor entre 5 minutos e 24 horas. Por exemplo, se a janela de tempo está definida para 60 minutos e a consulta é executada às 13h15, somente os registros criados entre 12h15 e 13h15 são retornados.
-- **Frequência**.  Especifica a frequência com que a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual a ou menor que a janela de tempo.  Se o valor for maior que a janela de tempo, haverá o risco de que registros sejam perdidos.<br>Por exemplo, considere uma janela de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta for executada à 1:00, retornará registros entre 12:30 e 1:00.  A próxima vez em que a consulta será executada é às 2:00, quando ela retornará registros entre 1:30 e 2:00.  Todos os registros criados entre 1:00 e 1:30 nunca seriam avaliados.
+- **Janela de tempo**.  Especifica o intervalo de tempo para a consulta.  A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo atual.  Este pode ser qualquer valor entre cinco minutos e 24 horas. O intervalo deve ser grande o suficiente para acomodar atrasos razoáveis na ingestão. A janela de tempo deve ser duas vezes o comprimento do atraso mais longo com o qual você deseja ser capaz de lidar.<br> Por exemplo, se desejar que os alertas sejam confiáveis para atrasos de 30 minutos, o intervalo deverá ser de uma hora.  
+
+    Há dois sintomas que você poderá experimentar se o intervalo de tempo for muito pequeno.
+
+    - **Alertas ausentes**. Suponha que às vezes o atraso de ingestão é de 60 minutos, mas na maioria das vezes, ele é 15 minutos.  Se a janela de tempo estiver definida para 30 minutos, ele perderá um alerta quando o atraso for de 60 minutos, porque os dados não estarão disponíveis para pesquisa quando a consulta do alerta for executada. 
+   
+        >[!NOTE]
+        >É impossível tentar diagnosticar o motivo pelo qual o alerta está ausente. Por exemplo, no caso acima, os dados são gravados no repositório 60 minutos após a execução da consulta do alerta. Se isso for percebido no dia seguinte àquele em que um alerta estiver ausente e, no dia seguinte, a consulta for executada durante o intervalo de tempo correto, os critérios de pesquisa de logs farão a correspondência do resultado. Pareceria que o alerta foi disparado. Na verdade, o alerta não foi disparado porque os dados ainda não estavam disponíveis quando a consulta do alerta foi executada. 
+        >
+ 
+    - **Falsos Alertas**. Consultas de alerta, às vezes, são projetadas para identificar a ausência de eventos. Um exemplo disso é detectar quando uma máquina virtual está offline por meio da pesquisa de pulsações ausentes. Conforme demonstrado acima, se a pulsação não está disponível para pesquisa na janela de tempo do alerta, um alerta é gerado porque os dados de pulsação ainda não estavam pesquisáveis e, portanto, estavam ausentes. Esse é o mesmo resultado obtido quando a VM fica offline de forma legítima e não há nenhum dado de pulsação gerado por ela. Executar a consulta no dia seguinte durante a janela de tempo correta mostrará que havia pulsações e que o alerta falhou. Na verdade, as pulsações ainda não estavam disponíveis para pesquisa porque a janela de tempo de alerta foi definida com um intervalo pequeno demais.  
+
+- **Frequência**.  Especifica a frequência na qual a consulta deve ser executada e pode ser usado para tornar os alertas mais ágeis na resposta para o caso normal. O valor pode ser entre cinco minutos e 24 horas e deve ser igual ou menor que a janela de tempo de alerta.  Se o valor for maior que a janela de tempo, haverá o risco de que registros sejam perdidos.<br>Se a meta é ser confiável para atrasos de até 30 minutos e o atraso normal é de 10 minutos, a janela de tempo deve ser de uma hora e o valor da frequência deve ser de 10 minutos. Isso disparará um alerta com os dados que têm um atraso de 10 minutos de ingestão de dados entre 10 e 20 minutos de quando os dados do alerta foram gerados.<br>Para evitar a criação de vários alertas para os mesmos dados devido a uma janela de tempo grande demais, a opção [Suprimir Alertas](log-analytics-tutorial-response.md#create-alerts) pode ser usada para suprimir alertas para um período, no mínimo, tão longo quanto a janela de tempo.
+  
 - **Limite**.  Os resultados da pesquisa de logs são avaliados para determinar se um alerta deve ser criado.  O limite é diferente para os diferentes tipos de regras de alerta.
 
 Cada regra de alerta no Log Analytics é de um entre dois tipos.  Cada um desses tipos é descrito detalhadamente nas seções a seguir.
@@ -76,18 +100,15 @@ Em alguns casos, pode ser útil criar um alerta na ausência de um evento.  Por 
 
 Por exemplo, se você quisesse alertar quando o processador ultrapassasse 90%, usaria uma consulta como a seguinte, com o limite para a regra de alerta **maior do que 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
-
-    
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
 Se você quisesse alertar quando o processador ficasse acima de 90% durante um determinado período, usaria uma consulta com o [comando measure](log-analytics-search-reference.md#commands), como no seguinte, com o limite para a regra de alerta **maior do que 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
-    
 >[!NOTE]
-> Se o seu espaço de trabalho não tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima serão alteradas para o seguinte: `Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
-> `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
+> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
 ## <a name="metric-measurement-alert-rules"></a>Regras de alerta com medição métrica
@@ -110,7 +131,7 @@ O limite para regras de alerta de Medição métrica é definido por um valor de
 #### <a name="example"></a>Exemplo
 Considere um cenário em que você deseje um alerta se qualquer computador exceda 90% de utilização do processador por três vezes em 30 minutos.  Você criaria uma regra de alerta com os detalhes a seguir.  
 
-**Consulta:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
+**Consulta:** Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
 **Janela de tempo:** 30 minutos<br>
 **Frequência de alerta:** cinco minutos<br>
 **Valor de agregação:** maior que 90<br>
@@ -125,9 +146,9 @@ Neste exemplo, alertas separados seriam criados para srv02 e srv03, já que eles
 ## <a name="alert-records"></a>Registros de alerta
 Registros de alerta criados por regras de alerta no Log Analytics têm um **Type** que indica **Alert** e um **SourceSystem** que indica **OMS**.  Eles têm as propriedades indicadas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Tipo |*Alerta* |
+| type |*Alerta* |
 | SourceSystem |*OMS* |
 | *Objeto*  | [Alertas de métrica de medição](#metric-measurement-alert-rules) terão uma propriedade para o campo de grupo.  Por exemplo, se a pesquisa de logs for agrupada em Computador, o registro de alerta terá um campo Computador com o nome do computador como o valor.
 | AlertName |Nome do alerta. |

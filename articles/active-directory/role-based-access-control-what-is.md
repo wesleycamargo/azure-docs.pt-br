@@ -3,7 +3,7 @@ title: "Gerencie o acesso e permissões com RBAC – RBAC do Azure | Microsoft D
 description: "Introdução ao gerenciamento de acesso com o controle de acesso baseado em função do Azure no Portal do Azure. Use as atribuições de função para atribuir permissões em seu diretório."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
-ms.author: andredm
+ms.date: 01/02/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: 7df1ebcc65998a2078f5f215277eef351e48ca1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ce9a9c95664a818919df756917180e102a5f1e0a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introdução ao Controle de Acesso Baseado em Função no Portal do Azure
 As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC (controle de acesso baseado em função) do Azure ajuda a resolver esse problema ao oferecer o gerenciamento de acesso refinado para o Azure.
@@ -50,15 +50,15 @@ As demais funções RBAC no Azure permitem o gerenciamento de recursos específi
 * Cada **grupo de recursos** pertence somente a uma assinatura.
 * Cada **recurso** pertence somente a um grupo de recursos.
 
-O acesso concedido em escopos pai é herdado em escopos filho. Por exemplo:
+O acesso concedido em escopos pai é herdado em escopos filho. Por exemplo: 
 
 * Você pode atribuir a função Leitor a um grupo do Azure AD no escopo de assinatura. Os membros desse grupo podem exibir cada recurso e grupo de recursos na assinatura.
 * Você pode atribuir a função Colaborador para um aplicativo no escopo do grupo de recursos. Ele pode gerenciar recursos de todos os tipos nesse grupo de recursos, mas não em outros grupos de recursos na assinatura.
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>RBAC do Azure versus administrador de assinatura clássico
-Os administradores de assinatura clássicos têm acesso completo à assinatura do Azure. Eles podem gerenciar recursos usando o [Portal do Azure](https://portal.azure.com) com APIs do Azure Resource Manager ou o [Portal Clássico do Azure](https://manage.windowsazure.com) e o modelo de implantação clássico do Azure. No modelo RBAC, aos administradores clássicos é atribuída a função de proprietário no nível de assinatura.
+[Os administradores de assinatura clássicos e os coadministradores](../billing/billing-add-change-azure-subscription-administrator.md) têm acesso completo à assinatura do Azure. Eles podem gerenciar recursos usando o [Portal do Azure](https://portal.azure.com), as APIs do Azure Resource Manager e as APIs do modelo de implantação clássico. No modelo RBAC, aos administradores clássicos é atribuída a função de proprietário no nível de assinatura.
 
-Somente o Portal do Azure e as novas APIs do Azure Resource Manager dão suporte ao RBAC do Azure. Os usuários e aplicativos aos quais são atribuídas funções RBAC não podem usar o portal de gerenciamento clássico e o modelo de implantação clássico do Azure.
+Somente o Portal do Azure e as novas APIs do Azure Resource Manager dão suporte ao RBAC do Azure. Os usuários e aplicativos aos quais são atribuídas funções RBAC não podem usar as APIS do modelo de implantação clássico do Azure.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Autorização para o gerenciamento versus operações de dados
 O RBAC do Azure tem suporte somente para as operações de gerenciamento dos recursos do Azure no Portal do Azure e nas APIs do Azure Resource Manager. Ele não pode autorizar todas as operações no nível de dados para os recursos do Azure. Por exemplo, você pode autorizar alguém para gerenciar Contas de Armazenamento, mas não para blobs ou tabelas em uma Conta de Armazenamento. Da mesma forma, um banco de dados SQL pode ser gerenciado, mas não as tabelas dentro dele.

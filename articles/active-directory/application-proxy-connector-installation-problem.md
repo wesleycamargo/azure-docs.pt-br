@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
@@ -37,9 +37,9 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 **Objetivo:** Verifique se o computador do conector pode se conectar ao ponto de extremidade de registro do Application Proxy do AAD, bem como página de logon do Microsoft.
 
-1.  Abra um navegador e vá para a seguinte página da Web: <https://aadap-portcheck.connectorporttest.msappproxy.net> e verificar se a conectividade com data centers aos EUA Central e Leste dos EUA com portas 9090 e 9091 está funcionando.
+1.  Abra um navegador e vá para a seguinte página da Web: <https://aadap-portcheck.connectorporttest.msappproxy.net> e verificar se a conectividade com data centers aos EUA Central e Leste dos EUA com portas 80 e 443 está funcionando.
 
-2.  Se qualquer uma dessas portas não for bem-sucedida (não tem uma marca de seleção verde), verifique se o proxy do Firewall ou back-end tem portas 9090 e 9091 de \*.msappproxy.net definidas corretamente.
+2.  Se qualquer uma dessas portas não for bem-sucedida (não tem uma marca de seleção verde), verifique se o proxy do Firewall ou back-end tem portas 80 e 443 de \*.msappproxy.net definidas corretamente.
 
 3.  Abra um navegador (guia separada) e vá para a seguinte página da Web: <https://login.microsoftonline.com>, certifique-se de que você pode fazer logon nessa página.
 

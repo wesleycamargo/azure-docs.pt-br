@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o SDK do .NET
 > [!div class="op_single_selector"]
@@ -31,12 +31,12 @@ ms.lasthandoff: 12/21/2017
 > 
 
 > [!NOTE]
-> Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, consulte [Introdução ao SDK de cliente Java para Serviços de Mídia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Para baixar o SDK mais recente do PHP para os Serviços de Mídia, procure a versão 0.5.7 do pacote do Microsoft/WindowsAzure no [Repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, confira [Introdução ao SDK de cliente Java para Serviços de Mídia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Para baixar o SDK mais recente do PHP para os Serviços de Mídia, procure a versão 0.5.7 do pacote do Microsoft/WindowAzure no [Repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Visão geral
 > [!IMPORTANT]
-> Lembre-se de examinar o tópico [Visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o tópico de dimensionamento de processamento de mídia.
+> Lembre-se de examinar a [Visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o dimensionamento de processamento de mídia.
 > 
 > 
 
@@ -54,19 +54,6 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas para
 
 ## <a name="opening-a-support-ticket"></a>Abrindo um tíquete de suporte
 Por padrão, todas as contas dos Serviços de Mídia podem ser dimensionadas para até 25 Unidades Reservadas para Codificação e cinco para Streaming por Demanda. Você pode solicitar um limite mais alto abrindo um tíquete de suporte.
-
-### <a name="open-a-support-ticket"></a>Abra um tíquete de suporte
-Para abrir um tíquete de suporte, faça o seguinte:
-
-1. Clique em [Obter suporte](https://manage.windowsazure.com/?getsupport=true). Se você não estiver conectado, você será solicitado a inserir suas credenciais.
-2. Selecione sua assinatura.
-3. Em tipo de suporte, selecione "Técnico".
-4. Clique em "Criar Tíquete".
-5. Selecione "Serviços de Mídia do Azure" na lista de produtos apresentados na próxima página.
-6. Selecione um "tipo de problema" que é apropriado para o seu problema.
-7. Clique em Continuar.
-8. Siga as instruções na próxima página e, em seguida, insira os detalhes sobre o problema.
-9. Clique em Enviar para abrir o tíquete.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

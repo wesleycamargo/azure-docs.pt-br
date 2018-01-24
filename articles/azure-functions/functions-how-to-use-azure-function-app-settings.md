@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerenciar um aplicativo de funções no portal do Azure 
 
@@ -70,7 +70,7 @@ Para saber mais sobre como trabalhar com configurações da Serviço de Aplicati
 
 | | |
 |-|-|
-| ![Configurações de aplicativo do aplicativo de funções.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | A folha **Configurações do aplicativo** do Serviço de Aplicativo é onde você pode configurar e gerencia versões do framework, a depuração remota, as configurações do aplicativo e cadeias de conexão. Ao integrar seu aplicativo de funções ao Azure e a outros serviços de terceiros, você pode modificar essas configurações aqui. |
+| ![Configurações de aplicativo do aplicativo de funções.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | A folha **Configurações do aplicativo** do Serviço de Aplicativo é onde você pode configurar e gerencia versões do framework, a depuração remota, as configurações do aplicativo e cadeias de conexão. Ao integrar seu aplicativo de funções ao Azure e a outros serviços de terceiros, você pode modificar essas configurações aqui. Para excluir uma configuração, role para a direita e selecione o ícone **X** na extremidade direita da linha (não é exibida na imagem a seguir).
 
 ![Definir as configurações do aplicativo](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a taxa de transferência de rede para máquinas virtuais do Azure
 
@@ -26,16 +26,16 @@ Máquinas virtuais do Azure (VM) têm configurações de rede padrão que podem 
 
 ## <a name="windows-vm"></a>VM Windows
 
-Se sua VM do Windows tiver suporte para [Rede Acelerada](virtual-network-create-vm-accelerated-networking.md), habilitar esse recurso será a configuração ideal para a taxa de transferência. Para todas as outras VMs do Windows, usar RSS (Receive Side Scaling) pode alcançar uma taxa de transferência máxima maior que uma VM sem RSS. RSS pode ser desabilitado por padrão em uma VM do Windows. Conclua as seguintes etapas para determinar se o RSS está habilitado e habilitá-lo se ele estiver desabilitado.
+Se sua VM Windows for compatível com a [Rede Acelerada](create-vm-accelerated-networking-powershell.md), habilitar esse recurso será a configuração ideal para a taxa de transferência. Para todas as outras VMs do Windows, usar RSS (Receive Side Scaling) pode alcançar uma taxa de transferência máxima maior que uma VM sem RSS. RSS pode ser desabilitado por padrão em uma VM do Windows. Para determinar se o RSS está habilitado, e habilitá-lo se ele estiver desabilitado no momento, conclua as seguintes etapas:
 
-1. Insira o `Get-NetAdapterRss` comando do PowerShell para ver se o RSS está habilitado para um adaptador de rede. Na saída do exemplo seguinte retornada do `Get-NetAdapterRss`, RSS não está habilitado.
+1. Veja se o RSS está habilitado para um adaptador de rede no comando do PowerShell `Get-NetAdapterRss`. Na saída do exemplo seguinte retornada do `Get-NetAdapterRss`, RSS não está habilitado.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Digite o comando a seguir para habilitar o RSS:
+2. Para habilitar o RSS, insira o seguinte comando:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
@@ -46,7 +46,7 @@ Se sua VM do Windows tiver suporte para [Rede Acelerada](virtual-network-create-
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : True
+    Enabled                  : True
     ```
 
 ## <a name="linux-vm"></a>VM Linux
@@ -55,13 +55,15 @@ RSS está sempre habilitado por padrão em uma VM do Linux do Azure. Kernels do 
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu para novas implantações
 
-O kernel do Azure no Ubuntu fornece o melhor desempenho de rede no Azure e tem sido o kernel padrão desde 21 de setembro de 2017. Para obter esse kernel, primeiro instale a versão mais recente com suporte do 16.04-LTS, com descrito a seguir:
+O kernel do Azure no Ubuntu fornece o melhor desempenho de rede no Azure e tem sido o kernel padrão desde 21 de setembro de 2017. Para obter esse kernel, primeiro instale a versão mais recente compatível do 16.04-LTS, da seguinte maneira:
+
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
+
 Depois que a criação for concluída, digite os seguintes comandos para obter as atualizações mais recentes. Essas etapas também funcionam para VMs executando o kernel do Azure no Ubuntu no momento.
 
 ```bash
@@ -96,7 +98,8 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Se sua VM não tiver o kernel do Azure, o número de versão geralmente começará com "4.4". Nesses casos, execute os comandos a seguir como raiz.
+Se sua VM não tiver o kernel do Azure, o número de versão geralmente começará com "4.4". Se a VM não tiver o kernel do Azure, execute os comandos a seguir como raiz:
+
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -109,14 +112,15 @@ reboot
 ### <a name="centos"></a>CentOS
 
 Para obter as otimizações mais recentes, é melhor criar uma VM com a versão mais recente com suporte especificando os seguintes parâmetros:
+
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-VMs novas e existentes podem se beneficiar da instalação do LIS (Linux Integration Services) mais recente.
-A otimização de taxa de transferência está no LIS, começando a partir de 4.2.2-2, embora as versões posteriores contenham mais melhorias. Insira os seguintes comandos para instalar o último LIS:
+
+VMs novas e existentes podem se beneficiar da instalação do LIS (Linux Integration Services) mais recente. A otimização de taxa de transferência está no LIS, começando a partir de 4.2.2-2, embora as versões posteriores contenham mais melhorias. Insira os seguintes comandos para instalar o último LIS:
 
 ```bash
 sudo yum update
@@ -127,14 +131,15 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Para obter as otimizações, é melhor criar uma VM com a versão mais recente com suporte especificando os seguintes parâmetros:
+
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-VMs novas e existentes podem se beneficiar da instalação do LIS (Linux Integration Services) mais recente.
-A otimização de taxa de transferência é feita no LIS, a partir da versão 4.2. Digite os comandos a seguir para baixar e instalá-los:
+
+VMs novas e existentes podem se beneficiar da instalação do LIS (Linux Integration Services) mais recente. A otimização de taxa de transferência é feita no LIS, a partir da versão 4.2. Digite os comandos a seguir para baixar e instalá-los:
 
 ```bash
 mkdir lis4.2.3-1
@@ -148,5 +153,6 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 Saiba mais sobre o Linux Integration Services versão 4.2 para o Hyper-V exibindo a [página de download](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Agora que a VM está otimizada, veja o resultado com [Teste de Largura de Banda/Taxa de Transferência da VM do Azure](virtual-network-bandwidth-testing.md) para seu cenário.
+* Veja o resultado otimizado com o [Teste de Largura de Banda/Taxa de Transferência da VM do Azure](virtual-network-bandwidth-testing.md) para seu cenário.
+* Leia mais sobre como [a largura de banda é alocada a máquinas virtuais] (virtual-machine-network-throughput.md)
 * Saiba mais com as [Perguntas frequentes sobre a rede virtual do Azure](virtual-networks-faq.md)

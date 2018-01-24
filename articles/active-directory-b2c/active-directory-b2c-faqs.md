@@ -1,12 +1,11 @@
 ---
-title: "Perguntas frequentes (FAQ) – Azure AD B2C | Microsoft Docs"
-description: Perguntas frequentes sobre o Active Directory B2C do Azure.
+title: "Perguntas frequentes – Azure Active Directory B2C"
+description: Perguntas frequentes sobre o Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ) 
 Esta página responde a perguntas frequentes sobre o Azure AD (Azure Active Directory) B2C. Continue verificando as atualizações.
@@ -64,9 +63,9 @@ Você pode usar o [recurso de identidade visual da empresa](../active-directory/
 
     ![Captura de tela de um email de verificação personalizado](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-A assinatura de email contém o nome do locatário B2C que você forneceu ao criar esse locatário pela primeira vez. Você pode alterar o nome usando estas instruções:
+A assinatura de email contém o nome do locatário do Azure AD B2C que você forneceu ao criar esse locatário do Azure AD B2C pela primeira vez. Você pode alterar o nome usando estas instruções:
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como o Administrador da Assinatura.
+1. Entre no [Portal do Azure](https://portal.azure.com/) como o administrador global.
 1. Abra a folha **Azure Active Directory**.
 1. Clique no guia **Propriedades**.
 1. Altere o campo **Nome**.
@@ -106,22 +105,22 @@ Não, o AD B2C do Azure não dá suporte ao mesmo conjunto de relatórios que o 
 Sim!  Leia sobre a [personalização de linguagem](active-directory-b2c-reference-language-customization.md), que está em visualização pública.  Podemos fornecer traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Posso usar minhas próprias URLs em minhas páginas de inscrição e de entrada atendidas pelo AD B2C do Azure? Por exemplo, posso alterar as URLs de login.microsoftonline.com para login.contoso.com?
-Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **Domínios** no portal clássico do Azure não atinge essa meta.
+Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **Domínios** no Portal do Azure não atinge essa meta.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como excluir o meu locatário do Azure AD B2C?
 Siga estas etapas para excluir seu locatário do Azure AD B2C:
 
 1. Siga estas etapas para [navegar até as configurações do Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 1. Navegue até **Aplicativos**, **Provedores de identidade** e **Todas as políticas** e exclua todas as entradas em cada uma delas.
-1. Agora entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. (Use a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.)
-1. Navegue até a extensão do Active Directory à esquerda e clique no locatário B2C.
-1. Clique na guia **Usuários** .
-1. Selecione um usuário de cada vez (exclua o usuário Administrador de Assinatura com o qual você entrou). Clique em **Excluir** na parte inferior da página e em **SIM** quando solicitado.
-1. Clique na guia **Aplicativos** .
-1. Selecione **Aplicativos que minha empresa possui** no campo da lista suspensa **Mostrar** e clique na marca de verificação.
-1. Um aplicativo chamado **b2c-extensions-app**. Clique em **Excluir** na parte inferior da página e em **SIM** quando solicitado.
-1. Navegue até a extensão do Active Directory novamente e selecione seu locatário do B2C.
-1. Clique em **Excluir** na parte inferior da página. Para concluir o processo, siga as instruções na tela.
+1. Entre no [Portal do Azure](https://portal.azure.com/) como o Administrador da Assinatura. (Use a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.)
+1. Mude para o locatário do Azure AD B2C que deseja excluir.
+2. Navegue até o menu do Active Directory à esquerda.
+3. Selecione **Usuários e grupos**.
+4. Selecione um usuário de cada vez (exclua o usuário Administrador de Assinatura com o qual você entrou). Clique em **Excluir** na parte inferior da página e em **SIM** quando solicitado.
+5. Clique nos **Registros do aplicativo**.
+6. Selecione o aplicativo chamado **b2c-extensions-app**. Clique em **Excluir** e clique em **SIM** quando solicitado.
+7. Selecione **Visão geral**.
+8. Clique em **Excluir diretório**. Para concluir o processo, siga as instruções na tela.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Posso obter o AD B2C do Azure como parte do Enterprise Mobility Suite?
 Não, o AD B2C do Azure é um serviço pré-pago do Azure e não faz parte do Enterprise Mobility Suite.

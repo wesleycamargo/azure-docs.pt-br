@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Pesquisar dados semi-estruturados no armazenamento de nuvem
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: pesquisar dados semiestruturados no armazenamento de nuvem
 
-Nesta série de tutoriais de duas partes, você aprende como pesquisar dados semi-estruturados e não estruturados usando o Azure Search. Este tutorial mostra como pesquisar dados semi-estruturados, como JSON, armazenado em blobs do Azure. Dados semi-estruturados contêm marcas ou marcações que separam o conteúdo dentro dos dados. Eles são diferentes de dados estruturados em que eles não são formalmente estruturados de acordo com um modelo de dados, como um esquema de banco de dados relacional.
+Em uma série de tutoriais de duas partes, você aprende como pesquisar dados semiestruturados e não estruturados usando o Azure Search. A [Parte 1](../storage/blobs/storage-unstructured-search.md) abordou a pesquisa em dados não estruturados, mas também incluiu importantes pré-requisitos para este tutorial, como a criação da conta de armazenamento. 
 
-Nesta parte abordaremos como:
+Na Parte 2, o foco passa para os dados semiestruturados, como JSON, armazenados em blobs do Azure. Dados semi-estruturados contêm marcas ou marcações que separam o conteúdo dentro dos dados. Eles dividem a diferença entre dados não estruturados que devem ser indexados holisticamente e dados estruturados formalmente que adotam um modelo de dados, como um esquema de banco de dados relacional, que pode ser rastreado por campo.
+
+Na Parte 2, saiba como:
 
 > [!div class="checklist"]
-> * Criar e popular um índice dentro de um Serviço do Azure Search
-> * Usar o Serviço do Azure Search para pesquisar o índice
+> * Configurar uma fonte de dados do Azure Search para um contêiner de blobs do Azure
+> * Criar e popular um índice e um indexador do Azure Search para rastrear o contêiner e extrair conteúdo pesquisável
+> * Pesquisar no índice que você acabou de criar
 
 > [!NOTE]
-> "O suporte à matriz JSON é um recurso em versão prévia no Azure Search. Ele não está disponível atualmente no portal. Por esse motivo, estamos usando a API REST de versão prévia, que fornece esse recurso e uma ferramenta de cliente REST para chamar a API."
+> Este tutorial se baseia no suporte para matriz JSON, que é um recurso em versão prévia no Azure Search. Ele não está disponível no portal. Por esse motivo, estamos usando a API REST na versão prévia, que fornece esse recurso e uma ferramenta de cliente REST para chamar a API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial:
-* Conclua o [tutorial anterior](../storage/blobs/storage-unstructured-search.md)
-    * Este tutorial usa a conta de armazenamento e o serviço de pesquisa criado no tutorial anterior
-* Instale um cliente REST e compreenda como construir uma solicitação HTTP
+* Conclusão do [tutorial anterior](../storage/blobs/storage-unstructured-search.md), que fornece a conta de armazenamento e o serviço de pesquisa criados no tutorial anterior.
 
+* Instalação de um cliente REST e compreensão de como construir uma solicitação HTTP. Para os fins desse tutorial, estamos usando o [Postman](https://www.getpostman.com/). Fique à vontade para usar um cliente REST diferente se você já estiver familiarizado com um específico.
 
-## <a name="set-up-the-rest-client"></a>Configurar o cliente REST
+## <a name="set-up-postman"></a>Configurar o Postman
 
-Para concluir este tutorial, você precisa de um cliente REST. Para os fins desse tutorial, estamos usando o [Postman](https://www.getpostman.com/). Fique à vontade para usar um cliente REST diferente se você já estiver familiarizado com um específico.
+Inicie o Postman e configure uma solicitação HTTP. Se não estiver familiarizado com essa ferramenta, consulte [Explorar as APIs REST do Azure Search usando o Fiddler ou Postman](search-fiddler.md) para obter mais informações.
 
-Depois de instalar Postman, inicie-o.
-
-Se esta for a primeira vez fazendo chamadas REST para o Azure, aqui está uma breve introdução dos componentes importantes para esse tutorial: o método de solicitação para cada chamada nesse tutorial é “POST”. As chaves de cabeçalho são "Content-type" e "api-key". Os valores das chaves de cabeçalho são "application/json" e sua "chave de administrador" (a chave de administrador é um espaço reservado para sua chave primária de pesquisa) respectivamente. O corpo é onde você coloca o conteúdo real de sua chamada. Dependendo do cliente que você está usando, talvez haja algumas variações em como você cria sua consulta, mas essas são as noções básicas.
+O método de solicitação para cada chamada neste tutorial é "POST". As chaves de cabeçalho são "Content-type" e "api-key". Os valores das chaves de cabeçalho são "application/json" e sua "chave de administrador" (a chave de administrador é um espaço reservado para sua chave primária de pesquisa) respectivamente. O corpo é onde você coloca o conteúdo real de sua chamada. Dependendo do cliente que você está usando, talvez haja algumas variações em como você cria sua consulta, mas essas são as noções básicas.
 
   ![Pesquisa semi-estruturada](media/search-semi-structured-data/postmanoverview.png)
 

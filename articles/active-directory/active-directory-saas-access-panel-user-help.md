@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Precisa de ajuda com o portal Meus Aplicativos?
 
@@ -51,17 +51,17 @@ Caso você tenha esquecido sua senha, nunca tenha recebido uma de sua equipe de 
 Como um usuário final, você poderá redefinir sua senha ou desbloquear sua conta sem precisar falar com uma pessoa usando a SSPR (redefinição de senha de autoatendimento). Antes de usar essa funcionalidade, você precisa registrar métodos de autenticação ou confirmar os métodos de autenticação predefinidos que administrador preencheu. Para obter mais detalhes, consulte [Registrar-se para redefinição de senha de por autoatendimento](active-directory-passwords-reset-register.md).
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>Estou com problemas para instalar a extensão de navegador do portal Meus Aplicativos
+## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Estou com problemas para instalar a Extensão de Entrada Segura dos Meus Aplicativos
 
 Verifique se você está atendendo aos requisitos de navegador:
 
 - O portal exige um navegador com suporte para JavaScript e com CSS habilitado. Se você estiver usando aplicativos de logon único baseado em senha, a extensão associada também precisará ser instalada. Essa extensão é baixada automaticamente quando você inicia um aplicativo configurado para aplicativos de logon único baseado em senha.
 
 - Os requisitos de navegador da extensão são:
-    - Internet Explorer 8, 9, 10 ou 11 no Windows 7 ou posterior
     - Edge no Windows 10 Anniversary Edition ou posterior
     - Chrome no Windows 7 ou posterior e no MacOS X ou posterior
     - Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
+    - Internet Explorer 8, 9, 10 ou 11 no Windows 7 ou posterior (suporte limitado)
 
 Também é possível baixar a extensão para Chrome e Edge diretamente pelos links abaixo:
 
@@ -76,6 +76,32 @@ Após a instalação, tente executar estas etapas se houver problemas:
 - Reinicie seu navegador e entre no portal Meus Aplicativos.
 
 - Limpe os cookies do navegador e entre no portal Meus Aplicativos.
+- Siga o guia [Solucionar problemas da Extensão do Painel de Acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) para acessar uma ferramenta de diagnóstico e as instruções passo a passo sobre como configurar a extensão para o IE.
+
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Como uso a Extensão de Entrada Segura dos Meus Aplicativos?
+Alterar a URL padrão de Meus Aplicativos para a extensão
+
+Se você estiver usando uma URL de Meus Aplicativos diferente de https://myapps.microsoft.com, será necessário configurar a URL padrão seguindo estas etapas:
+1. Enquanto não tiver se conectado à extensão, **clique com o botão direito do mouse** no ícone da extensão.
+2. Clique em **Selecionar URL de Meus Aplicativos** no menu.
+3. **Selecione** a URL padrão.
+4. Clique no ícone da extensão.
+5. Conecte-se à extensão selecionando **Entre para começar**.
+
+Entrar diretamente em um aplicativo do navegador
+1. Depois de instalar a extensão, conecte-se a ela selecionando **Entre para começar**.
+2. Navegue até a **URL de logon** do aplicativo no qual você deseja entrar, ela geralmente é a URL do aplicativo que exibe o formulário de logon.
+3. O estado da extensão deve se alterar e informar que uma senha está disponível, clique então no **ícone da extensão** para entrar
+
+Iniciar um aplicativo da extensão
+1. Depois de instalar a extensão, conecte-se a ela selecionando **Entre para começar**.
+2. Clique no ícone da extensão para abrir o menu.
+3. **Pesquise** por um aplicativo disponível no portal Meus Aplicativos.
+4. Clique no aplicativo de **resultados da pesquisa** para iniciá-lo.
+5. Os três últimos aplicativos iniciados também aparecerão na lista de atalhos **Usados Recentemente**
+
+> [!NOTE]
+> Essas opções só estão disponíveis para o Edge, Chrome e Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Como fazer para adicionar um novo aplicativo?
 
@@ -92,9 +118,9 @@ Após a instalação, tente executar estas etapas se houver problemas:
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Como fazer para gerenciar as associações de grupo?
 
-1. Clique no bloco do aplicativo Grupos. 
-2. Para criar um grupo, em Grupos que possuo, clique em Criar grupo e siga as instruções.
-3. Para entrar para um grupo, em Grupos nos quais estou, clique em Entrar para grupo e siga as instruções.
+1. Clique no bloco **Grupos**. 
+2. Para criar um grupo, em Grupos que possuo, clique em **Criar grupo** e siga as instruções.
+3. Para entrar em um grupo, em Grupos nos quais estou, clique em **Entrar no grupo** e siga as instruções.
 
 **Comentários:**
 

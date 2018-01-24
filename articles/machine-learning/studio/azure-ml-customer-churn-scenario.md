@@ -12,39 +12,39 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analisando a Variação do Cliente usando o Machine Learning do Microsoft Azure
 ## <a name="overview"></a>Visão geral
-Este artigo apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando-se o Azure Machine Learning. Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos as direções para maior desenvolvimento.  
+Este artigo apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando-se o Azure Machine Learning. Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos o trajeto para maior desenvolvimento.  
 
 ### <a name="acknowledgements"></a>Confirmações
 Esse experimento foi desenvolvido e testado por Serge Berger, principal cientista de dados na Microsoft, e Roger Barga, ex-gerente de produto para o Microsoft Azure Machine Learning. A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
 
 > [!NOTE]
-> Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como construir um modelo de aprendizagem por máquina para análise de variação, confira o [modelo de variação de varejo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+> Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como criar um modelo de aprendizado de máquina para análise de variação, confira o [Modelo de variação de varejo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>O problema da variação do cliente
-Empresas no mercado consumidor e em todos os setores empresariais precisam lidar com a variação. Algumas vezes a variação é excessiva e influencia decisões de política. A solução tradicional é prever índices de variação de alta propensão e tratar de suas necessidades por meio de um serviço de concierge, campanhas de marketing ou fazendo uso de isenções especiais. Essas abordagens podem variar de setor para setor e até mesmo de um cluster de consumidor específico para outro dentro de um setor (por exemplo, telecomunicações).
+Empresas no mercado consumidor e em todos os setores empresariais precisam lidar com a variação. Algumas vezes a variação é excessiva e influencia decisões de política. A solução tradicional é prever índices de variação de alta propensão e tratar de suas necessidades por meio de um serviço de concierge, campanhas de marketing ou fazendo uso de isenções especiais. Essas abordagens podem variar de setor para setor. Elas podem variar até mesmo de um cluster de consumidores específico para outro dentro de um setor (por exemplo, telecomunicações).
 
-O fator comum é que as empresas precisam minimizar esses esforços especiais para a retenção de clientes. Assim, uma metodologia natural seria classificar cada cliente com a probabilidade de variação e o endereço dos N maiores. Os maiores clientes podem ser os mais lucrativos, por exemplo, em cenários mais sofisticados, uma função de lucro é aplicada durante a seleção de candidatos para isenção especial. Todavia, essas considerações são somente uma parte da estratégia holística para gerenciar a variação. As empresas também precisam levar em consideração o risco (e a tolerância a risco associada), o nível e o custo de intervenção, além da segmentação plausível de clientes.  
+O fator comum é que as empresas precisam minimizar esses esforços especiais para a retenção de clientes. Assim, uma metodologia natural seria classificar cada cliente com a probabilidade de variação e o endereço dos N maiores. Os principais clientes podem ser os mais lucrativos. Por exemplo, em cenários mais sofisticados, uma função de lucro é aplicada durante a seleção de candidatos para isenção especial. Todavia, essas considerações são somente uma parte da estratégia completa para gerenciar a variação. As empresas também precisam levar em consideração o risco (e a tolerância a risco associada), o nível e o custo de intervenção, além da segmentação plausível de clientes.  
 
 ## <a name="industry-outlook-and-approaches"></a>Abordagens e perspectiva industriais
 O gerenciamento sofisticado da variação é um sinal de uma indústria madura. O exemplo clássico é o da indústria de telecomunicações, na qual sabe-se que os assinantes frequentemente mudam de um provedor para outro. Essa variação voluntária é uma preocupação primária. Além disso, os provedores acumularam conhecimento significativo sobre *motivadores de variação*, que são os fatores que levam os clientes a mudar.
 
-Por exemplo, a escolha de telefone ou dispositivo é um motivador bem conhecido no setor de telefonia móvel. Como resultado, uma política popular é subsidiar o preço de um aparelho para novos assinantes e cobrar o preço total para os clientes existentes para uma atualização. Historicamente, essa política fez com que clientes mudassem de um provedor para outro para obter um novo desconto, o que, por sua vez, fez com que os provedores refinassem suas estratégias.
+Por exemplo, a escolha de telefone ou dispositivo é um motivador bem conhecido no setor de telefonia móvel. Como resultado, uma política popular é subsidiar o preço de um aparelho para novos assinantes e cobrar o preço total para os clientes existentes para uma atualização. Historicamente, essa política fez com que clientes mudassem de um provedor para outro para obter um novo desconto. Isso, por sua vez, tem estimulado os provedores a refinarem suas estratégias.
 
-A alta volatilidade nas ofertas de aparelhos é um fator que invalida muito rapidamente modelos de variação baseados em modelos de aparelhos atuais. Além disso, celulares não são apenas dispositivos de telecomunicações; eles também são acessórios de moda (considere iPhone) e essas previsões sociais estão fora do escopo de conjuntos de dados de telecomunicações regulares.
+A alta volatilidade nas ofertas de aparelhos é um fator que invalida rapidamente modelos de variação baseados em modelos de aparelhos atuais. Além disso, os telefones celulares não são apenas os dispositivos de telecomunicações, eles também são moda (considere o iPhone). Essas previsões sociais estão fora do escopo de conjuntos de dados de telecomunicações regulares.
 
 O resultado final para a criação de um modelo é que você não pode criar uma política sólida apenas eliminando as causas da variação. Na verdade, uma estratégia de modelagem contínua, incluindo modelos clássicos que quantificam variáveis categóricas (como árvores de decisão), é **obrigatória**.
 
@@ -109,7 +109,7 @@ Os diagramas a seguir ilustram os dados que foram usados.
  
 
 > Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados.
-> No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira este experimento de exemplo na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Variação do cliente de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira este experimento de exemplo na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [Variação do cliente de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok. 
 > 
@@ -147,7 +147,7 @@ No entanto, a métrica mais importante na variação é a taxa de classificaçã
 *Figura 9: Área do protótipo de Passau sob a curva*
 
 ### <a name="using-auc-to-compare-results"></a>Usando AUC para comparar resultados
-A área sob a curva (AUC) é uma métrica que representa uma medição global da *separabilidade* entre as distribuições de pontos para populações positivas e negativas. É semelhante ao gráfico ROC (Característica de Operador do Receptor) tradicional, mas uma diferença importante é que a métrica AUC não exige que você escolha um valor de limite. Em vez disso, ela resume os resultados relativos a **todas** as escolhas possíveis. Em contraste, o gráfico ROC tradicional exibe a taxa de resultados positivos no eixo vertical e a taxa de falsos positivos no eixo horizontal, sendo que o limite de classificação varia.   
+A área sob a curva (AUC) é uma métrica que representa uma medição global da *separabilidade* entre as distribuições de pontos para populações positivas e negativas. É semelhante ao grafo ROC (Característica de Operador do Receptor) tradicional, mas uma diferença importante é que a métrica AUC não exige que você escolha um valor de limite. Em vez disso, ela resume os resultados relativos a **todas** as escolhas possíveis. Em contraste, o grafo ROC tradicional exibe a taxa de resultados positivos no eixo vertical e a taxa de falsos positivos no eixo horizontal, sendo que o limite de classificação varia.   
 
 AUC geralmente é usada como uma medida de valor para algoritmos diferentes (ou sistemas diferentes), porque permite que os modelos sejam comparados por meio do valor de AUC que apresentam. Essa é uma abordagem popular em setores como meteorologia e biociência. Assim, a AUC representa uma ferramenta popular para avaliar o desempenho de um classificador.  
 
@@ -211,16 +211,6 @@ Esperamos continuar com este tópico no futuro, especialmente relacionado à an�
 ## <a name="conclusion"></a>Conclusão
 Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica. Consideramos um protótipo para modelos de pontuação e o implementamos usando o Azure Machine Learning. Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.  
 
-**Para obter mais informações:**  
-
-Este documento foi útil para você? Por favor, nos dê seu feedback. Avalie em uma escala de 1 (ruim) a 5 (excelente), como você classificaria este documento e o porquê de ter dado essa classificação? Por exemplo:  
-
-* Você está dando uma classificação alta devido a ter bons exemplos, excelentes capturas de tela, escrita clara ou por outro motivo?
-* Você está dando uma classificação baixa devido a exemplos ruins, capturas de tela distorcidas ou escrita confusa?  
-
-Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmos.   
-
-[Enviar comentários](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Referências
@@ -232,7 +222,7 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 
 [4] [Marketing de Big Data: envolva seus clientes com mais eficiência e agregue valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 
+[5] [Modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Apêndice

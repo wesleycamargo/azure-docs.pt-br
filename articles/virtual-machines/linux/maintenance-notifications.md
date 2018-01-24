@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d551a62a59e0a7f63f5fd4862680a271de659a19
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Administrando notificações de manutenção planejada para máquinas virtuais do Linux
 
@@ -30,9 +30,9 @@ O Azure realiza atualizações periodicamente para aumentar a confiabilidade, o 
 - Se a manutenção requer uma reinicialização, você receberá um aviso informando para quando a manutenção está planejada. Nesses casos, você tem uma janela de tempo, na qual você pode iniciar a manutenção, quando for mais oportuno para você.
 
 
-A manutenção planejada que requer um reinício é agendada em ondas. Cada onda tem um escopo diferente (regiões).
+Uma manutenção planejada que requer uma reinicialização é agendada em ondas. Cada onda tem um escopo diferente (regiões).
 
-- Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada para o proprietário e os coproprietários da assinatura. Você pode adicionar mais destinatários e opções de mensagem como email, SMS e Webhooks, às notificações usando os [alertas de log de atividades](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) do Azure.  
+- Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada para o proprietário e os coproprietários da assinatura. Você pode adicionar mais destinatários e opções de mensagem como email, SMS e Webhooks às notificações usando os [Alertas do Log de Atividades](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) do Azure.  
 - No momento da notificação, uma *janela de autoatendimento* é disponibilizada. Durante essa janela, você pode encontrar quais máquinas virtuais estão incluídas nessa onda e iniciar proativamente a manutenção de acordo com suas necessidades de agendamento.
 - Após a janela de autoatendimento, *janela de manutenção agendada* inicia. Em algum momento durante esta janela, o Azure agenda e aplica a manutenção necessária à sua máquina virtual. 
 
@@ -82,18 +82,18 @@ Informações de manutenção planejada podem ser vistas usando [azure vm get-in
 Informações de manutenção são retornadas somente se houver manutenção planejada. Se não houver que nenhuma manutenção agendada que afete a VM, o comando não retornará nenhuma informação de manutenção. 
 
 ```azure-cli
-az vm get-instance-view  - g rgName  -n vmName 
+az vm get-instance-view -g rgName -n vmName
 ```
 
 Os seguintes valores são retornados em MaintenanceRedeployStatus: 
 
-| Valor | Descrição   |
+| Valor | DESCRIÇÃO   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se você pode iniciar a manutenção na máquina virtual neste momento ||
 | PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar a manutenção na sua VM ||
 | PreMaintenanceWindowEndTime           | O fim da janela de autoatendimento de manutenção quando você pode iniciar manutenção na sua VM ||
-| MaintenanceWindowStartTime            | O início da janela de manutenção agendada quando você pode iniciar manutenção na sua VM ||
-| MaintenanceWindowEndTime              | O fim da manutenção agendada janela quando você pode iniciar manutenção na sua VM ||
+| MaintenanceWindowStartTime            | O início da janela de manutenção agendada quando na qual o Azure inicia a manutenção na sua VM ||
+| MaintenanceWindowEndTime              | O término da janela de manutenção agendada quando na qual o Azure inicia a manutenção na sua VM ||
 | LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM ||
 
 
@@ -159,7 +159,7 @@ Para obter mais informações sobre alta disponibilidade, consulte [Regiões e d
 
 **P: quanto tempo levará o reinício da minha máquina virtual?**
 
-**R:** dependendo do tamanho da VM, o reinício poderá levar vários minutos. Observe que, caso você use serviços de nuvem (função Web/trabalho), Conjuntos de Dimensionamento de Máquinas Virtuais ou conjuntos de disponibilidade, você terá 30 minutos entre cada grupo de VMs (UD). 
+**R:** dependendo do tamanho da VM, o reinício poderá levar vários minutos durante a janela de manutenção por autoatendimento. Durante as reinicializações iniciadas pelo Azure na janela de manutenção agendada, a reinicialização geralmente levará cerca de 25 minutos. Observe que, caso você use Serviços de Nuvem (função Web/de trabalho), Conjuntos de Dimensionamento de Máquinas Virtuais ou conjuntos de disponibilidade, você terá 30 minutos entre cada grupo de VMs (UD) durante a janela de manutenção agendada.
 
 **P: qual é a experiência no caso de serviços de nuvem (função Web/trabalho), Service Fabric e Conjuntos de Dimensionamento de Máquinas Virtuais?**
 

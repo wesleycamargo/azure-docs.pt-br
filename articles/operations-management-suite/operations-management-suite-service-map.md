@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usar a solução Mapa do Serviço no Operations Management Suite
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
@@ -49,7 +49,7 @@ Os agentes do Mapa do Serviço coletam informações sobre todos os processos co
 
 ![Visão geral do Mapa do Serviço](media/oms-service-map/service-map-overview.png)
 
-Máquinas podem ser expandidas no mapa para mostrar os processos em execução com conexões de rede ativas durante o intervalo de tempo selecionado. Quando um computador remoto com um agente do Mapa do Serviço é expandido para mostrar os detalhes do processo, somente os processos comunicando-se com o computador serão mostrados. A contagem de computadores front-end sem agente conectando-se com o computador de foco é indicada no lado esquerdo dos processos aos quais se conectam. Se o computador de foco estiver fazendo uma conexão com um computador back-end que não possui nenhum agente, o servidor back-end será incluído em um Grupo de Portas de Servidor, juntamente com outras conexões com o mesmo número da porta.
+Computadores podem ser expandidos no mapa para mostrar os grupos de processos em execução e os processos com conexões de rede ativas durante o intervalo de tempo selecionado. Quando um computador remoto com um agente do Mapa do Serviço é expandido para mostrar os detalhes do processo, somente os processos comunicando-se com o computador serão mostrados. A contagem de computadores front-end sem agente conectando-se com o computador de foco é indicada no lado esquerdo dos processos aos quais se conectam. Se o computador de foco estiver fazendo uma conexão com um computador back-end que não possui nenhum agente, o servidor back-end será incluído em um Grupo de Portas de Servidor, juntamente com outras conexões com o mesmo número da porta.
 
 Por padrão, os mapas do Mapa do Serviço mostram os últimos 30 minutos de informações de dependência. Ao usar os controles de tempo na parte superior esquerda, você poderá consultar mapas para intervalos de tempo históricos de até uma hora para mostrar como as dependências foram analisadas no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração). Os dados do Mapa do Serviço são armazenados por 30 dias em espaços de trabalho pagos, e por sete dias em espaços de trabalho gratuitos.
 
@@ -59,6 +59,9 @@ Na parte inferior de cada servidor no mapa pode haver uma lista de notificaçõe
 Dependendo da gravidade das notificações de status, as bordas do nó do computador poderão ser coloridas em vermelho (crítico), amarelo (aviso) ou azul (informativo). A cor representa o status mais grave de qualquer uma das notificações de status. Uma borda cinza indica um nó que não possui indicadores de status.
 
 ![Notificações de status](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>Grupos de processos
+Grupos de processos combinam os processos que estão associados com um produto ou serviço comum em um grupo de processos.  Quando um nó de computador é expandido, ele exibe processos autônomos junto com grupos de processos.  Se todas as conexões de entrada e de saída para um processo dentro de um grupo de processos tiverem falhado, a conexão será mostrada como com falha para todo o grupo de processos.
 
 ## <a name="machine-groups"></a>Grupos de Computadores
 Grupos de Computadores permitem que você veja mapas centrados em torno de um conjunto de servidores e não apenas um, de modo que você possa ver todos os membros de um aplicativo multicamada ou cluster de servidores em um mapa.
@@ -121,7 +124,7 @@ Clique no menu de reticências próximo ao nome do grupo na Lista de Grupos.
 ## <a name="role-icons"></a>Ícones de função
 Alguns processos possuem funções específicas em computadores: servidores Web, servidores de aplicativos, banco de dados, etc. O Mapa do Serviço adiciona ao processo e às caixas do computador ícones de função para ajudar a identificar rapidamente a função de um processo ou servidor.
 
-| Ícone de função | Descrição |
+| Ícone de função | DESCRIÇÃO |
 |:--|:--|
 | ![Servidor Web](media/oms-service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicativos](media/oms-service-map/role-application-server.png) | Servidor de aplicativos |
@@ -277,9 +280,9 @@ Como vários registros podem existir para um processo e computador específicos 
 ### <a name="servicemapcomputercl-records"></a>Registros ServiceMapComputer_CL
 Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes do Mapa do Serviço. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--|:--|
-| Tipo | *ServiceMapComputer_CL* |
+| type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para um computador dentro do espaço de trabalho |
 | ResourceName_s | O identificador exclusivo para um computador dentro do espaço de trabalho |
@@ -304,9 +307,9 @@ Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para 
 ### <a name="servicemapprocesscl-type-records"></a>Registros do tipo ServiceMapProcess_CL Type
 Registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos conectados com TCP em servidores com agentes do Mapa do Serviço. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--|:--|
-| Tipo | *ServiceMapProcess_CL* |
+| type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para um processo dentro do espaço de trabalho |
 | ResourceName_s | O identificador exclusivo para um processo dentro do computador no qual está sendo executado|
@@ -330,34 +333,34 @@ Registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para p
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 
 ### <a name="list-all-known-machines"></a>Lista todas as máquinas conhecidas
-Type=ServiceMapComputer_CL | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Lista a capacidade de memória física de todos os computadores gerenciados.
-Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Listar o nome, DNS, IP e sistema operacional do computador.
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Localizar todos os processos com "sql" na linha de comando
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Localizar uma máquina (registro mais recente) por nome de recurso
-Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Localizar um computador (registro mais recente) pelo endereço IP
-Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Listar todos os processos conhecidos em um computador especificado
-Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Listar todos os computadores que executam SQL
-Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Listar todas as versões de produtos exclusivas de curl no meu datacenter
-Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computadores de todos os computadores executando CentOS
-Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
 ## <a name="rest-api"></a>API REST
@@ -374,7 +377,7 @@ Para obter mais informações sobre a coleta e uso de dados, consulte a [Políti
 Saiba mais sobre [pesquisas de logs](../log-analytics/log-analytics-log-searches.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
 
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Consulte a [seção Solução de problemas do documento Configurando o mapa do serviço](operations-management-suite-service-map-configure.md#troubleshooting).
 
 

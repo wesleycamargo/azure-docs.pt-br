@@ -1,6 +1,6 @@
 ---
 title: 'Backup do Azure: backups consistentes com o aplicativo de VMs Linux | Microsoft Docs'
-description: "Use scripts para garantir backups consistentes com o aplicativo no Azure, para máquinas virtuais do Linux. Os scripts se aplicam somente às VMs do Linux em uma implantação do Resource Manager. Os scripts não se aplicam a VMs do Windows ou implantações do Service Manager. Este artigo o guiará durante as etapas para configurar os scripts, incluindo a solução de problemas."
+description: "Criar backups consistentes com o aplicativo para máquinas virtuais do Linux no Azure. Este artigo explica como configurar a estrutura de script para fazer backup de VMs Linux implantadas no Azure. Este artigo também inclui informações de solução de problemas."
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
+ms.date: 1/12/2018
 ms.author: anuragm;markgal
-ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Backup consistente com o aplicativo de VMs Linux do Azure (versão prévia)
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente com o aplicativo de VMs Linux do Azure
 
-Este artigo fala sobre a estrutura pré e pós-script do Linux e como ela pode ser usada para fazer backups consistentes com o aplicativo de VMs Linux do Azure.
-
-> [!Note]
-> Só há suporte para a estrutura pré e pós-script para máquinas virtuais Linux implantadas pelo Azure Resource Manager. Não há suporte a scripts para consistência com aplicativos em máquinas virtuais implantadas pelo Service Manager ou máquinas virtuais do Windows.
->
+Ao fazer instantâneos de backup de suas VMs, consistência com o aplicativo significa que seus aplicativos são inicializados quando as VMs são inicializadas após serem restauradas. Como você pode imaginar, a consistência com o aplicativo é extremamente importante. Para garantir que suas VMs Linux sejam consistentes, você pode usar a estrutura de pré-script e pós-script do Linux para fazer backups consistentes com aplicativos. A estrutura de pré-script e pós-script é compatível com máquinas virtuais do Linux implantadas pelo Azure Resource Manager. Scripts para consistência com aplicativos não dão suporte a máquinas virtuais implantadas pelo Service Manager ou a máquinas virtuais do Windows.
 
 ## <a name="how-the-framework-works"></a>Como funciona a estrutura
 
-A estrutura fornece uma opção para executar pré e pós-scripts personalizados ao obter instantâneos de VM. Os pré-scripts são executados imediatamente antes de você obter o instantâneo da VM e os pós-scripts são executados imediatamente após você obter o instantâneo da VM. Isso oferece a flexibilidade para controlar seus aplicativos e o ambiente enquanto está obtendo instantâneos da VM.
+A estrutura fornece uma opção para executar pré e pós-scripts personalizados ao obter instantâneos de VM. Os pré-scripts são executados imediatamente antes de você obter o instantâneo da VM e os pós-scripts são executados imediatamente após você obter o instantâneo da VM. Pré-scripts e pós-scripts oferecem a flexibilidade para controlar seus aplicativos e o ambiente enquanto está obtendo instantâneos da VM.
 
-Neste cenário, é importante garantir o backup da VM de forma consistente com o aplicativo. O pré-script de pode invocar as APIs nativas do aplicativo para desativar as E/Ss e liberar o conteúdo da memória para o disco. Isso garante que o instantâneo seja consistente com o aplicativo (isto é, que o aplicativo surja quando a VM for iniciada após a restauração). O pós-script pode ser usado para descongelar as E/Ss. Ele faz isso usando APIs nativas do aplicativo, de modo que o aplicativo possa retomar as operações normais após o instantâneo da VM.
+Pré-scripts invocam APIs nativas do aplicativo, que fecham as E/Ss para novas seções, e liberam o conteúdo da memória para o disco. Essas ações garantem que o instantâneo seja consistente com aplicativo. Pós-scripts usam APIs de aplicativo nativo para descongelar as E/Ss, o que permite que o aplicativo retome as operações normais após o instantâneo da VM.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Etapas para configurar o pré-script e o pós-script
 
 1. Entre como o usuário raiz da VM do Linux da qual você deseja fazer backup.
 
-2. Baixe **VMSnapshotScriptPluginConfig.json** do [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e copie-o para a pasta **/etc/azure** em todas as VMs das quais fará o backup. Crie o diretório **/etc/azure** se ele ainda não existir.
+2. No [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), baixe **VMSnapshotScriptPluginConfig.json** e copie-o para a pasta **/etc/azure** em todas as VMs de que deseja fazer backup. Se a pasta **/etc/azure** não existir, crie-a.
 
 3. Copie o pré-script e o pós-script para seu aplicativo em todas as VMs das quais você planeja fazer backup. Você pode copiar os scripts em qualquer local na VM. Certifique-se de atualizar o caminho completo dos arquivos de script no arquivo **VMSnapshotScriptPluginConfig.json**.
 
@@ -51,8 +47,8 @@ Neste cenário, é importante garantir o backup da VM de forma consistente com o
    - **Pós-script** permissão "700". Por exemplo, apenas o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" para esse arquivo.
 
    > [!Important]
-   > A estrutura concede aos usuários muito poder. É importante que ela seja segura e que apenas o usuário “raiz” tenha acesso aos arquivos de script e JSON críticos.
-   > Se os requisitos anteriores não forem atendidos, o script não será executado. Isso resulta em backup consistente de sistema de arquivos/falha.
+   > A estrutura concede aos usuários muito poder. Proteja a estrutura e garanta que somente o usuário “raiz” tenha acesso aos arquivos de script e JSON críticos.
+   > Se os requisitos não forem atendidos, o script não será executado, o que resultará em uma falha do sistema de arquivos e em um backup inconsistente.
    >
 
 5. Configure o **VMSnapshotScriptPluginConfig.json** conforme descrito aqui:
@@ -62,9 +58,9 @@ Neste cenário, é importante garantir o backup da VM de forma consistente com o
 
     - **postScriptLocation**: forneça o caminho completo do pós-script na VM que passará pelo backup.
 
-    - **preScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pré-script. Todos os parâmetros deverão estar entre aspas e deverão ser separados por vírgulas se houver vários parâmetros.
+    - **preScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pré-script. Todos os parâmetros devem estar entre aspas. Se usar vários parâmetros, separe-os com uma vírgula.
 
-    - **postScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pós-script. Todos os parâmetros deverão estar entre aspas e deverão ser separados por vírgulas se houver vários parâmetros.
+    - **postScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pós-script. Todos os parâmetros devem estar entre aspas. Se usar vários parâmetros, separe-os com uma vírgula.
 
     - **preScriptNoOfRetries**: defina o número de vezes que o pré-script deve ser repetido caso haja qualquer erro antes do encerramento. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
 
@@ -78,7 +74,7 @@ Neste cenário, é importante garantir o backup da VM de forma consistente com o
 
 6. A estrutura de script está configurada. Se o backup da VM já estiver configurado, o próximo backup invocará os scripts e disparará o backup consistente com o aplicativo. Se o backup da VM não estiver configurado, configure-o usando [Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Adicione os logs apropriados ao escrever seu pré-script e pós-script e examine os logs de script para corrigir quaisquer problemas de script. Se você ainda tiver problemas para executar scripts, veja a tabela a seguir para obter mais informações.
 

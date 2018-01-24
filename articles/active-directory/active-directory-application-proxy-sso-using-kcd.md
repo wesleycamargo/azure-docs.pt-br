@@ -3,7 +3,7 @@ title: "Logon único com o Proxy de Aplicativo | Microsoft Docs"
 description: "Aborda como fornecer o logon único usando o Proxy de Aplicativo Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d93dcdd1d6ae8de262c08ba095ca773795f0dec3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 170498b2876947a45128377fa6cecb3931784237
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
 
@@ -91,7 +91,7 @@ Para obter mais informações sobre o Kerberos, consulte [Tudo o que você desej
 Os aplicativos que não são do Windows normalmente utilizam nomes de usuário ou nomes de conta SAM em vez de endereços de email de domínio. Se essa situação se aplicar aos seus aplicativos, você precisará configurar o campo de identificação de logon delegada para conectar as identidades de nuvem às identidades de aplicativo. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Trabalhando com identidades diferentes de nuvem e local
-O Proxy do Aplicativo pressupõe que os usuários têm a mesma identidade na nuvem e localmente. Se esse não for o caso, você pode ainda poderá usar a KCD para o logon único. Configure uma **Identificação de logon delegada** para cada aplicativo a fim de especificar qual identidade deve ser usada ao realizar o logon único.  
+O Proxy do Aplicativo pressupõe que os usuários têm a mesma identidade na nuvem e localmente. Se esse não é o caso, você ainda pode usar a KCD para o logon único. Configure uma **Identificação de logon delegada** para cada aplicativo a fim de especificar qual identidade deve ser usada ao realizar o logon único.  
 
 Essa capacidade permite que muitas organizações com identidades diferentes localmente e na nuvem usem o SSO da nuvem para aplicativos locais, sem exigir que os usuários insiram senhas e nomes de usuários diferentes. Isso inclui as organizações que:
 
