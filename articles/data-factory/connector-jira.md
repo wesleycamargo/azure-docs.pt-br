@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: c92b4ce8827087e5e978d7fb43165ba93e1956d9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 74b5a792fcc94c4a9ae45b07604e1b392b8df7d1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-beta"></a>Copiar dados do Jira utilizando o Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do Jira.
 
@@ -47,11 +47,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do Jira:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Jira** | Sim |
-| host | O endereço IP ou nome do host do serviço Jira. (por exemplo, jira.example.com)  | Sim |
+| Tipo | A propriedade type deve ser definida como: **Jira** | sim |
+| host | O endereço IP ou nome do host do serviço Jira. (por exemplo, jira.example.com)  | sim |
 | porta | A porta TCP usada pelo servidor Jira para ouvir conexões de cliente. O valor padrão é 443 se estiver se conectando por meio de HTTPS ou 8080 se estiver se conectando por meio de HTTP.  | Não  |
-| Nome de Usuário | O nome de usuário que você usa para acessar o Serviço Jira.  | Sim |
-| Senha | A senha correspondente ao nome de usuário fornecido no campo de nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| Nome de Usuário | O nome de usuário que você usa para acessar o Serviço Jira.  | sim |
+| Senha | A senha correspondente ao nome de usuário fornecido no campo de nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -107,8 +107,8 @@ Para copiar dados de Jira, defina o tipo de fonte na atividade de cópia como **
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **JiraSource** | Sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **JiraSource** | sim |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | sim |
 
 **Exemplo:**
 

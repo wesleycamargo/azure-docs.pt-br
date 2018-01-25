@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: aec3f107cc94fba2e9b478d86a848c762f1f8b0e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 40a8e3a0ac0130eb12193a07c4bf367efe29b9d9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Criar um Azure Data Factory usando o PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -117,7 +117,7 @@ Crie serviços vinculados em um data factory para vincular seus armazenamentos d
         }
     }
     ```
-    Se você estiver usando o Bloco de Notas, selecione **Todos os arquivos** para o **Salvar como tipo** preenchido na caixa de diálogo **Salvar como**. Caso contrário, ele pode adicionar a extensão `.txt` para o arquivo. Por exemplo: `AzureStorageLinkedService.json.txt`. Se você criar o arquivo no Explorador de arquivos antes de abri-lo no Bloco de Notas, você não poderá ver a extensão `.txt`, já que a opção **Ocultar extensões de tipos de arquivos conhecidos** será definida por padrão. Remova a extensão `.txt` antes de prosseguir para a próxima etapa.
+    Se você estiver usando o Bloco de Notas, selecione **Todos os arquivos** para o **Salvar como tipo** preenchido na caixa de diálogo **Salvar como**. Caso contrário, ele pode adicionar a extensão `.txt` para o arquivo. Por exemplo, `AzureStorageLinkedService.json.txt`. Se você criar o arquivo no Explorador de arquivos antes de abri-lo no Bloco de Notas, você não poderá ver a extensão `.txt`, já que a opção **Ocultar extensões de tipos de arquivos conhecidos** será definida por padrão. Remova a extensão `.txt` antes de prosseguir para a próxima etapa.
 2. No **PowerShell**, mude para a pasta **ADFv2QuickStartPSH**.
 
     ```powershell

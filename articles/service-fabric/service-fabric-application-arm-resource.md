@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como recursos do Azure Resource Manager
 
@@ -66,7 +66,7 @@ O trecho a seguir mostra os diferentes tipos de recursos que podem ser gerenciad
 1. Prepare o modelo do Resource Manager do cluster para implantação. Consulte [Criar um cluster do Service Fabric usando o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter mais informações sobre isso.
 2. Pense em alguns aplicativos que você planeja implantar no cluster. Há algum que estará sempre executando esses outros aplicativos nos quais ele pode assumir dependências? Você planeja implantar qualquer governança de cluster ou aplicativos de configuração? Esses tipos de aplicativos são mais bem gerenciados por meio de um modelo do Resource Manager, como discutido acima. 
 3. Depois que você descobriu quais aplicativos você deseja que sejam implantados dessa forma, os aplicativos precisam ser empacotados, compactados e colocados em um compartilhamento de arquivos. O compartilhamento precisa ser acessado por meio de um ponto de extremidade REST para que o Azure Resource Manager consuma durante a implantação.
-4. Em seu modelo do Resource Manager, embaixo da declaração do seu cluster, descreva as propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias e de réplicas e quaisquer cadeias de dependência entre recursos (outros aplicativos ou serviços). Para obter uma lista de propriedades abrangentes, consulte a [REST API Swagger Spec](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json) (Especificação do Swagger da API REST). Observe que isso não substitui os manifestos do aplicativo nem do serviço, mas descreve algumas coisas que estão neles como parte do modelo do Resource Manager do cluster. Veja um exemplo de modelo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte do *Application1*:
+4. Em seu modelo do Resource Manager, embaixo da declaração do seu cluster, descreva as propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias e de réplicas e quaisquer cadeias de dependência entre recursos (outros aplicativos ou serviços). Para obter uma lista de propriedades abrangentes, consulte a [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec) (Especificação do Swagger da API REST). Observe que isso não substitui os manifestos do aplicativo nem do serviço, mas descreve algumas coisas que estão neles como parte do modelo do Resource Manager do cluster. Veja um exemplo de modelo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte do *Application1*:
 
   ```json
   {
@@ -77,62 +77,62 @@ O trecho a seguir mostra os diferentes tipos de recursos que podem ser gerenciad
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },

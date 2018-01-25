@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 63bd33bf4e09b98aa53dcfec9fcc4a0109204952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Introdução ao conector do OneDrive
 Conecte-se ao OneDrive para gerenciar seus arquivos, incluindo carregar, obter, excluir arquivos e muito mais. 
@@ -32,7 +32,7 @@ Com o OneDrive, você:
 
 Este tópico mostra como usar o conector do OneDrive em um aplicativo lógico, além de listar os gatilhos e as ações.
 
-Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) e [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../logic-apps/logic-apps-overview.md) e [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-onedrive"></a>Conectar o OneDrive
 Antes do aplicativo lógico poder acessar qualquer serviço, primeiro crie uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao OneDrive, primeiramente é necessária uma *conexão* do OneDrive. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual deseja conectar-se. Assim, com o OneDrive, insira as credenciais de sua conta OneDrive para criar a conexão.
@@ -43,7 +43,7 @@ Antes do aplicativo lógico poder acessar qualquer serviço, primeiro crie uma *
 > 
 
 ## <a name="use-a-trigger"></a>Usar um gatilho
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. Gatilhos "sondam" o serviço no intervalo e na frequência desejados. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. Gatilhos "sondam" o serviço no intervalo e na frequência desejados. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. No aplicativo lógico, digite "onedrive" para obter uma lista de gatilhos:  
    
@@ -63,7 +63,7 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 4. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
 
 ## <a name="use-an-action"></a>Usar uma ação
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Selecione o sinal de mais. Você tem várias opções: **adicionar uma ação**, **adicionar uma condição** ou uma das opções **Mais**.
    
@@ -88,7 +88,7 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/onedriveconnector/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/onedriveconnector/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

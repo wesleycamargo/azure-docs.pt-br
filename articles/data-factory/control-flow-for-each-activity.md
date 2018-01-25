@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b9a151ac04bc539e337b0007a264e196dc0ae6a3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
@@ -72,13 +72,13 @@ As propriedades são descritas posteriormente neste artigo. A propriedade dos it
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade for-each. | Cadeia de caracteres | Sim
-type | Deve ser definido como **ForEach** | Cadeia de caracteres | Sim
-isSequential | Especifica se o loop deve ser executado em sequência ou em paralelo.  O máximo de 20 iterações de loop pode ser executado ao mesmo tempo em paralelo. Por exemplo, se você tiver uma atividade ForEach iterando sobre uma atividade de cópia com 10 conjuntos de dados de origem e de coletor diferentes com **isSequential** definido como False, todas as cópias serão executadas ao mesmo tempo. O padrão é False. <br/><br/> Se "isSequential" for definido como False, certifique-se de que há uma configuração correta para executar vários executáveis. Caso contrário, essa propriedade deverá ser usada com cuidado para evitar incorrer em conflitos de gravação. Para obter mais informações, consulte a seção [Execução paralela](#parallel-execution). | Booliano | Não. O padrão é False.
-Itens | Uma expressão que retorna uma matriz JSON a ser iterada. | Expressão (que retorna uma matriz JSON) | Sim
-Atividades | As atividades a serem executadas. | Lista de atividades | Sim
+Nome | Nome da atividade for-each. | Cadeia de caracteres | sim
+Tipo | Deve ser definido como **ForEach** | Cadeia de caracteres | sim
+isSequential | Especifica se o loop deve ser executado em sequência ou em paralelo.  O máximo de 20 iterações de loop pode ser executado ao mesmo tempo em paralelo. Por exemplo, se você tiver uma atividade ForEach iterando sobre uma atividade de cópia com 10 conjuntos de dados de origem e de coletor diferentes com **isSequential** definido como False, todas as cópias serão executadas ao mesmo tempo. O padrão é False. <br/><br/> Se "isSequential" for definido como False, certifique-se de que há uma configuração correta para executar vários executáveis. Caso contrário, essa propriedade deverá ser usada com cuidado para evitar incorrer em conflitos de gravação. Para obter mais informações, consulte a seção [Execução paralela](#parallel-execution). | BOOLEAN | Nº O padrão é False.
+Itens | Uma expressão que retorna uma matriz JSON a ser iterada. | Expressão (que retorna uma matriz JSON) | sim
+Atividades | As atividades a serem executadas. | Lista de atividades | sim
 
 ## <a name="parallel-execution"></a>Execução paralela
 Se **isSequential** estiver definido como false, a atividade iterará em paralelo com um máximo de 20 iterações simultâneas. Essa configuração deve ser usada com cuidado. Se as iterações simultâneas estiverem gravando na mesma pasta, mas em diferentes arquivos, essa abordagem será boa. Se as iterações simultâneas estiverem gravando simultaneamente no mesmo arquivo, essa abordagem provavelmente causará um erro. 

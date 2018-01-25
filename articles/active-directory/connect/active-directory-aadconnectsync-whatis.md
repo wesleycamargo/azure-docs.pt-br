@@ -3,7 +3,7 @@ title: "Sincronização do Azure AD Connect: compreender e personalizar a sincro
 description: "Explica como funciona a sincronização do Azure AD Connect e como personalizá-lo."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: c3f5d469850cf06d21821bd2f642666dc5c48644
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 20614aaabc05513e93eb001c1676a73f85003947
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronização do Azure AD Connect: compreender e personalizar a sincronização
 Os serviços de sincronização do Azure Active Directory Connect (sincronização do Azure AD Connect) são um componente principal do Azure AD Connect. Eles cuidam de todas as operações relacionadas à sincronização de dados de identidade entre seu ambiente local e o Azure AD. O serviço de sincronização do Azure AD Connect é o sucessor do DirSync, do AD do Azure Sync e do Forefront Identity Manager com o Azure Active Directory Connector configurado.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e2b886f7e12791a6aab9feec67adfa30ac3bad1
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c5d2fdb3ed3c00114437b0be9759bf8bea2521b7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar dados da tabela da Web usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,13 +35,13 @@ Você pode copiar dados de um banco de dados de tabela da Web para qualquer arma
 
 Especificamente, esse conector de tabela da Web dá suporte à **extração de conteúdo de tabela de uma página HTML**. Para recuperar dados de um ponto de extremidade HTTP/s, use o [conector HTTP](connector-http.md) em vez disso.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para usar este conector de tabela da Web, você precisa configurar um Tempo de Execução de Integração Auto-hospedado. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções que a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas à tabela da Web.
 
@@ -51,10 +51,10 @@ As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Web** |Sim |
-| url | URL para a origem da Web |Sim |
-| authenticationType | O valor permitido é: **Anônimo**. |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
+| Tipo | A propriedade type deve ser definida como: **Web** |sim |
+| url | URL para a origem da Web |sim |
+| authenticationType | O valor permitido é: **Anônimo**. |sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |sim |
 
 **Exemplo:**
 
@@ -83,9 +83,9 @@ Para copiar dados da tabela da Web, defina a propriedade type do conjunto de dad
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **WebTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **WebTable** | sim |
 | caminho |Uma URL relativa para o recurso que contém a tabela. |Nº Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
-| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
+| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |sim |
 
 **Exemplo:**
 

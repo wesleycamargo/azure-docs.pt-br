@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 46de91881f84183d0359755f49a115e712a7033b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50919fd903c24e4748a6efe29af2c188b1c3c195
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Introdução ao conector do MailChimp
 O MailChimp é um serviço de SaaS que permite que as empresas gerenciem e automatizem atividades de marketing de email, incluindo envio de emails de marketing, mensagens automatizadas e campanhas direcionadas.
 
-É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-mailchimp"></a>Criar uma conexão com o MailChimp
 Para criar Aplicativos Lógicos com o MailChimp, primeiro, você deve criar uma **conexão** e fornecer os detalhes das seguintes propriedades:
 
-| Propriedade | Obrigatório | Descrição |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| A criptografia do token |Sim |Fornecer as credenciais do MailChimp |
+| A criptografia do token |sim |Fornecer as credenciais do MailChimp |
 
 > [!INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 > 
@@ -39,7 +39,7 @@ Para criar Aplicativos Lógicos com o MailChimp, primeiro, você deve criar uma 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/mailchimp/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/mailchimp/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

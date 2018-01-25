@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introdução ao Conector do DB2
 O conector da Microsoft para DB2 conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados DB2 da IBM. Este conector inclui um cliente Microsoft para se comunicar com computadores de servidores DB2 remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como IBM Bluemix dashDB ou IBM DB2 para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-db2.md#supported-db2-platforms-and-versions) de plataformas e versões do IBM DB2 com suporte (neste tópico).
@@ -35,7 +35,7 @@ O Conector DB2 oferece suporte às seguintes operações do banco de dados:
 
 Este tópico mostra como usar o Conector em um aplicativo lógico para processar as operações do banco de dados.
 
-Para saber mais sobre os Aplicativos Lógicos, consulte como [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber mais sobre os Aplicativos Lógicos, consulte como [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Ações disponíveis
 O conector DB2 dá suporte às seguintes ações do aplicativo lógico:
@@ -83,7 +83,7 @@ No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um
 ## <a name="create-the-connections"></a>Criar as conexões
 Este conector dá suporte às conexões com os bancos de dados hospedados no local e na nuvem usando as propriedades de conexão a seguir. 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Servidor |Obrigatório. Aceita um valor da cadeia de caracteres que representa um endereço TCP/IP ou alias no formato IPv4 ou IPv6, seguido de (delimitado por dois pontos) um número de porta TCP/IP. |
 | Banco de Dados |Obrigatório. Aceita um valor da cadeia de caracteres que representa um Nome do Banco de Dados Relacional (RDBNAM) DRDA. O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes (o banco de dados é conhecido como um IBM DB2 para o local do z/OS). O DB2 para i5/OS aceita uma cadeia de caracteres de 18 bytes (o banco de dados é conhecido como um IBM DB2 para o banco de dados relacional i). O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
@@ -168,7 +168,7 @@ Você pode definir uma ação de aplicativo lógico para adicionar uma linha a u
 2. Na lista de **gatilhos**, selecione **Recorrência**. 
 3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
 4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Inserir linha (Visualização)**.
+5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Inserir linha (Visualização)**.
 6. Na ação **DB2 - Inserir linha (Visualização)**, selecione **Alterar conexão**. 
 7. No painel de configuração **Conexões** , clique para selecionar uma conexão. Por exemplo, selecione **hisdemo2**.
    
@@ -223,7 +223,7 @@ Você pode definir uma ação de aplicativo lógico para alterar uma linha em um
 2. Na lista de **gatilhos**, selecione **Recorrência**. 
 3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
 4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Atualizar linha (Visualização)**.
+5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Atualizar linha (Visualização)**.
 6. Na ação **DB2 - Atualizar linha (Visualização)**, selecione **Alterar conexão**. 
 7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
    
@@ -250,7 +250,7 @@ Você pode definir uma ação de aplicativo lógico para remover uma linha de um
 2. Na lista de **gatilhos**, selecione **Recorrência**. 
 3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
 4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, selecione **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Excluir linha (Visualização)**.
+5. Na lista de **ações**, selecione **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Excluir linha (Visualização)**.
 6. Na ação **DB2 - Excluir linha (Visualização)**, selecione **Alterar conexão**. 
 7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
    
@@ -281,5 +281,5 @@ Este conector dá suporte às plataformas e versões do IBM DB2 a seguir, bem co
 Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
+[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 

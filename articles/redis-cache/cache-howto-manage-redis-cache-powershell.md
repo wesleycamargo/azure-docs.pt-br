@@ -3,8 +3,8 @@ title: Gerenciar o Cache Redis do Azure com o Azure PowerShell | Microsoft Docs
 description: Saiba como executar tarefas administrativas para o Cache Redis do Azure usando o PowerShell do Azure.
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gerenciar o Cache Redis do Azure com o PowerShell do Azure
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Este tópico mostra como executar tarefas comuns, como criar, atualizar e dimens
 
 Para obter mais informações sobre o modelo de implantação clássico, consulte [Implantação do Azure Resource Manager versus clássica: Entenda os modelos de implantação e o estado de seus recursos](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Se você já instalou o Azure PowerShell, você deve ter o Azure PowerShell versão 1.0.0 ou posterior. Você pode verificar a versão do Azure PowerShell instalada com o comando este comando no prompt de comando do Azure PowerShell.
 
     Get-Module azure | format-table version
@@ -81,8 +81,8 @@ ou o
 
 Para criar um cache na Nuvem do Azure Government, use um dos locais a seguir.
 
-* Gov. dos EUA – Virgínia
-* Gov. dos EUA – Iowa
+* USGov Virginia
+* USGov Iowa
 
 Para saber mais sobre a Nuvem do Azure Government, confira [Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/) e [Guia do Desenvolvedor do Microsoft Azure Governamental](../azure-government-developer-guide.md).
 
@@ -122,10 +122,10 @@ Para obter mais informações sobre o Microsoft Azure Alemanha, consulte [Micros
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Propriedades usadas para o PowerShell do Cache Redis do Azure
 A tabela a seguir contém as propriedades e as descrições dos parâmetros usados ao criar e gerenciar suas instâncias do Cache Redis do Azure usando o Azure PowerShell.
 
-| Parâmetro | Descrição | Padrão |
+| Parâmetro | DESCRIÇÃO | Padrão |
 | --- | --- | --- |
-| Name |Nome do cache | |
-| Local |Local do cache | |
+| NOME |Nome do cache | |
+| Local padrão |Local do cache | |
 | ResourceGroupName |Nome do grupo de recursos no qual criar o cache | |
 | Tamanho |O tamanho do cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2.5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |O número de fragmentos para criar durante a criação de um cache premium com o cluster ativado. Os valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
@@ -139,7 +139,7 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 | KeyType |Especifica qual chave de acesso regenerar durante a renovação das chaves de acesso. Os valores válidos são: Primary, Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>propriedades RedisConfiguration
-| Propriedade | Descrição | Tipos de preço |
+| Propriedade | DESCRIÇÃO | Tipos de preço |
 | --- | --- | --- |
 | rdb-backup-enabled |Se [persistência de dados Redis](cache-how-to-premium-persistence.md) está habilitada |Somente Premium |
 | rdb-storage-connection-string |A cadeia de conexão da conta de armazenamento para [persistência de dados Redis](cache-how-to-premium-persistence.md) |Somente Premium |

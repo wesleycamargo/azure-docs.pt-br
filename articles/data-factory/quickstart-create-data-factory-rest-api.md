@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: rest-api
 ms.topic: hero-article
-ms.date: 09/26/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5535bc0438c650fdf0e03229359bc8bf4a1f6990
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 9c12c5e016e6bfa5dceab6dc77086fe018c43f59
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Crie um pipeline e um Azure Data Factory usando a API REST
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Este guia de início rápido descreve como usar a API REST para criar um Azure D
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Assinatura do Azure**. Se você não tiver uma assinatura, poderá criar uma conta de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 * **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de **origem** e de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar uma.

@@ -11,15 +11,15 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos
 
-Você pode iniciar um [fluxo de trabalho do aplicativo lógico](../logic-apps/logic-apps-what-are-logic-apps.md) automatizado quando eventos específicos ocorrem em recursos do Azure ou de terceiros. Esses recursos podem publicar esses eventos em uma [Grade de Eventos do Azure](../event-grid/overview.md). Por sua vez, a grade de eventos envia os eventos aos assinantes com filas, webhooks, ou [hubs de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como pontos de extremidade. Como um assinante, o seu aplicativo lógico pode aguardar os eventos da grade de eventos antes de executar fluxos de trabalho automatizados para realizar tarefas - sem escrever qualquer código.
+Você pode iniciar um [fluxo de trabalho do aplicativo lógico](../logic-apps/logic-apps-overview.md) automatizado quando eventos específicos ocorrem em recursos do Azure ou de terceiros. Esses recursos podem publicar esses eventos em uma [Grade de Eventos do Azure](../event-grid/overview.md). Por sua vez, a grade de eventos envia os eventos aos assinantes com filas, webhooks, ou [hubs de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como pontos de extremidade. Como um assinante, o seu aplicativo lógico pode aguardar os eventos da grade de eventos antes de executar fluxos de trabalho automatizados para realizar tarefas - sem escrever qualquer código.
 
 Por exemplo, aqui estão alguns eventos que editores podem enviar aos assinantes por meio do serviço de Grade de Eventos do Azure:
 
@@ -39,7 +39,7 @@ Neste tutorial, você aprenderá como:
 > * Adicionar uma condição que verifica especificamente se há alterações na máquina virtual.
 > * Enviar email quando sua máquina virtual é alterada.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma conta de email de [qualquer provedor de email compatível com Aplicativos Lógicos do Azure](../connectors/apis-list.md), como o Office 365 Outlook, Outlook.com ou Gmail para envio de notificações. Este tutorial usa o Office 365 Outlook.
 
@@ -79,7 +79,7 @@ Primeiro, crie um aplicativo lógico e adicione um gatilho de Grade de eventos q
 
    ![Escolher o modelo de aplicativo lógico](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   Agora, o Designer de Aplicativos Lógicos mostra os [*conectores*](../connectors/apis-list.md) e os [*gatilhos*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) que podem ser usados para iniciar seu aplicativo lógico, além de ações que podem ser adicionadas depois do gatilho para desempenhar tarefas. Um gatilho é um evento que cria uma instância do aplicativo lógico e inicia o fluxo de trabalho do aplicativo lógico. 
+   Agora, o Designer de Aplicativos Lógicos mostra os [*conectores*](../connectors/apis-list.md) e os [*gatilhos*](../logic-apps/logic-apps-overview.md#logic-app-concepts) que podem ser usados para iniciar seu aplicativo lógico, além de ações que podem ser adicionadas depois do gatilho para desempenhar tarefas. Um gatilho é um evento que cria uma instância do aplicativo lógico e inicia o fluxo de trabalho do aplicativo lógico. 
    O primeiro item do aplicativo lógico deve ser um gatilho.
 
 6. Insira "grade de eventos" como filtro na caixa de pesquisa. Selecione este gatilho: **Grade de Eventos do Azure - em um evento de recurso**
@@ -97,7 +97,7 @@ Primeiro, crie um aplicativo lógico e adicione um gatilho de Grade de eventos q
 
    ![Forneça detalhes para a assinatura de evento](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
-   | Configuração | Valor sugerido | Descrição | 
+   | Configuração | Valor sugerido | DESCRIÇÃO | 
    | ------- | --------------- | ----------- | 
    | **Assinatura** | *{assinatura de máquina virtual do Azure}* | Selecione a assinatura do Azure do publicador do evento. Para este tutorial, selecione a assinatura do Azure de sua máquina virtual. | 
    | **Tipo de recurso** | Microsoft.Resources.resourceGroups | Selecione o tipo de recurso do publicador do evento. Para este tutorial, selecione o valor especificado para que seu aplicativo lógico monitore somente os grupos de recursos. | 
@@ -154,13 +154,13 @@ Digite esta expressão:
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>Enviar email quando sua máquina virtual é alterada
 
-Agora, adicione uma [*ação*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) para enviar um email quando a condição for definida como verdadeira.
+Agora, adicione uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-concepts) para enviar um email quando a condição for definida como verdadeira.
 
 1. Na caixa **Se verdadeiro** da condição, escolha **Adicionar uma ação**.
 
    ![Como adicionar uma ação para condição definida como verdadeira](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
 
-2. Na caixa de pesquisa, insira "email" como filtro. Com base no seu provedor de email, localize e selecione o conector correspondente. Em seguida, selecione a ação "enviar email" para o conector. Por exemplo: 
+2. Na caixa de pesquisa, insira "email" como filtro. Com base no seu provedor de email, localize e selecione o conector correspondente. Em seguida, selecione a ação "enviar email" para o conector. Por exemplo:  
 
    * Por exemplo, se você tiver uma conta corporativa ou de estudante do Azure, selecione o conector Office 365 Outlook. 
    * Para contas pessoais da Microsoft, selecione o conector do Outlook.com. 
@@ -180,7 +180,7 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-what-are-logic-apps.md#l
    > [!TIP]
    > Para selecionar os campos disponíveis em seu fluxo de trabalho, clique em uma caixa de edição assim que a lista **Conteúdo dinâmico** abre, ou escolha **Adicionar conteúdo dinâmico**. Para ver mais campos, escolha **Ver mais** para cada seção na lista. Para fechar a lista **Conteúdo dinâmico**, escolha **Adicionar conteúdo dinâmico**.
 
-   | Configuração | Valor sugerido | Descrição | 
+   | Configuração | Valor sugerido | DESCRIÇÃO | 
    | ------- | --------------- | ----------- | 
    | **Para** | *{endereço de email do destinatário}* |Insira o endereço de email do destinatário. Para fins de teste, você pode usar seu próprio endereço de email. | 
    | **Assunto** | Recurso atualizado: **Assunto**| Insira o conteúdo do assunto do email. Para este tutorial, insira o texto sugerido e selecione o campo **Assunto** do evento. Aqui, o assunto do email inclui o nome do recurso atualizado (máquina virtual). | 
@@ -211,7 +211,7 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-what-are-logic-apps.md#l
 
    Por exemplo, você pode redimensionar a máquina virtual no portal do Azure ou [redimensionar a VM com o Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
 
-   Você receberá um email em alguns instantes. Por exemplo:
+   Você receberá um email em alguns instantes. Por exemplo: 
 
    ![Email sobre a atualização da máquina virtual](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 

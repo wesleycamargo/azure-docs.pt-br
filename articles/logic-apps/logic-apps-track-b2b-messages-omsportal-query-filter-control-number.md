@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 2748d3d3daf7c13dca05f663a4a088598e1b3605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69e8735417bc006296b8a6e5168d9fbeff052247
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Consultar mensagens AS2, X12 e EDIFACT no Microsoft OMS (Operations Management Suite)
 
@@ -26,7 +26,7 @@ Para encontrar as mensagens AS2, X12 e EDIFACT que você está acompanhando com 
 
 ## <a name="requirements"></a>Requisitos
 
-* Um aplicativo lógico configurado com o log de diagnósticos. Saiba [como criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) e [como configurar o log para esse aplicativo lógico](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Um aplicativo lógico configurado com o log de diagnósticos. Saiba [como criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) e [como configurar o log para esse aplicativo lógico](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Uma conta de integração configurada com o monitoramento e log. Saiba [como criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [como configurar o monitoramento e log para essa conta](../logic-apps/logic-apps-monitor-b2b-message.md).
 

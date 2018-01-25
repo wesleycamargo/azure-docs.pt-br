@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 790d7f08dd97e5ba5f376ffaf5d1b95f4ffbad03
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 34942a079d4ae132535806a11db4476bf28aa55c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiar dados do MariaDB usando o Azure Data Factory 
 
@@ -36,7 +36,7 @@ Esse conector atualmente suporta MariaDB de versão inferior a 10.2.
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do MariaDB.
 
@@ -46,8 +46,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do MariaDB:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **MariaDb** | Sim |
-| connectionString | Uma cadeia de conexão ODBC para conectar-se ao MariaDB. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| Tipo | A propriedade type deve ser definida como: **MariaDb** | sim |
+| connectionString | Uma cadeia de conexão ODBC para conectar-se ao MariaDB. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -102,8 +102,8 @@ Para copiar dados do MariaDB, defina o tipo de fonte na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MariaDbSource** | Sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MariaDbSource** | sim |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | sim |
 
 **Exemplo:**
 

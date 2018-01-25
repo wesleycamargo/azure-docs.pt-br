@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurar um cluster de RDMA do Linux para executar aplicativos MPI
 Saiba como configurar um cluster RDMA do Linux no Azure com [tamanhos de VM de computação de alto desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para executar aplicativos MPI (Interface de Transmissão de Mensagens) paralelos. Este artigo fornece etapas para preparar uma imagem do HPC Linux para executar o Intel MPI em um cluster. Após a preparação, você implanta um cluster de VMs usando essa imagem e um dos tamanhos de VM do Azure compatíveis com RDMA (atualmente H16r, H16mr, A8 ou A9). Use o cluster para executar aplicativos MPI que se comunicam com eficiência por uma rede de alta taxa de transferência e baixa latência baseada na tecnologia RDMA (acesso remoto direto à memória).
@@ -42,7 +42,7 @@ As etapas a seguir ajudarão você a usar a CLI do Azure para implantar uma VM d
 >
 >
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 * **Computador cliente**: você precisa de um computador cliente Windows, Linux ou Mac para se comunicar com o Azure. Essas etapas pressupõem que você esteja usando um cliente Linux.
 * **Assinatura do Azure**: se não tiver uma assinatura, você poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos. Para clusters maiores, considere uma assinatura pré-paga ou outras opções de compra.
 * **Disponibilidade de tamanho da VM**: os seguintes tamanhos de instância são compatíveis com RDMA: H16r, H16mr, A8 e A9. Confira [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/) para ver a disponibilidade nas regiões do Azure.
@@ -151,7 +151,7 @@ Para capturar a imagem, primeiramente execute o comando a seguir na VM do Linux.
 sudo waagent -deprovision
 ```
 
-No computador cliente, execute os comandos da CLI do Azure a seguir para capturar a imagem. Para saber mais, confira [Como capturar uma máquina virtual clássica do Linux como uma imagem](capture-image.md).  
+No computador cliente, execute os comandos da CLI do Azure a seguir para capturar a imagem. Para saber mais, confira [Como capturar uma máquina virtual clássica do Linux como uma imagem](capture-image-classic.md).  
 
 ```
 azure vm shutdown <vm-name>

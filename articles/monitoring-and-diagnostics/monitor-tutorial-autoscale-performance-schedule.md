@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Configuração de Dimensionamento Automático para os recursos do Azure com base em dados de desempenho ou em um agendamento
 
@@ -43,7 +43,7 @@ Selecione um nome de aplicativo como *MyTestScaleWebApp*. Crie um novo grupo de 
 
 Em poucos minutos, os recursos devem ser provisionados. Use o Aplicativo Web e o Plano do Serviço de Aplicativo correspondente no restante deste tutorial.
 
-    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+   ![Criar um novo serviço de aplicativo no portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Navegar para as configurações de Dimensionamento automático
 1. No painel de navegação à esquerda, selecione a opção **Monitorar**. Depois que a página for carregada, selecione a guia **Dimensionamento automático**.

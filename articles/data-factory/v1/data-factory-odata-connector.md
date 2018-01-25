@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ab68fddfd93a92f0f4f5a2904b8e35c409299d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Mover dados De uma origem de OData usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,15 +62,15 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado do OData.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade de tipo deve ser definida como: **OData** |Sim |
-| URL |URL do serviço OData. |Sim |
-| authenticationType |Tipo de autenticação usada para se conectar ao armazenamento de dados OData. <br/><br/> Para o OData de nuvem, os valores possíveis são Anônimo, Básico e OAuth (observe que o Azure Data Factory dá suporte no momento apenas a OAuth baseado no Azure Active Directory). <br/><br/> Para OData local, os valores possíveis são Anonymous, Basic e Windows. |Sim |
+| Tipo |A propriedade de tipo deve ser definida como: **OData** |sim |
+| url |URL do serviço OData. |sim |
+| authenticationType |Tipo de autenticação usada para se conectar ao armazenamento de dados OData. <br/><br/> Para o OData de nuvem, os valores possíveis são Anônimo, Básico e OAuth (observe que o Azure Data Factory dá suporte no momento apenas a OAuth baseado no Azure Active Directory). <br/><br/> Para OData local, os valores possíveis são Anonymous, Basic e Windows. |sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Básica. |Sim (apenas se você estiver usando a autenticação Básica) |
 | Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Sim (apenas se você estiver usando a autenticação Básica) |
 | authorizedCredential |Se você estiver usando OAuth, clique no botão **Autorizar** no Editor ou Assistente de Cópia do Data Factory e digite suas credenciais. O valor dessa propriedade será gerado automaticamente. |Sim (apenas se você estiver usando a autenticação OAuth) |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao serviço OData local. Só especifique se você estiver copiando dados da fonte OData local. |Não |
+| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao serviço OData local. Só especifique se você estiver copiando dados da fonte OData local. |Não  |
 
 ### <a name="using-basic-authentication"></a>Usando a autenticação Básica
 ```json
@@ -147,9 +147,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties do conjunto de dados do tipo **ODataResource** (que inclui o conjunto de dados do OData) tem as propriedades a seguir
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| caminho |Caminho para o recurso OData |Não |
+| caminho |Caminho para o recurso OData |Não  |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
@@ -158,9 +158,9 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 Quando a fonte é do tipo **RelationalSource** (que inclui o OData), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Exemplo | Obrigatório |
+| Propriedade | DESCRIÇÃO | Exemplo | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |"?$select=Name, Description&$top=5" |Não |
+| query |Utiliza a consulta personalizada para ler os dados. |"?$select=Name, Description&$top=5" |Não  |
 
 ## <a name="type-mapping-for-odata"></a>Mapeamento de tipos para OData
 Como mencionado no artigo sobre as [atividades de movimentação de dados](data-factory-data-movement-activities.md) , a atividade de Cópia executa conversões automáticas dos tipos de fonte nos tipos de coletor com a seguinte abordagem de duas etapas.
@@ -175,7 +175,7 @@ Ao mover dados do OData, os seguintes mapeamentos serão usados dos tipos do ODa
 | Edm.Binary |Byte[] |
 | Edm.Boolean |Bool |
 | Edm.Byte |Byte[] |
-| Edm.DateTime |DateTime |
+| Edm.DateTime |Datetime |
 | Edm.Decimal |Decimal |
 | Edm.Double |Duplo |
 | Edm.Single |Single |
@@ -185,8 +185,8 @@ Ao mover dados do OData, os seguintes mapeamentos serão usados dos tipos do ODa
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
 | Edm.String |Cadeia de caracteres |
-| Edm.Time |TimeSpan |
-| Edm.DateTimeOffset |Datetimeoffset |
+| Edm.Time |timespan |
+| Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
 > Tipos de dados complexos do OData, por exemplo, o objeto não tem suporte.

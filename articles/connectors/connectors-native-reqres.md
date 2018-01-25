@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introdução aos componentes de solicitação e resposta
 Com os componentes de solicitação e resposta em um aplicativo lógico, você pode responder em tempo real a eventos.
@@ -30,7 +30,7 @@ Por exemplo, você pode:
 * Dispare um aplicativo lógico de um evento de webhook externo.
 * Chamar um aplicativo lógico com uma ação de solicitação e resposta de dentro de outro aplicativo lógico.
 
-Para começar a usar as ações de solicitação e resposta em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Para começar a usar as ações de solicitação e resposta em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Usar o gatilho de Solicitação HTTP
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
@@ -67,14 +67,14 @@ Veja como adicionar uma ação de Resposta HTTP:
 ## <a name="request-trigger"></a>Gatilho de solicitação
 Veja os detalhes do gatilho com suporte deste conector. Há um único gatilho de solicitação.
 
-| Gatilho | Descrição |
+| Gatilho | DESCRIÇÃO |
 | --- | --- |
 | Solicitação |Ocorre quando uma solicitação HTTP é recebida |
 
 ## <a name="response-action"></a>Ação de resposta
 Veja os detalhes da ação com suporte deste conector. Há uma única ação de resposta que pode ser usada apenas quando acompanhada por um gatilho de solicitação.
 
-| Ação | Descrição |
+| Ação | DESCRIÇÃO |
 | --- | --- |
 | resposta |Retorna uma resposta à solicitação HTTP correlacionada |
 
@@ -84,7 +84,7 @@ As tabelas a seguir descrevem os campos de entrada para o gatilho e a ação e o
 #### <a name="request-trigger"></a>Gatilho de solicitação
 A seguir, um campo de entrada para o gatilho de uma solicitação HTTP de entrada.
 
-| Nome de exibição | Nome da propriedade | Descrição |
+| Nome de exibição | Nome da propriedade | DESCRIÇÃO |
 | --- | --- | --- |
 | Esquema JSON |schema |O esquema JSON do corpo da solicitação HTTP |
 
@@ -94,7 +94,7 @@ A seguir, um campo de entrada para o gatilho de uma solicitação HTTP de entrad
 
 A seguir, os detalhes de saída para a solicitação.
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
 | --- | --- | --- |
 | headers |objeto |Cabeçalhos da solicitação |
 | Corpo |objeto |Objeto da solicitação |
@@ -102,12 +102,12 @@ A seguir, os detalhes de saída para a solicitação.
 #### <a name="response-action"></a>Ação de resposta
 Estes são os campos de entrada da ação de Resposta HTTP. Um * significa que é um campo obrigatório.
 
-| Nome de exibição | Nome da propriedade | Descrição |
+| Nome de exibição | Nome da propriedade | DESCRIÇÃO |
 | --- | --- | --- |
 | Código de status* |statusCode |O código de status HTTP |
-| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos de resposta a serem incluídos |
-| Corpo |Corpo |O corpo da resposta |
+| Cabeçalhos |headers |Um objeto JSON de cabeçalhos de resposta a serem incluídos |
+| Corpo |body |O corpo da resposta |
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
+Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 

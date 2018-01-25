@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 87df1183f46f3144282b6a7987902917bb77c2e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 158f121880dbc1fc1495c8599367502ffd93ce20
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Exemplos de API de relatório de atividade de entrada do Azure Active Directory
 Este tópico faz parte de uma coleção de tópicos sobre a API de relatório do Azure Active Directory.  
@@ -32,7 +32,7 @@ Consulte:
 * [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md) para saber mais sobre a API de relatório.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de usar os exemplos deste tópico, você precisará atender os [pré-requisitos para acessar a API de relatório do Azure AD](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="powershell-script"></a>Script do PowerShell

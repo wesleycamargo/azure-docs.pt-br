@@ -1,5 +1,5 @@
 ---
-title: "Política: SSPR do Azure AD | Microsoft Docs"
+title: "Políticas de redefinição de senha por autoatendimento – Azure Active Directory"
 description: "Opções de política de autoatendimento de redefinição de senha do Azure AD"
 services: active-directory
 keywords: "Gerenciamento de senha do Active Directory, gerenciamento de senha, autoatendimento de redefinição de senha do Azure AD"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 

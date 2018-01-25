@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Criar e instalar arquivos de configuração de cliente VPN para autenticação RADIUS P2S (Versão Prévia)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar arquivos de configuração de cliente VPN para autenticação RADIUS P2S
 
 Os arquivos de configuração de cliente VPN estão contidos em um arquivo zip. Os arquivos de configuração fornecem as configurações necessárias para um cliente VPN nativo do Windows ou Mac IKEv2 para se conectar a uma rede virtual Ponto a Site. O servidor RADIUS fornece várias opções de autenticação e por isso, a configuração de cliente VPN varia para cada opção.
 
@@ -94,7 +94,7 @@ Use as seguintes etapas para configurar o cliente VPN do Windows nativo para aut
   ![continuar](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
 5. Durante a instalação do perfil, você terá a opção de especificar o nome de usuário e a senha usados para a autenticação de VPN. Não é obrigatório inserir essas informações. Se especificadas, as informações são salvas e usadas automaticamente quando você iniciar uma conexão. Clique em **Instalar** para continuar.
 
-  ![Configurações](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
+  ![configurações](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
 6. Insira um nome de usuário e senha para os privilégios necessários para instalar o perfil em seu computador. Clique em **OK**.
 
   ![nome de usuário e senha](./media/point-to-site-vpn-client-configuration-radius/adusername.png)

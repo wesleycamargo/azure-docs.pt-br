@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 746519d3a450aca6efdf20c0ae57602d480bf86e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b3e9597c52a402240d759abb0a96ffc007bcc9dd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados do Phoenix usando o Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do Phoenix.
 
@@ -44,11 +44,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do Phoenix:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Phoenix** | Sim |
-| host | O endereço IP ou nome do host do servidor Phoenix. (ou seja, 192.168.222.160)  | Sim |
+| Tipo | A propriedade type deve ser definida como: **Phoenix** | sim |
+| host | O endereço IP ou nome do host do servidor Phoenix. (ou seja, 192.168.222.160)  | sim |
 | porta | A porta TCP usada pelo servidor Phoenix para ouvir conexões de cliente. O valor padrão é 8765.  | Não  |
 | httpPath | A URL parcial correspondente ao servidor do Phoenix. (ou seja, /gateway/sandbox/phoenix/version). O valor padrão é `hbasephoenix` em caso de uso do WindowsAzureHDInsightService.  | Não  |
-| authenticationType | O mecanismo de autenticação usado para se conectar ao servidor do Phoenix. <br/>Valores permitidos são: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
+| authenticationType | O mecanismo de autenticação usado para se conectar ao servidor do Phoenix. <br/>Valores permitidos são: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | sim |
 | Nome de Usuário | O nome de usuário usado para se conectar ao servidor do Phoenix.  | Não  |
 | Senha | A senha correspondente ao nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Não  |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não  |
@@ -111,8 +111,8 @@ Para copiar dados de Phoenix, defina o tipo de fonte na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PhoenixSource** | Sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PhoenixSource** | sim |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | sim |
 
 **Exemplo:**
 

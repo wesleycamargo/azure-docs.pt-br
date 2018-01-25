@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos de extremidade do Hub IoT
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Você pode encontrar o nome do Hub IoT que hospeda os pontos de extremidade no portal na folha **Visão geral**. Por padrão, o nome DNS de um Hub IoT parece com: `{your iot hub name}.azure-devices.net`.
 
-Você pode usar o DNS do Azure para criar um nome DNS personalizado para o Hub IoT. Para obter mais informações, consulte [Usar o DNS do Azure para fornecer as configurações de domínio personalizadas para um serviço do Azure](../dns/dns-custom-domain.md#azure-iot).
+Você pode usar o DNS do Azure para criar um nome DNS personalizado para o Hub IoT. Para obter mais informações, consulte [Usar o DNS do Azure para fornecer as configurações de domínio personalizadas para um serviço do Azure](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos de extremidade internos do Hub IoT
 
@@ -69,7 +69,7 @@ Você pode vincular os serviços existentes do Azure em sua assinatura ao Hub Io
 Atualmente, o Hub IoT é compatível com os seguintes serviços do Azure como pontos de extremidade adicionais:
 
 * Contêineres de Armazenamento do Azure
-* Hubs de Eventos
+* Hubs de evento
 * Filas de barramento de serviço
 * Tópicos do Service Bus
 

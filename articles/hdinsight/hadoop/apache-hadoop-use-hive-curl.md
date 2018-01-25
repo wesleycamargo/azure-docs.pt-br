@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Executar consultas Hive com Hadoop no HDInsight usando REST
 
@@ -50,7 +50,9 @@ O [Curl](http://curl.haxx.se/) é usado para demonstrar como você pode interagi
 
     Você deve receber uma resposta semelhante ao texto a seguir:
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     Os parâmetros usados nesse comando são os seguintes:
 
@@ -65,7 +67,9 @@ O [Curl](http://curl.haxx.se/) é usado para demonstrar como você pode interagi
 
     Essa solicitação retorna uma resposta semelhante ao seguinte texto:
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Use o seguinte para criar uma tabela chamada **log4jLogs**:
 
@@ -81,7 +85,7 @@ O [Curl](http://curl.haxx.se/) é usado para demonstrar como você pode interagi
      * **execute** - as instruções do HiveQL a executar.
      * **statusdir** – O diretório no qual o status deste trabalho será gravado.
 
-   As instruções executam as seguintes ações:
+   Essas instruções executam as seguintes ações:
    
    * **DROP TABLE** – Se a tabela já existir, ela será excluída.
    * **CREATE EXTERNAL TABLE** - cria uma nova tabela “externa" em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
@@ -105,7 +109,9 @@ O [Curl](http://curl.haxx.se/) é usado para demonstrar como você pode interagi
 
    Esse comando retorna uma ID de trabalho que pode ser usada para verificar o status do trabalho.
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. Para verificar o status do trabalho, use o comando a seguir:
 

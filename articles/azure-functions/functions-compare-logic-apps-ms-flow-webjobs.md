@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 7ffe44828735a5687008ebc5a7d8d9f017f49daa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
 Este artigo compara e contrasta os seguintes serviços na nuvem da Microsoft, que podem todos solucionar problemas de integração e automatizar processos de negócios:
@@ -115,7 +115,7 @@ Você pode chamar um aplicativo lógico em um fluxo. Você também pode chamar u
 Comece a usar cada um dos serviços criando seu primeiro fluxo, aplicativo lógico, aplicativo de funções ou trabalho Web. Clique em um dos links abaixo:
 
 * [Introdução ao Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Criar sua primeira Função do Azure](functions-create-first-azure-function.md)
 * [Implantar Trabalhos Web usando o Visual Studio](../app-service/websites-dotnet-deploy-webjobs.md)
 

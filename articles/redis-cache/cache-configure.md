@@ -3,8 +3,8 @@ title: Como configurar o Cache Redis do Azure | Microsoft Docs
 description: "Entenda a configuração padrão Redis Cache Redis do Azure e aprenda a configurar as instâncias de Cache Redis do Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
-ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Como configurar o Cache Redis do Azure
 Este tópico descreve como examinar e atualizar a configuração para suas instâncias de Cache Redis do Azure, além de incluir a configuração do servidor Redis padrão para instâncias de Cache Redis do Azure.
@@ -217,7 +217,7 @@ Clique em **Tamanho do Cluster Redis (VISUALIZAÇÃO)** para alterar o tamanho d
 Para alterar o tamanho do cluster, use o controle deslizante ou digite um número entre 1 e 10 na caixa de texto **Contagem de fragmentos** e clique em **OK** para salvar.
 
 > [!IMPORTANT]
-> O clustering está disponível apenas para os Caches premium. Para saber mais, consulte [Como configurar um cluster para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
+> O clustering está disponível apenas para os Caches premium. Para saber mais, confira [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
 > 
 > 
 
@@ -241,7 +241,7 @@ A folha **Agendar atualizações** permite designar uma janela de manutenção p
 > 
 > 
 
-![Agendar atualizações](./media/cache-configure/redis-schedule-updates.png)
+![Agende atualizações](./media/cache-configure/redis-schedule-updates.png)
 
 Para especificar uma janela de manutenção, marque os dias desejados, especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Observe que o horário da janela de manutenção é em UTC. 
 
@@ -282,7 +282,7 @@ Clique em **Firewall** para exibir e configurar regras de firewall para o Cache 
 > 
 > 
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>propriedades
 Clique em **Propriedades** para exibir informações sobre o cache, incluindo o ponto de extremidade e as portas do cache.
 
 ![Propriedades de Cache Redis](./media/cache-configure/redis-cache-properties.png)
@@ -394,7 +394,7 @@ Novas instâncias de Cache Redis do Azure são configuradas com os seguintes val
 > 
 > 
 
-| Configuração | Valor padrão | Descrição |
+| Configuração | Valor padrão | DESCRIÇÃO |
 | --- | --- | --- |
 | `databases` |16 |O número de bancos de dados padrão é 16, mas você pode configurar um número diferente com base no tipo de preço.<sup>1</sup> O banco de dados padrão é o DB 0; você poderá selecionar um diferente por conexão usando `connection.GetDatabase(dbid)`, em que `dbid` é um número entre `0` e `databases - 1`. |
 | `maxclients` |Depende do tipo de preço<sup>2</sup> |Esse é o número máximo de clientes conectados permitidos ao mesmo tempo. Quando o limite é atingido o Redis fecha todas as novas conexões, retornando um erro de 'número máximo de clientes atingido'. |

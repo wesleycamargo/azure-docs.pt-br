@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 0452dcaa039c23b9e41f78a43df88f61d13033be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 449b322089ed3881df6d87276c3461d18d697edf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,22 +72,22 @@ Se você é novo no Azure Data Factory, leia a [Introduction to Azure Data Facto
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade          | Descrição                              | Obrigatório |
+| Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nome da atividade                     | Sim      |
-| Descrição       | Texto que descreve qual a utilidade da atividade | Não       |
-| type              | Para a atividade de streaming do Hadoop, o tipo de atividade é HDInsightStreaming | Sim      |
-| linkedServiceName | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
-| mapper            | Especifica o nome do executável do Mapeador | Sim      |
-| reducer           | Especifica o nome do executável do Redutor | Sim      |
-| combiner          | Especifica o nome do executável de Combinação | Não       |
-| fileLinkedService | Referência a um serviço vinculado de Armazenamento do Azure usado para armazenar os programas Mapeador, Combinação e Redutor a serem executados. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não       |
-| filePath          | Forneça uma matriz de caminho para os programas Mapeador, Combinação e Redutor armazenados no Armazenamento do Azure referenciados por fileLinkedService. O caminho diferencia maiúsculas de minúsculas. | Sim      |
-| input             | Especifica o caminho do WASB para o arquivo de entrada do Mapeador. | Sim      |
-| output            | Especifica o caminho do WASB para o arquivo de saída do Redutor. | Sim      |
-| getDebugInfo      | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não       |
-| argumentos         | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
-| define           | Especifique parâmetros como pares chave-valor para referências no script do Hive. | Não       | 
+| Nome              | Nome da atividade                     | sim      |
+| Descrição       | Texto que descreve qual a utilidade da atividade | Não        |
+| Tipo              | Para a atividade de streaming do Hadoop, o tipo de atividade é HDInsightStreaming | sim      |
+| linkedServiceName | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | sim      |
+| mapper            | Especifica o nome do executável do Mapeador | sim      |
+| reducer           | Especifica o nome do executável do Redutor | sim      |
+| combiner          | Especifica o nome do executável de Combinação | Não        |
+| fileLinkedService | Referência a um serviço vinculado de Armazenamento do Azure usado para armazenar os programas Mapeador, Combinação e Redutor a serem executados. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não        |
+| filePath          | Forneça uma matriz de caminho para os programas Mapeador, Combinação e Redutor armazenados no Armazenamento do Azure referenciados por fileLinkedService. O caminho diferencia maiúsculas de minúsculas. | sim      |
+| input             | Especifica o caminho do WASB para o arquivo de entrada do Mapeador. | sim      |
+| output            | Especifica o caminho do WASB para o arquivo de saída do Redutor. | sim      |
+| getDebugInfo      | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não        |
+| argumentos         | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não        |
+| define           | Especifique parâmetros como pares chave-valor para referências no script do Hive. | Não        | 
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 

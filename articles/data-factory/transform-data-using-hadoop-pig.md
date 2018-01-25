@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 7745f273283ff998b41fe59a10e705e7564a7bd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e939c57c256e5e6e3932ab0859aae6cf4122dd6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Pig do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,17 +60,17 @@ Se você é novo no Azure Data Factory, leia a [Introduction to Azure Data Facto
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade            | Descrição                              | Obrigatório |
+| Propriedade            | DESCRIÇÃO                              | Obrigatório |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | Nome da atividade                     | Sim      |
-| Descrição         | Texto que descreve qual a utilidade da atividade | Não       |
-| type                | Para a atividade do Hive, o tipo de atividade é HDinsightPig | Sim      |
-| linkedServiceName   | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
-| scriptLinkedService | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar o script do Pig a ser executado. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não       |
-| scriptPath          | Forneça o caminho para o arquivo de script armazenado no Armazenamento do Azure referenciado por scriptLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Não       |
-| getDebugInfo        | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não       |
-| argumentos           | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
-| define             | Especifique os parâmetros como pares chave-valor para referências no script do Pig. | Não       |
+| Nome                | Nome da atividade                     | sim      |
+| Descrição         | Texto que descreve qual a utilidade da atividade | Não        |
+| Tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightPig | sim      |
+| linkedServiceName   | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | sim      |
+| scriptLinkedService | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar o script do Pig a ser executado. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não        |
+| scriptPath          | Forneça o caminho para o arquivo de script armazenado no Armazenamento do Azure referenciado por scriptLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Não        |
+| getDebugInfo        | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não        |
+| argumentos           | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não        |
+| define             | Especifique os parâmetros como pares chave-valor para referências no script do Pig. | Não        |
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 

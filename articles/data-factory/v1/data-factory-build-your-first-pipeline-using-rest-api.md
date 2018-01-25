@@ -15,16 +15,16 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 2a6b52f56647a8bc018c4cf56e996877c1c0d2e6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4caff18728f2f0f1246f4a05ac121cecdaaeaf04
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar seu primeiro data factory do Azure usando a API REST do Data Factory
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -46,7 +46,7 @@ O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Es
 > Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** .
 * Instale o [Curl](https://curl.haxx.se/dlwiz/) em seu computador. Você pode usar a ferramenta CURL com comandos REST para criar um data factory.
 * Siga as instruções [deste artigo](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para:
@@ -121,7 +121,7 @@ Crie os arquivos JSON a seguir na pasta onde curl.exe está localizado.
 
 A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | ClusterSize |Tamanho do cluster HDInsight. |
 | TimeToLive |Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído. |
@@ -167,12 +167,12 @@ O JSON define um conjunto de dados chamado **AzureBlobInput**, que representa da
 
 A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| type |A propriedade type é definida como AzureBlob porque os dados residem no armazenamento de blobs do Azure. |
+| Tipo |A propriedade type é definida como AzureBlob porque os dados residem no armazenamento de blobs do Azure. |
 | linkedServiceName |refere-se ao StorageLinkedService que você criou anteriormente. |
 | fileName |Essa propriedade é opcional. Se você omitir essa propriedade, todos os arquivos de folderPath serão selecionados. Nesse caso, somente o input.log será processado. |
-| type |Os arquivos de log estão em formato de texto, então utilizaremos TextFormat. |
+| Tipo |Os arquivos de log estão em formato de texto, então utilizaremos TextFormat. |
 | columnDelimiter |as colunas nos arquivos de log são delimitadas por um caractere de vírgula (,) |
 | frequência/intervalo |a frequência é definida como Mês e o intervalo como 1, o que significa que as fatias de entrada estão disponíveis mensalmente. |
 | externo |essa propriedade será definida como true se os dados de entrada não forem gerados pelo serviço Data Factory. |
@@ -472,7 +472,7 @@ Execute Invoke-Command e o próximo até ver a fatia no estado **Pronto** ou **F
 >
 >
 
-Você também pode usar o portal do Azure para monitorar fatias e solucionar problemas. Veja os detalhes em [Monitorar pipelines usando o portal do Azure](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) .
+Você também pode usar o portal do Azure para monitorar fatias e solucionar problemas. Veja os detalhes em [Monitorar pipelines usando o portal do Azure](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) .
 
 ## <a name="summary"></a>Resumo
 Neste tutorial, você criou uma data factory do Azure para processar dados ao executar o script Hive em um cluster hadoop do HDInsight. Você usou o Data Factory Editor no portal do Azure para executar as seguintes etapas:
@@ -487,8 +487,8 @@ Neste tutorial, você criou uma data factory do Azure para processar dados ao ex
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight do Azure sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Consulte também
-| Tópico | Descrição |
+## <a name="see-also"></a>Veja também
+| Tópico | DESCRIÇÃO |
 |:--- |:--- |
 | [Referência de API REST do Data Factory](/rest/api/datafactory/) |Consulte a documentação abrangente sobre os cmdlets do Data Factory |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e como usá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |

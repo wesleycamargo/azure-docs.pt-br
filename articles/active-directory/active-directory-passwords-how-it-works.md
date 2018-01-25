@@ -1,5 +1,5 @@
 ---
-title: Como a SSPR do Azure Active Directory funciona | Microsoft Docs
+title: "Políticas de redefinição de senha – como funciona – Azure Active Directory"
 description: "Aprofundamento no autoatendimento de redefinição de senha no Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: ad1735d618856fb13ec2846f1da4fdaec1c4e614
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
 
@@ -195,7 +195,7 @@ Os valores válidos são de 0 a 730 dias, com "0", o que significa que os usuár
 
 ## <a name="notifications"></a>Notificações
 
-### <a name="notify-users-on-password-resets"></a>Notificar os usuários sobre as redefinições de senha
+### <a name="notify-users-on-password-resets"></a>Notificar os usuários de redefinições de senha
 
 Se essa opção for definida para **Sim**, então, o usuário que está redefinindo sua senha recebe um email informando que sua senha foi alterada. O email é enviado por meio do portal de SSPR em seus endereços de email primários e alternativos que estão no arquivo no Azure Active Directory. Ninguém mais é notificado desse evento de redefinição.
 

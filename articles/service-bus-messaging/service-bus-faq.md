@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
 Este artigo discute algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais sobre preços e suporte do Azure.
@@ -48,7 +48,6 @@ Consulte [Práticas recomendadas para melhorias de desempenho usando o Barrament
 ### <a name="what-should-i-know-before-creating-entities"></a>O que devo saber antes de criar entidades?
 As propriedades de uma fila e tópico a seguir são imutáveis. Considere essa limitação ao provisionar suas entidades, já que essas propriedades não podem ser modificadas sem criar uma nova entidade de substituição.
 
-* Tamanho
 * Particionamento
 * Sessões
 * Detecção de duplicidade
@@ -81,7 +80,7 @@ Embora nos reservemos o direito de desabilitar uma conta de cliente que tenha ex
 
 Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um conjunto de cotas específicas para garantir que haja um uso inteligente dos recursos. Você pode encontrar mais detalhes sobre essas cotas em [visão geral de cotas do Barramento de Serviço][Quotas overview].
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs do Barramento de Serviço do Azure e suas ações sugeridas?
 Para obter uma lista de exceções possíveis do Barramento de Serviço, confira [Visão geral das exceções][Exceptions overview].
 

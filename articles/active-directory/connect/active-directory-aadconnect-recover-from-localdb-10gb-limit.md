@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Como recuperar LocalDB problema de limite de 10 GB | M
 description: "Este tópico descreve como recuperar o serviço de sincronização do Azure do AD Connect quando encontra LocalDB 10GB limitar o problema."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 7b54461a58fb6b60d0686743f90b6c85d7819f1f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b72f6730d32a71146781420923226fc521b5982b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Como se recuperar de um limite de 10 GB do LocalDB
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Você pode usar o padrão que do SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou usar seu próprio SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao usar o LocalDB e esse limite for atingido, o serviço de sincronização do Azure do AD Connect não pode iniciar ou sincronizar corretamente. Este artigo fornece as etapas de recuperação.

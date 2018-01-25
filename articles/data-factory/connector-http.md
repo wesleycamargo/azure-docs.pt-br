@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiar dados de ponto de extremidade HTTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,10 +53,10 @@ As propriedades a seguir têm suporte para o serviço vinculado de HTTP:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **HttpServer**. | Sim |
-| url | URL base para o Servidor Web | Sim |
+| Tipo | A propriedade type deve ser definida como: **HttpServer**. | sim |
+| url | URL base para o Servidor Web | sim |
 | enableServerCertificateValidation | Especifique se deseja habilitar a validação do certificado SSL do servidor ao se conectar ao ponto de extremidade HTTP. | Não, o padrão é true |
-| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são: **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Consulte as seções abaixo desta tabela para mais propriedades e amostras JSON para esses tipos de autenticação, respectivamente. | Sim |
+| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são: **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Consulte as seções abaixo desta tabela para mais propriedades e amostras JSON para esses tipos de autenticação, respectivamente. | sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação Básica, Digest ou Windows
@@ -65,8 +65,8 @@ Defina a propriedade "authenticationType" como **Básica**, **Digest** ou **Wind
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| userName | Nome de usuário para acessar o ponto de extremidade HTTP. | Sim |
-| Senha | Senha do usuário (userName). Marque esse campo como SecureString. | Sim |
+| userName | Nome de usuário para acessar o ponto de extremidade HTTP. | sim |
+| Senha | Senha do usuário (userName). Marque esse campo como SecureString. | sim |
 
 **Exemplo**
 
@@ -161,7 +161,7 @@ Para copiar dados de HTTP, defina a propriedade type do conjunto de dados como *
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **HttpFile** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **HttpFile** | sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, apenas a URL especificada na definição do serviço vinculado é usada. | Não  |
 | requestMethod | Método Http.<br/>Os valores permitidos são **Get** (padrão) ou **Post**. | Não  |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não  |
@@ -218,7 +218,7 @@ Para copiar dados de HTTP, defina o tipo de fonte na atividade de cópia como **
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HttpSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HttpSource** | sim |
 | httpRequestTimeout | O tempo limite (TimeSpan) para a solicitação HTTP obter uma resposta. É o tempo limite para obter uma resposta e não o tempo limite para ler dados de resposta.<br/> O valor padrão é: 00:01:40  | Não  |
 
 **Exemplo:**

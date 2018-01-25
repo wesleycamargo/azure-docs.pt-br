@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 330f733440932a769eb0fe6031cd0d947a820080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Introdução ao conector dos Usuários do Office 365
 Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e muito mais. Com os Usuários do Office 365, você pode:
@@ -27,7 +27,7 @@ Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e 
 * Criar seu fluxo de negócios baseado nos dados obtidos dos Usuários do Office 365. 
 * Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure. 
 
-É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-office-365-users"></a>Criar uma conexão com os Usuários do Office 365
 Ao adicionar esse conector aos seus aplicativos lógicos, é necessário entrar em sua conta dos Usuários do Office 365 e permitir que os aplicativos lógicos se conectem à sua conta.
@@ -40,7 +40,7 @@ Depois de criar a conexão, insira as propriedades dos Usuários do Office 365, 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/officeusers/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/officeusers/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

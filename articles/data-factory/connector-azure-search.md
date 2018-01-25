@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 63081e2e5a2c792c8e688e7b8aaff0eca40e48a1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados em um índice do Azure Search usando o Azure Data Factory
 
@@ -36,7 +36,7 @@ Você pode copiar dados de qualquer armazenamento de dados de origem com suporte
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector do Azure Search.
 
@@ -46,9 +46,9 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Search:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearch** | Sim |
-| URL | URL para o serviço Azure Search. | Sim |
-| chave | Chave de administração para o serviço Azure Search. Marque esse campo como uma SecureString. | Sim |
+| Tipo | A propriedade type deve ser definida como: **AzureSearch** | sim |
+| URL | URL para o serviço Azure Search. | sim |
+| chave | Chave de administração para o serviço Azure Search. Marque esse campo como uma SecureString. | sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 > [!IMPORTANT]
@@ -84,8 +84,8 @@ Para copiar dados no Azure Search, defina a propriedade type do conjunto de dado
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
-| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | sim |
+| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | sim |
 
 **Exemplo:**
 
@@ -115,7 +115,7 @@ Para copiar no Azure Search, defina o tipo de fonte na atividade de cópia como 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | sim |
 | writeBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Merge** (padrão) e **Upload**. | Não  |
 | writeBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes.<br/><br/>Os valores permitidos são: inteiros de 1 a 1.000; o valor padrão é 1.000. | Não  |
 

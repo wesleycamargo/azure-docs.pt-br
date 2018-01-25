@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para m
 
 Você pode copiar dados de um armazenamento de dados local do PostgreSQL para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira os [armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte à movimentação de dados de um banco de dados PostgreSQL para outros armazenamentos de dados, mas não à movimentação de dados de outros armazenamentos de dados para um banco de dados PostgreSQL. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O serviço Data Factory dá suporte à conexão com fontes PostgreSQL locais usando o Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway.
 
@@ -73,23 +73,23 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço de vinculado do PostgreSQL.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade tipo deve ser definida como: **OnPremisesPostgreSql** |Sim |
-| server |Nome do servidor PostgreSQL. |Sim |
-| database |Nome do banco de dados PostgreSQL. |Sim |
-| schema |Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados PostgreSQL. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
-| Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados PostgreSQL local. |Sim |
+| Tipo |A propriedade tipo deve ser definida como: **OnPremisesPostgreSql** |sim |
+| Servidor |Nome do servidor PostgreSQL. |sim |
+| Banco de Dados |Nome do banco de dados PostgreSQL. |sim |
+| schema |Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não  |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados PostgreSQL. Os valores possíveis são: Anonymous, Basic e Windows. |sim |
+| Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não  |
+| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não  |
+| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados PostgreSQL local. |sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados.
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties de um conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do PostgreSQL) tem as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância do banco de dados PostgreSQL à qual o serviço vinculado se refere. O tableName diferencia maiúsculas de minúsculas. |Não (se **query** de **RelationalSource** for especificado) |
 
@@ -100,7 +100,7 @@ Por outro lado, as propriedades disponíveis na seção typeProperties da ativid
 
 Quando a fonte é do tipo **RelationalSource** (que inclui o PostgreSQL), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |Não (se **tableName** de **dataset** for especificado) |
 
@@ -307,12 +307,12 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 
 | Tipo de banco de dados PostgreSQL | Aliases de PostgresSQL | Tipo .NET Framework |
 | --- | --- | --- |
-| abstime | |Datetime | &nbsp;
+| abstime | |DateTime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String | &nbsp;
 | bit varying [ (n) ] |varbit |Byte[], String |
-| booleano |bool |Booliano |
+| booleano |bool |BOOLEAN |
 | box | |Byte[], String |&nbsp;
 | bytea | |Byte[], String |&nbsp;
 | character [(n)] |char [(n)] |Cadeia de caracteres |
@@ -320,7 +320,7 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 | cid | |Cadeia de caracteres |&nbsp;
 | cidr | |Cadeia de caracteres |&nbsp;
 | circle | |Byte[], String |&nbsp;
-| data | |Datetime |&nbsp;
+| data | |DateTime |&nbsp;
 | daterange | |Cadeia de caracteres |&nbsp;
 | double precision |float8 |Duplo |
 | inet | |Byte[], String |&nbsp;
@@ -338,7 +338,7 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Cadeia de caracteres |&nbsp;
 | oid | |Int32 |&nbsp;
-| path | |Byte[], String |&nbsp;
+| caminho | |Byte[], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | point | |Byte[], String |&nbsp;
 | polygon | |Byte[], String |&nbsp;
@@ -346,7 +346,7 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| texto | |Cadeia de caracteres |&nbsp;
+| text | |Cadeia de caracteres |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

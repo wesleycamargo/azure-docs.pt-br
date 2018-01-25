@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Introdução ao conector do Twitter
 Com o conector do Twitter, você pode:
@@ -28,7 +28,7 @@ Com o conector do Twitter, você pode:
 * Acessar linhas do tempo, amigos e seguidores
 * Executar qualquer um dos gatilhos e ações descritos abaixo  
 
-Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../logic-apps/logic-apps-create-a-logic-app.md).  
+Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
 
 ## <a name="connect-to-twitter"></a>Conectar-se ao Twitter
 Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](connectors-overview.md) fornece uma conectividade entre um aplicativo lógico e outro serviço.  
@@ -39,7 +39,7 @@ Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Usar um gatilho do Twitter
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Neste exemplo, mostrarei como usar o gatilho **Quando um novo tweet é postado** para procurar #Seattle e, se #Seattle for encontrada, mostrarei como atualizar um arquivo no Dropbox com o texto do tweet. Em um exemplo corporativo, você pode pesquisar o nome da sua empresa e atualizar um banco de dados SQL com o texto do tweet.
 
@@ -80,7 +80,7 @@ Uma vez que estamos interessados em tweets de usuários com mais de 50 usuários
    ![Imagem 8 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Usar uma ação do Twitter
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Agora que você adicionou um gatilho, siga estas etapas para adicionar uma ação que postará um novo tweet com o conteúdo dos tweets encontrados pelo gatilho. Para este passo a passo, serão postados apenas tweets de usuários com mais de 50 seguidores.  
 
@@ -104,5 +104,5 @@ Na próxima etapa, você adicionará uma ação do Twitter que postará um tweet
 Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/twitterconnector/). 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
+[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

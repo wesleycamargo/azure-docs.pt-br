@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 265a9c2c2e074c9a60b69dbf48996bcb9137d435
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 33ccecee82617dc53e597165c708c2bf67cdabe1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Criar um data factory e pipeline usando o Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Este guia de início rápido descreve como usar o Python para criar um Azure Dat
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de **origem** e de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar uma.
 * **Crie um aplicativo no Azure Active Directory** seguindo [esta instrução](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Anote os valores a seguir, que você usará em etapas posteriores: **ID do aplicativo**, **chave de autenticação** e **ID do locatário**. Seguindo as instruções no mesmo artigo, atribua o aplicativo à função "**Colaborador**".

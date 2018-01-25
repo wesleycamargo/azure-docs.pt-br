@@ -3,7 +3,7 @@ title: Conector do PowerShell | Microsoft Docs
 description: Este artigo descreve como configurar o conector Windows PowerShell da Microsoft.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Referência técnica do Windows PowerShell Connector
 Este artigo descreve o conector do Windows PowerShell. O artigo se aplica aos seguintes produtos:
@@ -32,7 +32,7 @@ Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro d
 ## <a name="overview-of-the-powershell-connector"></a>Visão geral do conector do PowerShell
 O conector do PowerShell o habilita a integrar o serviço de sincronização a sistemas externos que oferecem que APIs baseadas no Windows PowerShell. O conector fornece uma ponte entre os recursos da estrutura do ECMA2 (agente de gerenciamento de conectividade extensível 2) baseada em chamada e o Windows PowerShell. Para obter mais informações sobre a estrutura do ECMA, confira [Extensible Connectivity 2.2 Management Agent Reference](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
@@ -88,7 +88,7 @@ O Script de Validação é um script opcional do Windows PowerShell que pode ser
 
 O script de validação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameterPage |[ConfigParameterPage][cpp] |A guia ou caixa de diálogo de configuração que disparou a solicitação de validação. |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
@@ -101,7 +101,7 @@ O script de Descoberta de Esquema é obrigatório. Esse script retorna o tipo de
 
 O script de descoberta de esquema recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -120,7 +120,7 @@ A guia Recursos do Designer do Agente de Gerenciamento define o comportamento e 
 
 ![Funcionalidades](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | [Estilo de Nome Diferenciado][dnstyle] |Indica se o conector dá suporte a nomes diferenciados e, em caso positivo, à qual estilo. |
 | [Tipo de Exportação][exportT] |Determina os tipos de objeto que são apresentados para o script Exportar. <li>AttributeReplace – inclui o conjunto completo de valores para um atributo com vários valores, quando o atributo é alterado.</li><li>AttributeUpdate – inclui apenas deltas para um atributo com vários valores, quando o atributo é alterado.</li><li>MultivaluedReferenceAttributeUpdate - inclui um conjunto completo de valores de atributos de vários valores de não referência e apenas deltas para atributos de referência com vários valores.</li><li>ObjectReplace – inclui todos os atributos de um objeto quando qualquer atributo é alterado</li> |
@@ -148,7 +148,7 @@ Uma partição é um namespace separado dentro de um esquema compartilhado. Por 
 
 O script de descoberta de partição recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -160,7 +160,7 @@ O script de descoberta de hierarquia é usado apenas quando o recurso Estilo de 
 
 O script de descoberta de hierarquia recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -176,7 +176,7 @@ O script de início de importação é executado no começo de uma etapa de exec
 
 O script de início de importação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -190,7 +190,7 @@ O script de importação de dados é chamado pelo conector até que o script ind
 
 O script de importação de dados recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -205,7 +205,7 @@ Na conclusão da execução da importação, o script Encerrar Importação é e
 
 O script de finalização de importação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -222,7 +222,7 @@ O script de início de exportação é executado no começo de uma etapa de exec
 
 O script de início de exportação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -236,7 +236,7 @@ O Serviço de Sincronização chama o script Exportar Dados quantas vezes forem 
 
 O script de exportação de dados recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -251,7 +251,7 @@ Na conclusão da execução de exportação, o script Encerrar Exportação é e
 
 O script de finalização de exportação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -265,7 +265,7 @@ Os conectores do Windows PowerShell podem ser usados como um destino para altera
 
 O script de senha recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
+| NOME | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
@@ -309,7 +309,7 @@ Acesso de leitura para as seguintes pastas do sistema de arquivos:
 
 Substitua o nome do conector Windows PowerShell para o espaço reservado {ConnectorName}.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

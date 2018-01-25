@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3169584bc884107ccd34b01264683d8c73c0fecb
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 05ae7cdc78e909c9aaa2b690d03eff8da09b6242
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/02/2017
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 O [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, testar e implantar soluções de análise preditiva. De um ponto de vista de alto nível, isso é feito em três etapas:
 
-1. **Crie um teste de treinamento**. Conclua esta etapa usando o Estúdio AM do Azure. O Estúdio AM do Azure é um ambiente de desenvolvimento visual colaborativo usado para treinar e testar um modelo de análise preditiva usando dados de treinamento.
+1. **Crie um teste de treinamento**. Conclua esta etapa usando o Azure ML Studio. O Azure ML Studio é um ambiente de desenvolvimento visual colaborativo usado para treinar e testar um modelo de análise preditiva usando dados de treinamento.
 2. **Convertê-lo em um teste preditivo**. Quando o modelo foi treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, você preparará e simplificará seu teste para a pontuação.
 3. **Implantá-lo como um serviço da Web**. Você pode publicar seu experimento de pontuação como um serviço Web do Azure. Você pode enviar dados ao seu modelo por desse ponto de extremidade de serviço Web e receber previsões de resultado do modelo.  
 
@@ -59,7 +59,7 @@ O Azure Data Factory permite que você crie facilmente pipelines que usam o serv
 
 Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM do Azure precisam ser treinados novamente usando novos conjuntos de dados de entrada. Você pode treinar novamente um modelo do AM do Azure de um pipeline do Data Factory executando as seguintes etapas:
 
-1. Publique o experimento de treinamento (e não um experimento preditivo) como um serviço Web. Essa etapa é feita no Estúdio AM do Azure como você fez para expor o experimento preditivo como um serviço Web no cenário anterior.
+1. Publique o experimento de treinamento (e não um experimento preditivo) como um serviço Web. Essa etapa é feita no Azure ML Studio como você fez para expor o experimento preditivo como um serviço Web no cenário anterior.
 2. Use a Atividade de Execução de Lote do AM do Azure para chamar o serviço Web para o experimento de treinamento. Basicamente, você pode usar a atividade de Execução de Lote do AM do Azure para invocar o serviço Web de treinamento e o serviço Web de pontuação.
 
 Depois de concluir o treinamento, atualize o serviço Web de pontuação (experimento preditivo exposto como um serviço Web) com o modelo recém-treinado usando a **Atividade de recurso de Atualização de AM do Azure**. Veja o artigo [Atualização de modelos usando a Atividade do Recurso de Atualização](data-factory-azure-ml-update-resource-activity.md) para obter detalhes.
@@ -70,8 +70,7 @@ Você usa o Azure Data Factory para orquestrar o processamento e movimentação 
 1. Criar um serviço vinculado de Azure Machine Learning. Você precisará dos seguintes valores:
 
    1. **URI de Solicitação** para a API de Execução do Lote. Encontre o URI da Solicitação clicando no link **EXECUÇÃO EM LOTE** na página de serviços Web.
-   2. 
-            **Chave de API** para o serviço Web publicado do Azure Machine Learning. Encontre a chave de API clicando no serviço Web que você publicou.
+   2. **Chave de API** para o serviço Web publicado do Azure Machine Learning. Encontre a chave de API clicando no serviço Web que você publicou.
    3. Use a atividade **AzureMLBatchExecution** .
 
       ![Painel de Machine Learning](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
@@ -186,7 +185,7 @@ Recomendamos que você percorra o tutorial [Compilar seu primeiro pipeline com o
     }
     ```
 
-    O arquivo csv de entrada deve ter a linha de cabeçalho de coluna. Se você estiver usando a **Atividade de cópia** para criar/mover o csv para dentro do armazenamento de blobs, você deve definir a propriedade de coleta **blobWriterAddHeade**r como **true**. Por exemplo:
+    O arquivo csv de entrada deve ter a linha de cabeçalho de coluna. Se você estiver usando a **Atividade de cópia** para criar/mover o csv para dentro do armazenamento de blobs, você deve definir a propriedade de coleta **blobWriterAddHeade**r como **true**. Por exemplo: 
 
     ```JSON
     sink:
@@ -631,9 +630,8 @@ Você também pode usar [Funções do Data Factory](data-factory-functions-varia
 >
 >
 
-## <a name="see-also"></a>Consulte também
-* 
-            [Postagem do blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+## <a name="see-also"></a>Veja também
+* [Postagem do blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

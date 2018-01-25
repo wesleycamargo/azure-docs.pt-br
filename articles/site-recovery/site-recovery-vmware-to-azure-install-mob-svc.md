@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Instalar o Serviço de Mobilidade (VMware ou físico no Azure)
 O Serviço de Mobilidade do Azure Site Recovery captura gravações de dados em um computador e, em seguida, encaminha-os para o servidor em processo. Implante o Serviço de Mobilidade em cada computador (VM VMware ou servidor físico) que você deseja replicar para o Azure. É possível implantar o Serviço de Mobilidade nos servidores que você deseja proteger usando os seguintes métodos:
@@ -34,7 +29,7 @@ O Serviço de Mobilidade do Azure Site Recovery captura gravações de dados em 
 >[!IMPORTANT]
 > A partir da versão 9.7.0.0, em VMs (máquinas virtuais) Windows, o instalador do Serviço de Mobilidade também instala o último [agente de VM do Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidade manualmente no servidor:
 1. Entre no servidor de configuração e, em seguida, abra uma janela de Prompt de Comando como administrador.
 2. Altere o diretório para a pasta bin e, em seguida, crie um arquivo de senha:
@@ -92,7 +87,7 @@ Depois de instalar o Serviço de Mobilidade, no portal do Azure, selecione o bot
 ## <a name="update-mobility-service"></a>Atualizar serviço de mobilidade
 
 > [!WARNING]
-> Certifique-se de que o Servidor de Configuração, os Servidores de Processo de Expansão e quaisquer servidores de destino que não sejam parte da sua implantação sejam atualizados antes de você começar a atualizar o Serviço de Mobilidade nos servidores protegidos. Leia mais sobre [como atualizar seu servidor de configuração](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) e [como atualizar seus servidores de processo de expansão](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Certifique-se de que o Servidor de Configuração, os Servidores de Processo de Expansão e quaisquer servidores de destino que não sejam parte da sua implantação sejam atualizados antes de você começar a atualizar o Serviço de Mobilidade nos servidores protegidos.
 
 1. No portal do Azure, navegue para <Your Vault> -> modo de exibição de itens replicados.
 2. Se o **servidor de configuração** já tiver sido atualizado para a versão mais recente, você verá uma notificação que mostra que uma *atualização do agente de replicação do novo Site recovery está disponível. Clique para instalar*

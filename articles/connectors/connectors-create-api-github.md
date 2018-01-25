@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: d4614b0ceff0ec0d36dbb1a136551f985f2fc1a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9120babaa5f6da4f33bd60ba27434e24cb2f45e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-github-connector"></a>Introdução ao conector do GitHub
 O GitHub é um serviço de hospedagem do repositório Git baseado na Web. Ele oferece toda a funcionalidade de controle de revisão distribuída e de SCM (gerenciamento do código-fonte) do Git, além de adicionar seus próprios recursos.
 
-É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>Criar uma conexão com o GitHub
 Para criar Aplicativos lógicos com o GitHub, você deve primeiro criar uma **conexão**, em seguida, fornecer os detalhes para as seguintes propriedades: 
 
-| Propriedade | Obrigatório | Descrição |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| A criptografia do token |Sim |Fornecer as credenciais do GitHub |
+| A criptografia do token |sim |Fornecer as credenciais do GitHub |
 
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo. 
 
@@ -40,7 +40,7 @@ Depois de criar a conexão, é possível usá-la para executar as ações e ouvi
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/github/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/github/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

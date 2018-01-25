@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 89b860bb4174a06c17da1db2bce2eaa11832b0b2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados de e para o Azure Cosmos DB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -302,7 +302,7 @@ O pipeline a seguir copia dados da coleção Person no banco de dados no Azure C
 ## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Exemplo: copiar dados do Blob do Azure para o Azure Cosmos DB 
 O exemplo a seguir mostra:
 
-1. Um serviço vinculado do tipo [DocumentDb](#azure-documentdb-linked-service-properties).
+1. Um serviço vinculado do tipo [DocumentDB](#azure-documentdb-linked-service-properties).
 2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties).

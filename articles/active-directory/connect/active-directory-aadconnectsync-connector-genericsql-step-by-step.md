@@ -3,7 +3,7 @@ title: "Passo a passo do Conector SQL Genérico | Microsoft Docs"
 description: "Este artigo explicará um passo a passo simples do sistema de RH usando o Conector do SQL Genérico."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91eb50a06bbf2e6c5510c42bd1d3ae961fd0bddd
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Passo a passo do Conector do SQL Genérico
 Este tópico é um guia passo a passo. Ele cria um banco de dados de RH de exemplo simples e o usará para a importação de alguns usuários e sua associação a um grupo.

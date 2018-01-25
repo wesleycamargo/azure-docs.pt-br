@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Referência à API de auditoria do Azure Active Directory
 Este tópico faz parte de uma coleção de tópicos sobre a API de relatório do Azure Active Directory.  
@@ -45,7 +45,7 @@ Para:
 * Administradores globais
 * Qualquer aplicativo que tenha autorização para acessar a API (a autorização do aplicativo pode ser definida somente com base na permissão de Administrador Global)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para acessar esse relatório por meio da API de relatórios, você deve ter:
 
 * Um [Azure Active Directory gratuito ou uma edição melhor](active-directory-editions.md)
@@ -200,7 +200,7 @@ não diferenciam maiúsculas de minúsculas
 
 **Observações**:
 
-não diferenciam maiúsculas de minúsculas
+Não diferenciam maiúsculas de minúsculas
 
 - - -
 ### <a name="targetupn"></a>target/upn
@@ -233,7 +233,7 @@ não diferenciam maiúsculas de minúsculas
 
 **Observações**:
 
-* não diferenciam maiúsculas de minúsculas 
+* Não diferenciam maiúsculas de minúsculas 
 * Você precisa adicionar o namespace completo ao consultar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
 
 - - -

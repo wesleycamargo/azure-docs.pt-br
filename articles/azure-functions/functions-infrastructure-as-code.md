@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -197,7 +197,7 @@ Depois de selecionar uma opção de dimensionamento, crie um aplicativo de funç
 Um aplicativo de funções tem muitos recursos filho que podem ser usados na sua implantação, incluindo configurações do aplicativo e opções de controle do código-fonte. Você também pode optar por remover o recurso filho **sourcecontrols** e usar uma outra [opção de implantação](functions-continuous-deployment.md).
 
 > [!IMPORTANT]
-> Para implantar seu aplicativo com êxito usando o Azure Resource Manager, é importante entender como os recursos são implantados no Azure. No exemplo a seguir, as configurações de nível superior são aplicadas usando **siteConfig**. É importante definir essas configurações em um nível superior porque transmitem informações para o mecanismo de implantação e de tempo de execução do Functions. Informações de nível superior são necessárias antes do recurso filho **sourcecontrols/web** ser aplicado. Embora seja possível definir essas configurações no nível de recurso filho **config/appSettings**, em alguns casos, o aplicativo de funções deve ser implantado *antes* de **config/appSettings** ser aplicado. Por exemplo, quando você está usado funções com [aplicativos lógicos](../logic-apps/index.md), as funções são uma dependência de outro recurso.
+> Para implantar seu aplicativo com êxito usando o Azure Resource Manager, é importante entender como os recursos são implantados no Azure. No exemplo a seguir, as configurações de nível superior são aplicadas usando **siteConfig**. É importante definir essas configurações em um nível superior porque transmitem informações para o mecanismo de implantação e de tempo de execução do Functions. Informações de nível superior são necessárias antes do recurso filho **sourcecontrols/web** ser aplicado. Embora seja possível definir essas configurações no nível de recurso filho **config/appSettings**, em alguns casos, o aplicativo de funções deve ser implantado *antes* de **config/appSettings** ser aplicado. Por exemplo, quando você está usado funções com [aplicativos lógicos](../logic-apps/index.yml), as funções são uma dependência de outro recurso.
 
 ```json
 {
@@ -260,7 +260,7 @@ Você pode usar qualquer uma das seguintes maneiras para implantar o modelo:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 8bd9382ed5a855368533c6bf2305682861c109c0
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: c2ec6706c92f229bb05ad9a19246c6ffe5f615c9
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformar os dados na nuvem usando a atividade Spark no Azure Data Factory
 Neste tutorial, você usa o portal do Azure para criar um pipeline do Data Factory que transforma dados usando a Atividade Spark e um serviço vinculado HDInsight sob demanda. Neste tutorial, você executa as seguintes etapas:
@@ -180,6 +180,8 @@ Você cria dois serviços vinculados nesta seção:
     
     ![Botão Validar](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. Clique em **Publicar**. A IU de Data Factory publica entidades (serviços vinculados e pipeline) para o serviço Azure Data Factory. 
+    
+    ![Botão Publicar](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Disparar uma execução de pipeline
 Clique em **Gatilho** na barra de ferramentas e, depois, em **Gatilho agora**. 
@@ -203,7 +205,7 @@ Verifique se o arquivo de saída é criado na pasta spark/outputfiles/wordcount 
 
 ![Verificar a saída](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-O arquivo deve ter cada palavra do texto do arquivo de entrada e o número de vezes que a palavra apareceu no arquivo. Por exemplo: 
+O arquivo deve ter cada palavra do texto do arquivo de entrada e o número de vezes que a palavra apareceu no arquivo. Por exemplo:  
 
 ```
 (u'This', 1)

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 009c7349e82194f9b7f0c8a0c49c427fc78bba85
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 502bf8771bf7854755ccd72c7002110f1e25bd40
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizando os modelos do Machine Learning do Azure usando a Atividade de Recurso de Atualização
 
@@ -43,8 +43,8 @@ Este artigo complementa o principal Azure Data Factory - Artigo de integração 
 ## <a name="overview"></a>Visão geral
 Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM do Azure precisam ser treinados novamente usando novos conjuntos de dados de entrada. Depois de concluir o novo treinamento, você deseja atualizar o serviço Web de pontuação com o modelo do AM treinado novamente. As etapas típicas para habilitar novos treinamentos e a atualização de modelos do AM do Azure por meio de serviços Web são:
 
-1. Crie um teste no [Estúdio AM do Azure](https://studio.azureml.net).
-2. Quando estiver satisfeito com o modelo, use o Estúdio AM do Azure para publicar serviços Web para o **teste de treinamento** e o teste de pontuação/**previsão**.
+1. Crie um teste no [Azure ML Studio](https://studio.azureml.net).
+2. Quando estiver satisfeito com o modelo, use o Azure ML Studio para publicar serviços Web para o **teste de treinamento** e o teste de pontuação/**previsão**.
 
 A tabela a seguir descreve os serviços Web usados neste exemplo.  Confira [Readaptar os modelos do Machine Learning de forma programática](../../machine-learning/machine-learning-retrain-models-programmatically.md) para obter detalhes.
 

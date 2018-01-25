@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
 Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
@@ -39,11 +39,13 @@ Proxy reverso expõe um ou mais pontos de extremidade no nó local para serviço
 
 ![Comunicação interna][1]
 
+> [!NOTE]
 > **Plataformas com suporte**
 >
 > Proxy reverso no Service Fabric atualmente dá suporte às seguintes plataformas
 > * *Cluster do Windows*: Windows 8 e posteriores ou Windows Server 2012 e posteriores
 > * *Cluster do Linux*: proxy reverso não está disponível no momento para clusters do Linux
+>
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Alcançar microsserviços de fora do cluster
 O modelo de comunicação externa padrão para microsserviços é um modelo de aceitação em que cada serviço não pode ser acessado diretamente de clientes externos. O [Azure Load Balancer](../load-balancer/load-balancer-overview.md), que é um limite de rede entre microsserviços e clientes externos, executa a conversão de endereços de rede e encaminha as solicitações externas para pontos de extremidade de IP:porta internos. Para tornar o ponto de extremidade do microsserviço diretamente acessível para clientes externos, você deve primeiro configurar o Load Balancer para encaminhar o tráfego para cada porta usada pelo serviço no cluster. Além disso, a maioria dos microsserviços, especialmente microsserviços com estado, não estão em todos os nós do cluster. Os microsserviços podem mover-se entre os nós no failover. Nesses casos, o Load Balancer não pode determinar efetivamente o local do nó de destino das réplicas para o qual encaminhar tráfego.

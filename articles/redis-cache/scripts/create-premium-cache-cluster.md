@@ -3,8 +3,8 @@ title: "Amostra de Script de Azure CLI – Criar um Cache Redis Premium do Azure
 description: "Amostra de Script de Azure CLI – Criar um Cache Redis de camada Premium do Azure com o cluster"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: 07bcceae-2521-4fe3-b88f-ed833104ddd2
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 45b2a500751830f6ca19fe8450a7781cb0fcb618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: dc20b5317ab6899cbf0865755d47f475dde094e7
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-premium-azure-redis-cache-with-clustering"></a>Criar um Cache Redis Premium do Azure com cluster
 
@@ -37,7 +37,7 @@ Nesse cenário, você aprenderá como criar um Cache Redis Premium do Azure de c
 
 Esse script usa os seguintes comandos para criar um grupo de recursos e um Cache Redis de camada Premium com cluster habilitado. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Crie uma instância do Cache Redis. |

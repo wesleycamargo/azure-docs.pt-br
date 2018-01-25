@@ -3,7 +3,7 @@ title: "Operações do Synchronization Service Manager do Azure AD Connect | Mic
 description: "Entenda como usar a guia Operações no Synchronization Service Manager para o Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70086291e3a33f5a1f733e81d7a1d7bf76439cf0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91210edc3306b834cbd68f0f028845a7f36dd0b5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Usando a guia Operações do Synchronization Service Manager
 
@@ -34,7 +34,7 @@ A coluna **Status** traz as informações mais importantes e mostra o problema m
 
 | Status | Comentário |
 | --- | --- |
-| stopped- *  |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inoperante e não pode ser contatado. |
+| stopped-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inoperante e não pode ser contatado. |
 | stopped-error-limit |Há mais de 5.000 erros. A execução foi interrompida automaticamente devido ao grande número de erros. |
 | completed-\*-errors |A execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. |
 | completed-\*-warnings |A execução foi concluída, mas alguns dados não estão no estado esperado. Se houver erros, geralmente, essa mensagem indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos. |

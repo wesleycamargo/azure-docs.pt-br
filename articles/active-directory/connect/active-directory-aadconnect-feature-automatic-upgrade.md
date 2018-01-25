@@ -3,7 +3,7 @@ title: "Azure AD Connect: atualização automática | Microsoft Docs"
 description: "Este tópico descreve o recurso interno de atualização automática na sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddf23193e7b9c2fb7a69045be539841dbb6e6249
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
@@ -47,7 +47,7 @@ A atualização automática está usando o Azure AD Connect Health para a infrae
 
 Se a interface do usuário **Synchronization Service Manager** estiver em execução no servidor, a atualização será suspensa até que a interface do usuário seja fechada.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Se a sua instalação do Connect não for atualizada conforme o esperado, siga estas etapas para descobrir o que poderia estar errado.
 
 Primeiro, você não deve esperar que a atualização automática seja tentada no primeiro dia em que uma nova versão for lançada. Há uma aleatoriedade intencional antes que ocorra uma tentativa de atualização. Sendo assim, não se assuste se a instalação não for atualizada imediatamente.
@@ -64,7 +64,7 @@ Agora, você pode ver os logs de eventos associados ao status da atualização a
 
 O código de resultado tem um prefixo com uma visão geral do estado.
 
-| Prefixo do código de resultado | Descrição |
+| Prefixo do código de resultado | DESCRIÇÃO |
 | --- | --- |
 | Sucesso |A instalação foi atualizada com êxito. |
 | UpgradeAborted |Uma condição temporária interrompeu a atualização. Ela será tentada novamente e a expectativa é de que tenha êxito posteriormente. |
@@ -72,7 +72,7 @@ O código de resultado tem um prefixo com uma visão geral do estado.
 
 Esta é uma lista das mensagens mais comuns que você encontrará. Ela não lista todas as mensagens, mas a mensagem de resultado deve ser clara quanto a qual é o problema.
 
-| Mensagem de resultado | Descrição |
+| Mensagem de resultado | DESCRIÇÃO |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Não foi possível escrever no registro. |

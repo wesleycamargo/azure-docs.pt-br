@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 8293da8c77725d051f295826d9a78bf81055dcb3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Usar a Exibição do Hive do Ambari com o Hadoop no HDInsight
 
@@ -31,7 +31,7 @@ Aprenda a executar consultas do Hive usando a Exibição do Hive do Ambari. O Am
 > [!NOTE]
 > O Ambari possui muitos recursos que não são abordados neste documento. Para saber mais, confira [Gerenciar clusters HDInsight usando a interface do usuário da Web do Ambari](../hdinsight-hadoop-manage-ambari.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Criar um cluster HDInsight baseado em Linux. Para obter informações sobre como criar clusters, consulte [Introdução ao uso do Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
@@ -69,7 +69,7 @@ Para executar uma consulta do Hive, use as seguintes etapas da exibição do Hiv
     SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
     ```
 
-    As instruções executam as seguintes ações:
+    Essas instruções executam as seguintes ações:
 
    * `DROP TABLE`: exclui a tabela e o arquivo de dados, caso a tabela já exista.
 
@@ -109,7 +109,7 @@ Para executar uma consulta do Hive, use as seguintes etapas da exibição do Hiv
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
 
-  As instruções executam as seguintes ações:
+  Essas instruções executam as seguintes ações:
 
    * **CREATE TABLE IF NOT EXISTS**: criará uma tabela, se ela ainda não existir. Já que a palavra-chave **EXTERNAL** não é usada, uma tabela interna é criada. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive. Diferentemente do que ocorre com tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
@@ -132,7 +132,7 @@ Para exibir a interface do usuário do Tez para a consulta, selecione a guia **T
 > [!IMPORTANT]
 > O Tez não é usado para resolver todas as consultas. Muitas consultas podem ser resolvidas sem usar o Tez. 
 
-Se o Tez foi usado para resolver a consulta, o DAG (gráfico acíclico dirigido) é exibido. Se você quiser exibir o DAG de consultas executadas anteriormente ou se você quiser depurar o processo do Tez, use a [Exibição do Tez](../hdinsight-debug-ambari-tez-view.md) em vez disso.
+Se o Tez foi usado para resolver a consulta, o DAG (grafo direcionado acíclico) é exibido. Se você quiser exibir o DAG de consultas executadas anteriormente ou se você quiser depurar o processo do Tez, use a [Exibição do Tez](../hdinsight-debug-ambari-tez-view.md) em vez disso.
 
 ## <a name="view-job-history"></a>Exibir histórico de trabalho
 
@@ -179,7 +179,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Você pode usar a UDF em sua consulta. Por exemplo: `SELECT myawesomeudf(name) FROM people;`.
+Você pode usar a UDF em sua consulta. Por exemplo, `SELECT myawesomeudf(name) FROM people;`.
 
 Para saber mais sobre como usar UDFs com Hive no HDInsight, consulte os seguintes artigos:
 

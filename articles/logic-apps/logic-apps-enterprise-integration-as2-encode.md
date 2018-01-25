@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7889bf9e4e02143b6bb4c797531afa54f8647ce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bccc8f81a3a664e090796ae8a3cbb38c890c0479
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar mensagens AS2 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Veja os itens necessários:
 
 ## <a name="encode-as2-messages"></a>Codificar mensagens AS2
 
-1. [Criar um aplicativo lógico](logic-apps-create-a-logic-app.md).
+1. [Criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md).
 
 2. O conector de mensagem AS2 de codificação não possui gatilhos. Você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
@@ -75,7 +75,7 @@ O conector codificador AS2 executa as seguintes tarefas:
 
 Para tentar implantar um aplicativo lógico totalmente operacional e o cenário de AS2 de exemplo, confira o[modelo e cenário de aplicativo lógico AS2](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
+## <a name="view-the-swagger"></a>Exibir o swagger
 Consulte os [detalhes do Swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,27 +9,27 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-partition"></a>partição sfctl
 Consultar e gerenciar partições para qualquer serviço.
 
 ## <a name="commands"></a>Comandos
 
-|Command|Descrição|
+|Get-Help|DESCRIÇÃO|
 | --- | --- |
 |    data-loss      | Essa API induz a perda de dados para a partição especificada.|
 |    data-loss-status  | Obtém o progresso de uma operação de perda de dados de partição iniciada, utilizando a API StartDataLoss.|
-|    health         | Obtém a integridade da partição do Service Fabric especificado.|
+|    integridade         | Obtém a integridade da partição do Service Fabric especificado.|
 |    informações           | Obtém as informações sobre uma partição do Service Fabric.|
 |    list           | Obtém a lista de partições de um serviço do Service Fabric.|
 |    load           | Obtém a carga da partição do Service Fabric especificado.|
@@ -52,7 +52,7 @@ Utilize ReplicasHealthStateFilter para filtrar a coleção dos objetos ReplicaHe
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --partition-id      [Obrigatório]| A identidade da partição.|
 | --events-health-state-filter  | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade.                Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas retornarão. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor de HealthState de OK (2) e de Aviso (4) retornarão. - Default -                Valor padrão. Corresponde a qualquer HealthState. O valor é zero. -                None - Filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar qualquer resultado em uma determinada coleção de estados. O valor é 1. - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. - Warning - Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4. - Error - Filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.                - All - Filtro que corresponde à entrada com qualquer valor de HealthState.                O valor é 65535.|
@@ -62,7 +62,7 @@ Utilize ReplicasHealthStateFilter para filtrar a coleção dos objetos ReplicaHe
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug                    | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                  | Mostrar esta mensagem de ajuda e sair.|
@@ -77,14 +77,14 @@ O ponto de extremidade das Partições retorna informações sobre a partição 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --partition-id [Obrigatório]| A identidade da partição.|
 | --timeout -t          | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
@@ -99,7 +99,7 @@ Obtém a lista de partições de um serviço do Service Fabric. As ID da partiç
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for fabric://myapp/app1/svc1, a identidade do serviço deverá ser "myapp~app1~svc1" em 6.0+ e "myapp/app1/svc1" em versões anteriores.|
 | --continuation-token| O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados.         Um token de continuação com um valor não vazio será incluído na resposta da API quando os resultados do sistema não se ajustarem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, então, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificados em URL.|
@@ -107,7 +107,7 @@ Obtém a lista de partições de um serviço do Service Fabric. As ID da partiç
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug             | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h           | Mostrar esta mensagem de ajuda e sair.|
@@ -122,14 +122,14 @@ Retorna informações sobre a partição especificada. A resposta inclui uma lis
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --partition-id [Obrigatório]| A identidade da partição.|
 | --timeout -t          | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
@@ -144,14 +144,14 @@ Indica ao cluster do Service Fabric que deve tentar recuperar uma partição esp
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --partition-id [Obrigatório]| A identidade da partição.|
 | --timeout -t          | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
@@ -166,7 +166,7 @@ Essa API é útil para teste de failover. Se usada para segmentar uma partição
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --operation-id           [Obrigatório]| Um GUID que identifica uma chamada dessa API.  Isso é passado para a API GetProgress correspondente.|
 | --partition-id           [Obrigatório]| A identidade da partição.|
@@ -176,7 +176,7 @@ Essa API é útil para teste de failover. Se usada para segmentar uma partição
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug                         | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                       | Mostrar esta mensagem de ajuda e sair.|

@@ -1,5 +1,5 @@
 ## <a name="create-a-ruby-application"></a>Criar um aplicativo Ruby
-Para obter instruções, confira [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Para obter instruções, confira [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de Serviço
 Para usar o Barramento de Serviço, baixe e use o pacote do Azure Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST de armazenamento.

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados com suporte no Catálogo de Dados do Azure
 
@@ -39,41 +39,41 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td>Diretório do Azure Data Lake Store</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Arquivo do Azure Data Lake Store</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Armazenamento de Blobs do Azure</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Diretório de Armazenamento do Azure</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do Armazenamento do Azure</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2">
       </td>
@@ -83,96 +83,96 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td>Diretório do HDFS</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Arquivo do HDFS</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do Hive</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição de Hive</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do MySQL</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do MySQL</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do Oracle Database</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do Oracle Database</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Outros (ativo genérico)</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do SQL Data Warehouse do Azure</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do SQL Data Warehouse</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
       <td></td>
     </tr>
     <tr>
       <td>Dimensão do SQL Server Analysis Services</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -180,94 +180,94 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     <tr>
       <td>KPI do SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Medida do SQL Server Analysis Services</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do SQL Server Analysis Services</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Relatório do SQL Server Reporting Services</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Navegador</td>
       <td>Somente os servidores de modo nativo. Não há suporte para o modo do SharePoint.</td>
     </tr>
     <tr>
       <td>Tabela do SQL Server</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do SQL Server</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do Teradata</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do Teradata</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do SAP HANA</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do DB2</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do DB2</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Arquivo do sistema de arquivos</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -275,23 +275,23 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td>Diretório do FTP</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Arquivo do FTP</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Relatório HTTP</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -299,7 +299,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td>Ponto de extremidade HTTP</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -307,7 +307,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td>Arquivo HTTP</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -315,7 +315,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td>Conjunto de entidades do OData</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -323,7 +323,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td>Função do OData</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -331,23 +331,23 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td>Tabela do PostgreSQL</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do PostgreSQL</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do SAP HANA</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -355,15 +355,15 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td> Objeto do SalesForce</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Lista do SharePoint </td>
-      <td>✓ </td>
+      <td>✓</td>
       <td></td>
       <td></td>
       <td></td>
@@ -371,72 +371,72 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
     </tr>
     <tr>
       <td>Coleção do Azure Cosmos DB</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela ODBC Genérica</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição ODBC Genérica</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do Cassandra</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
       <td>Exibição do Cassandra</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
       <td>Tabela do Sybase</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Exibição do Sybase</td>
-      <td>✓ </td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Tabela do MongoDB</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
       <td>Exibição do MongoDB</td>
-      <td>✓ </td>
-      <td>✓ </td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publicar como um ativo ODBC genérico</td>

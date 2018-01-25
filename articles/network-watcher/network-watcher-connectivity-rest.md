@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Verificar a conectividade com o Observador de Rede do Azure usando o portal do Azure
 
@@ -39,35 +39,10 @@ Este artigo pressupõe que você tenha os seguintes recursos:
 
 O ARMclient é usado para chamar a API REST usando o PowerShell. O ARMClient é encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient).
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
 
 > [!IMPORTANT]
 > A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Registrar o recurso de visualização
-
-A verificação de conectividade está atualmente em visualização pública; para usar esse recurso, ele precisa ser registrado. Para fazer isso, execute a seguinte amostra do PowerShell:
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Para verificar se o registro foi bem-sucedido, execute a seguinte amostra do Powershell:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-Se o recurso tiver sido registrado corretamente, a saída deverá corresponder ao seguinte:
-
-```
-FeatureName                             ProviderName      RegistrationState
------------                             ------------      -----------------
-AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
-```
 
 ## <a name="log-in-with-armclient"></a>Fazer logon com o ARMClient
 
@@ -160,7 +135,7 @@ Date: Fri, 02 Jun 2017 20:21:16 GMT
 null
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 A seguinte resposta é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está **Inacessível**. Você pode ver que todas as investigações enviadas falharam. Falha de conectividade na solução de virtualização devido a um `NetworkSecurityRule` configurado pelo usuário chamado **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
 
@@ -276,7 +251,7 @@ Date: Fri, 02 Jun 2017 20:26:05 GMT
 null
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 No exemplo a seguir, o `connectionStatus` é mostrado como **Inacessível**. Nos detalhes de `hops`, você pode ver em `issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`.
 
@@ -372,7 +347,7 @@ Date: Fri, 02 Jun 2017 20:31:00 GMT
 null
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 Na resposta a seguir, você pode ver o `connectionStatus` ser mostrado como **Acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
 
@@ -459,7 +434,7 @@ Date: Fri, 02 Jun 2017 20:05:03 GMT
 null
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 O exemplo a seguir é a resposta da execução da chamada à API anterior. Uma vez que a verificação é bem-sucedida, a propriedade `connectionStatus` é mostrada como **Alcançável**.  São fornecidos os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
 
@@ -496,7 +471,7 @@ O exemplo a seguir é a resposta da execução da chamada à API anterior. Uma v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como automatizar as capturas de pacotes com alertas da Máquina Virtual exibindo [Criar uma captura de pacotes disparada por alertas](network-watcher-alert-triggered-packet-capture.md)
+Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md)
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
 Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados nos cofres dos Serviços de Recuperação. Se for necessário reparar ou recriar uma VM (máquina virtual), você poderá restaurá-la de qualquer um dos pontos de recuperação salvos. Quando restaura um ponto de recuperação, você pode:
@@ -42,7 +42,7 @@ A restauração de uma VM ou de todos os discos do backup de VM envolve duas eta
 * Selecionar o tipo de restauração, criar uma nova VM ou restaurar discos e especificar os parâmetros necessários. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Selecionar um ponto de restauração para restauração
-1. Entre no [Portal do Azure](http://portal.azure.com/).
+1. Entre no [portal do Azure](http://portal.azure.com/).
 
 2. No menu do Azure, selecione **Procurar**. Na lista de serviços, digite **Serviços de Recuperação**. A lista de serviços é ajustada de acordo com o que você digitar. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
 
@@ -196,7 +196,7 @@ Para obter o modelo que foi gerado como parte da opção de discos de restauraç
    ![Enviar a implantação de modelo](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Etapas pós-restauração
-* Se você usar uma distribuição Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/linux/classic/reset-access.md). Recomendamos o uso de chaves SSH nessas distribuições para evitar a redefinição da senha após a restauração.
+* Se você usar uma distribuição Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/linux/reset-password.md). Recomendamos o uso de chaves SSH nessas distribuições para evitar a redefinição da senha após a restauração.
 * Extensões presentes durante a configuração do backup serão instaladas, mas não serão habilitadas. Se encontrar um problema, reinstale as extensões. 
 * Se, após a restauração, a VM de backup tiver IP estático, a VM restaurada terá um IP dinâmico para evitar conflitos ao criar uma VM restaurada. Saiba mais sobre como você pode [adicionar um IP estático a uma VM restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Uma VM restaurada não tem um valor de disponibilidade definido. Recomendamos o uso da opção de discos de restauração para [adicionar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) ao criar uma VM do PowerShell ou de modelos usando discos restaurados. 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3957ffcc149bdaf5c196960c7c7f23913f8b5c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-logic-apps-features"></a>Usar recursos de aplicativos lógicos
 
-Em um [tópico anterior](../logic-apps/logic-apps-create-a-logic-app.md), você criou seu primeiro aplicativo lógico. Para controlar o fluxo de trabalho do aplicativo lógico, você pode especificar diferentes caminhos para o aplicativo lógico executar e como processar dados em matrizes, coleções e lotes. Você pode incluir esses elementos no fluxo de trabalho do aplicativo lógico:
+Em um [tópico anterior](../logic-apps/quickstart-create-first-logic-app-workflow.md), você criou seu primeiro aplicativo lógico. Para controlar o fluxo de trabalho do aplicativo lógico, você pode especificar diferentes caminhos para o aplicativo lógico executar e como processar dados em matrizes, coleções e lotes. Você pode incluir esses elementos no fluxo de trabalho do aplicativo lógico:
 
 * Condições e [instruções switch](../logic-apps/logic-apps-switch-case.md) permitem que seu aplicativo lógico execute ações diferentes com base em se condições específicas são atendidas.
 
@@ -48,7 +48,7 @@ Por exemplo, suponha que você tem um aplicativo lógico que envia muitos emails
 2. Adicione uma condição para a localização do fluxo de trabalho desejado. 
 
    Para adicionar a condição entre etapas existentes no fluxo de trabalho do aplicativo lógico, mova o ponteiro sobre a seta em que deseja adicionar a condição. 
-   Escolha o **sinal de adição** (**+**), em seguida, escolha **Adicionar uma condição**. Por exemplo:
+   Escolha o **sinal de adição** (**+**), em seguida, escolha **Adicionar uma condição**. Por exemplo: 
 
    ![Adicionar condição ao aplicativo lógico](./media/logic-apps-use-logic-app-features/add-condition.png)
 
@@ -57,7 +57,7 @@ Por exemplo, suponha que você tem um aplicativo lógico que envia muitos emails
 
 3. Agora defina a condição. Especifique o campo de origem que você deseja avaliar, a operação a ser executada e o valor ou campo de destino. Para adicionar campos existentes à sua condição, escolha na **lista Adicionar conteúdo dinâmico**.
 
-   Por exemplo:
+   Por exemplo: 
 
    ![Editar condição no modo básico](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
 
@@ -66,13 +66,13 @@ Por exemplo, suponha que você tem um aplicativo lógico que envia muitos emails
    ![Condição completa](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
 
    > [!TIP]
-   > Para definir a condição no código, escolha **Editar no modo avançado**. Por exemplo:
+   > Para definir a condição no código, escolha **Editar no modo avançado**. Por exemplo: 
    > 
    > ![Editar condição no código](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
 
 4. Em **SE SIM** e **SE NÃO**, adicione as etapas a serem executadas com base em se a condição é atendida.
 
-   Por exemplo:
+   Por exemplo: 
 
    ![Condição com caminhos SIM e NÃO](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
 
@@ -102,7 +102,7 @@ Embora você tenha o Designer de Aplicativos Lógicos, você pode editar diretam
 
 2. Para salvar suas edições, escolha **Salvar**.
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Alguns recursos de aplicativos lógicos como parâmetros estão disponíveis apenas na exibição de código. Parâmetros facilitam a reutilização valores ao longo do seu aplicativo lógico. Por exemplo, se você tiver um endereço de email que deseje usar em várias ações, deverá defini-lo como um parâmetro.
 

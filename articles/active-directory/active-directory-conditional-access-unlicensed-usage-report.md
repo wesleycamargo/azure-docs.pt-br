@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8bcd814ee7b7bfc158e62ad26e6cc23781f5352d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="unlicensed-usage-report"></a>Relatório de uso não licenciado
 O relatório de uso não licenciado ajuda a identificar usuários sem licença que estejam usando recursos pagos do Azure AD. Isso permite fazer melhor uso das licenças que você comprou e identificar quando você poderá precisar de mais licenças. 
@@ -25,7 +25,7 @@ O relatório de uso não licenciado ajuda a identificar usuários sem licença q
 O relatório mostra o uso ativo dos recursos pagos nos últimos 30 dias. 
 
 ## <a name="report-structure"></a>Estrutura de relatório
-| Nome da coluna | Descrição |
+| Nome da coluna | DESCRIÇÃO |
 |:--- |:--- |
 | Usuário Não Licenciado |Nome do usuário |
 | Recurso |O nome do recurso. Por exemplo: acesso condicional |

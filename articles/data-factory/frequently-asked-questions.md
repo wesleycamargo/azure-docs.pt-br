@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 Este artigo se aplica à versão 2 do serviço do Azure Data Factory. Fornece respostas para perguntas frequentes sobre o Data Factory.  
@@ -164,7 +164,7 @@ Para obter as informações mais atualizadas sobre o Azure Data Factory, vá par
 ## <a name="technical-deep-dive"></a>Análise técnica aprofundada 
 
 ### <a name="can-version-1-and-version-2-pipelines-run-side-by-side"></a>É possível executar pipelines da versão 1 e da versão 2 lado a lado?
-Não. Os data factories das versões 2 e 1 não podem conter entidades (por exemplo, serviços vinculados, conjuntos de dados ou pipelines) da outra versão.   
+Nº Os data factories das versões 2 e 1 não podem conter entidades (por exemplo, serviços vinculados, conjuntos de dados ou pipelines) da outra versão.   
 
 ### <a name="do-i-still-need-to-define-data-sets-in-version-2"></a>Ainda preciso definir conjuntos de dados na versão 2?
 O conjunto de dados não é mais uma entidade obrigatória para a maioria das atividades. Ele é necessário para Cópia, Machine learning, pesquisa, validação e atividades personalizadas que usem o esquema e outras informações de metadados no conjunto de dados para a transformação. O restante das atividades não precisa mais de conjuntos de dados.

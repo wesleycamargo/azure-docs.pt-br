@@ -3,7 +3,7 @@ title: "Azure AD Connect: Quando você já tiver o Azure AD | Microsoft Docs"
 description: "Este tópico descreve como usar o Connect quando você tem um locatário existente do Azure AD."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b3efcdd8c3f7173711c005e0fe4d7080bd902663
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: quando você tem um locatário existente
 A maioria dos tópicos sobre como usar o Azure AD Connect pressupõe que você inicie com um novo locatário do Azure AD e que não exista nenhum usuário nem outros objetos. Mas, se você tiver começado com um locatário do Azure AD, o preencheu com usuários e outros objetos, e agora deseja usar o Connect, este tópico é para você.

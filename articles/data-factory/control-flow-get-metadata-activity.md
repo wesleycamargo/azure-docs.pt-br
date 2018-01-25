@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>A atividade de obtenção de metadados no Azure Data Factory
 A atividade GetMetadata pode ser usada para recuperar metadados de todos os dados no Azure Data Factory. Esta atividade tem suporte apenas data factories da versão 2. Ela pode ser usada nos seguintes cenários:
@@ -94,10 +94,10 @@ No exemplo a seguir, a atividade GetMetadata retorna metadados sobre os dados re
 ## <a name="type-properties"></a>Propriedades de tipo
 No momento, a atividade GetMetadata pode buscar os seguintes tipos de informações de metadados do conjunto de dados do Armazenamento do Azure.
 
-Propriedade | Descrição | Valores Permitidos | Obrigatório
+Propriedade | DESCRIÇÃO | Valores Permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-fieldList | Lista os tipos de informações de metadados necessárias.  | <ul><li>tamanho</li><li>estrutura</li><li>lastModified</li></ul> |    Não<br/>Se estiver vazio, a atividade retornará todas as três informações de metadados com suporte. 
-conjunto de dados | O conjunto de dados de referência cuja atividade de metadados deve ser recuperada pela atividade GetMetadata. <br/><br/>O tipo de conjunto de dados com suporte no momento é o Blob do Azure. Duas subpropriedades são: <ul><li><b>referenceName</b>: referência a um conjunto de dados do Blob do Azure existente</li><li><b>type</b>: como o conjunto de dados está sendo referenciado, é do tipo "DatasetReference"</li></ul> |    <ul><li>Cadeia de caracteres</li><li>DatasetReference</li></ul> | Sim
+fieldList | Lista os tipos de informações de metadados necessárias.  | <ul><li>tamanho</li><li>estrutura</li><li>lastModified</li></ul> |    Não <br/>Se estiver vazio, a atividade retornará todas as três informações de metadados com suporte. 
+dataset | O conjunto de dados de referência cuja atividade de metadados deve ser recuperada pela atividade GetMetadata. <br/><br/>O tipo de conjunto de dados com suporte no momento é o Blob do Azure. Duas subpropriedades são: <ul><li><b>referenceName</b>: referência a um conjunto de dados do Blob do Azure existente</li><li><b>type</b>: como o conjunto de dados está sendo referenciado, é do tipo "DatasetReference"</li></ul> |    <ul><li>Cadeia de caracteres</li><li>DatasetReference</li></ul> | sim
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 

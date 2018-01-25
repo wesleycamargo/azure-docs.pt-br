@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c5bc299e6efee2e74529b08b58fd913c6b329b06
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: cc26d314eb6406e14ab4267416cf7d7ec6bf4bbd
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Compilar seu primeiro data factory do Azure usando o Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -45,7 +45,7 @@ O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Es
 > 
 > Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** .
 * Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador.
 * (opcional) Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory](/powershell/module/azurerm.datafactories) para obter uma documentação abrangente sobre os cmdlets de Data Factory.
@@ -159,7 +159,7 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
     ```
     A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-   | Propriedade | Descrição |
+   | Propriedade | DESCRIÇÃO |
    |:--- |:--- |
    | ClusterSize |Especifica o tamanho do cluster HDInsight. |
    | TimeToLive |Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído. |
@@ -213,12 +213,12 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
 
     A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-   | Propriedade | Descrição |
+   | Propriedade | DESCRIÇÃO |
    |:--- |:--- |
-   | type |A propriedade type é definida como AzureBlob porque os dados residem no armazenamento de blobs do Azure. |
+   | Tipo |A propriedade type é definida como AzureBlob porque os dados residem no armazenamento de blobs do Azure. |
    | linkedServiceName |refere-se ao StorageLinkedService que você criou anteriormente. |
    | fileName |Essa propriedade é opcional. Se você omitir essa propriedade, todos os arquivos de folderPath serão selecionados. Nesse caso, somente o input.log será processado. |
-   | type |Os arquivos de log estão em formato de texto, então utilizaremos TextFormat. |
+   | Tipo |Os arquivos de log estão em formato de texto, então utilizaremos TextFormat. |
    | columnDelimiter |as colunas nos arquivos de log são delimitadas pelo caractere de vírgula (,). |
    | frequência/intervalo |a frequência é definida como Mês e o intervalo como 1, o que significa que as fatias de entrada estão disponíveis mensalmente. |
    | externo |essa propriedade será definida como true se os dados de entrada não forem gerados pelo serviço Data Factory. |
@@ -412,8 +412,8 @@ Neste tutorial, você criou uma data factory do Azure para processar dados ao ex
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight do Azure sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Consulte também
-| Tópico | Descrição |
+## <a name="see-also"></a>Veja também
+| Tópico | DESCRIÇÃO |
 |:--- |:--- |
 | [Referência de cmdlet do Data Factory](/powershell/module/azurerm.datafactories) |Consulte a documentação abrangente sobre os cmdlets do Data Factory |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e como usá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |

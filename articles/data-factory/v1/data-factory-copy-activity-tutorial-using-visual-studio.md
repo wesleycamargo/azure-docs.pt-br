@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 320df0586d9f4391bb8ad6add80a48daa7979aa9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4f517a4be012f88d9b7a5e19042ce22493cfe5f3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-> * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -46,7 +46,7 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 > [!NOTE] 
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 1. Leia o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e concluir as etapas de **pré-requisito** .       
 2. Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
 3. Você deve ter os seguintes itens instalados no seu computador: 
@@ -79,7 +79,7 @@ Eis as etapas executadas como parte deste tutorial:
     ![Caixa de diálogo Novo projeto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
 3. Especifique o nome do projeto, o local e o nome da solução e, em seguida, clique em **OK**.
    
-    ![Gerenciador de Soluções](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
+    ![Gerenciador de soluções](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste tutorial, você não usa serviços de computação, como o Azure HDInsight ou o Azure Data Lake Analytics. Você usa dois armazenamentos de dados do tipo Armazenamento do Azure (origem) e o banco de dados SQL (destino). 
@@ -162,9 +162,9 @@ Aqui, você usa o termo "tabelas" em vez de "conjuntos de dados". Uma tabela é 
   ``` 
     A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-    | Propriedade | Descrição |
+    | Propriedade | DESCRIÇÃO |
     |:--- |:--- |
-    | type | A propriedade type é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure. |
+    | Tipo | A propriedade type é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure. |
     | linkedServiceName | Refere-se ao **AzureStorageLinkedService** que você criou anteriormente. |
     | folderPath | Especifica o **contêiner** e a **pasta** de blob que contém blobs de entrada. Neste tutorial, adftutorial é o contêiner de blob e pasta é a pasta raiz. | 
     | fileName | Essa propriedade é opcional. Se você omitir essa propriedade, todos os arquivos de folderPath serão selecionados. Neste tutorial, **emp.txt** é especificado como fileName e, portanto, apenas esse arquivo é selecionado para processamento. |
@@ -173,7 +173,7 @@ Aqui, você usa o termo "tabelas" em vez de "conjuntos de dados". Uma tabela é 
     | frequência/intervalo | A frequência é definida como **Hora** e o intervalo é definido como **1**, o que significa que as fatias de entrada ficam disponíveis **a cada hora**. Melhor dizendo, o serviço Data Factory procurará dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado. Ele procura os dados nas horas de início e término do pipeline, não antes ou depois delas.  |
     | externo | Essa propriedade é definida como **true** se os dados não são gerados pelo pipeline. Os dados de entrada neste tutorial estão no arquivo emp.txt, que não é gerado pelo pipeline e, portanto, definimos essa propriedade como true. |
 
-    Para saber mais sobre essas propriedades JSON, confira o [artigo sobre o conector de blobs do Azure](data-factory-azure-blob-connector.md#dataset-properties).   
+    Para saber mais sobre essas propriedades JSON, confira o [artigo sobre o conector do Blob do Azure](data-factory-azure-blob-connector.md#dataset-properties).   
 
 ### <a name="create-output-dataset"></a>Criar conjunto de dados de saída
 Nesta etapa, você cria um conjunto de dados de saída denominado **OutputDataset**. Esse conjunto de dados aponta para uma tabela SQL no banco de dados SQL do Azure representada por **AzureSqlLinkedService1**. 
@@ -210,9 +210,9 @@ Nesta etapa, você cria um conjunto de dados de saída denominado **OutputDatase
     ```
     A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-    | Propriedade | Descrição |
+    | Propriedade | DESCRIÇÃO |
     |:--- |:--- |
-    | type | A propriedade type é definida como **AzureSqlTable** porque os dados são copiados para uma tabela em um banco de dados SQL do Azure. |
+    | Tipo | A propriedade type é definida como **AzureSqlTable** porque os dados são copiados para uma tabela em um banco de dados SQL do Azure. |
     | linkedServiceName | Refere-se ao **AzureSqlLinkedService** que você criou anteriormente. |
     | tableName | Especifica a **tabela** para a qual os dados são copiados. | 
     | frequência/intervalo | A frequência é definida como **Hora** e o intervalo é de **1**, o que significa que as fatias de saída são produzidas **a cada hora** entre as horas de início e término do pipeline, não antes ou depois delas.  |
@@ -302,7 +302,7 @@ Nesta etapa, você publica as entidades de Data Factory (serviços vinculados, c
    2. Digite **VSTutorialFactory** para **Nome**.  
       
       > [!IMPORTANT]
-      > O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber um erro sobre o nome do data factory durante a publicação, altere o nome (por exemplo, seunomeVSTutorialFactory) e tente publicar novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.        
+      > O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber um erro sobre o nome do data factory durante a publicação, altere o nome (por exemplo, seunomeVSTutorialFactory) e tente publicar novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.        
       > 
       > 
    3. Selecione a assinatura do Azure no campo **Assinatura** .

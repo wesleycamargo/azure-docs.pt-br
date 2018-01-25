@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Coletar logs de atividade do Azure em Log Analytics em assinaturas
 
@@ -27,7 +27,7 @@ Se o espaço de trabalho do Log Analytics estiver na mesma assinatura do Azure, 
 
 ## <a name="overview"></a>Visão geral
 
-A estratégia usada neste cenário é fazer com que o log de atividades do Azure envie eventos para um [Hub de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) onde um [aplicativo lógico](../logic-apps/logic-apps-what-are-logic-apps.md) envia para seu espaço de trabalho do Log Analytics. 
+A estratégia usada neste cenário é fazer com que o log de atividades do Azure envie eventos para um [Hub de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) onde um [aplicativo lógico](../logic-apps/logic-apps-overview.md) envia para seu espaço de trabalho do Log Analytics. 
 
 ![imagem do fluxo de dados do log de atividades para o log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -141,7 +141,7 @@ Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [V
 
 O Designer de Aplicativos Lógicos agora mostra os conectores disponíveis e seus gatilhos, que você usa para iniciar o fluxo de trabalho do aplicativo lógico.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Adicionar gatilho do Hub de Eventos
 

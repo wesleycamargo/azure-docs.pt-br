@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando a Atividade de Cópia do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Fa
 
 Atualmente, o Data Factory dá suporte apenas à movimentação de dados de um banco de dados DB2 para um [armazenamento de dados do coletor suportado](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Não há suporte para a movimentação de dados de outros armazenamentos de dados para um banco de dados DB2.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 O Data Factory dá suporte à conexão com um banco de dados DB2 local usando o [gateway de gerenciamento de dados](data-factory-data-management-gateway.md). Para obter instruções passo a passo de como configurar o pipeline de dados de gateway para mover dados, confira o artigo [Mover dados de fontes locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
 O gateway é necessário, mesmo se o DB2 estiver hospedado na VM da Iaas do Azure. Você pode instalar o gateway na mesma VM da IaaS que o armazenamento de dados. Se o gateway puder se conectar com o banco de dados, você poderá instalar o gateway em uma VM diferente.
@@ -80,23 +80,23 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="db2-linked-service-properties"></a>Propriedades do serviço vinculado do DB2
 A tabela a seguir lista as propriedades JSON que são específicas a um serviço vinculado do DB2.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |Sim |
-| **server** |O nome do servidor DB2. |Sim |
-| **database** |O nome do banco de dados DB2. |Sim |
-| **schema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não |
-| **authenticationType** |O tipo de autenticação que é usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anônimo, Básico e Windows. |Sim |
-| **username** |O nome da conta de usuário, se você usar a autenticação Básica ou do Windows. |Não |
-| **password** |A senha para a conta de usuário. |Não |
-| **gatewayName** |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |Sim |
+| **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |sim |
+| **server** |O nome do servidor DB2. |sim |
+| **database** |O nome do banco de dados DB2. |sim |
+| **schema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não  |
+| **authenticationType** |O tipo de autenticação que é usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anônimo, Básico e Windows. |sim |
+| **username** |O nome da conta de usuário, se você usar a autenticação Básica ou do Windows. |Não  |
+| **password** |A senha para a conta de usuário. |Não  |
+| **gatewayName** |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como **structure**, **availability** e **policy** de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, armazenamento de Blobs do Azure, armazenamento de Tabelas do Azure, entre outros).
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do DB2, tem a seguinte propriedade:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | **tableName** |O nome da tabela na instância do banco de dados DB2 à qual o serviço vinculado se refere. Essa propriedade diferencia maiúsculas de minúsculas. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
@@ -105,7 +105,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir as at
 
 Para a Atividade de Cópia, quando a fonte for do tipo **RelationalSource** (que inclui o DB2), as seguintes propriedades estarão disponíveis na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | **query** |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""` |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 
@@ -318,8 +318,8 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |DateTime |
-| Hora |TimeSpan |
+| Data |Datetime |
+| Hora |timespan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |Cadeia de caracteres |
@@ -344,8 +344,8 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |DateTime |
-| Hora |TimeSpan |
+| Data |Datetime |
+| Hora |timespan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |Cadeia de caracteres |

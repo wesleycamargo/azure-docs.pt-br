@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Parte 2 de Classificação da Íris: Criar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -34,7 +34,7 @@ Este tutorial é a parte dois de uma série de três partes. Nessa parte do tuto
 
 Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. As capturas de tela são específicas do Windows, mas a experiência no macOS é quase idêntica.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Concluir a primeira parte desta série de tutoriais. Siga o [tutorial Preparar dados](tutorial-classifying-iris-part-1.md) para criar recursos do Azure Machine Learning e instalar o aplicativo Azure Machine Learning Workbench antes de iniciar as etapas neste tutorial.
 
 Opcionalmente, você pode fazer experiências com a execução de scripts em um contêiner do Docker local. Para fazer isso, você precisa de um mecanismo Docker (o Community Edition é suficiente) instalado e iniciado localmente no seu computador Windows ou Mac OS. Para obter mais informações sobre como instalar o Docker, confira [Instruções de instalação do Docker](https://docs.docker.com/engine/installation/).
@@ -326,7 +326,7 @@ Para executar o script em um contêiner do Docker em um computador Linux remoto,
 3. Envie o mesmo comando que você enviou na janela da CLI, mas desta vez use _myvm_ como destino:
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
-   az ml experiment submit -c myvm .\iris_sklearn.py
+   az ml experiment submit -c myvm iris_sklearn.py
    ```
    O comando é executado como se você estivesse em um ambiente `docker-python`, exceto pelo fato de que a execução ocorre na VM Linux remota. A janela CLI exibe as mesmas informações de saída.
 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -41,7 +41,7 @@ Você também pode usar o Oozie para agendar trabalhos específicos para um sist
 > [!IMPORTANT]
 > O Oozie não está habilitado no HDInsight ingressado no domínio.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Um cluster hdinsight**: consulte [Introdução ao HDInsight no Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
@@ -505,7 +505,7 @@ Com a API REST do Oozie, você pode criar suas próprias ferramentas que funcion
 
 * **URI**: você pode acessar a API REST de fora do cluster em `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticação**: para fazer a autenticação, use a API com a conta (administrador) e a senha do cluster HTTP. Por exemplo:
+* **Autenticação**: para fazer a autenticação, use a API com a conta (administrador) e a senha do cluster HTTP. Por exemplo: 
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -520,7 +520,7 @@ A IU da Web do Oozie fornece um modo de exibição baseado na web sobre o status
    * Status do trabalho
    * Definição de trabalho
    * Configuração
-   * Um gráfico das ações no trabalho
+   * Um grafo das ações no trabalho
    * Logs do trabalho
 
 Você também pode exibir detalhes de ações dentro de um trabalho.
@@ -670,7 +670,7 @@ Você pode usar o coordenador para especificar um início, um fim e a frequênci
 
     ![Informações da ação](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Com a IU do Oozie, você pode exibir logs do Oozie. A IU do Oozie também contém links para os logs de JobTracker das tarefas de MapReduce que foram iniciadas pelo fluxo de trabalho. O padrão para solução de problemas deve ser:
 

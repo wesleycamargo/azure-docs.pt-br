@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados para um índice do Azure Search usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,20 +57,20 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 
 A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado Azure Search.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| type | A propriedade type deve ser definida como: **AzureSearch**. | Sim |
-| URL | URL para o serviço Azure Search. | Sim |
-| chave | Chave de administração para o serviço Azure Search. | Sim |
+| Tipo | A propriedade type deve ser definida como: **AzureSearch**. | sim |
+| URL | URL para o serviço Azure Search. | sim |
+| chave | Chave de administração para o serviço Azure Search. | sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md) . As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados. A seção **typeProperties** é diferente para cada tipo de conjunto de dados. A seção typeProperties para um conjunto de dados do tipo **AzureSearchIndex** tem as propriedades a seguir:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| type | A propriedade type deve ser definida como: **AzureSearchIndex**.| Sim |
-| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
+| Tipo | A propriedade type deve ser definida como: **AzureSearchIndex**.| sim |
+| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | sim |
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -78,10 +78,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Na Atividade de Cópia, quando o coletor é do tipo **AzureSearchIndexSink**, as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).| Merge (padrão)<br/>Carregar| Não |
-| WriteBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes. | 1 a 1.000. O valor padrão é 1000. | Não |
+| WriteBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).| Merge (padrão)<br/>Carregar| Não  |
+| WriteBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes. | 1 a 1.000. O valor padrão é 1000. | Não  |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
 Upsert do AzureSearchSink ao gravar dados. Em outras palavras, ao escrever um documento, se a chave do documento já existe no índice do Azure Search, o Azure Search atualiza o documento existente, em vez de lançar uma exceção de conflito.
@@ -105,7 +105,7 @@ A tabela a seguir especifica se um tipo de dados do Azure Search tem suporte ou 
 | Int32 | S |
 | Int64 | S |
 | Duplo | S |
-| Booliano | S |
+| BOOLEAN | S |
 | DataTimeOffset | S |
 | Matriz de cadeia de caracteres | N |
 | GeographyPoint | N |
@@ -287,7 +287,7 @@ Se você estiver copiando dados de um armazenamento de dados de nuvem para o Azu
 }
 ```
 
-Você também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de coletor na definição da atividade de cópia. Para obter detalhes, confira [Mapear colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+Você também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de coletor na definição da atividade de cópia. Para obter detalhes, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapear colunas de conjunto de dados no Azure Data Factory).
 
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste  
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação dos dados (Atividade de Cópia), além de várias maneiras de otimizar.

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c0145a5b5c54f5b9e3b5731d52df99c0a80fc271
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f42ba7ed9c07a9d0bc73929db2a095248ad7d56f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funções e Variáveis do Sistema
 > [!NOTE]
@@ -28,12 +28,12 @@ ms.lasthandoff: 11/03/2017
 Este artigo fornece informações sobre funções e variáveis com suporte no Azure Data Factory.
 
 ## <a name="data-factory-system-variables"></a>Variáveis do sistema do Data Factory
-| Nome de variável | Descrição | Escopo do objeto | Escopo JSON e casos de uso |
+| Nome de variável | DESCRIÇÃO | Escopo do objeto | Escopo JSON e casos de uso |
 | --- | --- | --- | --- |
-| WindowStart |Início do intervalo de tempo para a janela da execução de atividade atual |atividade |<ol><li>Especifica consultas de seleção de dados. Veja os artigos sobre o conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) .</li> |
+| WindowStart |Início do intervalo de tempo para a janela da execução de atividade atual |activity |<ol><li>Especifica consultas de seleção de dados. Veja os artigos sobre o conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) .</li> |
 | WindowEnd |Fim do intervalo de tempo para a janela da execução de atividade atual |atividade |igual a WindowStart. |
-| SliceStart |Início do intervalo de tempo para a fatia de dados sendo gerada |atividade<br/>conjunto de dados |<ol><li>Especifique caminhos de pasta dinâmicos e nomes de arquivos enquanto estiver trabalhando com o [Blob do Azure](data-factory-azure-blob-connector.md) e [Conjuntos de dados do sistema de arquivos](data-factory-onprem-file-system-connector.md).</li><li>Especificar dependências de entrada com funções de data factory na coleção de entradas da atividade.</li></ol> |
-| SliceEnd |Fim do intervalo de tempo da fatia de dados atual. |atividade<br/>dataset |o mesmo que SliceStart. |
+| SliceStart |Início do intervalo de tempo para a fatia de dados sendo gerada |activity<br/>dataset |<ol><li>Especifique caminhos de pasta dinâmicos e nomes de arquivos enquanto estiver trabalhando com o [Blob do Azure](data-factory-azure-blob-connector.md) e [Conjuntos de dados do sistema de arquivos](data-factory-onprem-file-system-connector.md).</li><li>Especificar dependências de entrada com funções de data factory na coleção de entradas da atividade.</li></ol> |
+| SliceEnd |Fim do intervalo de tempo da fatia de dados atual. |activity<br/>dataset |o mesmo que SliceStart. |
 
 > [!NOTE]
 > Atualmente, o data factory exige que o agendamento especificado na atividade corresponda exatamente ao agendamento especificado na disponibilidade do conjunto de dados de saída. Portanto, WindowStart, WindowEnd, SliceStart e SliceEnd sempre são mapeados para o mesmo período de tempo e uma única fatia de saída.
@@ -78,7 +78,7 @@ Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado
 ### <a name="functions"></a>Funções
 As tabelas a seguir listam todas as funções no Azure Data Factory:
 
-| Categoria | Função | Parâmetros | Descrição |
+| Categoria | Função | parâmetros | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | Hora |AddHours(X,Y) |X: DateTime  <br/><br/>Y: int |Adiciona Y horas até o momento X determinado. <br/><br/>Exemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Hora |AddMinutes(X,Y) |X: DateTime  <br/><br/>Y: int |Adiciona Y minutos a X.<br/><br/>Exemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
@@ -95,8 +95,8 @@ As tabelas a seguir listam todas as funções no Azure Data Factory:
 | Data |EndOfDay(X) |X: DateTime  |Obtém a data e hora que representam o fim do dia (componente do dia) do X.<br/><br/>Exemplo: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Data |EndOfMonth(X) |X: DateTime  |Obtém o fim do mês representado pelo componente de mês do parâmetro X. <br/><br/>Exemplo: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data/hora que representa o fim do mês de setembro) |
 | Data |StartOfDay(X) |X: DateTime  |Obtém o início do dia representado pelo componente dia do parâmetro X.<br/><br/>Exemplo: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |From(X) |X: Cadeia de caracteres |Analise a cadeia de caracteres X para um valor de data e hora. |
-| DateTime |Ticks(X) |X: DateTime  |Obtém os tiques de propriedade do parâmetro X. Um tique é igual a 100 nanossegundos. O valor dessa propriedade representa o número de tiques que se passaram desde 0h, meia-noite de 1º de janeiro de 0001. |
+| Datetime |From(X) |X: Cadeia de caracteres |Analise a cadeia de caracteres X para um valor de data e hora. |
+| Datetime |Ticks(X) |X: DateTime  |Obtém os tiques de propriedade do parâmetro X. Um tique é igual a 100 nanossegundos. O valor dessa propriedade representa o número de tiques que se passaram desde 0h, meia-noite de 1º de janeiro de 0001. |
 | Texto |Format(X) |X: variável de cadeia de caracteres |Formata o texto (use a combinação `\\'` para escapar o caractere `'`).|
 
 > [!IMPORTANT]

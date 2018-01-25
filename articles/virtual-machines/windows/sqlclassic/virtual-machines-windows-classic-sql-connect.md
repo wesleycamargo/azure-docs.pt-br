@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f6dc1b2ab8198ec2c03615aedced98a314bf66d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conectar-se a uma máquina virtual do SQL Server no Azure (implantação clássica)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ A maneira como um cliente se conecta ao SQL Server em execução em uma máquina
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Conectar-se ao SQL Server no mesmo serviço de nuvem
-Várias máquinas virtuais podem ser criadas no mesmo serviço de nuvem. Para compreender este cenário com máquinas virtuais, consulte [Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Esse cenário refere-se aos casos em que um cliente em uma máquina virtual tenta se conectar ao SQL Server em execução em outra máquina virtual no mesmo serviço de nuvem.
+Várias máquinas virtuais podem ser criadas no mesmo serviço de nuvem. Para compreender este cenário com máquinas virtuais, consulte [Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Esse cenário refere-se aos casos em que um cliente em uma máquina virtual tenta se conectar ao SQL Server em execução em outra máquina virtual no mesmo serviço de nuvem.
 
 Nesse cenário, você pode se conectar usando o **Nome** da VM (também mostrado como **Nome do Computador** ou **hostname** no portal). Esse é o nome fornecido para a VM durante a criação. Por exemplo, se você nomeou a VM do SQL **mysqlvm**, uma VM cliente no mesmo serviço de nuvem pode usar a seguinte cadeia de conexão para se conectar:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Licenciamento: SSPR do Azure AD | Microsoft Docs'
+title: "Redefinição de senha por autoatendimento da licença – Azure Active Directory"
 description: "Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD"
 services: active-directory
 keywords: 
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: ca6d7a6d2b7ffa49f3656510010cfb49a81e22d7
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD
 
 Para a redefinição de senhas do Azure AD (Azure Active Directory) funcionar, você *deve ter pelo menos uma licença atribuída na sua organização*. Não impomos licenciamento por usuário na experiência de redefinição da senha. Para manter a conformidade com o contrato de licenciamento da Microsoft, você precisa atribuir licenças a todos os usuários que usam recursos premium.
 
 * **Somente usuários de nuvem**: Qualquer SKU pago do Office 365 ou Azure AD Basic
-* Usuários na **nuvem** ou **locais**: Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Secure Productive Enterprise (SPE)
+* Usuários na **nuvem** ou **locais**: Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Microsoft 365
 
 ## <a name="licenses-required-for-password-writeback"></a>Licenças necessárias para write-back de senha
 
@@ -42,6 +42,7 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 
 > [!WARNING]
 > Os planos de licenciamento do Standalone Office 365 *não dão suporte ao write-back de senha* e exigem que você tenha um dos planos anteriores para que essa funcionalidade funcione.
+>
 
 As informações de licenciamento adicionais, inclusive custos, podem ser encontradas nas páginas a seguir:
 
@@ -69,4 +70,3 @@ Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para 
 * [Quais são todas as opções no SSPR e o que elas significam?](active-directory-passwords-how-it-works.md)
 * [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
-

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Introdução à ação HTTP
 
@@ -30,7 +30,7 @@ Você pode:
 * Crie fluxos de trabalho de aplicativo lógico que são ativados (disparam) quando um site que você gerencia é desativado.
 * Comunique-se com qualquer ponto de extremidade por HTTP para estender seus fluxos de trabalho para outros serviços.
 
-Para começar a usar a ação HTTP em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Para começar a usar a ação HTTP em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-trigger"></a>Usar o gatilho HTTP
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
@@ -93,16 +93,16 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 ## <a name="http-trigger"></a>Gatilho HTTP
 Veja os detalhes do gatilho com suporte deste conector. O conector HTTP tem um gatilho.
 
-| Gatilho | Descrição |
+| Gatilho | DESCRIÇÃO |
 | --- | --- |
-| http |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
+| HTTP |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
 
 ## <a name="http-action"></a>Ação HTTP
 Veja os detalhes da ação com suporte deste conector. O conector HTTP tem uma ação possível.
 
-| Ação | Descrição |
+| Ação | DESCRIÇÃO |
 | --- | --- |
-| http |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
+| HTTP |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
 
 ## <a name="http-details"></a>Detalhes do HTTP
 As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais para a ação e os detalhes de saída correspondentes associados ao uso da ação.
@@ -111,12 +111,12 @@ As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais par
 Estes são os campos de entrada para a ação, o que cria uma solicitação HTTP de saída.
 Um * significa que é um campo obrigatório.
 
-| Nome de exibição | Nome da propriedade | Descrição |
+| Nome de exibição | Nome da propriedade | DESCRIÇÃO |
 | --- | --- | --- |
 | Método* |estático |Verbo HTTP a ser usado |
 | URI* |uri |O URI para a solicitação HTTP |
-| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos HTTP a serem incluídos |
-| Corpo |Corpo |O corpo da solicitação HTTP |
+| Cabeçalhos |headers |Um objeto JSON de cabeçalhos HTTP a serem incluídos |
+| Corpo |body |O corpo da solicitação HTTP |
 | Autenticação |Autenticação |Os detalhes na seção [Autenticação](#authentication) |
 
 <br>
@@ -124,7 +124,7 @@ Um * significa que é um campo obrigatório.
 #### <a name="output-details"></a>Detalhes de saída
 A seguir, os detalhes de saída para a resposta HTTP.
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
 | --- | --- | --- |
 | headers |objeto |Cabeçalhos de resposta |
 | Corpo |objeto |Objeto de resposta |
@@ -142,9 +142,9 @@ O recurso de Aplicativos Lógicos permitem que você use diferentes tipos de aut
 O seguinte objeto de autenticação é necessário para a autenticação básica.
 Um * significa que é um campo obrigatório.
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
 | --- | --- | --- |
-| Type* |type |Tipo de autenticação (deve ser `Basic` para a autenticação básica) |
+| Type* |Tipo |Tipo de autenticação (deve ser `Basic` para a autenticação básica) |
 | Username* |Nome de Usuário |Nome de usuário para autenticar |
 | Password* |Senha |Senha para autenticação |
 
@@ -152,7 +152,7 @@ Um * significa que é um campo obrigatório.
 > Se você quiser usar uma senha que não é possível recuperar na definição, use um parâmetro `securestring` e a `@parameters()` 
 > [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
 
-Por exemplo:
+Por exemplo: 
 
 ```javascript
 {
@@ -166,9 +166,9 @@ Por exemplo:
 
 O seguinte objeto de autenticação é necessário para a autenticação de certificado de cliente. Um * significa que é um campo obrigatório.
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
 | --- | --- | --- |
-| Type* |type |O tipo de autenticação (deve ser `ClientCertificate` para certificados de cliente SSL) |
+| Type* |Tipo |O tipo de autenticação (deve ser `ClientCertificate` para certificados de cliente SSL) |
 | PFX* |pfx |O conteúdo codificado na Base64 do arquivo Personal Information Exchange (PFX) |
 | Password* |Senha |A senha para acessar o arquivo PFX |
 
@@ -176,7 +176,7 @@ O seguinte objeto de autenticação é necessário para a autenticação de cert
 > Para usar um parâmetro que não será legível na definição após salvar o aplicativo lógico, você poderá usar um parâmetro `securestring` e a `@parameters()` 
 > [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
 
-Por exemplo:
+Por exemplo: 
 
 ```javascript
 {
@@ -189,9 +189,9 @@ Por exemplo:
 #### <a name="azure-ad-oauth-authentication"></a>Autenticação OAuth do Azure AD
 O seguinte objeto de autenticação é necessário para a autenticação OAuth do Azure AD. Um * significa que é um campo obrigatório.
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
 | --- | --- | --- |
-| Type* |type |O tipo de autenticação (deve ser `ActiveDirectoryOAuth` para a autenticação OAuth do Azure AD) |
+| Type* |Tipo |O tipo de autenticação (deve ser `ActiveDirectoryOAuth` para a autenticação OAuth do Azure AD) |
 | Tenant* |locatário |O identificador do locatário para o locatário do Azure AD |
 | Audience* |audiência |O recurso para cujo uso você está solicitando autorização. Por exemplo: `https://management.core.windows.net/` |
 | Client ID* |clientId |O identificador de cliente para o aplicativo do Azure AD |
@@ -202,7 +202,7 @@ O seguinte objeto de autenticação é necessário para a autenticação OAuth d
 > 
 > 
 
-Por exemplo:
+Por exemplo: 
 
 ```javascript
 {
@@ -215,5 +215,5 @@ Por exemplo:
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
+Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 

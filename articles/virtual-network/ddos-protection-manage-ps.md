@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: baac97db61b84000557e7150a64ffb64d81ce00c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 33ff6cfcacd1632dc49b448e70361e1cb2ce1176
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-azure-powershell"></a>Gerenciar a Proteção contra DDoS do Azure Standard usando o Azure PowerShell
 
@@ -127,7 +127,7 @@ Aproveitando a configuração de alerta do Azure Monitor, você pode selecionar 
     Get-AzureRmAlertRule -Name myMetricRuleWithEmail -ResourceGroup myresourcegroup -DetailedOutput 
     ```
 
-Você também pode aprender mais sobre [configuração de webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [aplicativos lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) para criação de alertas.
+Você também pode aprender mais sobre [configuração de webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [aplicativos lógicos](../logic-apps/logic-apps-overview.md) para criação de alertas.
 
 ## <a name="configure-logging-on-ddos-protection-metrics"></a>Configurar o registro em log para métricas de Proteção contra DDoS
 

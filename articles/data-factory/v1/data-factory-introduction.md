@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: bcd0535c689bfda02b3c100b4ae3ab8bacb932e3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução à Fábrica de Dados do Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/02/2017
 > * [Versão 2 – Versão prévia](../introduction.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Azure Data Factory, que já está com disponível (GA). Se você está usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Introdução ao Data Factory V2](../introduction.md).
+> Este artigo se aplica à versão 1 do Azure Data Factory, que já está em GA (disponibilidade geral). Se você está usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Introdução ao Data Factory V2](../introduction.md).
 
 
 ## <a name="what-is-azure-data-factory"></a>O que é o Data Factory do Azure?
@@ -102,7 +102,7 @@ Para saber mais informações, confira [Mover dados usando a Atividade de Cópia
 ### <a name="custom-net-activities"></a>Atividades personalizadas do .NET
 Crie uma atividade personalizada do .NET se for necessário mover dados de ou para um repositório de dados com o qual a Atividade de Cópia não seja compatível ou se for necessário transformar dados usando a sua própria lógica. Para obter detalhes sobre como criar e usar uma atividade personalizada, confira [Usar atividades personalizadas em um pipeline do Azure Data Factory](data-factory-use-custom-activities.md).
 
-### <a name="datasets"></a>CONJUNTOS DE DADOS
+### <a name="datasets"></a>Conjunto de dados
 Uma atividade aceita zero ou mais conjuntos de dados como entrada e produz um ou mais conjuntos de dados como saídas. Os conjuntos de dados representam estruturas de dados dentro dos repositórios de dados. Essas estruturas apontam para ou referenciam os dados que você deseja usar nas suas atividades (tais como entradas ou saídas). 
 
 Por exemplo, um conjuntos de dados de blob do Azure especifica o contêiner e a pasta do blob no armazenamento de blobs do Azure de onde o pipeline deve ler os dados. Ou um conjuntos de dados de tabela de SQL do Azure especifica a tabela na qual os dados de saída são gravados pela atividade. 
@@ -143,7 +143,7 @@ Você pode usar uma dessas ferramentas ou APIs para criar pipelines de dados no 
 
 Para saber como criar data factories com pipelines de dados, siga as instruções passo a passo dos tutoriais a seguir:
 
-| Tutorial | Descrição |
+| Tutorial | DESCRIÇÃO |
 | --- | --- |
 | [Mover dados entre dois armazenamentos de dados em nuvem](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Criar um data factory com um pipeline que move dados do armazenamento de blobs para um banco de dados SQL. |
 | [Transformar dados usando o cluster Haddop](data-factory-build-your-first-pipeline.md) |Criar o seu primeiro data factory do Azure com um pipeline de dados que processa dados executando um script Hive em um cluster do Azure HDInsight (Hadoop). |

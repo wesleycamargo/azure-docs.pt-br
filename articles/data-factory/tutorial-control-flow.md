@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 8259c1bd52cfd0641148dc09404debaf59640b45
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 Neste tutorial, você deve criar um pipeline de Data Factory que apresente alguns dos recursos de fluxo de controle. Esse pipeline faz uma cópia simples de um contêiner no Armazenamento de Blobs do Azure para outro contêiner na mesma conta de armazenamento. Se a atividade de cópia for bem-sucedida, você desejará enviar detalhes da operação de cópia bem-sucedida (tais como a quantidade de dados gravados) em um email de êxito. Se a atividade de cópia falhar, você desejará enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) em um email de falha. Ao longo do tutorial, você verá como passar parâmetros.
@@ -43,7 +43,7 @@ Este tutorial usa o .NET SDK. Você pode usar outros mecanismos para interagir c
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **origem**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar uma.
 * **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **coletor**. Se você não tiver um Banco de Dados SQL do Azure, veja o artigo [Criar um Banco de Dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para conhecer as etapas para criar um.
@@ -292,7 +292,7 @@ Em seu projeto do C#, crie uma classe denominada **EmailRequest**. Isso define q
     }
 ```
 ## <a name="create-email-workflow-endpoints"></a>Criar pontos de extremidade do fluxo de trabalho de email
-Para disparar o envio de um email, você deve usar os [Aplicativos Lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) para definir o fluxo de trabalho. Para obter detalhes sobre como criar um fluxo de trabalho de Aplicativos Lógicos, consulte [Como criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). 
+Para disparar o envio de um email, você deve usar os [Aplicativos Lógicos](../logic-apps/logic-apps-overview.md) para definir o fluxo de trabalho. Para obter detalhes sobre como criar um fluxo de trabalho de Aplicativos Lógicos, consulte [Como criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Fluxo de trabalho de email de êxito 
 Criar um fluxo de trabalho dos Aplicativos Lógicos chamado `CopySuccessEmail`. Defina o gatilho do fluxo de trabalho como `When an HTTP request is received` e adicione uma ação de `Office 365 Outlook – Send an email`.
@@ -326,7 +326,7 @@ A sua solicitação deve ter esta aparência no Designer de Aplicativo Lógico:
 
 ![Designer de Aplicativo Lógico – solicitação](media/tutorial-control-flow/logic-app-designer-request.png)
 
-Para a ação **Enviar Email**, personalize o modo como você deseja formatar o email, utilizando as propriedades passadas no esquema JSON do corpo da solicitação. Aqui está um exemplo:
+Para a ação **Enviar Email**, personalize o modo como você deseja formatar o email, utilizando as propriedades passadas no esquema JSON do corpo da solicitação. Veja um exemplo:
 
 ![Designer de Aplicativo Lógico – ação de enviar email](media/tutorial-control-flow/send-email-action.png)
 
@@ -338,7 +338,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>Fluxo de trabalho de email de falha 
-Clone o **CopySuccessEmail** e criar outro fluxo de trabalho de Aplicativos Lógicos de **CopyFailEmail**. No gatilho de solicitação, o `Request Body JSON schema` é o mesmo. Basta alterar o formato do seu email como o `Subject` para ajustá-lo, tornando-o um email de falha. Aqui está um exemplo:
+Clone o **CopySuccessEmail** e criar outro fluxo de trabalho de Aplicativos Lógicos de **CopyFailEmail**. No gatilho de solicitação, o `Request Body JSON schema` é o mesmo. Basta alterar o formato do seu email como o `Subject` para ajustá-lo, tornando-o um email de falha. Veja um exemplo:
 
 ![Designer de Aplicativo Lógico – fluxo de trabalho de email de falha](media/tutorial-control-flow/fail-email-workflow.png)
 

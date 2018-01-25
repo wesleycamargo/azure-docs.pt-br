@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 1cf96bbf8bd215d7ddb3c99860a5cb4e668be3c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Introdução ao conector do SMTP
 Conecte-se ao SMTP para enviar email.
 
-Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../logic-apps/logic-apps-create-a-logic-app.md).
+Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-smtp"></a>Conectar-se ao SMTP
 Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](connectors-overview.md) fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao SMTP, é preciso ter uma *conexão* do SMTP. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual se conecta. Assim, no exemplo de SMTP, insira as credenciais de seu nome de conexão, do endereço do servidor SMTP e das informações de logon do usuário para criar a conexão com o SMTP.  
@@ -35,7 +35,7 @@ Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma
 > 
 
 ## <a name="use-an-smtp-trigger"></a>Usar um gatilho de SMTP
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Neste exemplo, como o SMTP não tem seu próprio gatilho, usaremos o gatilho **Salesforce – quando um objeto é criado**. Esse gatilho é ativado quando um novo objeto é criado no Salesforce. Em nosso exemplo, nós o configuraremos de modo que toda vez que um novo cliente potencial for criado no Salesforce, uma ação *enviar email* ocorrerá por meio do conector de SMTP com uma notificação do novo cliente potencial que está sendo criado.
 
@@ -49,7 +49,7 @@ Neste exemplo, como o SMTP não tem seu próprio gatilho, usaremos o gatilho **S
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>Usar uma ação de SMTP
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação de SMTP que ocorrerá quando um novo cliente potencial for criado no Salesforce.
 
@@ -66,7 +66,7 @@ Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/smtpconnector/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/smtpconnector/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

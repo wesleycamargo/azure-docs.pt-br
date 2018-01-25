@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8398a261ca33060b7709d818cb64bb1e8e2058b1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
 > [!NOTE]
@@ -46,7 +46,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 >
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Armazenamento de Blobs do Azure: esse teste usa o Armazenamento de Blobs do Azure (GRS) para armazenar o conjunto de dados de teste do TPC-H.  Se você não tiver uma conta de armazenamento do Azure, aprenda [como criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Dados do [TPC-H](http://www.tpc.org/tpch/): usaremos o TPC-H como o conjunto de dados de teste.  Para fazer isso, você precisa usar `dbgen` do kit de ferramentas do TPC-H, o que ajuda você a gerar o conjunto de dados.  Você pode baixar código-fonte para `dbgen` de [Ferramentas TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilá-lo por conta própria ou então baixar o binário compilado de [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Execute dbgen.exe com os comandos a seguir para gerar um arquivo simples de 1 TB para a tabela `lineitem` dividido em 10 arquivos:
 
@@ -118,7 +118,7 @@ Com as etapas de pré-requisito concluídas, agora estamos prontos para configur
 3. Na folha **Nova data factory** :
 
    1. Insira **LoadIntoSQLDWDataFactory** para o **nome**.
-       O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory “LoadIntoSQLDWDataFactory” não está disponível**, altere o nome da data factory (por exemplo, yournameLoadIntoSQLDWDataFactory) e tente criá-la novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.  
+       O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory “LoadIntoSQLDWDataFactory” não está disponível**, altere o nome da data factory (por exemplo, yournameLoadIntoSQLDWDataFactory) e tente criá-la novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.  
    2. Selecione sua **assinatura**do Azure.
    3. Em relação ao Grupo de Recursos, execute uma das seguintes etapas:
       1. Selecione **Usar existente** para selecionar um grupo de recursos existente.
@@ -143,7 +143,7 @@ Na página **Propriedades** :
 
 1. Insira **CopyFromBlobToAzureSqlDataWarehouse** para o **Nome da tarefa**
 2. Selecione opção **Executar uma vez agora**.   
-3. Clique em **Avançar**.  
+3. Clique em **Próximo**.  
 
     ![Assistente de Cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -185,7 +185,7 @@ Esta seção mostra como configurar o destino: tabela `lineitem` no banco de dad
 
 ## <a name="step-4-performance-settings"></a>Etapa 4: Configurações de desempenho
 
-A opção **Permitir polybase** é marcada por padrão.  Clique em **Avançar**.
+A opção **Permitir polybase** é marcada por padrão.  Clique em **Próximo**.
 
 ![Assistente de Cópia – página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

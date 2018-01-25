@@ -3,8 +3,8 @@ title: Perguntas Frequentes sobre o Cache Redis do Azure | Microsoft Docs
 description: "Conheça as respostas a perguntas, padrões e práticas recomendadas comuns do Cache Redis do Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Perguntas frequentes sobre Cache Redis do Azure
 Conheça as respostas a perguntas, padrões e práticas recomendadas comuns do Cache Redis do Azure.
@@ -132,7 +132,7 @@ Podemos tirar as seguintes conclusões desta tabela:
 * Com o cluster Redis, a taxa de transferência aumenta linearmente à medida que o número de fragmentos (nós) no cluster aumenta. Por exemplo, se você criar um cluster P4 de 10 fragmentos, a taxa de transferência disponível será de 400.000 * 10 = 4 milhões de RPS.
 * A taxa de transferência tamanhos de chave maiores é mais alta na camada Premium quando comparada à camada Standard.
 
-| Camada de preços | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB |
+| Tipo de preço  | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB |
 | --- | --- | --- | --- | --- |
 | **Tamanhos de cache padrão** | | |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**RPS (solicitações por segundo)** |
 | C0 |250 MB |Compartilhado |5 / 0,625 |600 |
@@ -183,7 +183,7 @@ Para obter mais informações sobre como usar o Cache Redis do Azure com o Power
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>O que as opções de configuração do StackExchange.Redis fazem?
 O StackExchange.Redis tem muitas opções. Esta seção fala sobre algumas das configurações comuns. Para obter mais informações sobre opções do StackExchange.Redis, consulte [configuração do StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | Descrição | Recomendações |
+| ConfigurationOptions | DESCRIÇÃO | Recomendações |
 | --- | --- | --- |
 | AbortOnConnectFail |Quando definido como true, a conexão não reconectará após uma falha de rede. |Defina como false e deixe o StackExchange.Redis reconectar-se automaticamente. |
 | ConnectRetry |O número de vezes para repetir tentativas de conexão durante a conexão inicial. |Consulte as observações a seguir para se orientar. |
@@ -192,7 +192,7 @@ O StackExchange.Redis tem muitas opções. Esta seção fala sobre algumas das c
 Normalmente, os valores padrão do cliente são suficientes. Você pode realizar o ajuste fino das opções com base na sua carga de trabalho.
 
 * **Novas tentativas**
-  * Para ConnectRetry e ConnectTimeout, a orientação geral é falhar no modo rápido e tentar novamente. Essa diretriz se baseia na sua carga de trabalho e em quanto tempo em média leva para o cliente emitir um comando Redis e receber uma resposta.
+  * Para ConnectRetry e ConnectTimeout, a orientação geral é falhar rapidamente e tentar novamente. Essa diretriz se baseia na sua carga de trabalho e em quanto tempo em média leva para o cliente emitir um comando Redis e receber uma resposta.
   * Deixe o StackExchange.Redis reconectar-se automaticamente, em vez de você verificar o status de conexão e realizar a reconexão. **Evitar usar a propriedade ConnectionMultiplexer.IsConnected**.
   * Bola de neve - às vezes, você poderá ter um problema em que você esteja realizando novas tentativas e isso se torne uma bola de neve, sem nunca se recuperar. Caso ocorra essa bola de neve, você deve considerar usar um algoritmo de nova tentativa de retirada exponencial, conforme descrito em [Orientação geral sobre novas tentativas](../best-practices-retry-general.md) publicado pelo grupo de Padrões e práticas da Microsoft.
 * **Valores de tempo limite**
@@ -201,7 +201,7 @@ Normalmente, os valores padrão do cliente são suficientes. Você pode realizar
   * Use uma única instância de ConnectionMultiplexer para o aplicativo. Você pode usar uma LazyConnection para criar uma única instância que é retornada por uma propriedade Connection, conforme mostrado em [Conectar-se ao cache usando a classe ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Defina a propriedade `ConnectionMultiplexer.ClientName` como um nome exclusivo de instância de aplicativo para fins de diagnóstico.
   * Usar várias instâncias de `ConnectionMultiplexer` para cargas de trabalho personalizadas.
-      * Você pode seguir este modelo se tem variação de carga em seu aplicativo. Por exemplo:
+      * Você pode seguir este modelo se tem variação de carga em seu aplicativo. Por exemplo: 
       * Você pode ter um multiplexador para lidar com chaves grandes.
       * Você pode ter um multiplexador para lidar com chaves pequenas.
       * Você pode definir valores diferentes para o tempo limite da conexão e a lógica de repetição para cada ConnectionMultiplexer que você usa.

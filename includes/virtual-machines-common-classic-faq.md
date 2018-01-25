@@ -33,8 +33,7 @@ Uma conta de armazenamento do Azure fornece armazenamento para o disco do sistem
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Quais tipos de disco rígido virtual eu posso usar?
 O Azure dá suporte apenas a discos rígidos virtuais fixos no formato VHD. Se tiver um VHDX que deseja usar no Azure, você precisará primeiro convertê-lo usando o Gerenciador do Hyper-V ou o cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) . Depois de fazer isso, use o cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (no modo de Gerenciamento de Serviços) para carregar o VHD em uma conta de armazenamento do Azure para que você possa usá-lo com máquinas virtuais.
 
-* Para obter instruções sobre o Linux, veja [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* Para obter instruções sobre o Windows, veja [Criar e carregar um VHD do Windows Server no Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Para obter instruções sobre o Linux, veja [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Essas máquinas virtuais são iguais às máquinas virtuais Hyper-V?
 De muitas formas, elas são semelhantes às VMs Hyper-V da "Geração 1", mas não são exatamente iguais. Os dois tipos oferecem hardware virtualizado e os discos rígidos virtuais em formato VHD são compatíveis. Isso significa que você pode movê-los entre o Hyper-V e o Azure. Três diferenças principais que às vezes surpreendem os usuários do Hyper-V são:

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Introdução ao conector de webhook
 
@@ -79,7 +79,7 @@ Aqui estão mais detalhes sobre os gatilhos e ações aos quais o webhook dá su
 
 ## <a name="webhook-triggers"></a>Gatilhos de Webhook
 
-| Ação | Descrição |
+| Ação | DESCRIÇÃO |
 | --- | --- |
 | Webhook HTTP |Assine uma URL de retorno de chamada para um serviço que possa chamar a URL, de modo a acionar o aplicativo lógico conforme a necessidade. |
 
@@ -90,7 +90,7 @@ Aqui estão mais detalhes sobre os gatilhos e ações aos quais o webhook dá su
 Assine uma URL de retorno de chamada para um serviço que possa chamar a URL, de modo a acionar o aplicativo lógico conforme a necessidade.
 Um * significa que o campo é obrigatório.
 
-| Nome de exibição | Nome da Propriedade | Descrição |
+| Nome de exibição | Nome da Propriedade | DESCRIÇÃO |
 | --- | --- | --- |
 | Método de Assinatura* |estático |Método HTTP a ser usado para solicitação de assinatura |
 | URI da Assinatura* |uri |URI do HTTP a ser usado para solicitação de assinatura |
@@ -99,7 +99,7 @@ Um * significa que o campo é obrigatório.
 | Corpo da Assinatura |corpo |Corpo da solicitação HTTP da assinatura |
 | Cabeçalhos da Assinatura |headers |Cabeçalhos da solicitação HTTP da assinatura |
 | Autenticação da Assinatura |Autenticação |Autenticação HTTP a ser usada para assinatura. [Consulte o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |
-| Corpo do Cancelamento da Assinatura |corpo |Corpo da solicitação HTTP do cancelamento da assinatura |
+| Corpo do Cancelamento da Assinatura |body |Corpo da solicitação HTTP do cancelamento da assinatura |
 | Cabeçalhos do Cancelamento da Assinatura |headers |Cabeçalhos da solicitação HTTP do cancelamento da assinatura |
 | Autenticação do Cancelamento da Assinatura |autenticação |Autenticação HTTP a ser usada para cancelamento da assinatura. [Consulte o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |
 
@@ -107,15 +107,15 @@ Um * significa que o campo é obrigatório.
 
 Solicitação de webhook
 
-| Nome da Propriedade | Tipo de Dados | Descrição |
+| Nome da Propriedade | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | headers |objeto |Cabeçalhos da solicitação de webhook |
-| corpo |objeto |Objeto da solicitação de webhook |
+| Corpo |objeto |Objeto da solicitação de webhook |
 | Código de status |int |Código de status da solicitação de webhook |
 
 ## <a name="webhook-actions"></a>Ações de Webhook
 
-| Ação | Descrição |
+| Ação | DESCRIÇÃO |
 | --- | --- |
 | Webhook HTTP |Assine uma URL de retorno de chamada para um serviço que possa chamar a URL, de modo a retomar uma etapa do fluxo de trabalho conforme a necessidade. |
 
@@ -126,7 +126,7 @@ Solicitação de webhook
 Assine uma URL de retorno de chamada para um serviço que possa chamar a URL, de modo a retomar uma etapa do fluxo de trabalho conforme a necessidade.
 Um * significa que o campo é obrigatório.
 
-| Nome de exibição | Nome da Propriedade | Descrição |
+| Nome de exibição | Nome da Propriedade | DESCRIÇÃO |
 | --- | --- | --- |
 | Método de Assinatura* |estático |Método HTTP a ser usado para solicitação de assinatura |
 | URI da Assinatura* |uri |URI do HTTP a ser usado para solicitação de assinatura |
@@ -135,7 +135,7 @@ Um * significa que o campo é obrigatório.
 | Corpo da Assinatura |corpo |Corpo da solicitação HTTP da assinatura |
 | Cabeçalhos da Assinatura |headers |Cabeçalhos da solicitação HTTP da assinatura |
 | Autenticação da Assinatura |Autenticação |Autenticação HTTP a ser usada para assinatura. [Consulte o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |
-| Corpo do Cancelamento da Assinatura |corpo |Corpo da solicitação HTTP do cancelamento da assinatura |
+| Corpo do Cancelamento da Assinatura |body |Corpo da solicitação HTTP do cancelamento da assinatura |
 | Cabeçalhos do Cancelamento da Assinatura |headers |Cabeçalhos da solicitação HTTP do cancelamento da assinatura |
 | Autenticação do Cancelamento da Assinatura |autenticação |Autenticação HTTP a ser usada para cancelamento da assinatura. [Consulte o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |
 
@@ -143,13 +143,13 @@ Um * significa que o campo é obrigatório.
 
 Solicitação de webhook
 
-| Nome da Propriedade | Tipo de Dados | Descrição |
+| Nome da Propriedade | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | headers |objeto |Cabeçalhos da solicitação de webhook |
-| corpo |objeto |Objeto da solicitação de webhook |
+| Corpo |objeto |Objeto da solicitação de webhook |
 | Código de status |int |Código de status da solicitação de webhook |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Localizar outros conectores](apis-list.md)

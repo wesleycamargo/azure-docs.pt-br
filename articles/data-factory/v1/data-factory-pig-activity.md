@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade Pig no Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,17 +82,17 @@ A atividade de Pig do HDInsight em um [pipeline](data-factory-create-pipelines.m
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| name |Nome da atividade |Sim |
-| Descrição |Texto que descreve qual a utilidade da atividade |Não |
-| type |HDinsightPig |Sim |
-| inputs |Uma ou mais entradas consumidas pela atividade Pig |Não |
-| outputs |Uma ou mais saídas produzidas pela atividade Pig |Sim |
-| linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |Sim |
-| script |Especificar o script de Pig embutido |Não |
-| caminho do script |Armazenar o script de Pig em um armazenamento de blob do Azure e fornecer o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. |Não |
-| define |Especificar parâmetros como pares chave/valor para referenciar dentro do script de Pig |Não |
+| Nome |Nome da atividade |sim |
+| Descrição |Texto que descreve qual a utilidade da atividade |Não  |
+| Tipo |HDinsightPig |sim |
+| inputs |Uma ou mais entradas consumidas pela atividade Pig |Não  |
+| outputs |Uma ou mais saídas produzidas pela atividade Pig |sim |
+| linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |sim |
+| script |Especificar o script de Pig embutido |Não  |
+| caminho do script |Armazenar o script de Pig em um armazenamento de blob do Azure e fornecer o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. |Não  |
+| define |Especificar parâmetros como pares chave/valor para referenciar dentro do script de Pig |Não  |
 
 ## <a name="example"></a>Exemplo
 Vamos considerar um exemplo de análises de logs de jogos nos quais você deseja identificar o tempo gasto pelos jogadores em jogos lançados por sua empresa.
@@ -218,7 +218,7 @@ Para usar os scripts Pig parametrizado, faça o seguinte:
     PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);        
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Atividade de Hive](data-factory-hive-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)

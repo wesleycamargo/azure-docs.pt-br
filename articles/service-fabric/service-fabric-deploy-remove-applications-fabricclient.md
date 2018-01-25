@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/05/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6fdf65ac87273502edb1548ed6c1cf5c7bc25649
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 39d768f08305b8dcc18146b119f5bdc83a8d35d4
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implantar e remover aplicativos usando FabricClient
 > [!div class="op_single_selector"]
-> * [Gerenciador de Recursos](service-fabric-application-arm-resource.md)
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [APIs de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -99,7 +99,7 @@ Quando a instância de um aplicativo não for mais necessária, será possível 
 ## <a name="unregister-an-application-type"></a>Cancelar o registro de um tipo de aplicativo
 Quando uma versão específica de um tipo de aplicativo não for mais necessária, você deve cancelar o registro dessa versão específica do tipo de aplicativo usando a API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). O cancelamento de registro de versões não utilizadas de tipos de aplicativo libera espaço de armazenamento usado pelo repositório de imagens. Uma versão de um tipo de aplicativo pode ter seu registro cancelado, desde que não existam aplicativos instanciados nela nem nenhuma atualização de aplicativo pendente que faça referência a ela.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage solicita um ImageStoreConnectionString
 O ambiente do SDK da Malha do Serviço já deve ter os padrões corretos configurados. Mas, se necessário, o ImageStoreConnectionString para todos os comandos deve corresponder ao valor que o cluster de Malha do Serviço está usando. Você pode encontrar ImageStoreConnectionString no manifesto do cluster, recuperado usando os comandos [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) e Get-ImageStoreConnectionStringFromClusterManifest:
 

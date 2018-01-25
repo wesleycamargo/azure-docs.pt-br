@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7733ea111de896ab0f825c85b89be25ebafdbd85
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 071d593108dd96605897cffe179d6451f8789ce6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 > [!NOTE]
@@ -119,11 +119,11 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 ### <a name="properties"></a>propriedades
 | Propriedade                     | DESCRIÇÃO                              | Obrigatório |
 | ---------------------------- | ---------------------------------------- | -------- |
-| Tipo                         | A propriedade de tipo deve ser configurada como **HDInsightOnDemand**. | Sim      |
-| clusterSize                  | Número de nós de trabalho/dados no cluster. O cluster HDInsight é criado com 2 nós principais juntamente com o número de nós de trabalho que você especifica para esta propriedade. Os nós são do tamanho Standard_D3 que tem 4 núcleos; portanto, um cluster de 4 nós de trabalho usa 24 núcleos (4\*4 = 16 núcleos para nós de trabalho + 2\*4 = 8 núcleos para nós de cabeçalho). Veja [Criar clusters do Hadoop baseados em Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada Standard_D3. | Sim      |
-| timeToLive                   | O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica quanto tempo o cluster HDInsight sob demanda permanece ativo após a conclusão de uma atividade executada se não há nenhum outro trabalho ativo no cluster.<br/><br/>Por exemplo, se uma execução de atividade demora 6 minutos e o timetolive é definido como 5 minutos, o cluster fica ativo durante 5 minutos após a execução de 6 minutos de execução da atividade. Se outra atividade é executada com a janela de 6 minutos, ela é processada pelo mesmo cluster.<br/><br/>A criação de um cluster HDInsight sob demanda é uma operação cara (pode demorar um pouco) e, portanto, use essa configuração conforme o necessário para melhorar o desempenho de um data factory com a reutilização de um cluster HDInsight sob demanda.<br/><br/>Se você definir o valor de timetolive como 0, o cluster é excluído assim que a atividade executada é processada. Por outro lado, se você definir um valor alto, o cluster pode permanecer ocioso desnecessariamente resultando em altos custos. Portanto, é importante que você defina o valor apropriado com base em suas necessidades.<br/><br/>Se o valor da propriedade timetolive foi definido apropriadamente, vários pipelines podem compartilhar a instância do cluster HDInsight sob demanda. | Sim      |
+| Tipo                         | A propriedade de tipo deve ser configurada como **HDInsightOnDemand**. | sim      |
+| clusterSize                  | Número de nós de trabalho/dados no cluster. O cluster HDInsight é criado com 2 nós principais juntamente com o número de nós de trabalho que você especifica para esta propriedade. Os nós são do tamanho Standard_D3 que tem 4 núcleos; portanto, um cluster de 4 nós de trabalho usa 24 núcleos (4\*4 = 16 núcleos para nós de trabalho + 2\*4 = 8 núcleos para nós de cabeçalho). Veja [Criar clusters do Hadoop baseados em Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada Standard_D3. | sim      |
+| timeToLive                   | O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica quanto tempo o cluster HDInsight sob demanda permanece ativo após a conclusão de uma atividade executada se não há nenhum outro trabalho ativo no cluster.<br/><br/>Por exemplo, se uma execução de atividade demora 6 minutos e o timetolive é definido como 5 minutos, o cluster fica ativo durante 5 minutos após a execução de 6 minutos de execução da atividade. Se outra atividade é executada com a janela de 6 minutos, ela é processada pelo mesmo cluster.<br/><br/>A criação de um cluster HDInsight sob demanda é uma operação cara (pode demorar um pouco) e, portanto, use essa configuração conforme o necessário para melhorar o desempenho de um data factory com a reutilização de um cluster HDInsight sob demanda.<br/><br/>Se você definir o valor de timetolive como 0, o cluster é excluído assim que a atividade executada é processada. Por outro lado, se você definir um valor alto, o cluster pode permanecer ocioso desnecessariamente resultando em altos custos. Portanto, é importante que você defina o valor apropriado com base em suas necessidades.<br/><br/>Se o valor da propriedade timetolive foi definido apropriadamente, vários pipelines podem compartilhar a instância do cluster HDInsight sob demanda. | sim      |
 | version                      | Versão do cluster HDInsight, consulte [versões HDInsight com suporte](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) para versões permitidas do HDInsight. Se não for especificado, ele usa a [versão mais recente de padrão HDI](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Não        |
-| linkedServiceName            | Serviço vinculado do Armazenamento do Azure a ser usado pelo cluster sob demanda para armazenar e processar dados. O cluster HDInsight é criado na mesma região que essa conta de Armazenamento do Azure.<p>Atualmente, não é possível criar um cluster HDInsight sob demanda que use um Azure Data Lake Store como o armazenamento. Se você quiser armazenar os dados resultantes do processamento do HDInsight em um Azure Data Lake Store, use uma Atividade de Cópia para copiar os dados do Armazenamento de Blobs do Azure para o Azure Data Lake Store. </p> | Sim      |
+| linkedServiceName            | Serviço vinculado do Armazenamento do Azure a ser usado pelo cluster sob demanda para armazenar e processar dados. O cluster HDInsight é criado na mesma região que essa conta de Armazenamento do Azure.<p>Atualmente, não é possível criar um cluster HDInsight sob demanda que use um Azure Data Lake Store como o armazenamento. Se você quiser armazenar os dados resultantes do processamento do HDInsight em um Azure Data Lake Store, use uma Atividade de Cópia para copiar os dados do Armazenamento de Blobs do Azure para o Azure Data Lake Store. </p> | sim      |
 | additionalLinkedServiceNames | Especifica as contas de armazenamento adicionais para o serviço vinculado do HDInsight para que o serviço do Data Factory possa registrá-los em seu nome. Essas contas de armazenamento devem estar na mesma região que o cluster HDInsight, que é criado na mesma região que a conta de armazenamento especificada por linkedServiceName. | Não        |
 | osType                       | Tipo do sistema operacional. Os valores permitidos são: Linux e Windows. Se não for especificado, o Linux é usado por padrão.  <br/>É altamente recomendável usar o Linux baseado em clusters de HDInsight uma vez que a data de desativação para o HDInsight no Windows é 31 de julho de 2018. | Não        |
 | hcatalogLinkedServiceName    | O nome do serviço vinculado do SQL Azure que aponta para o banco de dados HCatalog. O cluster HDInsight sob demanda é criado usando o banco de dados SQL do Azure como o metastore. | Não        |
@@ -251,11 +251,11 @@ Você pode criar um serviço vinculado Azure HDInsight para registrar seu própr
 ### <a name="properties"></a>propriedades
 | Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
-| Tipo              | A propriedade de tipo deve ser configurada como **HDInsight**. | Sim      |
-| clusterUri        | A URI do cluster HDInsight.        | Sim      |
-| Nome de Usuário          | Especifique o nome do usuário a ser usado para se conectar a um cluster HDInsight existente. | Sim      |
-| Senha          | Especifique a senha para a conta de usuário.   | Sim      |
-| linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure que faz referência ao Armazenamento de Blobs usado pelo cluster HDInsight. <p>No momento, você não pode especificar um serviço vinculado do Azure Data Lake Store para essa propriedade. Você pode acessar dados no Azure Data Lake Store usando scripts Hive/Pig se o cluster HDInsight tiver acesso ao Data Lake Store. </p> | Sim      |
+| Tipo              | A propriedade de tipo deve ser configurada como **HDInsight**. | sim      |
+| clusterUri        | A URI do cluster HDInsight.        | sim      |
+| Nome de Usuário          | Especifique o nome do usuário a ser usado para se conectar a um cluster HDInsight existente. | sim      |
+| Senha          | Especifique a senha para a conta de usuário.   | sim      |
+| linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure que faz referência ao Armazenamento de Blobs usado pelo cluster HDInsight. <p>No momento, você não pode especificar um serviço vinculado do Azure Data Lake Store para essa propriedade. Você pode acessar dados no Azure Data Lake Store usando scripts Hive/Pig se o cluster HDInsight tiver acesso ao Data Lake Store. </p> | sim      |
 
 ## <a name="azure-batch-linked-service"></a>Serviço vinculado de Lote do Azure
 Você pode criar um serviço vinculado de Lote do Azure para registrar um pool de lote de máquinas virtuais (VMs) para uma fábrica de dados. Você pode executar atividades personalizadas do .NET usando o Lote do Azure ou o Azure HDInsight.
@@ -299,11 +299,11 @@ Outra opção é fornecer o ponto de extremidade batchUri, conforme mostrado no 
 ### <a name="properties"></a>propriedades
 | Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
-| Tipo              | A propriedade de tipo deve ser definida como **AzureBatch**. | Sim      |
-| accountName       | Nome da conta do Lote do Azure.         | Sim      |
-| accessKey         | Tecla de acesso para a conta do Lote do Azure.  | Sim      |
-| poolName          | Nome do pool de máquinas virtuais.    | Sim      |
-| linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure associado ao serviço vinculado de Lote do Azure. Esse serviço vinculado é usado para arquivos de teste necessários para executar a atividade e armazenar os logs de execução da atividade. | Sim      |
+| Tipo              | A propriedade de tipo deve ser definida como **AzureBatch**. | sim      |
+| accountName       | Nome da conta do Lote do Azure.         | sim      |
+| accessKey         | Tecla de acesso para a conta do Lote do Azure.  | sim      |
+| poolName          | Nome do pool de máquinas virtuais.    | sim      |
+| linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure associado ao serviço vinculado de Lote do Azure. Esse serviço vinculado é usado para arquivos de teste necessários para executar a atividade e armazenar os logs de execução da atividade. | sim      |
 
 ## <a name="azure-machine-learning-linked-service"></a>Serviço Vinculado de Machine Learning do Azure
 Criar um serviço vinculado de Machine Learning do Azure para registrar um ponto de extremidade de pontuação do lote de Machine Learning a uma fábrica de dados.
@@ -326,9 +326,9 @@ Criar um serviço vinculado de Machine Learning do Azure para registrar um ponto
 ### <a name="properties"></a>propriedades
 | Propriedade   | DESCRIÇÃO                              | Obrigatório |
 | ---------- | ---------------------------------------- | -------- |
-| type       | A propriedade de tipo deve ser configurada como **AzureML**. | Sim      |
-| mlEndpoint | A URL de pontuação do lote.                   | Sim      |
-| apiKey     | A API do modelo de espaço de trabalho publicada.     | Sim      |
+| type       | A propriedade de tipo deve ser configurada como **AzureML**. | sim      |
+| mlEndpoint | A URL de pontuação do lote.                   | sim      |
+| apiKey     | A API do modelo de espaço de trabalho publicada.     | sim      |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Serviço Vinculado da Análise Azure Data Lake
 Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular um serviço de computação do Azure Data Lake Analytics a um Azure Data Factory. A atividade de U-SQL do Data Lake Analytics no pipeline se refere a esse serviço vinculado. 
@@ -337,8 +337,8 @@ A tabela a seguir apresenta as descrições das propriedades genéricas usadas n
 
 | Propriedade                 | DESCRIÇÃO                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **tipo**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
-| **accountName**          | Nome da conta da Análise Azure Data Lake.  | Sim                                      |
+| **tipo**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | sim                                      |
+| **accountName**          | Nome da conta da Análise Azure Data Lake.  | sim                                      |
 | **dataLakeAnalyticsUri** | URI da Análise Azure Data Lake.           | Não                                        |
 | **subscriptionId**       | Id de assinatura do Azure                    | Não (se não for especificado, a assinatura do Data Factory é usada). |
 | **resourceGroupName**    | Nome do grupo de recursos do Azure                | Não (se não for especificado, o grupo de recursos do Data Factory é usado). |
@@ -353,9 +353,9 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 
 | Propriedade                | DESCRIÇÃO                              | Obrigatório |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Especifique a ID do cliente do aplicativo.     | Sim      |
-| **servicePrincipalKey** | Especifique a chave do aplicativo.           | Sim      |
-| **tenant**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim      |
+| **servicePrincipalId**  | Especifique a ID do cliente do aplicativo.     | sim      |
+| **servicePrincipalKey** | Especifique a chave do aplicativo.           | sim      |
+| **tenant**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | sim      |
 
 **Exemplo: autenticação de entidade de serviço**
 ```json
@@ -381,8 +381,8 @@ Como alternativa, você pode usar a autenticação de credenciais do usuário do
 
 | Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
-| **authorization** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | Sim      |
-| **sessionId**     | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim      |
+| **authorization** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | sim      |
+| **sessionId**     | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | sim      |
 
 **Exemplo: autenticação de credenciais do usuário**
 ```json

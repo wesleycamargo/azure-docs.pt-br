@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e213e6fcf10e98cb8e4344692475eb8d41d1afb5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referência da API de relatório de atividade de entrada do Azure Active Directory
 Este tópico faz parte de uma coleção de tópicos sobre a API de relatório do Azure Active Directory.  
@@ -46,7 +46,7 @@ $role = Get-MsolRole | ? Name -eq "Security Reader"
 Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $servicePrincipal.ObjectId
 ```
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para acessar esse relatório por meio da API de relatórios, você deve ter:
 
 * Um [Azure Active Directory Premium edição P1 ou P2](active-directory-editions.md)

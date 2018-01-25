@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5857a0286dce92493c4d538f79ef9f47012bc0a2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 
@@ -149,7 +149,7 @@ Em uma empresa, um **firewall corporativo** é executado no roteador central da 
 
 A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do **firewall corporativo**.
 
-| Nomes de domínio | Portas de saída | Descrição |
+| Nomes de domínio | Portas de saída | DESCRIÇÃO |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Necessárias para que o gateway se conecte aos serviços de movimentação de dados no Data Factory |
 | `*.core.windows.net` | 443 | Usada pelo gateway para se conectar à Conta de Armazenamento do Azure ao usar o recurso [cópia em etapas](data-factory-copy-activity-performance.md#staged-copy). | 
@@ -162,7 +162,7 @@ A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do 
 
 A tabela a seguir fornece os requisitos de **porta de entrada** do **firewall do Windows**.
 
-| Portas de entrada | Descrição | 
+| Portas de entrada | DESCRIÇÃO | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Necessária para que o aplicativo gerenciador de credenciais defina com segurança as credenciais de armazenamentos de dados locais no gateway. | 
 
@@ -176,7 +176,7 @@ Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP
 - [Banco de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
 - [SQL Data Warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Repositório Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
+- [Banco de dados do Azure Cosmos](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes

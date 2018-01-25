@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -148,7 +148,7 @@ Em uma empresa, um **firewall corporativo** é executado no roteador central da 
 
 A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do **firewall corporativo**.
 
-| Nomes de domínio                  | Portas de saída | Descrição                              |
+| Nomes de domínio                  | Portas de saída | DESCRIÇÃO                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443, 80        | Necessárias para que o tempo de execução de integração auto-hospedado se conecte aos serviços de movimentação de dados no Data Factory |
 | `*.core.windows.net`          | 443            | Usada pelo tempo de execução de integração auto-hospedado para se conectar à Conta de Armazenamento do Azure ao usar o recurso [cópia em etapas](copy-activity-performance.md#staged-copy). |
@@ -161,7 +161,7 @@ A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do 
 
 A tabela a seguir fornece os requisitos de **porta de entrada** do **firewall do Windows**.
 
-| Portas de entrada | Descrição                              |
+| Portas de entrada | DESCRIÇÃO                              |
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Exigido pelo cmdlet de criptografia do PowerShell conforme descrito em [criptografando credenciais em tempo de execução de integração auto-hospedado](encrypt-credentials-self-hosted-integration-runtime.md)/aplicativo gerenciador de credenciais para definir credenciais com segurança para armazenamentos de dados locais no tempo de execução de integração auto-hospedado. |
 
@@ -175,7 +175,7 @@ Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP
 - [Banco de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md) 
 - [SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Repositório Azure Data Lake](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../cosmos-db/firewall-support.md)
+- [Banco de dados do Azure Cosmos](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes

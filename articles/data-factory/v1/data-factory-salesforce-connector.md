@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29f4c5e8998331cc48dac694512766a5b3cd4a30
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Atualmente, o Azure Data Factory dá suporte apenas para a movimentação dos da
 ## <a name="supported-versions"></a>Versões com suporte
 Esse conector dá suporte para as seguintes edições do Salesforce: Developer Edition, Professional Edition, Enterprise Edition ou Unlimited Edition. E ele dá suporte à cópia na produção, da área restrita e do domínio personalizado do Salesforce.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * A permissão de API deve estar habilitada. Consulte [Como habilito o acesso à API no Salesforce por conjunto de permissões?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Para copiar os dados do Salesforce para os armazenamentos de dados locais, você deve ter, pelo menos, o Gateway de Gerenciamento de Dados 2.0 instalado no ambiente local.
 
@@ -69,20 +69,20 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado Salesforce.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade type deve ser definida para: **Salesforce**. |Sim |
-| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é "https://login.salesforce.com". <br> – Para copiar dados da área restrita, especifique "https://test.salesforce.com". <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não |
-| Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
-| Senha |Especifique um senha para a conta de usuário. |Sim |
-| securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). |Sim |
+| Tipo |A propriedade type deve ser definida para: **Salesforce**. |sim |
+| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é "https://login.salesforce.com". <br> – Para copiar dados da área restrita, especifique "https://test.salesforce.com". <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não  |
+| Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |sim |
+| Senha |Especifique um senha para a conta de usuário. |sim |
+| securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). |sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md) . As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure e outros).
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para um conjunto de dados do tipo **RelationalTable** tem as propriedades a seguir:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela no Salesforce. |Não (se uma **consulta** de **RelationalSource** for especificada) |
 
@@ -98,7 +98,7 @@ As propriedades que estão disponíveis na seção typeProperties da atividade, 
 
 Em Atividade de Cópia, quando a origem for do tipo **RelationalSource** (que inclui Salesforce), as seguintes propriedades estarão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | query |Utiliza a consulta personalizada para ler os dados. |Uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por exemplo: `select * from MyTable__c`. |Não (se **tableName** do **conjunto de dados** for especificado) |
 
@@ -109,7 +109,7 @@ Em Atividade de Cópia, quando a origem for do tipo **RelationalSource** (que in
 
 ## <a name="query-tips"></a>Dicas de consulta
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperando dados usando a cláusula where na coluna DateTime
-Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo:
+Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo: 
 
 * **Exemplo de SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **Exemplo de SQL**:
@@ -288,10 +288,10 @@ Veja [Propriedades do tipo RelationalSource](#copy-activity-properties) para obt
 | Tipo Salesforce | Tipo baseado no .NET |
 | --- | --- |
 | Numeração automática |Cadeia de caracteres |
-| Caixa de seleção |Booliano |
+| Caixa de seleção |BOOLEAN |
 | Moeda |Duplo |
-| Data |DateTime |
-| Data/hora |DateTime |
+| Data |Datetime |
+| Data/hora |Datetime |
 | Email |Cadeia de caracteres |
 | ID |Cadeia de caracteres |
 | Relação de pesquisa |Cadeia de caracteres |
@@ -308,7 +308,7 @@ Veja [Propriedades do tipo RelationalSource](#copy-activity-properties) para obt
 | URL |Cadeia de caracteres |
 
 > [!NOTE]
-> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
+> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

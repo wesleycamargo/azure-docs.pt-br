@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: b5661dea3a63f6e7e5b67261bc9704061ae9c5b6
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade. 
@@ -64,17 +64,17 @@ A atividade da Web pode ser usada para chamar um ponto de extremidade REST perso
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade da Web | Cadeia de caracteres | Sim
-type | Deve ser definido como **WebActivity**. | Cadeia de caracteres | Sim
-estático | Método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. <br/><br/>Tipos com suporte: "GET", "POST", "PUT" | Sim
-url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim
+Nome | Nome da atividade da Web | Cadeia de caracteres | sim
+Tipo | Deve ser definido como **WebActivity**. | Cadeia de caracteres | sim
+estático | Método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. <br/><br/>Tipos com suporte: "GET", "POST", "PUT" | sim
+url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | sim
 headers | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
-body | Representa o conteúdo enviado para o ponto de extremidade. Necessário para os métodos PUT/POST.  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](#request-payload-schema). | Não
-Autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate." Para obter mais informações, consulte a seção [Autenticação](#authentication). Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
-conjuntos de dados | Lista de conjuntos de dados passados para o ponto de extremidade. | Matriz de referências do conjunto de dados. Pode ser uma matriz vazia. | Sim
-linkedServices | Lista de serviços vinculados passado ao ponto de extremidade. | Matriz de referências de serviço vinculado. Pode ser uma matriz vazia. | Sim
+body | Representa o conteúdo enviado para o ponto de extremidade. Necessário para os métodos PUT/POST.  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](#request-payload-schema). | Não 
+Autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate." Para obter mais informações, consulte a seção [Autenticação](#authentication). Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não 
+conjuntos de dados | Lista de conjuntos de dados passados para o ponto de extremidade. | Matriz de referências do conjunto de dados. Pode ser uma matriz vazia. | sim
+linkedServices | Lista de serviços vinculados passado ao ponto de extremidade. | Matriz de referências de serviço vinculado. Pode ser uma matriz vazia. | sim
 
 > [!NOTE]
 > Os pontos de extremidade REST que invoca a atividade da Web invoca devem retornar para uma resposta do JSON de tipo.

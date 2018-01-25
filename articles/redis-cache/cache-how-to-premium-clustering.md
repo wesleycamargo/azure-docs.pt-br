@@ -3,8 +3,8 @@ title: Como configurar o clustering do Redis para um Cache Redis do Azure Premiu
 description: "Saiba como criar e gerenciar o clustering do Redis para as instâncias da camada Premium do Cache Redis do Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: 86a4a605dbb3b11924c14ff42238009742f72898
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Como configurar o clustering do Redis para um Cache Redis do Azure Premium
 O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos do nível Premium, como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar o clustering em uma instância premium do Cache Redis do Azure.
@@ -50,7 +50,7 @@ Você pode ter até 10 fragmentos no cluster. Clique em **Habilitado** e mova o 
 
 Cada fragmento é um par de cache primário/de réplica gerenciado pelo Azure, e o tamanho total do cache é calculado multiplicando o número de fragmentos pelo tamanho do cache selecionado no tipo de preço. 
 
-![clustering][redis-cache-clustering-selected]
+![Clustering][redis-cache-clustering-selected]
 
 Depois que o cache for criado, conecte-se a ele e use-o apenas como um cache não clusterizado, e o Redis distribui os dados por todos os fragmentos do Cache. Se o diagnóstico for [habilitado](cache-how-to-monitor.md#enable-cache-diagnostics), as métricas serão capturadas separadamente para cada fragmento e poderão ser [exibidas](cache-how-to-monitor.md) na folha Cache Redis. 
 

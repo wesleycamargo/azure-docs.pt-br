@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5b6a2cde9bea3d3aba9262bb9446d54773cf0297
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados do Cassandra usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Especificamente, este conector do Cassandra dá suporte:
 - Ao Cassandra **versões 2.X**.
 - À cópia de dados usando a autenticação **Básica** ou **Anônima**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para copiar dados de um banco de dados Cassandra que não esteja acessível publicamente, você precisará configurar um Integration Runtime auto-hospedado. Consulte o artigo [Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md) para saber mais detalhes. O Integration Runtime fornece um driver do Cassandra interno, portanto, não será necessário instalar manualmente nenhum driver ao copiar dados do/para o Cassandra.
 
@@ -55,10 +55,10 @@ As propriedades a seguir têm suporte para o serviço vinculado do Cassandra:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo |A propriedade type deve ser definida como: **Cassandra** |Sim |
-| host |Um ou mais endereços IP ou nomes de host dos servidores Cassandra.<br/>Especifique uma lista separada por vírgulas de endereços IP ou nomes de host para se conectar simultaneamente a todos os servidores. |Sim |
+| Tipo |A propriedade type deve ser definida como: **Cassandra** |sim |
+| host |Um ou mais endereços IP ou nomes de host dos servidores Cassandra.<br/>Especifique uma lista separada por vírgulas de endereços IP ou nomes de host para se conectar simultaneamente a todos os servidores. |sim |
 | porta |A porta TCP usada pelo servidor Cassandra para ouvir conexões de cliente. |Não (o padrão é 9042) |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Cassandra.<br/>Os valores permitidos são: **Básica** e **Anônima**. |Sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Cassandra.<br/>Os valores permitidos são: **Básica** e **Anônima**. |sim |
 | Nome de Usuário |Especifique o nome de usuário da conta de usuário. |Sim, se authenticationType for definida como Básica. |
 | Senha |Especifique a senha para a conta de usuário. Marque esse campo como SecureString. |Sim, se authenticationType for definida como Básica. |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
@@ -95,7 +95,7 @@ Para copiar dados do Cassandra, defina a propriedade type do conjunto de dados c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **CassandraTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **CassandraTable** | sim |
 | keyspace |Nome do keyspace ou do esquema no banco de dados Cassandra. |Não (se a "consulta" para "CassandraSource" estiver especificada) |
 | tableName |Nome da tabela no banco de dados Cassandra. |Não (se a "consulta" para "CassandraSource" estiver especificada) |
 
@@ -129,7 +129,7 @@ Para copiar dados do Cassandra, defina o tipo de fonte na atividade de cópia co
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **CassandraSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **CassandraSource** | sim |
 | query |Utiliza a consulta personalizada para ler os dados. |Consulta SQL-92 ou consulta CQL. Veja [Referência ao CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao usar a consulta SQL, especifique **keyspace name.table name** para representar a tabela que deseja consultar. |Não (se "tableName" e "keyspace" no conjunto de dados estiverem especificados). |
 | consistencyLevel |O nível de consistência especifica quantas réplicas devem responder a uma solicitação de leitura antes de retornar dados ao aplicativo cliente. O Cassandra verifica o número especificado de réplicas de dados atender à solicitação de leitura. Confira [Configuring data consistency (Configurando a consistência de dados)](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter detalhes.<br/><br/>Os valores permitidos são: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** e **LOCAL_ONE**. |Não (o padrão é `ONE`) |
 

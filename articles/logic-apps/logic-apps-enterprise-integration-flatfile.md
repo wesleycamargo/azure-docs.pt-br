@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8795687c002282b68ebd1a4fa3fe18a9b102af4a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Visão geral da integração corporativa com arquivos simples
 
-Talvez você queira codificar o conteúdo XML antes de enviá-lo para um parceiro de negócios em um cenário B2B (entre empresas). Em um aplicativo lógico, você pode usar o conector de codificação de arquivo simples para fazer isso. O aplicativo lógico criado por você pode obter seu conteúdo XML de diversas fontes, incluindo de um gatilho de solicitação HTTP ou de outro aplicativo, ou até mesmo de um dos vários [conectores](../connectors/apis-list.md). Para saber mais sobre os aplicativos lógicos, veja o [documentação dos aplicativos lógicos](logic-apps-what-are-logic-apps.md "Saiba mais sobre os Aplicativos Lógicos").  
+Talvez você queira codificar o conteúdo XML antes de enviá-lo para um parceiro de negócios em um cenário B2B (entre empresas). Em um aplicativo lógico, você pode usar o conector de codificação de arquivo simples para fazer isso. O aplicativo lógico criado por você pode obter seu conteúdo XML de diversas fontes, incluindo de um gatilho de solicitação HTTP ou de outro aplicativo, ou até mesmo de um dos vários [conectores](../connectors/apis-list.md). Para saber mais sobre os aplicativos lógicos, veja o [documentação dos aplicativos lógicos](logic-apps-overview.md "Saiba mais sobre os Aplicativos Lógicos").  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>Como criar o conector de codificação de arquivo simples
 Execute estas etapas para adicionar um conector de codificação de arquivo simples ao seu aplicativo lógico.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
-ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 559e64ae3c16ed21bc09ac0c044281aa0a6e43df
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replicar VMs do Azure para outra região após a migração para o Azure usando o Azure Site Recovery
 
@@ -51,7 +51,7 @@ Depois da migração, você não precisa confirmar excluir um failover. Em vez d
 2. A ação **Concluir Migração** conclui o processo de migração, remove a replicação da máquina e interrompe a cobrança do Site Recovery para o computador.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Etapa 2: instale o agente da VM do Azure na máquina virtual
-O [agente da VM](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) do Azure deve ser instalado na máquina virtual para a extensão do Site Recovery para trabalhar e ajudar a proteger a VM.
+O [agente da VM](../../virtual-machines/windows/agent-user-guide.md) do Azure deve ser instalado na máquina virtual para a extensão do Site Recovery para trabalhar e ajudar a proteger a VM.
 
 >[!IMPORTANT]
 >A partir da versão 9.7.0.0, em máquinas virtuais do Windows, o instalador do Serviço de mobilidade também instala o último agente da VM do Azure disponível. Sobre a migração, a máquina virtual atende aos pré-requisitos de instalação do agente para usar qualquer extensão da VM, incluindo a extensão do Site Recovery. O agente da VM do Azure precisa ser instalado manualmente somente se o Serviço de mobilidade instalado no computador migrado for versão 9.6 ou anterior.

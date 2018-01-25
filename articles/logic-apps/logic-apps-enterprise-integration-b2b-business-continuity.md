@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Recuperação de desastre de região cruzada dos Aplicativos Lógicos B2B
 
@@ -92,7 +92,7 @@ Para habilitar a recuperação de desastre para mensagens de entrada, selecione 
 
 ![Selecionar configurações de verificação de duplicadas](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Crie um [aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) em uma região secundária.    
+1. Crie um [aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) em uma região secundária.    
 
 2. Pesquise **X12** e selecione **X12 – quando um número de controle é modificado**.   
 
@@ -147,7 +147,7 @@ Para habilitar a recuperação de desastre para mensagens de entrada, selecione 
 
 ![Selecionar configurações de verificação de duplicadas](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Crie um [aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) em uma região secundária.    
+1. Crie um [aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) em uma região secundária.    
 
 2. Pesquise **EDIFACT** e selecione **EDIFACT – quando um número de controle é modificado**.
 
@@ -199,7 +199,7 @@ A continuidade dos negócios para documentos que usam o protocolo AS2 se baseia 
 > [!TIP]
 > Você também pode usar o [modelo de início rápido de AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) para criar aplicativos lógicos. Criar contas de integração primárias e secundárias são os pré-requisitos para usar o modelo. O modelo ajuda a criar um aplicativo lógico que tem um gatilho e uma ação. O aplicativo lógico cria uma conexão de um gatilho para uma conta de integração primária e uma ação para uma conta de integração secundária.
 
-1. Crie um [aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) na região secundária.  
+1. Crie um [aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) na região secundária.  
 
 2. Pesquise **AS2** e selecione **AS2 – quando um valor de MIC é criado**.   
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: 0414ee0f93b71446992bb5687795b75cd2e32386
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4b8f7a66f220b57ac914a9f5475c680679b8bf03
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure usando a Atividade Hive no Azure Data Factory
 Neste tutorial, você pode usar o portal do Azure para criar um pipeline do Data Factory que transforma dados usando a atividade Hive em um cluster HDInsight que está em uma Rede Virtual (VNet) do Azure. Neste tutorial, você executa as seguintes etapas:
@@ -148,7 +148,7 @@ Como o cluster Hadoop está em uma rede virtual, você precisa instalar um tempo
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 
 Você cria e implanta dois serviços vinculados nesta seção:
-- Um **Serviço Vinculado do Armazenamento do Azure** que vincula uma conta de Armazenamento do Azure ao data factory. Esse armazenamento é o armazenamento primário usado por seu cluster HDInsight. Nesse caso, você também pode usar essa conta do Armazenamento do Azure para manter o script Hive e a saída do script.
+- Um **serviço vinculado do Armazenamento do Azure** que vincula uma conta de Armazenamento do Azure ao data factory. Esse armazenamento é o armazenamento primário usado por seu cluster HDInsight. Nesse caso, você também pode usar essa conta do Armazenamento do Azure para manter o script Hive e a saída do script.
 - Um **Serviço Vinculado do HDInsight**. O Azure Data Factory envia o script Hive para este cluster do HDInsight para execução.
 
 ### <a name="create-azure-storage-linked-service"></a>Criar o serviço vinculado do armazenamento do Azure
@@ -246,7 +246,7 @@ Observe os seguintes pontos:
 1. Alterne para a guia **Monitorar** à esquerda. Você vê uma execução de pipeline na lista **Execuções de Pipeline**. 
 
     ![Monitorar execuções de pipeline](./media/tutorial-transform-data-using-hive-in-vnet-portal/monitor-pipeline-runs.png)
-2. Clique em **Atualizar** para atualizar a lista.
+2. Para atualizar a lista, clique em **Atualizar**.
 4. Para exibir execuções de atividade associadas com a execução do pipeline, clique em **Exibir execuções de atividade** na coluna **Ação**. Outros links de ação são para interromper/executar novamente o pipeline. 
 
     ![Exibir execuções de atividade](./media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs-link.png)
@@ -272,7 +272,7 @@ Neste tutorial, você realizou as seguintes etapas:
 Avance para o tutorial a seguir para saber mais sobre como transformar dados usando um cluster Spark no Azure:
 
 > [!div class="nextstepaction"]
->[Ramificação e encadeamento de fluxo de controle de Data Factory](tutorial-control-flow.md)
+>[Ramificação e encadeamento de fluxo de controle de Data Factory](tutorial-control-flow-portal.md)
 
 
 

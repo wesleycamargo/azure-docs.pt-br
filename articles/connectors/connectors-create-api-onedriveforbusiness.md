@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 783d6a640d9626508bcabc5f991dc5b6fc22eaf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bd447b59e8fd3573dad26ae6600e4b5c9cb7a7e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Introdução ao conector do OneDrive for Business
 Conecte-se ao OneDrive for Business para gerenciar seus arquivos. É possível executar várias ações, como carregar, atualizar, obter e excluir arquivos.
 
-É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Criar uma conexão com o OneDrive for Business
 Para criar Aplicativos lógicos com o OneDrive for Business, primeiro você deve criar uma **conexão**, em seguida, forneça os detalhes para as seguintes propriedades:
 
-| Propriedade | Obrigatório | Descrição |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| A criptografia do token |Sim |Fornecer as credenciais do OneDrive for Business |
+| A criptografia do token |sim |Fornecer as credenciais do OneDrive for Business |
 
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
@@ -40,7 +40,7 @@ Depois de criar a conexão, é possível usá-la para executar as ações e ouvi
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/onedriveforbusinessconnector/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/onedriveforbusinessconnector/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).
