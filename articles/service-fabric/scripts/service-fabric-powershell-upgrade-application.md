@@ -12,14 +12,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 09/29/2017
+ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 8f6ab60861c422d083686a6ad5fb880c3e236f59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 889e1bbb71f6eaa1871556b3b9a7da1c28cf16ee
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Fazer upgrade de um aplicativo do Service Fabric
 
@@ -35,7 +35,7 @@ Se necessário, instale o módulo Service Fabric do PowerShell com o [SDK do Ser
 
 Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
 | [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | Obtém todos os aplicativos no cluster do Service Fabric ou um aplicativo específico.  |
 | [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | Obtém o status do upgrade de um aplicativo do Service Fabric. |

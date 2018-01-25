@@ -33,6 +33,9 @@
 #### [Criar um endereço IP público em uma zona de disponibilidade com o PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Criar um endereço IP público em uma zona de disponibilidade com a CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### Armazenamento
+#### [Armazenamento com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage)
+
 # Recuperação de desastre
 ## [Usar o Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 

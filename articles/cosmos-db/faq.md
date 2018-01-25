@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Perguntas frequentes do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceitos básicos do Azure Cosmos DB
@@ -28,7 +28,7 @@ O Azure Cosmos DB é um serviço de multimodelo de banco de dados replicado glob
 
 O Azure Cosmos DB é a solução ideal para aplicativos Web, móveis, de jogos e IoT quando a produtividade previsível, alta disponibilidade, baixa latência e o modelo de dados sem esquemas são requisitos fundamentais. Ele fornece flexibilidade de esquemas e indexação avançada e inclui suporte a transações de vários documentos com JavaScript integrado. 
 
-Para ver mais perguntas e respostas sobre banco de dados, além de instruções sobre como implantar e usar esse serviço, consulte a [página de documentação do Azure Cosmos DB]((https://docs.microsoft.com/pt-br/azure/cosmos-db/).
+Para ver mais perguntas e respostas sobre banco de dados, além de instruções sobre como implantar e usar esse serviço, consulte a [página de documentação do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### <a name="what-happened-to-the-documentdb-api"></a>O que aconteceu com a API do DocumentDB?
 
@@ -74,7 +74,16 @@ Se você for novo no Azure, poderá se inscrever em uma [conta gratuita do Azure
 Também use o [Emulador do Azure Cosmos DB](local-emulator.md) para desenvolver e testar seu aplicativo no local, gratuitamente, sem criar uma assinatura do Azure. Quando estiver satisfeito com o funcionamento de seu aplicativo no Emulador do Azure Cosmos DB, você poderá passar a usar uma conta do Azure Cosmos DB na nuvem.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Como fazer para obter mais ajuda com o Azure Cosmos DB?
-Caso precise de ajuda, contate-nos no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) ou no [fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou agende um chat individual com a equipe de engenharia do Azure Cosmos DB enviando um email para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
+
+Para fazer uma pergunta técnica, poste em um desses dois fóruns de perguntas e respostas:
+* [Fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). O Stack Overflow é o melhor para perguntas sobre programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possíveis, tornando a pergunta clara e possível de responder](https://stackoverflow.com/help/how-to-ask). 
+
+Para solicitar novos recursos, crie uma nova solicitação em [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+
+Para corrigir um problema com sua conta, apresente uma [solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
+
+Outras perguntas podem ser enviadas para a equipe em [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). No entanto, isso não é um alias de suporte técnico. 
 
 <a id="try-cosmos-db"></a>
 ## <a name="try-azure-cosmos-db-subscriptions"></a>Experimente as assinaturas do Azure Cosmos DB
@@ -235,7 +244,7 @@ Você pode compartilhar seus comentários em qualquer uma das seguintes maneiras
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [Fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). O Stack Overflow é o melhor para perguntas sobre programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possíveis, tornando a pergunta clara e possível de responder](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Qual é a cadeia de conexão que preciso usar para me conectar à API de Tabela?
 A cadeia de conexão é:

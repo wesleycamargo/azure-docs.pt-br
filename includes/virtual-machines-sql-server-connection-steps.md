@@ -42,9 +42,9 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 1. Enquanto estiver conectado à máquina virtual, na página inicial, digite **SQL Server Management Studio** e clique no ícone selecionado.
    
     Na primeira vez que você abrir o Management Studio ele deve criar o ambiente do Management Studio dos usuários. Isso pode demorar alguns instantes.
-2. O Management Studio apresenta a caixa de diálogo **Conectar ao Servidor** . Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar ao Mecanismo de Banco de Dados com o Pesquisador de Objetos (em vez do nome de máquina virtual, você também pode usar **(local)** ou um único ponto como o **Nome do servidor**). Selecione **Autenticação do Windows** e deixe ***your_VM_name*\your_local_administrator** na caixa **Nome de usuário**. Clique em **Conectar**.
+2. O Management Studio apresenta a caixa de diálogo **Conectar ao Servidor** . Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar ao Mecanismo de Banco de Dados com o Pesquisador de Objetos (em vez do nome de máquina virtual, você também pode usar **(local)** ou um único ponto como o **Nome do servidor**). Selecione **Autenticação do Windows** e deixe ***nome_da_sua_VM*\seu_administrador_local** na caixa **Nome de usuário**. Clique em **Conectar**.
    
-    ![Conectar ao Servidor](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
+    ![Conectar-se ao servidor](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. No SQL Server Management Studio Object Explorer, clique com o botão direito do mouse no nome da instância do SQL Server (o nome da máquina virtual) e, em seguida, clique em **Propriedades**.
    
     ![Propriedades do servidor](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
