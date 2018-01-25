@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrando e pré-processando a telemetria no SDK do Application Insights
 
@@ -122,7 +122,7 @@ Você pode transmitir valores de cadeia de caracteres do arquivo .config fornece
 
 **Como alternativa,** é possível inicializar o filtro no código. Em uma classe de inicialização adequada - por exemplo AppStart em Global.asax.cs - insira seu processador na cadeia:
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -166,7 +166,7 @@ Filtre os bots e os testes Web. Embora o Metrics Explorer ofereça a opção par
 #### <a name="failed-authentication"></a>Autenticação com falha
 Filtre as solicitações com uma resposta "401".
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -224,7 +224,7 @@ Se você fornecer um inicializador de telemetria, ele é chamado sempre que qual
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -275,7 +275,7 @@ Em ApplicationInsights.config:
 
 *Como alternativa,* você pode instanciar o inicializador no código, por exemplo em Global.aspx.cs:
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...

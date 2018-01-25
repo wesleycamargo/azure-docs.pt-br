@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -238,7 +238,7 @@ Sugerimos que você realize estas etapas para ajustar o desempenho do serviço D
 
 1. **Estabelecer uma linha de base**. Durante a fase de desenvolvimento, teste seu pipeline com a Atividade de Cópia em relação a um exemplo de dados representativo. Colete detalhes de execução e características de desempenho após o [monitoramento da atividade de cópia](copy-activity-overview.md#monitoring).
 
-2. **Diagnosticar e otimizar o desempenho**. Se o desempenho observado não atender às suas expectativas, você precisará identificar os afunilamentos do desempenho. Em seguida, otimize o desempenho para remover ou reduzir o efeito dos afunilamentos. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
+2. **Diagnosticar e otimizar o desempenho**. Se o desempenho observado não atender às suas expectativas, você precisará identificar os gargalos do desempenho. Em seguida, otimize o desempenho para remover ou reduzir o efeito dos gargalos. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
 
    * Recursos de desempenho:
      * [Cópia paralela](#parallel-copy)
@@ -371,7 +371,7 @@ Como você pode ver, os dados estão sendo processados e movidos de forma sequen
 
 ![Fluxo de dados](./media/copy-activity-performance/case-study-pic-1.png)
 
-Um ou mais dos seguintes fatores pode causar o afunilamento do desempenho:
+Um ou mais dos seguintes fatores pode causar o gargalo do desempenho:
 
 * **Origem:**o próprio SQL Server tem uma baixa taxa de transferência devido às cargas pesadas.
 * **Integration Runtime auto-hospedado**:
@@ -382,7 +382,7 @@ Um ou mais dos seguintes fatores pode causar o afunilamento do desempenho:
   * **WAN**: a largura de banda entre a rede corporativa e os serviços do Azure é baixa (por exemplo, T1 = 1,544 kbps; T2 = 6,312 kbps).
 * **Coletor**: o armazenamento de Blobs tem baixa taxa de transferência. (Esse cenário é improvável porque seu SLA garante um mínimo de 60 MBps.)
 
-Nesse caso, a compactação de dados bzip2 pode estar desacelerando todo o pipeline. Trocar para o codec de compactação gzip pode aliviar esse afunilamento.
+Nesse caso, a compactação de dados bzip2 pode estar desacelerando todo o pipeline. Trocar para o codec de compactação gzip pode aliviar esse gargalo.
 
 ## <a name="reference"></a>Referência
 

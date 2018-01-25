@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Introdução ao Windows Phone do Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -93,7 +93,7 @@ O princípio básico da ADAL é que sempre que seu aplicativo precisa de um toke
 
 * A primeira etapa é inicializar o `AuthenticationContext` de seu aplicativo - classe principal da ADAL.  É aqui que você passa à ADAL as coordenadas necessárias para se comunicar com o AD do Azure e informar a ele como armazenar tokens em cache.
 
-```C#
+```csharp
 public MainPage()
 {
     ...
@@ -105,7 +105,7 @@ public MainPage()
 
 * Agora localize o método `Search(...)` , que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo.  Esse método faz uma solicitação GET para que a API do Graph do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido.  Mas para consultar a API do Graph, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     ...
@@ -128,7 +128,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 * Se for necessário usar autenticação interativa, a ADAL usará o WAB (Web Authentication Broker, agenciador de autenticação da Web) do Windows Phone e [modelo de continuação](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) para exibir a página de logon do AD do Azure.  Quando o usuário faz logon, seu aplicativo precisa passar à ADAL os resultados da interação com o WAB.  Isso é tão simples quanto implementar a interface `ContinueWebAuthentication` :
 
-```C#
+```csharp
 // This method is automatically invoked when the application
 // is reactivated after an authentication interaction through WebAuthenticationBroker.
 public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
@@ -141,7 +141,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 
 * Agora é hora de usar o `AuthenticationResult` que a ADAL retornou ao seu aplicativo.  No retorno de chamada `QueryGraph(...)`, anexe o access_token que você adquiriu à solicitação GET, no cabeçalho Autorização:
 
-```C#
+```csharp
 private async void QueryGraph(AuthenticationResult result)
 {
     if (result.Status != AuthenticationStatus.Success)
@@ -158,13 +158,13 @@ private async void QueryGraph(AuthenticationResult result)
 ```
 * Você também pode usar o objeto `AuthenticationResult` para exibir informações sobre o usuário em seu aplicativo. No método `QueryGraph(...)`, use o resultado para mostrar a id do usuário na página:
 
-```C#
+```csharp
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
 * Por fim, você também pode usar a ADAL para realizar o logout do usuário do aplicativo.  Quando o usuário clica no botão "Sair", queremos garantir que a próxima chamada para `AcquireTokenSilentAsync(...)` falhará.  Com a ADAL, isso é tão fácil quanto limpar o cache de tokens:
 
-```C#
+```csharp
 private void SignOut()
 {
     // Clear session state from the token cache.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 6918081600074b05cf357c848778ab4e66e07fff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d1e4d3a2d8edf061c5f16da62287359bd6039c69
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Copiar dados do ServiceNow utilizando o Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector do ServiceNow.
 
@@ -47,9 +47,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do ServiceNow:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida para: **ServiceNow** | Sim |
-| endpoint | O endpoint do servidor do ServiceNow. (ou seja, http://ServiceNowData.com)  | Sim |
-| authenticationType | O tipo de autenticação a ser usado. <br/>Os valores permitidos são: **Básica**, **OAuth2** | Sim |
+| Tipo | A propriedade type deve ser definida para: **ServiceNow** | sim |
+| endpoint | O endpoint do servidor do ServiceNow. (ou seja, http://ServiceNowData.com)  | sim |
+| authenticationType | O tipo de autenticação a ser usado. <br/>Os valores permitidos são: **Básica**, **OAuth2** | sim |
 | Nome de Usuário | O nome de usuário usado para se conectar ao servidor ServiceNow para autenticação básica e OAuth2.  | Não  |
 | Senha | A senha correspondente ao nome de usuário para autenticação básica e OAuth2. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Não  |
 | clientId | A ID do cliente para autenticação OAuth2.  | Não  |
@@ -109,8 +109,8 @@ Para copiar dados do ServiceNow, defina o tipo de origem na atividade de cópia 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ServiceNowSource** | Sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM alm.asset"`. | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ServiceNowSource** | sim |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM alm.asset"`. | sim |
 
 **Exemplo:**
 

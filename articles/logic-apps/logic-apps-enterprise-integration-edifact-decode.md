@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: e3787b48037360bf6066ddce2bacba6842213b2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41bd0291f3ff8f5dd61a21d1ba4ecb3b60a3cbfb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Veja os itens necessários:
 
 ## <a name="decode-edifact-messages"></a>Decodificar mensagens EDIFACT
 
-1. [Criar um aplicativo lógico](logic-apps-create-a-logic-app.md).
+1. [Criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md).
 
 2. O conector de mensagem EDIFACT de decodificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
@@ -62,7 +62,7 @@ Veja os itens necessários:
 
     ![conexão com a conta de integração criada](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    Por exemplo:
+    Por exemplo: 
 
     ![Escolha a mensagem de arquivo simples EDIFACT para decodificação](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 

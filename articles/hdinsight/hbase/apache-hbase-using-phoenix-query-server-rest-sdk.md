@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: f3b29db2dd74e6b3c0c066045d05cb853d1541f8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f57260b2ee280aa0f49f42cd145477205926cb0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>SDK REST de Phoenix Query Server
 
@@ -39,18 +39,18 @@ O driver do Microsoft .NET para o Apache Phoenix Query Server é fornecido como 
 
 Para começar a usar a biblioteca, criar uma instância de um novo `PhoenixClient` objeto, passando `ClusterCredentials` que contém o `Uri` ao cluster e o nome de usuário e senha do cluster Hadoop.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
 
-Substitua o NOMEDOCLUSTER pelo seu nome do cluster do HBase do HDInsight, e NOMEDOUSUÁRIO e SENHA pelas credenciais Hadoop especificadas na criação do cluster. O nome de usuário Hadoop padrão é **admin**.
+Substitua o NOMEDOCLUSTER pelo nome do seu cluster do HBase do HDInsight, e NOMEDOUSUÁRIO e SENHA pelas credenciais Hadoop especificadas na criação do cluster. O nome de usuário Hadoop padrão é **admin**.
 
 ## <a name="generate-unique-connection-identifier"></a>Gerar o identificador de conexão exclusivo
 
 Para enviar uma ou mais solicitações PQS, você precisa incluir um identificador de conexão exclusivo para associar as solicitações de conexão.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -60,7 +60,7 @@ Cada exemplo faz uma chamada para o `OpenConnectionRequestAsync` método, passan
 
 Para chamar `ConnectionSyncRequestAsync`, passar um `ConnectionProperties` objeto.
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -102,7 +102,7 @@ HBase, como outros RDBMS, armazena dados em tabelas. Phoenix usa consultas SQL p
 
 Este exemplo e todos os exemplos subsequentes usam o objeto instanciado `PhoenixClient` conforme definido em [Criar um novo objeto PhoenixClient](#instantiate-new-phoenixclient-object).
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -172,13 +172,13 @@ O exemplo anterior cria uma nova tabela nomeada `Customers` usando a opção `IF
 
 Este exemplo mostra uma inserção de dados individuais, referenciando um `List<string>` conjunto de abreviações de estados e territórios americanos:
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 O valor da coluna `StateProvince` da tabela será usado em uma operação de seleção subsequente.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -289,7 +289,7 @@ A estrutura para executar uma instrução insert é semelhante à criação de u
 
 O código a seguir é quase idêntico ao código de inserção de dados individualmente. Este exemplo usa o `UpdateBatch` objeto em uma chamada para `ExecuteBatchRequestAsync`, em vez de chamar repetidamente `ExecuteRequestAsync` com uma instrução preparada.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -407,7 +407,7 @@ Este exemplo mostra como reutilizar uma conexão para executar várias consultas
 2. Use uma instrução select de contagem total de linhas para recuperar o resultado escalar único.
 3. Execute uma instrução select que retorna o número total de clientes por estado ou território.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 

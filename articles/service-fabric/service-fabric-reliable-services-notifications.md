@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b8a0aad23c6c4ceaf23dd3fbde5daef3519fdcf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-services-notifications"></a>Notificações do Reliable Services
 As notificações permitem que os clientes controle as alterações que estão sendo feitas em um objeto no qual eles estão interessados. Dois tipos de objetos dão suporte a notificações: *Gerenciador de Estado Confiável* e *Dicionário Confiável*.
@@ -51,7 +51,7 @@ A coleção do Gerenciador de Estado Confiável é recompilada em três casos:
 
 Para se registrar e receber notificações de transação e/ou notificações do gerenciador de estado, você precisa se registrar com eventos **TransactionChanged** ou **StateManagerChanged** no Gerenciador de Estado Confiável. Um lugar comum para registrar esses manipuladores de eventos é o construtor de seu serviço com estado. Quando você se registrar no construtor, não perderá notificações causadas por uma alteração durante a vida útil de **IReliableStateManager**.
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -69,7 +69,7 @@ O manipulador de eventos **TransactionChanged** usa **NotifyTransactionChangedEv
 
 Veja a seguir um exemplo de manipulador de eventos **TransactionChanged** .
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -91,7 +91,7 @@ Use a propriedade de ação no **NotifyStateManagerChangedEventArgs** para conve
 
 Veja a seguir um exemplo de manipulador de notificação **StateManagerChanged** .
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -117,7 +117,7 @@ O Dicionário Confiável fornece notificações para os seguintes eventos:
 Para obter notificações de dicionário confiável, você precisa se registrar com o manipulador de eventos **DictionaryChanged** em **IReliableDictionary**. Um lugar comum para se registrar com esses manipuladores de eventos é na notificação de adição **ReliableStateManager.StateManagerChanged** .
 O registro quando **IReliableDictionary** é adicionado a **IReliableStateManager** garante que você não perca notificações.
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -142,7 +142,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 O conjunto de código anterior define a interface de **IReliableNotificationAsyncCallback**, juntamente com **DictionaryChanged**. Como **NotifyDictionaryRebuildEventArgs** contém uma interface **IAsyncEnumerable** que precisa ser enumerada de forma assíncrona, as notificações de recriação são disparadas por meio de **RebuildNotificationAsyncCallback** em vez de **OnDictionaryChangedHandler**.
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -171,7 +171,7 @@ O manipulador de eventos **DictionaryChanged** usa o **NotifyDictionaryChangedEv
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)

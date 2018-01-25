@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Compilar um serviço Web front-end para seu aplicativo usando ASP.NET Core
 Por padrão, os serviços do Azure Service Fabric não fornecem uma interface pública para a Web. Para expor a funcionalidade do aplicativo para clientes HTTP, você precisa criar um projeto Web para atuar como um ponto de entrada e, depois, se comunicar nele com os serviços individuais.
@@ -91,7 +91,7 @@ Vamos começar criando a interface para atuar como o contrato entre o serviço c
 
 4. Na biblioteca de classes, crie uma interface com um único método, `GetCountAsync` e estenda a interface por meio do `Microsoft.ServiceFabric.Services.Remoting.IService`. A interface de comunicação remota deve derivar dessa interface para indicar que ela é uma interface da Comunicação Remota do Serviço.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ Agora que definimos a interface, precisamos implementá-la no serviço com estad
     ![Adicionando uma referência ao projeto de biblioteca de classes ao serviço com estado][vs-add-class-library-reference]
 2. Localize a classe que herda de `StatefulService`, como `MyStatefulService`, e a estenda para implementar a interface `ICounter`.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ Agora que definimos a interface, precisamos implementá-la no serviço com estad
     ```
 3. Agora, implemente o método único definido na interface `ICounter`, `GetCountAsync`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ Nesse caso, substituímos o método `CreateServiceReplicaListeners` existente e 
 
 O método de extensão `CreateServiceRemotingListener` na interface `IService` permite que você crie facilmente um `ServiceRemotingListener` com todas as configurações padrão. Para usar esse método de extensão, verifique se você importou o namespace `Microsoft.ServiceFabric.Services.Remoting.Runtime`. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ Agora, nosso serviço com estado está pronto para receber o tráfego de outros 
 
 4. Na pasta **Controladores**, abra a classe `ValuesController`. Observe que o método `Get` atualmente retorna somente uma matriz de cadeia de caracteres codificados "value1" e "value2", que coincide com o que vimos anteriormente no navegador. Substitua essa implementação pelo seguinte código:
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;

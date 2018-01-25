@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativo Lógico do Azure
 
-Depois de [criar e executar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md), verifique seu histórico de execuções, histórico de gatilhos, status e desempenho. Para monitoramento de eventos em tempo real e depuração mais avançada, configure o [log de diagnósticos](#azure-diagnostics) do aplicativo lógico. Dessa forma, você poderá [encontrar e exibir eventos](#find-events), como eventos de gatilho, eventos de execução e eventos de ação. Use também esses [dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure. 
+Depois de [criar e executar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md), verifique seu histórico de execuções, histórico de gatilhos, status e desempenho. Para monitoramento de eventos em tempo real e depuração mais avançada, configure o [log de diagnósticos](#azure-diagnostics) do aplicativo lógico. Dessa forma, você poderá [encontrar e exibir eventos](#find-events), como eventos de gatilho, eventos de execução e eventos de ação. Use também esses [dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure. 
 
 Para obter notificações sobre falhas ou outros possíveis problemas, configure [alertas](#add-azure-alerts). Por exemplo, você pode criar um alerta que detecta “quando mais de cinco execuções falham em uma hora”. Você também pode configurar o monitoramento, o acompanhamento e o log de forma programática usando as [propriedades e configurações de evento do Diagnóstico do Azure](#diagnostic-event-properties).
 
@@ -37,7 +37,7 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
 
 2. Selecione o aplicativo lógico e, em seguida, escolha **Visão geral**.
 
-   O portal do Azure mostra o histórico de execuções e o histórico de gatilhos do aplicativo lógico. Por exemplo:
+   O portal do Azure mostra o histórico de execuções e o histórico de gatilhos do aplicativo lógico. Por exemplo: 
 
    ![Histórico de execuções e histórico de gatilhos do aplicativo lógico](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -51,7 +51,7 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
 
 3. Para exibir as etapas de uma execução específica, em **Histórico de execuções**, selecione essa execução. 
 
-   A exibição de monitor mostra cada etapa dessa execução. Por exemplo:
+   A exibição de monitor mostra cada etapa dessa execução. Por exemplo: 
 
    ![Ações de uma execução específica](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -61,7 +61,7 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
 
    Por exemplo, você pode obter a **ID de Correlação** da execução, que pode ser útil ao usar a [API REST dos Aplicativos Lógicos](https://docs.microsoft.com/rest/api/logic).
 
-5. Para obter detalhes sobre uma etapa específica, escolha essa etapa. Agora você pode examinar detalhes como entradas, saídas e todos os erros que ocorreram nessa etapa. Por exemplo:
+5. Para obter detalhes sobre uma etapa específica, escolha essa etapa. Agora você pode examinar detalhes como entradas, saídas e todos os erros que ocorreram nessa etapa. Por exemplo: 
 
    ![Detalhes da etapa](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -168,7 +168,7 @@ Junto com o Azure Log Analytics, você pode estender a maneira de usar os dados 
 * [Arquivar logs do Diagnóstico do Azure no Armazenamento do Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [Transmitir logs do Diagnóstico do Azure para os Hubs de Eventos do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../log-analytics/log-analytics-powerbi.md). Por exemplo:
+Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../log-analytics/log-analytics-powerbi.md). Por exemplo: 
 
 * [Transmitir dados dos Hubs de Eventos para o Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analisar dados de streaming com o Stream Analytics e criar um painel de análise em tempo real no Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

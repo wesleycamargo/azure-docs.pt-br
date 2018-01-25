@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados ao Log Analytics com a API do Coletor de dados HTTP (visualização pública)
 Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados ao Log Analytics de um cliente da API REST.  Ele descreve como formatar dados coletados pelo seu script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Log Analytics.  Os exemplos são fornecidos para PowerShell, C# e Python.
@@ -47,14 +47,14 @@ Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua
 | Tipo de conteúdo |aplicativo/json |
 
 ### <a name="request-uri-parameters"></a>Solicitar parâmetros de URI (Uniform Resource Identifier)
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 |:--- |:--- |
 | CustomerID |O identificador exclusivo para o espaço de trabalho do Microsoft Operations Management Suite. |
 | Recurso |O nome do recurso de API: /api/logs. |
 | Versão da API |A versão da API a ser usada com esta solicitação. Atualmente, ela é 2016-04-01. |
 
 ### <a name="request-headers"></a>Cabeçalhos da solicitação
-| Cabeçalho | Descrição |
+| Cabeçalho | DESCRIÇÃO |
 |:--- |:--- |
 | Autorização |A assinatura de autorização. Posteriormente neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
 | Log-Type |Especifique o tipo de registro dos dados que estão sendo enviados. Atualmente, o tipo de log dá suporte apenas a caracteres alfa. Ele não dá suporte a caracteres alfanuméricos ou caracteres especiais. |
@@ -135,7 +135,7 @@ Para identificar o tipo de dados de uma propriedade, o Log Analytics adiciona um
 | Tipo de dados de propriedade | Suffix |
 |:--- |:--- |
 | Cadeia de caracteres |_s |
-| Booliano |_b |
+| BOOLEAN |_b |
 | Duplo |_d |
 | Data/hora |_t |
 | GUID |_g |
@@ -173,7 +173,7 @@ O código de status HTTP 200 significa que a solicitação foi recebida para pro
 
 Esta tabela lista o conjunto completo de códigos de status que o serviço pode retornar:
 
-| Código | Status | Código do erro | Descrição |
+| Código | Status | Código do erro | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |A solicitação foi aceita com êxito. |
 | 400 |Solicitação incorreta |InactiveCustomer |O espaço de trabalho foi fechado. |
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>Exemplo de C#

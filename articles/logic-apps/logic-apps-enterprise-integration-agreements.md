@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: LADocs
-ms.openlocfilehash: 7ce0860272901f3b4e4cf3d63f7361d539f64741
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f939c626be11a358b0f8bece8840992a4362e1f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Contratos entre parceiros para comunicação B2B com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 
@@ -46,7 +46,7 @@ Estes são alguns benefícios comuns do uso de contratos:
 
 ## <a name="how-to-use-an-agreement"></a>Como usar um contrato
 
-É possível criar [aplicativos lógicos](logic-apps-what-are-logic-apps.md "Saiba mais sobre Aplicativos Lógicos") com recursos de B2B usando um contrato criado por você.
+É possível criar [aplicativos lógicos](logic-apps-overview.md "Saiba mais sobre Aplicativos Lógicos") com recursos de B2B usando um contrato criado por você.
 
 ## <a name="how-to-edit-an-agreement"></a>Como editar um contrato
 

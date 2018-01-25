@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Um tour pela Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -134,7 +134,7 @@ Por padrão, as consultas são restritas às últimas 24 horas. Mas você pode a
 
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-Substitua o intervalo de tempo escrevendo qualquer consulta que mencione `timestamp` em uma cláusula where. Por exemplo:
+Substitua o intervalo de tempo escrevendo qualquer consulta que mencione `timestamp` em uma cláusula where. Por exemplo: 
 
 ```AIQL
 
@@ -538,7 +538,7 @@ Se o seu aplicativo anexar [dimensões personalizadas (propriedades) e medidas p
 
 Por exemplo, se o seu aplicativo inclui:
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
@@ -611,7 +611,7 @@ Se usar [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) par
 
 Vejamos um exemplo em que o código do aplicativo contém estas linhas:
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
@@ -629,7 +629,7 @@ Extrair medidas e dimensões de eventos:
 ![Taxa de exibição de eventos personalizados](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Tabela de métricas personalizada
-Se estiver usando [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) para enviar seus próprios valores de métricas, você encontrará os resultados no fluxo **customMetrics**. Por exemplo:  
+Se estiver usando [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) para enviar seus próprios valores de métricas, você encontrará os resultados no fluxo **customMetrics**. Por exemplo:   
 
 ![Métricas personalizadas na análise do Application Insights](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 

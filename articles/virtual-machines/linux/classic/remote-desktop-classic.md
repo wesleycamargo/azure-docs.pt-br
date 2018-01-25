@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 65098dbad2cfb2de1f2e5156fbcc3d6477311867
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72c814aece7626b19cefccb18e1b90f8c44d7f57
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Usando a Área de Trabalho Remota para se conectar a uma VM do Linux do Microsoft Azure
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Essa orientação fornecerá a resposta! Ela ajudará você com a instalação e
 A ferramenta xrdp é um servidor RDP de software livre que permite a conexão do servidor Linux com a Área de Trabalho Remota de um computador com Windows. O RDP tem um desempenho melhor do que a VNC (Computação de Rede Virtual). A VNC renderiza usando gráficos de qualidade de JPEG e pode ser lenta, enquanto o RDP é rápido e claro.
 
 > [!NOTE]
-> Você já deve ter uma VM do Microsoft Azure executando o Linux. Para criar e configurar uma VM do Linux, veja o [Tutorial de VM do Linux do Azure](createportal.md).
+> Você já deve ter uma VM do Microsoft Azure executando o Linux. Para criar e configurar uma VM do Linux, veja o [Tutorial de VM do Linux do Azure](createportal-classic.md).
 > 
 > 
 

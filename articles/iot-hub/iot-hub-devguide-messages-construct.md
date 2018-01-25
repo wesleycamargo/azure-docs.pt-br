@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c57ceb83951341d4a7bf368e209ba0f88825672c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -28,7 +28,7 @@ Para suportar a interoperabilidade contínua entre protocolos, o Hub IoT define 
 * Um conjunto de *propriedades do aplicativo*. Um dicionário de propriedades de cadeia de caracteres que o aplicativo pode definir e acessar sem precisar desserializar o corpo da mensagem. O Hub IoT nunca modifica essas propriedades.
 * Um corpo de binário opaco.
 
-Valores e nomes de propriedade podem conter somente caracteres alfanuméricos ASCII, mais ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` quando você:  
+Valores e nomes de propriedade podem conter somente caracteres alfanuméricos ASCII, mais ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` quando você:  
 
 * Envia mensagens do dispositivo para a nuvem usando o protocolo HTTPS.
 * Enviar mensagens da nuvem para o dispositivo.
@@ -37,7 +37,7 @@ Para obter mais informações sobre como codificar e decodificar mensagens envia
 
 A tabela a seguir lista o conjunto de propriedades do sistema em mensagens do Hub IoT.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | MessageId |Um identificador configurável pelo usuário para a mensagem utilizada para padrões de resposta à solicitação. Formato: uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Número de sequência |Um número (exclusivo por fila de dispositivos) atribuído pelo Hub IoT a cada mensagem da nuvem para o dispositivo. |

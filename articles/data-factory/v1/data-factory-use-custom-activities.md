@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,16 +36,15 @@ Há dois tipos de atividades que você pode usar em um pipeline do Azure Data Fa
 
 Para mover dados de/para um armazenamento de dados que não tenha suporte do Data Factory, você pode criar uma **atividade personalizada** com lógica de movimentação de dados própria e usar a atividade em um pipeline. De forma semelhante, se precisar transformar/processar dados de uma maneira que não tenha suporte do Data Factory, crie uma atividade personalizada com lógica de transformação de dados própria e use a atividade em um pipeline. 
 
-Você pode configurar uma atividade personalizada para execução em um pool de máquinas virtuais do **Azure Batch** ou um cluster do **HDInsight do Azure** baseado em Windows. Ao usar o Azure Batch, você só pode utilizar um pool de Lote do Azure existente. Ao passo que, ao usar o HDInsight, você pode usar um cluster HDInsight existente ou um cluster criado automaticamente para você sob demanda no tempo de execução.  
+Você pode configurar uma atividade personalizada para execução em um pool de máquinas virtuais do **Lote do Azure**. Ao usar o Azure Batch, você só pode utilizar um pool de Lote do Azure existente.
 
-O passo a passo a seguir fornece instruções para criar uma atividade personalizada do .NET e usá-la em um pipeline. O passo a passo usa um serviço vinculado do **Lote do Azure**. Para usar um serviço vinculado do HDInsight do Azure, você cria um serviço vinculado do tipo **HDInsight** (seu próprio cluster HDInsight) ou **HDInsightOnDemand** (o Data Factory cria um cluster HDInsight sob demanda). Em seguida, configure uma atividade personalizada para usar o serviço vinculado do HDInsight. Consulte a seção [Usar serviços vinculados do Azure HDInsight](#use-hdinsight-compute-service) para obter detalhes sobre como usar o Azure HDInsight para executar a atividade personalizada.
+O passo a passo a seguir fornece instruções para criar uma atividade personalizada do .NET e usá-la em um pipeline. O passo a passo usa um serviço vinculado do **Lote do Azure**. 
 
 > [!IMPORTANT]
-> - As atividades personalizadas do .NET executam somente em clusters HDInsight baseados em Windows. Uma solução alternativa para essa limitação é usar a atividade de reduzir o mapa para executar código Java personalizado em um cluster HDInsight baseado em Linux. Outra opção é usar um pool de lote do Azure de VMs para executar atividades personalizadas em vez de usar um cluster HDInsight.
 > - Não é possível usar o Gateway de Gerenciamento de Dados de uma atividade personalizada para acessar fontes de dados locais. Atualmente, o [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) dá suporte apenas à atividade de cópia e à atividade de procedimento armazenado no Data Factory.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Passo a passo: criar uma atividade personalizada
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 * Visual Studio 2012/2013/2015
 * Baixar e instalar o [SDK .NET do Azure](https://azure.microsoft.com/downloads/)
 
@@ -113,7 +112,9 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
      <li>Selecione <b>C:\ADFGetStarted</b> como o <b>Local</b>.</li>
      <li>Clique em <b>OK</b> para criar o projeto.</li>
    </ol>
+   
 2. Clique em **Ferramentas**, aponte para **Gerenciador de Pacotes NuGet** e clique em **Console do Gerenciador de Pacotes**.
+
 3. No Console do Gerenciador de Pacotes, execute o comando a seguir para importar **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell
@@ -479,8 +480,6 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 
        Para a propriedade **poolName** , você também pode especificar a ID do pool em vez do nome do pool.
 
-      > [!IMPORTANT]
-      > O serviço de Data Factory não suporta uma opção sob demanda para o Azure Batch como o faz para o HDInsight. Você só pode usar seu próprio pool do Azure Batch em um Azure Data Factory.   
     
 
 ### <a name="step-3-create-datasets"></a>Etapa 3: Criar conjuntos de dados
@@ -635,7 +634,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
     ![Bloco do diagrama](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
 2. Na exibição Diagrama, clique em OutputDataset.
 
-    ![Exibição de diagrama](./media/data-factory-use-custom-activities/diagram.png)
+    ![Modo de Exibição de Diagrama](./media/data-factory-use-custom-activities/diagram.png)
 3. Você verá que as cinco fatias de saída estão no estado Pronto. Se não estiverem no estado Pronto, ainda não foram produzidas. 
 
    ![Fatias de saída](./media/data-factory-use-custom-activities/OutputSlices.png)
@@ -786,115 +785,6 @@ Consulte [Dimensionar automaticamente os nós de computação em um pool de Lote
 
 Se o pool estiver usando o padrão [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço Lote poderá demorar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada.  Se o pool estiver usando um autoScaleEvaluationInterval diferente, o serviço de lote pode levar autoScaleEvaluationInterval + 10 minutos.
 
-## <a name="use-hdinsight-compute-service"></a>Use o serviço de computação do HDInsight
-No passo a passo, você usou a computação de Lote do Azure para executar a atividade personalizada. Você também pode usar seu próprio cluster do HDInsight baseado em Windows ou fazer com que o Data Factory crie um cluster do HDInsight baseado em Windows sob demanda e execute a atividade personalizada no cluster do HDInsight. Estas são as etapas gerais para usar um cluster do HDInsight.
-
-> [!IMPORTANT]
-> As atividades personalizadas do .NET executam somente em clusters HDInsight baseados em Windows. Uma solução alternativa para essa limitação é usar a atividade de reduzir o mapa para executar código Java personalizado em um cluster HDInsight baseado em Linux. Outra opção é usar um pool de lote do Azure de VMs para executar atividades personalizadas em vez de usar um cluster HDInsight.
- 
-
-1. Criar um serviço vinculado do Azure HDInsight.   
-2. Use um serviço vinculado do HDInsight em vez do **AzureBatchLinkedService** no JSON do pipeline.
-
-Se quiser fazer o teste com o passo a passo, altere os horários de **início** e **término** do pipeline para que você possa testar o cenário com o serviço do Azure HDInsight.
-
-#### <a name="create-azure-hdinsight-linked-service"></a>Criar o serviço vinculado do Azure HDInsight
-O serviço Data Factory do Azure dá suporte à criação de um cluster sob demanda e o usa para processar entrada a fim de gerar dados de saída. Você também pode usar seu próprio cluster para fazer isso. Quando você usa o cluster HDInsight sob demanda, um cluster é criado para cada fatia. Ao passo que, se você usar seu próprio cluster HDInsight, o cluster estará pronto para processar a fatia imediatamente. Portanto, quando você usar cluster sob demanda, não verá os dados de saída mais rapidamente que quando usa seu próprio cluster.
-
-> [!NOTE]
-> Em tempo de execução, uma instância de uma atividade do .NET é executada em somente um nó de trabalho no cluster HDInsight. Ela não pode ser dimensionada para ser executada em vários nós. Múltiplas instâncias de atividade do .NET podem ser executadas em paralelo em diferentes nós do cluster do HDInsight.
->
->
-
-##### <a name="to-use-an-on-demand-hdinsight-cluster"></a>Para usar um cluster HDInsight sob demanda
-1. No **Portal do Azure**, clique em **Criar e implantar** na página inicial do Data Factory.
-2. No Editor Data Factory, Clique em **Nova computação** na barra de comandos e selecione **Cluster HDInsight sob demanda** no menu.
-3. Faça as alterações a seguir no script JSON:
-
-   1. Para a propriedade **clusterSize** , especifique o tamanho do cluster do HDInsight.
-   2. Para a propriedade **timeToLive** , especifique quanto tempo o cliente pode ficar ocioso antes de ser excluído.
-   3. Para a propriedade **version** , especifique a versão do HDInsight que você deseja usar. Se você excluir essa propriedade, a versão mais recente será usada.  
-   4. Para o **linkedServiceName**, especifique **AzureStorageLinkedService**.
-
-        ```JSON
-        {
-           "name": "HDInsightOnDemandLinkedService",
-           "properties": {
-               "type": "HDInsightOnDemand",
-               "typeProperties": {
-                   "clusterSize": 4,
-                   "timeToLive": "00:05:00",
-                   "osType": "Windows",
-                   "linkedServiceName": "AzureStorageLinkedService",
-               }
-           }
-        }
-        ```
-
-    > [!IMPORTANT]
-    > As atividades personalizadas do .NET executam somente em clusters HDInsight baseados em Windows. Uma solução alternativa para essa limitação é usar a atividade de reduzir o mapa para executar código Java personalizado em um cluster HDInsight baseado em Linux. Outra opção é usar um pool de lote do Azure de VMs para executar atividades personalizadas em vez de usar um cluster HDInsight.
-
-4. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
-
-##### <a name="to-use-your-own-hdinsight-cluster"></a>Para usar seu próprio cluster HDInsight:
-1. No **Portal do Azure**, clique em **Criar e implantar** na página inicial do Data Factory.
-2. No **Editor Data Factory**, clique em **Nova computação** na barra de comandos e selecione **Cluster HDInsight** no menu.
-3. Faça as alterações a seguir no script JSON:
-
-   1. Para a propriedade **clusterUri** , insira a URL para seu HDInsight. Por exemplo: https://<clustername>.azurehdinsight.net/     
-   2. Para a propriedade **UserName** , digite o nome de usuário que tem acesso ao cluster HDInsight.
-   3. Para a propriedade **Password** , especifique a senha para o usuário.
-   4. Para a propriedade **LinkedServiceName**, digite **AzureStorageLinkedService**.
-4. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
-
-Consulte os [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
-
-No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o seu próprio):
-
-```JSON
-{
-  "name": "ADFTutorialPipelineCustom",
-  "properties": {
-    "description": "Use custom activity",
-    "activities": [
-      {
-        "Name": "MyDotNetActivity",
-        "Type": "DotNetActivity",
-        "Inputs": [
-          {
-            "Name": "InputDataset"
-          }
-        ],
-        "Outputs": [
-          {
-            "Name": "OutputDataset"
-          }
-        ],
-        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-        "typeProperties": {
-          "AssemblyName": "MyDotNetActivity.dll",
-          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-          "PackageLinkedService": "AzureStorageLinkedService",
-          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-          "extendedProperties": {
-            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-          }
-        },
-        "Policy": {
-          "Concurrency": 2,
-          "ExecutionPriorityOrder": "OldestFirst",
-          "Retry": 3,
-          "Timeout": "00:30:00",
-          "Delay": "00:00:00"
-        }
-      }
-    ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
-    "isPaused": false
-  }
-}
-```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Criar uma atividade personalizada usando o SDK do .NET
 No passo a passo deste artigo, você pode criar um data factory com um pipeline que use a atividade personalizada usando o portal do Azure. O código a seguir mostra como criar o data factory usando o SDK do .NET em vez disso. Você pode encontrar mais detalhes sobre como usar o SDK para criar programaticamente pipelines no artigo [Criar um pipeline com Atividade de Cópia usando a API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 

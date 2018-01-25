@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 8ad1ed1b8a178cb8906e6233e6bd78f50d01c50c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Diretrizes do desenvolvedor para acesso condicional do Azure Active Directory
 
@@ -73,7 +73,7 @@ Os desenvolvedores podem aceitar esse desafio e acrescentá-lo em uma nova solic
 
 ## <a name="scenarios"></a>Cenários
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 O acesso condicional do Azure AD é um recurso incluído no [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Você pode saber mais sobre os requisitos de licenciamento no [relatório de uso não licenciado](../active-directory-conditional-access-unlicensed-usage-report.md).  Os desenvolvedores podem ingressar no [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que inclui uma assinatura gratuita para o Enterprise Mobility Suite que, por sua vez, inclui o Azure AD Premium.
 
@@ -109,7 +109,7 @@ O desafio de declarações está dentro do cabeçalho ```WWW-Authenticate```, qu
 
 O cabeçalho ```WWW-Authenticate``` têm uma estrutura única e não é tão simples de analisar para extrair valores.  Aqui está um método breve para ajudar.
 
-```C#
+```csharp
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>

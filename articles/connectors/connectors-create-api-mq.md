@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conectar-se a um servidor do IBM MQ de aplicativos lógicos usando o conector MQ 
 
 O Conector Microsoft para MQ envia e recupera mensagens armazenadas em um servidor MQ local ou no Azure. Esse conector inclui um cliente Microsoft MQ para se comunicar com um servidor MQ IBM remoto em uma rede TCP/IP. Este documento é um guia introdutório para usar o conector MQ. É recomendável que você comece procurando uma única mensagem em uma fila e, em seguida, tente as outras ações.    
 
-O Conector do MQ inclui as ações a seguir. Não há nenhum gatilho.
+O Conector do MQ inclui as ações a seguir. Não há gatilhos.
 
 -   Procurar uma única mensagem sem excluí-la do servidor IBM MQ
 -   Procurar um lote de mensagens sem excluí-las do servidor IBM MQ
@@ -33,7 +33,7 @@ O Conector do MQ inclui as ações a seguir. Não há nenhum gatilho.
 -   Receber um lote de mensagens e excluí-las do servidor IBM MQ
 -   Enviar uma única mensagem ao servidor IBM MQ 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Se você usar um servidor MQ local, [instale o gateway de dados local](../logic-apps/logic-apps-gateway-install.md) em um servidor dentro de sua rede. Se o servidor MQ está publicamente disponível ou disponível no Azure, o gateway de dados não é usado nem necessário.
 
@@ -123,4 +123,4 @@ Se não houver nenhuma mensagem na fila ao fazer uma pesquisa ou um recebimento,
 Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/mq/).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
+[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).

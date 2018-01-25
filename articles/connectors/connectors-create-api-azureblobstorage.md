@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e12669abd41f09d161fab786af29955da54a1633
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Usar o conector do armazenamento de blobs do Azure em um aplicativo lógico
 Use o conector do armazenamento de Blobs do Azure para carregar, atualizar, obter e excluir blobs de sua conta de armazenamento, tudo em um aplicativo lógico.  
@@ -31,9 +31,7 @@ Com o armazenamento de blobs do Azure, você:
 
 Este tópico mostra como usar o conector do armazenamento de blobs em um aplicativo lógico.
 
-Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) e [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
-
-Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) e [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../logic-apps/logic-apps-overview.md) e [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-azure-blob-storage"></a>Conectar o armazenamento de blobs do Azure
 Antes do aplicativo lógico poder acessar qualquer serviço, primeiro crie uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar a uma conta de armazenamento, você primeiro cria uma *conexão* de armazenamento de blobs. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual está se conectando. Assim, com o armazenamento do Azure, insira as credenciais de sua conta de armazenamento para criar a conexão. 
@@ -42,7 +40,7 @@ Antes do aplicativo lógico poder acessar qualquer serviço, primeiro crie uma *
 > [!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
 
 ## <a name="use-a-trigger"></a>Usar um gatilho
-Esse conector não tem gatilhos. Use outros gatilhos para iniciar o aplicativo lógico, como um gatilho de Recorrência, um gatilho de Webhook HTTP, gatilhos disponíveis com outros conectores e muito mais. [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) fornece um exemplo.
+Esse conector não tem gatilhos. Use outros gatilhos para iniciar o aplicativo lógico, como um gatilho de Recorrência, um gatilho de Webhook HTTP, gatilhos disponíveis com outros conectores e muito mais. [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) fornece um exemplo.
 
 ## <a name="use-an-action"></a>Usar uma ação
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico.
@@ -74,5 +72,5 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/azureblobconnector/). 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
+[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 

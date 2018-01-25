@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger seu serviço RESTful usando certificados do cliente
 Em um artigo relacionado, [crie um serviço RESTful](active-directory-b2c-custom-rest-api-netfw.md) que interage com o Azure Active Directory B2C (Azure AD B2C).
@@ -33,7 +33,7 @@ Este artigo detalha como:
 * Carregue o certificado para as chaves de política do Azure AD B2C.
 * Configure sua política personalizada para usar o certificado do cliente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Execute as etapas descritas no artigo [Integrar trocas de declarações da API REST](active-directory-b2c-custom-rest-api-netfw.md).
 * Obtenha um certificado válido (um arquivo .pfx com uma chave privada).
 
@@ -181,7 +181,7 @@ Substitua os valores **Nome da entidade**, **Nome do emissor** e **Impressão di
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 Adicionar a função IsValidClientCertificate
 Abra o arquivo *Controllers\IdentityController.cs* e adicione a função a seguir à classe do controlador `Identity`: 
 
-```C#
+```csharp
 private bool IsValidClientCertificate()
 {
     string ClientCertificateSubject = ConfigurationManager.AppSettings["ClientCertificate:Subject"];
@@ -283,7 +283,7 @@ No exemplo de código anterior, o certificado só será aceito como uma opção 
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 Chamar a função IsValidClientCertificate
 Abra o arquivo *Controllers\IdentityController.cs* e adicione o trecho de código a seguir no início da função `SignUp()`: 
 
-```C#
+```csharp
 if (IsValidClientCertificate() == false)
 {
     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Your client certificate is not valid", HttpStatusCode.Conflict));

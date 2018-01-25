@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário
 Com a Estrutura de Experiência de Identidade subjacente ao Azure AD B2C (Azure Active Directory B2C), é possível integrar-se a uma API RESTful em um percurso do usuário. Neste passo a passo, você aprenderá como o Azure AD B2C interage com serviços RESTful do .NET Framework (API Web).
@@ -53,7 +53,7 @@ Visão geral:
 * Retornar um número de fidelidade. 
 * Adicionar o número de fidelidade a um JWT (JSON Web Token).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Etapa 1: Criar uma API Web ASP.NET
@@ -88,7 +88,7 @@ Crie um modelo que representa as declarações de entrada fazendo o seguinte:
 
 3. Nomeie a classe como `InputClaimsModel` e adicione as seguintes propriedades à classe `InputClaimsModel`:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -102,7 +102,7 @@ Crie um modelo que representa as declarações de entrada fazendo o seguinte:
 
 4. Crie um novo modelo, `OutputClaimsModel` e adicione as seguintes propriedades à classe `OutputClaimsModel`:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -114,7 +114,7 @@ Crie um modelo que representa as declarações de entrada fazendo o seguinte:
 
 5. Crie mais um modelo, `B2CResponseContent`, que será usado para gerar mensagens de erro de validação de entrada. Adicione as seguintes propriedades à classe `B2CResponseContent`, forneça as referências ausentes e salve o arquivo:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -152,7 +152,7 @@ Na API Web, um _controlador_ é um objeto que manipula as solicitações HTTP. O
 
 4. Se o arquivo *IdentityController.cs* ainda não estiver aberto, clique duas vezes nele e substitua o código no arquivo pelo código a seguir:
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;

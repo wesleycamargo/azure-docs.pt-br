@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Chamar uma API Web em um aplicativo Web .NET
 Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web e APIs Web com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante.  Compilaremos aqui um aplicativo Web MVC que faz logon dos usuários usando o OpenID Connect, com alguma ajuda do middleware OWIN da Microsoft.  O aplicativo Web obterá tokens de acesso OAuth 2.0 para uma API Web protegida pelo OAuth 2.0 que permite criar, ler e excluir itens de uma determinado “Lista de Tarefas Pendentes” do usuário.
@@ -68,7 +68,7 @@ Configuraremos aqui o middleware OWIN para usar o [protocolo de autenticação d
 * Abra o arquivo `App_Start\Startup.Auth.cs` e adicione instruções `using` para as bibliotecas acima.
 * No mesmo arquivo, implemente o método `ConfigureAuth(...)` .  Os parâmetros que você fornece em `OpenIDConnectAuthenticationOptions` servirão como coordenadas para seu aplicativo para se comunicar com o AD do Azure.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjun
 * E adicione outra instrução `using` ao arquivo `App_Start\Startup.Auth.cs`da MSAL.
 * Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`.  Esse manipulador usará a MSAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token da MSAL para depois:
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ Agora é hora de usar de fato o access_token que você acabou de adquirir na eta
     `using Microsoft.Identity.Client;`
 * Na ação `Index`, use o método `AcquireTokenSilentAsync` da MSAL para obter um access_token que possa ser usado para ler dados no serviço Lista de Tarefas Pendentes:
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * O exemplo adiciona o token resultante à solicitação HTTP GET, como o cabeçalho `Authorization`, que o serviço Lista de Tarefas Pendentes usa para autenticar a solicitação.
 * Se o serviço Lista de Tarefas Pendentes retornar uma resposta `401 Unauthorized`, access_tokens na MSAL se tornarão inválidos por algum motivo.  Nesse caso, você deve descartar todos os access_token do cache da MSAL e mostrar ao usuário uma mensagem que ele pode precisar para entrar novamente, que reiniciará o fluxo de aquisição de token.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * Da mesma forma, se a MSAL não puder retornar um access_token por algum motivo, você deverá orientar o usuário a entrar novamente.  Isso é tão simples quanto capturar qualquer `MSALException`:
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

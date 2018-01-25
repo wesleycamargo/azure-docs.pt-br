@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](azure-diagnostics.md).
@@ -154,7 +154,7 @@ Caso esteja pensando em contatar o suporte, a primeira ação que poderão solic
 ## <a name="diagnostics-data-tables-not-found"></a>Tabelas dos dados de diagnósticos não encontradas
 As tabelas no armazenamento do Azure que contêm eventos de ETW são nomeadas usando o código a seguir:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -165,7 +165,7 @@ As tabelas no armazenamento do Azure que contêm eventos de ETW são nomeadas us
             tableName = "WAD" + eventDestination;
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -228,7 +228,7 @@ Para a função de serviço de nuvem, se você escolher a configuração a parti
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída do plug-in do Diagnóstico do Microsoft Azure
 O plug-in retorna os seguintes códigos de saída:
 
-| Código de saída | Descrição |
+| Código de saída | DESCRIÇÃO |
 | --- | --- |
 | 0 |Sucesso. |
 | -1 |Erro genérico. |

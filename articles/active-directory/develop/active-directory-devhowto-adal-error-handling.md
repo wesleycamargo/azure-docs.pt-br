@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/11/2017
 ms.custom: 
-ms.openlocfilehash: b6cf7bbb1ae41fcdf16601af87ec1b573866639a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Práticas recomendadas em tratamento de erro para clientes da Biblioteca de autenticação do Azure Active Directory (ADAL)
 
@@ -49,7 +49,7 @@ Há um conjunto de erros gerados pelo sistema operacional, que pode exigir um tr
 
 Basicamente, há dois casos de erros AcquireTokenSilent:
 
-| Caixa | Descrição |
+| Caixa | DESCRIÇÃO |
 |------|-------------|
 | **Caso 1**: o erro pode ser resolvido com uma entrada interativa | Para erros causados pela falta de tokens válidos, uma solicitação interativa é necessária. Mais especificamente, a pesquisa de cache e um token de atualização inválido/expirado exigem uma chamada AcquireToken para serem resolvidos.<br><br>Nesses casos, o usuário final precisa ser solicitado a entrar. O aplicativo pode optar por fazer uma solicitação interativa imediatamente, após a interação do usuário final (como apertar um botão de entrada) ou posterior. A escolha depende do comportamento desejado do aplicativo.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele.|
 | **Caso 2**: o erro não pode ser resolvido com uma entrada interativa | Para erros de rede e transitórios/temporários ou outras falhas, a execução de uma solicitação AcquireToken interativa não resolve o problema. Avisos de entrada interativa desnecessários também podem frustrar usuários finais. A ADAL tenta automaticamente uma nova tentativa única para a maioria dos erros em falha AcquireTokenSilent.<br><br>O aplicativo cliente também poderá tentar novamente depois, mas quando e como fazer isso depende do comportamento do aplicativo e da experiência do usuário final desejada. Por exemplo, o aplicativo poderá fazer uma nova tentativa AcquireTokenSilent depois de alguns minutos, ou em resposta a uma ação do usuário final. Uma repetição imediata resultará na limitação do aplicativo e não deve ser tentada.<br><br>Uma falha em nova tentativa subsequente com o mesmo erro não significa que o cliente deva fazer uma solicitação interativa usando AcquireToken, pois isso não resolve o erro.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele. |
@@ -63,7 +63,7 @@ As seguintes diretrizes fornecem exemplos de tratamento de erro com métodos ADA
 - [preterido] acquireTokenSilent(…)
 - [preterido] acquireTokenByRefreshToken(…) 
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```csharp
 try{
@@ -106,7 +106,7 @@ As seguintes diretrizes fornecem exemplos de tratamento de erro com métodos ADA
 - acquireTokenSilentAsync(...)
 - [preterido] acquireTokenSilent(…)
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```java
 // *Inside callback*
@@ -576,6 +576,7 @@ window.Logging = {
 
 Use a seção de comentários a seguir para fazer comentários e nos ajudar a refinar e modelar o conteúdo.
 
+[![Botão Entrar][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -584,5 +585,5 @@ Use a seção de comentários a seguir para fazer comentários e nos ajudar a re
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[![Sign in button][AAD-Sign-In]][AAD-Sign-In] [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 

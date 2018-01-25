@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 76bf353cac13f1c2169380f8dd3c1e163d4f3f41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e715cad5cb28ad0c763ffb29c43e9ee98741699
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Criar um grupo de ações com um modelo do Resource Manager
 Este artigo mostra como você pode usar um [modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de ações. Usando modelos, você pode configurar automaticamente os grupos de ações que podem ser reutilizados em determinados tipos de alertas. Esses grupos de ações garantem que todas as partes corretas serão notificadas quando um alerta for disparado.
@@ -126,7 +126,7 @@ Para criar um grupo de ações usando um modelo do Resource Manager, você cria 
     "webhookReceiverName": {
       "type": "string",
       "metadata": {
-        "description": "Webhook receiver service URI."
+        "description": "Webhook receiver service Name."
       }
     },    
     "webhookServiceUri": {
