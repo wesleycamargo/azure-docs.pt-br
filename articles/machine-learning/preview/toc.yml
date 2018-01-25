@@ -92,6 +92,8 @@
           href: deployment-setup-configuration.md
         - name: Dimensionar clusters e serviços
           href: how-to-scale-clusters.md
+        - name: Configurar SSL em um cluster MLC
+          href: how-to-setup-ssl-on-mlc.md
         - name: Implantar um serviço Web
           href: model-management-service-deploy.md
         - name: Implantar em um dispositivo do IoT Edge

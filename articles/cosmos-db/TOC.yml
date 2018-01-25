@@ -248,7 +248,7 @@
           items:
             - name: Conecte-se à sua conta MongoDB
               href: connect-mongodb-account.md
-            - name: Usando o MongoChef
+            - name: Usando Studio 3T
               href: mongodb-mongochef.md
             - name: Usando o Robomongo
               href: mongodb-robomongo.md
