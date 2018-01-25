@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 835f1804b204b988b86b13f48cd9143f6bc81cee
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 49fb249b6ff1169527829c77a6539926ec99b912
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Como criar uma data factory usando o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -59,7 +59,7 @@ Eis as etapas executadas como parte deste tutorial:
 4. Crie uma data factory denominada **DataFactoryUsingVS**. Implante o data factory e todas as entidades de Data Factory (serviços vinculados, tabelas e pipeline).
 5. Depois de publicar, use as folhas do portal do Azure e aplicativos de gerenciamento e monitoramento para monitorar o pipeline. 
   
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 1. Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** . Você também pode selecionar a opção **Visão geral e Pré-requisitos** na lista suspensa, na parte superior, para alternar para o artigo. Depois de concluir os pré-requisitos, alterne de volta para este artigo, selecionando a opção **Visual Studio** na lista suspensa.
 2. Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.  
 3. Você deve ter os seguintes itens instalados no seu computador:
@@ -76,7 +76,7 @@ Agora, vamos usar o Visual Studio para criar um data factory do Azure.
     ![Caixa de diálogo Novo projeto](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 3. Insira um **nome** para o projeto, o **local**, um nome para a **solução** e clique em **OK**.
 
-    ![Gerenciador de Soluções](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+    ![Gerenciador de soluções](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ### <a name="create-linked-services"></a>Criar serviços vinculados
 Nesta etapa, você criará dois serviços vinculados: **Armazenamento do Azure** e **HDInsight sob demanda**. 
@@ -119,7 +119,7 @@ Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado
 
     A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-    Propriedade | Descrição
+    Propriedade | DESCRIÇÃO
     -------- | ----------- 
     ClusterSize | Especifica o tamanho do cluster do HDInsight Hadoop.
     TimeToLive | Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído.
@@ -168,12 +168,12 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
 
     A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-    Propriedade | Descrição |
+    Propriedade | DESCRIÇÃO |
     -------- | ----------- |
-    type |A propriedade de tipo é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure.
+    Tipo |A propriedade de tipo é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure.
     linkedServiceName | Refere-se ao AzureStorageLinkedService1 que você criou anteriormente.
     fileName |Essa propriedade é opcional. Se você omitir essa propriedade, todos os arquivos de folderPath serão selecionados. Nesse caso, somente o input.log será processado.
-    type | Os arquivos de log estão em formato de texto, então utilizaremos TextFormat. |
+    Tipo | Os arquivos de log estão em formato de texto, então utilizaremos TextFormat. |
     columnDelimiter | as colunas nos arquivos de log são delimitadas pelo caractere de vírgula (`,`)
     frequência/intervalo | a frequência é definida como Mês e o intervalo como 1, o que significa que as fatias de entrada estão disponíveis mensalmente.
     externo | Se os dados de entrada para a atividade não forem gerados pelo pipeline, essa propriedade será definida como verdadeira. Essa propriedade só é especificada em conjuntos de dados de entrada. O conjunto de dados de entrada da primeira atividade sempre será definido como verdadeiro.
@@ -312,7 +312,7 @@ Nesta etapa, você pode publicar as entidades da Data Factory (serviços vincula
    6. Clique em **Avançar** para alternar para a página **Publicar Itens**. (Pressione **TAB** para sair do campo Nome se o botão **Avançar** estiver desabilitado).
 
     > [!IMPORTANT]
-    > Se você receber o erro **O nome da data factory “DataFactoryUsingVS” não está disponível** durante a publicação, altere o nome (por exemplo, yournameDataFactoryUsingVS). Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.   
+    > Se você receber o erro **O nome da data factory “DataFactoryUsingVS” não está disponível** durante a publicação, altere o nome (por exemplo, yournameDataFactoryUsingVS). Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.   
 1. Na página **Publicar Itens**, verifique se todas as entidades de Data Factories estão selecionadas e clique em **Avançar** para alternar para a página **Resumo**.
 
     ![Publicar página de item](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -558,11 +558,11 @@ Neste tutorial, você criou uma data factory do Azure para processar dados ao ex
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Veja [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
+É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
 
 
-## <a name="see-also"></a>Consulte também
-| Tópico | Descrição |
+## <a name="see-also"></a>Veja também
+| Tópico | DESCRIÇÃO |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e como usá-los para construir fluxos de trabalho orientados a dados para o seu cenário ou negócio. |
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory. |

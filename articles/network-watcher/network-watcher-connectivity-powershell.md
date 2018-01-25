@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Verificar a conectividade com o Observador de Rede do Azure usando o PowerShell
 
@@ -37,33 +37,8 @@ Este artigo pressupõe que você tenha os seguintes recursos:
 
 * Máquinas virtuais com as quais verificar a conectividade.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Registrar o recurso de visualização
-
-A conectividade está atualmente em visualização pública; para usar esse recurso, ele precisa ser registrado. Para fazer isso, execute a seguinte amostra do PowerShell:
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Para verificar se o registro foi bem-sucedido, execute a seguinte amostra do Powershell:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-Se o recurso tiver sido registrado corretamente, a saída deverá corresponder ao seguinte:
-
-```
-FeatureName         ProviderName      RegistrationState
------------         ------------      -----------------
-AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
-```
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Verificar a conectividade com uma máquina virtual
 
@@ -87,7 +62,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 A seguinte resposta é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está **Inacessível**. Você pode ver que todas as investigações enviadas falharam. Falha de conectividade na solução de virtualização devido a um `NetworkSecurityRule` configurado pelo usuário chamado **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
 
@@ -179,7 +154,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 No exemplo a seguir, o `ConnectionStatus` é mostrado como **Inacessível**. Nos detalhes de `Hops`, você pode ver em `Issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`. 
 
@@ -244,7 +219,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress http://bing.com/
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 Na resposta a seguir, você pode ver o `ConnectionStatus` ser mostrado como **Acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
 
@@ -297,7 +272,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.windows.net/ 
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 O json a seguir é um exemplo de resposta da execução do cmdlet anterior. Uma vez que o destino está acessível, a propriedade `ConnectionStatus` aparece como **Acessível**.  São fornecidos os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
 

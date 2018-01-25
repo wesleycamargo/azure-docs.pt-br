@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
@@ -161,7 +161,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Descrição</th>
+    <th align="left">Status</th><th align="left">Substatus</th><th align="left">DESCRIÇÃO</th>
 </tr>
 <tr>
     <td rowspan="8">Aguardando</td><td>ScheduleTime</td><td>Não chegou a hora de a janela de atividades ser executada.</td>
@@ -195,7 +195,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>A janela de atividade foi cancelada por ação do usuário.</td>
@@ -325,11 +325,11 @@ A tabela a seguir fornece a lista de eventos disponíveis e o status (e o substa
 | Nome do evento | Status | Substatus |
 | --- | --- | --- |
 | Execução de Atividade Iniciada |Iniciado |Iniciando |
-| Execução de Atividade Concluída |Bem-sucedido |Bem-sucedido |
+| Execução de Atividade Concluída |Bem-sucedida |Bem-sucedida |
 | Execução de Atividade Concluída |Com falha |Alocação de Recursos com Falha<br/><br/>Execução com falha<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
 | Criação de Cluster HDI sob Demanda Iniciada |Iniciado |-|
-| Cluster HDI sob Demanda Criado com Êxito |Bem-sucedido |-|
-| Cluster HDI sob Demanda Excluído |Bem-sucedido |-|
+| Cluster HDI sob Demanda Criado com Êxito |Bem-sucedida |-|
+| Cluster HDI sob Demanda Excluído |Bem-sucedida |-|
 
 ### <a name="to-edit-delete-or-disable-an-alert"></a>Para editar, excluir ou desabilitar um alerta
 

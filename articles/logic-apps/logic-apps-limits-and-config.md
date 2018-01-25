@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limites e configuração de Aplicativos Lógicos
 
@@ -32,14 +32,14 @@ Esses limites se aplicam a uma única solicitação HTTP ou uma chamada de conec
 
 #### <a name="timeout"></a>Tempo limite
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Tempo limite da solicitação | 120 segundos | Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [loop until](logic-apps-loops-and-scopes.md) pode compensar, conforme necessário |
 |||| 
 
 #### <a name="message-size"></a>Tamanho da mensagem
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Tamanho da mensagem | 100 MB | Alguns conectores e APIs podem não oferecer suporte a 100 MB. | 
 | Limite de avaliação da expressão | 131.072 caracteres | `@concat()`, `@base64()`, `string` não podem ser maiores do que esse limite. | 
@@ -47,7 +47,7 @@ Esses limites se aplicam a uma única solicitação HTTP ou uma chamada de conec
 
 #### <a name="retry-policy"></a>Política de repetição
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Tentativas de repetição | 90 | O padrão é 4. Você pode configurar com o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Atraso máximo de nova tentativa | 1 dia | Você pode configurar com o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
@@ -58,7 +58,7 @@ Esses limites se aplicam a uma única solicitação HTTP ou uma chamada de conec
 
 Estes limites se aplicam à execução de um único aplicativo lógico.
 
-| Nome | Limite | 
+| NOME | Limite | 
 | ---- | ----- | 
 | Duração da execução | 90 dias | 
 | Retenção de armazenamento | 90 dias a partir da hora de início de execução | 
@@ -72,7 +72,7 @@ Para exceder os limites de retenção de duração ou armazenamento no fluxo de 
 
 Estes limites se aplicam à execução de um único aplicativo lógico.
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Itens ForEach | 100.000 | Você pode usar a [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maiores, conforme o necessário. | 
 | Iterações Until | 5.000 | | 
@@ -84,7 +84,7 @@ Estes limites se aplicam à execução de um único aplicativo lógico.
 
 Estes limites se aplicam uma única instância de aplicativo lógico.
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Execuções de ações a cada cinco minutos | 100.000 | Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
 | Chamadas de saída simultâneas a ações | ~2.500 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
@@ -99,7 +99,7 @@ Para exceder esses limites no processamento normal ou executar um teste de carga
 
 Estes limites se aplicam uma única definição de aplicativo lógico.
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Ações por fluxo de trabalho | 500 | Para estender esse limite, adicione fluxos de trabalho aninhados conforme necessário. |
 | Profundidade de aninhamento de ação permitida | 8 | Para estender esse limite, adicione fluxos de trabalho aninhados conforme necessário. | 
@@ -121,7 +121,7 @@ Estes limites se aplicam uma única definição de aplicativo lógico.
 
 Esses limites se aplicam a conectores personalizados que você pode criar de APIs da Web.
 
-| Nome | Limite | 
+| NOME | Limite | 
 | ---- | ----- | 
 | Número de conectores personalizados que você pode criar | 1.000 por assinatura do Azure | 
 | Número de solicitações por minuto para cada conexão criada por um conector personalizado | 500 solicitações para cada conexão criada pelo conector |
@@ -131,7 +131,7 @@ Esses limites se aplicam a conectores personalizados que você pode criar de API
 
 Estes limites se aplicam aos artefatos que podem ser adicionados a uma conta de integração.
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Esquema | 8 MB | Você pode usar [URI do blob](../logic-apps/logic-apps-enterprise-integration-schemas.md) para carregar arquivos com mais de 2 MB. | 
 | Mapa (arquivo XSLT) | 2 MB | | 
@@ -145,7 +145,7 @@ Estes limites se aplicam ao número de artefatos que podem ser adicionados a uma
 
 #### <a name="free-pricing-tier"></a>Tipo de preço Gratuito
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Contratos | 10 | | 
 | Outros tipos de artefato | 25 |Os tipos de artefatos incluem parceiros, esquemas, certificados e mapas. Cada tipo pode conter até o número máximo de artefatos. | 
@@ -153,7 +153,7 @@ Estes limites se aplicam ao número de artefatos que podem ser adicionados a uma
 
 #### <a name="standard-pricing-tier"></a>Tipo de preço Standard
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Qualquer tipo de artefato | 500 | Os tipos de artefatos incluem contratos, parceiros, esquemas, certificados e mapas. Cada tipo pode conter até o número máximo de artefatos. | 
 |||| 
@@ -162,7 +162,7 @@ Estes limites se aplicam ao número de artefatos que podem ser adicionados a uma
 
 Esses limites se aplicam a protocolos B2B.
 
-| Nome | Limite | Observações | 
+| NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | AS2 | 50 MB | Aplicável ao decodificar e codificar | 
 | X12 | 50 MB | Aplicável ao decodificar e codificar | 
@@ -237,7 +237,7 @@ As chamadas que [conectores](../connectors/apis-list.md) fazem são provenientes
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-* [Criar seu primeiro aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Vídeo: automatizar processos de negócios com Aplicativos Lógicos](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Vídeo: integrar seus sistemas com os Aplicativos Lógicos](http://channel9.msdn.com/Events/Build/2016/P462)

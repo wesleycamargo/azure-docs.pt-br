@@ -9,22 +9,22 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/26/2017
+ms.date: 12/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: f032af4714ad458fa6ad6fb0741f689d44f4098b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a9a565cf2c20490475d1b73b0f99fbe63e57dd3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consultar e enviar comandos para o serviço de gerenciador de reparo.
 
 ## <a name="commands"></a>Comandos
-|Command|Descrição|
+|Get-Help|DESCRIÇÃO|
 | --- | --- |
 |    Aprovar-força| Força a aprovação de determinada tarefa de reparo.|
 |    excluir       | Exclui uma tarefa de reparo concluída.|
@@ -36,13 +36,13 @@ Exclui uma tarefa de reparo concluída.
 Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código. 
 
 ### <a name="arguments"></a>Argumentos
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |    --id da tarefa [obrigatório]| A ID da tarefa de reparo concluída a ser excluída.|
 |    --versão           | O número da versão atual da tarefa de reparo. Se diferente de zero, a solicitação só terá êxito se esse valor corresponder à versão atual da tarefa de reparo. Se for zero, nenhuma verificação de versão será executada.|
 
 ### <a name="global-arguments"></a>Argumentos globais
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |    --debug             | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 |    --help -h           | Mostrar esta mensagem de ajuda e sair.|
@@ -57,14 +57,14 @@ Obtém uma lista de tarefas de reparo, correspondendo os filtros fornecidos.
 Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código. 
 
 ### <a name="arguments"></a>Argumentos
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |    --filtro do executor| O nome do executor de reparos cujas tarefas declaradas devem ser incluídas na lista.|
 |    -filtro de estado   | Um bitwise OR dos valores a seguir, especificando qual estado de tarefa deve ser incluído na lista de resultados. - 1 - Criado - 2 - Declarado - 4 - Preparando - 8 - Aprovado - 16 - Executando - 32 - Restaurando - 64 - Concluído.|
 |    -filtro de id de tarefa | O prefixo de ID da tarefa de reparo a ser correspondido.|
 
 ### <a name="global-arguments"></a>Argumentos globais
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |    --debug          | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 |    --help -h        | Mostrar esta mensagem de ajuda e sair.|

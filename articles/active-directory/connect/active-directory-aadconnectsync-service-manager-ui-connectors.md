@@ -3,7 +3,7 @@ title: "Conectores na Sincronização do Azure AD Connect: interface de usuário
 description: Entenda como usar a guia Conectores no Synchronization Service Manager para o Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12c78b1baf1f2117b6c960784c133268fec4b2bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bbbe5d0d7a7ed7065133b4bc6e5fc2dba39bf7d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
 
@@ -30,12 +30,12 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 ## <a name="connector-actions"></a>Ações do Conector
 | Ação | Comentário |
 | --- | --- |
-| Criação |Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
-| Propriedades |Usado para filtragem de domínio e de UO. |
+| Criar |Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
+| propriedades |Usado para filtragem de domínio e de UO. |
 | [Excluir](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
 | [Configurar perfis de execução](#configure-run-profiles) |Com exceção do domínio de filtragem, não há nada a ser configurado aqui. Você pode usar essa ação para ver os perfis de execução já configurados. |
 | Executar |Usado para iniciar uma execução única de um perfil. |
-| Parar |Interrompe um Conector que, atualmente, executa um perfil. |
+| Stop |Interrompe um Conector que, atualmente, executa um perfil. |
 | Exportar Conector |Não use. |
 | Importar Conector |Não use. |
 | Atualizar Conector |Não use. |
@@ -79,7 +79,7 @@ Para resolver o problema, atualize a conta de usuário do AD DS usando o seguint
 
 1. Inicie o Synchronization Service Manager (INICIAR → Serviço de Sincronização).
 </br>![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
-2. Vá para a guia **Conectores**.
+2. Acesse a guia **Conectores**.
 3. Selecione o Conector do AD que está configurado para usar a conta do AD DS.
 4. Em Ações, selecione **Propriedades**.
 5. Na caixa de diálogo pop-up, selecione Conectar-se à Floresta do Active Directory:

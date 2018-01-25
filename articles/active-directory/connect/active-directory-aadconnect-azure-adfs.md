@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a2b2bd139443159607a0cef800737de6761e1c2
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implantando os Serviços de Federação do Active Directory no Azure
 O AD FS fornece recursos simplificados e seguros de federação de identidade e de logon único (SSO) da Web. A federação com o Azure AD ou o O365 habilita os usuários a se autenticar usando credenciais locais e acessar todos os recursos na nuvem. Como resultado, é importante ter uma infraestrutura altamente disponível do AD FS para garantir o acesso a recursos locais e na nuvem. Implantar o AD FS no Azure pode ajudar a atingir a alta disponibilidade necessária com esforço mínimo.
@@ -96,7 +96,7 @@ Será necessária uma conexão local para implantar o DC (controlador de domíni
 * Rede virtual Site a Site
 * ExpressRoute
 
-É recomendável usar o ExpressRoute. O ExpressRoute permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no local ou em um ambiente de colocalização. As conexões do ExpressRoute não passam pela Internet pública. Elas oferecem mais confiabilidade e velocidade, latências menores e maior segurança do que as conexões comuns pela Internet.
+É recomendável usar o ExpressRoute. O ExpressRoute permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no local ou em um ambiente de colocalização. As conexões de ExpressRoute não passam pela Internet pública. Elas oferecem mais confiabilidade e velocidade, latências menores e maior segurança do que as conexões comuns pela Internet.
 Embora seja recomendável usar o ExpressRoute, você pode escolher qualquer método de conexão mais adequado à sua organização. Para saber mais sobre o ExpressRoute e as diversas opções de conectividade que o utilizam, confira [Visão geral técnica do ExpressRoute](https://aka.ms/Azure/ExpressRoute).
 
 ### <a name="2-create-storage-accounts"></a>2. Criar contas de armazenamento
@@ -124,10 +124,10 @@ A próxima etapa é implantar máquinas virtuais que hospedam as diferentes fun�
 
 | Computador | Função | Sub-rede | Conjunto de disponibilidade | Conta de armazenamento | Endereço IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |Estático |
-| contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |Estático |
-| contosowap1 |WAP |Rede de Perímetro |contosowapset |contososac1 |Estático |
-| contosowap2 |WAP |Rede de Perímetro |contosowapset |contososac2 |Estático |
+| contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |estático |
+| contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |estático |
+| contosowap1 |WAP |Rede de Perímetro |contosowapset |contososac1 |estático |
+| contosowap2 |WAP |Rede de Perímetro |contosowapset |contososac2 |estático |
 
 Como você deve ter notado, nenhum NSG foi especificado. Isso ocorre porque o Azure permite que você use NSG no nível de sub-rede. Em seguida, você pode controlar o tráfego de rede de máquinas usando o NSG individual associado à sub-rede ou ao objeto NIC. Leia mais em [O que é um NSG (grupo de segurança de rede)?](https://aka.ms/Azure/NSG).
 Um endereço IP estático é recomendável se você estiver gerenciando o DNS. Você pode usar o DNS do Azure e, em vez disso, nos registros DNS do domínio, referir-se às novas máquinas por seus FQDNs do Azure.
@@ -267,7 +267,7 @@ Siga as mesmas etapas usadas no ILB para configurar a regra de balanceamento de 
 
 Em geral, você precisa das regras a seguir para proteger com eficiência sua sub-rede interna (na ordem listada abaixo)
 
-| Regra | Descrição | Fluxo |
+| Regra | DESCRIÇÃO | Flow |
 |:--- |:--- |:---:|
 | AllowHTTPSFromDMZ |Permitir a comunicação HTTPS de rede de perímetro |Entrada |
 | DenyInternetOutbound |Sem acesso à Internet |Saída |
@@ -278,14 +278,17 @@ Em geral, você precisa das regras a seguir para proteger com eficiência sua su
 
 **9.2. Proteger a sub-rede de perímetro**
 
-| Regra | Descrição | Flow |
+| Regra | DESCRIÇÃO | Flow |
 |:--- |:--- |:---:|
 | AllowHTTPSFromInternet |Permitir HTTPS da Internet para a rede de perímetro |Entrada |
 | DenyInternetOutbound |Tudo para a Internet é bloqueado, exceto HTTPS |Saída |
 
 ![Regras de acesso EXT (entrada)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
-[comentário]: <> (![regras de acesso EXT (entrada)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comentário]: <> (![regras de acesso EXT (saída)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+<!--
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
+[comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > Se a autenticação de certificado de usuário do cliente (autenticação do clientTLS usando certificados de usuário X509) for necessária, o AD FS exigirá que a porta TCP 49443 seja habilitada para acesso de entrada.
@@ -313,9 +316,9 @@ O modelo implanta uma configuração de seis máquinas, duas para controladores 
 
 Você pode usar uma rede virtual existente ou criar uma nova VNETao implantar esse modelo. Os diversos parâmetros disponíveis para personalizar a implantação estão listados abaixo, com a descrição do uso do parâmetro no processo de implantação. 
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 |:--- |:--- |
-| Local |A região para implantar os recursos, por exemplo, Leste dos EUA. |
+| Local padrão |A região para implantar os recursos, por exemplo, Leste dos EUA. |
 | StorageAccountType |O tipo de conta de armazenamento criada |
 | VirtualNetworkUsage |Indica se uma nova rede virtual será criada ou se uma existente será usada |
 | VirtualNetworkName |O nome da Rede Virtual para criar, obrigatória no uso da rede virtual nova ou existente |

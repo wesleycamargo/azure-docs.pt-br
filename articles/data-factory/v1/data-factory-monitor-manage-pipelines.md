@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Esta seção também descreve como uma fatia do conjunto de dados faz a transiç
 #### <a name="diagram-view-of-your-data-factory"></a>Modo de exibição de diagrama de uma data factory
 O modo de exibição de **Diagrama** de uma data factory fornece um único painel onde você pode monitorar e gerenciar o data factory e seus ativos. Para ver o modo de exibição de **Diagrama** de seu data factory, clique em **Diagrama** na home page do data factory.
 
-![Exibição de diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+![Modo de Exibição de Diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
 Você pode ampliar, reduzir, ajustar o nível de zoom, aplicar zoom para 100%, bloquear o layout do diagrama e posicionar pipelines e conjuntos de dados automaticamente. Você também pode ver as informações de linhagem de dados (ou seja, mostrar itens upstream e downstream dos itens selecionados).
 
@@ -86,7 +86,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">DESCRIÇÃO</th>
 </tr>
 <tr>
     <td rowspan="8">Aguardando</td><td>ScheduleTime</td><td>Não chegou o momento de execução da fatia.</td>
@@ -120,7 +120,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>A fatia está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>A fatia foi cancelada por ação do usuário.</td>
@@ -177,7 +177,7 @@ Você pode pausar/suspender pipelines usando o cmdlet **Suspend-AzureDataFactory
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Por exemplo:
+Por exemplo: 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -188,7 +188,7 @@ Depois que o problema com o pipeline for corrigido, você poderá retomar o pipe
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Por exemplo:
+Por exemplo: 
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -220,7 +220,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
     ```powershell   
     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Por exemplo:
+   Por exemplo: 
 
     ```powershell   
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -234,7 +234,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Por exemplo:
+    Por exemplo: 
 
     ```powershell   
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -369,10 +369,10 @@ A tabela a seguir fornece a lista de operações e status (e substatus) disponí
 | Nome da operação | Status | Substatus |
 | --- | --- | --- |
 | RunStarted |Iniciado |Iniciando |
-| RunFinished |Falhou / Bem-sucedido |FailedResourceAllocation<br/><br/>Bem-sucedido<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Cancelado<br/><br/>FailedValidation<br/><br/>Abandoned |
+| RunFinished |Falhou / Bem-sucedido |FailedResourceAllocation<br/><br/>Bem-sucedida<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Cancelado<br/><br/>FailedValidation<br/><br/>Abandoned |
 | OnDemandClusterCreateStarted |Iniciado | |
-| OnDemandClusterCreateSuccessful |Bem-sucedido | |
-| OnDemandClusterDeleted |Bem-sucedido | |
+| OnDemandClusterCreateSuccessful |Bem-sucedida | |
+| OnDemandClusterDeleted |Bem-sucedida | |
 
 Veja [Criar Regra de Alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para obter detalhes sobre os elementos JSON usados no exemplo.
 

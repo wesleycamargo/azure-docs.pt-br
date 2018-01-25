@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 274c003e0697ba08d010c3bf13724461a4b624ee
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: bdf1754226852145e9bf5597256339549f253071
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema com suporte pelo Azure Data Factory
 Este artigo descreve as variáveis do sistema com suporte pelo Azure Data Factory. Você pode usar essas variáveis em expressões ao definir entidades do Data Factory. 
@@ -28,7 +28,7 @@ Este artigo descreve as variáveis do sistema com suporte pelo Azure Data Factor
 
 ## <a name="pipeline-scope"></a>Escopo do pipeline:
 
-| Nome de variável | Descrição |
+| Nome de variável | DESCRIÇÃO |
 | --- | --- |
 | @pipeline().DataFactory |Nome do data factory em que a execução do pipeline está ocorrendo | 
 | @pipeline().Pipeline |Nome do pipeline |
@@ -40,7 +40,7 @@ Este artigo descreve as variáveis do sistema com suporte pelo Azure Data Factor
 
 ## <a name="trigger-scope"></a>Escopo do gatilho:
 
-| Nome de variável | Descrição |
+| Nome de variável | DESCRIÇÃO |
 | --- | --- |
 | trigger().scheduledTime |Hora em que o gatilho foi agendado para invocar a execução do pipeline. Por exemplo, para um gatilho disparado a cada cinco minutos, essa variável retornaria `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z` e `2017-06-01T22:29:00Z` respectivamente.|
 | trigger().startTime |Hora em que o gatilho **realmente** foi disparado para invocar a execução do pipeline. Por exemplo, para um gatilho disparado a cada cinco minutos, essa variável retornaria algo como `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z` e `2017-06-01T22:29:00.9935483Z` respectivamente.|

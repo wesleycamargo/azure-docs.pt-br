@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Especificamente, este conector do MongoDB dá suporte:
 - Ao MongoDB **versões 3.2, 2.6, 3.0 e 2.4**.
 - À cópia de dados usando a autenticação **Básica** ou **Anônima**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para copiar dados de um banco de dados do MongoDB que não esteja acessível publicamente, você precisará configurar um Integration Runtime auto-hospedado. Consulte o artigo [Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md) para saber mais detalhes. O Integration Runtime fornece um driver do MongoDB interno, portanto, não será necessário instalar manualmente nenhum driver ao copiar dados do/para o MongoDB.
 
@@ -55,11 +55,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo |A propriedade type deve ser definida como: **MongoDb** |Sim |
-| Servidor |Endereço IP ou nome do host do servidor MongoDB. |Sim |
+| Tipo |A propriedade type deve ser definida como: **MongoDb** |sim |
+| Servidor |Endereço IP ou nome do host do servidor MongoDB. |sim |
 | porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Não (o padrão é 27017) |
-| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MongoDB.<br/>Os valores permitidos são: **Básica** e **Anônima**. |Sim |
+| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MongoDB.<br/>Os valores permitidos são: **Básica** e **Anônima**. |sim |
 | Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
 | Senha |Senha do usuário. Marque esse campo como SecureString. |Sim (se a autenticação básica for usada). |
 | authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Nº Para a autenticação Básica, o padrão é usar a conta do administrador e o banco de dados especificado, usando a propriedade databaseName. |
@@ -98,8 +98,8 @@ Para copiar dados do MongoDB, defina a propriedade type do conjunto de dados com
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **MongoDbCollection** | Sim |
-| collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **MongoDbCollection** | sim |
+| collectionName |Nome da coleção no banco de dados MongoDB. |sim |
 
 **Exemplo:**
 
@@ -129,7 +129,7 @@ Para copiar dados do MongoDB, defina o tipo de fonte na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MongoDbSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MongoDbSource** | sim |
 | query |Utiliza a consulta SQL-92 personalizada para ler os dados. Por exemplo: select * from MyTable. |Não (se "collectionName" no conjunto de dados for especificada) |
 
 **Exemplo:**

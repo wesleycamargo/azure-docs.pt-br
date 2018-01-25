@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais
 ## <a name="overview"></a>Visão geral
@@ -270,7 +270,7 @@ Este cenário demonstra onde você tem imagens personalizadas existentes que res
 
 
 #### <a name="step-3-use-existing-image"></a>Etapa 3: Usar a imagem existente
-Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem de uma máquina existente](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observe que o computador cuja imagem é criada não precisa ser um computador DS\*. Assim que tiver a imagem, as próximas etapas mostrarão como copiá-la para a conta de Armazenamento Premium com o commandlet **Start-AzureStorageBlobCopy** do PowerShell.
+Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem de uma máquina existente](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observe que o computador cuja imagem é criada não precisa ser um computador DS\*. Assim que tiver a imagem, as próximas etapas mostrarão como copiá-la para a conta de Armazenamento Premium com o commandlet **Start-AzureStorageBlobCopy** do PowerShell.
 
     #Get storage account keys:
     #Standard Storage account

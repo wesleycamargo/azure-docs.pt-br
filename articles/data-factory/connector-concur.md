@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 3808edd9a8f4224d3bba6bdcfb067b12dec61d02
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 45264d8ffb1953e80412e4ef30f289f7af5cf813
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-beta"></a>Copiar dados do Concur utilizando o Azure Data Factory (Beta)
 
@@ -40,7 +40,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do Concur.
 
@@ -50,10 +50,10 @@ As propriedades a seguir têm suporte para o serviço vinculado do Concur:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Concur** | Sim |
-| clientId | Client_id do aplicativo fornecido pelo Concur App Management.  | Sim |
-| Nome de Usuário | O nome de usuário que você usa para acessar o Serviço Concur.  | Sim |
-| Senha | A senha correspondente ao nome de usuário fornecido no campo de nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| Tipo | A propriedade type deve ser definida como: **Concur** | sim |
+| clientId | Client_id do aplicativo fornecido pelo Concur App Management.  | sim |
+| Nome de Usuário | O nome de usuário que você usa para acessar o Serviço Concur.  | sim |
+| Senha | A senha correspondente ao nome de usuário fornecido no campo de nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -108,8 +108,8 @@ Para copiar dados do Concur, defina o tipo de origem na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ConcurSource** | Sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Opportunities where Id = xxx "`. | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ConcurSource** | sim |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Opportunities where Id = xxx "`. | sim |
 
 **Exemplo:**
 

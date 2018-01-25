@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f3523f17b5b39da94177038584d983aa3592199f
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: usar o Azure Resource Manager para criar um pipeline de Data Factory a fim de copiar dados 
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-> * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -45,7 +45,7 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 > [!NOTE] 
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Percorra o artigo [Pré-requisitos e Visão Geral do Tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de **pré-requisito**.
 * Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador. Neste tutorial, você usa o PowerShell para implantar as entidades de Data Factory. 
 * (opcional) Veja [Criando modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos do Azure Resource Manager.
@@ -53,7 +53,7 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 ## <a name="in-this-tutorial"></a>Neste tutorial
 Neste tutorial, você pode criar um data factory com as seguintes entidades de Data Factory:
 
-| Entidade | Descrição |
+| Entidade | DESCRIÇÃO |
 | --- | --- |
 | Serviço vinculado de armazenamento do Azure |Vincula sua conta do Armazenamento do Azure ao data factory. O Armazenamento do Azure é o armazenamento de dados de origem e o Banco de Dados SQL do Azure é o armazenamento de dados do coletor para a atividade de cópia descrita no tutorial. Ele especifica a conta de armazenamento que contém os dados de entrada para a atividade de cópia. |
 | Serviço vinculado para o Banco de Dados SQL do Azure |Vincula o Banco de Dados SQL do Azure ao data factory. Especifica o Banco de Dados SQL do Azure que contém os dados de saída para a atividade de cópia. |

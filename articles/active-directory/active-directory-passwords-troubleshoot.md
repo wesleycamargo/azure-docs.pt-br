@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas: SSPR do Azure AD | Microsoft Docs"
+title: "Solução de problemas de redefinição de senha por autoatendimento – Azure Active Directory"
 description: "Solução de problemas de autoatendimento de redefinição de senha do Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 73c8ea046a5bdbeaca1b3f357fc41f0a6938db1e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: c038a9ec682a5971a5f79b9fe36e667493702cbd
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
 
@@ -99,7 +99,7 @@ Uma melhor prática para solucionar problemas com write-back de senha é inspeci
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Se a origem do evento é ADSync
 
-| Código | Nome ou mensagem | Descrição |
+| Código | Nome ou mensagem | DESCRIÇÃO |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "uma restrição impede que a senha seja alterada para a atual especificada." | Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha no diretório local que não atende à idade, ao histórico, à complexidade da senha ou aos requisitos de filtragem do domínio. <br> <br> Se você tiver uma duração mínima da senha e tiver alterado a senha recentemente nessa janela de tempo, não poderá alterar a senha novamente até que ela atinja a duração especificada no domínio. Para fins de teste, a idade mínima deve ser definida como 0. <br> <br> Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas *X* vezes, em que *X* é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas *X* vezes, verá uma falha. Para fins de teste, o histórico de senha deve ser definido como 0. <br> <br> Se você tiver requisitos de complexidade de senha, todos eles serão impostos quando o usuário tentar alterar ou redefinir uma senha. <br> <br> Se você tiver filtros de senha habilitados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará. |
 | 6329 | MMS(3040): admaexport.cpp(2837): o servidor não contém o controle da política de senha do LDAP. | Esse problema ocorre se o controle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) não está habilitado nos controladores de domínio. Para usar o recurso de write-back de senha, é necessário habilitar o controle. Para fazer isso, os controladores de domínio devem estar no Windows Server 2008 (com o SP mais recente) ou posterior. Se seus controladores de domínio estiverem no 2008 (pré-R2), também será necessário aplicar o hotfix [KB2386717](http://support.microsoft.com/kb/2386717). |
@@ -107,7 +107,7 @@ Uma melhor prática para solucionar problemas com write-back de senha é inspeci
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se a origem do evento é PasswordResetService
 
-| Código | Nome ou mensagem | Descrição |
+| Código | Nome ou mensagem | DESCRIÇÃO |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Esse evento indica que o serviço local detectou uma solicitação de redefinição de senha de um usuário federado ou sincronizado com hash de senha proveniente da nuvem. Esse evento é o primeiro evento em cada operação de write-back de redefinição de senha. |
 | 31002 | PasswordResetSuccess | Esse evento indica que o usuário selecionou uma nova senha durante uma operação de redefinição de senha. Determinamos que essa senha atende aos requisitos de senha corporativa. A senha foi gravada com êxito novamente no ambiente do Active Directory local. |
@@ -165,7 +165,18 @@ Em geral, para recuperar o serviço da maneira mais rápida, recomendamos que vo
 
 ### <a name="confirm-network-connectivity"></a>Verificar a conectividade de rede
 
-O ponto mais comum de falha é que o firewall e ou tempos-limite de ociosidade e portas de proxy estão configuradas incorretamente. Para saber mais, examine os pré-requisitos de conectividade no artigo [Pré-requisitos para o Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md).
+O ponto mais comum de falha é que o firewall e ou tempos-limite de ociosidade e portas de proxy estão configuradas incorretamente. 
+
+Para o Azure AD Connect versão 1.1.443.0 e posterior, você precisa do acesso a HTTPS de saída ao seguinte:
+
+   - passwordreset.microsoftonline.com
+   - servicebus.windows.net
+
+Para obter mais granularidade, referencie a lista atualizada de [Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), atualizada toda quarta-feira, e coloque em vigor a segunda-feira seguinte.
+
+Para saber mais, examine os pré-requisitos de conectividade no artigo [Pré-requisitos para o Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md).
+
+
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Reiniciar o serviço Sincronização do Azure AD Connect
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurar o Mapa do Serviço no Operations Management Suite
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Você pode usá-lo para exibir os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
@@ -28,19 +28,19 @@ Este artigo descreve os detalhes sobre a configuração do Mapa do Serviço e do
 ## <a name="dependency-agent-downloads"></a>Downloads do Agente de Dependência
 | Arquivo | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.1 | CBF050BFEA78B56A138CB1313DE0E75ABC30187C1B96EF9B4CBDEDD9EDFF6A17 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.1 | F4560E951F6C57A7466C82052BAFBF9515DC80DDA794ED8FB4DB02CEBA743277 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## <a name="connected-sources"></a>Fontes conectadas
 O Mapa de Serviço obtém seus dados do Microsoft Dependency Agent. O Agente de Dependência depende do Agente OMS para suas conexões ao Operations Management Suite. Isso significa que um servidor deve ter o agente do OMS instalado e configurado primeiro e, em seguida, o Dependency Agent pode ser instalado. A tabela a seguir descreve as fontes conectadas às quais a solução Mapa do Serviço dá suporte.
 
-| Fonte conectada | Suportado | Descrição |
+| Fonte conectada | Com suporte | DESCRIÇÃO |
 |:--|:--|:--|
-| Agentes do Windows | Sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Windows. <br><br>Além do [Agente do OMS](../log-analytics/log-analytics-windows-agents.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Agentes do Linux | Sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Linux. <br><br>Além do [Agente do OMS](../log-analytics/log-analytics-linux-agents.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Grupo de gerenciamento do System Center Operations Manager | Sim | O Mapa do Serviço analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../log-analytics/log-analytics-om-agents.md) conectado. <br><br>É necessário ter uma conexão direta do computador do agente do System Center Operations Manager com o Operations Management Suite. Os dados são encaminhados do grupo de gerenciamento para o repositório do Operations Management Suite.|
-| Conta de Armazenamento do Azure | Não | O Mapa do Serviço coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
+| Agentes do Windows | sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Windows. <br><br>Além do [Agente do OMS](../log-analytics/log-analytics-windows-agent.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Agentes do Linux | sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Linux. <br><br>Além do [Agente do OMS](../log-analytics/log-analytics-linux-agents.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Grupo de gerenciamento do System Center Operations Manager | sim | O Mapa do Serviço analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../log-analytics/log-analytics-om-agents.md) conectado. <br><br>É necessário ter uma conexão direta do computador do agente do System Center Operations Manager com o Operations Management Suite. Os dados são encaminhados do grupo de gerenciamento para o repositório do Operations Management Suite.|
+| Conta de Armazenamento do Azure | Não  | O Mapa do Serviço coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
 
 O Mapa do Serviço só dá suporte a plataformas de 64 bits.
 
@@ -74,7 +74,7 @@ O Agente de Dependência é instalado em computadores com o Windows por meio de 
 
 Use as etapas a seguir para instalar o Dependency Agent em cada computador com o Windows:
 
-1.  Instalar o Agente OMS usando as instruções em [Conectar computadores Windows ao serviço do Log Analytics no Azure](../log-analytics/log-analytics-windows-agents.md).
+1.  Instalar o Agente OMS usando as instruções em [Conectar computadores Windows ao serviço do Log Analytics no Azure](../log-analytics/log-analytics-windows-agent.md).
 2.  Baixe o Agente do Windows e execute-o usando o comando a seguir: <br>`InstallDependencyAgent-Windows.exe`
 3.  Acompanhe o assistente para instalar o agente.
 4.  Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em Agentes do Windows, o diretório de log será %Programfiles%\Microsoft Dependency Agent\logs. 
@@ -84,7 +84,7 @@ Use as opções da tabela a seguir para instalar a partir de uma linha de comand
 
     InstallDependencyAgent-Windows.exe /?
 
-| Sinalizador | Descrição |
+| Sinalizador | DESCRIÇÃO |
 |:--|:--|
 | /? | Obtenha uma lista das opções de linha de comando. |
 | /S | Realize uma instalação silenciosa sem solicitações ao usuário. |
@@ -106,7 +106,7 @@ Para ver uma lista dos sinalizadores de instalação, execute o programa de inst
 
     InstallDependencyAgent-Linux64.bin -help
 
-| Sinalizador | Descrição |
+| Sinalizador | DESCRIÇÃO |
 |:--|:--|
 | -help | Obtenha uma lista das opções de linha de comando. |
 | -s | Realize uma instalação silenciosa sem solicitações ao usuário. |
@@ -114,7 +114,7 @@ Para ver uma lista dos sinalizadores de instalação, execute o programa de inst
 
 Os arquivos do Dependency Agent são colocados nos diretórios a seguir:
 
-| Arquivos | Local |
+| Arquivos | Local padrão |
 |:--|:--|
 | Arquivos de núcleo | /opt/microsoft/dependency-agent |
 | Arquivos de log | /var/opt/microsoft/dependency-agent/log |
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Extensão da VM do Azure
-Você pode facilmente implantar o Agente de Dependência para suas VMs do Azure usando uma [Extensão de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Com a Extensão de VM do Azure, você pode implantar o Agente de Dependência para suas VMs por meio de um script do PowerShell ou diretamente no modelo do Azure Resource Manager da VM.  Há uma extensão disponível para Windows (DependencyAgentWindows) e para Linux (DependencyAgentLinux).  Se você implantar por meio da Extensão de VM do Azure, os agentes poderão ser atualizados automaticamente para as versões mais recentes.
+Você pode facilmente implantar o Agente de Dependência para suas VMs do Azure usando uma [Extensão de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Com a Extensão de VM do Azure, você pode implantar o Agente de Dependência para suas VMs por meio de um script do PowerShell ou diretamente no modelo do Azure Resource Manager da VM.  Há uma extensão disponível para Windows (DependencyAgentWindows) e para Linux (DependencyAgentLinux).  Se você implantar por meio da Extensão de VM do Azure, os agentes poderão ser atualizados automaticamente para as versões mais recentes.
 
 Para implantar a Extensão de VM do Azure por meio do PowerShell, você pode usar o exemplo a seguir:
 ```PowerShell
@@ -237,7 +237,7 @@ Ubuntu:
 ```
 sudo dpkg --purge dependency-agent
 ```
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Se você enfrentar problemas ao instalar ou executar o Mapa do Serviço, esta seção poderá lhe ajudar. Se ainda não for possível resolver o problema, entre em contato com o Suporte da Microsoft.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemas de instalação do Agente de Dependência
@@ -254,7 +254,7 @@ Pode ser útil instalar primeiro você mesmo as [bibliotecas de tempo de execuç
 
 A tabela a seguir lista números de código e soluções sugeridas.
 
-| Código | Descrição | Resolução |
+| Código | DESCRIÇÃO | Resolução |
 |:--|:--|:--|
 | 0x17 | O instalador da biblioteca exige uma atualização do Windows que não foi instalada. | Procure no log do instalador de biblioteca mais recente.<br><br>Se uma referência ao "Windows8.1-KB2999226-x64.msu" é seguida por uma linha "Erro 0x80240017: falha ao executar o pacote MSU.", você não tem os pré-requisitos para instalar o KB2999226. Siga as instruções na seção de pré-requisitos em [Tempo de Execução C Universal no Windows](https://support.microsoft.com/kb/2999226). Talvez seja necessário executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute novamente o instalador do Agente de Dependência da Microsoft. |
 
@@ -262,8 +262,8 @@ A tabela a seguir lista números de código e soluções sugeridas.
 #### <a name="server-doesnt-appear-in-service-map"></a>O servidor não aparece no Mapa do Serviço
 Se a instalação do Agente de Dependência for bem-sucedida, mas você não vir seu servidor na solução Mapa do Serviço:
 * O Agente de Dependência foi instalado com êxito? Confirme isso verificando se o serviço está instalado e em execução.<br><br>
-**Windows**: procure o serviço chamado "Microsoft Dependency Agent".<br>
-**Linux**: procure o processo "microsoft-dependency-agent" em execução.
+**Windows**: Procure o serviço denominado "Microsoft Dependency Agent".<br>
+**Linux**: Procure o processo em execução "microsoft-dependency-agent".
 
 * Você está no [tipo de preço Gratuito do Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? O plano Gratuito permite até cinco servidores de Mapa do Serviço exclusivos. Quaisquer servidores subsequentes serão exibidos no Mapa do Serviço, mesmo que os cinco anteriores não estejam enviando dados.
 
@@ -350,8 +350,8 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| 16.04 | 4.4.0-98 |
-| 14.04 | 3.13.0-135<br>4.4.0-98 |
+| 16.04 | 4.4.0-103<br>4.11.0-1016 |
+| 14.04 | 3.13.0-137<br>4.4.0-103 |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux com Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
@@ -367,8 +367,6 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 
 | Versão do SO | Versão do kernel
 |:--|:--|
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
@@ -377,16 +375,10 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | Versão do SO | Versão do kernel
 |:--|:--|
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
+| 11 SP2 | 3.0.101-0.7 |
+| 11 SP3 | 3.0.101-0.47 |
+| 11 SP4 | 3.0.101-65 |
 
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-| Versão do SO | Versão do kernel
-|:--|:--|
-| 10 SP4 | 2.6.16.60 |
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
 A Microsoft coleta automaticamente dados de uso e de desempenho por meio do uso do serviço Mapa do Serviço. A Microsoft usa esses dados para fornecer e aprimorar a qualidade, a segurança e a integridade do serviço Mapa do Serviço. Os dados incluem informações sobre a configuração do software, como o sistema operacional e a versão. Ele também inclui o endereço IP, o nome DNS e o nome da estação de trabalho para fornecer recursos de solução de problemas precisos e eficientes. Não coletamos nomes, endereços ou outras informações de contato.

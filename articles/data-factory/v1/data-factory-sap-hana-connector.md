@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,14 +58,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado SAP HANA.
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-server | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | string | Sim
-authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | Sim 
-Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
-Senha | Senha do usuário. | string | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | string | Sim
-encryptedCredential | A cadeia de caracteres de credencial criptografada. | string | Não
+Servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | string | sim
+authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | sim 
+Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | sim
+Senha | Senha do usuário. | string | sim
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | string | sim
+encryptedCredential | A cadeia de caracteres de credencial criptografada. | string | Não 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -80,9 +80,9 @@ Por outro lado, as propriedades disponíveis na seção **typeProperties** da at
 
 Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que inclui o SAP HANA), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Consulta SQL. | Sim |
+| query | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Consulta SQL. | sim |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Exemplo de JSON: copiar dados do SAP HANA para o Blob do Azure
 O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Este exemplo mostra como copiar dados de um SAP HANA local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer um dos coletores listados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
@@ -297,10 +297,10 @@ NVARCHAR | Cadeia de caracteres
 CLOB | Byte[]
 ALPHANUM | Cadeia de caracteres
 BLOB | Byte[]
-DATE | DateTime
+DATE | Datetime
 TIME | timespan
-TIMESTAMP | DateTime
-SECONDDATE | DateTime
+TIMESTAMP | Datetime
+SECONDDATE | Datetime
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 Há algumas limitações conhecidas ao copiar dados do SAP HANA:

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 39cfd269ec7dd9e676a9d4296df1329dc3fbe0cc
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 Neste tutorial, você deve criar um pipeline de Data Factory que apresente alguns dos recursos de fluxo de controle. Esse pipeline faz uma cópia simples de um contêiner no Armazenamento de Blobs do Azure para outro contêiner na mesma conta de armazenamento. Se a atividade de cópia for bem-sucedida, o pipeline enviará detalhes da operação de cópia bem-sucedida (tais como a quantidade de dados gravados) em um email de êxito. Se a atividade de cópia falhar, o pipeline enviará detalhes da falha de cópia (por exemplo, a mensagem de erro) em um email de falha. Ao longo do tutorial, você verá como passar parâmetros.
@@ -61,7 +61,7 @@ Este tutorial usa o portal do Azure. Você pode usar outros mecanismos para inte
     3. Carregue o arquivo **input.txt** no contêiner.
 
 ## <a name="create-email-workflow-endpoints"></a>Criar pontos de extremidade do fluxo de trabalho de email
-Para disparar o envio de um email desde o pipeline, use os [Aplicativos Lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) para definir o fluxo de trabalho. Para obter detalhes sobre como criar um fluxo de trabalho de Aplicativos Lógicos, consulte [Como criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). 
+Para disparar o envio de um email desde o pipeline, use os [Aplicativos Lógicos](../logic-apps/logic-apps-overview.md) para definir o fluxo de trabalho. Para obter detalhes sobre como criar um fluxo de trabalho de Aplicativos Lógicos, consulte [Como criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Fluxo de trabalho de email de êxito 
 Criar um fluxo de trabalho dos Aplicativos Lógicos chamado `CopySuccessEmail`. Defina o gatilho do fluxo de trabalho como `When an HTTP request is received` e adicione uma ação de `Office 365 Outlook – Send an email`.
@@ -132,11 +132,11 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
-2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** como o **nome**. 
+2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **nome**. 
       
      ![Página de novo data factory](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
  
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Consulte o artigo [Data Factory – regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
+   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
@@ -147,16 +147,16 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Selecione **V2 (Versão Prévia)** para a **versão**.
-5. Selecione o **local** do data factory. Apenas os locais com suporte são mostrados na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.      
 8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media/tutorial-control-flow-portal/deploying-data-factory.png)
-9. Depois que a criação estiver concluída, você verá a página **Data Factory**, conforme mostrado na imagem.
+9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
    ![Página inicial da data factory](./media/tutorial-control-flow-portal/data-factory-home-page.png)
-10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário (IU) do Azure Data Factory em uma guia separada.
+10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 
 
 ## <a name="create-a-pipeline"></a>Criar uma pipeline

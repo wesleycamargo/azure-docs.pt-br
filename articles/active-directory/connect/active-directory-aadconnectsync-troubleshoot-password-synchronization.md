@@ -3,7 +3,7 @@ title: "Solução de problemas de sincronização de senha com a sincronização
 description: "Este artigo fornece informações de como solucionar problemas de sincronização de senha."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0bf07e80e575309fe7fa44661776c23da5db6dce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de senha com a sincronização do Azure AD Connect
 Este tópico fornece etapas para solucionar problemas com a sincronização de senha. Se as senhas não estiverem sincronizando conforme o esperado, isso poderá ocorrer para um subconjunto de usuários ou para todos os usuários.
@@ -212,7 +212,7 @@ Para solucionar problemas em que nenhuma senha esteja sincronizada para um usuá
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
-   Por exemplo:
+   Por exemplo: 
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
    ```
@@ -324,7 +324,7 @@ Você pode solucionar problemas de sincronização de senha problemas facilmente
 ### <a name="password-sync-log"></a>Log de sincronização de senha
 A coluna de status pode ter os seguintes valores:
 
-| Status | Descrição |
+| Status | DESCRIÇÃO |
 | --- | --- |
 | Sucesso |A senha foi sincronizada com êxito. |
 | FilteredByTarget |A senha está definida para **O usuário deve alterar a senha no próximo logon**. A senha não foi sincronizada. |

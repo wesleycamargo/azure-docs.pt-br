@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemplos
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="samples-on-github"></a>Exemplos no GitHub
 O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contém vários exemplos que ajudam você a utilizar rapidamente o serviço Azure Data Factory ou modificar os scripts e usá-los no próprio aplicativo. A pasta Samples\JSON contém trechos de código JSON para cenários comuns.
 
-| Amostra | Descrição |
+| Amostra | DESCRIÇÃO |
 |:--- |:--- |
 | [Passo a passo do ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Este exemplo fornece uma explicação de ponta a ponta para o processamento de arquivos de log usando o Azure Data Factory para transformar dados de arquivos de log em informações. <br/><br/>Neste passo a passo, o pipeline do Data Factory coleta logs de exemplo, processa e enriquece os dados dos logs com dados de referência, além de transformar os dados para avaliar a eficiência de uma campanha de marketing lançada recentemente. |
 | [Exemplos JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Este exemplo fornece exemplos JSON para cenários comuns. |
@@ -49,7 +49,7 @@ O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 ## <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 Você pode encontrar os seguintes modelos do Azure Resource Manager para Data Factory no GitHub.
 
-| Modelo | Descrição |
+| Modelo | DESCRIÇÃO |
 | --- | --- |
 | [Copiar do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |A implantação desse modelo cria um data factory do Azure, com um pipeline que copia dados do Armazenamento de Blobs do Azure especificado para o Banco de Dados SQL do Azure |
 | [Copiar do Salesforce para o Blob de Armazenamento do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |A implantação desse modelo cria um data factory do Azure, com um pipeline que copia dados da conta do Salesforce especificada para o Armazenamento de blobs do Azure. |
@@ -78,7 +78,7 @@ Você pode usar o bloco **Pipelines de exemplo** na home page de sua data factor
     ![Folha Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Exemplos no Visual Studio
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Você deve ter os seguintes itens instalados no seu computador:
 
 * Visual Studio 2013 ou Visual Studio 2015
@@ -106,7 +106,7 @@ Você deve ter os seguintes itens instalados no seu computador:
    3. Escolha a **assinatura do Azure** em que você deseja que o data factory seja criado.
    4. Selecione o **grupo de recursos** para o data factory a ser criado.
    5. Selecione o **Oeste dos EUA**, **Leste dos EUA** ou **Europa Setentrional** como a **região**.
-   6. Clique em **Avançar**.
+   6. Clique em **Próximo**.
 6. Na página **Configurar armazenamentos de dados**, especifique um **Banco de dados SQL do Azure** e **Conta de armazenamento do Azure** (ou) crie banco de dados/armazenamento e clique em Avançar.
 7. Na página **Configurar computação**, selecione os padrões e clique em **Avançar**.
 8. Na página **Resumo** examine as configurações e clique em **Avançar**.

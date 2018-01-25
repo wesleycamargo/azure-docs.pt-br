@@ -1,5 +1,5 @@
 ---
-title: "Os elementos do email de convite para colaboração B2B do Azure Active Directory | Microsoft Docs"
+title: "Os elementos do email de convite para colaboração B2B – Azure Active Directory | Microsoft Docs"
 description: "Modelo de email de convite para colaboração B2B do Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b84dba6aa7ac11aef6d958d72564b8b83514a753
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Os elementos do email de convite para colaboração B2B
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
 
 Emails de convite são um componente essencial para ingressar parceiros como usuários de colaboração B2B no Azure AD. Você pode usá-los para aumentar a confiança do destinatário. Você pode adicionar a legitimidade e a comprovação social ao email, para certificar-se de que o destinatário sinta-se confortável com a seleção do botão **Introdução** para aceitar o convite. Essa confiança é uma maneira importante de reduzir o atrito de compartilhamento. E o email fica ótimo dessa maneira!
 
@@ -30,7 +28,7 @@ Emails de convite são um componente essencial para ingressar parceiros como usu
 ## <a name="explaining-the-email"></a>Explicação do email
 Vamos examinar alguns elementos do email para que você conheça a melhor maneira de usar esses recursos.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Assunto
 O assunto do email segue o seguinte padrão: você foi convidado para a organização &lt;nomedolocatário&gt;
 
 ### <a name="from-address"></a>Do endereço

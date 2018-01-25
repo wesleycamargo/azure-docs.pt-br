@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
-ms.openlocfilehash: d93c7c0bdad930bba679d705b012f1567da1da8a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usar os conjuntos de dados de amostra no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -102,15 +102,6 @@ Os dados do doador incluem os meses desde a última doação e a frequência, ou
 <b>Pesquisa relacionada:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang, e Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
-  </td>
-</tr>
-
-<tr>
-  <td>Resenhas de livros da Amazon</td>
-  <td>
-Resenhas de livros na Amazon, obtidas do website amazon.com pelos pesquisadores da University of Pennsylvania (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">sentiment</a>). Consulte o documento de pesquisa "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007.
-<p></p>
-O conjunto de dados original tem 975 mil resenhas com classificações 1, 2, 3, 4 ou 5. As resenhas foram escritas em inglês e são do período de 1997 a 2007. Esse conjunto de dados foi reduzido para 10 mil resenhas.
   </td>
 </tr>
 

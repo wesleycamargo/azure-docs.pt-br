@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 22a3972d7b2e9cf732f5dc75dd2b53b83570ee66
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -154,11 +154,11 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
-2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** como o **nome**. 
+2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **nome**. 
       
      ![Página de novo data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
  
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Consulte o artigo [Data Factory – Regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
+   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
@@ -169,16 +169,16 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Selecione **V2 (Versão Prévia)** para a **versão**.
-5. Selecione o **local** do data factory. Apenas os locais com suporte são mostrados na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.      
 8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
-9. Depois que a criação estiver concluída, você verá a página **Data Factory**, conforme mostrado na imagem.
+9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
    ![Página inicial da data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
-10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário (IU) do Azure Data Factory em uma guia separada.
+10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 11. Na página de **introdução**, alterne para a guia **Editar** no painel esquerdo, conforme mostrado na imagem a seguir: 
 
     ![Criar botão de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
@@ -192,10 +192,10 @@ Nesta etapa, você vincula a Conta de Armazenamento do Azure ao data factory.
 1. Clique em **Conexões** e clique em **+ Novo**.
 
    ![Botão de nova conexão](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png)
-2. Na janela **Novo Serviço Vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**. 
+2. Na janela **Novo serviço vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**. 
 
    ![Selecionar Armazenamento de Blobs do Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png)
-3. Na janela **Novo Serviço Vinculado**, execute estas etapas: 
+3. Na janela **Novo serviço vinculado** execute as seguintes etapas: 
 
     1. Insira **AzureStorageLinkedService** como o **Nome**. 
     2. Selecione sua conta de Armazenamento do Azure como o **Nome da conta de armazenamento**. 
@@ -212,7 +212,7 @@ Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory.
 3. Na janela **Novo Serviço Vinculado**, execute estas etapas: 
 
     1. Insira **AzureSqlDatabaseLinkedService** para o campo **Nome**. 
-    2. Selecione o SQL Server do Azure no campo **Nome do servidor**.
+    2. Selecione o servidor SQL do Azure no campo **Nome do servidor**.
     4. Selecione o seu banco de dados SQL do Azure no campo **Nome do banco de dados**. 
     5. Insira o nome do usuário no campo **Nome de usuário**. 
     6. Insira a senha do usuário no campo **Senha**. 
@@ -316,7 +316,7 @@ Clique em **Gatilho** na barra de ferramentas para o pipeline e clique em **Disp
 1. Clique na guia **Monitorar** à esquerda. Você verá a execução do pipeline na lista e o seu respectivo status. Para atualizar a lista, clique em **Atualizar**. Os links na coluna Ações permitem exibir execuções de atividade associadas com a execução do pipeline e executar novamente o pipeline. 
 
     ![Execuções de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
-2. Para ver as execuções de atividade associadas com a execução do pipeline, clique no link **Exibir as execuções de Aatividade** na coluna **Ações**. Existe apenas uma atividade no pipeline, então você vê apenas uma entrada na lista. Para alternar novamente para a exibição do pipeline, clique no link **Pipelines** na parte superior. 
+2. Para ver as execuções de atividade associadas com a execução do pipeline, clique no link **Exibir as execuções de Aatividade** na coluna **Ações**. Existe apenas uma atividade no pipeline, então você vê apenas uma entrada na lista. Para alternar novamente para a exibição de pipeline em execução, Clique em **Pipelines** na parte superior. 
 
     ![Execuções de atividade](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
@@ -436,7 +436,7 @@ Clique em **Gatilho** na barra de ferramentas para o pipeline e clique em **Disp
 1. Clique na guia **Monitorar** à esquerda. Você verá a execução do pipeline na lista e o seu respectivo status. Para atualizar a lista, clique em **Atualizar**. Os links na coluna **Ações** permitem exibir execuções de atividade associadas à execução do pipeline e executar novamente o pipeline. 
 
     ![Execuções de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
-2. Para ver as execuções de atividade associadas com a execução do pipeline, clique no link **Exibir as execuções de Aatividade** na coluna **Ações**. Existe apenas uma atividade no pipeline, então você vê apenas uma entrada na lista. Para alternar novamente para a exibição do pipeline, clique no link **Pipelines** na parte superior. 
+2. Para ver as execuções de atividade associadas com a execução do pipeline, clique no link **Exibir as execuções de Aatividade** na coluna **Ações**. Existe apenas uma atividade no pipeline, então você vê apenas uma entrada na lista. Para alternar novamente para a exibição de pipeline em execução, Clique em **Pipelines** na parte superior. 
 
     ![Execuções de atividade](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
@@ -467,7 +467,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 Avance para o tutorial a seguir para saber mais sobre como transformar dados usando um cluster Spark no Azure:
 
 > [!div class="nextstepaction"]
->[Transformar dados usando o cluster Spark na nuvem](tutorial-transform-data-spark-powershell.md)
+>[Transformar dados usando o cluster Spark na nuvem](tutorial-transform-data-spark-portal.md)
 
 
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 413d7ddf1e5b87f64c0d8e14c0ef4bdefd2890a7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90402e047caff2446591dca9cc9392c9d0344b5f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
 A atividade de execução de pipeline permite que um pipeline do Data Factory invoque outro pipeline.
@@ -62,13 +62,13 @@ A atividade de execução de pipeline permite que um pipeline do Data Factory in
 ```
 
 ## <a name="type-properties"></a>Propriedades de tipo
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade de execução de pipeline. | Cadeia de caracteres | Sim
-type | Deve ser definido como: **ExecutePipeline**. | Cadeia de caracteres | Sim
-pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | Sim
-parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não
-waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. | O padrão é falso. | Booliano | Não
+Nome | Nome da atividade de execução de pipeline. | Cadeia de caracteres | sim
+Tipo | Deve ser definido como: **ExecutePipeline**. | Cadeia de caracteres | sim
+pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | sim
+parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não 
+waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. | O padrão é falso. | BOOLEAN | Não 
 
 ## <a name="sample"></a>Amostra
 Este cenário tem dois pipelines:

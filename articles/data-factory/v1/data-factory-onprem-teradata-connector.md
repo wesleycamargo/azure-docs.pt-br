@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860d32f26616c1e1a92254ef288df2e3367fdf1c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2f4ae056dfa1bf6b2faabcb100ac82b38da9e361
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados do Teradata usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para m
 
 Você pode copiar dados de um armazenamento de dados local do Teradata para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados Teradata para outros armazenamentos de dados, mas não à movimentação de dados de outros armazenamentos de dados para um armazenamento de dados Teradata. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 O data factory dá suporte à conexão a fontes Teradata locais por meio do Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway.
 
 O gateway é requerido mesmo que o banco de dados Teradata esteja hospedado em uma VM IaaS do Azure. Você pode instalar o gateway na mesma VM IaaS do armazenamento de dados ou em uma VM diferente, desde que o gateway possa conectar o banco de dados.
@@ -63,14 +63,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado Teradata.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade do tipo deve ser definida como: **OnPremisesTeradata** |Sim |
-| server |Nome do servidor Teradata. |Sim |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados Teradata. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
-| Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados Teradata local. |Sim |
+| Tipo |A propriedade do tipo deve ser definida como: **OnPremisesTeradata** |sim |
+| Servidor |Nome do servidor Teradata. |sim |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados Teradata. Os valores possíveis são: Anonymous, Basic e Windows. |sim |
+| Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não  |
+| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não  |
+| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados Teradata local. |sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -84,9 +84,9 @@ Por outro lado, as propriedades disponíveis na seção typeProperties da ativid
 
 Quando a fonte é do tipo **RelationalSource** (que inclui o Teradata), as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |Sim |
+| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |sim |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>Exemplo de JSON: copiar dados do Teradata para Blob do Azure
 O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Teradata para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.   
@@ -301,21 +301,21 @@ Ao mover os dados para o Teradata, os seguintes mapeamentos são usados do tipo 
 | Número inteiro |Int32 |
 | Número |Duplo |
 | SmallInt |Int16 |
-| Data |DateTime |
-| Hora |TimeSpan |
+| Data |Datetime |
+| Hora |timespan |
 | Hora com fuso horário |Cadeia de caracteres |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | Timestamp With Time Zone |DateTimeOffset |
-| Intervalo - dia |TimeSpan |
-| Intervalo - dia para hora |TimeSpan |
-| Intervalo - dia para minuto |TimeSpan |
-| Interval Day To Second |TimeSpan |
-| Intervalo - hora |TimeSpan |
-| Intervalo - hora para minuto |TimeSpan |
-| Interval Hour To Second |TimeSpan |
-| Interval Minute |TimeSpan |
-| Interval Minute To Second |TimeSpan |
-| Interval Second |TimeSpan |
+| Intervalo - dia |timespan |
+| Intervalo - dia para hora |timespan |
+| Intervalo - dia para minuto |timespan |
+| Interval Day To Second |timespan |
+| Intervalo - hora |timespan |
+| Intervalo - hora para minuto |timespan |
+| Interval Hour To Second |timespan |
+| Interval Minute |timespan |
+| Interval Minute To Second |timespan |
+| Interval Second |timespan |
 | Interval Year |Cadeia de caracteres |
 | Interval Year To Month |Cadeia de caracteres |
 | Interval Month |Cadeia de caracteres |
@@ -324,7 +324,7 @@ Ao mover os dados para o Teradata, os seguintes mapeamentos são usados do tipo 
 | Period(Time With Time Zone) |Cadeia de caracteres |
 | Period(Timestamp) |Cadeia de caracteres |
 | Period(Timestamp With Time Zone) |Cadeia de caracteres |
-| Xml |Cadeia de caracteres |
+| xml |Cadeia de caracteres |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

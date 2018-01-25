@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introdução às políticas personalizadas
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Depois que você concluir as etapas descritas neste artigo, a política personalizada dará suporte à inscrição ou conexão da “conta local” usando um endereço de email e uma senha. Você também preparará o ambiente para adicionar provedores de identidade (como Facebook ou Azure Active Directory). Recomendamos que você conclua estas etapas antes de ler sobre outros usos da Estrutura de Experiência de Identidade do Azure AD (Active Directory) B2C.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de prosseguir, verifique se você tem um locatário do Azure AD B2C, que é um contêiner para todos os seus usuários, aplicativos, políticas e muito mais. Se você ainda não tiver um, será necessário [criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md). Recomendamos que todos os desenvolvedores concluam os passo a passos de política interna do Azure AD B2C e configurem seus aplicativos com políticas internas antes de continuar. Seus aplicativos funcionarão com dois tipos de políticas assim que você fizer uma simples alteração no nome da política para invocar a política personalizada.
 
@@ -154,10 +154,10 @@ Cada pacote de início contém:
 Adicione as IDs de aplicativo ao arquivo de extensões (`TrustFrameworkExtensions.xml`):
 
 1. No arquivo de extensões (TrustFrameworkExtensions.xml), localize o elemento `<TechnicalProfile Id="login-NonInteractive">`.
-2. Substitua ambas as instâncias de `IdentityExperienceFrameworkAppId` pela ID do aplicativo do aplicativo Identity Experience Framework criado anteriormente. Aqui está um exemplo:
+2. Substitua ambas as instâncias de `IdentityExperienceFrameworkAppId` pela ID do aplicativo do aplicativo Identity Experience Framework criado anteriormente. Veja um exemplo:
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. Substitua ambas as instâncias de `ProxyIdentityExperienceFrameworkAppId` pela ID do aplicativo do aplicativo Estrutura de Experiência de Identidade de Proxy que você criou anteriormente.
 4. Salve o arquivo de extensões.

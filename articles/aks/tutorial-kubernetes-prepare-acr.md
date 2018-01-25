@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implantar e usar o Registro de Contêiner do Azure
 
@@ -42,7 +42,7 @@ Crie um grupo de recursos com o comando [az group create][az-group-create]. Nest
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um Registro de contêiner do Azure com o comando [az acr create][az-acr-create]. O nome de um registro de contêiner **deve ser exclusivo**.
+Crie um Registro de contêiner do Azure com o comando [az acr create][az-acr-create]. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic

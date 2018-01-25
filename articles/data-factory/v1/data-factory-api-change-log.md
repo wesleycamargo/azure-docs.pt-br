@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 92623b504341572e1b6fae18ba612bcab20162f1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 55a08d22c622c89b918d1bfadd0ce34b77c3d408
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - Log de alterações da API .NET
 > [!NOTE]
@@ -165,7 +165,7 @@ As seguintes classes foram renomeadas. Os novos nomes eram os nomes das classes 
 | TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
 
-* Os métodos **List** agora retornam resultados paginados. Se a resposta contiver uma propriedade não vazia **NextLink** , o aplicativo cliente precisa continuar buscando a próxima página até que todas as páginas sejam retornadas.  Aqui está um exemplo:
+* Os métodos **List** agora retornam resultados paginados. Se a resposta contiver uma propriedade não vazia **NextLink** , o aplicativo cliente precisa continuar buscando a próxima página até que todas as páginas sejam retornadas.  Veja um exemplo:
 
     ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Conectar-se ao Dynamics 365 de fluxos de trabalho de aplicativo lógico
 
@@ -30,7 +30,7 @@ Com Aplicativos Lógicos, você pode se conectar ao Dynamics 365 (online) e cria
 
 Este tópico mostra como criar um aplicativo lógico que cria uma tarefa no Dynamics 365 sempre que um novo cliente em potencial é criado no Dynamics 365.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Uma conta do Azure.
 * Uma conta do Dynamics 365 (online).
 
@@ -113,7 +113,7 @@ Por exemplo, você pode usar uma consulta de filtro para obter apenas contas ati
 
 Observe que, ao adicionar um valor a um campo, você deve corresponder ao tipo de campo se digitar um valor ou selecionar um valor da lista de conteúdo dinâmico.
 
-Tipo de campo  |Como usar  |Onde encontrar  |Nome  |Tipo de dados  
+Tipo de campo  |Como usar  |Onde encontrar  |NOME  |Tipo de dados  
 ---------|---------|---------|---------|---------
 Campos de texto|Campos de texto exigem uma única linha de texto ou conteúdo dinâmico que seja um campo de tipo de texto. Exemplos incluem os campos Categoria e Subcategoria.|Configurações > Personalizações > Personalizar o sistema > Entidades > Tarefa > Campos |categoria |Linha única de texto        
 Campos de número inteiro | Alguns campos exigem conteúdo inteiro ou dinâmico que seja um campo de tipo inteiro. Exemplos incluem Porcentagem concluída e Duração. |Configurações > Personalizações > Personalizar o sistema > Entidades > Tarefa > Campos |percentcomplete |Número inteiro         
@@ -147,7 +147,7 @@ Como alternativa, na barra de ferramentas Ações, para copiar a URL completa no
 
    ![Fluxo recordId e conta tipo](./media/connectors-create-api-crmonline/recordid.png)
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Para solucionar uma falha de uma etapa em um aplicativo lógico, exiba os detalhes de status do evento.
 
 1. Em **Aplicativos Lógicos**, clique no seu aplicativo lógico e, em seguida, em **Visão geral**. 

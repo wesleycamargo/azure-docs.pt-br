@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 9ff0591741899d65b8274fb14ab3f3c8db9abe36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0773750f24b18aa55874a215cac7ccdfc5c1182
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>Introdução ao conector do SendGrid
 O Provedor de Conexão do SendGrid permite enviar emails e gerenciar listas de destinatários.
 
-É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sendgrid"></a>Criar uma conexão com o SendGrid
 Para criar Aplicativos lógicos com o SendGrid, primeiro você deve criar uma **conexão**, em seguida, forneça os detalhes para as seguintes propriedades: 
 
-| Propriedade | Obrigatório | Descrição |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| ApiKey |Sim |Fornecer sua chave de API do SendGrid |
+| ApiKey |sim |Fornecer sua chave de API do SendGrid |
 
 > [!INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 > 
@@ -41,7 +41,7 @@ Depois de criar a conexão, é possível usá-la para executar as ações e ouvi
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sendgrid/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sendgrid/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

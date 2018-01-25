@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: fda3c7a9a369eec1b9033ee7077a5f3770647c9f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
 > [!NOTE]
@@ -184,9 +184,9 @@ No Portal do Azure, você pode exibir o instantâneo quase em tempo real de util
 
 Você pode habilitar as **Configurações Avançadas** na página **Gateway** para ver as métricas avançadas como **Rede**(entrada/saída), **Função e Status de Credencial**, que é útil na depuração de problemas do gateway e **Trabalhos Simultâneos** (Executando/Limite), que podem ser modificados/alterados adequadamente durante o ajuste de desempenho. A tabela a seguir fornece descrições das colunas na lista **Nós de Gateway**:  
 
-Propriedade de monitoramento | Descrição
+Propriedade de monitoramento | DESCRIÇÃO
 :------------------ | :---------- 
-Nome | Nome do gateway lógico e nós associada ao gateway.  
+NOME | Nome do gateway lógico e nós associada ao gateway.  
 Status | Status do gateway lógico e dos nós de gateway. Exemplo: Online/Offline/Limitado/etc. Para obter informações sobre esses status, consulte a seção [Status do gateway](#gateway-status). 
 Versão | Mostra a versão do gateway lógico e cada nó do gateway. A versão do gateway lógico é determinada com base na versão da maioria dos nós no grupo. Se não há nós com versões diferentes na configuração do gateway lógico, somente os nós com o mesmo número de versão que o gateway lógico funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe). 
 Memória disponível | Memória disponível em um nó do gateway. Esse valor é um instantâneo quase em tempo real. 

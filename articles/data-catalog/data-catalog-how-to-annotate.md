@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>Como anotar fontes de dados
 ## <a name="introduction"></a>Introdução
@@ -43,7 +43,7 @@ O Catálogo de Dados dá suporte aos seguintes tipos de anotações:
 | Anotação | Observações |
 | --- | --- |
 | Nome amigável |Os nomes amigáveis podem ser fornecidos no nível do ativo de dado, para facilitar a compreensão dos ativos de dados. Os nomes amigáveis serão mais úteis quando o nome do objeto subjacente for confuso, abreviado ou não significativa para os usuários. |
-| Descrição |As descrições podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna. As descrições são anotações de texto curto de forma livre que descrevem a perspectiva do usuário sobre o ativo de dados ou seu uso. |
+| DESCRIÇÃO |As descrições podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna. As descrições são anotações de texto curto de forma livre que descrevem a perspectiva do usuário sobre o ativo de dados ou seu uso. |
 | Marcas (marcas de usuário) |As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna As marcas de usuário são rótulos definidos pelo usuário que podem ser usados para categorizar os ativos de dados ou os atributos. |
 | Marcas (marcas de glossário) |As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna Marcas de glossário são termos de glossário definidos centralmente que podem ser usados para categorizar os ativos de dados ou atributos usando uma taxonomia comum de negócios. Para saber mais, consulte [Como configurar o Glossário de Negócios para a Marcação Governada](data-catalog-how-to-business-glossary.md) |
 | Especialistas |Os especialistas podem ser fornecidos no nível do ativo de dados. Os especialistas identificam usuários ou grupos com perspectivas de especialista sobre os dados e podem servir como pontos de contato para usuários que descobrirem as fontes de dados registradas e que tenham dúvidas não respondidas pelas anotações existentes. |
@@ -66,5 +66,5 @@ Assim como os metadados extraídos da fonte de dados durante o registro são adi
 ## <a name="summary"></a>Resumo
 O registro de uma fonte de dados no Catálogo de Dados torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados tiver sido registrada, os usuários poderão fornecer anotações para facilitar a descoberta e a compreensão de dentro do portal do Catálogo de Dados.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como anotar fontes de dados.

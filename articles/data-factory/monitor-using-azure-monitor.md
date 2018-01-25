@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorar data factories usando o Azure Monitor  
 Os aplicativos em nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça ativo e em execução em um estado íntegro. Ele também ajuda a afastar os problemas potenciais ou solucionar problemas antigos. Além disso, você pode usar os dados de monitoramento para obter mais informações sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que normalmente exigiriam intervenção manual.
@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 } 
 ```
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | type | DESCRIÇÃO |
 | --- | --- | --- |
 | storageAccountId |Cadeia de caracteres | A ID de recurso da conta de armazenamento a qual você gostaria de enviar os logs de diagnóstico |
 | serviceBusRuleId |Cadeia de caracteres | A ID da regra de barramento de serviço para o namespace do barramento de serviço no qual você gostaria que os hubs de eventos fossem criados para streaming dos Logs de Diagnóstico. A ID da regra está no formato: "{ID de recurso do barramento de serviço}/authorizationrules/ {nome da chave}".|
@@ -112,7 +112,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | logs| Tipo complexo| Nome de uma categoria de Log de Diagnóstico para um tipo de recurso. Para obter a lista de categorias de Log de Diagnóstico para um recurso, primeiramente execute uma operação de configurações de diagnóstico GET. |
 | categoria| Cadeia de caracteres| Matriz de categorias de log e suas políticas de retenção |
 | timeGrain | Cadeia de caracteres | A granularidade das métricas que são capturadas no formato de duração ISO 8601. Deve ser PT1M (um minuto)|
-| Habilitado| Booliano | Especifica se a coleção da métrica ou da categoria de log está habilitada para este recurso|
+| Habilitado| BOOLEAN | Especifica se a coleção da métrica ou da categoria de log está habilitada para este recurso|
 | retentionPolicy| Tipo complexo| Descreve a política de retenção para uma categoria de métrica ou de log. Usado apenas para a opção de conta de armazenamento.|
 | dias| int| O número de dias para retenção das métricas ou logs. Um valor de 0 retém os logs indefinidamente. Usado apenas para a opção de conta de armazenamento. |
 
@@ -273,14 +273,14 @@ Mais informações aqui] (https://msdn.microsoft.com/en-us/library/azure/dn93193
 }
 ```
 
-| Propriedade | Tipo | Descrição | Exemplo |
+| Propriedade | type | DESCRIÇÃO | Exemplo |
 | --- | --- | --- | --- |
 | Nível |Cadeia de caracteres | Nível dos logs de diagnóstico. O nível 4 sempre é o caso para logs de execução de atividade. | `4`  |
 | correlationId |Cadeia de caracteres | ID exclusiva para acompanhar uma solicitação específica ponta a ponta | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | tempo real | Cadeia de caracteres | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| Cadeia de caracteres| ID da execução de atividade | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| Cadeia de caracteres| ID da execução de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| Cadeia de caracteres | ID de recursos associado para o recurso de data factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|ResourceId| Cadeia de caracteres | ID de recursos associado para o recurso de data factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |categoria| Cadeia de caracteres | Categoria dos Logs de Diagnóstico. Defina essa propriedade para "ActivityRuns" | `ActivityRuns` |
 |level| Cadeia de caracteres | Nível dos logs de diagnóstico. Defina essa propriedade para "Informational" | `Informational` |
 |operationName| Cadeia de caracteres |Nome da atividade com status. Se o status for a pulsação de início, será `MyActivity -`. Se o status for a pulsação final, será `MyActivity - Succeeded` com status final | `MyActivity - Succeeded` |
@@ -320,13 +320,13 @@ Mais informações aqui] (https://msdn.microsoft.com/en-us/library/azure/dn93193
 }
 ```
 
-| Propriedade | Tipo | Descrição | Exemplo |
+| Propriedade | type | DESCRIÇÃO | Exemplo |
 | --- | --- | --- | --- |
 | Nível |Cadeia de caracteres | Nível dos logs de diagnóstico. O nível 4 é o caso para logs de execução de atividade. | `4`  |
 | correlationId |Cadeia de caracteres | ID exclusiva para acompanhar uma solicitação específica ponta a ponta | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | tempo real | Cadeia de caracteres | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| Cadeia de caracteres| ID da execução de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| Cadeia de caracteres | ID de recursos associado para o recurso de data factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|ResourceId| Cadeia de caracteres | ID de recursos associado para o recurso de data factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |categoria| Cadeia de caracteres | Categoria dos Logs de Diagnóstico. Defina essa propriedade para "PipelineRuns" | `PipelineRuns` |
 |level| Cadeia de caracteres | Nível dos logs de diagnóstico. Defina essa propriedade para "Informational" | `Informational` |
 |operationName| Cadeia de caracteres |Nome do pipeline com status. "Pipeline – bem-sucedido" com status final quando a execução do pipeline é concluída| `MyPipeline - Succeeded` |
@@ -365,13 +365,13 @@ Mais informações aqui] (https://msdn.microsoft.com/en-us/library/azure/dn93193
 
 ```
 
-| Propriedade | Tipo | Descrição | Exemplo |
+| Propriedade | type | DESCRIÇÃO | Exemplo |
 | --- | --- | --- | --- |
 | Nível |Cadeia de caracteres | Nível dos logs de diagnóstico. Defina o nível 4 para logs de execução da atividade. | `4`  |
 | correlationId |Cadeia de caracteres | ID exclusiva para acompanhar uma solicitação específica ponta a ponta | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | tempo real | Cadeia de caracteres | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| Cadeia de caracteres| ID da execução do gatilho | `08587023010602533858661257311` |
-|resourceId| Cadeia de caracteres | ID de recursos associado para o recurso de data factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|ResourceId| Cadeia de caracteres | ID de recursos associado para o recurso de data factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |categoria| Cadeia de caracteres | Categoria dos Logs de Diagnóstico. Defina essa propriedade para "PipelineRuns" | `PipelineRuns` |
 |level| Cadeia de caracteres | Nível dos logs de diagnóstico. Defina essa propriedade para "Informational" | `Informational` |
 |operationName| Cadeia de caracteres |Nome do gatilho com status final se ele foi disparado com êxito. "MyTrigger – Bem-sucedido" se a pulsação foi bem-sucedida| `MyTrigger - Succeeded` |

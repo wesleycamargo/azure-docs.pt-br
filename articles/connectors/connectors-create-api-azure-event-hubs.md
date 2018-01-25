@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorar, receber e enviar eventos com o conector do Hubs de Eventos
 
@@ -30,7 +30,7 @@ Para configurar um monitor de eventos para que seu aplicativo lógico possa dete
 
 * Você precisa ter um [Namespace dos Hubs de Eventos e o Hub de Eventos](../event-hubs/event-hubs-create.md) no Azure. Saiba [como criar um namespace dos Hubs de Eventos e um Hub de Eventos](../event-hubs/event-hubs-create.md). 
 
-* Para usar [qualquer conector](https://docs.microsoft.com/azure/connectors/apis-list) em seu aplicativo lógico, você precisa criar primeiro um aplicativo lógico. Saiba [como criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+* Para usar [qualquer conector](https://docs.microsoft.com/azure/connectors/apis-list) em seu aplicativo lógico, você precisa criar primeiro um aplicativo lógico. Saiba [como criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Verifique as permissões de namespace dos Hubs de Eventos e encontre a cadeia de conexão
@@ -64,7 +64,7 @@ Para verificar suas permissões e obter a cadeia de conexão, execute estas etap
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Iniciar o fluxo de trabalho quando seu Hub de Eventos receber novos eventos
 
-Um [*gatilho*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) é um evento que inicia um fluxo de trabalho em seu aplicativo lógico. Para iniciar um fluxo de trabalho quando novos eventos forem enviados ao seu Hub de Eventos, execute estas etapas para adicionar o gatilho que detecta esse evento.
+Um [*gatilho*](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um evento que inicia um fluxo de trabalho em seu aplicativo lógico. Para iniciar um fluxo de trabalho quando novos eventos forem enviados ao seu Hub de Eventos, execute estas etapas para adicionar o gatilho que detecta esse evento.
 
 1.  No [portal do Azure](https://portal.azure.com "portal do Azure"), acesse seu aplicativo lógico existente ou crie um aplicativo lógico em branco.
 
@@ -94,7 +94,7 @@ Um [*gatilho*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concept
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Enviar eventos para seu Hub de Eventos de seu aplicativo lógico
 
-Uma [*ação*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) é uma tarefa executada pelo fluxo de trabalho do aplicativo lógico. Depois de adicionar um gatilho ao seu aplicativo lógico, você poderá adicionar uma ação para executar operações com os dados gerados por esse gatilho. Para enviar um evento para seu Hub de Eventos de seu aplicativo lógico, execute estas etapas.
+Uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma tarefa executada pelo fluxo de trabalho do aplicativo lógico. Depois de adicionar um gatilho ao seu aplicativo lógico, você poderá adicionar uma ação para executar operações com os dados gerados por esse gatilho. Para enviar um evento para seu Hub de Eventos de seu aplicativo lógico, execute estas etapas.
 
 1.  No Designer de Aplicativo Lógico, no gatilho de seu aplicativo lógico, escolha **Nova etapa** > **Adicionar uma ação**.
 

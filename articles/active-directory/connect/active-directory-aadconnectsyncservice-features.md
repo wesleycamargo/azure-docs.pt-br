@@ -3,7 +3,7 @@ title: "Recursos e configurações do serviço de sincronização do Azure AD Co
 description: "Descreve os recursos do serviço de sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 830692d6df6856e73b8c192db91edf75fdcaec35
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
 O recurso de sincronização do Azure AD Connect tem dois componentes:
@@ -104,7 +104,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Depois de habilitar esse recurso, os valores existentes de userPrincipalName permanecerão os mesmos. Na próxima alteração do atributo userPrincipalName local, a sincronização delta normal dos usuários atualizará o UPN.  
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md).
 

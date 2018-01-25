@@ -2,23 +2,17 @@
 title: 'Tutorial: Criptografar e descriptografar blobs no Armazenamento do Azure usando o Azure Key Vault | Microsoft Docs'
 description: Como criptografar e descriptografar um blob usando a criptografia do lado do cliente para o Armazenamento do Microsoft Azure com o Azure Key Vault.
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: tamram
+manager: jeconnoc
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure
 ## <a name="introduction"></a>Introdução
@@ -30,7 +24,7 @@ Para obter informações gerais sobre o Cofre de Chaves do Azure, consulte [O qu
 
 Para obter informações gerais sobre a criptografia de cliente do armazenamento do Azure, consulte [Criptografia do lado do cliente e Cofre de Chaves do Azure para o Armazenamento do Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta de armazenamento do Azure
@@ -167,10 +161,6 @@ CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
-
-A seguir está uma captura de tela do [Portal Clássico do Azure](https://manage.windowsazure.com) de um blob que foi criptografado usando a criptografia de cliente com uma chave armazenada no Cofre de Chaves. A propriedade **KeyId** é a URI para a chave no Cofre de Chaves que atua como a KEK. A propriedade **EncryptedKey** contém a versão criptografada da CEK.
-
-![Captura de tela mostrando os metadados de Blob que inclui metadados de criptografia](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
 
 > [!NOTE]
 > Se você examinar o construtor BlobEncryptionPolicy, você verá que ele pode aceitar uma chave e/ou um resolvedor. Lembre-se de que agora, você não pode usar um resolvedor para criptografia porque atualmente não dá suporte a uma chave padrão.

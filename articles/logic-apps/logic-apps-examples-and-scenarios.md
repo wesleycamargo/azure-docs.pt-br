@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e instruções passo a passo para os Aplicativos Lógicos do Azure
 
-[Aplicativos Lógicos do Azure](../logic-apps/logic-apps-what-are-logic-apps.md) ajudam você a orquestrar e integrar diferentes serviços, fornecendo [mais de 100 conectores prontos para uso](../connectors/apis-list.md), variando do SQL Server local ou SAP a Serviços Cognitivos da Microsoft. O serviço de Aplicativos Lógicos é "sem servidor", portanto, você não precisa se preocupar sobre escala ou instâncias. Tudo o que você precisa fazer é definir o fluxo de trabalho com um gatilho e as ações que o fluxo de trabalho executa. A plataforma subjacente lida com a escala, disponibilidade e desempenho. Os Aplicativos Lógicos são especialmente úteis para casos de uso e cenários em que você precise coordenar várias ações em diversos sistemas.
+[Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) ajudam você a orquestrar e integrar diferentes serviços, fornecendo [mais de 100 conectores prontos para uso](../connectors/apis-list.md), variando do SQL Server local ou SAP a Serviços Cognitivos da Microsoft. O serviço de Aplicativos Lógicos é "sem servidor", portanto, você não precisa se preocupar sobre escala ou instâncias. Tudo o que você precisa fazer é definir o fluxo de trabalho com um gatilho e as ações que o fluxo de trabalho executa. A plataforma subjacente lida com a escala, disponibilidade e desempenho. Os Aplicativos Lógicos são especialmente úteis para casos de uso e cenários em que você precise coordenar várias ações em diversos sistemas.
 
-Para ajudar você a conhecer mais sobre os vários padrões e recursos aos quais o [Aplicativo Lógico do Azure](../logic-apps/logic-apps-what-are-logic-apps.md) dá suporte, confira aqui exemplos e cenários comuns.
+Para ajudar você a conhecer mais sobre os vários padrões e recursos aos quais o [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) dá suporte, confira aqui exemplos e cenários comuns.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Pontos de partida populares para fluxos de trabalho de aplicativo lógico
 
-Cada aplicativo lógico começa com um [*gatilho*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) e apenas um gatilho, que inicia o fluxo de trabalho do aplicativo lógico e passa todos os dados como parte do que o gatilho. Alguns conectores fornecem gatilhos, que são fornecidos nestes tipos:
+Cada aplicativo lógico começa com um [*gatilho*](../logic-apps/logic-apps-overview.md#logic-app-concepts) e apenas um gatilho, que inicia o fluxo de trabalho do aplicativo lógico e passa todos os dados como parte do que o gatilho. Alguns conectores fornecem gatilhos, que são fornecidos nestes tipos:
 
 * *Gatilhos de sondagem*: verificam regularmente um ponto de extremidade de serviço para novos dados. Quando novos dados existirem, o gatilho cria e executa uma nova instância de fluxo de trabalho com os dados como entrada.
 

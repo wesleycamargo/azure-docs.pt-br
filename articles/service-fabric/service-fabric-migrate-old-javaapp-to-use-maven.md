@@ -3,7 +3,7 @@ title: Migrar do Java SDK para Maven - Atualizar Aplicativos Java do Azure Servi
 description: "Atualize aplicativos Java mais antigos que costumavam usar o SDK de Java do Service Fabric para buscar as dependências de Java do Service Fabric do Maven. Depois de concluir esta instalação, os seus aplicativos Java mais antigos poderiam ser compilados."
 services: service-fabric
 documentationcenter: java
-author: sayantancs
+author: rapatchi
 manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -13,17 +13,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
-ms.author: saysa
-ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rapatchi
+ms.openlocfilehash: 229a2cd7c0bb355006349e80b12b0142de6b5cda
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualize seu aplicativo Java de Service Fabric anterior para buscar bibliotecas Java do Maven
 Recentemente, movemos os binários de Java do Service Fabric do SDK de Java do Service Fabric para hospedagem do Maven. Agora você pode usar **mavencentral** para buscar as dependências mais recentes de Java do Service Fabric. Esse início rápido o ajuda a atualizar seus aplicativos Java existentes, que você criou anteriormente para ser usado com o SDK de Java do Service Fabric, usando qualquer modelo Yeoman ou Eclipse, para ser compatível com a compilação baseada em Maven.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 1. Primeiro você precisa desinstalar o SDK de Java existente.
 
   ```bash

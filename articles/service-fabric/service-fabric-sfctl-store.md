@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af6dff4ffcdf295731f2d61b5f9e35af40615e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d4ca3c35c34736c3b4824f956a6a72002c891877
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-store"></a>repositório sfctl
 Execute operações de arquivo de nível básico no repositório de imagens do cluster.
 
 ## <a name="commands"></a>Comandos
 
-|Command|Descrição|
+|Get-Help|DESCRIÇÃO|
 | --- | --- |
 |    excluir| Exclui o conteúdo do repositório de imagens existente.|
 |    root-info| Obtém as informações de conteúdo na raiz do repositório de imagens.|
@@ -39,14 +39,14 @@ Exclui o conteúdo do repositório de imagens existente encontrado em determinad
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --content-path [Obrigatório]| Caminho relativo para o arquivo ou pasta no repositório de imagens de sua raiz.|
 | --timeout -t          | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
@@ -61,19 +61,19 @@ Retorna as informações sobre o conteúdo do repositório de imagens no content
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --content-path [Obrigatório]| Caminho relativo para o arquivo ou pasta no repositório de imagens de sua raiz.|
 | --timeout -t          | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h             | Mostrar esta mensagem de ajuda e sair.|
 | --output -o           | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:           json.|
-| --query               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query               | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
 | --verbose             | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="next-steps"></a>Próximas etapas

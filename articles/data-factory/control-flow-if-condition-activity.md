@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Atividade If Condition no Azure Data Factory
 A atividade If Condition fornece a mesma funcionalidade que uma instrução if fornece em linguagens de programação. Ela avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando a condição é avaliada como `false`. 
@@ -68,13 +68,13 @@ A atividade If Condition fornece a mesma funcionalidade que uma instrução if f
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | O nome da atividade de condição if. | Cadeia de caracteres | Sim
-type | Deve ser definido para **IfCondition** | Cadeia de caracteres | Sim
-expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Sim
-ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `true`. | Sim
-ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `false`. | Sim
+Nome | O nome da atividade de condição if. | Cadeia de caracteres | sim
+Tipo | Deve ser definido para **IfCondition** | Cadeia de caracteres | sim
+expressão | Expressão que deve ser avaliada como verdadeira ou falsa | sim
+ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `true`. | sim
+ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `false`. | sim
 
 ## <a name="example"></a>Exemplo
 O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro do pipeline: routeSelection. Se o valor de routeSelection for true, os dados serão copiados para outputPath1. Se o valor de routeSelection for false, os dados serão copiados para outputPath2. 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Atividade Until no Azure Data Factory
 A atividade Until fornece a mesma funcionalidade que uma estrutura de loop do-until fornece em linguagens de programação. Ela executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira. Especifique um valor de tempo limite para a atividade Until no Data Factory. 
@@ -55,13 +55,13 @@ A atividade Until fornece a mesma funcionalidade que uma estrutura de loop do-un
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade `Until`. | Cadeia de caracteres | Sim
-type | Deve ser definido como **Until**. | Cadeia de caracteres | Sim
-expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | Sim
-Tempo limite | O loop do-until atinge o tempo limite após o tempo especificado aqui. | Cadeia de caracteres. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor padrão é de 7 dias. Valor máximo é: 90 dias. | Não
-Atividades | Conjunto de atividades que é executado até que a expressão seja avaliada como `true`. | Matriz de atividades. |  Sim
+Nome | Nome da atividade `Until`. | Cadeia de caracteres | sim
+Tipo | Deve ser definido como **Until**. | Cadeia de caracteres | sim
+expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | sim
+Tempo limite | O loop do-until atinge o tempo limite após o tempo especificado aqui. | Cadeia de caracteres. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor padrão é de 7 dias. Valor máximo é: 90 dias. | Não 
+Atividades | Conjunto de atividades que é executado até que a expressão seja avaliada como `true`. | Matriz de atividades. |  sim
 
 ## <a name="example-1"></a>Exemplo 1
 

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Arquivar dados de monitoramento do Azure
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -66,7 +66,7 @@ Os dados de monitoramento de sua assinatura agora estão fluindo para a conta de
 
 Agora configuramos os dados no nível do recurso (logs de diagnóstico e métricas do recurso) para que sejam encaminhados para a conta de armazenamento definindo as **configurações de diagnóstico do recurso**.
 
-1. Clique no botão **Monitorar** encontrado na lista de navegação à esquerda e, em seguida, em **Configurações de Diagnóstico**. Veja aqui uma lista de todos os recursos em sua assinatura que produzem dados de monitoramento por meio do Azure Monitor. Caso não tenha todos os recursos nessa lista, [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) antes de continuar, de modo que você tenha um recurso no qual possa definir uma configuração de diagnóstico.
+1. Clique no botão **Monitorar** encontrado na lista de navegação à esquerda e, em seguida, em **Configurações de Diagnóstico**. Veja aqui uma lista de todos os recursos em sua assinatura que produzem dados de monitoramento por meio do Azure Monitor. Caso não tenha todos os recursos nessa lista, [crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) antes de continuar, de modo que você tenha um recurso no qual possa definir uma configuração de diagnóstico.
 
 2. Clique em um recurso na lista e, em seguida, clique em **Ativar diagnóstico**.
    

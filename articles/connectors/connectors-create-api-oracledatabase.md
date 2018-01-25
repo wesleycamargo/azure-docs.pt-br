@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
 
@@ -30,7 +30,7 @@ Com o conector do Banco de Dados Oracle, você cria fluxos de trabalho organizac
 
 Este tópico mostra como usar o conector do Banco de Dados Oracle um aplicativo lógico.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Versões do Oracle com suporte: 
     * Oracle 9 e versões posteriores
@@ -134,4 +134,4 @@ Você pode ajudar a melhorar os Aplicativos Lógicos e os conectores vitando e e
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) e explore os conectores disponíveis nos Aplicativos Lógicos em nossa [Lista de APIs](apis-list.md).
+[Crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) e explore os conectores disponíveis nos Aplicativos Lógicos em nossa [Lista de APIs](apis-list.md).

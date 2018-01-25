@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d90b3c6b0ac899bede210d48cd97210ccbe5cc57
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Você pode copiar dados de um banco de dados MySQL para qualquer armazenamento d
 
 Especificamente, este conector do MySQL dá suporte ao MySQL **versão 5.1 e superior**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para usar esse conector do MySQL, você precisa:
 
@@ -57,13 +57,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do MySQL:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **MySql** | Sim |
-| Servidor | Nome do servidor MySQL. | Sim |
-| Banco de Dados | Nome do banco de dados MySQL. | Sim |
+| Tipo | A propriedade type deve ser definida como: **MySql** | sim |
+| Servidor | Nome do servidor MySQL. | sim |
+| Banco de Dados | Nome do banco de dados MySQL. | sim |
 | schema | Nome do esquema no banco de dados. | Não  |
-| Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados MySQL. | Sim |
-| Senha | Especifique a senha da conta de usuário que você especificou. Marque esse campo como SecureString. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
+| Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados MySQL. | sim |
+| Senha | Especifique a senha da conta de usuário que você especificou. Marque esse campo como SecureString. | sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |sim |
 
 **Exemplo:**
 
@@ -97,7 +97,7 @@ Para copiar dados do MySQL, defina a propriedade type do conjunto de dados como 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | sim |
 | tableName | Nome da tabela no banco de dados MySQL. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -127,7 +127,7 @@ Para copiar dados do MySQL, defina o tipo de origem na atividade de cópia como 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

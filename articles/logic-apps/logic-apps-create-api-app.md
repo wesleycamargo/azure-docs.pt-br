@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Crie APIs personalizadas que podem ser chamadas de fluxos de trabalho de aplicativos lógicos
 
@@ -31,7 +31,7 @@ Embora os Aplicativos Lógicos do Azure ofereçam [mais de 100 conectores intern
 
 Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou Node.js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
 
-Para que as APIs personalizadas funcionem com aplicativos lógicos, sua API pode fornecer [ *ações* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) que executam tarefas específicas em fluxos de trabalho de aplicativos lógicos. Sua API também pode atuar como um [ *gatilho* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) que inicia um fluxo de trabalho do aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Este tópico descreve padrões comuns que você pode seguir para criar ações e gatilhos em sua API, com base no comportamento que a API deve fornecer.
+Para que as APIs personalizadas funcionem com aplicativos lógicos, sua API pode fornecer [ *ações* ](./logic-apps-overview.md#logic-app-concepts) que executam tarefas específicas em fluxos de trabalho de aplicativos lógicos. Sua API também pode atuar como um [ *gatilho* ](./logic-apps-overview.md#logic-app-concepts) que inicia um fluxo de trabalho do aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Este tópico descreve padrões comuns que você pode seguir para criar ações e gatilhos em sua API, com base no comportamento que a API deve fornecer.
 
 Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma hospedagem de API fácil e altamente escalonável.
 
@@ -73,7 +73,7 @@ Muitas bibliotecas, como a [Swashbuckle](https://github.com/domaindrivendev/Swas
 
 ## <a name="action-patterns"></a>Padrões de ação
 
-Para que os aplicativos de lógica executem tarefas, sua API personalizada deve fornecer [ *ações*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). Cada operação em sua API é mapeada para uma ação. Uma ação básica é um controlador que aceita solicitações de HTTP e retorna respostas HTTP. Por exemplo, um aplicativo lógico envia uma solicitação HTTP para o aplicativo Web ou aplicativo de API. Seu aplicativo, em seguida, retorna uma resposta HTTP, juntamente com conteúdo que pode ser processado pelo aplicativo lógico.
+Para que os aplicativos de lógica executem tarefas, sua API personalizada deve fornecer [ *ações*](./logic-apps-overview.md#logic-app-concepts). Cada operação em sua API é mapeada para uma ação. Uma ação básica é um controlador que aceita solicitações de HTTP e retorna respostas HTTP. Por exemplo, um aplicativo lógico envia uma solicitação HTTP para o aplicativo Web ou aplicativo de API. Seu aplicativo, em seguida, retorna uma resposta HTTP, juntamente com conteúdo que pode ser processado pelo aplicativo lógico.
 
 Para uma ação padrão, você pode escrever um método de solicitação HTTP em sua API e descrever esse método em um arquivo do Swagger. Em seguida, você pode chamar sua API diretamente com uma [ação HTTP](../connectors/connectors-native-http.md) ou uma ação [HTTP + Swagger](../connectors/connectors-native-http-swagger.md). Por padrão, as respostas devem ser devolvidas dentro do [tempo limite da solicitação](./logic-apps-limits-and-config.md). 
 
@@ -153,7 +153,7 @@ Para esse padrão, configure dois pontos de extremidade em seu controlador: `sub
 
 ## <a name="trigger-patterns"></a>Padrões de gatilho
 
-Sua API personalizada pode atuar como um [ *gatilho* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) que inicia um aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Esse gatilho pode verificar regularmente, ou aguardar e escutar, novos dados ou eventos em seu ponto de extremidade de serviço. Se novos dados ou um evento atender à condição especificada, o gatilho será acionado e iniciará o aplicativo lógico que está escutando esse gatilho. Para iniciar aplicativos lógicos dessa maneira, sua API pode seguir o padrão de [ *gatilho de sondagem* ](#polling-triggers) ou [ *gatilho de webhook* ](#webhook-triggers). Esses padrões são semelhantes às [ações de sondagem](#async-pattern) e [ações de webhook](#webhook-actions) correspondentes. Além disso, saiba mais sobre [medição de uso para gatilhos](logic-apps-pricing.md).
+Sua API personalizada pode atuar como um [ *gatilho* ](./logic-apps-overview.md#logic-app-concepts) que inicia um aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Esse gatilho pode verificar regularmente, ou aguardar e escutar, novos dados ou eventos em seu ponto de extremidade de serviço. Se novos dados ou um evento atender à condição especificada, o gatilho será acionado e iniciará o aplicativo lógico que está escutando esse gatilho. Para iniciar aplicativos lógicos dessa maneira, sua API pode seguir o padrão de [ *gatilho de sondagem* ](#polling-triggers) ou [ *gatilho de webhook* ](#webhook-triggers). Esses padrões são semelhantes às [ações de sondagem](#async-pattern) e [ações de webhook](#webhook-actions) correspondentes. Além disso, saiba mais sobre [medição de uso para gatilhos](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
@@ -178,8 +178,8 @@ Por exemplo, para verificar periodicamente novos arquivos no serviço, você pod
 
 | A solicitação inclui `triggerState`? | Resposta da API | 
 | -------------------------------- | -------------| 
-| Não | Retornar um status HTTP `202 ACCEPTED` e um cabeçalho `location` com `triggerState` definido com a hora atual e o intervalo `retry-after` como 15 segundos. | 
-| Sim | Verifique em seu serviço arquivos adicionados após o `DateTime` para `triggerState`. | 
+| Não  | Retornar um status HTTP `202 ACCEPTED` e um cabeçalho `location` com `triggerState` definido com a hora atual e o intervalo `retry-after` como 15 segundos. | 
+| sim | Verifique em seu serviço arquivos adicionados após o `DateTime` para `triggerState`. | 
 ||| 
 
 | Número de arquivos encontrados | Resposta da API | 

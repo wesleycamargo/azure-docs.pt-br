@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbea84511c37cf52c3d98f0247e5ce3c0b2a05c3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Iniciar, parar e emitir relatórios sobre o serviço de teste de caos.
 
 ## <a name="commands"></a>Comandos
 
-|Command|Descrição|
+|Get-Help|DESCRIÇÃO|
 | --- | --- |
 |    relatório| Obtém o próximo segmento do relatório do Chaos com base no token de continuação repassado ou no intervalo repassado.|
 |    iniciar | Se Chaos já não estiver em execução no cluster, inicie a execução do Chaos os parâmetros de Chaos especificados.|
@@ -39,7 +39,7 @@ Você pode especificar o ContinuationToken para obter o próximo segmento do rel
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --continuation-token| O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, então, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL.|
 | --hora de término utc   | A contagem de tiques que representa a hora de término do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Consulte [Propriedade DateTime.Ticks](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) para obter detalhes sobre o tique.|
@@ -48,7 +48,7 @@ Você pode especificar o ContinuationToken para obter o próximo segmento do rel
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug          | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h        | Mostrar esta mensagem de ajuda e sair.|
@@ -61,7 +61,7 @@ Se Chaos já não estiver em execução no cluster, inicie a execução do Chaos
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | -- mapa de política de integridade do tipo de aplicativo  | Lista codificada JSON com percentual máximo de aplicativos prejudiciais para tipos específicos de aplicativos. Cada entrada especifica como uma chave o nome do tipo de aplicativo e como valor um número inteiro que represente a porcentagem MaxPercentUnhealthyApplications usada para avaliar os aplicativos do tipo de aplicativo especificado.|
 | --desabilitar-mover-réplica-falhas | Desabilita as falhas de movimentação primárias e secundárias.|
@@ -77,7 +77,7 @@ Se Chaos já não estiver em execução no cluster, inicie a execução do Chaos
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug                    | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                  | Mostrar esta mensagem de ajuda e sair.|
@@ -92,13 +92,13 @@ Impede que o Chaos agende mais falhas; mas as falhas em andamento não são afet
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --timeout -t| Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug  | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h| Mostrar esta mensagem de ajuda e sair.|

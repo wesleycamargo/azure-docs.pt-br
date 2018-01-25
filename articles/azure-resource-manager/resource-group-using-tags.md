@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: d18f5f9e75cd815b7f9622498f16624cf375d6bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 31477cbf478d2d836c2d7c3472e3a53f13831480
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
 
@@ -149,7 +149,7 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcações co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* É possível aplicar restrições e convenções em sua assinatura usando políticas personalizadas. Uma política que você definir pode exigir que todos os recursos tenham uma valor para uma marcação específica. Para obter mais informações, consulte [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md).
+* É possível aplicar restrições e convenções em sua assinatura usando políticas personalizadas. Uma política que você definir pode exigir que todos os recursos tenham uma valor para uma marcação específica. Para saber mais, veja [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md).
 * Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, confira [Usando o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
 * Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](resource-group-portal.md).  

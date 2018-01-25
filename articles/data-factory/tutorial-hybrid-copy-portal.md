@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar os dados de um banco de dados de SQL Server local para um Armazenamento de Blobs do Azure
 Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual move dados entre locais e armazenamentos de dados da nuvem. 
@@ -141,7 +141,7 @@ Nesta etapa, você criará um data factory e iniciará a interface do usuário d
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Selecione **V2 (Versão Prévia)** para a **versão**.
-5. Selecione o **local** do data factory. Apenas os locais com suporte são mostrados na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.      
 8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
@@ -191,7 +191,7 @@ Nesta etapa, você criará um data factory e iniciará a interface do usuário d
 11. Na janela **Instalação Expressa do Microsoft Integration Runtime (auto-hospedado)**, clique em **Fechar**. 
 
    ![Instalação do tempo de execução de integração - êxito](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. No navegador da Web, na janela **Configuração de Tempo de Execução de Integração**, clique em **Concluir**. Você deve ter voltado para a janela **Novo Serviço Vinculado**.
+12. No navegador da Web, na janela **Configuração de Tempo de Execução de Integração**, clique em **Concluir**. 
 
    ![Configuração do tempo de execução de integração - conclusão](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. Na janela **Novo serviço vinculado** execute as seguintes etapas:

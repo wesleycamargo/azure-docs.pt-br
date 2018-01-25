@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introdução às ações atrasar e atrasar até
 Usando as ações atrasar e “atrasar até”, você pode concluir cenários de fluxo de trabalho.
@@ -29,7 +29,7 @@ Por exemplo, você pode:
 * Aguardar até um dia útil para enviar uma atualização de status por email.
 * Atrasar o fluxo de trabalho até que uma chamada HTTP tenha tempo para ser concluída antes da retomada e da recuperação do resultado.
 
-Para começar a usar a ação atrasar em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Para começar a usar a ação atrasar em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Usar as ações atrasar
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](connectors-overview.md).
@@ -52,7 +52,7 @@ O gatilho de recorrência tem as propriedades a seguir que podem ser configurada
 Essa ação atrasa a execução por um determinado intervalo de tempo.
 Um * significa que é um campo obrigatório.
 
-| Nome de exibição | Nome da propriedade | Descrição |
+| Nome de exibição | Nome da propriedade | DESCRIÇÃO |
 | --- | --- | --- |
 | Contagem* |count |O número de unidades de tempo a serem atrasadas |
 | Unidade* |unit |A unidade de tempo: `Second`, `Minute`, `Hour`, ou `Day` |
@@ -63,7 +63,7 @@ Um * significa que é um campo obrigatório.
 Essa ação atrasa a execução até uma data/hora especificada.
 Um * significa que é um campo obrigatório.
 
-| Nome de exibição | Nome da propriedade | Descrição |
+| Nome de exibição | Nome da propriedade | DESCRIÇÃO |
 | --- | --- | --- |
 | Ano* |timestamp |O ano até o qual atrasar (GMT) |
 | Mês* |timestamp |O mês até o qual atrasar (GMT) |
@@ -72,5 +72,5 @@ Um * significa que é um campo obrigatório.
 <br>
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
+Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Perguntas frequentes: SSPR do Azure AD | Microsoft Docs'
+title: "Perguntas frequentes de redefinição de senha – Azure Active Directory"
 description: "Perguntas frequentes sobre o autoatendimento de redefinição de senha do Azure AD"
 services: active-directory
 keywords: "Gerenciamento de senhas do Active Directory, gerenciamento de senhas, autoatendimento de redefinição de senha do Azure AD"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.custom: seohack1
+ms.openlocfilehash: 29b25a476344ed048673039beacdffd39469ec85
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -245,7 +245,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
   >
 
-## <a name="password-writeback"></a>Write-back de senha
+## <a name="password-writeback"></a>write-back de senha
 
 * **P: como funciona os bastidores do write-back de senha?**
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introdução ao acesso condicional no Azure Active Directory
 
@@ -33,7 +33,7 @@ Este tópico fornece instruções para testar um acesso condicional com base em 
 É um requisito comum em muitas organizações só exigir autenticação multifator para acesso a aplicativos que não é executado desde a intranet corporativa. Com o Azure Active Directory, você pode facilmente atingir essa meta, configurando uma política de acesso condicional com base no local. Este tópico fornece instruções detalhadas sobre como configurar uma política relacionada. A política aproveita os [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) para distinguir entre tentativas de acesso de rede da intranet e todos os outros locais.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tópico pressupõe que você esteja familiarizado com os conceitos descritos em [Acesso condicional do Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

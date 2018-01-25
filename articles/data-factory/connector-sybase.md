@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: f903b786635213b93769a54ec69964a2fe212172
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 47aabaf8512a7fffc189255212010efb5389f38a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiar dados do Sybase usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Especificamente, este conector do Sybase dá suporte a:
 - Sybase **versão 16 e superior**.
 - Cópia de dados usando a autenticação **Básica** ou do **Windows**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para usar esse conector do Sybase, você precisa:
 
@@ -57,14 +57,14 @@ As propriedades a seguir têm suporte para o serviço vinculado do Sybase:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Sybase** | Sim |
-| Servidor | Nome do servidor do Sybase. |Sim |
-| Banco de Dados | Nome do banco de dados do Sybase. |Sim |
+| Tipo | A propriedade type deve ser definida como: **Sybase** | sim |
+| Servidor | Nome do servidor do Sybase. |sim |
+| Banco de Dados | Nome do banco de dados do Sybase. |sim |
 | schema | Nome do esquema no banco de dados. |Não  |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Sybase.<br/>Os valores permitidos são: **Básico** e **Windows**. |Sim |
-| Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Sybase. |Sim |
-| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como uma SecureString. |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Sybase.<br/>Os valores permitidos são: **Básico** e **Windows**. |sim |
+| Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Sybase. |sim |
+| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como uma SecureString. |sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |sim |
 
 **Exemplo:**
 
@@ -99,7 +99,7 @@ Para copiar dados do Sybase, defina a propriedade type do conjunto de dados como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | sim |
 | tableName | Nome da tabela no banco de dados do Sybase. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -128,7 +128,7 @@ Para copiar dados do Sybase, defina o tipo de origem na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

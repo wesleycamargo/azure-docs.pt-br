@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-compose"></a>composição sfctl
 Criar, excluir e gerenciar implantações do Docker Compose.
 
 ## <a name="commands"></a>Comandos
 
-|Command|Descrição|
+|Get-Help|DESCRIÇÃO|
 | --- | --- |
 |    create| Implante um aplicativo do Service Fabric de um arquivo de Composição.|
 |    list  | Obtém a lista de implantação de composição criada no cluster do Service Fabric.|
@@ -40,7 +40,7 @@ Cria uma implantação de composição do Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --caminho de arquivo [obrigatório]| Caminho para o arquivo de destino do Docker Compose.|
  |   --deployment-name [Obrigatório]| O nome da implantação.|
@@ -51,7 +51,7 @@ Cria uma implantação de composição do Service Fabric.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h               | Mostrar esta mensagem de ajuda e sair.|
@@ -66,7 +66,7 @@ Obtém o status sobre as implantações de composição que foram criadas ou est
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --continuation-token| O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta.      Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL.|
 | --max-results    | O número máximo de resultados a serem retornados como parte das consultas paginadas.      Esse parâmetro define o limite superior no número de resultados retornados.      Se não couberem na mensagem, de acordo com as restrições de tamanho máximo de mensagem definidas na configuração, os resultados retornados podem ser inferiores aos resultados máximos especificados. Se esse parâmetro for zero, ou não for especificado, a consulta paginada incluirá o máximo de resultados possível na mensagem de retorno.|
@@ -74,7 +74,7 @@ Obtém o status sobre as implantações de composição que foram criadas ou est
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug          | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h        | Mostrar esta mensagem de ajuda e sair.|
@@ -89,14 +89,14 @@ Exclui uma implantação de composição existente do Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --nome de implantação [obrigatório]| A identidade da implantação. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:".|
 | --timeout -t            | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h               | Mostrar esta mensagem de ajuda e sair.|
@@ -111,14 +111,14 @@ Retorna o statu de implantação de composição criado ou que está sendo criad
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --nome de implantação [obrigatório]| A identidade da implantação. |
 | --timeout -t            | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h               | Mostrar esta mensagem de ajuda e sair.|
@@ -132,7 +132,7 @@ Começa a atualização de uma implantação de composição no cluster do Servi
 Valida os parâmetros de upgrade fornecidos e inicia a atualização da implantação.
 
 ### <a name="arguments"></a>Argumentos
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |    --caminho do arquivo [obrigatório]| Caminho para o arquivo de destino do Docker Compose.|
 |    --deployment-name [Obrigatório]| O nome da implantação.|
@@ -156,7 +156,7 @@ Valida os parâmetros de upgrade fornecidos e inicia a atualização da implanta
 |    --aviso-como-erro           | Os avisos são tratados com a mesma gravidade dos erros.|
 
 ### <a name="global-arguments"></a>Argumentos globais
- |Argumento|Descrição|
+ |Argumento|DESCRIÇÃO|
 | --- | --- |
 |   --debug                      | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 |    --help -h                    | Mostrar esta mensagem de ajuda e sair.|

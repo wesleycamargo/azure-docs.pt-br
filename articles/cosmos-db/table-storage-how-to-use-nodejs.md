@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 03cd5088b55e37b2ada78e0f531702705d45a4c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b412be8b93e1f871c09b7a4452141ac334d53ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Como usar o armazenamento de Tabela do Azure por meio do Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -91,7 +91,7 @@ O `result.created` será `true` se uma nova tabela for criada e `false` se a tab
 function handle (requestOptions, next)
 ```
 
-Depois de fazer seu pré-processamento nas opções de solicitação, o método precisará chamar "next", transmitindo um retorno de chamada com a seguinte assinatura:
+Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar "next", passando um retorno de chamada com a assinatura abaixo:
 
 ```nodejs
 function (returnObject, finalCallback, next)
@@ -189,7 +189,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > Por padrão, a atualização de uma entidade não verifica se os dados que estão sendo atualizados foram modificados anteriormente por outro processo. Para suporte a atualizações simultâneas:
 >
 > 1. Obtenha a ETag do objeto que está sendo atualizado. Isso é retornado como parte de `response` para qualquer operação relacionada à entidade e pode ser recuperado por meio de `response['.metadata'].etag`.
-> 2. Ao realizar uma operação de atualização em uma entidade, adicione as informações de ETag obtidas anteriormente para a nova entidade. Por exemplo:
+> 2. Ao realizar uma operação de atualização em uma entidade, adicione as informações de ETag obtidas anteriormente para a nova entidade. Por exemplo: 
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Realize a operação de atualização. Se a entidade foi modificada desde a recuperação do valor de ETag, como outra instância do seu aplicativo, um `error` será retornado informando que a condição da atualização especificada na solicitação não foi atendida.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Requisitos de software, de alta disponibilidade e de rede do StorSimple série 8000
 
@@ -63,10 +63,10 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 | Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Obrigatório | Observações |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |Não  |<ul><li>A porta de saída é usada para acesso à Internet para recuperar atualizações.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Sim |<ul><li>A porta de saída é usada para acessar dados na nuvem.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li><li>Esta porta também é usada em ambos os controladores para coleta de lixo.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |sim |<ul><li>A porta de saída é usada para acessar dados na nuvem.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li><li>Esta porta também é usada em ambos os controladores para coleta de lixo.</li></ul> |
 | UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. |
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet. |
-| TCP 9354 |Saída |WAN |Sim |A porta de saída é usada pelo dispositivo StorSimple para se comunicar com o serviço StorSimple Device Manager. |
+| TCP 9354 |Saída |WAN |sim |A porta de saída é usada pelo dispositivo StorSimple para se comunicar com o serviço StorSimple Device Manager. |
 | 3260 (iSCSI) |No |LAN |Não  |Esta porta é usada para acessar dados em iSCSI. |
 | 5985 |No |LAN |Não  |A porta de entrada é usada pelo StorSimple Snapshot Manager para se comunicar com o dispositivo do StorSimple.<br>Essa porta também é usada quando você se conecta remotamente ao Windows PowerShell para o StorSimple via HTTP. |
 | 5986 |No |LAN |Não  |Esta porta é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTPS. |
@@ -107,7 +107,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |Serviço do Gerenciador de Dispositivos StorSimple<br>Access Control Service<br>Barramento de Serviço do Azure<br>Serviço de autenticação |Interfaces de rede habilitadas para nuvem |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço do Gerenciador de Dispositivos StorSimple<br>Access Control Service<br>Barramento de Serviço do Azure<br>Serviço de autenticação |Interfaces de rede habilitadas para nuvem |
 | `https://*.backup.windowsazure.us` |Registro de dispositivos |Somente DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revogação de certificado |Interfaces de rede habilitadas para nuvem |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento e monitoramento do Azure |Interfaces de rede habilitadas para nuvem |

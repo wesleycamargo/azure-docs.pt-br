@@ -24,9 +24,11 @@ ACU: 195 - 210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Alto                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremamente Alto                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremamente Alto                                 |
-| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremamente Alto                                 |
+| Standard_F72s_v2<sup>2</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremamente Alto                                 |
 
 <sup>1</sup>A tecnologia Intel® Hyper-Threading da VM série 1Fsv2
+
+<sup>2</sup> Mais de 64 vCPUs exigem um destes sistemas operacionais convidados com suporte: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux ou CentOS 7.3 ou Oracle Linux 7.3 com LIS 4.2.1
 
 ## <a name="fs-series-sup1sup"></a>FS-series <sup>1</sup>
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introdução ao conector do Informix
 O Microsoft Connector para Informix conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados IBM Informix. O conector Informix inclui um cliente Microsoft para se comunicar com computadores de servidores Informix remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como o IBM Informix para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de plataformas e versões do IBM Informix com suporte (neste tópico).
@@ -35,7 +35,7 @@ O conector oferece suporte às seguintes operações de banco de dados:
 
 Este tópico mostra como usar o Conector em um aplicativo lógico para processar as operações do banco de dados.
 
-Para saber mais sobre os Aplicativos Lógicos, consulte como [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber mais sobre os Aplicativos Lógicos, consulte como [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Ações disponíveis
 Este conector dá suporte às seguintes ações do aplicativo lógico:
@@ -83,7 +83,7 @@ No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um
 ## <a name="create-the-connections"></a>Criar as conexões
 Este conector dá suporte às conexões com os bancos de dados no local e na nuvem usando as propriedades de conexão a seguir. 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Servidor |Obrigatório. Aceita um valor da cadeia de caracteres que representa um endereço TCP/IP ou alias no formato IPv4 ou IPv6, seguido de (delimitado por dois pontos) um número de porta TCP/IP. |
 | Banco de Dados |Obrigatório. Aceita um valor da cadeia de caracteres que representa um Nome do Banco de Dados Relacional (RDBNAM) DRDA. O Informix aceita uma cadeia de caracteres de 128 bytes (o banco de dados é conhecido como um nome de banco de dados IBM Informix (dbname)). |
@@ -276,5 +276,5 @@ Este conector dá suporte às versões do IBM Informix à seguir quando configur
 Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/informix/). 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
+[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 

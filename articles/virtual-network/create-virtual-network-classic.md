@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Criar uma rede virtual (clássica) com várias sub-redes
 
@@ -46,7 +46,7 @@ Você pode criar uma rede virtual (clássica) usando o [portal do Azure](#portal
 
     |Configuração|Valor|
     |---|---|
-    |Nome|myVnet|
+    |NOME|myVnet|
     |Espaço de endereço|10.0.0.0/16|
     |Nome da sub-rede|Público|
     |Intervalo de endereços da sub-rede|10.0.0.0/24|
@@ -163,6 +163,6 @@ Você pode criar uma rede virtual (clássica) usando o [portal do Azure](#portal
 
 - Para saber mais sobre todas as configurações de sub-rede e rede virtual, confira [Gerenciar redes virtuais](virtual-network-manage-network.md) e [Gerenciar sub-redes da rede virtual](virtual-network-manage-subnet.md). Você tem várias opções para o uso de redes virtuais e sub-redes em um ambiente de produção para atender aos requisitos diferentes.
 - Para filtrar o tráfego de entrada e saída da sub-rede, crie e aplique [grupos de segurança de rede](virtual-networks-nsg.md) às sub-redes.
-- Crie uma máquina virtual [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a conecte a uma rede virtual existente.
+- Crie uma máquina virtual [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a conecte a uma rede virtual existente.
 - Para conectar duas redes virtuais no mesmo local do Azure, crie um [emparelhamento de rede virtual](create-peering-different-deployment-models.md) entre as redes virtuais. Você pode emparelhar uma rede virtual (Resource Manager) a uma rede virtual (clássica), mas não é possível criar um emparelhamento entre duas redes virtuais (clássicas).
 - Conecte a rede virtual a uma rede local usando um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou circuito do [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

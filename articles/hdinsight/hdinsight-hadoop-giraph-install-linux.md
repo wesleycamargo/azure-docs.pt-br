@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f26c35512bb92323b5a9c1688f96a958e0749c6
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 1f2ee45d5d3a4dbb53faf43f67989ea92488b92a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar o Giraph nos clusters Hadoop do HDInsight e usar o Giraph para processar gráficos em grande escala
+# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar o Giraph nos clusters Hadoop do HDInsight e usar o Giraph para processar grafos em grande escala
 
 Saiba como instalar o Apache Giraph em um cluster HDInsight. O recurso de ação de script do HDInsight permite que você personalize o cluster executando um script de bash. Scripts podem ser usados para personalizar os clusters durante e após a criação do cluster.
 
@@ -31,7 +31,7 @@ Saiba como instalar o Apache Giraph em um cluster HDInsight. O recurso de ação
 
 ## <a name="whatis"></a>O que é Giraph
 
-O [Apache Giraph](http://giraph.apache.org/) permite executar processamento de gráficos usando o Hadoop e pode ser usado com o Azure HDInsight. Gráficos moldam as relações entre objetos. Por exemplo, as conexões entre roteadores em uma rede grande como a Internet ou relações entre pessoas em redes sociais. O processamento de tabelas permite que você faça a análise das relações entre objetos em uma tabela, como:
+O [Apache Giraph](http://giraph.apache.org/) permite executar processamento de grafos usando o Hadoop e pode ser usado com o Azure HDInsight. Grafos moldam as relações entre objetos. Por exemplo, as conexões entre roteadores em uma rede grande como a Internet ou relações entre pessoas em redes sociais. O processamento de grafos permite que você faça a análise das relações entre objetos em um grafo, como:
 
 * Identificar possíveis amigos com base em suas relações atuais.
 
@@ -63,7 +63,7 @@ Esta seção fornece instruções sobre como usar o exemplo de script durante a 
 
 > [!NOTE]
 > As ações de script podem ser aplicadas por meio dos seguintes métodos:
-> * PowerShell do Azure
+> * Azure PowerShell
 > * A CLI do Azure
 > * O SDK .NET do HDInsight
 > * Modelos do Gerenciador de Recursos do Azure
@@ -92,7 +92,7 @@ Esta seção fornece instruções sobre como usar o exemplo de script durante a 
 
 ## <a name="usegiraph"></a>Como usar o Giraph no HDInsight?
 
-Quando o cluster tiver sido criado, use as etapas a seguir para executar o exemplo SimpleShortestPathsComputation incluído com o Giraph. Este exemplo usa a implementação do [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) básico para encontrar o caminho mais curto entre objetos em um gráfico.
+Quando o cluster tiver sido criado, use as etapas a seguir para executar o exemplo SimpleShortestPathsComputation incluído com o Giraph. Este exemplo usa a implementação do [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) básico para encontrar o caminho mais curto entre objetos em um grafo.
 
 1. Conecte-se ao cluster HDInsight usando SSH:
 
@@ -118,7 +118,7 @@ Quando o cluster tiver sido criado, use as etapas a seguir para executar o exemp
     [4,0,[[3,4],[2,4]]]
     ```
 
-    Esses dados descrevem uma relação entre objetos em uma tabela direcionada, usando o formato `[source_id, source_value,[[dest_id], [edge_value],...]]`. Cada linha representa uma relação entre um objeto `source_id` e um ou mais objetos `dest_id`. O `edge_value` pode ser considerado a força ou a distância da conexão entre `source_id` e `dest\_id`.
+    Esses dados descrevem uma relação entre objetos em um grafo direcionado, usando o formato `[source_id, source_value,[[dest_id], [edge_value],...]]`. Cada linha representa uma relação entre um objeto `source_id` e um ou mais objetos `dest_id`. O `edge_value` pode ser considerado a força ou a distância da conexão entre `source_id` e `dest\_id`.
 
     Desenhados e utilizando o valor (ou peso) como distância entre os objetos, os dados acima podem se parecer com o diagrama a seguir:
 
@@ -144,7 +144,7 @@ Quando o cluster tiver sido criado, use as etapas a seguir para executar o exemp
    | --- | --- |
    | `jar` |O arquivo jar que contém os exemplos. |
    | `org.apache.giraph.GiraphRunner` |A classe usada para iniciar os exemplos. |
-   | `org.apache.giraph.examples.SimpleShortestPathsCoputation` |O exemplo usado. Nesse exemplo, ele calcula o caminho mais curto entre a ID 1 e todas as outras IDs no gráfico. |
+   | `org.apache.giraph.examples.SimpleShortestPathsCoputation` |O exemplo usado. Nesse exemplo, ele calcula o caminho mais curto entre a ID 1 e todas as outras IDs no grafo. |
    | `-ca mapred.job.tracker` |O nó de cabeçalho do cluster. |
    | `-vif` |O formato de entrada a ser usado para os dados de entrada. |
    | `-vip` |O arquivo de dados de entrada. |
@@ -176,6 +176,6 @@ Quando o cluster tiver sido criado, use as etapas a seguir para executar o exemp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md).
+* [Instalar e usar matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md).
 
 * [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md).

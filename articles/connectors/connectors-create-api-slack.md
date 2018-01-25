@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: fc5fc128efe01bd0727e3ff30d8938918e89ac3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Introdução ao conector do Slack
 O Slack é uma ferramenta de comunicação da equipe que reúne todas as comunicações de equipe em um só lugar, que pode ser pesquisado instantaneamente e está disponível onde você estiver. 
 
-Comece pela criação de um aplicativo lógico; veja [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Comece pela criação de um aplicativo lógico; veja [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-slack"></a>Criar uma conexão com o Slack
 Para usar o conector do Slack, crie primeiro uma **conexão** e forneça os detalhes dessas propriedades: 
 
-| Propriedade | Obrigatório | Descrição |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| A criptografia do token |Sim |Fornecer credenciais do Slack |
+| A criptografia do token |sim |Fornecer credenciais do Slack |
 
 Execute estas etapas para entrar no Slack e concluir a configuração da **conexão** do Slack em seu aplicativo lógico:
 
@@ -53,7 +53,7 @@ Execute estas etapas para entrar no Slack e concluir a configuração da **conex
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/slack/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/slack/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

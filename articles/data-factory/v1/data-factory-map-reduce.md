@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Chamar Programas MapReduce da Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -185,7 +185,7 @@ O pipeline neste exemplo tem apenas uma atividade que seja do tipo: HDInsightMap
 
 | Propriedade | Observações |
 |:--- |:--- |
-| type |O tipo deve ser definido como **HDInsightMapReduce**. |
+| Tipo |O tipo deve ser definido como **HDInsightMapReduce**. |
 | className |Nome da classe é: **wordcount** |
 | jarFilePath |Caminho para o arquivo jar que contém a classe. Se você copiar/colar o código a seguir, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço vinculado do Armazenamento do Azure que contém o arquivo jar. Esse serviço vinculado faz referência ao armazenamento que está associado ao cluster do HDInsight. |
@@ -247,7 +247,7 @@ Você pode usar a atividade MapReduce para executar programas Spark no cluster H
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Atividade de Hive](data-factory-hive-activity.md)
 * [Atividade Pig](data-factory-pig-activity.md)
 * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)

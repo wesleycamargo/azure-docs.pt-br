@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: d4681e2f2552589e310f80cbf763bd453c0eba84
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ac85285b036aec7d0e3e1b23b8cec26886f1e3c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -43,13 +43,13 @@ O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Es
 > 
 > O pipeline neste tutorial tem apenas uma atividade do tipo: HDInsightHive. Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** .
 * Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador.
 * Veja [Criando modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos do Azure Resource Manager. 
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
-| Entidade | Descrição |
+| Entidade | DESCRIÇÃO |
 | --- | --- |
 | Serviço vinculado de armazenamento do Azure |Vincula sua conta de Armazenamento do Azure Data Factory. A conta do Armazenamento do Azure manterá os dados de entrada e de saída para o pipeline neste exemplo. |
 | Serviço vinculado do HDInsight sob demanda |Vincula um cluster HDInsight sob demanda ao data factory. O cluster é criado automaticamente para você para processar dados e é excluído depois que o processamento é concluído. |
@@ -617,8 +617,8 @@ Aqui está um exemplo de modelo do Resource Manager para criar um gateway lógic
 ```
 O modelo cria uma data factory chamada GatewayUsingArmDF com um gateway chamado: GatewayUsingARM. 
 
-## <a name="see-also"></a>Consulte também
-| Tópico | Descrição |
+## <a name="see-also"></a>Veja também
+| Tópico | DESCRIÇÃO |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e como usá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory. |

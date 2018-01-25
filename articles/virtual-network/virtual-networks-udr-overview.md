@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -89,7 +89,7 @@ Você pode especificar os seguintes tipos do próximo salto ao criar uma rota de
     > [!NOTE]
     > Implante uma solução de virtualização em uma sub-rede diferente daquela em que estão implantados os recursos que roteiam por meio da solução de virtualização. Ao implantar a solução de virtualização à mesma sub-rede e depois aplicar uma tabela de rotas para a sub-rede que roteia o tráfego por meio da solução de virtualização, é possível que isso resulte em loops de roteamento em que o tráfego nunca saia da sub-rede.
 
-    - O endereço IP privado de um [balanceador de carga interno](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure. Um balanceador de carga geralmente é usado como parte de uma [estratégia de alta disponibilidade para soluções de virtualização de rede](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - O endereço IP privado de um [balanceador de carga interno](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure. Um balanceador de carga geralmente é usado como parte de uma [estratégia de alta disponibilidade para soluções de virtualização de rede](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     É possível definir uma rota com 0.0.0.0/0 como o prefixo de endereço e um tipo do próximo salto da solução de virtualização, permitindo que a solução inspecione o tráfego e determine encaminhar ou descartar o tráfego. Se você pretende criar uma rota definida pelo usuário que contenha o prefixo de endereço 0.0.0.0/0, primeiro confira [Prefixo de endereço 0.0.0.0/0](#default-route).
 

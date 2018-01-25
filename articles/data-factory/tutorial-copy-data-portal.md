@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 7486e7c6816538fc120fd0b0a8bea0b006fb21f0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure usando o Azure Data Factory
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, consulte a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -85,13 +85,13 @@ Nesta etapa, você criará um data factory e iniciará a interface do usuário d
 1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
-2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** como o **nome**. 
+2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **nome**. 
       
-     ![Nova página do data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
+     ![Página de novo data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você se deparar com o seguinte erro para o campo nome, altere o nome do data factory (por exemplo, yournameADFTutorialDataFactory). Confira o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
+   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se a seguinte mensagem de erro for exibida para o campo nome, altere o nome do data factory (por exemplo, yournameADFTutorialDataFactory). Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
   
-     ![Nova página do data factory](./media/tutorial-copy-data-portal/name-not-available-error.png)
+     ![Página de novo data factory](./media/tutorial-copy-data-portal/name-not-available-error.png)
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
 4. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
      
@@ -106,7 +106,7 @@ Nesta etapa, você criará um data factory e iniciará a interface do usuário d
 8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media/tutorial-copy-data-portal/deploying-data-factory.png)
-9. Depois que a criação estiver concluída, a página **Data Factory** será exibida, conforme mostrado na imagem.
+9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
    ![Página inicial da data factory](./media/tutorial-copy-data-portal/data-factory-home-page.png)
 10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
@@ -147,7 +147,7 @@ Neste tutorial, você iniciará com a criação do pipeline e depois criará ser
 10. Alterne para a guia **Conexão** na janela Propriedades.   
 
     ![Guia Conexão](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Clique em **+ Novo**, ao lado da caixa de texto **Serviço vinculado**. Um serviço vinculado vincula um armazenamento de dados ou uma computação ao data factory. Neste caso, você criará um serviço vinculado do Armazenamento do Azure para vincular sua Conta de Armazenamento do Azure ao armazenamento de dados. O serviço vinculado tem as informações de conexão que o serviço do Data Factory usa para se conectar ao armazenamento de blobs no tempo de execução. O conjunto de dados especifica o contêiner, a pasta e o arquivo (opcional) que contêm os dados de origem. 
+11. Clique em **+ Novo**, ao lado da caixa de texto **Serviço vinculado**. Um serviço vinculado vincula um armazenamento de dados ou uma computação ao data factory. Nesse caso, você criou um serviço vinculado do armazenamento do Azure para vincular sua conta de armazenamento do Azure para o armazenamento de dados. O serviço vinculado tem as informações de conexão que os serviços do Data Factory usam para se conectar ao seu armazenamento de Blobs em tempo de execução. O conjunto de dados especifica o contêiner, a pasta e o arquivo (opcional) que contêm os dados de origem. 
 
     ![Botão Novo serviço vinculado](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. Na janela **Novo Serviço Vinculado**, execute estas etapas: 
@@ -192,7 +192,7 @@ Neste tutorial, você iniciará com a criação do pipeline e depois criará ser
 
     1. Insira **AzureSqlDatabaseLinkedService** para o campo **Nome**. 
     2. Selecione o servidor SQL do Azure no campo **Nome do servidor**.
-    4. Selecione o banco de dados SQL do Azure no campo **Nome do banco de dados**. 
+    4. Selecione o seu banco de dados SQL do Azure no campo **Nome do banco de dados**. 
     5. Insira o nome do usuário no campo **Nome de usuário**. 
     6. Insira a senha do usuário no campo **Senha**. 
     7. Clique em **Testar conectividade** para testar a conexão.
@@ -415,4 +415,4 @@ O pipeline nessa amostra copia dados de uma localização para outra em um Armaz
 Avance para o tutorial a seguir para saber mais sobre a cópia de dados local para a nuvem: 
 
 > [!div class="nextstepaction"]
->[Copiar dados do local para a nuvem](tutorial-hybrid-copy-data-tool.md)
+>[Copiar dados do local para a nuvem](tutorial-hybrid-copy-portal.md)

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: ae53832d28af8a36e3a1dea67f6680906630a399
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Gerenciar atualizações do Windows com Automação do Azure
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 > * Agendar uma implantação de atualização
 > * Exibir os resultados de uma implantação
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
@@ -62,9 +62,8 @@ Um espaço de trabalho do [Log Analytics](../log-analytics/log-analytics-overvie
 O espaço de trabalho fornece um único local para examinar e analisar dados de várias fontes.
 Para executar ações adicionais em máquinas virtuais que requerem atualizações, a Automação do Azure permite que você execute runbooks em VMs, como download e aplicação de atualizações.
 
-O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Worker.
-Esse agente é usado para comunicar-se com a VM e obter informações sobre o status de atualização.
 O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Runbook Worker da Automação.
+Esse agente é usado para comunicar-se com a VM e obter informações sobre o status de atualização.
 
 Se esses pré-requisitos não forem atendidos, será exibida uma faixa oferecendo a opção para habilitar a solução.
 

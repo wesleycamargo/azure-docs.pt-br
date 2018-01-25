@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Mover dos Serviços BizTalk para Aplicativos Lógicos
 
@@ -126,6 +126,6 @@ Os Aplicativos Lógicos proporcionam recursos mais avançados de rastreamento e 
 Para obter HA (alta disponibilidade) nos Serviços BizTalk, você usa mais de uma instância em determinada região para compartilhar a carga de processamento. Com os Aplicativos Lógicos, a HA na região é interna e é fornecida sem custo adicional. Para recuperação de desastre fora de região para o processamento B2B nos Serviços BizTalk, é necessário um processo de backup e restauração. Nos Aplicativos Lógicos, é fornecido um [recurso de RD](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) ativo/passivo entre regiões, que permite a sincronização de dados B2B entre Contas de Integração em regiões diferentes para continuidade de negócios.
 
 ## <a name="next"></a>Avançar
-* [O que são Aplicativos Lógicos](logic-apps-what-are-logic-apps.md)
-* [Crie seu primeiro aplicativo lógico](logic-apps-create-a-logic-app.md) ou comece rapidamente usando um [modelo predefinido](logic-apps-create-logic-apps-from-templates.md)  
+* [O que são Aplicativos Lógicos](logic-apps-overview.md)
+* [Crie seu primeiro aplicativo lógico](quickstart-create-first-logic-app-workflow.md) ou comece rapidamente usando um [modelo predefinido](logic-apps-create-logic-apps-from-templates.md)  
 * [Exibir todos os conectores disponíveis](../connectors/apis-list.md) você pode usar em um aplicativo lógico

@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 37fdb8156e4507046a574ba681e2ea3f6909c4a6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-azure-policy"></a>O que é a Política do Azure?
 
@@ -38,7 +38,7 @@ Essas permissões não estão incluídas na função **Colaborador**.
 
 Cada definição de política tem condições sob as quais ela é imposta. E ela tem uma ação de acompanhamento que ocorrerá se as condições forem atendidas.
 
-Na Política do Azure, oferecemos algumas políticas internas que estão disponíveis para você por padrão. Por exemplo:
+Na Política do Azure, oferecemos algumas políticas internas que estão disponíveis para você por padrão. Por exemplo: 
 
 - **Requer o SQL Server 12.0**: essa definição de política tem condições/regras para garantir que todos os servidores SQL usem a versão 12.0. A ação é negar todos os servidores que não atendam a esses critérios.
 - **SKUs de contas de armazenamento permitidas**: esta definição de política tem um conjunto de condições/regras que determinam se uma conta de armazenamento que está sendo implantada está dentro de um conjunto de tamanhos de SKU. Sua ação é negar a todos os servidores que não são compatíveis com o conjunto de tamanhos de SKU definido.
@@ -95,7 +95,7 @@ Por exemplo, suponha um cenário em que você tem uma definição de iniciativa 
 
 | Política | nome do parâmetro |Tipo do parâmetro  |Observação |
 |---|---|---|---|
-| policyA | allowedLocations | array  |Esse parâmetro espera uma lista de cadeias de caracteres para um valor, pois o tipo de parâmetro foi definido como uma matriz |
+| policyA | allowedLocations | matriz  |Esse parâmetro espera uma lista de cadeias de caracteres para um valor, pois o tipo de parâmetro foi definido como uma matriz |
 | policyB | allowedSingleLocation |string |Esse parâmetro espera uma palavra para um valor, pois o tipo de parâmetro foi definido como uma cadeia de caracteres |
 
 Nesse cenário, ao definir os parâmetros de iniciativa para **initiativeC**, você tem três opções:

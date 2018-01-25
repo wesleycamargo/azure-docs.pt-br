@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 2bcaa53ea0a97186b9617ae2ca757e3c806b325e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -157,7 +157,7 @@ Para criar uma tabela **interna** em vez de externa, use o HiveQL a seguir:
     INSERT OVERWRITE TABLE errorLogs
     SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-As instruções executam as seguintes ações:
+Essas instruções executam as seguintes ações:
 
 * `CREATE TABLE IF NOT EXISTS`: se a tabela não existir, crie uma. Uma vez que a palavra-chave **EXTERNA** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.
 

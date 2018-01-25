@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5345c0fa6212127e9821adccc8cb4c339ce7ae28
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: b430f5932bcd54d5e2ab787fb6c4491b48dbc416
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Criar um data factory e um pipeline usando o SDK do .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Este guia de início rápido descreve como usar o SDK do .NET para criar um Azur
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="azure-subscription"></a>Assinatura do Azure
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.

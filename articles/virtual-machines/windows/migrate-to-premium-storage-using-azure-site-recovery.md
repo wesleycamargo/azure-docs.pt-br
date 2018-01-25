@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: ca7489b18c53825bad7790ae4718f2c724716856
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 325ddb640e0cc10ae242e0a4ce2cc0d042dad320
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
@@ -68,7 +68,7 @@ Estes são os requisitos do Azure para esse cenário de migração:
 * Uma rede virtual do Azure à qual as VMs serão conectadas quando forem criadas no failover. A rede virtual do Azure tem que estar na mesma região em que o Site Recovery é executado.
 * Uma conta de armazenamento Standard do Azure para armazenar logs de replicação. Ela pode ser a mesma conta de armazenamento dos discos de VM que estão sendo migrados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Compreenda os componentes relevantes do cenário de migração na seção anterior.
 * Planeje o tempo de inatividade sabendo mais sobre o [Failover no Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -199,14 +199,14 @@ O Site Recovery vai criar uma instância VM cujo tipo é igual ou semelhante ou 
 ## <a name="post-migration-steps"></a>Etapas pós-migração
 
 1. **Configurar as VMs replicadas para o conjunto de disponibilidade, se aplicável**. O Site Recovery não dá suporte à migração de VMs junto com o conjunto de disponibilidade. Dependendo da implantação da VM replicada, siga um dos seguintes procedimentos:
-   * Para uma VM criada usando o modelo de implantação clássico: adicione a VM ao conjunto de disponibilidade no Portal do Azure. Para obter as etapas detalhadas, vá para [Adicionar uma máquina virtual existente ao conjunto de disponibilidade](../linux/classic/configure-availability.md#addmachine).
+   * Para uma VM criada usando o modelo de implantação clássico: adicione a VM ao conjunto de disponibilidade no Portal do Azure. Para obter as etapas detalhadas, vá para [Adicionar uma máquina virtual existente ao conjunto de disponibilidade](../linux/classic/configure-availability-classic.md).
    * Para uma VM criada pelo modelo de implantação do Resource Manager: salve a configuração da VM e, em seguida, exclua e recrie as VMs no conjunto de disponibilidade. Para fazer isso, use o script em [Definir Conjunto de Disponibilidade de VM do Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar esse script, verifique as limitações dele e planeje o tempo de inatividade.
 
 2. **Exclua VMs e discos antigos**. Verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. Exclua a VM e exclua os discos das contas de armazenamento de origem no Portal do Azure. Se houver um problema que não permita a exclusão do disco mesmo após excluir a VM, consulte [Solucionar erros ao excluir VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
 3. **Limpe a infraestrutura do Azure Site Recovery**. Se o Site Recovery não for mais necessário, você poderá limpar a infraestrutura dele. Exclua itens duplicados, o servidor de configuração e a política de recuperação, então exclua o cofre do Azure Site Recovery.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 * [Monitorar e solucionar problemas de proteção para máquinas virtuais e sites físicos](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Fórum do Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
@@ -216,8 +216,7 @@ O Site Recovery vai criar uma instância VM cujo tipo é igual ou semelhante ou 
 Para cenários específicos de migração de máquinas virtuais, consulte as seguintes fontes:
 
 * [Migrar Máquinas Virtuais do Azure entre as Contas de Armazenamento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Criar e carregar um VHD do Windows Server no Azure](classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Criar e carregar um VHD do Windows Server no Azure](upload-generalized-managed.md)
 * [Migrando Máquinas Virtuais do Amazon AWS para o Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Confira também as fontes a seguir para saber mais sobre o Armazenamento do Azure e as Máquinas Virtuais do Azure:

@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-cluster"></a>cluster sfctl
 Selecionar, gerenciar e operar clusters do Service Fabric.
 
 ## <a name="commands"></a>Comandos
 
-|Command|Descrição|
+|Get-Help|DESCRIÇÃO|
 | --- | --- |
 |    versões de código| Obtém uma lista de versões de códigos de malha que são provisionadas em um cluster do Service Fabric.|
 |    versões de configurações | Obtém uma lista de versões de configurações de malha que são provisionadas em um cluster do Service Fabric.|
@@ -52,10 +52,10 @@ Obtém a integridade de um cluster do Service Fabric. Use EventsHealthStateFilte
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --filtro do estado de integridade dos aplicativos| Permite filtrar os objetos de estado de integridade do aplicativo retornados no resultado da consulta de integridade do cluster com base em seu estado de integridade. Os valores possíveis para este parâmetro incluem valor inteiro obtido de membros ou operações bit a bit em membros da enumeração HealthStateFilter. São retornados apenas aplicativos que correspondem ao filtro.  Todos os aplicativos são usados para avaliar o estado de integridade agregado. Se não for especificado, retornará todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador; portanto, o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, então o estado de integridade de aplicativos com um valor OK (2) e Warning (4) de HealthState será retornado. – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero. – None – Filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em um conjunto determinado de estados. O valor é 1. – Ok – Filtro que corresponde à entrada com o valor Ok de HealthState. O valor é 2. – Warning – Filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4. – Error – Filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8. – All – Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
-| --events-health-state-filter   | Permite filtrar a coleção de objetos HealthEvent retornada com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes estados de integridade. Serão retornados apenas eventos que corresponderem ao filtro. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retornará todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor OK (2) e Warning (4) de HealthState. -Default- Valor padrão. Corresponde a qualquer HealthState. O valor é zero. – None – Filtro que não corresponde a nenhum valor de HealthState. Usado para retornar nenhum resultado em uma coleção determinada de estados. O valor é 1. – Ok – Filtro que corresponde à entrada com o valor Ok de HealthState. O valor é 2. – Warning – Filtro que corresponde à entrada com o valor Warning de HealthState.  O valor é 4. – Error – Filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8. – All – Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
+| --events-health-state-filter   | Permite filtrar a coleção de objetos HealthEvent retornada com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes estados de integridade. Serão retornados apenas eventos que corresponderem ao filtro. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retornará todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor OK (2) e Warning (4) de HealthState. – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero. – None – Filtro que não corresponde a nenhum valor de HealthState. Usado para retornar nenhum resultado em uma coleção determinada de estados. O valor é 1. – Ok – Filtro que corresponde à entrada com o valor Ok de HealthState. O valor é 2. – Warning – Filtro que corresponde à entrada com o valor Warning de HealthState.  O valor é 4. – Error – Filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8. – All – Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
 |--exclude-health-statistics                   | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. False por padrão. As estatísticas mostram o número de entidades filhas nos estados de integridade OK, Warning e Error.|
  |   --include-system-application-health-statistics| Indica se as estatísticas de integridade devem incluir as estatísticas de integridade do aplicativo fabric:/System. Falso por padrão. Se IncludeSystemApplicationHealthStatistics for definido como true, as estatísticas de integridade incluirão as entidades que pertencem ao aplicativo fabric:/System. Caso contrário, o resultado da consulta incluirá estatísticas de integridade somente para aplicativos do usuário. As estatísticas de integridade devem ser incluídas no resultado da consulta para que este parâmetro seja aplicado.|
 | --nodes-health-state-filter    | Permite filtrar os objetos de estado de integridade de nó retornados no resultado da consulta de integridade do cluster com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Só serão retornados os nós que corresponderem ao filtro. Todos os nós são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for "6", será retornado o estado de integridade dos nós com um valor OK (2) e Warning (4) de HealthState. –  Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero. – None – Filtro que não corresponde a nenhum valor de HealthState. Usado para retornar nenhum resultado em uma coleção determinada de estados. O valor é 1. – Ok – Filtro que corresponde à entrada com o valor Ok de HealthState. O valor é 2. – Warning – Filtro que corresponde à entrada com o valor Warning de HealthState.  O valor é 4. – Error – Filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8. – All – Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
@@ -63,7 +63,7 @@ Obtém a integridade de um cluster do Service Fabric. Use EventsHealthStateFilte
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug                        | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                      | Mostrar esta mensagem de ajuda e sair.|
@@ -78,13 +78,13 @@ Obter o manifesto do cluster do Service Fabric. O manifesto do cluster contém p
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --timeout -t| Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug  | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h| Mostrar esta mensagem de ajuda e sair.|
@@ -98,7 +98,7 @@ Valide e provisione o código ou os pacotes de configuração de um cluster do S
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |--caminho do arquivo do manifesto do cluster| O caminho do arquivo do manifesto do cluster.|
 |    --caminho do arquivo do código            | O caminho do pacote de código do cluster.|
@@ -106,7 +106,7 @@ Valide e provisione o código ou os pacotes de configuração de um cluster do S
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h  | Mostrar esta mensagem de ajuda e sair.|
@@ -121,7 +121,7 @@ Se estiver se conectando ao cluster seguro, especifique um certificado (.crt) e 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --ponto de extremidade [obrigatório]| URL do ponto de extremidade, incluindo o prefixo HTTPS ou HTTPS e porta do cluster.|
 | --aad             | Usar o Azure Active Directory para autenticação.|
@@ -133,7 +133,7 @@ Se estiver se conectando ao cluster seguro, especifique um certificado (.crt) e 
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 | --debug           | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h         | Mostrar esta mensagem de ajuda e sair.|
@@ -147,14 +147,14 @@ Desprovisione o código ou os pacotes de configuração de um cluster do Service
 Desconfigurar os pacotes de código ou a configuração de um cluster do Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |--versão do código  | A versão do pacote de código do cluster.|
 |    --versão de configuração| A versão do manifesto de cluster.|
 |    --timeout -t    | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |--debug         | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
  |   --help -h       | Mostrar esta mensagem de ajuda e sair.|
@@ -168,7 +168,7 @@ Começar a realizar os upgrades da versão do código ou configuração de um cl
 Valide os parâmetros de upgrade fornecidos e comece a atualizar o código ou a versão de configuração de um cluster do Service Fabric se os parâmetros forem válidos.
 
 ### <a name="arguments"></a>Argumentos
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |    --mapa de integridade do aplicativo                      | O JSON codificava o dicionário de pares de nome de aplicativo e percentual máximo não íntegro antes de gerar o erro.|
  |   --mapa de integridade do tipo do aplicativo                 | O JSON codificava o dicionário de pares de nome de tipo de aplicativo e percentual máximo não íntegro antes de gerar o erro.|
@@ -192,7 +192,7 @@ Valide os parâmetros de upgrade fornecidos e comece a atualizar o código ou a 
  |   --aviso-como-erro                    | Os avisos são tratados com a mesma gravidade dos erros.|
 
 ### <a name="global-arguments"></a>Argumentos globais
-|Argumento|Descrição|
+|Argumento|DESCRIÇÃO|
 | --- | --- |
 |--debug                               | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 |    --help -h                             | Mostrar esta mensagem de ajuda e sair.|

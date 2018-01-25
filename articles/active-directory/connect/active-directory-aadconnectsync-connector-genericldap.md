@@ -3,7 +3,7 @@ title: "Conector LDAP genérico | Microsoft Docs"
 description: "Este artigo descreve como configurar o Conector LDAP genérico da Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fe8db8f2a2412a3dfdf31201678c51e4fa0cee30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e2b7d23162673f0c66b1fd6c654336da42b8f6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Referência técnica do Conector LDAP genérico
 Este artigo descreve o Conector LDAP genérico. O artigo se aplica aos seguintes produtos:
@@ -92,7 +92,7 @@ Diretórios com suporte para gerenciamento de importação delta e de senha:
   * Oferece suporte para todas as operações de importação delta
   * Oferece suporte para definição e alteração de senha
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
@@ -267,5 +267,5 @@ Para Novell eDirectory, a importação de delta não está detectando exclusões
 
 Para diretórios com um log de alterações de delta com base na data/hora, é altamente recomendável executar uma importação completa em horários periódicos. Esse processo permite que o mecanismo de sincronização localize diferenças entre o servidor LDAP e o que está atualmente no espaço do conector.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

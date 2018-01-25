@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a6cf954c57f653c031d8f3bee9a84cd57ad3ecc5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Assistente de Cópia do Data Factory
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-> * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -42,7 +42,7 @@ O **assistente de cópia** permite que você crie rapidamente um pipeline de dad
 
 Este tutorial mostra como criar um Azure Data Factory, iniciar o Assistente de Cópia, seguir uma série de etapas para fornecer detalhes sobre seu cenário de ingestão/movimentação de dados. Quando você concluir as etapas no assistente, ele criará um pipeline com Atividade de Cópia a fim de copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure automaticamente. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Conclua os pré-requisitos listados no artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) antes de executar este tutorial.
 
 ## <a name="create-data-factory"></a>Criar um data factory
@@ -55,7 +55,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
 2. Na folha **Nova data factory** :
    
    1. Digite **ADFTutorialDataFactory** como **nome**.
-       O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o seguinte erro, `Data factory name “ADFTutorialDataFactory” is not available`, altere o nome do data factory (por exemplo, seunomeADFTutorialDataFactoryDDMMAAAA) e tente criá-lo novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.  
+       O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o seguinte erro, `Data factory name “ADFTutorialDataFactory” is not available`, altere o nome do data factory (por exemplo, seunomeADFTutorialDataFactoryDDMMAAAA) e tente criá-lo novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.  
       
        ![Nome da data factory indisponível](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Selecione sua **assinatura**do Azure.
@@ -84,7 +84,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    1. Insira **CopyFromBlobToAzureSql** para o **Nome da tarefa**
    2. Insira uma **descrição** (opcional).
    3. Altere a **data/hora de início** e a **data/hora de término** para que a data de término seja definida como a data de hoje e a de início, cinco dias antes.  
-   4. Clique em **Avançar**.  
+   4. Clique em **Próximo**.  
       
       ![Ferramenta de Cópia - página Propriedades](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
 3. Na página **Repositório de dados de origem**, clique no bloco **Armazenamento de Blobs do Azure**. Use essa página para especificar o repositório de dados de origem para a tarefa de cópia. 
@@ -120,7 +120,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    3. Selecione sua **assinatura**do Azure.  
    4. Selecione **Nome do servidor** e **Banco de Dados**.
    5. Insira o **Nome de usuário** e a **Senha**.
-   6. Clique em **Avançar**.  
+   6. Clique em **Próximo**.  
       
       ![Ferramenta de Cópia - especifique o banco de dados SQL do Azure](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. Na página **Mapeamento de tabela**, selecione **emp** para o campo **Destino** na lista suspensa e clique em **seta para baixo** (opcional) para ver o esquema e visualizar os dados.

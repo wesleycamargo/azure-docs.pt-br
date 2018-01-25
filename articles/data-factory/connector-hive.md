@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 0a1d8ff4b9821b0d41b6225872472a9d5aedffc7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8842adcc00a1230f252411d64c22d497faeec5b2
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados do Hive usando o Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector de Hive.
 
@@ -44,12 +44,12 @@ As propriedades a seguir têm suporte para o serviço vinculado de Hive:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Hive** | Sim |
-| host | Endereço IP ou nome de host do servidor Hive, separado por ';' para vários hosts (somente quando serviceDiscoveryMode estiver habilitado).  | Sim |
+| Tipo | A propriedade type deve ser definida como: **Hive** | sim |
+| host | Endereço IP ou nome de host do servidor Hive, separado por ';' para vários hosts (somente quando serviceDiscoveryMode estiver habilitado).  | sim |
 | porta | A porta TCP usada pelo servidor Hive para ouvir conexões de cliente.  | Não  |
 | serverType | O tipo do servidor Hive. <br/>Os valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não  |
 | thriftTransportProtocol | O protocolo de transporte a ser usado na camada de Thrift. <br/>Valores permitidos são: **binário**, **SASL**, * * HTTP * * | Não  |
-| authenticationType | O método de autenticação usado para acessar o servidor do Hive. <br/>Valores permitidos são: **Anônimo**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
+| authenticationType | O método de autenticação usado para acessar o servidor do Hive. <br/>Valores permitidos são: **Anônimo**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | sim |
 | serviceDiscoveryMode | verdadeiro para indicar o uso do serviço ZooKeeper, falso não.  | Não  |
 | zooKeeperNameSpace | O namespace no ZooKeeper no qual os2 nós do Hive Server são adicionados.  | Não  |
 | useNativeQuery | Especifica se o driver usa consultas HiveQL nativas ou as converte em uma forma equivalente no HiveQL.  | Não  |
@@ -116,8 +116,8 @@ Para copiar dados de Hive, defina o tipo de fonte na atividade de cópia como **
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HiveSource** | Sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HiveSource** | sim |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | sim |
 
 **Exemplo:**
 

@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: fbf538383a96fc1789f54994c1c4a1c1d9f96bec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 74f96d2712c28c8b49e0b92ee88e560193428836
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: usar a API REST para criar um pipeline do Azure Data Factory a fim de copiar dados 
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-> * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -48,7 +48,7 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 >  
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Percorra o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de **pré-requisito** .
 * Instale o [Curl](https://curl.haxx.se/dlwiz/) em seu computador. Você pode usar a ferramenta Curl com comandos REST para criar um data factory. 
 * Siga as instruções [deste artigo](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para: 
@@ -176,9 +176,9 @@ Para obter detalhes sobre as propriedades JSON, confira [Serviço vinculado do A
 
 A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| type | A propriedade type é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure. |
+| Tipo | A propriedade type é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure. |
 | linkedServiceName | Refere-se ao **AzureStorageLinkedService** que você criou anteriormente. |
 | folderPath | Especifica o **contêiner** e a **pasta** de blob que contém blobs de entrada. Neste tutorial, adftutorial é o contêiner de blob e pasta é a pasta raiz. | 
 | fileName | Essa propriedade é opcional. Se você omitir essa propriedade, todos os arquivos de folderPath serão selecionados. Neste tutorial, **emp.txt** é especificado como fileName e, portanto, apenas esse arquivo é selecionado para processamento. |
@@ -219,9 +219,9 @@ Para saber mais sobre essas propriedades JSON, confira o [artigo sobre o conecto
 ```
 A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| type | A propriedade type é definida como **AzureSqlTable** porque os dados são copiados para uma tabela em um banco de dados SQL do Azure. |
+| Tipo | A propriedade type é definida como **AzureSqlTable** porque os dados são copiados para uma tabela em um banco de dados SQL do Azure. |
 | linkedServiceName | Refere-se ao **AzureSqlLinkedService** que você criou anteriormente. |
 | tableName | Especifica a **tabela** para a qual os dados são copiados. | 
 | frequência/intervalo | A frequência é definida como **Hora** e o intervalo é de **1**, o que significa que as fatias de saída são produzidas **a cada hora** entre as horas de início e término do pipeline, não antes ou depois delas.  |
@@ -356,7 +356,7 @@ Observe os seguintes pontos:
   2. No primeiro comando em que a variável **$cmd** é atribuída um valor, substitua ADFCopyTutorialDF pelo novo nome e execute o comando. 
   3. Execute os próximos dois comandos para invocar a API REST a fim de criar o data factory e imprima os resultados da operação. 
      
-     Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+     Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
 * Para criar instâncias do Data Factory, você precisa ser um colaborador/administrador da assinatura do Azure
 * O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.
 * Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente: 

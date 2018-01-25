@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connectors-list"></a>Lista de conectores
 Para localizar os gatilhos e as ações definidos por descrição do Swagger de cada conector além de todos os limites de conector, veja [Detalhes do conector](/connectors/).
@@ -126,7 +126,7 @@ Aplicativos lógicos incluem ações internas que podem alterar ou manipular os 
 | **Matriz de filtro** (consulta) | Filtre um conjunto de resultados para as entradas que lhe interessam. Por exemplo, pesquise todos os tweets com `#Azure` e, em seguida, "filtre" os tweets retornados para retornar somente os resultados que são `Tweeted_by_followers > 50`. |
 | **Join** | Una uma matriz de acordo com um delimitador. Por exemplo, a operação Detectar frases-chave retorna uma matriz de frases-chave. Você pode "unir" com uma `,` ou algo parecido. Portanto, em vez de `["Some", "Phrase"]`, você tem `"Some, Phrase"`. |
 | **Analisar o JSON** | Analise e acesse valores de um objeto JSON no designer. Por exemplo, se sua função do Azure retorna um conteúdo JSON, você pode analisá-lo para acessar as propriedades JSON posteriormente em outra etapa. A ação também valida que o JSON corresponde ao esquema especificado no tempo de execução. | 
-| **Seleção** | Selecione determinadas propriedades de uma matriz para processamento adicional. Se você "Listar os registros" do SQL e ele retorna 15 colunas, selecione apenas algumas dessas colunas para processamento adicional. A saída é uma matriz que contém apenas as propriedades selecionadas por você. |
+| **Selecionar** | Selecione determinadas propriedades de uma matriz para processamento adicional. Se você "Listar os registros" do SQL e ele retorna 15 colunas, selecione apenas algumas dessas colunas para processamento adicional. A saída é uma matriz que contém apenas as propriedades selecionadas por você. |
 
 ## <a name="custom-connectors-and-azure-certification"></a>Conectores personalizados e certificação do Azure 
 
@@ -143,7 +143,7 @@ Para ajudar a melhorar os Aplicativos Lógicos do Azure e conectores, vote ou en
 Falta um tópico do conector ou algum detalhe que você acha importante? Se sim, ajude-nos adicionando ao nosso tópicos existentes, ou escreva o seu. Nossa documentação é de software livre e hospedada no GitHub. Comece a usá-a no nosso [repositório GitHub](https://github.com/Microsoft/azure-docs). 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar seu primeiro aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Criar APIs personalizadas para aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md)
 * [Monitorar seus aplicativos lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 

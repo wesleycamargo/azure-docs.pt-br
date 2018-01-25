@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
-ms.date: 09/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços vinculados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,12 +65,12 @@ Um serviço vinculado no Data Factory é definido no formato JSON da seguinte ma
 
 A tabela a seguir descreve as propriedades no JSON acima:
 
-Propriedade | Descrição | Obrigatório |
+Propriedade | DESCRIÇÃO | Obrigatório |
 -------- | ----------- | -------- |
-name | Nome do serviço vinculado. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  Sim |
-type | Tipo de serviço vinculado. Por exemplo: AzureStorage (armazenamento de dados) ou AzureBatch (computação). Consulte a descrição de typeProperties. | Sim |
-typeProperties | As propriedades de tipo são diferentes para cada armazenamento de dados ou de computação. <br/><br/> Para os tipos de armazenamento de dados suportados e suas propriedades de tipo, consulte a tabela [tipo de conjunto de dados](#dataset-type) neste artigo. Navegue até o artigo de conector do armazenamento de dados para saber mais sobre as propriedades de tipo específicas para um armazenamento de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [serviços vinculados de computação](compute-linked-services.md). | Sim |
-connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não
+Nome | Nome do serviço vinculado. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  sim |
+Tipo | Tipo de serviço vinculado. Por exemplo: AzureStorage (armazenamento de dados) ou AzureBatch (computação). Consulte a descrição de typeProperties. | sim |
+typeProperties | As propriedades de tipo são diferentes para cada armazenamento de dados ou de computação. <br/><br/> Para os tipos de armazenamento de dados suportados e suas propriedades de tipo, consulte a tabela [tipo de conjunto de dados](#dataset-type) neste artigo. Navegue até o artigo de conector do armazenamento de dados para saber mais sobre as propriedades de tipo específicas para um armazenamento de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [serviços vinculados de computação](compute-linked-services.md). | sim |
+connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não 
 
 ## <a name="linked-service-example"></a>Exemplo de serviço vinculado
 O seguinte serviço vinculado é um serviço vinculado de Armazenamento do Azure. Observe que o tipo é definido como AzureStorage. As propriedades de tipo para o serviço vinculado do Armazenamento do Azure incluem uma cadeia de conexão. O serviço de Data Factory usa essa cadeia de conexão para se conectar ao armazenamento de dados em tempo de execução. 
@@ -122,12 +122,12 @@ Um conjunto de dados no Data Factory é definido no formato JSON da seguinte man
 ```
 A tabela a seguir descreve as propriedades no JSON acima:
 
-Propriedade | Descrição | Obrigatório |
+Propriedade | DESCRIÇÃO | Obrigatório |
 -------- | ----------- | -------- |
-name | Nome do conjunto de dados. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  Sim |
-type | Tipo de conjunto de dados. Especifique um dos tipos com suporte no Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [Tipos de conjunto de dados](#dataset-types). | Sim |
-estrutura | Esquema do conjunto de dados. Para obter detalhes, consulte [Estrutura de conjunto de dados](#dataset-structure). | Não |
-typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Blob do Azure, tabela do SQL Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [Tipo de conjunto de dados](#dataset-type). | Sim |
+Nome | Nome do conjunto de dados. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  sim |
+Tipo | Tipo de conjunto de dados. Especifique um dos tipos com suporte no Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [Tipos de conjunto de dados](#dataset-types). | sim |
+estrutura | Esquema do conjunto de dados. Para obter detalhes, consulte [Estrutura de conjunto de dados](#dataset-structure). | Não  |
+typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Blob do Azure, tabela do SQL Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [Tipo de conjunto de dados](#dataset-type). | sim |
 
 ## <a name="dataset-example"></a>Exemplo de conjunto de dados
 No exemplo a seguir, o conjunto de dados representa uma tabela chamada MyTable em um banco de dados SQL.
@@ -196,12 +196,12 @@ A seção **estrutura** é opcional. Ela define o esquema do conjunto de dados c
 
 Cada coluna da seção Estrutura contém as seguintes propriedades:
 
-Propriedade | Descrição | Obrigatório
+Propriedade | DESCRIÇÃO | Obrigatório
 -------- | ----------- | --------
-name | Nome da coluna. | Sim
-type | Tipo de dados da coluna. | Não
-culture | Cultura baseada em .NET a ser usada quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. O padrão é `en-us`. | Não
-formato | O formato de cadeia de caracteres a ser usado quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. | Não
+Nome | Nome da coluna. | sim
+Tipo | Tipo de dados da coluna. | Não 
+culture | Cultura baseada em .NET a ser usada quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. O padrão é `en-us`. | Não 
+formato | O formato de cadeia de caracteres a ser usado quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. | Não 
 
 As diretrizes a seguir ajudam você a determinar quando incluir informações de estrutura e o que incluir na seção **estrutura**.
 

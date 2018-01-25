@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5285cddcb64e44cb61c99cc18f8a66d60cd1c0fc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
@@ -91,7 +91,7 @@ Para alta disponibilidade e escalabilidade, você pode expandir o IR auto-hosped
 Para fazer lift-and-shift da carga de trabalho existente do SSIS, você pode criar um IR Azure-SSIS para executar pacotes do SSIS nativamente.
 
 ### <a name="network-environment"></a>Ambiente de rede
-O IR Azure-SSIS pode ser provisionado na rede pública ou na rede privada.  Há suporte para o acesso a dados locais unindo o IR do Azure-SSIS a uma VNet (Rede Virtual) conectada à sua rede local. Atualmente, há suporte para apenas para a VNet clássica. 
+O IR Azure-SSIS pode ser provisionado na rede pública ou na rede privada.  Há suporte para o acesso a dados locais unindo o IR do Azure-SSIS a uma VNet (Rede Virtual) conectada à sua rede local.  
 
 ### <a name="compute-resource-and-scaling"></a>Recurso de computação e dimensionamento
 O IR do SSIS do Azure é um cluster totalmente gerenciado das VMs do Azure dedicado para executar os pacotes de SSIS. Você pode colocar seu próprio servidor do Banco de Dados SQL do Azure ou Instância Gerenciada (versão prévia privada) para hospedar o catálogo de projetos/pacotes do SSIS (SSISDB) que será anexado a ele. Você pode aumentar a potência de computação especificando o tamanho do nó e escalá-la horizontalmente especificando o número de nós no cluster. Você pode gerenciar o custo da execução do Integration Runtime do Azure SSIS, parando-o e iniciando-o como considerar adequado.

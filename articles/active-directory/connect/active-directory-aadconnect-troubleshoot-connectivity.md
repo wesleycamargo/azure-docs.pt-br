@@ -3,7 +3,7 @@ title: 'Azure AD Connect: solucionar problemas de conectividade | Microsoft Docs
 description: Explica como solucionar problemas de conectividade com o Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solucionar problemas de conectividade com o Azure AD Connect
 Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
@@ -40,7 +40,7 @@ O servidor proxy também deve ter as URLs necessárias abertas. A lista oficial 
 
 Dessas URLs, a tabela a seguir é o mínimo absoluto para oferecer a capacidade de se conectar ao AD do Azure. Essa lista não inclui quaisquer recursos opcionais, como write-back de senha ou Azure AD Connect Health. Ela está documentado aqui para ajudar na solução de problemas da configuração inicial.
 
-| URL | Port | Descrição |
+| URL | Porta | DESCRIÇÃO |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Usada para baixar as listas CRL. |
 | \*.verisign.com |HTTP/80 |Usada para baixar as listas CRL. |

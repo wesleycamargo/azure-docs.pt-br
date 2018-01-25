@@ -3,8 +3,8 @@ title: "Introdução à camada Premium do Cache Redis do Azure | Microsoft Docs"
 description: "Saiba como criar e gerenciar a Persistência do Redis, clustering do Redis e o suporte de VNET para as instâncias da camada Premium do Cache Redis do Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 38a43756678a3628040b1b995966eff6dd9fb363
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introdução à camada Premium do Cache Redis do Azure
 O Cache Redis do Azure é um cache distribuído e gerenciado que ajuda você a criar aplicativos altamente escalonáveis e responsivos, fornecendo acesso extremamente rápido aos seus dados. 
@@ -73,7 +73,7 @@ Para obter mais informações, consulte [Reinicializar](cache-administration.md#
 >
 >
 
-## <a name="schedule-updates"></a>Agendar atualizações
+## <a name="schedule-updates"></a>Agende atualizações
 O recurso de atualizações agendadas permite designar uma janela de manutenção para seu cache. Quando a janela de manutenção é especificada, as atualizações do servidor Redis são feitas durante essa janela. Para designar uma janela de manutenção, selecione os dias desejados e especifique o horário de início da janela de manutenção para cada dia. Observe que o horário da janela de manutenção é em UTC. 
 
 Para obter mais informações, consulte [Agendar atualizações](cache-administration.md#schedule-updates) e [Perguntas frequentes sobre agendamento de atualizações](cache-administration.md#schedule-updates-faq).

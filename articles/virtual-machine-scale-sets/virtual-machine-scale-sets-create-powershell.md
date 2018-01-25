@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1a4c69427e0fa38e9206e2720c4746c97d922df1
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c5ca90ae303d62c4ad453971f84da78866b0c599
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais usando o Azure PowerShell
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Dimensione o número de VMs no conjunto de dimensionamento manualmente ou defina regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Neste artigo de introdução, você cria um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell. Também é possível criar um conjunto de dimensionamento com a [CLI do Azure 2.0](virtual-machine-scale-sets-create-cli.md), ou o [Portal do Azure](virtual-machine-scale-sets-create-portal.md).
@@ -120,7 +120,7 @@ $ipConfig = New-AzureRmVmssIpConfig `
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que usa a imagem da plataforma do *Datacenter do Windows Server 2016*. O objeto *vmssConfig* cria 2 instâncias de VM no Leste dos EUA, com as credenciais conforme especificadas nas variáveis *adminUsername* e *securePassword*. Forneça suas próprias credenciais e crie um conjunto de dimensionamento da seguinte maneira:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que usa a imagem da plataforma do *Datacenter do Windows Server 2016*. O objeto *vmssConfig* cria 2 instâncias de VM no Leste dos EUA, com as credenciais conforme especificadas nas variáveis *adminUsername* e *securePassword*. Forneça suas próprias credenciais e crie um conjunto de dimensionamento da seguinte maneira:
 
 ```azurepowershell-interactive
 # Provide your own secure password for use with the VM instances

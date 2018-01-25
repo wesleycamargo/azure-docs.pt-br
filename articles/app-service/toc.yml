@@ -31,6 +31,8 @@
   items:
     - name: 1 - Aplicativo com banco de dados
       items:
+        - name: .NET Core com banco de dados SQL
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET com Banco de Dados SQL
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP com MySQL
@@ -215,7 +217,7 @@
       href: app-service-best-practices.md
     - name: Exemplos
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
     - name: Guias
       items:
@@ -223,7 +225,7 @@
           href: ../guidance/guidance-ra-app-service.md
         - name: Scripts de Implantação
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: Solucionar problemas
+    - name: solução de problemas
       items:
         - name: Solucionar problemas com o Visual Studio
           href: web-sites-dotnet-troubleshoot-visual-studio.md

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 8513ace2589056387d8a1959c5727ee6bd5674cd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorar o desempenho do banco de dados no Banco de Dados SQL do Azure
 O monitoramento do desempenho de um banco de dados SQL no Azure começa com o monitoramento da utilização de recursos em relação ao nível de desempenho de banco de dados escolhido. O monitoramento ajuda você a determinar se o seu banco de dados tem excesso de capacidade ou se está enfrentando problemas por ter atingido o máximo de recursos. Com essas informações, você pode decidir se é hora de ajustar o nível do desempenho e a [camada de serviço](sql-database-service-tiers.md) do banco de dados. Você pode monitorar o banco de dados usando ferramentas gráficas no [Portal do Azure](https://portal.azure.com) ou as [exibições de gerenciamento dinâmico](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
@@ -83,7 +83,7 @@ Como essa exibição oferece uma visão mais granular do uso de recursos, use **
 Para outras consultas, consulte os exemplos em [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 #### <a name="sysresourcestats"></a>sys.resource_stats
-A exibição [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem mais informações que podem ajudá-lo a monitorar o desempenho do banco de dados SQL em sua camada de serviço e nível de desempenho específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 35 dias. Essa exibição é útil para uma análise de histórico de longo prazo de como seu banco de dados SQL usa recursos.
+A exibição [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem mais informações que podem ajudá-lo a monitorar o desempenho do banco de dados SQL em sua camada de serviço e nível de desempenho específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 14 dias. Essa exibição é útil para uma análise de histórico de longo prazo de como seu banco de dados SQL usa recursos.
 
 O grafo a seguir mostra o uso de recursos da CPU para um banco de dados Premium com o nível de desempenho P2 para cada hora em uma semana. Esse grafo começa em uma segunda-feira, mostra 5 dias úteis e, depois, um fim de semana, em que ocorrem muito menos atividades no aplicativo.
 

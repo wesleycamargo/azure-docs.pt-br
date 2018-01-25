@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
@@ -161,7 +161,7 @@ END
       
      ![Página de novo data factory](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
  
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se for exibido um ponto de exclamação vermelho com um erro, altere o nome de data factory (por exemplo, seunomeADFIncCopyTutorialDF) e tente criá-lo novamente. Consulte o artigo [Data Factory – Regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
+   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se for exibido um ponto de exclamação vermelho com um erro, altere o nome de data factory (por exemplo, seunomeADFIncCopyTutorialDF) e tente criá-lo novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
   
        `Data factory name "ADFIncCopyTutorialDF" is not available`
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
@@ -172,16 +172,16 @@ END
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Selecione **V2 (Versão Prévia)** para a **versão**.
-5. Selecione o **local** do data factory. Apenas os locais com suporte são mostrados na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.      
 8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
-9. Depois que a criação estiver concluída, você verá a página **Data Factory**, conforme mostrado na imagem.
+9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
    ![Página inicial da data factory](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
-10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário (IU) do Azure Data Factory em uma guia separada.
+10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 
 ## <a name="create-a-pipeline"></a>Criar uma pipeline
 Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma atividade de Cópia e uma atividade de Procedimento armazenado encadeadas em um pipeline. 
@@ -311,7 +311,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
         | NOME | type | Valor | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Cadeia de caracteres | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Atividade de Procedimento armazenado - configurações de procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -446,7 +446,7 @@ Neste tutorial, você realizou as seguintes etapas:
 Neste tutorial, o pipeline copiou dados de uma única tabela em um banco de dados SQL para um Armazenamento de Blobs. Avance para o tutorial a seguir para saber mais sobre como copiar dados de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL. 
 
 > [!div class="nextstepaction"]
->[Carregar incrementalmente os dados de várias tabelas no SQL Server para o Banco de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Carregar incrementalmente os dados de várias tabelas no SQL Server para o Banco de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 59f718e0e547ed9374152985e706acad4421b35b
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 30e606154830b867382ea1ea439b97749370a1f6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
@@ -39,7 +39,7 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite a execução de qualquer script Bash em uma máquina virtual. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, confira [Extensão de Script Personalizado de VM do Linux](extensions-customscript.md).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Cada extensão da máquina virtual pode ter seu próprio conjunto de pré-requisitos. Por exemplo, a extensão de VM do Docker tem um pré-requisito de uma distribuição Linux com suporte. Os requisitos específicos das extensões estão detalhados na documentação associada.
 
@@ -47,7 +47,7 @@ Cada extensão da máquina virtual pode ter seu próprio conjunto de pré-requis
 
 O agente de VM do Azure gerencia a interação entre uma máquina virtual do Azure e o controlador de malha do Azure. O agente de VM é responsável por muitos aspectos funcionais de implantação e gerenciamento de máquinas virtuais do Azure, incluindo a execução de extensões da VM. O agente de VM do Azure é pré-instalado em imagens do Azure Marketplace e pode ser instalado manualmente em sistemas operacionais com suporte.
 
-Para saber mais sobre os sistemas operacionais com suporte e as instruções de instalação, confira [Agente de máquina virtual do Azure](../windows/classic/agents-and-extensions.md).
+Para saber mais sobre os sistemas operacionais com suporte e as instruções de instalação, confira [Agente de máquina virtual do Azure](agent-user-guide.md).
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 
@@ -235,7 +235,7 @@ Você pode remover uma extensão usando as seguintes etapas no Portal do Azure:
 4. Escolha **Desinstalar**.
 
 ## <a name="common-vm-extension-reference"></a>Referência à extensão VM comum
-| Nome da extensão | Descrição | Mais informações |
+| Nome da extensão | DESCRIÇÃO | Mais informações |
 | --- | --- | --- |
 | Extensão de Script Personalizado para Linux |Executar scripts em uma máquina virtual do Azure |[Extensão de Script Personalizado para Linux](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | Extensão do Docker |Instale o daemon Docker para oferecer suporte a comandos Docker remotos. |[Extensão de VM do Docker](dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |

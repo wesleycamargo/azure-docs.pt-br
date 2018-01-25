@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 268844eae8dc06937529e79d52515cad2f6da3f4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
@@ -54,7 +54,7 @@ Cada tipo também fornece um subconjunto específico de recursos do serviço de 
 > - Médio (dois núcleos de CPU, 7 GiB de memória) 
 > - Grande (quatro núcleos de CPU, 14 GiB de memória)  
 >
-> Para obter informações de preço do **PremiumV2**, confira [Preço do Serviço de Aplicativo](/pricing/details/app-service/).
+> Para obter informações de preço do **PremiumV2**, confira [Preço do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 >
 > Para uma introdução ao novo tipo de preço **PremiumV2**, consulte [Configurar o tipo de preço PremiumV2 no Serviço de Aplicativo](app-service-configure-premium-tier.md).
 

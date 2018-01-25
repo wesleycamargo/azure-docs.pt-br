@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 996fe0ef31a5bea9111324a661b714e77dffff64
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 507ec614e54b035d5470ec34bcfd8e71cf98083c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Verificar a conectividade com o Observador de Rede do Azure usando a CLI 2.0 do Azure
 
@@ -36,39 +36,8 @@ Este artigo pressupõe que você tenha os seguintes recursos:
 
 * Máquinas virtuais com as quais verificar a conectividade.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Registrar o recurso de visualização 
-
-A verificação de conectividade está atualmente em visualização pública; para usar esse recurso, ele precisa ser registrado. Para fazer isso, execute o seguinte exemplo de CLI
-
-```azurecli 
-az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
-
-az provider register --namespace Microsoft.Network 
-``` 
-
-Para verificar se o registro foi bem-sucedido, execute o seguinte comando de CLI:
-
-```azurecli
-az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck 
-```
-
-Se o recurso tiver sido registrado corretamente, a saída deverá corresponder ao seguinte: 
-
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowNetworkWatcherConnectivityCheck",
-  "name": "Microsoft.Network/AllowNetworkWatcherConnectivityCheck",
-  "properties": {
-    "state": "Registered"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-``` 
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Verificar a conectividade com uma máquina virtual
 
@@ -80,7 +49,7 @@ Este exemplo verifica a conectividade a uma máquina virtual de destino pela por
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 A seguinte resposta é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está **Inacessível**. Você pode ver que todas as investigações enviadas falharam. Falha de conectividade na solução de virtualização devido a um `NetworkSecurityRule` configurado pelo usuário chamado **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
 
@@ -161,7 +130,7 @@ O exemplo verifica a conectividade entre uma máquina virtual e um ponto de extr
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 No exemplo a seguir, o `connectionStatus` é mostrado como **Inacessível**. Nos detalhes de `hops`, você pode ver em `issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`.
 
@@ -219,7 +188,7 @@ O exemplo a seguir verifica a conectividade com um site.
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 Na resposta a seguir, você pode ver o `connectionStatus` ser mostrado como **Acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
 
@@ -265,7 +234,7 @@ O exemplo a seguir verifica a conectividade de uma máquina virtual com uma cont
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 O json a seguir é um exemplo de resposta da execução do cmdlet anterior. Uma vez que a verificação é bem-sucedida, a propriedade `connectionStatus` é mostrada como **Alcançável**.  São fornecidos os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
 
@@ -302,6 +271,6 @@ O json a seguir é um exemplo de resposta da execução do cmdlet anterior. Uma 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como automatizar as capturas de pacotes com alertas da Máquina Virtual exibindo [Criar uma captura de pacotes disparada por alertas](network-watcher-alert-triggered-packet-capture.md)
+Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md)

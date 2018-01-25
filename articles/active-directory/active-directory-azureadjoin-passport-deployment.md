@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b5b48edda76bedc14d5528fa82f1d9b7bfffe53a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Habilitar o Microsoft Windows Hello for Business em sua organização
 Depois de [conectar os dispositivos integrados ao domínio do Windows 10 ao Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), faça o seguinte para habilitar o Microsoft Windows Hello para Empresas em sua organização:
@@ -57,7 +57,7 @@ Usar o System Center Configuration Manager é o método preferencial quando voc�
 5. Navegue até **Configuração do Computador** > **Políticas** > **Modelos Administrativos** > **Componentes do Windows** > **Windows Hello para Empresas**.
 6. Clique com o botão direito em **Habilitar o Windows Hello para Empresas** e, em seguida, selecione **Editar**.
 7. Selecione o botão de opção **Habilitado** e clique em **Aplicar**. Clique em **OK**.
-8. Agora você pode vincular o Objeto de Política de Grupo para um local de sua escolha. Para habilitar essa política para todos os dispositivos do Windows 10 associados ao domínio em sua organização, vincule a Política de Grupo ao domínio. Por exemplo:
+8. Agora você pode vincular o Objeto de Política de Grupo para um local de sua escolha. Para habilitar essa política para todos os dispositivos do Windows 10 associados ao domínio em sua organização, vincule a Política de Grupo ao domínio. Por exemplo: 
    * Uma UO (unidade organizacional) específica no Active Directory onde os computadores ingressados no domínio do Windows 10 estejam localizados.
    * Um grupo de segurança específico com computadores ingressados no domínio do Windows 10 que serão registrados automaticamente no AD do Azure.
 
@@ -76,7 +76,7 @@ Usar o System Center Configuration Manager é o método preferencial quando voc�
    
     a. Na caixa de diálogo **Nome**, digite um nome para seu perfil, por exemplo, **Meu Perfil WHfB**.
    
-    b. Clique em **Avançar**.
+    b. Clique em **Próximo**.
 4. Na caixa de diálogo **Plataformas com Suporte**, selecione as plataformas que serão provisionadas com esse perfil do Windows Hello para Empresas e, em seguida, clique em **Próximo**.
    
     ![Configurar o Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/04.png)
@@ -90,7 +90,7 @@ Usar o System Center Configuration Manager é o método preferencial quando voc�
    
     c. Em **Método de autenticação**, selecione **Baseado em certificado**.
    
-    d. Clique em **Avançar**.
+    d. Clique em **Próximo**.
 6. Na caixa de diálogo de **Resumo**, clique em **Avançar**.
 7. Na caixa de diálogo **Conclusão**, clique em **Fechar**.
 8. Na barra de ferramentas na parte superior, clique em **Implantar**.

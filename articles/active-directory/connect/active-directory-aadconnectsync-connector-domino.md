@@ -3,7 +3,7 @@ title: Conector Lotus Domino | Microsoft Docs
 description: Este artigo descreve como configurar o conector Lotus Domino da Microsoft.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Referência técnica do conector Lotus Domino
 Este artigo descreve o conector Lotus Domino. O artigo se aplica aos seguintes produtos:
@@ -43,7 +43,7 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 
 O conector Lotus Domino usa o cliente Lotus Notes para se comunicar com o servidor Lotus Domino. Como consequência dessa dependência, um cliente Lotus Notes compatível deve ser instalado no servidor de sincronização. A comunicação entre o cliente e o servidor é implementada por meio da interface de interoperabilidade do .NET do Lotus Notes (Interop.domino.dll). Essa interface facilita a comunicação entre o cliente Lotus Notes e a plataforma Microsoft.NET, além de oferecer suporte ao acesso a documentos e exibições do Lotus Domino. Na importação delta, também é possível que a interface nativa C++ seja usada (dependendo do método de importação delta selecionado).
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Antes de usar o Conector, verifique se você tem os seguintes pré-requisitos no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
@@ -69,7 +69,7 @@ As operações vão diretamente para o diretório Domino ou passam pelo processo
 
 **Catálogo de endereços principal**
 
-| Objeto | Criação | Atualização | Exclusão |
+| Objeto | Criar | Atualizar | Excluir |
 | --- | --- | --- | --- |
 | Pessoa |AdminP |Direta |AdminP |
 | Agrupar |AdminP |Direta |AdminP |
@@ -78,7 +78,7 @@ As operações vão diretamente para o diretório Domino ou passam pelo processo
 
 **Catálogo de endereços secundário**
 
-| Objeto | Criação | Atualização | Exclusão |
+| Objeto | Criar | Atualizar | Excluir |
 | --- | --- | --- | --- |
 | Pessoa |N/D |Direta |Direta |
 | Agrupar |Direta |Direta |Direta |
@@ -128,7 +128,7 @@ O arquivo UserID fornecido é armazenado no banco de dados de configuração do 
 
 Na **Importação Delta** , você tem estas opções:
 
-* **Nenhum**. O conector não faz importações delta.
+* **None**. O conector não faz importações delta.
 * **Adicionar/Atualizar**. O conector vai adicionar importação delta e atualizar as operações. Para excluir, é necessária uma operação **Importação Completa** . Essa operação está usando a interoperabilidade .Net.
 * **Adicionar/Atualizar/Excluir**. O conector adiciona, atualiza e exclui operações de importação delta. Essa operação está usando as interfaces C++ nativas.
 
@@ -155,7 +155,7 @@ A partir da atualização de março de 2017 a tela de parâmetros globais inclui
 #### <a name="import-settings-method"></a>Configurações de importação, método
 O recurso **Executar Importação Completa por** possui as seguintes opções:
 
-* Pesquisar
+* Search
 * Exibição (Recomendado)
 
 **Pesquisa** está usando indexação no Domino, mas é comum que os índices não sejam atualizados em tempo real e os dados retornados do servidor nem sempre estejam corretos. Em um sistema com muitas alterações, essa opção geralmente não funciona bem e fornece exclusões falsas em algumas situações. No entanto, a **pesquisa** é mais rápida que a **exibição**.
@@ -285,7 +285,7 @@ O objeto de pessoa representa usuários na Organização e nas Unidades Organiza
   2. Usuário móvel (um Usuário Normal que inclua todos os arquivos de banco de dados móvel)
   3. Contatos (usuário sem arquivo de id)
 
-As pessoas (exceto contatos) ainda podem ser agrupadas em Usuários dos EUA e Usuários Internacionais, conforme definido pelo valor da propriedade \_MMS\_IDRegType. Essas pessoas usam o cliente Notes para acessar servidores Lotus Domino que têm uma ID do Notes e um documento Person. Se estiverem usando o email do Notes, eles também terão um arquivo de email. O usuário deve ser registrado para se tornar ativo. Para obter mais informações, consulte:
+As pessoas (exceto contatos) ainda podem ser agrupadas em Usuários dos EUA e Usuários Internacionais, conforme definido pelo valor da propriedade \_MMS\_IDRegType. Essas pessoas usam o cliente Notes para acessar servidores Lotus Domino que têm uma ID do Notes e um documento Person. Se estiverem usando o email do Notes, eles também terão um arquivo de email. O usuário deve ser registrado para se tornar ativo. Para obter mais informações, confira:
 
 * [Setting up Notes users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_SETTING_UP_NOTES_USERS.html)
 * [User Registration](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_REGISTERING_USERS.html)
@@ -358,7 +358,7 @@ O conector Lotus Domino oferece suporte às seguintes operações em Senha da In
 * Definir Senha: defina uma nova senha de HTTP/Internet no usuário, no Domino. Por padrão, a conta também é desbloqueada. O sinalizador de desbloqueio é exposto na interface do WMI do Mecanismo de Sincronização.
 * Alterar Senha: nesse cenário, um usuário poderá alterar a senha ou será solicitado a alterar a senha após um tempo especificado. Para que essa operação ocorra, ambas (a senha antiga e nova) são obrigatórias. Depois de alterada, a nova senha é atualizada no Lotus Domino.
 
-Para obter mais informações, consulte:
+Para obter mais informações, confira:
 
 * [Using the Internet lockout feature](http://www.ibm.com/developerworks/lotus/library/domino8-lockout/)
 * [Managing Internet passwords](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_NOTES_AND_INTERNET_PASSWORD_SYNCHRONIZATION_7570_OVER.html)
@@ -371,7 +371,7 @@ Quando você provisiona objetos Person para seu diretório Lotus Domino, seus ob
 
 A tabela a seguir lista essas propriedades e fornece uma descrição delas.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | \_MMS_AltFullName |O nome completo alternativo do usuário. |
 | \_MMS_AltFullNameLanguage |O idioma a ser usado para especificar o nome completo alternativo do usuário. |
@@ -416,7 +416,7 @@ Esta seção lista os atributos que são obrigatórios para cada tipo de objeto 
 | Banco de dados de Entrada de Email |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | Pessoa |<li>Sobrenome</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\__MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Contato (Indivíduo sem certificador) |<li>\__MMS_IDRegType</li> |
-| Recurso |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Recurso |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Problemas e perguntas comuns
 ### <a name="schema-detection-does-not-work"></a>Detecção de esquema não funciona
@@ -492,5 +492,5 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parece um 
 7. Depois de adicionar os atributos necessários à ExtensibleObjectClass, clique em **Salvar e Fechar**.
 8. Uma ExtensibleObjectClass é criada para a classe de objeto padrão respectiva com atributos estendidos.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: cccab530e86373fee8a78b42c8cba532b05c1bab
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introdução ao Gerenciador de armazenamento (visualização)
 ## <a name="overview"></a>Visão geral
@@ -26,7 +26,7 @@ O Gerenciador de armazenamento do Azure (visualização) é um aplicativo autôn
 
 ![Gerenciador de Armazenamento do Microsoft Azure (Preview)][15]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * [Baixe e instale o Gerenciador de armazenamento (visualização)](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Conectar-se a uma conta de armazenamento ou serviço
@@ -243,7 +243,7 @@ Se você tiver uma lista longa de contas de armazenamento, uma maneira rápida d
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Como gerenciar os recursos de armazenamento de Blobs do Azure com o Gerenciador de armazenamento (visualização)](vs-azure-tools-storage-explorer-blobs.md)
-* [Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure (Versão Prévia)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+* [Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure (Versão Prévia)](./cosmos-db/storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d78b0dbd3fd124e660b2b2a2cf0cb20f92153508
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados do PostgreSQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Você pode copiar dados de um banco de dados PostgreSQL para qualquer armazename
 
 Especificamente, este conector do PostgreSQL dá suporte ao PostgreSQL **versão 7.4 e superior**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para usar esse conector do PostgreSQL, você precisa:
 
@@ -55,13 +55,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do PostgreSQL:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **PostgreSql** | Sim |
-| Servidor | Nome do servidor PostgreSQL. |Sim |
-| Banco de Dados | Nome do banco de dados PostgreSQL. |Sim |
+| Tipo | A propriedade type deve ser definida como: **PostgreSql** | sim |
+| Servidor | Nome do servidor PostgreSQL. |sim |
+| Banco de Dados | Nome do banco de dados PostgreSQL. |sim |
 | schema | Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não  |
-| Nome de Usuário | Especifica o nome de usuário para se conectar ao banco de dados PostgreSQL. |Sim |
-| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como uma SecureString. |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
+| Nome de Usuário | Especifica o nome de usuário para se conectar ao banco de dados PostgreSQL. |sim |
+| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como uma SecureString. |sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |sim |
 
 **Exemplo:**
 
@@ -95,7 +95,7 @@ Para copiar dados do PostgreSQL, defina a propriedade type do conjunto de dados 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | sim |
 | tableName | Nome da tabela no banco de dados PostgreSQL. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -125,7 +125,7 @@ Para copiar dados do PostgreSQL, defina o tipo de origem na atividade de cópia 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 > [!NOTE]

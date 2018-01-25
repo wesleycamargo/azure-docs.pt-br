@@ -3,7 +3,7 @@ title: "Sincronização de identidades e resiliência do atributo duplicado | Mi
 description: "Novo comportamento de como lidar com objetos com conflitos de UPN ou ProxyAddress durante a sincronização de diretórios usando o Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 1ceb2cbe728d2b3bf21f441a595b7ed8e91e3795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 975abed469a78573553c0879b33181d2a58ec48c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência do atributo duplicado 
 A Resiliência do Atributo Duplicado é um recurso do Azure Active Directory que eliminará o atrito causado por conflitos de **UserPrincipalName** e **ProxyAddress** ao executar uma das ferramentas de sincronização da Microsoft.
@@ -139,7 +139,7 @@ Nenhum desses problemas conhecidos causa degradação do serviço nem a perda de
 **Comportamento básico:**
 
 1. Os objetos com configurações de atributo específicas continuam a receber erros de exportação em vez de colocar os atributos duplicados em quarentena.  
-   Por exemplo:
+   Por exemplo: 
    
     a. Um novo usuário é criado no AD com o UPN **Joe@contoso.com** e o ProxyAddress **smtp:Joe@contoso.com**
    
@@ -151,7 +151,7 @@ Nenhum desses problemas conhecidos causa degradação do serviço nem a perda de
 **Relatório do Portal do Office**:
 
 1. A mensagem de erro detalhada para dois objetos em um conjunto de conflitos UPN é a mesma. Isso indica que ambos tiveram seus UPNS alterados/colocados em quarentena, quando, na verdade, apenas um deles teve os dados alterados.
-2. A mensagem de erro detalhada de um conflito UPN mostra o displayName incorreto para um usuário que teve seu UPN alterado/colocado em quarentena. Por exemplo:
+2. A mensagem de erro detalhada de um conflito UPN mostra o displayName incorreto para um usuário que teve seu UPN alterado/colocado em quarentena. Por exemplo: 
    
     a. O **Usuário A** é sincronizado primeiro com **UPN = User@contoso.com**.
    

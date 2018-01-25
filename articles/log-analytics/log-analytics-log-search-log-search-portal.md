@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Crie pesquisas de logs no Azure Log Analytics utilizando o portal de Pesquisa de Logs
 
@@ -30,18 +30,18 @@ Este artigo inclui um tutorial que descreve como criar pesquisas de logs e anali
 
 Para criar pesquisas no portal de Análise Avançada em vez do portal de Pesquisa de Logs, consulte [Introdução ao Portal de Análise](https://go.microsoft.com/fwlink/?linkid=856587).  Ambos os portais utilizam a mesma linguagem de consulta para acessar os mesmos dados no espaço de trabalho do Log Analytics.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este tutorial assume que você já possui um espaço de trabalho do Log Analytics com pelo menos uma fonte conectada que gera dados para as consultas a serem analisadas.  
 
 - Se você não possuir um espaço de trabalho, poderá criar um livre utilizando o procedimento em [Introdução a um espaço de trabalho do Log Analytics](log-analytics-get-started.md).
 - Conecte ao menos um [agente do Windows](log-analytics-windows-agent.md) ou um [agente do Linux](log-analytics-linux-agents.md) ao espaço de trabalho.  
 
 ## <a name="open-the-log-search-portal"></a>Abra o portal de Pesquisa de Logs
-Inicie abrindo o portal de Pesquisa de Logs.  É possível acessá-lo no portal do Azure ou no portal do OMS.
+Inicie abrindo o portal de Pesquisa de Logs. 
 
 1. Abra o portal do Azure.
 2. Navegue até o Log Analytics e selecione seu espaço de trabalho.
-3. Selecione **Pesquisa de Logs**para permanecer no Portal Azure ou inicie o portal do OMS, selecionando **Portal do OMS** e, em seguida, clicando no botão Pesquisa de Logs.
+3. Selecione **Pesquisa de Logs**.
 
 ![Botão Pesquisar Log](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
@@ -86,7 +86,7 @@ Event | where (EventLevelName == "Error")
 Syslog | where (SeverityLevel == "err")
 ```
 
-![Filtro](media/log-analytics-log-search-log-search-portal/log-search-portal-04.png)
+![Filter](media/log-analytics-log-search-log-search-portal/log-search-portal-04.png)
 
 Adicione propriedades ao painel de filtro, selecionando **Adicionar para filtros** do menu de propriedades em um dos registros.
 

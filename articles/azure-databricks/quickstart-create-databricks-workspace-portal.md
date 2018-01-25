@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
@@ -38,10 +38,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
 
 2. Em **Azure Databricks (versão prévia)**, clique em **Criar**.
 
-    > [!NOTE]
-    > No momento, o Azure Databricks está em versão prévia limitada. Se você deseja que sua assinatura do Azure seja considerada para a lista de permissões da versão prévia, é preciso preencher o [formulário de inscrição](https://databricks.azurewebsites.net/).
-
-2. Em **Serviço do Azure Databricks**, forneça os seguintes valores:
+3. Em **Serviço do Azure Databricks**, forneça os seguintes valores:
 
     ![Criar um espaço de trabalho do Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar um espaço de trabalho do Azure Databricks")
 
@@ -50,7 +47,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
     * Para **Grupo de recursos**, especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. Para obter mais informações, consulte [Visão geral do Grupo de Recursos do Azure](../azure-resource-manager/resource-group-overview.md).
     * Para **Local**, selecione **Leste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).
 
-3. Clique em **Criar**.
+4. Clique em **Criar**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster Spark no Databricks
 

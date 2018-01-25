@@ -3,8 +3,8 @@ title: Como administrar o Cache Redis do Azure | Microsoft Docs
 description: "Saiba como executar tarefas administrativas, como atualizações de reinicialização e agenda para o Cache Redis do Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 37e7395a26ead737009ad9e285e9f88372b25d26
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Como administrar o Cache Redis do Azure
 Este tópico descreve como executar tarefas administrativas, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para as instâncias de Cache Redis do Azure.
@@ -79,7 +79,7 @@ Sim, para ver as instruções do PowerShell, confira [Para reinicializar um cach
 ### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>Que tipos de preços podem usar a funcionalidade de reinicialização?
 A reinicialização está disponível para todos os tipos de preço.
 
-## <a name="schedule-updates"></a>Agendar atualizações
+## <a name="schedule-updates"></a>Agende atualizações
 A folha **Agendar atualizações** permite designar uma -janela de manutenção para seu cache de camada Premium. Quando a janela de manutenção é especificada, as atualizações do servidor Redis são feitas durante essa janela. 
 
 > [!NOTE] 
@@ -87,7 +87,7 @@ A folha **Agendar atualizações** permite designar uma -janela de manutenção 
 > 
 > 
 
-![Agendar atualizações](./media/cache-administration/redis-schedule-updates.png)
+![Agende atualizações](./media/cache-administration/redis-schedule-updates.png)
 
 Para especificar uma janela de manutenção, marque os dias desejados, especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Observe que o horário da janela de manutenção é em UTC. 
 
