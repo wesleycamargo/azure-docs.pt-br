@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/06/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança de StorSimple
 
@@ -155,7 +155,7 @@ A chave da criptografia de dados do serviço é gerada apenas no primeiro dispos
 > [!IMPORTANT]
 > É muito importante fazer uma cópia dessa chave de criptografia e salvá-la em um local seguro. Uma cópia da chave de criptografia de dados de serviço deve ser armazenada de forma que possa ser acessada por uma pessoa autorizada e facilmente comunicada ao administrador do dispositivo.
 > 
-> Se a chave de criptografia de dados de serviço for perdida, um profissional de suporte da Microsoft poderá ajudar a recuperá-la, desde que você tenha pelo menos um dispositivo no estado online. É recomendável alterar a chave de criptografia de dados de serviço depois de recuperá-la. Para obter instruções, vá para [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> Se a chave de criptografia de dados de serviço for perdida, um profissional de suporte da Microsoft poderá ajudar a recuperá-la, desde que você tenha pelo menos um dispositivo no estado online. É recomendável alterar a chave de criptografia de dados de serviço depois de recuperá-la.
 
 Para alterar a chave de criptografia de dados do serviço e o certificado de criptografia de dados correspondente, siga as etapas em [Alterar a chave de criptografia de dados do serviço para o seu serviço Gerenciador de Dispositivos do StorSimple](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e3d0a07323189599cb86dd2bf1347c2107efa842
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Introdução ao Xamarin do Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -98,7 +98,7 @@ Quase toda lógica de autenticação do aplicativo está em `DirectorySearcher.S
 
 1. Abra DirectorySearcher.cs e, em seguida, adicione um novo parâmetro para o `SearchByAlias(...)` método. `IPlatformParameters` é o parâmetro contextual que encapsula os objetos específicos da plataforma de que a ADAL precisa para realizar a autenticação.
 
-    ```C#
+    ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
     {
     ```
@@ -107,7 +107,7 @@ Quase toda lógica de autenticação do aplicativo está em `DirectorySearcher.S
 Essa ação passa à ADAL as coordenadas necessárias para se comunicar com o Azure AD.
 3. Chame `AcquireTokenAsync(...)`, que aceita o objeto `IPlatformParameters` e invoca o fluxo de autenticação necessário para retornar um token para o aplicativo.
 
-    ```C#
+    ```csharp
     ...
         AuthenticationResult authResult = null;
         try
@@ -126,7 +126,7 @@ Essa ação passa à ADAL as coordenadas necessárias para se comunicar com o Az
     `AcquireTokenAsync(...)` tenta primeiro retornar um token para o recurso solicitado (a API do Graph neste caso) sem solicitar que os usuários insiram suas credenciais (por meio de caching ou atualizando tokens antigos). Se necessário, ele exibe ao usuário a página de entrada do Azure AD antes de adquirir o token solicitado.
 4. Anexe o token de acesso à solicitação da API do Graph no cabeçalho **Autorização**:
 
-    ```C#
+    ```csharp
     ...
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
     ...
@@ -137,12 +137,12 @@ Isso é tudo para a PCL do `DirectorySearcher` e o código relacionado à identi
 ### <a name="android"></a>Android
 1. No MainActivity.cs, adicione uma chamada para `SearchByAlias(...)` manipulador de clique do botão:
 
-    ```C#
+    ```csharp
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
     ```
 2. Substitua o método de ciclo de vida `OnActivityResult` para encaminhar qualquer autenticação, fazendo com que ela seja redirecionada para o método apropriado. A ADAL fornece um método auxiliar para isso no Android:
 
-    ```C#
+    ```csharp
     ...
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
@@ -155,7 +155,7 @@ Isso é tudo para a PCL do `DirectorySearcher` e o código relacionado à identi
 ### <a name="windows-desktop"></a>Área de Trabalho do Windows
 Em MainWindow.xaml.cs, fazer uma chamada para `SearchByAlias(...)` passando um `WindowInteropHelper` na área de trabalho `PlatformParameters` objeto:
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -164,7 +164,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 #### <a name="ios"></a>iOS
 Em DirSearchClient_iOSViewController.cs, o iOS `PlatformParameters` objeto pega uma referência para o controlador de exibição:
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -173,7 +173,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 ### <a name="windows-universal"></a>Windows Universal
 No Windows Universal, abra o arquivo MainPage.xaml.cs e implementar o `Search` método. Esse método usa um método auxiliar em um projeto compartilhado para atualizar a interface do usuário conforme necessário.
 
-```C#
+```csharp
 ...
 List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
 ...

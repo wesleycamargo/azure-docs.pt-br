@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adicionar soluções de gerenciamento de Log Analytics do Azure a seu espaço de trabalho
 
@@ -89,7 +89,7 @@ Todas as soluções na tabela a seguir estão disponíveis no portal do Azure e 
 | [Capacidade e Desempenho (versão prévia)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;e&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Grátis<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(Autônomo)<br> Por&nbsp;Nó&nbsp;(OMS)   | |
 | [Controle de alterações](log-analytics-change-tracking.md)                                       | <ul><li>Automação e Controle</li></ul>                                  | Grátis<br> Por&nbsp;Nó&nbsp;(OMS)                                                                         | Requer que seu espaço de trabalho do Log Analytics seja vinculado a uma Conta de automação |
 | [Contêineres](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;e&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Grátis<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(Autônomo)<br> Por&nbsp;Nó&nbsp;(OMS)   | |
-| [Conector de Gerenciamento do Serviço de TI (versão prévia)](log-analytics-itsmc-overview.md)                                              | <ul><li>Insight&nbsp;e&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Grátis<br> Por&nbsp;Nó&nbsp;(OMS)     | |
+| [Conector de Gerenciamento do Serviço de TI](log-analytics-itsmc-overview.md)                                                | <ul><li>Insight&nbsp;e&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Grátis<br> Por&nbsp;Nó&nbsp;(OMS)     | |
 | Monitoramento do HDInsight HBase <br>(Visualização)                                                  | <ul><li>Insight&nbsp;e&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Grátis<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(Autônomo)<br> Por&nbsp;Nó&nbsp;(OMS)   | |
 | [Análise do Cofre de Chaves](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;e&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Grátis<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(Autônomo)<br> Por&nbsp;Nó&nbsp;(OMS)   | |
 | [Aplicativos Lógicos B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;e&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Grátis<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(Autônomo)<br> Por&nbsp;Nó&nbsp;(OMS)   | Não disponível para adicionar do Portal do Azure/Marketplace. |

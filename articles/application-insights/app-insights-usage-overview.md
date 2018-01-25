@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9f3eb14340205709b5409a3d16d631cc2d02eb32
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
 
@@ -89,7 +89,7 @@ A retenção o ajuda a entender com que frequência os usuários voltam para usa
 
 ![Retenção](./media/app-insights-usage-overview/retention.png) 
 
-Os controles de retenção na parte superior permitem que você defina eventos específicos o intervalo de tempo para calcular a retenção. O gráfico no meio fornece uma representação visual do percentual geral de retenção, segundo o intervalo de tempo especificado. O gráfico na parte inferior representa a retenção individual em um determinado período. Esse nível de detalhamento permite entender o que os usuários estão fazendo e o que pode afetar usuários que retornam com uma granularidade mais detalhada.  
+Os controles de retenção na parte superior permitem que você defina eventos específicos o intervalo de tempo para calcular a retenção. O grafo no meio fornece uma representação visual do percentual geral de retenção, segundo o intervalo de tempo especificado. O grafo na parte inferior representa a retenção individual em um determinado período. Esse nível de detalhamento permite entender o que os usuários estão fazendo e o que pode afetar usuários que retornam com uma granularidade mais detalhada.  
 
 [Mais informações sobre a ferramenta de Retenção](app-insights-usage-retention.md)
 
@@ -110,7 +110,7 @@ Eventos podem ser registrados em log no lado do cliente do aplicativo:
 
 Ou no lado do servidor:
 
-```C#
+```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
     ...
@@ -141,7 +141,7 @@ No portal do Application Insights, filtre e divida seus dados segundo os valores
 
 Para fazer isso, [configure um inicializador de telemetria](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
-```C#
+```csharp
 
 
     // Telemetry initializer class
@@ -156,7 +156,7 @@ Para fazer isso, [configure um inicializador de telemetria](app-insights-api-fil
 
 No inicializador do aplicativo Web, como Global.asax.cs:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {

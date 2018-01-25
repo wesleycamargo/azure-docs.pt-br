@@ -14,16 +14,16 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas
 Usando as políticas personalizadas do Azure AD B2C (Azure Active Directory B2C), é possível enviar um parâmetro em uma cadeia de caracteres de consulta. Passando o parâmetro para seu ponto de extremidade HTML, é possível alterar dinamicamente o conteúdo da página. Por exemplo, é possível alterar a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C, com base em um parâmetro passado do seu aplicativo Web ou móvel. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este artigo se concentra em como personalizar a interface do usuário do Azure AD B2C com *conteúdo dinâmico* usando políticas personalizadas. Para começar, consulte [UI customization in a custom policy](active-directory-b2c-ui-customization-custom.md) (Personalização da interface do usuário em uma política personalizada). 
 
 >[!NOTE]
@@ -39,7 +39,7 @@ Em uma política personalizada, uma definição de conteúdo define o URI da pá
 
 A seção `ContentDefinitions` contém uma série de elementos XML `ContentDefinition`. O atributo de ID do elemento `ContentDefinition` especifica o tipo de página relacionada à definição de conteúdo. Ou seja, o elemento define o contexto que um modelo personalizado HTML5/CSS aplicará. A tabela a seguir descreve o conjunto de IDs de definição de conteúdo reconhecido pelo mecanismo de IEF e os tipos de página relacionados a ele.
 
-| ID de definição de conteúdo | Modelo HTML5 padrão| Descrição | 
+| ID de definição de conteúdo | Modelo HTML5 padrão| DESCRIÇÃO | 
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção de provedor de identidade**. Esta página lista provedores de identidade que os usuários podem escolher durante a entrada. Normalmente, as opções são provedores de identidade corporativa, provedores de identidade social, como Facebook e Google+ ou contas locais. |
@@ -105,7 +105,7 @@ O modelo HTML5 personalizado baseia-se no modelo HTML5 interno do Azure AD B2C. 
 
 7. Neste passo a passo, removemos a referência à página de layout. Adicione o seguinte trecho de código a _unified.cshtml_:
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -264,7 +264,7 @@ Modifique o método `unified` do HomeController para aceitar o parâmetro campai
 
 1. Abra o arquivo *Controllers\HomeController.cs* e, em seguida, altere o método `unified` adicionando o seguinte trecho de código:
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background

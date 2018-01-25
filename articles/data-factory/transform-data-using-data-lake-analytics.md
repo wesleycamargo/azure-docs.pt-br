@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,11 +37,11 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 
 A tabela a seguir apresenta as descrições das propriedades genéricas usadas na definição JSON. 
 
-| Propriedade                 | Descrição                              | Obrigatório                                 |
+| Propriedade                 | DESCRIÇÃO                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **tipo**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
-| **accountName**          | Nome da conta da Análise Azure Data Lake.  | Sim                                      |
-| **dataLakeAnalyticsUri** | URI da Análise Azure Data Lake.           | Não                                       |
+| **tipo**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | sim                                      |
+| **accountName**          | Nome da conta da Análise Azure Data Lake.  | sim                                      |
+| **dataLakeAnalyticsUri** | URI da Análise Azure Data Lake.           | Não                                        |
 | **subscriptionId**       | ID de assinatura do Azure                    | Não (se não for especificado, a assinatura do Data Factory é usada). |
 | **resourceGroupName**    | Nome do grupo de recursos do Azure                | Não (se não for especificado, o grupo de recursos do Data Factory é usado). |
 
@@ -53,11 +53,11 @@ O serviço vinculado do Azure Data Lake Analytics requer uma autenticação de e
 
 Use a autenticação de entidade de serviço especificando as seguintes propriedades:
 
-| Propriedade                | Descrição                              | Obrigatório |
+| Propriedade                | DESCRIÇÃO                              | Obrigatório |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Especifique a ID do cliente do aplicativo.     | Sim      |
-| **servicePrincipalKey** | Especifique a chave do aplicativo.           | Sim      |
-| **tenant**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim      |
+| **servicePrincipalId**  | Especifique a ID do cliente do aplicativo.     | sim      |
+| **servicePrincipalKey** | Especifique a chave do aplicativo.           | sim      |
+| **tenant**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | sim      |
 
 **Exemplo: autenticação de entidade de serviço**
 ```json
@@ -117,19 +117,19 @@ O seguinte trecho de código JSON define um pipeline com uma Atividade do U-SQL 
 
 A tabela a seguir descreve os nomes e as descrições de propriedades que são específicas a esta atividade. 
 
-| Propriedade            | Descrição                              | Obrigatório |
+| Propriedade            | DESCRIÇÃO                              | Obrigatório |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Nome da atividade no pipeline     | Sim      |
-| description         | Texto que descreve o que a atividade faz.  | Não       |
-| type                | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | Sim      |
-| linkedServiceName   | Serviço vinculado ao Azure Data Lake Analytics. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  |Sim       |
-| scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim      |
-| scriptLinkedService | Serviço vinculado que vincula o armazenamento que contém o script para a fábrica de dados | Sim      |
-| degreeOfParallelism | O número máximo de nós usados simultaneamente para executar o trabalho. | Não       |
-| prioridade            | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não       |
-| parameters          | Parâmetros do script U-SQL          | Não       |
-| runtimeVersion      | Versão de tempo de execução do mecanismo U-SQL a ser usado | Não       |
-| compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores: **Semantic:** apenas realizar verificações de semântica e as verificações de integridade necessárias, **Full:** executar a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** executar a compilação completa, com configuração de TargetType para SingleBox. Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. | Não |
+| Nome                | Nome da atividade no pipeline     | sim      |
+| Descrição         | Texto que descreve o que a atividade faz.  | Não        |
+| Tipo                | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | sim      |
+| linkedServiceName   | Serviço vinculado ao Azure Data Lake Analytics. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  |sim       |
+| scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do arquivo diferencia maiúsculas de minúsculas. | sim      |
+| scriptLinkedService | Serviço vinculado que vincula o armazenamento que contém o script para a fábrica de dados | sim      |
+| degreeOfParallelism | O número máximo de nós usados simultaneamente para executar o trabalho. | Não        |
+| prioridade            | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não        |
+| parâmetros          | Parâmetros do script U-SQL          | Não        |
+| runtimeVersion      | Versão de tempo de execução do mecanismo U-SQL a ser usado | Não        |
+| compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores: **Semantic:** apenas realizar verificações de semântica e as verificações de integridade necessárias, **Full:** executar a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** executar a compilação completa, com configuração de TargetType para SingleBox. Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. | Não  |
 
 Consulte [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) (Definição de script SearchLogProcessing.txt) para obter a definição de script. 
 
@@ -176,7 +176,7 @@ Na definição de pipeline de exemplo, os parâmetros in e out são atribuídos 
 }
 ```
 
-É possível usar parâmetros dinâmicos em vez disso. Por exemplo: 
+É possível usar parâmetros dinâmicos em vez disso. Por exemplo:  
 
 ```json
 "parameters": {

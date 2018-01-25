@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurar um webhook em um alerta do métrica do Azure
 Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para roteá-lo aos serviços que enviam SMS, registrar bugs, notificar uma equipe por meio de serviços de bate-papo/mensagens ou qualquer outra ação. Este artigo descreve como definir um webhook em um alerta de métrica do Azure, e a aparência de carga para o HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta do Log de Atividades do Azure (alertas sobre eventos), [consulte esta página](insights-auditlog-to-webhook-email.md).
@@ -40,34 +40,37 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 
 ```JSON
 {
-"status": "Activated",
-"context": {
+    "WebhookName": "Alert1515515157799",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
             "timestamp": "2015-08-14T22:26:41.9975398Z",
             "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
             "name": "ruleName1",
             "description": "some description",
             "conditionType": "Metric",
             "condition": {
-                        "metricName": "Requests",
-                        "metricUnit": "Count",
-                        "metricValue": "10",
-                        "threshold": "10",
-                        "windowSize": "15",
-                        "timeAggregation": "Average",
-                        "operator": "GreaterThanOrEqual"
-                },
+                "metricName": "Requests",
+                "metricUnit": "Count",
+                "metricValue": "10",
+                "threshold": "10",
+                "windowSize": "15",
+                "timeAggregation": "Average",
+                "operator": "GreaterThanOrEqual"
+            },
             "subscriptionId": "s1",
-            "resourceGroupName": "useast",                                
+            "resourceGroupName": "useast",
             "resourceName": "mysite1",
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
             "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
-},
-"properties": {
-              "key1": "value1",
-              "key2": "value2"
-              }
+        },
+        "properties": {
+            "key1": "value1",
+            "key2": "value2"
+        }
+    }
 }
 ```
 
@@ -78,8 +81,8 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 | context |S | |O contexto do alerta. |
 | timestamp |S | |A hora em que o alerta foi disparado. |
 | ID |S | |Cada regra de alerta tem uma ID exclusiva. |
-| name |S | |O nome do alerta. |
-| description |S | |Descrição do alerta. |
+| Nome |S | |O nome do alerta. |
+| Descrição |S | |Descrição do alerta. |
 | conditionType |S |“Metric”, “Event” |Há suporte para dois tipos de alertas. Um com base em uma condição de métrica, e o outro com base em um evento no Log de Atividades. Use esse valor para verificar se o alerta tem base na métrica ou no evento. |
 | condition |S | |Os campos específicos para verificação com base no conditionType. |
 | metricName |para alertas de Métrica | |O nome da métrica define o que a regra monitora. |
@@ -93,7 +96,7 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 | resourceGroupName |S | |Nome do grupo de recursos do recurso afetado. |
 | resourceName |S | |Nome de recurso do recurso afetado. |
 | resourceType |S | |Tipo de recurso do recurso afetado. |
-| resourceId |S | |ID de recurso do recurso afetado. |
+| ResourceId |S | |ID de recurso do recurso afetado. |
 | resourceRegion |S | |Região ou local do recurso afetado. |
 | portalLink |S | |Link direto para a página de resumo de recursos do portal. |
 | propriedades |N |Opcional |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. O campo de propriedades é opcional. Em um fluxo de trabalho personalizado baseado em aplicativo lógico ou UI, os usuários podem inserir chaves/valores que podem ser transmitidos por meio do conteúdo. O modo alternativo para transmitir as propriedades personalizadas para o webhook é por meio do próprio URI do webhook (como parâmetros de consulta) |

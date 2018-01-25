@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0f3274816e279a1aa57febaa2f8294914900799a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Introdução ao conector do SharePoint
 O Conector do SharePoint fornece uma maneira de trabalhar com listas do SharePoint.
 
-Comece pela criação de um aplicativo lógico; veja [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Comece pela criação de um aplicativo lógico; veja [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sharepoint"></a>Criar uma conexão com o SharePoint
 Para usar o Conector do SharePoint, crie primeiro uma **conexão** e, então, forneça os detalhes dessas propriedades: 
 
-| Propriedade | Obrigatório | Descrição |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| A criptografia do token |Sim |Fornecer credenciais do SharePoint |
+| A criptografia do token |sim |Fornecer credenciais do SharePoint |
 
 Para se conectar ao **SharePoint**, insira sua identidade (nome de usuário e senha, credenciais do cartão inteligente etc.) no SharePoint. Depois de se autenticar, você poderá continuar e usar o Conector do SharePoint em seu aplicativo lógico. 
 
@@ -51,7 +51,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sharepoint/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sharepoint/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

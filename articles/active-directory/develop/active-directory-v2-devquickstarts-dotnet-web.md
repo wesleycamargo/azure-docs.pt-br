@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 44691f7c06aede764c3bf0dcc99848a4f22ce08d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Adicionar as credenciais para um aplicativo Web .NET MVC
 Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante.  Nos aplicativos Web ASP.NET, você pode conseguir isso usando o middleware OWIN da Microsoft, incluso no .NET Framework 4.5.
@@ -64,7 +64,7 @@ Aqui, configuraremos middleware OWIN para usar o protocolo de autenticação Ope
 3. Adicione uma classe de inicialização do OWIN ao projeto chamado `Startup.cs` Clique com o botão direito do mouse no projeto --> **Adicionar** --> **Novo item** --> pesquise por "OWIN".  O middleware OWIN invocará o método `Configuration(...)` quando seu aplicativo for iniciado.
 4. Altere a declaração de classe para `public partial class Startup` -já implementamos parte dessa classe para você em outro arquivo.  No método `Configuration(...)` , faça uma chamada para ConfigureAuth(...) para configurar a autenticação para seu aplicativo Web  
 
-        ```C#
+        ```csharp
         [assembly: OwinStartup(typeof(Startup))]
         
         namespace TodoList_WebApp
@@ -81,7 +81,7 @@ Aqui, configuraremos middleware OWIN para usar o protocolo de autenticação Ope
 
 5. Abra o arquivo `App_Start\Startup.Auth.cs` e implemente o método `ConfigureAuth(...)`.  Os parâmetros que você fornece em `OpenIdConnectAuthenticationOptions` servirão como coordenadas para seu aplicativo para se comunicar com o AD do Azure.  Você também precisa configurar a autenticação de Cookies - o middleware OpenID Connect usa cookies nos bastidores.
 
-        ```C#
+        ```csharp
         public void ConfigureAuth(IAppBuilder app)
                      {
                              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -118,7 +118,7 @@ Seu aplicativo agora está configurado corretamente para se comunicar com o pont
 
 - Você pode usar autorizar marcas em seus controladores para exigir que o usuário entre antes de acessar uma determinada página.  Abra `Controllers\HomeController.cs` e adicione a marca `[Authorize]` ao controlador Sobre.
         
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -127,7 +127,7 @@ Seu aplicativo agora está configurado corretamente para se comunicar com o pont
 
 - Você também pode usar o OWIN para emitir diretamente solicitações de autenticação de dentro de seu código.  Abra `Controllers\AccountController.cs`.  Nas ações SignIn() e SignOut(), emita as solicitações de desafio do OpenID Connect e de saída, respectivamente.
 
-        ```C#
+        ```csharp
         public void SignIn()
         {
             // Send an OpenID Connect sign-in request.
@@ -178,7 +178,7 @@ Ao autenticar os usuários com o OpenID Connect, o ponto de extremidade v2.0 ret
 
 - Abra o arquivo `Controllers\HomeController.cs` .  Você pode acessar as declarações do usuário em seus controladores por meio do objeto principal de segurança `ClaimsPrincipal.Current` .
 
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {

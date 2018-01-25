@@ -1,6 +1,6 @@
 ---
 title: "Autenticação - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
+description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authentication--mitigations"></a>Estrutura de segurança: autenticação | Atenuações 
 | Produto/Serviço | Artigo |
@@ -250,7 +250,7 @@ ms.lasthandoff: 10/11/2017
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Limite de Confiança de Máquina | 
+| **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -374,7 +374,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 | **Etapas** | <p>A propriedade TokenReplayCache permite aos desenvolvedores definir um cache de reprodução de token, um repositório que pode ser usado para salvar os tokens com a finalidade de verificar se nenhum token pode ser usado mais de uma vez.</p><p>Essa é uma medida contra um ataque comum, o ataque de reprodução de token, cujo nome é bastante apropriado: um invasor que intercepta o token enviado na entrada pode tentar enviá-la novamente ao aplicativo ("repeti-lo") para estabelecer uma nova sessão. Por exemplo, no fluxo de concessão de código do OIDC, após a autenticação bem-sucedida do usuário, uma solicitação para "/signin-oidc" do ponto de extremidade da terceira parte confiável é feita com os parâmetros "id_token", "code" e "state".</p><p>A terceira parte confiável valida a solicitação e estabelece uma nova sessão. Se um adversário capturar essa solicitação e a repetir, poderá estabelecer uma sessão bem-sucedida e falsificar o usuário. A presença de nonce em OpenID Connect pode limitar, mas não elimina totalmente as circunstâncias em que o ataque pode ser realizado com êxito. Para proteger os aplicativos, os desenvolvedores podem fornecer uma implementação de ITokenReplayCache e atribuir uma instância de TokenReplayCache.</p>|
 
 ### <a name="example"></a>Exemplo
-```C#
+```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
 {
@@ -385,7 +385,7 @@ bool TryFind(string securityToken);
 
 ### <a name="example"></a>Exemplo
 Aqui está uma implementação de exemplo da interface ITokenReplayCache. (Personalize e implemente sua estrutura de cache específica do projeto)
-```C#
+```csharp
 public class TokenReplayCache : ITokenReplayCache
 {
     private readonly ICacheProvider cache; // Your project-specific cache provider
@@ -409,7 +409,7 @@ public class TokenReplayCache : ITokenReplayCache
 }
 ```
 O cache implementado precisa ser referenciado em opções de OIDC por meio da propriedade "TokenValidationParameters" da maneira a seguir.
-```C#
+```csharp
 OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 {
     AutomaticAuthenticate = true,
@@ -457,7 +457,7 @@ Observe que, para testar a eficácia dessa configuração, faça logon no aplica
 | **Etapas** | <ul><li>**Genérico:** autentique o dispositivo usando o protocolo TLS ou IPSec. A infraestrutura deve dar suporte ao uso da PSK (chave pré-compartilhada) nos dispositivos que não conseguem lidar com a criptografia assimétrica completa. Aproveite o Azure AD e o OAuth.</li><li>**C#:** ao criar uma instância de DeviceClient, por padrão, o método Create cria uma instância de DeviceClient que usa o protocolo AMQP para se comunicar com o Hub IoT. Para usar o protocolo HTTPS, use a substituição do método Create que permite especificar o protocolo. Se usar o protocolo HTTPS, você também deverá adicionar o pacote do NuGet `Microsoft.AspNet.WebApi.Client` ao projeto para incluir o namespace `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Exemplo
-```C#
+```csharp
 static DeviceClient deviceClient;
 
 static string deviceKey = "{device key}";

@@ -1,6 +1,6 @@
 ---
 title: "Gerenciamento de Exceções - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
+description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: bbf357b902474a1812eb7a5a2c914d0c8b91934b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gerenciamento de Exceções | Atenuações 
 | Produto/Serviço | Artigo |
@@ -75,7 +75,7 @@ Desabilite as informações de depuração no serviço. Isso pode ser feito remo
 
 ### <a name="example"></a>Exemplo
 Para controlar o código de status retornado pela API, `HttpResponseException` pode ser usado como mostrado abaixo: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -89,7 +89,7 @@ public Product GetProduct(int id)
 
 ### <a name="example"></a>Exemplo
 Para ter mais controle sobre a resposta da exceção, a classe `HttpResponseMessage` pode ser usada como mostrado abaixo: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -109,7 +109,7 @@ Para capturar as exceções sem tratamento que não são do tipo `HttpResponseEx
 
 ### <a name="example"></a>Exemplo
 Aqui está um filtro que converte as exceções `NotImplementedException` no código de status HTTP `501, Not Implemented`: 
-```C#
+```csharp
 namespace ProductStore.Filters
 {
     using System;
@@ -137,7 +137,7 @@ Há várias maneiras de registrar um filtro de exceção da API Web:
 
 ### <a name="example"></a>Exemplo
 Para aplicar o filtro em uma ação específica, adicione o filtro como um atributo à ação: 
-```C#
+```csharp
 public class ProductsController : ApiController
 {
     [NotImplExceptionFilter]
@@ -150,7 +150,7 @@ public class ProductsController : ApiController
 ### <a name="example"></a>Exemplo
 Para aplicar o filtro em todas as ações em um `controller`, adicione o filtro como um atributo à classe `controller`: 
 
-```C#
+```csharp
 [NotImplExceptionFilter]
 public class ProductsController : ApiController
 {
@@ -160,14 +160,14 @@ public class ProductsController : ApiController
 
 ### <a name="example"></a>Exemplo
 Para aplicar o filtro globalmente em todos os controladores da API Web, adicione uma instância do filtro à coleção `GlobalConfiguration.Configuration.Filters`. Os filtros de exceção nesta coleção aplicam-se a qualquer ação do controlador da API Web. 
-```C#
+```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Exemplo
 Para a validação do modelo, o estado do modelo pode ser passado para o método CreateErrorResponse como mostrado abaixo: 
-```C#
+```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
     if (!ModelState.IsValid)
@@ -225,7 +225,7 @@ Verificar os links na seção de referências para obter detalhes adicionais sob
 | **Etapas** | O aplicativo deve falhar com segurança. Qualquer método que retorna um valor booliano, com base em qual determinada decisão é tomada, deve ter um bloco de exceção criado cuidadosamente. Há muitos erros lógicos devido a problemas de segurança que passam quando o bloco de exceção é escrito com negligência.|
 
 ### <a name="example"></a>Exemplo
-```C#
+```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {
             try

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Introdução à ação de HTTP + Swagger
 
 Você pode criar um conector de primeira classe para qualquer ponto de extremidade REST por meio de um [documento Swagger](https://swagger.io) quando você usa a ação HTTP + Swagger no fluxo de trabalho de seu aplicativo lógico. Você também pode estender aplicativos lógicos para chamar qualquer ponto de extremidade REST com uma experiência de Designer de Aplicativo Lógico de primeira classe.
 
-Para saber como criar aplicativos lógicos com conectores, consulte [Criar um novo aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber como criar aplicativos lógicos com conectores, consulte [Criar um novo aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Usar HTTP + Swagger como um gatilho ou uma ação
 
@@ -77,14 +77,14 @@ A seguir, os detalhes dos gatilhos e das ações com suporte deste conector HTTP
 ## <a name="http--swagger-triggers"></a>Gatilhos de HTTP + Swagger
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos.](connectors-overview.md) O conector HTTP + Swagger tem um gatilho.
 
-| Gatilho | Descrição |
+| Gatilho | DESCRIÇÃO |
 | --- | --- |
 | HTTP + Swagger |Faz uma chamada HTTP e retorna o conteúdo da resposta |
 
 ## <a name="http--swagger-actions"></a>Ações de HTTP + Swagger
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações.](connectors-overview.md) O conector HTTP + Swagger tem uma ação possível.
 
-| Ação | Descrição |
+| Ação | DESCRIÇÃO |
 | --- | --- |
 | HTTP + Swagger |Faz uma chamada HTTP e retorna o conteúdo da resposta |
 
@@ -95,19 +95,19 @@ O conector HTTP + Swagger vem uma ação possível. A seguir, as informações s
 Faça uma solicitação de saída HTTP com a assistência dos metadados do Swagger.
 Um asterisco (*) significa um campo obrigatório.
 
-| Nome de exibição | Nome da propriedade | Descrição |
+| Nome de exibição | Nome da propriedade | DESCRIÇÃO |
 | --- | --- | --- |
 | Método* |estático |Verbo HTTP a ser usado. |
 | URI* |uri |URI da solicitação HTTP. |
-| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos HTTP a serem incluídos. |
-| Corpo |Corpo |O corpo da solicitação HTTP. |
+| Cabeçalhos |headers |Um objeto JSON de cabeçalhos HTTP a serem incluídos. |
+| Corpo |body |O corpo da solicitação HTTP. |
 | Autenticação |Autenticação |A autenticação a ser usada para solicitação. Para obter mais informações, consulte [Conector HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
 
 Resposta HTTP
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
 | --- | --- | --- |
 | headers |objeto |Cabeçalhos de resposta |
 | Corpo |objeto |Objeto de resposta |
@@ -116,7 +116,7 @@ Resposta HTTP
 ### <a name="http-responses"></a>Respostas HTTP
 Ao fazer chamadas a várias ações, você pode obter determinadas respostas. A seguir, uma tabela que descreve respostas e descrições correspondentes.
 
-| Name | Descrição |
+| NOME | DESCRIÇÃO |
 | --- | --- |
 | 200 |OK |
 | 202 |Aceita |
@@ -129,5 +129,5 @@ Ao fazer chamadas a várias ações, você pode obter determinadas respostas. A 
 - - -
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Localizar outros conectores](apis-list.md)

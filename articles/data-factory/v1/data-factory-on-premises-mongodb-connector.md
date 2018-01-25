@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 569e5a3bf8227caf003a9ea9ff897b29d7b0cf19
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 20df17ba01cfc18ce751491d154d7401001e706e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para m
 
 Você pode copiar dados de um armazenamento de dados local do MongoDB para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MongoDB para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MongoDB. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para o serviço Azure Data Factory poder se conectar ao banco de dados MongoDB no local, você deve instalar os seguintes componentes:
 
 - As versões com suporte do MongoDB são: 2.4, 2.6, 3.0 e 3.2.
@@ -65,17 +65,17 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado **OnPremisesMongoDB** .
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade do tipo deve ser definida como: **OnPremisesMongoDb** |Sim |
-| server |Endereço IP ou nome do host do servidor MongoDB. |Sim |
+| Tipo |A propriedade do tipo deve ser definida como: **OnPremisesMongoDb** |sim |
+| Servidor |Endereço IP ou nome do host do servidor MongoDB. |sim |
 | porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Opcional, valor padrão: 27017 |
-| authenticationType |Básica ou Anônima. |Sim |
+| authenticationType |Básica ou Anônima. |sim |
 | Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
 | Senha |Senha do usuário. |Sim (se a autenticação básica for usada). |
 | authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). Padrão: usa a conta de administrador e o banco de dados especificado usando a propriedade databaseName. |
-| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
-| gatewayName |Nome do gateway que acessa o armazenamento de dados. |Sim |
+| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |sim |
+| gatewayName |Nome do gateway que acessa o armazenamento de dados. |sim |
 | encryptedCredential |Credencial criptografada pelo gateway. |Opcional |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -83,7 +83,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
 
@@ -94,7 +94,7 @@ As propriedades disponíveis na seção **typeProperties** da atividade, por out
 
 Quando a fonte é do tipo **MongoDbSource** , as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | query |Utiliza a consulta personalizada para ler os dados. |Cadeia de consulta SQL-92. Por exemplo: select * from MyTable. |Não (se **collectionName** de **dataset** for especificado) |
 
@@ -297,8 +297,8 @@ Ao mover dados para o MongoDB, os seguintes mapeamentos serão usados dos tipos 
 | Tipo do MongoDB | Tipo .NET Framework |
 | --- | --- |
 | Binário |Byte[] |
-| Booliano |Booliano |
-| Data |DateTime |
+| BOOLEAN |BOOLEAN |
+| Data |Datetime |
 | NumberDouble |Duplo |
 | NumberInt |Int32 |
 | NumberLong |Int64 |

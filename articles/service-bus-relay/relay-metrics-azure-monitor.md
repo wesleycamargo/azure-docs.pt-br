@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 3652e80c20c425570ba90a1f3ce7a3035762a34d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas da Retransmissão do Azure no Azure Monitor (versão prévia)
 
@@ -34,7 +34,7 @@ As métricas estão habilitadas por padrão e você pode acessar os dados dos ú
 
 ## <a name="access-metrics-in-the-portal"></a>Acessar as métricas no portal
 
-É possível monitorar as métricas ao longo do tempo no [Portal do Azure](https://portal.azure.com). O exemplo a seguir mostra como exibir solicitações bem sucedidas e solicitações de entrada no nível da conta:
+É possível monitorar as métricas ao longo do tempo no [Portal do Azure](https://portal.azure.com). O exemplo a seguir mostra como exibir solicitações bem-sucedidas e solicitações de entrada no nível da conta:
 
 ![][1]
 
@@ -44,18 +44,18 @@ Para métricas com suporte para dimensões, você deve filtrar pelo valor da dim
 
 ## <a name="billing"></a>Cobrança
 
-O uso de métricas no Azure Monitor é gratuito no momento durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo OMS (Operation Management Suite) se você transmitir dados de métricas para o OMS para análise avançada.
+O uso de métricas no Azure Monitor atualmente é gratuito durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo OMS (Operation Management Suite) se você transmitir dados de métricas para o OMS para análise avançada.
 
 As métricas a seguir oferecem uma visão geral da integridade do seu serviço. 
 
 > [!NOTE]
 > Diversas métricas estão sendo preteridas à medida que são transferidas para um nome diferente. Isso pode exigir que você atualize suas referências. Métricas marcadas com a palavra-chave "preterida" não terão suporte no futuro.
 
-Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. A granularidade o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de tempo com suporte para todas as métricas da Retransmissão do Azure é um minuto.
+Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. A granularidade de tempo define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de tempo com suporte para todas as métricas da Retransmissão do Azure é um minuto.
 
 ## <a name="connection-metrics"></a>Métricas de conexão
 
-| Nome da métrica | Descrição |
+| Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
 | ListenerConnections-Success (versão prévia) | O número de conexões de ouvinte bem-sucedidas feitas para a Retransmissão do Azure durante o período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |ListenerConnections-ClientError (versão prévia)|O número de erros de cliente em conexões de ouvinte durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
@@ -72,15 +72,15 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 ## <a name="memory-usage-metrics"></a>Métricas de uso de memória
 
-| Nome da métrica | Descrição |
+| Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
 |BytesTransferred (versão prévia)|O número de bytes transferidos durante um período especificado.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
-## <a name="metrics-dimensions"></a>Dimensões de métricas
+## <a name="metrics-dimensions"></a>Dimensões das métricas
 
 A Retransmissão do Azure dá suporte às seguintes dimensões para métricas no Azure Monitor. Adicionar dimensões às métricas é opcional. Se você não adicionar dimensões, as métricas serão especificadas no nível de namespace. 
 
-|Nome da dimensão|Descrição|
+|Nome da dimensão|DESCRIÇÃO|
 | ------------------- | ----------------- |
 |EntityName| A Retransmissão do Azure dá suporte a entidades de mensagens no namespace.|
 

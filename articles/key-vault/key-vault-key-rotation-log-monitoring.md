@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurar o Cofre de Chaves do Azure com a rotação de chaves e auditoria de ponta a ponta
 ## <a name="introduction"></a>Introdução
@@ -416,7 +416,7 @@ Neste ponto, a função está pronta. Volte para a guia **Desenvolver** e salve 
 ### <a name="azure-logic-app"></a>Aplicativo lógico do Azure
 Em seguida, você deve criar um aplicativo lógico do Azure que obtém os eventos que a função envia à fila do Barramento de Serviço, analisa o conteúdo e envia um email com base em uma condição que está sendo correspondida.
 
-[Crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) indo até **Novo -> Aplicativo Lógico**.
+[Crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) indo até **Novo -> Aplicativo Lógico**.
 
 Após o aplicativo lógico ser criado, navegue até ele e selecione **editar**. No editor do aplicativo lógico, escolha **Fila do Barramento de Serviço** e insira as credenciais do Barramento de Serviço para conectá-lo à fila.
 

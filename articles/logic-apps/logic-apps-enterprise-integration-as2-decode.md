@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a7920b2509fe368c6f7d55e17fe0bf0020c4562c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acae9f1837069c494985ff1456979490485f609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens AS2 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack 
 
@@ -35,7 +35,7 @@ Veja os itens necessários:
 
 ## <a name="decode-as2-messages"></a>Decodificar mensagens AS2
 
-1. [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+1. [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. O conector Decodificar AS2 não possui gatilhos. Você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
@@ -62,7 +62,7 @@ Veja os itens necessários:
    
     ![conexão de integração criada](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
-    Por exemplo:
+    Por exemplo: 
 
     ![Selecione Corpo e Cabeçalhos de saídas de Solicitação](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
@@ -86,7 +86,7 @@ O conector Decodificar AS2 executa estas tarefas:
 
 Para tentar implantar um aplicativo lógico totalmente operacional e o cenário de AS2 de exemplo, confira o[modelo e cenário de aplicativo lógico AS2](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
+## <a name="view-the-swagger"></a>Exibir o swagger
 Consulte os [detalhes do Swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Próximas etapas

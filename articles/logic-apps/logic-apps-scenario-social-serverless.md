@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criação de um painel de informações do cliente em tempo real com aplicativos lógicos do Azure e funções do Azure
 
@@ -37,7 +37,7 @@ A solução inteira pode ser [de compilação no Visual Studio](logic-apps-deplo
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Criar o aplicativo lógico para ser disparado em dados do cliente
 
-Depois de [criar um aplicativo lógico](logic-apps-create-a-logic-app.md) no Visual Studio ou no portal do Azure:
+Depois de [criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md) no Visual Studio ou no portal do Azure:
 
 1. Adicione um gatilho para **novos tweets** do Twitter
 2. Configure o gatilho para escutar tweets com uma palavra-chave ou hashtag.

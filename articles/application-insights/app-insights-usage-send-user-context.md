@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: e872062eddd4ae74f6148673a8f0b27751e37ca4
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: fe4481cf851fc021b3073a6d9d6254f546218785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights
 
@@ -52,7 +52,7 @@ Crie um inicializador de telemetria, conforme descrito em detalhes [aqui](https:
 
 Este exemplo define a ID de usuário para um identificador que expira após a sessão. Se possível, use uma ID de usuário que persiste entre as sessões.
 
-```C#
+```csharp
 
     using System;
     using System.Web;

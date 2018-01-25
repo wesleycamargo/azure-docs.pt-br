@@ -3,8 +3,8 @@ title: "Migrar aplicativos do Serviço de Cache Gerenciado para o Redis - Azure 
 description: "Saiba como migrar aplicativos do Serviço de Cache Gerenciado e aplicativos de Cache na Função para o Cache Redis do Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 0d52454ae1c2159814d4601d07259aba319e8598
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure
 Migrar seus aplicativos que usam o Serviço de Cache Gerenciado do Azure para Cache Redis do Azure pode ser feito com alterações mínimas no seu aplicativo, dependendo dos recursos do Serviço de Cache Gerenciado usados pelo seu aplicativo de cache. Apesar das APIs não serem exatamente a mesmo coisa elas são semelhantes e grande parte do seu código existente que usa o Serviço de Cache Gerenciado para acessar um cache pode ser reutilizado com alterações mínimas. Este tópico mostra como fazer as alterações de configuração e aplicativo necessárias para migrar seus aplicativos do Serviço de Cache Gerenciado para usar o Cache Redis do Azure. Além disso, mostra como alguns dos recursos do Cache Redis do Azure podem ser usados para implementar a funcionalidade de um cache do Serviço de Cache Gerenciado.
@@ -125,7 +125,7 @@ No Serviço de Cache Gerenciado, as conexões com o cache eram manipuladas pelas
 
 Adicione o seguinte usando a instrução na parte superior de qualquer arquivo do qual você deseja acessar o cache.
 
-```c#
+```csharp
 using StackExchange.Redis
 ```
 
@@ -138,7 +138,7 @@ Se esse namespace não for resolvido, certifique-se de que você tenha adicionad
 
 Para se conectar a uma instância de Cache Redis do Azure, chame o método estático `ConnectionMultiplexer.Connect` e passe-o na chave e no ponto de extremidade. Uma abordagem para compartilhar uma instância do `ConnectionMultiplexer` em seu aplicativo deve ter uma propriedade estática que retorna uma instância conectada, semelhante ao exemplo a seguir. Isso oferece uma maneira segura para o thread para inicializar somente uma única instância conectada do `ConnectionMultiplexer` . Neste exemplo, `abortConnect` é definido como false, o que significa que a chamada terá êxito mesmo que não seja possível estabelecer uma conexão com o cache. Um recurso chave do `ConnectionMultiplexer` é que ele vai restaurar automaticamente a conectividade ao cache assim que o problema de rede ou outras causas sejam resolvidos.
 
-```c#
+```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
@@ -157,7 +157,7 @@ O ponto de extremidade do cache, as chaves e portas podem ser obtidos na folha *
 
 Quando a conexão for estabelecida, retorne uma referência para o banco de dados do redis cache chamando o método `ConnectionMultiplexer.GetDatabase` . O objeto retornado pelo método `GetDatabase` é um objeto leve de passagem e não precisa ser armazenado.
 
-```c#
+```csharp
 IDatabase cache = Connection.GetDatabase();
 
 // Perform cache operations using the cache object...
@@ -178,7 +178,7 @@ Ao se chamar `StringGet`, se o objeto existir, ele será retornado e, se não ex
 
 Para especificar a expiração de um item no cache, use o parâmetro `TimeSpan` de `StringSet`.
 
-```c#
+```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ```
 

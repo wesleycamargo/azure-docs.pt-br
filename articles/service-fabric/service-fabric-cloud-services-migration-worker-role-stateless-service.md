@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
 Este artigo descreve como migrar suas funções de trabalho e Web dos Serviços de Nuvem para serviços sem estado do Service Fabric. Esse é o caminho mais simples de migração dos Serviços de Nuvem para o Service Fabric, no caso de aplicativos cuja arquitetura geral permanecerá basicamente igual.
@@ -40,10 +40,10 @@ Semelhante à função de trabalho, uma função Web também representa uma carg
 
 | **Aplicativo** | **Com suporte** | **Caminho de migração** |
 | --- | --- | --- |
-| Web Forms do ASP.NET |Não |Converter em MVC do ASP.NET Core 1 |
+| Web Forms do ASP.NET |Não  |Converter em MVC do ASP.NET Core 1 |
 | ASP.NET MVC |Com migração |Atualizar para o ASP.NET Core 1 MVC |
 | API Web ASP.NET |Com migração |Usar o servidor auto-hospedado ou o ASP.NET Core 1 |
-| ASP.NET Core 1 |Sim |N/D |
+| ASP.NET Core 1 |sim |N/D |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de ponto de entrada e ciclo de vida
 As APIs de função de trabalho e do Service Fabric oferecem pontos de entrada semelhantes: 
@@ -56,7 +56,7 @@ As APIs de função de trabalho e do Service Fabric oferecem pontos de entrada s
 | Abrir escuta para solicitações de cliente |N/D |<ul><li> `CreateServiceInstanceListener()` para serviços sem estado</li><li>`CreateServiceReplicaListener()` para serviços com estado</li></ul> |
 
 ### <a name="worker-role"></a>Função de trabalho
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Serviço sem estado do Service Fabric
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -138,7 +138,7 @@ Cada um desses pacotes pode ter controle de versão e atualização independente
 #### <a name="cloud-services"></a>Serviços de Nuvem
 As definições de configuração do ServiceConfiguration.*.cscfg podem ser acessadas por meio do `RoleEnvironment`. Essas configurações estão disponíveis globalmente para todas as instâncias de função na mesma implantação do Serviço de Nuvem.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ Cada serviço tem seu próprio pacote de configuração individual. Não há nen
 
 As definições de configuração são acessadas em cada instância de serviço por meio do `CodePackageActivationContext`do serviço.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Serviços de Nuvem
 O evento `RoleEnvironment.Changed` é usado para notificar a todas as instâncias de função quando ocorre uma alteração no ambiente, como uma alteração de configuração. Isso é usado para consumir as atualizações da configuração sem reciclar instâncias de função ou reiniciar um processo de trabalho.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ Cada um dos três tipos de pacote em um serviço, Código, Configuração e Dado
 
 Esses eventos estão disponíveis para consumir alterações nos pacotes de serviço sem reiniciar a instância do serviço.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;

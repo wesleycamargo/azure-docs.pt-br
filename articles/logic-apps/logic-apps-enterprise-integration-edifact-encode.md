@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 799d444632b67788520be8a777ec656076022583
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
@@ -36,7 +36,7 @@ Veja os itens necessários:
 
 ## <a name="encode-edifact-messages"></a>Codificar mensagens EDIFACT
 
-1. [Criar um aplicativo lógico](logic-apps-create-a-logic-app.md).
+1. [Criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md).
 
 2. O conector de mensagem EDIFACT de codificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 

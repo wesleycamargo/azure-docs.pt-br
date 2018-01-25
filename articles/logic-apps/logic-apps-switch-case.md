@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Executar diferentes ações nos aplicativos lógicos com uma instrução switch
 
@@ -31,10 +31,10 @@ Ao criar um fluxo de trabalho, em geral, você precisa executar ações diferent
 > Assim como ocorre em todas as linguagens de programação, as instruções switch só dão suporte a operadores de igualdade. Se precisar de outros operadores relacionais, como “maior que”, use uma instrução de condição.
 > Para garantir o comportamento de execução determinística, casos devem conter um valor exclusivo e estático em vez de tokens dinâmicos ou uma expressão.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Uma assinatura ativa do Azure. Se você não tiver uma assinatura ativa do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/), ou tente [Aplicativos Lógicos gratuitamente](https://tryappservice.azure.com/).
-- [Conhecimento básico sobre aplicativos lógicos](logic-apps-what-are-logic-apps.md)
+- [Conhecimento básico sobre aplicativos lógicos](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Adicionar uma instrução switch ao fluxo de trabalho
 

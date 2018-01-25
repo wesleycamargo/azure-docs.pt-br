@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Conectar a sistemas de arquivos locais em aplicativos lógicos com o conector do Sistema de Arquivos
 
 Para gerenciar dados e acessar os recursos locais com segurança, os aplicativos lógicos podem usar o gateway de dados local. Este artigo demonstra como se conectar a um sistema de arquivos local em um cenário simples: copiar um arquivo que é carregado no Dropbox para um compartilhamento de arquivos e depois enviar um email.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Baixe a versão mais recente do [gateway de dados local](https://www.microsoft.com/download/details.aspx?id=53127).
 
 * Instale e configure o gateway de dados local mais recente, versão 1.15.6150.1 ou superior. Para obter as etapas, consulte [Conectar a fontes de dados locais](http://aka.ms/logicapps-gateway). Você deve instalar o gateway em um computador local antes de continuar com essas etapas.
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/logic-apps-create-a-logic-app.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Adicionar um gatilho e ações para conectar ao sistema de arquivos
 
@@ -48,7 +48,7 @@ Para gerenciar dados e acessar os recursos locais com segurança, os aplicativos
 
    ![Configurar conexão](media/logic-apps-using-file-connector/create-file.png)
 
-   | Configuração | Descrição |
+   | Configuração | DESCRIÇÃO |
    | ------- | ----------- |
    | **Pasta raiz** | Especifique a pasta raiz do sistema de arquivos. É possível especificar uma pasta local no computador em que o gateway de dados local está instalado ou a pasta pode ser um compartilhamento de rede que pode ser acessado pelo computador. <p>**Dica:** a pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. | 
    | **Tipo de autenticação** | O tipo de autenticação usado pelo seu sistema de arquivos | 
@@ -85,12 +85,12 @@ Tente explorar outras funcionalidades oferecidas pelo conector, por exemplo:
 - Excluir arquivo
 - Obter conteúdo do arquivo
 - Obter o conteúdo do arquivo usando o caminho
-- Obter Metadados do Arquivo
+- Obter metadados do arquivo
 - Obter Metadados do Arquivo usando o caminho
 - Lista de arquivos na pasta-raiz
 - Atualizar arquivo
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
+## <a name="view-the-swagger"></a>Exibir o swagger
 
 Consulte os [detalhes do Swagger](/connectors/fileconnector/). 
 

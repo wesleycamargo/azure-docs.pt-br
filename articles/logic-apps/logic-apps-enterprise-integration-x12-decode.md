@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bc2e5c2b351fb87cb763459a9e24368a422ada1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens X12 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Veja os itens necessários:
 
 ## <a name="decode-x12-messages"></a>Decodificar mensagens X12
 
-1. [Criar um aplicativo lógico](logic-apps-create-a-logic-app.md).
+1. [Criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md).
 
 2. O conector de mensagem X12 de decodificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
@@ -62,7 +62,7 @@ Veja os itens necessários:
 
     ![conexão com a conta de integração criada](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    Por exemplo:
+    Por exemplo: 
 
     ![Selecione a mensagem de arquivo simples X12 para decodificação](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
@@ -104,7 +104,7 @@ O conector de Decodificação X12 executa as seguintes tarefas:
   * Uma confirmação técnica é gerada como resultado da validação de cabeçalho. A confirmação técnica relata o status do processamento de um cabeçalho e rodapé de intercâmbio pelo destinatário no endereço.
   * Uma confirmação técnica é gerada como resultado da validação do corpo. A confirmação funcional relata cada erro encontrado durante o processamento de documentos recebidos
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
+## <a name="view-the-swagger"></a>Exibir o swagger
 Consulte os [detalhes do Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Próximas etapas

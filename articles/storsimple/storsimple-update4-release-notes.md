@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de versão da Atualização 4 para o StorSimple 8000 Series
 > [!NOTE]
-> O portal clássico para StorSimple foi preterido. Os Gerenciadores de Dispositivos do StorSimple migrarão automaticamente para o novo Portal do Azure, seguindo o agendamento definido para preteri-los. Você receberá um email e uma notificação de portal para essa mudança. Este documento também será desativado em breve. Para dúvidas sobre a migração, consulte [Perguntas Frequentes: migração para o Portal do Azure](storsimple-8000-move-azure-portal-faq.md).
+> O portal clássico para StorSimple foi preterido. Os Gerenciadores de Dispositivos do StorSimple migrarão automaticamente para o novo portal do Azure, seguindo o agendamento definido para preteri-los. Você receberá um email e uma notificação do portal para essa mudança. Este documento também será desativado em breve. Para dúvidas sobre a migração, consulte [Perguntas Frequentes: Migração para o portal do Azure](storsimple-8000-move-azure-portal-faq.md).
 
 
 ## <a name="overview"></a>Visão geral
@@ -59,7 +59,7 @@ Veja a seguir as principais melhorias e correções de bugs feitas na Atualizaç
 
 * **Atualizar alterações** - Nesta versão, bugs relacionados a falhas de atualização foram corrigidos.
 
-* **Alerta para falhas de disco** -um novo alerta que avisa o usuário sobre falhas iminentes de disco é adicionado nesta versão. Se você encontrar este alerta, entre em contato com o Suporte da Microsoft para enviar um disco de substituição. Para obter mais informações, acesse [Alertas de hardware no dispositivo StorSimple](storsimple-manage-alerts.md#hardware-alerts).
+* **Alerta para falhas de disco** -um novo alerta que avisa o usuário sobre falhas iminentes de disco é adicionado nesta versão. Se você encontrar este alerta, entre em contato com o Suporte da Microsoft para enviar um disco de substituição. Para obter mais informações, acesse [Alertas de hardware no dispositivo StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Alterações de substituição de controlador** -um cmdlet que permite ao usuário consultar o status do processo de substituição de controlador é adicionado nesta versão. Para obter mais informações, vá para o [cmdlet ao status de substituição de controlador de consulta](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -68,14 +68,14 @@ Veja a seguir as principais melhorias e correções de bugs feitas na Atualizaç
 
 A tabela a seguir fornece um resumo dos problemas que foram corrigidos na Atualização 4.    
 
-| Não | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
+| Não  | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- |
-| 1 |Failover |Na versão anterior, após o failover, houve um problema relacionado à limpeza observada no site do cliente. Esse problema foi corrigido nesta versão. |Sim |Sim |
-| 2 |Volumes afixados localmente |Na versão anterior, havia um problema para a criação de volume relacionado para volumes localmente fixos que possam resultar em falhas na criação do volume. Esse problema foi causado pela raiz e corrigido nesta versão. |Sim |Não |
-| 3 |Pacote de suporte |Na versão anterior, havia problemas relacionados ao pacote de suporte que resultaria em uma exceção de System.OutOfMemory ou outros erros, resultando em uma falha de criação do pacote de suporte. Esses bugs foram corrigidos nesta versão. |Sim |Sim |
-| 4 |Monitoramento |Na versão anterior, existe um problema relacionado ao monitoramento de gráficos para localmente fixada volumes onde consumo foi mostrado na Web. Esse bug foi corrigido nesta versão. |Sim |Sim |
-| 5 |Migração |Na versão anterior, havia vários problemas relacionados à confiabilidade da migração da série 5000-7000 para dispositivos 8000 série. Esses problemas foram resolvidos nesta versão. |Sim |Sim |
-| 6 |Atualização |Em versões anteriores, se houvesse uma falha na atualização, os controladores entravam no modo de recuperação e, portanto, o usuário não podia continuar com a atualização e precisaria contatar o Suporte da Microsoft. <br> Esse comportamento foi alterado nesta versão. Se o usuário receber uma falha de atualização depois que os dois controladores estiverem executando a mesma versão (Atualização 4), os controladores não entrarão no modo de recuperação. Se o usuário encontrar essa falha, recomendamos que ele aguarde um pouco e tente a atualização novamente. A repetição foi bem-sucedida. Se a repetição falhar, ele deverá contatar o Suporte da Microsoft. |Sim |Sim |
+| 1 |Failover |Na versão anterior, após o failover, houve um problema relacionado à limpeza observada no site do cliente. Esse problema foi corrigido nesta versão. |sim |sim |
+| 2 |Volumes fixados localmente |Na versão anterior, havia um problema para a criação de volume relacionado para volumes localmente fixos que possam resultar em falhas na criação do volume. Esse problema foi causado pela raiz e corrigido nesta versão. |sim |Não  |
+| 3 |Pacote de suporte |Na versão anterior, havia problemas relacionados ao pacote de suporte que resultaria em uma exceção de System.OutOfMemory ou outros erros, resultando em uma falha de criação do pacote de suporte. Esses bugs foram corrigidos nesta versão. |sim |sim |
+| 4 |Monitoramento |Na versão anterior, existe um problema relacionado ao monitoramento de gráficos para localmente fixada volumes onde consumo foi mostrado na Web. Esse bug foi corrigido nesta versão. |sim |sim |
+| 5 |Migração |Na versão anterior, havia vários problemas relacionados à confiabilidade da migração da série 5000-7000 para dispositivos 8000 série. Esses problemas foram resolvidos nesta versão. |sim |sim |
+| 6 |Atualizar |Em versões anteriores, se houvesse uma falha na atualização, os controladores entravam no modo de recuperação e, portanto, o usuário não podia continuar com a atualização e precisaria contatar o Suporte da Microsoft. <br> Esse comportamento foi alterado nesta versão. Se o usuário receber uma falha de atualização depois que os dois controladores estiverem executando a mesma versão (Atualização 4), os controladores não entrarão no modo de recuperação. Se o usuário encontrar essa falha, recomendamos que ele aguarde um pouco e tente a atualização novamente. A repetição foi bem-sucedida. Se a repetição falhar, ele deverá contatar o Suporte da Microsoft. |sim |sim |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problemas conhecidos na atualização 4 de versões anteriores

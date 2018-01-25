@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 3686cfffd2c29461213b2866665e59336f037fa0
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação do U-SQL
 
@@ -528,13 +528,13 @@ public class MyTypeFormatter : IFormatter<MyType>
 }
 ```
 
-A interface `IFormatter` serializa e desserializa um gráfico de objeto com o tipo raiz de \<typeparamref name="T">.
+A interface `IFormatter` serializa e desserializa um grafo de objeto com o tipo raiz de \<typeparamref name="T"&gt;.
 
-\<typeparam name="T">O tipo raiz para serialização e desserialização do gráfico de objeto.
+\<typeparam name="T"&gt;O tipo raiz para serialização e desserialização do grafo de objeto.
 
-* **Desserializar**: desserializa os dados no fluxo fornecido e reconstitui o gráfico de objetos.
+* **Desserializar**: desserializa os dados no fluxo fornecido e reconstitui o grafo de objetos.
 
-* **Serializar**: serializa um objeto ou gráfico de objetos com determinada raiz para o fluxo fornecido.
+* **Serializar**: serializa um objeto ou grafo de objetos com determinada raiz para o fluxo fornecido.
 
 Instância `MyType`: a instância do tipo.  
 Gravador `IColumnWriter`/leitor `IColumnReader`: o fluxo da coluna subjacente.  
@@ -903,7 +903,7 @@ As agregações definidas pelo usuário são funções relacionadas à agregaç�
 
 A definição de classe base da agregação definida pelo usuário é a seguinte:
 
-```c#
+```csharp
     [SqlUserDefinedAggregate]
     public abstract class IAggregate<T1, T2, TResult> : IAggregate
     {
@@ -952,7 +952,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: primeiro parâmetro para accumulate
 * TResult: tipo de retorno de terminate
 
-Por exemplo:
+Por exemplo: 
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1480,7 +1480,7 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
 
 Para evitar a criação de uma instância do objeto no script base, podemos criar um wrapper de função, conforme mostrado em nosso exemplo anterior:
 
-```c#
+```csharp
         // Define the factory classes
         public static class Factory
         {
@@ -1796,7 +1796,7 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns
 
 Ou com a invocação de um método de fábrica wrapper:
 
-```c#
+```csharp
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
@@ -1871,7 +1871,7 @@ Exemplo:    [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 Os principais objetos de programação são:
 
-```c#
+```csharp
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```

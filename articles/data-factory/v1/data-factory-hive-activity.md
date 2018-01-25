@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995983a8e32bc01ddc1ab8bbc64345da96875941
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 566773e9bc787bff4e92d86ec57fb0de3121b079
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Hive no Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -74,17 +74,17 @@ A atividade de Hive do HDInsight em um [pipeline](data-factory-create-pipelines.
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| name |Nome da atividade |Sim |
-| Descrição |Texto que descreve qual a utilidade da atividade |Não |
-| type |HDInsightHive |Sim |
-| inputs |Entradas consumidas pela atividade de Hive |Não |
-| outputs |Saídas produzidas pela atividade de Hive |Sim |
-| linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |Sim |
-| script |Especifique o script de Hive embutido |Não |
-| script path |Armazene o script de Hive em um armazenamento de blob do Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. |Não |
-| defines |Especifique parâmetros como pares chave/valor para referenciar dentro do script de Hive usando 'hiveconf' |Não |
+| Nome |Nome da atividade |sim |
+| Descrição |Texto que descreve qual a utilidade da atividade |Não  |
+| Tipo |HDInsightHive |sim |
+| inputs |Entradas consumidas pela atividade de Hive |Não  |
+| outputs |Saídas produzidas pela atividade de Hive |sim |
+| linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |sim |
+| script |Especifique o script de Hive embutido |Não  |
+| script path |Armazene o script de Hive em um armazenamento de blob do Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. |Não  |
+| defines |Especifique parâmetros como pares chave/valor para referenciar dentro do script de Hive usando 'hiveconf' |Não  |
 
 ## <a name="example"></a>Exemplo
 Vamos considerar um exemplo de análises de logs de jogos nos quais você deseja identificar o tempo gasto pelos usuários em jogos lançados por sua empresa. 
@@ -243,7 +243,7 @@ Para usar o script do Hive com parâmetros, faça o seguinte
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Atividade Pig](data-factory-pig-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)

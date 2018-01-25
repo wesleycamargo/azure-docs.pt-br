@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Como proteger um back-end de API da Web com o Active Directory do Azure e Gerenciamento de API
 O vídeo a seguir mostra como criar um back-end de API da Web e protegê-lo usando o protocolo OAuth 2.0 com o Active Directory do Azure e Gerenciamento de API.  Este artigo fornece uma visão geral e informações adicionais sobre as etapas no vídeo. Este vídeo de 24 minutos mostra como:
@@ -81,13 +81,13 @@ A API da Web neste exemplo implementa um serviço de calculadora básica usando 
 
 Adicione a seguinte declaração `using` no topo do arquivo `CalcInput.cs`.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Substitua a classe gerada pelo seguinte código.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ Clique com o botão direito em **Controladores** no **Gerenciador de Soluções*
 
 Adicione a seguinte declaração `using` no topo do arquivo `CalcController.cs`.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 Substitua a classe do controlador gerado pelo seguinte código. Esse código implementa as operações `Add`, `Subtract`, `Multiply` e `Divide` da API básica de calculadora.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -364,7 +364,7 @@ Clique em **APIs** e clique na API **Calculadora**.
 
 Clique em **Experimentar**.
 
-![Experimente][api-management-dev-portal-try-it]
+![Experimentar][api-management-dev-portal-try-it]
 
 Clique em **Enviar** e observe o status de resposta **401 não autorizado**.
 
@@ -436,7 +436,7 @@ Para obter a **Id do Cliente**, navegue até a guia **Configurar** do aplicativo
 
 Para obter o **Segredo do Cliente** clique em **Selecionar duração** na seção **Chaves** e especifique um intervalo. Neste exemplo, 1 ano é usado.
 
-![Id do Cliente][api-management-aad-client-id]
+![ID do cliente][api-management-aad-client-id]
 
 Clique em **Salvar** para salvar a configuração e exibir a chave. 
 

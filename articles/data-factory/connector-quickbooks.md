@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 4127123ffcf8eb2ae18c8b9833b2235d7ac219e7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9c3a725d0d0c5091a280c3fb99279757f1e014f1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Copiar dados do QuickBooks utilizando o Azure Data Factory (Beta)
 
@@ -39,7 +39,7 @@ No momento, este conector suporta apenas 1.0a, o que significa que você precisa
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do QuickBooks.
 
@@ -49,11 +49,11 @@ As propriedades a seguir têm suporte no serviço vinculado do QuickBooks:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade de tipo deve ser definida como: **QuickBooks** | Sim |
-| endpoint | O ponto de extremidade do servidor do QuickBooks. (ou seja, quickbooks.api.intuit.com)  | Sim |
-| companyId | A ID de empresa da empresa QuickBooks para autorização.  | Sim |
-| accessToken | O token de acesso para autenticação OAuth 1.0. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
-| accessTokenSecret | O token de acesso secreto para autenticação OAuth 1.0. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| Tipo | A propriedade de tipo deve ser definida como: **QuickBooks** | sim |
+| endpoint | O ponto de extremidade do servidor do QuickBooks. (ou seja, quickbooks.api.intuit.com)  | sim |
+| companyId | A ID de empresa da empresa QuickBooks para autorização.  | sim |
+| accessToken | O token de acesso para autenticação OAuth 1.0. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | sim |
+| accessTokenSecret | O token de acesso secreto para autenticação OAuth 1.0. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 
 **Exemplo:**
@@ -111,8 +111,8 @@ Para copiar dados do QuickBooks, defina o tipo de fonte na atividade de cópia c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A o tipo da propriedade da fonte da atividade de cópia deve ser definida como: **QuickBooksSource** | Sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Sim |
+| Tipo | A o tipo da propriedade da fonte da atividade de cópia deve ser definida como: **QuickBooksSource** | sim |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | sim |
 
 **Exemplo:**
 

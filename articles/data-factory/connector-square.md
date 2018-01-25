@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 71c73f034a3c32c9bdf1532106a3aba9521afb17
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1988d293c78e7fb51f08d040ab96a6d7a3abbb87
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Copiar dados do Square utilizando o Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As seções que a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao Square.
 
@@ -47,11 +47,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do Square:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Square** | Sim |
-| host | A URL da instância Square. (ou seja, mystore.mysquare.com)  | Sim |
-| clientId | A ID de cliente associada ao seu aplicativo Square.  | Sim |
-| clientSecret | O segredo do cliente associada ao seu aplicativo Square. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
-| redirectUri | A URL de redirecionamento atribuída no painel do aplicativo Square. (ou seja, http://localhost:2500)  | Sim |
+| Tipo | A propriedade type deve ser definida como: **Square** | sim |
+| host | A URL da instância Square. (ou seja, mystore.mysquare.com)  | sim |
+| clientId | A ID de cliente associada ao seu aplicativo Square.  | sim |
+| clientSecret | O segredo do cliente associada ao seu aplicativo Square. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | sim |
+| redirectUri | A URL de redirecionamento atribuída no painel do aplicativo Square. (ou seja, http://localhost:2500)  | sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -107,8 +107,8 @@ Para copiar dados do Square, defina o tipo de origem na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SquareSource** | Sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SquareSource** | sim |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | sim |
 
 **Exemplo:**
 
