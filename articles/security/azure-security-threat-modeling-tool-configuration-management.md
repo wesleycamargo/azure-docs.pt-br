@@ -1,6 +1,6 @@
 ---
 title: "Gerenciamento de configurações - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
+description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 114666d0c173786373e3bdd025027eb217922749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Estrutura de segurança: Gerenciamento de configurações | Atenuações 
-| Produto/serviço | Artigo |
+| Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicativo Web** | <ul><li>[Implementar a Política de Segurança de Conteúdo (CSP) e desabilitar o JavaScript embutido](#csp-js)</li><li>[Habilitar o filtro XSS do navegador](#xss-filter)</li><li>[Os aplicativos ASP.NET devem desabilitar o rastreamento e a depuração antes da implantação](#trace-deploy)</li><li>[Acessar JavaScripts de terceiros somente de fontes confiáveis](#js-trusted)</li><li>[Garantir que as páginas ASP.NET autenticadas incluam defesas contra adulterações de interface do usuário ou furto de clique](#ui-defenses)</li><li>[Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado em aplicativos Web do ASP.NET](#cors-aspnet)</li><li>[Habilitar o atributo ValidateRequest em páginas ASP.NET](#validate-aspnet)</li><li>[Usar as versões mais recentes de bibliotecas JavaScript hospedadas localmente](#local-js)</li><li>[Desabilitar a detecção automática de MIME](#mime-sniff)</li><li>[Remover cabeçalhos de servidor padrão nos sites do Microsoft Azure para evitar impressões digitais](#standard-finger)</li></ul> |
 | **Banco de dados** | <ul><li>[Configurar um Firewall do Windows para acesso ao Mecanismo de Banco de Dados](#firewall-db)</li></ul> |
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="example"></a>Exemplo
 Política de exemplo: 
-```C#
+```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
 Essa política permite que os scripts sejam carregados somente no servidor do aplicativo da web e no servidor do Google Analytics. Os scripts carregados em qualquer outro site serão rejeitados. Quando a CSP estiver habilitada em um site, os seguintes recursos serão desabilitados automaticamente para atenuar ataques de XSS. 
@@ -111,7 +111,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>Exemplo
 O cabeçalho X-FRAME-OPTIONS pode ser definido com o arquivo web.config do IIS. O trecho de código do arquivo web.config para sites que nunca devem ser enquadrados: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -123,7 +123,7 @@ O cabeçalho X-FRAME-OPTIONS pode ser definido com o arquivo web.config do IIS. 
 
 ### <a name="example"></a>Exemplo
 O código do arquivo web.config para sites que só devem ser enquadrados por páginas do mesmo domínio: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -158,7 +158,7 @@ Se o acesso ao arquivo Web.config estiver disponível, o CORS poderá ser adicio
 
 ### <a name="example"></a>Exemplo
 Se o acesso ao arquivo web.config não estiver disponível, o CORS pode ser adicionado no seguinte código CSharp: 
-```C#
+```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
@@ -226,7 +226,7 @@ Adicionar o cabeçalho no arquivo web.config se o aplicativo estiver hospedado n
 
 ### <a name="example"></a>Exemplo
 Adicionar o cabeçalho usando a Aplication\_BeginRequest global. 
-```C#
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -235,7 +235,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Exemplo
 Implementar o módulo HTTP personalizado. 
-```C#
+```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
 #region IHttpModule Members
@@ -262,7 +262,7 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 ### <a name="example"></a>Exemplo
 Você pode habilitar o cabeçalho necessário apenas para páginas específicas adicionando-o a respostas individuais. 
 
-```C#
+```csharp
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
@@ -301,7 +301,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Exemplo
 No arquivo App_Start/WebApiConfig.cs, adicione o seguinte código ao método WebApiConfig.Register. 
-```C#
+```csharp
 using System.Web.Http;
 namespace WebService
 {
@@ -325,7 +325,7 @@ namespace WebService
 ### <a name="example"></a>Exemplo
 O atributo EnableCors pode ser aplicado aos métodos de ação em um controlador da seguinte maneira: 
 
-```C#
+```csharp
 public class ResourcesController : ApiController
 {
   [EnableCors("http://localhost:55912", // Origin
@@ -365,7 +365,7 @@ Observe que é essencial garantir que a lista de origens no atributo EnableCors 
 
 ### <a name="example"></a>Exemplo
 Para desabilitar o CORS em um determinado método de uma classe, use o atributo DisableCors conforme mostrado abaixo: 
-```C#
+```csharp
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
@@ -399,7 +399,7 @@ public class ResourcesController : ApiController
 
 ### <a name="example"></a>Exemplo
 A primeira é chamar UseCors com um lambda. O lambda utiliza um objeto CorsPolicyBuilder: 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
@@ -411,7 +411,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Exemplo
 A segunda é definir uma ou mais políticas CORS e, em seguida, selecionar a política pelo nome no tempo de execução. 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCors(options =>
@@ -434,7 +434,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Exemplo
 Por ação: para especificar uma política de CORS para uma ação específica, adicione o atributo [EnableCors] à ação. Especifique o nome da política. 
-```C#
+```csharp
 public class HomeController : Controller
 {
     [EnableCors("AllowSpecificOrigin")] 
@@ -446,7 +446,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Exemplo
 Por controlador: 
-```C#
+```csharp
 [EnableCors("AllowSpecificOrigin")]
 public class HomeController : Controller
 {
@@ -454,7 +454,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Exemplo
 Globalmente: 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
@@ -468,7 +468,7 @@ Observe que é essencial garantir que a lista de origens no atributo EnableCors 
 
 ### <a name="example"></a>Exemplo
 Para desabilitar o CORS para um controlador ou uma ação, use o atributo [DisableCors]. 
-```C#
+```csharp
 [DisableCors]
     public IActionResult About()
     {
@@ -568,7 +568,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Limite de Confiança de Máquina | 
+| **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |

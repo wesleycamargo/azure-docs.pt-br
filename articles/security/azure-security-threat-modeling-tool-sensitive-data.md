@@ -1,6 +1,6 @@
 ---
 title: Dados confidenciais - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
+description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: Dados confidenciais | Atenuações 
-| Produto/serviço | Artigo |
+| Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança de computador** | <ul><li>[Garantir que os binários sejam obscurecidos se contiverem informações confidenciais](#binaries-info)</li><li>[Considerar a utilização do sistema de arquivos criptografados (EFS) para proteger dados confidenciais específicos dos usuários](#efs-user)</li><li>[Garantir que os dados confidenciais armazenados pelo aplicativo no sistema de arquivos sejam criptografados](#filesystem)</li></ul> | 
 | **Aplicativo Web** | <ul><li>[Garantir que conteúdos confidenciais não sejam armazenados em cache no navegador](#cache-browser)</li><li>[Criptografar as seções dos arquivos de configuração do aplicativo Web que contêm dados confidenciais](#encrypt-data)</li><li>[Desabilitar explicitamente o atributo HTML de preenchimento automático em formulários e entradas com informações confidenciais](#autocomplete-input)</li><li>[Garantir que os dados confidenciais exibidos na tela do usuário sejam mascarados](#data-mask)</li></ul> | 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/11/2017
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Limite de Confiança de Máquina | 
+| **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/11/2017
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Limite de Confiança de Máquina | 
+| **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/11/2017
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Limite de Confiança de Máquina | 
+| **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example"></a>Exemplo
 Também é possível fazer isso usando um filtro. O exemplo abaixo pode ser usado: 
-```C#
+```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext == null || (filterContext.HttpContext != null && filterContext.HttpContext.Response != null && filterContext.HttpContext.Response.IsRequestBeingRedirected))
@@ -144,7 +144,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Etapas** | O atributo de preenchimento automático especifica se o preenchimento automático estará ativado ou desativado em um formulário. Quando o preenchimento automático está ativado, o navegador preenche automaticamente o formulário com os valores inseridos pelo usuário em uma ocasião anterior. Por exemplo, quando um novo nome de usuário e senha são inseridos em um formulário e o formulário é enviado, o navegador pergunta se a senha deve ser salva. Da próxima vez que o formulário for exibido, o nome de usuário e a senha serão preenchidos automaticamente ou quando o nome de usuário for digitado. Um invasor com acesso local poderia obter o texto não criptografado da senha pelo cache do navegador. Por padrão, o preenchimento automático está habilitado e deve ser desabilitado explicitamente. |
 
 ### <a name="example"></a>Exemplo
-```C#
+```csharp
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
       <input type="submit" value="Submit" />    
@@ -353,7 +353,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ### <a name="example"></a>Exemplo
 O Intune pode ser configurado com as seguintes políticas de segurança para proteger dados confidenciais: 
-```C#
+```csharp
 Require encryption on mobile device    
 Require encryption on storage cards
 Allow screen capture
@@ -361,7 +361,7 @@ Allow screen capture
 
 ### <a name="example"></a>Exemplo
 Se o aplicativo não for empresarial, use o armazenamento de chaves ou os conjuntos de chaves fornecidos pela plataforma para armazenar chaves de criptografia, com os quais a operação de criptografia pode ser executada no sistema de arquivos. O trecho de código a seguir mostra como acessar a chave do conjunto de chaves usando Xamarin: 
-```C#
+```csharp
         protected static string EncryptionKey
         {
             get
