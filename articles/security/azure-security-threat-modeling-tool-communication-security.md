@@ -1,6 +1,6 @@
 ---
 title: "Segurança de comunicações - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
+description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Estrutura de segurança: Segurança de comunicações | Atenuações 
-| Produto/serviço | Artigo |
+| Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Hub de Eventos do Azure** | <ul><li>[Proteger comunicações para o Hub de Eventos usando SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Verificar se os privilégios da conta do serviço e verificar se os serviços ou páginas ASP.NET personalizados respeitam a segurança do CRM](#priv-aspnet)</li></ul> |
@@ -214,7 +214,7 @@ Essa regra funciona retornando um código de status de protocolo HTTP 301 (redir
 | **Etapas** | <p>A anexação de certificado protege contra ataques MITM (Man-In-The-Middle). A anexação é o processo de associar um host com sua chave pública ou seu certificado X509 esperado. Depois que um certificado ou uma chave pública forem conhecidas ou vistos para um host, o certificado ou a chave pública serão associados ou “anexados” ao host. </p><p>Assim, quando um invasor tentar promover um ataque MITM SSL, durante o handshake do SSL, a chave do servidor do invasor será diferente da chave do certificado anexado, e a solicitação será descartada, impedindo que o certificado de MITM seja anexado com a implementação do delegado `ServerCertificateValidationCallback` do ServicePointManager.</p>|
 
 ### <a name="example"></a>Exemplo
-```C#
+```csharp
 using System;
 using System.Net;
 using System.Net.Security;
@@ -343,7 +343,7 @@ string GetData(int value);
 
 ### <a name="example"></a>Exemplo 
 O código abaixo mostra um filtro de autenticação de API da Web que verifica o SSL: 
-```C#
+```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
     public override void OnAuthorization(HttpActionContext actionContext)
@@ -363,7 +363,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
 }
 ```
 Adicione esse filtro às ações de API da Web que exigem SSL: 
-```C#
+```csharp
 public class ValuesController : ApiController
 {
     [RequireHttps]

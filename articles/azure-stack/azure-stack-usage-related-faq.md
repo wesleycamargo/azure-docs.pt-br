@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/25/2018
 ms.author: alfredop
-ms.openlocfilehash: 9ec0b0456a0e7bc5f86f33981d4be6289f5fbc71
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 65b9ff0881e46836d9f19a04cf470835679e7b2f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas frequentes no uso da pilha do Azure API
 Este artigo responde algumas perguntas frequentes sobre a API de uso de pilha do Azure.
 
 ## <a name="what-meter-ids-can-i-see"></a>O medidor IDs pode ver?
-Uso é relatado para os seguintes provedores de recursos.
+Uso é relatado para os provedores de recursos a seguir:
 
 | **Provedor de recursos** | **ID de medidor** | **Nome do medidor** | **Unidade** | **Informações adicionais** |
 | --- | --- | --- | --- | --- |
@@ -43,11 +43,21 @@ Uso é relatado para os seguintes provedores de recursos.
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Contagem de solicitações em 10, milhares |Solicitações de serviço de fila (por 10, milhares) |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Dados de entrada em GB |Entrada de dados de serviço de fila em GB |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Saída em GB |Saída de dados de serviço de fila em GB |
+| **RP SQL**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*horas   | Capacidade total do banco de dados no momento da criação, relatada a cada hora.  |
+| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*horas    | Capacidade total do banco de dados no momento da criação, relatada a cada hora. |
 | **Computação** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Horas de tamanho VM de base |Minutos de núcleo virtual | Número de núcleos virtuais vezes minutos que a VM foi executada |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Horas de tamanho VM do Windows |Minutos de núcleo virtual | Número de núcleos virtuais vezes minutos que a VM foi executada |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |Horas de tamanho VM |Horas VM |Captura de VM de Base e o Windows. Não ajustar de núcleos |
 | **Cofre de Chaves** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Transações de Cofre de chaves | Contagem de 10, milhares de solicitações| Número de solicitações da API REST recebidas pelo plano de dados do Cofre de chaves |
 | **Serviço de aplicativo** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | Serviço de Aplicativo   | Horas de núcleo virtual  | Número de núcleos virtuais usadas para executar o serviço de aplicativo |
+|             | 67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE | Funções - solicitações de computação      | 10 solicitações              | Se aplica a funções  |
+|             | 957E9F36-2C14-45A1-B6A1-1723EF71A01D | Serviço de aplicativo compartilhado          | 1 hora                   |                       |
+|             | 539CDEC7-B4F5-49F6-AAC4-1F15CFF0EDA9 | Horas de serviço de aplicativo gratuito            | 1 hora                   |                       |
+|             | 88039D51-A206-3A89-E9DE-C5117E2D10A6 | Serviço de aplicativo padrão pequenos  | 1 hora                   |                       |
+|             | 83A2A13E-4788-78DD-5D55-2831B68ED825 | Serviço de aplicativo padrão médios | 1 hora                   |                       |
+|             | 1083B9DB-E9BB-24BE-A5E9-D6FDD0DDEFE6 | Horas de serviço de aplicativo Standard  | 1 hora                   |                       |
+|             | 264ACB47-AD38-47F8-ADD3-47F01DC4F473 | SSL SNI                           | Por associação SSL de SNI      | Aplica-se ao serviço de aplicativo |
+|             | 60B42D72-DC1C-472C-9895-6C516277EDB4 | IP SSL                            | Por IP com base em associação de SSL | Aplica-se ao serviço de aplicativo |
 
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Como fazer o uso da pilha do Azure APIs comparam com o [uso do Azure API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (atualmente em visualização pública)?
 * A API de uso do locatário é consistente com a API do Azure, com uma exceção: o *showDetails* sinalizador atualmente não tem suporte na pilha do Azure.

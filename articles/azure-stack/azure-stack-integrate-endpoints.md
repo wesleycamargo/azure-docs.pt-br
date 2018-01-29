@@ -2,17 +2,18 @@
 title: "Azure pilha datacenter integração - publicar pontos de extremidade"
 description: Saiba como publicar pontos de extremidade de pilha do Azure no seu datacenter
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: victorh
+ms.date: 01/26/2018
+ms.author: jeffgilb
+ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: ae59ae74dd6dfe29a077ed5943eb1a16e561078a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure pilha datacenter integração - publicar pontos de extremidade
 
@@ -64,49 +65,6 @@ Pilha do Azure oferece suporte somente a servidores de proxy transparente. Em um
 |Registro|https://management.azure.com|HTTPS|443|
 |Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
-## <a name="firewall-publishing"></a>Publicação de firewall
-
-As portas listadas na seção anterior, se aplicam a comunicação de entrada ao publicar serviços de pilha do Azure por meio de um firewall.
-
-É recomendável que você use um dispositivo de firewall para ajudar a proteger pilha do Azure. No entanto, não é um requisito restrito. Embora firewalls podem ajudar com coisas como ataques (DDOS) de negação de serviço distribuídos e inspeção de conteúdo, eles também podem se tornar um afunilamento de taxa de transferência para serviços de armazenamento do Azure como blobs, tabelas e filas.
-
-Com base no modelo de identidade (Azure AD ou AD FS), ele pode ou não pode ser necessárias para publicar o ponto de extremidade do AD FS. Se for usado um modo de implantação desconectado, você deve publicar o ponto de extremidade do AD FS. (Para obter mais informações, consulte o tópico de identidade de integração de Datacenter).
-
-O Gerenciador de recursos do Azure (administrador), portal de administrador e pontos de extremidade do Cofre de chaves (administrador) não requer necessariamente publicação externa. Dependendo do cenário. Por exemplo, como um provedor de serviço, você talvez queira limitar a superfície de ataque e administrar somente a pilha do Azure de dentro de sua rede e não da Internet.
-
-Para uma organização, a rede externa pode ser a rede corporativa existente. Nesse cenário, você deve publicar esses pontos de extremidade para operar Azure pilha da rede corporativa.
-
-## <a name="edge-firewall-scenario"></a>Cenário de firewall de borda
-
-Em uma implantação de borda, a pilha do Azure é implantada diretamente atrás do roteador de borda (fornecido pelo ISP) com ou sem um firewall na frente dele.
-
-![Diagrama da arquitetura de uma implantação de borda da pilha do Azure](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
-
-Normalmente, os endereços IP roteáveis públicos são especificados para o pool de VIP público no momento da implantação em uma implantação de borda. Este cenário permite que um usuário tiver a experiência completa de nuvem automaticamente controlado como um pública em nuvem como o Azure.
-
-### <a name="using-nat"></a>Usando NAT
-
-Embora não seja recomendado devido à sobrecarga, você pode usar a conversão de endereço de rede (NAT) para pontos de extremidade de publicação. Para a publicação de ponto de extremidade totalmente controlado por usuários, isso requer uma regra NAT por usuário VIP que contém todas as portas que um usuário pode usar.
-
-Outra consideração é que o Azure não suporta a configuração de um túnel VPN para um ponto de extremidade usando o NAT em um cenário de nuvem híbrida com o Azure.
-
-## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>Cenário de firewall de rede de perímetro/de intranet de empresa
-
-Em uma implantação de intranet/enterprise/perímetro, a pilha do Azure é implantada além de um segundo firewall, que normalmente é parte de uma rede de perímetro (também conhecida como rede de Perímetro).
-
-![Cenário de firewall de pilha do Azure](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
-
-Se os endereços IP roteáveis públicos tiverem sido especificados para o pool de VIP público da pilha do Azure, esses endereços logicamente pertencem à rede de perímetro e exigem regras de publicação no primário firewall.
-
-### <a name="using-nat"></a>Usando NAT
-
-Se os endereços IP roteáveis não públicos são usados para o pool de VIP público da pilha do Azure, NAT é usado no firewall secundário para publicar pontos de extremidade de pilha do Azure. Nesse cenário, você precisa configurar as regras de publicação no primário firewall além da borda e o Firewall do secundário. Se você quiser usar NAT, considere os seguintes pontos:
-
-- NAT adiciona sobrecarga ao gerenciar regras de firewall, como os usuários controlar seus próprios pontos de extremidade e suas próprias regras de publicação da pilha de (SDN) rede definida pelo software. Os usuários devem entrar em contato com o operador de pilha do Azure para obter seus VIPs publicados e para atualizar a lista de portas.
-- Enquanto o uso do NAT limita a experiência do usuário, ele dá controle total para o operador sobre solicitações de publicação.
-- Para cenários de nuvem híbrida com o Azure, considere a possibilidade de que o Azure não oferece suporte a configuração de um túnel VPN para um ponto de extremidade usando NAT.
-
 
 ## <a name="next-steps"></a>Próximas etapas
-
 [Integração do data center do Azure pilha - segurança](azure-stack-integrate-security.md)

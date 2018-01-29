@@ -17,17 +17,17 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure? 
 
-O Banco de Dados SQL é um serviço de banco de dados relacional de uso geral no Microsoft Azure que dá suporte a estruturas como XML, JSON, espacial e dados relacionais. Ele oferece [desempenho dinamicamente escalonável](sql-database-service-tiers.md) e fornece opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análise e geração de relatórios extremas e [OLTP in-memory](sql-database-in-memory.md) para processamento transacional extremo. A Microsoft trata todos os patches e a atualização da base de código SQL sem interrupções e abstrai todo o gerenciamento da infraestrutura subjacente. 
+O Banco de Dados SQL é um serviço de banco de dados relacional de uso geral no Microsoft Azure que dá suporte a estruturas como XML, JSON, espacial e dados relacionais. Ele oferece [desempenho dinamicamente escalonável](sql-database-service-tiers.md) e fornece opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análise extrema e geração de relatórios, além de [OLTP in-memory](sql-database-in-memory.md) para processamento transacional extremo. A Microsoft trata todos os patches e a atualização da base de código SQL sem interrupções e abstrai todo o gerenciamento da infraestrutura subjacente. 
 
-O Banco de Dados SQL compartilha seu código-base com o [mecanismo de banco de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Com a estratégia de prioridade de nuvem da Microsoft, os recursos mais recentes do SQL Server são liberados primeiro no Banco de Dados SQL e, em seguida, no próprio SQL Server. Essa abordagem fornece a você os recursos mais recentes do SQL Server sem sobrecarga para aplicação de patch ou atualização, e com esses novos recursos testados em milhões de bancos de dados. Para obter informações sobre novos recursos conforme vão são anunciados, consulte:
+O Banco de Dados SQL compartilha a sua base de código com o [mecanismo de banco de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Com a estratégia de prioridade de nuvem da Microsoft, os recursos mais recentes do SQL Server são liberados primeiro no Banco de Dados SQL e, em seguida, no próprio SQL Server. Essa abordagem fornece a você os recursos mais recentes do SQL Server sem sobrecarga para aplicação de patch ou atualização, e com esses novos recursos testados em milhões de bancos de dados. Para obter informações sobre novos recursos conforme vão são anunciados, consulte:
 
 - **[Roteiro do Azure para o Banco de Dados SQL](https://azure.microsoft.com/roadmap/?category=databases)**: um local para saber quais são as novidades e os próximos passos. 
 - **[Blog do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/topics/database)**: um local onde membros da equipe de produto do SQL Server postam sobre notícias e recursos do Banco de Dados SQL. 
@@ -66,7 +66,7 @@ Mas como você pode comparar o desempenho relativo de bancos de dados únicos e 
 
 Além disso, o Banco de Dados SQL pode [emitir métrica e logs de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
 
-- **Armazenamento do Azure**: para o arquivamento de grandes quantidades de telemetria por um pequeno baixo
+- **Armazenamento do Azure**: para o arquivamento de grandes volumes de telemetria por um pequeno custo
 - **Hub de Eventos do Azure**: para a integração de telemetria de Banco de Dados SQL com a sua solução de monitoramento personalizada ou pipelines ativos
 - **Azure Log Analytics**: para solução de monitoramento interna com relatórios, alertas e recursos de mitigação
 
@@ -156,7 +156,7 @@ O Banco de Dados SQL dá suporte à criação de aplicativos com Python, Java, N
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): faça perguntas sobre administração de banco de dados
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): faça perguntas sobre desenvolvimento
 - [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Faça perguntas técnicas
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): relate bugs e solicite recursos
+- [Comentários](http://aka.ms/sqlfeedback): relate bugs e solicite recursos
 - [Reddit](https://www.reddit.com/r/SQLServer/): debata sobre o SQL Server
 
 ## <a name="next-steps"></a>Próximas etapas

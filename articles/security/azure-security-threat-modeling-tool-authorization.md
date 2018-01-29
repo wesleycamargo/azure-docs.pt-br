@@ -1,6 +1,6 @@
 ---
 title: "Autorização - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
+description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Atenuações 
 | Produto/serviço | Artigo |
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/11/2017
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Limite de Confiança de Máquina | 
+| **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/11/2017
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Limite de Confiança de Máquina | 
+| **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/11/2017
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Limite de Confiança de Máquina | 
+| **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -400,7 +400,7 @@ return result;
 | **Etapas** | <p>As informações de função dos usuários do aplicativo podem ser derivadas do Azure AD ou de declarações do ADFS, se o aplicativo os considerar como provedores de identidade, ou o próprio aplicativo pode fornecê-las. Em qualquer um desses casos, a implementação de autorização personalizada deve validar as informações de função de usuário.</p><p>As informações de função dos usuários do aplicativo podem ser derivadas do Azure AD ou de declarações do ADFS, se o aplicativo os considerar como provedores de identidade, ou o próprio aplicativo pode fornecê-las. Em qualquer um desses casos, a implementação de autorização personalizada deve validar as informações de função de usuário.</p>
 
 ### <a name="example"></a>Exemplo
-```C#
+```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
@@ -431,7 +431,7 @@ public bool ValidateRoles(actionContext)
 }
 ```
 Todos os controladores e métodos de ação que precisam ser protegidos devem ser decorados com o atributo acima.
-```C#
+```csharp
 [ApiAuthorize]
 public class CustomController : ApiController
 {
