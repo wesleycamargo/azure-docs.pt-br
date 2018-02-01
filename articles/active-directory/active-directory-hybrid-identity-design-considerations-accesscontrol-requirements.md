@@ -1,5 +1,5 @@
 ---
-title: "Considerações sobre design da identidade híbrida do Azure Active Directory - determinar os requisitos de controle de acesso | Microsoft Docs"
+title: "Design de identidade híbrida - requisitos de controle de acesso do Azure | Microsoft Docs"
 description: "Aborda os pilares da identidade e requisitos de acesso de identificação de recursos para usuários em um ambiente híbrido."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 069c83a0bbbb21ba85aea07375c186fe0b11c781
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determina os requisitos de controle de acesso para sua solução de identidade híbrida
 Quando uma organização está projetando sua solução de identidade híbrida, ela também pode usar essa oportunidade para examinar os requisitos de acesso para os recursos que pretende tornar disponível aos usuários. O acesso a dados cruza todos os quatro pilares da identidade, que são:
@@ -70,13 +71,13 @@ Embora a autenticação e a autorização sejam os principais elementos para hab
   * Em caso afirmativo, onde estão localizados os recursos de destino (no local ou na nuvem)?
 
 > [!NOTE]
-> Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção.  Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
+> Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção.  Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Determinar requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

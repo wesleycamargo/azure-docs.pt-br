@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -65,12 +65,15 @@ Para restaurar arquivos ou pastas do ponto de restauração, acesse a máquina v
     Se você executar o script em um computador com acesso restrito, verifique se há acesso a:
 
     - download.microsoft.com
-    - Pontos de extremidade do Azure usados para backups de VM do Azure
+    - [Pontos de extremidade do Azure usados para backups de VM do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - porta de saída 3260
 
-   Para o Linux, o script exige os componentes 'open-iscsi' e 'lshw' para se conectar ao ponto de recuperação. Se os componentes não existem no computador onde o script é executado, o script solicita a permissão para instalar os componentes. Conceda para instalar os componentes necessários.  
-         
-   Você pode executar o script em qualquer máquina que tenha o mesmo sistema operacional (ou compatível) que a VM do backup. Consulte a [tabela Sistema operacional compatível](backup-azure-restore-files-from-vm.md#system-requirements) para saber mais sobre os sistemas operacionais compatíveis. Se a máquina virtual do Azure protegida usar Espaços de Armazenamento do Windows (para VMs do Microsoft Azure) ou Matrizes LVM/RAID (para VMs Linux), você não poderá executar o arquivo executável nem o script na mesma máquina virtual. Em vez disso, execute o script ou o arquivo executável em qualquer outra máquina com um sistema operacional compatível.
+    Para o Linux, o script exige os componentes 'open-iscsi' e 'lshw' para se conectar ao ponto de recuperação. Se os componentes não existem no computador onde o script é executado, o script solicita a permissão para instalar os componentes. Conceda para instalar os componentes necessários.
+    
+    É necessário ter acesso a download.microsoft.com para baixar os componentes usados para criar um canal seguro entre o computador em que o script é executado e os dados no ponto de recuperação.         
+
+    Você pode executar o script em qualquer máquina que tenha o mesmo sistema operacional (ou compatível) que a VM do backup. Consulte a [tabela Sistema operacional compatível](backup-azure-restore-files-from-vm.md#system-requirements) para saber mais sobre os sistemas operacionais compatíveis. Se a máquina virtual do Azure protegida usar Espaços de Armazenamento do Windows (para VMs do Microsoft Azure) ou Matrizes LVM/RAID (para VMs Linux), você não poderá executar o arquivo executável nem o script na mesma máquina virtual. Em vez disso, execute o script ou o arquivo executável em qualquer outra máquina com um sistema operacional compatível.
+ 
 
 ### <a name="identifying-volumes"></a>Identificação de Volumes
 

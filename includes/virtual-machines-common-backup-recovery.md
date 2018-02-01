@@ -3,7 +3,7 @@
 
 Para fazer backup de máquinas virtuais do Azure executando cargas de trabalho de produção, use o Backup do Azure. O Backup do Azure dá suporte a backups consistentes com o aplicativo para VMs Windows e Linux. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Ao restaurar de um ponto de recuperação, você pode restaurar a VM inteira ou apenas arquivos específicos. 
 
-Para obter uma introdução simples e prática para Backup do Azure para máquinas virtuais do Azure, consulte a "Fazer backup do tutorial de máquinas virtuais do Windows" para [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) ou [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
+Para obter uma introdução simples e prática para Backup do Azure para máquinas virtuais do Azure, consulte a "Fazer backup do tutorial de máquinas virtuais do Azure" para [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) ou [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
 Para saber mais sobre como o Backup do Azure funciona, veja [Planejar sua infraestrutura de backup de VM no Azure](../articles/backup/backup-azure-vms-introduction.md)
 

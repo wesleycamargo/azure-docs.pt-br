@@ -12,19 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/2/2017
+ms.date: 01/17/2018
 ms.author: damaerte
-ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Solucionando problemas do Azure Cloud Shell
 
 As soluções conhecidas para problemas no Azure Cloud Shell incluem:
 
 ## <a name="general-resolutions"></a>Resoluções gerais
+
+### <a name="early-timeouts-in-firefox"></a>Tempos limites iniciais no FireFox
+- **Detalhes**: Cloud Shell utiliza um websocket aberto para passar a entrada/saída para o navegador. FireFox tem políticas predefinidas que podem fechar o websocket prematuramente, causando tempos limites iniciais no Cloud Shell.
+- **Resolução**: Abra o FireFox e acesse "sobre: config" na caixa URL. Procure por "network.websocket.timeout.ping.request" e altere o valor de 0 para 10.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Caixa de diálogo Armazenamento – Erro: 403 RequestDisallowedByPolicy
 - **Detalhes**: a criação de uma conta de armazenamento por meio do Cloud Shell é malsucedida devido a uma política do Azure colocada pelo seu administrador. A mensagem de erro incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`

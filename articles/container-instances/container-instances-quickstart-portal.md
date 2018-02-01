@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 16e726d10b159d0a3f08f8bca197c675d748c764
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
 
@@ -61,6 +61,15 @@ Depois que o contêiner é movido para o estado **Em Execução**, navegue até 
 
 ![Os aplicativos implantados usando Instâncias de Contêiner do Azure são exibidos no navegador][aci-portal-07]
 
+## <a name="delete-the-container"></a>Excluir o contêiner
+Quando você não precisar mais do contêiner, selecione o grupo de contêiner **mycontainer-myc1** e clique em **Excluir**.
+
+![Excluir a instância de contêiner no Portal do Azure][aci-portal-09]
+
+Isso iniciará uma caixa de diálogo de confirmação, selecione **Sim** quando receber a solicitação.
+
+![Confirmação de exclusão de uma instância de contêiner no Portal do Azure][aci-portal-10]
+
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
 [aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
@@ -70,6 +79,8 @@ Depois que o contêiner é movido para o estado **Em Execução**, navegue até 
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
 [aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
+[aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
+[aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,7 +3,7 @@ title: "Azure AD Connect: Selecionar o tipo de instalação | Microsoft Docs"
 description: "Este tópico explica como selecionar o tipo de instalação para o Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação para o Azure AD Connect
 O Azure AD Connect oferece dois tipos de instalação para uma nova instalação: Expressa e personalizado. Este tópico ajuda você a decidir qual opção usar durante a instalação.
@@ -41,7 +41,7 @@ Você recebe:
 
 Opções onde ainda é possível usar a Expressa:
 
-- Se você não quiser sincronizar todas as UOs, ainda será possível usar a Expressa e, na última página, desmarcar **Iniciar o processo de sincronização...** . Em seguida, execute novamente o assistente de instalação e altere as UOs em [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e habilite a sincronização agendada.
+- Se você não quiser sincronizar todas as UOs, ainda será possível usar a Expressa e, na última página, desmarcar **Iniciar o processo de sincronização...***. Em seguida, execute novamente o assistente de instalação e altere as UOs em [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e habilite a sincronização agendada.
 - Convém habilitar um dos recursos no Azure AD Premium, como Write-back de Senha. Primeiro, use Expressa para concluir a instalação inicial. Em seguida, execute novamente o assistente de instalação e altere as [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizado

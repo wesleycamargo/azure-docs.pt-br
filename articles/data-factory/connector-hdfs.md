@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 80892d5f87c1f7a588023e4baa5de79bd73329a5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copiar dados de e para o HDFS usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,7 @@ Especificamente, este conector HDFS dá suporte a:
 - Cópia de arquivos usando o protocolo **webhdfs** ou suporte à **DistCp interna**.
 - Cópia de arquivos no estado em que se encontram ou análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para copiar dados de/para um HDFS que não esteja acessível publicamente, você precisará configurar um Integration Runtime auto-hospedado. Consulte o artigo [Integration Runtime auto-hospedado](concepts-integration-runtime.md) para saber mais detalhes.
 
@@ -56,9 +56,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do HDFS:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Hdfs**. | Sim |
-| url |URL para o HDFS |Sim |
-| authenticationType | Os valores permitidos são: **Anônima** ou **Windows**. <br><br> Para usar **autenticação Kerberos** com o conector HDFS, veja [esta seção](#use-kerberos-authentication-for-hdfs-connector) para configurar seu ambiente local adequadamente. |Sim |
+| Tipo | A propriedade type deve ser definida como: **Hdfs**. | sim |
+| url |URL para o HDFS |sim |
+| authenticationType | Os valores permitidos são: **Anônima** ou **Windows**. <br><br> Para usar **autenticação Kerberos** com o conector HDFS, veja [esta seção](#use-kerberos-authentication-for-hdfs-connector) para configurar seu ambiente local adequadamente. |sim |
 | userName |Nome de usuário para a autenticação do Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para a Autenticação do Windows) |
 | Senha |Senha para a autenticação do Windows. Marque esse campo como SecureString. |Sim (para a Autenticação do Windows) |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
@@ -115,8 +115,8 @@ Para copiar dados do HDFS, defina a propriedade type do conjunto de dados como *
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
-| folderPath | Caminho para a pasta. Por exemplo: pasta/subpasta/ |Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |sim |
+| folderPath | Caminho para a pasta. Por exemplo: pasta/subpasta/ |sim |
 | fileName | Especifique o nome do arquivo no **folderPath** se você quiser copiar de um arquivo específico. Se você não especificar algum valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta como fontes. |Não  |
 | formato | Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quiser analisar arquivos com um formato específico, há suporte para os seguintes tipos de formatos de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não (somente para o cenário de cópia binária) |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis com suporte são **Ideal** e **O mais rápido**. |Não  |
@@ -159,8 +159,8 @@ Para copiar dados do HDFS, defina o tipo de fonte na atividade de cópia como **
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HdfsSource** |Sim |
-| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HdfsSource** |sim |
+| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
 | distcpSettings | Grupo de propriedades ao usar DistCp de HDFS. | Não  |
 | resourceManagerEndpoint | O ponto de extremidade de YARN ResourceManager | Sim se usando DistCp |
 | tempScriptPath | Um caminho de pasta usado para armazenar o script de comando temporário DistCp. O arquivo de script é gerado pelo Data Factory e será removido após a conclusão do trabalho de cópia. | Sim se usando DistCp |

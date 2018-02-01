@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Personalizar a solução de monitoramento remoto pré-configurada
 
@@ -24,6 +24,10 @@ Este artigo fornece informações de como acessar o código-fonte e personalizar
 
 * Os repositórios do GitHub que contêm o código-fonte e os recursos para o microsserviços que compõem a solução pré-configurada.
 * Cenários comuns de personalização, como adicionar um novo tipo de dispositivo.
+
+O vídeo a seguir apresenta uma visão geral das opções para customizar a solução de monitoramento remoto pré-configurada:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Visão geral do projeto
 
@@ -42,7 +46,7 @@ Esta tabela resume a disponibilidade atual de cada microsserviço para cada idio
 
 <!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
 
-| Microsserviço      | Descrição | Java | .NET |
+| Microsserviço      | DESCRIÇÃO | Java | .NET |
 | ----------------- | ----------- | ---- | ---- |
 | Interface do usuário da Web            | Aplicativo Web para a solução de monitoramento remoto. Implementa a interface do usuário usando a estrutura React.js. | [N/A (React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A (React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
 | Gerenciador do Hub IoT   | Gerencia a comunicação com o Hub IoT.        | [Disponível](https://github.com/Azure/iothub-manager-java) | [Disponível](https://github.com/Azure/iothub-manager-dotnet)   |
@@ -78,7 +82,7 @@ A implantação padrão usa o nome e o logotipo da empresa Contoso na interface 
     CONTOSO: 'Contoso',
     ```
 
-1. Substitua `Contoso` pelo nome da sua empresa. Por exemplo:
+1. Substitua `Contoso` pelo nome da sua empresa. Por exemplo: 
 
     ```js
     CONTOSO: 'YourCo',
@@ -96,7 +100,7 @@ A implantação padrão usa o nome e o logotipo da empresa Contoso na interface 
     import ContosoIcon from '../../../assets/icons/Contoso.svg';
     ```
 
-1. Substitua `Contoso.svg` pelo nome do seu arquivo de logotipo. Por exemplo:
+1. Substitua `Contoso.svg` pelo nome do seu arquivo de logotipo. Por exemplo: 
 
     ```js
     import ContosoIcon from '../../../assets/icons/YourCo.svg';
@@ -108,7 +112,7 @@ A implantação padrão usa o nome e o logotipo da empresa Contoso na interface 
     alt="ContosoIcon"
     ```
 
-1. Substitua `ContosoIcon` pelo seu texto `alt`. Por exemplo:
+1. Substitua `ContosoIcon` pelo seu texto `alt`. Por exemplo: 
 
     ```js
     alt="YourCoIcon"

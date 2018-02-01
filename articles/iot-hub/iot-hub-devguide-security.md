@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -130,7 +130,7 @@ O token de segurança tem o seguinte formato:
 
 Veja os valores esperados:
 
-| Valor | Descrição |
+| Valor | DESCRIÇÃO |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: a chave é decodificada da base64 e usada como chave para executar o cálculo de HMAC-SHA256. |
 | {resourceURI} |Prefixo de URI (por segmento) dos pontos de extremidade que podem ser acessados com esse token, começando com o nome de host do Hub IoT (sem protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
@@ -193,7 +193,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 A funcionalidade em C# para gerar um token de segurança é:
 
-```C#
+```csharp
 using System;
 using System.Globalization;
 using System.Net;
@@ -268,7 +268,7 @@ O resultado, que concede acesso a todas as funcionalidades para o dispositivo1, 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> É possível gerar um token SAS usando a ferramenta .NET [Gerenciador de dispositivo][lnk-device-explorer] ou o utilitário de linha de comando multiplataforma baseado em nó [iothub-explorer][lnk-iothub-explorer].
+> É possível gerar um token SAS usando a ferramenta .NET [Gerenciador de dispositivo][lnk-device-explorer] ou o utilitário de linha de comando multiplataforma baseado em Python [a extensão IoT para a CLI do Azure 2.0][lnk-IoT-extension-CLI-2.0].
 
 ### <a name="use-a-shared-access-policy"></a>Usar uma política de acesso compartilhado
 
@@ -487,7 +487,7 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, consul
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

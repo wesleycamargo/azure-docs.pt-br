@@ -1,5 +1,5 @@
 ---
-title: "Considerações de design de identidade híbrida do Azure Active Directory - determinar os requisitos de resposta a incidentes | Microsoft Docs"
+title: "Design de identidade híbrida - requisitos de resposta a incidentes do Azure | Microsoft Docs"
 description: "Determine recursos de monitoramento e emissão de relatórios que podem ser aproveitados pelo departamento de TI para realizar ações de identificação e redução de ameaças potenciais."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dd612c0634782ed758835b8bf264fcc884c428fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de resposta a incidentes para sua solução de identidade híbrida
 As organizações de médio ou grande porte provavelmente terão uma [resposta a incidentes de segurança](https://technet.microsoft.com/library/cc700825.aspx) para ajudar o departamento de TI a tomar as ações devidas de acordo com o nível do incidente. O sistema de gerenciamento de identidade é um componente importante do processo de resposta a incidentes, pois ele pode ser usado para ajudar a identificar quem executou uma ação específica em relação ao destino. A solução de identidade híbrida deve ser capaz de fornecer recursos de monitoramento e emissão de relatórios que podem ser aproveitados pelo departamento de TI para realizar ações de identificação e redução de ameaças potenciais. Um plano de resposta a incidentes comum terá as seguintes fases como parte do plano:
@@ -63,6 +64,6 @@ Durante o controle de danos e a fase de redução de riscos, é importante reduz
 ## <a name="next-steps"></a>Próximas etapas
 [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

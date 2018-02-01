@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de Classificação da Íris: Implantar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais. Os cientistas de dados podem usá-los para preparar dados, desenvolver experimentos e implantar modelos em escala de nuvem.
@@ -32,7 +32,7 @@ Este tutorial é a terceira e última parte de uma série. Nessa parte do tutori
 
  Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/iris_flower_data_set) atemporal. As capturas de tela são específicas do Windows, mas a experiência no macOS é quase idêntica.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Conclua as primeiras duas partes desta série de tutoriais:
 
    * Siga o [tutorial Preparar dados](tutorial-classifying-iris-part-1.md) para criar recursos do Machine Learning e instalar o aplicativo Azure Machine Learning Workbench.
@@ -134,34 +134,7 @@ Você pode usar o _modo local_ para desenvolvimento e teste. O mecanismo do Dock
 
    O prompt de linha de comando é aberto em sua localização atual da pasta do projeto **c:\temp\myIris>**.
 
-2. Verifique se o provedor de recursos do Azure **Microsoft.ContainerRegistry** está registrado em sua assinatura. Você deve registrar este provedor de recursos antes de criar um ambiente na etapa 3. Você pode verificar se ele já está registrado usando o seguinte comando:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   Você deve ver uma saída como a abaixo: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   Se o **Microsoft.ContainerRegistry** não estiver registrado, você pode registrá-lo usando o seguinte comando:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   O registro pode levar alguns minutos. Você pode verificar seu status usando o comando **az provider list** anterior ou o comando a seguir:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   A terceira linha da saída exibe **"registrationState": "Registrar"**. Aguarde alguns minutos e repita o comando **show** até que a saída exiba **"registrationState": "Registrado"**.
-
-3. Crie o ambiente. Você deve executar essa etapa uma vez para cada ambiente. Por exemplo, executá-la uma vez para o ambiente de desenvolvimento e uma vez para produção. Use o _modo local_ para esse primeiro ambiente. Você pode tentar usar a opção `-c` ou `--cluster` no comando a seguir para configurar um ambiente no _modo de cluster_ posteriormente.
+2. Crie o ambiente. Você deve executar essa etapa uma vez para cada ambiente. Por exemplo, executá-la uma vez para o ambiente de desenvolvimento e uma vez para produção. Use o _modo local_ para esse primeiro ambiente. Você pode tentar usar a opção `-c` ou `--cluster` no comando a seguir para configurar um ambiente no _modo de cluster_ posteriormente.
 
    Observe que o seguinte comando de instalação exige que você tenha acesso de Colaborador à assinatura. Se você não tiver um, pelo menos precisará do acesso de Colaborador para o grupo de recursos em que está implantando. Para o último, precisará especificar o nome do grupo de recursos como parte do comando setup usando o sinalizador `-g`. 
 
@@ -173,25 +146,25 @@ Você pode usar o _modo local_ para desenvolvimento e teste. O mecanismo do Dock
    
    O nome do cluster é uma maneira de identificar o ambiente. O local deve ser o mesmo que o local da conta de Gerenciamento de Modelos criada no portal do Azure.
 
-4. Criar uma conta de Gerenciamento de Modelos. (Essa é uma configuração que só precisa ser realizada uma vez).  
+3. Criar uma conta de Gerenciamento de Modelos. (Essa é uma configuração que só precisa ser realizada uma vez).  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Configurar a conta de Gerenciamento de Modelos.  
+4. Configurar a conta de Gerenciamento de Modelos.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Defina o ambiente.
+5. Defina o ambiente.
 
-   Depois que a configuração for concluída, use o comando a seguir para definir as variáveis de ambiente necessárias para operacionalizar o ambiente. Use o mesmo nome de ambiente que você usou anteriormente na etapa 4. Use o mesmo nome de grupo de recursos que foi enviado na janela de comando quando o processo de configuração foi concluído.
+   Depois que a configuração for concluída, use o comando a seguir para definir as variáveis de ambiente necessárias para operacionalizar o ambiente. Use o mesmo nome de ambiente que você usou anteriormente na etapa 2. Use o mesmo nome de grupo de recursos que foi enviado na janela de comando quando o processo de configuração foi concluído.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Para verificar se você configurou corretamente seu ambiente operacionalizado para a implantação de serviço Web local, digite o seguinte comando:
+6. Para verificar se você configurou corretamente seu ambiente operacionalizado para a implantação de serviço Web local, digite o seguinte comando:
 
    ```azurecli
    az ml env show
@@ -206,7 +179,7 @@ Agora você está pronto para criar o serviço Web em tempo real.
 1. Use o comando a seguir para criar um serviço Web em tempo real:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
    Esse comando gera uma ID de serviço Web que você pode usar mais tarde.
 

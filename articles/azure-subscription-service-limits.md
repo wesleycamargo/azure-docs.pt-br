@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
@@ -62,6 +62,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Serviços de Nuvem](#cloud-services-limits)
 * [Instâncias de Contêiner](#container-instances-limits)
 * [Registro de Contêiner](#container-registry-limits)
+* [Serviço de Contêiner (AKS)](#container-service-aks-limits)
 * [Fábrica de dados](#data-factory-limits)
 * [Análises Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -128,6 +129,9 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 A tabela a seguir fornece detalhes sobre os recursos e os limites das [camadas de serviço](./container-registry/container-registry-skus.md) Básico, Standard e Premium.
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="container-service-aks-limits"></a>Limites do Serviço de Contêiner (AKS)
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Limites de rede
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]

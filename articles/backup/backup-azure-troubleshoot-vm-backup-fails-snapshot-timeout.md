@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Solucionar problemas de falha de Backup do Azure: problemas com o agente e/ou extensão
 
@@ -78,7 +78,7 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Não há suporte para a Configuração de disco especificada
 
 > [!NOTE]
-> Temos uma versão prévia privada para dar suporte a backups para VMs com discos > 1TB não gerenciados. Para obter detalhes, consulte [Versão prévia privada para suporte de backup de VM de discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Temos uma versão prévia privada para dar suporte a backups para VMs com discos > 1 TB. Para obter detalhes, consulte [Versão prévia privada para suporte de backup de VM de discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Para funcionar corretamente, a extensão de backup exige conectividade com os en
 
 ####  <a name="solution"></a>Solução
 Para resolver o problema, tente um dos seguintes métodos listados aqui.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Permitir o acesso para os intervalos IP do datacenter do Azure
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Permitir o acesso para o armazenamento do Azure correspondente à região
 
-1. Obtenha a [lista de IPs do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) para os quais o acesso será permitido.
-2. Desbloquear o IPs executando o **New-NetRoute** cmdlet na VM do Azure em uma janela elevada do PowerShell. Execute o cmdlet como um administrador.
-3. Para permitir o acesso aos IPs, adicione regras ao grupo de segurança de rede, se você tiver um.
+Você pode permitir conexões ao armazenamento da região específica usando [marcas de serviço](../virtual-network/security-overview.md#service-tags). Certifique-se de que a regra que permite o acesso à conta de armazenamento tenha prioridade maior do que a regra que bloqueia o acesso à Internet. 
+
+![NSG com marcas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Marcas de armazenamento de serviço estão disponíveis somente em regiões específicas e estão em versão prévia. Para obter a lista de regiões, consulte [Marcas de serviço para armazenamento](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Criar um caminho para a transmissão do tráfego HTTP
 
@@ -166,8 +169,6 @@ As condições a seguir podem causar a falha da tarefa do instantâneo:
 | --- | --- |
 | A máquina virtual tem o backup do SQL Server configurado. | Por padrão, o backup de VM executa um backup completo VSS em VMs do Windows. Em VMs que executam servidores baseados no SQL Server e em que o backup do SQL Server está configurado, podem ocorrer atrasos na execução do instantâneo.<br><br>Se houver uma falha de Backup devido a um problema instantâneo, defina a seguinte chave do registro:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | O status da VM é informado incorretamente porque a VM está desligada em RDP. | Se você desligar a VM no protocolo de área de trabalho remota (RDP), verifique o portal para determinar se o status da VM está correto. Se não estiver correto, desligue a VM no portal usando a opção de **Desligar** no painel de VM. |
-| Várias VMs do mesmo serviço de nuvem são configuradas para backup simultaneamente. | É uma prática recomendada distribuir as agendas de backup para VMs do mesmo serviço de nuvem. |
-| A VM está em execução com alto uso de CPU ou memória. | Se a VM estiver em execução com alta utilização de CPU (mais de 90%) ou alto uso de memória, a tarefa do instantâneo será enfieirada e postergada e, eventualmente, atingirá o tempo limite. Nessa situação, tente um backup sob demanda. |
 | A VM não pode obter o endereço do host/malha do DHCP. | O DHCP deve estar habilitado no convidado para que o backup da VM IaaS funcione.  Se a VM não puder obter o endereço do host/malha da resposta DHCP 245, ela não poderá baixar ou executar qualquer extensão. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Para saber mais, veja [Definição de um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>A extensão de backup não pode ser atualizada ou carregada
@@ -192,24 +193,6 @@ Para desinstalar a extensão, faça o seguinte:
 6. Clique em **Desinstalar**.
 
 Este procedimento faz com que a extensão seja reinstalada durante o próximo backup.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>As VMs clássicas do Azure podem exigir etapas adicionais para concluir o registro
-O agente nas VMs clássicas do Azure deve ser registrado para estabelecer a conexão ao serviço de backup e iniciar o backup
-
-#### <a name="solution"></a>Solução
-
-Depois de instalar o agente convidado da VM, inicialize o Microsoft Azure PowerShell <br>
-1. Entrando na Conta do Azure usando <br>
-       `Login-AzureAsAccount`<br>
-2. Verifique se a propriedade ProvisionGuestAgent da VM está definida como True, de acordo com os comandos a seguir <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Se a propriedade for definida como FALSE, siga os comandos abaixo para defini-la como TRUE<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Em seguida, execute o comando a seguir para atualizar a VM <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Tente iniciar o backup. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>O serviço de Backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos
 Esse problema é específico para VMs gerenciadas onde o usuário bloqueia o grupo de recursos e o serviço de backup não é capaz de excluir os pontos de restauração mais antigos. Devido a isso, os novos backups começam a falhar, porque há um limite de um máximo de 18 pontos de restauração impostos pelo back-end.

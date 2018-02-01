@@ -1,5 +1,5 @@
 ---
-title: "Expressões regulares em pesquisas de logs do Log Analytics do OMS | Microsoft Docs"
+title: "Expressões regulares em pesquisas de logs do Log Analytics do Azure | Microsoft Docs"
 description: "É possível usar a palavra-chave RegEx em pesquisas de logs do Log Analytics para filtrar os resultados de acordo com uma expressão regular.  Este artigo fornece a sintaxe para essas expressões com vários exemplos."
 services: log-analytics
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 28b2402cefa38ef3bfca68f2ff70e56b649c72f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8915e0e35951871ff10fd84453d55bd5102e97df
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Usando expressões regulares para filtrar pesquisas de logs no Log Analytics
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/16/2017
 > Este artigo descreve as expressões regulares usando a linguagem de consulta herdada no Log Analytics.  Se você tiver feito o upgrade do seu espaço de trabalho para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consulte [Expressões regulares na documentação do idioma](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax).
 
 
-As [Pesquisas de logs](log-analytics-log-searches.md) permitem extrair informações do repositório do Log Analytics.  As [Expressões de filtro](log-analytics-search-reference.md#filter-expressions) permitem filtrar os resultados da pesquisa de acordo com critérios específicos.  A palavra-chave **RegEx** permite que você especifique uma expressão regular para este filtro.  
+As [Pesquisas de logs](log-analytics-log-searches.md) permitem extrair informações do espaço de trabalho do Log Analytics.  As [Expressões de filtro](log-analytics-search-reference.md#filter-expressions) permitem filtrar os resultados da pesquisa de acordo com critérios específicos.  A palavra-chave **RegEx** permite que você especifique uma expressão regular para este filtro.  
 
 Este artigo fornece detalhes sobre a sintaxe de expressão regular usada pelo Log Analytics.
 
@@ -57,7 +57,7 @@ Isso ocorre porque a primeira parte do nome corresponde à expressão regular.  
 ## <a name="characters"></a>Caracteres
 Especificar caracteres diferentes.
 
-| Character | Descrição | Exemplo | Correspondências de exemplo |
+| Character | DESCRIÇÃO | Exemplo | Correspondências de exemplo |
 |:--|:--|:--|:--|
 | a | Uma ocorrência do caractere. | Computer=RegEx("srv01.contoso.com") | srv01.contoso.com |
 | . | Qualquer caractere único. | Computer=RegEx("srv...contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
@@ -75,7 +75,7 @@ Especificar caracteres diferentes.
 ## <a name="multiple-occurences-of-character"></a>Várias ocorrências do caractere
 Especifique várias ocorrências de um determinado caractere.
 
-| Character | Descrição | Exemplo | Correspondências de exemplo |
+| Character | DESCRIÇÃO | Exemplo | Correspondências de exemplo |
 |:--|:--|:--|:--|
 | a{n} |  *n* ocorrências do caractere. | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
 | a{n,} |  *n* ou mais ocorrências do caractere. | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
@@ -85,7 +85,7 @@ Especifique várias ocorrências de um determinado caractere.
 ## <a name="logical-expressions"></a>Expressões lógicas
 Selecione de diversos valores.
 
-| Character | Descrição | Exemplo | Correspondências de exemplo |
+| Character | DESCRIÇÃO | Exemplo | Correspondências de exemplo |
 |:--|:--|:--|:--|
 | &#124; | OR Lógico.  Retornará o resultado se corresponder a qualquer expressão. | Type=Alert AlertSeverity=RegEx("Warning&#124;Error") | Aviso<br>Erro |
 | & | AND Lógico.  Retornará o resultado se corresponder as duas expressões | EventData=regex("(Security.\*&.\*success.\*)") | Auditoria de segurança bem-sucedida |
@@ -94,11 +94,11 @@ Selecione de diversos valores.
 ## <a name="literals"></a>Literais
 Converter caracteres especiais em caracteres literais.  Isso inclui caracteres que fornecem funcionalidade para expressões regulares como ?-\*^\[\]{}\(\)+\|.&.
 
-| Character | Descrição | Exemplo | Correspondências de exemplo |
+| Character | DESCRIÇÃO | Exemplo | Correspondências de exemplo |
 |:--|:--|:--|:--|
 | \\ | Converte um caractere especial em um literal. | Status_CF=\\[Error\\]@<br>Status_CF=Error\\-@ | [Erro] Arquivo não encontrado.<br>Erro-Arquivo não encontrado. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Familiarizar-se com [pesquisas de logs](log-analytics-log-searches.md) para exibir e analisar dados no repositório do Log Analytics.
+* Familiarizar-se com [pesquisas de logs](log-analytics-log-searches.md) para exibir e analisar dados no espaço de trabalho do Log Analytics.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2017
+ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics no IoT Edge (visualização)
 
@@ -57,7 +57,12 @@ As etapas de alto nível são descritas na tabela a seguir. Mais detalhes são f
 | 2   | **Criar um contêiner de armazenamento**   | Portal do Azure       | Contêineres de armazenamento são usados para salvar a definição de trabalho em que eles podem ser acessados por dispositivos IoT. <br>  Você pode reutilizar qualquer contêiner de armazenamento existente.     |
 | 3   | **Configurar o ambiente IoT Edge no(s) dispositivo(s)**   | Dispositivo(s)      | Instruções para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Implantar o ASA em dispositivos IoT Edge**   | Portal do Azure      |  A definição de trabalho ASA é exportada para o contêiner de armazenamento criado anteriormente.       |
-Você pode seguir [este tutorial passo a passo](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implantar seu primeiro trabalho ASA no IoT Edge.
+Você pode seguir [este tutorial passo a passo](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implantar seu primeiro trabalho ASA no IoT Edge. O vídeo a seguir deve ajudar a compreender o processo para executar um trabalho do Azure Stream Analytics em um dispositivo de borda IoT:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### <a name="create-an-asa-edge-job"></a>Criar um trabalho de Borda ASA
 1. No portal do Azure, crie um novo "trabalho Stream Analytics". [Link direto para criar um novo trabalho ASA aqui](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
@@ -130,7 +135,7 @@ Os nomes das entradas e saídas criadas no trabalho ASA podem ser usados como po
 }   
 
 ```
-Este exemplo mostra as rotas para o cenário descrito na figura a seguir. Ele contém um trabalho de borda chamado "**ASA**", com uma entrada denominada "**temperatura**"e uma saída nomeada"**alerta**".
+Este exemplo mostra as rotas para o cenário descrito na figura a seguir. Ele contém um trabalho de borda chamado "**ASA**", com uma entrada denominada "**temperatura**" e uma saída nomeada "**alerta**".
 ![Exemplo de roteamento](media/stream-analytics-edge/RoutingExample.png)
 
 Este exemplo define as seguintes rotas:
@@ -186,7 +191,7 @@ Os dados de referência (também conhecidos como uma tabela de pesquisa) são um
 Para usar dados de referência para o ASA no Iot Edge, você precisa seguir estas etapas: 
 1. Criar uma nova entrada para o trabalho
 2. Escolha **Dados de referência** como o **Tipo de Fonte**.
-3. Defina o caminho do arquivo. O caminho do arquivo deve ser um caminho de arquivo **absoluto** na ![Criação de dados de referência](media/stream-analytics-edge/ReferenceData.png) do dispositivo
+3. Defina o caminho do arquivo. O caminho do arquivo deve ser um caminho **absoluto** na ![Criação de dados de referência](media/stream-analytics-edge/ReferenceData.png) do dispositivo
 4. Habilite **unidades compartilhadas** na configuração do Docker e verifique se a unidade está habilitada antes de iniciar sua implantação.
 
 Para saber mais, confira a [documentação do Docker para Windows aqui](https://docs.docker.com/docker-for-windows/#shared-drives).

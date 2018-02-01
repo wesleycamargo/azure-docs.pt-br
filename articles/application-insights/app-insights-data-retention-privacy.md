@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
 
@@ -99,11 +99,11 @@ Eles podem ser exportados por você e pelos membros da equipe e podem ser copiad
 A Microsoft usa os dados apenas para fornecer o serviço a você.
 
 ## <a name="where-is-the-data-held"></a>Onde os dados são mantidos?
-* Nos EUA ou na Europa. Quando você cria um novo recurso do Application Insights, você pode selecionar o local. 
+* Nos EUA, Europa ou Sudeste Asiático. Quando você cria um novo recurso do Application Insights, você pode selecionar o local. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>Isso significa que o aplicativo deve ser hospedado nos EUA ou na Europa?
-* Não. Seu aplicativo pode ser executado em qualquer lugar, em seus próprios hosts locais ou na Nuvem.
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Isso significa que o aplicativo deve ser hospedado nos EUA, Europa ou Sudeste Asiático?
+* Nº Seu aplicativo pode ser executado em qualquer lugar, em seus próprios hosts locais ou na Nuvem.
 
 ## <a name="how-secure-is-my-data"></a>Quão seguros meus dados estão?
 O Application Insights é um serviço do Azure. Políticas de segurança são descritas no [white paper de segurança, privacidade e conformidade do Azure](http://go.microsoft.com/fwlink/?linkid=392408).
@@ -158,7 +158,7 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Classes de dados enviados em cenários diferentes
 | Sua ação | Classes de dados coletados (consulte a tabela a seguir) |
 | --- | --- |
-| [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Solicitações<br/>**Exceções**<br/>Session<br/>users |
+| [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Session<br/>users |
 | [Instalar o Monitor de Status no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
 | [Adicionar o Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Session<br/>users |
 | [Adicionar SDK do JavaScript à página da Web][client] |ClientContext  <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
@@ -166,7 +166,7 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
 | [Chamar Track*][api] |Nome do evento<br/>**Propriedades** |
 | [Chamar TrackException][api] |**Exceções**<br/>Despejo da pilha<br/>**Propriedades** |
-| O SDK não é capaz de coletar dados. Por exemplo: <br/> - não é possível acessar os contadores de desempenho<br/> - exceção no inicializador de telemetria |Diagnóstico do SDK |
+| O SDK não é capaz de coletar dados. Por exemplo:  <br/> - não é possível acessar os contadores de desempenho<br/> - exceção no inicializador de telemetria |Diagnóstico do SDK |
 
 Para [SDKs para outras plataformas][platforms], consulte seus respectivos documentos.
 
@@ -184,7 +184,7 @@ Para [SDKs para outras plataformas][platforms], consulte seus respectivos docume
 | PageViews |URL e nome da página ou o nome de tela |
 | Desempenho do cliente |URL/nome de página, tempo de carregamento do navegador |
 | Ajax |Chamadas HTTP da página da Web para o servidor |
-| Solicitações |URL, duração, código de resposta |
+| Requests |URL, duração, código de resposta |
 | Dependências |Tipo (SQL, HTTP,...), cadeia de conexão ou URI, síncrono/assíncrono, duração, sucesso, instrução SQL (com Monitor de Status) |
 | **Exceções** |Tipo, **mensagem**, pilhas de chamadas, arquivo-fonte e número de linha, ID do thread |
 | Falhas |ID do processo, ID do processo-pai, ID de thread de falha; patch do aplicativo, ID de compilação; tipo de exceção, endereço, motivo; símbolos e registros ofuscados, endereços binários de início e término, nome e caminho binários, tipo de CPU |

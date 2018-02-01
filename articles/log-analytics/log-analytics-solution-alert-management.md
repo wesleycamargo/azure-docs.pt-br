@@ -1,6 +1,6 @@
 ---
-title: "Solução Gerenciamento de Alertas no OMS (Operations Management Suite) | Microsoft Docs"
-description: "A solução de Gerenciamento de Alertas no Log Analytics ajuda a analisar todos os alertas em seu ambiente.  Além de consolidar alertas gerados no OMS, ela importa alertas dos grupos de gerenciamento conectados do System Center Operations Manager para o Log Analytics."
+title: "Solução de Gerenciamento de Alertas no Azure Log Analytics | Microsoft Docs"
+description: "A solução de Gerenciamento de Alertas no Log Analytics ajuda a analisar todos os alertas em seu ambiente.  Além de consolidar alertas gerados no Log Analytics, ela importa alertas dos grupos de gerenciamento do System Center Operations Manager conectados ao Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solução Gerenciamento de Alertas no OMS (Operations Management Suite)
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de Gerenciamento de Alertas no Azure Log Analytics
 
 ![Ícone do Gerenciamento de Alertas](media/log-analytics-solution-alert-management/icon.png)
 
 A solução de Gerenciamento de Alertas ajuda a analisar todos os alertas em seu repositório do Log Analytics.  Esses alertas podem ser provenientes de várias origens, incluindo aquelas [criadas pelo Log Analytics](log-analytics-alerts.md) ou [importadas do Nagios ou do Zabbix](log-analytics-linux-agents.md).  A solução também importa alertas de quaisquer [grupos de gerenciamento do System Center Operations Manager conectados](log-analytics-om-agents.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 A solução funcionará com quaisquer registros no repositório do Log Analytics que sejam do tipo **Alerta**, portanto, você deverá executar qualquer configuração que for necessária para coletar esses registros.
 
 - Para alertas do Log Analytics, [crie regras de alerta](log-analytics-alerts.md) para criar registros de alerta diretamente no repositório.
@@ -34,10 +34,10 @@ A solução funcionará com quaisquer registros no repositório do Log Analytics
 - Para alertas do System Center Operations Manager, [conecte seu grupo de gerenciamento do Operations Manager para seu espaço de trabalho do Log Analytics](log-analytics-om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.  
 
 ## <a name="configuration"></a>Configuração
-Adicione a solução de Gerenciamento de Alertas ao seu espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
+Adicione a solução de Gerenciamento de Alertas ao seu espaço de trabalho do Log Analytics usando o processo descrito em [Adicionar soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
-Se o grupo de gerenciamento do System Center Operations Manager estiver conectado ao seu espaço de trabalho do OMS, os pacotes de gerenciamento a seguir serão instalados no System Center Operations Manager quando você adicionar essa solução.  Não é necessária nenhuma configuração nem a manutenção dos pacotes de gerenciamento.  
+Se o grupo de gerenciamento do System Center Operations Manager estiver conectado ao seu espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no System Center Operations Manager quando você adicionar essa solução.  Não é necessária nenhuma configuração nem a manutenção dos pacotes de gerenciamento.  
 
 * Gerenciamento de Alertas do Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -47,11 +47,11 @@ Para obter mais informações sobre como os pacotes de gerenciamento da soluçã
 ### <a name="agents"></a>Agentes
 A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
 
-| Fonte Conectada | Suporte | Descrição |
+| Fonte Conectada | Suporte | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| [Agentes do Windows](log-analytics-windows-agent.md) | Não |Agentes diretos do Windows não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Windows. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
-| [Grupo de gerenciamento do System Center Operations Manager](log-analytics-om-agents.md) |Sim |Os alertas gerados em agentes do System Center Operations Manager são entregues ao grupo de gerenciamento e, em seguida, encaminhados para o Log Analytics.<br><br>Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de alerta são encaminhados do grupo de gerenciamento para o repositório do Log Analytics. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não  |Agentes diretos do Windows não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Windows. |
+| [Agentes do Linux](log-analytics-linux-agents.md) | Não  |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
+| [Grupo de gerenciamento do System Center Operations Manager](log-analytics-om-agents.md) |sim |Os alertas gerados em agentes do System Center Operations Manager são entregues ao grupo de gerenciamento e, em seguida, encaminhados para o Log Analytics.<br><br>Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de alerta são encaminhados do grupo de gerenciamento para o repositório do Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frequência de coleta
@@ -59,13 +59,13 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 - Os dados de alerta são enviados do grupo de gerenciamento do System Center Operations Manager para o Log Analytics a cada três minutos.  
 
 ## <a name="using-the-solution"></a>Usando a solução
-Ao adicionar a solução de Gerenciamento de Alertas ao seu espaço de trabalho do OMS, o bloco **Gerenciamento de Alertas** é adicionado ao painel do OMS.  Esse bloco exibe uma contagem e representação gráfica do número de alertas atualmente ativos que foram gerados nas últimas 24 horas.  Não é possível alterar esse intervalo de tempo.
+Ao adicionar a solução de Gerenciamento de Alertas ao seu espaço de trabalho do Log Analytics, o bloco **Gerenciamento de Alertas** será adicionado ao painel.  Esse bloco exibe uma contagem e representação gráfica do número de alertas atualmente ativos que foram gerados nas últimas 24 horas.  Não é possível alterar esse intervalo de tempo.
 
 ![Bloco do Gerenciamento de Alertas](media/log-analytics-solution-alert-management/tile.png)
 
 Clique no bloco **Gerenciamento de Alertas** para abrir o painel **Gerenciamento de Alertas**.  O painel inclui as colunas na tabela a seguir.  Cada coluna lista os dez principais alertas por contagem que correspondem aos critérios da coluna para o escopo e intervalo de tempo especificados.  É possível executar uma pesquisa de log que fornece a lista inteira clicando em **Ver todos** na parte inferior da coluna ou clicando no cabeçalho de coluna.
 
-| Coluna | Descrição |
+| Coluna | DESCRIÇÃO |
 |:--- |:--- |
 | Alertas críticos |Todos os alertas com uma severidade de Crítico agrupados por nome do alerta.  Clique em um nome de alerta para executar uma pesquisa de log retornando todos os registros desse alerta. |
 | Alertas de aviso |Todos os alertas com uma severidade de Aviso agrupados por nome do alerta.  Clique em um nome de alerta para executar uma pesquisa de log retornando todos os registros desse alerta. |
@@ -82,9 +82,9 @@ A solução de Gerenciamento de Alertas analisa qualquer registro com um tipo de
 
 A solução importa alertas do System Center Operations Manager e cria um registro correspondente para cada um com um tipo de **Alerta** e um SourceSystem de **OpsManager**.  Esses registros têm as propriedades descritas na tabela a seguir:  
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Tipo |*Alerta* |
+| type |*Alerta* |
 | SourceSystem |*OpsManager* |
 | AlertContext |Detalhes do item de dados que fez com que o alerta fosse gerado em formato XML. |
 | AlertDescription |Descrição detalhada do alerta. |
@@ -108,7 +108,7 @@ A solução importa alertas do System Center Operations Manager e cria um regist
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 A tabela a seguir fornece pesquisas de log de exemplo para os registros de alerta coletados por essa solução: 
 
-| Consultar | Descrição |
+| Consultar | DESCRIÇÃO |
 |:--- |:--- |
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Alertas críticos gerados nas últimas 24 horas |
 | Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |Alertas de aviso gerados nas últimas 24 horas |
@@ -122,7 +122,7 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de alert
 >[!NOTE]
 > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir:
 >
->| Consultar | Descrição |
+>| Consultar | DESCRIÇÃO |
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |Alertas críticos gerados nas últimas 24 horas |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |Alertas de aviso gerados nas últimas 24 horas |

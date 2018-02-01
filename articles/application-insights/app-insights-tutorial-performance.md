@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -27,7 +27,7 @@ O Azure Application Insights coleta a telemetria do seu aplicativo para ajudar a
 > * Analisar os detalhes de exibições de página usando a linguagem de consulta
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -44,7 +44,7 @@ Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azur
 O Application Insights coleta detalhes de desempenho para as diferentes operações em seu aplicativo.  Ao identificar as operações de maior duração, você pode diagnosticar problemas em potencial ou direcionar melhor seu desenvolvimento contínuo para aprimorar o desempenho geral do aplicativo.
 
 1. Selecione **Application Insights** e, em seguida, selecione sua assinatura.  
-1. Para abrir o painel **Desempenho**, selecione **Desempenho** no menu **Investigar** ou clique no gráfico **Tempo de Resposta do Servidor**.
+1. Para abrir o painel **Desempenho**, selecione **Desempenho** no menu **Investigar** ou clique no grafo **Tempo de Resposta do Servidor**.
 
     ![Desempenho](media/app-insights-tutorial-performance/performance.png)
 
@@ -52,7 +52,7 @@ O Application Insights coleta detalhes de desempenho para as diferentes operaç�
 
     ![Painel de desempenho](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. Atualmente, o gráfico mostra a duração média de todas as operações ao longo do tempo.  Adicione as operações em que você está interessado em fixando-as ao gráfico.  Isso mostra que há alguns picos que valem a pena investigar.  Isole isso ainda mais tarde reduzindo a janela de tempo do gráfico.
+3. Atualmente, o grafo mostra a duração média de todas as operações ao longo do tempo.  Adicione as operações em que você está interessado em fixando-as ao grafo.  Isso mostra que há alguns picos que valem a pena investigar.  Isole isso ainda mais tarde reduzindo a janela de tempo do grafo.
 
     ![Fixar operações](media/app-insights-tutorial-performance/pin-operations.png)
 
@@ -63,6 +63,14 @@ O Application Insights coleta detalhes de desempenho para as diferentes operaç�
 5.  Neste exemplo, você pode ver que um número significativo de solicitações está levando mais de um segundo para ser processado. Você pode ver os detalhes dessa operação clicando em **Detalhes da operação**.
 
     ![Detalhes da operação](media/app-insights-tutorial-performance/operation-details.png)
+
+    > [!NOTE]
+    Habilite a [experiência de visualização](app-insights-previews.md) "Detalhes unificados: diagnóstico da transação E2E" para ver todas as solicitações, dependências, exceções, rastreamentos, eventos etc. do tipo telemetria do lado do servidor relacionadas em uma única exibição de tela inteira. 
+
+    Com a visualização habilitada, você pode ver o tempo gasto em chamadas de dependência, junto com quaisquer falhas ou exceções em uma experiência unificada. Para transações entre componentes, o gráfico de Gantt, junto com o painel de detalhes, pode ajudar você a diagnosticar rapidamente o componente, dependência ou exceção de causa raiz. Você pode expandir a seção inferior para ver a sequência de tempo de qualquer rastreamento ou evento coletado para a operação de componente selecionada. [Saiba mais sobre a nova experiência](app-insights-transaction-diagnostics.md)  
+
+    ![Diagnóstico da transação](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
+
 
 6.  As informações que você coletou até agora apenas confirmam que há um desempenho lento, mas não ajuda muito a chegar à causa raiz.  O **Criador de Perfil** ajuda com isso mostrando o código real que executou a operação e o tempo necessário para cada etapa. Algumas operações podem não ter um rastreamento, já que o criador de perfil é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreamentos.  Para iniciar o criador de perfil para a operação, clique em **Rastreamentos do criador de perfil**.
 5.  O rastreamento mostra os eventos individuais para cada operação para que você possa diagnosticar a causa raiz para a duração da operação geral.  Clique em um dos exemplos principais, que têm a duração mais longa.

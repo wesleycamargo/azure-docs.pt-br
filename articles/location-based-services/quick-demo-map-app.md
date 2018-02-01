@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Iniciar uma pesquisa no mapa interativo de demonstração usando os Serviços do Azure Baseados na Localização (versão prévia)
 
@@ -38,13 +38,13 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
     ![Criar conta Serviços Baseados na Localização no portal](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Quando a conta for criada com êxito, abra-a e navegue até as **CONFIGURAÇÕES** da conta. Clique em **Chaves** para obter as chaves de assinatura primária e secundária para a sua conta. Copie o valor de **Chave Primária** para a área de transferência local a ser usada na seção a seguir. 
+5. Quando a conta for criada com êxito, abra-a e navegue até as **CONFIGURAÇÕES** da conta. Clique em **Chaves** para obter as chaves primária e secundária para a sua Conta dos Serviços do Azure Baseados na Localização. Copie o valor de **Chave Primária** para a área de transferência local a ser usada na seção a seguir. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Baixar o aplicativo de demonstração para Mapas do Azure
 
 1. Baixe ou copie o conteúdo do arquivo [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Salvar o conteúdo deste arquivo localmente como **AzureMapDemo.html** e abra-o em um editor de texto.
-3. Procure a cadeia de caracteres **&#60;insert-key&#62;** e a substitua pelo valor de **Chave Primária** obtido na seção anterior. 
+3. Procure a cadeia de caracteres `<insert-key>` e a substitua pelo valor de **Chave Primária** obtido na seção anterior. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Iniciar o aplicativo de demonstração para Mapas do Azure

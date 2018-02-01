@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
-ms.author: kaanan
-ms.openlocfilehash: 6ca08cdc10191fadbcd36f56aac140cbac89eb09
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 01/18/2018
+ms.author: pareshmu
+ms.openlocfilehash: 9450f509b777c6142e84470bf8e3e69d87fcf145
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -44,7 +44,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, Vale do Silício, Washington D.C., Montreal, Cidade de Quebec, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
 | **Europa** |Europa Setentrional, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Dublin, Londres, Newport(Gales), Paris |
-| **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Cingapura |
+| **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Cingapura, Cingapura2 |
 | **Japão** |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Austrália** |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney |
 | **Índia** |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Mumbai |
@@ -69,59 +69,59 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 ### <a name="production-azure"></a>Produção do Azure
 | **Provedor de serviços** | **Microsoft Azure** | **Para o Office 365 e o Dynamics 365** | **Locais** |
 | --- | --- | --- | --- |
-| **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Suportado |Suportado |Melbourne, Sydney |
-| **[Airtel](http://www.airtel.in/business/connexion)** | Suportado | Suportado | Chennai, Mumbai |
-| **[Aryaka Networks](http://www.aryaka.com/)** |Suportado |Suportado |Amsterdã, Dallas, Hong Kong, Vale do Silício, Cingapura, Tóquio, Washington, D.C. |
+| **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Com suporte |Com suporte |Melbourne, Sydney |
+| **[Airtel](http://www.airtel.in/business/connexion)** | Com suporte | Com suporte | Chennai, Mumbai |
+| **[Aryaka Networks](http://www.aryaka.com/)** |Com suporte |Com suporte |Amsterdã, Dallas, Hong Kong, Vale do Silício, Cingapura, Tóquio, Washington, D.C. |
 | **[Data centers Ascenty](https://ascenty.com/solucoes/conectividade-e-interconexoes/Microsoft-express-route/)** |Em breve |Em breve |São Paulo |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportado |Amsterdã, Chicago, Dallas, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.C. |
-| **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Suportado |Suportado |Montreal, Toronto |
-| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Suportado |Suportado |Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.C. |
+| **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Com suporte |Com suporte |Montreal, Toronto, Cidade de Quebec |
+| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Com suporte |Com suporte |Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
 | **[C3ntro](https://c3ntro.com/)** |Em breve |Em breve |Miami |
 | **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Em breve |Em breve |Vale do Silício |
-| **China Telecom Global** |Suportado |Sem suporte |Hong Kong |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Suportado |Suportado |Dallas, Montreal, Toronto |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Suportado |Amsterdã, Dublin, Londres, Paris, Tóquio |
-| **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Suportado |Suportado |Chicago, Vale do Silício, Washington D.C. |
-| **[Console](https://www.consoleconnect.com/partners/cloudsaas/)**| Suportado | Suportado |Vale do Silício, Toronto |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportado |Chicago, Denver, Los Angeles, Nova York, Vale do Silício, Washinton, D.C. |
-| **Epsilon Global Communications** |Suportado |Suportado |Cingapura |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova York, Osaka, Paris, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington D.C. |
-| **euNetworks** |Suportado |Suportado |Amsterdã |
-| **GÉANT** |Suportado |Suportado |Amsterdã |
-| **[Global Cloud Xchange (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Suportado| Suportado | Chennai, Mumbai |
-| **[InterCloud](https://www.intercloud.com/)** |Suportado |Suportado |Amsterdã, Londres, Paris, Cingapura, Washington, D.C. |
-| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Suportado |Suportado |Osaka, Tóquio |
-| **Internet Solutions - Cloud Connect** |Suportado |Suportado |Amsterdã, Londres |
-| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Suportado |Suportado |Amsterdã, Dublin, Londres, Paris |
-| **Jisc** |Suportado |Suportado |Londres |
-| **KINX** |Suportado |Suportado |Seul |
-| **[KPN](http://www.kpn.com/cloudconnect)** | Suportado | Suportado | Amsterdã | 
-| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Amsterdã, Chicago, Dallas, Las Vegas, Londres, Newport, Nova Iorque, San Antonio, São Paulo, Seattle, Vale do Silício, Cingapura, Tóquio, Washington D.C. |
-| **LG CNS** |Suportado |Suportado |Busan, Seul |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Amsterdã, Chicago, Dallas, Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, Nova York, Quebec, San Antonio, Seattle, Vale do Silício, Cingapura, Sydney, Toronto, Washington DC |
-| **MTN** |Suportado |Suportado |Londres |
-| **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportado |Miami, São Paulo |
-| **[Dados da Próxima Geração](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
-| **NEXTDC** |Suportado |Suportado |Melbourne, Sydney |
-| **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Suportado |Suportado |Londres, Los Angeles, Osaka, Cingapura, Tóquio, Washington, D.C. |
-| **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Suportado |Suportado |Osaka |
-| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportado |Amsterdã, Hong Kong, Londres, Paris, Vale do Silício, Cingapura, Sydney, Washington DC |
-| **PCCW Global Limited** |Suportado |Suportado |Hong Kong |
-| **Sejong Telecom** |Suportado |Suportado |Seul |
-| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Suportado |Suportado |Chennai, Mumbai |
-| **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Suportado |Suportado |Cingapura |
-| **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Suportado |Suportado |Osaka, Tóquio |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Suportado |Suportado |Amsterdã, Chennai, Hong Kong, Londres, Mumbai, Vale do Silício, Cingapura, Washington, D.C. |
-| **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |Suportado |Suportado |Amsterdã, Dublin, Londres |
-| **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Suportado |Suportado |Amsterdã, São Paulo |
-| **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Suportado |Suportado |Londres |
-| **Telenor** |Suportado |Suportado |Amsterdã, Londres |
-| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Suportado |Suportado |Melbourne, Sydney |
-| **[Telus](http://www.telus.com)** |Suportado |Suportado |Toronto |
-| **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Suportado |Suportado |São Paulo |
-| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Suportado |Suportado |Amsterdã, Chicago, Dallas, Hong Kong, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
-| **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Suportado |Sem suporte |Londres |
-| **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Suportado |Suportado |Amsterdã, Chicago, Dallas+, Londres+, Los Angeles, Nova Iorque, Vale do Silício, Toronto, Washington, D.C. |
+| **China Telecom Global** |Com suporte |Sem suporte |Hong Kong |
+| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Com suporte |Com suporte |Dallas, Montreal, Toronto |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Com suporte |Com suporte |Amsterdã, Dublin, Londres, Paris, Tóquio |
+| **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Com suporte |Com suporte |Chicago, Vale do Silício, Washington D.C. |
+| **[Console](https://www.consoleconnect.com/partners/cloudsaas/)**| Com suporte | Com suporte |Vale do Silício, Toronto |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Com suporte |Com suporte |Chicago, Denver, Los Angeles, Nova York, Vale do Silício, Washinton, D.C. |
+| **Epsilon Global Communications** |Com suporte |Com suporte |Cingapura |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Com suporte |Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova York, Osaka, Paris, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington D.C. |
+| **euNetworks** |Com suporte |Com suporte |Amsterdã, Londres |
+| **GÉANT** |Com suporte |Com suporte |Amsterdã |
+| **[Global Cloud Xchange (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Com suporte| Com suporte | Chennai, Mumbai |
+| **[InterCloud](https://www.intercloud.com/)** |Com suporte |Com suporte |Amsterdã, Londres, Paris, Cingapura, Washington, D.C. |
+| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Com suporte |Com suporte |Osaka, Tóquio |
+| **Internet Solutions - Cloud Connect** |Com suporte |Com suporte |Amsterdã, Londres |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Com suporte |Com suporte |Amsterdã, Dublin, Londres, Paris |
+| **Jisc** |Com suporte |Com suporte |Londres |
+| **KINX** |Com suporte |Com suporte |Seul |
+| **[KPN](http://www.kpn.com/cloudconnect)** | Com suporte | Com suporte | Amsterdã | 
+| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Las Vegas, Londres, Newport, Nova Iorque, San Antonio, São Paulo, Seattle, Vale do Silício, Cingapura, Tóquio, Washington D.C. |
+| **LG CNS** |Com suporte |Com suporte |Busan, Seul |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, Nova York, Quebec, San Antonio, Seattle, Vale do Silício, Cingapura, Cingapura2, Sydney, Toronto, Washington DC |
+| **MTN** |Com suporte |Com suporte |Londres |
+| **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Com suporte |Com suporte |Miami, São Paulo |
+| **[Dados da Próxima Geração](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Com suporte |Com suporte |Newport (País de Gales) |
+| **NEXTDC** |Com suporte |Com suporte |Melbourne, Sydney |
+| **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Com suporte |Com suporte |Londres, Los Angeles, Osaka, Cingapura, Tóquio, Washington, D.C. |
+| **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Com suporte |Com suporte |Osaka |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Com suporte |Com suporte |Amsterdã, Hong Kong, Londres, Paris, Vale do Silício, Cingapura, Sydney, Washington DC |
+| **PCCW Global Limited** |Com suporte |Com suporte |Hong Kong |
+| **Sejong Telecom** |Com suporte |Com suporte |Seul |
+| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Com suporte |Com suporte |Chennai, Mumbai |
+| **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Com suporte |Com suporte |Cingapura, Cingapura2 |
+| **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Com suporte |Com suporte |Osaka, Tóquio |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Com suporte |Com suporte |Amsterdã, Chennai, Hong Kong, Londres, Mumbai, Vale do Silício, Cingapura, Washington, D.C. |
+| **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |Com suporte |Com suporte |Amsterdã, Dublin, Londres |
+| **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Com suporte |Com suporte |Amsterdã, São Paulo |
+| **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Com suporte |Com suporte |Londres |
+| **Telenor** |Com suporte |Com suporte |Amsterdã, Londres |
+| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Com suporte |Com suporte |Melbourne, Sydney |
+| **[Telus](http://www.telus.com)** |Com suporte |Com suporte |Montreal, Toronto |
+| **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Com suporte |Com suporte |São Paulo |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Hong Kong, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
+| **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Com suporte |Sem suporte |Londres |
+| **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas+, Londres+, Los Angeles, Nova Iorque, Vale do Silício, Toronto, Washington, D.C. |
 
  **+** indica que haverá em breve
 
@@ -130,28 +130,28 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 ### <a name="us-government-cloud"></a>Nuvem do Governo dos EUA
 | **Provedor de serviços** | **Microsoft Azure** | **Office 365** | **Locais** |
 | --- | --- | --- | --- |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportado |Chicago, Washington D.C. |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Nova Iorque, Seattle, Vale do Silício, Washington D.C. |
-| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Chicago, Dallas, Los Angeles, Nova York, Vale do Silício, Washington, D.C. |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado | Suportado | Chicago, Dallas |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Suportado |Suportado |Chicago, Dallas, Nova York, Washington, D.C. |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Com suporte |Com suporte |Chicago, Washington D.C. |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Com suporte |Chicago, Dallas, Nova Iorque, Seattle, Vale do Silício, Washington D.C. |
+| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Com suporte |Com suporte |Chicago, Dallas, Los Angeles, Nova York, Vale do Silício, Washington, D.C. |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Com suporte | Com suporte | Chicago, Dallas |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Com suporte |Com suporte |Chicago, Dallas, Nova York, Washington, D.C. |
 
 ### <a name="china"></a>China
 | **Provedor de serviços** | **Microsoft Azure** | **Office 365** | **Locais** |
 | --- | --- | --- | --- |
-| **China Telecom** |Suportado |Sem suporte |Pequim, Xangai |
+| **China Telecom** |Com suporte |Sem suporte |Pequim, Xangai |
 
 Para saber mais, confira [ExpressRoute na China](http://www.windowsazure.cn/home/features/expressroute/).
 
 ### <a name="germany"></a>Alemanha
 | **Provedor de serviços** | **Microsoft Azure** | **Office 365** | **Locais** |
 | --- | --- | --- | --- |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Sem suporte |Berlin+, Frankfurt |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Sem suporte |Frankfurt |
-| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Suportado |Sem suporte |Berlim |
-| **Interxion** |Suportado |Sem suporte |Frankfurt |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado  | Sem suporte | Berlim |
-| **T-Systems** |Suportado |Sem suporte |Berlim |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Com suporte |Sem suporte |Berlin+, Frankfurt |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Sem suporte |Frankfurt |
+| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Com suporte |Sem suporte |Berlim |
+| **Interxion** |Com suporte |Sem suporte |Frankfurt |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Com suporte  | Sem suporte | Berlim |
+| **T-Systems** |Com suporte |Sem suporte |Berlim |
 
 ## <a name="connectivity-through-exchange-providers"></a>Conectividade por meio de outros provedores do Exchange
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Estruturas de Aprendizado Profundo e de AI
 A DSVM ([Máquina Virtual de Ciência de Dados](http://aka.ms/dsvm)) e a [VM de Aprendizado Profundo](http://aka.ms/dsvm/deeplearning) dão suporte a várias estruturas de aprendizado profundo para ajudar a criar aplicativos de AI (Inteligência Artificial) com funcionalidades cognitivas e análise preditiva como entendimento de imagem e linguagem. 
@@ -117,7 +117,7 @@ Em um terminal, ative a versão do Python que deseja (_raiz_ ou _py35_), execute
 | Edições do DSVM com suporte      | Linux     |
 | Como é configurado/instalado no DSVM?  | Deep Water é instalado em `/dsvm/tools/deep_water`.   |
 | Links para exemplos      | Exemplos estão disponíveis por meio do servidor Deep Water.      |
-| Ferramentas relacionadas ao DSVM      | H2o, Sparkling Water      |
+| Ferramentas relacionadas ao DSVM      | H2O, Sparkling Water      |
 
 ### <a name="how-to-use--run-it"></a>Como usar/executar?  
 

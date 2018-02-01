@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -157,6 +157,7 @@ As visualizações de custo Enterprise estão, no momento, em Visualização Pú
 - Os custos de assinatura são baseados no uso e não contam para valores pré-pagos, excedentes, quantidades incluídas, ajustes e impostos. Os encargos reais são calculados no nível de registro. 
 - As quantidades exibidas no Portal do Azure podem ser atrasadas em comparação com os valores no Enterprise Portal.  
 - Se você não estiver vendo os custos, pode ser devido a um dos seguintes motivos:
+    - Você não tem permissão RBAC suficiente no nível da assinatura. Para ver as exibições de custo empresarial, você precisa ser um Leitor de Cobrança, Leitor, Colaborador ou Proprietário no nível da assinatura.
     - Você é um Proprietário de Conta e seu Administrador de registro desabilitou a configuração “Encargos de exibição do AO”.  Contate o Administrador de registro para obter acesso aos custos. 
     - Você é um Administrador de Departamento e seu Administrador de registro desabilitou a configuração “Encargos de exibição do DA”.  Contate o Administrador de registro para obter acesso. 
     - Você adquiriu o Azure por meio de um parceiro de canal e o parceiro não liberou as informações de preços.  

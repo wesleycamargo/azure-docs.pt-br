@@ -4,8 +4,14 @@ Depois de aplicar marcas, você pode recuperar todos os recursos em sua assinatu
 
 As seguintes limitações se aplicam a marcas:
 
-* Cada recurso ou grupo de recursos pode ter um máximo de 15 pares de nome/valor de marca. Essa limitação se aplica somente a marcas aplicadas diretamente ao grupo de recursos ou recurso. Um grupo de recursos pode conter muitos recursos que possuem 15 pares de nome/valor de marca. 
+* Cada recurso ou grupo de recursos pode ter um máximo de 15 pares de nome/valor de marca. Essa limitação se aplica somente a marcas aplicadas diretamente ao grupo de recursos ou recurso. Um grupo de recursos pode conter muitos recursos que possuem 15 pares de nome/valor de marca. Se você tiver mais de 15 valores que você precisa associar a um recurso, use uma cadeia de caracteres JSON para o valor da marca. A cadeia de caracteres JSON pode conter diversos valores que são aplicados a um único nome de marca. Este artigo mostra um exemplo de atribuição de uma cadeia de caracteres JSON para a marca.
 * O nome da marca é limitado a 512 caracteres e o valor da marca é limitado a 256 caracteres. Para contas de armazenamento, o nome da marca é limitado a 128 caracteres e o valor da marca é limitado a 256 caracteres.
-* Marcas aplicadas ao grupo de recursos não são herdadas pelos recursos desse grupo de recursos. 
-
-Se você tiver mais de 15 valores que você precisa associar a um recurso, use uma cadeia de caracteres JSON para o valor da marca. A cadeia de caracteres JSON pode conter diversos valores que são aplicados a um único nome de marca. Este artigo mostra um exemplo de atribuição de uma cadeia de caracteres JSON para a marca.
+* Marcas aplicadas ao grupo de recursos não são herdadas pelos recursos desse grupo de recursos.
+* Esses caracteres não têm suporte:
+  * `<`
+  * `>`
+  * `%`
+  * `&`
+  * `\\`
+  * `?`
+  * `/`

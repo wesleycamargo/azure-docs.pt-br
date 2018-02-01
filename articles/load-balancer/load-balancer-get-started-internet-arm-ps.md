@@ -1,6 +1,6 @@
 ---
-title: Criar um balanceador de carga voltado para a Internet do Azure - PowerShell | Microsoft Docs
-description: Saiba como criar um balanceador de carga para a Internet no Gerenciador de Recursos usando o PowerShell
+title: "Criar um balanceador de carga público - PowerShell | Microsoft Docs"
+description: "Saiba como criar um balanceador de carga público no Gerenciador de Recursos usando PowerShell"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>Criar um balanceador de carga para a Internet no Resource Manager usando o PowerShell
+# <a name="get-started"></a>Criar um balanceador de carga público no Gerenciador de Recursos usando PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,9 +36,9 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Implantando a solução usando o Azure PowerShell
 
-Os procedimentos a seguir explicam como criar um balanceador de carga para a Internet usando o Azure Resource Manager com o PowerShell. Com o Azure Resource Manager, todos os recursos são criados e configurados individualmente e colocados juntos para criar um balanceador de carga.
+Os procedimentos a seguir explicam como criar um balanceador de carga público usando o Azure Resource Manager com o PowerShell. Com o Azure Resource Manager, todos os recursos são criados e configurados individualmente e colocados juntos para criar um balanceador de carga.
 
-Você precisa criar e configurar os seguintes objetos para implantar um balanceador de carga:
+Você deve criar e configurar os seguintes objetos para implantar um balanceador de carga:
 
 * Configuração de IP de front-end: contém PIPs ( endereços IP públicos) para o tráfego de rede de entrada.
 * Pool de endereços de back-end: contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.

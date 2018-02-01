@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4fd84904fb264fc61d0059d389347e05839162d2
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desenvolver e implantar um módulo do IoT Edge em C# em seu dispositivo simulado - versão prévia
 
@@ -28,7 +28,7 @@ Use os módulos do IoT Edge para implantar um código que implementa a lógica d
 
 O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gerados pelo seu dispositivo. Ele somente envia mensagens upstream se a temperatura estiver acima de um limite especificado. Este tipo de análise na borda é útil para reduzir a quantidade de dados comunicados e armazenados na nuvem. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * O dispositivo do Azure IoT Edge criado no guia de início rápido ou no primeiro tutorial.
 * A cadeia de caracteres de conexão de chave primária para o dispositivo IoT Edge.  
@@ -70,6 +70,14 @@ As etapas a seguir mostram como criar um módulo do IoT Edge baseado no .NET Cor
 5. No Visual Studio Code explorer, clique em **Program.cs** para abri-lo.
 
    ![Abra Program.cs][1]
+
+6. Na parte superior do namespace **FilterModule**, adicione três instruções `using` aos tipos usados posteriormente:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
 
 6. Adicione a `temperatureThreshold` variável para a classe do **Programa**. Esta variável define o valor que a temperatura medida deve exceder para que os dados sejam enviados para o Hub IoT. 
 

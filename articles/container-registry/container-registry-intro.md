@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: overview
-ms.date: 10/13/2017
+ms.date: 01/22/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: e4bca1cc09d115cf0b1b13f7675645ef1ef5ec53
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b92fd225e32749b87a065ab9048938059c42f265
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registros de contêiner do Docker privado no Azure
 
@@ -30,11 +30,11 @@ Obtenha imagens de um registro de contêiner do Azure para vários destinos de i
 Os desenvolvedores também podem enviar um registro de contêiner como parte de um fluxo de trabalho de desenvolvimento do contêiner. Por exemplo, direcione uma ferramenta de implantação e integração contínua de destino como [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) ou [Jenkins](https://jenkins.io/) a um Registro de contêiner.
 
 ## <a name="key-concepts"></a>Principais conceitos
-* **Registro** - crie um ou mais registros de contêiner em sua assinatura do Azure. Os registros estão disponíveis em três SKUs: [Basic, Standard e Premium](container-registry-skus.md), cada um oferece suporte à integração de webhook, autenticação de repositório com o Active Directory do Azure e a funcionalidade de exclusão. Aproveite o armazenamento local e de rede fechada de suas imagens de contêiner criando um registro no mesmo local do Azure de suas implantações. Use o recurso [replicação geográfica](container-registry-geo-replication.md) de registros Premium para cenários avançados de replicação e distribuição de imagens de contêiner. Um nome de registro totalmente qualificado tem a forma `myregistry.azurecr.io`.
+* **Registro** - crie um ou mais registros de contêiner em sua assinatura do Azure. Os registros estão disponíveis em três SKUs: [Básico, Standard e Premium](container-registry-skus.md), cada um oferece suporte à integração de webhook, autenticação de registro com o Azure Active Directory e a funcionalidade de exclusão. Aproveite o armazenamento local e de rede fechada de suas imagens de contêiner criando um registro no mesmo local do Azure de suas implantações. Use o recurso [replicação geográfica](container-registry-geo-replication.md) de registros Premium para cenários avançados de replicação e distribuição de imagens de contêiner. Um nome de registro totalmente qualificado tem a forma `myregistry.azurecr.io`.
 
   Você [controla o acesso](container-registry-authentication.md) a um registro de contêiner usando uma [entidade de serviço](../active-directory/active-directory-application-objects.md) com suporte do Azure Active Directory ou uma conta de administrador fornecida. Execute o comando `docker login` padrão para se autenticar em um registro.
 
-* **Repositório** - um registro contém um ou mais repositórios, que são grupos de imagens de contêiner. O Registro de Contêiner do Azure dá suporte a namespaces do repositório de vários níveis. Com namespaces de vários níveis, você pode agrupar coleções de imagens relacionadas a um aplicativo específico ou uma coleção de aplicativos para equipes de desenvolvimento ou operacionais específicas. Por exemplo:
+* **Repositório** - um registro contém um ou mais repositórios, que são grupos de imagens de contêiner. O Registro de Contêiner do Azure dá suporte a namespaces do repositório de vários níveis. Com namespaces de vários níveis, você pode agrupar coleções de imagens relacionadas a um aplicativo específico ou uma coleção de aplicativos para equipes de desenvolvimento ou operacionais específicas. Por exemplo: 
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` representa uma imagem de toda a empresa
   * `myregistry.azurecr.io/warrantydept/dotnet-build` representa uma imagem usada para criar aplicativos .NET, compartilhados no departamento de garantia

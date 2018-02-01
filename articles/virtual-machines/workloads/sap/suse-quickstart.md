@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: f7dd532e96540fa297cac8fa3736f9f4a6ccd82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Executando o SAP NetWeaver em VMs do SUSE Linux no Microsoft Azure
 Este artigo descreve fatores que devem ser levados em consideração quando você estiver executando o SAP NetWeaver em VMs (máquinas virtuais) do SUSE Linux no Microsoft Azure. A partir de 19 de maio de 2016, o SAP NetWeaver possui suporte oficial em VMs do SUSE Linux no Azure. Todos os detalhes relativos a versões do Linux, versões de kernel do SAP e outros pré-requisitos podem ser encontrados na Nota SAP 1928533 "Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure".
@@ -162,5 +162,5 @@ Se você deseja usar a área de trabalho Gnome para instalar um sistema de demon
    ```
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>Suporte de SAP para Oracle no Linux na nuvem
-Há uma restrição de suporte da Oracle para Linux em ambientes virtualizados. Embora este restrição de suporte não seja um tópico específico do Azure, é importante entendê-la. O SAP não oferece suporte ao Oracle no SUSE ou ao Red Hat em uma nuvem pública como o Azure. Para discutir sobre este tópico, contate diretamente o Oracle.
+Há uma restrição de suporte da Oracle para Linux em ambientes virtualizados. Embora este restrição de suporte não seja um tópico específico do Azure, é importante entendê-la. O SAP não oferece suporte ao Oracle no SUSE ou ao Red Hat em uma nuvem pública como o Azure. Enquanto isso, o Oracle DB no Azure tem suporte total do SAP no Oracle Linux (veja a Nota SAP 1928533). Se outras combinações forem necessárias, contate diretamente a Oracle.
 

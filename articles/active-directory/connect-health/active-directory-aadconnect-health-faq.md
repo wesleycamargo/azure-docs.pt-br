@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -45,6 +45,7 @@ Observe que os recursos fornecidos pelo serviço mudam de acordo com a função 
 * O primeiro o Agente do Connect Health requer pelo menos uma licença Azure AD Premium.
 * Cada agente registrado adicional requer 25 licenças Azure AD Premium adicionais.
 * A contagem de agentes é equivalente ao número total de agentes registrados em todas as funções monitoradas (AD FS, Azure AD Connect e/ou AD DS).
+* Licenciamento AAD Connect Health não exige que você atribua a licença para usuários específicos. Você só precisa ter o número necessário de licenças válidas.
 
 As informações de licenciamento também podem ser encontradas na [página Preços do Azure AD](https://aka.ms/aadpricing).
 
@@ -84,7 +85,7 @@ Os números a seguir são uma aproximação:
 
 **P: Será necessário reinicializar meus servidores durante a instalação dos agentes do Azure AD Connect Health?**
 
-Não. A instalação dos agentes não exigirá a reinicialização do servidor. No entanto, a instalação de algumas das etapas de pré-requisito pode exigir uma reinicialização do servidor.
+Nº A instalação dos agentes não exigirá a reinicialização do servidor. No entanto, a instalação de algumas das etapas de pré-requisito pode exigir uma reinicialização do servidor.
 
 Por exemplo, no Windows Server 2008 R2, a instalação do .NET Framework 4.5 requer a reinicialização do servidor.
 
@@ -101,7 +102,7 @@ Se precisar configurar um proxy durante o registro do agente, talvez seja necess
 
 **P: O Azure AD Connect Health dá suporte à autenticação básica ao se conectar a proxies HTTP?**
 
-Não. Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não tem suporte.
+Nº Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não tem suporte.
 
 **P: Quais portas de firewall eu preciso abrir para o agente do Azure AD Connect Health funcione?**
 

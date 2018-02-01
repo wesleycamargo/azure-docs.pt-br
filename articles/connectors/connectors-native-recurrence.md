@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Agendar tarefas e fluxos de trabalho que são executados regularmente com aplicativos lógicos
 
-Para agendar tarefas, ações, cargas de trabalho ou processos que são executados regularmente, você pode criar um fluxo de trabalho de aplicativo lógico que começa com o [gatilho](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) **Agenda – Recorrência**. Com esse gatilho, você pode definir uma data e hora para iniciar a recorrência, bem como uma agenda de recorrência para a realização das tarefas, como esses exemplos e muito mais:
+Para agendar tarefas, ações, cargas de trabalho ou processos que são executados regularmente, você pode criar um fluxo de trabalho de aplicativo lógico que começa com o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Agenda – Recorrência**. Com esse gatilho, você pode definir uma data e hora para iniciar a recorrência, bem como uma agenda de recorrência para a realização das tarefas, como esses exemplos e muito mais:
 
 * Obter dados internos: [executar um procedimento armazenado de SQL](../connectors/connectors-create-api-sqlazure.md) todos os dias.
 * Obter dados externos: efetuar pull de relatórios de previsão do tempo do NOAA a cada 15 minutos.
@@ -42,15 +42,15 @@ Esse gatilho oferece suporte a vários padrões, por exemplo:
 
 A cada vez que o gatilho de recorrência é disparado, os Aplicativos Lógicos criam e executam uma nova instância do seu fluxo de trabalho de aplicativo lógico.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Caso contrário, você pode [inscrever-se para uma assinatura Pré-paga](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 ## <a name="add-a-recurrence-trigger-to-your-logic-app"></a>Adicionar um gatilho de recorrência em seu aplicativo lógico
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Crie um aplicativo lógico em branco ou saiba [como criar um aplicativo lógico em branco](../logic-apps/logic-apps-create-a-logic-app.md).
+1. Entre no [Portal do Azure](https://portal.azure.com). Crie um aplicativo lógico em branco ou saiba [como criar um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. Depois que o Designer de Aplicativos Lógicos aparecer, na caixa Pesquisar, digite "recorrência" como filtro. Selecione o gatilho **Agenda – Recorrência**. 
 
@@ -96,15 +96,15 @@ A cada vez que o gatilho de recorrência é disparado, os Aplicativos Lógicos c
 
 Você pode configurar essas propriedades para o gatilho de recorrência.
 
-| Nome | Obrigatório | Nome da propriedade | Tipo | Descrição | 
+| NOME | Obrigatório | Nome da propriedade | type | DESCRIÇÃO | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequência** | Sim | frequência | Cadeia de caracteres | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** | 
-| **Intervalo** | Sim | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>O intervalo padrão é 1. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
-| **Fuso horário** | Não | timeZone | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. | 
-| **Hora de início** | Não | startTime | Cadeia de caracteres | Forneça uma hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como Hora do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** a hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](#start-time) | 
-| **Nestes dias** | Não | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana", poderá selecionar um ou mais dias nos quais deseja executar o fluxo de trabalho: **segunda-feira**, **terça-feira**, **quarta-feira**, **quinta-feira**, **Sexta-feira**, **sábado** e **domingo** | 
-| **A estas horas** | Não | hours | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana", poderá selecionar um ou mais números inteiros, de 0 a 23, como as horas do dia nas quais você deseja executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", você obterá 10h, 12h e 14h como as marcas de hora. | 
-| **A estes minutos** | Não | minutes | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana", poderá selecionar um ou mais números inteiros, de 0 a 59, como os minutos da hora em que você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minutos e, usando o exemplo anterior como as horas do dia, você obtém 10h30, 12h30 e 14h30. | 
+| **Frequência** | sim | frequência | Cadeia de caracteres | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** | 
+| **Intervalo** | sim | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>O intervalo padrão é 1. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
+| **Fuso horário** | Não  | timeZone | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. | 
+| **Hora de início** | Não  | startTime | Cadeia de caracteres | Forneça uma hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como Hora do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** a hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](#start-time) | 
+| **Nestes dias** | Não  | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana", poderá selecionar um ou mais dias nos quais deseja executar o fluxo de trabalho: **segunda-feira**, **terça-feira**, **quarta-feira**, **quinta-feira**, **Sexta-feira**, **sábado** e **domingo** | 
+| **A estas horas** | Não  | hours | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana", poderá selecionar um ou mais números inteiros, de 0 a 23, como as horas do dia nas quais você deseja executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", você obterá 10h, 12h e 14h como as marcas de hora. | 
+| **A estes minutos** | Não  | minutes | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana", poderá selecionar um ou mais números inteiros, de 0 a 59, como os minutos da hora em que você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minutos e, usando o exemplo anterior como as horas do dia, você obtém 10h30, 12h30 e 14h30. | 
 ||||| 
 
 ## <a name="json-example"></a>Exemplo de JSON

@@ -1,6 +1,6 @@
 ---
 title: "Corrigir configurações de segurança na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Corrigir configurações de segurança**."
+description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure, “Corrigir configurações de segurança”."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,93 +14,99 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corrigir as configurações de segurança na Central de Segurança do Azure
-A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração de sistema operacional não coincide com as regras de configuração de segurança recomendadas e sugere alterações de configuração para resolver essas vulnerabilidades.
+A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração do sistema operacional não corresponder às regras de configuração de segurança e recomenda alterações de configuração para resolver essas vulnerabilidades.
 
-Para obter mais informações sobre configurações específicas que estão sendo monitoradas, consulte a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Veja [Personalização de configurações de segurança do sistema operacional](security-center-customize-os-security-config.md) para aprender a personalizar avaliações de configuração de segurança na Central de Segurança.
+Para obter mais informações sobre as configurações específicas que estão sendo monitoradas, veja a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Para saber como personalizar avaliações de configuração de segurança, consulte [Personalizar configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia)](security-center-customize-os-security-config.md).
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
-A incompatibilidade de correção de configurações de segurança é apresentada como uma recomendação na Central de Segurança. Essa recomendação será exibida em **Recomendações** e em **Computação**.
+A opção “Corrigir configurações de segurança” é apresentada como uma recomendação na Central de Segurança. A recomendação é exibida em **Recomendações** > **Computação**.
 
-Neste exemplo, examinaremos as recomendações de **Corrigir as configurações de segurança** em **Computação**.
-1. Selecione **Computação** no menu principal da Central de Segurança.
+Este exemplo abrange a recomendação “Corrigir configurações de segurança” em **Computação**.
+1. Na Central de Segurança, no painel esquerdo, selecione **Computação**.  
+  A janela **Computação** será aberta.
 
    ![Corrigir as configurações de segurança][1]
 
-2. Em **Computação**, selecione **Corrigir as configurações de segurança**. **Configurações de segurança** é aberto.
+2. Selecione **Corrigir configurações de segurança**.  
+  A janela **Configurações de segurança** será aberta.
 
-   ![Configurações de segurança][2]
+   ![A janela “Configurações de segurança”][2]
 
-  A parte superior do painel fornece:
+  A seção superior do painel exibe:
 
-  - O número total de regras, por gravidade, em relação as quais a configuração do sistema operacional falhou em suas VMs e computadores.
-  - O número total de regras, por tipo, em relação as quais a configuração do sistema operacional falhou em suas VMs e computadores.
-  - O número total de regras com falha, por configurações de sistema operacional Windows e por configurações de sistema operacional Linux.
+  - **Regras com falha por severidade**: o número total de regras que a configuração do sistema operacional falhou nas VMs e computadores, divididos por severidade.
+  - **Regras com falha por tipo**: o número total de regras que a configuração do sistema operacional falhou nas VMs e computadores, divididos por tipo.
+  - **Regras com falha do Windows**: o número total de regras com falha por configurações do sistema operacional Windows.
+  - **Regras com falha do Linux**: o número total de regras com falha por configurações do sistema operacional Linux.
 
-  A parte inferior do painel lista todas as regras com falha em suas VMs e computadores e a gravidade da atualização ausente. A lista inclui:
+  A seção inferior do painel lista todas as regras com falha nas VMs e nos computadores e a severidade da atualização ausente. A lista contém os seguintes elementos:
 
-  - **CCEID**: identificador exclusivo CCE para a regra. A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração.
-  - **NOME**: nome da regra com falha
-  - **TIPO DE REGRA**: chave do Registro, política de segurança ou política de auditoria
-  - **NÃO. DE VMs E COMPUTADORES**: número total de VMs e computadores aos quais a falha se aplica
-  - **GRAVIDADE DA REGRA**: valor de gravidade CCE, sendo: crítico, importante ou aviso
-  - **ESTADO**: o estado atual da recomendação:
+  - **CCEID**: o identificador exclusivo CCE da regra. A Central de Segurança usa a CCE (Common Configuration Enumeration) para atribuir identificadores exclusivos a regras de configuração.
+  - **Nome**: o nome da regra com falha.
+  - **Tipo de regra**: o tipo de regra *Chave do Registro*, *Política de segurança* ou *Política de auditoria*.
+  - **Nº de VMs e computadores**: o número total de VMs e computadores aos quais a regra com falha se aplica.
+  - **Severidade da regra**: o valor *Crítico*, *Importante* ou *Aviso* da CCE.
+  - **Estado**: o estado atual da recomendação:
 
-    - **Aberta**: a recomendação ainda não foi resolvida
-    - **Em Andamento**: a recomendação está sendo atualmente aplicada aos recursos e não é necessário que você realize nenhuma ação
-    - **Resolvido**: a recomendação já foi concluída. (Quando o problema for resolvido, a entrada será esmaecida)
+    - **Aberta**: a recomendação ainda não foi resolvida.
+    - **Em Andamento**: a recomendação está sendo aplicada atualmente aos recursos, e não é necessário que você realize nenhuma ação.
+    - **Resolvido**: a recomendação foi aplicada. Quando o problema é resolvido, a entrada fica esmaecida.
 
-3. Selecione uma regra com falha na lista para exibir detalhes.
+3. Para exibir os detalhes de uma regra com falha, selecione-a na lista.
 
-   ![Regras de configuração que falharam][3]
+   ![Exibição detalhada de uma regra de configuração com falha][3]
 
-  As informações a seguir são fornecidas nessa folha:
+   A exibição detalhada exibe as seguintes informações:
 
-  - NOME -- o nome da regra
-  - CCIED -- identificador exclusivo da CCE para a regra
-  - Versão do SO – versão do sistema operacional da VM ou do computador
-  - GRAVIDADE DA REGRA – valor de gravidade CCE, sendo: crítico, importante ou aviso
-  - DESCRIÇÃO COMPLETA – a descrição da regra
-  - VULNERABILIDADE -- explicação da vulnerabilidade ou do risco se a regra não for aplicada
-  - IMPACTO POTENCIAL – o impacto nos negócios quando a regra é aplicada
-  - CONTRAMEDIDA – etapas de correção
-  - VALOR ESPERADO -- o valor esperado quando a Central de Segurança analisa a configuração do SO da VM em relação à regra
-  - VALOR REAL -- o valor retornado após a análise da configuração do SO da VM em relação à regra
-  - OPERAÇÃO DA REGRA -- a operação da regra usada pela Central de Segurança durante a análise da configuração do SO da VM em relação à regra
+   - **Nome**: o nome da regra.
+   - **CCEID**: o identificador exclusivo CCE da regra.
+   - **Versão do sistema operacional**: a versão do sistema operacional da VM ou do computador.
+   - **Severidade da regra**: o valor *Crítico*, *Importante* ou *Aviso* da CCE.
+   - **Descrição completa**: a descrição da regra.
+   - **Vulnerabilidade**: explicação da vulnerabilidade ou do risco se a regra não for aplicada.
+   - **Impacto potencial**: o impacto para os negócios quando a regra é aplicada.
+   - **Contramedida**: as etapas de correção.
+   - **Valor esperado**: o valor esperado quando a Central de Segurança analisa a configuração do sistema operacional da VM em relação à regra.
+   - **Valor real**: o valor retornado após a análise da configuração do sistema operacional da VM em relação à regra.
+   - **Operação da regra**: a operação da regra usada pela Central de Segurança durante a análise da configuração do sistema operacional da VM em relação à regra.
 
-4. Selecione o ícone **Pesquisar** na faixa de opções superior. A Pesquisa é aberta, listando espaços de trabalho que têm VMs e computadores com a incompatibilidade de configurações de segurança selecionadas. Esta folha de seleção do espaço de trabalho é mostrada apenas se a regra selecionada se aplicar a várias VMs que estejam conectadas aos diferentes espaços de trabalho.
+4. Na parte superior da janela de exibição detalhada, selecione **Pesquisar**.  
+  A pesquisa abre uma lista de espaços de trabalho que têm VMs e computadores com a incompatibilidade de configurações de segurança selecionada. A seleção do espaço de trabalho é mostrada apenas quando a regra selecionada se aplica a várias VMs que estão conectadas a diferentes espaços de trabalho.
 
-  ![Espaços de trabalho listados][4]
+   ![Espaços de trabalho listados][4]
 
-5. Selecione um espaço de trabalho. Uma consulta de pesquisa do Log Analytics é aberta, filtrada para o espaço de trabalho com a incompatibilidade de configurações de segurança.
+5. Selecione um espaço de trabalho.  
+  Uma consulta de pesquisa do Log Analytics é aberta, filtrada para o espaço de trabalho com a incompatibilidade de configurações de segurança.
 
-  ![Espaço de trabalho com a vulnerabilidade do sistema operacional][5]
+   ![Espaço de trabalho com a vulnerabilidade do sistema operacional][5]
 
-6. Selecione um computador da lista para obter mais informações. Outro resultado da pesquisa é aberto com informações filtradas para esse computador.
+6. Selecione um computador na lista.  
+  Um novo resultado da pesquisa é aberto com informações filtradas somente para esse computador.
 
-  ![Filtrado para esse computador][6]
+   ![Informações detalhadas sobre o computador selecionado][6]
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir configurações de segurança". Veja [Personalização de configurações de segurança do sistema operacional](security-center-customize-os-security-config.md) para aprender a personalizar avaliações de configuração de segurança na Central de Segurança.
+Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir configurações de segurança". Para saber como personalizar avaliações de configuração de segurança, consulte [Personalizar configurações de segurança do sistema operacional na Central de Segurança do Azure (Versão Prévia)](security-center-customize-os-security-config.md).
 
-Você pode conferir o conjunto de regras de configuração [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração. Visite o site da [CCE](https://nvd.nist.gov/cce/index.cfm) para obter mais informações.
+Para examinar as configurações específicas que estão sendo monitoradas, veja a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a CCE (Common Configuration Enumeration) para atribuir identificadores exclusivos a regras de configuração. Para obter mais informações, visite o site da [CCE](https://nvd.nist.gov/cce/index.cfm).
 
 Para saber mais sobre a Central de Segurança, confira os seguintes recursos:
 
-* [Plataformas com suporte na Central de Segurança do Azure](security-center-os-coverage.md) – fornece uma lista de VMs Windows e Linux com suporte.
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
-* [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.
+* Para obter uma lista de VMs Windows e Linux compatíveis, consulte [Plataformas com suporte na Central de Segurança do Azure](security-center-os-coverage.md). 
+* Para saber como configurar políticas de segurança para suas assinaturas e seus grupos de recursos do Azure, consulte [Definindo políticas de segurança na Central de Segurança do Azure](security-center-policies.md). 
+* Para saber como as recomendações ajudam você a proteger seus recursos do Azure, consulte [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md). 
+* Para saber como monitorar a integridade de seus recursos do Azure, consulte [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). 
+* Para saber como gerenciar e responder a alertas de segurança, consulte [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
+* Para saber como monitorar o status da integridade de suas soluções de parceiros, consulte [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md).
+* Para encontrar respostas para as perguntas frequentes sobre como usar o serviço, consulte [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md).
+* Para obter postagens no blog sobre segurança e conformidade do Azure, visite o [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

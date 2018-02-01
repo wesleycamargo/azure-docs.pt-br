@@ -4,7 +4,7 @@ description: "Saiba como executar o backup e a restauração automáticos em um 
 keywords: "backup e restauração, backup online"
 services: cosmos-db
 documentationcenter: 
-author: RahulPrasad16
+author: mimig1
 manager: jhubbard
 editor: monicar
 ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: raprasa
-ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mimig
+ms.openlocfilehash: f88bdd6ffb70ccd2aa48453747964c4afb5bea46
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup e restauração online automáticos com o Azure Cosmos DB
 O Azure Cosmos DB faz backup automaticamente de todos os seus dados em intervalos regulares. Os backups automáticos são feitos sem afetar o desempenho nem a disponibilidade das operações de banco de dados. Todos os backups são armazenados separadamente em outro serviço de armazenamento, e esses backups são replicados globalmente para resiliência contra desastres regionais. Os backups automáticos são destinados a cenários em que você exclui acidentalmente seu contêiner do Cosmos DB e, mais tarde, precisa de uma solução de recuperação de desastre ou de dados.  
@@ -27,7 +27,7 @@ O Azure Cosmos DB faz backup automaticamente de todos os seus dados em intervalo
 Este artigo começa com uma recapitulação rápida da redundância e disponibilidade de dados no Cosmos DB e, em seguida, aborda os backups. 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Alta disponibilidade com o Cosmos DB – recapitulação
-O Cosmos DB foi desenvolvido para ser [distribuído globalmente](distribute-data-globally.md) – ele permite que você dimensione a produtividade em várias regiões do Azure, juntamente com failover controlado por política e APIs transparentes de hospedagem múltipla. O Azure Cosmos DB oferece [SLA de disponibilidade de 99,99%](https://azure.microsoft.com/support/legal/sla/cosmos-db) para todas as contas de região única e todas as contas de várias regiões com consistência amena e 99,999% de disponibilidade de leitura em todas as contas de banco de dados de várias regiões. Todas as gravações no Azure Cosmos DB são permanentemente confirmadas em discos locais por um quorum de réplicas em um data center local antes de serem confirmadas no cliente. Observe que a alta disponibilidade do Cosmos DB se baseia no armazenamento local e não depende de nenhuma tecnologia de armazenamento externo. Além disso, se sua conta de banco de dados está associada a mais de uma região do Azure, suas gravações são replicadas em outras regiões também. Para dimensionar seus dados de produtividade e acesso em latências menores, você pode ter quantas regiões de leitura associadas à sua conta de banco de dados quantas quiser. Em cada região de leitura, os dados (replicados) são persistidos em um conjunto de réplicas.  
+O Cosmos DB foi desenvolvido para ser [distribuído globalmente](distribute-data-globally.md) – ele permite que você dimensione a produtividade em várias regiões do Azure, juntamente com failover controlado por política e APIs transparentes de hospedagem múltipla. O Azure Cosmos DB oferece [SLAs de disponibilidade de 99,99%](https://azure.microsoft.com/support/legal/sla/cosmos-db) para todas as contas de única região e todas as contas de várias regiões com consistência amena e 99,999% de disponibilidade de leitura em todas as contas de banco de dados de várias regiões. Todas as gravações no Azure Cosmos DB são permanentemente confirmadas em discos locais por um quorum de réplicas em um data center local antes de serem confirmadas no cliente. Observe que a alta disponibilidade do Cosmos DB se baseia no armazenamento local e não depende de nenhuma tecnologia de armazenamento externo. Além disso, se sua conta de banco de dados está associada a mais de uma região do Azure, suas gravações são replicadas em outras regiões também. Para dimensionar seus dados de produtividade e acesso em latências menores, você pode ter quantas regiões de leitura associadas à sua conta de banco de dados quantas quiser. Em cada região de leitura, os dados (replicados) são persistidos em um conjunto de réplicas.  
 
 Conforme ilustrado no diagrama a seguir, um único contêiner do Cosmos DB é [particionado horizontalmente](partition-data.md). Uma “partição” é indicada por um círculo no diagrama a seguir, e cada partição torna-se altamente disponível por meio de um conjunto de réplicas. Essa é a distribuição local dentro de uma única região do Azure (indicada pelo eixo X). Além disso, cada partição (com seu conjunto de réplicas correspondente) é distribuída globalmente entre várias regiões associadas à sua conta de banco de dados (por exemplo, neste caso, três regiões: Leste dos EUA, Oeste dos EUA e Índia Central). O "conjunto de partição" é uma entidade distribuída globalmente que consiste em várias cópias de seus dados em cada região (indicado pelo eixo Y). Você pode atribuir prioridade às regiões associadas à conta de banco de dados e o Cosmos DB fará failover de forma transparente para a próxima região em caso de desastre. Você pode simular o failover manualmente para testar a disponibilidade de ponta a ponta de seu aplicativo.  
 

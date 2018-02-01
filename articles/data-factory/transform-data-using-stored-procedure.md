@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de procedimento armazenado do SQL Server no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,14 +70,14 @@ Aqui está o formato JSON para definir uma Atividade de Procedimento Armazenado:
 
 A seguinte tabela descreve essas propriedades JSON:
 
-| Propriedade                  | Descrição                              | Obrigatório |
+| Propriedade                  | DESCRIÇÃO                              | Obrigatório |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nome da atividade                     | Sim      |
-| Descrição               | Texto que descreve qual a utilidade da atividade | Não       |
-| type                      | Para a atividade de procedimento armazenado, o tipo de atividade é SqlServerStoredProcedure | Sim      |
-| linkedServiceName         | Referência ao Banco de Dados SQL do Azure ou ao SQL Data Warehouse do Azure ou ao SQL Server registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
-| storedProcedureName       | Especifique o nome do procedimento armazenado no banco de dados SQL do Azure, no SQL Data Warehouse do Azure ou no banco de dados do SQL Server que é representado pelo serviço vinculado utilizado pela tabela de saída. | Sim      |
-| storedProcedureParameters | Especifique valores para parâmetros de procedimento armazenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para passar os valores de parâmetro e seu tipo nativo com suporte da fonte de dados. Se você precisar passar null para um parâmetro, use *"param1": { "value": null }* (todas as letras minúsculas). | Não       |
+| Nome                      | Nome da atividade                     | sim      |
+| Descrição               | Texto que descreve qual a utilidade da atividade | Não        |
+| Tipo                      | Para a atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | sim      |
+| linkedServiceName         | Referência ao **Banco de Dados SQL do Azure** ou ao **SQL Data Warehouse do Azure** ou ao **SQL Server** registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | sim      |
+| storedProcedureName       | Especifique o nome do procedimento armazenado para invocar. | sim      |
+| storedProcedureParameters | Especifique os valores para parâmetros de procedimento armazenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para passar os valores de parâmetro e seu tipo com suporte da fonte de dados. Se você precisar passar null para um parâmetro, use `"param1": { "value": null }` (tudo em letras minúsculas). | Não        |
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 

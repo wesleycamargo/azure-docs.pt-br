@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 O Banco de Dados SQL fornece essas opções para recuperação de banco de dados usando [backups automáticos de banco de dados](sql-database-automated-backups.md) e [backups de retenção de longo prazo](sql-database-long-term-retention.md). Você pode restaurar de um backup de banco de dados para:
@@ -90,7 +90,7 @@ Para recuperar para um ponto no tempo usando o Portal do Azure, abra a página d
 ![restauração pontual](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Restauração de banco de dados excluído
-Você pode restaurar um banco de dados excluído para o momento da exclusão de um banco de dados excluído no mesmo servidor lógico usando o Portal do Azure, o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Você pode restaurar um banco de dados excluído para o momento da exclusão de um banco de dados excluído no mesmo servidor lógico usando o Portal do Azure, o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). Você pode restaurar um banco de dados excluído em um ponto anterior durante a retenção usando o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!TIP]
 > Para obter um script de exemplo do PowerShell que mostra como restaurar um banco de dados excluído, consulte [Restaurar um banco de dados SQL usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -134,7 +134,7 @@ Para realizar a restauração geográfica de um banco de dados durante seu [per�
 Conforme discutido anteriormente, além do Portal do Azure, a recuperação de banco de dados pode ser realizada programaticamente usando o Azure PowerShell ou a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis.
 
 ### <a name="powershell"></a>PowerShell
-| Cmdlet | Descrição |
+| Cmdlet | DESCRIÇÃO |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém um ou mais bancos de dados. |
 | [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Obtém um banco de dados excluído que você pode restaurar. |
@@ -143,7 +143,7 @@ Conforme discutido anteriormente, além do Portal do Azure, a recuperação de b
 |  | |
 
 ### <a name="rest-api"></a>API REST
-| API | Descrição |
+| API | DESCRIÇÃO |
 | --- | --- |
 | [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Restaura um banco de dados |
 | [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Retorna o status durante uma operação de restauração |

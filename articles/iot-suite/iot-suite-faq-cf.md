@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Perguntas frequentes sobre a solução pré-configurada de fábrica conectada do IoT Suite
 
@@ -117,7 +117,7 @@ A simulação registra automaticamente os seguintes dispositivos:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Usando o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou a ferramenta [iothub-explorer](https://github.com/azure/iothub-explorer), verifique quais dispositivos estão registrados no hub IoT usado pela solução. Para usar essas ferramentas, você precisa da cadeia de conexão do hub IoT na implantação.
+Usando o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou a ferramenta [a extensão IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension), verifique quais dispositivos estão registrados no hub IoT usado pela solução. Para usar o gerenciador de dispositivos, você precisa da cadeia de conexão do hub IoT na implantação. Para usar a extensão de IoT do Azure CLI 2.0, é necessário o nome do Hub IoT.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Como obter dados de log dos componentes da simulação?
 
@@ -146,9 +146,15 @@ Caso você não veja nenhum dado enviado para o Hub IoT, há um problema com a s
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Como habilitar um mapa interativo na minha solução de Alocador conectado?
 
-Para habilitar um mapa interativo em sua solução de Alocador conectado, deve ter uma API existente do Bing Maps para o plano Enterprise. Se você tiver uma API do Bing Maps para o plano Enterprise ao implantar a solução de Alocador conectado no site www.azureiotsuite.com, o mapa interativo será habilitado automaticamente para você.
+Para habilitar um mapa interativo em sua solução de Alocador conectado, deve ter uma API existente do Bing Maps para o plano Enterprise.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Como criar uma API do Bing Maps para a conta Enterprise?
+Durante a implantação de [www.azureiotsuite.com](http://www.azureiotsuite.com), o processo de implantação verifica se sua assinatura tem uma API do Bing Maps habilitado para o plano Enterprise e implanta automaticamente um mapa interativo no Alocador conectado. Se isso não for o caso, você poderá habilitar um mapa interativo em sua implantação da seguinte maneira:
+
+Quando você implanta usando o `build.ps1` script no repositório GitHub do Alocador conectado e você tem uma API do Bing Maps para o plano Enterprise, defina a variável de ambiente `$env:MapApiQueryKey` na janela de compilação para a chave de consulta do seu plano. O mapa interativo, em seguida, é habilitado automaticamente.
+
+Se você não tiver uma API do Bing Maps para o plano Enterprise, implante a solução de Alocador conectado de [www.azureiotsuite.com](http://www.azureiotsuite.com) ou usando o script `build.ps1`. Em seguida, adicione uma API do Bing Maps para o plano Enterprise à sua assinatura, conforme explicado em [Como criar uma API do Bing Maps para a conta Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Pesquise a chave de consulta dessa conta conforme explicado em [Como obter a API do Bing Maps para Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e salve essa chave. Navegue até o portal do Azure e acesse o recurso de serviço de aplicativo em sua implantação de Alocador conectado. Navegue até **Configurações do aplicativo**, onde você pode encontrar uma seção **Configurações do aplicativo**. Defina o **MapApiQueryKey** para a chave de consulta que você obteve. Salvar as configurações e, em seguida, navegue até **Visão geral** e reinicie o serviço de aplicativo.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Como criar uma API do Bing Maps para a conta Enterprise
 
 Você pode obter um plano gratuito do *Bing Maps for Enterprise do Nível 1 das transações internas*. No entanto, você só pode adicionar dois desses planos a uma assinatura do Azure. Se você não tiver uma API do Bing Maps para a conta Enterprise, crie uma no portal do Azure clicando em **+ Criar um recurso**. Em seguida, procure por **API do Bing Maps for Enterprise** e siga os prompts para criá-la.
 

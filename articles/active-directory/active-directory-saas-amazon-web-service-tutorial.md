@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o AWS (Amazon Web Services)
 
@@ -32,7 +32,7 @@ A integração do AWS (Amazon Web Services) ao Azure AD oferece os seguintes ben
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o AWS (Amazon Web Services), você precisa dos seguintes itens:
 
@@ -131,6 +131,8 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
     c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+
+    d. Na caixa de texto **Namespace**, digite o valor de namespace mostrado para essa linha.
     
     d. Clique em **OK**.
 
@@ -218,7 +220,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 21. Use as credenciais de conta de serviço AWS para buscar as funções da conta AWS no Provisionamento de Usuário do Microsoft Azure AD. Para isso, abra a página inicial do console AWS.
 
-22. Clique em **Serviços** -> **Segurança, identidade e conformidade** -> **IAM**.
+22. Clique em **Serviços** -> **Segurança, Identidade e Conformidade** -> **IAM**.
 
     ![buscando as funções da conta AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
@@ -230,19 +232,13 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Crie sua própria política para buscar todas as funções de contas AWS. Na seção **Criar sua própria política** clique no botão **Selecionar**.
-    
+25. Crie sua própria política para buscar todas as funções de contas AWS, executando as seguintes etapas:
+
     ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Defina a nova política executando as etapas a seguir:
+    a. Na seção **"Criar a política"** clique na guia **"JSON"**.
 
-    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. Forneça o **Nome da política** como **AzureAD_SSOUserRole_Policy**.
-
-    b. Você pode fornecer **Descrição** para a política como **Essa política permitirá buscar as funções de contas AWS**.
-    
-    c. No documento de política, adicione o JSON abaixo.
+    b. No documento de política, adicione o JSON abaixo.
     
     ```
     
@@ -271,13 +267,21 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     }
     
     ```
+
+    c. Clique no **botão Examinar política** para validar a política.
+
+    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Defina a **nova política** executando as etapas a seguir:
+
+    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. Forneça o **Nome da política** como **AzureAD_SSOUserRole_Policy**.
+
+    b. Você pode fornecer **Descrição** para a política como **Essa política permitirá buscar as funções de contas AWS**.
     
-    d. Certifique-se de verificar em **Usar formatação automática para edição de política**.
-    
-    e. Clique no botão **Validar política** na parte inferior.
-    
-    f. Depois que a política for validada corretamente você pode clicar no botão **Criar política**.
-    
+    c. Clique no botão **"Criar política"**.
+        
 27. Crie uma nova conta de usuário no serviço de IAM do AWS executando as etapas a seguir:
 
     a. Clique na navegação **Usuários** no console IAM do AWS.

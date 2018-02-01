@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 01/16/2018
 ms.author: damaerte
-ms.openlocfilehash: 31ba4b68850e14fc038df0bbe91146b90f8ca4b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1113589507934d814bc8924267c07c99f8864657
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Recursos e ferramentas para o PowerShell no Azure Cloud Shell (versão prévia)
 
@@ -91,7 +91,7 @@ Esses comandos são criados em cima de comunicação remota do PowerShell e exig
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Ferramentas do Azure     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [CLI do Azure (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
+|Ferramentas do Azure     |[Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [CLI do Azure (2.0.25)](https://docs.microsoft.com/cli/azure/overview)|
 |Editores de texto    |vim<br> nano                             |
 |Gerenciador de Pacotes |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Controle do código-fonte  |git                                      |

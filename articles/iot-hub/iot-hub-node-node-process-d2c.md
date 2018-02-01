@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e6a22e9989bfe7064ead1c5598e9c68d4a929b07
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Roteamento de mensagens com o Hub IoT (nó)
 
@@ -89,7 +89,7 @@ Nesta seção, você modificará o aplicativo de dispositivo criado no tutorial 
     };
     ```
    
-    Esse método adiciona aleatoriamente as propriedades `"level": "critical"` e `"level": "storage"` a mensagens enviadas pelo dispositivo, que simula uma mensagem que exige ação imediata do back-end do aplicativo ou de um que precise ser armazenado permanentemente. O aplicativo passa essas informações nas propriedades da mensagem, e não no corpo da mensagem, de modo que o Hub IoT pode rotear a mensagem para o destino apropriado.
+    Esse método adiciona aleatoriamente as propriedades `"level": "critical"` e `"level": "storage"` a mensagens enviadas pelo dispositivo, que simula uma mensagem que exige ação imediata do back-end do aplicativo ou de um que precise ser armazenado permanentemente. O aplicativo é compatível com o roteamento de mensagens baseado no corpo da mensagem.
    
    > [!NOTE]
    > Você pode usar as propriedades a fim de direcionar as mensagens para vários cenários, incluindo processamento de ampliação, além do exemplo de afunilamento mostrado aqui.

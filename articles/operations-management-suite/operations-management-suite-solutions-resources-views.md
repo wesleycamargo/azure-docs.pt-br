@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Exibições nas soluções de gerenciamento do OMS (Operations Management Suite) (Preview)
 > [!NOTE]
@@ -33,7 +33,7 @@ As [soluções de gerenciamento no OMS (Operations Management Suite)](operations
 >
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este artigo pressupõe que você já esteja familiarizado com o modo para [criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md) e com a estrutura de um arquivo de solução.
 
 ## <a name="overview"></a>Visão geral
@@ -75,11 +75,10 @@ Adicione o seguinte recurso de exibição ao elemento **resources** do seu arqui
 
 Adicione as variáveis a seguir ao elemento de variáveis do arquivo de solução e substitua os valores pelos da solução.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Observe que você poderá copiar todo o recurso de exibição do arquivo de exibição exportado, mas precisará fazer as seguintes alterações para que ele funcione em sua solução.  
 
@@ -89,6 +88,18 @@ Observe que você poderá copiar todo o recurso de exibição do arquivo de exib
 * A propriedade **DisplayName** precisa ser adicionada à exibição.  **Id**, **Name** e **DisplayName** devem ser compatíveis.
 * Os nomes dos parâmetros devem ser alterados para coincidirem com o conjunto de parâmetros exigido.
 * As variáveis devem ser definidas na solução e usadas nas propriedades adequadas.
+
+### <a name="log-analytics-api-version"></a>Versão da API do Log Analytics
+Todos os recursos do Log Analytics definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Essa versão é diferente para os modos de exibição com filas que usam o [formato herdado e a linguagem de consulta atualizados](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ A tabela a seguir especifica as versões de API de Log Analytics para modos de exibição em espaços de trabalho herdados e atualizados: 
+
+| Versão do espaço de trabalho | Versão da API | Consultar |
+|:---|:---|:---|
+| v1 (herdado)   | 2015-11-01-preview | Formato herdado.<br> Exemplo: Type=Event EventLevelName = Erro  |
+| v2 (atualizado) | 2015-11-01-preview | Formato herdado.  Convertido para o formato atualizado na instalação.<br> Exemplo: Type=Event EventLevelName = Erro<br>Convertido para: Event &#124; onde EventLevelName == “Erro”  |
+| v2 (atualizado) | 2017-03-03-versão prévia | Formato de atualização. <br>Exemplo: Event &#124; onde EventLevelName == “Erro”  |
+
 
 ## <a name="add-the-view-details"></a>Adicionar os detalhes de exibição
 O recurso de exibição no arquivo de exibição exportado terá dois elementos no elemento **properties** chamados **Dashboard** e **OverviewTile**, que terão a configuração detalhada da exibição.  Copie esses dois elementos e seus conteúdos no elemento **properties** do recurso de exibição em seu arquivo de solução.

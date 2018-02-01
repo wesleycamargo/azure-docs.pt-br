@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 06/14/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 04d1d226093f131a521f32f47c333ff9aefc6f3b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8e132e4d4a65588d57e3cfb969e785f5a164206c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizar o conteúdo de uma pasta de nuvem para o Serviço de Aplicativo do Azure
-Este tutorial mostra como implantar o [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) sincronizando o conteúdo de serviços populares de armazenamento em nuvem como o Dropbox e o OneDrive. 
+Este tutorial mostra como sincronizar seu conteúdo para o [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) de serviços populares de armazenamento em nuvem como o Dropbox e o OneDrive. 
 
 ## <a name="overview"></a>Visão geral da implantação de sincronização de conteúdo
-A implantação de sincronização de conteúdo sob demanda é proveniente da plataforma do [mecanismo de implantação do Kudu](https://github.com/projectkudu/kudu/wiki) integrado ao Serviço de Aplicativo. No [Portal do Azure](https://portal.azure.com), é possível designar uma pasta em seu armazenamento em nuvem, trabalhar com o código e o conteúdo do aplicativo nessa pasta e sincronizá-la com o Serviço de Aplicativo com apenas um clique. A sincronização de conteúdo utiliza o processo do Kudu para build e implantação. 
+A implantação de sincronização de conteúdo sob demanda é proveniente da plataforma do [mecanismo de implantação do Kudu](https://github.com/projectkudu/kudu/wiki) integrado ao Serviço de Aplicativo. No [portal do Azure](https://portal.azure.com), é possível designar uma pasta em seu armazenamento em nuvem, trabalhar com o código e o conteúdo do aplicativo nessa pasta e sincronizá-la com o Serviço de Aplicativo com apenas um clique. A sincronização de conteúdo utiliza o processo do Kudu para build e implantação. 
 
 ## <a name="contentsync"></a>Como habilitar a implantação de sincronização de conteúdo
-Para habilitar a sincronização de conteúdo por meio do [Portal do Azure](https://portal.azure.com), siga estas etapas:
+Para habilitar a sincronização de conteúdo por meio do [portal do Azure](https://portal.azure.com), siga estas etapas:
 
-1. Na folha do aplicativo no Portal do Azure, clique em **Configurações** > **Origem da Implantação**. Clique em **Escolher Origem** e selecione **OneDrive** ou **Dropbox** como a origem da implantação. 
+1. Na página do aplicativo no portal do Azure, clique em **Configurações** > **Origem da Implantação**. Clique em **Escolher Origem** e selecione **OneDrive** ou **Dropbox** como a origem da implantação. 
    
     ![Sincronização de conteúdo](./media/app-service-deploy-content-sync/deployment_source.png)
    
@@ -37,12 +37,11 @@ Para habilitar a sincronização de conteúdo por meio do [Portal do Azure](http
    > Devido a diferenças subjacentes nas APIs, o **OneDrive for Business** não tem suporte no momento. 
    > 
    > 
-2. Conclua o fluxo de trabalho de autorização para permitir que o Serviço de Aplicativo acesse um caminho designado predefinido específico para o OneDrive ou Dropbox no qual todo o conteúdo do Serviço de Aplicativo será armazenado.  
-    Após a autorização, a plataforma do Serviço de Aplicativo lhe dará a opção de criar uma pasta de conteúdo no caminho de conteúdo designado ou escolher uma pasta de conteúdo existente nesse caminho de conteúdo designado. Os caminhos de conteúdo designados em suas contas de armazenamento em nuvem usados para a sincronização do Serviço de Aplicativo são os seguintes:  
+2. Conclua o fluxo de trabalho de autorização para permitir que o Serviço de Aplicativo acesse um caminho designado predefinido específico para o OneDrive ou Dropbox no qual todo o conteúdo do Serviço de Aplicativo é armazenado. Após a autorização, a plataforma do Serviço de Aplicativo lhe dá a opção de criar uma pasta de conteúdo no caminho de conteúdo designado ou escolher uma pasta de conteúdo existente nesse caminho de conteúdo designado. Os caminhos de conteúdo designados em suas contas de armazenamento em nuvem usados para a sincronização do Serviço de Aplicativo são os seguintes:  
    
    * **OneDrive**: `Apps\Azure Web Apps` 
    * **Dropbox**: `Dropbox\Apps\Azure`
-3. Após a sincronização inicial de conteúdo, a sincronização de conteúdo poderá ser iniciada sob demanda no portal do Azure. O histórico de implantação está disponível na folha **Implantações** .
+3. Após a sincronização inicial de conteúdo, a sincronização de conteúdo poderá ser iniciada sob demanda no portal do Azure. O histórico de implantação está disponível na página **Implantações**.
    
     ![Histórico de implantação](./media/app-service-deploy-content-sync/onedrive_sync.png)
 

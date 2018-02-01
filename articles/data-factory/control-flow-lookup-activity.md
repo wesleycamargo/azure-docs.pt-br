@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 3c4f401682e5d1789c6e15597ced145a230bbcd6
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 Você pode usar a atividade de pesquisa para ler ou procurar um registro, nome de tabela ou valor de qualquer fonte externa. Essa saída pode referenciada pelas atividades com êxito. 
@@ -36,6 +36,8 @@ Atualmente, há suporte para as seguintes fontes de dados para a pesquisa:
 - SQL Data Warehouse do Microsoft Azure (dados JSON convertidos da consulta)
 - SQL Server (dados JSON convertidos da consulta)
 - Armazenamento de Tabelas do Azure (dados JSON convertidos da consulta)
+
+O número máximo de linhas retornadas pela atividade de pesquisa é **5000**e até **10MB** em tamanho.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -60,8 +62,8 @@ Atualmente, há suporte para as seguintes fontes de dados para a pesquisa:
 ## <a name="type-properties"></a>Propriedades de tipo
 NOME | DESCRIÇÃO | type | Obrigatório?
 ---- | ----------- | ---- | --------
-dataset | Fornece a referência de conjunto de dados para a pesquisa. Atualmente, os tipos de conjunto de dados com suporte são:<ul><li>`AzureBlobDataset` para [armazenamento de Blob do Azure](connector-azure-blob-storage.md#dataset-properties) como fonte</li><li>`FileShareDataset` para [Sistema de Arquivos](connector-file-system.md#dataset-properties) como fonte</li><li>`AzureSqlTableDataset` para [Banco de Dados SQL do Azure](connector-azure-sql-database.md#dataset-properties) ou [SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md#dataset-properties) como fonte</li><li>`SqlServerTable` para [SQL Server](connector-sql-server.md#dataset-properties) coo fonte</li><li>`AzureTableDataset` para [armazenamento de Tabela do Azure](connector-azure-table-storage.md#dataset-properties) como fonte</li> | Pares chave/valor | Sim
-fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade de cópia. Obtenha detalhes da seção "Copiar as propriedades da atividade" em cada artigo de conector correspondente. | Pares chave/valor | Sim
+dataset | Fornece a referência de conjunto de dados para a pesquisa. Atualmente, os tipos de conjunto de dados com suporte são:<ul><li>`AzureBlobDataset` para [armazenamento de Blob do Azure](connector-azure-blob-storage.md#dataset-properties) como fonte</li><li>`FileShareDataset` para [Sistema de Arquivos](connector-file-system.md#dataset-properties) como fonte</li><li>`AzureSqlTableDataset` para [Banco de Dados SQL do Azure](connector-azure-sql-database.md#dataset-properties) ou [SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md#dataset-properties) como fonte</li><li>`SqlServerTable` para [SQL Server](connector-sql-server.md#dataset-properties) coo fonte</li><li>`AzureTableDataset` para [armazenamento de Tabela do Azure](connector-azure-table-storage.md#dataset-properties) como fonte</li> | Pares chave/valor | sim
+fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade de cópia. Obtenha detalhes da seção "Copiar as propriedades da atividade" em cada artigo de conector correspondente. | Pares chave/valor | sim
 firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | BOOLEAN | Nº O padrão é `true`.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Usar o resultado da atividade de pesquisa em uma atividade subsequente

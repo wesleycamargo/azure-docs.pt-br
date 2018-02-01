@@ -4,8 +4,8 @@ description: "Tutorial de introdução da solução de IoT Stream Analytics de u
 keywords: "solução de iot, funções da janela"
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
+
 ## <a name="introduction"></a>Introdução
 Neste tutorial, você aprenderá a usar o Stream Analytics do Azure para aprofundar-se em seus dados em tempo real. Os desenvolvedores podem facilmente combinar fluxos de dados, como fluxos de cliques, logs e eventos gerados pelo dispositivo, com registros históricos ou dados de referência para gerar insights comerciais. Como um serviço de computação de fluxo em tempo real totalmente gerenciado e hospedado no Microsoft Azure, o Stream Analytics do Azure fornece resiliência interna, baixa latência e escalabilidade para você colocar tudo em funcionamento em minutos.
 
@@ -33,7 +34,7 @@ Depois de concluir este tutorial, você poderá:
 * Desenvolver com confiança soluções de transmissão para seus clientes usando o Stream Analytics do Azure.
 * Use o monitoramento e experiência de log para solucionar problemas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 * A versão mais recente do [Azure PowerShell](/powershell/azure/overview)
@@ -65,7 +66,7 @@ O fluxo de dados de entrada contém informações sobre os carros que entram nas
 
 Aqui está uma breve descrição das colunas:
 
-| Coluna | Descrição |
+| Coluna | DESCRIÇÃO |
 | --- | --- |
 | TollID |A ID da cabine de pedágio que identifica exclusivamente uma cabine de pedágio |
 | EntryTime |A data e hora da entrada do veículo na cabine de pedágio no horário UTC |
@@ -92,7 +93,7 @@ O fluxo de dados de saída contém informações sobre os carros que estão sain
 
 Aqui está uma breve descrição das colunas:
 
-| Coluna | Descrição |
+| Coluna | DESCRIÇÃO |
 | --- | --- |
 | TollID |A ID da cabine de pedágio que identifica exclusivamente uma cabine de pedágio |
 | ExitTime |A data e hora de saída do veículo da cabine de pedágio no horário UTC |
@@ -112,7 +113,7 @@ Este tutorial usa um instantâneo estático de um banco de dados de registro de 
 
 Aqui está uma breve descrição das colunas:
 
-| Coluna | Descrição |
+| Coluna | DESCRIÇÃO |
 | --- | --- |
 | PlacaDeCarro |O número da placa de licença do veículo |
 | RegistrationId |A ID de registro do veículo |
@@ -175,24 +176,11 @@ Você também verá outra janela semelhante à captura de tela a seguir. Este ap
 Agora, você deverá ver todos os recursos no portal do Azure. Vá para <https://portal.azure.com> e entre com as credenciais de sua conta. Observe que, no momento, algumas funcionalidades utilizam o portal clássico. Essas etapas serão indicadas claramente.
 
 ### <a name="azure-event-hubs"></a>Hubs de eventos do Azure
-No portal do Azure, clique em **Mais serviços** na parte inferior do painel de gerenciamento esquerdo. Digite **Hubs de eventos** no campo fornecido e clique em **Hubs de eventos**. Isso iniciará uma nova janela do navegador para exibir a área **BARRAMENTO DE SERVIÇO** no **portal clássico**. Aqui você pode ver o Hub de Eventos criado pelo script Setup.ps1.
 
-![Barramento de Serviço](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-Clique naquele que começa com *tolldata*. Clique na guia **HUBS DE EVENTOS** . Você verá dois Hubs de Eventos chamados *entry* e *exit* criados nesse namespace.
-
-![Guia Hubs de Eventos no portal clássico](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+A partir do portal do Azure, clique em **Mais serviços** na parte inferior do painel de gerenciamento esquerdo. Digite **hubs de eventos** no campo fornecido, você pode ver um novo namespace de hub de eventos que começa com **tolldata**. Este namesapce é criado pelo script Setup.ps1. Você verá dois Hubs de Eventos chamados **entry** e **exit** criados nesse namespace.
 
 ### <a name="azure-storage-container"></a>Contêiner de armazenamento do Azure
-1. Volte à guia aberta no navegador para o portal do Azure. Clique em **ARMAZENAMENTO** no lado esquerdo do portal do Azure para ver o contêiner de Armazenamento do Azure usado no tutorial.
-   
-    ![Item de menu de armazenamento](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Clique naquele que começa com *tolldata*. Clique na guia **CONTÊINERES** para ver o contêiner criado.
-   
-    ![Guia Contêineres no portal do Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Clique no contêiner **tolldata** para ver o arquivo JSON carregado com os dados de registro de veículos.
-   
-    ![Captura de tela do arquivo registration.json no contêiner](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+A partir do portal do Azure, acesse as contas de armazenamento, você deve ver uma conta de armazenamento que começa com **tolldata**. Clique no contêiner **tolldata** para ver o arquivo JSON carregado com os dados de registro de veículos.
 
 ### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 1. Volte ao portal do Azure na primeira guia que foi aberta no navegador. Clique em **BANCOS DE DADOS SQL** no lado esquerdo do portal do Azure para ver o banco de dados SQL que será usado no tutorial e clique em **tolldatadb**.

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Perguntas frequentes e problemas conhecidos sobre a nova pesquisa de logs do Log Analytics
 
@@ -148,10 +148,10 @@ A Solução de backup poderá não coletar dados se tiver sido instalada antes d
 ## <a name="upgrade-process"></a>Processo de atualização
 
 ### <a name="question-i-have-several-workspaces-can-i-upgrade-all-workspaces-at-the-same-time"></a>Pergunta: Tenho vários espaços de trabalho. Posso atualizar todos os espaços de trabalho ao mesmo tempo?  
-Não.  A atualização se aplica a um único espaço de trabalho por vez. Atualmente não há nenhuma maneira de atualizar vários espaços de trabalho ao mesmo tempo. Observe que outros usuários do espaço de trabalho atualizado também serão afetados.  
+Nº  A atualização se aplica a um único espaço de trabalho por vez. Atualmente não há nenhuma maneira de atualizar vários espaços de trabalho ao mesmo tempo. Observe que outros usuários do espaço de trabalho atualizado também serão afetados.  
 
 ### <a name="question-will-existing-log-data-collected-in-my-workspace-be-modified-if-i-upgrade"></a>Pergunta: os dados de logs existentes coletados em meu espaço de trabalho serão modificados se eu fizer o upgrade?  
-Não. Os dados de log disponíveis para as pesquisas de espaço de trabalho não são afetados pela atualização. Pesquisas salvas, alertas e modos de exibição serão convertidos para a nova linguagem de pesquisa automaticamente.  
+Nº Os dados de log disponíveis para as pesquisas de espaço de trabalho não são afetados pela atualização. Pesquisas salvas, alertas e modos de exibição serão convertidos para a nova linguagem de pesquisa automaticamente.  
 
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Pergunta: o que acontecerá se eu não fizer o upgrade de meu espaço de trabalho?  
 A pesquisa de logs herdada será preterida nos próximos meses. Os espaços de trabalho que não forem atualizados até lá serão atualizados automaticamente.
@@ -160,11 +160,10 @@ A pesquisa de logs herdada será preterida nos próximos meses. Os espaços de t
 Antes da disponibilidade geral, você podia reverter o seu espaço de trabalho após o upgrade.  Agora que a nova linguagem atingiu a disponibilidade geral, esse recurso foi removido porque começamos a desativar a plataforma herdada.
 
 
-
 ## <a name="views"></a>Modos de exibição
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Pergunta: Como fazer para criar uma nova exibição com o Designer de Exibição?
-Antes do upgrade, era possível criar uma nova exibição com o Designer de Exibição por meio de um bloco no painel principal.  Quando o espaço de trabalho é atualizado, esse bloco é removido.  Crie uma nova exibição com o Designer de Exibição no portal do OMS clicando no botão + verde no menu à esquerda.
+Antes do upgrade, era possível criar uma nova exibição com o Designer de Exibição por meio de um bloco no painel principal no portal do OMS.  Quando o espaço de trabalho é atualizado, esse bloco é removido.  Crie uma nova exibição com o Designer de Exibição no portal do OMS clicando no botão + verde no menu à esquerda.  Você continua a criar uma nova exibição com o Portal do Azure, clicando no bloco Designer de Exibição.
 
 
 ## <a name="next-steps"></a>Próximas etapas

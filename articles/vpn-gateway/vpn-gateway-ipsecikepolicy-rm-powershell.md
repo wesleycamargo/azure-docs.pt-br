@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política de IPsec/IKE para conexões VPN S2S ou VNet para VNet
 
@@ -195,20 +195,13 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 O script de exemplo a seguir cria uma política de IPsec/IKE com os parâmetros e os algoritmos seguintes:
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS Nenhum, Tempo de Vida da SA de 7200 segundos e 102400000 KB
+* IPsec: AES256, SHA256, PFS Nenhum, Tempo de Vida da SA de 14400 segundos e 102400000 KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-Se você usar GCMAES para IPsec, deverá usar o mesmo algoritmo GCMAES e comprimento de chave tanto para criptografia quanto para integridade IPsec, por exemplo:
-
-* IKEv2: AES256, SHA384, DHGroup24
-* IPsec: **GCMAES256, GCMAES256**, PFS Nenhum, Tempo de Vida da SA de 7200 segundos e 102400000 KB
-
-```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
-```
+Se você usar GCMAES para IPsec, deverá usar o mesmo algoritmo GCMAES e comprimento de chave tanto para criptografia quanto para integridade IPsec. Por o exemplo acima, os parâmetros correspondentes serão "-IpsecEncryption GCMAES256 - IpsecIntegrity GCMAES256" ao usar GCMAES256.
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Criar a nova conexão de VPN S2S com a política de IPsec/IKE
 
@@ -288,10 +281,10 @@ Semelhante à conexão VPN S2S, criar uma política de IPsec/IKE e em seguida ap
 
 O script de exemplo a seguir cria uma política de IPsec/IKE diferente com os parâmetros e os algoritmos seguintes:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, tempo de vida do SA 7200 segundos e 4096KB
+* IPsec: GCMAES128, GCMAES128, PFS14, tempo de vida do SA 14400 segundos e 102400000KB
 
 ```powershell
-$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 4096
+$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. Criar conexões VNet para VNet com a política de IPsec/IKE
@@ -342,8 +335,8 @@ $connection6.IpsecPolicies
 O último comando lista a atual política de IPsec/IKE configurada sobre a conexão, se houver alguma. A saída de exemplo a seguir é para a conexão:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
 IpsecEncryption     : AES256
 IpsecIntegrity      : SHA256
 IkeEncryption       : AES256
@@ -363,7 +356,7 @@ $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
-$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup None -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
+$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
@@ -384,13 +377,13 @@ $connection6.IpsecPolicies
 Você deve ver a saída da última linha, conforme mostrado no exemplo abaixo:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
-IpsecEncryption     : GCMAES128
-IpsecIntegrity      : GCMAES128
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption     : AES256
+IpsecIntegrity      : SHA256
 IkeEncryption       : AES128
 IkeIntegrity        : SHA1
-DhGroup             : DHGroup14--
+DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 

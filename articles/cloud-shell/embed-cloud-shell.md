@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 78b539136971aa282e5447d7882ecb02f73f346b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="embed-azure-cloud-shell"></a>Inserir o Azure Cloud Shell
 
 Inserir o Azure Cloud Shell permite que desenvolvedores e gravadores de conteúdo abram diretamente o Azure Cloud Shell a partir de uma URL dedicada, [shell.azure.com](https://shell.azure.com). Isso fornece de imediato o controle total da autenticação do Azure Cloud Shell, das ferramentas e atualizações das ferramentas do Azure PowerShell/CLI do Azure a seus usuários.
 
+Botão de tamanho regular
+
 [![](https://shell.azure.com/images/launchcloudshell.png "Inicializar o Azure Cloud Shell")](https://shell.azure.com)
+
+Botão de tamanho grande
+
+[![](https://shell.azure.com/images/launchcloudshell@2x.png "Inicializar o Azure Cloud Shell")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Instruções
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 350c7784da1abb24df4ccd292cad28f73f3f8c0c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6265c6b72e37f5f25234c03080b2d5e6c5533cd1
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Implantar pacotes do SQL Server Integration Services no Azure
 Este tutorial fornece etapas para o provisionamento de um Integration Runtime (IR) do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SSDT (SQL Server Data Tools) ou o SSMS (SQL Server Management Studio) para implantar pacotes do SSIS (SQL Server Integration Services) para esse tempo de execução no Azure. Neste tutorial, você executa as seguintes etapas:
@@ -38,6 +38,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 - **Servidor de banco de dados SQL do Azure**. Se você ainda não tiver um servidor de banco de dados, crie um no Portal do Azure antes de começar. Este servidor hospeda o SSISDB (banco de dados do Catálogo do SSIS). É recomendável que você crie o servidor de banco de dados na mesma região do Azure que a do Integration Runtime. Essa configuração permite que o Integration Runtime grave logs de execução SSISDB sem cruzar regiões do Azure. 
     - Confirme se a configuração “**Permitir acesso aos serviços do Azure**” está **ATIVADA** para o servidor do banco de dados. Para saber mais, confira [Proteger seu banco de dados SQL do Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Para habilitar essa configuração usando o PowerShell, veja [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
     - Adicione o endereço IP do computador cliente ou um intervalo de endereços IP que inclua o endereço IP do computador cliente à lista de endereços IP do cliente nas configurações do firewall para o servidor de banco de dados. Para saber mais, confira [Regras de firewall no nível do servidor e no nível do banco de dados do Banco de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md). 
+    - Confirme que o servidor do Banco de Dados SQL não tem um Catálogo SSIS (Banco de dados SSIDB). O provisionamento do Azure-SSIS IR não oferece suporte ao uso de um Catálogo SSIS existente. 
 - **PowerShell do Azure**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps). Você usa o PowerShell para executar um script para provisionar um Integration Runtime do Azure-SSIS que executa pacotes do SSIS na nuvem. 
 
 > [!NOTE]
@@ -62,11 +63,11 @@ $DataFactoryLocation = "EastUS"
 $AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 $AzureSSISLocation = "EastUS" 
- # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+# In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -204,7 +205,9 @@ O script do PowerShell nesta seção configura uma instância de Integration Run
 5. Execute o script. O comando `Start-AzureRmDataFactoryV2IntegrationRuntime` próximo ao final do script é executado por **20 a 30 minutos**.
 
 > [!NOTE]
-> O script se conecta ao Banco de Dados SQL do Azure para preparar o SSISDB (banco de dados do catálogo do SSIS). O script também configura permissões e configurações para sua VNet, se especificadas, e ingressa a nova instância de Integration Runtime do Azure-SSIS na VNet.
+> - O script se conecta ao Banco de Dados SQL do Azure para preparar o SSISDB (banco de dados do catálogo do SSIS). O script também configura permissões e configurações para sua VNet, se especificadas, e ingressa a nova instância de Integration Runtime do Azure-SSIS na VNet.
+> - Quando você provisiona uma instância do Banco de Dados SQL para hospedar o SSISDB, o Azure Feature Pack para SSIS e o Acesso Redistribuível também são instalados. Esses componentes fornecem conectividade para arquivos do Excel e do Access e para várias fontes de dados do Azure, além das fontes de dados com suporte dos componentes internos. No momento, não é possível instalar componentes de terceiros para SSIS (incluindo os componentes de terceiros da Microsoft, como os componentes do Oracle e Teradata da Attunity, e os componentes de BI SAP).
+
 
 Para obter uma lista de **tipos de preços** com suporte para o Banco de Dados SQL do Azure, veja [Limites de recursos de Banco de Dados SQL](../sql-database/sql-database-resource-limits.md). 
 
@@ -224,10 +227,10 @@ $AzureSSISName = "<Specify a name for your Azure-SSIS (IR)>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 $AzureSSISLocation = "EastUS" 
  # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -288,7 +291,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-vnet"></a>Unir um IR do Azure-SSIS a uma VNet
-Se você usar uma Instância Gerenciada do SQL do Azure (visualização particular) para hospedar o catálogo do SQL Server Integration Services (SSIS) dentro de uma rede virtual (VNet), você também deve associar o tempo de execução de integração do Azure-SSIS à mesma rede virtual. O Azure Data Factory versão 2 (versão prévia) permite que você una o tempo de execução de integração do Azure-SSIS a uma VNet clássica. Para obter mais informações, consulte [Ingressar o tempo de execução do Azure-SSIS em uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
+Se você usar uma Instância Gerenciada do SQL do Azure (visualização particular) para hospedar o catálogo do SQL Server Integration Services (SSIS) dentro de uma rede virtual (VNet), você também deve associar o tempo de execução de integração do Azure-SSIS à mesma rede virtual. O Azure Data Factory versão 2 (versão prévia) permite que você una o tempo de execução de integração do Azure-SSIS a uma VNet. Para obter mais informações, consulte [Ingressar o tempo de execução do Azure-SSIS em uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 
 Veja um script completo para criar um tempo de execução do SSIS do Azure que uma VNet em [criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md).
 

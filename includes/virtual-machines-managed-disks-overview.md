@@ -53,14 +53,14 @@ Estes são os tamanhos de disco disponíveis para um disco gerenciado premium:
 
 | **Tipo de Premium Managed <br>Disk** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Tamanho do disco        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Tamanho do disco        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 Estes são os tamanhos de disco disponíveis para um disco gerenciado padrão:
 
 | **Tipo de Standard Managed <br>Disk** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Tamanho do disco        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Tamanho do disco        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Número de transações**: você será cobrado pelo número de transações executadas em um disco gerenciado padrão. Não há custo para transações de um disco gerenciado premium.
@@ -72,7 +72,7 @@ Para obter informações detalhadas sobre os preços para Managed Disks, confira
 
 ## <a name="managed-disk-snapshots"></a>Instantâneos de disco gerenciado
 
-Um Instantâneo Gerenciado é uma cópia completa somente leitura de um disco gerenciado que, por padrão, é armazenado como um disco gerenciado padrão. Com os instantâneos, você pode fazer backup de seus discos gerenciados a qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos Managed Disks. Eles são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GB e tamanho real de dados usados de 10 GB, o instantâneo será cobrado somente pelo tamanho dos dados usados de 10 GB.  
+Um Instantâneo Gerenciado é uma cópia completa somente leitura de um disco gerenciado que, por padrão, é armazenado como um disco gerenciado padrão. Com os instantâneos, você pode fazer backup de seus discos gerenciados a qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos Managed Disks. Eles são cobrados com base no tamanho usado. Se você criar um instantâneo de um disco gerenciado com capacidade de aprovisionamento de 64 GiB e tamanho de dados usados atual de 10GiB, o instantâneo será orçado somente para o tamanho de dados usados de 10 GiB.  
 
 [Instantâneos incrementais](../articles/virtual-machines/windows/incremental-snapshots.md) não têm suporte no momento para o Managed Disks, mas terão suporte no futuro.
 

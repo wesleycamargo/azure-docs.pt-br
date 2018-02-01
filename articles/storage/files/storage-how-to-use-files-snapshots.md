@@ -3,7 +3,7 @@ title: "Trabalhar com instantâneos de compartilhamento (versão prévia) | Micr
 description: "Um instantâneo de compartilhamento é uma versão somente leitura de um compartilhamento dos Arquivos do Azure feito em determinado momento, como uma maneira de fazer backup do compartilhamento."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Trabalhar com instantâneos de compartilhamento (versão prévia)
 O instantâneo de compartilhamento (versão prévia) é uma versão somente leitura de um compartilhamento dos Arquivos do Azure feita em determinado momento. Quando um instantâneo de compartilhamento é criado, ele pode ser lido, copiado ou excluído, mas não modificado. Um instantâneo de compartilhamento fornece uma maneira de fazer backup do compartilhamento da maneira como ele aparece em um momento específico. 
@@ -246,7 +246,46 @@ Na saída, você verá que o conteúdo do arquivo baixado e suas propriedades s�
 }
 ```
 
+<<<<<<< HEAD
+### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Operações de instantâneo de compartilhamento no Azure PowerShell
+Você pode usar Azure PowerShell para executar operações como procurar conteúdo de instantâneos de compartilhamento, restaurar ou fazer o download de arquivos desses instantâneos, listar instantâneos de compartilhamento ou excluí-los.
+
+#### <a name="list-share-snapshots"></a>Listar instantâneos de compartilhamento
+
+Você pode listar instantâneos de compartilhamento de um determinado compartilhamento usando `Get-AzureStorageShare`
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### <a name="browse-share-snapshots"></a>Procurar instantâneos de compartilhamento
+Você também pode procurar em um determinado compartilhamento de instantâneo para exibir seu conteúdo usando `Get-AzureStorageFile` com o valor de `-Share` apontando para o instantâneo específico
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### <a name="restore-from-share-snapshots"></a>Restaurar de instantâneos de compartilhamento
+
+Você pode restaurar um arquivo copiando ou baixando um arquivo de instantâneo de compartilhamento usando o comando `Get-AzureStorageFileContent`
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
+```
+
+
+## <a name="delete-azure-files-share-snapshot"></a>Excluir instantâneos de compartilhamento de Arquivos do Azure
+=======
 ## <a name="delete-a-share-snapshot"></a>Excluir um instantâneo de compartilhamento
+>>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Você pode excluir instantâneos de compartilhamento usando o Portal do Azure, o PowerShell, a CLI, a API REST ou qualquer SDK de Armazenamento. As seções a seguir descrevem como excluir instantâneos de compartilhamento usando o portal do Azure, a CLI e o PowerShell.
 

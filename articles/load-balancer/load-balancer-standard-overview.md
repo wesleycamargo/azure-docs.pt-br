@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Visão geral do Azure Load Balancer Standard (versão prévia)
 
@@ -68,12 +68,12 @@ Não há mais um requisito para conjuntos de disponibilidade. É possível optar
 
 O Load Balancer Standard fornece novos recursos de diagnóstico multidimensionais para configurações públicas e internas do Load Balancer. Essas novas métricas são fornecidas pelo Azure Monitor (versão prévia) e utilizam todos os recursos relacionados, incluindo a capacidade de integrar-se a vários consumidores downstream.
 
-| Métrica | Descrição |
+| Métrica | DESCRIÇÃO |
 | --- | --- |
 | Disponibilidade do VIP | O Load Balancer Standard usa continuamente o caminho de dados de dentro de uma região para o front-end do Load Balancer e até a pilha do SDN compatível com a sua VM. Contanto que instâncias íntegras permaneçam, a medição seguirá o mesmo caminho que o tráfego com balanceamento de carga do seu aplicativo. O caminho de dados usado por seus clientes também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.|
 | Disponibilidade do DIP | O Load Balancer Standard usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade do aplicativo de acordo com as definições de configuração. Essa métrica fornece uma exibição agregada ou por ponto de extremidade filtrado de cada ponto de extremidade de instância individual no pool do Load Balancer.  Você pode verificar como o Load Balancer vê a integridade de seu aplicativo conforme indicado pela configuração de sua investigação de integridade.
-| Pacotes SYN | O Load Balancer Standard não encerra conexões TCP nem interage com os fluxos de pacotes TCP ou UDP. Fluxos e seus handshakes estão sempre entre a origem e a instância VM. Para solucionar melhor os problemas de todos os seus cenários de protocolo TCP, é possível usar pacotes SYN para entender quantas tentativas de conexão TCP são feitas. A métrica informa o número de pacotes SYN do TCP que foram recebidos. A métrica também pode refletir clientes que tentam estabelecer uma conexão com o seu serviço.|
-| Conexões SNAT | O Load Balancer Standard informa o número de conexões de saída mascaradas para o front-end do endereço IP Público. As portas SNAT são um recurso esgotável. Essa métrica pode dar uma indicação do grau de dependência que seu aplicativo tem do SNAT para conexões com origem externa.|
+| Pacotes SYN | O Load Balancer Standard não encerra conexões TCP nem interage com os fluxos de pacotes TCP ou UDP. Fluxos e seus handshakes estão sempre entre a origem e a instância VM. Para solucionar melhor os problemas dos cenários de protocolo TCP, é possível usar contadores de pacotes SYN para entender quantas tentativas de conexão TCP são feitas. A métrica informa o número de pacotes SYN do TCP que foram recebidos.|
+| Conexões SNAT | O Load Balancer Standard relata o número de fluxos de saída mascarados para o front-end do endereço IP Público. As portas SNAT são um recurso esgotável. Essa métrica pode dar uma indicação do grau de dependência que seu aplicativo tem do SNAT para fluxos com origem externa.  Contadores para fluxos SNAT de saída bem-sucedidos e com falha são relatados e podem ser usados para solucionar problemas e entender a integridade dos fluxos de saída.|
 | Contadores de bytes | O Load Balancer Standard informa os dados processados por front-end.|
 | Contadores de pacotes | O Load Balancer Standard informa os pacotes processados por front-end.|
 
@@ -217,7 +217,7 @@ Quando são usadas conexões de saída com um front-end com redundância de zona
 
 O novo algoritmo no Load Balancer Standard pré-aloca as portas SNAT para a NIC de cada VM. Quando uma NIC é adicionada ao pool, as portas SNAT são pré-alocadas com base no tamanho do pool. A tabela a seguir mostra as pré-alocações de porta para seis níveis de tamanhos do pool de back-ends:
 
-| Tamanho do pool (instâncias VM) | Porta SNAT pré-alocada |
+| Tamanho do pool (instâncias VM) | Número pré-alocado de portas SNAT |
 | --- | --- |
 | 1 – 50 | 1024 |
 | 51 – 100 | 512 |

@@ -2,9 +2,9 @@
 title: "Notas de versão da API do .NET 2.x para o Cofre de Chaves | Microsoft Docs"
 description: "Os desenvolvedores em .NET usarão essa API para codificar para o Cofre de Chaves do Azure"
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
-editor: bruceper
+editor: alleonar
 ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
 ms.devlang: CSharp
@@ -12,27 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
-ms.author: bruceper
-ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: alleonar
+ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 para Cofre de Chaves do Azure - Notas de versão e guia de migração
-As anotações e as diretrizes a seguir são para desenvolvedores que trabalham com a biblioteca .NET/C# do Azure Key Vault. Na transição da versão 1.0 para a versão 2.0, diversas atualizações feitas exigirão o trabalho de migração em seu código para que você se beneficie de aprimoramentos funcionais e adições de recurso, como suporte a **certificados do Key Vault**.
+As informações a seguir ajudam a migrar para a versão 2.0 da biblioteca do Azure Key Vault para C# e .NET.  Aplicativos escritos para versões anteriores precisam ser atualizados para dar suporte à versão mais recente.  Essas alterações são necessárias para dar suporte total a recursos novos e aprimorados, como **certificados do Key Vault**.
 
 ## <a name="key-vault-certificates"></a>Certificados do Key Vault
 
-Os certificados do Cofre de Chaves oferecem suporte ao gerenciamento de seus certificados x509 e dos comportamentos a seguir:  
+Certificados do Key Vault x509 certifica e suporta os seguintes comportamentos:  
 
-* Permite que um proprietário de certificado crie um certificado por meio de um processo de criação de Cofre de Chaves ou pela importação de um certificado existente. Isso inclui certificados autoassinados e gerados por Autoridades de Certificação.
-* Permite que um proprietário de certificado do Cofre de Chaves implemente o armazenamento seguro e o gerenciamento de certificados X509 sem interagir com o material da chave privada.  
-* Permite que um proprietário de certificado crie uma política que direciona o Cofre de Chaves para gerenciar o ciclo de vida de um certificado.  
-* Permite que os proprietários de certificado forneçam informações de contato para a notificação sobre eventos de ciclo de vida de validade e renovação de certificados.  
-* Oferece suporte à renovação automática com emissores selecionados - provedores de certificado X509/autoridades de certificação parceiros do Cofre de Chaves.
-  
-  * OBSERVAÇÃO - Provedores/autoridades que não têm parceria também têm permissão, mas, não oferecerão suporte ao recurso de renovação automática.
+* Criar certificados por meio de um processo de criação de Key Vault ou importar certificado existente. Isso inclui certificados autoassinados e gerados por Autoridades de Certificação (CA).
+* Armazenar com segurança e gerenciar armazenamento de certificados x509 sem interação usando material da chave privada.  
+* Definir políticas que direcionam o Key Vault para gerenciar o ciclo de vida do certificado.  
+* Fornecer informações de contato para eventos de ciclo de vida, como avisos de expiração e notificações de renovação.  
+* Renovar automaticamente certificados de emissores selecionados (provedores de certificados X509 do parceiro de Key Vault e autoridades de certificação). * Suportar certificado de provedores alternativos (não parceiros) e autoridades de certificação (não suporta renovação automática).  
 
 ## <a name="net-support"></a>Suporte ao .NET
 
@@ -44,7 +42,10 @@ Os certificados do Cofre de Chaves oferecem suporte ao gerenciamento de seus cer
 
 * O namespace para **modelos** é alterado de **Microsoft.Azure.KeyVault** para **Microsoft.Azure.KeyVault.Models**.
 * O namespace **Microsoft.Azure.KeyVault.Internal** é descartado.
-* O namespace de dependências do SDK do Azure é alterado de **Hyak.Common** e **Hyak.Common.Internals** para **Microsoft.Rest** e **Microsoft.Rest.Serialization**
+* Os seguintes namespaces de dependências do SDK do Azure têm 
+
+    - **Hyak.Common** agora é **Microsoft.Rest**.
+    - **Hyak.Common.Internals** agora é **Microsoft.Rest.Serialization**.
 
 ## <a name="type-changes"></a>Alterações de tipo
 
@@ -55,8 +56,8 @@ Os certificados do Cofre de Chaves oferecem suporte ao gerenciamento de seus cer
 
 ## <a name="return-types"></a>Tipos de retorno
 
-* **KeyList** e **SecretList** retornarão *IPage<T>* em vez de *ListKeysResponseMessage*
-* O **BackupKeyAsync** gerado retornará *BackupKeyResult*, que contém *Value* (blob de backup). Antes do método ser encapsulado e retornar somente o valor.
+* **KeyList** e **SecretList** agora retornam *IPage<T>* em vez de *ListKeysResponseMessage*
+* O **BackupKeyAsync** gerado agora retorna *BackupKeyResult*, que contém *Value* (blob de backup). Anteriormente, o método era encapsulado e retornava somente o valor.
 
 ## <a name="exceptions"></a>Exceções
 
@@ -70,29 +71,29 @@ Os certificados do Cofre de Chaves oferecem suporte ao gerenciamento de seus cer
 
 ## <a name="downloaded-packages"></a>Pacotes baixados
 
-Quando um cliente está processando uma dependência no Cofre de Chaves, os itens a seguir são baixados
+Quando um cliente processa uma dependência do Key Vault, os seguintes pacotes são baixados:
 
 ### <a name="previous-package-list"></a>Lista de pacotes anterior
 
-* id do pacote="Hyak.Common" versão="1.0.2" targetFramework="net45"
-* id do pacote="Microsoft.Azure.Common" versão="2.0.4" targetFramework="net45"
-* id do pacote="Microsoft.Azure.Common.Dependencies" versão="1.0.0" targetFramework="net45"
-* id do pacote="Microsoft.Azure.KeyVault" versão="1.0.0" targetFramework="net45"
-* id do pacote="Microsoft.Bcl" versão="1.1.9" targetFramework="net45"
-* id do pacote="Microsoft.Bcl.Async" versão="1.0.168" targetFramework="net45"
-* id do pacote="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"
-* id do pacote="Microsoft.Net.Http" versão="2.2.22" targetFramework="net45"
+* `package id="Hyak.Common" version="1.0.2" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"`
+* `package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"`
 
 ### <a name="current-package-list"></a>Lista atual de pacotes
 
-* id do pacote="Microsoft.Azure.KeyVault" versão="2.0.0-preview" targetFramework="net45"
-* id do pacote="Microsoft.Rest.ClientRuntime" versão="2.2.0" targetFramework="net45"
-* id do pacote="Microsoft.Rest.ClientRuntime.Azure" versão="3.2.0" targetFramework="net45"
+* `package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"`
 
 ## <a name="class-changes"></a>Alterações de classe
 
-* A classe **UnixEpoch** foi removida
-* A classe **Base64UrlConverter** foi renomeada para **Base64UrlJsonConverter**
+* A classe **UnixEpoch** foi removida.
+* A classe **Base64UrlConverter** foi renomeada para **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Outras alterações
 
@@ -100,7 +101,7 @@ Quando um cliente está processando uma dependência no Cofre de Chaves, os iten
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Para as operações que retornavam um *cofre*, o tipo de retorno era uma classe que continha uma propriedade Vault. Agora, o tipo de retorno é *Vault*.
+* Para as operações que retornavam um *cofre*, o tipo de retorno era uma classe que continha uma propriedade **Vault**. Agora, o tipo de retorno é *Vault*.
 * *PermissionsToKeys* e *PermissionsToSecrets* agora são *Permissions.Keys* e *Permissions.Secrets*
 * Algumas das alterações de tipos de retorno também se aplicam ao plano de controle.
 

@@ -4,7 +4,7 @@ description: "Saiba como instalar e configurar clusters HDInsight ingressados no
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurar ambiente de área restrita de HDInsight associada ao domínio
 
@@ -29,7 +29,6 @@ Sem o cluster do HDInsight associado ao domínio, cada cluster só pode ter uma 
 
 -   Um Active Directory autônomo em execução no Azure IaaS.
 -   Azure Active Directory.
--   Active Directory em execução no ambiente local do cliente.
 
 Usar um Active Directory autônomo na execução no Azure IaaS é abordado neste artigo. É a arquitetura mais simples que um cliente pode seguir para obter suporte a vários usuários no HDInsight. Este artigo inclui duas abordagens para essa configuração:
 
@@ -71,9 +70,10 @@ Nesta seção, você pode abrir um modelo de gerenciamento de recursos do Azure 
     - **Nome de usuário administrador**: Insira o nome de usuário administrador do domínio.
     - **Senha do administrador**: Insira a senha do administrador do domínio.
     - **Nome de domínio**: O nome padrão é *contoso.com*.  Se você alterar o nome de domínio, você também deve atualizar o campo **Certificado de LDAP Seguro** e o campo **DN de Unidade Organizacional**.
+    - **Prefixo DNS**: insira o prefixo DNS para o endereço IP público usado pelo Load Balancer.
     - **Nome do cluster**: Insira o nome do cluster do HDInsight.
     - **Tipo de cluster**: Não altere esse valor. Se você quiser alterar o tipo de cluster, use o modelo específico na última etapa.
-
+    - **Proteger a Senha do Certificado LDAP**: use o valor padrão, a menos que você altere o campo do certificado LDAP Seguro.
     Alguns dos valores são embutidos no modelo, por exemplo, a contagem de instâncias de nós do operador é dois.  Para alterar os valores embutidos, clique em **Editar modelo**.
 
     ![Editar modelo do cluster do HDInsight associado ao domínio](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

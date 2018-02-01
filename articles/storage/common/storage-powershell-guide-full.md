@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usando o PowerShell do Azure com o Armazenamento do Azure
 
@@ -133,7 +133,7 @@ Para alterar as configurações de uma conta de armazenamento, use [Set-AzureRmS
 
 * A **marca** atribuída à conta de armazenamento. Geralmente, as marcas são usadas para categorizar recursos para fins de cobrança.
 
-* A **SKU** é a configuração de replicação da conta de armazenamento, como LRS para armazenamento com redundância local. Por exemplo, é possível alterar o \_LRS Padrão\_ para o \_GRS Padrão ou RAGRS Padrão. Não é possível alterar o ZRS Padrão ou o LRS Premium para outras SKUs ou vice-versa. 
+* A **SKU** é a configuração de replicação da conta de armazenamento, como LRS para armazenamento com redundância local. Por exemplo, é possível alterar o \_LRS Padrão\_ para o \_GRS Padrão ou RAGRS Padrão. Observe que não é possível alterar o ZRS\_Standard ou o LRS\_Premium para outras SKUs ou vice-versa.
 
 * A **camada de acesso** das contas de armazenamento de Blobs. O valor da camada de acesso está definido como **ativa** ou **moderada**, e permite reduzir custos selecionando a camada de acesso que se alinha com o uso que você faz da conta de armazenamento. Para saber mais, consulte [Camada de acesso aos arquivos ativa e moderada](../blobs/storage-blob-storage-tiers.md).
 
@@ -223,7 +223,7 @@ A API de Tabela do Azure Cosmos DB fornece recursos premium para o armazenamento
 * Para obter mais informações, consulte o [API de Tabela do Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
 * Para saber como usar o PowerShell para realizar operações de API de tabela do Azure Cosmos DB, consulte [Realizar operações de API de tabela do Azure Cosmos DB com o PowerShell](../../cosmos-db/table-powershell.md).
 
-## <a name="azures-independently-deployed-clouds"></a>Nuvens implantadas de forma independente do Azure
+## <a name="independent-cloud-deployments-of-azure"></a>Implantações de nuvem independentes do Azure
 
 A maioria das pessoas usa a Nuvem Pública do Azure em suas implantações globais do Azure. Há também algumas implantações independentes do Microsoft Azure por motivos de soberania e assim por diante. Essas implantações independentes são chamadas de “ambientes”. Estes são os ambientes disponíveis:
 

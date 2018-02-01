@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – Guia de solução de problemas
 Este artigo fornece dicas de solução de problemas que você pode encontrar ao configurar ou administrar os Serviços de Domínio do AD (Active Directory do Azure).
@@ -122,6 +122,7 @@ Verifique se você desabilitou um aplicativo com o identificador 00000002-0000-0
 
 Para resolver esse erro, habilite esse aplicativo e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.
 
+
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Os usuários não conseguem entrar no domínio gerenciado pelos Serviços de Domínio do AD do Azure
 Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no domínio gerenciado recém-criado, execute as seguintes etapas de solução de problemas:
 
@@ -145,6 +146,10 @@ Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no
     2. net start 'Microsoft Azure AD Sync'
 * **Contas somente em nuvem**: se a conta de usuário afetado for uma conta de usuário somente em nuvem, verifique se o usuário alterou sua senha depois que você habilitou os Serviços de Domínio do Azure AD. Essa etapa faz com que os hashes de credenciais necessários para os Serviços de Domínio do AD do Azure sejam gerados.
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Há um ou mais alertas no seu domínio gerenciado
+
+Consulte como resolver alertas em seu domínio gerenciado acessando o artigo [Solucionar alertas](active-directory-ds-troubleshoot-alerts.md).
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Os usuários removidos do seu locatário do Azure AD não são removidos do seu domínio gerenciado
 O Azure AD protege você contra a exclusão acidental de objetos de usuário. Quando você excluir uma conta de usuário de seu locatário do Azure AD, o objeto de usuário correspondente será movido para a Lixeira. Quando essa operação de exclusão for sincronizada para seu domínio gerenciado, isso fará com que a conta de usuário correspondente seja marcada como desabilitada. Esse recurso ajuda a recuperar ou a cancelar a exclusão da conta de usuário mais tarde.
 
@@ -152,5 +157,6 @@ A conta de usuário permanecerá no estado desabilitado no domínio gerenciado, 
 
 Para remover completamente a conta de usuário de seu domínio gerenciado, exclua permanentemente o usuário do seu locatário do Azure AD. Use o `Remove-MsolUser`cmdlet do PowerShell com a opção `-RemoveFromRecycleBin`, conforme descrito neste [artigo do MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
-## <a name="contact-us"></a>Entre em contato
+
+## <a name="contact-us"></a>Fale conosco
 Entre em contato com a equipe de produto do Azure Active Directory Domain Services para [compartilhar comentários ou obter suporte](active-directory-ds-contact-us.md).

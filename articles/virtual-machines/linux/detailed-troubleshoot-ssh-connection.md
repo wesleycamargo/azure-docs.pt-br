@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Etapas detalhadas de solução de problemas de SSH para problemas ao se conectar a uma VM do Linux no Azure
 Há muitas razões possíveis para que o cliente de SSH não possa acessar o serviço SSH na VM. Se tiver seguido as [etapas gerais de solução de problemas de SSH](troubleshoot-ssh-connection.md), será necessário solucionar o problema de conexão. Este artigo guiará você pelas etapas detalhadas de solução de problemas para determinar onde a conexão SSH está falhando e como resolver isso.
@@ -120,7 +120,7 @@ A última fonte possível de problemas é a própria máquina virtual do Azure.
 
 ![Diagrama que realça uma VM do Azure baseada em Linux](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Se você ainda não fez isso, siga as instruções [para redefinir uma senha ou SSH para máquinas virtuais baseadas em Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Se você ainda não fez isso, siga as instruções [para redefinir uma senha para máquinas virtuais baseadas em Linux](reset-password.md).
 
 Tente se conectar novamente do seu computador. Caso ainda não consiga, veja a seguir alguns dos possíveis problemas:
 

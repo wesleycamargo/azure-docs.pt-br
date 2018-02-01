@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solucionar problemas da Sincronização de Arquivos do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -135,6 +135,8 @@ Se os arquivos individuais não sincronizar:
 
     > [!NOTE]
     > A Sincronização de arquivos do Azure periodicamente gera instantâneos do VSS para arquivos para sincronizar arquivos com identificadores abertos.
+
+Atualmente, não há suporte para a movimentação de recursos para outra assinatura ou para mover outro locatário do Microsoft Azure AD.  Se a assinatura for movida para um locatário diferente, o compartilhamento de arquivos do Azure se torna inacessível para nossos serviços, com base na alteração na propriedade. Se o locatário for alterado, você precisará excluir os pontos de extremidade do servidor e o ponto de extremidade de nuvem (consulte a seção de gerenciamento de grupo de sincronização para obter instruções de como limpar o compartilhamento de arquivos do Azure a ser usado novamente) e recrie o grupo de sincronização.
 
 ## <a name="cloud-tiering"></a>Disposição em camadas de nuvem 
 Há dois caminhos para falhas na definição de camadas de nuvem:

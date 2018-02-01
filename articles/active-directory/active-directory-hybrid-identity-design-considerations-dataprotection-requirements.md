@@ -1,5 +1,5 @@
 ---
-title: "Considerações de design da identidade híbrida do Azure Active Directory - determinar os requisitos de proteção de dados | Microsoft Docs"
+title: "Design de identidade híbrida - requisitos de proteção de dados do Azure | Microsoft Docs"
 description: "Ao planejar sua solução de identidade híbrida, identifique os requisitos de proteção de dados de seus negócios e quais opções estão disponíveis para melhor atender a esses requisitos."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planejar para aumentar a segurança de dados usando solução de identidade forte
 A primeira etapa para proteger os dados é identificar quem pode acessar os dados e, como parte desse processo, você precisa ter uma solução de identidade que pode se integrar ao seu sistema para fornecer recursos de autenticação e autorização. Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na verdade, são bastante diferentes, como mostrado na seguinte figura:
@@ -82,6 +83,6 @@ A legislação e a conformidade regulatória variará de acordo com a indústria
 ## <a name="next-steps"></a>Próximas etapas
  [Determinar requisitos de gerenciamento de conteúdo](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

@@ -72,6 +72,21 @@
             - name: Publicar aplicativos HDInsight no Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Instalar aplicativo publicado - Plataforma de Aplicativo de Dados de Cask (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Instalar aplicativo publicado - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Instalar aplicativo publicado - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Instalar aplicativo publicado - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Instalar aplicativo publicado - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Segurança
       items:
         - name: Usar o SSH com o HDInsight
@@ -165,6 +180,8 @@
         - name: Atualizar cluster HDInsight para versão mais recente
           href: ../hdinsight-upgrade-cluster.md
           maintainContext: true
+        - name: Migrar um cluster HBase para a versão mais recente
+          href: apache-hbase-migrate-new-version.md
         - name: Aplicação de patches de SO para cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
@@ -227,11 +244,15 @@
           href: apache-hbase-provision-vnet.md
         - name: Replicação de cluster HBase na VNet do Azure
           href: apache-hbase-replication.md
+        - name: Configurar backup e replicação para HBase e Phoenix
+          href: apache-hbase-backup-replication.md
     - name: Monitoramento usando OMS
       items:
         - name: Usar Log Analytics do Azure
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
           maintainContext: true
+        - name: Monitorar HBase com OMS
+          href: apache-hbase-monitor-with-oms.md
         - name: Painéis específicos do cluster
           href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
@@ -241,6 +262,8 @@
         - name: Monitorar o desempenho do cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Práticas recomendadas de desempenho do Phoenix
+          href: apache-hbase-phoenix-performance.md
 - name: Referência
   items:
     - name: Exemplos de código

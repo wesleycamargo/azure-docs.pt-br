@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Procurar um ponto de interesse próximo usando os Serviços do Azure Baseados na Localização
 
@@ -24,7 +24,7 @@ Este tutorial mostra como configurar uma conta com os Serviços do Azure Baseado
 
 > [!div class="checklist"]
 > * Criar uma conta com os Serviços do Azure Baseados na Localização
-> * Obter a chave de assinatura para sua conta
+> * Saiba a chave primária de sua Conta dos Serviços do Azure Baseados na Localização
 > * Criar nova página da Web usando a API de Controle de mapa
 > * Usar o Serviço de Pesquisa para localizar um ponto de interesse próximo
 
@@ -50,12 +50,12 @@ Siga estas etapas para criar uma nova conta dos Serviços Baseados na Localizaç
     - Leia os *Termos de visualização* e marque a caixa de seleção para aceitar os termos. 
     - Por fim, clique no botão **Criar**.
    
-    ![Criar Conta dos Serviços Baseados na Localização no portal](./media/tutorial-search-location/create-lbs-account.png)
+    ![Criar conta Serviços Baseados na Localização no portal](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>Obter a chave de assinatura para sua conta
+## <a name="get-the-primary-key-for-your-account"></a>Obter a chave primária de sua conta
 
 Assim que sua Conta dos Serviços Baseados na Localização for criada com êxito, siga as etapas para vinculá-la a suas APIs de pesquisa de mapa:
 
@@ -113,16 +113,16 @@ A API de Controle de Mapa do Azure é uma biblioteca cliente conveniente que per
     ``` 
     Observe que o cabeçalho HTML inclui os arquivos de recurso CSS e JavaScript hospedados pela biblioteca de Controle de mapa do Azure. Observe o segmento *script* adicionado ao *corpo* do arquivo HTML. Esse segmento conterá o código JavaScript embutido para acessar as APIs do Serviço Baseado na Localização do Azure.
  
-3.  Adicione o seguinte código JavaScript ao bloco de *script* do arquivo HTML. Substitua o espaço reservado *<insert-key>* pela chave primária da conta dos Serviços Baseados em Localização. 
+3.  Adicione o seguinte código JavaScript ao bloco de *script* do arquivo HTML. Use a chave primária de sua Conta dos Serviços Baseados na Localização no script. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Esse segmento inicia a API de Controle de mapa para sua chave de assinatura. **Atlas** é o namespace que contém a API de Controle de mapa do Azure e os componentes visuais relacionados. **atlas.Map** fornece o controle para um mapa visual e interativo na Web. Você pode observar a aparência do mapa abrindo a página HTML no navegador. 
+    Este segmento inicia a API de Controle de Mapeamento para a chave da sua Conta dos Serviços do Azure Baseados na Localização. **Atlas** é o namespace que contém a API de Controle de mapa do Azure e os componentes visuais relacionados. **atlas.Map** fornece o controle para um mapa visual e interativo na Web. Você pode observar a aparência do mapa abrindo a página HTML no navegador. 
 
 4. Adicione o código JavaScript a seguir ao bloco de *script* para adicionar uma camada de marcações de pesquisa ao Controle de Mapeamento:
 
@@ -193,7 +193,7 @@ Esta seção mostra como usar a API do Serviço de Pesquisa dos Serviços do Azu
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -201,7 +201,7 @@ Esta seção mostra como usar a API do Serviço de Pesquisa dos Serviços do Azu
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    Este trecho de código usa a API de pesquisa básica do Serviço de Pesquisa, chamada de **Pesquisa Difusa**. Ele trata das entradas mais difusas, lidando com qualquer combinação de endereço ou tokens *POI*. Ele procura o **posto gasolina** próximo ao endereço fornecido na latitude e longitude e dentro do raio especificado. Ele usa a chave de assinatura da conta fornecida anteriormente no arquivo de exemplo para fazer a chamada para os Serviços Baseados na Localização. Ele retorna os resultados como pares de latitude/longitude para os locais encontrados. É possível observar as marcações de pesquisa abrindo a página HTML no navegador. 
+    Este trecho de código usa a API de pesquisa básica do Serviço de Pesquisa, chamada de **Pesquisa Difusa**. Ele trata das entradas mais difusas, lidando com qualquer combinação de endereço ou tokens *POI*. Ele procura o **posto gasolina** próximo ao endereço fornecido na latitude e longitude e dentro do raio especificado. Ele usa a chave primária da conta fornecida anteriormente no arquivo de exemplo para fazer a chamada para os Serviços Baseados na Localização. Ele retorna os resultados como pares de latitude/longitude para os locais encontrados. É possível observar as marcações de pesquisa abrindo a página HTML no navegador. 
 
 3. Adicione as linhas a seguir o bloco de *script* para criar pop-ups para os pontos de interesse retornados pelo Serviço de Pesquisa:
 
@@ -244,7 +244,7 @@ Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
 > * Criar uma conta com os Serviços do Azure Baseados na Localização
-> * Obter a chave de assinatura para sua conta
+> * Obter a chave primária de sua conta
 > * Criar nova página da Web usando a API de Controle de mapa
 > * Usar o Serviço de Pesquisa para localizar um ponto de interesse próximo
 

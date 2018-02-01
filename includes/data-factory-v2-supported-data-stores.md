@@ -10,7 +10,7 @@
 | &nbsp; |[SQL Data Warehouse do Azure](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Índice do Azure Search](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Armazenamento de Tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
-| **Bancos de dados/Data Warehouses** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
+| **Banco de dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Drill (Beta)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
 | &nbsp; |[BigQuery do Google (Beta)](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
@@ -32,7 +32,7 @@
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  |
 | &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |✓ | | |✓  |
-| **NoSQLs** |[Cassandra](../articles/data-factory/connector-cassandra.md) |✓ | |✓ |✓  |
+| **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase (Beta)](../articles/data-factory/connector-couchbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[MongoDB](../articles/data-factory/connector-mongodb.md) |✓ | |✓ |✓  |
 | **Arquivo** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
@@ -40,10 +40,10 @@
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓ |✓  |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |✓ |✓  |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |✓ |✓  |
-| **Protocolos genéricos** |[ HTTP Genérico](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
+| **Projeto genérico** |[ HTTP Genérico](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[OData Genérico](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[ODBC Genérico](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
-| **Serviços e outros** |[Serviço Web do Amazon Marketplace (Beta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
+| **Serviços e aplicativos** |[Serviço Web do Amazon Marketplace (Beta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Concur (Beta)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |

@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Introdução ao Azure Search no Node.js
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Usamos o [Node.js](https://Nodejs.org) e o NPM, o [Sublime Text 3](http://www.su
 Para executar este exemplo, você deve ter um serviço do Azure Search, no qual pode se inscrever no [portal do Azure](https://portal.azure.com). Consulte [Criar um serviço de Azure Search no portal](search-create-service-portal.md) para encontrar instruções passo a passo.
 
 ## <a name="about-the-data"></a>Sobre os dados
-Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Rhode Island, para reduzir o tamanho do conjunto de dados. Vamos usar esses dados para criar um aplicativo de pesquisa que retorna prédios de referência, por exemplo, hospitais e escolas, e características geológicas, como rios, lagos e picos.
+Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Rhode Island, para reduzir o tamanho do conjunto de dados. Vamos usar esses dados para criar um aplicativo de pesquisa que retorna prédios de referência, como hospitais e escolas, bem como características geológicas como rios, lagos e picos.
 
 Neste aplicativo, o programa **DataIndexer** cria e carrega o índice usando um constructo [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx) , recuperando o conjunto de dados filtrado do USGS de um Banco de Dados SQL do Azure público. As informações de credenciais e de conexão para a fonte de dados online são fornecidas no código do programa. Nenhuma configuração adicional é necessária.
 
@@ -57,7 +57,7 @@ Depois de criar o serviço, retorne ao portal para obter a URL ou `api-key`. Con
 ## <a name="download-the-sample-files"></a>Baixe os arquivos do exemplo.
 Use qualquer um dos procedimentos a seguir para baixar o exemplo.
 
-1. Acesse [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Vá para [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Clique em **Baixar ZIP**, salve o arquivo .zip e, em seguida, extraia todos os arquivos que ele contém.
 
 Todas as modificações de arquivos posteriores e instruções de execução serão feitas nos arquivos nessa pasta.

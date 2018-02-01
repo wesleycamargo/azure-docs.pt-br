@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Criar seu primeiro aplicativo Reliable Services com estado do Service Fabric em C#
 
 Saiba como implantar seu primeiro aplicativo do Service Fabric para .NET no Windows em apenas alguns minutos. Quando você terminar, terá um cluster local com um aplicativo de serviço confiável.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, verifique se você [configurou o ambiente de desenvolvimento](service-fabric-get-started.md). Isso inclui a instalação do SDK do Service Fabric e do Visual Studio 2015 ou 2017.
 
@@ -82,7 +82,7 @@ Assim que o aplicativo for iniciado, o Visual Studio abre automaticamente o **Vi
    
 ![Visualizador de eventos de diagnóstico][5]
 
-O modelo de serviço com estado que usamos simplesmente mostra um incremento de valor de contador no método `RunAsync` de **MyStatefulService.cs**.
+O modelo de serviço com estado usado mostra um incremento de valor de contador no método `RunAsync` de **MyStatefulService.cs**.
 
 Expanda um dos eventos para ver mais detalhes, inclusive o nó onde o código estiver em execução. Nesse caso, é o \_Node\_0, embora possa ser diferente em seu computador.
    

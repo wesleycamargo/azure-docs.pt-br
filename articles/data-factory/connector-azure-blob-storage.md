@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: f63ca861c05675edcf54a0003db11d25aa0cf5ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 512ac1d9423ed76486a131ccd8c871fe56fcf7d1
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,8 +51,8 @@ Você pode criar um serviço vinculado do Armazenamento do Azure usando a chave 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureStorage** |Sim |
-| connectionString | Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. Marque esse campo como uma SecureString. |Sim |
+| Tipo | A propriedade type deve ser definida como: **AzureStorage** |sim |
+| connectionString | Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. Marque esse campo como uma SecureString. |sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -93,8 +93,8 @@ Para usar a autenticação de SAS de Serviço, há suporte para as seguintes pro
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureStorage** |Sim |
-| sasUri | Especificar o URI de Assinatura de Acesso Compartilhado para os recursos de Armazenamento do Azure, como blob, contêiner ou tabela. Marque esse campo como uma SecureString. |Sim |
+| Tipo | A propriedade type deve ser definida como: **AzureStorage** |sim |
+| sasUri | Especificar o URI de Assinatura de Acesso Compartilhado para os recursos de Armazenamento do Azure, como blob, contêiner ou tabela. Marque esse campo como uma SecureString. |sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -132,8 +132,8 @@ Para copiar dados de/para o Blob do Azure, defina a propriedade type do conjunto
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureBlob** |Sim |
-| folderPath | Caminho para o contêiner e a pasta no armazenamento de blob. Exemplo: myblobcontainer/myblobfolder/ |Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureBlob** |sim |
+| folderPath | Caminho para o contêiner e a pasta no armazenamento de blob. Exemplo: myblobcontainer/myblobfolder/ |sim |
 | fileName | Especifique o nome do blob no **folderPath** se você quiser copiar de/para um blob específico. Se você não especificar algum valor para essa propriedade, o conjunto de dados apontará para todos os blobs na pasta.<br/><br/>Quando o fileName não for especificado para um conjunto de dados de saída e a **preserveHierarchy** não for especificada no coletor de atividade, a atividade de cópia gerará automaticamente o nome do blob com o seguinte formato: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. Por exemplo: `Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz`. |Não  |
 | formato | Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quiser analisar ou gerar arquivos com um formato específico, haverá suporte para os seguintes tipos de formatos de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não (somente para o cenário de cópia binária) |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis com suporte são **Ideal** e **O mais rápido**. |Não  |
@@ -176,8 +176,8 @@ Para copiar dados do Blob do Azure, defina o tipo de fonte na atividade de cópi
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **BlobSource** |Sim |
-| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **BlobSource** |sim |
+| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando recursivo for definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, uma pasta/subpasta vazia não será copiado/criado no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
 
 **Exemplo:**
 
@@ -217,7 +217,7 @@ Para copiar dados para o Blob do Azure, defina o tipo de coletor na atividade de
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do coletor da atividade de cópia deve ser definida como: **BlobSink** |Sim |
+| Tipo | A propriedade type do coletor da atividade de cópia deve ser definida como: **BlobSink** |sim |
 | copyBehavior | Define o comportamento de cópia quando a fonte for de arquivos de armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><b>- MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. | Não  |
 
 **Exemplo:**

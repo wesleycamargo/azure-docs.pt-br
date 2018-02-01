@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implantar Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Este artigo mostra como implantar Arquivos do Azure de maneira prática dentro de sua organização.
 
 É altamente recomendável ler [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md) antes de seguir as etapas neste artigo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este artigo pressupõe que você tenha completado as seguintes etapas:
 
 - Criado uma conta de Armazenamento do Azure com as opções de resiliência e de criptografia desejadas, na região desejada. Para orientações passo a passo sobre como criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
@@ -35,7 +35,7 @@ Este artigo pressupõe que você tenha completado as seguintes etapas:
 Talvez você queira migrar compartilhamentos de arquivos existentes, tais como aqueles armazenados localmente, para o novo compartilhamento de Arquivos do Azure. Esta seção mostrará como mover dados em um arquivo do Azure por meio de vários métodos populares detalhados no [guia de planejamento](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Sincronização de Arquivos do Azure (versão prévia)
-A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso, transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e você pode ter todos os caches que precisar em todo o mundo.
+A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e você pode ter todos os caches que precisar em todo o mundo.
 
 A Sincronização de Arquivos do Azure pode ser usada para migrar dados para um compartilhamento de Arquivos do Azure, mesmo que o mecanismo de sincronização não seja desejável para uso de longo prazo. Mais informações sobre como usar a Sincronização de Arquivos do Azure para transferir dados em um compartilhamento de arquivos do Azure podem ser encontradas em [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md) e [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md).
 
@@ -145,9 +145,9 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 Um script do bash simples combinado com SSH pode gerar o mesmo resultado no exemplo a seguir. A variável `$computer` é similarmente deixada para ser populada pelo usuário:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done

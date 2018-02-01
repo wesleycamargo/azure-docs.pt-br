@@ -27,9 +27,9 @@ A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 | Contagem máxima de entrega de mensagens de comentários  <br/> em resposta a uma mensagem da nuvem para o dispositivo |100 |
 | TTL máximo de mensagens de comentários  <br/> em resposta a uma mensagem da nuvem para o dispositivo |2 dias |
 | Tamanho máximo de dispositivo gêmeo <br/> (marcas, propriedades relatadas e propriedades desejadas) | 8 KB |
-| Tamanho máximo do valor de cadeia de caracteres do dispositivo gêmeo | 512 bytes |
+| Tamanho máximo do valor de cadeia de caracteres do dispositivo gêmeo | 4 KB |
 | Profundidade máxima de objeto em dispositivo gêmeo | 5 |
-| Tamanho máximo da carga do método direto | 8 KB |
+| Tamanho máximo da carga do método direto | 128 KB |
 | Máximo de retenção de histórico do trabalho | 30 dias |
 | Máximo de trabalhos simultâneos | 10 (para S3), 5 para (S2), 1 (para S1) |
 | Pontos de extremidade adicionais máximo | 10 (para S1, S2, S3) |
@@ -53,7 +53,7 @@ O serviço do Hub IoT restringe as solicitações quando as seguintes cotas são
 | Envios da nuvem para o dispositivo | 83,33/s/unidade (5000/min/unidade) (para S3), 1,67/s/unidade (100/min/unidade) (para S1 e S2). |
 | Recebimentos da nuvem para o dispositivo |833,33/s/unidade (50000/min/unidade) (para S3), 16,67/s/unidade (1000/min/unidade) (para S1 e S2). |
 | Operações de upload de arquivo |83,33 notificações de carregamento de arquivos/s/unidade (5000/s/unidade) (para S3), 1,67 notificações de carregamento de arquivos/s/unidade (100/min/unidade) (para S1 e S2). <br/> 10000 URIs de SAS podem estar fora de uma conta de Armazenamento do Azure ao mesmo tempo.<br/> 10 URIs de SAS/dispositivo podem estar fora ao mesmo tempo. |
-| Métodos diretos | 3000/s/unidade (para S3), 60/s/unidade (para S2), 20/s/unidade (para S1) |
+| Métodos diretos | 24MB/s/unidade (para S3), 480KB/s/unidade (para S2), 160KB/s/unidade (para S1)<br/> Com base no tamanho do medidor de limitação de 8KB. |
 | Leituras de dispositivo gêmeo | 50/s/unidade (para S3), máximo de 10/s ou 1/s/unidade (para S2), 10/s (para S1) |
 | Atualizações de dispositivos gêmeos | 50/s/unidade (para S3), máximo de 10/s ou 1/s/unidade (para S2), 10/s (para S1) |
 | Operações de trabalhos <br/> (criar, atualizar, listar, excluir) | 83,33/s/unidade (5000/min/unidade) (para S3), 1,67/s/unidade (100/min/unidade) (para S2), 1,67/s/unidade (100/min/unidade) (para S1) |

@@ -1,5 +1,5 @@
 ---
-title: "Considerações sobre design da identidade híbrida do Azure Active Directory - determinar uma estratégia de adoção de ciclo de vida de identidade híbrida | Microsoft Docs"
+title: "Design de identidade híbrida - estratégia de adoção de ciclo de vida do Azure | Microsoft Docs"
 description: "Auxilia na definição de tarefas de gerenciamento de identidade híbrida de acordo com as opções disponíveis para cada fase do ciclo de vida."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar uma estratégia de adoção para o ciclo de vida da identidade híbrida
 Nesta tarefa, você define a estratégia de gerenciamento de identidade para sua solução de identidade híbrida, para atender aos requisitos de negócios definidos na seção [Determinar as tarefas de gerenciamento de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -72,7 +73,7 @@ Integração com outros provedores de terceiros
 O Active Directory do Azure fornece logon único e segurança avançada de acesso a aplicativos para milhares de aplicativos SaaS e aplicativos Web locais. Para obter uma lista detalhada da Galeria de Aplicativos do Active Directory do Azure para aplicativos SaaS com suporte, consulte a lista de compatibilidade de federação do Active Directory do Azure: provedores de identidade de terceiros que podem ser usados para implementar o logon único
 
 ## <a name="define-synchronization-management"></a>Definir o gerenciamento de sincronização
-A integração de seus diretórios locais ao AD do Azure torna os usuários mais produtivos fornecendo uma identidade comum para acesso aos recursos na nuvem e locais. Com essa integração, os usuários e as organizações podem se beneficiar do seguinte:
+A integração de seus diretórios locais ao AD do Azure torna os usuários mais produtivos ao fornecer uma identidade comum para acesso aos recursos na nuvem e locais. Com essa integração, os usuários e as organizações podem se beneficiar do seguinte:
 
 * As organizações podem fornecer aos usuários uma identidade híbrida comum para serviços baseados em nuvem ou locais, aproveitando o Active Directory do Windows Server e, em seguida, conectando-se ao Active Directory do Azure.
 * Os administradores podem fornecer acesso condicional com base no recurso do aplicativo, na identidade de usuário e dispositivo, no local de rede e na autenticação multifator.
@@ -97,6 +98,6 @@ Analise a tabela a seguir para comparar as opções de sincronização:
 > 
 > 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

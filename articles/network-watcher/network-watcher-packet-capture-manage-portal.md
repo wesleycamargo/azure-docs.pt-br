@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -46,7 +46,7 @@ Este artigo pressupõe que você tem os seguintes recursos:
 - Uma máquina virtual com a extensão da captura de pacotes habilitada.
 
 > [!IMPORTANT]
-> A captura de pacotes requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> A captura de pacotes exige uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ### <a name="packet-capture-agent-extension-through-the-portal"></a>Extensão do agente de Captura de Pacotes por meio do portal
 
@@ -83,7 +83,7 @@ As propriedades que podem ser definidas em uma captura de pacotes são:
 - **Conta de Armazenamento** - Determina se a captura do pacote é salva em uma conta de armazenamento.
 - **Arquivo** - determina se uma captura de pacote sé salva localmente na máquina virtual.
 - **Contas de Armazenamento** - a conta de armazenamento selecionada na qual salvar a captura de pacotes. O local padrão é https://{nome da conta de armazenamento}.blob.core.windows.net/network-watcher-logs/subscriptions/{id assinatura}/resourcegroups/{nome do grupo de recursos}/providers/microsoft.compute/virtualmachines/{nome máquina virtual}/{AA}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Habilitado somente se o **Armazenamento** estiver selecionado)
-- **Caminho do arquivo local** - o caminho local em uma máquina virtual para salvar a captura de pacotes. (Habilitado somente se o **Arquivo** estiver selecionado). Um caminho válido deve ser fornecido
+- **Caminho do arquivo local** - o caminho local em uma máquina virtual para salvar a captura de pacotes. (Habilitado somente se o **Arquivo** estiver selecionado). Um caminho válido deve ser fornecido. Para uma máquina virtual Linux, o caminho deve começar com */var/captura*.
 - **Máximo de bytes por pacote** - o número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco.
 - **Máximo de bytes por sessão** – o número total de bytes capturados; quando o valor é atingido, a captura de pacotes é interrompida.
 - **Tempo limite (segundos)** -define um limite de tempo para a captura de pacotes parar. O padrão é 18.000 segundos.
@@ -136,7 +136,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como automatizar as capturas de pacotes com alertas da Máquina Virtual exibindo [Criar uma captura de pacotes disparada por alertas](network-watcher-alert-triggered-packet-capture.md)
+Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md)
 

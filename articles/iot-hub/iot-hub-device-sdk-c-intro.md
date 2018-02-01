@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -68,9 +68,9 @@ Agora que você tem o código-fonte, a próxima coisa a fazer é obter um conjun
 Há várias ferramentas de código-fonte aberto para ajudá-lo a gerenciar seu Hub IoT.
 
 * Um aplicativo do Windows chamado [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Uma ferramenta CLI de plataforma cruzada Node.js chamada [iothub-explorer](https://github.com/azure/iothub-explorer).
+* Uma ferramenta de CLI do Python de plataforma cruzada denominada [a extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você também pode usar a ferramenta *iothub-explorer* se preferir usar uma ferramenta CLI.
+Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você também pode usar a ferramenta *a extensão de IoT do Azure CLI 2.0* se preferir usar uma ferramenta CLI.
 
 A ferramenta Gerenciador de Dispositivos usa as bibliotecas de serviço IoT do Azure para executar várias funções no Hub IoT, incluindo a adição de dispositivos. Se você usar a ferramenta Gerenciador de Dispositivos para adicionar um dispositivo, você obterá uma cadeia de conexão para seu dispositivo. Você precisa dessa cadeia de conexão para executar os aplicativos de exemplo.
 
@@ -570,7 +570,7 @@ Para saber mais sobre como desenvolver para o Hub IoT, consulte os [SDKs do Azur
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Implantação de IA em dispositivos de borda com o Azure IoT Edge][lnk-iotedge]
+* [Implantação do IA em dispositivos de borda com o Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

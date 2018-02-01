@@ -4,13 +4,13 @@ description: "Este artigo fornece uma visão geral dos componentes e da arquitet
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/15/2018
 ms.author: raynew
-ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 7999f23d167c6e8a7bcaf3a817e0cd2e80a1d649
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Arquitetura de replicação de VMware para o Azure
 
@@ -24,11 +24,9 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 **Componente** | **Requisito** | **Detalhes**
 --- | --- | ---
 **As tabelas** | Uma assinatura do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Os dados replicados de VMs locais são colocados na conta de armazenamento. As VMs do Azure são criadas com os dados replicados quando você faz um failover do local para o Azure. As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
-**Servidor de configuração** | Uma única VM de VMware é implantada para executar todos os componentes do Site Recovery locais. A VM executa o servidor em processo, o servidor de configuração e o servidor de destino mestre. | O servidor de configuração coordena a comunicação entre o ambiente local e o Azure e gerencia a replicação de dados.
- **Servidor de processo**:  | Instalado por padrão juntamente com o servidor de configuração. | Atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para o Armazenamento do Azure.<br/><br/> O servidor de processo também instala o serviço de Mobilidade nas VMs que você deseja replicar e executa a descoberta automática de VMs em servidores VMware locais.<br/><br/> À medida que a implantação cresce, você pode adicionar outros servidores de processo separados para lidar com volumes maiores de tráfego de replicação.
- **Servidor de destino mestre** | Instalado por padrão juntamente com o servidor de configuração. | Lida com os dados de replicação durante o failback do Azure.<br/><br/> Para grandes implantações, você pode adicionar um servidor de destino mestre separado adicional para failback.
+**Máquina do servidor de configuração** | Uma única máquina local. Recomendamos a execução como uma VM do VMware que possam ser implantada desde um modelo baixado do OVF.<br/><br/> A máquina executa todos os componentes locais do Site Recovery, incluindo o servidor de configuração, o servidor de processo e o servidor de destino mestre. | **Servidor de configuração**: coordena a comunicação entre o ambiente local e o Azure e gerencia a replicação de dados.<br/><br/> **Servidor de processo**: instalado por padrão no servidor de configuração. Recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para o Armazenamento do Azure. O servidor de processo também instala o serviço de Mobilidade nas VMs que você deseja replicar e executa a descoberta automática de máquinas locais. À medida que a implantação cresce, você pode adicionar outros servidores de processo separados para lidar com volumes maiores de tráfego de replicação.<br/><br/>  **Servidor de destino mestre**: instalado por padrão no servidor de configuração. Lida com os dados de replicação durante o failback do Azure. Para grandes implantações, você pode adicionar um servidor de destino mestre separado adicional para failback.
 **Servidores VMware** | VMs de VMware são hospedadas em servidores ESXi do vSphere locais. Recomendamos um servidor vCenter para gerenciar os hosts. | Durante a implantação do Site Recovery, você pode adicionar servidores VMware no cofre dos Serviços de Recuperação.
-**Computadores replicados** | O serviço de Mobilidade será instalado em cada VM de VMware que você replicar. | É recomendável que você permita a instalação automática do servidor em processo. Como alternativa, você pode instalar o serviço manualmente ou usar um método de implantação automatizado como o System Center Configuration Manager. 
+**Computadores replicados** | O serviço de Mobilidade será instalado em cada VM de VMware que você replicar. | É recomendável que você permita a instalação automática do servidor em processo. Como alternativa, você pode instalar o serviço manualmente ou usar um método de implantação automatizado como o System Center Configuration Manager.
 
 **Arquitetura do VMware para o Azure**
 
@@ -36,15 +34,17 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 ## <a name="replication-process"></a>Processo de replicação
 
-1. Configure a implantação, incluindo os componentes locais e os componentes do Azure. No cofre dos Serviços de Recuperação, você especifica a origem e o destino da replicação, configura o servidor de configuração, cria uma política de replicação e habilita a replicação.
-2. Os computadores são replicados de acordo com a política de replicação e uma cópia inicial dos dados de VM é replicada para o armazenamento do Azure.
-3. Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
+1.  Prepare os recursos do Azure e componentes locais.
+2.  No cofre dos Serviços de Recuperação, especifique as configurações de replicação de origem. Como parte desse processo, configure o servidor de configuração local. Para implantar o servidor como uma VM do VMware, baixe um modelo do OVF preparado e importe-o na VMware para criar a VM.
+3. Especifique as configurações de replicação de destino, crie uma política de replicação e habilite a replicação de suas VMs VMware.
+4.  Os computadores são replicados de acordo com a política de replicação e uma cópia inicial dos dados de VM é replicada para o armazenamento do Azure.
+5.  Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
     - As máquinas virtuais se comunicam com o servidor de configuração na porta HTTPS 443 de entrada para o gerenciamento de replicação.
     - As máquinas virtuais enviam dados de replicação para o servidor em processo na porta HTTPS 9443 de entrada (pode ser modificada).
     - O servidor de configuração coordena o gerenciamento de replicação com o Azure pela porta HTTPS 443 de saída.
     - O servidor de processo recebe dados de máquinas de origem, otimiza-os e criptografa-os e os envia para o armazenamento do Azure pela porta 443 de saída.
     - Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Isso é útil se os computadores estão executando a mesma carga de trabalho e precisam ser consistentes.
-4. O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) do Azure ExpressRoute. Não há suporte para a replicação do tráfego através de uma VPN de site a site de um site local para o Azure.
+6.  O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) do Azure ExpressRoute. Não há suporte para a replicação do tráfego através de uma VPN de site a site de um site local para o Azure.
 
 
 **Processo de replicação do VMware para o Azure**

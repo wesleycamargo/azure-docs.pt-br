@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: f095407a58e00ed9143e8f19d91a212d2167564b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-service-bus"></a>Barramento de Serviço do Azure
 
@@ -44,9 +44,9 @@ Ao criar uma fila, um tópico ou uma retransmissão, você atribui um nome a ele
 
 Para usar qualquer um desses objetos no cenário de retransmissão, os aplicativos do Windows podem usar o WCF (Windows Communication Foundation). Esse serviço é conhecido como [Retransmissão WCF](../service-bus-relay/relay-what-is-it.md). Para as filas e os tópicos, os aplicativos do Windows podem usar as APIs de mensagens definidas pelo Barramento de Serviço. Para tornar esses objetos mais fáceis de usar a partir de aplicativos que não são do Windows, a Microsoft fornece SDKs para Java, Node.js e outras linguagens. Você também pode acessar as filas e os tópicos usando as [APIs REST](/rest/api/servicebus/) no(s) HTTP(s). 
 
-É importante compreender que, embora o Barramento de Serviço em si seja executado na nuvem (ou seja, nos datacenters do Azure da Microsoft), os aplicativos que o utilizam podem ser executados em qualquer lugar. Você pode usar o Service Bus para conectar aplicativos em execução no Azure, por exemplo, ou aplicativos executados dentro de seu próprio datacenter. Também pode usá-lo para se conectar a um aplicativo em execução no Azure ou outra plataforma de nuvem com um aplicativo local ou tablets e telefones. Também é possível conectar os aparelhos domésticos, sensores e outros dispositivos para um aplicativo central ou a qualquer outra. O Barramento de Serviço é um mecanismo de comunicação na nuvem, que é acessível a partir de praticamente qualquer lugar. Como você o usa depende do que os seus aplicativos precisam fazer.
+É importante compreender que, embora o Barramento de Serviço em si seja executado na nuvem (ou seja, nos datacenters do Azure da Microsoft), os aplicativos que o utilizam podem ser executados em qualquer lugar. Você pode usar o Service Bus para conectar aplicativos em execução no Azure, por exemplo, ou aplicativos executados dentro de seu próprio datacenter. Também pode usá-lo para se conectar a um aplicativo em execução no Azure ou outra plataforma de nuvem com um aplicativo local ou tablets e telefones. Também é possível conectar os aparelhos domésticos, sensores e outros dispositivos a um aplicativo central, ou conectá-los uns com os outros. O Barramento de Serviço é um mecanismo de comunicação na nuvem, que é acessível a partir de praticamente qualquer lugar. Como você o usa depende do que os seus aplicativos precisam fazer.
 
-## <a name="queues"></a>Filas de
+## <a name="queues"></a>Filas
 
 Suponha que você queira conectar dois aplicativos usando uma fila do Barramento de Serviço. A Figura 2 ilustra essa opção.
 

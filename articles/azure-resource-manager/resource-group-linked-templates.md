@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -82,7 +82,10 @@ Para aninhar o modelo no modelo principal, use a propriedade **modelo** e especi
 ]
 ```
 
-Para modelos aninhados, você não pode usar parâmetros ou variáveis que são definidas no modelo aninhado. Você pode usar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` recupera um valor de modelo principal, não o modelo aninhado. Essa restrição não se aplica a modelos externos.
+> [!NOTE]
+> Para modelos aninhados, você não pode usar parâmetros ou variáveis que são definidas no modelo aninhado. Você pode usar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` recupera um valor de modelo principal, não o modelo aninhado. Essa restrição não se aplica a modelos externos.
+>
+> Não é possível usar a função `reference` na seção de saídas de um modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
 
 ### <a name="external-template-and-external-parameters"></a>Modelo externo e parâmetros externos
 

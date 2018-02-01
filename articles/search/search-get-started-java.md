@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução ao Azure Search em Java
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Todas as chamadas da API REST no Azure Search exigem que você forneça a URL do
 5. Copie a URL do serviço e uma chave de administrador. Você precisará dos três posteriormente, ao adicioná-los ao arquivo **config.properties** .
 
 ## <a name="download-the-sample-files"></a>Baixe os arquivos do exemplo.
-1. Vá para [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) no GitHub.
+1. Vá para [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) no GitHub.
 2. Clique em **Baixar ZIP**, salve o arquivo .zip no disco e, em seguida, extraia todos os arquivos que ele contém. Considere a possibilidade de extrair os arquivos no espaço de trabalho Java para facilitar a localização do projeto posteriormente.
 3. Os arquivos de exemplo são somente leitura. Clique com o botão direito em propriedades da pasta e limpe o atributo somente leitura.
 
@@ -109,7 +109,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 7. Clique em **Concluir**.
 8. Selecione **Janela** > **Preferências** > **Java** > **JREs Instalados** > **Adicionar**.
 9. Em **Adicionar JRE**, selecione **VM padrão**.
-10. Clique em **Avançar**.
+10. Clique em **Próximo**.
 11. Na Definição do JRE, na página inicial do JRE, clique em **Diretório**.
 12. Navegue até **Arquivos de Programas** > **Java** e selecione o JDK instalado anteriormente. É importante selecionar o JDK como o JRE.
 13. Em JREs instalados, escolha o **JDK**. Suas configurações devem ter aparência semelhante à captura de tela a seguir.

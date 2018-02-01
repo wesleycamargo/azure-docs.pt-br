@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Enviar, receber e processar mensagens em lote nos aplicativos lógicos
 
@@ -39,7 +39,7 @@ Para seguir este exemplo, você precisa destes itens:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Caso contrário, você pode [inscrever-se para uma assinatura Pré-paga](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * Uma conta de email com qualquer [provedor de email com suporte do Aplicativo Lógico do Azure](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ Os aplicativos lógicos remetentes precisam saber para onde enviar os itens, enq
       Por exemplo, se você tiver uma conta corporativa ou de estudante, selecione o conector Office 365 Outlook. 
       Se você tiver uma conta do Gmail, selecione o conector Gmail.
 
-   3. Selecione essa ação para o conector:  **{*provedor de email*} – Enviar um email**
+   3. Selecione essa ação para o conector: **{*provedor de email*} – Enviar um email**
 
-      Por exemplo:
+      Por exemplo: 
 
       ![Selecione a ação "Enviar um email" para o seu provedor de email](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Se você não tiver criado uma conexão para o seu provedor de email, forneça suas credenciais de email para autenticação quando receber a solicitação. Saiba mais sobre [como autenticar suas credenciais de email](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Se você não tiver criado uma conexão para o seu provedor de email, forneça suas credenciais de email para autenticação quando receber a solicitação. Saiba mais sobre [como autenticar suas credenciais de email](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Defina as propriedades para a ação que você acabou de adicionar.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gerenciar servidores registrados com a Sincronização de arquivos do Azure (versão prévia)
 A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -28,7 +28,7 @@ O artigo a seguir ilustra como registrar e gerenciar um servidor com um Serviço
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrar/cancelar o registro de um servidor no Serviço de Sincronização de Armazenamento
 Registrar um servidor na Sincronização de arquivos do Azure estabelece uma relação de confiança entre o Windows Server e o Azure. Essa relação pode ser usada para criar *pontos de extremidade do servidor* no servidor, que representam as pastas específicas que devem ser sincronizadas com um compartilhamento de arquivos do Azure (também conhecidas como *pontos de extremidade de nuvem*). 
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Para registrar um servidor em um Serviço de Sincronização de Armazenamento, primeiro você deve preparar o servidor com os pré-requisitos necessários:
 
 * O servidor deve estar executando uma versão do Windows Server compatível. Para obter mais informações, consulte [Versões com suporte do Windows Server](storage-sync-files-planning.md#supported-versions-of-windows-server).
@@ -42,6 +42,26 @@ Para registrar um servidor em um Serviço de Sincronização de Armazenamento, p
 
     > [!Note]  
     > É recomendável usar a versão mais recente do módulo AzureRM PowerShell para registrar/cancelar o registro de um servidor. Se o pacote do AzureRM tiver sido instalado anteriormente nesse servidor (e a versão do PowerShell nesse servidor for 5.* ou maior), você poderá usar o cmdlet `Update-Module` para atualizar esse pacote. 
+* Se você utilizar um servidor de proxy de rede em seu ambiente, configure as definições de proxy no seu servidor para que o agente de sincronização use.
+    1. Determine o número da porta e o endereço IP do proxy
+    2. Edite esses dois arquivos:
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. Adicione as linhas na Figura 1 (abaixo desta seção) em /System.ServiceModel nos dois arquivos acima alterando 127.0.0.1:8888 para o endereço IP correto (substituir 127.0.0.1) e o número de porta correto (substituir 8888):
+    4. Defina as configurações de proxy do WinHTTP por meio da linha de comando:
+        * Mostre o proxy: netsh winhttp mostra o proxy
+        * Defina o proxy:    netsh winhttp define o proxy 127.0.0.1:8888
+        * Reinicie o proxy: netsh winhttp reiniciar o proxy
+        * se isso for definido após o agente ser instalado, reinicie o nosso agente de sincronização: net stop filesyncsvc
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>Registrar um servidor com o Serviço de Sincronização de Armazenamento
 Para que um servidor possa ser usado como um *ponto de extremidade do servidor* em um *grupo de sincronização* da Sincronização de arquivos do Azure, ele deve ser registrado em um *Serviço de Sincronização de Armazenamento*. Um servidor apenas pode ser registrado em um único Serviço de Sincronização de Armazenamento de cada vez.
@@ -147,9 +167,9 @@ Como a Sincronização de arquivos do Azure raramente será o único serviço em
 > Definir limites muito baixos afetará o desempenho de sincronização e de recuperação da Sincronização de arquivos do Azure.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Definir limites de rede da Sincronização de arquivos do Azure
-Você pode restringir a utilização da rede para a Sincronização de arquivos do Azure usando os cmdlets 'StorageSyncNetworkLimit'. 
+Você pode limitar a utilização de rede da Sincronização de arquivos do Azure usando os cmdlets `StorageSyncNetworkLimit`. 
 
-Por exemplo, você pode criar um novo limite de rede para garantir que a Sincronização de arquivos do Azure não usa mais de 10 Mbps entre 9h e 17h de segunda a sexta-feira: 
+Por exemplo, você pode criar uma nova limitação para garantir que a Sincronização de arquivos do Azure não use mais de 10 Mbps entre 9h e 17h de segunda a sexta-feira: 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

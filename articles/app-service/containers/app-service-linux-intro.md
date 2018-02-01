@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
@@ -30,7 +30,7 @@ O [Aplicativo Web](../app-service-web-overview.md) é uma plataforma de computa�
 
 O Serviço de Aplicativo no Linux dá suporte a inúmeras imagens internas a fim de aumentar a conectividade do desenvolvedor. Se não houver suporte para o tempo de execução que seu aplicativo requer nas imagens internas, haverá instruções sobre como [criar sua própria imagem do Docker](tutorial-custom-docker-image.md) a ser implantada no Aplicativo Web para Contêineres.
 
-| idioma | Versões com suporte |
+| Linguagem | Versões com suporte |
 |---|---|
 | Node.js | 4.4, 4.5, 6.2, 6.6, 6.9–6.11, 8.0, 8.1 |
 | PHP | 5.6, 7.0 |
@@ -73,9 +73,9 @@ Alguns recursos, como a integração de rede virtual, a autenticação do Azure 
 Só há suporte para o Serviço de Aplicativo no Linux nos planos de serviço de aplicativo [Básico e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e ele não tem um nível [Gratuito nem Compartilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). A seguir, veja também restrições importantes para o Serviço de Aplicativo no Linux:
 
 * Não é possível criar o Aplicativo Web para Contêineres em um plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web não Linux.
-* Ao criar o Aplicativo Web para Contêineres em um grupo de recursos contendo Aplicativos Web não Linux, é necessário criar um plano do Serviço de Aplicativo em uma região diferente do plano do Serviço de Aplicativo existente.
+* Ao criar o Aplicativo Web para Contêineres em um grupo de recursos contendo Aplicativos Web não Linux, é necessário criar um plano do Serviço de Aplicativo em um grupo de recursos diferente do plano do Serviço de Aplicativo existente.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Quando seu aplicativo falhar ao iniciar ou você quiser verificar o log do aplicativo, verifique os logs do Docker no diretório LogFiles. Acesse esse diretório por meio de seu site SCM ou via FTP.
 Para registrar `stdout` e `stderr` por meio do contêiner, você precisa habilitar o **Registro em log do Contêiner do Docker** em **Logs de Diagnóstico**.

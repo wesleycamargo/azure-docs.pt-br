@@ -3,7 +3,7 @@ title: "Identidade de Serviço Gerenciado (MSI) para o Azure Active Directory"
 description: "Uma visão geral da Identidade de Serviço Gerenciado para recursos do Azure."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
-ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: skwan
+ms.openlocfilehash: 07610b178bde6de9eb8d890edc060458fc3b07ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identidade de Serviço Gerenciado (MSI) para recursos do Azure
 
@@ -63,6 +63,7 @@ Tente um tutorial de identidade de serviço gerenciado para saber os cenários d
 |                    | [Acessar um recurso que não é do Azure AD com uma Identidade de Serviço Gerenciado de VM do Linux e um Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Serviço de aplicativo do Azure  | [Use a identidade de Serviço Gerenciado do Usuário com o Serviço de Aplicativo do Azure ou o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Function     | [Use a identidade de Serviço Gerenciado do Usuário com o Serviço de Aplicativo do Azure ou o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Barramento de Serviço do Azure  | [Usar Identidade de Serviço Gerenciado com o Barramento de Serviço do Azure](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Os serviços do Azure oferecem suporte à Identidade de Serviço Gerenciado?
 

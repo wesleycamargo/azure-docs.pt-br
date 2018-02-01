@@ -1,21 +1,21 @@
 ---
-title: "Implantar do Registro de Contêiner do Azure em Instâncias de Contêiner do Azure"
-description: "Implantar Instâncias de Contêiner do Azure do 	Registro de Contêiner do Azure"
+title: "Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure"
+description: "Saiba como implantar contêineres em Instâncias de Contêiner do Azure usando imagens de contêiner em um Registro de Contêiner do Azure."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c69b95f66bf2eaf4975961da5b25f5ac6172798c
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Implantar do Registro de Contêiner do Azure em Instâncias de Contêiner do Azure
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
 O Registro de Contêiner do Azure é um registro privado baseado no Azure para imagens de contêiner do Docker. Este artigo aborda como implantar imagens de contêiner armazenadas no Registro de Contêiner do Azure em Instâncias de Contêiner do Azure.
 
@@ -51,17 +51,23 @@ Se você mantiver as imagens de contêiner no Registro de Contêiner do Azure, v
 
 1. No Portal do Azure, navegue até o registro de contêiner.
 
-2. Selecione **Repositórios** e, em seguida, selecione o repositório do qual deseja implantar, clique com o botão direito do mouse na marca da imagem de contêiner que deseja implantar e selecione **Executar instância**.
+1. Selecione **Repositórios** e, em seguida, selecione o repositório do qual deseja implantar, clique com o botão direito do mouse na marca da imagem de contêiner que deseja implantar e selecione **Executar instância**.
 
     !["Executar instância" no Registro de Contêiner do Azure no portal do Azure][acr-runinstance-contextmenu]
 
-3. Insira um nome para o contêiner e um nome para o grupo de recursos. Você também poderá alterar os valores padrão se desejar.
+1. Insira um nome para o contêiner e um nome para o grupo de recursos. Você também poderá alterar os valores padrão se desejar.
 
     ![Criar menu para Instâncias de Contêiner do Azure][acr-create-deeplink]
 
-4. Quando a implantação for concluída, você poderá navegar para o grupo de contêineres do painel de notificações para localizar o endereço IP e outras propriedades do contêiner.
+1. Quando a implantação for concluída, você poderá navegar para o grupo de contêineres do painel de notificações para localizar o endereço IP e outras propriedades do contêiner.
 
     ![Exibição de detalhes de grupo de contêineres das Instâncias de Contêiner do Azure][aci-detailsview]
+
+## <a name="service-principal-authentication"></a>Autenticação de entidade de serviço
+
+Se o usuário administrador do registro de contêiner do Azure estiver desabilitado, use uma [entidade de serviço](../container-registry/container-registry-auth-service-principal.md) do Azure Active Directory para se autenticar no registro ao criar uma instância de contêiner. Também é recomendável usar uma entidade de serviço para autenticação em cenários “sem periféricos”, como um script ou aplicativo que cria instâncias de contêiner de forma autônoma.
+
+Para obter mais informações, consulte [Autenticar no Registro de Contêiner do Azure por meio das Instâncias de Contêiner do Azure](../container-registry/container-registry-auth-aci.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

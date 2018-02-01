@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -44,7 +44,7 @@ Consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/expre
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Se eu pago por um circuito de ExpressRoute de uma determinada largura de banda, a conexão VPN que adquiro do meu provedor de serviços de rede precisa ser a mesma velocidade?
 
-Não. Você pode comprar uma conexão VPN de qualquer velocidade de seu provedor de serviços. No entanto, sua conexão com o Azure é limitada à largura de banda do circuito de ExpressRoute que você comprar.
+Nº Você pode comprar uma conexão VPN de qualquer velocidade de seu provedor de serviços. No entanto, sua conexão com o Azure é limitada à largura de banda do circuito de ExpressRoute que você comprar.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Se eu pago por um circuito de ExpressRoute de uma determinada largura de banda, tenho a capacidade de chegar até maiores velocidades, se necessário?
 
@@ -54,7 +54,7 @@ Sim. Circuitos de ExpressRoute são configurados para permitir que você dispare
 
 Sim. Um circuito de ExpressRoute, uma vez instalado, permite que você acesse os serviços em uma rede virtual e outros serviços do Azure simultaneamente. Você se conecta às redes virtuais pelo caminho privado de emparelhamento e a outros serviços pelo caminho público de emparelhamento.
 
-### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>O ExpressRoute oferece um SLA (contrato de nível de serviço)?
+### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>o ExpressRoute oferece um SLA (contrato de nível de serviço)?
 
 Para obter informações, veja a página [SLA do ExpressRoute](https://azure.microsoft.com/support/legal/sla/).
 
@@ -121,11 +121,11 @@ Sim. Cada circuito do ExpressRoute tem um par redundante de conexões cruzadas c
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Eu perderei a conectividade se um dos meus links de ExpressRoute falhar?
 
-Você não perderá conectividade se uma das conexões cruzadas falhar. Uma conexão redundante estará disponível para dar suporte à carga de sua rede. Além disso, você pode criar vários circuitos em um local de emparelhamento diferente para obter resiliência a falhas.
+Você não perderá conectividade se uma das conexões cruzadas falhar. Uma conexão redundante estará disponível para suportar a carga da rede e fornecer alta disponibilidade do seu circuito ExpressRoute. Além disso, você pode criar circuitos em um local de emparelhamento diferente para obter resiliência a nível de circuito.
 
-## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir a alta disponibilidade em uma rede virtual conectada ao ExpressRoute?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir a alta disponibilidade em uma rede virtual conectada ao ExpressRoute?
 
-Você pode atingir a alta disponibilidade conectando vários circuitos do ExpressRoute em diferentes locais de emparelhamento à sua rede virtual. Por exemplo, se um site do ExpressRoute falhar, a conectividade falhará para outro site do ExpressRoute. Por padrão, o tráfego que sai da rede virtual é roteado com base no roteamento ECMP (Equal Cost Multi-path). Você pode usar o Peso de conexão para decidir entre uma conexão ou outra. Consulte [Otimização de roteamento do ExpressRoute](expressroute-optimize-routing.md) para obter detalhes adicionais sobre o Peso de Conexão.
+Você pode atingir a alta disponibilidade conectando circuitos do ExpressRoute em diferentes locais de emparelhamento (por exemplo, Cingapura, Cingapura2) à sua rede virtual. Se um circuito do ExpressRoute falhar, a conectividade falhará para outro circuito do ExpressRoute. Por padrão, o tráfego que sai da rede virtual é roteado com base no roteamento ECMP (Equal Cost Multi-path). Você pode usar o Peso de conexão para decidir entre um circuito ou outro. Consulte [Otimização de roteamento do ExpressRoute](expressroute-optimize-routing.md) para obter detalhes adicionais sobre o Peso de Conexão.
 
 ### <a name="onep2plink"></a>Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft?
 
@@ -135,7 +135,7 @@ Se seu provedor de serviços puder estabelecer dois circuitos virtuais de Ethern
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Posso estender uma das minhas VLANs ao Azure usando a ExpressRoute?
 
-Não. Não há suporte para extensões de conectividade de camada 2 ao Azure.
+Nº Não há suporte para extensões de conectividade de camada 2 ao Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>Posso ter mais de um circuito de ExpressRoute em minha assinatura?
 
@@ -145,9 +145,12 @@ Sim. Você pode ter mais de um circuito de ExpressRoute em sua assinatura. O lim
 
 Sim. Você pode ter circuitos de ExpressRoute de muitos provedores de serviços. Cada circuito de ExpressRoute é associado apenas a um provedor de serviços. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Posso ter vários circuitos de ExpressRoute no mesmo local?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Vejo dois locais de emparelhamento do ExpressRoute no mesmo metro, por exemplo, Cingapura e Singapore2. Qual local de emparelhamento devo escolher criar o meu circuito do ExpressRoute?
+Se o seu provedor de serviços oferecer o ExpressRoute em ambos os sites, você pode trabalhar com seu provedor de e escolher qualquer um dos sites para configurar o ExpressRoute. 
 
-Sim. Você pode ter vários circuitos de ExpressRoute, com os mesmos provedores de serviço ou com provedores diferentes no mesmo local. No entanto, não é possível vincular mais de um circuito de ExpressRoute na mesma rede virtual a partir do mesmo local.
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Posso ter vários circuitos do ExpressRoute no mesmo metro? Posso vinculá-los à mesma rede virtual?
+
+Sim. Você pode ter vários circuitos do ExpressRoute com os mesmos provedores de serviço ou com provedores diferentes. Se o metro tiver vários locais de emparelhamento do ExpressRoute e os circuitos forem criados em vários locais de emparelhamento, você poderá vinculá-los à mesma rede virtual. Se os circuitos forem criados no mesmo local de emparelhamento, não será possível vinculá-los à mesma rede virtual.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como conectar minhas redes virtuais a um circuito do ExpressRoute
 
@@ -181,7 +184,7 @@ Para obter mais informações, consulte [Compartilhando um circuito de ExpressRo
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>As redes virtuais estão conectadas ao mesmo circuito e isoladas umas das outras?
 
-Não. Segunda uma perspectiva de roteamento, todas as redes virtuais vinculadas ao mesmo circuito de ExpressRoute fazem parte do mesmo domínio de roteamento e não estão isoladas entre si. Se você precisar de isolamento de rota, você precisará criar um circuito de ExpressRoute separado.
+Nº Segunda uma perspectiva de roteamento, todas as redes virtuais vinculadas ao mesmo circuito de ExpressRoute fazem parte do mesmo domínio de roteamento e não estão isoladas entre si. Se você precisar de isolamento de rota, você precisará criar um circuito de ExpressRoute separado.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Posso conectar uma Rede Virtual a mais de um circuito de ExpressRoute?
 
@@ -289,7 +292,7 @@ Você pode desabilitar o ExpressRoute Premium chamando a API REST ou o cmdlet do
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>Posso escolher os recursos que desejo do conjunto de recursos premium?
 
-Não. Você não pode escolher os recursos. Habilitamos todos os recursos quando você ativa o ExpressRoute premium.
+Nº Você não pode escolher os recursos. Habilitamos todos os recursos quando você ativa o ExpressRoute premium.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>Quanto custa o ExpressRoute premium?
 

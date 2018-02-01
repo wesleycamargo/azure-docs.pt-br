@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de tempo de execução com o Azure Application Insights
 
@@ -29,7 +29,7 @@ O Azure Application Insights coleta a telemetria do seu aplicativo para ajudar a
 > * Criar um novo item de trabalho para corrigir o código com defeito
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -49,27 +49,32 @@ Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azur
 O Application Insights coleta quaisquer falhas em seu aplicativo e permite que você exiba sua frequência em diferentes operações para ajudá-lo a concentrar seus esforços naquelas que têm mais impacto.  Então você pode fazer drill down nos detalhes dessas falhas para identificar a causa raiz.   
 
 1. Selecione **Application Insights** e, em seguida, sua assinatura.  
-1. Para abrir o painel **Falhas**, selecione **Falhas** no menu **Investigar** ou clique no grafo **Solicitações com falha**.
+2. Para abrir o painel **Falhas**, selecione **Falhas** no menu **Investigar** ou clique no grafo **Solicitações com falha**.
 
     ![Solicitações falhas](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
-2. O painel **Solicitações com falha** mostra a contagem de solicitações com falha e o número de usuários afetados para cada operação para o aplicativo.  Ao classificar essas informações por usuário, você pode identificar as falhas que mais afetam os usuários.  Neste exemplo, o **GET Employees/Create** e **GET Customers/Details** são fortes candidatos a investigação devido ao seu grande número de falhas e usuários afetados.  Selecionar uma operação mostra mais informações sobre essa operação no painel à direita.
+3. O painel **Solicitações com falha** mostra a contagem de solicitações com falha e o número de usuários afetados para cada operação para o aplicativo.  Ao classificar essas informações por usuário, você pode identificar as falhas que mais afetam os usuários.  Neste exemplo, o **GET Employees/Create** e **GET Customers/Details** são fortes candidatos a investigação devido ao seu grande número de falhas e usuários afetados.  Selecionar uma operação mostra mais informações sobre essa operação no painel à direita.
 
     ![Painel de solicitações com falha](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
 
-3. Reduza a janela de tempo para ampliar o período em que a taxa de falhas mostra um pico.
+4. Reduza a janela de tempo para ampliar o período em que a taxa de falhas mostra um pico.
 
     ![Janela de solicitações com falha](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-4. Clique em **Exibir detalhes** para ver os detalhes para a operação.  Isso inclui um gráfico de Gantt que mostra duas dependências com falha que coletivamente levaram quase meio segundo para serem concluídas.  Você pode encontrar mais informações sobre a análise de problemas de desempenho concluindo o tutorial [Localizar e diagnosticar problemas de desempenho com o Azure Application Insights](app-insights-tutorial-performance.md).
+5. Clique em **Exibir detalhes** para ver os detalhes para a operação.  Isso inclui um gráfico de Gantt que mostra duas dependências com falha que coletivamente levaram quase meio segundo para serem concluídas.  Você pode encontrar mais informações sobre a análise de problemas de desempenho concluindo o tutorial [Localizar e diagnosticar problemas de desempenho com o Azure Application Insights](app-insights-tutorial-performance.md).
 
     ![Detalhes das solicitações com falha](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
-5. Os detalhes das operações também mostram uma FormatException que parece ter causado a falha.  Clique na exceção ou na contagem dos **Três principais tipos de exceção** para exibir os detalhes.  Você pode ver que se deve a um CEP inválido.
+6. Os detalhes das operações também mostram uma FormatException que parece ter causado a falha.  Clique na exceção ou na contagem dos **Três principais tipos de exceção** para exibir os detalhes.  Você pode ver que se deve a um CEP inválido.
 
     ![Detalhes da exceção](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
+> [!NOTE]
+Habilite a [experiência de visualização](app-insights-previews.md) "Detalhes unificados: diagnóstico da transação E2E" para ver todas as solicitações, dependências, exceções, rastreamentos, eventos etc. do tipo telemetria do lado do servidor relacionadas em uma única exibição de tela inteira. 
 
+Com a visualização habilitada, você pode ver o tempo gasto em chamadas de dependência, junto com quaisquer falhas ou exceções em uma experiência unificada. Para transações entre componentes, o gráfico de Gantt, junto com o painel de detalhes, pode ajudar você a diagnosticar rapidamente o componente, dependência ou exceção de causa raiz. Você pode expandir a seção inferior para ver a sequência de tempo de qualquer rastreamento ou evento coletado para a operação de componente selecionada. [Saiba mais sobre a nova experiência](app-insights-transaction-diagnostics.md)  
+
+![Diagnóstico da transação](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>Como identificar falhas de código
 O depurador de instantâneo coleta instantâneos das exceções mais frequentes em seu aplicativo para ajudá-lo a diagnosticar a causa raiz em produção.  Você pode exibir instantâneos de depuração no portal para ver a pilha de chamadas e inspecionar variáveis em cada quadro da pilha de chamadas. Em seguida, você pode depurar o código-fonte baixando o instantâneo e abrindo-o no Visual Studio 2017.

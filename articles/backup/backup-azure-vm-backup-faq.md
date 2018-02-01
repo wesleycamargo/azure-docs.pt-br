@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do Backup de VM do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -68,6 +68,13 @@ Use os discos de restauração para:
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Posso usar backups de VM de disco não gerenciado para restaurar após o upgrade dos meus discos para discos gerenciados?
 Sim, você pode usar os backups feitos antes de migrar os discos de não gerenciados para gerenciados. Por padrão, o trabalho de VM de restauração criará uma VM com discos não gerenciados. Você pode usar a funcionalidade de restauração de discos para restaurar os discos e usá-los para criar uma máquina virtual em discos gerenciados. 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Qual é o procedimento para restaurar uma VM para um ponto de restauração feito antes da conversão de discos não gerenciados para gerenciados ser feita em uma VM?
+Neste cenário, por padrão, o trabalho de restauração de VM criará uma VM com discos não gerenciados. Para criar uma VM com discos gerenciados:
+1. [Restaurar em discos não gerenciados](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Converta os discos restaurados em discos gerenciados](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Criar uma VM com discos gerenciados](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Para obter cmdlets do PowerShell, acesse [aqui](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ## <a name="manage-vm-backups"></a>Gerenciar backups de VM
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>O que acontece quando altero uma política de backup nas VMs?

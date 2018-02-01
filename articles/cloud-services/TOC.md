@@ -44,12 +44,12 @@
 ### [Conectar a um Controlador de Domínio personalizado](cloud-services-connect-to-custom-domain.md)
 
 ## Gerenciar serviço
-### [Atenuando a execução especulativa](mitigate-se.md}
 ### [Tarefas de gerenciamento comum](cloud-services-how-to-manage-portal.md)
 ### [Configurar serviço de nuvem](cloud-services-how-to-configure-portal.md)
 ### [Gerenciar um Serviço de Nuvem usando Automação do Azure](automation-manage-cloud-services.md)
 ### [Configurar o dimensionamento automático](cloud-services-how-to-scale-portal.md)
 ### [Usar Python para gerenciar recursos do Azure](cloud-services-python-how-to-use-service-management.md)
+### [Redução de execução especulativa](mitigate-se.md)
 
 ### [Patches do SO convidado](cloud-services-guestos-msrc-releases.md)
 ### Desativação do SO convidado

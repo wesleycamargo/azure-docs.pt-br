@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 187673fad2b5984441b93aa5313df31f1e8a3d2d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 1413b5d9625ebc2e3b2419f50e7e78be994d8d68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Como testar a autenticação da conta Executar como de Automação do Azure
 Depois que uma conta de automação é criada com êxito, você pode executar um teste simples para confirmar que você é capaz de autenticar com êxito no Azure Resource Manager ou na implantação clássica do Azure usando sua conta Executar como de Automação recém-criada ou atualizada.    
@@ -66,7 +66,7 @@ Use o exemplo de código abaixo para [criar um runbook do PowerShell](automation
 
 Observe que o cmdlet usado para autenticar o runbook - **Add-AzureRmAccount**, usa o conjunto de parâmetros *ServicePrincipalCertificate* .  Ele se autentica usando o certificado de entidade de serviço, não as credenciais.  
 
-Quando você [executa o runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar sua conta Executar como, um [trabalho de runbook](automation-runbook-execution.md) é criado, o Trabalho é exibido e o status do trabalho é mostrado no bloco **Resumo do Trabalho**. O status do trabalho será iniciado como *Na fila* , indicando que ele está aguardando um runbook worker ficar disponível na nuvem. Mudará para *Iniciando* quando um trabalhador reivindicar o trabalho, em seguida, para *Executando* quando o runbook realmente começar a ser executado.  Quando o trabalho do runbook concluir, deveremos ver um status de **Concluído**.
+Quando você [executa o runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar sua conta Executar como, um [trabalho de runbook](automation-runbook-execution.md) é criado, a folha trabalho é exibida e o status do trabalho é mostrado no bloco **Resumo do Trabalho**. O status do trabalho será iniciado como *Na fila* , indicando que ele está aguardando um runbook worker ficar disponível na nuvem. Mudará para *Iniciando* quando um trabalhador reivindicar o trabalho, em seguida, para *Executando* quando o runbook realmente começar a ser executado.  Quando o trabalho do runbook concluir, deveremos ver um status de **Concluído**.
 
 Para ver os resultados detalhados do runbook, clique no bloco **Saída** .  Na página **Saída**, você deverá ver que ele foi autenticado com êxito e que retornou uma lista de todos os recursos em todos os grupos de recursos de sua assinatura.  
 

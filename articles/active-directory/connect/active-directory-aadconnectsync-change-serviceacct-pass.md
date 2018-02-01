@@ -4,7 +4,7 @@ description: "Este documento tópico descreve a chave de criptografia e como aba
 services: active-directory
 keywords: "Conta do serviço de sincronização do Azure AD, senha"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alteração da senha da conta do serviço de sincronização do Azure AD Connect
 Se você alterar a senha de conta do serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até você ter abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. 
@@ -43,7 +43,7 @@ Segundo, sob condições específicas, se a senha for atualizada, o serviço de 
 Você verá erros, como:
 
 - No Gerenciador de Controle de Serviços do Windows, se você tentar iniciar o serviço de sincronização e ele não conseguir recuperar a chave de criptografia, receberá o erro “**O Windows não pôde iniciar a sincronização do Microsoft Azure AD no computador local. Para saber mais, examine o log de eventos do sistema. Se for um serviço de terceiros, não Microsoft, entre em contato com o fornecedor do serviço e mencione o código de erro específico do serviço **-21451857952****”.
-- No Visualizador de Eventos do Windows, o log de eventos do aplicativo contém um erro com **ID de evento 6028** e a mensagem de erro *“**A chave de criptografia do servidor não pode ser acessada* *”.*
+- No Visualizador de Eventos do Windows, o log de eventos do aplicativo contém um erro com **ID de evento 6028** e a mensagem de erro *“**A chave de criptografia do servidor não pode ser acessada.**”*
 
 Para garantir que você não receba esses erros, siga os procedimentos em [Abandonando a chave de criptografia de sincronização do Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) ao alterar a senha.
  

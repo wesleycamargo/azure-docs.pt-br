@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: cd6ceaf5f8cdcfbde5d0d2bebb4b89488d0122e9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ffe5ee95c66eee7dccd25a1afd2fe639cbc273f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar sua primeira API 
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprenderá como:
 
 ![Nova API](./media/api-management-get-started/created-api.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 
@@ -52,7 +52,7 @@ Esta seção mostra como importar e publicar uma API de back-end da especificaç
 
     Você pode definir os valores da API durante a criação ou mais tarde, acessando a guia **Configurações**.  
 
-    |Configuração|Valor|Descrição|
+    |Configuração|Valor|DESCRIÇÃO|
     |---|---|---|
     |**Especificação OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Referencia o serviço que implementa a API. O gerenciamento de API envia as solicitações para esse endereço.|
     |**Nome de exibição**|*API de Conferência de Demonstração*|Se você pressionar Tab depois de inserir a URL do serviço, o APIM preencherá esse campo com base no que está no json. <br/>Esse nome é exibido no Portal do desenvolvedor.|
@@ -60,19 +60,16 @@ Esta seção mostra como importar e publicar uma API de back-end da especificaç
     |**Descrição**|Forneça uma descrição opcional da API.|Se você pressionar Tab depois de inserir a URL do serviço, o APIM preencherá esse campo com base no que está no json.|
     |**Sufixo da URL da API**|*conference*|O sufixo é acrescentado à URL base do serviço de gerenciamento de API. O Gerenciamento de API diferencia as APIs pelo sufixo e, portanto, o sufixo deve ser único para cada API para um editor específico.|
     |**Esquema de URL**|*HTTPS*|Determina quais protocolos podem ser usados para acessar a API. |
-    |**Produtos**|*Ilimitado*| Publica a API associando-a a um produto. Para adicionar, opcionalmente, essa nova API a um produto, digite o nome do produto. Esta etapa pode ser repetida várias vezes para adicionar a API a vários produtos.<br/>Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Primeiro, os desenvolvedores devem assinar um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, você já é um administrador e, portanto, está inscrito em todos os produtos por padrão.<br/> Por padrão, cada instância de gerenciamento de API vem com dois produtos de exemplo: **Inicial** e **Ilimitado**. |
+    |**Produtos**|*Ilimitado*| Publica a API associando-a a um produto. Para adicionar, opcionalmente, essa nova API a um produto, digite o nome do produto. Esta etapa pode ser repetida várias vezes para adicionar a API a vários produtos.<br/>Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Primeiro, os desenvolvedores devem assinar um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.<br/> Por padrão, cada instância de gerenciamento de API vem com dois produtos de exemplo: **Inicial** e **Ilimitado**. |
 3. Selecione **Criar**.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API do APIM no portal do Azure
 
 As operações podem ser chamadas diretamente do portal do Azure, o que oferece uma maneira fácil de exibir e testar as operações de uma API.  
 1. Selecione a API que você criou na etapa anterior.
-2. Pressione a guia **Testar**.
-
-    ![Testar API](./media/api-management-get-started/test-api.png)
+2. Pressione a guia **Testar**.  ![Testar a API](./media/api-management-get-started/test-api.png)
 3. Clique em **GetSpeakers**.
-
-    A página exibe campos para parâmetros de consulta, mas, nesse caso, não há nenhum. A página também exibe campos para os cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. Se você criou a instância do APIM, já é um administrador e, portanto, a chave é preenchida automaticamente. 
+    A página exibe campos para parâmetros de consulta, mas, nesse caso, não há nenhum. A página também exibe campos para os cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. A chave é preenchida automaticamente.
 4. Pressione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
