@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c763d6867deb76f5b9d197c7062ee07d7ed6d865
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 46274241841d3fec475a9fb6172e68daaa1f6303
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>Executar aplicativos no Kubernetes
 
@@ -42,7 +42,7 @@ Se você ainda não realizou essas etapas e deseja continuar acompanhando, retor
 
 Neste tutorial, o ACR (Registro de Contêiner do Azure) foi usado para armazenar uma imagem de contêiner. Antes de executar o aplicativo, o nome do servidor de logon do ACR precisa ser atualizado no arquivo de manifesto do Kubernetes.
 
-Obter o nome do servidor de logon ACR com o comando [az acr list](/cli/azure/acr#list).
+Obter o nome do servidor de logon ACR com o comando [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Conectando seus produtos de segurança à Solução de Segurança e Auditoria do OMS (Operations Management Suite) 
 Este documento ajudará você a conectar seus produtos de segurança à Solução de Segurança e Auditoria do OMS. Há suporte para as fontes a seguir:
@@ -95,7 +95,7 @@ No computador agente, os eventos precisam ser enviados do daemon syslog para a p
 
 ## <a name="reviewing-collected-security-events"></a>Revisando os eventos de segurança coletados
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Após terminar configuração, o evento de segurança começará a ser processado pela Segurança do OMS. Para visualizar esses eventos, abra a Pesquisa de Log, digite o comando *Type=CommonSecurityLog* no campo de pesquisa e pressione ENTER. O exemplo a seguir mostra o resultado desse comando. Observe que, nesse caso, a Segurança do OMS já incluiu logs de segurança de vários fornecedores:
    

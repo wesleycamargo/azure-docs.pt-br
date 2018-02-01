@@ -6,24 +6,24 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 40108e0c60a60da412ab521d467a07b8f0540140
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0daf8b48f9cc767b0e6cf5339eff2e4e371c23fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar Python para se conectar e consultar dados
 Este guia de início rápido demonstra como usar [Python](https://python.org) para se conectar a um Banco de Dados do Azure para MySQL. Ele usa instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados de plataformas do Windows, Ubuntu Linux e Mac OS. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Python e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
-- [Criar um Banco de Dados do Azure para servidor MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Criar um Banco de Dados do Azure para servidor MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Instalar o conector MySQL e Python
 Instalar [Python](https://www.python.org/downloads/) e o [conector MySQL do Python](https://dev.mysql.com/downloads/connector/python/) em seu próprio computador. Dependendo da sua plataforma, siga as etapas na seção apropriada:

@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -38,7 +38,7 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 >
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
@@ -56,7 +56,8 @@ Os logs de atividades fornecem informações sobre as operações que foram real
 
 Para exibir logs de atividade:
 
-1. Na sua instância do **Gerenciamento de API**, clique em **Log de atividades**.
+1. Selecione a instância de serviço do APIM.
+2. Clique em **Log de atividades**.
 
 ## <a name="view-diagnostic-logs"></a>Exibir logs de diagnóstico
 
@@ -64,7 +65,8 @@ Os logs de diagnóstico fornecem informações avançadas sobre operações e er
 
 Para acessar logs de diagnóstico:
 
-1. Na sua instância do **Gerenciamento de API**, clique em **Log de diagnóstico**.
+1. Selecione a instância de serviço do APIM.
+2. Clique em **Log de diagnóstico**.
 
 ## <a name="view-metrics-of-your-apis"></a>Exibir métricas das APIs
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cc616c05f7f0579653b793f2c364782f4a35d7f9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 5398605f98c9e115255057cfad0c4c2c2e14737c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -222,23 +222,31 @@ Essas variáveis de ambiente podem ser substituídas no manifesto do aplicativo:
 Configure uma porta de host usada para se comunicar com o contêiner. A associação de porta mapeia a porta na qual o serviço está escutando dentro do contêiner para uma porta no host. Adicionar um elemento `PortBinding` no elemento `ContainerHostPolicies` do arquivo ApplicationManifest.xml.  Para este artigo, `ContainerPort` é 80 (o contêiner expõe a porta 80, conforme especificado no Dockerfile) e `EndpointRef` é "Guest1TypeEndpoint" (o ponto de extremidade definido anteriormente no manifesto do serviço).  As solicitações de entrada para o serviço na porta 8081 são mapeadas para a porta 80 no contêiner.
 
 ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
-    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
+<ServiceManifestImport>
+    ...
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ...
+</ServiceManifestImport>
 ```
 
 ## <a name="configure-container-registry-authentication"></a>Definir autenticação do registro de contêiner
 Configurar a autenticação de registro de contêiner adicionando `RepositoryCredentials` a `ContainerHostPolicies` do arquivo ApplicationManifest.xml. Adicione a conta e a senha para o registro de contêiner myregistry.azurecr.io, o que permite ao serviço baixar a imagem de contêiner do repositório.
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
+<ServiceManifestImport>
+    ...
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
+            <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ...
+</ServiceManifestImport>
 ```
 
 É recomendável que você criptografe a senha do repositório usando um certificado de criptografia que é implantado em todos os nós do cluster. Quando o Service Fabric implanta o pacote de serviço para o cluster, o certificado de criptografia é usado para descriptografar o texto cifrado.  O cmdlet Invoke-ServiceFabricEncryptText é usado para criar o texto cifrado para a senha, que é adicionado ao arquivo ApplicationManifest.xml.
@@ -283,16 +291,20 @@ Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text
 Substitua a senha com o texto codificado retornado pelo cmdlet [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) e defina `PasswordEncrypted` como "true".
 
 ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
-    <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+<ServiceManifestImport>
+    ...
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
+            <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
 gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
 gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
 yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
 NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
-    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ...
+</ServiceManifestImport>
 ```
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento

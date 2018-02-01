@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Discos de dados conectados e conjuntos de dimensionamento de máquina virtual do Azure
 Azure [conjuntos de escala de máquina virtual](/azure/virtual-machine-scale-sets/) agora oferecem suporte a máquinas virtuais com discos de dados anexado. Discos de dados podem ser definidos no perfil de armazenamento de conjuntos de escala que foram criados com o Azure Managed Disks. Anteriormente, as únicas opções de armazenamento com conexão direta disponíveis com as VMs em conjuntos de escala eram a unidade do sistema operacional e unidades temporárias.
@@ -28,14 +28,14 @@ Azure [conjuntos de escala de máquina virtual](/azure/virtual-machine-scale-set
 >  Quando você cria uma escala com discos de dados anexado definidos, você ainda precisa montar e formatar discos a partir de uma VM para usá-los (assim como para VMs do Azure autônomo). Uma maneira conveniente de concluir esse processo é usar uma extensão de script personalizado que chama um script padrão para particionar e formatar todos os discos de dados em uma máquina virtual.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Criar uma escala com discos de dados anexados
-Uma maneira simples de criar uma escala com discos anexados é usar o comando [az vmss create](/cli/azure/vmss#create). O exemplo a seguir cria um grupo de recursos do Azure e um conjunto de dimensionamento de máquinas virtuais de 10 VMs Ubuntu, cada um com discos de dados anexados 2, de 50 GB e 100 GB, respectivamente.
+Uma maneira simples de criar uma escala com discos anexados é usar o comando [az vmss create](/cli/azure/vmss#az_vmss_create). O exemplo a seguir cria um grupo de recursos do Azure e um conjunto de dimensionamento de máquinas virtuais de 10 VMs Ubuntu, cada um com discos de dados anexados 2, de 50 GB e 100 GB, respectivamente.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-O comando [az vmss create](/cli/azure/vmss#create) usará determinados valores de configuração como padrão se você não especificá-los. Para ver as opções disponíveis que você pode substituir, experimente:
+O comando [az vmss create](/cli/azure/vmss#az_vmss_create) usará determinados valores de configuração como padrão se você não especificá-los. Para ver as opções disponíveis que você pode substituir, experimente:
 
 ```bash
 az vmss create --help

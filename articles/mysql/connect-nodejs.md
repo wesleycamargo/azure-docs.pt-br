@@ -6,24 +6,24 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 2f18016614b229273aa4d661991149be949ce238
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcfd5dc0dbfb4f7aed4d2f940059d5cb8244cbd2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Banco de dados do Azure para MySQL: como usar Node.js para conectar e consultar dados
 Este guia de início rápido mostra como se conectar a um banco de dados do Azure para MySQL usando [Node.js](https://nodejs.org/) de plataformas Mac, Ubuntu Linux e Windows. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Node.js e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
-- [Criar um Banco de Dados do Azure para servidor MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Criar um Banco de Dados do Azure para servidor MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Você também precisará:
 - Instalar o tempo de execução do [Node.js](https://nodejs.org).

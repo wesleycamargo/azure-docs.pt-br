@@ -15,28 +15,28 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Implantar um aplicativo em um Cluster Party no Azure
 Este tutorial é a segunda parte de uma série e mostra como implantar um aplicativo do Azure Service Fabric em um Cluster Party no Azure.
 
 A segunda parte da série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
-> * Implantar um aplicativo em um cluster remoto usando o Visual Studio
-> * Remover um aplicativo de um cluster usando o Service Fabric Explorer
-
-Nesta série de tutoriais, você aprenderá a:
-> [!div class="checklist"]
 > * [Criar um aplicativo .NET do Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * Implantar o aplicativo em um cluster remoto
 > * [Configurar CI/CD usando o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+Nesta série de tutoriais, você aprenderá a:
+> [!div class="checklist"]
+> * Implantar um aplicativo em um cluster remoto usando o Visual Studio
+> * Remover um aplicativo de um cluster usando o Service Fabric Explorer
+
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial:
 - Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Instale o Visual Studio 2017](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
