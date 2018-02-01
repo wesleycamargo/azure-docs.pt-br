@@ -3,8 +3,8 @@ title: "Visão geral do Lote do Azure para desenvolvedores | Microsoft Docs"
 description: "Conheça os recursos do serviço de Lote e suas APIs do ponto de vista de um desenvolvedor."
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -263,7 +263,7 @@ Ao criar uma tarefa, você pode especificar:
 * Uma referência de **imagem de contêiner** no Hub do Docker ou um registro particular e configurações adicionais para criar um contêiner do Docker no qual a tarefa é executada no nó. Só será possível especificar essas informações se o pool for definido com uma configuração de contêiner.
 
 > [!NOTE]
-> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de sete dias. As tarefas concluídas persistem indefinidamente; os dados para as tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
+> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de sete dias. As tarefas concluídas persistem indefinidamente; os dados das tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
 
 Além das tarefas que você pode definir para realizar computação em um nó, as tarefas especiais a seguir também são fornecidas pelo serviço Lote:
 

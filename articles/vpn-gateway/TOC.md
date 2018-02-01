@@ -14,14 +14,14 @@
 
 # Como
 ## Configurar conexões site a site
-### [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+### [portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell do Azure](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [CLI do Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portal do Azure (clássico)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
 ## Configurar conexões ponto a site - autenticação de certificado do Azure nativo
 ### Configurar um VPN P2S
-#### [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+#### [portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [PowerShell do Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
 #### [Portal do Azure (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### Gerar certificados autoassinados
@@ -36,17 +36,17 @@
 ### [Criar e instalar arquivos de configuração de cliente VPN](point-to-site-vpn-client-configuration-radius.md)
 
 ## Configurar conexões de Rede Virtual a Rede Virtual
-### [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+### [portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell do Azure](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Configurar uma conexão de rede virtual a rede virtual entre os modelo de implantação
-### [Portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
+### [portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell do Azure](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## Configurar conexões coexistentes Site a Site e do ExpressRoute
 ### [PowerShell do Azure](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Configurar múltiplas conexões Site a Site
-### [Portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+### [portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell (clássico)](vpn-gateway-multi-site.md)
 ## Conectar vários dispositivos VPN baseados em políticas
 ### [PowerShell do Azure](vpn-gateway-connect-multiple-policybased-rm-ps.md)
@@ -61,13 +61,13 @@
 ### [PowerShell do Azure](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (clássico)](vpn-gateway-about-forced-tunneling.md)
 ## Modificar configurações de gateway de rede locais
-### [Portal do Azure](vpn-gateway-modify-local-network-gateway-portal.md)
+### [portal do Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell do Azure](vpn-gateway-modify-local-network-gateway.md)
 ### [CLI do Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verificar uma conexão de gateway de VPN](vpn-gateway-verify-connection-resource-manager.md)
 ## [Redefinir um gateway de VPN](vpn-gateway-resetgw-classic.md)
 ## Excluir um gateway de VPN
-### [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+### [portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell do Azure](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [Azure PowerShell (clássico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configurar um gateway de VPN (clássico)](vpn-gateway-configure-vpn-gateway-mp.md)
@@ -76,7 +76,7 @@
 ### [Configuração de visão geral e do Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Exemplo: dispositivo Cisco ASA (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Clássico para migração do Gerenciador de Recursos](vpn-gateway-classic-resource-manager-migration.md)
-## Solucionar problemas
+## [Solucionar problemas](vpn-gateway-troubleshoot.md)
 ### [Validar a taxa de transferência VPN em uma VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [VPN sugerida pela comunidade ou configurações do dispositivo de firewall](vpn-gateway-third-party-settings.md)
 ### [Problema de conexão Ponto a Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

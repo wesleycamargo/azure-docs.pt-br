@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b4cde427115df5bb7cd80acd676c6788ff3a379e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6ce5d49fe4e58b3c89c09ef80d563d001a4abb41
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar um aplicativo Web do ASP.NET Framework no Azure
 
@@ -29,7 +29,9 @@ Assista ao vídeo para ver este início rápido em ação e, depois, execute as 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -38,8 +40,6 @@ Para concluir este tutorial:
     - **Desenvolvimento do Azure**
 
     ![ASP.NET, desenvolvimento Web e desenvolvimento do Azure (na Web e na nuvem)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-aspnet-web-app"></a>Criar um aplicativo Web ASP .NET
 
@@ -102,10 +102,10 @@ Na caixa de diálogo **Configurar Plano do Serviço de Aplicativo**, use as conf
 
 ![Criar plano de Serviço de Aplicativo](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
-| Configuração | Valor sugerido | Descrição |
+| Configuração | Valor sugerido | DESCRIÇÃO |
 |-|-|-|
 |Plano do Serviço de Aplicativo| myAppServicePlan | O nome do plano do Serviço de Aplicativo. |
-| Local | Europa Ocidental | O datacenter onde o aplicativo Web está hospedado. |
+| Local padrão | Europa Ocidental | O datacenter onde o aplicativo Web está hospedado. |
 | Tamanho | Grátis | O [Tipo de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina os recursos de hospedagem. |
 
 Selecione **OK**.
