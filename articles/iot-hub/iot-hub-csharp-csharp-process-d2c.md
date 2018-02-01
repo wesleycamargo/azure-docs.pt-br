@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>Roteamento de mensagens com o Hub IoT (.NET)
 
@@ -101,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Esse método adiciona aleatoriamente as propriedades `"level": "critical"` e `"level": "storage"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que exige ação imediata do back-end do aplicativo ou precisa ser armazenada permanentemente. O aplicativo passa essas informações nas propriedades da mensagem, e não no corpo da mensagem, de modo que o Hub IoT pode rotear a mensagem para o destino apropriado.
+Esse método adiciona aleatoriamente as propriedades `"level": "critical"` e `"level": "storage"` a mensagens enviadas pelo dispositivo, que simula uma mensagem que exige ação imediata do back-end do aplicativo ou de um que precise ser armazenado permanentemente. O aplicativo fornece suporte para mensagens de roteamento baseado no corpo da mensagem.
 
 > [!NOTE]
 > Você pode usar as propriedades a fim de direcionar as mensagens para vários cenários, incluindo processamento de ampliação, além do exemplo de afunilamento mostrado aqui.
 
 > [!NOTE]
-> É fortemente recomendado implementar políticas de repetição, como uma retirada exponencial, conforme sugerido no artigo [Tratamento de falhas transitórias] do MSDN.
+> É fortemente recomendado implementar uma política de repetição, como uma retirada exponencial, conforme sugerido no artigo [Tratamento de falhas transitórias] do MSDN.
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Rotear mensagens para uma fila em seu Hub IoT
 
@@ -185,29 +185,29 @@ Agora você está pronto para executar os aplicativos.
    
    ![Três aplicativos de console][50]
 
-## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Opcional) Adicionar o contêiner de armazenamento ao Hub IoT e rotear mensagens para ele
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Opcional) Adicionar contêiner de armazenamento ao Hub IoT e rotear mensagens para ele
 
-Nesta seção, você cria uma conta do Armazenamento, conecta-a ao Hub IoT e configura o Hub IoT para enviar mensagens à conta com base na presença de uma propriedade na mensagem. Para saber mais sobre como gerenciar o armazenamento, consulte [Introdução ao Armazenamento do Azure][Armazenamento do Azure].
+Nesta seção, você cria uma conta de Armazenamento, conecta-a ao Hub IoT e configura o Hub IoT para enviar mensagens à conta baseada na presença de uma propriedade na mensagem. Para saber mais sobre como gerenciar o armazenamento, consulte [Introdução ao Armazenamento do Azure][Armazenamento do Azure].
 
  > [!NOTE]
-   > Caso você tenha mais de um **Ponto de extremidade**, é possível configurar o **StorageContainer**, além de **CriticalQueue**, e executar ambos simultaneamente.
+   > Caso não haja limite de um **Ponto de extremidade**, é possível configurar o **StorageContainer**, além do **CriticalQueue**, e executar ambos simultaneamente.
 
 1. Crie uma conta de armazenamento, conforme descrito em [documentação do Armazenamento do Azure] [lnk-storage]. Anote o nome da conta.
 
 2. No Portal do Azure, abra o Hub IoT e clique em **Pontos de extremidade**.
 
-3. Na folha **Pontos de Extremidade**, selecione o ponto de extremidade **CriticalQueue** e clique em **Excluir**. Clique em **Sim** e depois em **Adicionar**. Nomeie o ponto de extremidade **StorageContainer**, use os menus suspensos para selecionar o **Contêiner do Armazenamento do Azure** e crie uma **Conta de Armazenamento** e um **Contêiner de Armazenamento**.  Anote os nomes.  Quando terminar, clique em **OK** na parte inferior. 
+3. Na folha **Pontos de Extremidade**, selecione o ponto de extremidade **CriticalQueue** e clique em **Excluir**. Clique em **Sim** e depois em **Adicionar**. Nomeie o ponto de extremidade **StorageContainer**, use os menus suspensos para selecionar o **Contêiner do Armazenamento do Azure** e crie uma **Conta de armazenamento** e um **Contêiner de armazenamento**.  Anote os nomes.  Quando terminar, clique em **OK** na parte inferior. 
 
  > [!NOTE]
    > Caso tenha mais de um **Ponto de Extremidade**, não é necessário excluir **CriticalQueue**.
 
-4. Clique em **Rotas** no Hub IoT. Clique em **Adicionar** na parte superior da folha para criar uma regra que encaminhe mensagens para a fila que você acabou de adicionar. Selecione **Mensagens de Dispositivo** como a fonte de dados. Insira `level="storage"` como a condição e escolha a **StorageContainer** como um ponto de extremidade personalizado, como o ponto de extremidade da regra de roteamento. Clique em **Salvar** na parte inferior.  
+4. Clique em **Rotas** no Hub IoT. Clique em **Adicionar** na parte superior da folha para criar uma regra que encaminhe mensagens para a fila que você acabou de adicionar. Selecione **Mensagens de Dispositivo** como a fonte de dados. Insira `level="storage"` como a condição e escolha **StorageContainer** como um ponto de extremidade personalizado para o ponto de extremidade da regra de roteamento. Clique em **Salvar** na parte inferior.  
 
     Verifique se a rota de fallback está definida como **ATIVADA**. Essa é a configuração padrão de um Hub IoT.
 
 1. Verifique se os aplicativos anteriores ainda estão em execução. 
 
-1. No Portal do Azure, acesse sua conta de armazenamento, em **Serviço Blob**, e clique em **Procurar blobs...** .  Selecione o contêiner, navegue e clique no arquivo JSON, e clique em **Baixar** para exibir os dados.
+1. No Portal do Azure, acesse sua conta de armazenamento, em **Serviço de Blob**, e clique em **Procurar blobs...**.  Selecione o contêiner, navegue até o arquivo JSON e clique nele, depois clique em **Baixar** para exibir os dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a expedir confiavelmente mensagens do dispositivo para nuvem usando a funcionalidade de roteamento de mensagens do Hub IoT.

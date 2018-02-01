@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Criar imagens de contêiner para o Service Fabric
 
@@ -40,7 +40,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Criar e executar um aplicativo do Service Fabric com contêineres](service-fabric-tutorial-package-containers.md)
 > * [Como o failover e o dimensionamento são manipulados no Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Ambiente de desenvolvimento do Linux configurado para o Service Fabric. Siga as instruções [aqui](service-fabric-get-started-linux.md) para configurar seu ambiente do Linux. 
 - Este tutorial exige que você esteja executando a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
@@ -58,7 +58,7 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-A solução contém duas pastas e um arquivo ' docker-compse.yml'. A pasta 'azure voto' contém o serviço de front-end do Python junto com o Dockerfile usado para criar a imagem. O diretório 'Votação' contém o pacote de aplicativos do Service Fabric que é implantado no cluster. Esses diretórios contêm os ativos necessários para este tutorial.  
+A solução contém duas pastas e um arquivo ' docker-compose.yml'. A pasta 'azure voto' contém o serviço de front-end do Python junto com o Dockerfile usado para criar a imagem. O diretório 'Votação' contém o pacote de aplicativos do Service Fabric que é implantado no cluster. Esses diretórios contêm os ativos necessários para este tutorial.  
 
 ## <a name="create-container-images"></a>Criar imagens de contêiner
 

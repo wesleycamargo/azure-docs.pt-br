@@ -1,6 +1,6 @@
 ---
 title: "Atribuindo funções de administrador no Azure Active Directory | Microsoft Docs"
-description: "Uma função de administrador pode criar ou editar usuários, atribuir funções administrativas a outras pessoas, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios. Um usuário que tem uma função de administrador atribuída tem as mesmas permissões em todos os serviços de nuvem ao quais sua organização tenha assinado."
+description: "Uma função de administrador pode adicionar usuários, atribuir funções administrativas, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios. Um usuário que tem uma função de administrador atribuída tem as mesmas permissões em todos os serviços de nuvem ao quais sua organização tenha assinado."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,20 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/23/2018
 ms.author: curtand
-ms.reviewer: Vince.Smith
+ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuindo funções de administrador no Azure Active Directory
 
 Usando o Azure Active Directory (Azure AD), você pode designar administradores separados para atender a diferentes funções. Os administradores terão acesso a vários recursos no portal do Azure e, dependendo da sua função, podem criar ou editar usuários, atribuir funções administrativas a outros usuários, redefinir senhas de usuários, gerenciar licenças de usuários e gerenciar domínios, entre outras coisas. Um usuário ao qual seja atribuída uma função administrativa terá as mesmas permissões em todos os serviços de nuvem que sua organização tenha assinado, independentemente de você atribuir a função no portal do Office 365, no portal do Azure ou usando o módulo do Azure AD para Windows PowerShell.
 
+## <a name="details-about-the-global-administrator-role"></a>Detalhes sobre a função de administrador global
+O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de administrador global para o diretório. Somente os administradores globais podem atribuir outras funções de administrador.
+
+## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
+Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Atribuir um usuário a funções de administrador no Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="available-roles"></a>Funções disponíveis
 As seguintes funções de administrador estão disponíveis:
 
 * **Administrador de Cobrança**: faz compras, gerencia as assinaturas, gerencia tíquetes de suporte e monitora a integridade do serviço.
@@ -57,6 +64,8 @@ As seguintes funções de administrador estão disponíveis:
 
 * **Emissor do Convite ao Convidado**: os usuários nessa função podem gerenciar convites para usuários convidados do Azure Active Directory B2B quando a configuração de usuário "Membros podem convidar" está definida como Não. Mais informações sobre a colaboração B2B podem ser obtidas em [Sobre a Visualização de Colaboração do Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Ela não inclui nenhuma outra permissão.
 
+* **Administrador da Proteção de Informações**: os usuários com essa função podem acessar a Proteção de Informações do Azure no portal do Azure. Eles podem configurar rótulos para a política da Proteção de Informações do Azure, gerenciar modelos de proteção e ativar a proteção.
+
 * **Administrador de Serviços do Intune**: os usuários com essa função têm permissões globais no Microsoft Intune Online quando o serviço está presente. Além disso, essa função contém a capacidade de gerenciar usuários e dispositivos para associar a política, bem como criar e gerenciar grupos.
 
 * **Administrador de Caixa de Correio**: essa função é usada somente como parte do suporte por email do Exchange Online para dispositivos RIM Blackberry. Se sua organização não usar o email do Exchange Online em dispositivos RIM Blackberry, não use essa função.
@@ -65,7 +74,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **Suporte ao parceiro de Nível 2**: não use. Essa função foi substituída e será removida do Azure AD no futuro. Essa função é destinada a um pequeno número de parceiros de revenda da Microsoft e não se destina ao uso geral.
 
-* **Administrador de Senha/Administrador de Assistência Técnica**: usuários com essa função podem redefinir senhas, gerenciar solicitações de serviço e monitorar a integridade do serviço. Administradores de senha podem redefinir senhas somente para os usuários e outros administradores de senha.
+* **Administrador de Senhas/Administrador de Assistência Técnica**: usuários com essa função podem alterar senhas, gerenciar solicitações de serviço e monitorar a integridade do serviço. Os administradores de Assistência Técnica podem alterar senhas apenas para usuários e outros administradores de Assistência Técnica. 
 
   > [!NOTE]
   > Na API do Graph da Microsoft, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador da Assistência Técnica". Ele é um "Administrador de Senha" no [Portal do Azure](https://portal.azure.com/).
@@ -75,6 +84,8 @@ As seguintes funções de administrador estão disponíveis:
 * **Administrador de Serviços do Power BI**: os usuários com essa função têm permissões globais no Microsoft Power BI quando o serviço está presente, além da capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Administrador da função com privilégios**: os usuários com essa função podem gerenciar atribuições de função no Azure Active Directory, bem como dentro do Azure AD Privileged Identity Management. Além disso, essa função permite o gerenciamento de todos os aspectos do Privileged Identity Management.
+
+* **Leitor de Relatórios**: usuários com essa função podem exibir dados de relatórios de uso e o painel de relatórios no centro de administração do Office 365 e o pacote do contexto de adoção no Power BI. Além disso, a função fornece acesso a relatórios e atividades de logon no Azure AD e a dados retornados pela API de relatórios do Microsoft Graph. Um usuário atribuído à função Leitor de Relatórios pode acessar somente o uso relevante e as métricas de adoção. Ele não tem permissões de administrador para definir configurações ou acessar os centros de administração específico ao produto como o Exchange. 
 
 * **Administrador de Segurança**: os usuários com essa função têm todas as permissões somente leitura da função de Leitor de segurança, mais a capacidade de gerenciamento de configuração de serviços relacionados à segurança: Azure Active Directory Identity Protection, Proteção de Informações do Azure, Privileged Identity Management e Centro de Segurança e Conformidade do Office 365. Mais informações sobre permissões do Office 365 estão disponíveis em [Permissões no Centro de Conformidade de Segurança do Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -91,7 +102,7 @@ As seguintes funções de administrador estão disponíveis:
   >
   >
 
-* **Administrador da Conta de Usuário**: os usuários com essa função podem criar e gerenciar todos os aspectos de usuários e grupos. Além disso, essa função inclui a capacidade de gerenciar tíquetes de suporte e monitora a integridade do serviço. Algumas restrições se aplicam. Por exemplo, essa função não permite a exclusão de um administrador global e, embora permita a alteração de senhas para não administradores, ela não permite a alteração de senhas para os administradores globais ou outros administradores com privilégios.
+* **Administrador da Conta de Usuário**: os usuários com essa função podem criar e gerenciar todos os aspectos de usuários e grupos. Além disso, essa função inclui a capacidade de gerenciar tíquetes de suporte e monitora a integridade do serviço. Algumas restrições se aplicam. Por exemplo, essa função não permite a exclusão de um administrador global. Os administradores de Contas de Usuário podem alterar senhas somente de usuários, administradores da Assistência Técnica e outros administradores de Contas de Usuário.
 
 ## <a name="administrator-permissions"></a>Permissões de administrador
 
@@ -112,37 +123,45 @@ As seguintes funções de administrador estão disponíveis:
 | --- | --- |
 |<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Executar operações de cobrança e compra de produtos do Office</p><p>Redefinir senhas de usuário</p><p>Redefinir senhas de outro administrador</p> <p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Habilitar ou desabilitar autenticação multifator</p><p>Exibir logs de auditoria</p> |N/D |
 
-### <a name="password-administrator"></a>Administrador de senha
+### <a name="password-administrator--helpdesk-administrator"></a>Administrador de senhas/administrador de Assistência Técnica
 | O que ele pode fazer | O que não pode fazer |
 | --- | --- |
-| <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Redefinir senhas de usuário</p> <p>Redefinir senhas de outro administrador</p>|<p>Executar operações de cobrança e compra de produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir relatórios</p>|
+| <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Alterar senhas somente de usuários e outros administradores de Assistência Técnica</p>|<p>Executar operações de cobrança e compra de produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir relatórios</p>|
 
-### <a name="service-administrator"></a>Administrador de serviço
-| O que ele pode fazer | O que não pode fazer |
-| --- | --- |
-| <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p> |<p>Redefinir senhas de usuário</p><p>Executar operações de cobrança e compra de produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir logs de auditoria</p> |
-
-### <a name="user-administrator"></a>Administrador de usuários
-| O que ele pode fazer | O que não pode fazer |
-| --- | --- |
-| <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Redefinir senhas de usuário, com limitações.</p><p>Redefinir senhas de outro administrador</p><p>Redefinir senhas de outros usuários</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário, com limitações. Eles não podem excluir um administrador global ou criar outros administradores.</p> |<p>Executar operações de cobrança e compra de produtos do Office</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Habilitar ou desabilitar autenticação multifator</p><p>Exibir logs de auditoria</p> |
+### <a name="information-protection-administrator"></a>Administrador da Proteção de Informações 
+No | O que ele pode fazer
+-------- | ---------
+Proteção de Informações do Azure | * Configurar rótulos e políticas globais com escopo<br>* Gerenciar, configurar e atualizar modelos de proteção<br>* Habilitar ativação de proteção para uso 
+Privileged Identity Management | * Permissões de leitura<br>* Não é possível gerenciar associações de função ou configurações do Azure AD.
+ 
+### <a name="reports-reader"></a>Leitor de Relatórios 
+O que ele pode fazer | O que não pode fazer
+------ | ----------
+Exibir Relatórios de entrada e logs de auditoria do Azure AD<br>Exibir informações da empresa e do usuário<br>Acessar painel de uso do Office 365 | Criar e gerenciar modos de exibição do usuário<br>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário<br>Delegar funções administrativas a outros<br>Editar informações da empresa
 
 ### <a name="security-reader"></a>Leitor de segurança
-| Nesse | O que ele pode fazer |
+| No | O que ele pode fazer |
 | --- | --- |
 | Identity Protection Center |Ler todos os relatórios de segurança e informações de configurações para recursos de segurança<ul><li>Anti-spam<li>Criptografia<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de fluxo de mensagens |
 | Privileged Identity Management |<p>Tem acesso somente leitura a todas as informações exibidas no Azure AD PIM: políticas e relatórios de atribuições de função do Azure AD, análises de segurança e, no futuro, acesso de leitura aos dados de política e relatórios para cenários além da atribuição de função do Azure AD.<p>**Não pode** se inscrever no Azure AD PIM nem fazer alterações nele. No portal do PIM ou por meio do PowerShell, alguém nesta função poderá ativar funções adicionais (por exemplo, administrador global ou administrador com função com privilégios) se o usuário for um candidato a elas. |
 | <p>Monitorar a integridade do serviço Office 365</p><p>Centro de Conformidade e Segurança do Office 365</p> |<ul><li>Ler e gerenciar alertas<li>Ler políticas de segurança<li>Ler informações sobre inteligência contra ameaças, Cloud App Discovery e quarentena em Pesquisar e Investigar<li>Ler todos os relatórios |
 
 ### <a name="security-administrator"></a>Administrador de segurança
-| Nesse | O que ele pode fazer |
+| No | O que ele pode fazer |
 | --- | --- |
 | Identity Protection Center |<ul><li>Todas as permissões da função Leitor de Segurança.<li>Além disso, a capacidade de executar todas as operações de IPC, exceto para a redefinição de senhas. |
 | Privileged Identity Management |<ul><li>Todas as permissões da função Leitor de Segurança.<li>**Não é possível** gerenciar associações de função ou configurações do Azure AD. |
 | <p>Monitorar a integridade do serviço Office 365</p><p>Centro de Conformidade e Segurança do Office 365 |<ul><li>Todas as permissões da função Leitor de Segurança.<li>Pode configurar todas as configurações no recurso de Proteção avançada contra ameaças (proteção contra malware e vírus, configuração de URL mal-intencionado, rastreamento de URL, etc). |
 
-## <a name="details-about-the-global-administrator-role"></a>Detalhes sobre a função de administrador global
-O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de administrador global para o diretório. Somente os administradores globais podem atribuir outras funções de administrador.
+### <a name="service-administrator"></a>Administrador de serviço
+| O que ele pode fazer | O que não pode fazer |
+| --- | --- |
+| <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p> |<p>Redefinir senhas de usuário</p><p>Executar operações de cobrança e compra de produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir logs de auditoria</p> |
+
+### <a name="user-account-administrator"></a>Administrador da Conta de Usuário
+| O que ele pode fazer | O que não pode fazer |
+| --- | --- |
+| <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Alterar senhas somente de usuários, administradores de Assistência Técnica e outros administradores de Contas de Usuário</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário, com limitações. Eles não podem excluir um administrador global ou criar outros administradores.</p> |<p>Executar operações de cobrança e compra de produtos do Office</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Habilitar ou desabilitar autenticação multifator</p><p>Exibir logs de auditoria</p> |
 
 ### <a name="to-add-a-colleague-as-a-global-administrator"></a>Para adicionar um colega como um administrador global
 
@@ -157,9 +176,6 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 4. Na folha do usuário, selecione a **função Diretório**.
  
 5. Na folha da função de diretório, selecione a função **Administrador global** e salve.
-
-## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
-Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Atribuir um usuário a funções de administrador no modo de visualização do Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="deprecated-roles"></a>Funções preteridas
 

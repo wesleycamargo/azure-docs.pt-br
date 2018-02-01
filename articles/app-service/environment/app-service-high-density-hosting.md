@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Hospedagem de alta densidade no Serviço de Aplicativo do Azure
 Ao usar o Serviço de Aplicativo, o aplicativo será desassociado da capacidade alocada a ele por dois conceitos:
@@ -38,12 +38,12 @@ No entanto, quando vários aplicativos compartilharem um plano do Serviço de Ap
 O dimensionamento por aplicativo escalona um aplicativo independentemente do plano do Serviço de Aplicativo que o hospeda. Dessa forma, um Plano do Serviço de Aplicativo pode ser dimensionado para 10 instâncias, mas um aplicativo pode ser configurado para usar apenas cinco.
 
    >[!NOTE]
-   >O dimensionamento por aplicativo está disponível somente para planos do Serviço de Aplicativo SKU **Premium**
+   >O dimensionamento por aplicativo está disponível somente para planos do Serviço de Aplicativo SKU **Standard**, **Premium**, **Premium V2** e **Isolado** 
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>Dimensionamento por aplicativo usando PowerShell
 
-Você pode criar um plano configurado como um plano de *Dimensionamento por aplicativo* passando o atributo ```-perSiteScaling $true``` para o commandlet ```New-AzureRmAppServicePlan```
+Crie um plano configurado como um plano de *Dimensionamento por aplicativo* passando o atributo ```-perSiteScaling $true``` para o commandlet ```New-AzureRmAppServicePlan```
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-No nível do aplicativo, é preciso configurar o número de instâncias que o aplicativo pode usar no plano do serviço de aplicativo.
+No nível do aplicativo, configure o número de instâncias que o aplicativo pode usar no plano do serviço de aplicativo.
 
 No exemplo abaixo, o aplicativo está limitado a duas instâncias, independentemente de para quantas instâncias o plano do serviço de aplicativo subjacente pode ser dimensionado.
 
@@ -87,7 +87,7 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> $newapp.SiteConfig.NumberOfWorkers tem uma forma $newapp.MaxNumberOfWorkers. diferente. O dimensionamento por aplicativo usa $newapp.SiteConfig.NumberOfWorkers para determinar as características de dimensionamento do aplicativo.
+> $newapp.SiteConfig.NumberOfWorkers é diferente de $newapp.MaxNumberOfWorkers. O dimensionamento por aplicativo usa $newapp.SiteConfig.NumberOfWorkers para determinar as características de dimensionamento do aplicativo.
 
 ### <a name="per-app-scaling-using-azure-resource-manager"></a>Dimensionamento por aplicativo usando o Azure Resource Manager
 
@@ -154,7 +154,7 @@ Siga estas etapas para configurar a hospedagem de alta densidade para seus aplic
 1. Crie um único plano do Serviço de Aplicativo e o dimensione para usar toda a capacidade disponível no pool de trabalho.
 1. Defina o sinalizador PerSiteCalling como verdadeiro no Plano do Serviço de Aplicativo.
 1. Novos aplicativos são criados e atribuídos a esse Plano do Serviço de Aplicativo com a propriedade **numberOfWorkers** definida como **1**. O uso dessa configuração produz a densidade mais alta possível neste pool de trabalho.
-1. O número de trabalhadores pode ser configurado independentemente por aplicativo, a fim de conceder recursos adicionais conforme necessário. Por exemplo:
+1. O número de trabalhadores pode ser configurado independentemente por aplicativo, a fim de conceder recursos adicionais conforme necessário. Por exemplo: 
     - Um aplicativo de alto consumo pode definir o **numberOfWorkers** como **3** para ter mais capacidade de processamento para esse aplicativo. 
     - Os aplicativos de baixo consumo definiriam o **numberOfWorkers** como **1**.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Criar uma imagem personalizada de um arquivo VHD
 
@@ -57,7 +57,16 @@ As seguintes etapas orientam você durante a criação de uma imagem personaliza
 
 1. Selecione um **VHD** no menu suspenso. Este é o VHD que será usado para criar a nova imagem personalizada. Se necessário, selecione para **Carregar um VHD usando PowerShell**.
 
-1. Você também pode inserir um nome do plano, uma oferta do plano e um publicador de planos se a imagem usada para criar a imagem personalizada não for publicada pela Microsoft.
+1. Você também poderá inserir um nome do plano, oferta do plano e um editor do plano, se a imagem utilizada para criar a imagem personalizada não for uma imagem licenciada (publicada pela Microsoft).
+
+   - **Nome do plano:** insira o nome da imagem do Marketplace (SKU) a partir da qual essa imagem personalizada será criada 
+   - **Oferta do plano:** insira o produto (oferta) da imagem do Marketplace a partir da qual essa imagem personalizada é criada 
+   - **Oferta do plano:** insira o produto (oferta) da imagem do Marketplace a partir da qual essa imagem personalizada é criada
+
+   > [!NOTE]
+   > Se a imagem que você estiver utilizando para criar uma imagem personalizada **não** for uma imagem licenciada, esses campos estarão vazios e poderão ser preenchidos, caso você escolha. Se a imagem **for** uma imagem licenciada, os campos serão preenchidos automaticamente com as informações do plano. Se você tentar alterá-los nesse caso, uma mensagem de aviso será exibida.
+   >
+   >
 
 1. Selecione **OK** para criar a imagem personalizada.
 

@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas de conexões e do gateway de rede virtual do Azure - PowerShell | Microsoft Docs"
-description: "Esta página explica como usar o cmdlet do PowerShell para solucionar problemas do Observador de rede do Azure"
+title: "Solução de problemas de conexões e do gateway de rede virtual do Azure - Portal | Microsoft Docs"
+description: "Esta página explica como usar a solução de problemas do Observador de Rede do portal do Azure"
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando o PowerShell do Observador de rede do Azure
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando o Observador de Rede do portal do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-troubleshoot-manage-portal.md)
@@ -33,7 +33,7 @@ O observador de rede oferece muitos recursos que dizem respeito às noções bá
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
 
 Para obter uma lista de tipos de gateway com suporte, visite [Tipos de Gateway com suporte](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
@@ -60,7 +60,7 @@ Quando concluído, a coluna de status é alterada para **Íntegro** ou **Não í
 
 Na seção **Detalhes** da janela, a guia **Status** mostra o status da última solução de problemas executada no recurso selecionado. Os resultados do diagnóstico mais recente são mostrados xx minutos após a última execução.
 
-|Propriedade  |Descrição  |
+|Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 |Recurso     | Um link para o recurso.        |
 |Caminho de armazenamento     |  Caminho para a conta de armazenamento e o contêiner que contêm os logs (se algum foi produzido durante a execução). Essa configuração não persiste depois de você sair do portal.        |

@@ -4,20 +4,21 @@ description: "Saiba como configurar o logon único entre o Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: a93b771a-9bc3-444a-bdc0-457f8bb7e780
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/1/2017
+ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a4d3ee4790d3ae57f1a5ce2efc5371fa840e5fa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Tutorial: Integração do Azure Active Directory ao Nexonia
 
@@ -25,13 +26,13 @@ Neste tutorial, você aprenderá a integrar o Nexonia ao Azure AD (Azure Active 
 
 A integração do Nexonia ao Azure AD oferece os seguintes benefícios:
 
-- No Azure AD, você pode controlar quem tem acesso ao Nexonia
-- Você pode permitir que seus usuários faça logon automaticamente no Nexonia (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- No Azure AD, você pode controlar quem tem acesso ao Nexonia.
+- Você pode permitir que seus usuários faça logon automaticamente no Nexonia (logon único) com suas contas do Azure AD.
+- Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte. [O que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Nexonia, você precisará dos seguintes itens:
 
@@ -44,13 +45,13 @@ Para configurar a integração do Azure AD ao Nexonia, você precisará dos segu
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Nexonia da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-nexonia-from-the-gallery"></a>Adicionar Nexonia da galeria
 Para configurar a integração do Nexonia ao Azure AD, você precisará adicionar o Nexonia da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -59,26 +60,23 @@ Para configurar a integração do Nexonia ao Azure AD, você precisará adiciona
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![O botão Azure Active Directory][1]
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![A folha Aplicativos empresariais][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Nexonia**.
+4. Na caixa de pesquisa, digite **Nexonia**, selecione **Nexonia** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_search.png)
+    ![Nexonia na lista de resultados](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_addfromgallery.png)
 
-5. No painel de resultados, selecione **Nexonia** e clique no botão **Adicionar** para adicionar o aplicativo.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-Nesta seção, você configurará e testará o logon único do Azure AD com o Nexonia, com base em um usuário de teste chamado "Brenda Fernandes".
+Nesta seção, você configurará e testará o logon único do Azure AD com o Nexonia, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Nexonia é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Nexonia.
 
@@ -86,107 +84,98 @@ No Nexonia, atribua o valor do **nome de usuário** no Azure AD como o valor do 
 
 Para configurar e testar o logon único do Azure AD com o Nexonia, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criar um usuário de teste do Nexonia](#creating-a-nexonia-test-user)** – para ter um equivalente de Brenda Fernandes no Nexonia que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Criar um usuário de teste do Nexonia](#create-a-nexonia-test-user)** – para ter um equivalente de Brenda Fernandes no Nexonia que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único em seu aplicativo Nexonia.
 
->[!Note]
->Se você tiver problemas na integração, consulte este [link](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting) para um guia de solução de problemas. Se você ainda não encontrou a solução, acione a solicitação de suporte do Portal do Azure.
+  > [!Note]
+   > Se você tiver problemas na integração, consulte este [link](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) para um guia de solução de problemas. Se você ainda não encontrou a solução, acione a solicitação de suporte do Portal do Azure.
 
 **Para configurar o logon único do Azure AD com o Nexonia, execute as seguintes etapas:**
 
 1. No Portal do Azure, na página de integração de aplicativos do **Nexonia**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_samlbase.png)
+    ![Caixa de diálogo Logon único](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_samlbase.png)
 
 3. Na seção **URLs e Domínio do Nexonia**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_url.png)
+    ![Informações de logon único de Domínio e URLs do Nexonia](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_url.png)
 
-    Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
+    a. Na caixa de texto **Identificador**, digite um valor: `Nexonia`
+
+    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com a URL de Resposta real. Para obter esse valor, entre em contato com a [equipe de suporte do Nexonia](https://nexonia.zendesk.com/hc/requests/new). 
-
-
+    > O valor de URL de Resposta não é real. Atualize o valor com a URL de Resposta real. Para obter o valor, entre em contato com a [equipe de suporte do Nexonia](https://nexonia.zendesk.com/hc/requests/new).
+ 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
+    ![O link de download do Certificado](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-nexonia-tutorial/tutorial_general_400.png)
+    ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-nexonia-tutorial/tutorial_general_400.png)
 
 6. Na seção **Configuração do Nexonia**, clique em **Configurar o Nexonia** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
+    ![Configuração do Nexonia](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
 
-7. Para que o SSO seja configurado para seu aplicativo, entre em contato com a [equipe de suporte do Nexonia](https://nexonia.zendesk.com/hc/requests/new) e forneça o seguinte:
-
-    • O **certificado**
-
-    • A **ID da entidade SAML**
-
-    • A **URL do Serviço de Logon Único SAML**
-
-    • A **URL de Saída**
+7. Para configurar o logon único no lado do **Nexonia**, é necessário enviar o **Certificado (Base64) baixado, a URL de Saída, a ID da Entidade SAML, e a URL do Serviço de Logon Único do SAML** e a **ID da Entidade SAML** para a [equipe de suporte do Nexonia](https://nexonia.zendesk.com/hc/requests/new). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-![Criar um usuário do AD do Azure][100]
+   ![Criar um usuário de teste do Azure AD][100]
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nexonia-tutorial/create_aaduser_01.png) 
+    ![O botão Azure Active Directory](./media/active-directory-saas-nexonia-tutorial/create_aaduser_01.png)
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
-    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nexonia-tutorial/create_aaduser_02.png) 
+2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nexonia-tutorial/create_aaduser_03.png) 
+    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-nexonia-tutorial/create_aaduser_02.png)
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nexonia-tutorial/create_aaduser_04.png) 
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    ![O botão Adicionar](./media/active-directory-saas-nexonia-tutorial/create_aaduser_03.png)
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    ![A caixa de diálogo Usuário](./media/active-directory-saas-nexonia-tutorial/create_aaduser_04.png)
+
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
+
+    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+
+    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-nexonia-test-user"></a>Criar um usuário de teste do Nexonia
+  
+### <a name="create-a-nexonia-test-user"></a>Criar um usuário de teste do Nexonia
 
 Nesta seção, você criará um usuário chamado Brenda Fernandes no Nexonia. Trabalhe com a [equipe de suporte do Nexonia](https://nexonia.zendesk.com/hc/requests/new) para adicionar os usuários na plataforma do Nexonia. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, ao conceder acesso ao Nexonia a Brenda Fernandes, você permitirá que ela use o logon único do Azure.
 
-![Atribuir usuário][200] 
+![Atribuir a função de usuário][200] 
 
 **Para atribuir Brenda Fernandes ao Nexonia, execute as seguintes etapas:**
 
@@ -196,15 +185,15 @@ Nesta seção, ao conceder acesso ao Nexonia a Brenda Fernandes, você permitir�
 
 2. Na lista de aplicativos, selecione **Nexonia**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_app.png) 
+    ![O link do Nexonia na lista de Aplicativos](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_app.png)  
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![Atribuir usuário][202] 
+    ![O link “Usuários e grupos”][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![Atribuir usuário][203]
+    ![O painel Adicionar Atribuição][203]
 
 5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
@@ -212,12 +201,12 @@ Nesta seção, ao conceder acesso ao Nexonia a Brenda Fernandes, você permitir�
 
 7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Nexonia no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Nexonia.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

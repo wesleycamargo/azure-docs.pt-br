@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemplo de configuração: dispositivo Cisco ASA (IKEv2/não BGP)
 Este artigo apresenta exemplos de configuração para conectar dispositivos Cisco ASA (Adaptive Security Appliance) a gateways de VPN do Azure. O exemplo se aplica a dispositivos Cisco ASA que estão executando IKEv2 sem BGP (Border Gateway Protocol). 
@@ -34,7 +34,7 @@ Este artigo apresenta exemplos de configuração para conectar dispositivos Cisc
 | Modelo testado           | ASA 5505                          |
 | Versão testada         | 9.2                               |
 | Versão do IKE            | IKEv2                             |
-| BGP                    | Não                                |
+| BGP                    | Não                                 |
 | Tipo de gateway VPN do Azure | Gateway VPN baseado em rota           |
 |                        |                                   |
 
@@ -98,10 +98,7 @@ A tabela a seguir lista os algoritmos e os parâmetros de IPsec/IKE usados no ex
 
 * O suporte para Grupo DH e Grupo PFS além do Grupo 5 exige ASA versão 9.x.
 
-* O suporte para Criptografia de IPsec com AES-GCM e Integridade de IPsec com SHA-256, SHA-384 e SHA-512, exige ASA versão 9.x. Esse requisito de suporte se aplica a dispositivos ASA mais recentes.
-
-    > [!NOTE]
-    > Não há suporte para modelos de dispositivos ASA 5505, 5510, 5520, 5540, 5550 e 5580. Consulte as especificações de seu dispositivo VPN para verificar os algoritmos suporte para seus modelos de dispositivo de VPN e as versões de firmware.
+* O suporte para Criptografia de IPsec com AES-GCM e Integridade de IPsec com SHA-256, SHA-384 e SHA-512, exige ASA versão 9.x. Esse requisito de suporte se aplica a dispositivos ASA mais recentes. No momento da publicação, modelos ASA 5505, 5510, 5520, 5540, 5550 e 5580 não dão suporte a esses algoritmos. Consulte as especificações de seu dispositivo VPN para verificar os algoritmos suporte para seus modelos de dispositivo de VPN e as versões de firmware.
 
 
 ### <a name="sample-device-configuration"></a>Exemplo de configuração de dispositivo

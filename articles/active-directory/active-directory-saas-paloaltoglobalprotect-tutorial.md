@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: b7c85dd01802bd67724e405f786481ba128e559a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c851c056095ef8e7fb40d7d2ead76457495b2118
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Tutorial: integração do Azure Active Directory com o Palo Alto Networks – GlobalProtect
 
@@ -32,7 +32,7 @@ A integração do Palo Alto Networks – GlobalProtect ao Azure AD lhe oferece o
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o Palo Alto Networks – GlobalProtect, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Palo Alto Networks – GlobalProtect da Galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-palo-alto-networks---globalprotect-from-the-gallery"></a>Adicionando o Palo Alto Networks – GlobalProtect da Galeria
 Para configurar a integração do Palo Alto Networks – GlobalProtect com o Azure AD, você precisará adicionar o Palo Alto Networks – GlobalProtect da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -117,7 +117,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
  
 4. O aplicativo Palo Alto Networks – GlobalProtect espera que as declarações SAML estejam em um formato específico. Configure as seguintes declarações para o aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
     
-    ![Configurar Logon Único](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_attribute.png)
+    ![Configurar o logon único](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_attribute.png)
     
 5. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
     
@@ -129,7 +129,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_attribute_04.png)
 
-    ![Configurar Logon Único](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_attribute_05.png)
+    ![Configurar o logon único](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_attribute_05.png)
     
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
     
@@ -146,7 +146,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_general_400.png)
 
-8. Abra o site da Palo Alto como um administrador em outra janela do navegador.
+8. Abra a interface do usuário administrador de firewall de redes da Palo Alto como um administrador em outra janela do navegador.
 
 9. Clique em **Dispositivo**.
 
@@ -160,7 +160,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único da Palo Alto](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    a. Na caixa de texto **Nome do Perfil**, forneça um nome, por exemplo, Azure AD Global Protect.
+    a. Na caixa de texto **Nome do Perfil**, forneça um nome, por exemplo, Azure AD GlobalProtect.
     
     b. Em **Metadados do Provedor de Identidade**, clique em **Procurar** e selecione o arquivo metadata.xml que você baixou do Portal do Azure
     

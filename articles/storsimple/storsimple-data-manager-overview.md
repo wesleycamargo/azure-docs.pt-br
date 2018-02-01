@@ -1,6 +1,6 @@
 ---
 title: "Visão geral do Gerenciador de Dados do Microsoft Azure StorSimple | Microsoft Docs"
-description: "Fornece uma visão geral do serviço Gerenciador de Dados do StorSimple (visualização particular)"
+description: "Fornece uma visão geral do serviço Gerenciador de Dados do StorSimple"
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -12,62 +12,74 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/22/2016
+ms.date: 01/16/2018
 ms.author: vidarmsft
-ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="storsimple-data-manager-overview-private-preview"></a>Visão geral do Gerenciador de Dados do StorSimple (Visualização particular)
+# <a name="storsimple-data-manager-solution-overview"></a>Visão geral da solução do Gerenciador de Dados do StorSimple
 
 ## <a name="overview"></a>Visão geral
 
-O Microsoft Azure StorSimple é uma solução de armazenamento de nuvem híbrida que resolve as complexidades de dados não estruturados comumente associados aos compartilhamentos de arquivos. O StorSimple usa o armazenamento em nuvem como uma extensão da solução local e dispõe os dados em camadas automaticamente no armazenamento local e no armazenamento em nuvem. A proteção de dados integrada, com instantâneos locais e de nuvem, elimina a necessidade de uma infraestrutura de armazenamento ampla. O arquivamento e a recuperação de desastres também são perfeitos com a nuvem agindo como um local externo.
+O Microsoft Azure StorSimple usa o armazenamento em nuvem como uma extensão da solução local e dispõe os dados em camadas automaticamente no armazenamento local e na nuvem. Os dados são armazenados na nuvem em um formato compactado e com eliminação de duplicação para máxima eficiência e reduzir os custos. Como os dados são armazenados no formato do StorSimple, eles não são prontamente consumíveis por outros aplicativos de nuvem que você queira usar.
 
-O serviço de transformação de dados que estamos apresentando neste documento, permite o acesso direto aos dados do StorSimple na nuvem. Esse serviço fornece APIs para extração de dados do StorSimple e os apresenta a outros serviços do Azure em formatos que podem ser facilmente consumidos. Os formatos com suporte nesta visualização são Blobs do Azure e ativos dos Serviços de Mídia do Azure. Essa transformação permite que você conecte facilmente os serviços, como os Serviços de Mídia do Azure, o Azure HDInsight, o Azure Machine Learning e o Azure Search, a fim de operar os dados no dispositivo local da série StorSimple 8000.
+O Gerenciador de Dados do StorSimple permite acessar e usar os dados no formato do StorSimple na nuvem. Ele faz isso transformando o formato do StorSimple em arquivos e blobs nativos, que você pode usar com outros serviços, como os Serviços de Mídia do Azure, Azure HDInsights e Azure Machine Learning.
 
-Veja abaixo um diagrama de bloco de alto nível que ilustra isso.
+Este artigo fornece uma visão geral da solução do Gerenciador de Dados do StorSimple. Também explica como você pode usar esse serviço para escrever aplicativos que usam dados do StorSimple e outros serviços do Azure na nuvem.
 
-![Diagrama de alto nível](./media//storsimple-data-manager-overview/high-level-diagram.png)
+## <a name="how-it-works"></a>Como ele funciona?
 
-Este documento explica como você pode se inscrever para uma visualização particular desse serviço. Também explica como você pode usar esse serviço para escrever aplicativos que usam dados do StorSimple e outros serviços do Azure na nuvem.
+O serviço do Gerenciador de Dados do StorSimple identifica dados do StorSimple na nuvem a partir de um dispositivo local de série StorSimple 8000. Os dados do StorSimple na nuvem são duplicados e compactados no formato do StorSimple. O serviço do Gerenciador de Dados fornece APIs para extrair os dados no formato do StorSimple e transformá-las em outros formatos, como blobs do Azure e arquivos do Azure. Esses dados transformados são consumidos prontamente pelo HDInsight do Azure e Serviços de Mídia do Azure. A transformação de dados, portanto, permite que esses serviços operem os dados transformados do StorSimple do dispositivo local de séries do StorSimple 8000. Esse fluxo é ilustrado no diagrama a seguir.
 
-## <a name="sign-up-for-data-manager-preview"></a>Inscrever-se para a visualização do Gerenciador de Dados
-Antes de se inscrever no serviço do Gerenciador de Gados, consulte os seguintes pré-requisitos.
+![Diagrama de alto nível](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
-### <a name="prerequisites"></a>Pré-requisitos
 
-Este exercício supõe que você tem
-* uma assinatura ativa do Azure.
-* acesso a um dispositivo da série StorSimple 8000 registrado
-* todas as chaves associadas ao dispositivo da série StorSimple 8000.
+## <a name="data-manager-use-cases"></a>Casos de uso do Gerenciador de Dados
 
-### <a name="sign-up"></a>Inscrição
+Você pode usar o Gerenciador de Dados com as Funções do Azure, a Automação do Azure e o Azure Data Factory para ter fluxos de trabalho em execução em seus dados ao chegarem no StorSimple. Você talvez queira processar seu conteúdo de mídia que você armazenou no StorSimple com o Azure Media Services, ou executar um algoritmo do Machine Learning nesses dados ou colocar um cluster de Hadoop para analisar os dados armazenados no StorSimple. Com a grande variedade de serviços disponíveis no Azure combinados com os dados no StorSimple, você pode desbloquear a capacidade dos seus dados.
 
-O Gerenciador de Dados do StorSimple está em visualização particular. Execute as etapas a seguir para se inscrever para uma visualização particular desse serviço:
 
-1.  Faça logon no Portal do Azure com a extensão do Gerenciador de Dados do StorSimple no: [https://aka.ms/HybridDataManager](https://aka.ms/HybridDataManager). Use suas credenciais do Azure AD para fazer logon.
+## <a name="region-availability"></a>Disponibilidade de região
 
-2.  Clique no ícone **+** para criar um serviço. Clique em **Armazenamento** e depois em **Ver Tudo** na folha exibida.
+O Gerenciador de Dados do StorSimple está disponível nas 7 regiões a seguir:
 
-    ![Ícone Pesquisar no Gerenciador de Dados do StorSimple](./media/storsimple-data-manager-overview/search-data-manager-icon.png)
+ - Sudeste Asiático
+ - Leste dos EUA
+ - Oeste dos EUA
+ - Oeste dos EUA 2
+ - Centro-Oeste dos EUA
+ - Norte da Europa
+ - Europa Ocidental
 
-3. Você verá o ícone do Gerenciador de Dados do StorSimple.
+No entanto, o Gerenciador de Dados do StorSimple pode ser usado para transformar dados nas regiões a seguir. 
 
-    ![Ícone Selecionar Gerenciador de Dados do StorSimple](./media/storsimple-data-manager-overview/select-data-manager-icon.png)
+![Regiões disponíveis para dados](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
 
-4. Clique no ícone Gerenciador de Dados do StorSimple e clique em **Criar**. Escolha a assinatura que você deseja habilitar para a visualização particular e, em seguida, clique em **Inscrever-me!**
+Este conjunto é maior, porque a implantação de recursos em qualquer uma das regiões acima é capaz de colocar o processo de transformação nas regiões abaixo. Portanto, enquanto os seus dados residirem em qualquer uma das 26 regiões, você pode transformar seus dados usando esse serviço.
 
-    ![Inscrever-me](./media/storsimple-data-manager-overview/sign-me-up.png)
 
-5. Isso envia uma solicitação para sua integração. Realizaremos sua integração assim que possível. Após a habilitação de sua assinatura, você poderá criar um serviço de Gerenciador de Dados do StorSimple.
+## <a name="choosing-a-region"></a>Escolhendo uma região
 
-6. Para acessar facilmente o serviço do Gerenciador de Dados do StorSimple, clique no ícone de estrela para fixá-lo aos seus favoritos.
+Recomendamos que:
+ - Sua conta de armazenamento de origem (aquela associada ao seu dispositivo do StorSimple) e a conta de armazenamento de destino (onde você deseja os dados em formato nativo) na mesma região do Azure.
+ - Você leva sua definição de trabalho e o Gerenciador de Dados na região que contém a conta de armazenamento do StorSimple. Se isso não for possível, coloque o Gerenciador de Dados na região do Azure mais próxima e, em seguida, crie a definição do trabalho na mesma região da sua conta de armazenamento do StorSimple. 
 
-    ![Acessar o Gerenciador de Dados do StorSimple](./media/storsimple-data-manager-overview/access-data-managers.png)
+    Se a sua conta de armazenamento do StorSimple não estiver nas 26 regiões que oferecem suporte à criação de definição de trabalho, é recomendável que você não execute Gerenciador de Dados do StorSimple, pois você verá latências longas e cobranças de egresso potencialmente altas.
 
+## <a name="security-considerations"></a>Considerações de segurança
+
+O Gerenciador de Dados do StorSimple precisa da chave de criptografia de dados de serviço para transformar a partir do formato do StorSimple para um formato nativo. A chave da criptografia de dados do serviço é gerada quando o primeiro dispositivo registra com o serviço do StorSimple. Para obter mais informações sobre essa chave, acesse [Segurança do StorSimple](storsimple-8000-security.md).
+
+A chave de criptografia de dados de serviço fornecida como uma entrada é armazenada em um cofre de chaves criado quando você cria um Gerenciador de Dados. O cofre reside na mesma região do Azure que o Gerenciador de Dados do StorSimple. Essa chave é excluída quando você exclui o serviço do Gerenciador de Dados.
+
+Essa chave é usada pelos recursos de computação para executar a transformação. Esses recursos de computação estão localizados na mesma região do Azure que a sua definição de trabalho. Essa região pode ou não ser a mesma que a região onde você pode colocar seu Gerenciador de Dados.
+
+Se sua região do Gerenciador de Dados for diferente da sua região de definição de trabalho, é importante entender quais dados/metadados residem em cada uma dessas regiões. O diagrama a seguir ilustra o efeito de ter diferentes regiões para o Gerenciador de Dados e definição de trabalho.
+
+![Definição de serviço e trabalho em regiões diferentes](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

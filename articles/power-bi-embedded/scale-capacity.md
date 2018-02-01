@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Escalar a capacidade do Power BI Embedded
 
@@ -26,7 +26,8 @@ Este artigo explica como escalar uma capacidade do Power BI Embedded no Microsof
 
 Isso pressupõe que você tenha criado uma capacidade do Power BI Embedded. Se não tiver criado, consulte [Criar uma capacidade do Power BI Embedded no Portal do Azure](create-capacity.md) para começar.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+> [!NOTE]
+> Uma operação de dimensionamento pode levar cerca de um minuto. Durante esse tempo, a capacidade não estará disponível. O conteúdo incorporado pode falhar ao carregar.
 
 ## <a name="scale-a-capacity"></a>Escalar uma capacidade
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f43c95753e2cb190270a25fecd4c490e6fb0ed34
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -35,7 +35,7 @@ Os benefícios do uso do emparelhamento de rede virtual incluem:
 
 ## <a name="requirements-constraints"></a>Requisitos e restrições
 
-* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está atualmente em versão prévia no Centro-oeste dos EUA, Central do Canadá e Oeste dos EUA 2. Antes de fazer o emparelhamento das redes virtuais em regiões diferentes, você deve primeiro [registrar sua assinatura](virtual-network-create-peering.md#register) para a versão prévia. A tentativa de criar um emparelhamento entre redes virtuais em regiões diferentes falhará se você não tiver concluído o registro para a versão prévia.
+* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está em versão prévia no Centro-oeste dos EUA, Centro do Canadá, Oeste dos EUA 2, Coreia do Sul, Sul do Reino Unido, Oeste do Reino Unido, Leste do Canadá, Sul da Índia, Índia Central e Índia Ocidental. Antes de fazer o emparelhamento das redes virtuais em regiões diferentes, você deve primeiro [registrar sua assinatura](virtual-network-create-peering.md#register) para a versão prévia. A tentativa de criar um emparelhamento entre redes virtuais em regiões diferentes falhará se você não tiver concluído o registro para a versão prévia.
     > [!WARNING]
     > Os emparelhamentos de rede virtual criados entre regiões podem não ter o mesmo nível de disponibilidade e confiabilidade encontrado em emparelhamentos em uma versão de disponibilidade geral. Emparelhamentos de rede virtual podem ter funcionalidades restringidas e podem não estar disponíveis em todas as regiões do Azure. Para ver as notificações mais recentes sobre disponibilidade e o status desse recurso, verifique a página [Atualizações da Rede Virtual](https://azure.microsoft.com/updates/?product=virtual-network) .
 

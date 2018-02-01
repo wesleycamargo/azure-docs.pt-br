@@ -1,6 +1,6 @@
 ---
-title: "Considerações de design da identidade híbrida do Azure Active Directory. Defina uma estratégia de adoção de identidade híbrida | Microsoft Docs"
-description: "Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas escolhidas para autenticação do usuário, antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo."
+title: "Design de identidade híbrida - estratégia de adoção do Azure | Microsoft Docs"
+description: "Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas que você escolhe para autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você vai definir uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -178,11 +179,11 @@ Opções de design de vários fatores:
 
 | Ativo a ser protegido | MFA na nuvem | MFA local |
 | --- | --- | --- |
-| Aplicativos da Microsoft |sim |sim |
-| Aplicativos SaaS da Galeria de Aplicativos |sim |sim |
-| Aplicativos IIS publicados por meio da Proxy de aplicativo do Azure AD |sim |sim |
-| Aplicativos do IIS não publicados através do Proxy de Aplicativo do AD do Azure |não |sim |
-| Acesso remoto, como VPN e RDG |não |sim |
+| Aplicativos da Microsoft |Sim |Sim |
+| Aplicativos SaaS da Galeria de Aplicativos |Sim |Sim |
+| Aplicativos IIS publicados por meio da Proxy de aplicativo do Azure AD |Sim |Sim |
+| Aplicativos do IIS não publicados através do Proxy de Aplicativo do AD do Azure |não |Sim |
+| Acesso remoto, como VPN e RDG |não |Sim |
 
 Mesmo que defina uma solução para sua estratégia, você deve usar a avaliação anterior sobre a localização dos usuários.  Isso pode levar a uma mudança de solução.  Use a tabela abaixo para lhe ajudar a determinar os seguintes itens:
 
@@ -210,6 +211,6 @@ A autenticação multifator está disponível por padrão para administradores g
 ## <a name="next-steps"></a>Próximas etapas
 [Determinar os requisitos para proteção de dados](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

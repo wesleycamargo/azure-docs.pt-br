@@ -4,7 +4,7 @@ description: "Saiba como configurar o logon único entre o Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9deb4c9bd6719e7cf86883fba1306c435de0ebb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutorial: Integração do Azure Active Directory com o Grovo
 
@@ -32,7 +32,7 @@ A integração de Grovo ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o Grovo, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Grovo da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-grovo-from-the-gallery"></a>Adição do Grovo da galeria
 Para configurar a integração do Grovo ao Azure AD, você precisa adicionar o Grovo por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,7 +64,7 @@ Para configurar a integração do Grovo ao Azure AD, você precisa adicionar o G
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos Empresariais][2]
+    ![A folha Aplicativos empresariais][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
@@ -76,13 +76,13 @@ Para configurar a integração do Grovo ao Azure AD, você precisa adicionar o G
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Grovo, com base em um usuário de teste chamado "Brenda Fernandes".
+Nesta seção, você configurará e testará o logon único do Microsoft Azure AD com o Grovo, com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Grovo é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Grovo.
 
 No Grovo, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-Para configurar e testar o logon único do Azure AD com o Grovo, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Microsoft Azure AD com o Grovo, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4.  Marque **Mostrar configurações de URL avançadas** e execute estas etapa:  
+4. Marque **Mostrar configurações de URL avançadas** e realize a seguinte etapa:
 
     ![Informações de logon único em Domínio e URLs do Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -121,39 +121,43 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     b. Se desejar configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
     ![Informações de logon único em Domínio e URLs do Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
-
+    
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta, a URL de Logon e o Estado de retransmissão reais. Entre em contato com a [equipe de suporte do Grovo](https://www.grovo.com/contact-us) para obter esses valores.
  
-5. O aplicativo Grovo espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
+5. O aplicativo Grovo espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. Mapeie o **Identificador de Usuário** com **user.mail** e configure outros atributos, conforme mostrado na captura de tela a seguir.
     
-    ![Configurar o atributo Logon único](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
+    ![Configurar logon único attb](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     
 6. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
     
     | Nome do atributo | Valor do atributo |
     | ------------------- | -------------------- |    
-    | Nome              | user.givenname |
-    | Sobrenome               | user.surname |
+    | Nome          | user.givenname |
+    | Sobrenome           | user.surname |
+    | Endereço de Email       | user.mail    |
+    | employeeID          | user.employeeid |
 
     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
-    ![Configurar o atributo Logon único](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
+    ![Configurar logon único Add](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
 
-    ![Configurar o atributo Logon único](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
+    ![Configurar logon único Addattb](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
     c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+
+    d. Deixe o **Namespace** em branco.
     
-    d. Clique em **OK**.
+    e. Clique em **OK**.
 
 
 7. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![O link de Download do Certificado](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
+    ![O link de download do Certificado](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
 
 8. Clique no botão **Salvar** .
 
@@ -163,9 +167,9 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configuração do Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. Em outra janela do navegador da Web, faça logon no Grovo como Administrador.
+10. Em uma janela diferente do navegador da Web, faça logon no Grovo como Administrador.
 
-11. Vá para **ADMIN** > **Integrações**.
+11. Vá para **Integrações** > **do Administrador**.
  
     ![Configuração do Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_admin.png) 
 
@@ -179,13 +183,13 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     a. Na caixa de texto **ID da Entidade**, cole o valor da **ID da Entidade do SAML** copiado no Portal do Azure.
 
-    b. Na caixa de texto **Ponto de extremidade do serviço Logon único**, cole o valor da **URL de Serviço de Logon Único do SAML** que você copiou Portal do Azure.
+    b. Na caixa de texto **Ponto de extremidade de serviço de logon único**, cole o valor da **URL de Serviço de Logon Único do SAML** copiado no Portal do Azure.
 
     c. Selecione **Associação de ponto de extremidade do serviço de Logon único** como `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
     
     d. Abra o **certificado codificado com Base64** baixado do Portal do Azure no bloco de notas, cole-o na caixa de texto **Chave pública**.
 
-    e. Clique em **Avançar**.
+    e. Clique em **Próximo**.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

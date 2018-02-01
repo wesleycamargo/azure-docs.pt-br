@@ -1,9 +1,9 @@
 ---
-title: "Sincronização do Azure AD Connect: Tratamento de erros LargeObject causados pelo atributo userCertificate | Microsoft Docs"
+title: 'Azure AD Connect: Erros LargeObject causados pelo atributo userCertificate | Microsoft Docs'
 description: "Este tópico fornece as etapas de correção de erros LargeObject causados pelo atributo userCertificate."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: Tratamento de erros LargeObject causados pelo atributo userCertificate
 
@@ -104,7 +105,7 @@ Deve haver uma regra de sincronização existente que é habilitada e configurad
     | Atributo | Operador | Valor |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuário |
-    | cloudMastered | NOTEQUAL | True  |
+    | cloudMastered | NOTEQUAL | True |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Etapa 3. Criar a regra de sincronização de saída necessária
 A nova regra de sincronização deve ter o mesmo **filtro de escopo** e a mesma **precedência mais alta** da regra de sincronização existente. Isso garante que a nova regra de sincronização se aplica ao mesmo conjunto de objetos da regra de sincronização existente e substitui a regra de sincronização existente do atributo userCertificate. Para criar a regra de sincronização:
@@ -113,8 +114,8 @@ A nova regra de sincronização deve ter o mesmo **filtro de escopo** e a mesma 
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, *“Saída para AAD – Substituição personalizado para userCertificate”* |
-    | Descrição | *Fornecer uma descrição* | Por exemplo, *“Se o atributo userCertificate tiver mais de 15 valores, exportar NULL”.* |
+    | NOME | *Fornecer um nome* | Por exemplo, *“Saída para AAD – Substituição personalizado para userCertificate”* |
+    | DESCRIÇÃO | *Fornecer uma descrição* | Por exemplo, *“Se o atributo userCertificate tiver mais de 15 valores, exportar NULL”.* |
     | Sistema Conectado | *Selecionar o Azure AD Connector* |
     | Tipo de Objeto do Sistema Conectado | **user** | |
     | Tipo de Objeto de Metaverso | **person** | |

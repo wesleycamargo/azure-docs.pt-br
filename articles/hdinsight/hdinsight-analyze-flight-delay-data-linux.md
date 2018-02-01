@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analisar dados de atraso de voo usando o Hive no HDInsight baseado em Linux
 
@@ -29,7 +29,7 @@ Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado e
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no Azure HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Um cluster HDInsight**. Confira [Introdução ao uso do Hadoop no HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) para obter as etapas da criação de um novo cluster HDInsight baseado em Linux.
 
@@ -43,7 +43,7 @@ Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado e
 
 2. Na página, selecione os valores a seguir:
 
-   | Nome | Valor |
+   | NOME | Valor |
    | --- | --- |
    | Filtrar por ano |2013 |
    | Filtrar por período |Janeiro |
@@ -63,7 +63,7 @@ Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado e
     Substitua *NOME DO ARQUIVO* pelo nome do arquivo .zip. Substitua *NOMEDEUSUÁRIO* pelo logon SSH para o cluster HDInsight. Substitua *NOMEDOCLUSTER* pelo nome do cluster HDInsight.
 
    > [!NOTE]
-   > Se você usar uma senha para autenticar seu logon SSH, a senha será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` e especificar a chave privada correspondente. Por exemplo: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > Se você usar uma senha para autenticar seu logon SSH, a senha será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` e especificar a chave privada correspondente. Por exemplo, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Após o upload ser concluído, conecte-se ao cluster usando SSH:
 
@@ -200,9 +200,7 @@ Se você ainda não tem um Banco de Dados SQL, use as informações em [Criar um
 > Há várias maneiras de se conectar ao Banco de Dados SQL e criar uma tabela. As seguintes etapas usam [FreeTDS](http://www.freetds.org/) do cluster HDInsight.
 
 
-1. Use o SSH para conectar-se ao cluster HDInsight baseado em Linux e execute as etapas a seguir na sessão SSH.
-
-2. Use o seguinte comando para instalar o FreeTDS:
+1. Para instalar FreeTDS, utilize o seguinte comando de uma conexão SSH para o cluster:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Se você ainda não tem um Banco de Dados SQL, use as informações em [Criar um
 3. Após a conclusão da instalação, use o comando a seguir para conectar-se ao servidor de Banco de Dados SQL. Substitua **serverName** pelo nome do servidor do Banco de Dados SQL. Substitua **adminLogin** e **adminPassword** pelo logon do Banco de Dados SQL. Substitua **databaseName** pelo nome do banco de dados.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    Quando solicitado, insira a senha para o logon do administrador do Banco de Dados SQL.
 
     Você receberá saídas semelhantes ao seguinte texto:
 
@@ -251,7 +251,7 @@ Se você ainda não tem um Banco de Dados SQL, use as informações em [Criar um
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. Para sair do utilitário tsql, insira `exit` at the `1>` .
+5. Enter `exit` at the `1>` .
 
 ## <a name="export-data-with-sqoop"></a>Exportar dados com o Sqoop
 

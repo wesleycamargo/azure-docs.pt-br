@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d0f53751bf529d52c156a8b9319b10560eb8997
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Seção de parâmetros dos modelos do Azure Resource Manager
 Na seção de parâmetros do modelo, você deve especificar os valores que você pode inserir ao implantar os recursos. Esses valores de parâmetro permitem personalizar a implantação fornecendo valores que são personalizados para um determinado ambiente (como desenvolvimento, teste e produção). Você não precisa fornecer parâmetros em seu modelo, mas sem parâmetros o modelo sempre implantaria os mesmos recursos com o mesmo nomes, locais e propriedades.
@@ -82,17 +82,17 @@ O exemplo anterior mostrou apenas algumas das propriedades que você pode usar n
 }
 ```
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| parameterName |Sim |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
-| type |Sim |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **secureString**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
-| defaultValue |Não |Valor padrão do parâmetro, se nenhum valor for fornecido para o parâmetro. |
-| allowedValues |Não |Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido. |
-| minValue |Não |O valor mínimo para parâmetros de tipo int, esse valor é inclusivo. |
-| maxValue |Não |O valor máximo para parâmetros de tipo int, esse valor é inclusivo. |
-| minLength |Não |O comprimento mínimo para cadeia, secureString e parâmetros do tipo de matriz, esse valor é inclusivo. |
-| maxLength |Não |O comprimento máximo para cadeia, secureString e parâmetros do tipo de matriz, esse valor é inclusivo. |
-| Descrição |Não |Descrição do parâmetro exibido aos usuários pelo portal. |
+| parameterName |sim |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
+| Tipo |sim |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **secureString**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
+| defaultValue |Não  |Valor padrão do parâmetro, se nenhum valor for fornecido para o parâmetro. |
+| allowedValues |Não  |Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido. |
+| minValue |Não  |O valor mínimo para parâmetros de tipo int, esse valor é inclusivo. |
+| maxValue |Não  |O valor máximo para parâmetros de tipo int, esse valor é inclusivo. |
+| minLength |Não  |O comprimento mínimo para cadeia, secureString e parâmetros do tipo de matriz, esse valor é inclusivo. |
+| maxLength |Não  |O comprimento máximo para cadeia, secureString e parâmetros do tipo de matriz, esse valor é inclusivo. |
+| Descrição |Não  |Descrição do parâmetro exibido aos usuários pelo portal. |
 
 ## <a name="template-functions-with-parameters"></a>Funções com parâmetros de modelo
 
@@ -131,6 +131,7 @@ Defina o parâmetro no modelo e especifique um objeto JSON em vez de um único v
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "eastus",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -160,7 +161,7 @@ Em seguida, faça referência às subpropriedades do parâmetro usando o operado
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -237,7 +238,7 @@ As seguintes informações podem ser úteis quando você trabalha com parâmetro
    }
    ```
 
-* Sempre que possível, não use um parâmetro para especificar o local. Em vez disso, use a propriedade **location** do grupo de recursos. Ao usar a expressão **resourceGroup().location** para todos os seus recursos, os recursos no modelo são implantados no mesmo local do grupo de recursos:
+* Use um parâmetro para especificar o local e compartilhe esse valor do parâmetro o máximo possível com recursos que provavelmente estarão no mesmo local. Essa abordagem minimiza o número de vezes que os usuários são solicitados a fornecer informações de local. Se um tipo de recurso tiver suporte em apenas um número limitado de locais, talvez seja conveniente especificar um local válido diretamente no modelo ou adicionar outro parâmetro de local. Quando uma organização limita as regiões permitidas para seus usuários, a expressão **resourceGroup().location** poderá impedir que um usuário possa implantar o modelo. Por exemplo, um usuário cria um grupo de recursos em uma região. Um segundo usuário deve implantar nesse grupo de recursos, mas não tem acesso à região. 
    
    ```json
    "resources": [
@@ -245,13 +246,12 @@ As seguintes informações podem ser úteis quando você trabalha com parâmetro
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
-   
-   Se um tipo de recurso tiver suporte em apenas um número limitado de locais, talvez seja conveniente especificar um local válido diretamente no modelo. Se você precisar usar um parâmetro **location**, compartilhe esse valor de parâmetro o máximo possível com os recursos que provavelmente estarão no mesmo local. Essa abordagem minimiza o número de vezes que os usuários são solicitados a fornecer informações de local.
+    
 * Evite usar um parâmetro ou variável para a versão de API de um tipo de recurso. Os valores e propriedades do recurso podem variar de acordo com o número de versão. O IntelliSense em um editor de código não pode determinar o esquema correto quando a versão da API é definida como um parâmetro ou uma variável. Em vez disso, codifique a versão da API no modelo.
 * Evite especificar um nome de parâmetro no modelo que corresponde a um parâmetro no comando de implantação. O Resource Manager resolve esse conflito de nomeação adicionando o sufixo **FromTemplate** ao parâmetro do modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Durante a implantação, você recebe uma solicitação para fornecer um valor para **ResourceGroupNameFromTemplate**.
 
@@ -259,7 +259,7 @@ As seguintes informações podem ser úteis quando você trabalha com parâmetro
 
 Esses modelos de exemplo demonstram alguns cenários de uso de parâmetros. Implante-os para testar como os parâmetros são tratados em cenários diferentes.
 
-|Modelo  |Descrição  |
+|Modelo  |DESCRIÇÃO  |
 |---------|---------|
 |[parâmetros com funções de valores padrão](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como usar funções de modelo ao definir valores padrão para parâmetros. O modelo não implanta todos os recursos. Ele cria valores de parâmetro e retorna os valores. |
 |[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra como usar um objeto para um parâmetro. O modelo não implanta todos os recursos. Ele cria valores de parâmetro e retorna os valores. |

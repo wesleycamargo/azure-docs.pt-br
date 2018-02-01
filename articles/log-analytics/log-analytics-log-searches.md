@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Localizar dados usando as pesquisas de logs no Log Analytics
 
@@ -30,7 +30,7 @@ No núcleo do Log Analytics está o recurso de pesquisa de log que permite combi
 
 Na página de Pesquisa, crie uma consulta e, em então, quando pesquisar, poderá filtrar os resultados por meio de controles da faceta. Você também pode criar consultas avançadas para transformar, filtrar e relatar sobre seus resultados.
 
-As consultas de pesquisa de log comuns aparecem na maioria das páginas de solução. No console do OMS, você pode clicar em blocos ou fazer uma busca de outros itens para exibir detalhes sobre o item usando a pesquisa de log.
+As consultas de pesquisa de log comuns aparecem na maioria das páginas de solução. No portal do OMS, você pode clicar em blocos ou fazer uma busca detalhada de outros itens para exibir detalhes sobre o item usando a pesquisa de logs.
 
 Neste tutorial, examinaremos exemplos para cobrir todas as noções básicas do uso da pesquisa de log.
 
@@ -39,7 +39,7 @@ Vamos começar com exemplos práticos, simples e desenvolvê-los para que você 
 Depois que você se acostumar com as técnicas de pesquisa, poderá examinar a [referência de pesquisa de log do Log Analytics](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Usar filtros básicos
-A primeira coisa a saber é que a primeira parte de uma consulta de pesquisa, antes de um caractere de barra vertical "|", é sempre um *filtro*. Você pode pensar nela como uma cláusula WHERE no TSQL: ela determina *qual* subconjunto desses dados ela deve retirar do repositório de dados do OMS. A pesquisa no repositório de dados é basicamente a especificação das características dos dados que você deseja extrair; portanto, é natural que uma consulta deva começar com a cláusula WHERE.
+A primeira coisa a saber é que a primeira parte de uma consulta de pesquisa, antes de um caractere de barra vertical "|", é sempre um *filtro*. Você pode pensar nisso como uma cláusula WHERE no TSQL-- isso determina *qual* subconjunto de dados efetuar pull para o espaço de trabalho do Log Analytics. A pesquisa no repositório de dados é basicamente a especificação das características dos dados que você deseja extrair; portanto, é natural que uma consulta deva começar com a cláusula WHERE.
 
 Os filtros mais básicos que você pode usar são *palavras-chave*, como 'erro', 'tempo limite' ou um nome de computador. Esses tipos de consultas simples normalmente retornam diversas formas de dados dentro do mesmo conjunto de resultados. Isso acontece porque o Log Analytics tem diferentes *tipos* de dados no sistema.
 
@@ -80,7 +80,7 @@ Isso ocorre porque todos os filtros na consulta são avaliados como estando em *
 
 Por exemplo, a consulta `Type=Event EventLog="Windows PowerShell"` é idêntica à `Type=Event AND EventLog="Windows PowerShell"`. Ela retorna todos os eventos que foram registrados no e coletados do log de eventos do Windows PowerShell. Se você adicionar um filtro várias vezes selecionando repetidamente a mesma faceta, o problema é apenas superficial: ele pode sobrecarregar a barra de pesquisa, mas ainda retorna os mesmos resultados porque o operador AND implícito sempre está lá.
 
-Você pode facilmente reverter o operador AND implícito usando um operador NOT explicitamente. Por exemplo:
+Você pode facilmente reverter o operador AND implícito usando um operador NOT explicitamente. Por exemplo: 
 
 `Type:Event NOT(EventLog:"Windows PowerShell")` ou seu equivalente `Type=Event EventLog!="Windows PowerShell"` retorna todos os eventos de todos os outros logs que NÃO sejam o log do Windows PowerShell.
 
@@ -126,7 +126,7 @@ Cada consulta é avaliada na ordem explícita abaixo. Observe o parêntese.
 (EventLog=Application OR EventLog=System) AND Computer=SERVER1.contoso.com
 ```
 
-Assim como no campo de log de eventos, você pode recuperar dados apenas para um conjunto de computadores específicos adicionando OR. Por exemplo:
+Assim como no campo de log de eventos, você pode recuperar dados apenas para um conjunto de computadores específicos adicionando OR. Por exemplo: 
 
 ```
 (EventLog=Application OR EventLog=System) AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com OR Computer=SERVER3.contoso.com)
@@ -322,7 +322,7 @@ Segundo, atualmente, a **Contagem de medidas** retorna somente os 100 resultados
 ## <a name="use-the-max-and-min-functions-with-the-measure-command"></a>Usar as funções máx e mín com o comando de medida
 Há várias situações em que**Measure Max()** e **Measure Min()** são úteis. No entanto, já que elas são opostas, vamos exemplificar Máx() e você pode testar Mín() por conta própria.
 
-Se você consultar eventos de segurança, eles têm uma propriedade de **nível** que pode variar. Por exemplo:
+Se você consultar eventos de segurança, eles têm uma propriedade de **nível** que pode variar. Por exemplo: 
 
 ```
 Type=SecurityEvent
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Usar a função méd com o comando de medida
 A função estatística Méd() usada com medidas permite que você calcule o valor médio para alguns campos e agrupar os resultados por tal campo ou por outro. Isso é útil em muitos casos, como dados de desempenho.
 
-Vamos começar com os dados de desempenho. Observe que o OMS atualmente coleta contadores de desempenho para computadores Windows e Linux.
+Vamos começar com os dados de desempenho. Observe que o Log Analytics atualmente coleta contadores de desempenho para computadores Windows e Linux.
 
 Para pesquisar *todos* os dados de desempenho, a consulta mais básica é:
 
@@ -373,7 +373,7 @@ Na imagem acima, há dois conjuntos de campos marcados que indicam o seguinte:
 * **CounterValue** é o valor real do contador. Neste exemplo, o valor é *75*.
 * **TimeGenerated** é 12:51, no formato de 24 horas.
 
-Esta é uma exibição das métricas em um gráfico.
+Esta é uma exibição das métricas em um grafo.
 
 ![pesquisar média início](./media/log-analytics-log-searches/oms-search-avg02.png)
 
@@ -414,7 +414,7 @@ Agora você pode adicionar computadores e contadores com o exemplo abaixo:
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-Como você tem uma seleção muito específica, o comando **measure Avg()** pode retornar a média não por computador, mas pelo farm, simplesmente agrupando por CounterName. Por exemplo:
+Como você tem uma seleção muito específica, o comando **measure Avg()** pode retornar a média não por computador, mas pelo farm, simplesmente agrupando por CounterName. Por exemplo: 
 
 ```
 Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03") | Measure Avg(CounterValue) by CounterName
@@ -448,7 +448,7 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ## <a name="use-the-where-command"></a>Usar o comando where
 O comando where funciona como um filtro, mas ele pode ser aplicado ao pipeline para filtrar os resultados agregados que foram produzidos pelo comando Medir, em vez de resultados brutos que são filtrados no início de uma consulta.
 
-Por exemplo:
+Por exemplo: 
 
 ```
 Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(CounterValue) as AVGCPU by Computer
@@ -554,7 +554,7 @@ A função countdistinct conta o número de valores distintos em cada grupo. Por
 ![OMS-countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
 
 ## <a name="use-the-measure-interval-command"></a>Usar o comando measure interval
-Com a coleta de dados de desempenho em tempo real, você pode coletar e visualizar qualquer contador de desempenho no Log Analytics. Simplesmente inserindo a consulta **Type:Perf** retornará milhares de gráficos de métricas com base no número de contadores e de servidores no ambiente do Log Analytics. Com a agregação de métrica sob demanda, você pode examinar as métricas gerais em seu ambiente em um alto nível e analisar mais profundamente dados mais granulares conforme o necessário.
+Com a coleta de dados de desempenho em tempo real, você pode coletar e visualizar qualquer contador de desempenho no Log Analytics. Simplesmente inserindo a consulta **Type:Perf** retornará milhares de grafos de métricas com base no número de contadores e de servidores no ambiente do Log Analytics. Com a agregação de métrica sob demanda, você pode examinar as métricas gerais em seu ambiente em um alto nível e analisar mais profundamente dados mais granulares conforme o necessário.
 
 Digamos que você queira saber qual é a CPU média entre todos os seus computadores. Examinar a CPU média de todos os computadores pode não ser útil porque os resultados podem ser reduzidos. Para ver mais detalhes, você pode agregar o resultado em períodos menores de tempo, além de examinar uma série de tempo em dimensões diferentes. Por exemplo, você pode executar a medição do uso médio de CPU por hora em todos os computadores, da seguinte maneira:
 

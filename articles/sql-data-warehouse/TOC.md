@@ -6,6 +6,10 @@
 # Guia de início rápido
 
 ## [Criar e conectar - portal](create-data-warehouse-portal.md)
+## Pausar e retomar computação
+### [Portal](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Tutoriais
 ## [1 - Carregar dados do blob](load-data-from-azure-blob-storage-using-polybase.md)

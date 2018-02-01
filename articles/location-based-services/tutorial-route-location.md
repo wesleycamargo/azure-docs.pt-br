@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Rotear para um ponto de interesse usando os Serviços do Azure Baseados na Localização
 
@@ -26,7 +26,7 @@ Este tutorial mostra como usar sua conta dos Serviços do Azure Baseados na Loca
 > * Obter coordenadas de endereço
 > * Serviço de Roteiros de Consulta para obter o trajeto até o ponto de interesse
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de prosseguir, verifique se você [criou sua conta dos Serviços do Azure Baseados na Localização](./tutorial-search-location.md#createaccount) e [obteve a chave de assinatura da conta](./tutorial-search-location.md#getkey). Você também pode observar como usar o Controle de Mapeamento e as APIs do Serviço de Pesquisa, conforme discutido no tutorial [Pesquisar ponto de interesse mais próximo usando os Serviços do Azure Baseados na Localização](./tutorial-search-location.md).
 
@@ -77,13 +77,13 @@ Use as etapas a seguir para criar uma página HTML estática inserida com a API 
     ```
     Observe como o cabeçalho HTML insere os locais de recurso para arquivos CSS e JavaScript da biblioteca dos Serviços do Azure Baseados na Localização. Observe também o segmento *script* no corpo do arquivo HTML, que contém o código JavaScript para acessar as APIs do Serviço Baseado na Localização do Azure.
 
-3. Adicione o seguinte código JavaScript ao bloco de *script* do arquivo HTML. Substitua o espaço reservado *<insert-key>* pela chave primária da conta dos Serviços Baseados na Localização.
+3. Adicione o seguinte código JavaScript ao bloco de *script* do arquivo HTML. Use a chave primária de sua Conta dos Serviços Baseados na Localização no script.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     O **atlas.Map** fornece o controle de um mapa Web visual e interativo, e é um componente da API de Controle de Mapeamento do Azure.
@@ -179,14 +179,14 @@ Esta seção mostra como usar a API do Serviço de Roteiros dos Serviços do Azu
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    A solicitação acima mostra os parâmetros necessários, que são a chave de assinatura da sua conta e as coordenadas para os pontos de partida e de chegada, na ordem fornecida. 
+    A solicitação acima mostra os parâmetros necessários, que são a chave da sua conta e as coordenadas para os pontos de partida e de chegada, na ordem fornecida. 
 
 3. Salve o arquivo **MapRoute.html** localmente, em seguida, abra-o em um navegador da Web de sua escolha e observe o resultado. Para uma conexão bem-sucedida com APIs de Serviços Baseados na Localização, você deverá ver um mapa semelhante ao seguinte. 
 

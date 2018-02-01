@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
 
 > [!NOTE]
-> - Se estiver se familiarizando com o Azure Data Factory, consulte [Introdução ao Azure Data Factory](introduction.md).
+> - Se estiver se familiarizando com o Azure Data Factory, confira [Introdução ao Azure Data Factory](introduction.md).
 > - Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 De forma mais abrangente, este tutorial envolve as seguintes etapas:
@@ -81,7 +81,7 @@ Para o Banco de Dados SQL e o SQL Data Warehouse, permita que os serviços do Az
       
      ![Página de novo data factory](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
  
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você se deparar com o seguinte erro para o campo nome, altere o nome do data factory (por exemplo, seunomeADFTutorialBulkCopyDF). Consulte o artigo [Data Factory – Regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
+   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você se deparar com o seguinte erro para o campo nome, altere o nome do data factory (por exemplo, seunomeADFTutorialBulkCopyDF). Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
   
        `Data factory name “ADFTutorialBulkCopyDF” is not available`
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
@@ -98,10 +98,10 @@ Para o Banco de Dados SQL e o SQL Data Warehouse, permita que os serviços do Az
 8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
-9. Depois que a criação estiver concluída, você verá a página **Data Factory**, conforme mostrado na imagem.
+9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
     ![Página inicial da data factory](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
-10. Clique no bloco **Criar e Monitorar** para iniciar o aplicativo de interface do usuário do Data Factory em uma guia separada.
+10. Clique no bloco **Autor & Monitor** para iniciar o aplicativo IU do Data Factory em uma guia separada.
 11. Na página de **introdução**, alterne para a guia **Editar** no painel esquerdo, conforme mostrado na imagem a seguir:  
 
     ![Página Introdução](./media/tutorial-bulk-copy-portal/get-started-page.png)
@@ -195,7 +195,7 @@ Neste tutorial, as tabelas SQL de origem e de destino não são embutidas nas de
 5. Alterne para a guia **Parâmetros** e clique em **+ Novo**
 
     ![Página de conexão do conjunto de dados de origem](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Digite **DWTableName** para o nome do parâmetro. 
+6. Digite **DWTableName** para o nome do parâmetro. Se você copiar/colar esse nome da página, verifique se não há algum **caractere de espaço à direita** no final de **DWTableName**. 
 7. Na seção **Propriedades parametrizadas**, digite `@{dataset().DWTableName}` para a propriedade **tableName**. A propriedade **tableName** do conjunto de dados é definida como o valor que é passado como um argumento para o parâmetro **DWTableName**. A atividade ForEach itera por meio de uma lista de tabelas e passa uma por uma para a atividade de Cópia. 
    
     ![Nome do parâmetro](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)

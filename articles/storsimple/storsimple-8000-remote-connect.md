@@ -4,7 +4,7 @@ description: Explica como configurar seu dispositivo para o gerenciamento remoto
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conectar remotamente ao seu dispositivo StorSimple série 8000
 
@@ -84,7 +84,10 @@ Execute as seguintes etapas no console serial do dispositivo para habilitar o ge
 Execute as seguintes etapas no cliente para habilitar o gerenciamento remoto.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Para preparar o cliente para a conexão remota
-1. Inicie uma sessão do Windows PowerShell como administrador.
+1. Inicie uma sessão do Windows PowerShell como administrador. Se estiver usando um cliente Windows 10, por padrão, o serviço Gerenciamento Remoto do Windows será definido como manual. Talvez seja necessário iniciar o serviço digitando:
+
+    `Start-Service WinRM`
+    
 2. Digite o seguinte comando para adicionar o endereço IP do dispositivo StorSimple na lista de hosts confiáveis do cliente:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -212,7 +215,10 @@ Use o Windows PowerShell e o SSL para inserir uma sessão SSAdmin no dispositivo
 Execute o procedimento a seguir no computador do qual você deseja fazer a conexão remota do Windows PowerShell.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Para inserir uma sessão SSAdmin no dispositivo usando Windows PowerShell e SSL
-1. Inicie uma sessão do Windows PowerShell como administrador.
+1. Inicie uma sessão do Windows PowerShell como administrador. Se estiver usando um cliente Windows 10, por padrão, o serviço Gerenciamento Remoto do Windows será definido como manual. Talvez seja necessário iniciar o serviço digitando:
+
+    `Start-Service WinRM`
+
 2. Adicione o endereço IP do dispositivo aos hosts confiáveis do cliente, digitando:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -230,7 +236,7 @@ Execute o procedimento a seguir no computador do qual você deseja fazer a conex
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Para o parâmetro -ComputerName no cmdlet, forneça o <*número de série do dispositivo de destino*>. Esse número de série foi mapeado para o endereço IP de DATA 0 no arquivo de hosts em seu host remoto; por exemplo, **SHX0991003G44MT** , como mostrado na imagem a seguir.
-5. Tipo:
+5. Digite:
    
      `Enter-PSSession $session`
 6. Você precisará aguardar alguns minutos e, em seguida, será conectado ao dispositivo via HTTPS por SSL. Você verá uma mensagem que indica que está conectado ao seu dispositivo.

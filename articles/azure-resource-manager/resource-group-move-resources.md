@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -100,7 +100,7 @@ Entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure
 
 Os serviços que permitem mover para um novo grupo de recursos e uma nova assinatura são:
 
-* Gerenciamento de API
+* Gerenciamento da API
 * Aplicativos do Serviço de Aplicativo (aplicativos Web) - consulte [Limitações do Serviço de Aplicativo](#app-service-limitations)
 * Application Insights
 * Automação
@@ -113,10 +113,10 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Content Moderator
 * Catálogo de Dados
 * Data Factory
-* Análises Data Lake
+* Data Lake Analytics
 * Repositório Data Lake
 * DNS
-* Hubs de Eventos
+* Hubs de evento
 * Clusters HDInsight – veja [Limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
 * Cofre da Chave
@@ -153,6 +153,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * AD Domain Services
 * Serviço de Integridade Híbrida do AD
 * Gateway de Aplicativo
+
 * Serviços do BizTalk
 * Serviço de Contêiner
 * ExpressRoute
@@ -208,7 +209,7 @@ Suas opções são:
 
 Todas as outras combinações envolvem deixar para trás um tipo de recurso que não pode ser deixado para trás ao mover um plano do Serviço de Aplicativo (qualquer tipo de recurso do Serviço de Aplicativo).
 
-Caso o aplicativo Web resida em um grupo de recursos diferente de seu plano do Serviço de Aplicativo, mas você desejar mover ambos para um novo grupo de recursos, será necessário realizar a movimentação em duas etapas. Por exemplo:
+Caso o aplicativo Web resida em um grupo de recursos diferente de seu plano do Serviço de Aplicativo, mas você desejar mover ambos para um novo grupo de recursos, será necessário realizar a movimentação em duas etapas. Por exemplo: 
 
 * **web-a** reside em **web-group**
 * **plan-a** reside em **plan-group**
@@ -314,6 +315,12 @@ A operação pode executar por vários minutos.
 A movimentação dos recursos de Armazenamento, Rede ou Computação usados para configurar a recuperação de desastres com o Azure Site Recovery não está habilitada.
 
 Por exemplo, suponha que você configurou a replicação das máquinas locais para uma conta de armazenamento (Storage1) e queira que a máquina protegida venha, após o failover, para o Azure como uma máquina virtual (VM1) conectada a uma rede virtual (Network1). Você não pode mover nenhum desses recursos do Azure – Storage1, VM1 e Network1 – entre grupos de recursos dentro da mesma assinatura ou em assinaturas diferentes.
+
+Como mover uma VM registrada no **Backup do Azure** entre grupos de recursos:
+ 1. Pare temporariamente o backup e mantenha os dados de backup
+ 2. Mova a VM para o grupo de recursos de destino
+ 3. Proteja-o novamente sob o mesmo/novo cofre. Os usuários poderão restaurar a partir dos pontos de restauração disponíveis criados antes da operação de movimentação.
+Se o usuário mover a VM com backup nas assinaturas, as etapas 1 e 2 permanecerão as mesmas. Na etapa 3, o usuário precisará proteger a VM sob um novo cofre presente/criado na assinatura de destino. O cofre dos Serviços de Recuperação não dá suporte a backups de assinaturas cruzadas.
 
 ## <a name="hdinsight-limitations"></a>Limitações do HDInsight
 

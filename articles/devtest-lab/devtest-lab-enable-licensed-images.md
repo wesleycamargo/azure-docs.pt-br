@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Labs
 
@@ -29,7 +29,7 @@ A primeira etapa para permitir que os usuários criem VMs a partir de uma imagem
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Mais serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.  
 
@@ -53,7 +53,9 @@ Para certificar-se de que uma imagem licenciada esteja disponível para usuário
 
 Habilite a implantação programática para uma imagem licenciada executando estas etapas:
 
-1. No [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), na lista de **Imagens do Marketplace**, identifique uma imagem licenciada à qual você deseja que os usuários tenham acesso, mas cujos termos não foram aceitos. Por exemplo, você pode ver uma máquina virtual de ciência de dados que mostra um status de **Termos aceitos** ou **Revisão necessária dos termos**.
+1. No [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), vá para a lista de **imagens Marketplace**.
+
+1. Identifique uma imagem licenciada à qual você deseja que os usuários tenham acesso, mas cujos termos não foram aceitos. Por exemplo, você pode ver uma máquina virtual de ciência de dados que mostra um status de **Termos aceitos** ou **Revisão necessária dos termos**.
 
     ![Janela Configurar Implantação Programática](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
@@ -74,7 +76,15 @@ Habilite a implantação programática para uma imagem licenciada executando est
    >
 
 
-1. Selecione **Salvar**. Na lista de imagens do marketplace, essa imagem agora mostra **Termos aceitos** e está disponível para os usuários criarem máquinas virtuais.
+1. Selecione **Salvar**. 
+
+    Na lista de imagens do marketplace, essa imagem agora mostra **Termos aceitos** e está disponível para os usuários criarem máquinas virtuais.
+
+> [!NOTE]
+> Os usuários podem criar uma imagem personalizada de uma imagem licenciada. Consulte [Criar uma imagem personalizada de um arquivo VHD](devtest-lab-create-template.md) para obter mais informações.
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Postagens de blogs relacionadas
 
@@ -83,4 +93,6 @@ Habilite a implantação programática para uma imagem licenciada executando est
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Criar uma imagem personalizada de uma VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Criar uma imagem personalizada de um arquivo VHD](devtest-lab-create-template.md)
 - [Adicionar uma VM ao laboratório](devtest-lab-add-vm.md)

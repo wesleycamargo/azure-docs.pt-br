@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -146,38 +146,80 @@ O modelo a seguir de uma atividade de cópia contém uma lista exaustiva das pro
 
 ## <a name="monitoring"></a>Monitoramento
 
-As características de desempenho e detalhes da execução da atividade de cópia são retornadas na seção Resultado da execução da atividade de cópia -> Saída. Abaixo está uma lista esgotada. Saiba como monitorar a execução da atividade na [seção de monitoramento de início rápido](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). Você pode comparar o desempenho e a configuração do seu cenário com a [referência de desempenho](copy-activity-performance.md#performance-reference) da atividade de cópia de testes internos.
+É possível monitorar a atividade de cópia em execução na interface do usuário "Autor e Monitor" do Azure Data Factory ou programaticamente. Você pode comparar o desempenho e a configuração do seu cenário com a [referência de desempenho](copy-activity-performance.md#performance-reference) da atividade de cópia de testes internos.
+
+### <a name="monitor-visually"></a>Monitorar visualmente
+
+Para monitorar visualmente a execução da atividade de cópia, acesse o data factory -> **Autor e Monitor** -> **Guia Monitor** e você verá uma lista de pipeline executada com uma link "Exibir Execuções da Atividade" na coluna **Ações**. 
+
+![Monitorar execuções de pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+
+Clique para ver a lista das atividades no pipeline executado. Na coluna **Ações**, há links para a entrada, saída, erros da atividade de cópia (se a execução da atividade de cópia falhar) e detalhes.
+
+![Monitorar execuções de atividade](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+
+Clique o link "**Detalhes**" em **Ações** para ver os detalhes de execução da atividade de cópia e as características de desempenho. Ele mostra as informações, incluindo o volume/linhas/arquivos de dados copiados da fonte para o coletor, a taxa de transferência, as etapas realizadas com a duração correspondente e as configurações usadas para o cenário da sua cópia.
+
+**Exemplo: cópia da Amazon S3 para o Azure Data Lake Store**
+![Monitorar os detalhes da execução de atividade](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+
+**Exemplo: copiar do Banco de Dados SQL do Microsoft Azure para o SQL Data Warehouse do Microsoft Azure usando cópia preparada**
+![Monitorar os detalhes da execução de atividade](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+
+### <a name="monitor-programmatically"></a>Monitorar programaticamente
+
+As características de desempenho e detalhes da execução da atividade de cópia também são retornadas na seção Resultado da execução da atividade de cópia -> Saída. Abaixo é apresentada uma lista exaustiva. Somente o que for aplicável ao seu cenário de cópia será exibido. Saiba como monitorar a execução da atividade na [seção de monitoramento de início rápido](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Nome da propriedade  | DESCRIÇÃO | Unidade |
 |:--- |:--- |:--- |
-| dataRead | Leitura do tamanho de dados da origem | Valor Int64 em bytes |
-| dataWritten | Tamanho dos dados gravado no coletor | Valor Int64 em bytes |
+| dataRead | Leitura do tamanho de dados da origem | Valor Int64 em **bytes** |
+| dataWritten | Tamanho dos dados gravado no coletor | Valor Int64 em **bytes** |
+| filesRead | Número de arquivos copiados, ao copiar dados do armazenamento de arquivos. | Valor Int64 (nenhuma unidade) |
+| filesWritten | Número de arquivos copiados, ao copiar dados para armazenamento de arquivos. | Valor Int64 (nenhuma unidade) |
 | rowsCopied | Número de linhas que estão sendo copiadas (não aplicável para cópia binária). | Valor Int64 (nenhuma unidade) |
 | rowsSkipped | Número de linhas incompatíveis que está sendo ignoradas. Você pode ativar o recurso definindo "enableSkipIncompatibleRow" como true. | Valor Int64 (nenhuma unidade) |
-| throughput | Taxa em que os dados são transferidos | Número de ponto flutuante em KB/s |
+| throughput | Taxa em que os dados são transferidos | Número de Ponto Flutuante em **KB/s** |
 | copyDuration | A duração da cópia | Valor Int32 em segundos |
 | sqlDwPolyBase | Se o PolyBase é usado ao copiar dados para o SQL Data Warehouse. | BOOLEAN |
 | redshiftUnload | Se UNLOAD é usado ao copiar dados do Redshift. | BOOLEAN |
 | hdfsDistcp | Se DistCp é usado ao copiar dados do HDFS. | BOOLEAN |
 | effectiveIntegrationRuntime | Mostre quais Integration Runtime(s) são usados para capacitar a execução de atividade, no formato de `<IR name> (<region if it's Azure IR>)`. | Texto (cadeia de caracteres) |
 | usedCloudDataMovementUnits | As unidades de movimentação de dados de nuvem eficaz durante a cópia. | Valor Int32 |
+| usedParallelCopies | ParallelCopies efetivos durante a cópia. | Valor Int32|
 | redirectRowPath | Caminho para o log de linhas incompatíveis ignoradas no armazenamento de blobs que você configurou em "redirectIncompatibleRowSettings". Consulte o exemplo abaixo. | Texto (cadeia de caracteres) |
-| billedDuration | A duração sendo cobrada para a movimentação de dados. | Valor Int32 em segundos |
+| executionDetails | Mais detalhes sobre a atividade de cópia dos estágios passam e as etapas correspondentes, duração, configurações usadas, etc. Não é recomendável analisar essa seção, pois pode ser alterada. | Matriz |
 
 ```json
 "output": {
-    "dataRead": 1024,
-    "dataWritten": 2048,
-    "rowsCopies": 100,
-    "rowsSkipped": 2,
-    "throughput": 1024.0,
-    "copyDuration": 3600,
-    "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
-    "redshiftUnload": true,
-    "sqlDwPolyBase": true,
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 8,
-    "billedDuration": 28800
+    "dataRead": 107280845500,
+    "dataWritten": 107280845500,
+    "filesRead": 10,
+    "filesWritten": 10,
+    "copyDuration": 224,
+    "throughput": 467707.344,
+    "errors": [],
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
+    "usedCloudDataMovementUnits": 32,
+    "usedParallelCopies": 8,
+    "executionDetails": [
+        {
+            "source": {
+                "type": "AmazonS3"
+            },
+            "sink": {
+                "type": "AzureDataLakeStore"
+            },
+            "status": "Succeeded",
+            "start": "2018-01-17T15:13:00.3515165Z",
+            "duration": 221,
+            "usedCloudDataMovementUnits": 32,
+            "usedParallelCopies": 8,
+            "detailedDurations": {
+                "queuingDuration": 2,
+                "transferDuration": 219
+            }
+        }
+    ]
 }
 ```
 

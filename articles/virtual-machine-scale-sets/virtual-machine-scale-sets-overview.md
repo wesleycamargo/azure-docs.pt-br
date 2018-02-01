@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>O que são conjuntos de dimensionamento de máquinas virtuais no Azure?
 Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de dimensionamento são projetados para dar suporte total ao dimensionamento e nenhum pré-provisionamento de VMs é necessário. Portanto, é mais fácil compilar serviços em larga escala direcionados a cargas de trabalho com uso intenso de computação, muitos dados e em contêineres.
@@ -35,10 +35,7 @@ Para saber mais sobre conjuntos de dimensionamento, assista a estes vídeos:
 ## <a name="creating-and-managing-scale-sets"></a>Criando e gerenciando conjuntos de dimensionamento
 Você pode criar um conjunto de dimensionamento no [Portal do Azure](https://portal.azure.com) selecionando **novo** e digitando **escala** na barra de pesquisa. **Conjunto de dimensionamento de máquinas virtuais** está listado nos resultados. A partir daí, você pode preencher os campos obrigatórios para personalizar e implantar o conjunto de dimensionamento. Você também tem opções para configurar as regras básicas de dimensionamento automático baseadas no uso da CPU no portal. Para gerenciar sua escala definida, você poderá usar o portal do Azure, os [cmdlets do Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) ou a CLI do Azure 2.0.
 
-Os conjuntos de escala podem ser implantados em uma [zona disponibilidade](../availability-zones/az-overview.md).
-
-> [!NOTE]
-> No momento, os conjuntos de dimensionamento de máquinas virtuais só oferecem suporte à implantação em uma única zona de disponibilidade. A implantação de várias zonas terá suporte no futuro.
+Os conjuntos de dimensionamento podem ser implantados em várias [zonas de disponibilidade](virtual-machine-scale-sets-use-availability-zones.md).
 
 Você pode definir e implantar conjuntos de dimensionamento usando modelos JSON e [APIs REST](https://msdn.microsoft.com/library/mt589023.aspx), assim como as VMs individuais do Azure Resource Manager. Portanto, você pode usar qualquer método de implantação do Azure Resource Manager padrão. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -52,8 +49,8 @@ Para manter o desempenho do aplicativo consistente, você poderá aumentar ou di
 
 Para as regras básicas de dimensionamento automático, você pode usar métricas de desempenho baseadas em host, como uso de CPU ou E/S de disco. Essas métricas baseadas em host ficam disponíveis automaticamente, sem agentes adicionais ou extensões para instalar e configurar. As regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas a seguir:
 
-- [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [PowerShell do Azure](virtual-machine-scale-sets-autoscale-powershell.md)
 - [CLI 2.0 do Azure](virtual-machine-scale-sets-autoscale-cli.md)
 
 Para usar as métricas de desempenho mais granulares, você pode instalar e configurar a extensão de diagnóstico do Azure em instâncias de VM em seu conjunto de escala. A extensão de diagnóstico do Azure permite coletar métricas de desempenho adicionais, como o consumo de memória, de dentro de cada instância de VM. Essas métricas de desempenho são transmitidas a uma conta de armazenamento do Azure e você cria regras de dimensionamento automático para consumir dados. Para saber mais, veja os artigos sobre como habilitar a extensão de diagnóstico do Azure em uma [VM do Linux](../virtual-machines/linux/diagnostic-extension.md) ou [VM do Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
@@ -94,7 +91,7 @@ Se você precisar ver ou editar a definição JSON subjacente de um recurso do A
 Esta seção lista alguns cenários típicos de conjunto de dimensionamento. Além disso, alguns serviços do Azure de nível mais alto (como Lote, Service Fabric e Serviço de Contêiner) usam esses cenários.
 
 * **Use RDP/SSH para se conectar a instâncias de conjunto de dimensionamento**: um conjunto de dimensionamento é criado dentro de uma rede virtual e as VMs individuais dentro dele não são endereços IP públicos alocados por padrão. Essa política evita a sobrecarga de despesas e de gerenciamento da alocação de endereços IP públicos diferentes para todos os nós na sua grade de computação. Se você precisa direcionar conexões externas para VMs de conjunto de dimensionamento, pode configurar um conjunto de dimensionamento para atribuir endereços IP públicos para novas VMs automaticamente. Como alternativa, você pode se conectar às VMs de outros recursos em sua rede virtual que possam receber endereços IP públicos, por exemplo, balanceadores de carga e máquinas virtuais autônomas. 
-* **Conectar-se às VMs usando regras NAT**: você pode criar um endereço IP público, atribuí-lo a um balanceador de carga e definir um pool NAT de entrada. Essas ações mapeiam portas no endereço IP para uma porta em uma VM no conjunto de dimensionamento. Por exemplo:
+* **Conectar-se às VMs usando regras NAT**: você pode criar um endereço IP público, atribuí-lo a um balanceador de carga e definir um pool NAT de entrada. Essas ações mapeiam portas no endereço IP para uma porta em uma VM no conjunto de dimensionamento. Por exemplo: 
   
   | Fonte | Porta de origem | Destino | Porta de destino |
   | --- | --- | --- | --- |

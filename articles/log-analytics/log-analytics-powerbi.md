@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importar dados do Log Analytics do Azure para o Power BI
 
@@ -86,12 +86,12 @@ Ao configurar o Power BI com um [espaço de trabalho herdado do Log Analytics](l
 ![Log Analytics para Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Agendas do Power BI
-Uma *Agenda do Power BI* inclui uma pesquisa de log que exporta um conjunto de dados do repositório do OMS para um conjunto de dados correspondente no Power BI e uma agenda que define a frequência com que essa pesquisa é executada para manter o conjunto de dados atualizado.
+Um *Agendamento do Power BI* inclui uma pesquisa de logs que exporta um conjunto de dados do Log Analytics para um conjunto de dados correspondente no Power BI e um agendamento que define a frequência com que essa pesquisa é executada para manter o conjunto de dados atual.
 
 Os campos no conjunto de dados corresponderão às propriedades dos registros retornados pela pesquisa de log.  Se a pesquisa retornar registros de diferentes tipos, o conjunto de dados incluirá todas as propriedades de cada um dos tipos de registro incluídos.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>Conectar o espaço de trabalho do OMS ao Power BI
-Antes de exportar do Log Analytics para o Power BI, você deve conectar o seu espaço de trabalho do OMS à conta do Power BI usando o procedimento a seguir.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Conectando o espaço de trabalho do Log Analytics ao Power BI
+Antes de exportar do Log Analytics para o Power BI, você precisa conectar o espaço de trabalho à sua conta do Power BI usando o procedimento a seguir.  
 
 1. No console do OMS, clique no bloco **Configurações** .
 2. Selecione **Contas**.
@@ -106,9 +106,9 @@ Crie uma agenda do Power BI para cada conjunto de dados usando o procedimento a 
 3. Clique no botão **Power BI** na parte superior da página para abrir o diálogo **Power BI**.
 4. Forneça as informações na tabela a seguir e clique em **Salvar**.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Nome |Nome para identificar a agenda ao exibir a lista de agendamentos do Power BI. |
+| NOME |Nome para identificar a agenda ao exibir a lista de agendamentos do Power BI. |
 | Pesquisa Salva |A pesquisa de log a ser executada.  Você pode selecionar a consulta atual ou uma pesquisa salva existente na lista suspensa. |
 | Agenda |A frequência de execução da pesquisa salva e exportação para o conjunto de dados do Power BI.  O valor deve ser entre 15 minutos e 24 horas. |
 | Nome do conjunto de dados |O nome do conjunto de dados no Power BI.  Ele será criado se ele não existir e atualizado se existir. |

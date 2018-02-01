@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)
 
-Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia), bem como notas de versão para versões anteriores.
+Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia), bem como notas de versão para versões anteriores.
 
 O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux.
 
-## <a name="version-093"></a>Versão 0.9.3
-12/08/2017
+## <a name="version-094--093"></a>Versão 0.9.4 / 0.9.3
+21/01/2018
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Fazer o download do Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia)
-- [Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>Fazer o download do Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia)
+- [Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
 * Sua janela existente do Gerenciador de Armazenamento do Azure será reutilizada quando:
@@ -44,6 +44,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
     * Para o Mac, há uma opção 'Nova janela' sob o Menu Aplicativo.
 
 ### <a name="fixes"></a>Correções
+* Corrigido um problema de segurança. Atualize para 0.9.4 o mais rápido possível.
 * Atividades antigas estavam sendo limpas adequadamente. Isso afetou o desempenho dos trabalhos de longa execução. Agora, elas estão sendo limpas corretamente.
 * Ações que envolvem grandes números de arquivos e diretórios podem causar, ocasionalmente, o congelamento do Gerenciador de Armazenamento. As solicitações para o Azure para compartilhamentos de arquivos agora são estranguladas para limitar o uso de recursos do sistema.
 
@@ -94,7 +95,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 
 ### <a name="new"></a>Novo
 * Suporte da versão prévia para Azure Cosmos DB:
-    * [Documentação online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Documentação online](./cosmos-db/storage-explorer.md)
     * Criar bancos de dados e coleções
     * Manipular dados
     * Consultar, criar ou excluir documentos
@@ -174,7 +175,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 10/20/2017
 ### <a name="new"></a>Novo
 * Suporte da versão prévia para Azure Cosmos DB:
-    * [Documentação online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Documentação online](./cosmos-db/storage-explorer.md)
     * Criar bancos de dados e coleções
     * Manipular dados
     * Consultar, criar ou excluir documentos

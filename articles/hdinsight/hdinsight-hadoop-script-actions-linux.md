@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -36,7 +36,7 @@ As ações de script podem ser aplicadas por meio dos seguintes métodos:
 
 | Use este método para aplicar um script... | Durante a criação do cluster... | Em um cluster em execução... |
 | --- |:---:|:---:|
-| Portal do Azure |✓  |✓ |
+| Portal do Azure |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | CLI do Azure |&nbsp; |✓ |
 | SDK do .NET do HDInsight |✓ |✓ |
@@ -118,7 +118,7 @@ A melhor prática é baixar e arquivar tudo em uma conta de Armazenamento do Azu
 > [!IMPORTANT]
 > A conta de armazenamento usada deve ser a conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento.
 
-Por exemplo, os exemplos fornecidos pela Microsoft são armazenados na conta de armazenamento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). É um contêiner público somente leitura mantido pela equipe do HDInsight.
+Por exemplo, os exemplos fornecidos pela Microsoft são armazenados na conta de armazenamento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Esse local é um contêiner público somente leitura mantido pela equipe do HDInsight.
 
 ### <a name="bPS4"></a>Usar os recursos pré-compilados
 
@@ -156,13 +156,13 @@ HDInsight registra em log a saída do script que é gravada para STDOUT e STDERR
 > [!NOTE]
 > O Ambari só estará disponível se o cluster for criado com êxito. Se você usar uma ação de script durante a criação do cluster e a criação falhar, confira a seção de solução de problemas [Personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) para conhecer outras maneiras de acessar informações registradas em log.
 
-A maioria dos pacotes de instalação e utilitários já grava informações para STDOUT e STDERR; no entanto, talvez você queira adicionar registro em log adicional. Para enviar texto para STDOUT, use `echo`. Por exemplo:
+A maioria dos pacotes de instalação e utilitários já grava informações para STDOUT e STDERR; no entanto, talvez você queira adicionar registro em log adicional. Para enviar texto para STDOUT, use `echo`. Por exemplo: 
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo para STDERR, adicione `>&2` antes de `echo`. Por exemplo:
+Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo para STDERR, adicione `>&2` antes de `echo`. Por exemplo: 
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -230,7 +230,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 Os auxiliares a seguir, disponíveis para uso em seu script:
 
-| Uso do auxiliar | Descrição |
+| Uso do auxiliar | DESCRIÇÃO |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Baixa um arquivo da URI de origem para o caminho de arquivo especificado. Por padrão, ele não substitui um arquivo existente. |
 | `untar_file TARFILE DESTDIR` |Extrai um arquivo tar (usando `-xf`) para o diretório de destino. |
@@ -314,7 +314,7 @@ fi
 
 ## <a name="deployScript"></a>Lista de verificação para implantação de uma ação de script
 
-Aqui estão as etapas que utilizamos ao se preparar para implantar esses scripts:
+Aqui estão as etapas que realizamos para se preparar para implantar um script:
 
 * Coloque os arquivos que contêm os scripts personalizados em um local que seja acessível pelos nós de cluster durante a implantação. Por exemplo, o armazenamento padrão para o cluster. Arquivos também podem ser armazenados nos serviços de hospedagem legíveis publicamente.
 * Verifique se o script é idempotente. Isso permite que o script seja executado várias vezes no mesmo nó.
@@ -326,7 +326,7 @@ Aqui estão as etapas que utilizamos ao se preparar para implantar esses scripts
 Você pode usar ações de script para personalizar os clusters HDInsight usando os seguintes métodos:
 
 * Portal do Azure
-* PowerShell do Azure
+* Azure PowerShell
 * Modelos do Gerenciador de Recursos do Azure
 * O SDK .NET do HDInsight.
 
@@ -341,7 +341,7 @@ A Microsoft fornece scripts de exemplo para instalar componentes em um cluster H
 * [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Instalar ou atualizar o Mono em clusters HDInsight](hdinsight-hadoop-install-mono.md)
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Estes são erros que você pode encontrar ao usar scripts desenvolvidos por você:
 
@@ -356,7 +356,7 @@ Esse problema ocorre geralmente quando o script é criado em um ambiente Windows
 > [!NOTE]
 > Os comandos a seguir são a grosso modo equivalentes, no sentido que ambos devem alterar as terminações de linha CRLF para LF. Selecione um deles com base nos utilitários disponíveis no sistema.
 
-| Command | Observações |
+| Get-Help | Observações |
 | --- | --- |
 | `unix2dos -b INFILE` |O backup do arquivo original é feito com uma extensão .BAK |
 | `tr -d '\r' < INFILE > OUTFILE` |OUTFILE contém uma versão apenas com terminações LF |

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Implantar um gateway edge para a solução pré-configurada da fábrica conectada no Windows ou Linux
 
@@ -57,7 +57,7 @@ Durante a configuração do Docker para Windows, selecione uma unidade no seu co
 ![Instalar o Docker para Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> Você também pode executar essa etapa após a instalação do docker usando o diálogo **Configurações**. Clique com botão direito no ícone do **Docker** na bandeja do sistema do Windows e escolha **Configurações**.
+> Você também pode executar essa etapa após a instalação do docker usando o diálogo **Configurações**. Clique com botão direito no ícone do **Docker** na bandeja do sistema do Windows e escolha **Configurações**. Se as principais atualizações do Windows tiverem sido implantadas no sistema, como a Windows Fall Creators Update, descompartilhe as unidades e compartilhe-as novamente para atualizar os direitos de acesso.
 
 Se você estiver usando o Linux, nenhuma configuração adicional é necessária para habilitar o acesso ao sistema de arquivos.
 
@@ -65,7 +65,7 @@ No Windows, crie uma pasta na unidade compartilhada com o Docker; no Linux, crie
 
 Quando você referencia o `<SharedFolder>` em um comando do Docker, certifique-se de usar a sintaxe correta para o seu sistema operacional. Aqui estão dois exemplos, um para Windows e outro para Linux:
 
-- Se você estiver usando a pasta `D:\shared` no Windows como o seu `<SharedFolder>`, a sintaxe de comando do Docker é `//d/shared`.
+- Se você estiver usando a pasta `D:\shared` no Windows como o seu `<SharedFolder>`, a sintaxe de comando do Docker é `d:/shared`.
 
 - Se você estiver usando a pasta `/shared` no Linux como o seu `<SharedFolder>`, a sintaxe de comando do Docker é `/shared`.
 
@@ -108,30 +108,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - O `<IoTHubOwnerConnectionString>` é a cadeia de conexão da política de acesso compartilhado do **iot hubowner** do portal do Azure. Você copiou essa cadeia de conexão em uma etapa anterior. Você só precisa dessa cadeia de conexão para a primeira execução do Publicador OPC. Em execuções subsequentes, você deve omiti-la, porque ela representa um risco de segurança.
 
-- O `<SharedFolder>` que você usa e sua sintaxe são descritos na seção [Instalar e configurar o Docker](#install-and-configure-docker). O Publicador OPC usa o `<SharedFolder>` para ler o arquivo de configuração do Publicador OPC, gravar o arquivo de log e tornar esses arquivos disponíveis fora do contêiner.
+- O `<SharedFolder>` que você usa e sua sintaxe são descritos na seção [Instalar e configurar o Docker](#install-and-configure-docker). O Publicador OPC usa o `<SharedFolder>` para ler e gravar o arquivo de configuração do Publicador OPC, gravar o arquivo de log e tornar esses arquivos disponíveis fora do contêiner.
 
-- O Publicador OPC lê sua configuração a partir do arquivo **publishednodes.json**, que você deve colocar na pasta `<SharedFolder>/docker`. Esse arquivo de configuração define quais dados do nó de agente do usuário de OPC em um determinado servidor de agente do usuário de OPC o Publicador OPC deve assinar.
-
-- Sempre que o servidor de agente do usuário de OPC notificar o Publicador OPC quanto a uma alteração de dados, o novo valor é enviado ao Hub IoT. Dependendo das configurações de envio em lote, o Publicador OPC pode, primeiro, acumular os dados antes de enviá-los ao Hub IoT em um lote.
-
-- A sintaxe completa do arquivo **publishednodes.json** é descrita na página do [Publicador OPC](https://github.com/Azure/iot-edge-opc-publisher) no GitHub.
-
-    O trecho de código a seguir mostra um exemplo simples de um arquivo **publishednodes.json**. Este exemplo mostra como publicar o valor **CurrentTime** a partir de um servidor de agente do usuário de OPC com o nome do host **win10pc**:
+- O Publicador OPC lê sua configuração a partir do arquivo **publishednodes.json**, que é lida e gravada na pasta `<SharedFolder>/docker`. Esse arquivo de configuração define quais dados do nó de agente do usuário de OPC em um determinado servidor de agente do usuário de OPC o Publicador OPC deve assinar. A sintaxe completa do arquivo **publishednodes.json** é descrita na página do [Publicador OPC](https://github.com/Azure/iot-edge-opc-publisher) no GitHub. Quando você adicionar um gateway, coloque um **publishednodes.json** vazio na pasta:
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    No arquivo **publishednodes.json**, o servidor de agente do usuário do OPC é especificado pela URL de ponto de extremidade. Se você especificar o nome do host usando um rótulo de nome do host (como **win10pc**) como no exemplo anterior, em vez de um endereço IP, a resolução de endereço de rede no contêiner deve ser capaz de resolver este rótulo de nome do host para um endereço IP.
+- Sempre que o servidor de agente do usuário de OPC notificar o Publicador OPC quanto a uma alteração de dados, o novo valor é enviado ao Hub IoT. Dependendo das configurações de envio em lote, o Publicador OPC pode, primeiro, acumular os dados antes de enviá-los ao Hub IoT em um lote.
 
 - O Docker não dá suporte à resolução de nome NetBIOS, somente à resolução de nome DNS. Se você não tiver um servidor DNS na rede, você pode usar a solução alternativa mostrada no exemplo anterior de linha de comando. O exemplo anterior de linha de comando usa o parâmetro `--add-host` para adicionar uma entrada no arquivo de hosts de contêineres. Essa entrada permite que o nome de host pesquise por `<OpcServerHostname>`, resolvendo para o endereço IP fornecido `<IpAddressOfOpcServerHostname>`.
 
@@ -169,11 +155,16 @@ Agora, é possível se conectar ao gateway da nuvem e você está pronto para ad
 
 Para adicionar seus próprios servidores OPC de agente do usuário à solução pré-configurada de fábrica Conectada:
 
-1. Navegue até a página **Conectar seu próprio Servidor OPC de agente do usuário** no portal de solução de fábrica Conectada. Siga as mesmas etapas da seção anterior para estabelecer uma relação de confiança entre o portal da fábrica Conectada e o servidor do agente do usuário OPC.
+1. Navegue até a página **Conectar seu próprio Servidor OPC de agente do usuário** no portal de solução de fábrica Conectada.
 
-    ![Portal de solução](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. Inicie o servidor OPC de agente do usuário ao qual você deseja se conectar. Verifique se o servidor OPC de agente do usuário pode ser acessado do Publicador OPC e do Proxy OPC em execução no contêiner (veja os comentários anteriores sobre a resolução de nomes).
+    1. Insira a URL do ponto de extremidade do servidor OPC de agente do usuário (`opc.tcp://<host>:<port>`) e clique em **Conectar**.
+    1. Como parte da configuração de conexão, é estabelecida uma relação de confiança entre o portal Alocador conectado (cliente OPC de agente do usuário) e o servidor OPC de agente do usuário ao qual você está tentando se conectar. No painel Alocador conectado, você recebe um aviso **Não é possível verificar o certificado do servidor ao qual você deseja se conectar**. Quando você encontrar um aviso de certificado, clique em **Continuar**.
+    1. Mais difícil de instalar é a configuração do certificado do servidor OPC de agente do usuário ao qual você está tentando se conectar. Para servidores OPC de agente do usuário de PC, você pode receber apenas uma caixa de diálogo de aviso no painel, que você pode confirmar. Para sistemas de servidor OPC de agente do usuário inseridos, consulte a documentação do seu servidor OPC de agente do usuário para pesquisar como essa tarefa é feita. Para concluir essa tarefa, talvez seja necessário ter o certificado do cliente OPC de agente do usuário do portal Alocador conectado. Um administrador pode fazer o download esse certificado na página **Conectar seu próprio servidor OPC de agente do usuário**:
 
-1. Procure a árvore de nós de agente do usuário do OPC do seu servidor de agente do usuário do OPC, clique com o botão direito do mouse nos nós OPC que você deseja enviar para a fábrica Conectada e selecione **publicar**.
+        ![Portal de solução](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Procure a árvore de nós de agente do usuário do OPC do seu servidor de agente do usuário do OPC, clique com o botão direito do mouse nos nós OPC que você deseja enviar valores para a fábrica Conectada e selecione **publicar**.
 
 1. Agora, a telemetria flui do dispositivo de gateway. Você pode ver a telemetria na exibição **Locais de Fábrica** do portal de fábrica Conectada em **Nova Fábrica**.
 

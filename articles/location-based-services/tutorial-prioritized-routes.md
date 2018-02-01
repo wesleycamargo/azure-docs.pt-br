@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Encontre rotas para diferentes modos de viagem usando os Serviços do Azure Baseados na Localização
 
@@ -28,7 +28,7 @@ Este tutorial mostra como usar sua conta dos Serviços do Azure Baseados na Loca
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Antes de prosseguir, verifique se você [criou sua conta dos Serviços do Azure Baseados na Localização](./tutorial-search-location.md#createaccount) e [obteve a chave de assinatura da conta](./tutorial-search-location.md#getkey). Você também pode observar como usar o Controle de mapa e as APIs de Serviço de Pesquisa, conforme discutido no tutorial [Pesquisar ponto de interesse próximo usando os Serviços do Azure Baseados na Localização](./tutorial-search-location.md), bem como saber mais sobre o uso básico das APIs do Serviço de Roteiros, conforme discutido no tutorial [Rota para um ponto de interesse usando os Serviços do Azure Baseados na Localização](./tutorial-route-location.md).
+Antes de prosseguir, verifique se você [criou sua conta dos Serviços do Azure Baseados na Localização](./tutorial-search-location.md#createaccount) e [obteve a chave de sua conta](./tutorial-search-location.md#getkey). Você também pode observar como usar o Controle de mapa e as APIs de Serviço de Pesquisa, conforme discutido no tutorial [Pesquisar ponto de interesse próximo usando os Serviços do Azure Baseados na Localização](./tutorial-search-location.md), bem como saber mais sobre o uso básico das APIs do Serviço de Roteiros, conforme discutido no tutorial [Rota para um ponto de interesse usando os Serviços do Azure Baseados na Localização](./tutorial-route-location.md).
 
 
 <a id="queryroutes"></a>
@@ -80,9 +80,9 @@ Use as etapas a seguir para criar uma página HTML estática inserida com a API 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     O **atlas.Map** fornece o controle de um mapa Web visual e interativo, e é um componente da API de Controle do Mapa do Azure.
@@ -195,7 +195,7 @@ Esta seção mostra como usar a API do Serviço de Roteiros dos Serviços do Azu
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -209,7 +209,7 @@ Esta seção mostra como usar a API do Serviço de Roteiros dos Serviços do Azu
     ```
     Esse trecho de código cria uma [XMLHttpRequest](https://xhr.spec.whatwg.org/) e adiciona um manipulador de eventos para analisar a resposta de entrada. Para uma resposta bem-sucedida, ele cria uma matriz de coordenadas para a rota retornada e adiciona a camada `truckRouteLayerName` do mapa. 
     
-    O trecho de código também envia a consulta ao Serviço de Roteiros para obter a rota entre o ponto de partida e final especificados da chave de assinatura da conta. Os parâmetros opcionais a seguir são usados para indicar a rota de um caminhão pesado: - O parâmetro `travelMode=truck` especifica o modo de viagem como *caminhão*. Outros modos de viagem com suporte são *táxi*, *ônibus*, *van*, *motocicleta* e o *carro*  padrão.  
+    O trecho de código também envia a consulta ao Serviço de Roteiros para obter a rota entre o ponto de partida e final especificados da chave de sua conta. Os parâmetros opcionais a seguir são usados para indicar a rota de um caminhão pesado: - O parâmetro `travelMode=truck` especifica o modo de viagem como *caminhão*. Outros modos de viagem com suporte são *táxi*, *ônibus*, *van*, *motocicleta* e o *carro*  padrão.  
         - Os parâmetros `vehicleWidth`, `vehicleHeight` e `vehicleLength` especificam as dimensões do veículo em metros e só são considerados se o modo de viagem for *caminhão*.  
         - O `vehicleLoadType` classifica a carga como perigosa e restrita em algumas estradas. Isso também só é considerado para o modo *caminhão* atualmente.  
 
@@ -238,7 +238,7 @@ Esta seção mostra como usar a API do Serviço de Roteiros dos Serviços do Azu
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
@@ -247,7 +247,7 @@ Esta seção mostra como usar a API do Serviço de Roteiros dos Serviços do Azu
     ```
     Esse trecho de código cria outra [XMLHttpRequest](https://xhr.spec.whatwg.org/) e adiciona um manipulador de eventos para analisar a resposta de entrada. Para uma resposta bem-sucedida, ele cria uma matriz de coordenadas para a rota retornada e adiciona a camada `carRouteLayerName` do mapa. 
     
-    O trecho de código também envia a consulta ao Serviço de Roteiros para obter a rota entre o ponto de partida e final especificados da chave de assinatura da conta. Como nenhum outro parâmetro é usado, a rota para o modo de viagem padrão *carro* é retornada. 
+    O trecho de código também envia a consulta ao Serviço de Roteiros para obter a rota entre o ponto de partida e final especificados da chave de sua conta. Como nenhum outro parâmetro é usado, a rota para o modo de viagem padrão *carro* é retornada. 
 
 3. Salve o arquivo **MapTruckRoute.html** localmente, em seguida, abra-o em um navegador da Web de sua escolha e observe o resultado. Para uma conexão bem-sucedida com APIs de Serviços Baseados em Localização, você deve ver um mapa semelhante ao seguinte. 
 

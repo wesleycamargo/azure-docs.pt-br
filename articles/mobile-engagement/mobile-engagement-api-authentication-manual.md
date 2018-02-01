@@ -1,5 +1,5 @@
 ---
-title: "Autenticar com APIs REST do Mobile Engagement - configuração manual"
+title: "Autenticar com APIs REST do Mobile Engagement: configuração manual"
 description: "Descreve como configurar manualmente a autenticação para APIs REST do Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,89 +14,92 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3b678acbae225c28223a2ee76e5be2462a529362
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Autenticar com APIs REST do Mobile Engagement - configuração manual
-Esta é uma documentação de apêndice para se [Autenticar com APIs REST do Mobile Engagement](mobile-engagement-api-authentication.md). Leia esse artigo primeiro para obter o contexto.
-Ele descreve uma maneira alternativa de fazer a configuração única da autenticação para APIs REST do Mobile Engagement usando o portal do Azure.
+# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Autenticar com APIs REST do Mobile Engagement: configuração manual
+Esta documentação é um apêndice para [Autenticar com APIs REST do Mobile Engagement](mobile-engagement-api-authentication.md). Primeiro, leia esse artigo para entender o contexto. Este artigo também descreve uma maneira alternativa de fazer a configuração de autenticação única para as APIs REST do Mobile Engagement usando o Portal do Azure.
 
 > [!NOTE]
-> As instruções a seguir se baseiam neste [Guia do Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md) e são personalizadas para o que é necessário para a autenticação de APIs do Mobile Engagement. Portanto, consulte-o para entender as etapas abaixo em detalhes.
+> As seguintes instruções são baseadas neste [guia do Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md). Elas são personalizadas para os requisitos de autenticação das APIS do Mobile Engagement. Consulte-o, para entender as etapas abaixo em detalhes.
 
-1. Entre na sua conta do Azure por meio do [Portal do Azure](https://portal.azure.com/).
+1. Entre sua conta do Azure através do [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Active Directory** no painel à esquerda.
 
-     ![selecionar Active Directory][1]
+   ![Selecionar o Microsoft Azure AD][1]
 
-3. Para exibir os aplicativos em seu diretório, clique em **Registros de aplicativo**.
+3. Para exibir os aplicativos em seu diretório, selecione **Registros de aplicativo**.
 
-     ![exibir aplicativos][3]
+   ![Exibir aplicativos][3]
 
-4. Clique em **Novo registro de aplicativo**.
+4. Selecione **Novo registro de aplicativo**.
 
-     ![Adicionar aplicativo][4]
+   ![Adicionar aplicativo][4]
 
-5. Preencha o nome do aplicativo e selecione o tipo de aplicativo como **Aplicativo Web/API** e clique no botão Avançar. Você pode fornecer quaisquer URLs fictícias para a **URL DE LOGON**: elas não são usadas para este cenário e as URLs em si não são validadas.
-6. Quando terminar, você terá um aplicativo Azure AD com o nome fornecido. Este é o seu **NOME DO\_APLICATIVO\_DO AD**. Anote-o.
+5. Preencha o nome do aplicativo. Deixe o tipo do aplicativo como **Aplicativo Web/API**e, em seguida, selecione o botão **Próximo**. Você pode fornecer qualquer URL fictícia para a **URL DE ENTRADA**. Eles não são utilizadas para esse cenário e as próprias URLs não são validadas.
 
-     ![nome do aplicativo][8]
+   Após terminar, você terá um aplicativo Azure AD (Azure Active Directory) com o nome fornecido. Este é o seu **NOME DO\_APLICATIVO\_DO AD**, então, não deixe de anotá-lo.
 
-7. Clique no nome do aplicativo.
-8. Localize a **ID do aplicativo**, anote-a, é a ID do CLIENTE que será usada como **ID DO\_CLIENTE** para suas chamadas de API.
+   ![Nome do aplicativo][8]
 
-     ![configurar aplicativo][10]
+7. Selecione o nome do aplicativo.
+
+8. Localize a **ID do Aplicativo** e anote-o. Essa é a ID do cliente que será utilizada como **ID\_DO CLIENTE** para as chamadas de API.
+
+   ![Localizar a ID do aplicativo][10]
 
 9. Localize a seção **Chaves** à direita.
 
-     ![configurar aplicativo][11]
+   ![Seção Chaves][11]
 
-10. Crie uma nova chave e imediatamente copie e salve-a para uso futuro. Ela não aparecerá novamente.
+10. Crie uma nova chave e, em seguida, copie-a imediatamente. Ela não será mostrada novamente.
 
-     ![configurar aplicativo][12]
+    ![Painel de chaves com detalhes de chave][12]
 
     > [!IMPORTANT]
-    > Essa chave expirará ao final da duração especificada, portanto lembre-se de renová-la quando chegar a hora, caso contrário a autenticação da API não funcionará mais. Você também pode excluir e recriar essa chave se achar que ela foi comprometida.
+    > Essa chave expira no término da duração especificada. Certifique-se de renová-lo quando chegar a hora, caso contrário, a sua autenticação da API não funcionará mais. Se você suspeitar que essa chave foi comprometida, será possível excluí-la e recriá-la.
     >
-    >
-11. Clique no botão **Pontos de extremidade** na parte superior da página e copie o **PONTO DE EXTREMIDADE DO TOKEN OAUTH 2.0**.
+    
+11. Selecione o botão **Pontos de extremidade** na parte superior da página. Em seguida, copie **PONTO DE EXTREMIDADE DO TOKEN OAUTH 2.0**.
 
-    ![][14]
+    ![Copiar o ponto de extremidade][14]
 
-16. Esse ponto de extremidade terá o seguinte formato, em que o GUID na URL é seu **TENANT_ID**, então anote-o: `https://login.microsoftonline.com/<GUID>/oauth2/token`
-17. Agora, configuraremos as permissões nesse aplicativo. Para isso, você precisará abrir o [portal do Azure](https://portal.azure.com). 
-18. Clique em **Grupos de Recursos** e localize o grupo de recursos **Mobile Engagement**.
+16. Esse ponto de extremidade está no formulário seguinte, onde o GUID na URL é **TENANT_ID**: `https://login.microsoftonline.com/<GUID>/oauth2/token`
 
-    ![][15]
+17. Em seguida, as permissões serão configuradas nesse aplicativo. Para iniciar o processo, vá para o [Portal do Azure](https://portal.azure.com).
 
-19. Clique no grupo de recursos **Mobile Engagement** e navegue até a seção **Configurações**.
+18. Selecione **Grupo de recursos** e, em seguida, localize o grupo de recursos **MobileEngagement**.
 
-    ![][16]
+    ![Localizar MobileEngagement][15]
 
-20. Clique em **Usuários** na seção Configurações e clique em **Adicionar** para adicionar um usuário.
+19. Selecione o grupo de recursos **MobileEngagement**e, em seguida, selecione **Todas as configurações**.
 
-    ![][17]
+    ![Procure as configurações do MobileEngagement][16]
 
-21. Clique em **Selecionar uma função**.
+20. Selecione **Usuários** na seção**Configurações**. Em seguida, para adicionar um usuário, selecione **Adicionar**.
 
-    ![][18]
+    ![Adicionar um usuário][17]
 
-22. Clique em **Proprietário**.
+21. Clique em **Selecionar uma Função**.
 
-    ![][19]
+    ![Selecione uma função][18]
 
-23. Procure o nome de seu aplicativo **NOME\_APLICATIVO\_AD** na caixa Pesquisar. Você não verá ele por padrão aqui. Depois de encontrá-lo, selecione-o e clique em **Selecionar** na parte inferior da seção.
+22. Selecione **Proprietário**.
 
-    ![][20]
+    ![Selecione Proprietário como a função][19]
 
-24. Na seção **Adicionar acesso**, ele será exibido como **1 usuário, 0 grupos**. Clique em **OK** nessa seção para confirmar a alteração.
+23. Procure o nome do seu aplicativo, **NOME DO\_APLICATIVO DO\_AD**, na caixa de pesquisa. Esse nome não está aqui por padrão. Depois de localizá-lo, selecione-o. Em seguida, clique em **Selecionar** na parte inferior da seção.
 
-    ![][21]
+    ![Selecionar o nome][20]
 
-Agora você concluiu a configuração necessária do Azure AD e está pronto para chamar as APIs.
+24. Na seção **Adicionar aceso**, ele aparece como **1 usuário, 0 grupos**. Para confirmar a alteração, selecione **OK**.
+
+    ![Confirmar o usuário adicionado][21]
+
+Você concluiu a configuração necessária do Microsoft Azure AD e está pronto para chamar as APIs.
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png

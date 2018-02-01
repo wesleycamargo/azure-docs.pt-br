@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Realizar uma ação com um Runbook de Automação de um resultado de pesquisa do Log Analytics
 
@@ -30,7 +30,7 @@ De um resultado de pesquisa do Azure Log Analytics, você pode agora selecionar 
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Para iniciar o runbook da pesquisa de logs
 
-Para executar a ação em um evento e iniciar um runbook de seus resultados da pesquisa de logs, você começa criando uma pesquisa de logs e, dos resultados, você pode invocar um runbook sob demanda.  Isso pode ser obtido por meio do recurso de pesquisa de logs no Azure ou [portal do OMS](../log-analytics/log-analytics-log-searches.md).  Neste exemplo, podemos realizar uma pesquisa de logs no Portal do Azure com uma demonstração básica desse recurso.
+Para executar a ação em um evento e iniciar um runbook de seus resultados da pesquisa de logs, você começa criando uma pesquisa de logs e, dos resultados, você pode invocar um runbook sob demanda.  Isso pode ser alcançado a partir do recurso de pesquisa de logs no [Portal do Azure](../log-analytics/log-analytics-log-search-new.md).  Neste exemplo, podemos realizar uma pesquisa de logs no Portal do Azure com uma demonstração básica desse recurso.
 
 1. No Portal do Azure, no menu Hub, clique em **Mais serviços** e selecione **Log Analytics**.  
 2. Na folha Log Analytics, selecione seu espaço de trabalho do Log Analytics e, na folha do espaço de trabalho, selecione **Pesquisa de Logs**.  
@@ -49,4 +49,4 @@ Se você selecionar um runbook que foi configurado para ser [chamado de um alert
 ## <a name="next-steps"></a>Próximas etapas
 
 * Examine a [referência de pesquisa de log do Log Analytics](log-analytics-search-reference.md) para exibir todos os campos de pesquisa e as facetas disponíveis no Log Analytics.
-* Para saber como invocar um runbook de automação automaticamente, examine [chamar um runbook de Automação do Azure de um alerta do OMS Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Para saber como invocar um runbook de automação automaticamente, examine [chamar um runbook de Automação do Azure de um alerta do Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  

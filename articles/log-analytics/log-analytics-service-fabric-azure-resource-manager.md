@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Avaliar aplicativos do Service Fabric e microsserviços com o Portal do Azure
 
 > [!div class="op_single_selector"]
-> * [Gerenciador de Recursos](log-analytics-service-fabric-azure-resource-manager.md)
+> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
 >
 >
@@ -37,7 +37,7 @@ A solução de Service Fabric usa dados de Diagnóstico do Azure das suas VMs do
 Para começar a usar a solução, você precisa conectar seu cluster do Service Fabric a um espaço de trabalho do Log Analytics. Há três cenários a serem considerados:
 
 1. Se você não tiver implantado o cluster do Service Fabric, use as etapas em ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace*** (Implantar um cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics) para implantar um novo cluster e configurá-lo para relatar para o Log Analytics.
-2. Se você precisar coletar contadores de desempenho de seus hosts para usar outras soluções do OMS, como Segurança no Cluster do Service Fabric, siga as etapas em ***Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics com a Extensão de VM instalada.***
+2. Se você precisar coletar contadores de desempenho de seus hosts para usar outras soluções de gerenciamento, como Segurança no Cluster do Service Fabric, siga as etapas em ***Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics com a Extensão de VM instalada.***
 3. Se você já tiver implantado o cluster do Service Fabric e quiser conectá-lo ao Log Analytics, siga as etapas em ***Adding an existing storage account to Log Analytics*** (Adicionar uma conta de armazenamento existente para Log Analytics).
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics.

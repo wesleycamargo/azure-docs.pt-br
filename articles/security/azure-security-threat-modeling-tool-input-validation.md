@@ -1,6 +1,6 @@
 ---
 title: "Autorização - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
+description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: c416ae23565870223abc3f2db1ac460e8bea77f6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Estrutura de segurança: validação de entrada | Atenuações 
 | Produto/Serviço | Artigo |
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example"></a>Exemplo 
 
-```C#
+```csharp
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
@@ -50,14 +50,14 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ### <a name="example"></a>Exemplo
 Se você estiver usando MSXML 6.0, o script XSLT será desabilitado por padrão. No entanto, você deve garantir que ele não foi habilitado explicitamente por meio da propriedade de objeto XML DOM AllowXsltScript. 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Exemplo
 Se você estiver usando MSXML 5 ou anterior, o script XSLT será habilitado por padrão, e você deverá desabilitá-lo explicitamente. Defina a propriedade de objeto XML DOM AllowXsltScript como false. 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
 
@@ -139,12 +139,12 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Expansão de Entidade XML](http://capec.mitre.org/data/definitions/197.html), [Ataques de negação de serviço de XML e defesas](http://msdn.microsoft.com/magazine/ee335713.aspx), [Visão geral de segurança do MSXML](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [Práticas recomendadas para proteger o código do MSXML](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [Referência de protocolo NSXMLParserDelegate](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [Resolvendo referências externas](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
-| **Etapas**| <p>Embora não seja amplamente usado, há um recurso XML que permite que o analisador XML expanda entidades de macro com valores definidos no próprio documento ou de fontes externas. Por exemplo, o documento pode definir uma entidade "companyname" com o valor de "Microsoft". Assim, sempre que o texto "&companyname;" aparecer no documento, ele será substituído automaticamente pelo texto Microsoft. Ou então, o documento pode definir uma entidade "MSFTStock" que faz referência a um serviço Web externo para buscar o valor atual de ações da Microsoft.</p><p>Em seguida, sempre que "&MSFTStock;" aparecer no documento, será substituído automaticamente pelo preço da ação atual. No entanto, essa funcionalidade pode ser usada para criar condições de DoS (negação de serviço). Um invasor pode aninhar várias entidades para criar uma bomba XML de expansão exponencial que consome toda a memória disponível no sistema. </p><p>Como alternativa, ele pode criar uma referência externa que transmita de volta uma quantidade infinita de dados ou que simplesmente interrompa o thread. Como resultado, todas as equipes deverão desabilitar a resolução de entidade XML interna e/ou externa totalmente se o aplicativo não a usar ou limitar manualmente a quantidade de memória e o tempo que o aplicativo pode consumir para resolução de entidade, se essa funcionalidade for absolutamente necessária. Se a resolução de entidade não for exigida pelo aplicativo, desabilite-a. </p>|
+| **Etapas**| <p>Embora não seja amplamente usado, há um recurso XML que permite que o analisador XML expanda entidades de macro com valores definidos no próprio documento ou de fontes externas. Por exemplo, o documento pode definir uma entidade "companyname" com o valor de "Microsoft". Assim, sempre que o texto "&companyname;" aparecer no documento, ele será substituído automaticamente pelo texto Microsoft. Ou então, o documento pode definir uma entidade "MSFTStock" que faz referência a um serviço Web externo para buscar o valor atual de ações da Microsoft.</p><p>Em seguida, sempre que "&MSFTStock;" aparecer no documento, será substituído automaticamente pelo preço da ação atual. No entanto, essa funcionalidade pode ser usada para criar condições de DoS (negação de serviço). Um invasor pode aninhar várias entidades para criar uma bomba de XML de expansão exponencial que consome toda a memória disponível no sistema. </p><p>Como alternativa, ele pode criar uma referência externa que transmita de volta uma quantidade infinita de dados ou que simplesmente interrompa o thread. Como resultado, todas as equipes deverão desabilitar a resolução de entidade XML interna e/ou externa totalmente se o aplicativo não a usar ou limitar manualmente a quantidade de memória e o tempo que o aplicativo pode consumir para resolução de entidade, se essa funcionalidade for absolutamente necessária. Se a resolução de entidade não for exigida pelo aplicativo, desabilite-a. </p>|
 
 ### <a name="example"></a>Exemplo
 Para código do .NET Framework, você pode usar as seguintes abordagens:
 
-```C#
+```csharp
 XmlTextReader reader = new XmlTextReader(stream);
 reader.ProhibitDtd = true;
 
@@ -162,7 +162,7 @@ Observe que o valor padrão de `ProhibitDtd` em `XmlReaderSettings` é true, mas
 ### <a name="example"></a>Exemplo
 Para desabilitar a resolução de entidade para XmlDocuments, use o a sobrecarga `XmlDocument.Load(XmlReader)` do método Load e defina as propriedades adequadas no argumento XmlReader para desabilitar a resolução, conforme ilustrado no seguinte código: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = true;
 XmlReader reader = XmlReader.Create(stream, settings);
@@ -173,7 +173,7 @@ doc.Load(reader);
 ### <a name="example"></a>Exemplo
 Se não for possível para o aplicativo desabilitar a resolução de entidade, defina a propriedade XmlReaderSettings.MaxCharactersFromEntities com um valor razoável, de acordo com as necessidades do aplicativo. Isso limitará o impacto de possíveis ataques de DoS de expansão exponencial. O código a seguir fornece um exemplo dessa abordagem: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -181,9 +181,9 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>Exemplo
-Se precisar resolver entidades embutidas, mas não precisar resolver entidades externas, defina a propriedade XmlReaderSettings.XmlResolver como nulo. Por exemplo: 
+Se precisar resolver entidades embutidas, mas não precisar resolver entidades externas, defina a propriedade XmlReaderSettings.XmlResolver como nulo. Por exemplo:  
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -217,7 +217,7 @@ Observe que, no MSXML6, ProhibitDTD está definido como true (desabilitando o pr
 ### <a name="example"></a>Exemplo
 Para o último ponto sobre validação de assinatura de formato de arquivo, confira a classe abaixo para obter detalhes: 
 
-```C#
+```csharp
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
                     {
                     { ".DOC", new List<byte[]> { new byte[] { 0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1 } } },
@@ -333,7 +333,7 @@ Para o último ponto sobre validação de assinatura de formato de arquivo, conf
 ### <a name="example"></a>Exemplo 
 O código a seguir mostra como usar parâmetros de tipo seguro com SqlParameterCollection ao chamar um procedimento armazenado. 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 
@@ -358,7 +358,7 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Atributos de metadados](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [Vulnerabilidade de segurança de chave pública e atenuação](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [Guia completo para atribuição em massa no ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [Introdução ao EF usando MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
-| **Etapas** | <ul><li>**Quando devo procurar vulnerabilidades de overposting? -** As vulnerabilidades de overposting podem ocorrer em qualquer lugar em que você associar classes de modelo da entrada do usuário. Estruturas como MVC podem representar dados de usuário em classes personalizadas do .NET, incluindo POCOs (Plain Old CLR Objects). O MVC popula automaticamente essas classes de modelo com os dados da solicitação, fornecendo uma representação conveniente para lidar com a entrada do usuário. Quando essas classes incluem propriedades que não devem ser definidas pelo usuário, o aplicativo pode ser vulnerável a ataques de overposting, que permitem o controle pelo usuário de dados que o aplicativo nunca deveria permitir. Assim como a associação de modelo MVC, tecnologias de acesso a bancos de dados, como mapeadores de objeto/relacionais como Entity Framework, geralmente também dão suporte ao uso de objetos POCO para representar dados do banco de dados. Essas classes de modelo de dados fornecem a mesma conveniência ao lidar com dados do banco de dados que o MVC oferece ao lidar com a entrada do usuário. Como o MVC e o banco de dados dão suporte a modelos semelhantes, como objetos POCO, parece fácil reutilizar as mesmas classes para as duas finalidades. Essa prática não preservar a separação de questões e é uma área comum em que propriedades não intencionais são expostas à associação de modelo, habilitando ataques de excesso de postagem.</li><li>**Por que não deve usar classes de modelo de banco de dados não filtradas como parâmetros para as ações MVC? -** Porque a associação de modelo MVC associará qualquer item nessa classe. Mesmo se os dados não aparecerem no modo de exibição, um usuário mal-intencionado poderá enviar uma solicitação HTTP com esses dados incluídos, e o MVC os associará, pois a ação diz que a classe de banco de dados é a forma de dados que ele deve aceitar para a entrada do usuário.</li><li>**Por que devo me preocupar com a forma usada para associação de modelo? -** O uso da associação de modelo com o ASP.NET MVC com modelos demasiadamente amplos expõe um aplicativo a ataques de overposting. O excesso de postagem pode permitir que usuários mal-intencionados alterem dados de aplicativos além do que o desenvolvedor desejava, como substituir o preço de um item ou os privilégios de segurança de uma conta. Os aplicativos devem usar modelos de associação específicos de ação (ou listas de filtros de propriedade permitidos específicos) para fornecer um contrato explícito para quais entradas não confiáveis devem ser permitidas por meio de associação de modelo.</li><li>**Ter modelos de associação separados apenas duplica o código? -** Não, é uma questão de separação de questões. Se reutilizar os modelos de banco de dados nos métodos de ação, você está indicando que qualquer propriedade (ou subpropriedade) nessa classe poderá ser definida pelo usuário em uma solicitação HTTP. Se isso não for o que você deseja que o MVC faça, você precisará de uma lista de filtros ou uma forma de classe separada para mostrar ao MVC quais dados podem vir da entrada de usuário.</li><li>**Se eu tiver modelos de associação separados para entrada do usuário, terei que duplicar todos os atributos de anotação de dados? -** Não necessariamente. Você pode usar MetadataTypeAttribute na classe de modelo de banco de dados para vincular aos metadados em uma classe de associação de modelo. Apenas observe que o tipo referenciado por MetadataTypeAttribute deve ser um subconjunto do tipo de referência (ele pode ter menos propriedades, mas não mais).</li><li>**A movimentação de dados entre modelos de entrada de usuário e modelos de banco de dados é entediante. Posso simplesmente copiar todas as propriedades usando a reflexão? -** Sim. As únicas propriedades que aparecem nos modelos de associação são aquelas que você determinou como seguras para a entrada do usuário. Não há motivo de segurança que impeça o uso de reflexão para copiar todas as propriedades que existem em comum entre esses dois modelos.</li><li>**Que tal [Bind(Exclude ="â€¦")]. Posso usar isso em vez de ter modelos de associação separados? -** Essa abordagem não é recomendada. Usar [Bind(Exclude ="â€¦")] significa que qualquer nova propriedade é associável por padrão. Quando uma nova propriedade é adicionada, há uma etapa extra para se lembrar de manter tudo seguro, em vez de ter o design seguro por padrão. É arriscado depender da verificação dessa lista pelo desenvolvedor sempre que uma propriedade for adicionada.</li><li>**[Bind(Include ="â€¦")] é útil para operações de edição? -** Não. [Bind(Include ="â€¦")] só é adequado para operações de estilo INSERT (adicionar novos dados). Para operações de estilo UPDATE (examinar dados existentes), use outra abordagem, como ter modelos de associação separados ou passar uma lista explícita de propriedades permitidas para UpdateModel ou TryUpdateModel. Adicionando um atributo [Bind(Include ="â€¦")] a uma operação de edição significa que o MVC criará uma instância do objeto e definirá somente as propriedades listadas, mantendo todos os outros valores padrão. Quando os dados forem persistidos, isso substituirá totalmente a entidade existente, redefinindo os valores de qualquer propriedade omitida para seus padrões. Por exemplo, se IsAdmin foi omitido de um atributo [Bind(Include ="â€¦")] em uma operação de edição, qualquer usuário cujo nome foi editado por essa ação redefiniria IsAdmin = false (qualquer usuário editado perderia o status de administrador). Se quiser impedir atualizações em determinadas propriedades, use um dos outros métodos acima. Observe que algumas versões das ferramentas do MVC geram classes de controlador com [Bind(Include ="â€¦")] em ações de edição. Isso implica que a remoção de uma propriedade da lista impedirá ataques de excesso de postagem. No entanto, conforme descrito acima, essa abordagem não funciona conforme o esperado e, em vez disso, redefinirá todos os dados nas propriedades omitidos para seus valores padrão.</li><li>**Para operações Create, há alguma restrição ao uso de [Bind(Include ="â€¦")] em vez de modelos de associação separada? -** Sim. Primeiro, essa abordagem não funciona para cenários de Edição, que exigem a manutenção de duas abordagens separadas para atenuar todas as vulnerabilidades de excesso de postagem. Os segundos modelos de associação separados impõem separação de questões entre a forma usada para a entrada do usuário e a forma usada para persistência, o que [Bind(Include ="â€¦")] não faz. Em terceiro lugar, observe que [Bind(Include ="â€¦")] só pode lidar com propriedades de nível superior. Você não pode permitir apenas partes de subpropriedades (como "Details.Name") no atributo. Por fim, e talvez o mais importante, usar [Bind(Include ="â€¦")] adiciona uma etapa extra que deve ser lembrada sempre que a classe é usada para associação de modelo. Se um novo método de ação se associar à classe de dados diretamente e esquecer de incluir um atributo [Bind(Include ="â€¦")], ele poderá ser vulnerável a ataques de overposting. Portanto, a abordagem de [Bind(Include ="â€¦")] é menos segura por padrão. Se usar [Bind(Include ="â€¦")], tome cuidado para se lembrar de sempre especificá-lo quando as classes de dados aparecerem como parâmetros de método de ação.</li><li>**Para operações Create, e se o atributo [Bind(Include ="â€¦")] for colocado na própria classe do modelo? Essa abordagem não evita a necessidade de lembrar de colocar o atributo em cada método de ação? -** Essa abordagem funciona em alguns casos. Usar [Bind(Include ="â€¦")] no próprio tipo de modelo (e não em parâmetros de ação usando essa classe) evita a necessidade de se lembrar de incluir o atributo [Bind(Include ="â€¦")] em cada método de ação. Usar o atributo diretamente na classe efetivamente cria uma área de superfície separada dessa classe para fins de associação de modelo. No entanto, essa abordagem só permite uma forma de associação de modelo por classe de modelo. Se um método de ação precisar permitir que a associação de modelo de um campo (por exemplo, uma ação somente de administrador que atualiza funções de usuário) e outras ações precisarem impedir a associação de modelo desse campo, essa abordagem não funcionará. Cada classe pode ter apenas uma forma de associação de modelo. Se diferentes ações precisarem de diferentes formas de associação de modelo, elas precisarão representar essas formas separadas usando classes de associação de modelo separadas ou atributos [Bind(Include ="â€¦")] separados nos métodos de ação.</li><li>**O que são modelos de associação? Eles são o mesmo que os modelos de exibição? -** São dois conceitos relacionados. O modelo de associação de termo se refere a um modelo de classe usado em uma ação e é a lista de parâmetros (a forma passada da associação de modelo MVC para o método de ação). O modelo de exibição do termo se refere a uma classe de modelo passada de um método de ação para um modo de exibição. Usar um modelo específico de modo de exibição é uma abordagem comum para transmitir dados de um método de ação para um modo de exibição. Com frequência, essa forma também é adequada para a associação de modelos e o modelo de exibição de termo pode ser usado para fazer referência ao mesmo modelo usado em ambos os locais. Em termos mais precisos, esse procedimento aborda especificamente a associação de modelos, concentrando-se na forma passada para a ação, o que importa para fins de atribuição em massa.</li></ul>| 
+| **Etapas** | <ul><li>**Quando devo procurar vulnerabilidades de overposting? -** As vulnerabilidades de overposting podem ocorrer em qualquer lugar em que você associar classes de modelo da entrada do usuário. Estruturas como MVC podem representar dados de usuário em classes personalizadas do .NET, incluindo POCOs (Plain Old CLR Objects). O MVC popula automaticamente essas classes de modelo com os dados da solicitação, fornecendo uma representação conveniente para lidar com a entrada do usuário. Quando essas classes incluem propriedades que não devem ser definidas pelo usuário, o aplicativo pode ser vulnerável a ataques de overposting, que permitem o controle pelo usuário de dados que o aplicativo nunca deveria permitir. Assim como a associação de modelo MVC, tecnologias de acesso a bancos de dados, como mapeadores de objeto/relacionais como Entity Framework, geralmente também dão suporte ao uso de objetos POCO para representar dados do banco de dados. Essas classes de modelo de dados fornecem a mesma conveniência ao lidar com dados do banco de dados que o MVC oferece ao lidar com a entrada do usuário. Como o MVC e o banco de dados dão suporte a modelos semelhantes, como objetos POCO, parece fácil reutilizar as mesmas classes para as duas finalidades. Essa prática não preservar a separação de questões e é uma área comum em que propriedades não intencionais são expostas à associação de modelo, habilitando ataques de excesso de postagem.</li><li>**Por que não deve usar classes de modelo de banco de dados não filtradas como parâmetros para as ações MVC? -** Porque a associação de modelo MVC associará qualquer item nessa classe. Mesmo se os dados não aparecerem no modo de exibição, um usuário mal-intencionado poderá enviar uma solicitação HTTP com esses dados incluídos, e o MVC os associará, pois a ação diz que a classe de banco de dados é a forma de dados que ele deve aceitar para a entrada do usuário.</li><li>**Por que devo me preocupar com a forma usada para associação de modelo? -** O uso da associação de modelo com o ASP.NET MVC com modelos demasiadamente amplos expõe um aplicativo a ataques de overposting. O excesso de postagem pode permitir que usuários mal-intencionados alterem dados de aplicativos além do que o desenvolvedor desejava, como substituir o preço de um item ou os privilégios de segurança de uma conta. Os aplicativos devem usar modelos de associação específicos de ação (ou listas de filtros de propriedade permitidos específicos) para fornecer um contrato explícito para quais entradas não confiáveis devem ser permitidas por meio de associação de modelo.</li><li>**Ter modelos de associação separados apenas duplica o código? -** Não, é uma questão de separação de questões. Se reutilizar os modelos de banco de dados nos métodos de ação, você está indicando que qualquer propriedade (ou subpropriedade) nessa classe poderá ser definida pelo usuário em uma solicitação HTTP. Se isso não for o que você deseja que o MVC faça, você precisará de uma lista de filtros ou uma forma de classe separada para mostrar ao MVC quais dados podem vir da entrada de usuário.</li><li>**Se eu tiver modelos de associação separados para entrada do usuário, terei que duplicar todos os atributos de anotação de dados? -** Não necessariamente. Você pode usar MetadataTypeAttribute na classe de modelo de banco de dados para vincular aos metadados em uma classe de associação de modelo. Apenas observe que o tipo referenciado por MetadataTypeAttribute deve ser um subconjunto do tipo de referência (ele pode ter menos propriedades, mas não mais).</li><li>**A movimentação de dados entre modelos de entrada de usuário e modelos de banco de dados é entediante. Posso simplesmente copiar todas as propriedades usando a reflexão? -** Sim. As únicas propriedades que aparecem nos modelos de associação são aquelas que você determinou como seguras para a entrada do usuário. Não há motivo de segurança que impeça o uso de reflexão para copiar todas as propriedades que existem em comum entre esses dois modelos.</li><li>**Que tal [Bind(Exclude ="â€¦")]. Posso usar isso em vez de ter modelos de associação separados? -** Essa abordagem não é recomendada. Usar [Bind(Exclude ="â€¦")] significa que qualquer nova propriedade é associável por padrão. Quando uma nova propriedade é adicionada, há uma etapa extra para se lembrar de manter tudo seguro, em vez de ter o design seguro por padrão. É arriscado depender da verificação dessa lista pelo desenvolvedor sempre que uma propriedade for adicionada.</li><li>**Is [Bind(Include ="â€¦")] é útil para operações Edit? –** Não. [Bind(Include ="â€¦")] só é adequado para operações de estilo INSERT (adicionar novos dados). Para operações de estilo UPDATE (examinar dados existentes), use outra abordagem, como ter modelos de associação separados ou passar uma lista explícita de propriedades permitidas para UpdateModel ou TryUpdateModel. Adicionando um atributo [Bind(Include ="â€¦")] a uma operação de edição significa que o MVC criará uma instância do objeto e definirá somente as propriedades listadas, mantendo todos os outros valores padrão. Quando os dados forem persistidos, isso substituirá totalmente a entidade existente, redefinindo os valores de qualquer propriedade omitida para seus padrões. Por exemplo, se IsAdmin for omitido de um atributo [Bind(Include ="â€¦")] em uma operação de edição, qualquer usuário cujo nome foi editado por essa ação redefinirá IsAdmin = false (qualquer usuário editado perderá o status de administrador). Se quiser impedir atualizações em determinadas propriedades, use um dos outros métodos acima. Observe que algumas versões das ferramentas do MVC geram classes de controlador com [Bind(Include ="â€¦")] em ações de edição. Isso implica que a remoção de uma propriedade da lista impedirá ataques de excesso de postagem. No entanto, conforme descrito acima, essa abordagem não funciona conforme o esperado e, em vez disso, redefinirá todos os dados nas propriedades omitidos para seus valores padrão.</li><li>**Para operações Create, há alguma restrição ao uso de [Bind(Include ="â€¦")] em vez de modelos de associação separada? -** Sim. Primeiro, essa abordagem não funciona para cenários de Edição, que exigem a manutenção de duas abordagens separadas para atenuar todas as vulnerabilidades de excesso de postagem. Os segundos modelos de associação separados impõem separação de questões entre a forma usada para a entrada do usuário e a forma usada para persistência, o que [Bind(Include ="â€¦")] não faz. Em terceiro lugar, observe que [Bind(Include ="â€¦")] pode manipular apenas propriedades de nível superior. Você não pode permitir apenas partes de subpropriedades (como “Details.Name”) no atributo. Por fim, e talvez o mais importante, o uso de [Bind(Include ="â€¦")] adiciona uma etapa extra que precisa ser lembrada sempre que a classe é usada para a associação de modelos. Se um novo método de ação se associar à classe de dados diretamente e esquecer de incluir um atributo [Bind(Include ="â€¦")], ele poderá ser vulnerável a ataques de overposting. Portanto, a abordagem de [Bind(Include ="â€¦")] é menos segura por padrão. Se usar [Bind(Include ="â€¦")], tome cuidado para se lembrar de sempre especificá-lo quando as classes de dados aparecerem como parâmetros de método de ação.</li><li>**Para operações Create, e se o atributo [Bind(Include ="â€¦")] for colocado na própria classe do modelo? Essa abordagem não evita a necessidade de lembrar de colocar o atributo em cada método de ação? -** Essa abordagem funciona em alguns casos. O uso de [Bind(Include ="â€¦")] no próprio tipo de modelo (em vez de em parâmetros de ação que usam essa classe) evita a necessidade de se lembrar de incluir o atributo [Bind(Include ="â€¦")] em cada método de ação. Usar o atributo diretamente na classe efetivamente cria uma área de superfície separada dessa classe para fins de associação de modelo. No entanto, essa abordagem só permite uma forma de associação de modelo por classe de modelo. Se um método de ação precisar permitir que a associação de modelo de um campo (por exemplo, uma ação somente de administrador que atualiza funções de usuário) e outras ações precisarem impedir a associação de modelo desse campo, essa abordagem não funcionará. Cada classe pode ter apenas uma forma de associação de modelos. Se diferentes ações precisarem de diferentes formas de associação de modelos, elas precisarão representar essas formas separadas usando classes de associação de modelos separadas ou atributos [Bind(Include ="â€¦")] separados nos métodos de ação.</li><li>**O que são modelos de associação? Eles são o mesmo que os modelos de exibição? -** São dois conceitos relacionados. O modelo de associação de termo se refere a um modelo de classe usado em uma ação e é a lista de parâmetros (a forma passada da associação de modelo MVC para o método de ação). O modelo de exibição do termo se refere a uma classe de modelo passada de um método de ação para um modo de exibição. Usar um modelo específico de modo de exibição é uma abordagem comum para transmitir dados de um método de ação para um modo de exibição. Com frequência, essa forma também é adequada à associação de modelos e o modelo de exibição de termo pode ser usado para referenciar o mesmo modelo usado nos dois lugares. Em termos mais precisos, esse procedimento aborda especificamente a associação de modelos, concentrando-se na forma passada para a ação, o que importa para fins de atribuição em massa.</li></ul>| 
 
 ## <a id="rendering"></a>Codifique a saída da Web não confiável antes da renderização
 
@@ -373,7 +373,7 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 
 ### <a name="example"></a>Exemplo
 
-```C#
+```csharp
 * Encoder.HtmlEncode 
 * Encoder.HtmlAttributeEncode 
 * Encoder.JavaScriptEncode 
@@ -465,7 +465,7 @@ Não use `innerHtml`; em vez disso, use `innerText`. Da mesma forma, em vez de `
 ### <a name="example"></a>Exemplo
 Por exemplo, a configuração a seguir lançará RegexMatchTimeoutException se o processamento levar mais de cinco segundos: 
 
-```C#
+```csharp
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
 
@@ -483,7 +483,7 @@ Por exemplo, a configuração a seguir lançará RegexMatchTimeoutException se o
 ### <a name="example"></a>Exemplo
 A seguir está um exemplo não seguro: 
 
-```C#
+```csharp
 <div class="form-group">
             @Html.Raw(Model.AccountConfirmText)
         </div>
@@ -508,7 +508,7 @@ Não use `Html.Raw()`, a menos que você precise exibir a marcação. Esse méto
 ### <a name="example"></a>Exemplo
 A seguir está um exemplo de Procedimento Armazenado dinâmico não seguro: 
 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
 (
   @productName nvarchar(200) = NULL,
@@ -535,7 +535,7 @@ AS
 
 ### <a name="example"></a>Exemplo
 A seguir está o mesmo procedimento armazenado implementado com segurança: 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
 (
              @productName nvarchar(200) = NULL,
@@ -568,7 +568,7 @@ AS
 ### <a name="example"></a>Exemplo
 O código a seguir demonstra o mesmo: 
 
-```C#
+```csharp
 using System.ComponentModel.DataAnnotations;
 
 namespace MyApi.Models
@@ -589,7 +589,7 @@ namespace MyApi.Models
 ### <a name="example"></a>Exemplo
 No método de ação dos controladores de API, a validade do modelo deve ser explicitamente verificada, conforme mostrado abaixo: 
 
-```C#
+```csharp
 namespace MyApi.Controllers
 {
     public class ProductsController : ApiController
@@ -636,7 +636,7 @@ namespace MyApi.Controllers
 ### <a name="example"></a>Exemplo
 O código a seguir mostra como usar parâmetros de tipo seguro com SqlParameterCollection ao chamar um procedimento armazenado. 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 

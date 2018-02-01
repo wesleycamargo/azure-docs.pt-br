@@ -13,37 +13,39 @@
 ## [WebSocket](application-gateway-websocket.md)
 ## [Limites de serviço](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Introdução
-## Criar um Gateway de Aplicativo
-### [Portal do Azure](application-gateway-create-gateway-portal.md)
-### [PowerShell do Azure](application-gateway-create-gateway-arm.md)
-### [Modelo do Resource Manager](application-gateway-create-gateway-arm-template.md)
-### [CLI do Azure](application-gateway-create-gateway-cli.md)
+## [portal do Azure](application-gateway-create-gateway-portal.md)
+## [PowerShell do Azure](application-gateway-create-gateway-arm.md)
+## [CLI do Azure](application-gateway-create-gateway-cli.md)
 # Como
+## Criar um gateway de aplicativo com VMSS
+### [PowerShell do Azure](tutorial-create-vmss-powershell.md)
+### [CLI do Azure](tutorial-create-vmss-cli.md)
+## [Usar um modelo](application-gateway-create-gateway-arm-template.md)
 ## Configurar firewall do aplicativo Web
-### [Portal do Azure](application-gateway-web-application-firewall-portal.md)
+### [portal do Azure](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell do Azure](application-gateway-web-application-firewall-powershell.md)
 ### [CLI do Azure](application-gateway-web-application-firewall-cli.md)
 ## Personalizar as regras de firewall do aplicativo Web
-### [Portal do Azure](application-gateway-customize-waf-rules-portal.md)
+### [portal do Azure](application-gateway-customize-waf-rules-portal.md)
 ### [CLI do Azure](application-gateway-customize-waf-rules-cli.md)
 ## Configurar SSL
-### [Portal do Azure](application-gateway-ssl-portal.md)
+### [portal do Azure](application-gateway-ssl-portal.md)
 ### [PowerShell do Azure](application-gateway-ssl-arm.md)
 ### [CLI do Azure](application-gateway-ssl-cli.md)
 ### [Política SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Configurar roteamento baseado no caminho da URL
-### [Portal do Azure](application-gateway-create-url-route-portal.md)
+### [portal do Azure](application-gateway-create-url-route-portal.md)
 ### [PowerShell do Azure](application-gateway-create-url-route-arm-ps.md)
 ### [CLI do Azure](application-gateway-create-url-route-cli.md)
 ## Configurar hospedagem de vários sites
-### [Portal do Azure](application-gateway-create-multisite-portal.md)
+### [portal do Azure](application-gateway-create-multisite-portal.md)
 ### [PowerShell do Azure](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configurar redirecionamento
 ### [PowerShell do Azure](application-gateway-configure-redirect-powershell.md)
 ## Configurar aplicativos Web como membros do pool de back-end
 ### [PowerShell do Azure](application-gateway-web-app-powershell.md)
 ## Configurar investigações da integridade
-### [Portal do Azure](application-gateway-create-probe-portal.md)
+### [portal do Azure](application-gateway-create-probe-portal.md)
 ### [PowerShell do Azure](application-gateway-create-probe-ps.md)
 ## [Integração da Central de Segurança do Azure](application-gateway-integration-security-center.md)
 ## [Combinar serviços de balanceamento de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)

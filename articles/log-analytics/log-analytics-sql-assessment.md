@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimize seu ambiente SQL com a solução de Verificação da Integridade do SQL Server no Log Analytics
 
@@ -39,7 +39,7 @@ Após ter adicionado a solução e a avaliação ser concluída, as informaçõe
 
 ![imagem do painel Verificação da Integridade do SQL](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * A solução de Verificação da Integridade do SQL requer uma versão do .NET Framework 4 com suporte instalada em cada computador com o MMA (Microsoft Monitoring Agent) instalado.  O agente MMA é usado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2, e o serviço Log Analytics.  
 * A solução oferece suporte ao SQL Server, versões 2012, 2014 e 2016.
@@ -65,7 +65,7 @@ A Verificação da Integridade do SQL coleta dados das seguintes fontes usando o
 
 * WMI (Instrumentação de Gerenciamento do Windows) 
 * Registro 
-* Contadores de desempenho
+* contadores de desempenho
 * Resultados da exibição do gerenciamento dinâmico do SQL Server 
 
 Os dados são coletados no SQL Server e encaminhados para o Log Analytics a cada sete dias.
@@ -165,14 +165,14 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
 1. Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
-3. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e clique no bloco **Portal do OMS**.  
+3. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e clique no bloco **Visão geral**.  
 4. Na página **Visão Geral**, clique no bloco **Verificação da Integridade do SQL**. 
 5. Na página **Verificação da Integridade**, revise as informações resumidas em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![imagem das recomendações de Verificação da Integridade do SQL](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
-Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo OMS para impedir que as recomendações sejam exibidas nos resultados da avaliação.
+Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -246,7 +246,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 * Os seguintes tipos de dados são coletados:
   * WMI
   * Registro
-  * Contadores de desempenho
+  * contadores de desempenho
   * Exibições de gerenciamento dinâmico SQL (DMV).
 
 *Há uma maneira de configurar quando os dados são coletados?*

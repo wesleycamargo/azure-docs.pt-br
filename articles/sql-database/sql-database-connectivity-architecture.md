@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de Conectividade do Banco de Dados SQL do Azure 
 
@@ -71,7 +71,7 @@ A tabela a seguir lista os IPs primários e secundários do gateway do Banco de 
 | Centro dos EUA | 23.99.160.139 | 13.67.215.62 |
 | Ásia Oriental | 191.234.2.139 | 52.175.33.150 |
 | Leste dos EUA 1 | 191.238.6.43 | 40.121.158.30 |
-| Leste dos EUA 2 | 191.239.224.107 | 40.79.84.180 |
+| Leste dos EUA 2 | 191.239.224.107 | 40.79.84.180 * |
 | Centro da Índia | 104.211.96.159  | |
 | Sul da Índia | 104.211.224.146  | |
 | Oeste da Índia | 104.211.160.80 | |
@@ -92,6 +92,8 @@ A tabela a seguir lista os IPs primários e secundários do gateway do Banco de 
 | Oeste dos EUA 1 | 23.99.34.75 | 104.42.238.205 |
 | Oeste dos EUA 2 | 13.66.226.202  | |
 ||||
+
+\* **OBSERVAÇÃO:** o *Leste dos EUA 2* também tem um endereço IP terciário `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Alterar a política de conexão do Banco de Dados SQL do Azure
 

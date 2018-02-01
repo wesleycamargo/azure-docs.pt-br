@@ -1,9 +1,17 @@
 
-**Última atualização de documento**: 6 de janeiro às 18:30 PST.
+
+
+**Última atualização do documento**: 22 de janeiro às 21h00.
 
 A divulgação recente de uma [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecida como ataques de canal lateral de execução especulativa resultou em várias perguntas dos clientes que queriam saber com mais clareza.  
 
 A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente entre elas está protegida.  Isso significa que os outros clientes em execução no Azure não podem atacar o seu aplicativo usando essas vulnerabilidades.
+
+> [!NOTE] 
+> As mitigações do Azure previamente anunciadas em 3 de janeiro de 2018 não são afetadas pela recente [diretriz atualizada](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) da Intel. Não haverá atividade de manutenção adicional em VMs de cliente como resultado dessas novas informações.
+>
+> Continuaremos atualizando essas melhores práticas na medida em que recebermos as atualizações de microcódigo dos fornecedores de hardware. Verifique novamente as diretrizes atualizadas.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Mantenha seus Sistemas Operacionais atualizados
 
@@ -40,11 +48,6 @@ Se você estiver usando o Windows e hospedando código não confiável, também 
 
 ### <a name="linux"></a>Linux
 Se você estiver usando o Linux e hospedando código não confiável, também deverá atualizar o Linux para uma versão mais recente que implementa o isolamento de tabela de página de kernel (KPTI) e que separa as tabelas de página usadas pelo kernel daquelas que pertencem ao espaço do usuário. Essas mitigações exigem uma atualização do Sistema Operacional Linux e podem ser obtidas do provedor de distribuição, quando disponível. O seu provedor do Sistema Operacional pode informar se as proteções estão habilitadas ou desabilitadas por padrão.
-
-
-
-
-
 
 
 

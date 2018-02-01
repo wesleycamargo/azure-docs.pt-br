@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Adicionando alertas e pesquisas salvas do Log Analytics à solução de gerenciamento do OMS (Versão prévia)
 
@@ -31,7 +31,7 @@ As [soluções de gerenciamento no OMS](operations-management-suite-solutions.md
 > [!NOTE]
 > Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para as soluções de gerenciamento e estão descritos em [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) (Criando soluções de gerenciamento no OMS (Operations Management Suite))  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este artigo pressupõe que você já está familiarizado com o modo para [criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md) e com a estrutura de um [modelo do Resource Manager](../resource-group-authoring-templates.md) e de um arquivo de solução.
 
 
@@ -45,17 +45,14 @@ O nome do espaço de trabalho é no nome de cada recurso de Log Analytics.  Isso
 ## <a name="log-analytics-api-version"></a>Versão da API do Log Analytics
 Todos os recursos do Log Analytics definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Essa versão é diferente para os recursos que usam o [herdado e a linguagem de consulta atualizados](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- A tabela a seguir especifica as versões da API do Log Analytics para espaços de trabalho herdados e atualizados, e um exemplo de consulta para especificar a sintaxe diferente para cada um deles. 
+ A tabela a seguir especifica as versões de API de Log Analytics para pesquisas salvas em espaços de trabalho herdados e atualizados: 
 
-| Versão do espaço de trabalho | Versão da API | Exemplo de consulta |
+| Versão do espaço de trabalho | Versão da API | Consultar |
 |:---|:---|:---|
-| v1 (herdado)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
-| v2 (atualizado) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+| v1 (herdado)   | 2015-11-01-preview | Formato herdado.<br> Exemplo: Type=Event EventLevelName = Erro  |
+| v2 (atualizado) | 2015-11-01-preview | Formato herdado.  Convertido para o formato atualizado na instalação.<br> Exemplo: Type=Event EventLevelName = Erro<br>Convertido para: Event &#124; onde EventLevelName == “Erro”  |
+| v2 (atualizado) | 2017-03-03-versão prévia | Formato de atualização. <br>Exemplo: Event &#124; onde EventLevelName == “Erro”  |
 
-Observe quais espaços de trabalho têm suporte de diferentes versões.
-
-- Modelos que usam a linguagem de consulta herdada podem ser instalados em um espaço de trabalho herdado ou atualizado.  Se instaladas em um espaço de trabalho atualizado, as consultas são convertidas em tempo real para a nova linguagem quando forem executadas pelo usuário.
-- Modelos que usam a linguagem de consulta atualizada podem ser instalados apenas em um espaço de trabalho atualizado.
 
 
 ## <a name="saved-searches"></a>Pesquisas salvas
@@ -82,7 +79,7 @@ Os recursos [da pesquisa salva do Log Analytics](../log-analytics/log-analytics-
 
 Cada propriedade de pesquisa salva é descrita na tabela a seguir. 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | categoria | A categoria para a pesquisa salva.  As pesquisas salvas na mesma solução geralmente compartilham uma única categoria para que eles são agrupados juntos no console. |
 | displayname | Nome para exibição para a pesquisa salva no portal. |
@@ -128,11 +125,11 @@ Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa u
 
 As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Habilitado       | Sim | Especifica se o alerta está habilitado quando ele é criado. |
-| intervalo      | Sim | A frequência com a consulta é executada em minutos. |
-| queryTimeSpan | Sim | Período de tempo em minutos no qual avaliar resultados. |
+| Habilitado       | sim | Especifica se o alerta está habilitado quando ele é criado. |
+| intervalo      | sim | A frequência com a consulta é executada em minutos. |
+| queryTimeSpan | sim | Período de tempo em minutos no qual avaliar resultados. |
 
 O recurso de agendamento deve depender a pesquisa salva para que ele seja criado antes da agenda.
 
@@ -187,21 +184,21 @@ Ações de alerta tem a seguinte estrutura.  Isso inclui variáveis e parâmetro
 
 As propriedades de Recursos de ação de alerta são descritas nas tabelas a seguir.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Tipo | Sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
-| Nome | Sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
-| Descrição | Não | Descrição opcional do alerta. |
-| Severidade | Sim | Severidade do alerta registro dos seguintes valores:<br><br> **Crítico**<br>**Aviso**<br>**Informativo** |
+| type | sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
+| NOME | sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
+| DESCRIÇÃO | Não  | Descrição opcional do alerta. |
+| Severidade | sim | Severidade do alerta registro dos seguintes valores:<br><br> **Crítico**<br>**Aviso**<br>**Informativo** |
 
 
 ##### <a name="threshold"></a>Limite
 Esta seção é necessária.  Define as propriedades para o limite de alerta.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Operador | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| Valor | Sim | O valor para comparar os resultados. |
+| Operador | sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| Valor | sim | O valor para comparar os resultados. |
 
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
@@ -210,37 +207,37 @@ Esta seção é opcional.  Inclua-o para um alerta de métrica de medição.
 > [!NOTE]
 > Alertas de métrica de medição estão atualmente em visualização pública. 
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| TriggerCondition | Sim | Especifica se o limite do número total de violações ou falhas consecutivas dos seguintes valores:<br><br>**Total<br>consecutivas** |
-| Operador | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| Valor | Sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
+| TriggerCondition | sim | Especifica se o limite do número total de violações ou falhas consecutivas dos seguintes valores:<br><br>**Total<br>consecutivas** |
+| Operador | sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| Valor | sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
 
 ##### <a name="throttling"></a>Limitação
 Esta seção é opcional.  Inclua esta seção se você desejar Suprimir alertas da mesma regra por algum tempo depois que um alerta é criado.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
 | DurationInMinutes | Sim, se a limitação elemento incluído | Número de minutos para suprimir alertas depois da mesma regra de alerta será criado. |
 
 ##### <a name="emailnotification"></a>EmailNotification
  Esta seção é opcional incluí-lo se desejar que o alerta para enviar mensagens a um ou mais destinatários.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Destinatários | Sim | Lista delimitada por vírgulas de endereços de email para enviar notificações quando um alerta é criado, como no exemplo a seguir.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Subject | Sim | Linha de assunto do email. |
-| Anexo | Não | Anexos não são atualmente suportados.  Se este elemento for incluído, ele deve ser **nenhum**. |
+| Destinatários | sim | Lista delimitada por vírgulas de endereços de email para enviar notificações quando um alerta é criado, como no exemplo a seguir.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Assunto | sim | Linha de assunto do email. |
+| Anexo | Não  | Anexos não são atualmente suportados.  Se este elemento for incluído, ele deve ser **nenhum**. |
 
 
 ##### <a name="remediation"></a>Correção
 Esta seção é opcional incluí-lo se você quiser que um runbook para iniciar em resposta ao alerta. |
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| RunbookName | Sim | Nome do runbook para iniciar. |
-| WebhookUri | Sim | URI do webhook para o runbook. |
-| Expiry | Não | Data e hora em que a correção expira. |
+| RunbookName | sim | Nome do runbook para iniciar. |
+| WebhookUri | sim | URI do webhook para o runbook. |
+| Expiry | Não  | Data e hora em que a correção expira. |
 
 #### <a name="webhook-actions"></a>Ações de Webhook
 
@@ -266,12 +263,12 @@ Se o alerta for chamar um webhook, ele precisará de um recurso de ação com um
 
 As propriedades de recursos de ação do Webhook são descritas nas tabelas a seguir.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| type | Sim | Tipo da ação.  Isso é **Webhook** para ações de webhook. |
-| name | Sim | Nome de exibição para a ação.  Isso não é exibido no console. |
-| wehookUri | Sim | URI para o webhook. |
-| customPayload | Não | Carga personalizada a ser enviada para o webhook. O formato depende do que o webhook está esperando. |
+| Tipo | sim | Tipo da ação.  Isso é **Webhook** para ações de webhook. |
+| Nome | sim | Nome de exibição para a ação.  Isso não é exibido no console. |
+| wehookUri | sim | URI para o webhook. |
+| customPayload | Não  | Carga personalizada a ser enviada para o webhook. O formato depende do que o webhook está esperando. |
 
 
 

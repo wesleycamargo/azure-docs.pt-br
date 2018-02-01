@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do local para o Azure
 
@@ -116,9 +116,9 @@ As tabelas a seguir resumem o suporte à configuração de rede em vários cená
 
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
-Agrupamento NIC | Sim<br/><br/>Não há suporte quando computadores físicos são replicados| Sim
-VLAN | Sim | Sim
-IPv4 | Sim | Sim
+Agrupamento NIC | sim<br/><br/>Não há suporte quando computadores físicos são replicados| sim
+VLAN | sim | sim
+IPv4 | sim | sim
 IPv6 | Não  | Não 
 
 ### <a name="guest-vm-network-configuration"></a>Configuração de rede da VM convidada
@@ -126,24 +126,24 @@ IPv6 | Não  | Não
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
 Agrupamento NIC | Não  | Não 
-IPv4 | Sim | Sim
+IPv4 | sim | sim
 IPv6 | Não  | Não 
-IP estático (Windows) | Sim | Sim
-IP estático (Linux) | Sim <br/><br/>Máquinas virtuais são configuradas para usar DHCP no failback  | Não 
-NIC múltipla | Sim | Sim
+IP estático (Windows) | sim | sim
+IP estático (Linux) | sim <br/><br/>Máquinas virtuais são configuradas para usar DHCP no failback  | Não 
+NIC múltipla | sim | sim
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuração de rede da VM do Azure após failover
 
 **Rede do Azure** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
-ExpressRoute | Sim | Sim
-ILB | Sim | Sim
-ELB | Sim | Sim
-Gerenciador de Tráfego | Sim | Sim
-NIC múltipla | Sim | Sim
-IP Reservado | Sim | Sim
-IPv4 | Sim | Sim
-Reter o IP de origem | Sim | Sim
+ExpressRoute | sim | sim
+ILB | sim | sim
+ELB | sim | sim
+Gerenciador de Tráfego | sim | sim
+NIC múltipla | sim | sim
+IP Reservado | sim | sim
+IPv4 | sim | sim
+Reter o IP de origem | sim | sim
 Pontos de Extremidade de Serviço de Rede Virtual (Redes virtuais e firewalls de Armazenamento do Azure) | Não  | Não 
 
 
@@ -155,42 +155,48 @@ As tabelas a seguir resumem o suporte à configuração de armazenamento em vár
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | --- | ---
 NFS | Sim para VMware<br/><br/> Não para servidores físicos | N/D
-SMB 3.0 | N/D | Sim
-SAN (ISCSI) | Sim | Sim
-Múltiplos caminhos (MPIO)<br></br>Testado com: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | Sim | Sim
+SMB 3.0 | N/D | sim
+SAN (ISCSI) | sim | sim
+Múltiplos caminhos (MPIO)<br></br>Testado com: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | sim | sim
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>Configuração de armazenamento do servidor físico ou convidado
 
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
-VMDK | Sim | N/D
-VHD/VHDX | N/D | Sim
-VM ger 2 | N/D | Sim
-EFI/UEFI| Não  | Sim
+VMDK | sim | N/D
+VHD/VHDX | N/D | sim
+VM ger 2 | N/D | sim
+EFI/UEFI| Migração para o Azure somente para Windows Server 2012 e posterior. </br></br> ** Consulte a observação ao final da tabela.  | sim
 Disco de cluster compartilhado | Não  | Não 
 Disco criptografado | Não  | Não 
 NFS | Não  | N/D
 SMB 3.0 | Não  | Não 
-RDM | Sim<br/><br/> N/D para servidores físicos | N/D
-Disco > 1 TB | Sim<br/><br/>Até 4.095 GB | Sim<br/><br/>Até 4.095 GB
-Disco com tamanho de setor lógico de 4K e físico de 4K | Sim | Não há suporte para VMs da Geração 1<br/><br/>Não há suporte para VMs da geração 2.
-Disco com tamanho de setor lógico de 4K e físico de 512 bytes | Sim |  Sim
-Volume com discos distribuídos > 1 TB<br/><br/> Gerenciamento de Volume lógico LVM | Sim | Sim
-Espaços de Armazenamento | Não  | Sim
+RDM | sim<br/><br/> N/D para servidores físicos | N/D
+Disco > 1 TB | sim<br/><br/>Até 4.095 GB | sim<br/><br/>Até 4.095 GB
+Disco com tamanho de setor lógico de 4K e físico de 4K | sim | Não há suporte para VMs da Geração 1<br/><br/>Não há suporte para VMs da geração 2.
+Disco com tamanho de setor lógico de 4K e físico de 512 bytes | sim |  sim
+Volume com discos distribuídos > 1 TB<br/><br/> Gerenciamento de Volume lógico LVM | sim | sim
+Espaços de Armazenamento | Não  | sim
 Adição/remoção de disco a quente | Não  | Não 
-Exclusão de disco | Sim | Sim
-Múltiplos caminhos (MPIO) | N/D | Sim
+Exclusão de disco | sim | sim
+Múltiplos caminhos (MPIO) | N/D | sim
+
+> [!NOTE]
+> ** Máquinas virtuais da VMware com inicialização UEFI ou Servidores físicos com Windows Server 2012 ou posterior podem ser migrados para o Azure. As restrições a seguir se aplicam.
+> - Migração somente para o Azure. O failback não é compatível com o site do VMware local.
+> - Há suporte para, no máximo, 4 partições no disco do sistema operacional do servidor.
+> - Exige o Serviço de mobilidade do Azure Site Recovery versão 9.13 ou posterior.
 
 **Armazenamento do Azure** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
-LRS | Sim | Sim
-GRS | Sim | Sim
-RA-GRS | Sim | Sim
+LRS | sim | sim
+GRS | sim | sim
+RA-GRS | sim | sim
 Armazenamento frio | Não  | Não 
 Armazenamento quente| Não  | Não 
 Blobs de blocos | Não  | Não 
-Criptografia em repouso (SSE)| Sim | Sim
-Armazenamento Premium | Sim | Sim
+Criptografia em repouso (SSE)| sim | sim
+Armazenamento Premium | sim | sim
 Serviço de importação/exportação | Não  | Não 
 Pontos de extremidade de serviço de rede virtual (Redes virtuais e firewall de armazenamento do Azure) configurados na conta de armazenamento de destino ou na conta de armazenamento de cache utilizada para armazenar dados de replicação | Não  | Não 
 Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não  | Não 
@@ -200,9 +206,9 @@ Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não  | Não
 
 **Recurso de computação** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
-Conjuntos de disponibilidade | Sim | Sim
-HUB | Sim | Sim  
-Discos gerenciados | Sim | Sim<br/><br/>No momento, não há suporte para failback para o local da VM do Azure com discos gerenciados.
+Conjuntos de disponibilidade | sim | sim
+HUB | sim | sim  
+Discos gerenciados | sim | sim<br/><br/>No momento, não há suporte para failback para o local da VM do Azure com discos gerenciados.
 
 ## <a name="failed-over-azure-vm-requirements"></a>Requisitos de VM do Azure após failover
 
