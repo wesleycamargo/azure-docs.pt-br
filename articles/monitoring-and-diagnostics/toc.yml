@@ -2,8 +2,8 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: Azure Monitor
-      href: monitoring-overview-azure-monitor.md
+    - name: Monitoramento no Azure
+      href: monitoring-overview.md
 - name: Guia de início rápido
   expanded: true
   items:
@@ -27,8 +27,8 @@
       href: monitoring-partners.md
     - name: Visões gerais adicionais
       items:
-        - name: Ferramentas de monitoramento no Azure
-          href: monitoring-overview.md
+        - name: Azure Monitor
+          href: monitoring-overview-azure-monitor.md
         - name: Métricas
           href: monitoring-overview-metrics.md
         - name: Alertas
@@ -158,7 +158,7 @@
           href: azure-diagnostics-configure-application-insights.md
         - name: Enviar para Hubs de Eventos
           href: azure-diagnostics-streaming-event-hubs.md
-        - name: Solucionar problemas
+        - name: solução de problemas
           href: azure-diagnostics-troubleshooting.md
     - name: Criar gráficos de métricas no Metrics Explorer
       href: monitoring-metric-charts.md
@@ -190,7 +190,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
     - name: Modelos de início rápido
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'

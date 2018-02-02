@@ -176,6 +176,16 @@
 ##### [Atualizar configurações do Registro](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Compreender a segurança e a privacidade](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [Provisionar e desprovisionar usuário para aplicativos SaaS](active-directory-saas-app-provisioning.md)
+#### [Tutoriais de integração do aplicativo](active-directory-saas-tutorial-list.md)
+#### [Automatizar provisionamento para aplicativos habilitados para SCIM](active-directory-scim-provisioning.md)
+#### [Personalizar mapeamentos do atributo](active-directory-saas-customizing-attribute-mappings.md)
+#### [Escrever expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Usar filtros de escopo](active-directory-saas-scoping-filters.md)
+#### [Relatório sobre provisionamento automático do usuário](active-directory-saas-provisioning-reporting.md)
+#### [Solucionar problemas de provisionamento do usuário](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Acesse aplicativos remotamente com o Proxy de aplicativo](active-directory-application-proxy-get-started.md)
 #### Introdução
@@ -219,7 +229,7 @@
 #### [Assinatura de certificados avançada para aplicativos SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Como remover um aplicativo da experiência de um usuário](active-directory-coreapps-hide-third-party-app.md)
 ### [Configurar a aceleração automática da entrada usando a Política de HRD](active-directory-auto-acceleration-using-hrd.md)
-
+### [Migrar aplicativos AD FS para Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Gerenciar o acesso aos aplicativos](active-directory-managing-access-to-apps.md)
 #### [Acesso SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificados para SSO](active-directory-sso-certs.md)
@@ -264,7 +274,8 @@
 
 ## Delegar acesso aos recursos
 ### [Funções de administrador](active-directory-assign-admin-roles-azure-portal.md)
-#### [Atribuir funções de administrador](active-directory-users-assign-role-azure-portal.md)
+#### [Atribuir função de administrador a um usuário](active-directory-users-assign-role-azure-portal.md)
+#### [Comparar permissões de usuários membro e convidado](users-default-permissions.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configurar tempo de vida de tokens](active-directory-configurable-token-lifetimes.md)
 ### [Gerenciar contas administrativas de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md)
@@ -321,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Integrar outros serviços com o Azure AD]()
-### [Habilitar a integração do LinkedIn](linkedin-integration.md)
+## Integrar outros serviços no Azure AD
+### [Integrar LinkedIn no Azure AD](linkedin-integration.md)
 
 ## [Implante o AD DS em máquinas virtuais do Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory nas VMs do Azure](active-directory-deploying-ws-ad-guidelines.md)

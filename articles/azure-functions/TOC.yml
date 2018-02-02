@@ -63,6 +63,8 @@
       href: functions-cli-samples.md
 - name: Conceitos
   items:
+    - name: Comparar 1.x e 2.x
+      href: functions-versions.md
     - name: Escala e hospedagem
       href: functions-scale.md
     - name: Gatilhos e associações
@@ -146,7 +148,7 @@
         - name: Gerenciar um aplicativo de funções
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Defina a versão de tempo de execução
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: Monitoramento
       href: functions-monitoring.md
     - name: Integração
@@ -183,6 +185,8 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
+        - name: Grade de Eventos
+          href: functions-bindings-event-grid.md
         - name: Hubs de evento
           href: functions-bindings-event-hubs.md
         - name: Arquivo externo

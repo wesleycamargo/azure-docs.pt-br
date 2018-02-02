@@ -62,25 +62,7 @@
         - name: Assegurar seus aplicativos lógicos
           href: logic-apps-securing-a-logic-app.md
         - name: Desenvolver conectores personalizados
-          items:
-            - name: Visão geral dos conectores personalizados
-              href: custom-connector-overview.md
-            - name: Criar conectores a partir das APIs da Web
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: Proteger conectores com o Azure AD
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: Descrever APIs com o Postman
-              href: custom-connector-api-postman-collection.md
-            - name: Estender a OpenAPI para conectores personalizados
-              href: custom-connector-openapi-extensions.md
-            - name: Criar e registrar o conector OpenAPI
-              href: logic-apps-custom-connector-register.md
-            - name: Criar e registrar o conector SOAP
-              href: logic-apps-soap-connector-create-register.md
-            - name: Certificar seu conector
-              href: custom-connector-submit-certification.md
-            - name: Perguntas frequentes dos conectores personalizados
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: Desenvolver APIs personalizadas
           items:
             - name: Criar APIs personalizadas para aplicativos lógicos
@@ -140,6 +122,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: Adicionar mapas para a transformação XML
           href: logic-apps-enterprise-integration-maps.md
+        - name: Transformar o JSON
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Adicionar certificados de segurança
           href: logic-apps-enterprise-integration-certificates.md
         - name: Solucionar problemas de erros B2B

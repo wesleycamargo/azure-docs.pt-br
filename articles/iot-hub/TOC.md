@@ -40,10 +40,11 @@
 
 # Guias de instruções
 ## Plano
-### [Comparação entre Hub IoT e Hubs de Eventos](iot-hub-compare-event-hubs.md)
+### [Comparar Hub IoT e Hubs de Eventos](iot-hub-compare-event-hubs.md)
 ### [Escalar sua solução](iot-hub-scaling.md)
 ### [Alta disponibilidade e recuperação de desastres](iot-hub-ha-dr.md)
 ### [Dar suporte a protocolos adicionais](iot-hub-protocol-gateway.md)
+### [Comparar mensagem e roteamento de eventos](iot-hub-event-grid-routing-comparison.md)
 ## [Desenvolver](iot-hub-how-to.md)
 ### [Guia do desenvolvedor](iot-hub-devguide.md)
 #### [Guia de recursos do dispositivo para a nuvem](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +52,7 @@
 #### [Enviar e receber mensagens](iot-hub-devguide-messaging.md)
 ##### [Enviar mensagens de dispositivo para a nuvem para o Hub IoT](iot-hub-devguide-messages-d2c.md)
 ##### [Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno](iot-hub-devguide-messages-read-builtin.md)
+##### [Reagir a eventos do Hub IoT](iot-hub-event-grid.md)
 ##### [Usar regras de roteamentos e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem](iot-hub-devguide-messages-read-custom.md)
 ##### [Enviar mensagens da nuvem para o dispositivo do Hub IoT](iot-hub-devguide-messages-c2d.md)
 ##### [Criar e ler mensagens do Hub IoT](iot-hub-devguide-messages-construct.md)
