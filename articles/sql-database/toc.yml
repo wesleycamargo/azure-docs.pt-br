@@ -4,6 +4,8 @@
   items:
     - name: Sobre o Banco de dados SQL
       href: sql-database-technical-overview.md
+    - name: PaaS ou IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md
 - name: Guia de início rápido
   expanded: true
   items:
@@ -59,7 +61,7 @@
       href: sql-database-powershell-samples.md
 - name: Conceitos
   items:
-    - name: Recursos de serviço
+    - name: Serviço do banco de dados
       items:
         - name: Servidores e bancos de dados
           href: sql-database-servers-databases.md
@@ -73,42 +75,22 @@
           href: sql-database-elastic-pool.md
         - name: Arquitetura de conectividade
           href: sql-database-connectivity-architecture.md
-        - name: Regras de firewall
-          href: sql-database-firewall-configure.md
-        - name: Regras de rede virtual do firewall
-          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTUs e eDTUs
           href: sql-database-what-is-a-dtu.md
         - name: Parâmetro de comparação de DTU
           href: sql-database-benchmark-overview.md
-        - name: PaaS ou IaaS
-          href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Auditoria
-          href: sql-database-auditing.md
-        - name: Detecção de ameaças
-          href: sql-database-threat-detection.md
-        - name: Backups de banco de dados
-          href: sql-database-automated-backups.md
-        - name: Retenção de backup
-          href: sql-database-long-term-retention.md
-        - name: Grupos de failover
-          href: sql-database-geo-replication-overview.md
-        - name: Biblioteca de cliente elástico
-          href: sql-database-elastic-database-client-library.md
-        - name: Consultas elásticas
-          href: sql-database-elastic-query-overview.md
-        - name: Transações elásticas
-          href: sql-database-elastic-transactions-overview.md
-        - name: Trabalhos elásticos
-          href: sql-database-elastic-jobs-overview.md
-        - name: Avaliação de vulnerabilidade do SQL
-          href: sql-vulnerability-assessment.md
         - name: Recursos comuns do SQL Server
           href: sql-database-features.md
+    - name: Alta disponibilidade
+      href: sql-database-high-availability.md
     - name: Segurança
       items:
         - name: Visão geral
           href: sql-database-security-overview.md
+        - name: Regras de firewall
+          href: sql-database-firewall-configure.md
+        - name: Regras de rede virtual do firewall
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Controle de acesso
           href: sql-database-control-access.md
         - name: AD do Azure
@@ -117,16 +99,28 @@
           href: sql-database-manage-logins.md
         - name: Autenticação multifator
           href: sql-database-ssms-mfa-authentication.md
+        - name: Auditoria
+          href: sql-database-auditing.md
+        - name: Detecção de ameaças
+          href: sql-database-threat-detection.md
         - name: Auditoria de tabela e TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Mascaramento de dados
+        - name: Mascaramento de dados dinâmicos
           href: sql-database-dynamic-data-masking-get-started.md
-    - name: Alta disponibilidade
-      href: sql-database-high-availability.md
+        - name: Avaliação de vulnerabilidade
+          href: sql-vulnerability-assessment.md
+        - name: Descoberta de dados e classificação
+          href: sql-database-data-discovery-and-classification.md
     - name: Continuidade dos negócios
       items:
         - name: Visão geral
           href: sql-database-business-continuity.md
+        - name: Backups de banco de dados
+          href: sql-database-automated-backups.md
+        - name: Retenção de backup
+          href: sql-database-long-term-retention.md
+        - name: Grupos de failover
+          href: sql-database-geo-replication-overview.md
         - name: Recuperação de banco de dados
           href: sql-database-recovery-using-backups.md
         - name: Configurar a segurança
@@ -185,6 +179,14 @@
       items:
         - name: Visão geral
           href: sql-database-elastic-scale-introduction.md
+        - name: Biblioteca de cliente elástico
+          href: sql-database-elastic-database-client-library.md
+        - name: Consultas elásticas
+          href: sql-database-elastic-query-overview.md
+        - name: Transações elásticas
+          href: sql-database-elastic-transactions-overview.md
+        - name: Trabalhos elásticos
+          href: sql-database-elastic-jobs-overview.md
         - name: Mapas de fragmentos
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Roteamento de consultas
@@ -299,6 +301,8 @@
           href: sql-database-advisor-portal.md
         - name: Habilitar o ajuste automático
           href: sql-database-automatic-tuning-enable.md
+        - name: Ajuste automático das notificações por email
+          href: sql-database-automatic-tuning-email-notifications.md
         - name: Solução de problemas de desempenho dos Insights Inteligentes
           href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Usar DMVs para monitorar o desempenho

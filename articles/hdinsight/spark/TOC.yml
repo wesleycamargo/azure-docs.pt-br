@@ -84,10 +84,14 @@
       items:
         - name: Usar com Data Lake Store
           href: apache-spark-use-with-data-lake-store.md
+        - name: Conectar banco de dados SQL do Azure
+          href: apache-spark-connect-to-sql-database.md
     - name: Streaming do Spark
       items:
         - name: Visão geral
           href: apache-spark-streaming-overview.md
+        - name: Criar trabalhos de streaming do Spark altamente disponíveis no YARN
+          href: apache-spark-streaming-high-availability.md
         - name: Processar eventos de streaming
           href: apache-spark-eventhub-streaming.md
         - name: Fluxo estruturado usando Hubs de Eventos
@@ -101,6 +105,8 @@
         - name: Streaming do Spark (DStream) com Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: Criar trabalhos de streaming do Spark com processamento de eventos exatamente uma vez
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark e Machine Learning
       items:
         - name: Prever desempenho de HVAC
@@ -198,6 +204,8 @@
           maintainContext: true
     - name: Gerenciar
       items:
+        - name: Definir configurações do Spark
+          href: apache-spark-settings.md
         - name: Otimizar trabalhos do Spark
           href: apache-spark-perf.md
         - name: Planejamento de capacidade de cluster

@@ -15,7 +15,9 @@
 ### [Listas de controle de acesso](virtual-networks-acl.md)
 
 # Introdução
-## [Criar sua primeira rede virtual](virtual-network-get-started-vnet-subnet.md)
+## [Criar rede virtual - Portal](quick-create-portal.md)
+## [Criar rede virtual - PowerShell](quick-create-powershell.md)
+## [Criar rede virtual - CLI do Azure](quick-create-cli.md)
 
 # Como
 ## Planejar e projetar
