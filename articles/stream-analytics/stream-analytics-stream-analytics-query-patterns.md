@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de consulta para padrões de uso do Stream Analytics
 ## <a name="introduction"></a>Introdução
@@ -178,7 +178,7 @@ A primeira consulta é uma passagem dos dados que recebemos para uma saída que 
 A segunda consulta faz uma agregação e filtragem simples e envia os resultados para um sistema de alerta downstream.
 
 Observe que também é possível reutilizar os resultados dos CTEs (expressões de tabela comuns) (como instruções **WITH**) em várias instruções de saída. Essa opção tem o benefício adicional de abrir menos leitores para a fonte de entrada.
-Por exemplo: 
+Por exemplo:  
 
     WITH AllRedCars AS (
         SELECT
@@ -207,7 +207,7 @@ Por exemplo, quantas marcas de carro exclusivas passaram pelo pedágio em uma ja
 
 **Saída:**
 
-| Contagem | Hora |
+| CountMake | Hora |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -401,7 +401,7 @@ Por exemplo, dois carros consecutivos da mesma marca entraram na rodovia nos úl
 
 **Saída**:  
 
-| Usuário | Recurso | Duração |
+| Usuário | Recurso | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 

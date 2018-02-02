@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou excluir uma rede virtual
 
@@ -36,7 +36,7 @@ Esse artigo explica como criar, alterar e excluir redes virtuais usando o modelo
 
 Antes de iniciar as tarefas descritas neste artigo, complete os seguintes pré-requisitos:
 
-- Caso não tenha experiência em trabalhar com redes virtuais, recomendamos que você examine o exercício em [Criar sua primeira rede virtual do Azure](virtual-network-get-started-vnet-subnet.md). Esse exercício pode ajudá-lo a se familiarizar melhor com as redes virtuais.
+- Caso não tenha experiência em trabalhar com redes virtuais, recomendamos que você examine o exercício em [Criar sua primeira rede virtual do Azure](quick-create-portal.md). Esse exercício pode ajudá-lo a se familiarizar melhor com as redes virtuais.
 - Para saber mais sobre os limites para redes virtuais, examine [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Entre no portal do Azure, na ferramenta de linha de comando do Azure (CLI do Azure) ou no Azure PowerShell utilizando sua conta do Azure. Caso você não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se você pretende utilizar os comandos do PowerShell para completar as tarefas descritas, primeiro deverá [instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de ter a versão mais recente dos cmdlets do Azure PowerShell instalada. Para obter ajuda sobre os comandos do PowerShell nos exemplos, digite `get-help <command> -full`.
@@ -79,7 +79,7 @@ Para criar uma rede virtual:
 
 **Comandos**
 
-|Ferramenta|Command|
+|Ferramenta|Get-Help|
 |---|---|
 |CLI do Azure|[az network vnet create](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -113,7 +113,7 @@ Para exibir configurações e redes virtuais:
 
 **Comandos**
 
-|Ferramenta|Command|
+|Ferramenta|Get-Help|
 |---|---|
 |CLI do Azure|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
 |PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -142,7 +142,7 @@ Para adicionar ou remover um espaço de endereço:
 
 **Comandos**
 
-|Ferramenta|Command|
+|Ferramenta|Get-Help|
 |---|---|
 |CLI do Azure|Somente Resource Manager|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -167,7 +167,7 @@ Todas as VMs que estão conectadas ao registro da rede virtual com os servidores
 
 **Comandos**
 
-|Ferramenta|Command|
+|Ferramenta|Get-Help|
 |---|---|
 |CLI do Azure|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -186,7 +186,7 @@ Você pode excluir uma rede virtual somente se não houver recursos conectados a
 
 **Comandos**
 
-|Ferramenta|Command|
+|Ferramenta|Get-Help|
 |---|---|
 |CLI do Azure|[azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -194,7 +194,7 @@ Você pode excluir uma rede virtual somente se não houver recursos conectados a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para criar uma VM e, depois, conectá-la a uma rede virtual, consulte [Criar uma rede virtual e conectar VMs](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Para criar uma VM e, depois, conectá-la a uma rede virtual, consulte [Criar uma rede virtual e conectar VMs](quick-create-portal.md#create-virtual-machines).
 - Para filtrar o tráfego de rede entre as sub-redes em uma rede virtual, consulte [Criar grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
 - Para emparelhar uma rede virtual para outra rede virtual, consulte [Criar um emparelhamento de rede virtual](virtual-network-create-peering.md#portal).
 - Para saber mais sobre as opções para conectar uma rede virtual a uma rede local, consulte [Sobre o gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

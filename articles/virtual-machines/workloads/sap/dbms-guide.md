@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 87c4573ce3b688cdc63b3a342bbc0bebb416ad36
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -519,7 +519,7 @@ Ao usar a série DS ou GS de VMs do Azure, é possível montar VHDs de Contas de
 
 Com base em implantações de clientes e testes, em torno de 30 a 40 VHDs contendo arquivos de dados do banco de dados e arquivos de log podem ser provisionados em uma única Conta de Armazenamento Standard do Azure. Como mencionado anteriormente, a limitação de uma Conta de Armazenamento Premium do Azure provavelmente é a capacidade de dados que ela pode conter, não o IOPS.
 
-Como com dispositivos locais SAN, o compartilhamento requer algum monitoramento para, eventualmente, detectar afunilamentos em uma Conta de Armazenamento do Azure. A extensão de monitoramento do Azure para SAP e o portal do Azure são ferramentas que podem ser usadas para detectar Contas de Armazenamento do Azure ocupadas que podem estar gerando um desempenho de E/S abaixo do ideal.  Se essa situação for detectada, será recomendável mover as VMs ocupadas para outra Conta de Armazenamento do Azure. Consulte o [Guia de Implantação][deployment-guide] para obter detalhes sobre como ativar as funcionalidades de monitoramento de host do SAP.
+Como com dispositivos locais SAN, o compartilhamento requer algum monitoramento para, eventualmente, detectar gargalos em uma Conta de Armazenamento do Azure. A extensão de monitoramento do Azure para SAP e o portal do Azure são ferramentas que podem ser usadas para detectar Contas de Armazenamento do Azure ocupadas que podem estar gerando um desempenho de E/S abaixo do ideal.  Se essa situação for detectada, será recomendável mover as VMs ocupadas para outra Conta de Armazenamento do Azure. Consulte o [Guia de Implantação][deployment-guide] para obter detalhes sobre como ativar as funcionalidades de monitoramento de host do SAP.
 
 Outro artigo que resume as práticas recomendadas em relação ao Armazenamento Standard e às Contas de Armazenamento Standard do Azure pode ser encontrado aqui <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
 
@@ -1193,7 +1193,7 @@ Para a funcionalidade de backup/restauração, o SAP BR*Tools para Oracle tem su
 #### <a name="high-availability"></a>Alta disponibilidade
 O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. É possível encontrar detalhes [nesta][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
 
-#### <a name="other"></a>outro
+#### <a name="other"></a>Outros
 Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Especificidades do Oracle Database no Oracle Linux
@@ -1231,7 +1231,7 @@ Para funcionalidade de backup/restauração, há suporte para SAP BR*Tools para 
 #### <a name="high-availability"></a>Alta disponibilidade
 O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. É possível encontrar detalhes [nesta][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
 
-#### <a name="other"></a>outro
+#### <a name="other"></a>Outros
 Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.
 
 ## <a name="specifics-for-the-sap-maxdb-database-on-windows"></a>Informações específicas para o banco de dados SAP MaxDB no Windows
@@ -1334,7 +1334,7 @@ Como o SAP liveCache usa intensivamente a potência computacional, para o uso pr
 #### <a name="backup-and-restore"></a>Backup e restauração
 O backup e a restauração, incluindo considerações de desempenho, já estão descritos nos capítulos relevantes do SAP MaxDB, [Backup e restauração][dbms-guide-8.4.2] e [Considerações de desempenho para backup e restauração][dbms-guide-8.4.3]. 
 
-#### <a name="other"></a>outro
+#### <a name="other"></a>Outros
 Todos os outros tópicos gerais já estão descritos [neste][dbms-guide-8.4.4] capítulo relevante sobre o SAP MaxDB. 
 
 ## <a name="specifics-for-the-sap-content-server-on-windows"></a>Informações específicas para o SAP Content Server no Windows
@@ -1388,7 +1388,7 @@ Se você configurar o SAP Content Server para armazenar arquivos no banco de dad
 
 Se você configura o SAP Content Server para armazenar arquivos no sistema de arquivos, uma opção é executar o backup/restauração manual da estrutura do arquivo inteiro na qual os documentos estão localizados. Semelhante ao backup/restauração do SAP MaxDB, é recomendável ter um volume de disco dedicado para fins de backup. 
 
-#### <a name="other"></a>outro
+#### <a name="other"></a>Outros
 Outras configurações específicas do SAP Content Server são transparentes para VMs do Azure e são descritas em vários documentos e Notas SAP:
 
 * <https://service.sap.com/contentserver> 

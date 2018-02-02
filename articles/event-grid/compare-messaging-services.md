@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre serviços do Azure que entregam mensagens
 
@@ -38,10 +38,10 @@ Uma mensagem é composta de dados brutos produzidos por um serviço para serem c
 
 ## <a name="comparison-of-services"></a>Comparação de serviços
 
-| O Barramento de | Finalidade | Tipo | Quando usar |
+| Serviço | Finalidade | type | Quando usar |
 | ------- | ------- | ---- | ----------- |
 | Grade de Eventos | Programação reativa | Distribuição de eventos | Reagir a alterações de status |
-| Hubs de Eventos | Pipeline de Big Data | Streaming de Eventos | Telemetria e streaming de dados distribuídos |
+| Hubs de evento | Pipeline de Big Data | Streaming de Eventos | Telemetria e streaming de dados distribuídos |
 | Barramento de Serviço | Mensagens corporativas de alto valor | Mensagem | Processamento de pedidos e transações financeiras |
 
 ### <a name="event-grid"></a>Grade de Eventos
@@ -56,7 +56,7 @@ Ele tem as seguintes características:
 * baixo custo
 * sem servidor
 
-### <a name="event-hubs"></a>Hubs de Eventos
+### <a name="event-hubs"></a>Hubs de evento
 
 O Hubs de Eventos do Azure é um pipeline de Big Data. Ele facilita a captura, a retenção e a reprodução de telemetria e dados de fluxo de eventos. Os dados podem vir de várias fontes simultâneas. O Hubs de Eventos permite que os dados de telemetria e eventos sejam disponibilizados para uma variedade de infraestruturas de processamento de fluxo e serviços de análise. Ele está disponível como fluxos de dados ou lotes de eventos em pacote. Esse serviço fornece uma solução única que permite a recuperação rápida de dados para processamento em tempo real, bem como reprodução repetida de dados brutos armazenados. Ele pode capturar os dados de streaming em um arquivo para processamento e análise.
 

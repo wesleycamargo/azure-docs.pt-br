@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Conecte-se a pilha do Azure para o Azure usando VPN
 
@@ -43,7 +43,7 @@ A tabela de valores de exemplo de rede mostra os valores de exemplo que são usa
 **Tabela de valores de exemplo de rede**
 |   |Azure Stack|As tabelas|
 |---------|---------|---------|
-|Nome de rede virtual     |Azs VNet|AzureVNet |
+|Nome de rede virtual     |Azs-VNet|AzureVNet |
 |Espaço de endereço de rede virtual |10.1.0.0/16|10.100.0.0/16|
 |Nome da sub-rede     |FrontEnd|FrontEnd|
 |Intervalo de endereços da sub-rede|10.1.0.0/24 |10.100.0.0/24 |
@@ -58,7 +58,7 @@ Primeiro você deve criar os recursos de rede do Azure. As instruções a seguir
 1. Entrar para o [portal do Azure](http://portal.azure.com/) usando sua conta do Azure.
 2. No portal do usuário, selecione **novo**.
 3. Vá para **Marketplace**e, em seguida, selecione **rede**.
-4. Selecione **rede Virtual**.
+4. Selecione **Rede virtual**.
 5. Use as informações da tabela de configuração de rede para identificar os valores para o Azure **nome**, **espaço de endereço**, **nome da sub-rede**, e **endereço de sub-rede intervalo**.
 6. Para **grupo de recursos**, crie um novo grupo de recursos ou, se você já tiver um, selecione **usar existente**.
 7. Selecione o **local** da sua rede virtual.  Se você estiver usando os valores de exemplo, selecione **Leste dos EUA** ou use outro local, se preferir.
@@ -71,7 +71,7 @@ Primeiro você deve criar os recursos de rede do Azure. As instruções a seguir
 3. Selecione **sub-rede de Gateway** para adicionar uma sub-rede do gateway para a rede virtual.
 4. O nome da sub-rede é definido como **Sub-rede de Gateway** por padrão.
    Sub-redes de gateway são especiais e devem ter esse nome específico para funcionar corretamente.
-5. No **um intervalo de endereços** campo, verifique se o endereço é **10.100.0.0/24**.
+5. No **um intervalo de endereços** campo, verifique se o endereço é **10.100.1.0/24**.
 6. Selecione **Okey** para criar a sub-rede de gateway.
 
 ### <a name="create-the-virtual-network-gateway"></a>Criar o gateway de rede virtual
@@ -93,7 +93,7 @@ Primeiro você deve criar os recursos de rede do Azure. As instruções a seguir
 5. Na lista de recursos, selecione **gateway de rede Local**.
 6. Em **nome**, tipo **Azs-GW**.
 7. Em **endereço IP**, digite o endereço IP público para o Azure pilha de Gateway de rede Virtual que está listado anteriormente na tabela de configuração de rede.
-8. Em **espaço de endereço**, da pilha do Azure, digite o **10.0.10.0/23** espaço de endereço **AzureVNet**.
+8. Em **espaço de endereço**, da pilha do Azure, digite o **10.1.0.0/24** e **10.1.1.0/24** espaço de endereço **AzureVNet**.
 9. Verifique seu **assinatura**, **grupo de recursos**, e **local** estão corretas e, em seguida, selecione **criar**.
 
 ## <a name="create-the-connection"></a>Criar a conexão
@@ -118,7 +118,7 @@ Criar uma máquina virtual no Azure agora e colocá-la na sua sub-rede da VM em 
 5. Digite um nome de usuário válido e uma senha. Você pode usar essa conta para entrar na máquina virtual após sua criação.
 6. Forneça um **assinatura**, **grupo de recursos**, e **local**e, em seguida, selecione **Okey**.
 7. Sobre o **tamanho** seção, selecione um tamanho de máquina virtual para essa instância e, em seguida, selecione **selecione**.
-8. Sobre o **configurações** seção, você pode aceitar os padrões. Verifique se o **AzureVnet** rede virtual está selecionado e verificar se a sub-rede é definida como **10.0.20.0/24**. Selecione **OK**.
+8. Sobre o **configurações** seção, você pode aceitar os padrões. Verifique se o **AzureVnet** rede virtual está selecionado e verificar se a sub-rede é definida como **10.100.0.0/24**. Selecione **OK**.
 9. Examine as configurações no **resumo** seção e, em seguida, selecione **Okey**.
 
 ## <a name="create-the-network-resources-in-azure-stack"></a>Criar os recursos de rede na pilha do Azure
@@ -134,7 +134,7 @@ Um administrador de serviço pode entrar como um usuário para testar os planos,
     ![Criar nova rede virtual](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
 3. Vá para **Marketplace**e, em seguida, selecione **rede**.
-4. Selecione **rede Virtual**.
+4. Selecione **Rede virtual**.
 5. Para **nome**, **espaço de endereço**, **nome da sub-rede**, e **intervalo de endereços de sub-rede**, use os valores da tabela de configuração de rede.
 6. Em **assinatura**, a assinatura que você criou anteriormente é exibida.
 7. Para **grupo de recursos**, você pode criar um grupo de recursos ou se você já tiver um, selecione **usar existente**.
@@ -181,7 +181,7 @@ Uma maneira de pensar sobre isso mais genericamente é que o recurso de gateway 
 4. Na lista de recursos, selecione **gateway de rede local**.
 5. Em **nome**, tipo **GW Azure**.
 6. Em **endereço IP**, digite o endereço IP público para o gateway de rede virtual no Azure **Azure-GW-PiP**. Esse endereço aparece anteriormente na tabela de configuração de rede.
-7. Em **espaço de endereço**, para o espaço de endereço do VNET do Azure que você criou, digite **10.0.20.0/23**.
+7. Em **espaço de endereço**, para o espaço de endereço do VNET do Azure que você criou, digite **10.100.0.0/24** e **10.100.1.0/24**.
 8. Verifique seu **assinatura**, **grupo de recursos**, e **local** estão corretas e, em seguida, selecione **criar**.
 
 ### <a name="create-the-connection"></a>Criar a conexão
@@ -225,7 +225,7 @@ Para certificar-se de que você envie tráfego por meio de conexão site a site,
 5. Entre com a conta que você configurou quando criou a máquina virtual.
 6. Abra um elevado **do Windows PowerShell** janela.
 7. Digite **ipconfig/all**.
-8. Na saída, localize o **endereço IPv4**e, em seguida, salve o endereço para uso posterior. Este é o endereço que você irá executar o ping do Azure. No ambiente de exemplo, o endereço é **10.0.10.4**, mas, em seu ambiente, pode ser diferente. Ele deve estar dentro do **10.0.10.0/24** sub-rede que você criou anteriormente.
+8. Na saída, localize o **endereço IPv4**e, em seguida, salve o endereço para uso posterior. Este é o endereço que você irá executar o ping do Azure. O ambiente de exemplo, o endereço é **10.1.0.4**, mas em seu ambiente pode ser diferente. Ele deve estar dentro do **10.1.0.0/24** sub-rede que você criou anteriormente.
 9. Para criar uma regra de firewall que permite que a máquina virtual responder a pings, execute o seguinte comando do PowerShell:
 
    ```powershell
@@ -242,7 +242,7 @@ Para certificar-se de que você envie tráfego por meio de conexão site a site,
 5. Entre com a conta que você configurou quando criou a máquina virtual.
 6. Abra um elevado **do Windows PowerShell** janela.
 7. Digite **ipconfig/all**.
-8. Você verá um endereço IPv4 que fica dentro de **10.0.20.0/24**. O ambiente de exemplo, o endereço é **10.0.20.4**, mas seu endereço pode ser diferente.
+8. Você verá um endereço IPv4 que fica dentro de **10.100.0.0/24**. O ambiente de exemplo, o endereço é **10.100.0.4**, mas seu endereço pode ser diferente.
 9. Para criar uma regra de firewall que permite que a máquina virtual responder a pings, execute o seguinte comando do PowerShell:
 
    ```powershell
@@ -252,7 +252,7 @@ Para certificar-se de que você envie tráfego por meio de conexão site a site,
    ```
 
 10. Da máquina virtual no Azure, execute ping a máquina virtual na pilha do Azure, por meio do túnel. Para fazer isso, você pode executar ping o DIP que você registrou Azs VM.
-   No ambiente de exemplo, isso é **10.0.10.4**, mas certifique-se de executar ping no endereço que você anotou no laboratório. Você verá um resultado semelhante à captura de tela a seguir:
+   No ambiente de exemplo, isso é **10.1.0.4**, mas certifique-se de executar ping no endereço que você anotou no laboratório. Você verá um resultado semelhante à captura de tela a seguir:
    
     ![Ping com êxito](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. Uma resposta da máquina virtual remota indica um teste com êxito! Você pode fechar a janela da máquina virtual. Para testar sua conexão, você pode tentar outros tipos de transferências de dados como uma cópia do arquivo.
@@ -264,7 +264,7 @@ Se você quiser saber a quantidade de dados passa por meio de sua conexão site 
 2. Vá para **todos os recursos**e, em seguida, selecione o **Azs Azure** conexão. **Conexões** é exibida.
 4. Sobre o **Conexão** seção, as estatísticas de **dados em** e **dados** aparecem. Na captura de tela a seguir, os números grandes são atribuídos a transferência de arquivos adicionais. Você deve ver alguns valores de zero.
    
-    ![Dados de entrada e saída](media/azure-stack-connect-vpn/Connection.png)
+    ![Entrada e saída de dados](media/azure-stack-connect-vpn/Connection.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

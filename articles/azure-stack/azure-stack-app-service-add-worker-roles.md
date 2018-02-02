@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 30ab325488684a26a6ef442e7c8241526a66aa4c
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: a9be9011062f07d59842d417bf6761ec81c39275
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Serviço de aplicativo na pilha do Azure: adicionar mais funções de infraestrutura ou de trabalho
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*  
 
 Este documento fornece instruções sobre como dimensionar o serviço de aplicativo em funções de infraestrutura e de trabalho da pilha do Azure. Ele contém as etapas para a criação de funções de trabalho adicional para dar suporte a aplicativos de qualquer tamanho.
 
@@ -40,15 +41,15 @@ Adicionar operadores adicionais diretamente no provedor de administrador do apli
 2. Navegue até **serviços de aplicativos**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
-  
+
 3. Clique em **Funções**. Veja aqui a análise de todas as funções de serviço de aplicativo implantado.
 
 4. Clique com o botão direito na linha do tipo que você deseja dimensionar e, em seguida, clique em **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-  
+
 5. Clique em **Scaling**, selecione o número de instâncias que você deseja dimensionar para e, em seguida, clique em **salvar**.
-    
+
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. Serviço de aplicativo na pilha do Azure agora será adicionar outras VMs, configurá-los, instalar todos os softwares necessários e marcá-los como pronto quando esse processo é concluído. Esse processo pode levar aproximadamente 80 minutos.

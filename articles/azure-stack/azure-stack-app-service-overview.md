@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Serviço de Aplicativo na visão geral do Azure Stack
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 Serviço de aplicativo do Azure na pilha do Azure é uma oferta de plataforma como um-serviço (PaaS) do Microsoft Azure disponíveis para a pilha do Azure. O serviço permite que seus clientes - internos ou externos - criar web API e funções do Azure aplicativos para qualquer plataforma ou dispositivo. Eles podem integrar seus aplicativos com aplicativos locais e automatizar seus processos de negócios. Operadores de nuvem do Azure pilha podem executar aplicativos de cliente em totalmente gerenciadas máquinas de virtuais (VMs), com sua opção de VMs dedicadas ou recursos compartilhados de VM.
 

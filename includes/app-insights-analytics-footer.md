@@ -13,5 +13,5 @@
   * Usando a Análise.
 * [Referência da linguagem](../articles/application-insights/app-insights-analytics-reference.md)
   * Referência de uma página.
-* [Solucionar problemas](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+* [Solução de problemas](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 

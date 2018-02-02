@@ -1,6 +1,6 @@
-<!--author=alkohli last changed: 01/13/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
-Se o contêiner de volume tiver volumes associados, coloque esses volumes offline primeiro. Siga as etapas em [Colocar um volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Depois que os volumes estiverem offline, você poderá excluí-los. Quando o contêiner de volume não tiver volumes associados, exclua o contêiner de volume. Execute o procedimento a seguir para excluir um contêiner de volume.
+Se o contêiner de volume tiver volumes associados, coloque esses volumes offline primeiro. Siga as etapas em [Colocar um volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Depois que os volumes estiverem offline, você poderá excluí-los. Quando o contêiner de volume não tiver volumes associados, exclua o contêiner de volume. Execute o procedimento a seguir para excluir um contêiner de volume.
 
 #### <a name="to-delete-a-volume-container"></a>Excluir um contêiner de volume
 1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**. Selecione e clique no dispositivo e vá para **Configurações > Gerenciar > Contêineres de Volume**.

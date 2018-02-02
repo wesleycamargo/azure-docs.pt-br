@@ -2,17 +2,18 @@
 title: "Integração do data center do Azure pilha - segurança"
 description: "Saiba como integrar a segurança da pilha do Azure com a segurança de seu datacenter"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: eb7c651362838d44d6558e080e6130b4a8041d1e
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Integração do data center do Azure pilha - segurança
 
@@ -52,7 +53,7 @@ O procedimento a seguir é um exemplo que você pode usar para configurar o Azur
 
    ![Conectar o armazenamento](media/azure-stack-integrate-security/connect-storage.png)
 
-8. Clique em **Avançar**.
+8. Clique em **Próximo**.
 9. Sobre o **anexar armazenamento externo** página:
 
    a. Digite o nome da conta **frphealthaccount**.
@@ -74,7 +75,7 @@ O procedimento a seguir é um exemplo que você pode usar para configurar o Azur
 
 Você pode usar várias linguagens de programação para acessar uma conta de armazenamento. Use a seguinte documentação para obter um exemplo que corresponde a seu idioma:
 
-[https://Azure.microsoft.com/resources/Samples/?Term=Storage+Account](https://azure.microsoft.com/resources/samples/?term=storage+account)
+[https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
 
 ## <a name="device-access-auditing"></a>Auditoria de acesso do dispositivo
 
@@ -93,4 +94,4 @@ O endereço de destino do Syslog é um parâmetro opcional coletado para implant
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Azure pilha datacenter integração - publicar pontos de extremidade](azure-stack-integrate-endpoints.md)
+[Política de manutenção](azure-stack-servicing-policy.md)

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/30/2018
 ms.author: alfredop
-ms.openlocfilehash: 65b9ff0881e46836d9f19a04cf470835679e7b2f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 855d74698f2109fa426d34044cbc89b83c224e6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas frequentes no uso da pilha do Azure API
 Este artigo responde algumas perguntas frequentes sobre a API de uso de pilha do Azure.
@@ -28,8 +28,8 @@ Uso é relatado para os provedores de recursos a seguir:
 
 | **Provedor de recursos** | **ID de medidor** | **Nome do medidor** | **Unidade** | **Informações adicionais** |
 | --- | --- | --- | --- | --- |
-| **Rede** |F271A8A388C44D93956A063E1D2FA80B |Uso de endereço IP estático |Endereços IP| Contagem de endereços IP usados |
-| |9E2739BA86744796B465F64674B822BA |Uso de endereço IP dinâmico |Endereços IP| Contagem de endereços IP usados |
+| **Rede** |F271A8A388C44D93956A063E1D2FA80B |Uso de endereço IP estático |Endereços IP| Contagem de endereços IP usados. Se você chamar o API de uso com uma granularidade diária, o medidor retornará o endereço IP multiplicado pelo número de horas. |
+| |9E2739BA86744796B465F64674B822BA |Uso de endereço IP dinâmico |Endereços IP| Contagem de endereços IP usados. Se você chamar o API de uso com uma granularidade diária, o medidor retornará o endereço IP multiplicado pelo número de horas. |
 | **Armazenamento** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*horas |Capacidade total consumida por tabelas |
 | |B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*horas |Capacidade total consumida por blobs de página |
 | |B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*horas |Capacidade total consumida pela fila |
@@ -43,10 +43,10 @@ Uso é relatado para os provedores de recursos a seguir:
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Contagem de solicitações em 10, milhares |Solicitações de serviço de fila (por 10, milhares) |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Dados de entrada em GB |Entrada de dados de serviço de fila em GB |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Saída em GB |Saída de dados de serviço de fila em GB |
-| **RP SQL**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*horas   | Capacidade total do banco de dados no momento da criação, relatada a cada hora.  |
-| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*horas    | Capacidade total do banco de dados no momento da criação, relatada a cada hora. |
-| **Computação** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Horas de tamanho VM de base |Minutos de núcleo virtual | Número de núcleos virtuais vezes minutos que a VM foi executada |
-| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Horas de tamanho VM do Windows |Minutos de núcleo virtual | Número de núcleos virtuais vezes minutos que a VM foi executada |
+| **RP SQL**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*horas   | Capacidade total do banco de dados no momento da criação. Se você chamar o API de uso com uma granularidade diária, o medidor retornará MB multiplicado pelo número de horas. |
+| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*horas    | Capacidade total do banco de dados no momento da criação. Se você chamar o API de uso com uma granularidade diária, o medidor retornará MB multiplicado pelo número de horas. |
+| **Computação** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Horas de tamanho VM de base |Horas de núcleo virtual | Número de núcleos virtuais multiplicado por horas em que a VM foi executada |
+| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Horas de tamanho VM do Windows |Horas de núcleo virtual | Número de núcleos virtuais multiplicado por horas que a VM foi executada |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |Horas de tamanho VM |Horas VM |Captura de VM de Base e o Windows. Não ajustar de núcleos |
 | **Cofre de Chaves** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Transações de Cofre de chaves | Contagem de 10, milhares de solicitações| Número de solicitações da API REST recebidas pelo plano de dados do Cofre de chaves |
 | **Serviço de aplicativo** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | Serviço de Aplicativo   | Horas de núcleo virtual  | Número de núcleos virtuais usadas para executar o serviço de aplicativo |

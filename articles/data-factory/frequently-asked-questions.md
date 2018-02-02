@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 Este artigo se aplica à versão 2 do serviço do Azure Data Factory. Fornece respostas para perguntas frequentes sobre o Data Factory.  
@@ -68,7 +68,7 @@ Agora você tem liberdade para modelar qualquer estilo de fluxo exigido para a i
 Para obter mais informações, consulte [Tutorial: fluxo de controle](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Implantar pacotes do SSIS no Azure 
-Se desejar mover suas cargas de trabalho de SSIS, você poderá criar um Data Factory versão 2 e provisionar um tempo de execução de integração do SSIS do Azure. O tempo de execução de integração do SSIS do Azure é um cluster totalmente gerenciado de VMs do Azure (nós) dedicadas à execução dos seus pacotes de SSIS na nuvem. Para obter instruções passo a passo, consulte o tutorial [Implantar pacotes do SSIS no Azure](tutorial-deploy-ssis-packages-azure.md). 
+Se desejar mover suas cargas de trabalho de SSIS, você poderá criar um Data Factory versão 2 e provisionar um tempo de execução de integração do SSIS do Azure. O tempo de execução de integração do SSIS do Azure é um cluster totalmente gerenciado de VMs do Azure (nós) dedicadas à execução dos seus pacotes de SSIS na nuvem. Para obter instruções passo a passo, consulte o tutorial [Implantar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). 
  
 
 ### <a name="sdks"></a>SDKs

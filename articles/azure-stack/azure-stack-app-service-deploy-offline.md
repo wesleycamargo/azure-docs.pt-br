@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2e527620825a3b419c0191244ba0baff4b74f0fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure pilha protegido pelo AD FS
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 Seguindo as instruções neste artigo, você pode instalar o [provedor de recursos do serviço de aplicativo](azure-stack-app-service-overview.md) para um ambiente de pilha do Azure:
 - não conectado à internet
@@ -72,12 +73,12 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 7. Na próxima página:
     1. Clique no **conectar** lado a **assinaturas de pilha do Azure** caixa.
         - Se você estiver usando o Azure Active Directory (AD do Azure), insira sua conta de administrador do AD do Azure e a senha que você forneceu quando você implantou a pilha do Azure. Clique em **Entrar**.
-        - Se você estiver usando os serviços de Federação do Active Directory (AD FS), fornece sua conta de administrador. Por exemplo: cloudadmin@azurestack.local. Digite sua senha e clique em **entrar**.
+        - Se você estiver usando os serviços de Federação do Active Directory (AD FS), fornece sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Digite sua senha e clique em **entrar**.
     2. No **assinaturas do Azure pilha** , selecione sua assinatura.
     3. No **Azure pilha locais** , selecione o local que corresponde à região que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento de pilha do Azure.
     4. Insira um **nome do grupo de recursos** para sua implantação do serviço de aplicativo. Por padrão, ele é definido como **LOCAL do serviço de aplicativo**.
     5. Insira o **nome da conta de armazenamento** que você deseja que o serviço de aplicativo a ser criado como parte da instalação. Por padrão, ele é definido como **appsvclocalstor**.
-    6. Clique em **Avançar**.
+    6. Clique em **Próximo**.
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image03.png)
 
@@ -90,7 +91,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
     2. No **arquivo de certificado de identidade de aplicativo** caixa, digite (ou procure) o local do arquivo do certificado.
     3. No **senha do certificado de identidade de aplicativo** caixa, digite a senha do certificado. Essa senha é aquele que você anotou quando você usou o script para criar os certificados.
     4. No **arquivo do certificado raiz do Azure Resource Manager** caixa, digite (ou procure) o local do arquivo do certificado.
-    5. Clique em **Avançar**.
+    5. Clique em **Próximo**.
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image05.png)
 
@@ -98,7 +99,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 
     | Box | Exemplo de nome de arquivo de certificado |
     | --- | --- |
-    | **Arquivo de certificado SSL do serviço de aplicativo padrão** | \_. appservice.local.AzureStack.external.pfx |
+    | **Arquivo de certificado SSL do serviço de aplicativo padrão** | \_.appservice.local.AzureStack.external.pfx |
     | **Arquivo de certificado SSL de API do serviço de aplicativo** | api.appservice.local.AzureStack.external.pfx |
     | **Arquivo de certificado de SSL de publicador do serviço de aplicativo** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -114,14 +115,14 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 
      > [!NOTE]
      > Para implantações de produção, seguindo as orientações em [planejamento de capacidade de funções de servidor do serviço de aplicativo do Azure na pilha do Azure](azure-stack-app-service-capacity-planning.md).
-     > 
+     >
      >
 
     | Função | Instâncias mínimas | SKU mínimo | Observações |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gerencia e mantém a integridade da nuvem do serviço de aplicativo. |
     | Gerenciamento | 1 | Standard_A2 - (vCPUs 2, 3584 MB) | Gerencia os pontos de extremidade do serviço de aplicativo do Azure Resource Manager e a API, extensões portais (administrador, locatário, portal de funções) e o serviço de dados. Para dar suporte a failover, aumentado instâncias recomendadas para 2. |
-    | Editor | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publica o conteúdo por meio de implantação da web e FTP. |
+    | Publicador | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publica o conteúdo por meio de implantação da web e FTP. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Encaminha solicitações para aplicativos de serviço de aplicativo. |
     | Trabalho compartilhados | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts ou aplicativos de API aplicativos web e funções do Azure. Você talvez queira adicionar mais instâncias. Como um operador, você pode definir sua oferta e escolha qualquer camada SKU. As camadas devem ter no mínimo um vCPU. |
 
@@ -130,12 +131,12 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
     > [!NOTE]
     > **Windows Server 2016 Core não é uma imagem de plataforma com suporte para uso com o serviço de aplicativo do Azure na pilha do Azure**.
 
-13. No **selecione a imagem de plataforma** caixa, escolha sua imagem de máquina virtual de implantação do Windows Server 2016 disponíveis no provedor de recursos de computação para a nuvem de serviço de aplicativo. Clique em **Avançar**.
+13. No **selecione a imagem de plataforma** caixa, escolha sua imagem de máquina virtual de implantação do Windows Server 2016 disponíveis no provedor de recursos de computação para a nuvem de serviço de aplicativo. Clique em **Próximo**.
 
 14. Na próxima página:
      1. Insira o nome de usuário do administrador de máquina virtual de função de trabalho e a senha.
      2. Insira o nome de usuário do administrador de máquina virtual de outras funções e a senha.
-     3. Clique em **Avançar**.
+     3. Clique em **Próximo**.
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image09.png)    
 

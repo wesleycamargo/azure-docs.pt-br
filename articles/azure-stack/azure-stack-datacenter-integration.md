@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ef8b30744c3334086680ab8c7211ad73b792c95c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Datacenter para sistemas de pilha do Azure integrado
 Se você estiver interessado em um sistema de pilha do Azure integrado, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões importantes de infra-estrutura para seu sistema de vários nó de pilha do Azure. Ajuda a entender essas considerações ao trabalhar com o fornecedor do hardware OEM implantação de pilha do Azure para seu datacenter.  
@@ -27,9 +27,7 @@ Se você estiver interessado em um sistema de pilha do Azure integrado, você de
 > [!NOTE]
 > Sistemas de vários nós de pilha do Azure só podem ser adquiridos de fornecedores de hardware autorizado. 
 
-Para implantar a pilha do Azure, há um conjunto das decisões que você precisa fazer para integrar corretamente a pilha do Azure com seu ambiente. Você precisa fornecer essas informações para seu provedor de soluções durante o processo de planejamento e estará pronto para o fornecedor de hardware antes do início da implantação ajudar o processo de forma rápida e sem problemas.
-
-As informações necessárias intervalos em rede, segurança e informações de identidade com muitas decisões importantes que podem exigir conhecimento em muitas áreas diferentes e tomadores de decisão. Portanto, você talvez precise efetuar pull de pessoas de várias equipes em sua organização para garantir que você tenha todas as informações necessárias prontas antes do início da implantação. Ele pode ajudar a se comunicar com o fornecedor do hardware ao coletar essas informações, como talvez tenham conselhos úteis para tomar as decisões.
+Para implantar a pilha do Azure, você precisa fornecer informações de planejamento para seu provedor de soluções, antes do início da implantação ajudar o processo de forma rápida e sem problemas. As informações necessárias intervalos em rede, segurança e informações de identidade com muitas decisões importantes que podem exigir conhecimento em muitas áreas diferentes e tomadores de decisão. Portanto, você talvez precise efetuar pull de pessoas de várias equipes em sua organização para garantir que você tenha todas as informações necessárias prontas antes do início da implantação. Ele pode ajudar a se comunicar com o fornecedor do hardware ao coletar essas informações, como talvez tenham conselhos úteis para tomar as decisões.
 
 Durante a pesquisa e coletar as informações necessárias, você precisará fazer algumas alterações de configuração antes da implantação para seu ambiente de rede. Isso pode incluir a reserva de espaços de endereço IP para a solução de pilha do Azure, configurar seus roteadores, comutadores e firewalls para se preparar para a conectividade com as novas opções de solução de pilha do Azure. Certifique-se de ter o especialista de área de assunto embutido até ajudá-lo com seu planejamento.
 
@@ -38,7 +36,7 @@ A pilha do Azure é um sistema de lacrado, onde a infraestrutura é bloqueada am
 
 Para operações e gerenciamento diário, há sem acesso de administrador sem restrições para a infraestrutura. Operadores de pilha do Azure devem gerenciar o sistema por meio do portal de administrador ou por meio do Azure Resource Manager (por meio do PowerShell ou a API REST). Não há nenhum acesso ao sistema por outras ferramentas de gerenciamento, como o Gerenciador do Hyper-V ou o Gerenciador de Cluster de Failover. Para ajudar a proteger o sistema, o software de terceiros (por exemplo, agentes) não pode ser instalado dentro dos componentes da infraestrutura de pilha do Azure. Interoperabilidade com o software de gerenciamento e segurança externa ocorre por meio do PowerShell ou a API REST.
 
-Quando um nível mais alto de acesso é necessário para a solução de problemas não resolvidos por meio de etapas de mediação de alerta, você deve trabalhar com suporte. Por meio do suporte, há um método para fornecer acesso de administrador completo temporário para o sistema para executar operações mais avançadas. 
+Quando um nível mais alto de acesso é necessário para a solução de problemas não resolvidos por meio de etapas de mediação de alerta, você deve trabalhar com o Microsoft Support. Por meio do suporte, há um método para fornecer acesso de administrador completo temporário para o sistema para executar operações mais avançadas. 
 
 ## <a name="identity-considerations"></a>Considerações de identidade
 
@@ -179,7 +177,10 @@ Para replicar dados para um local secundário e orquestrar failover de aplicativ
 > [!IMPORTANT]
 > A versão inicial dos sistemas integrados, podemos será compatível com tecnologias de proteção que funcionam no nível de convidado de uma máquina virtual IaaS. Você não pode instalar agentes em servidores de infraestrutura subjacente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="learn-more"></a>Saiba mais
 
 - Para obter informações sobre os casos de uso, compra, parceiros e fornecedores de hardware de OEM, consulte o [Azure pilha](https://azure.microsoft.com/overview/azure-stack/) página do produto.
 - Para obter informações sobre o mapa e a disponibilidade de replicação geográfica do Azure pilha sistemas integrados, consulte o white paper: [pilha do Azure: extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+
+## <a name="next-steps"></a>Próximas etapas
+[Modelos de conexão de implantação de pilha do Azure](azure-stack-connection-models.md)

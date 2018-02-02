@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Substituir um componente de hardware em um nó de unidade de escala de pilha do Azure
 
@@ -28,7 +28,7 @@ Este artigo descreve o processo geral para substituir os componentes de hardware
 
 Componentes não intercambiáveis incluem o seguinte:
 
-- CPU *
+- CPU*
 - Memória *
 - Placa-mãe/controlador BMC (BMC) / vídeo cartão
 - Adaptador de barramento de host do controlador de disco (HBA) / backplane
@@ -44,11 +44,11 @@ O diagrama de fluxo a seguir mostra o processo geral de FRU para substituir um c
 
 * Esta ação pode não ser necessária com base na condição do hardware física.
 
-* * Se o fornecedor do hardware OEM executa a substituição de componente e atualiza o firmware podem variar com base no oferece suporte ao contrato.
+* * Se o fornecedor do hardware OEM executa a substituição de componentes e as atualizações que de firmware pode variar com base no seu contrato de suporte.
 
 ## <a name="review-alert-information"></a>Revise as informações de alerta
 
-O sistema de monitoramento e integridade de pilha do Azure rastreará a integridade de adaptadores de rede e unidades de dados controladas por espaços de armazenamento diretos. Não controla de outros componentes de hardware. Para todos os outros componentes de hardware, os alertas são gerados no hardware específicos de fornecedor solução que é executado no host de ciclo de vida do hardware de monitoramento.
+O sistema de monitoramento e integridade de pilha do Azure rastreará a integridade de adaptadores de rede e unidades de dados controladas por espaços de armazenamento diretos. Não controla de outros componentes de hardware. Para todos os outros componentes de hardware, os alertas são gerados no hardware específicos de fornecedor solução que é executado no host de ciclo de vida do hardware de monitoramento.  
 
 ## <a name="component-replacement-process"></a>Processo de substituição de componente
 
@@ -60,7 +60,7 @@ As etapas a seguir fornecem uma visão geral do processo de substituição de co
    > Em qualquer caso, somente um nó pode ser descarregado e desligá-la ao mesmo tempo sem quebrar a S2D (espaços de armazenamento diretos).
 
 2. Após o nó de unidade de escala no modo de manutenção, use o [desligue](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação pode não ser necessária com base na condição do hardware física.
- 
+
    > [!NOTE]
    > No caso improvável de que a ação de desligamento não funciona, use a interface da web do baseboard management controlador BMC.
 
@@ -74,4 +74,3 @@ As etapas a seguir fornecem uma visão geral do processo de substituição de co
 
 - Para obter informações sobre como substituir um disco físico trocados, consulte [substituir um disco](azure-stack-replace-disk.md).
 - Para obter informações sobre a substituição de um nó físico, consulte [substituir um nó de unidade de escala](azure-stack-replace-node.md).
-- 

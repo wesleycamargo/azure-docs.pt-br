@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -93,7 +93,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -124,15 +124,15 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|choose|Elemento raiz.|Sim|  
-|when|A condição a ser usada para as partes `if` ou `ifelse` da política `choose`. Se política `choose` tiver várias seções `when`, elas serão avaliadas sequencialmente. Uma vez que o `condition` de um elemento when é avaliado como `true`, nenhuma outra condição `when` é avaliada.|Sim|  
+|choose|Elemento raiz.|sim|  
+|when|A condição a ser usada para as partes `if` ou `ifelse` da política `choose`. Se política `choose` tiver várias seções `when`, elas serão avaliadas sequencialmente. Uma vez que o `condition` de um elemento when é avaliado como `true`, nenhuma outra condição `when` é avaliada.|sim|  
 |otherwise|Contém o trecho de código da política a ser usado se nenhuma das condições `when` for avaliada como `true`.|Não |  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|DESCRIÇÃO|Obrigatório|  
 |---------------|-----------------|--------------|  
-|condition="Boolean expression &#124; Boolean constant"|A constante ou expressão booliana a ser avaliada quando a declaração de política contendo `when` é avaliada.|Sim|  
+|condition="Boolean expression &#124; Boolean constant"|A constante ou expressão booliana a ser avaliada quando a declaração de política contendo `when` é avaliada.|sim|  
   
 ###  <a name="ChooseUsage"></a> Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -236,7 +236,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|forward-request|Elemento raiz.|Sim|  
+|forward-request|Elemento raiz.|sim|  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -283,14 +283,14 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|    
-|limit-concurrency|Elemento raiz.|Sim|  
+|limit-concurrency|Elemento raiz.|sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|  
 |---------------|-----------------|--------------|--------------|  
-|chave|Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas.|Sim|N/D|  
-|max-count|Um inteiro. Especifica um número máximo de solicitações que são permitidas para inserir a política.|Sim|N/D|  
+|chave|Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas.|sim|N/D|  
+|max-count|Um inteiro. Especifica um número máximo de solicitações que são permitidas para inserir a política.|sim|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -333,13 +333,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|log-to-eventhub|Elemento raiz. O valor desse elemento é a cadeia de caracteres a ser registrada no seu hub de eventos.|Sim|  
+|log-to-eventhub|Elemento raiz. O valor desse elemento é a cadeia de caracteres a ser registrada no seu hub de eventos.|sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|DESCRIÇÃO|Obrigatório|  
 |---------------|-----------------|--------------|  
-|logger-id|A ID do agente registrada com o serviço de Gerenciamento de API.|Sim|  
+|logger-id|A ID do agente registrada com o serviço de Gerenciamento de API.|sim|  
 |partition-id|Especifica o índice da partição em que as mensagens são enviadas.|Opcional. Esse atributo não poderá ser usado se `partition-key` for usado.|  
 |partition-key|Especifica o valor usado para a atribuição de partição quando as mensagens são enviadas.|Opcional. Esse atributo não poderá ser usado se `partition-id` for usado.|  
   
@@ -376,7 +376,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|mock-response|Elemento raiz.|Sim|  
+|mock-response|Elemento raiz.|sim|  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -432,15 +432,15 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|tentar novamente|Elemento raiz. Pode conter quaisquer outras políticas como seus elementos filho.|Sim|  
+|tentar novamente|Elemento raiz. Pode conter quaisquer outras políticas como seus elementos filho.|sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|  
 |---------------|-----------------|--------------|-------------|  
-|condition|Uma [expressão](api-management-policy-expressions.md) ou literal booliano especificando se as novas tentativas devem ser paradas (`false`) ou continuadas (`true`).|Sim|N/D|  
-|count|Um número positivo que especifica o número máximo de novas tentativas a serem realizadas.|Sim|N/D|  
-|intervalo|Um número positivo, em segundos, que especifica o intervalo de espera entre as novas tentativas.|Sim|N/D|  
+|condition|Uma [expressão](api-management-policy-expressions.md) ou literal booliano especificando se as novas tentativas devem ser paradas (`false`) ou continuadas (`true`).|sim|N/D|  
+|count|Um número positivo que especifica o número máximo de novas tentativas a serem realizadas.|sim|N/D|  
+|intervalo|Um número positivo, em segundos, que especifica o intervalo de espera entre as novas tentativas.|sim|N/D|  
 |max-interval|Um número positivo, em segundos, que especifica o intervalo de espera máximo entre as novas tentativas. Ele é usado para implementar um algoritmo de nova tentativa exponencial.|Não |N/D|  
 |delta|Um número positivo, em segundos, que especifica o incremento do intervalo de espera. Ele é usado para implementar algoritmos de nova tentativa exponenciais e lineares.|Não |N/D|  
 |first-fast-retry|Se definido como `true`, a primeira nova tentativa será realizada imediatamente.|Não |`false`|  
@@ -487,7 +487,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|return-response|Elemento raiz.|Sim|  
+|return-response|Elemento raiz.|sim|  
 |set-header|Uma declaração de política [set-header](api-management-transformation-policies.md#SetHTTPheader).|Não |  
 |set-body|Uma declaração de política [set-body](api-management-transformation-policies.md#SetBody).|Não |  
 |set-status|Uma declaração de política [set-status](api-management-advanced-policies.md#SetStatus).|Não |  
@@ -553,7 +553,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|send-one-way-request|Elemento raiz.|Sim|  
+|send-one-way-request|Elemento raiz.|sim|  
 |url|A URL da solicitação.|Não se mode=copy, caso contrário, sim.|  
 |estático|O método HTTP para a solicitação.|Não se mode=copy, caso contrário, sim.|  
 |cabeçalho|Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.|Não |  
@@ -564,7 +564,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, mode=copy não inicializa o corpo da solicitação.|Não |Novo|  
-|Nome|Especifica o nome do cabeçalho a ser definido.|Sim|N/D|  
+|Nome|Especifica o nome do cabeçalho a ser definido.|sim|N/D|  
 |exists-action|Especifica a ação a ser adotada quando o cabeçalho já foi especificado. Este atributo deve ter um dos valores a seguir.<br /><br /> – override – substitui o valor do cabeçalho existente.<br />– skip – não substitui o valor do cabeçalho existente.<br />– append – acrescenta o valor ao valor do cabeçalho existente.<br />– delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override`, listar diversas entradas com o mesmo nome faz com que o cabeçalho seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado.|Não |override|  
   
 ### <a name="usage"></a>Uso  
@@ -632,7 +632,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|send-request|Elemento raiz.|Sim|  
+|send-request|Elemento raiz.|sim|  
 |url|A URL da solicitação.|Não se mode=copy, caso contrário, sim.|  
 |estático|O método HTTP para a solicitação.|Não se mode=copy, caso contrário, sim.|  
 |cabeçalho|Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.|Não |  
@@ -646,7 +646,7 @@ status code and media type. If no example or schema found, the content is empty.
 |response-variable-name="string"|Se não estiver presente, `context.Response` será usado.|Não |N/D|  
 |timeout="integer"|O intervalo de tempo limite em segundos antes de a chamada para a URL falhar.|Não |60|  
 |ignore-error|Se for true e a solicitação resultar em um erro:<br /><br /> – Se response-variable-name tiver sido especificado, ele conterá um valor nulo.<br />– Se response-variable-name não tiver sido especificado, context.Request não será atualizado.|Não |falso|  
-|Nome|Especifica o nome do cabeçalho a ser definido.|Sim|N/D|  
+|Nome|Especifica o nome do cabeçalho a ser definido.|sim|N/D|  
 |exists-action|Especifica a ação a ser adotada quando o cabeçalho já foi especificado. Este atributo deve ter um dos valores a seguir.<br /><br /> – override – substitui o valor do cabeçalho existente.<br />– skip – não substitui o valor do cabeçalho existente.<br />– append – acrescenta o valor ao valor do cabeçalho existente.<br />– delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override`, listar diversas entradas com o mesmo nome faz com que o cabeçalho seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado.|Não |override|  
   
 ### <a name="usage"></a>Uso  
@@ -678,13 +678,13 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|proxy|Elemento raiz|Sim|  
+|proxy|Elemento raiz|sim|  
 
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|  
 |---------------|-----------------|--------------|-------------|  
-|url="string"|URL do proxy no formato http://host:porta.|Sim|N/D|  
+|url="string"|URL do proxy no formato http://host:porta.|sim|N/D|  
 |username="string"|Nome de usuário a ser usado para autenticação com o proxy.|Não |N/D|  
 |password="string"|Senha a ser usada para autenticação com o proxy.|Não |N/D|  
 
@@ -738,7 +738,7 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|set-method|Elemento raiz. O valor do elemento especifica o método HTTP.|Sim|  
+|set-method|Elemento raiz. O valor do elemento especifica o método HTTP.|sim|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -778,14 +778,14 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|set-status|Elemento raiz.|Sim|  
+|set-status|Elemento raiz.|sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|  
 |---------------|-----------------|--------------|-------------|  
-|code="integer"|O código de status HTTP a ser retornado.|Sim|N/D|  
-|reason="string"|Uma descrição do motivo para retornar o código de status.|Sim|N/D|  
+|code="integer"|O código de status HTTP a ser retornado.|sim|N/D|  
+|reason="string"|Uma descrição do motivo para retornar o código de status.|sim|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -813,14 +813,14 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|set-variable|Elemento raiz.|Sim|  
+|set-variable|Elemento raiz.|sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|DESCRIÇÃO|Obrigatório|  
 |---------------|-----------------|--------------|  
-|Nome|O nome da variável.|Sim|  
-|valor|O valor da variável. Isso pode ser uma expressão ou um valor literal.|Sim|  
+|Nome|O nome da variável.|sim|  
+|valor|O valor da variável. Isso pode ser uma expressão ou um valor literal.|sim|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -880,13 +880,13 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|trace|Elemento raiz.|Sim|  
+|trace|Elemento raiz.|sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|  
 |---------------|-----------------|--------------|-------------|  
-|fonte|Literal de cadeia de caracteres significativo para o visualizador de rastreamento e especificando a fonte da mensagem.|Sim|N/D|  
+|fonte|Literal de cadeia de caracteres significativo para o visualizador de rastreamento e especificando a fonte da mensagem.|sim|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -947,7 +947,7 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|wait|Elemento raiz. Pode conter como elementos filho somente as políticas `send-request`, `cache-lookup-value` e `choose`.|Sim|  
+|wait|Elemento raiz. Pode conter como elementos filho somente as políticas `send-request`, `cache-lookup-value` e `choose`.|sim|  
   
 ### <a name="attributes"></a>Atributos  
   

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Tratamento de erros em runbooks gráficos na Automação do Azure
 
@@ -40,7 +40,7 @@ Runbooks gráficos de automação do Azure foram aprimorados com a possibilidade
 
 Sempre que houver uma atividade essencial que gera um erro ou exceção, é importante para evitar a próxima atividade no runbook do processamento e tratar o erro adequadamente. Isso é particularmente crítico quando seus runbooks dão suporte a uma empresa ou a um processo de operações de serviço.
 
-Para cada atividade que pode produzir um erro, o autor do runbook pode adicionar um link de erro apontando para qualquer outra atividade.  A atividade de destino pode ser de qualquer tipo, incluindo atividades de código, invocação de um cmdlet, chamada de outro runbook e assim por diante.
+Para cada atividade que pode produzir um erro, o autor do runbook pode adicionar um link de erro apontando para qualquer outra atividade. A atividade de destino pode ser de qualquer tipo, incluindo atividades de código, invocação de um cmdlet, chamada de outro runbook e assim por diante.
 
 Além disso, a atividade de destino também pode ter links de saída. Esses links são links regulares ou erro. Isso significa que o autor de runbook pode implementar a lógica de tratamento de erros complexa sem recorrer a uma atividade de código. A prática recomendada é criar um runbook dedicado de tratamento de erros com funcionalidade comum, mas não é obrigatório. Atividade não é a única opção de código de lógica de tratamento de erros no PowerShell.  
 
@@ -63,7 +63,7 @@ Depois de definir essa configuração, você cria uma atividade que manipulará 
 
 No exemplo a seguir, um runbook recupera uma variável que contém o nome do computador de uma máquina virtual. Em seguida, ele tenta iniciar a máquina virtual com a próxima atividade.<br><br> ![Exemplo de tratamento de erro de runbook de automação](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-A atividade **Get-AutomationVariable** e **Start-AzureRmVm** são configurados para converter exceções em erros.  Se houver problemas ao obter a variável ou iniciar a VM, serão gerados erros.<br><br> ![Configurações de atividade de tratamento de erros de runbook de automação](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+A atividade **Get-AutomationVariable** e **Start-AzureRmVm** são configurados para converter exceções em erros. Se houver problemas ao obter a variável ou iniciar a VM, serão gerados erros.<br><br> ![Configurações de atividade de tratamento de erros de runbook de automação](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 Links de erro de fluxo dessas atividades em uma única **gerenciamento erro** atividade (uma atividade code). Essa atividade é configurada com uma expressão simple do PowerShell que usa o *lançar* palavra-chave para parar o processamento, juntamente com *$Error.Exception.Message* para obter a mensagem que descreve a exceção atual.<br><br> ![Exemplo de código de tratamento de erros de runbook de automação](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

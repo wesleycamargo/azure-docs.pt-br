@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planejamento de capacidade para funções de servidor do serviço de aplicativo do Azure na pilha do Azure
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 Para provisionar uma implantação de produção pronto de serviço de aplicativo do Azure na pilha do Azure, você deve planejar a capacidade que você espera que o sistema ofereça suporte.  Aqui está a orientação sobre o número mínimo de instâncias e computação SKUs, você deve usar para qualquer implantação de produção.
 
@@ -31,7 +32,7 @@ Você pode planejar sua estratégia de capacidade do serviço de aplicativo usan
 | Controller | 2 | A1 |
 | Front-End | 2 | A1 |
 | Gerenciamento | 2 | A3 |
-| Editor | 2 | A1 |
+| Publicador | 2 | A1 |
 | Web Workers - compartilhados | 2 | A1 |
 | Web Workers - dedicados | 2 por camada | A1 |
 

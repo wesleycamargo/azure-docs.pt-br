@@ -3,7 +3,7 @@ title: "Atualização da pilha do Azure 1711 | Microsoft Docs"
 description: "Saiba mais sobre o que é a atualização 1711 pilha do Azure integradas de sistemas, os problemas conhecidos e onde baixar a atualização."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 01/31/2018
+ms.author: brenduns
+ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -62,7 +62,7 @@ Esta atualização inclui os seguintes aprimoramentos e correções para a pilha
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Correções e novos recursos do Windows Server 2016
 
 - [14 de novembro de 2017 — KB4048953 (Build de SO 14393.1884)](https://support.microsoft.com/help/4048953)
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização
 
 Esta seção contém os problemas conhecidos que podem ocorrer durante a instalação da atualização 1711.
@@ -97,7 +97,7 @@ Esta seção contém os problemas conhecidos de pós-instalação com compilaç�
 
    - Você pode ver uma linha em branco na parte superior da lista. Você ainda deve ser capaz de selecionar um item conforme o esperado.
    - Se a lista de itens na lista suspensa é curta, você não poderá exibir os nomes de item.
-   - Se você tiver várias assinaturas de usuário, a lista suspensa de grupo de recursos pode estar vazia. 
+   - Se você tiver várias assinaturas de usuário, a lista suspensa de grupo de recursos pode estar vazia.
 
         > [!NOTE]
         > Solução alternativa para os últimos dois problemas, você pode digitar o nome da assinatura ou grupo de recursos (se souber) ou você pode usar o PowerShell em vez disso.
@@ -118,18 +118,18 @@ Esta seção contém os problemas conhecidos de pós-instalação com compilaç�
 - Você pode configurar uma máquina virtual conjunto de disponibilidade somente com um domínio de falha de um e um domínio de atualização de um.
 - Não há nenhuma experiência marketplace para criar conjuntos de escala de máquina virtual. Você pode criar uma escala definida por meio de um modelo.
 - As configurações de escala para conjuntos de escala de máquinas virtuais não estão disponíveis no portal. Como alternativa, você pode usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Por causa das diferenças de versão do PowerShell, você deve usar o `-Name` parâmetro em vez de `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Rede
 - Você não pode criar um balanceador de carga com um endereço IP público usando o portal. Como alternativa, você pode usar o PowerShell para criar o balanceador de carga.
 - Quando você cria um balanceador de carga de rede, você deve criar uma regra NAT (conversão) do endereço de rede. Se você não fizer isso, você receberá um erro ao tentar adicionar uma regra NAT depois que o balanceador de carga é criado.
 - Não é possível desassociar um endereço IP público de uma máquina virtual (VM), depois que a máquina virtual foi criada e associada com o endereço IP. Dissociação parece funcionar, mas o endereço IP público atribuído anteriormente permanecerá associado à VM original. Esse comportamento ocorre mesmo se você reatribuir o endereço IP para uma nova VM (conhecido como um *permuta de VIP*). Todas as futuras tentativas de conexão por esse resultado do endereço IP em uma conexão à VM originalmente associado e não para o novo. No momento, você só deve usar os novos endereços IP públicos para criação de uma nova VM.
 - Operadores de pilha do Azure podem ser impossível implantar, excluir, modificar VNETs ou grupos de segurança de rede. Esse problema é visto principalmente nas tentativas de atualização subsequentes do mesmo pacote. Isso é causado por um problema de empacotamento com uma atualização que está sendo investigado.
 - O balanceamento de carga interno (ILB) incorretamente lida com endereços MAC para VMs de back-end que interrompe a instâncias do Linux.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Pode demorar até uma hora para que os locatários podem criar bancos de dados em um novo SQL ou MySQL SKU. 
+- Pode demorar até uma hora para que os locatários podem criar bancos de dados em um novo SQL ou MySQL SKU.
 - Criação de itens diretamente no SQL e em servidores que não são executados pelo provedor de recursos de hospedagem MySQL não tem suporte e pode resultar em um estado não correspondente.
- 
+
 #### <a name="app-service"></a>Serviço de Aplicativo
 - Um usuário deve registrar o provedor de recursos de armazenamento antes de criar sua primeira função do Azure na assinatura.
 
@@ -149,7 +149,7 @@ No Azure Active Directory Federation Services (ADFS) implantado a ambientes, o *
 - **Habilitar o backup de infraestrutura em ASDK é apenas para teste.**  
   Backups de infraestrutura podem ser usados para restaurar as soluções de vários nós. Você pode habilitar o backup de infraestrutura em ASDK mas não há nenhuma maneira de testar a recuperação.
 
-Para obter mais informações, consulte [Backup e recuperação de dados para a pilha do Azure com o serviço de Backup de infraestrutura](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+Para obter mais informações, consulte [Backup e recuperação de dados para a pilha do Azure com o serviço de Backup de infraestrutura](azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Baixe a atualização
 

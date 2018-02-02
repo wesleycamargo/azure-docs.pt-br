@@ -3,7 +3,7 @@ title: "Integrar a solução de monitoramento externa a pilha do Azure | Microso
 description: "Aprenda a integrar o Azure pilha com uma solução de monitoramento externa em seu data center."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitoramento externa a pilha do Azure
 
@@ -76,15 +77,15 @@ O plug-in funciona com Nagios Enterprise e Nagios Core. Você pode baixá-lo [aq
 
 Configure o arquivo de plug-in "Azurestack_plugin.py" com os seguintes parâmetros:
 
-| Parâmetro | Descrição | Exemplo |
+| Parâmetro | DESCRIÇÃO | Exemplo |
 |---------|---------|---------|
 | *arm_endpoint* | Ponto de extremidade do Azure Resource Manager (administrador) |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Ponto de extremidade do Azure Resource Manager (administrador)  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | ID de assinatura de Admin | Recuperar por meio do portal do administrador ou o PowerShell |
 | *User_name* | O nome de usuário do operador assinatura | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Senha de assinatura do operador | MyPassWord |
-| *Client_id* | Cliente | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
-| *região* |  Nome da região de pilha do Azure | local |
+| *Client_id* | Cliente | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
+| *region* |  Nome da região de pilha do Azure | local |
 |  |  |
 
 * O GUID do PowerShell que é fornecido é universal. Você pode usá-lo para cada implantação.
@@ -139,12 +140,12 @@ A solicitação obtém todos os alertas ativos e fechados para a assinatura do p
 
 |Método  |URI da solicitação  |
 |---------|---------|
-|GET     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 "      |
+|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **Argumentos**
 
-|Argumento  |Descrição  |
+|Argumento  |DESCRIÇÃO  |
 |---------|---------|
 |armendpoint     |  O Gerenciador de recursos do Azure ponto de extremidade de seu ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo *azurestack.external* e o nome da região é *local*, em seguida, o ponto de extremidade do Gerenciador de recursos é https://adminmanagement.local.azurestack.external.       |
 |subid     |   ID da assinatura do usuário que está fazendo a chamada. Você pode usar essa API para consultar somente com um usuário que tem permissão para a assinatura do provedor padrão.      |
@@ -203,7 +204,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Detalhes da resposta**
 
 
-|  Argumento  |Descrição  |
+|  Argumento  |DESCRIÇÃO  |
 |---------|---------|
 |*ID*     |      ID exclusiva do alerta.   |
 |*name*     |     Nome interno do alerta.   |
@@ -221,15 +222,15 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*name*     |   Nome do alerta específico.      |
 |*fabricname*     |    Nome de malha registrado do componente com defeito.   |
 |*description*     |  Descrição do componente de malha registrado.   |
-|*ServiceType*     |   Tipo do serviço de malha registrado.   |
+|*servicetype*     |   Tipo do serviço de malha registrado.   |
 |*correção*     |   Etapas de solução recomendada.    |
 |*tipo*     |   Tipo de alerta.    |
 |*resourceRegistrationid*    |     ID do recurso afetado registrado.    |
 |*resourceProviderRegistrationID*   |    ID do provedor de recursos registrados do componente afetado.  |
 |*serviceregistrationid*     |    ID do serviço registrado.   |
-|*severidade*     |     Severidade do alerta.  |
+|*severity*     |     Severidade do alerta.  |
 |*state*     |    Estado de alerta.   |
-|*título*     |    Título do alerta.   |
+|*title*     |    Título do alerta.   |
 |*impactedresourceid*     |     ID do recurso afetado.    |
 |*ImpactedresourceDisplayName*     |     Nome do recurso afetado.  |
 |*closedByUserAlias*     |   Usuário que fechou o alerta.      |
@@ -242,17 +243,17 @@ A solicitação fecha um alerta por sua ID exclusiva.
 
 |Método    |URI da solicitação  |
 |---------|---------|
-|PUT     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 "    |
+|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
 **Argumentos**
 
 
-|Argumento  |Descrição  |
+|Argumento  |DESCRIÇÃO  |
 |---------|---------|
 |*armendpoint*     |   Ponto de extremidade do Gerenciador de recursos de seu ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo *azurestack.external* e o nome da região é *local*, em seguida, o ponto de extremidade do Gerenciador de recursos é https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    ID da assinatura do usuário que está fazendo a chamada. Você pode usar essa API para consultar somente com um usuário que tem permissão para a assinatura do provedor padrão.     |
 |*RegionName*     |   O nome da região da implantação da pilha do Azure.      |
-|*versão de API*     |    Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.     |
+|*api-version*     |    Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.     |
 |*alertid*     |    ID exclusiva do alerta.     |
 
 **Corpo**
@@ -346,7 +347,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 **Detalhes da resposta**
 
 
-|  Argumento  |Descrição  |
+|  Argumento  |DESCRIÇÃO  |
 |---------|---------|
 |*ID*     |      ID exclusiva do alerta.   |
 |*name*     |     Nome interno do alerta.   |
@@ -364,15 +365,15 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*name*     |   Nome do alerta específico.      |
 |*fabricname*     |    Nome de malha registrado do componente com defeito.   |
 |*description*     |  Descrição do componente de malha registrado.   |
-|*ServiceType*     |   Tipo do serviço de malha registrado.   |
+|*servicetype*     |   Tipo do serviço de malha registrado.   |
 |*correção*     |   Etapas de solução recomendada.    |
 |*tipo*     |   Tipo de alerta.    |
 |*resourceRegistrationid*    |     ID do recurso afetado registrado.    |
 |*resourceProviderRegistrationID*   |    ID do provedor de recursos registrados do componente afetado.  |
 |*serviceregistrationid*     |    ID do serviço registrado.   |
-|*severidade*     |     Severidade do alerta.  |
+|*severity*     |     Severidade do alerta.  |
 |*state*     |    Estado de alerta.   |
-|*título*     |    Título do alerta.   |
+|*title*     |    Título do alerta.   |
 |*impactedresourceid*     |     ID do recurso afetado.    |
 |*ImpactedresourceDisplayName*     |     Nome do recurso afetado.  |
 |*closedByUserAlias*     |   Usuário que fechou o alerta.      |
@@ -386,18 +387,18 @@ A solicitação obtém status de integridade para todos os provedores de recurso
 
 |Método  |URI da solicitação  |
 |---------|---------|
-|GET    |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 "   |
+|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **Argumentos**
 
 
-|Argumentos  |Descrição  |
+|Argumentos  |DESCRIÇÃO  |
 |---------|---------|
 |*armendpoint*     |    O ponto de extremidade do Gerenciador de recursos de seu ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e o nome da região é local, o ponto de extremidade do Gerenciador de recursos é https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     ID da assinatura do usuário que está fazendo a chamada. Você pode usar essa API para consultar somente com um usuário que tem permissão para a assinatura do provedor padrão.    |
 |*RegionName*     |     O nome da região da implantação da pilha do Azure.    |
-|*versão de API*     |   Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.      |
+|*api-version*     |   Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.      |
 
 
 **Resposta**
@@ -432,7 +433,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Detalhes da resposta**
 
 
-|Argumento  |Descrição  |
+|Argumento  |DESCRIÇÃO  |
 |---------|---------|
 |*Id*     |   ID exclusiva do alerta.      |
 |*name*     |  Nome interno do alerta.       |
@@ -457,16 +458,16 @@ A solicitação obtém status de integridade para um provedor de recursos regist
 
 |Método  |URI da solicitação  |
 |---------|---------|
-|GET     |     https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 "    |
+|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **Argumentos**
 
-|Argumentos  |Descrição  |
+|Argumentos  |DESCRIÇÃO  |
 |---------|---------|
 |*armendpoint*     |    O ponto de extremidade do Gerenciador de recursos de seu ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e o nome da região é local, o ponto de extremidade do Gerenciador de recursos é https://adminmanagement.local.azurestack.external.     |
 |*subid*     |ID da assinatura do usuário que está fazendo a chamada. Você pode usar essa API para consultar somente com um usuário que tem permissão para a assinatura do provedor padrão.         |
 |*RegionName*     |  O nome da região da implantação da pilha do Azure.       |
-|*versão de API*     |  Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.       |
+|*api-version*     |  Versão do protocolo usado para fazer essa solicitação. Você deve usar 2016-05-01.       |
 |*RegistrationID* |ID de registro para um provedor de recursos específicos. |
 
 **Resposta**
@@ -500,7 +501,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 **Detalhes da resposta**
 
-|Argumento  |Descrição  |
+|Argumento  |DESCRIÇÃO  |
 |---------|---------|
 |*Id*     |   ID exclusiva do alerta.      |
 |*name*     |  Nome interno do alerta.       |
@@ -515,8 +516,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   URI do recurso.   |
 |*alertSummary*     |   Resumo de críticas e alertas de aviso, status de integridade.     |
 
+## <a name="learn-more"></a>Saiba mais
+
+Para obter informações sobre monitoramento de integridade interna, consulte [monitorar a integridade e alertas na pilha do Azure](azure-stack-monitor-health.md).
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre monitoramento de integridade interna, consulte [monitorar a integridade e alertas na pilha do Azure](azure-stack-monitor-health.md).
-
-
+[Integração de segurança](azure-stack-integrate-security.md)
