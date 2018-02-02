@@ -5,19 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do data center do Azure pilha - identidade
-
-*Aplica-se a: sistemas integrados de pilha do Azure*
-
 Você pode implantar a pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Antes de implantar a pilha do Azure, você deve fazer a escolha. Implantação usando o AD FS também é chamada de como implantar o Azure pilha no modo desconectado.
 
 A tabela a seguir mostra as diferenças entre as opções de dois identidade:
@@ -26,7 +24,7 @@ A tabela a seguir mostra as diferenças entre as opções de dois identidade:
 |---------|---------|---------|
 |Cobrança|Deve ser a capacidade<br> Enterprise Agreement (EA) somente|Capacidade ou pagamento como você-uso<br>EA ou provedor de soluções de nuvem (CSP)|
 |Identidade|Deve ser do AD FS|Azure AD ou AD FS|
-|Distribuição do Marketplace|Não disponível no momento|Suportado<br>BYOL de licenciamento|
+|Distribuição do Marketplace|Com suporte<br>BYOL de licenciamento|Com suporte<br>BYOL de licenciamento|
 |Registro|Recomendado, requer uma mídia removível<br> e um dispositivo conectado separado.|Automatizada|
 |Patch e atualização|Necessário, requer uma mídia removível<br> e um dispositivo conectado separado.|Pacote de atualização pode ser baixado diretamente<br> da Internet para a pilha do Azure.|
 
@@ -64,7 +62,7 @@ Requisitos:
 As informações a seguir são necessárias como entradas para os parâmetros de automação:
 
 
-|Parâmetro|Descrição|Exemplo|
+|Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN do destino da floresta do Active Directory<br>Se você deseja integrar com|Contoso.com|
 |CustomADAdminCredentials|Um usuário com permissão de leitura de LDAP|YOURDOMAIN\graphservice|
@@ -105,21 +103,21 @@ Para esse procedimento, use um computador em sua rede de datacenter que pode se 
 
 Serviço de gráfico na pilha do Azure usa os seguintes protocolos e portas para se comunicar com o destino do Active Directory:
 
-|Tipo|Porta|Protocolo|
+|type|Porta|Protocolo|
 |---------|---------|---------|
 |LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
-|LDAP SSL DE GC|3269|TCP|
+|LDAP GC SSL|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Configurar a integração do AD FS baixando metadados de Federação
 
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
-|Parâmetro|Descrição|Exemplo|
+|Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do provedor de declarações. <cr>Parece dessa forma na página de aterrissagem do AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Link de metadados de Federação|https://AD01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomAD<br>FSFederationMetadataEndpointUri|Link de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automação de gatilho para configurar a confiança do provedor de declarações na pilha do Azure
@@ -155,10 +153,10 @@ Use este método se alguma das seguintes condições for verdadeira:
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
 
-|Parâmetro|Descrição|Exemplo|
+|Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do provedor de declarações. Parece que forma na página de aterrissagem do AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|Arquivo de metadados de Federação|https://AD01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomADFSFederationMetadataFile|Arquivo de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 ### <a name="create-federation-metadata-file"></a>Criar arquivo de metadados de Federação
 
@@ -287,7 +285,7 @@ Há muitos cenários que exigem o uso de um nome principal de serviço (SPN) par
 Para obter mais informações sobre como criar um SPN, consulte [criar entidade de serviço do AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="configuration-rollback"></a>Reversão de configuração
 
@@ -335,4 +333,4 @@ Se qualquer um dos cmdlets falhar, você poderá coletar logs adicionais usando 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Azure pilha datacenter integração - publicar pontos de extremidade](azure-stack-integrate-endpoints.md)
+[Registrar a pilha do Azure](azure-stack-registration.md)

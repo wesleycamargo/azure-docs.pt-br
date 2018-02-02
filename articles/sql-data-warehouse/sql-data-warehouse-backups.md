@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Backup e restauração no SQL Data Warehouse
 Este artigo explica as especificidades de backups no SQL Data Warehouse. Use backups do data warehouse para restaurar um instantâneo do banco de dados na região primária ou restaurar um backup geográfico em sua região geográfica emparelhada. 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>Backups geográficos
 O SQL Data Warehouse executa um backup geográfico uma vez por dia em um [data center emparelhado](../best-practices-availability-paired-regions.md). O RPO de uma restauração geográfica é de 24 horas. É possível restaurar o backup geográfico para o servidor na região geográfica emparelhada. o backup geográfico garante que você possa restaurar um data warehouse caso não seja possível acessar os instantâneos em sua região primária.
 
-Os backups geográficos são ativados por padrão. Se o data warehouse for adequado para elasticidade, será possível [recusar](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) se desejar. Não é possível recusar os backups geográficos com o nível de desempenho otimizado para computação.
+Os backups geográficos são ativados por padrão. Se o data warehouse for adequado para elasticidade, será possível [recusar](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não é possível recusar os backups geográficos com o nível de desempenho otimizado para computação.
 
 ## <a name="backup-costs"></a>Custos de backup
 Você observará que a fatura do Azure tem um item de linha para o Armazenamento Premium do Azure e um item de linha para armazenamento com redundância geográfica. O encargo do Armazenamento Premium é o custo total para armazenar seus dados na região primária, que inclui instantâneos.  O encargo com redundância geográfica abrange o custo para armazenar os backups geográficos.  

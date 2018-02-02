@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d4398d1c292548b08d91d70a8ba35b31234c5d5f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de iniciar o serviço de aplicativo na pilha do Azure
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 Antes de implantar o serviço de aplicativo do Azure na pilha do Azure, você deve concluir os pré-requisitos neste artigo.
 
@@ -30,14 +31,14 @@ Antes de implantar o serviço de aplicativo do Azure na pilha do Azure, você de
 2. Baixe o [do serviço de aplicativo no instalador do Azure pilha](https://aka.ms/appsvconmasinstaller).
 3. Extraia os arquivos do arquivo. zip de scripts de auxiliar. A estrutura de pastas e arquivos a seguir aparecem:
    - Common.ps1
-   - Criar AADIdentityApp.ps1
-   - Criar ADFSIdentityApp.ps1
-   - Criar AppServiceCerts.ps1
+   - Create-AADIdentityApp.ps1
+   - Create-ADFSIdentityApp.ps1
+   - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
-   - Remover AppService.ps1
+   - Remove-AppService.ps1
    - Módulos
      - GraphAPI.psm1
-    
+
 ## <a name="prepare-for-high-availability"></a>Preparar para alta disponibilidade
 
 Serviço de aplicativo do Azure na pilha do Azure atualmente não pode oferecer alta disponibilidade porque a pilha do Azure implanta cargas de trabalho em apenas um domínio de falha.
@@ -54,9 +55,9 @@ O primeiro script funciona com a autoridade de certificação de pilha do Azure 
 | Nome do arquivo | Uso |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Certificado SSL do serviço de aplicativo padrão |
-| API.appservice.local.azurestack.external.pfx | Certificado de SSL da API de serviço de aplicativo |
-| FTP.appservice.local.azurestack.external.pfx | Certificado SSL do fornecedor de serviço de aplicativo |
-| SSO.appservice.local.azurestack.external.pfx | Certificado do aplicativo de identidade de serviço de aplicativo |
+| Api.appservice.local.azurestack.external.pfx | Certificado de SSL da API de serviço de aplicativo |
+| ftp.appservice.local.azurestack.external.pfx | Certificado SSL do fornecedor de serviço de aplicativo |
+| Sso.appservice.local.azurestack.external.pfx | Certificado do aplicativo de identidade de serviço de aplicativo |
 
 Execute o script no host do Kit de desenvolvimento de pilha do Azure e certifique-se de que você está executando o PowerShell como azurestack\CloudAdmin:
 
@@ -65,9 +66,9 @@ Execute o script no host do Kit de desenvolvimento de pilha do Azure e certifiqu
 
 #### <a name="create-appservicecertsps1-parameters"></a>AppServiceCerts.ps1 criar parâmetros
 
-| Parâmetro | Obrigatório ou opcional | Valor padrão | Descrição |
+| Parâmetro | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
 | --- | --- | --- | --- |
-| PfxPassword | Obrigatório | Nulo | Senha que ajuda a proteger a chave privada do certificado |
+| pfxPassword | Obrigatório | Nulo | Senha que ajuda a proteger a chave privada do certificado |
 | DomainName | Obrigatório | local.azurestack.external | Sufixo de domínio e de região de pilha do Azure |
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certificados necessários para uma implantação de produção do serviço de aplicativo do Azure na pilha do Azure
@@ -82,8 +83,8 @@ O certificado deve estar no formato. pfx e deve ser um certificado curinga com d
 
 | Formatar | Exemplo |
 | --- | --- |
-| \*.appservice. \<região\>.\< DomainName\>.\< extensão\> | \*. appservice.redmond.azurestack.external |
-| \*. scm.appservice. <region>. <DomainName>.<extension> | \*. appservice.scm.redmond.azurestack.external |
+| \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>Certificado de API
 
@@ -91,7 +92,7 @@ O certificado de API é colocado na função de gerenciamento. O provedor de rec
 
 | Formatar | Exemplo |
 | --- | --- |
-| API.appservice. \<região\>.\< DomainName\>.\< extensão\> | API.appservice.Redmond.azurestack.external |
+| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Certificado de publicação
 
@@ -99,7 +100,7 @@ O certificado para a função publicador protege o tráfego FTPS para proprietá
 
 | Formatar | Exemplo |
 | --- | --- |
-| FTP.appservice. \<região\>.\< DomainName\>.\< extensão\> | API.appservice.Redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Certificado de identidade
 
@@ -111,15 +112,15 @@ O certificado de identidade deve conter uma entidade que corresponda o seguinte 
 
 | Formatar | Exemplo |
 | --- | --- |
-| SSO.appservice. \<região\>.\< DomainName\>.\< extensão\> | SSO.appservice.Redmond.azurestack.external |
+| sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Certificado de raiz de Gerenciador de recursos do Azure para a pilha do Azure
 
 Em uma sessão do PowerShell executando como azurestack\CloudAdmin, execute o script Get-AzureStackRootCert.ps1 da pasta onde você extraiu os scripts de auxiliar. O script cria quatro certificados na mesma pasta que o script que precisa para criar certificados de serviço de aplicativo.
 
-| Parâmetro de Get-AzureStackRootCert.ps1 | Obrigatório ou opcional | Valor padrão | Descrição |
+| Get-AzureStackRootCert.ps1 parameter | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
 | --- | --- | --- | --- |
-| PrivelegedEndpoint | Obrigatório | AzS ERCS01 | Ponto de extremidade com privilégios |
+| PrivelegedEndpoint | Obrigatório | AzS-ERCS01 | Ponto de extremidade com privilégios |
 | CloudAdminCredential | Obrigatório | AzureStack\CloudAdmin | Credencial da conta de domínio para que os administradores de nuvem de pilha do Azure |
 
 
@@ -244,7 +245,7 @@ Para implantações do Kit de desenvolvimento de pilha do Azure, você pode usar
 
 Para fins de alta disponibilidade e de produção, você deve usar uma versão completa do SQL Server 2014 SP2 ou posterior, habilitar a autenticação de modo misto e implantar em um [configuração altamente disponível](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-Instância do SQL Server para o serviço de aplicativo do Azure na pilha do Azure deve ser acessível de todas as funções de serviço de aplicativo. Você pode implantar o SQL Server na assinatura do provedor padrão na pilha do Azure. Ou você pode fazer uso da infraestrutura existente na sua organização (desde que haja conectividade com a pilha do Azure). Se você estiver usando uma imagem do Azure Marketplace, lembre-se de configurar o firewall adequadamente. 
+Instância do SQL Server para o serviço de aplicativo do Azure na pilha do Azure deve ser acessível de todas as funções de serviço de aplicativo. Você pode implantar o SQL Server na assinatura do provedor padrão na pilha do Azure. Ou você pode fazer uso da infraestrutura existente na sua organização (desde que haja conectividade com a pilha do Azure). Se você estiver usando uma imagem do Azure Marketplace, lembre-se de configurar o firewall adequadamente.
 
 Para qualquer uma das funções do SQL Server, você pode usar uma instância padrão ou uma instância nomeada. Se você usar uma instância nomeada, certifique-se de iniciar o serviço navegador do SQL Server manualmente e abra a porta 1434.
 
@@ -276,7 +277,7 @@ Siga estas etapas:
 12. Selecione **aplicativo** na lista.
 13. Selecione **as permissões necessárias** > **conceder permissões** > **Sim**.
 
-| Parâmetro AADIdentityApp.ps1 criar | Obrigatório ou opcional | Valor padrão | Descrição |
+| Create-AADIdentityApp.ps1  parameter | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Obrigatório | Nulo | ID de locatário do Azure AD. Forneça o GUID ou uma cadeia de caracteres. Um exemplo é myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Obrigatório | Nulo | Ponto de extremidade do Gerenciador de recursos do administrador do Azure. Um exemplo é adminmanagement.local.azurestack.external. |
@@ -305,7 +306,7 @@ Siga estas etapas:
 5.  No **credencial** janela, insira sua conta de administrador de nuvem do AD FS e a senha. Selecione **OK**.
 6.  Forneça o caminho do arquivo de certificado e a senha do certificado para o [certificado criado anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado criado para esta etapa por padrão é **sso.appservice.local.azurestack.external.pfx**.
 
-| Parâmetro ADFSIdentityApp.ps1 criar | Obrigatório ou opcional | Valor padrão | Descrição |
+| Create-ADFSIdentityApp.ps1  parameter | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Obrigatório | Nulo | Ponto de extremidade do Gerenciador de recursos do administrador do Azure. Um exemplo é adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Obrigatório | Nulo | Ponto de extremidade com privilégios. Um exemplo é AzS ERCS01. |

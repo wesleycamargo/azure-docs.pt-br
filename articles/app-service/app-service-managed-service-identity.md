@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Como usar o Azure Managed Service Identity (visualização pública) no Serviço de Aplicativo e no Azure Functions
 
@@ -56,7 +56,7 @@ Para configurar uma identidade do serviço gerenciado usando a CLI do Azure, ser
 
 As etapas a seguir o guiarão na criação de um aplicativo Web e na atribuição de uma identidade a ele usando a CLI:
 
-1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/#login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar o aplicativo:
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/#az_login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar o aplicativo:
 
     ```azurecli-interactive
     az login
@@ -159,7 +159,7 @@ Um aplicativo com uma identidade de serviço gerenciado tem duas variáveis de a
 A **MSI_ENDPOINT** é uma URL local da qual o aplicativo pode solicitar tokens. Para obter um token para um recurso, solicite uma HTTP GET para esse ponto de extremidade, incluindo os seguintes parâmetros:
 
 > [!div class="mx-tdBreakAll"]
-> |Nome do parâmetro|Nesse|Descrição|
+> |Nome do parâmetro|No|DESCRIÇÃO|
 > |-----|-----|-----|
 > |recurso|Consultar|O URI do recurso do AAD do recurso para o qual um token deve ser obtido.|
 > |api-version|Consultar|A versão da API do token a ser usada. Atualmente, a única versão com suporte é 2017-09-01.|
@@ -169,7 +169,7 @@ A **MSI_ENDPOINT** é uma URL local da qual o aplicativo pode solicitar tokens. 
 Uma resposta bem-sucedida de 200 OK inclui um corpo JSON com as seguintes propriedades:
 
 > [!div class="mx-tdBreakAll"]
-> |Nome da propriedade|Descrição|
+> |Nome da propriedade|DESCRIÇÃO|
 > |-------------|----------|
 > |access_token|O token de acesso solicitado. O serviço Web de chamada pode usar esse token para se autenticar no serviço Web de recebimento.|
 > |expires_on|A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache.|

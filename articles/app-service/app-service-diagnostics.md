@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral de diagnóstico do Serviço de Aplicativo do Azure 
 
 Quando você estiver executando um aplicativo Web, você deseja estar preparado para os problemas que podem surgir, desde os erros 500 até os usuários informando que seu site está inoperante. O diagnóstico do Serviço de Aplicativo é uma experiência interativa e inteligente para ajudá-lo a solucionar problemas de seu aplicativo Web sem configuração necessária. Quando você tiver problemas com seu aplicativo Web, o diagnóstico do Serviço de Aplicativo apontará o que está errado para guiar você até as informações adequadas para a forma mais fácil e rápida de solucionar problemas. 
  
 Embora essa experiência seja útil quando você estiver tendo problemas com seu aplicativo Web nas últimas 24 horas, todos os gráficos de diagnóstico estarão disponíveis para você analisar o tempo todo. Ferramentas e links de solução de problemas adicionais para documentação e fóruns úteis localizados na coluna à direita.
+
+## <a name="open-app-service-diagnostics"></a>Abra o diagnóstico do Serviço de Aplicativo
+
+Para acessar o diagnóstico do Serviço de Aplicativo, navegue até seu aplicativo Web do Serviço de Aplicativo no [portal do Azure](https://portal.azure.com). 
+
+No painel de navegação esquerdo, clique em **Diagnosticar e resolver problemas**.
 
 ![Home page](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ Se você deseja obter mais informações depois de executar uma [verificação d
 
 ![Relatório de diagnóstico](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>Abra o diagnóstico do Serviço de Aplicativo
-
-Para acessar o diagnóstico do Serviço de Aplicativo, navegue até seu aplicativo Web do Serviço de Aplicativo no [portal do Azure](https://portal.azure.com). 
-
-No painel de navegação esquerdo, clique em **Diagnosticar e resolver problemas**.

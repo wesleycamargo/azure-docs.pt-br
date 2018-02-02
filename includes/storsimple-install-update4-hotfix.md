@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 02/10/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
 #### <a name="to-download-hotfixes"></a>Para baixar os hotfixes
 
@@ -27,7 +27,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
 
 Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso você já os tenha instalado usando o portal clássico do Azure, ignore essa etapa e vá para [Instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. Para instalar os hotfixes, acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando, pressione **Enter**.
+1. Para instalar os hotfixes, acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando, pressione **Enter**.
 2. Selecione a **Opção 1** para fazer logon no dispositivo com acesso completo. Recomendamos que você instale o hotfix no controlador passivo primeiro.
 3. Para instalar o hotfix, no prompt de comando, digite:
    
@@ -112,7 +112,7 @@ Observe que, se o firmware de disco já estiver atualizado, você não precisar�
 
 Para instalar as atualizações de firmware de disco, siga as instruções abaixo.
 
-1. Coloque o dispositivo no modo de manutenção. **Observe que você não deve usar a comunicação remota do Windows PowerShell ao se conectar a um dispositivo no modo de manutenção. Em vez disso, execute esse cmdlet no controlador do dispositivo quando conectado por meio do console serial do dispositivo.** Tipo:
+1. Coloque o dispositivo no modo de manutenção. **Observe que você não deve usar a comunicação remota do Windows PowerShell ao se conectar a um dispositivo no modo de manutenção. Em vez disso, execute esse cmdlet no controlador do dispositivo quando conectado por meio do console serial do dispositivo.** Digite:
    
     `Enter-HcsMaintenanceMode`
    

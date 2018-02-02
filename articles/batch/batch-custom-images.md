@@ -2,17 +2,17 @@
 title: Provisionar pools de Lote do Azure de imagens personalizadas | Microsoft Docs
 description: "Você pode criar um pool de Lote de computação de uma imagem personalizada para provisionar nós que contêm o software e os dados que você precisa para seu aplicativo. Imagens personalizadas são uma maneira eficiente para configurar nós de computação para executar suas cargas de trabalho do Lote."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais 
 
@@ -33,7 +33,7 @@ Usar uma imagem personalizada configurada para o seu cenário pode fornecer vár
 - **Expanda os pools para qualquer tamanho.** Quando você usar uma imagem personalizada gerenciada para criar um pool, o pool pode ser expandido para qualquer tamanho que você solicitar. Você não precisa fazer cópias de VHDs do blob de imagem para acomodar o número de VMs. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - **Um recurso de imagem gerenciada**. Para criar um pool de máquinas virtuais usando uma imagem personalizada, você precisa criar um recurso de imagem gerenciada na mesma assinatura e região do Azure que a conta do Lote. Para opções para preparar uma imagem gerenciada, consulte a seção a seguir.
 - **Autenticação do AAD (Azure Active Directory)**. A API do cliente de Lote deve usar a autenticação do AAD. O suporte ao Lote do Azure para AAD está documentado em [Autenticar soluções do serviço de Lote com o Active Directory](batch-aad-auth.md).

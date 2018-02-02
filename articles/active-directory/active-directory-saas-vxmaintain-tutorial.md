@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao vxMaintain | Microsoft Docs"
+title: "Tutorial: integração do Azure Active Directory ao vxMaintain | Microsoft Docs"
 description: "Saiba como configurar o logon único entre o Azure Active Directory e o vxMaintain."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Tutorial: Integração do Azure Active Directory ao vxMaintain
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: integração do Azure Active Directory ao vxMaintain
 
 Neste tutorial, você aprenderá a integrar o vxMaintain ao Azure AD (Azure Active Directory).
 
@@ -31,7 +31,7 @@ Essa integração oferece vários benefícios importantes. Você pode:
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao vxMaintain, você precisará dos seguintes itens:
 
@@ -52,7 +52,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 * Adicionando vxMaintain da Galeria
-* Configurar e testar o logon único do AD do Azure
+* configurar e testar o logon único do AD do Azure
 
 ## <a name="add-vxmaintain-from-the-gallery"></a>Adicionar vxMaintain da galeria
 Para configurar a integração do vxMaintain com o Azure AD, você precisará adicionar o vxMaintain a partir da galeria à sua lista de aplicativos SaaS gerenciados.

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: e7edbc1c4aa6e3cb1026d493886ef7ca704b9131
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Gerar certificados PKI para implantação de pilha do Azure
 Agora que você sabe [os requisitos de certificado PKI](azure-stack-pki-certs.md) para implantações de pilha do Azure, você precisa obter os certificados da autoridade de certificação (CA) de sua escolha. 
@@ -74,3 +74,5 @@ O fluxo de trabalho a seguir descreve como você pode personalizar e usar o arqu
 4. **Importe. CER**. A autoridade de certificação retornará um. Arquivo CER. Usando o mesmo computador do Windows do qual você gerou o arquivo de solicitação, importar o. Arquivo CER retornado para o computador/repositório pessoal. 
 5. **Exportar e copiar. PFX para pastas de implantação**. Exportar o certificado (incluindo a chave privada) como um. PFX do arquivo e, em seguida, copie o. O arquivo PFX para as pastas de implantação descrito no [requisitos de PKI de implantação do Azure pilha](azure-stack-pki-certs.md).
 
+## <a name="next-steps"></a>Próximas etapas
+[Integração de identidade](azure-stack-integrate-identity.md)

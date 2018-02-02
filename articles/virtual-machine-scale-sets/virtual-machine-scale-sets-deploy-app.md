@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
 Para executar aplicativos em instâncias de VM (máquina virtual) em um conjunto de dimensionamento, primeiro é necessário instalar os componentes de aplicativo e os arquivos necessários. Este artigo apresenta maneiras de criar uma imagem de VM personalizada para instâncias em um conjunto de dimensionamento ou executar scripts de instalação automaticamente em instâncias de VM existentes. Você também aprenderá a gerenciar aplicativos ou atualizações do SO em um conjunto de dimensionamento.
@@ -103,7 +103,7 @@ No shell atual, crie um arquivo chamado *customConfig.json* e cole a configuraç
 }
 ```
 
-Aplique a Configuração de Extensão de Script personalizado às instâncias de VM no conjunto de dimensionamento com [az vmss extension set](/cli/azure/vmss/extension#set). O exemplo a seguir aplica a configuração *customConfig.json* às instâncias de VM de *myScaleSet* no grupo de recursos denominado *myResourceGroup*. Insira seus próprios nomes da seguinte maneira:
+Aplique a Configuração de Extensão de Script personalizado às instâncias de VM no conjunto de dimensionamento com [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set). O exemplo a seguir aplica a configuração *customConfig.json* às instâncias de VM de *myScaleSet* no grupo de recursos denominado *myResourceGroup*. Insira seus próprios nomes da seguinte maneira:
 
 ```azurecli
 az vmss extension set \
@@ -172,7 +172,7 @@ A inicialização de nuvem também funciona em distribuições. Por exemplo, voc
 
 Para obter mais informações, incluindo um arquivo de exemplo *cloud-init.txt*, consulte [Usar cloud-init para personalizar as VMs do Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Para criar um conjunto de dimensionamento e usar um arquivo cloud-init, adicione o parâmetro `--custom-data` para o comando [az vmss create](/cli/azure/vmss#create) e especifique o nome de um arquivo de cloud-init. O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* em *myResourceGroup* e configura as instâncias de VM com um arquivo chamado *cloud-init.txt*. Insira seus próprios nomes da seguinte maneira:
+Para criar um conjunto de dimensionamento e usar um arquivo cloud-init, adicione o parâmetro `--custom-data` para o comando [az vmss create](/cli/azure/vmss#az_vmss_create) e especifique o nome de um arquivo de cloud-init. O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* em *myResourceGroup* e configura as instâncias de VM com um arquivo chamado *cloud-init.txt*. Insira seus próprios nomes da seguinte maneira:
 
 ```azurecli
 az vmss create \

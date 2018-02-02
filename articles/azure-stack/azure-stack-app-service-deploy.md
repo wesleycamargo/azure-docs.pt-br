@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6851fd46d243fcdce4f69811495c74dfe8311478
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo a pilha do Azure
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 Como um operador de nuvem de pilha do Azure, você pode oferecer aos usuários a capacidade de criar aplicativos web e API. Para fazer isso, você deve primeiro adicionar o [provedor de recursos do serviço de aplicativo](azure-stack-app-service-overview.md) para sua implantação de pilha do Azure conforme descrito neste artigo. Depois de instalar o provedor de recursos do serviço de aplicativo, você pode incluí-lo em suas ofertas e planos. Os usuários podem assinar, em seguida, para obter o serviço e iniciar a criação de aplicativos.
 
 > [!IMPORTANT]
 > Antes de executar o instalador, certifique-se de seguir as orientações em [antes de começar](azure-stack-app-service-before-you-get-started.md).
-> 
+>
 >
 
 
@@ -59,12 +60,12 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 6. Na próxima página:
     1. Clique no **conectar** lado a **assinaturas de pilha do Azure** caixa.
         - Se você estiver usando o Azure Active Directory (AD do Azure), insira a conta de administrador do AD do Azure e a senha que você forneceu quando você implantou a pilha do Azure. Clique em **Entrar**.
-        - Se você estiver usando os serviços de Federação do Active Directory (AD FS), fornece sua conta de administrador. Por exemplo: cloudadmin@azurestack.local. Digite sua senha e clique em **entrar**.
+        - Se você estiver usando os serviços de Federação do Active Directory (AD FS), fornece sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Digite sua senha e clique em **entrar**.
     2. No **assinaturas do Azure pilha** , selecione sua assinatura.
     3. No **Azure pilha locais** , selecione o local que corresponde à região que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento de pilha do Azure.
     4. Insira um **nome do grupo de recursos** para sua implantação do serviço de aplicativo. Por padrão, ele é definido como **APPSERVICE\<região\>**.
     5. Insira o **nome da conta de armazenamento** que você deseja que o serviço de aplicativo a ser criado como parte da instalação. Por padrão, ele é definido como **appsvclocalstor**.
-    6. Clique em **Avançar**.
+    6. Clique em **Próximo**.
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image03.png)
 
@@ -77,7 +78,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
     2. No **arquivo de certificado de identidade de aplicativo** caixa, digite (ou procure) o local do arquivo do certificado.
     3. No **senha do certificado de identidade de aplicativo** caixa, digite a senha do certificado. Essa senha é aquele que você anotou quando você usou o script para criar os certificados.
     4. No **arquivo do certificado raiz do Azure Resource Manager** caixa, digite (ou procure) o local do arquivo do certificado.
-    5. Clique em **Avançar**.
+    5. Clique em **Próximo**.
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image05.png)
 
@@ -85,7 +86,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     | Box | Exemplo de nome de arquivo de certificado |
     | --- | --- |
-    | **Arquivo de certificado SSL do serviço de aplicativo padrão** | \_. appservice.local.AzureStack.external.pfx |
+    | **Arquivo de certificado SSL do serviço de aplicativo padrão** | \_.appservice.local.AzureStack.external.pfx |
     | **Arquivo de certificado SSL de API do serviço de aplicativo** | api.appservice.local.AzureStack.external.pfx |
     | **Arquivo de certificado de SSL de publicador do serviço de aplicativo** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -101,14 +102,14 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     > [!NOTE]
     > Para implantações de produção, seguindo as orientações em [planejamento de capacidade de funções de servidor do serviço de aplicativo do Azure na pilha do Azure](azure-stack-app-service-capacity-planning.md).
-    > 
+    >
     >
 
     | Função | Instâncias mínimas | SKU mínimo | Observações |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gerencia e mantém a integridade da nuvem do serviço de aplicativo. |
     | Gerenciamento | 1 | Standard_A2 - (vCPUs 2, 3584 MB) | Gerencia os pontos de extremidade do serviço de aplicativo do Azure Resource Manager e a API, extensões portais (administrador, locatário, portal de funções) e o serviço de dados. Para dar suporte a failover, aumentado instâncias recomendadas para 2. |
-    | Editor | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publica o conteúdo por meio de implantação da web e FTP. |
+    | Publicador | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publica o conteúdo por meio de implantação da web e FTP. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Encaminha solicitações para aplicativos de serviço de aplicativo. |
     | Trabalho compartilhados | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts ou aplicativos de API aplicativos web e funções do Azure. Você talvez queira adicionar mais instâncias. Como um operador, você pode definir sua oferta e escolha qualquer camada SKU. As camadas devem ter no mínimo um vCPU. |
 
@@ -117,12 +118,12 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
     > [!NOTE]
     > **Windows Server 2016 Core não é uma imagem de plataforma com suporte para uso com o serviço de aplicativo do Azure na pilha do Azure**.
 
-12. No **selecione a imagem de plataforma** caixa, escolha sua imagem de máquina virtual de implantação do Windows Server 2016 disponíveis no provedor de recursos de computação para a nuvem de serviço de aplicativo. Clique em **Avançar**.
+12. No **selecione a imagem de plataforma** caixa, escolha sua imagem de máquina virtual de implantação do Windows Server 2016 disponíveis no provedor de recursos de computação para a nuvem de serviço de aplicativo. Clique em **Próximo**.
 
 13. Na próxima página:
      1. Insira o nome de usuário do administrador de máquina virtual de função de trabalho e a senha.
      2. Insira o nome de usuário do administrador de máquina virtual de outras funções e a senha.
-     3. Clique em **Avançar**.
+     3. Clique em **Próximo**.
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image09.png)    
 

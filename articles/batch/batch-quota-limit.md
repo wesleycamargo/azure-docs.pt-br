@@ -3,8 +3,8 @@ title: "Cotas do serviço e limites do Lote do Azure | Microsoft Docs"
 description: "Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -86,14 +86,14 @@ Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua
    
     d. **Plano de suporte** > **Suporte da cota - Incluído**
    
-    Clique em **Avançar**.
+    Clique em **Próximo**.
 4. Em **Problema**:
    
     a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
    
     b. Em **Detalhes**, especifique cada cota que você deseja alterar, o nome da conta do Lote e o novo limite.
    
-    Clique em **Avançar**.
+    Clique em **Próximo**.
 5. Em **Informações de contato**:
    
     a. Selecione um **método de contato preferencial**.

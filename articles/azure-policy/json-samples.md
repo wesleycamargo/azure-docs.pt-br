@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Modelos para o Azure Policy
 
@@ -55,7 +55,7 @@ A tabela a seguir contém links para modelos json do Azure Policy. Esses exemplo
 | [SKUs do Load Balancer permitidas](scripts/allowed-lb-skus.md) | Exige que os balanceadores de carga usem uma SKU aprovada. Especifique uma matriz de SKUs permitidos. |
 | [Nenhum emparelhamento de rede para a rede ER](scripts/no-peering-er-net.md) | Proíbe associar um emparelhamento de rede a uma rede em um grupo de recursos especificado. Use para impedir a conexão à infraestrutura de rede gerenciada central. Especifique o nome do grupo de recursos para impedir a associação. |
 | [Nenhuma Tabela de Rotas Definida pelo Usuário](scripts/no-user-def-route-table.md)  |Proíbe que redes virtuais sejam implantadas com uma tabela de rotas definida pelo usuário. |
-| [SKUs de Gateway de Rede Virtual Aprovadas](scripts/no-user-def-route-table.md) | Exige que gateways de rede virtual usem um tipo de gateway e SKU aprovado. Especifique uma matriz de SKUs aprovadas e uma matriz de tipos de gateway aprovados. |
+| [SKUs de Gateway de Rede Virtual Aprovadas](scripts/allowed-vn-gate-sku.md) | Exige que gateways de rede virtual usem um tipo de gateway e SKU aprovado. Especifique uma matriz de SKUs aprovadas e uma matriz de tipos de gateway aprovados. |
 | [Usar sub-rede aprovada para adaptadores de rede de VM](scripts/use-approved-subnet-vm-nics.md) | Exige que os adaptadores de rede usem uma sub-rede aprovada. Especifique a ID da sub-rede aprovada. |
 | [Usar vNet aprovada para adaptadores de rede de VM](scripts/use-approved-vnet-vm-nics.md) | Exige que os adaptadores de rede usem uma rede virtual aprovada. Especifique a ID da rede virtual aprovada. |
 |**Marcas**||

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replicar um aplicativo do SharePoint de várias camadas para recuperação de desastre usando funcionalidades do Azure Site Recovery
 
@@ -40,7 +40,7 @@ Você pode assistir ao vídeo abaixo sobre como recuperar um aplicativo de vári
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, você precisa entender o seguinte:
 
@@ -68,9 +68,10 @@ Para criar este artigo, usamos as máquinas virtuais VMware com o Windows Server
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | Sim | Sim
-**VMware** | Sim | Sim
-**Servidor físico** | Sim | Sim
+**Hyper-V** | sim | sim
+**VMware** | sim | sim
+**Servidor físico** | sim | sim
+**As tabelas** | ND | sim
 
 ### <a name="sharepoint-versions"></a>Versões do SharePoint
 Há suporte para as seguintes versões do SharePoint Server.
@@ -170,20 +171,20 @@ Você pode implantar os scripts do Azure Site Recovery mais comumente usados em 
 
 4. Adicione uma etapa manual para restaurar o aplicativo de pesquisa de um backup ou iniciar um novo serviço de pesquisa.
 
-5. Para restaurar o aplicativo de serviço de pesquisa de um backup, execute as etapas abaixo.
+5. Para restaurar o aplicativo do serviço Search de um backup, execute as etapas abaixo.
 
     * Este método presume que um backup do Aplicativo de Serviço de Pesquisa foi executado antes do evento catastrófico e que o backup está disponível no site de DR.
     * Isso pode ser conseguido facilmente agendando o backup (por exemplo, uma vez por dia) e usando um procedimento de cópia para colocar o backup no site de DR. Os procedimentos de cópia podem incluir programas em script, como o AzCopy (Cópia do Azure) ou a configuração de DFSR (Serviços de Replicação de Arquivos Distribuído).
-    * Agora que o farm do SharePoint está em execução, navegue para a Administração Central, clique em 'Backup e Restauração' e selecione Restaurar. A restauração pergunta o local de backup especificado (talvez seja necessário atualizar o valor). Selecione o backup do Aplicativo de Serviço de Pesquisa que você deseja restaurar.
-    * A pesquisa é restaurada. Tenha em mente que a restauração espera encontrar a mesma topologia (mesmo número de servidores) e as mesmas letras de unidades de disco rígido atribuídas a esses servidores. Para obter mais informações, consulte o documento ['Restaurar aplicativo de serviço de Pesquisa no SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx).
+    * Agora que o farm do SharePoint está em execução, navegue para a Administração Central, clique em 'Backup e Restauração' e selecione Restaurar. A restauração pergunta o local de backup especificado (talvez seja necessário atualizar o valor). Selecione o backup do Aplicativo de Serviço Search que você deseja restaurar.
+    * A pesquisa é restaurada. Tenha em mente que a restauração espera encontrar a mesma topologia (mesmo número de servidores) e as mesmas letras de unidades de disco rígido atribuídas a esses servidores. Para obter mais informações, consulte o documento ['Restaurar aplicativo de serviço Search no SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx).
 
 
-6. Para iniciar com um novo aplicativo de serviço de Pesquisa, execute as etapas a seguir.
+6. Para iniciar com um novo aplicativo de serviço Search, execute as etapas a seguir.
 
     * Este método presume que um backup do banco de dados "Administração de Pesquisa" está disponível no site de DR.
-    * Já que os outros bancos de dados do Aplicativo de Serviço de Pesquisa não são replicados, eles precisam ser recriados. Para fazer isso, navegue até a Administração Central e exclua o Aplicativo de Serviço de Pesquisa. Em todos os servidores que hospedam o Índice de Pesquisa, exclua os arquivos de índice.
-    * Recrie o Aplicativo de Serviço de Pesquisa, resultando na recriação dos bancos de dados. É recomendável ter um script preparado que recria este aplicativo de serviço, pois não é possível executar todas as ações por meio da GUI. Por exemplo, configurar o local da unidade de índice e a topologia de pesquisa só é possível usando cmdlets do PowerShell do SharePoint. Use o cmdlet Restore-SPEnterpriseSearchServiceApplication do Windows PowerShell e especifique o banco de dados de Administração de Pesquisa encaminhado com log e replicado, Search_Service__DB. Esse cmdlet fornece à pesquisa uma configuração, um esquema, propriedades gerenciadas, regras e fontes e cria um conjunto padrão de outros componentes.
-    * Já que o Aplicativo de Serviço de Pesquisa tem de ser recriado, você deve iniciar um rastreamento completo para cada fonte de conteúdo restaurar o Serviço de Pesquisa. Você perde algumas informações de análise do farm local, assim como as recomendações de pesquisa.
+    * Já que os outros bancos de dados do Aplicativo de Serviço de Pesquisa não são replicados, eles precisam ser recriados. Para fazer isso, navegue até a Administração Central e exclua o Aplicativo do Serviço Search. Em todos os servidores que hospedam o Índice de Pesquisa, exclua os arquivos de índice.
+    * Recrie o Aplicativo de Serviço Search, resultando na recriação dos bancos de dados. É recomendável ter um script preparado que recria este aplicativo de serviço, pois não é possível executar todas as ações por meio da GUI. Por exemplo, configurar o local da unidade de índice e a topologia de pesquisa só é possível usando cmdlets do PowerShell do SharePoint. Use o cmdlet Restore-SPEnterpriseSearchServiceApplication do Windows PowerShell e especifique o banco de dados de Administração de Pesquisa encaminhado com log e replicado, Search_Service__DB. Esse cmdlet fornece à pesquisa uma configuração, um esquema, propriedades gerenciadas, regras e fontes e cria um conjunto padrão de outros componentes.
+    * Já que o Aplicativo de Serviço Search tem de ser recriado, você deve iniciar um rastreamento completo para cada fonte de conteúdo restaurar o Serviço Search. Você perde algumas informações de análise do farm local, assim como as recomendações de pesquisa.
 
 7. Depois que todas as etapas forem concluídas, salvar o plano de recuperação e o plano de recuperação final terá aparência semelhante à seguinte.
 

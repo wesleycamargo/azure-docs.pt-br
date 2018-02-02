@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Proteger uma implantação de aplicativo SAP NetWeaver de várias camada usando o Azure Site Recovery
 
@@ -32,7 +32,7 @@ Com o Azure Site Recovery, você pode:
 Este artigo descreve como proteger as implantações de aplicativos SAP NetWeaver usando o [Azure Site Recovery](site-recovery-overview.md). Este artigo aborda as melhores práticas para proteger uma implantação do SAP NetWeaver de três camadas no Azure por meio da replicação para outro datacenter do Azure usando o Azure Site Recovery, os cenários e as configurações com suporte e como executar failovers, tanto os de teste (simulações de recuperação de desastre) como os reais.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar, você precisa entender o seguinte:
 
 1. [Replicar uma máquina virtual no Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -81,7 +81,7 @@ Se você estiver usando um IP estático, poderá especificar o IP que a máquina
 Um plano de recuperação permite o sequenciamento do failover de várias camadas em um aplicativo de várias camadas, mantendo assim a consistência do aplicativo. Execute as etapas descritas [aqui](site-recovery-create-recovery-plans.md) ao criar um plano de recuperação para um aplicativo Web de várias camadas.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Adicionar scripts ao plano de recuperação
-Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover/teste de failover para que seus aplicativos funcionem corretamente. Você pode automatizar a operação de failover, como a atualização da entrada DNS e a alteração de associações e conexões, adicionando scripts correspondentes ao plano de recuperação, conforme descrito [neste artigo](site-recovery-create-recovery-plans.md#add-scripts).
+Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover/teste de failover para que seus aplicativos funcionem corretamente. Você pode automatizar a operação de failover, como a atualização da entrada DNS e a alteração de associações e conexões, adicionando scripts correspondentes ao plano de recuperação, conforme descrito [neste artigo](site-recovery-how-to-add-vmmscript.md).
 
 ### <a name="dns-update"></a>Atualização de DNS
 Se o DNS estiver configurado para atualização dinâmica de DNS, as máquinas virtuais normalmente atualizarão o DNS com o novo IP quando forem iniciadas. Se você quiser adicionar uma etapa explícita para atualizar o DNS com os novos IPs das máquinas virtuais, adicione este [script para atualizar o IP no DNS](https://aka.ms/asr-dns-update) como uma ação posterior nos grupos de plano de recuperação.  

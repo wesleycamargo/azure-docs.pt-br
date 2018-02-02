@@ -2,19 +2,19 @@
 title: "Cargas de trabalho de contêiner no Lote do Azure | Microsoft Docs"
 description: "Saiba como executar aplicativos de imagens de contêiner no Lote do Azure."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 12/01/2017
-ms.author: v-dotren
-ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: danlep
+ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
@@ -25,7 +25,7 @@ O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote s
 Este artigo supõe familiaridade com conceitos de contêiner do Docker e como criar um pool e um trabalho do Lote usando o SDK do .NET. Os trechos de código destinam-se para uso em um aplicativo cliente, como o [exemplo DotNetTutorial](batch-dotnet-get-started.md), e são exemplos de código em que você precisa dar suporte a aplicativos de contêiner no Lote.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Versões do SDK: os SDKs do Lote dão suporte a imagens de contêiner nas seguintes versões:
     * API REST do Lote versão 2017-09-01.6.0

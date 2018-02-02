@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Solução Conector do Application Insights (Versão Prévia) no OMS (Operations Management Suite)
 
@@ -37,14 +37,14 @@ Ao usar a solução, você pode:
 
 Ao contrário da maioria das outras soluções do Log Analytics, os dados não são coletados para o Conector do Application Insights por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
 
-| Fonte Conectada | Suportado | Descrição |
+| Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não coleta informações de agentes do Windows. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não coleta informações de agentes do Linux. |
-| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
-| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | A solução não coleta informações do armazenamento do Azure. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não  | A solução não coleta informações de agentes do Windows. |
+| [Agentes do Linux](log-analytics-linux-agents.md) | Não  | A solução não coleta informações de agentes do Linux. |
+| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não  | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
+| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não  | A solução não coleta informações do armazenamento do Azure. |
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Para acessar as informações do Conector do Application Insights, você deve ter uma assinatura do Azure
 - É necessário ter, pelo menos, um recurso do Application Insights configurado.
@@ -84,7 +84,7 @@ Clique no bloco **Application Insights** para abrir o painel **Application Insig
 
 O painel inclui as folhas mostradas na tabela. Cada folha lista os 10 principais itens que correspondem aos critérios da folha para o escopo e o intervalo de tempo especificados. É possível executar uma pesquisa de logs que retorna todos os registros ao clicar em **Ver todos** na parte inferior da folha ou ao clicar no cabeçalho da folha.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Coluna** | **Descrição** |
 | --- | --- |
@@ -158,7 +158,7 @@ A solução recebe os seguintes tipos de telemetria de dados dos aplicativos con
 
 - Disponibilidade
 - Exceções
-- Solicitações
+- Requests
 - Exibições de página – para que o espaço de trabalho receba exibições de página, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Eventos personalizados – para que o espaço de trabalho receba eventos personalizados, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
@@ -170,9 +170,9 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="generic-fields"></a>Campos genéricos
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Tipo | ApplicationInsights |
+| type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Hora do registro |
 | ApplicationId | Chave de instrumentação do aplicativo do Application Insights |
@@ -196,7 +196,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="availability-specific-fields"></a>Campos específicos à disponibilidade
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | TelemetryType | Disponibilidade |
 | AvailabilityTestName | Nome do teste na Web |
@@ -221,7 +221,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="exception-specific-fields"></a>Campos específicos à exceção
 
-| Tipo | ApplicationInsights |
+| type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Exceção |
 | ExceptionType | Tipo de exceção |
@@ -238,9 +238,9 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="request-specific-fields"></a>Campos específicos à solicitação
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Tipo | ApplicationInsights |
+| type | ApplicationInsights |
 | TelemetryType | Solicitação |
 | ResponseCode | Resposta HTTP enviada ao cliente |
 | RequestSuccess | Indica êxito ou falha. Verdadeiro ou falso. |

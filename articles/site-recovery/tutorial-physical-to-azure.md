@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastre de servidores físicos locais para o Azure
 
@@ -33,7 +33,7 @@ Este tutorial mostra como configurar a recuperação de desastre de servidores W
 > * Criar uma política de replicação
 > * Habilitar a replicação para um servidor
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -62,9 +62,9 @@ Verifique se sua conta do Azure tem permissões para a replicação de VMs para 
 
 
 
-### <a name="set-up-an-azure-network"></a>Configurar uma rede do Azure
+### <a name="set-up-an-azure-network"></a>Configure uma rede do Azure
 
-Configurar uma [rede do Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Configurar uma [rede do Azure](../virtual-network/quick-create-portal.md).
 
 - As VMs do Azure são colocadas nessa rede quando são criadas após o failover.
 - A rede deve estar na mesma região que o cofre dos Serviços de Recuperação

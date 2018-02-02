@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: d0bc16bc951fce17235d8070012de44ebab89888
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 74488b85ec524e4ad4c06a639a16ddbfd54b3154
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Como funciona o PowerShell no Azure Cloud Shell (versão prévia)
 O PowerShell no Cloud Shell (Versão prévia) mantém arquivos usando o seguinte método: 
@@ -36,7 +36,7 @@ Você pode desmontar um compartilhamento de arquivos do Azure que esteja montado
 O comando `Dismount-CloudDrive` desmonta um compartilhamento de arquivos do Azure da conta de armazenamento atual. Desmontar a unidade de nuvem encerra a sessão atual. O usuário precisará criar e montar um novo compartilhamento de arquivos do Azure durante a próxima sessão.
 ![Executando Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
-[!include [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 [Guia de início rápido para o PowerShell](quickstart-powershell.md) <br>
