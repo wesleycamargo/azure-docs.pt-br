@@ -1,7 +1,5 @@
 # Visão geral
 ## [Guia do desenvolvedor](azure-developer-guide.md) 
-## [Visão geral dos Serviços do Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Visão geral do portal](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDKs e ferramentas](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Início rápido

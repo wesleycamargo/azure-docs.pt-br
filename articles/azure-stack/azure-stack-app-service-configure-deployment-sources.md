@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurar fontes de implantação
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
@@ -49,8 +49,7 @@ Você deve ter uma conta do GitHub para concluir esta tarefa. Você talvez queir
 2. Insira um **nome do aplicativo** , por exemplo - serviço de aplicativo na pilha do Azure.
 3. Insira a **URL da Home Page**. A URL da página inicial deve ser o endereço do Portal de pilha do Azure. Por exemplo, https://portal.local.azurestack.external.
 4. Insira um **descrição do aplicativo**.
-5. Insira a **URL de retorno de chamada de autorização**.  Em uma implantação de pilha do Azure padrão, a Url está em https://portal.local.azurestack.external/tokenauthorize forma, se você estiver executando em um substituto de outro domínio azurestack.local no domínio.
-    ![GitHub - registrar um novo aplicativo com valores populados][4]
+5. Insira a **URL de retorno de chamada de autorização**.  Em uma implantação de pilha do Azure padrão, a Url está em https://portal.local.azurestack.external/tokenauthorize forma, se você estiver executando em um substituto de outro domínio no domínio local.azurestack.external ![GitHub - registrar um novo aplicativo com valores populados][4]
 6. Clique em **Registrar aplicativo**.  Agora você verá uma página que lista a **ID do Cliente** e o **Segredo do Cliente** do aplicativo.
     ![GitHub - Registro de aplicativo concluído][5]
 7.  Em uma nova guia do navegador ou janela efetuar login no Portal de administração de pilha (https://adminportal.local.azurestack.external) do Azure como administrador de serviço.

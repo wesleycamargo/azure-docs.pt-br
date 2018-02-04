@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública da pilha do Azure
 A pilha do Azure tem uma rede de infraestrutura pública usando externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, máquinas virtuais do locatário. Certificados PKI com os nomes DNS apropriados para esses pontos de extremidade do Azure pilha infraestrutura pública são necessários durante a implantação da pilha do Azure. Este artigo fornece informações sobre:
@@ -27,6 +27,8 @@ A pilha do Azure tem uma rede de infraestrutura pública usando externamente ace
 - Quais certificados são necessários para implantar a pilha do Azure
 - O processo de obtenção de certificados, as especificações de correspondência
 - Como preparar, validar e usar esses certificados durante a implantação
+> [!NOTE]
+> Durante a implantação, você deve copiar certificados para a pasta de implantação que coincide com o provedor de identidade que você está implantando contra (Azure AD ou AD FS). Se você usar um único certificado para todos os pontos de extremidade, você deve copiar esse arquivo de certificado para cada pasta de implantação, conforme descrito nas tabelas a seguir. A estrutura de pasta predefinida na máquina virtual de implantação e podem ser encontrada em: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 A lista a seguir descreve os requisitos de certificado que são necessários para implantar o Azure pilha: 
