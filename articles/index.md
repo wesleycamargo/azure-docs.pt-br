@@ -1,14 +1,15 @@
 ---
 layout: HubPage
-hide_bc: True
+hide_bc: 
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
-featureFlags: clicktale
-ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+featureFlags:
+- clicktale
+ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -155,7 +156,7 @@ ms.lasthandoff: 01/23/2018
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/nodejs/azure/">
+                                                        <a class="barLink" href="/javascript/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -186,7 +187,7 @@ ms.lasthandoff: 01/23/2018
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">Banco de dados do Azure Cosmos</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>Armazenamento</h4>
                                                 <ul class="noBullet">
@@ -546,8 +547,7 @@ ms.lasthandoff: 01/23/2018
                                         <li>
                                             <a href="/azure/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>Gateway de Aplicativo
-</p>
+                                                <p>Gateway de Aplicativo</p>
                                             </a>
                                         </li>
                                         <li>
@@ -801,19 +801,19 @@ ms.lasthandoff: 01/23/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                            <a href="/azure/storage/blobs/storage-blobs-introduction">
                                                 <img src="media/index/logo_azure-blob-storage.svg" alt="" />
                                                 <p>Armazenamento de Blob</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/disks/">
+                                            <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Armazenamento em disco</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/queues/storage-queues-introduction/">
+                                            <a href="/azure/storage/queues/storage-queues-introduction">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Armazenamento de Filas</p>
                                             </a>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/23/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gateway de Aplicativo
-</h3>
+                                                    <h3>Gateway de Aplicativo</h3>
                                                     <p>Crie front-ends da Web seguros, escalonáveis e com alta disponibilidade no Azure</p>
                                                 </div>
                                             </div>
@@ -3916,10 +3915,10 @@ ms.lasthandoff: 01/23/2018
                                                     <a href="/javascript/azure/node-sdk-azure-get-started">Obtenha as bibliotecas do Azure para Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/">Introdução</a>
+                                                    <a href="/javascript/azure/">Introdução</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/nodejs/api/overview/azure">Referência de API</a>
+                                                    <a href="/javascript/api/overview/azure/">Referência de API</a>
                                                 </p>
                                             </div>
                                         </div>
