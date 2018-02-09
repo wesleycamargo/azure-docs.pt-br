@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados do Azure conectada decisões de pilha do Azure de planejamento de implantação
-Depois que você decidir [como integrará pilha do Azure em seu ambiente de nuvem híbrida](azure-stack-deployment-decisions.md), em seguida, finalizar suas decisões de implantação da pilha do Azure.
+Depois que você decidir [como integrará pilha do Azure em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, finalizar suas decisões de implantação da pilha do Azure.
 
 Implantando pilha Azure conectado ao Azure significa que você pode ter o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS) para armazenamento de identidade. Você também pode escolher entre qualquer modelo de cobrança: de pagamento que você-uso ou baseado na capacidade. Uma implantação conectada é a opção padrão porque permite que os clientes obter o máximo valor fora da pilha do Azure, particularmente para cenários de nuvem híbrida que envolvem o Azure e a pilha do Azure. 
 
@@ -45,7 +45,7 @@ Quando você usa o AD do Azure para armazenamento de identidade requer duas cont
 Escolha esta opção se você quiser usar seu próprio repositório de identidade, como o Active Directory corporativo, para suas contas de administrador de serviço.  
 
 ## <a name="choose-a-billing-model"></a>Escolha um modelo de cobrança
-Você pode escolher a **pagamento como você-uso** ou **capacidade** modelo de cobrança. Implantações de modelo de cobrança de pagamento como você-uso devem ser capazes de uso de relatórios por meio de uma conexão para o Azure, pelo menos uma vez a cada 30 dias, portanto, se a conectividade será não está disponível, o modelo de cobrança de capacidade é a única opção. 
+Você pode escolher a **pagamento como você-uso** ou **capacidade** modelo de cobrança. Implantações de modelo de cobrança de pagamento como você-uso devem ser capazes de uso de relatórios por meio de uma conexão para o Azure, pelo menos uma vez a cada 30 dias. Portanto, o modelo de cobrança de pagamento que você-uso só está disponível para implantações conectadas.  
 
 ### <a name="pay-as-you-use"></a>Pagamento como você-uso
 Com o modelo de cobrança de pagamento que você-uso uso é cobrado a uma assinatura do Azure. Você paga apenas quando você usa os serviços de pilha do Azure. Se este é o modelo que você decide, você precisará fazer uma assinatura do Azure e a ID da conta associada à assinatura (por exemplo, serviceadmin@contoso.onmicrosoft.com). Há suporte para assinaturas de EA CSP e CSL. Relatório de uso é configurado durante a [registro Azure pilha](azure-stack-registration.md).

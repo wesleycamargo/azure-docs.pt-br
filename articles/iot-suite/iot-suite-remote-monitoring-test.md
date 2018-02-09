@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testar sua solução com dispositivos simulados
 
@@ -131,24 +131,24 @@ Os comandos a seguir usam o comando `az` da [CLI 2.0 do Azure](https://docs.micr
 1. Para habilitar o acesso SSH à máquina virtual, execute o seguinte comando usando o nome do grupo de segurança de rede da etapa anterior:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Para exibir a lista de regras de entrada para a rede, execute o seguinte comando:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Para alterar a senha da máquina virtual para uma senha conhecida, execute o comando a seguir. Use o nome da máquina virtual que você anotou anteriormente e uma senha de sua escolha:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Para encontrar o endereço IP da máquina virtual, use o seguinte comando e anote o endereço IP público:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. Agora você pode usar o SSH para se conectar à máquina virtual. O comando `ssh` é pré-instalado no Cloud Shell. Use o endereço IP público da etapa anterior e, quando solicitado, a senha configurada para a máquina virtual:

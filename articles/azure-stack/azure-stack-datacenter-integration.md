@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Datacenter para sistemas de pilha do Azure integrado
 Se você estiver interessado em um sistema de pilha do Azure integrado, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões importantes de infra-estrutura para seu sistema de vários nó de pilha do Azure. Ajuda a entender essas considerações ao trabalhar com o fornecedor do hardware OEM implantação de pilha do Azure para seu datacenter.  
@@ -45,7 +45,7 @@ Você precisará considerar qual provedor de identidade que você deseja usar pa
 
 A opção de provedor de identidade não tem suporte em máquinas virtuais de locatário, o sistema de identidade e contas usarem, se eles podem ingressar em um domínio do Active Directory, etc. Isso é separado.
 
-Você pode aprender mais sobre como escolher um provedor de identidade no [decisões de implantação para o artigo de sistemas integrados de pilha do Azure](.\azure-stack-deployment-decisions.md).
+Você pode aprender mais sobre como escolher um provedor de identidade no [artigo de modelos de conexão do Azure pilha sistemas integrados](.\azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integração do AD FS e gráfico
 Se você optar por implantar a pilha do Azure usando o AD FS como o provedor de identidade, você deve integrar a instância do AD FS na pilha do Azure com uma instância existente do AD FS por meio de uma relação de confiança de Federação. Isso permite que as identidades em uma floresta existente do Active Directory para autenticar com recursos na pilha do Azure.
@@ -53,18 +53,25 @@ Se você optar por implantar a pilha do Azure usando o AD FS como o provedor de 
 Você também pode integrar o serviço de gráfico na pilha do Azure com o Active Directory existente. Isso permite que você gerencie baseada em controle de acesso (RBAC) na pilha do Azure. Quando o acesso a um recurso é delegado, o componente gráfico procura a conta de usuário na floresta existente do Active Directory usando o protocolo LDAP.
 
 O diagrama a seguir mostra o fluxo de tráfego de AD FS e o gráfico integrado.
-![Diagrama mostrando o fluxo de tráfego do AD FS e gráfico](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![Diagrama mostrando o fluxo de tráfego do AD FS e gráfico](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>Modelo de licenciamento
+Você deve decidir qual modelo de licenciamento que você deseja usar. As opções disponíveis dependem se você implantar pilha do Azure conectados à internet:
+- Para uma [conectado implantação](azure-stack-connected-deployment.md), você pode escolher o pagamento como você-uso ou baseado na capacidade de licenciamento. Pagamento como você-uso requer uma conexão para o Azure para relatar o uso, que, em seguida, é cobrado por meio de comércio do Azure. 
+- Somente de licenciamento baseado em capacidade terá suporte se você [implantar desconectado](azure-stack-disconnected-deployment.md) da internet. 
 
-Você deve decidir qual modelo de licenciamento que você deseja usar. Para uma implantação de conectado, você pode escolher o pagamento como você-uso ou baseado na capacidade de licenciamento. Pagamento como você-uso requer uma conexão para o Azure para relatar o uso, que, em seguida, é cobrado por meio de comércio do Azure. Licenciamento baseado apenas em capacidade terá suporte se você implantar desconectado da internet. Para obter mais informações sobre os modelos de licenciamento, consulte [pacotes e preços de pilha do Microsoft Azure](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Para obter mais informações sobre os modelos de licenciamento, consulte [pacotes e preços de pilha do Microsoft Azure](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## <a name="naming-decisions"></a>Decisões de nomenclatura
 
-Você precisará pensar em como você deseja planejar seu namespace de pilha do Azure, especialmente o nome da região e o nome de domínio externo. O nome de domínio totalmente qualificado (FQDN) da sua implantação de pilha do Azure para pontos de extremidade públicos é a combinação desses dois nomes, &lt; *região*&gt;&lt;*external_FQDN*  &gt;, por exemplo, *east.cloud.fabrikam.com*. Neste exemplo, os portais de pilha do Azure está disponíveis nas seguintes URLs:
+Você precisará pensar em como você deseja planejar seu namespace de pilha do Azure, especialmente o nome da região e o nome de domínio externo. O nome de domínio totalmente qualificado (FQDN) externo da sua implantação de pilha do Azure para pontos de extremidade públicos é a combinação desses dois nomes: &lt; *região*&gt;.&lt; *fqdn*&gt;. Por exemplo, *east.cloud.fabrikam.com*. Neste exemplo, os portais de pilha do Azure está disponíveis nas seguintes URLs:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> O nome de região escolhido para sua implantação do Azure pilha deve ser exclusivo e aparecerá em endereços de portal. 
 
 A tabela a seguir resume essas decisões de nomeação de domínio.
 
@@ -128,14 +135,14 @@ Você pode se conectar a pilha do Azure para o Azure por meio de [ExpressRoute](
 
 O diagrama a seguir mostra a rota expressa para um cenário de único locatário (onde "Conexão cliente" é o circuito de rota expressa).
 
-![Cenário de rota expressa do diagrama mostrando único locatário](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Cenário de rota expressa do diagrama mostrando único locatário](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 O diagrama a seguir mostra a rota expressa para um cenário de vários locatários.
 
-![Cenário de rota expressa do diagrama mostrando multilocatário](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Cenário de rota expressa do diagrama mostrando multilocatário](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Monitoramento externo
-Para obter uma única exibição de todos os alertas de seus dispositivos e a implantação da pilha do Azure e para integrar a IT service management fluxos de trabalho existentes para tíquetes de alertas, você pode integrar o Azure pilha com soluções de monitoramento de datacenter externo.
+Para obter uma única exibição de todos os alertas de seus dispositivos e a implantação da pilha do Azure e para integrar a IT service management fluxos de trabalho existentes para tíquetes de alertas, você pode [integrar pilha Azure datacenter externodesoluçõesdemonitoramento](azure-stack-integrate-monitor.md).
 
 Incluído com a solução de pilha do Azure, o host de ciclo de vida de hardware é um computador fora da pilha do Azure que executa as ferramentas de gerenciamento fornecida pelo fornecedor OEM para hardware. Você pode usar essas ferramentas ou outras soluções que integram-se diretamente a soluções de monitoramento existentes em seu data center.
 
@@ -143,15 +150,15 @@ A tabela a seguir resume a lista de opções disponíveis no momento.
 
 | Área | Solução de monitoramento |
 | -- | -- |
-| Software de pilha do Azure | - [Pacote de gerenciamento de pilha do Azure para o Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Plug-in de Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>-Chamadas de API baseado em REST | 
-| Servidores físicos (BMCs via IPMI) | -Pacote de gerenciamento de fornecedor operations Manager<br>-Solução de fornecido pelo fornecedor de hardware OEM<br>-Fornecedor de hardware Nagios plug-ins | Suporte de parceiro (incluída) de solução de monitoramento de OEM | 
-| Dispositivos de rede (SNMP) | -Descoberta de dispositivos de rede operations Manager<br>-Solução de fornecido pelo fornecedor de hardware OEM<br>-Opção de Nagios plug-in |
-| Monitoramento de integridade de assinatura de locatário | - [Pacote de gerenciamento do System Center para o Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Software de pilha do Azure | [Pacote de gerenciamento de pilha do Azure para o Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Plug-in de Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Chamadas de API baseada em REST | 
+| Servidores físicos (BMCs via IPMI) | Hardware OEM - pacote de gerenciamento do fornecedor do Operations Manager<br>Solução de fornecido pelo fornecedor de hardware de OEM<br>Fornecedor do hardware plug-ins de Nagios | Suporte de parceiro (incluída) de solução de monitoramento de OEM | 
+| Dispositivos de rede (SNMP) | Descoberta de dispositivo de rede do Operations Manager<br>Solução de fornecido pelo fornecedor de hardware de OEM<br>Opção de Nagios plug-in |
+| Monitoramento de integridade de assinatura de locatário | [Pacote de gerenciamento do System Center para o Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Observe os seguintes requisitos:
 - A solução que você usar deve ser sem agente. Você não pode instalar agentes de terceiros dentro de componentes da pilha do Azure. 
-- Se você quiser usar o System Center Operations Manager, isso requer o Operations Manager 2012 R2 ou Operations Manager 2016.
+- Se você quiser usar o System Center Operations Manager, Operations Manager 2012 R2 ou Operations Manager 2016 é necessária.
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e recuperação de desastres
 
@@ -159,7 +166,7 @@ Planejamento para backup e recuperação de desastres envolve o planejamento par
 
 ### <a name="protect-infrastructure-components"></a>Proteger os componentes de infraestrutura
 
-A pilha do Azure backup componentes da infraestrutura para um compartilhamento que você especificar.
+Você pode [Azure pilha](azure-stack-backup-back-up-azure-stack.md) componentes da infraestrutura como um SMB compartilham que você especificar:
 
 - Você precisará de um compartilhamento de arquivos SMB externo em um servidor de arquivos do Windows existente ou um dispositivo de terceiros.
 - Você deve usar esse mesmo compartilhamento para o backup de comutadores de rede e o host de ciclo de vida de hardware. O fornecedor do hardware OEM ajuda a fornecer orientação para backup e restauração desses componentes conforme eles são externos a pilha do Azure. Você é responsável pela execução de fluxos de trabalho de backup com base na recomendação do fornecedor OEM.

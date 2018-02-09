@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitoramento externa a pilha do Azure
 
-*Aplica-se a: sistemas integrados de pilha do Azure*
+Para o monitoramento externo da infraestrutura de pilha do Azure, você precisa monitorar o software de pilha do Azure, os computadores físicos e os comutadores de rede física. Cada uma dessas áreas oferece um método para recuperar as informações de integridade e o alerta:
 
-Para o monitoramento externo da infraestrutura de pilha do Azure, você precisa monitorar o software de pilha do Azure, os computadores físicos e os comutadores de rede física. Cada uma dessas áreas oferece um método para recuperar as informações de integridade e o alerta.
-
-- O software de pilha do Azure oferece uma API baseada em REST para recuperar a integridade e os alertas. (Com o uso de tecnologias definidas pelo software, como espaços de armazenamento diretos, alertas e a integridade de armazenamento fazem parte de monitoramento de software.)
+- O software de pilha do Azure oferece uma API baseada em REST para recuperar a integridade e os alertas. (Com o uso de tecnologias definidas pelo software, como espaços de armazenamento diretos, alertas e a integridade de armazenamento fazem parte de monitoramento de software.).
 - Computadores físicos podem disponibilizar integridade e informações de alerta por meio de controladores de gerenciamento da placa-base (BMC).
 - Dispositivos de rede física podem disponibilizar integridade e informações de alerta por meio do protocolo SNMP.
 
@@ -48,16 +46,16 @@ Você pode usar o Operations Manager para monitorar externo da pilha do Azure. O
 
 O pacote de gerenciamento para a pilha do Azure fornece os seguintes recursos:
 
-- Você pode gerenciar várias implantações de pilha do Azure.
-- Não há suporte para o Azure Active Directory (AD do Azure) e os serviços de Federação do Active Directory (AD FS).
-- Você pode recuperar e fechar alertas.
-- Há uma integridade e um painel de capacidade.
-- Inclui a detecção de modo de manutenção automática para quando o patch e atualização (P & U) está em andamento.
-- Inclui tarefas de atualização forçada para implantação e região.
-- Você pode adicionar informações personalizadas a uma região.
-- Oferece suporte à notificação e o relatório.
+- Você pode gerenciar várias implantações de pilha do Azure
+- Não há suporte para o Azure Active Directory (AD do Azure) e os serviços de Federação do Active Directory (AD FS)
+- Você pode recuperar e fechar alertas
+- Há uma integridade e um painel de capacidade
+- Inclui a detecção de modo de manutenção automática para quando o patch e atualização (P & U) está em andamento
+- Inclui tarefas de atualização forçada para implantação e região
+- Você pode adicionar informações personalizadas a uma região
+- Oferece suporte à notificação e o relatório
 
-Você pode baixar o pacote de gerenciamento do System Center para a pilha do Microsoft Azure e o guia do usuário associado [aqui](https://www.microsoft.com/en-us/download/details.aspx?id=55184), ou diretamente do Operations Manager.
+Você pode baixar o pacote de gerenciamento do System Center para a pilha do Microsoft Azure e os respectivos [guia do usuário](https://www.microsoft.com/en-us/download/details.aspx?id=55184), ou diretamente do Operations Manager.
 
 Para uma solução de emissão de tíquetes, você pode integrar o Operations Manager com o System Center Service Manager. O conector de produto integrado permite a comunicação bidirecional que permite que você fechar um alerta na pilha do Azure e Operations Manager depois de resolver uma solicitação de serviço no Service Manager.
 
