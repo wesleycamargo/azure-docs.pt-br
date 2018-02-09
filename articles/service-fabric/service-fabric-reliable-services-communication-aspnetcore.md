@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Núcleo do ASP.NET em Serviços Confiáveis do Service Fabric
 
@@ -26,7 +26,7 @@ O Núcleo do ASP.NET é uma nova estrutura de software livre e plataforma cruzad
 
 Este artigo é um guia detalhado de hospedagem de serviços do ASP.NET Core nos Reliable Services do Service Fabric usando o conjunto **Microsoft.ServiceFabric.AspNetCore.*** de pacotes NuGet.
 
-Para obter um tutorial de introdução sobre o ASP.NET Core no Service Fabric, além de instruções sobre como configurar o ambiente de desenvolvimento, consulte [Criando um front-end da Web para seu aplicativo usando o ASP.NET Core](service-fabric-add-a-web-frontend.md).
+Para um tutorial de lançamento sobre o ASP.NET Core no Microsoft Azure Service Fabric e as instruções de como configurar o ambiente de desenvolvimento, consulte [Criar um aplicativo .NET](service-fabric-tutorial-create-dotnet-app.md).
 
 O restante deste artigo pressupõe que você já esteja familiarizado com o ASP.NET Core. Se não estiver, recomendamos ler os [Conceitos básicos do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 

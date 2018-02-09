@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop no HDInsight Usando o portal do Azure
 
@@ -30,7 +30,7 @@ Com o [Portal do Azure][azure-portal], você pode gerenciar clusters no Azure HD
 
 **Pré-requisito**
 
-Para seguir as etapas neste artigo, será necessária uma **assinatura o Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Para seguir as etapas neste artigo, será necessária uma **assinatura o Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="open-the-azure-portal"></a>Abrir o portal do Azure
 1. Entre em [https://portal.azure.com](https://portal.azure.com).
@@ -81,10 +81,10 @@ Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionR
 4. Clique em um cluster da lista para ver a página de visão geral:
 
     ![Fundamentos do cluster HDInsight do Portal do Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **Menu Visão geral:**
-    * **Painel**: abre o painel do cluster, que é o Ambari Web para clusters baseados em Linux.
+    * **Painel**: abre a interface do usuário da web do Ambari no cluster.
     * **Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
     * **Cluster em Escala**: permite alterar o número de nós de trabalho deste cluster.
-    * **Mover**: mover o cluster para outro grupo de recursos ou outra assinatura.
+    * **Mover**: move o cluster para outro grupo de recursos ou outra assinatura.
     * **Excluir**: exclui o cluster.
 
     **Menu à esquerda:**
@@ -98,7 +98,7 @@ Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionR
     * **Ferramentas para HDInsight**: informações de ajuda para ferramentas relacionadas ao HDInsight.
     * **Uso de núcleo de assinatura**: exibir os núcleos usados e disponíveis para sua assinatura.
     * **Dimensionar o Cluster**: aumente e diminua o número de nós de trabalho do cluster. Consulte [Dimensionar clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Logon de SSH + Cluster**: mostra as instruções para conectar-se ao cluster usando a conexão SSH (Secure Shell). Para obter mais informações, consulte [Usar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) e Redefinir credenciais de logon do cluster.
+    * **Logon de SSH + Cluster**: mostra as instruções para conectar-se ao cluster usando a conexão SSH (Secure Shell). Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     * **Parceiro HDInsight**: adicione/remova o Parceiro HDInsight atual.
     * **Metastores Externos**: exiba os Hive e Oozie metastores. Os metastores só podem ser configurados durante o processo de criação do cluster. Consulte [usar metastore do Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Ações de Script**: execute scripts Bash no cluster. Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -226,6 +226,21 @@ Você pode mover um cluster do HDInsight para outro grupo de recursos do Azure o
 
 Consulte [Atualizar o cluster do HDInsight para uma versão mais recente](./hdinsight-upgrade-cluster.md).
 
+## <a name="open-the-ambari-web-ui"></a>Abrir a interface do usuário da Web do Ambari
+
+O Ambari fornece uma interface do usuário da Web de gerenciamento do Hadoop intuitiva e fácil de usar com suporte de suas APIs RESTful. O Ambari permite aos administradores do sistema gerenciar e monitorar clusters Hadoop.
+
+1. Abra um cluster HDInsight no portal do Azure.  Confira [Listar e mostrar clusters](#list-and-show-clusters).
+2. Clique em **Painel do Cluster**.
+
+    ![Menu do cluster HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. Insira o nome de usuário do cluster e a senha.  O nome de usuário do cluster padrão é _admin_. A interface do usuário da Web do Ambari tem esta aparência:
+
+    ![Interface do usuário do Ambari no HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+Para saber mais, confira [Gerenciar clusters HDInsight usando a interface do usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="change-passwords"></a>Alterar senhas
 Um cluster HDInsight pode ter duas contas de usuário. A conta de usuário do cluster HDInsight (também conhecido como conta de usuário HTTP) e a conta de usuário SSH são criadas durante o processo de criação. Você pode usar a interface do usuário do Ambari Web para alterar o nome de usuário e a senha da conta de usuário do cluster e ações de script para alterar a conta de usuário do SSH
 
@@ -266,10 +281,10 @@ Em seguida, o Ambari altera a senha em todos os nós no cluster.
 
    | Campo | Valor |
    | --- | --- |
-   | Nome |Alterar senha SSH |
+   | NOME |Alterar senha SSH |
    | URI do script Bash |O URI do arquivo changepassword.sh |
    | Nós (Principal, Trabalho, Nimbus, Supervisor, Zookeeper etc.) |✓ para todos os tipos de nós listados |
-   | Parâmetros |Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha. |
+   | parâmetros |Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha. |
    | Persistir esta ação de script... |Deixe este campo desmarcado. |
 5. Selecione **Criar** para aplicar o script. Quando o script for concluído, você poderá se conectar ao cluster usando SSH com a nova senha.
 

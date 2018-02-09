@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
 ms.custom: it-pro;
-ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 621ebec898e5b345556832097b12ca9b54506e7c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Noções básicas sobre o acesso aos recursos do Azure
 
-O controle de acesso no Azure parte de uma perspectiva de cobrança. O proprietário de uma conta do Azure, acessada pela visitação ao [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions), é o Administrador da Conta (AA). As assinaturas são um contêiner para cobrança, mas também atuam como um limite de segurança: cada assinatura tem um Administrador de Serviços (SA) que pode adicionar, remover e modificar recursos do Azure nessa assinatura usando o [Portal do Azure](https://portal.azure.com/). O SA padrão de uma nova assinatura é o AA, mas o AA pode alterar o SA no Centro de contas do Azure.
+O controle de acesso no Azure parte de uma perspectiva de cobrança. O proprietário de uma conta do Azure, que pode ser acessado visitando-se o [Centro de Contas do Azure](https://account.azure.com), é o Administrador de conta (AA). As assinaturas são um contêiner para cobrança, mas também atuam como um limite de segurança: cada assinatura tem um Administrador de Serviços (SA) que pode adicionar, remover e modificar recursos do Azure nessa assinatura usando o [Portal do Azure](https://portal.azure.com/). O SA padrão de uma nova assinatura é o AA, mas o AA pode alterar o SA no Centro de Contas do Azure.
 
 <br><br>![Contas do Azure][1]
 

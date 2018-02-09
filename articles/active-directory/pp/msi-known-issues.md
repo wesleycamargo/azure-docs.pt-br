@@ -3,7 +3,7 @@ title: "Problemas conhecidos e perguntas frequentes com Identidade do Serviço G
 description: "Problemas conhecidos com a Identidade de Serviço Gerenciado do Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Problemas conhecidos e perguntas frequentes com Identidade do Serviço Gerenciado (MSI) para o Azure Active Directory
 
@@ -57,6 +57,23 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Em que: 
 - Nome de extensão e o tipo para o Windows é: ManagedIdentityExtensionForWindows
 - Nome de extensão e o tipo para o Linux é: ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Existem funções RBAC para identidades de usuário atribuídas?
+Sim:
+1. Colaborador MSI: 
+
+- Pode: Identidades de usuário atribuída CRUD. 
+- Não pode: Atribuir uma identidade de usuário atribuída a um recurso. (ou seja, atribuir a identidade a uma máquina virtual)
+
+2. Operador MSI: 
+
+- Pode: Atribuir uma identidade de usuário atribuída a um recurso. (ou seja, atribuir a identidade a uma máquina virtual)
+- Não pode: Identidades de usuário CRUD.
+
+Observação: A função de colaborador interna pode executar todas as ações descritas acima: 
+- Identidades de usuário atribuídas CRUD
+- Atribuir uma identidade de usuário atribuída a um recurso. (ou seja, atribuir a identidade a uma máquina virtual)
+
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -104,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - A única maneira de remover todas as MSIs atribuídas pelo usuário é habilitando a MSI atribuída pelo sistema. 
 - O provisionamento da extensão de VM para uma VM pode falhar devido a falhas de pesquisa de DNS. Reinicie a VM e tente novamente. 
-- CLI do Azure: `Az resource show` e `Az resource list` falhará em uma VM com MSI atribuída pelo usuário. Como alternativa, use `az vm/vmss show`
+- Adicionar um MSI “inexistente” fará com que a VM falhe. *Observação: A correção para o erro ao atribuir identidade se o MSI não existe, está em fase de implementação*
 - No momento, o tutorial do Armazenamento do Microsoft Azure só está disponível nos EUA Centrais EUAP. 
-- Quando uma MSI atribuída pelo usuário recebe permissão para acessar um recurso, a folha IAM desse recurso mostra "Não é possível acessar os dados." Como alternativa, use a CLI para exibir/editar atribuições de função para esse recurso.
-- Não há suporte para a criação de uma MSI atribuída pelo usuário com um sublinhado no nome.
+- Criar um MSI atribuído a um usuário com caracteres especiais (isto é, sublinhado) no nome, não é suportado.
 - Ao adicionar uma segunda identidade atribuída pelo usuário, o clientID pode não estar disponível para solicitar tokens para ela. Como mitigação, reinicie a extensão de VM da MSI com os dois seguintes comandos bash:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

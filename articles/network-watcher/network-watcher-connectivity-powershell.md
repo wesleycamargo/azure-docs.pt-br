@@ -1,10 +1,10 @@
 ---
-title: "Verifique a conectividade com o Observador de Rede do Azure – PowerShell | Microsoft Docs"
-description: "Esta página explica como testar a conectividade com o Observador de Rede usando o PowerShell"
+title: "Solucionar problemas de conexões com o Observador de Rede do PowerShell do Azure | Microsoft Docs"
+description: "Saiba como usar o recurso de resolução de problemas de conexão do Observador de Rede do Azure usando o PowerShell do Azure."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Verificar a conectividade com o Observador de Rede do Azure usando o PowerShell
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Solucionar problemas de conexões com o Observador de Rede do Azure usando PowerShell do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,19 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API REST do Azure](network-watcher-connectivity-rest.md)
 
-Saiba como usar a conectividade para verificar se uma conexão TCP direta de uma máquina virtual para um determinado ponto de extremidade pode ser estabelecida.
+Saiba como usar a resolução de problemas de conexão para verificar se uma conexão TCP direta de uma máquina virtual para um determinado ponto de extremidade pode ser estabelecida.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que você tenha os seguintes recursos:
-
-* Uma instância do Observador de Rede na região em que você deseja verificar a conectividade.
-
-* Máquinas virtuais com as quais verificar a conectividade.
+* Uma instância do Observador de Rede na região onde você deseja solucionar problemas de uma conexão.
+* Máquinas virtuais para solucionar problemas de conexões.
 
 > [!IMPORTANT]
-> A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> Solucionar problemas de conexão exigem uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Verificar a conectividade com uma máquina virtual
 
-Este exemplo verifica a conectividade a uma máquina virtual de destino pela porta 80. Este exemplo exige que você tenha o Observador de Rede habilitado na região que contém a VM de origem.  
+Este exemplo verifica uma conexão a uma máquina virtual de destino pela porta 80. Este exemplo exige que você tenha o Observador de Rede habilitado na região que contém a VM de origem.  
 
 ### <a name="example"></a>Exemplo
 
@@ -137,7 +134,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Validar problemas de roteamento
 
-O exemplo verifica a conectividade entre uma máquina virtual e um ponto de extremidade remoto. Este exemplo exige que você tenha o Observador de Rede habilitado na região que contém a VM de origem.  
+Esse exemplo verifica a conectividade entre uma máquina virtual e um ponto de extremidade remoto. Este exemplo exige que você tenha o Observador de Rede habilitado na região que contém a VM de origem.  
 
 ### <a name="example"></a>Exemplo
 
@@ -254,7 +251,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Verificar a conectividade a um ponto de extremidade de armazenamento
 
-O exemplo a seguir testa a conectividade de uma máquina virtual com uma conta de armazenamento de blog. Este exemplo exige que você tenha o Observador de Rede habilitado na região que contém a VM de origem.  
+O exemplo a seguir verifica a conectividade de uma máquina virtual com uma conta de armazenamento de blog. Este exemplo exige que você tenha o Observador de Rede habilitado na região que contém a VM de origem.  
 
 ### <a name="example"></a>Exemplo
 
@@ -276,7 +273,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 O json a seguir é um exemplo de resposta da execução do cmdlet anterior. Uma vez que o destino está acessível, a propriedade `ConnectionStatus` aparece como **Acessível**.  São fornecidos os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -307,22 +304,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md)
+Determine se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md).
 
 Se o tráfego está sendo bloqueado e não deve ser, consulte [gerenciar grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para rastrear as rede segurança e grupo de regras de segurança que são definidas.
-
-<!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

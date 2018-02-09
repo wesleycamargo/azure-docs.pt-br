@@ -1,91 +1,181 @@
 ---
-title: Configurar o descarregamento SSL - Gateway de Aplicativo do Azure - Portal do Azure | Microsoft Docs
-description: "Este artigo fornece instruções para criar um gateway de aplicativo com descarregamento SSL usando o portal do Azure"
-documentationcenter: na
+title: "Criar um gateway de aplicativo com terminação SSL – Portal do Azure | Microsoft Docs"
+description: "Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando o portal do Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 2f7f5d4132e28c8c192d90d5f4bfb2a9034f8b8c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-azure-portal"></a>Configurar um gateway de aplicativo para descarregamento SSL usando o portal do Azure
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Criar um gateway de aplicativo com terminação SSL usando o portal do Azure
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-ssl-portal.md)
-> * [PowerShell do Azure Resource Manager](application-gateway-ssl-arm.md)
-> * [PowerShell clássico do Azure](application-gateway-ssl.md)
-> * [CLI 2.0 do Azure](application-gateway-ssl-cli.md)
+Você pode usar o portal do Azure para criar um [gateway de aplicativo](application-gateway-introduction.md) com um certificado de terminação de SSL que usa máquinas virtuais para servidores back-end.
 
-O Gateway de Aplicativo do Azure pode ser configurado para encerrar a sessão SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
+Neste artigo, você aprenderá a:
 
-## <a name="scenario"></a>Cenário
+> [!div class="checklist"]
+> * Crie um certificado autoassinado
+> * Criar um gateway de aplicativo com o certificado
+> * Criar as máquinas virtuais usadas como servidores de back-end
 
-O cenário a seguir explora a configuração do descarregamento SSL em um gateway de aplicativo existente. O cenário pressupõe que você já seguiu as etapas para [criar um gateway de aplicativo](application-gateway-create-gateway-portal.md).
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Para configurar o descarregamento SSL com um Gateway de Aplicativo, é necessário um certificado. Esse certificado é carregado no gateway de aplicativo e usado para criptografar e descriptografar o tráfego enviado via SSL. O certificado precisa estar no formato de Troca de Informações Pessoais (.pfx). Esse formato de arquivo permite exportar a chave privada que é exigida pelo gateway de aplicativo para realizar a criptografia e descriptografia do tráfego.
+Faça logon no portal do Azure em [http://portal.azure.com](http://portal.azure.com)
 
-## <a name="add-an-https-listener"></a>Adicionar um ouvinte HTTPS
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
-O ouvinte HTTPS procura o tráfego com base em sua configuração e ajuda a roteá-lo para os pools de back-ends. Para adicionar um ouvinte HTTPS, siga estas etapas:
+Nesta seção, você usa [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) para criar um certificado autoassinado que você carrega no portal do Azure ao criar o ouvinte para o gateway de aplicativo.
 
-   1. Navegue até o portal do Azure e selecione um gateway de aplicativo existente.
+No computador local, abra uma janela do Windows PowerShell como administrador. Execute o comando a seguir para criar o certificado:
 
-   2. Selecione **Ouvintes** e selecione o botão **Adicionar** para adicionar um ouvinte.
+```powershell
+New-SelfSignedCertificate \
+  -certstorelocation cert:\localmachine\my \
+  -dnsname www.contoso.com
+```
 
-   ![Painel Visão Geral do Gateway de Aplicativo][1]
+Você deverá ver algo como esta resposta:
 
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 
-   3. Preencha as seguintes informações obrigatórias para o ouvinte e faça upload do certificado .pfx:
-      - **Nome**: o nome amigável do ouvinte.
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 
-      - **Configuração de IP do front-end**: a configuração de IP do front-end usada para o ouvinte.
+Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
+```
 
-      - **Porta de front-end (Nome/Porta)**: um nome amigável para a porta usada no front-end do gateway de aplicativo e a porta real usada.
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+Export-PfxCertificate \
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 \
+  -FilePath c:\appgwcert.pfx \
+  -Password $pwd
+```
 
-      - **Protocolo**: uma opção para determinar se o HTTPS ou HTTP é usado para o front-end.
+## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
-      - **Certificado (Nome/Senha)**: se o descarregamento SSL for usado, um certificado .pfx será exigido para essa configuração. Também são necessários um nome amigável e uma senha.
+Uma rede virtual é necessária para a comunicação entre os recursos que você criar. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicativo e a outra para os servidores de back-end. Você pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicativo.
 
-   4. Selecione **OK**.
+1. Clique em **Novo** no canto superior esquerdo do portal do Azure.
+2. Selecione **Rede** e depois **Gateway de Aplicativo** na lista em destaque.
+3. Digite *myAppGateway* para o nome do gateway de aplicativo e *myResourceGroupAG* para o novo grupo de recursos.
+4. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
+5. Clique em **Escolher uma rede virtual**, clique em **Criar novo** e insira esses valores para a rede virtual:
 
-![Adicionar um painel de ouvinte][2]
+    - *myVNet* – para o nome da rede virtual.
+    - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
+    - *myAGSubnet* – para o nome da sub-rede.
+    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Criar uma regra e associá-la ao ouvinte
+    ![Criar rede virtual](./media/application-gateway-ssl-portal/application-gateway-vnet.png)
 
-O ouvinte foi criado. Em seguida, crie uma regra para lidar com o tráfego do ouvinte. As regras definem como o tráfego é roteado para os pools de back-ends com base em vários parâmetros de configuração. Essas configurações incluem o protocolo, a porta e as investigações de integridade, e se a afinidade de sessão baseada em cookie é usada. Para criar e associar uma regra ao ouvinte, siga estas etapas:
+6. Clique em **OK** para criar a rede virtual e a sub-rede.
+7. Clique em **Escolher um endereço IP público**, clique em **Criar novo** e digite o nome do endereço IP público. Neste exemplo, o endereço IP público é denominado *myAGPublicIPAddress*. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
+8. Clique em **HTTPS** para o protocolo do ouvinte e verifique se a porta é definida como **443**.
+9. Clique no ícone de pasta e navegue até o certificado *appgwcert.pfx* que você criou anteriormente para carregá-lo.
+10. Insira *mycert1* para o nome do certificado e *Azure123456!* como a senha e clique em **OK**.
 
+    ![Criar novo gateway de aplicativo](./media/application-gateway-ssl-portal/application-gateway-create.png)
 
-   1. Selecione **Regras** do gateway de aplicativo e selecione **Adicionar**.
+11. Examine as configurações na página de resumo e, em seguida, clique em **OK** para criar os recursos de rede e o gateway de aplicativo. A criação do gateway de aplicativo pode levar vários minutos, aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
 
-   ![Painel Regras do Gateway de Aplicativo][3]
+### <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
+1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myVNet** da lista de recursos.
+2. Clique em **Sub-redes** e, em seguida, clique em **Sub-rede**.
 
-   2. Em **Adiciona regra básica**, insira um nome amigável para a regra no campo **Nome** e selecione o **Ouvinte** criado na etapa anterior. Selecione o **Pool de back-ends** e a **Configuração de HTTP** apropriados e selecione **OK**.
+    ![Criar sub-rede](./media/application-gateway-ssl-portal/application-gateway-subnet.png)
 
-   ![Janela Configurações de HTTPS][4]
+3. Digite *myBackendSubnet* para o nome da sub-rede e depois clique em **OK**.
 
-Agora as configurações são salvas no Gateway de Aplicativo. O processo de salvamento dessas configurações pode demorar um pouco antes que elas estejam disponíveis para exibição pelo portal ou pelo PowerShell. Depois de salvas, o gateway de aplicativo trata a criptografia e a descriptografia do tráfego. Todo o tráfego entre o gateway de aplicativo e os servidores Web de back-end será tratado por HTTP. Toda a comunicação com o cliente, se iniciada por HTTPS, será retornada criptografada para o cliente.
+## <a name="create-backend-servers"></a>Criar servidores de back-end
+
+Neste exemplo, você cria duas máquinas virtuais para serem usadas como servidores de back-end para o gateway do aplicativo. Você também pode instalar o IIS nas máquinas virtuais para verificar se o gateway de aplicativo foi criado com êxito.
+
+### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+
+1. Clique em **Novo**.
+2. Clique em **Computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista em destaque.
+3. Insira esses valores para a máquina virtual:
+
+    - *myVM* – para o nome da máquina virtual.
+    - *azureuser* – para o nome de usuário do administrador.
+    - *Azure123456!* para a senha.
+    - Clique em **Usar existente** e selecione *myResourceGroupAG*.
+
+4. Clique em **OK**.
+5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **Selecionar**.
+6. Verifique se **myVNet** está selecionado para a rede virtual e se a sub-rede é **myBackendSubnet**. 
+7. Clique em **Desabilitado** para desabilitar o diagnóstico de inicialização.
+8. Clique em **OK**, examine as configurações na página de resumo e, em seguida, clique em **Criar**.
+
+### <a name="install-iis"></a>Instalar o IIS
+
+1. Abra o shell interativo e verifique se ele está definido como **PowerShell**.
+
+    ![Instalar a extensão personalizada](./media/application-gateway-ssl-portal/application-gateway-extension.png)
+
+2. Execute o comando a seguir para instalar o IIS na máquina virtual: 
+
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
+
+3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira *myVM2* para seu nome e para VMName em Set-AzureRmVMExtension.
+
+### <a name="add-backend-servers"></a>Adicionar servidores de back-end
+
+3. Clique em **Todos os recursos** e clique em **myAppGateway**.
+4. Clique em **Pools de back-end**. Um pool padrão foi criado automaticamente com o gateway de aplicativo. Clique em **appGateayBackendPool**.
+5. Clique em **Adicionar destino** para adicionar cada máquina virtual que você criou para o pool de back-end.
+
+    ![Adicionar servidores de back-end](./media/application-gateway-ssl-portal/application-gateway-backend.png)
+
+6. Clique em **Salvar**.
+
+## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
+
+1. Clique em **Todos os recursos** e, em seguida, clique em **myAGPublicIPAddress**.
+
+    ![Registrar o endereço IP público do gateway de aplicativo](./media/application-gateway-ssl-portal/application-gateway-ag-address.png)
+
+2. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Para aceitar o aviso de segurança caso tenha usado um certificado autoassinado, selecione Detalhes e depois prossiga para a página da Web:
+
+    ![Aviso de segurança](./media/application-gateway-ssl-portal/application-gateway-secure.png)
+
+    Seu site de IIS protegido é exibido, como no exemplo a seguir:
+
+    ![Testar a URL de base no gateway de aplicativo](./media/application-gateway-ssl-portal/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como configurar uma investigação de integridade personalizada com o Gateway de Aplicativo do Azure, consulte [Criar uma investigação de integridade personalizada](application-gateway-create-gateway-portal.md).
+Neste tutorial, você aprendeu como:
 
-[1]: ./media/application-gateway-ssl-portal/figure1.png
-[2]: ./media/application-gateway-ssl-portal/figure2.png
-[3]: ./media/application-gateway-ssl-portal/figure3.png
-[4]: ./media/application-gateway-ssl-portal/figure4.png
+> [!div class="checklist"]
+> * Crie um certificado autoassinado
+> * Criar um gateway de aplicativo com o certificado
+> * Criar as máquinas virtuais usadas como servidores de back-end
 
+Para saber mais sobre os gateways de aplicativo e seus recursos associados, continue para os artigos de instrução.

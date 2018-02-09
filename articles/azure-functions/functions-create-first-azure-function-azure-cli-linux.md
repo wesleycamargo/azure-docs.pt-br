@@ -11,21 +11,21 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: d04e2000f2043e8bb11e15f6b9d7fd06ef5b9da3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Criar sua primeira função em execução no Linux usando a CLI do Azure (visualização)
 
-Azure Functions permite hospedar funções no Linux em um contêiner de Serviço de Aplicativo do Azure padrão. Esta funcionalidade está em preview. Você também pode [usar seu próprio contêiner](functions-create-function-linux-custom-image.md). 
+Azure Functions permite hospedar funções no Linux em um contêiner de Serviço de Aplicativo do Azure padrão. Você também pode [usar seu próprio contêiner](functions-create-function-linux-custom-image.md). Esta é uma versão prévia da funcionalidade e exige [o tempo de execução Functions 2.0](functions-versions.md), que também está em versão prévia.
 
 Este tópico de início rápido orienta como usar Azure Functions com a CLI do Azure para criar seu primeiro aplicativo de função no Linux hospedado no contêiner de Serviço de Aplicativo padrão. O código de função em si é implantado para uma imagem de um repositório de exemplo do GitHub.    
 
 As etapas a seguir têm suporte em um computador Mac, Windows ou Linux. 
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>pré-requisitos 
 
 Para concluir este início rápido, você precisa de:
 
@@ -49,7 +49,7 @@ Para funções de hospedagem de Linux atualmente só tem suporte em um plano de 
 
 ## <a name="create-a-function-app-on-linux"></a>Criar um aplicativo de funções no Linux
 
-Você deve ter um aplicativo de funções para hospedar a execução de suas funções no Linux. O aplicativo de funções fornece um ambiente para execução do seu código de função. Ele permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos. Crie um aplicativo de funções com um plano de serviço de aplicativo do Linux ao usar o comando [az functionapp create](/cli/azure/functionapp#create). 
+Você deve ter um aplicativo de funções para hospedar a execução de suas funções no Linux. O aplicativo de funções fornece um ambiente para execução do seu código de função. Ele permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos. Crie um aplicativo de funções com um plano de serviço de aplicativo do Linux ao usar o comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
 No comando a seguir, substitua um nome de aplicativo de funções exclusivo quando você vir o espaço reservado `<app_name>` e o nome da conta de armazenamento por `<storage_name>`. O `<app_name>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. O parâmetro _deployment-source-url_ é um repositório de exemplo no GitHub que contém uma função de gatilho HTTP "Olá, Mundo".
 

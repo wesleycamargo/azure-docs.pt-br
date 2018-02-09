@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorar os recursos da solução de monitoramento remoto pré-configurada
 
@@ -32,7 +32,11 @@ Neste tutorial, você aprenderá como:
 > * Atualizar o firmware em seus dispositivos
 > * Organizar seus ativos
 
-## <a name="prerequisites"></a>Pré-requisitos
+O vídeo a seguir mostra um passo a passo da solução de monitoramento remoto:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
+
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, você precisa de uma instância da solução de monitoramento remoto implantada na sua assinatura do Azure.
 
@@ -58,7 +62,7 @@ A Contoso usa diferentes tipos de dispositivos inteligentes. Esses dispositivos 
 
 A tabela a seguir mostra um resumo dos tipos de dispositivos provisionados:
 
-| Tipo de dispositivo        | Telemetria                                  | Propriedades                                  | Marcas                    | Métodos                                                                                      |
+| Tipo de dispositivo        | Telemetria                                  | propriedades                                  | Marcas                    | Métodos                                                                                      |
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Resfriador            | Temperatura, umidade, pressão            | Tipo, versão de firmware, modelo               | Localização, piso, campus | Reiniciar, atualização de firmware, versão da válvula de emergência, aumento de pressão                          |
 | Dispositivo de protótipo | Temperatura, pressão, localização geográfica        | Tipo, versão de firmware, modelo               | Localização, modo          | Reiniciar, atualização de firmware, mover dispositivo, parar dispositivo, liberação de temperatura, aumento de temperatura |
@@ -73,7 +77,7 @@ A tabela a seguir mostra um resumo dos tipos de dispositivos provisionados:
 
 Os operadores na Contoso sabem os limites que determinam se um dispositivo está funcionando corretamente. Por exemplo, um resfriador não estará funcionando corretamente se a pressão informada for maior que 250 PSI. A tabela a seguir mostra as regras baseadas em limites que a Contoso definiu para cada tipo de dispositivo:
 
-| Nome da Regra | Descrição | Limite | Severity | Dispositivos afetados |
+| Nome da Regra | DESCRIÇÃO | Limite | Severity | Dispositivos afetados |
 | --------- | ----------- | --------- | -------- | ---------------- |
 | Pressão de resfriador muito alta | Alerta quando os resfriadores alcançam níveis de pressão maiores que os normais   |P > 250 psi       | Crítico | Resfriadores            |
 | Temp. do dispositivo de protótipo muito alta  | Alerta quando os dispositivos de protótipo alcançam níveis de temperatura maiores que os normais  |T>80&deg; F |Crítico | Dispositivos de protótipo |

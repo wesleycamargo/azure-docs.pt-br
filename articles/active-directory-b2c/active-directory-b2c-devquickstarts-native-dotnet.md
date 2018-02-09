@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: "Autenticação, inscrição e edição do perfil no Azure Active Directory B2C do .NET | Microsoft Docs"
 description: "Como compilar um aplicativo Web com gerenciamento de entrada, de inscrição e de perfis usando o Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.custom: seohack1
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: criar um aplicativo da área de trabalho do Windows
 Ao usar o Azure Active Directory B2C (Azure AD), você poderá adicionar recursos poderosos de gerenciamento de identidades de autoatendimento para seu aplicativo da área de trabalho em poucas etapas. Este artigo mostra como criar um aplicativo “lista de tarefas pendentes” do WPF (Windows Presentation Foundation) do .NET que inclui a inscrição, a entrada e o gerenciamento de perfil de usuário. O aplicativo inclui suporte para a inscrição e a entrada usando um nome de usuário ou um email. Ele também incluirá o suporte para a inscrição e a entrada usando contas sociais como o Facebook e o Google.
@@ -71,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>Insira seus detalhes B2C
 Abra o arquivo `Globals.cs` e substitua cada um dos valores da propriedade pelos seus próprios. Essa classe é usada em todo o `TaskClient` para referenciar os valores comumente usados.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -92,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>Criar o PublicClientApplication
 A classe primária da MSAL é `PublicClientApplication`. Essa classe representa o aplicativo no sistema Azure AD B2C. Quando o aplicativo é inicializado, cria uma instância de `PublicClientApplication` em `MainWindow.xaml.cs`. Isso pode ser usado em toda a janela.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -110,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>Iniciar um fluxo de inscrição
 Quando um usuário opta por se inscrever, você deseja iniciar um fluxo de inscrição que use a política de inscrição criada. Usando a MSAL, você apenas chama `pca.AcquireTokenAsync(...)`. Os parâmetros que você passa para o `AcquireTokenAsync(...)` determinam qual token receber, a política usada na solicitação de autenticação e assim por diante.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -161,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>Iniciar um fluxo de entrada
 Você pode iniciar um fluxo de entrada da mesma maneira que inicia um fluxo de inscrição. Quando um usuário entrar, faça a mesma chamada a MSAL, dessa vez usando a política de entrada:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -176,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>Iniciar um fluxo de edição de perfil
 Novamente, você pode executar uma política de edição de perfil da mesma maneira:
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -192,7 +193,7 @@ Em todos esses casos, MSAL retornará um token em `AuthenticationResult` ou gera
 ### <a name="check-for-tokens-on-app-start"></a>Verificar se há tokens na inicialização do aplicativo
 Você também pode usar a MSAL para controlar o estado de entrada do usuário.  Neste aplicativo, queremos que o usuário permaneça conectado mesmo depois que fechar o aplicativo e o abrir novamente.  De volta à substituição `OnInitialized`, use o método `AcquireTokenSilent` da MSAL para verificar se há tokens em cache:
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -231,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>Chamar a API de tarefa
 Agora você já usou MSAL para executar políticas e para obter tokens.  Quando você quiser usar um desses tokens para chamar a API de tarefa, você pode usar novamente da MSAL `AcquireTokenSilent` método para verificar tokens armazenados em cache:
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -276,7 +277,7 @@ private async void GetTodoList()
 
 Quando a chamada para `AcquireTokenSilentAsync(...)` é bem-sucedida e um token é encontrado no cache, você pode adicionar o token ao cabeçalho `Authorization` da solicitação HTTP. A API Web da tarefa usará esse cabeçalho para autenticar a solicitação para ler a lista de tarefas pendentes do usuário:
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -289,7 +290,7 @@ Quando a chamada para `AcquireTokenSilentAsync(...)` é bem-sucedida e um token 
 ## <a name="sign-the-user-out"></a>Desconectar o usuário
 Finalmente, você pode usar MSAL para encerrar a sessão do usuário com o aplicativo, quando o usuário seleciona **Sair**.  Ao se usar MSAL, isso é feito por meio da limpeza de todos os tokens no cache de tokens:
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

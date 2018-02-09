@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-bash-in-cloud-shell-storage-works"></a>Como funciona Bash no armazenamento do Cloud Shell 
 O Bash no Cloud Shell persiste arquivos usando os seguintes métodos: 
@@ -69,12 +69,12 @@ Seu compartilhamento de arquivos continuará existindo se você não o excluir m
 ![Executando o comando ' clouddrive unmount'](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Embora a execução desse comando não exclua todos os recursos, a exclusão manual de um grupo de recursos, de uma conta de armazenamento, ou de um compartilhamento de arquivos mapeado para o Cloud Shell apagará a imagem do disco `$Home` e todos os arquivos em seu compartilhamento de arquivos. Essa ação não pode ser desfeita.
+> Embora a execução desse comando não exclua todos os recursos, a exclusão manual de um grupo de recursos, de uma conta de armazenamento, ou de um compartilhamento de arquivos mapeado para o Cloud Shell apaga a imagem do disco `$Home` e todos os arquivos em seu compartilhamento de arquivos. Essa ação não pode ser desfeita.
 
 ## <a name="list-clouddrive"></a>Lista `clouddrive`
 Para descobrir qual compartilhamento de arquivos está montado como `clouddrive`, execute o comando `df`. 
 
-O caminho de arquivo para o clouddrive mostrará o nome da conta de armazenamento e o compartilhamento de arquivos na URL. Por exemplo, `//storageaccountname.file.core.windows.net/filesharename`
+O caminho de arquivo para a unidade de nuvem mostra o nome da conta de armazenamento e o compartilhamento de arquivos na URL. Por exemplo, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -88,7 +88,7 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 [Início rápido do Bash no Cloud Shell](quickstart.md) <br>

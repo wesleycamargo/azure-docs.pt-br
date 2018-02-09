@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um namespace com o hub de eventos e habilitar a Captura usando um modelo
 
-Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace de Hubs de Eventos, com uma instância de hub de eventos e também habilita o [recurso Captura](event-hubs-capture-overview.md) no hub de eventos. O artigo descreve como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace de [Hubs de Eventos](event-hubs-what-is-event-hubs.md), com uma instância de hub de eventos e também habilita o [recurso Captura](event-hubs-capture-overview.md) no hub de eventos. O artigo descreve como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
 Este artigo também mostra como especificar que os eventos sejam capturados em Blobs de Armazenamento do Azure ou em um Azure Data Lake Store com base no destino escolhido.
 
@@ -42,11 +42,7 @@ Para obter os modelos completos, clique nos seguintes links do GitHub:
 
 ## <a name="what-will-you-deploy"></a>O que você implantará?
 
-Com esse modelo, você implanta um namespace de Hub de Eventos com um hub de eventos e também habilita a [Captura dos Hubs de Eventos](event-hubs-capture-overview.md).
-
-[Hubs de Eventos](event-hubs-what-is-event-hubs.md) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade. A Captura dos Hubs de Eventos permite que você forneça automaticamente os dados de streaming em Hubs de Eventos para o Armazenamento de Blobs do Azure ou Azure Data Lake Store, dentro de um período especificado ou do intervalo de tamanho de sua preferência.
-
-Clique no botão abaixo para habilitar a Captura de Hubs de Eventos no Armazenamento do Azure:
+Com esse modelo, você implanta um namespace de Hub de Eventos com um hub de eventos e também habilita a [Captura dos Hubs de Eventos](event-hubs-capture-overview.md). A Captura dos Hubs de Eventos permite que você forneça automaticamente os dados de streaming em Hubs de Eventos para o Armazenamento de Blobs do Azure ou Azure Data Lake Store, dentro de um período especificado ou do intervalo de tamanho de sua preferência. Clique no botão abaixo para habilitar a Captura de Hubs de Eventos no Armazenamento do Azure:
 
 [![Implantar no Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -54,7 +50,7 @@ Clique no botão abaixo para habilitar a Captura de Hubs de Eventos no Azure Dat
 
 [![Implantar no Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters` , que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
 
@@ -62,7 +58,7 @@ O modelo define os parâmetros a seguir.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-O nome do [namespace Hubs de Evento](event-hubs-create.md) a criar.
+O nome do namespace Hubs de Evento a criar.
 
 ```json
 "eventHubNamespaceName":{  
@@ -75,7 +71,7 @@ O nome do [namespace Hubs de Evento](event-hubs-create.md) a criar.
 
 ### <a name="eventhubname"></a>eventHubName
 
-O nome do hub de eventos criado no [namespace Hubs de Eventos](event-hubs-create.md).
+O nome do hub de eventos criado no namespace Hubs de Eventos.
 
 ```json
 "eventHubName":{  
@@ -429,7 +425,7 @@ Você também pode configurar a Captura de Hubs de Eventos por meio do [portal d
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 

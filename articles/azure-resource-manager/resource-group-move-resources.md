@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -53,7 +53,10 @@ Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao 
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Se as IDs do locatário para as assinaturas de origem e de destino não forem iguais, entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para mover os recursos para um novo locatário.
+  Se as IDs de locatário para as assinaturas de origem e de destino não forem iguais, use os métodos a seguir para reconciliá-las: 
+
+  * [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)
+  * [Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. O serviço deve permitir a movimentação de recursos. Este artigo lista quais serviços permitem mover os recursos e quais serviços não habilitam a movimentação dos recursos.
 3. A assinatura de destino deve estar registrada para que o provedor de recursos do recurso seja movido. Se não estiver, você receberá um erro afirmando que a **assinatura não está registrada para um tipo de recurso**. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso.
@@ -93,7 +96,7 @@ Você pode mover a maioria dos recursos por meio de operações de autoatendimen
 
 Entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) quando você precisar:
 
-* Mova os recursos para uma nova conta do Azure (e locatário do Azure Active Directory).
+* Mover os recursos para uma nova conta do Azure (e o locatário do Azure Active Directory) e precisar de ajuda com as instruções na seção anterior.
 * Mover recursos clássicos, mas está tendo problemas com as limitações.
 
 ## <a name="services-that-enable-move"></a>Serviços que permitem mover
@@ -320,7 +323,7 @@ Como mover uma VM registrada no **Backup do Azure** entre grupos de recursos:
  1. Pare temporariamente o backup e mantenha os dados de backup
  2. Mova a VM para o grupo de recursos de destino
  3. Proteja-o novamente sob o mesmo/novo cofre. Os usuários poderão restaurar a partir dos pontos de restauração disponíveis criados antes da operação de movimentação.
-Se o usuário mover a VM com backup nas assinaturas, as etapas 1 e 2 permanecerão as mesmas. Na etapa 3, o usuário precisará proteger a VM sob um novo cofre presente/criado na assinatura de destino. O cofre dos Serviços de Recuperação não dá suporte a backups de assinaturas cruzadas.
+Se o usuário mover a VM com backup nas assinaturas, as etapas 1 e 2 permanecerão as mesmas. Na etapa 3, o usuário precisa proteger a VM em um novo cofre presente/criado na assinatura de destino. O cofre dos Serviços de Recuperação não oferece suporte a backups de assinatura cruzada.
 
 ## <a name="hdinsight-limitations"></a>Limitações do HDInsight
 

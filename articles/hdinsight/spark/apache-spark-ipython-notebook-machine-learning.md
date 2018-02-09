@@ -14,17 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 22a3d220966fef77e131fbeb3ea46a1f81a9ada5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 74dcd368d8696df26c5ad294c5657161fbe7f408
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Criar aplicativos de aprendizado de máquina do Apache Spark no Azure HDInsight
 
 Aprenda a criar um aplicativo de aprendizado de máquina do Apache Spark usando um cluster do Spark no HDInsight. Este artigo mostra como usar o bloco de anotações do Jupyter disponível com o cluster para criar e testar esse aplicativo. O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todos os clusters por padrão.
+
+[MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html): A biblioteca de Machine Learning escalável do Spark que consiste em algoritmos e utilitários de aprendizado comuns, incluindo classificação, regressão, clustering, filtragem colaborativa, redução de dimensionalidade, bem como primitivos de otimização subjacente.
 
 **Pré-requisitos:**
 
@@ -33,165 +35,154 @@ Você deve ter o seguinte:
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
 
 ## <a name="data"></a>Entender o conjunto de dados
-Antes de começarmos a criação do aplicativo, vamos entender a estrutura dos dados para os quais criaremos o aplicativo e o tipo de análise que vamos fazer nos dados. 
 
-Neste artigo, usamos o exemplo arquivo de dados de exemplo **HVAC.csv** que está disponível na conta de Armazenamento do Azure que você associou ao cluster HDInsight. Na conta de armazenamento, o arquivo está em **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Baixe e abra o arquivo CSV para obter um instantâneo dos dados.  
+Os dados a seguir mostram a temperatura de destino e a temperatura real de algumas compilações com sistemas de HVAC instalados. A coluna **System** representa a ID do sistema e a coluna **SystemAge** representa o número de anos que o sistema HVAC foi instalado no prédio. Você pode usar os dados neste tutorial para prever se um prédio será mais quente ou frio com base na temperatura de destino, uma ID de sistema e a idade do sistema.
 
 ![Exemplo de instantâneo dos dados usados para aprendizado de máquina do Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Exemplo de instantâneo dos dados usados para aprendizado de máquina do Spark")
 
-Os dados mostram a temperatura de destino e a temperatura real de um prédio com sistemas de HVAC instalados. Vamos supor que a coluna **System** representa a ID do sistema e a coluna **SystemAge** representa o número de anos que o sistema HVAC foi instalado no prédio.
-
-Podemos usar esses dados para prever se um prédio será mais quente ou frio com base na temperatura de destino, uma ID de sistema e a idade do sistema.
+O arquivo de dados, **HVAC.csv**, está localizado em **\HdiSamples\HdiSamples\SensorSampleData\hvac** em todos os clusters do HDInsight.
 
 ## <a name="app"></a>Escrever um aplicativo de aprendizado de máquina do Spark usando o MLlib Spark
-Neste aplicativo, usamos um pipeline ML do Spark para executar uma classificação de documento. No pipeline, vamos dividir o documento em palavras, converter as palavras em um vetor de recurso numérico e, finalmente, criar um modelo de previsão usando as etiquetas e vetores de recurso. Execute as seguintes etapas para criar o aplicativo.
+Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) do Spark para executar uma classificação de documento. Pipelines ML fornece um conjunto uniforme de APIs de alto nível criado com base em quadros de dados que ajudam os usuários a criar e ajustar os pipelines de aprendizado de máquina práticos. No pipeline, você divide o documento em palavras, converte as palavras em um vetor de recurso numérico e, finalmente, cria um modelo de previsão usando as etiquetas e vetores de recurso. Execute as seguintes etapas para criar o aplicativo.
 
-1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
-2. Na folha do cluster Spark, clique em **Painel do Cluster** e em **Notebook Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+1. Crie um bloco de notas do Jupyter usando o kernel PySpark. Para obter instruções, consulte [Criar um bloco de notas do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+2. Importe os tipos obrigatórios necessários para este cenário. Cole o trecho a seguir em uma célula vazia e, em seguida, pressione **SHIFT + ENTER**. 
+
+    ```PySpark
+    from pyspark.ml import Pipeline
+    from pyspark.ml.classification import LogisticRegression
+    from pyspark.ml.feature import HashingTF, Tokenizer
+    from pyspark.sql import Row
+
+    import os
+    import sys
+    from pyspark.sql.types import *
+
+    from pyspark.mllib.classification import LogisticRegressionWithSGD
+    from pyspark.mllib.regression import LabeledPoint
+    from numpy import array
+    ```
+3. Carregue os dados (hvac.csv), analisá-los e usá-los para treinar o modelo. 
+
+    ```PySpark
+    # Define a type called LabelDocument
+    LabeledDocument = Row("BuildingID", "SystemInfo", "label")
+
+    # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
+    def parseDocument(line):
+        values = [str(x) for x in line.split(',')]
+        if (values[3] > values[2]):
+            hot = 1.0
+        else:
+            hot = 0.0        
+
+        textValue = str(values[4]) + " " + str(values[5])
+
+        return LabeledDocument((values[6]), textValue, hot)
+
+    # Load the raw HVAC.csv file, parse it using the function
+    data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+
+    documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
+    training = documents.toDF()
+    ```
+
+    No trecho de código, você definirá uma função que compare a temperatura real com a temperatura de destino. Se a temperatura real é maior, o prédio está quente, indicado pelo valor **1,0**. Caso contrário, a compilação fica fria, como indicado pelo valor **0,0**. 
+
+4. Configure o pipeline de aprendizado de máquina Spark que consiste de três estágios: tokenizer, hashingTF e lr. 
+
+    ```PySpark
+    tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
+    hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
+    lr = LogisticRegression(maxIter=10, regParam=0.01)
+    pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
+    ```
+
+    Para obter mais informações sobre o que é um pipeline e como ele funciona, confira <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline de aprendizado de máquina Spark</a>.
+
+5. Ajuste o pipeline para o documento de treinamento.
    
-   > [!NOTE]
-   > Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
-   > 
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
-3. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
+    ```PySpark
+    model = pipeline.fit(training)
+    ```
+
+6. Verifique o documento de treinamento para o ponto de verificação de seu progresso com o aplicativo.
    
-    ![Criar um exemplo de bloco de anotações do Jupyter para aprendizado de máquina do Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-create-notebook.png "Criar um exemplo de bloco de anotações do Jupyter para aprendizado de máquina Spark")
-4. Um novo bloco de anotações é criado e aberto com o nome Untitled.pynb. Clique no nome do bloco de anotações na parte superior e digite um nome amigável.
-   
-    ![Fornecer um exemplo de nome de bloco de anotações do Jupyter para aprendizado de máquina Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-notebook-name.png "Fornecer um exemplo de nome de bloco de anotações do Jupyter para aprendizado de máquina Spark")
-5. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos que são obrigatórios para este cenário. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**. 
-   
-        from pyspark.ml import Pipeline
-        from pyspark.ml.classification import LogisticRegression
-        from pyspark.ml.feature import HashingTF, Tokenizer
-        from pyspark.sql import Row
-   
-        import os
-        import sys
-        from pyspark.sql.types import *
-   
-        from pyspark.mllib.classification import LogisticRegressionWithSGD
-        from pyspark.mllib.regression import LabeledPoint
-        from numpy import array
-6. Agora você deve carregar os dados (hvac.csv), analisá-los e usá-los para treinar o modelo. Para isso, você define uma função que verifica se a temperatura real do prédio é maior que a temperatura de destino. Se a temperatura real é maior, o prédio está quente, indicado pelo valor **1,0**. Se a temperatura real é menor, o prédio está frio, indicado pelo valor **0,0**. 
-   
-    Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
-
-        # List the structure of data for better understanding. Because the data will be
-        # loaded as an array, this structure makes it easy to understand what each element
-        # in the array corresponds to
-
-        # 0 Date
-        # 1 Time
-        # 2 TargetTemp
-        # 3 ActualTemp
-        # 4 System
-        # 5 SystemAge
-        # 6 BuildingID
-
-        LabeledDocument = Row("BuildingID", "SystemInfo", "label")
-
-        # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
-
-        def parseDocument(line):
-            values = [str(x) for x in line.split(',')]
-            if (values[3] > values[2]):
-                hot = 1.0
-            else:
-                hot = 0.0        
-
-            textValue = str(values[4]) + " " + str(values[5])
-
-            return LabeledDocument((values[6]), textValue, hot)
-
-        # Load the raw HVAC.csv file, parse it using the function
-        data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
-        documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
-        training = documents.toDF()
-
-
-1. Configure o pipeline de aprendizado de máquina Spark que consiste de três estágios: tokenizer, hashingTF e lr. Para obter mais informações sobre o que é um pipeline e como ele funciona, confira <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline de aprendizado de máquina Spark</a>.
-   
-    Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
-   
-        tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
-        hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
-        lr = LogisticRegression(maxIter=10, regParam=0.01)
-        pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
-2. Ajuste o pipeline para o documento de treinamento. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
-   
-        model = pipeline.fit(training)
-3. Verifique o documento de treinamento para o ponto de verificação de seu progresso com o aplicativo. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
-   
-        training.show()
+    ```PySpark
+    training.show()
+    ```
    
     Isso deve fornecer um resultado semelhante ao seguinte:
-   
-        +----------+----------+-----+
-        |BuildingID|SystemInfo|label|
-        +----------+----------+-----+
-        |         4|     13 20|  0.0|
-        |        17|      3 20|  0.0|
-        |        18|     17 20|  1.0|
-        |        15|      2 23|  0.0|
-        |         3|      16 9|  1.0|
-        |         4|     13 28|  0.0|
-        |         2|     12 24|  0.0|
-        |        16|     20 26|  1.0|
-        |         9|      16 9|  1.0|
-        |        12|       6 5|  0.0|
-        |        15|     10 17|  1.0|
-        |         7|      2 11|  0.0|
-        |        15|      14 2|  1.0|
-        |         6|       3 2|  0.0|
-        |        20|     19 22|  0.0|
-        |         8|     19 11|  0.0|
-        |         6|      15 7|  0.0|
-        |        13|      12 5|  0.0|
-        |         4|      8 22|  0.0|
-        |         7|      17 5|  0.0|
-        +----------+----------+-----+
 
-    Volte e verifique se a saída em relação ao arquivo CSV bruto. Por exemplo, a primeira linha do arquivo CSV tem esses dados:
+    ```
+    +----------+----------+-----+
+    |BuildingID|SystemInfo|label|
+    +----------+----------+-----+
+    |         4|     13 20|  0.0|
+    |        17|      3 20|  0.0|
+    |        18|     17 20|  1.0|
+    |        15|      2 23|  0.0|
+    |         3|      16 9|  1.0|
+    |         4|     13 28|  0.0|
+    |         2|     12 24|  0.0|
+    |        16|     20 26|  1.0|
+    |         9|      16 9|  1.0|
+    |        12|       6 5|  0.0|
+    |        15|     10 17|  1.0|
+    |         7|      2 11|  0.0|
+    |        15|      14 2|  1.0|
+    |         6|       3 2|  0.0|
+    |        20|     19 22|  0.0|
+    |         8|     19 11|  0.0|
+    |         6|      15 7|  0.0|
+    |        13|      12 5|  0.0|
+    |         4|      8 22|  0.0|
+    |         7|      17 5|  0.0|
+    +----------+----------+-----+
+    ```
+
+    Comparando a saída em relação ao arquivo CSV bruto. Por exemplo, a primeira linha do arquivo CSV tem esses dados:
 
     ![Exemplo de instantâneo dos dados de saída para aprendizado de máquina do Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Exemplo de instantâneo dos dados de saída para aprendizado de máquina do Spark")
 
     Observe como a temperatura real é menor que a temperatura de destino sugerindo que o prédio está frio. Portanto, no resultado do treinamento, o valor para o **rótulo** na primeira linha é **0,0**, o que significa que o prédio não está quente.
 
-1. Prepare um conjunto de dados para executar o modelo treinado. Para fazer isso, passamos uma ID de sistema e a idade do sistema (denotado como **SystemInfo** no resultado de treinamento), e o modelo deve prever se o prédio com essa ID de sistema e idade de sistema seria mais quente (indicado por 1,0) ou mais frio (indicado pelo 0,0).
+7. Prepare um conjunto de dados para executar o modelo treinado. Para fazer isso, você passa por uma ID de sistema e idade de sistema (denotado como **SystemInfo** no resultado de treinamento), e o modelo prevê se o prédio com essa ID de sistema e idade de sistema será mais quente (indicado por 1,0) ou mais frio (indicado pelo 0,0).
    
-   Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
+    ```PySpark   
+    # SystemInfo here is a combination of system ID followed by system age
+    Document = Row("id", "SystemInfo")
+    test = sc.parallelize([(1L, "20 25"),
+                    (2L, "4 15"),
+                    (3L, "16 9"),
+                    (4L, "9 22"),
+                    (5L, "17 10"),
+                    (6L, "7 22")]) \
+        .map(lambda x: Document(*x)).toDF() 
+    ```
+8. Por fim, faça as previsões nos dados de teste. 
    
-       # SystemInfo here is a combination of system ID followed by system age
-       Document = Row("id", "SystemInfo")
-       test = sc.parallelize([(1L, "20 25"),
-                     (2L, "4 15"),
-                     (3L, "16 9"),
-                     (4L, "9 22"),
-                     (5L, "17 10"),
-                     (6L, "7 22")]) \
-           .map(lambda x: Document(*x)).toDF() 
-2. Por fim, faça as previsões nos dados de teste. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
-   
-        # Make predictions on test documents and print columns of interest
-        prediction = model.transform(test)
-        selected = prediction.select("SystemInfo", "prediction", "probability")
-        for row in selected.collect():
-            print row
-3. Você deverá ver um resultado semelhante ao seguinte:
-   
-       Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
-       Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
-       Row(SystemInfo=u'16 9', prediction=1.0, probability=DenseVector([0.4785, 0.5215]))
-       Row(SystemInfo=u'9 22', prediction=1.0, probability=DenseVector([0.4549, 0.5451]))
-       Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
-       Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
+    ```PySpark
+    # Make predictions on test documents and print columns of interest
+    prediction = model.transform(test)
+    selected = prediction.select("SystemInfo", "prediction", "probability")
+    for row in selected.collect():
+        print row
+    ```
+
+    Você deverá ver um resultado semelhante ao seguinte:
+
+    ```   
+    Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
+    Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
+    Row(SystemInfo=u'16 9', prediction=1.0, probability=DenseVector([0.4785, 0.5215]))
+    Row(SystemInfo=u'9 22', prediction=1.0, probability=DenseVector([0.4549, 0.5451]))
+    Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
+    Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
+    ```
    
    Na primeira linha na previsão, você pode ver que para um sistema HVAC com ID 20 e sistema de 25 anos, o prédio estará quente (**previsão = 1,0**). O primeiro valor de DenseVector (0,49999) corresponde à previsão 0,0 e o segundo valor (0,5001) corresponde à previsão 1,0. Na saída, mesmo que o segundo valor seja apenas um pouco mais alto, o modelo mostra **previsão = 1,0**.
-4. Depois de concluir a execução do aplicativo, você deve encerrar o notebook para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
+10. Feche o bloco de notas para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
 
 ## <a name="anaconda"></a>Use a biblioteca Anaconda scikit-learn para aprendizado de máquina do Spark
 Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também inclui a biblioteca **scikit-learn** para aprendizado de máquina. A biblioteca também inclui vários conjuntos de dados que você pode usar para criar aplicativos de exemplo diretamente de um bloco de anotações do Jupyter. Para obter exemplos sobre como usar a biblioteca scikit-learn, confira [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).

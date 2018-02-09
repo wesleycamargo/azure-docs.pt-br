@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7dc10d0cc73960fac4759a0cebec8d294cf1b463
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos para assinatura da Grade de Eventos do Azure para hubs de eventos
 
@@ -24,7 +24,7 @@ Grupos de recursos e as assinaturas do Azure emitem os mesmos tipos de evento. O
 
 As assinaturas do Azure agora podem emitir eventos de gerenciamento do Azure Resource Manager, como quando uma VM é criada ou uma conta de armazenamento é excluída.
 
-| Tipo de evento | Descrição |
+| Tipo de evento | DESCRIÇÃO |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceWriteSuccess | Gerado quando um recurso cria ou operação de atualização será bem-sucedida. |
 | Microsoft.Resources.ResourceWriteFailure | Gerado quando um recurso cria ou operação de atualização será falha. |
@@ -39,7 +39,7 @@ O exemplo a seguir mostra o esquema de um recurso criado de evento:
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -57,7 +57,9 @@ O exemplo a seguir mostra o esquema de um recurso criado de evento:
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
         },
-    }
+      "dataVersion": "",
+      "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -81,7 +83,9 @@ O esquema para um evento de recurso excluído é semelhante:
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -89,18 +93,20 @@ O esquema para um evento de recurso excluído é semelhante:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. |
+| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | ID | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de evento de assinatura. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | autorização | string | A autorização solicitada para a operação. |
 | declarações | string | As propriedades da declaração. |

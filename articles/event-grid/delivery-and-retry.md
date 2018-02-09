@@ -2,17 +2,17 @@
 title: "Entrega e repetição da Grade de Eventos do Azure"
 description: "Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues."
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
-ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos 
 
@@ -58,11 +58,11 @@ A Grade de Eventos usa uma política de repetição de retirada exponencial para
 6. 30 minutos
 7. 1 hora
 
-A Grade de Eventos adiciona uma pequena aleatoriedade a todos os intervalos de repetição.
+A Grade de Eventos adiciona uma pequena aleatoriedade a todos os intervalos de repetição. Após uma hora, a entrega de eventos é repetida a cada uma hora.
 
 ## <a name="retry-duration"></a>Duração da repetição
 
-Durante a versão prévia, a Grade de Eventos do Azure expira todos os eventos que não foram entregues em até duas horas.
+A Grade de Eventos do Azure expira todos os eventos que não são entregues dentro de 24 horas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

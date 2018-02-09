@@ -1,10 +1,10 @@
 ---
-title: "Introdução à verificação de conectividade no Observador de Rede do Azure | Microsoft Docs"
-description: "Esta página apresenta uma visão geral da capacidade de conectividade do Observador de Rede"
+title: "Introdução à Solução de Problemas de Conexão do Observador de Rede do Azure | Microsoft Docs"
+description: "Essa página fornece uma visão geral da capacidade de solução de problemas de conexão do Observador de Rede"
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 16ceef9c923b6a933a5caf752991b466346e0ebc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8825af71620722065c03a28c93e113876c5aa71
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="introduction-to-connectivity-check-in-azure-network-watcher"></a>Introdução à verificação de conectividade no Observador de Rede do Azure
+# <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à solução de problemas de conexão no Observador de Rede do Azure
 
-O recurso de conectividade do Observador de Rede fornece a capacidade de verificar uma conexão TCP direta de uma máquina virtual a uma VM (máquina virtual), FQDN (nome de domínio totalmente qualificado), URI ou endereço IPv4. Os cenários de rede são complexos, são implementados usando Grupos de Segurança de Rede, firewalls, rotas definidas pelo usuário e recursos fornecidos pelo Azure. Configurações complexas tornam a solução de problemas de conectividade desafiadora. O Observador de Rede ajuda a reduzir a quantidade de tempo para localizar e detectar problemas de conectividade. Os resultados retornados podem fornecer informações sobre se um problema de conectividade é devido a uma plataforma ou um problema de configuração do usuário. A conectividade pode ser verificada com o [PowerShell](network-watcher-connectivity-powershell.md), a [CLI do Azure](network-watcher-connectivity-cli.md) e a [API REST](network-watcher-connectivity-rest.md).
+O recurso de solução de problemas de conexão do Observador de Rede fornece a capacidade de verificar uma conexão TCP direta de uma máquina virtual a uma VM (máquina virtual), FQDN (nome de domínio totalmente qualificado), URI ou endereço IPv4. Os cenários de rede são complexos e são implementados usando grupos de segurança de rede, firewalls, rotas definidas pelo usuário e recursos fornecidos pelo Azure. Configurações complexas tornam a solução de problemas de conectividade desafiadora. O Observador de Rede ajuda a reduzir a quantidade de tempo para localizar e detectar problemas de conectividade. Os resultados retornados podem fornecer informações sobre se um problema de conectividade é devido a uma plataforma ou um problema de configuração do usuário. A conectividade pode ser verificada com o [PowerShell](network-watcher-connectivity-powershell.md), a [CLI do Azure](network-watcher-connectivity-cli.md) e a [API REST](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> Solucionar problemas de conexão requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="response"></a>Resposta
+## <a name="response"></a>Response
 
-A tabela a seguir mostra as propriedades retornadas quando uma verificação de conectividade conclui a execução.
+A tabela a seguir mostra as propriedades retornadas quando a solução de problemas de conexão conclui a execução.
 
-|Propriedade  |Descrição  |
+|Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 |ConnectionStatus     | O status da verificação de conectividade. Os resultados possíveis são **Acessível** e **Inacessível**.        |
 |AvgLatencyInMs     | Latência média durante a verificação de conectividade em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
@@ -71,9 +71,9 @@ O seguinte é um exemplo de um problema encontrado em um salto.
 ```
 ## <a name="fault-types"></a>Tipos de Falha
 
-A verificação de conectividade retorna tipos de falha sobre a conexão. A tabela a seguir fornece uma lista dos tipos de falhas atuais retornados.
+A solução de problemas de conexão retorna tipos de falha sobre a conexão. A tabela a seguir fornece uma lista dos tipos de falhas atuais retornados.
 
-|Tipo  |Descrição  |
+|type  |DESCRIÇÃO  |
 |---------|---------|
 |CPU     | Alta utilização da CPU.       |
 |Memória     | Alta utilização de memória.       |
@@ -84,8 +84,4 @@ A verificação de conectividade retorna tipos de falha sobre a conexão. A tabe
 
 ### <a name="next-steps"></a>Próximas etapas
 
-Saiba como verificar a conectividade a um recurso visitando: [verificar a conectividade com o Observador de Rede do Azure](network-watcher-connectivity-powershell.md).
-
-<!--Image references-->
-[1]: ./media/network-watcher-next-hop-overview/figure1.png
-
+Saiba como solucionar problemas de conexão usando o [portal do Azure](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), o [CLI do Azure](network-watcher-connectivity-cli.md), ou [API REST](network-watcher-connectivity-rest.md).

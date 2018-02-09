@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o DocuSign | Microsoft Docs"
+title: "Tutorial: configurar o DocuSign para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
 description: "Saiba como configurar o logon único entre o Active Directory do Azure e o DocuSign."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e8ba836a021a06c017defee2c5b7379d200ac642
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1de1b8e68648e4bac05eca4b306e741bcdb6868b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Tutorial: Configurando o DocuSign para o provisionamento de usuário
+# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: configurar o DocuSign para o provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no DocuSign e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o DocuSign.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 

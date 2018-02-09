@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute (versão prévia)
 
@@ -46,6 +46,7 @@ Você pode monitorar os circuitos ExpressRoute em qualquer parte do mundo usando
 * Europa Ocidental 
 * Leste dos EUA 
 * Sudeste da Ásia 
+* Sudeste da Austrália
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -174,16 +175,13 @@ Para servidores do agente de monitoramento que estão no Azure, você deve confi
 
 Para obter mais informações sobre os NSG, consulte [Grupos de Segurança de Rede](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Etapa 4: solicitar a criação da lista de permissões o Espaço de Trabalho
-
 >[!NOTE]
 >Certifique-se de que você instalou os agentes (o agente do servidor local e o agente do servidor do Azure) e executou o script do PowerShell antes de continuar com esta etapa.
 >
 >
 
-Antes de começar a usar o recurso de monitoramento ExpressRoute do NPM, você deve solicitar seu Espaço de Trabalho com lista de permissão. [Clique aqui para ir até a página e preencha o formulário de solicitação](https://aka.ms/npmcohort). (Dica: você pode abrir este link em uma nova janela ou guia). O processo de lista de permissões pode levar um dia útil ou mais. Você receberá um email quando a lista de permissões for concluída.
 
-## <a name="setupmonitor"></a>Etapa 5: configurar NPM para monitoramento de ExpressRoute
+## <a name="setupmonitor"></a>Etapa 4: configurar NPM para monitoramento de ExpressRoute
 
 >[!WARNING]
 >Não continue até que seu Espaço de Trabalho esteja na lista de permissões e que você receba um email de confirmação.
@@ -208,13 +206,13 @@ Depois de concluir as seções anteriores e verificar que você está na lista d
 
   ![blocos de monitoramento](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Etapa 6: exibir blocos de monitoramento
+## <a name="explore"></a>Etapa 5: exibir blocos de monitoramento
 
 ### <a name="dashboard"></a>Página Monitor de Desempenho de Rede
 
 A página NPM contém uma página para ExpressRoute que mostra uma visão geral da integridade de circuitos e emparelhamentos do ExpressRoute.
 
-  ![Painel](.\media\how-to-npm\dashboard.png)
+  ![painel](.\media\how-to-npm\dashboard.png)
 
 ### <a name="circuits"></a>Lista de circuitos
 

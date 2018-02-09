@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Criar um dispositivo do IoT Edge que atua como um gateway transparente - visualização
 
@@ -61,7 +61,7 @@ Use os scripts de exemplo do PowerShell e Bash descritos em [Gerenciando uma amo
 >Esta amostra destina-se apenas a fins de teste. Para cenários de produção, consulte [Proteger a implantação de IoT][lnk-iothub-secure-deployment] para obter diretrizes de IoT do Azure sobre como proteger sua solução IoT e provisionar seu certificado de acordo.
 
 
-1. Clone os [SDKs do Microsoft Azure IoT e bibliotecas para C] do GitHub:
+1. Clone os SDKs do Microsoft Azure IoT e bibliotecas para C do GitHub:
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
@@ -104,12 +104,12 @@ Para configurar seu dispositivo do IoT Edge como um gateway, você precisa apena
 
 Vamos pressupor os seguintes nomes de arquivo dos scripts de exemplo acima:
 
-| Saída | Script Bash | PowerShell |
-| ------ | ----------- | ---------- |
-| Certificado do dispositivo | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| Chave privada do dispositivo | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| Cadeia de certificados do dispositivo | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| AC proprietária do hub IoT | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| Saída | Nome do arquivo |
+| ------ | --------- |
+| Certificado do dispositivo | `certs/new-edge-device.cert.pem` |
+| Chave privada do dispositivo | `private/new-edge-device.cert.pem` |
+| Cadeia de certificados do dispositivo | `certs/new-edge-device-full-chain.cert.pem` |
+| AC proprietária do hub IoT | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 Forneça as informações do dispositivo e o certificado ao tempo de execução do IoT Edge. 
  

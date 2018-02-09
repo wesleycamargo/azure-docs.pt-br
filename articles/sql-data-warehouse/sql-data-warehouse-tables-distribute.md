@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para tabelas distribuídas no SQL Data Warehouse do Azure
 
@@ -121,7 +121,7 @@ Para minimizar a movimentação de dados selecione a coluna de distribuição qu
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>O que fazer quando nenhuma das colunas são em uma boa coluna de distribuição
 
-Quando não há colunas adequadas, considere o uso de round robin como método de distribuição.
+Se nenhuma das suas colunas tiver valores distintos suficientes para uma coluna de distribuição, será possível criar uma nova coluna como uma composição de um ou mais valores. Para evitar a movimentação de dados durante a execução da consulta, use a coluna de distribuição de composição como uma coluna de junção em consultas.
 
 Quando você cria uma tabela distribuída por hash, a próxima etapa é carregar dados na tabela.  Para carregar as diretrizes, consulte [Visão geral de carregamento](sql-data-warehouse-overview-load.md). 
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Postar um comunicado em um laboratório no Azure DevTest Labs
 
@@ -47,6 +47,13 @@ O recurso de comunicado deve ser usado para notificações temporárias.  Você 
 
 1. Para criar uma mensagem para os usuários neste laboratório, defina **Habilitado** como **Sim**.
 
+1. Você pode inserir uma **data de expiração** para especificar uma data e hora após a qual o comunicado não é exibido aos usuários. Se você não inserir uma data de expiração, o comunicado permanece até que você o desabilite.
+
+   > [!NOTE]
+   > Depois que o aviso expira, ele não será mostrado aos usuários, mas permanece no painel **Comunicado de laboratório**. Você pode editá-lo e reabilitá-lo para ativá-lo novamente.
+   >
+   >
+
 1. Insira um **Título** e o **Texto** para o comunicado.
 
    O título pode ter até 100 caracteres e é mostrado ao usuário na página Visão geral do laboratório. Se o usuário selecionar o título, o texto de aviso será exibido.
@@ -58,7 +65,7 @@ O recurso de comunicado deve ser usado para notificações temporárias.  Você 
 
 1. Selecione **Salvar** quando o comunicado estiver pronto para postagem.
 
-Quando você não quiser mais mostrar esse aviso aos usuários do laboratório, retorne para a página **Comunicado do laboratório** e defina **Habilitado** como **Não**.
+Quando você não quiser mais mostrar esse aviso aos usuários do laboratório, retorne para a página **Comunicado do laboratório** e defina **Habilitado** como **Não**. Se você tiver especificado uma data de expiração, o comunicado é desativado automaticamente nessa data e hora.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Etapas para os usuários exibirem um comunicado
 

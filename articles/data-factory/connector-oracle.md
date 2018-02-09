@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de/para o Oracle usando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados de armazenamentos de origem com suporte para o banco de dados Oracle ou do Oracle para armazenamentos de coletor com suporte, usando o Data Factory.
+title: Copiar dados de e para o Oracle usando o Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados de armazenamentos de origem com suporte para um banco de dados Oracle ou do Oracle para armazenamentos de coletor com suporte, usando o Data Factory.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 10db7959396b4ee9927e4272dec9939ac8c13580
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d6b96bc40325d398c91e293ec6ca8f8cc2993e58
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
+# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-onprem-oracle-connector.md)
+> * [Versão 1 – Disponível de forma geral](v1/data-factory-onprem-oracle-connector.md)
 > * [Versão 2 – Versão prévia](connector-oracle.md)
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para um banco de dados Oracle. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para copiar dados de e para um banco de dados Oracle. Ele amplia o artigo [Visão geral da Atividade de Cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 > [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponibilidade geral), consulte [Conector do Oracle na V1](v1/data-factory-onprem-oracle-connector.md).
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você usar a versão 1 do Data Factory, que está disponível de forma geral, consulte [Conector Oracle na versão 1](v1/data-factory-onprem-oracle-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Você pode copiar dados do banco de dados Oracle para qualquer armazenamento de dados de coletor com suporte ou copiar dados de qualquer armazenamento de dados de origem com suporte para o banco de dados Oracle. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados de um banco de dados Oracle para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer repositório de dados de fonte com suporte para um banco de dados Oracle. Para obter uma lista de armazenamentos de dados que têm suporte como fontes ou coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Especificamente, este conector Oracle dá suporte às seguintes versões do banco de dados Oracle, bem como a autenticações Básica e OID.
+Especificamente, este conector Oracle dá suporte às seguintes versões de um banco de dados Oracle. Ele também dá suporte a autenticações básica ou OID:
 
 - Oracle 12c R1 (12.1)
 - Oracle 11g R1, R2 (11.1, 11.2)
@@ -41,11 +41,11 @@ Especificamente, este conector Oracle dá suporte às seguintes versões do banc
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-Para copiar dados de/para um banco de dados Oracle que não esteja acessível publicamente, você precisará configurar um Integration Runtime auto-hospedado. Consulte o artigo [Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes sobre o Integration Runtime. O Integration Runtime fornece um driver do Oracle interno, portanto, não será necessário instalar manualmente nenhum driver ao copiar dados do/para o Oracle.
+Para copiar dados de e para um banco de dados Oracle que não esteja acessível publicamente, você precisará configurar um Integration Runtime auto-hospedado. Para obter mais informações sobre o integration, runtime consulte [integration runtime auto-hospedado](create-self-hosted-integration-runtime.md). O integration runtime fornece um driver interno do Oracle. Portanto, você não precisa instalar manualmente um driver quando você copia dados de e para Oracle.
 
-## <a name="getting-started"></a>Introdução
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,13 +53,13 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-As propriedades a seguir têm suporte para o serviço vinculado do Oracle:
+As propriedades a seguir têm suporte para o serviço vinculado do Oracle.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Oracle** | Sim |
-| connectionString | Especifica as informações necessárias para se conectar à instância do Banco de Dados Oracle. Marque esse campo como uma SecureString.<br><br>**Suporte para o tipo de conexão**: você pode optar por usar a **Oracle SID** ou o **nome do serviço Oracle** para identificar o banco de dados:<br>– Usando a SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Usando o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
+| Tipo | A propriedade type deve ser definida como: **Oracle**. | sim |
+| connectionString | Especifica as informações necessárias para se conectar à instância do Banco de Dados Oracle. Marque esse campo como SecureString.<br><br>**Tipo de conexão com suporte**: você pode optar por usar a **Oracle SID** ou o **Oracle Service Name** para identificar o banco de dados:<br>-Se você usar a SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se você usar Service Name:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conecta ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
 
@@ -84,14 +84,14 @@ As propriedades a seguir têm suporte para o serviço vinculado do Oracle:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre conjuntos de dados. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Oracle.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Oracle.
 
-Para copiar dados do/para o Oracle, defina a propriedade type do conjunto de dados como **OracleTable**. Há suporte para as seguintes propriedades:
+Para copiar dados do e para o Oracle, defina a propriedade type do conjunto de dados como **OracleTable**. Há suporte para as seguintes propriedades.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **OracleTable** | Sim |
-| tableName |Nome da tabela no Banco de Dados Oracle à qual o serviço vinculado se refere. | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como **OracleTable**. | sim |
+| tableName |O nome da tabela no banco de dados Oracle à qual o serviço vinculado se refere. | sim |
 
 **Exemplo:**
 
@@ -116,16 +116,16 @@ Para copiar dados do/para o Oracle, defina a propriedade type do conjunto de dad
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela fonte e pelo coletor Oracle.
 
-### <a name="oracle-as-source"></a>Oracle como fonte
+### <a name="oracle-as-a-source-type"></a>Oracle como um tipo de fonte
 
-Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como **OracleSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
+Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como **OracleSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **OracleSource** | Sim |
-| oracleReaderQuery | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não  |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **OracleSource**. | sim |
+| oracleReaderQuery | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não  |
 
-Se você não especificar "oracleReaderQuery", as colunas definidas na seção "structure" do conjunto de dados serão usadas para criar uma consulta (`select column1, column2 from mytable`) para ser executada no banco de dados Oracle. Se a definição de conjunto de dados não tiver a seção "structure", todas as colunas serão selecionadas da tabela.
+Se você não especificar "oracleReaderQuery", as colunas definidas na seção "structure" do conjunto de dados serão usadas para criar uma consulta (`select column1, column2 from mytable`) para ser executada no banco de dados Oracle. Se a definição de conjunto de dados não tiver seção "structure", todas as colunas serão selecionadas da tabela.
 
 **Exemplo:**
 
@@ -159,16 +159,16 @@ Se você não especificar "oracleReaderQuery", as colunas definidas na seção "
 ]
 ```
 
-### <a name="oracle-as-sink"></a>Oracle como coletor
+### <a name="oracle-as-a-sink-type"></a>Oracle como um tipo de coletor
 
-Para copiar dados para o Oracle, defina o tipo de coletor na atividade de cópia como **OracleSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
+Para copiar dados para o Oracle, defina o tipo de coletor na atividade de cópia como **OracleSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como: **OracleSink** | Sim |
-| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (o padrão é 10000) |
-| writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). | Não  |
-| preCopyScript | Especifica uma consulta SQL para a atividade de cópia, a ser executada antes de gravar dados no Oracle em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. | Não  |
+| Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como **OracleSink**. | sim |
+| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são inteiro (número de linhas). |Não (o padrão é 10.000) |
+| writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são período. Um exemplo é 00:30:00 (30 minutos). | Não  |
+| preCopyScript | Especifique uma consulta SQL para a atividade de cópia, a ser executada antes de gravar dados no Oracle em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. | Não  |
 
 **Exemplo:**
 
@@ -203,7 +203,7 @@ Para copiar dados para o Oracle, defina o tipo de coletor na atividade de cópia
 
 ## <a name="data-type-mapping-for-oracle"></a>Mapeamento de tipo de dados para o Oracle
 
-Ao copiar dados do/para o Oracle, os seguintes mapeamentos são usados de tipos de dados do Oracle para tipos de dados provisórios do Azure Data Factory. Consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md) para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor.
+Ao copiar dados do e para o Oracle, os seguintes mapeamentos são usados de tipos de dados do Oracle para tipos de dados provisórios do Data Factory. Para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor, consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados do Oracle | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
@@ -234,4 +234,4 @@ Ao copiar dados do/para o Oracle, os seguintes mapeamentos são usados de tipos 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

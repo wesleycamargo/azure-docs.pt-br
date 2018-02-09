@@ -10,17 +10,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 04efb82addd0f307c68c73e28e46b602e5bc194a
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.date: 01/24/2018
+ms.author: mbullwin; daviste
+ms.openlocfilehash: 1a5380cac08ab32cfea4cf457aed1fb1510099ed
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
 Descubra quando as pessoas usam seu aplicativo Web, em quais páginas elas estão mais interessadas, onde os usuários estão localizados e quais navegadores e sistemas operacionais eles usam. Analisar a telemetria de negócios e de uso com o [Application Insights do Azure](app-insights-overview.md).
+
+![Captura de tela de Usuários do Application Insights](./media/app-insights-usage-segmentation/0001-users.png)
 
 ## <a name="get-started"></a>Introdução
 
@@ -36,35 +38,30 @@ Três das folhas de uso usam a mesma ferramenta para dividir a telemetria do seu
 
     Um evento personalizado representa uma ocorrência de algo que esteja acontecendo em seu aplicativo, geralmente uma interação do usuário, como um clique de botão ou a conclusão de uma tarefa. Insira o código em seu aplicativo para [gerar eventos personalizados](app-insights-api-custom-events-metrics.md#trackevent).
 
-![Ferramenta de uso](./media/app-insights-usage-segmentation/users.png)
+## <a name="querying-for-certain-users"></a>Consultas a determinados usuários
 
-## <a name="querying-for-certain-users"></a>Consultar determinados usuários 
+Explore diferentes grupos de usuários, ajustando as opções de consulta na parte superior da ferramenta de Usuários:
 
-Explore diferentes grupos de usuários, ajustando as opções de consulta na parte superior da ferramenta de Usuários: 
-
-* Quem usou: escolha exibições de página e eventos personalizados. 
-* Durante: escolha um intervalo de tempo. 
-* Por: escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade. 
+* Mostrar: Escolha um coorte de usuários para analisar.
+* Quem usou: escolha exibições de página e eventos personalizados.
+* Durante: escolha um intervalo de tempo.
+* Por: escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade.
 * Dividido por: escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
 * Adicionar filtros: limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
  
 ## <a name="saving-and-sharing-reports"></a>Salvar e compartilhar relatórios 
-Você pode salvar relatórios de Usuários, de forma privada na seção Meus Relatórios ou de forma compartilhada com quem tiver acesso a esse recurso do Application Insights na seção Relatórios Compartilhados.  
- 
-Ao salvar um relatório ou editar suas propriedades, escolher "Intervalo de tempo relativo atual" para salvar um relatório atualizará continuamente os dados, voltando um período determinado.  
- 
-Escolha "Intervalo de tempo absoluto atual" para salvar um relatório com um conjunto fixo de dados. Tenha em mente que os dados no Application Insights são armazenados somente por 90 dias, portanto, se mais de 90 dias tiverem se passado desde um relatório com um intervalo de tempo absoluto foi salvo, o relatório aparecerá vazio. 
- 
-## <a name="example-instances"></a>Instâncias de exemplo
+Você pode salvar relatórios de Usuários, de forma privada na seção Meus Relatórios ou de forma compartilhada com quem tiver acesso a esse recurso do Application Insights na seção Relatórios Compartilhados.
 
-A seção de Instâncias do exemplo mostra informações sobre alguns eventos, sessões ou usuários individuais que correspondem à consulta atual. Considerar e explorar os comportamentos de indivíduos, além de agregados, pode fornecer informações sobre como as pessoas realmente usam seu aplicativo. 
- 
-## <a name="insights"></a>Insights 
+Para compartilhar um link para um relatório de Usuários, Sessões ou Eventos; clique em **Compartilhar** na barra de ferramentas e, em seguida, copie o link.
 
-A barra lateral Insights mostra grandes clusters de usuários que compartilham propriedades comuns. Esses clusters podem revelar tendências surpreendentes de como as pessoas usam seu aplicativo. Por exemplo, se 40% de todo o uso do seu aplicativo vem de pessoas que usam um único recurso.  
+Para compartilhar uma cópia dos dados em um relatório de Usuários, Sessões ou Eventos; clique em **Compartilhar** na barra de ferramentas e, em seguida, clique no **ícone do Word** para criar um documento do Word com os dados. Ou então, clique no **ícone do Word** acima do gráfico principal.
 
+## <a name="meet-your-users"></a>Conheça seus usuários
+
+A seção **Conheça seus usuários** mostra informações sobre cinco usuários de exemplo que correspondem à consulta atual. Considerar e explorar os comportamentos de indivíduos, além de agregados, pode fornecer informações sobre como as pessoas realmente usam seu aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
     - [Funis](usage-funnels.md)
@@ -72,4 +69,3 @@ A barra lateral Insights mostra grandes clusters de usuários que compartilham p
     - [Fluxos de Usuário](app-insights-usage-flows.md)
     - [Pastas de trabalho](app-insights-usage-workbooks.md)
     - [Adicionar contexto de usuário](app-insights-usage-send-user-context.md)
-

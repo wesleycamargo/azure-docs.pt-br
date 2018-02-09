@@ -1,6 +1,6 @@
 ---
-title: "Como criar soluções de gerenciamento no OMS (Operations Management Suite) | Microsoft Docs"
-description: "As soluções de gerenciamento estendem a funcionalidade do OMS (Operations Management Suite), fornecendo cenários de gerenciamento empacotados que os clientes podem adicionar ao seu espaço de trabalho do OMS.  Este artigo fornece detalhes sobre como criar soluções de gerenciamento para usar em seu próprio ambiente ou disponibilizar para os clientes."
+title: "Criar um arquivo de solução de gerenciamento no Azure | Microsoft Docs"
+description: "As soluções de gerenciamento fornecem cenários de gerenciamento empacotados que os clientes podem adicionar ao ambiente do Azure.  Este artigo fornece detalhes sobre como criar soluções de gerenciamento para usar em seu próprio ambiente ou disponibilizar para os clientes."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Criando um arquivo de solução de gerenciamento no OMS (Operations Management Suite) (Versão prévia)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.  
+> Esta é uma documentação preliminar para criar soluções de gerenciamento no Azure que atualmente estão em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.  
 
-As soluções de gerenciamento do OMS (Operations Management Suite) são implementadas como [modelos do Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  A principal tarefa ao aprender a criar soluções personalizadas é aprender como [criar um modelo](../azure-resource-manager/resource-group-authoring-templates.md).  Este artigo fornece detalhes exclusivos sobre os modelos usados para as soluções e como configurar recursos típicos de soluções.
+As soluções de gerenciamento no Azure são implementadas como [modelos do Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  A principal tarefa ao aprender a criar soluções personalizadas é aprender como [criar um modelo](../azure-resource-manager/resource-group-authoring-templates.md).  Este artigo fornece detalhes exclusivos sobre os modelos usados para as soluções e como configurar recursos típicos de soluções.
 
 
 ## <a name="tools"></a>Ferramentas
@@ -53,7 +53,8 @@ A estrutura básica de um arquivo de solução de gerenciamento é a mesma que u
 ## <a name="parameters"></a>parâmetros
 [Parâmetros](../azure-resource-manager/resource-group-authoring-templates.md#parameters) são valores que exige dos usuários quando eles instalam a solução de gerenciamento.  Eles são parâmetros padrão que todas as soluções terão; além disso, você pode adicionar parâmetros adicionais conforme necessário para sua solução específica.  O modo como os usuários fornecerão valores de parâmetro quando instalarem sua solução dependerá do parâmetro específico e do modo como a solução estiver sendo instalada.
 
-Quando um usuário instala a solução de gerenciamento por meio do [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) ou dos [Modelos de Início Rápido do Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), será solicitado que ele selecione uma [Conta de automação e um Espaço de trabalho do OMS](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Eles são usados para preencher os valores de cada um dos parâmetros padrão.  Não é solicitado que o usuário forneça diretamente os valores dos parâmetros padrão, mas será solicitado que ele forneça valores para eventuais parâmetros adicionais.
+Quando um usuário instala a solução de gerenciamento por meio do [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) ou dos [Modelos de Início Rápido do Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), será solicitado que ele selecione uma [Conta de automação e um Espaço de trabalho do Log Analytics](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  Eles são usados para preencher os valores de cada um dos parâmetros padrão.  Não é solicitado que o usuário forneça diretamente os valores dos parâmetros padrão, mas será solicitado que ele forneça valores para eventuais parâmetros adicionais.
+
 
 Quando o usuário instalar a solução por [outro método](operations-management-suite-solutions.md#finding-and-installing-management-solutions), ele deverá fornecer um valor para todos os parâmetros padrão e todos os parâmetros adicionais.
 
@@ -86,12 +87,12 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 
 | Parâmetro | type | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| accountName |cadeia de caracteres |Nome da conta de Automação do Azure. |
-| pricingTier |cadeia de caracteres |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
-| regionId |cadeia de caracteres |Região da conta de Automação do Azure. |
-| solutionName |cadeia de caracteres |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
-| workspaceName |cadeia de caracteres |O nome do espaço de trabalho do Log Analytics. |
-| workspaceRegionId |cadeia de caracteres |A região do espaço de trabalho do Log Analytics. |
+| accountName |string |Nome da conta de Automação do Azure. |
+| pricingTier |string |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
+| regionId |string |Região da conta de Automação do Azure. |
+| solutionName |string |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
+| workspaceName |string |O nome do espaço de trabalho do Log Analytics. |
+| workspaceRegionId |string |A região do espaço de trabalho do Log Analytics. |
 
 
 A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar em seu arquivo de solução.  
@@ -168,8 +169,9 @@ Os [recursos](../azure-resource-manager/resource-group-authoring-templates.md#re
 ### <a name="dependencies"></a>Dependências
 O elemento **dependsOn** especifica uma [dependência](../azure-resource-manager/resource-group-define-dependencies.md) de outro recurso.  Quando a solução é instalada, um recurso não é criado até que todas as suas dependências tenham sido criadas.  Por exemplo, sua solução pode [iniciar um runbook](operations-management-suite-solutions-resources-automation.md#runbooks) quando ele é instalado usando um [recurso de trabalho](operations-management-suite-solutions-resources-automation.md#automation-jobs).  O recurso de trabalho seria dependente do recurso de runbook para assegurar que o runbook fosse criado antes do trabalho.
 
-### <a name="oms-workspace-and-automation-account"></a>Espaço de trabalho do OMS e Conta de automação
-Soluções de gerenciamento exigem que um [espaço de trabalho do OMS](../log-analytics/log-analytics-manage-access.md) contenha modos de exibição e que uma [conta de automação](../automation/automation-security-overview.md#automation-account-overview) contenha runbooks e recursos relacionados.  Eles devem estar disponíveis antes que os recursos na solução sejam criados e não devem ser definidos na solução em si.  O usuário [especificará uma conta e espaço de trabalho](operations-management-suite-solutions.md#oms-workspace-and-automation-account) quando implantar a sua solução mas, na condição de autor, você deve considerar os pontos a seguir.
+### <a name="log-analytics-workspace-and-automation-account"></a>Espaço de trabalho do Log Analytics e Conta de automação
+Soluções de gerenciamento exigem que um [espaço de trabalho do Log Analytics](../log-analytics/log-analytics-manage-access.md) contenha modos de exibição e que uma [Conta de automação](../automation/automation-security-overview.md#automation-account-overview) contenha runbooks e recursos relacionados.  Eles devem estar disponíveis antes que os recursos na solução sejam criados e não devem ser definidos na solução em si.  O usuário [especificará uma conta e espaço de trabalho](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) quando implantar a sua solução mas, na condição de autor, você deve considerar os pontos a seguir.
+
 
 ## <a name="solution-resource"></a>Recurso da solução
 Cada solução exige uma entrada de recurso no elemento **resources** que define a solução em si.  Isso terá um tipo **Microsoft.OperationsManagement/solutions** e terá a estrutura a seguir. Isso inclui [parâmetros padrão](#parameters) e [variáveis](#variables) que normalmente são usados para definir propriedades da solução.

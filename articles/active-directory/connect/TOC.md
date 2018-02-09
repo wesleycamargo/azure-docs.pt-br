@@ -55,6 +55,7 @@
 ### [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Conta de serviço do Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Assistente de instalação](active-directory-aadconnectsync-installation-wizard.md)
+### [Como o UserPrincipalName é populado](active-directory-aadconnect-userprincipalname.md)
 ### [Alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configurar a filtragem](active-directory-aadconnectsync-configure-filtering.md)
 ### [Agendador](active-directory-aadconnectsync-feature-scheduler.md)

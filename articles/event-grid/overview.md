@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
 
@@ -22,18 +22,20 @@ Você pode usar filtros para encaminhar eventos específicos a pontos de extremi
 
 No momento, a Grade de Eventos oferece suporte às seguintes regiões:
 
+* Sudeste da Ásia
+* Leste da Ásia
 * Centro dos EUA
 *   Leste dos EUA
 *   Leste dos EUA 2
+* Europa Ocidental
+* Norte da Europa
 *   Centro-Oeste dos EUA
 *   Oeste dos EUA
 *   Oeste dos EUA 2
 
-Outras regiões serão adicionadas.
-
 Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). A imagem a seguir mostra como a Grade de Eventos conecta editores e manipuladores, mas ele não fornece uma lista abrangente das opções com suporte.
 
-![Modelo funcional da Grade de Eventos](./media/overview/event-grid-functional-model.png)
+![Modelo funcional da Grade de Eventos](./media/overview/functional-model.png)
 
 ## <a name="event-publishers"></a>Editores de eventos
 
@@ -42,10 +44,10 @@ No momento, os seguintes serviços do Azure têm suporte interno ao publicador p
 * Assinaturas do Azure (operações de gerenciamento)
 * Tópicos personalizados
 * Hubs de evento
+* Hub IoT
 * Grupos de recursos (operações de gerenciamento)
 * Blob de Armazenamento
-
-Outros serviços do Azure serão adicionados neste ano.
+* Uso geral v2 (GPv2) do Armazenamento
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
@@ -58,7 +60,7 @@ No momento, os seguintes serviços do Azure têm suporte interno ao manipulador 
 * Microsoft Flow
 * WebHooks
 
-Outros serviços do Azure serão adicionados neste ano.
+Ao usar o Azure Functions como o manipulador, use o gatilho Grade de Eventos em vez de gatilhos HTTP genéricos. A Grade de Eventos valida automaticamente os gatilhos de Função da Grade de Eventos. Com os gatilhos HTTP genéricos, você deve implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
 
 ## <a name="concepts"></a>Conceitos
 
@@ -111,9 +113,7 @@ A Grade de Eventos conecta seu aplicativo a outros serviços. Por exemplo, crie 
 
 ## <a name="how-much-does-event-grid-cost"></a>Quanto custa a Grade de Eventos?
 
-A Grade de Eventos do Azure usa um modelo de preço de pagamento por evento, para que você pague só pelo que usa.
-
-A Grade de Eventos custa US $0,60 por milhão de operações (US $0,30 durante a versão prévia) e as primeiras 100.000 operações do mês são gratuitas. As operações são definidas como ingresso de evento, correspondência avançada, tentativa de entrega e chamadas de gerenciamento.  Encontre mais detalhes na [página de preços](https://azure.microsoft.com/pricing/details/event-grid/).
+A Grade de Eventos do Azure usa um modelo de preço de pagamento por evento, para que você pague só pelo que usa. As primeiras 100.000 operações por mês são gratuitas. As operações são definidas como ingresso de evento, correspondência avançada, tentativa de entrega e chamadas de gerenciamento. Para obter detalhes, consulte a [página de preços](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

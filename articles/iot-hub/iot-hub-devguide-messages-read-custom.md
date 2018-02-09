@@ -11,23 +11,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
 
-O Hub IoT habilita o direcionamento de [mensagens de dispositivo para a nuvem][lnk-device-to-cloud] para pontos de extremidade voltados para o serviço do Hub IoT com base nas propriedades da mensagem. As regras de roteamento oferecem a flexibilidade para enviar mensagens para onde elas precisam ir sem a necessidade de serviços adicionais para processar mensagens ou escrever código adicional. Cada regra de roteamento que você configurar tem as seguintes propriedades:
+O Hub IoT habilita o direcionamento de [mensagens de dispositivo para a nuvem][lnk-device-to-cloud] para pontos de extremidade voltados para o serviço do Hub IoT com base nas propriedades da mensagem. As regras de roteamento oferecem a flexibilidade para enviar mensagens para onde elas precisam ir sem a necessidade de serviços adicionais ou escrever código. Cada regra de roteamento que você configurar tem as seguintes propriedades:
 
-| Propriedade      | Descrição |
+| Propriedade      | DESCRIÇÃO |
 | ------------- | ----------- |
 | **Nome**      | O nome exclusivo que identifica a regra. |
 | **Fonte**    | A origem do fluxo de dados a ser afetado. Por exemplo, telemetria do dispositivo. |
-| **Condição** | A expressão de consulta para a regra de roteamento que é executada em relação ao cabeçalho e ao corpo da mensagem e usada para determinar se ela é uma correspondência para o ponto de extremidade. Para obter mais informações sobre como construir uma condição de rota, consulte o [Referência – linguagem de consulta para dispositivos gêmeos e trabalhos][lnk-devguide-query-language]. |
+| **Condição** | A expressão de consulta para a regra de roteamento que é executada em relação ao cabeçalho e ao corpo da mensagem e determina se ela é uma correspondência para o ponto de extremidade. Para obter mais informações sobre como construir uma condição de rota, consulte o [Referência – linguagem de consulta para dispositivos gêmeos e trabalhos][lnk-devguide-query-language]. |
 | **Ponto de extremidade**  | O nome do ponto de extremidade em que Hub IoT envia as mensagens que correspondem à condição. Os pontos de extremidade devem estar na mesma região que o Hub IoT, caso contrário, você pode ser cobrado por gravações entre regiões. |
 
 Uma única mensagem pode corresponder à condição em várias regras de roteamentos, caso em que o Hub IoT entrega a mensagem para o ponto de extremidade associado a cada regra correspondente. O Hub IoT também elimina a duplicação da entrega de mensagem automaticamente, portanto, se uma mensagem corresponder a várias regras que têm o mesmo destino, ela será gravada apenas uma vez no destino.

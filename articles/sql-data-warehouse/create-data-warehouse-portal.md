@@ -1,5 +1,5 @@
 ---
-title: Criar um SQL Data Warehouse do Azure - portal do Azure | Microsoft Docs
+title: "Início rápido: Criar um SQL Data Warehouse do Azure - Portal do Azure | Microsoft Docs"
 description: "Para o Azure SQL Data Warehouse, crie um servidor SQL, a regra de firewall no nível do servidor e um data warehouse no portal do Azure. Em seguida, faça a consulta."
 keywords: tutorial do sql data warehouse, criar um data warehouse SQL
 services: sql-database
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Criar e consultar um SQL Data Warehouse do Azure no portal do Azure
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: Criar e consultar um SQL Data Warehouse do Azure no portal do Azure
 
 Crie e consulte rapidamente um SQL Data Warehouse do Azure usando o portal do Azure.
 
@@ -33,7 +33,7 @@ Baixe e instale a versão mais recente do [SQL Server Management Studio](/sql/ss
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Criar um data warehouse
 
@@ -49,7 +49,7 @@ Siga estas etapas para criar um SQL data warehouse com os dados de exemplo de Ad
 
 3. Preencha o formulário do SQL Data Warehouse com as seguintes informações:   
 
-    | Configuração | Valor sugerido | Descrição | 
+    | Configuração | Valor sugerido | DESCRIÇÃO | 
     | ------- | --------------- | ----------- | 
     | **Nome do banco de dados** | meuDataWarehouseDeExemplo | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers). Observe que um data warehouse é um tipo de banco de dados.| 
     | **Assinatura** | Sua assinatura  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
@@ -61,7 +61,7 @@ Siga estas etapas para criar um SQL data warehouse com os dados de exemplo de Ad
 
 4. Clique em **Servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** com as seguintes informações: 
 
-    | Configuração | Valor sugerido | Descrição | 
+    | Configuração | Valor sugerido | DESCRIÇÃO | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
     | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
@@ -126,7 +126,7 @@ Agora é possível conectar-se ao SQL Server e a seus data warehouses usando est
 
 Obtenha o nome do servidor totalmente qualificado para seu SQL Server no Portal do Azure. Posteriormente, você usará o nome totalmente qualificado ao se conectar ao servidor.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
 3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**. Neste exemplo, o nome totalmente qualificado é meunovoservidor-20171113.database.windows.net. 
 
@@ -140,7 +140,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.m
 
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
 
-   | Configuração       | Valor sugerido | Descrição | 
+   | Configuração       | Valor sugerido | DESCRIÇÃO | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
    | Nome do servidor | O nome do servidor totalmente qualificado | Veja um exemplo: **meunovoservidor-20171113.database.windows.net**. |

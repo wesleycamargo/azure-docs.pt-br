@@ -1,27 +1,27 @@
 ---
-title: "Encaminhar eventos de Armazenamento de Blobs do Azure para um ponto de extremidade da Web personalizado (versão prévia) | Microsoft Docs"
+title: Encaminhar eventos de armazenamento de Blobs do Azure para um ponto de extremidade da Web personalizado | Microsoft Docs
 description: Use a Grade de Eventos do Azure para assinar eventos de Armazenamento de Blobs.
 services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 50a6126f065b1b4d851f53b5cb3096c130314450
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4f10d9b26cb75bee8103d986b7fa1197168c692f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Encaminhar eventos de Armazenamento de Blobs para um ponto de extremidade da Web personalizado (versão prévia)
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Encaminhar eventos de armazenamento de Blobs para um ponto de extremidade da Web personalizado com CLI do Azure
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usa a CLI do Azure para assinar eventos de Armazenamento de Blobs e acionar o evento a fim de exibir o resultado. 
 
-Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo mostrado neste artigo, enviamos os eventos para uma URL que apenas coleta as mensagens. Você cria essa URL usando uma ferramenta de terceiros de software livre chamada [RequestBin](https://requestb.in/).
+Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo mostrado neste artigo, enviamos os eventos para uma URL que apenas coleta as mensagens. Você cria essa URL usando ferramentas de terceiros de [RequestBin](https://requestb.in/) ou [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** é uma ferramenta de software livre que não se destina ao uso com altas taxas de transferência. O uso da ferramenta aqui é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
+> **RequestBin** e **Hookbin** não são destinadas para uso de taxa de transferência alta. O uso dessas ferramentas é puramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
 
 Quando você concluir as etapas descritas neste artigo, verá que os dados do evento foi enviados para um ponto de extremidade.
 
@@ -39,7 +39,7 @@ Se você não estiver usando o Cloud Shell, primeiro você deve entrar usando `a
 
 Os tópicos de Grade de Eventos são recursos do Azure e devem ser colocados em um grupo de recursos do Azure. O grupo de recursos do Azure é uma coleção lógica na qual os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). 
 
 O exemplo a seguir cria um grupo de recursos chamado `<resource_group_name>` na localização *westcentralus*.  Substitua `<resource_group_name>` por um nome exclusivo para o grupo de recursos.
 
@@ -47,14 +47,12 @@ O exemplo a seguir cria um grupo de recursos chamado `<resource_group_name>` na 
 az group create --name <resource_group_name> --location westcentralus
 ```
 
-## <a name="create-a-blob-storage-account"></a>Criar uma conta de armazenamento de blobs
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Para usar o Armazenamento do Azure, você precisa de uma conta de armazenamento.  Os eventos de Armazenamento de Blobs estão, no momento, disponíveis apenas para contas de Armazenamento de Blobs.
-
-Uma conta de Armazenamento de Blobs é uma conta de armazenamento especializada para armazenar dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes a contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para aplicativos que exigem apenas o armazenamento de blobs em bloco ou acréscimo, recomendamos o uso de contas de Armazenamento de Blobs.
+Para usar eventos de armazenamento de Blobs, você precisa de uma [conta de armazenamento Blob](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou uma a [conta de armazenamento de uso geral v2](../common/storage-account-options.md#general-purpose-v2). As contas de **uso geral v2 (GPv2)** são contas de armazenamento que fornecem suporte a todos os recursos de todos os serviços de armazenamento, incluindo blobs, arquivos, filas e tabelas. Uma **Conta de armazenamento Blob** é uma conta de armazenamento especializada para armazenar dados não estruturados como blobs (objetos) no Armazenamento do Microsoft Azure. As contas de armazenamento de Blobs são como contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para aplicativos que exigem apenas o armazenamento de blobs em bloco ou acréscimo, recomendamos o uso de contas de Armazenamento de Blobs. 
 
 > [!NOTE]
-> No momento, a Grade de Eventos está em versão prévia e disponível apenas para contas de armazenamento nas regiões **westcentralus** e **westus2**.
+> A disponibilidade para eventos de armazenamento está vinculada à [disponibilidade](../../event-grid/overview.md) da Grade de Eventos e estará disponível em outras regiões, conforme a Grade de Eventos.
 
 Substitua `<storage_account_name>` por um nome exclusivo para sua conta de armazenamento e `<resource_group_name>` pelo grupo de recursos criado anteriormente.
 
@@ -70,11 +68,11 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 
-Antes de assinar eventos da conta de Armazenamento de Blobs, vamos criar o ponto de extremidade para mensagens de evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. RequestBin é uma ferramenta de terceiros de software livre que permite criar um ponto de extremidade e exibir as solicitações enviadas a ele. Vá para [RequestBin](https://requestb.in/)e clique em **Criar um RequestBin**.  Copie a URL do compartimento, pois você precisará dela para assinar o tópico.
+Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. RequestBin e Hookbin são ferramentas de terceiros que permitem criar um ponto de extremidade e exibir solicitações que são enviadas a ele. Acesse [RequestBin](https://requestb.in/) e clique em **Criar um RequestBin** ou acesse [Hookbin](https://hookbin.com/) e clique em **Cria novo ponto de extremidade**.  Copie a URL do compartimento, pois você precisará dela para assinar o tópico.
 
-## <a name="subscribe-to-your-blob-storage-account"></a>Assinar sua conta de Armazenamento de Blobs
+## <a name="subscribe-to-your-storage-account"></a>Assinar a sua conta de armazenamento
 
-Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina a conta de armazenamento de blobs que você criou e transmite a URL do RequestBin como o ponto de extremidade para notificação de eventos. Substitua `<event_subscription_name>` por um nome exclusivo para a sua assinatura do evento e `<URL_from_RequestBin>` pelo valor da seção anterior. A especificação de um ponto de extremidade durante a assinatura faz com que a Grade de Eventos manipule o roteamento de eventos para esse ponto de extremidade. Em `<resource_group_name>` e `<storage_account_name>`, use os valores criados anteriormente. 
+Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina a conta de armazenamento que você criou e transmite a URL do RequestBin ou Hookbin como o ponto de extremidade para notificação de eventos. Substitua `<event_subscription_name>` por um nome exclusivo para a sua assinatura do evento e `<endpoint_URL>` pelo valor da seção anterior. A especificação de um ponto de extremidade durante a assinatura faz com que a Grade de Eventos manipule o roteamento de eventos para esse ponto de extremidade. Em `<resource_group_name>` e `<storage_account_name>`, use os valores criados anteriormente.  
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -82,12 +80,12 @@ storageid=$(az storage account show --name <storage_account_name> --resource-gro
 az eventgrid event-subscription create \
   --resource-id $storageid \
   --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin>
+  --endpoint <endpoint_URL>
 ```
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Acionar um evento do Armazenamento de Blobs
 
-Agora, vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Primeiro, vamos configurar o nome e a chave da conta de armazenamento. Em seguida, vamos criar um contêiner para depois criar e carregar um arquivo. Novamente, use os valores de `<storage_account_name>` e `<resource_group_name>` criados anteriormente.
+Agora, vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Primeiro, vamos configurar o nome e a chave da conta de armazenamento e, em seguida, nós criamos um contêiner para depois criar e carregar um arquivo. Novamente, use os valores de `<storage_account_name>` e `<resource_group_name>` criados anteriormente.
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
@@ -99,7 +97,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Navegue até a URL do RequestBin que você criou anteriormente. Ou clique em Atualizar no navegador do RequestBin aberto. Você verá o evento que acabou de ser enviado. 
+Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Navegue até a URL do ponto de extremidade que você criou anteriormente. Ou clique em Atualizar no navegador. Você verá o evento que acabou de ser enviado. 
 
 ```json
 [{

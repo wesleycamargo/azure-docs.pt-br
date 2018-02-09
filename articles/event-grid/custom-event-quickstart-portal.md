@@ -3,23 +3,23 @@ title: Eventos personalizados para a Grade de Eventos do Azure com o portal do A
 description: "Use a Grade de Eventos do Azure e o PowerShell para publicar um tópico e assinar esse evento."
 services: event-grid
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 10/11/2017
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 0fe498b7b6dcf59bc5caef8ff5a40053e0498f85
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e rotear eventos personalizados com o portal do Azure e a Grade de Eventos
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o portal do Azure para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. No entanto, para simplificar este artigo, você envia os eventos para uma URL que apenas coleta as mensagens. Você cria essa URL usando uma ferramenta de terceiros de software livre chamada [RequestBin](https://requestb.in/).
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o portal do Azure para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. No entanto, para simplificar este artigo, você envia os eventos para uma URL que apenas coleta as mensagens. Você cria essa URL usando ferramentas de terceiros do [RequestBin](https://requestb.in/) ou [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** é uma ferramenta de software livre que não se destina ao uso com altas taxas de transferência. O uso da ferramenta aqui é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
+>**RequestBin** e **Hookbin** não servem para um uso de alta taxa de transferência. O uso dessas ferramentas é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
 
 Quando tiver concluído, você verá que os dados do evento foram enviados para um ponto de extremidade.
 
@@ -51,7 +51,7 @@ Um tópico fornece um ponto de extremidade definido pelo usuário aonde você po
 
    ![Adicionar tópico de grade de eventos](./media/custom-event-quickstart-portal/add-topic.png)
 
-1. Forneça um nome para o tópico. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Para a versão prévia, a Grade de Eventos dá suporte às localizações **westus2** e **westcentralus**. Selecione o grupo de recursos criado anteriormente. Selecione **Criar**.
+1. Forneça um nome para o tópico. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Selecione uma das [regiões com suporte](overview.md). Selecione o grupo de recursos criado anteriormente. Selecione **Criar**.
 
    ![Fornecer valores de tópico de grade de eventos](./media/custom-event-quickstart-portal/provide-topic-values.png)
 
@@ -61,7 +61,7 @@ Um tópico fornece um ponto de extremidade definido pelo usuário aonde você po
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 
-Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. O RequestBin é uma ferramenta de terceiros de software livre que permite criar um ponto de extremidade e exibir as solicitações enviadas a ele. Vá para [RequestBin](https://requestb.in/)e clique em **Criar um RequestBin**.  Copie a URL do compartimento, pois você precisará dela para assinar o tópico.
+Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. RequestBin e Hookbin são ferramentas de terceiros que permitem criar um ponto de extremidade e exibir solicitações que são enviadas a ele. Acesse [RequestBin](https://requestb.in/) e clique em **Criar um RequestBin** ou acesse [Hookbin](https://hookbin.com/) e clique em **Cria novo ponto de extremidade**.  Copie a URL do compartimento, pois você precisará dela para assinar o tópico.
 
 ## <a name="subscribe-to-a-topic"></a>Assinar um tópico
 
@@ -75,7 +75,7 @@ Assine um tópico para indicar à Grade de Eventos quais eventos você deseja ac
 
    ![Adicionar assinatura de grade de eventos](./media/custom-event-quickstart-portal/add-subscription.png)
 
-1. Forneça um nome exclusivo para a assinatura de evento. Como o tipo de tópico, selecione **Tópicos de Grade de Eventos**. Para a instância, selecione o tópico personalizado que você criou. Forneça a URL de RequestBin como o ponto de extremidade para notificação de eventos. Ao terminar de fornecer valores, selecione **Criar**.
+1. Forneça um nome exclusivo para a assinatura de evento. Como o tipo de tópico, selecione **Tópicos de Grade de Eventos**. Para a instância, selecione o tópico personalizado que você criou. Forneça a URL de RequestBin ou Hookbin como o ponto de extremidade para notificação de eventos. Ao terminar de fornecer valores, selecione **Criar**.
 
    ![Forneça um valor de assinatura de grade de eventos](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
@@ -100,13 +100,13 @@ body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-jso
 
 Se você `echo "$body"`, pode ver o evento completo. O elemento `data` do JSON é a carga do evento. Qualquer JSON bem formado pode ficar nesse campo. Você também pode usar o campo de assunto para roteamento e filtragem avançados.
 
-CURL é um utilitário que executa solicitações HTTP. Neste artigo, usamos o CURL para enviar o evento ao nosso tópico. 
+CURL é um utilitário que executa solicitações HTTP. Neste artigo, usamos o CURL para enviar um evento ao tópico. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Navegue até a URL do RequestBin que você criou anteriormente. Ou clique em Atualizar no navegador do RequestBin aberto. Você verá o evento que acabou de ser enviado.
+Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Navegue até a URL do ponto de extremidade que você criou anteriormente. Ou clique em Atualizar no navegador. Você verá o evento que acabou de ser enviado.
 
 ```json
 [{
@@ -118,6 +118,8 @@ Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de e
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```

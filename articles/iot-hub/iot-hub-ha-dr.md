@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 3ea10ee8652dc2a03791feb66041431e7b3c6ae1
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres do Hub IoT
 Por ser um serviço do Azure, o Hub IoT fornece alta disponibilidade (HA) com redundâncias no nível de região do Azure, sem a necessidade de qualquer trabalho adicional da solução. A plataforma Microsoft Azure também inclui recursos para ajudá-lo a criar soluções com recursos de DR (recuperação de desastres) ou disponibilidade entre regiões. Se você quiser fornecer alta disponibilidade global entre regiões para dispositivos ou usuários, aproveite esses recursos de recuperação de desastres do Azure. O artigo [Orientação Técnica de Continuidade de Negócios do Azure](../resiliency/resiliency-technical-guidance.md) descreve os recursos internos do Azure para recuperação de desastres e continuidade de negócios. O documento [Recuperação de desastres e alta disponibilidade para aplicativos do Azure][Disaster recovery and high availability for Azure applications] fornece uma orientação de arquitetura sobre estratégias para que os aplicativos do Azure obtenham alta disponibilidade e recuperação de desastres.
@@ -34,6 +34,8 @@ Além de HA entre regiões, o Hub IoT implementa mecanismos de failover para rec
 | Mensagens de monitoramento de operações |Todas as mensagens não lidas são perdidas |
 | Mensagens da nuvem para o dispositivo |Perda de dados de 0 a 5 minutos |
 | Fila de comentários da nuvem para o dispositivo |Todas as mensagens não lidas são perdidas |
+| Dados do dispositivo gêmeo |Perda de dados de 0 a 5 minutos |
+| Trabalhos do pai e do dispositivo |Perda de dados de 0 a 5 minutos |
 
 ## <a name="regional-failover-with-iot-hub"></a>Failover regional com o Hub IoT
 Um tratamento completo das topologias de implantação em soluções de IoT está fora do escopo deste artigo. O artigo discute o modelo de implantação de *failover regional* para fins de alta disponibilidade e recuperação de desastres.

@@ -1,4 +1,4 @@
-No Cloud Shell, crie um grupo de recursos com o comando [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
+No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

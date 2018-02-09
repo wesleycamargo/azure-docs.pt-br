@@ -286,6 +286,9 @@
             - name: Usar API REST do Ambari
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Dimensionar um cluster HDInsight
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: Gerenciar logs para um cluster HDInsight
           href: ../hdinsight-log-management.md
           maintainContext: true

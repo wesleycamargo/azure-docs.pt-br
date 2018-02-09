@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>O que é Gerenciamento de API?
 
@@ -30,7 +30,7 @@ Assista ao vídeo a seguir para obter uma visão geral do Gerenciamento de API d
 > 
 > 
 
-Este tópico fornece uma visão geral dos cenários comuns que envolvem APIM.  Ele também fornece uma visão geral dos componentes principais do sistema APIM. Dessa forma, o tópico oferece uma visão geral mais detalhada de cada componente.
+Este artigo fornece uma visão geral dos cenários comuns que envolvem APIM.  Ele também fornece uma visão geral dos componentes principais do sistema APIM. Dessa forma, o artigo oferece uma visão geral mais detalhada de cada componente.
 
 ## <a name="overview"></a>Visão geral
 
@@ -50,14 +50,14 @@ O sistema é composto pelos seguintes componentes:
   * Transforma sua API imediatamente sem modificações no código.
   * Armazena respostas de back-end em cache em que a instalação.
   * Registra logs de metadados de chamadas para fins de análise.
-* O **portal do editor** é a interface administrativa na qual você configura seu programa de API. Use-o para:
+* O **Portal do Azure** é a interface administrativa na qual você configura seu programa de API. Use-o para:
   
   * Definir ou importar esquema de API.
   * Empacotar APIs em produtos.
   * Políticas de configuração como cotas ou transformações em APIs.
   * Obter insights por meio de análises.
   * Gerenciar usuários.
-* O **portal do desenvolvedor** serve como a presença da web principal para desenvolvedores, na qual eles podem:
+* O **Portal do desenvolvedor** serve como a presença da web principal para desenvolvedores, na qual eles podem:
   
   * Ler a documentação da API.
   * Experimentar uma API por meio do console interativo.
@@ -104,7 +104,7 @@ Quando os desenvolvedores assinam um produto, recebem as chaves principal e secu
 Para obter mais informações, confira [Como criar ou convidar desenvolvedores][How to create or invite developers] e [Como associar grupos aos desenvolvedores][How to associate groups with developers].
 
 ## <a name="policies"> </a> Políticas
-As políticas são um poderoso recurso de Gerenciamento de API que permite ao editor alterar o comportamento da API através da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor, além de várias outras políticas disponíveis.
+As políticas são um poderoso recurso de Gerenciamento de API que permite ao Portal do Azure alterar o comportamento da API através da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor, além de várias outras políticas disponíveis.
 
 Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) e [Definir variável](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) e [Expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 

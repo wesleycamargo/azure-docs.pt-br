@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Perguntas frequentes sobre o Arquivos do Azure
 O serviço [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo [SMB (Service Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor (também conhecido como CIFS ou Common Internet File System). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure nos computadores Windows Server usando a Sincronização de Arquivos do Azure (versão prévia) para acesso rápido perto de onde os dados são usados.
@@ -73,7 +73,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="redundancy-options"></a>
 **Quais opções de redundância de armazenamento têm suporte pelos Arquivos do Azure?**  
-    Atualmente, o serviço Arquivos do Azure dá suporte apenas a LRS (armazenamento com redundância local) e a GRS (armazenamento com redundância geográfica). Planejamos dar suporte a ZRS (armazenamento com redundância de zona) e a RA-GRS (armazenamento com redundância geográfica com acesso de leitura) no futuro, mas não temos uma linha do tempo para divulgar neste momento.
+    Atualmente, os Arquivos do Azure fornece para LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona) e GRS (armazenamento com redundância geográfica). Planejamos dar suporte para RA-GRS (redundância geográfica com acesso de leitura) no futuro, mas não temos linhas do tempo para compartilhar nesse momento.
 
 * <a id="tier-options"></a>
 **Atualmente, quais camadas de armazenamento têm suporte no serviço Arquivos do Azure?**  
@@ -90,7 +90,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="afs-region-availability"></a>
 **Quais regiões têm suporte para Sincronização de arquivos do Azure (versão prévia)?**  
-    Atualmente, a Sincronização de arquivos do Azure está disponível no Leste dos EUA, Oeste dos EUA, Europa Ocidental, Leste da Austrália e no Sudeste Asiático. O suporte para regiões mais será adicionado conforme seguirmos trabalhando rumo à disponibilidade geral. Para saber mais, veja [Disponibilidade por região](storage-sync-files-planning.md#region-availability).
+    Atualmente, o Sincronização de arquivos do Azure está disponível no Leste da Austrália, Central do Canadá, Leste dos EUA, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental e Oeste dos EUA. O suporte para regiões mais será adicionado conforme seguirmos trabalhando rumo à disponibilidade geral. Para saber mais, veja [Disponibilidade por região](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **É possível ter servidores ingressados e não ingressados no domínio no mesmo grupo de sincronização?**  

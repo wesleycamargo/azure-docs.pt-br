@@ -2,17 +2,17 @@
 title: "Serviço de Renderização do Lote do Azure - renderização em escala de nuvem | Microsoft Docs"
 description: "Processa trabalhos em máquinas virtuais do Azure diretamente do Maya e com base em pagamento por uso."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Introdução ao serviço de renderização em lotes
 
@@ -25,14 +25,10 @@ Com o Maya e o 3ds Max, você pode executar trabalhos usando o aplicativo de ár
 
 O serviço de renderização em lotes atualmente dá suporte aos seguintes aplicativos:
 
-- Autodesk Maya
-- Autodesk 3ds Max
-- Autodesk Arnold para Maya
-- Autodesk Arnold para 3ds Max
-- Chaos Group V-Ray para Maya
-- Chaos Group V-Ray para 3ds Max
+•   Autodesk Maya I/O 2017 Update 4 (versão 17.4.5459) •   Autodesk 3ds Max I/O 2018 Update 1 (versão 20.1.0.238) •   Autodesk Arnold for Maya (versão 5.0.1.1) •   Autodesk Arnold for 3ds Max (versão 1.0.836) •   Chaos Group V-Ray for Maya (versão 3.52.03) •   Chaos Group V-Ray for 3ds Max (versão 3.60.02)
 
-## <a name="prerequisites"></a>Pré-requisitos
+
+## <a name="prerequisites"></a>pré-requisitos
 
 Para usar o serviço de renderização em lotes, você precisa ter:
 

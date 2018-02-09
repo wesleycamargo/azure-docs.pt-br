@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2017
+ms.date: 01/24/2018
 ms.author: yushwang
-ms.openlocfilehash: a9f71b566ffdb163f95634835f64589a700d712f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41cca764335f21bed60fe968288bc8b8274f3215
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurar conexões VPN S2S ativa-ativa com Gateways de VPN
 
@@ -28,17 +28,19 @@ Este artigo explica as etapas para criar conexões VNet para VNet e entre instal
 ## <a name="about-highly-available-cross-premises-connections"></a>Sobre conexões altamente disponíveis entre instalações
 Para obter alta disponibilidade para conectividade entre instalações e VNet para VNet, você deve implantar vários gateways de VPN e estabelecer várias conexões paralelas entre suas redes e o Azure. Consulte [Conectividade Altamente Disponível entre os Locais e VNet para VNet](vpn-gateway-highlyavailable.md) para obter uma visão geral das opções de conectividade e topologia.
 
-Este artigo fornece as instruções para configurar uma conexão VPN entre os locais ativo-ativo e uma conexão ativo-ativo entre duas redes virtuais:
+Este artigo fornece as instruções para configurar uma conexão VPN entre os locais ativo-ativo e uma conexão ativo-ativo entre duas redes virtuais.
 
 * [Parte 1 – Criar e configurar seu gateway de VPN do Azure no modo ativo-ativo](#aagateway)
 * [Parte 2 – Estabelecer conexões entre os locais ativo-ativo](#aacrossprem)
 * [Parte 3 – Estabelecer conexões VNet para VNet ativo-ativo](#aav2v)
-* [Parte 4 – Atualizar o gateway existente entre ativo-ativo e ativo-em espera](#aaupdate)
+
+Se você já tiver um gateway de VPN, você pode:
+* [Atualizar o gateway de VPN existente de ativo-em espera para ativo-ativo, ou vice-versa](#aaupdate)
 
 Você pode combiná-los para criar uma topologia de rede mais complexa e altamente disponível que atenda às suas necessidades.
 
 > [!IMPORTANT]
-> Observe que o modo ativo-ativo usa somente os seguintes SKUs: 
+> O modo ativo-ativo usa somente os seguintes SKUs: 
   * VpnGw1, VpnGw2, VpnGw3
   * HighPerformance (para SKUs herdados antigos)
 > 
@@ -141,19 +143,18 @@ $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $R
 Use os seguintes cmdlets para mostrar os dois endereços IP públicos alocados para seu gateway de VPN e seus endereços IP do par no nível de protocolo BGP correspondentes para cada instância do gateway:
 
 ```powershell
+PS D:\> $gw1pip1.IpAddress
+40.112.190.5
 
-    PS D:\> $gw1pip1.IpAddress
-    40.112.190.5
+PS D:\> $gw1pip2.IpAddress
+138.91.156.129
 
-    PS D:\> $gw1pip2.IpAddress
-    138.91.156.129
-
-    PS D:\> $vnet1gw.BgpSettingsText
-    {
-      "Asn": 65010,
-      "BgpPeeringAddress": "10.12.255.4,10.12.255.5",
-      "PeerWeight": 0
-    }
+PS D:\> $vnet1gw.BgpSettingsText
+{
+  "Asn": 65010,
+  "BgpPeeringAddress": "10.12.255.4,10.12.255.5",
+  "PeerWeight": 0
+}
 ```
 
 A ordem dos endereços IP públicos para as instâncias do gateway e os endereços de emparelhamento via protocolo BGP correspondentes são os mesmos. Neste exemplo, a VM do gateway com o IP público 40.112.190.5 usará 10.12.255.4 como seu endereço de emparelhamento via protocolo BGP, e o gateway com 138.91.156.129 usará 10.12.255.5. Essas informações são necessárias quando você configura os dispositivos VPN locais que se conectam ao gateway ativo-ativo. O gateway é mostrado no diagrama abaixo, com todos os endereços:
@@ -214,14 +215,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupNa
 #### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. Parâmetros VPN e BGP para seu dispositivo VPN local
 O exemplo a seguir lista os parâmetros que você inserirá na seção de configuração de BGP em seu dispositivo VPN local para este exercício:
 
-    - Site5 ASN            : 65050
-    - Site5 BGP IP         : 10.52.255.253
-    - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
-    - Azure VNet ASN       : 65010
-    - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-    - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-    - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5                        Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
-    - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.52.255.253
+- Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
 A conexão deve ser estabelecida após alguns minutos, e a sessão de emparelhamento via protocolo BGP iniciará uma vez estabelecida a conexão IPsec. Até agora, este exemplo configurou apenas um dispositivo VPN local, resultando no diagrama mostrado abaixo:
 
@@ -231,14 +235,16 @@ A conexão deve ser estabelecida após alguns minutos, e a sessão de emparelham
 Se você tiver dois dispositivos VPN na mesma rede local, você poderá obter redundância dupla ao conectar o gateway de VPN do Azure ao segundo dispositivo VPN.
 
 #### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Criar o segundo gateway de rede local para Site5
-Observe que o endereço IP do gateway, o prefixo do endereço e o endereço de emparelhamento via protocolo BGP para o segundo gateway de rede local não devem se sobrepor ao gateway de rede local anterior para a mesma rede local.
+O endereço IP do gateway, o prefixo do endereço e o endereço de emparelhamento via protocolo BGP para o segundo gateway de rede local não devem se sobrepor ao gateway de rede local anterior para a mesma rede local.
 
 ```powershell
 $LNGName52 = "Site5_2"
 $LNGPrefix52 = "10.52.255.254/32"
 $LNGIP52 = "131.107.72.23"
 $BGPPeerIP52 = "10.52.255.254"
+```
 
+```powershell
 New-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP52 -AddressPrefix $LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP52
 ```
 
@@ -247,7 +253,9 @@ Crie a conexão de TestVNet1 para Site5_2 com "EnableBGP" definido como $True
 
 ```powershell
 $lng5gw2 = Get-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5
+```
 
+```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw2 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
 ```
 
@@ -366,17 +374,17 @@ Após concluir essas etapas, a conexão será estabelecida em alguns minutos e a
 
 ![ativo-ativo-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
-## <a name ="aaupdate"></a>Parte 4 – Atualizar o gateway existente entre ativo-ativo e ativo-em espera
-A última seção descreverá como você pode configurar um gateway de VPN do Azure existente por meio do modo ativo-em espera ou ativo-ativo ou vice-versa.
+## <a name ="aaupdate"></a>Atualize um gateway de VPN existente
 
-> [!NOTE]
-> Esta seção inclui as etapas para redimensionar de Standard para HighPerformance um SKU herdado (SKU antigo) de um Gateway de VPN já criado. Essas etapas não atualizam um SKU herdado antigo para um dos SKUs novos.
-> 
-> 
+Esta seção ajuda você a alterar um gateway de VPN do Azure existente do modo ativo-em espera pelo modo ativo-ativo, ou vice-versa.
 
-### <a name="configure-an-active-standby-gateway-to-active-active-gateway"></a>Configurar um gateway ativo-em espera para um gateway ativo-ativo
-#### <a name="1-gateway-parameters"></a>1. Parâmetros do gateway
-O exemplo a seguir converte um gateway ativo-em espera em um gateway ativo-ativo. Você precisa criar outro endereço IP público e adicionar uma configuração do segundo IP do Gateway. Abaixo, encontram-se os parâmetros usados:
+### <a name="change-an-active-standby-gateway-to-an-active-active-gateway"></a>Alterar um gateway ativo-em espera por um gateway ativo-ativo
+
+O exemplo a seguir converte um gateway ativo-em espera em um gateway ativo-ativo. Quando você altera um gateway ativo-em espera para ativo-ativo, você cria outro endereço IP público, e adiciona uma segunda configuração de IP do Gateway.
+
+#### <a name="1-declare-your-variables"></a>1. Declare as variáveis
+
+Substitua os parâmetros a seguir, usados para os exemplos com as configurações que você requer para a sua própria configuração, e declare essas variáveis.
 
 ```powershell
 $GWName = "TestVNetAA1GW"
@@ -384,7 +392,11 @@ $VNetName = "TestVNetAA1"
 $RG = "TestVPNActiveActive01"
 $GWIPName2 = "gwpip2"
 $GWIPconf2 = "gw1ipconf2"
+```
 
+Depois de declarar as variáveis, você pode copiar e colar esse exemplo no seu console do PowerShell.
+
+```powershell
 $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
@@ -399,28 +411,39 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 ```
 
 #### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. Habilitar o modo ativo-ativo e atualizar o gateway
-Você deve definir o objeto do gateway no PowerShell para disparar a atualização real. O SKU do gateway de rede virtual também deve ser alterado (redimensionado) para HighPerformance já que foi criado anteriormente como Standard.
+
+Nesta etapa, você habilita o modo ativo-ativo e atualiza o gateway. No exemplo, o gateway de VPN está usando atualmente uma SKU Padrão herdada. No entanto, o modo ativo-ativo não oferece suporte à SKU Padrão. Para redimensionar a SKU herdada para uma que tenha suporte (nesse caso, alto desempenho), você simplesmente especifica a SKU herdada com suporte que você deseja usar.
+
+* Você não pode alterar uma SKU herdada por novas SKUs usando esta etapa. Só é possível redimensionar uma SKU herdada por outra SKU herdada com suporte. Por exemplo, você não pode alterar a SKU de Padrão para VpnGw1 (mesmo que VpnGw1 tenha suporte para o modo ativo-ativo), porque Padrão é uma SKU herdada e VpnGw1 é uma SKU atual. Para obter mais informações sobre as SKUs de redimensionamento e migração, consulte [SKUs de Gateway](vpn-gateway-about-vpngateways.md#gwsku).
+
+* Se você desejar redimensionar uma SKU atual, por exemplo, VpnGw1 para VpnGw3, você pode fazer isso usando essa etapa, porque as SKUs estão na mesma família de SKU. Para fazer isso, você precisaria usar o valor: ```-GatewaySku VpnGw3```
+
+Quando você estiver usando isso no seu ambiente, se você não precisar redimensionar o gateway, você não precisará especificar o -GatewaySku. Observe que, nesta etapa, você deverá definir o objeto do gateway no PowerShell para disparar a atualização real. Essa atualização pode levar 30 a 45 minutos, mesmo que você não redimensione o seu gateway.
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
 ```
 
-Esta atualização pode demorar de 30 a 45 minutos.
+### <a name="change-an-active-active-gateway-to-an-active-standby-gateway"></a>Alterar um gateway ativo-ativo por um gateway ativo-em espera
+#### <a name="1-declare-your-variables"></a>1. Declare as variáveis
 
-### <a name="configure-an-active-active-gateway-to-active-standby-gateway"></a>Configurar um gateway ativo-ativo para um gateway ativo-em espera
-#### <a name="1-gateway-parameters"></a>1. Parâmetros do gateway
-Usando os mesmos parâmetros acima, obtenha o nome da configuração de IP que você deseja remover.
+Substitua os parâmetros a seguir, usados para os exemplos com as configurações que você requer para a sua própria configuração, e declare essas variáveis.
 
 ```powershell
 $GWName = "TestVNetAA1GW"
 $RG = "TestVPNActiveActive01"
+```
 
+Após declarar as variáveis, obtenha o nome da configuração de IP que você deseja remover.
+
+```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $ipconfname = $gw.IpConfigurations[1].Name
 ```
 
 #### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. Remover a configuração de IP do gateway e desabilitar o modo ativo-ativo
-Da mesma forma, você deverá definir o objeto do gateway no PowerShell para disparar a atualização real.
+
+Use esse exemplo para remover a configuração de IP do gateway e desabilitar o modo ativo-ativo. Observe que você deverá definir o objeto do gateway no PowerShell para disparar a atualização real.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGatewayIpConfig -Name $ipconfname -VirtualNetworkGateway $gw

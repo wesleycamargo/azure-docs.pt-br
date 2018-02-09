@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 01/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc109cdaeade900e239624f408cea2a1f448ae5a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
-Para cada assinatura e locatário, os limites do Resource Manager limita as solicitações de leitura para 15.000 por hora e solicitações de gravação para 1.200 por hora. Esses limites se aplicam a cada instância do Azure Resource Manager. Há várias instâncias em todas as regiões do Azure e o Azure Resource Manager é implantado em todas as regiões do Azure.  Portanto, na prática, os limites são efetivamente muito maiores do que aqueles listados acima, pois as solicitações do usuário são geralmente atendidas por muitas instâncias diferentes.
+Para cada assinatura e locatário, os limites do Resource Manager limita as solicitações de leitura para 15.000 por hora e solicitações de gravação para 1.200 por hora. Esses limites se aplicam a cada instância do Azure Resource Manager. Há várias instâncias em todas as regiões do Azure e o Azure Resource Manager é implantado em todas as regiões do Azure.  Portanto, na prática, os limites são efetivamente muito maiores do que esses, pois as solicitações do usuário são geralmente atendidas por muitas instâncias diferentes.
 
-Se seu aplicativo ou script atingir esses limites, será necessário restringir suas solicitações. Este tópico mostra como determinar as solicitações restantes que você tem antes de atingir o limite e como responder quando você tiver atingido o limite.
+Se seu aplicativo ou script atingir esses limites, será necessário restringir suas solicitações. Este artigo mostra como determinar as solicitações restantes que você tem antes de atingir o limite e como responder quando você tiver atingido o limite.
 
 Quando você alcança o limite, recebe o código de status HTTP **429 Excesso de solicitações**.
 
@@ -34,7 +34,7 @@ As solicitações no escopo da assinatura são aquelas que envolvem a passagem d
 ## <a name="remaining-requests"></a>Solicitações restantes
 Você pode determinar o número de solicitações restantes ao examinar cabeçalhos de resposta. Cada solicitação inclui os valores para o número de solicitações de leitura e gravação restantes. A tabela a seguir descreve os cabeçalhos de resposta que você pode examinar em busca desses valores:
 
-| Cabeçalho de resposta | Descrição |
+| Cabeçalho de resposta | DESCRIÇÃO |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Leituras no escopo da assinatura restantes |
 | x-ms-ratelimit-remaining-subscription-writes |Gravações no escopo da assinatura restantes |
@@ -85,7 +85,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 Na **CLI do Azure**, você recupera o valor do cabeçalho usando a opção mais detalhada.
 
 ```azurecli
-azure group list -vv --json
+az group list --verbose --debug
 ```
 
 Que retorna muitos valores, incluindo o seguinte objeto:

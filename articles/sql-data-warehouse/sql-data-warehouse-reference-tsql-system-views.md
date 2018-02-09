@@ -3,7 +3,7 @@ title: "Exibições do sistema SQL Data Warehouse | Microsoft Docs"
 description: "Os links para o sistema exibem conteúdo para o SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 07/12/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/22/2018
+ms.author: barbkess
+ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-views"></a>Exibições do sistema
 ## <a name="sql-data-warehouse-catalog-views"></a>Exibições do catálogo SQL Data Warehouse
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>DMVs do SQL Server aplicáveis ao SQL Data Warehouse
 As DMVs a seguir são aplicáveis ao SQL Data Warehouse, mas devem ser executadas conectando-as ao banco de dados **mestre** .
@@ -137,16 +137,14 @@ As DMVs a seguir são aplicáveis ao SQL Data Warehouse, mas devem ser executada
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>DMVs do SQL Server disponíveis no SQL Data Warehouse
 O SQL Data Warehouse expõe muitas das exibições de gerenciamento dinâmico do SQL Server (DMVs). Essas exibições, quando consultadas no SQL Data Warehouse, estão comunicando o estado dos Bancos de Dados SQL em execução nas distribuições.
 
-Como o SQL Data Warehouse se baseia na tecnologia do MPP da Microsoft, o SQL Data Warehouse e o Parallel Data Warehouse (PDW do sistema de plataforma de análise) usam as mesmas exibições do sistema.
-
-É por isso cada um desses DMV tem uma coluna específica, chamada pdw_node_id. Este é o identificador para o Nó de computação. No PDW, o nó Computação é um conceito mais forte para a arquitetura. No SQL Data Warehouse, a arquitetura depende mais intensamente das distribuições.
+O SQL Data Warehouse e o PDW (Parallel Data Warehouse) do Analytics Platform System usam as mesmas exibições do sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador do nó de Computação. 
 
 > [!NOTE]
-> Para usar esses exibição, insira 'pdw_nodes_' no nome, conforme mostrado na tabela a seguir.
+> Para usar essas exibições, insira “pdw_nodes_” no nome, conforme mostrado na seguinte tabela:
 > 
 > 
 
-| Nome DMV no SQL Data Warehouse | Vincular ao tópico do Transact-SQL do SQL Server no MSDN |
+| Nome DMV no SQL Data Warehouse | Artigo sobre o SQL Server Transact-SQL|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 

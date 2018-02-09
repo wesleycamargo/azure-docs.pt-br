@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: integração do Azure Active Directory do ao Dropbox for Business | Microsoft Docs"
+title: "Tutorial: Configurar o Dropbox para provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
 description: "Saiba como configurar o logon único entre o Azure Active Directory e o Dropbox for Business."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c41760d60d53dee7be36b2af287cd6755605b708
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configurando o Dropbox for Business para o provisionamento automático de usuário
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dropbox for Business para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Dropbox for Business e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Dropbox for Business.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
@@ -31,6 +31,8 @@ Para implantar a redefinição de senha de autoatendimento (SSPR) do Azure Activ
 Para funcionarem adequadamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo: +1 4255551234.
 
 > [!NOTE]
+> Precisa haver um espaço entre o código do país e o número de telefone.
+>
 > A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes que a chamada seja completada.
 
 ## <a name="fields-populated"></a>Campos populados
@@ -42,6 +44,11 @@ Se você usar as configurações padrão no Azure AD Connect, serão realizados 
 | telephoneNumber | Telefone comercial | Telefone alternativo |
 | Serviço Móvel | Telefone celular | Telefone |
 
+Esses campos podem aparecer vazios até que um usuário confirme seus dados de autenticação.
+
+Um Administrador Global pode definir manualmente as informações de contato de autenticação para o usuário conforme exibido na captura de tela a seguir.
+
+![Contato][Contact]
 
 ## <a name="security-questions-and-answers"></a>Perguntas e respostas de segurança
 
@@ -152,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Quais são todas as opções no SSPR e o que elas significam?](active-directory-passwords-how-it-works.md)
 * [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Os administradores globais podem modificar informações de contato de autenticação de um usuário"

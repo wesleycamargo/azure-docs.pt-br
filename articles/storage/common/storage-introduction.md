@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introdução ao Armazenamento do Microsoft Azure
 
@@ -131,21 +131,21 @@ O Serviço Blob permite que você forneça acesso público a um contêiner e seu
 
 ## <a name="encryption"></a>Criptografia
 
-Há dois tipos básicos de criptografia disponíveis para os serviços de Armazenamento.
+Há dois tipos básicos de criptografia disponíveis para os serviços de Armazenamento. Para saber mais sobre segurança e criptografia, consulte o [Guia de segurança do Armazenamento do Azure](storage-security-guide.md).
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
-Você pode habilitar a Criptografia do Serviço de Armazenamento (SSE) no serviço de Arquivos (visualização) ou no serviço Blob para uma conta de armazenamento do Azure. Se habilitado, todos os dados gravados para o serviço específico são criptografados antes de serem gravados. Quando você lê os dados, eles são descriptografados antes de serem retornados.
+A SSE (Criptografia do Serviço de Armazenamento) do Azure em repouso ajuda a proteger seus dados para atender aos compromissos de conformidade e segurança de sua organização. Com esse recurso, o Armazenamento do Azure criptografa automaticamente seus dados antes de persistir no armazenamento e os descriptografa antes da recuperação. A criptografia, a descriptografia e o gerenciamento de chaves são totalmente transparentes para os usuários.
+
+Você pode habilitar a SSE (Criptografia do Serviço de Armazenamento) para armazenamento de Blobs ou para Arquivos do Azure (versão prévia). Se habilitado, todos os dados gravados para o serviço específico são criptografados antes de serem gravados. Quando você lê os dados, eles são descriptografados antes de serem retornados.
+
+Para saber mais sobre a criptografia de SSE em repouso, consulte [Criptografia de serviço do Armazenamento do Azure para dados em repouso](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Criptografia do cliente
 
 As bibliotecas de cliente de armazenamento possuem métodos que você pode chamar para criptografar os dados por meio de programação antes destes serem enviados do cliente para o Azure. Ele são armazenados criptografados, o que significa que ele também é criptografado em repouso. Ao ler os dados de volta, você descriptografa as informações depois de recebê-las.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Criptografia durante a transferência com compartilhamentos de Arquivos do Azure
-
-Confira [Usando Assinaturas de Acesso Compartilhado (SAS)](../storage-dotnet-shared-access-signature-part-1.md) para saber mais sobre as assinaturas de acesso compartilhado. Confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../blobs/storage-manage-access-to-resources.md) e [Autenticação para os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx) para saber mais sobre o acesso seguro à sua conta de armazenamento.
-
-Para saber mais sobre como proteger sua conta de armazenamento e criptografia, consulte o [Guia de segurança do Armazenamento do Azure](storage-security-guide.md).
+Para saber mais sobre criptografia no lado do cliente, confira [Criptografia no cliente com o .NET para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md).
 
 ## <a name="replication"></a>Replicação
 
@@ -157,9 +157,9 @@ O armazenamento com redundância local (LRS) foi projetado para fornecer pelo me
 
 **Armazenamento com redundância de zona (ZRS) (Versão prévia)**
 
-Armazenamento com redundância de zona (ZRS) foi projetado para simplificar o desenvolvimento de aplicativos altamente disponíveis. O ZRS fornece durabilidade para objetos de armazenamento de pelo menos 99.9999999999% (12 9's) em um determinado ano. O ZRS replica seus dados de forma síncrona em várias zonas de disponibilidade. Considere o ZRS para cenários como aplicativos transacionais, onde o tempo de inatividade não é aceitável. O ZRS permite aos clientes ler e gravar dados, mesmo se uma única zona estiver indisponível ou irrecuperável. As inserções e atualizações nos dados são feitas de forma síncrona e são altamente consistentes.    
+Armazenamento com redundância de zona (ZRS) foi projetado para simplificar o desenvolvimento de aplicativos altamente disponíveis. O ZRS fornece durabilidade para objetos de armazenamento de pelo menos 99.9999999999% (12 9's) em um determinado ano. O ZRS replica os dados de forma síncrona em várias zonas de disponibilidade. Considere a possibilidade de usar o ZRS para cenários como aplicativos transacionais, em que o tempo de inatividade não é aceitável. O ZRS permite aos clientes ler e gravar dados, mesmo se uma única zona não estiver disponível ou não for recuperável. As inserções e atualizações nos dados são feitas de forma síncrona e são altamente consistentes.    
 
-O recurso de ZRS anterior agora é chamado de ZRS Clássico. As contas de ZRS Clássico estão disponíveis somente para blobs de bloco em contas de armazenamento V1 para fins gerais. O ZRS Clássico replica os dados de forma assíncrona em data centers dentro de uma ou duas regiões. Talvez uma réplica não esteja disponível até que a Microsoft inicie o failover para o secundário. Uma conta do ZRS Clássico não pode ser convertida entre LRS ou GRS, e não tem métricas ou recursos de registro em log.
+O recurso de ZRS anterior agora é chamado de ZRS Clássico. As contas de ZRS Clássico estão disponíveis somente para blobs de bloco em contas de armazenamento V1 para fins gerais. O ZRS Clássico replica os dados de forma assíncrona em datacenters em uma ou duas regiões. Talvez uma réplica não esteja disponível até que a Microsoft inicie o failover para o secundário. Uma conta do ZRS Clássico não pode ser convertida entre LRS ou GRS, e não tem métricas ou recursos de registro em log.
 
 **Armazenamento com redundância geográfica (GRS)**
 

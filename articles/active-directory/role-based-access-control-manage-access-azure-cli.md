@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/29/2018
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
 > [!div class="op_single_selector"]
@@ -27,9 +27,14 @@ ms.lasthandoff: 12/21/2017
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
 
-Você pode usar o RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Azure Resource Manager para gerenciar o acesso a sua assinatura e aos recursos de maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
+Você pode usar o RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Azure Resource Manager para gerenciar o acesso a sua assinatura e aos recursos de maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo. 
 
-Antes de poder usar a CLI (interface de linha de comando) do Azure para gerenciar o RBAC, é necessário ter os seguintes pré-requisitos:
+> [!NOTE] 
+> A documentação mais recente sobre funções já está disponível para a [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+
+
+ 
++> A documentação mais recente sobre funções para a [CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) Antes de usar a interface de linha de comando (CLI) do Azure para gerenciar o RBAC, você deve atender aos seguintes pré-requisitos:
 
 * CLI do Azure versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md).
 * Azure Resource Manager na Azure CLI. Acesse [Usando a Azure CLI com o Resource Manager](../xplat-cli-azure-resource-manager.md) para obter mais detalhes.

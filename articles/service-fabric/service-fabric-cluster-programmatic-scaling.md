@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric por meio de programação 
 
@@ -93,7 +93,7 @@ Assim como na adição de um nó manual, a adição de uma instância de conjunt
 
 A redução horizontal é semelhante à expansão. As alterações do conjunto de dimensionamento de máquinas virtuais são praticamente as mesmas. Mas, como discutido anteriormente, o Service Fabric apenas limpa automaticamente nós removidos com uma durabilidade Ouro ou Prata. Assim, no caso de durabilidade Bronze, é necessário interagir com o cluster do Service Fabric para desligar o nó a ser removido e remover seu estado.
 
-A preparação do nó para desligamento envolve localizar o nó a ser removido (o nó adicionado mais recentemente) e desativá-lo. No caso de nós sem propagação, os nós mais recentes podem ser encontrados comparando `NodeInstanceId`. 
+A preparação do nó para desligamento envolve localizar o nó a ser removido (a instância do conjunto de dimensionamento de máquinas virtuais adicionada mais recentemente) e desativá-lo. As instâncias do conjunto de dimensionamento de máquinas virtuais são numeradas na ordem em que são adicionadas, portanto, podem ser localizados nós mais recentes, comparando o sufixo numérico nos nomes dos nós (que correspondem aos nomes da instância do conjunto de dimensionamento de máquinas virtuais). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-Nós de seed são diferentes e nem sempre seguem a convenção de que as IDs de instâncias maiores são removidas primeiro.
 
 Depois que o nó a ser removido é encontrado, ele podem ser desativado e removido usando a mesma instância `FabricClient` e a instância `IAzure` anterior.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 490db57e9f36bed5575b7af5a6e2673fb63af3a8
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Teste de Largura de Banda/Taxa de Transferência (NTTTCP)
 
@@ -158,8 +158,15 @@ Remetente <Windows>:
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ```
+## <a name="testing-cloud-service-instances"></a>Testando as Instâncias de Serviço de Nuvem:
+Você precisa adicionar a seção a seguir em seu ServiceDefinition.csdef
+```xml
+<Endpoints>
+  <InternalEndpoint name="Endpoint3" protocol="any" />
+</Endpoints> 
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 * Dependendo dos resultados, pode haver espaço para [Otimizar a taxa de transferência de rede nos computadores](virtual-network-optimize-network-bandwidth.md) para seu cenário.
-* Leia mais sobre como [a largura de banda é alocada a máquinas virtuais] (virtual-machine-rede-throughput.md)
+* Leia mais sobre como [a largura de banda é alocada a máquinas virtuais] (virtual-machine-network-throughput.md)
 * Saiba mais com as [Perguntas frequentes sobre a rede virtual do Azure](virtual-networks-faq.md)

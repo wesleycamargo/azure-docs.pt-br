@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com a Área Restrita do Salesforce | Microsoft Docs"
+title: "Tutorial: Configurar a Área Restrita Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
 description: "Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce Sandbox."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d0efcae50b18dc2626af5510bd47ff36a27ba718
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9ff50ddc2460a94c17b2401f0c8e4ad12c6d23a7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: configurar a Área Restrita do Salesforce para provisionamento automático de usuário
+# <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar a Área Restrita Salesforce para o provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas na Área Restrita Salesforce e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para a Área Restrita do Salesforce.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -71,7 +71,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
    
     a. Na caixa de texto **Nome de Usuário Administrador**, digite o nome da conta da Área Restrita Salesforce com o perfil **Administrador de Sistema** do Salesforce.com atribuído.
    
-    b. Na caixa de texto **Senha do Administrador**, digite a senha desta conta.
+    b. Na caixa de texto **Senha do Administrador**, digite a senha dessa conta.
 
 6. Para obter o token de segurança da Área Restrita Salesforce, abra uma nova guia e entre na mesma conta do administrador da Área Restrita Salesforce. No canto superior direito da página, clique em seu nome e em **Configurações**.
 

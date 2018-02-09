@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Coletar dados de computadores em seu ambiente com o Log Analytics
 
@@ -42,7 +42,11 @@ O agente para Linux e Windows não é apenas para a conexão com o Log Analytics
 
 Se suas políticas de segurança não permitem que computadores em sua rede se conectem à Internet, o agente pode ser configurado para se conectar ao Gateway do OMS para receber informações de configuração e enviar os dados coletados dependendo da solução habilitada. Para obter mais informações e etapas sobre como configurar o agente para Linux ou Windows para se comunicar através de um Gateway do OMS ao serviço Log Analytics, consulte [Conectar computadores ao OMS usando o Gateway do OMS](log-analytics-oms-gateway.md). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+> [!NOTE]
+> O agente para Windows dá suporte apenas ao protocolo TLS (Transport Layer Security) 1.0 e 1.1.  
+> 
+
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar, examine os detalhes a seguir para verificar se você atende aos requisitos mínimos do sistema.
 
 ### <a name="windows-operating-system"></a>Sistema operacional Windows
@@ -56,10 +60,10 @@ As informações abaixo listam as informações de configuração de proxy e fir
 
 | Recurso de agente | Portas | Ignorar a inspeção de HTTPS|
 |----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | Sim |
-|*.oms.opinsights.azure.com | 443 | Sim | 
-|*.blob.core.windows.net | 443 | Sim | 
-|*.azure-automation.net | 443 | Sim | 
+|*.ods.opinsights.azure.com |443 | sim |
+|*.oms.opinsights.azure.com | 443 | sim | 
+|*.blob.core.windows.net | 443 | sim | 
+|*.azure-automation.net | 443 | sim | 
 
 ### <a name="linux-operating-systems"></a>Sistemas operacionais Linux
 As seguintes distribuições Linux têm suporte oficialmente.  No entanto, o agente para Linux também pode ser executado em outras distribuições não listadas.
@@ -91,7 +95,7 @@ O valor de configuração de proxy tem a seguinte sintaxe:
 > [!NOTE]
 > Se seu servidor proxy não exigir autenticação, o agente para Linux exigirá mesmo assim fornecendo um pseudo usuário/senha. Isso pode ser qualquer nome de usuário ou senha.
 
-|Propriedade| Descrição |
+|Propriedade| DESCRIÇÃO |
 |--------|-------------|
 |Protocolo | HTTPS |
 |usuário | Nome de usuário opcional para autenticação de proxy |
@@ -107,7 +111,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 ## <a name="install-and-configure-agent"></a>Instalar e configurar o agente 
 Conectar seus computadores locais diretamente com o Log Analytics pode ser feito usando métodos diferentes, dependendo dos seus requisitos. A tabela a seguir realça cada método para determinar o que funciona melhor em sua organização.
 
-|Fonte | Método | Descrição|
+|Fonte | Método | DESCRIÇÃO|
 |-------|-------------|-------------|
 | Computador com Windows|- [Instalação manual](log-analytics-agent-windows.md)<br>- [DSC de Automação do Azure](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modelo do Resource Manager com o Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instalar o agente Microsoft Monitoring da linha de comando ou usando um método automatizado como DSC de automação do Azure, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), ou com um modelo do Azure Resource Manager, se você implantou o Microsoft Azure Stack no seu datacenter.| 
 |Computador Linux| [Instalação manual](log-analytics-quick-collect-linux-computer.md)|Instale o agente para Linux chamando um script de wrapper hospedado no GitHub. | 

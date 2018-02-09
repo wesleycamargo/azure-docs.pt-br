@@ -11,15 +11,15 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 9ba5f45034561f8d897676e8cc4b1a59945403b8
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 555d05c6cd5e804e5f80ecb8df77237fd8270105
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux usando uma imagem personalizada (versão prévia)
 
-O Azure Functions permite hospedar suas funções no Linux em seu próprio contêiner personalizado. Esta funcionalidade está em preview. Você também pode [hospedar em um contêiner padrão do Serviço de Aplicativo do Azure](functions-create-first-azure-function-azure-cli-linux.md).  
+O Azure Functions permite hospedar suas funções no Linux em seu próprio contêiner personalizado. Você também pode [hospedar em um contêiner padrão do Serviço de Aplicativo do Azure](functions-create-first-azure-function-azure-cli-linux.md). Esta é uma versão prévia da funcionalidade e exige [o tempo de execução Functions 2.0](functions-versions.md), que também está em versão prévia.
 
 Neste tutorial, você aprenderá a implantar um aplicativo de funções como uma imagem personalizada do Docker. Esse padrão será útil quando você precisar personalizar a imagem interna de contêiner do Serviço de Aplicativo. Convém usar uma imagem personalizada quando suas funções precisarem de uma versão de idioma específico, ou exigirem uma configuração ou dependência específica que não é fornecida na imagem interna.
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 
 As etapas a seguir têm suporte em um computador Mac, Windows ou Linux.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
@@ -160,7 +160,7 @@ No momento, não há suporte para a hospedagem no Linux do Functions em planos d
 
 ## <a name="create-and-deploy-the-custom-image"></a>Criar e implantar a imagem personalizada
 
-O aplicativo de funções hospeda a execução de suas funções. Crie um aplicativo de funções a partir de uma imagem do Hub do Docker usando o comando [az functionapp create](/cli/azure/functionapp#create). 
+O aplicativo de funções hospeda a execução de suas funções. Crie um aplicativo de funções a partir de uma imagem do Hub do Docker usando o comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
 No comando a seguir, substitua um nome de aplicativo de funções exclusivo quando você vir o espaço reservado `<app_name>` e o nome da conta de armazenamento por `<storage_name>`. O `<app_name>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. Como antes, `<docker-id>` é o nome de conta do Docker.
 
@@ -195,7 +195,7 @@ O parâmetro _deployment-container-image-name_ indica a imagem hospedada no Hub 
 
 A função precisa da cadeia de conexão para se conectar à conta de armazenamento padrão. Quando você estiver publicando sua imagem personalizada em uma conta de contêiner privado, defina essas configurações de aplicativo como variáveis de ambiente no Dockerfile usando a [instrução ENV](https://docs.docker.com/engine/reference/builder/#env), ou algo equivalente. 
 
-Nesse caso, `<storage_account>` é o nome da conta de armazenamento criada. Obtenha a cadeia de conexão com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Adicione essas configurações de aplicativo ao aplicativo de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+Nesse caso, `<storage_account>` é o nome da conta de armazenamento criada. Obtenha a cadeia de conexão com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Adicione essas configurações de aplicativo ao aplicativo de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

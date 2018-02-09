@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar arquivos com o Hub IoT
 
@@ -96,11 +96,11 @@ Os tópicos de referência a seguir fornecem a você mais informações sobre co
 
 ## <a name="file-upload-notifications"></a>Notificações de upload de arquivo
 
-Opcionalmente, quando um dispositivo notifica o Hub IoT da conclusão de um upload, o Hub IoT pode gerar uma mensagem de notificação com o local de armazenamento e o nome do arquivo.
+Opcionalmente, quando um dispositivo notifica o Hub IoT da conclusão de um upload, o Hub IoT gera uma mensagem de notificação com o local de armazenamento e o nome do arquivo.
 
 Como explicado em [Pontos de extremidade][lnk-endpoints], o Hub IoT fornece notificações de upload de arquivos por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de recebimento das notificações de upload de arquivos é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [ciclo de vida da mensagem][lnk-lifecycle]. Cada mensagem recuperada do ponto de extremidade de notificação de upload de arquivos é um registro JSON com as seguintes propriedades:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | EnqueuedTimeUtc |Carimbo de data/hora que indica quando a notificação foi criada. |
 | deviceId |**DeviceId** do dispositivo que carregou o arquivo. |
@@ -126,7 +126,7 @@ Como explicado em [Pontos de extremidade][lnk-endpoints], o Hub IoT fornece noti
 
 Cada hub IoT expõe as seguintes opções de configuração para notificações de upload de arquivos:
 
-| Propriedade | Descrição | Intervalo e padrão |
+| Propriedade | DESCRIÇÃO | Intervalo e padrão |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Controla se as notificações de upload de arquivos serão gravadas no ponto de extremidade de notificações de arquivo. |Bool. Padrão: True. |
 | **fileNotifications.ttlAsIso8601** |TTL padrão para notificações de upload de arquivos. |Intervalo ISO_8601 de até 48H (mínimo de um minuto). Padrão: 1 hora. |
@@ -153,7 +153,7 @@ Agora que você aprendeu a carregar arquivos de dispositivos usando o Hub IoT, t
 * [Invocar um método direto em um dispositivo][lnk-devguide-directmethods]
 * [Agendar trabalhos em vários dispositivos][lnk-devguide-jobs]
 
-Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez se interesse pelo seguinte tutorial de Hub IoT:
+Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial do Hub IoT a seguir:
 
 * [Como carregar arquivos de dispositivos para a nuvem com o Hub IoT][lnk-fileupload-tutorial]
 

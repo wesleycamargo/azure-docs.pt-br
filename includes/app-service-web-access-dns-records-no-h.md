@@ -1,3 +1,8 @@
+> [!NOTE]
+> Você pode usar o DNS do Azure para configurar um nome DNS personalizado para os seus Aplicativos Web do Azure. Para obter mais informações, consulte [Usar o DNS do Azure para fornecer as configurações de domínio personalizadas para um serviço do Azure](../articles/dns/dns-custom-domain.md#app-service-web-apps).
+>
+>
+
 Entre no site de seu provedor de domínio.
 
 Localize a página para gerenciamento de registros DNS. Cada provedor de domínio tem sua própria interface de registros DNS; portanto, consulte a documentação do provedor. Procure áreas do site rotuladas como **Nome de Domínio**, **DNS** ou **Gerenciamento de Servidor de Nomes**. 

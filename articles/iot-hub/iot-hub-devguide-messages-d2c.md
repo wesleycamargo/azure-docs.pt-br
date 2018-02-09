@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Enviar mensagens de dispositivo para a nuvem para o Hub IoT
 
 Para enviar telemetria de série temporal e alertas de dispositivos ao back-end da solução, envie mensagens de dispositivo para a nuvem do dispositivo para o hub IoT. Para ver uma discussão sobre outras opções de dispositivo para a nuvem com suporte no Hub IoT, confira [Orientação sobre comunicações de dispositivo para a nuvem][lnk-d2c-guidance].
 
-Você envia mensagens do dispositivo para a nuvem por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/messages/events**). As regras de roteamento roteiam as mensagens para um dos pontos de extremidade voltados para o serviço em seu Hub IoT. As regras de roteamento usam os cabeçalhos e o corpo das mensagens de dispositivo para a nuvem que fluem através de seu hub para determinar para onde roteá-las. Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para o serviço interno (**mensagens/eventos**) compatíveis com [Hubs de Eventos][lnk-event-hubs]. Portanto, você pode usar os [SDKs e integração com Hubs de Evento][lnk-compatible-endpoint] Standard para receber mensagens de dispositivo para a nuvem no back-end da solução.
+Você envia mensagens do dispositivo para a nuvem por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/messages/events**). As regras de roteamento roteiam as mensagens para um dos pontos de extremidade voltados para o serviço em seu Hub IoT. As regras de roteamento usam os cabeçalhos e o corpo das mensagens de dispositivo para a nuvem para determinar para onde roteá-las. Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para o serviço interno (**mensagens/eventos**) compatíveis com [Hubs de Eventos][lnk-event-hubs]. Portanto, você pode usar os [SDKs e integração com Hubs de Evento][lnk-compatible-endpoint] Standard para receber mensagens de dispositivo para a nuvem no back-end da solução.
 
 O Hub IoT implementa mensagens de dispositivo para nuvem usando um padrão de sistema de mensagens de streaming. As mensagens do dispositivo para nuvem do Hub IoT são mais semelhantes a *eventos* de [Hubs de Eventos][lnk-event-hubs] do que a *mensagens* do [Barramento de Serviço][lnk-servicebus] na medida em que há um alto volume de eventos passando pelo serviço que pode ser lido por vários leitores.
 
@@ -36,11 +36,11 @@ As mensagens de dispositivo para a nuvem com o Hub IoT têm as seguintes caracte
 * O Hub IoT habilita milhões de dispositivos conectados simultaneamente (confira [Cotas e limitação][lnk-quotas]).
 * O Hub IoT não permite o particionamento arbitrário. As mensagens do dispositivo para a nuvem são particionadas com base em sua **deviceId**de origem.
 
-Para saber mais sobre as diferenças entre os serviços de Hubs de Eventos e o Hub IoT, confira [Comparação do Hub IoT do Azure e Hubs de Eventos do Azure][lnk-comparison].
+Para saber mais sobre as diferenças entre Hubs de Eventos e o Hub IoT, confira [Comparação do Hub IoT do Azure e Hubs de Eventos do Azure][lnk-comparison].
 
 ## <a name="send-non-telemetry-traffic"></a>Enviar tráfego sem telemetria
 
-Muitas vezes, além dos pontos de dados de telemetria, os dispositivos enviam mensagens e solicitações que exigem execução separada e manipulação no back-end de solução. Por exemplo, alertas críticos que devem disparar uma ação específica no back-end. Você pode escrever facilmente uma [regra de direcionamento][lnk-devguide-custom] para enviar esses tipos de mensagens a um ponto de extremidade dedicado ao respectivo processamento, com base em um cabeçalho da mensagem ou um valor no corpo da mensagem.
+Muitas vezes, além da telemetria, os dispositivos enviam mensagens e solicitações que exigem execução separada e manipulação no back-end de solução. Por exemplo, alertas críticos que devem disparar uma ação específica no back-end. Você pode escrever uma [regra de direcionamento][lnk-devguide-custom] para enviar esses tipos de mensagens a um ponto de extremidade dedicado ao respectivo processamento, com base em um cabeçalho da mensagem ou um valor no corpo da mensagem.
 
 Para obter mais informações sobre a melhor maneira de processar esse tipo de mensagem, consulte o [Tutorial: como processar mensagens do dispositivo para a nuvem do Hub IoT][lnk-d2c-tutorial].
 

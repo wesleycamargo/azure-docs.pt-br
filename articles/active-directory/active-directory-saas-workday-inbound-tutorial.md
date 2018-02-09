@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: configurar Workday para provisionamento automático de usuário com Azure Active Directory e Active Directory local | Microsoft Docs"
+title: "Tutorial: Configurar o Workday para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
 description: Saiba como usar o Workday como fonte de dados de identidade para Active Directory e Azure Active Directory.
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Tutorial: configurar Workday para provisionamento automático de usuário com Azure Active Directory e Active Directory local
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
+
 O objetivo deste tutorial é mostrar as etapas necessárias para importar pessoas do Workday tanto no Active Directory como no Azure Active Directory, com write-back opcional de alguns atributos para Workday. 
 
 
@@ -51,7 +52,7 @@ Os fluxos de trabalho de provisionamento de usuário do Workday com suporte do s
 
 Antes de iniciar sua integração no Workday, verifique os pré-requisitos abaixo e leia as seguintes orientações sobre como corresponder sua arquitetura do Active Directory atual e os requisitos de provisionamento de usuário com a(s) solução(ões) fornecida(s) pelo Azure Active Directory.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -341,7 +342,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Criar + atualizar |
 | **PostalCode**  |   postalCode  |     | Criar + atualizar |
 | **LocalReference** |  preferredLanguage  |     |  Criar + atualizar |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Gravado na criação somente |
+| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Gravado na criação somente |
 | **Sobrenome**   |   sn   |     |  Criar + atualizar |
 | **CountryRegionReference** |  st     |     | Criar + atualizar |
 | **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |
@@ -553,7 +554,7 @@ Nesta seção, você irá configurar o fluxo dos dados do usuário do Workday pa
 
    * **Corresponder objetos utilizando esse atributo** – Se esse mapeamento deverá ou não ser utilizado para identificar usuários entre o Workday e o Azure AD com exclusividade. Normalmente, isso é definido no campo ID de Trabalho para o Workday que normalmente é mapeado para o atributo ID do Funcionário (novo) ou um atributo de extensão no Azure AD.
 
-   * **Precedência de correspondência** – Vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, mais nenhum atributo correspondente será avaliado.
+   * **Precedência de correspondência** – vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, mais nenhum atributo correspondente será avaliado.
 
    * **Aplicar esse mapeamento**
 

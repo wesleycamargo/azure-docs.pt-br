@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: fe5717b6dece6c6d03586045fb5fa0ccadd5e262
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implantar e usar o Registro de Contêiner do Azure
 
@@ -85,10 +85,10 @@ Para obter o nome de loginServer, execute o comando a seguir.
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Agora, marque a imagem `azure-vote-front` com o loginServer do registro de contêiner. Além disso, adicione `:redis-v1` ao final do nome da imagem. Esta marcação indica a versão da imagem.
+Agora, marque a imagem `azure-vote-front` com o loginServer do registro de contêiner. Além disso, adicione `:v1` ao final do nome da imagem. Esta marcação indica a versão da imagem.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
 Depois de marcada, execute [docker images][docker-images] para verificar a operação.
@@ -102,7 +102,7 @@ Saída:
 ```
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry082.azurecr.io/azure-vote-front   redis-v1            eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry082.azurecr.io/azure-vote-front   v1            eaf2b9c57e5e        8 minutes ago       716 MB
 redis                                                latest              a1b99da73d05        7 days ago          106MB
 tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
 ```
@@ -114,7 +114,7 @@ Envie a imagem `azure-vote-front` por push ao registro.
 Usando o exemplo a seguir, substitua o nome do loginServer do ACR pelo loginServer do seu ambiente.
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v1
+docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
 Isso leva alguns minutos para ser concluído.
@@ -146,7 +146,7 @@ Saída:
 ```azurecli
 Result
 --------
-redis-v1
+v1
 ```
 
 Na conclusão do tutorial, a imagem de contêiner foi armazenada em uma instância privada de Registro de Contêiner do Azure. Essa imagem será implantada do ACR para um cluster Kubernetes em tutoriais subsequentes.

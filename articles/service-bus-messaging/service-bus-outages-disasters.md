@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -31,12 +31,7 @@ Um desastre é definido como a perda permanente de uma unidade de escala ou de u
 ## <a name="current-architecture"></a>Arquitetura atual
 O Barramento de Serviço usa vários repositórios de mensagens para armazenar mensagens enviadas para filas ou tópicos. Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão.
 
-Todas as entidades de mensagens do Barramento de Serviço (filas, tópicos, retransmissões) residem em um namespace de serviço, que está associado a um datacenter. O Barramento de Serviço não habilita a replicação geográfica automática de dados, nem permite que um namespace se estenda para vários data centers.
-
-## <a name="protecting-against-acs-outages"></a>Proteção contra interrupções do ACS
-Se você estiver usando as credenciais do ACS e ele ficar indisponível, os clientes não poderão mais obter tokens. Os clientes com um token no momento em que o ACS ficar inativo poderão continuar a usar o Barramento de Serviço até que os tokens expirem. A vida útil do token padrão é de 3 horas.
-
-Para proteger contra interrupções do ACS, use tokens de Assinatura de Acesso Compartilhado (SAS). Nesse caso, o cliente autenticará diretamente no Barramento de Serviço assinando um token sem uso com uma chave secreta. As chamadas ao ACS não são mais necessárias. Para saber mais sobre tokens SAS, confira [Autenticação do Barramento de Serviço][Service Bus authentication].
+Todas as entidades de mensagens do Barramento de Serviço (filas, tópicos, retransmissões) residem em um namespace de serviço, que está associado a um datacenter. O Barramento de Serviço agora dá suporte à [*Recuperação de desastre em área geográfica* e à *Replicação geográfica*](service-bus-geo-dr.md) no nível do namespace.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protegendo filas e tópicos contra falhas do repositório de mensagens
 Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. Para saber mais sobre entidades particionadas, confira [Entidades de mensagens particionadas][Partitioned messaging entities].
@@ -82,9 +77,14 @@ Quando a replicação passiva for usada, as mensagens de cenário a seguir poder
 
 O exemplo [Replicação geográfica com mensagens agenciadas do Barramento de Serviço][Geo-replication with Service Bus Brokered Messages] demonstra a replicação passiva de entidades de mensagens.
 
+## <a name="geo-replication"></a>Replicação geográfica
+
+O Barramento de Serviço dá suporte à Recuperação de desastre em área geográfica e à Replicação geográfica no nível do namespace. Para mais informações consulte [Recuperação de desastre em área geográfica do Barramento de Serviço do Azure](service-bus-geo-dr.md). O recurso de recuperação de desastre, disponível apenas para [SKU Premium](service-bus-premium-messaging.md), implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário.
+
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a recuperação de desastres, confira estes artigos:
 
+* [Recuperação de desastre em área geográfica do Barramento de Serviço do Azure](service-bus-geo-dr.md)
 * [Continuidade dos negócios no Banco de dados SQL do Azure][Azure SQL Database Business Continuity]
 * [Projetando aplicativos resilientes para Azure][Azure resiliency technical guidance]
 

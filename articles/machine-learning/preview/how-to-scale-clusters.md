@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Dimensionamento do cluster para gerenciar a taxa de transferência do serviço Web
 
@@ -83,9 +83,9 @@ az ml service update realtime -i <service id> --autoscale-enabled true --autosca
 Por exemplo, configurar `autoscale-min-replicas` como 5 criará cinco réplicas. Para chegar a um número ideal para o serviço Web, defina o número para valores como 10 e monitore o número de mensagens de erro 503. Em seguida, ajuste o número adequadamente.
 
 
-| Nome do parâmetro | Tipo | Descrição |
+| Nome do parâmetro | type | DESCRIÇÃO |
 |--------------------|--------------------|--------------------|
-| `autoscale-enabled` | Booliano | Especifica se o dimensionamento automático está habilitado. Padrão: true |
+| `autoscale-enabled` | booleano | Especifica se o dimensionamento automático está habilitado. Padrão: true |
 | `autoscale-min-replicas` | inteiro | Especifica o número mínimo de pods. Deve ser 0 ou maior. Padrão: 1 |
 | `autoscale-max-replicas` | inteiro | Especifica o número máximo de pods. Deve ser 1 ou maior. Se autoscale-max-replicas for menor do que autoscale-min-replicas, então autoscale-max-replicas será ignorado. Padrão: 10 |
 | `autoscale-refresh-period-seconds` | inteiro | Especifica a duração em segundos entre as atualizações de dimensionamento automático. Padrão: 1 |
@@ -159,6 +159,6 @@ Depois de iniciar o servidor do painel, abra um navegador e digite a seguinte UR
 
 Na tela principal do painel, clique em **Implantações** na barra de navegação à esquerda. Se o painel de navegação não for exibido, selecione esse ícone ![Menu consistindo em três linhas horizontais curtas](media/how-to-scale-clusters/icon-hamburger.png) no canto superior esquerdo.
 
-Localize a implantação para modificar e clique nesse ícone ![ícone do Menu consistindo em três pontos verticais](media/how-to-scale-clusters/icon-kebab.png) à direita e, em seguida, clique em **Exibir/edi YAML**.
+Localize a implantação para modificar e clique nesse ícone ![Ícone do menu consistindo em três pontos verticais](media/how-to-scale-clusters/icon-kebab.png) à direita e, em seguida, clique em **Exibir/Editar YAML**.
 
 Na tela Editar implantação, localize o nó *spec*, modifique o valor de *réplicas* e clique em **Atualizar**.

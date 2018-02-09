@@ -17,7 +17,7 @@
 
     Em seguida, clique em **Criar**.
 
-    ![A folha da nova conta do Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![A página da nova conta do Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 4. A criação da conta leva alguns minutos. Durante a criação de conta, o portal exibe o bloco **Implantando o Azure Cosmos DB** do lado direito; talvez você precise rolar no painel para ver o bloco. Também é exibida na parte superior da tela de uma barra de progresso. Você pode assistir a área de andamento. 
 

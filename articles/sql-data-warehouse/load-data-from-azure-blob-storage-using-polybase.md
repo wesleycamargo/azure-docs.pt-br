@@ -1,5 +1,5 @@
 ---
-title: "Carregamento de dados do Polybase – Azure Storage Blob para SQL Data Warehouse do Azure | Microsoft Docs"
+title: "Tutorial: Carregamento de dados do Polybase – Azure Storage Blob para SQL Data Warehouse do Azure | Microsoft Docs"
 description: "Um tutorial que usa o Portal do Azure e o SQL Server Management Studio para carregar dados dos táxis de Nova York do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure."
 services: sql-data-warehouse
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Usar o PolyBase para carregar dados do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Tutorial: Usar o PolyBase para carregar dados do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure
 
 O PolyBase é a tecnologia de carregamento padrão para ingressar dados no SQL Data Warehouse. Neste tutorial, você usará o PolyBase para carregar dados dos táxis de Nova York do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.md) (SQL Server Management Studio) para: 
 

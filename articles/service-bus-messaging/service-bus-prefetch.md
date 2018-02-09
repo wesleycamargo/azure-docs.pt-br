@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Executar a pré-busca de mensagens do Barramento de Serviço do Azure
 
@@ -27,7 +27,7 @@ Uma única chamada inicial para [Receive](/dotnet/api/microsoft.servicebus.messa
 
 ## <a name="enable-prefetch"></a>Habilitar a pré-busca
 
-No .NET, você deve habilita o recurso de Pré-busca definindo a propriedade [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) de um **MessageReceiver**, **QueueClient** ou **SubscriptionClient** com um número maior que zero. Definir o valor como zero desativa pré-busca.
+Com .NET, você deve habilita o recurso de Pré-busca definindo a propriedade [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) de um **MessageReceiver**, **QueueClient** ou **SubscriptionClient** com um número maior que zero. Definir o valor como zero desativa pré-busca.
 
 Você pode adicionar facilmente esta configuração ao lado de recebimento das configurações dos exemplos [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) ou [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) para ver o efeito nesses contextos.
 
@@ -37,7 +37,7 @@ A pré-busca também funciona da mesma forma com as APIs [OnMessage](/dotnet/api
 
 ## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>Se ela é mais rápida, por que Pré-busca não é a opção padrão?
 
-A Pré-busca acelera o fluxo de mensagens ao ter uma mensagem prontamente disponível para recuperação local quando e antes de o aplicativo solicitar uma. Esse ganho de taxa de transferência é o resultado de uma decisão de compensação que o autor do aplicativo deve tomar explicitamente:
+A Pré-busca acelera o fluxo de mensagens ao ter uma mensagem prontamente disponível para recuperação local quando e antes de o aplicativo solicitar uma. Esse ganho de taxa de transferência é o resultado de uma compensação que o autor do aplicativo deve tomar explicitamente:
 
 Com o modo de recebimento [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete), todas as mensagens adquiridas no buffer de pré-busca não estão mais disponíveis na fila e residem apenas no buffer de pré-busca na memória até serem recebidas no aplicativo por meio das APIs **Receive**/**ReceiveAsync** ou **OnMessage**/**OnMessageAsync**. Se o aplicativo for encerrado antes que as mensagens sejam recebidas no aplicativo, essas mensagens serão perdidas de forma irrecuperável.
 
@@ -55,7 +55,7 @@ A contagem de pré-busca máxima e a duração do bloqueio configurado na fila o
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as mensagens do Barramento de Serviço, consulte os tópicos a seguir:
+Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)

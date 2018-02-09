@@ -6,23 +6,23 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bdc64733b75fd809cf0245986aa96370343c1a34
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos da Grade de Eventos do Azure para armazenamento de Blob
 
-Este artigo fornece as propriedades e o esquema para eventos de armazenamento de blob. Para obter uma introdução a esquemas de evento, consulte [esquema de evento da Grade de Eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos de armazenamento de blob. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 
 Armazenamento de blob emite os seguintes tipos de evento:
 
-| Tipo de evento | Descrição |
+| Tipo de evento | DESCRIÇÃO |
 | ---------- | ----------- |
 | Microsoft.Storage.BlobCreated | Gerado quando um blob é criado. |
 | Microsoft.Storage.BlobDeleted | Gerado quando um blob é deletado. |
@@ -51,7 +51,9 @@ O exemplo a seguir mostra o esquema de um blob criado de evento:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -74,7 +76,9 @@ O esquema para um evento de blob excluído é semelhante:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -82,18 +86,20 @@ O esquema para um evento de blob excluído é semelhante:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. |
+| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | ID | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos do armazenamento de blob. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | api | string | A operação que disparou o evento. |
 | clientRequestId | string | Um valor opaco, gerado pelo cliente, com um limite de caracteres de 1 KB. Quando você tiver habilitado o log de análise de armazenamento, ele será registrado nos logs de análise. |
@@ -101,7 +107,7 @@ O objeto de dados tem as seguintes propriedades:
 | eTag | string | O valor que você pode usar para executar operações condicionalmente. |
 | contentType | string | O tipo de conteúdo especificado para o blob. |
 | contentLength | inteiro | O tamanho do blob em bytes. |
-| BlobType | string | O tipo de blob. |
+| BlobType | string | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |
 | url | string | O caminho para o blob. |
 | sequenciador | string | Um valor controlado pelo usuário que você pode usar para controlar as solicitações. |
 | storageDiagnostics | objeto | Informações sobre o Diagnóstico de armazenamento. |

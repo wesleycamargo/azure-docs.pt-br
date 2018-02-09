@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Como encontrar um endereço usando o serviço de pesquisa Serviços do Azure Baseados na Localização (versão prévia)
 O serviço de pesquisa é um conjunto RESTful de APIs projetado para desenvolvedores procurarem endereços, locais, pontos de interesse, anúncios de empresas e outras informações geográficas. O Serviço de Pesquisa atribui um valor de latitude/longitude para um endereço específico, cruzamento, recurso geográfico ou POI (ponto de interesse). Os valores de latitude e longitude retornados pelas APIs do Serviço de Pesquisa podem ser usados como parâmetros em outros Serviços do Azure Baseados na Localização, como as APIs de Rota e de Fluxo de Tráfego.
 
 ## <a name="prerequisites"></a>pré-requisitos
-Instalar o [aplicativo Postman](https://www.getpostman.com/apps).
+* Instalar o [aplicativo Postman](https://www.getpostman.com/apps).
 
-Uma conta e chave de assinatura dos Serviços do Azure Baseados na Localização. Para saber mais sobre como criar uma conta e recuperar uma chave de assinatura, confira [Como gerenciar sua conta e chaves dos Serviços do Azure Baseados na Localização](how-to-manage-account-keys.md). 
+* Ter uma conta e chave dos Serviços do Azure Baseados na Localização. Para obter mais informações sobre como criar uma conta e recuperar uma chave, consulte [Como gerenciar as chaves e a conta dos Serviços do Azure Baseados na Localização](how-to-manage-account-keys.md). 
 
 ## <a name="using-fuzzy-search"></a>Como usar a Pesquisa Difusa
 
@@ -53,7 +53,7 @@ A maioria das consultas de pesquisa usa o padrão 'maxFuzzyLevel=1' para ter mel
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *chave de assinatura* |
+    | subscription-key | \<a chave dos Serviços do Azure Baseados na Localização\> |
     | query | pizza |
 
 4. Clique em **Enviar** e analise o corpo da resposta. 
@@ -103,7 +103,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *chave de assinatura* |
+    | subscription-key | \<a chave dos Serviços do Azure Baseados na Localização\> |
     | query | Rua Cosme Velho, 513, Rio de Janeiro, 22241-090 |
     
 3. Clique em **Enviar** e analise o corpo da resposta. 
@@ -143,7 +143,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *chave de assinatura* |
+    | subscription-key | \<a chave dos Serviços do Azure Baseados na Localização\> |
     | query | 47.59093,-122.33263 |
     
 3. Clique em **Enviar** e analise o corpo da resposta. 
@@ -209,7 +209,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *chave de assinatura* |
+    | subscription-key | \<a chave dos Serviços do Azure Baseados na Localização\> |
     | query | 47.59093,-122.33263 |
     
 4. Clique em **Enviar** e analise o corpo da resposta. 

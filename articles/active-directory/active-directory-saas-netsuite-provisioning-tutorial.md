@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o NetSuite | Microsoft Docs"
+title: "Tutorial: configurar o Netsuite para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
 description: "Saiba como configurar o logon único entre o Azure Active Directory e o Netsuite."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 20a670a3843586ab57ce776f400bd382947d7861
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3de048a88b2a14936f7a49afefc8c96e56909c37
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configurando o Netsuite para o provisionamento automático de usuário
+# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: configurando o Netsuite para o provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Netsuite e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Netsuite.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 

@@ -16,15 +16,26 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5f60dde981465709c16a9813ca24335c67252585
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres
 
 O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornece imagens internas do Docker no Linux com suporte para versões específicas, como PHP 7.0 e Node.js 4.5. O Aplicativo Web para Contêineres usa a tecnologia de contêiner do Docker para hospedar imagens internas e imagens personalizadas como uma plataforma como serviço. Neste tutorial, você aprenderá como criar uma imagem personalizada do Docker e implantá-la no Aplicativo Web para Contêineres. Esse padrão é útil quando as imagens internas não incluem a linguagem de sua escolha ou quando seu aplicativo requer uma configuração específica que não é fornecida nas imagens internas.
+
+Neste tutorial, você aprenderá como:
+
+> [!div class="checklist"]
+> * Implantar uma imagem personalizada do Docker no Azure
+> * Configurar variáveis de ambiente para executar o contêiner
+> * Atualizar a imagem do Docker e reimplantá-la
+> * Conectar-se ao contêiner usando SSH
+> * Implantar uma imagem privada do Docker no Azure
+
+[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -34,8 +45,6 @@ Para concluir este tutorial, você precisará:
 * Uma [assinatura ativa do Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Docker](https://docs.docker.com/get-started/#setup)
 * Uma [conta do Hub do Docker](https://docs.docker.com/docker-id/)
-
-[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
@@ -76,7 +85,7 @@ EXPOSE 8000 2222
 ENTRYPOINT ["init.sh"]
 ```
 
-Para criar a imagem do Docker, execute o comando `docker build` e forneça um nome, uma `mydockerimage` e uma marcação, `v1.0.0`. Substitua `<docker-id>` pela ID da conta do Hub do Docker.
+Para criar a imagem do Docker, execute o comando `docker build` e forneça um nome, uma _mydockerimage_ e uma marca, _v1.0.0_. Substitua _\<docker-id>_ pela ID da conta do Hub do Docker.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
@@ -107,7 +116,7 @@ Successfully built e7cf08275692
 Successfully tagged cephalin/mydockerimage:v1.0.0
 ```
 
-Teste se o build funciona executando o contêiner do Docker. Execute o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e envie o nome e a marcação da imagem para ele. Lembre-se de especificar a porta usando o argumento `-p`.
+Teste se o build funciona executando o contêiner do Docker. Execute o comando [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) e passe o nome e a marca da imagem para ele. Lembre-se de especificar a porta usando o argumento `-p`.
 
 ```bash
 docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
@@ -124,23 +133,23 @@ Um Registro é um aplicativo que hospeda imagens e fornece a imagem de serviços
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry such as Azure Container Registry. Select the appropriate tab for your scenario below (your selection will switch multiple tabs on this page). -->
 
 > [!NOTE]
-> Enviando por push para um Registro particular do Docker? Consulte as instruções opcionais de como [Enviar uma imagem do Docker por push para um Registro particular](#push-a-docker-image-to-private-registry-optional).
+> Enviando por push para um Registro particular do Docker? Consulte as instruções opcionais para [usar uma imagem do Docker para um registro privado](#use-a-docker-image-from-any-private-registry-optional).
 
 <!--## [Docker Hub](#tab/docker-hub)-->
 
-O Hub do Docker é um Registro para imagens do Docker que permite hospedar seus próprios repositórios públicos ou particulares. Para enviar uma imagem personalizada do Docker por push para o Hub público do Docker, use o comando [docker push](https://docs.docker.com/engine/reference/commandline/push/) e forneça um nome de imagem completo e uma marcação. Um nome de imagem completo e uma marcação são parecidos com a seguinte amostra:
+O Hub do Docker é um Registro para imagens do Docker que permite hospedar seus próprios repositórios públicos ou particulares. Para enviar uma imagem personalizada do Docker por push para o Hub público do Docker, use o comando [`docker push`](https://docs.docker.com/engine/reference/commandline/push/) e forneça um nome de imagem completo e uma marcação. Um nome de imagem completo e uma marcação são parecidos com a seguinte amostra:
 
 ```
 <docker-id>/image-name:tag
 ```
 
-Se você ainda não fez logon no Hub do Docker, faça logon usando o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) antes de tentar enviar uma imagem por push.
+Antes de enviar uma imagem por push, você deve entrar no Hub do Docker usando o comando [`docker login`](https://docs.docker.com/engine/reference/commandline/login/). Substitua _\<docker-id>_ pelo nome de sua conta e digite sua senha no console do prompt.
 
 ```bash
-docker login --username <docker-id> --password <docker-hub-password>
+docker login --username <docker-id>
 ```
 
-Uma mensagem “Logon com êxito” confirma que você está conectado. Depois de conectado, você pode enviar a imagem por push para o Hub do Docker usando o comando [docker push](https://docs.docker.com/engine/reference/commandline/push/).
+Uma mensagem “Logon com êxito” confirma que você está conectado. Depois de conectado, você pode enviar a imagem por push para o Hub do Docker usando o comando [`docker push`](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
@@ -192,7 +201,7 @@ Hospede aplicativos Linux nativos na nuvem usando os Aplicativos Web do Azure. P
 
 ### <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-No Cloud Shell, crie um [aplicativo Web](app-service-linux-intro.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp list-runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir `<app_name>` por um nome de aplicativo exclusivo e <docker-ID> pela ID do Docker.
+No Cloud Shell, crie um [aplicativo Web](app-service-linux-intro.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir _<appname>_ por um nome de aplicativo exclusivo e _\<docker-ID>_ pela ID do Docker.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -219,7 +228,7 @@ Quando o aplicativo Web for criado, a CLI do Azure mostrará um resultado semelh
 
 A maioria das imagens do Docker têm variáveis de ambiente que precisam ser configuradas. Se você estiver usando uma imagem do Docker existente criada por outra pessoa, a imagem poderá usar uma porta diferente da 80. Informe o Azure sobre a porta que suas imagens usam por meio da configuração `WEBSITES_PORT` do aplicativo. A página do GitHub que contém a [amostra do Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que você precisa definir `WEBSITES_PORT` para _8000_.
 
-Para definir as configurações de aplicativo, use o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) no Cloud Shell. As configurações do aplicativo diferenciam maiúsculas de minúsculas e são separadas por espaços.
+Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) no Cloud Shell. As configurações do aplicativo diferenciam maiúsculas de minúsculas e são separadas por espaços.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -340,7 +349,7 @@ Parabéns! Você configurou uma imagem personalizada do Docker para um Aplicativ
 
 Em [Criar um aplicativo Web](#create-a-web-app), você especificou uma imagem no Hub do Docker no comando `az webapp create`. Isso é o suficiente para uma imagem pública. Para usar uma imagem privada, você precisa configurar a ID e a senha da conta do Docker em seu aplicativo Web do Azure.
 
-No Cloud Shell, após o comando `az webapp create`, insira [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua *\<app_name>* e também _<docker-id>_ e _<password>_ pela ID e a senha do Docker.
+No Cloud Shell, logo após o comando `az webapp create`, coloque [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua *\<app_name>* e também _\<docker-id>_ e _\<password>_ pela ID e senha de seu Docker.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -380,7 +389,7 @@ O Registro de Contêiner do Azure é um serviço gerenciado do Docker de hospeda
 
 ### <a name="create-an-azure-container-registry"></a>Criar um Registro de Contêiner do Azure
 
-No Cloud Shell, use o comando [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) para criar um Registro de Contêiner do Azure. Passe o nome, o grupo de recursos e `Basic` do SKU. Os SKUs disponíveis são `Classic`, `Basic`, `Standard` e `Premium`.
+No Cloud Shell, use o comando [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az_acr_create) para criar um Registro de Contêiner do Azure. Passe o nome, o grupo de recursos e `Basic` do SKU. Os SKUs disponíveis são `Classic`, `Basic`, `Standard` e `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -418,7 +427,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Fazer logon no Registro de Contêiner do Azure
 
-Para enviar uma imagem por push para o Registro, você precisa fornecer credenciais para que o Registro aceite o push. Você pode recuperar essas credenciais usando o comando [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) no Cloud Shell. 
+Para enviar uma imagem por push para o Registro, você precisa fornecer credenciais para que o Registro aceite o push. Você pode recuperar essas credenciais usando o comando [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az_acr_show) no Cloud Shell. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -442,10 +451,10 @@ O comando revela duas senhas que podem ser usadas com o nome de usuário.
 }
 ```
 
-Na janela do terminal local, faça logon no Registro de Contêiner do Azure usando o comando `docker login`. O nome do servidor é necessário para fazer logon. Use o formato `{azure-container-registry-name>.azurecr.io`.
+Na janela do terminal local, faça logon no Registro de Contêiner do Azure usando o comando `docker login`. O nome do servidor é necessário para fazer logon. Use o formato `{azure-container-registry-name>.azurecr.io`. Digite sua senha no console no prompt.
 
 ```bash
-docker login <azure-container-registry-name>.azurecr.io --username <registry-username> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
 ```
 
 Confirme se o logon foi bem-sucedido. 
@@ -482,7 +491,7 @@ A listagem das imagens no Registro confirma que `mydockerimage` está no Registr
 
 Você pode configurar o Aplicativo Web para Contêineres para que ele execute um contêiner armazenado no Registro de Contêiner do Azure. Usar o Registro de Contêiner do Azure é como usar qualquer registro privado, portanto, se você precisar usar seu próprio registro privado, as etapas para concluir essa tarefa serão semelhantes.
 
-No Cloud Shell, execute [az acr credential show](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) para exibir o nome de usuário e a senha do Registro de Contêiner do Azure. Copie o nome de usuário e uma das senhas para que você possa usá-la para configurar o aplicativo Web na próxima etapa.
+No Cloud Shell, execute [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) para exibir o nome de usuário e a senha do Registro de Contêiner do Azure. Copie o nome de usuário e uma das senhas para que você possa usá-la para configurar o aplicativo Web na próxima etapa.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -504,10 +513,10 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-No Cloud Shell, execute o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) para atribuir a imagem personalizada do Docker ao aplicativo Web. Substitua *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ e _\<password>_. Para o Registro de Contêiner do Azure, *\<docker-registry-server-url>* está no formato `https://<azure-container-registry-name>.azurecr.io`. 
+No Cloud Shell, execute o comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) para atribuir a imagem personalizada do Docker ao aplicativo Web. Substitua *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ e _\<password>_. Para o Registro de Contêiner do Azure, *\<docker-registry-server-url>* está no formato `https://<azure-container-registry-name>.azurecr.io`. Se você estiver usando qualquer registro além do Hub do Docker, o nome da imagem deverá começar com o FQDN (Nome de domínio totalmente qualificado) do registro. Para o Registro de Contêiner do Azure, isso será semelhante a `<azure-container-registry>.azurecr.io/mydockerimage`. 
 
 ```azurecli-interactive
-az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
+az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]

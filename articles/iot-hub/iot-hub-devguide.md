@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia do desenvolvedor do Hub IoT do Azure
 
@@ -42,10 +42,10 @@ Este guia do desenvolvedor do Hub IoT inclui os seguintes artigos:
   * [Enviar mensagens de nuvem para o dispositivo do Hub IoT][devguide-messages-c2d].
   * [Criar e ler mensagens do Hub IoT][devguide-format].
 * [Carregar arquivos de um dispositivo][devguide-upload] descreve como você pode carregar arquivos de um dispositivo. O artigo também inclui informações sobre tópicos como as notificações que podem ser enviadas pelo processo de carregamento.
-* [Gerenciar identidades do dispositivo no Hub IoT][devguide-identities] descreve as informações são armazenadas pelo registro de identidade de cada Hub IoT, e como elas podem ser acessadas e modificadas.
+* [Gerenciar identidades do dispositivo no Hub IoT][devguide-identities] descreve as informações armazenadas pelo registro de identidade de cada Hub IoT. O artigo também descreve como você pode acessar e modificá-lo.
 * [Controlar o acesso ao Hub IoT][devguide-security] descreve o modelo de segurança usado para conceder acesso à funcionalidade do Hub IoT para componentes de dispositivos e da nuvem. O artigo inclui informações sobre como usar tokens e certificados X.509, e os detalhes das permissões que você pode conceder.
-* [Usar dispositivo gêmeos para sincronizar o estado e as configurações][devguide-device-twins] descreve o conceito de *dispositivo gêmeo* e a funcionalidade que ele expõe, por exemplo, sincronizar um dispositivo com seu dispositivo gêmeo. O artigo inclui informações sobre os dados armazenados em um dispositivo gêmeo.
-* [Invocar um método direto em um dispositivo][devguide-directmethods] descreve o ciclo de vida de um método direto, informações sobre como invocar métodos em um dispositivo de seu aplicativo back-end e manipular o método direto em seu dispositivo.
+* [Usar dispositivos gêmeos para sincronizar o estado e as configurações][devguide-device-twins] descreve o conceito de *dispositivos gêmeos*. O artigo também descreve a funcionalidade que dispositivos gêmeos expõem, como a sincronização de um dispositivo com seus dispositivos gêmeos. O artigo inclui informações sobre os dados armazenados em um dispositivo gêmeo.
+* [Invocar um método direto em um dispositivo][devguide-directmethods] descreve o ciclo de vida de um método direto. O artigo descreve como invocar métodos em um dispositivo de seu aplicativo de back-end e manipular o método direto no seu dispositivo.
 * [Agendar trabalhos em vários dispositivos][devguide-jobs] descreve como você pode agendar trabalhos em vários dispositivos. O artigo descreve como enviar trabalhos que executam tarefas, por exemplo, execução de um método direto, atualização de um dispositivo usando um dispositivo gêmeo. Ele também descreve como consultar o status de um trabalho.
 * [Referência - escolher um protocolo de comunicação][devguide-protocol] descreve os protocolos de comunicação que o Hub IoT dá suporte para comunicação de dispositivo e lista as portas que devem ser abertas.
 * [Referência - Pontos de extremidade do Hub IoT][devguide-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento. O artigo também descreve como você pode criar mais pontos de extremidade adicionais em seu Hub IoT e como usar um gateway de campo para habilitar a conectividade para seus pontos de extremidade de Hub IoT em cenários não padrão.

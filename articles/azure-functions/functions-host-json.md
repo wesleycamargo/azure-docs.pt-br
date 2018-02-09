@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Referência de host.json para Azure Functions
 
@@ -49,6 +49,13 @@ O arquivo *host.json* de exemplo a seguir tem todas as opções especificadas po
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -108,7 +115,7 @@ Especifica quantas invocações de função são agregadas ao [calcular métrica
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |batchSize|1000|Número máximo de solicitações para agregação.| 
 |flushTimeout|00:00:30|Período de tempo máximo para agregação.| 
@@ -130,9 +137,9 @@ Controla o [recurso de amostragem no Application Insights](functions-monitoring.
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
-|isEnabled|false|Habilita ou desabilita a amostragem.| 
+|isEnabled|falso|Habilita ou desabilita a amostragem.| 
 |maxTelemetryItemsPerSecond|5|O limite em que a amostragem começa.| 
 
 ## <a name="eventhub"></a>eventHub
@@ -160,6 +167,30 @@ Indica a duração do tempo limite para todas as funções. Nos planos de consum
     "functionTimeout": "00:05:00"
 }
 ```
+
+## <a name="healthmonitor"></a>healthMonitor
+
+Definições de configuração para [monitor de integridade de Host](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Propriedade  |Padrão | DESCRIÇÃO |
+|---------|---------|---------| 
+|Habilitado|verdadeiro|Se o recurso está habilitado. | 
+|healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
+|healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
+|healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
+|counterThreshold|0.80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
 ## <a name="http"></a>http
 
@@ -196,7 +227,7 @@ Controles de filtragem de logs gravados por um [objeto ILogger](functions-monito
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |categoryFilter|n/d|Especifica a filtragem por categoria| 
 |defaultLevel|Informações|Para as categorias não especificadas na matriz `categoryLevels`, envie logs nesse nível e acima para o Application Insights.| 
@@ -218,7 +249,7 @@ Parâmetros de configuração para [gatilhos e associações de Armazenamento](f
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |maxPollingInterval|60000|O intervalo máximo em milissegundos entre as votações da fila.| 
 |visibilityTimeout|0|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha.| 
@@ -247,7 +278,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
@@ -268,7 +299,7 @@ Parâmetros de configuração para logs que você cria usando um objeto `TraceWr
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |consoleLevel|informações|O nível de rastreamento para o registro em log no console. As opções são: `off`, `error`, `warning`, `info` e `verbose`.|
 |fileLoggingMode|debugOnly|O nível de rastreamento para registros em log de arquivo. As opções são: `never`, `always` e `debugOnly`.| 

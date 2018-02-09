@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Visão geral: grupos de failover e replicação geográfica ativa
 A replicação geográfica ativa permite que você configure até quatro bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis para consulta e failover no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário. O failover deve ser iniciado manualmente pelo aplicativo do usuário. Após o failover, o novo banco de dados primário terá um ponto de extremidade de conexão diferente. 
@@ -140,7 +140,7 @@ Conforme discutido anteriormente, os grupos de failover automático (em versão 
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Gerenciar failover do Banco de Dados SQL usando Transact-SQL
 
-| Command | Descrição |
+| Get-Help | DESCRIÇÃO |
 | --- | --- |
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Use o argumento ADD SECONDARY ON SERVER para criar um banco de dados secundário para um banco de dados existente e inicie a replicação de dados |
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Usar o FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para alternar um banco de dados secundário para primário a fim de iniciar o failover |
@@ -153,7 +153,7 @@ Conforme discutido anteriormente, os grupos de failover automático (em versão 
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Gerenciar failover do Banco de Dados SQL usando PowerShell
 
-| Cmdlet | Descrição |
+| Cmdlet | DESCRIÇÃO |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém um ou mais bancos de dados. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
@@ -172,7 +172,7 @@ Conforme discutido anteriormente, os grupos de failover automático (em versão 
 >
 
 ## <a name="manage-sql-database-failover-using-the-rest-api"></a>Gerenciar failover do Banco de Dados SQL usando a API REST
-| API | Descrição |
+| API | DESCRIÇÃO |
 | --- | --- |
 | [Criar ou atualizar banco de dados (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
 | [Obter, Criar ou Atualizar o Status de um Banco de Dados](/rest/api/sql/Databases/CreateOrUpdate) |Retorna o status durante uma operação de criação. |

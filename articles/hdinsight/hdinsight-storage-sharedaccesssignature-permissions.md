@@ -4,7 +4,7 @@ description: Saiba como usar Assinaturas de Acesso Compartilhado para restringir
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados no HDInsight
 
@@ -216,7 +216,7 @@ Se você tiver um cluster baseado em Linux existente, poderá adicionar a SAS à
    > [!IMPORTANT]
    > Você deverá reiniciar vários serviços antes que a alteração entre em vigor.
 
-6. Na IU da Web do Ambari, escolha **HDFS** na lista à esquerda e selecione **Reiniciar Todos** na lista suspensa **Ações de Serviço** à direita. Quando solicitado, selecione **Ativar o modo de manutenção** e selecione __Conforme Reiniciar Todos".
+6. Na interface do usuário da Web do Ambari, selecione **HDFS** na lista à esquerda e, em seguida, selecione **Reiniciar Todos os Afetados** na lista suspensa **Ações de Serviço** à direita. Quando solicitado, selecione __Confirmar Reiniciar Todos__.
 
     Repita esse processo para MapReduce2 e YARN.
 
@@ -278,7 +278,7 @@ Uma vez conectado ao cluster, use as etapas a seguir para verificar se você só
 
     Dessa vez, a operação deverá ser concluída com êxito.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="a-task-was-canceled"></a>Uma tarefa foi cancelada
 

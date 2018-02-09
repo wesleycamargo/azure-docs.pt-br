@@ -3,8 +3,8 @@ title: "Otimizar a distribuição de conteúdo do Azure para seu cenário"
 description: "Como otimizar a distribuição de conteúdo para cenários específicos"
 services: cdn
 documentationcenter: 
-author: smcevoy
-manager: erikre
+author: dksimpson
+manager: 
 editor: 
 ms.assetid: 
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
-ms.author: v-semcev
-ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.date: 01/24/2018
+ms.author: rli
+ms.openlocfilehash: fa4cf306eeb1a8372da5b2a86ac73fbba2832666
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>Otimizar a distribuição de conteúdo do Azure para seu cenário
 
@@ -33,37 +33,41 @@ Este artigo fornece uma visão geral dos diversos recursos de otimização e qua
 
 ## <a name="provider-options"></a>Opções de provedor
 
-A Rede de Distribuição de Conteúdo do Azure da Akamai dá suporte a:
+A **Rede de Distribuição de Conteúdo do Azure da Akamai** tem suporte para as seguintes otimizações:
 
-* Distribuição na Web geral 
+* [Entrega na Web geral ](#general-web-delivery) 
 
-* Streaming de mídia geral
+* [Streaming de mídia geral](#general-media-streaming)
 
-* Streaming de mídia de vídeo por demanda
+* [Streaming de mídia de vídeo sob demanda](#video-on-demand-media-streaming)
 
-* Download de arquivos grandes
+* [Download de arquivo grande](#large-file-download)
 
-* Aceleração de site dinâmica 
+* [Aceleração de site dinâmica](#dynamic-site-acceleration) 
 
-A Rede de Distribuição de Conteúdo do Azure da Verizon dá suporte apenas à distribuição na Web geral. Ela pode ser usada para vídeo por demanda e download de arquivos grandes. Você não precisa selecionar um tipo de otimização.
+A **Rede de Distribuição de Conteúdo do Azure da Akamai** tem suporte para as seguintes otimizações:
+
+* [Entrega na Web geral](#general-web-delivery) (também pode ser usado para streaming de mídia e conteúdo de download de arquivo grande)
+
+* [Aceleração de site dinâmica](#dynamic-site-acceleration) 
 
 É altamente recomendável testar as variações de desempenho entre diferentes provedores para escolher o provedor ideal para a distribuição.
 
 ## <a name="select-and-configure-optimization-types"></a>Selecionar e configurar os tipos de otimização
 
-Para criar um novo ponto de extremidade, selecione um tipo de otimização que melhor corresponda ao cenário e ao tipo de conteúdo que você deseja que seja distribuído pelo ponto de extremidade. **Distribuição na Web geral** é a seleção padrão. Atualize a opção de otimização em qualquer ponto de extremidade existente da Akamai a qualquer momento. Essa alteração não interrompe a distribuição da CDN. 
+Para criar um novo ponto de extremidade, selecione um tipo de otimização que melhor corresponda ao cenário e ao tipo de conteúdo que você deseja que seja distribuído pelo ponto de extremidade. **Distribuição na Web geral** é a seleção padrão. Para pontos de extremidade existentes da **Rede de Distribuição de Conteúdo do Azure da Akamai**, é possível atualizar a opção de otimização a qualquer momento. Essa alteração não interrompe a distribuição da CDN. 
 
-1. Selecione um ponto de extremidade em um perfil Standard da Akamai.
+1. Em um perfil da **Rede de Entrega de Conteúdo do Azure da Akamai**, selecione um ponto de extremidade.
 
     ![Seleção de ponto de extremidade ](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. Em **CONFIGURAÇÕES**, selecione **Otimização**. Depois, selecione um tipo na lista suspensa **Otimizado para**.
+2. Em **CONFIGURAÇÕES**, selecione **Otimização**. Em seguida, selecione um tipo na lista suspensa **Otimizado para**.
 
     ![Otimização e seleção de tipo](./media/cdn-optimization-overview/02_Select.png)
 
 ## <a name="optimization-for-specific-scenarios"></a>Otimização para cenários específicos
 
-Otimize o ponto de extremidade CDN para um dos cenários a seguir. 
+Você pode otimizar o ponto de extremidade CDN para um desses cenários. 
 
 ### <a name="general-web-delivery"></a>Distribuição na Web geral
 
@@ -72,7 +76,7 @@ A distribuição na Web geral é a opção mais comum de otimização. Ela foi p
 Um site típico contém conteúdo estático e dinâmico. O conteúdo estático inclui imagens, bibliotecas JavaScript e folhas de estilo que podem ser armazenadas em cache e distribuídas para diferentes usuários. O conteúdo dinâmico é personalizado para um usuário individual, como itens de notícias adaptados a um perfil do usuário. O conteúdo dinâmico não é armazenado em cache, pois é exclusivo para cada usuário, como o conteúdo do carrinho de compras. A distribuição na Web geral pode otimizar todo o site. 
 
 > [!NOTE]
-> Se você usar a Rede de Distribuição de Conteúdo do Azure da Akamai, talvez você deseje usar essa otimização, caso o tamanho médio do arquivo for menor que 10 MB. Se o tamanho médio do arquivo for maior que 10 MB, selecione **Download de arquivos grandes** na lista suspensa **Otimizado para**.
+> Se você usar a **Rede de Distribuição de Conteúdo do Azure da Akamai**, talvez deseje usar essa otimização caso o tamanho médio do arquivo for menor que 10 MB. Se o tamanho médio do arquivo for maior que 10 MB, selecione **Download de arquivos grandes** na lista suspensa **Otimizado para**.
 
 ### <a name="general-media-streaming"></a>Streaming de mídia geral
 
@@ -82,38 +86,40 @@ O streaming de mídia é sensível ao tempo, pois os pacotes que chegam tarde no
 
 Esse cenário é comum para clientes do serviço de mídia do Azure. Quando você usa os serviços de mídia do Azure, você pode obter um ponto de extremidade de streaming, que pode ser usado para streaming sob demanda e ao vivo. Neste cenário, os clientes não precisam alternar para outro ponto de extremidade quando alteram de streaming sob demanda para ao vivo. A otimização de streaming de mídia geral dá suporte a esse tipo de cenário.
 
-A Rede de Distribuição de Conteúdo do Azure da Verizon uma o tipo de otimização de distribuição na Web geral para distribuir mídia de streaming.
+A **Rede de Distribuição de Conteúdo do Azure da Verizon** usa o tipo de otimização da Web geral para entregar conteúdo de mídia de streaming.
 
-Para saber mais sobre a otimização de streaming de mídia, consulte [Otimização de streaming de mídia](cdn-media-streaming-optimization.md).
+Para obter mais informações sobre a otimização de streaming de mídia, consulte [Otimização de streaming de mídia](cdn-media-streaming-optimization.md).
 
 ### <a name="video-on-demand-media-streaming"></a>Streaming de mídia de vídeo por demanda
 
 A otimização de streaming de mídia de vídeo por demanda melhora o conteúdo de streaming de vídeo por demanda. Se você usar um ponto de extremidade para streaming de vídeo por demanda, talvez você deseje usar essa opção.
 
-A Rede de Distribuição de Conteúdo do Azure da Verizon uma o tipo de otimização de distribuição na Web geral para distribuir mídia de streaming.
+A **Rede de Distribuição de Conteúdo do Azure da Verizon** usa o tipo de otimização da Web geral para distribuir conteúdo de mídia de streaming.
 
-Para saber mais sobre a otimização de streaming de mídia, consulte [Otimização de streaming de mídia](cdn-media-streaming-optimization.md).
+Para obter mais informações sobre a otimização de streaming de mídia, consulte [Otimização de streaming de mídia](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
 > Se o ponto de extremidade fornecer principalmente o conteúdo de vídeo por demanda, use esse tipo de otimização. A principal diferença entre essa otimização e a otimização de streaming de mídia geral é o tempo limite de repetição de conexão. O tempo limite é muito menor para trabalhar com cenários de transmissão ao vivo.
 
 ### <a name="large-file-download"></a>Download de arquivos grandes
 
-Se você usar a Rede de Distribuição de Conteúdo do Azure da Akamai, deverá usar o download de arquivos grandes para distribuir arquivos maiores que 1,8 GB. A Rede de Distribuição de Conteúdo do Azure da Verizon não tem uma limitação de tamanho do download de arquivo em sua otimização de distribuição na Web geral.
+Se você usar a **Rede de Entrega de Conteúdo do Azure do Akamai**, você deve usar o download de arquivo grande para distribuir arquivos maiores do que 1,8 GB. A **Rede de Distribuição de Conteúdo do Azure da Verizon** não tem uma limitação de tamanho de download de arquivo em sua otimização geral de distribuição na Web.
 
-Se você usar a Rede de Distribuição de Conteúdo do Azure da Akamai, os downloads de arquivos grandes maiores que 10 MB serão otimizados para o conteúdo. Se o tamanho médio do arquivo for menor que 10 MB, talvez você deseje usar a distribuição na Web geral. Se os tamanhos médios dos arquivos forem consistentemente maiores que 10 MB, talvez seja mais eficiente criar um ponto de extremidade separado para arquivos grandes. Por exemplo, atualizações de firmware ou software geralmente são arquivos grandes.
+Se você usar a **Rede de Distribuição de Conteúdo do Azure da Akamai**, os downloads de arquivos grandes são otimizados para conteúdo de mais de 10 MB. Se o tamanho médio do arquivo for menor que 10 MB, talvez você deseje usar a distribuição na Web geral. Se os tamanhos médios dos arquivos forem consistentemente maiores que 10 MB, talvez seja mais eficiente criar um ponto de extremidade separado para arquivos grandes. Por exemplo, atualizações de firmware ou software geralmente são arquivos grandes.
 
-A Rede de Distribuição de Conteúdo do Azure da Verizon usa o tipo geral de otimização de distribuição na Web para distribuir conteúdo de download de arquivos grandes.
+A **Rede de Distribuição de Conteúdo do Azure da Verizon** usa o tipo de otimização da Web geral para distribuir conteúdo de download de arquivo grande.
 
 Para saber mais sobre a otimização de arquivos grandes, consulte [Otimização de arquivos grandes](cdn-large-file-optimization.md).
 
 ### <a name="dynamic-site-acceleration"></a>Aceleração de site dinâmica
 
- A aceleração de site dinâmica está disponível nos perfis da Rede de Distribuição de Conteúdo da Akamai e da Verizon. Essa otimização envolve uma taxa adicional a ser usada. Para obter mais informações, consulte a página de preços.
+ A aceleração de site dinâmico está disponível nos perfis da **Rede de Distribuição de Conteúdo do Azure do Akamai** e da **Rede de Distribuição de Conteúdo do Azure da Verizon**. Essa otimização envolve um valor adicional para ser usado; para obter mais informações, consulte [Preço da Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
 
 A aceleração de site dinâmica inclui várias técnicas que trazem vantagens para a latência e o desempenho do conteúdo dinâmico. As técnicas incluem otimização de rota e de rede, otimização de TCP e muito mais. 
 
 Use essa otimização para acelerar um aplicativo Web que inclui várias respostas que não são armazenáveis em cache. Entre os exemplos estão resultados da pesquisa, transações de check-out ou dados em tempo real. Continue usando as principais funcionalidades de cache CDN para dados estáticos. 
+
+Para obter mais informações sobre aceleração de site dinâmico, consulte [Aceleração de site dinâmico](cdn-dynamic-site-acceleration.md).
 
 
 

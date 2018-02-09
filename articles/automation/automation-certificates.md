@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na Automação do Azure
 
@@ -28,11 +28,10 @@ Os certificados podem ser armazenados com segurança na Automação do Azure par
 > Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
+## <a name="azurerm-powershell-cmdlets"></a>Cmdlets do AzureRM PowerShell
+Para o AzureRM, os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de credenciais de automação com o Windows PowerShell.  Eles são fornecidos como parte do [módulo de AzureRM.Automation](/powershell/azure/overview) que está disponível para uso em runbooks de automação e na configuração de DSC.
 
-Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de certificados de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e na configuração DSC da Automação.
-
-|Cmdlets|Descrição|
+|Cmdlets|DESCRIÇÃO|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Obtém informações sobre um certificado a ser usado em um runbook ou configuração DSC. Você só pode recuperar o certificado propriamente dito da atividade Get-AutomationCertificate.|
 |[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Cria um novo certificado para a Automação do Azure.|
@@ -40,12 +39,21 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de certi
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Define as propriedades para um certificado existente, incluindo o carregamento do arquivo de certificado e a definição da senha para um. pfx.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carrega um certificado de serviço para o serviço de nuvem especificado.|
 
+## <a name="activities"></a>Atividades
+As atividades na tabela a seguir são usadas para acessar certificados em um runbook e em configurações de DSC.
+
+| Atividades | DESCRIÇÃO |
+|:---|:---|
+|Get-AutomationCertificate|Obtém um certificado a ser usado em um runbook ou configuração DSC. Retorna um objeto [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx).|
+
+> [!NOTE] 
+> Evite usar variáveis no parâmetro –Nome de parâmtro de **Get-AutomationVariable** em um runbook ou em uma configuração de DSC, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações de DSC e variáveis da Automação no tempo de design.
 
 ## <a name="python2-functions"></a>Funções Python2
 
 A função na tabela a seguir é usada para acessar certificados em um runbook Python2.
 
-| Função | Descrição |
+| Função | DESCRIÇÃO |
 |:---|:---|
 | automationassets.get_automation_certificate | Recupera informações sobre um ativo de certificado. |
 

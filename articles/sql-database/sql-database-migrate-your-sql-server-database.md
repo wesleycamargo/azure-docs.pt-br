@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 09/01/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 526222944974c08f92aec2a8418e9b42401bc4d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure
 
@@ -34,7 +34,7 @@ Mover seu banco de dados do SQL Server para o Banco de dados SQL do Azure é tã
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
@@ -60,7 +60,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 
 3. Preencha o formulário do Banco de Dados SQL com as informações abaixo, conforme mostrado na imagem anterior:   
 
-   | Configuração       | Valor sugerido | Descrição | 
+   | Configuração       | Valor sugerido | DESCRIÇÃO | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nome do banco de dados** | mySampleDatabase | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
    | **Assinatura** | Sua assinatura  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
@@ -69,7 +69,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 
 4. Clique em **Servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** com as seguintes informações: 
 
-   | Configuração       | Valor sugerido | Descrição | 
+   | Configuração       | Valor sugerido | DESCRIÇÃO | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
@@ -91,7 +91,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
    > [!IMPORTANT]
    > \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Na camada Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. Consulte [Limitações atuais de P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Central do Canadá, Leste do Canadá, Centro dos EUA, França Central, Centro da Alemanha, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Depois de selecionar a camada de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
@@ -153,7 +153,7 @@ Siga estas etapas para usar o **[Assistente de migração de dados](https://www.
 
 2. No menu à esquerda, clique em **+ Novo** para criar um projeto de **Avaliação**. Preencha os valores solicitados e, em seguida, clique em **Criar**:
 
-   | Configuração      | Valor sugerido | Descrição | 
+   | Configuração      | Valor sugerido | DESCRIÇÃO | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de projeto | Migração | Escolha se deseja avaliar seu banco de dados quanto a migração ou escolha avaliar a migração como parte do mesmo fluxo de trabalho |
    |Nome do projeto|Tutorial de migração| Um nome descritivo |
@@ -165,7 +165,7 @@ Siga estas etapas para usar o **[Assistente de migração de dados](https://www.
 
 3.  Na página **Selecionar origem**, preencha os valores solicitados e, em seguida, clique em **Conectar**:
 
-    | Configuração      | Valor sugerido | Descrição | 
+    | Configuração      | Valor sugerido | DESCRIÇÃO | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nome do servidor | Seu nome do servidor ou endereço IP | Seu nome do servidor ou endereço IP |
     | Tipo de autenticação. | O tipo de autenticação preferencial| Opções: autenticação do Windows, Autenticação do SQL Server, Autenticação integrada do Active Directory, Autenticação de senha do Active Directory |
@@ -179,7 +179,7 @@ Siga estas etapas para usar o **[Assistente de migração de dados](https://www.
 
 6. Na página **Selecionar destino**, preencha os valores solicitados e clique em **Conectar**:
 
-    | Configuração      | Valor sugerido | Descrição | 
+    | Configuração      | Valor sugerido | DESCRIÇÃO | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nome do servidor | Seu nome do servidor de Banco de Dados do Azure totalmente qualificado | Seu nome do servidor de Banco de Dados do Azure totalmente qualificado do procedimento anterior |
     | Tipo de autenticação. | Autenticação do SQL Server | A autenticação do SQL Server é a única opção enquanto este tutorial é escrito, mas também há suporte para a Autenticação integrada do Active Directory e a Autenticação de senha do Active Directory pelo Banco de Dados SQL do Azure |
@@ -228,7 +228,7 @@ Use o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
 
-   | Configuração       | Valor sugerido | Descrição | 
+   | Configuração       | Valor sugerido | DESCRIÇÃO | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
    | Nome do servidor | O nome do servidor totalmente qualificado | O nome deve ser semelhante a este: **mynewserver20170824.database.windows.net**. |

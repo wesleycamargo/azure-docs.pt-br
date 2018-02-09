@@ -15,23 +15,24 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - 1º de junho de 2016
 
-Esse novo esquema e a versão da API para Aplicativos Lógicos do Azure incluem os principais aprimoramentos que tornam a lógica de aplicativos mais confiável e fácil de usar:
+O [esquema atualizado](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) e a versão da API para Aplicativos Lógicos do Azure incluem os principais aprimoramentos que tornam a lógica de aplicativos mais confiável e fácil de usar:
 
 * [Escopos](#scopes) permitem agrupar ou aninhar ações como uma coleção de ações.
 * [Condições e loops](#conditions-loops) agora são ações de primeira classe.
 * Ordenação mais precisa para executar ações com a propriedade `runAfter`, substituindo `dependsOn`
 
-Para atualizar os aplicativos lógicos do esquema da visualização de 1º de agosto de 2015 para o esquema de 1º de junho de 2016, [confira a seção sobre atualização](##upgrade-your-schema).
+Para atualizar os aplicativos lógicos do esquema da visualização de 1º de agosto de 2015 para o esquema de 1º de junho de 2016, [confira a seção sobre atualização](#upgrade-your-schema).
 
 <a name="scopes"></a>
+
 ## <a name="scopes"></a>Escopos
 
 Esse esquema inclui escopos, que permitem agrupar ações ou aninhar ações umas dentro das outras. Por exemplo, uma condição pode conter outra condição. Saiba mais sobre a [sintaxe de escopo](../logic-apps/logic-apps-loops-and-scopes.md) ou examine este exemplo básico de escopo:
@@ -57,6 +58,7 @@ Esse esquema inclui escopos, que permitem agrupar ações ou aninhar ações uma
 ```
 
 <a name="conditions-loops"></a>
+
 ## <a name="conditions-and-loops-changes"></a>Alterações de condições e loops
 
 Em versões de esquema anteriores, condições e loops eram parâmetros associados a uma única ação. Esse esquema remove essa limitação; portanto, condições e loops agora aparecem como tipos de ação. Saiba mais sobre [loops e escopos](../logic-apps/logic-apps-loops-and-scopes.md) ou examine este exemplo básico de uma ação de condição:
@@ -86,6 +88,7 @@ Em versões de esquema anteriores, condições e loops eram parâmetros associad
 ```
 
 <a name="run-after"></a>
+
 ## <a name="runafter-property"></a>Propriedade 'runAfter'
 
 A propriedade `runAfter` substitui `dependsOn`, fornecendo mais precisão quando você especifica a ordem de execução de ações com base no status das ações anteriores.
@@ -104,7 +107,7 @@ A propriedade `dependsOn` era sinônimo de "a ação foi executado e foi bem-suc
 
 ## <a name="upgrade-your-schema"></a>Atualizar o esquema
 
-A atualização para o novo esquema exige apenas algumas etapas. O processo de atualização inclui a execução do script de atualização, salvando como um novo aplicativo lógico e, se você desejar, possivelmente substituindo o aplicativo lógico anterior.
+Para atualizar para o [esquema mais recente](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), você só precisa executar algumas etapas. O processo de atualização inclui a execução do script de atualização, salvando como um novo aplicativo lógico e, se você desejar, possivelmente substituindo o aplicativo lógico anterior.
 
 1. No portal do Azure, abra o aplicativo lógico.
 
@@ -156,7 +159,7 @@ Os loops `foreach` e `until` são restritos a uma única ação.
 
 ### <a name="new-trackedproperties-for-actions"></a>Novo 'trackedProperties' para ações
 
-Agora as ações podem ter uma propriedade adicional chamada `trackedProperties`, que é irmã das propriedades `runAfter` e `type`. Esse objeto especifica determinadas entradas de ação ou saídas que você deseja incluir na telemetria de Diagnóstico do Azure, emitida como parte de um fluxo de trabalho. Por exemplo:
+Agora as ações podem ter uma propriedade adicional chamada `trackedProperties`, que é irmã das propriedades `runAfter` e `type`. Esse objeto especifica determinadas entradas de ação ou saídas que você deseja incluir na telemetria de Diagnóstico do Azure, emitida como parte de um fluxo de trabalho. Por exemplo: 
 
 ```
 {                

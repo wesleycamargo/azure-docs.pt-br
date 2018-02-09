@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: b3fe467b7d6ae9b207956ece4980bf558a69761f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
 
-Os assinantes podem definir quais mensagens desejam receber de um tópico. Essas mensagens são especificadas na forma de uma ou várias regras de assinatura nomeadas. Cada regra consiste em uma condição que seleciona mensagens específicas e uma ação que anota a mensagem selecionada. Para cada condição de regra com correspondência, a assinatura produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra com correspondência.
+Os assinantes podem definir quais mensagens desejam receber de um tópico. Essas mensagens são especificadas na forma de uma ou mais regras de assinatura nomeadas. Cada regra consiste em uma condição que seleciona mensagens específicas e uma ação que anota a mensagem selecionada. Para cada condição de regra com correspondência, a assinatura produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra com correspondência.
 
 Cada assinatura de tópico recém-criada tem uma regra de assinatura padrão inicial. Se você não especificar explicitamente uma condição de filtro para a regra, o filtro aplicado é o filtro **true** que permite que todas as mensagens sejam selecionadas na assinatura. A regra padrão não tem nenhuma ação de anotação associada.
 
@@ -49,11 +49,11 @@ Os filtros e as ações permitem dois grupos de padrões adicionais: particionam
 
 O particionamento usa filtros para distribuir mensagens através de várias assinaturas de tópico existentes de maneira previsível e mutuamente exclusiva. O padrão de particionamento é usado quando um sistema é escalado horizontalmente para lidar com muitos contextos diferentes em compartimentos funcionalmente idênticos que mantêm um subconjunto dos dados dos gerais. Por exemplo, informações de perfil do cliente. Com o particionamento, um editor envia a mensagem em um tópico sem a necessidade de qualquer conhecimento do modelo de particionamento. Depois, a mensagem é movida para a assinatura correta da qual ela pode ser recuperada pelo manipulador de mensagens da partição.
 
-O roteamento usa filtros para distribuir mensagens através de assinaturas de tópico de maneira previsível, mas não necessariamente exclusiva. Em conjunto com o recurso de [encaminhamento automático](service-bus-auto-forwarding.md), os filtros de tópico podem ser usados para criar gráficos de roteamento complexos dentro de um namespace do Barramento de Serviço para a distribuição de mensagens dentro de uma região do Azure. Com o Azure Functions ou os Aplicativos Lógicos do Azure atuando como uma ponte entre os namespaces do Barramento de Serviço do Azure, você pode criar tecnologias globais complexas com integração direta em linhas de aplicativos de negócios.
+O roteamento usa filtros para distribuir mensagens através de assinaturas de tópico de maneira previsível, mas não necessariamente exclusiva. Em conjunto com o recurso de [encaminhamento automático](service-bus-auto-forwarding.md), os filtros de tópico podem ser usados para criar grafos de roteamento complexos dentro de um namespace do Barramento de Serviço para a distribuição de mensagens dentro de uma região do Azure. Com o Azure Functions ou os Aplicativos Lógicos do Azure atuando como uma ponte entre os namespaces do Barramento de Serviço do Azure, você pode criar tecnologias globais complexas com integração direta em linhas de aplicativos de negócios.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as mensagens do Barramento de Serviço, consulte os tópicos a seguir:
+Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)

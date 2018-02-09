@@ -1,28 +1,28 @@
 ---
 title: "Implantar a solução Java de monitoramento remoto – Azure | Microsoft Docs"
-description: "Este tutorial mostra como provisionar os microsserviços Java da solução pré-configurada de monitoramento remoto usando a CLI."
+description: "Este tutorial mostra como provisionar a solução pré-configurada de monitoramento remoto usando a CLI."
 services: 
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 94c3db3286623264e9df7873962d10dd5cc662d4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>Implantar a solução pré-configurada de monitoramento remoto usando a CLI
 
 Este tutorial mostra como provisionar a solução pré-configurada de monitoramento remoto. Implante a solução usando a CLI. Também é possível implantar a solução usando a interface do usuário na Web em azureiotsuite.com. Para saber mais sobre essa opção, consulte [Implantar uma solução pré-configurada de monitoramento remoto](iot-suite-remote-monitoring-deploy.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para implantar a solução pré-configurada de monitoramento remoto, você precisará de uma assinatura ativa do Azure.
 
@@ -52,10 +52,12 @@ Siga as instruções na tela para concluir o processo de entrada.
 
 Há várias opções para definem o processo de implantação ao implantar a solução pré-configurada:
 
-| Opção | Valores | Descrição |
+| Opção | Valores | DESCRIÇÃO |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard` | Uma implantação _básica_ destina-se a testes e demonstrações, e implanta todos os microsserviços em uma única máquina virtual. Uma implantação _padrão_ destina-se à produção e implanta os microsserviços em diversas máquinas virtuais. |
+| SKU    | `basic`, `standard`, `local` | Uma implantação _básica_ destina-se a testes e demonstrações, e implanta todos os microsserviços em uma única máquina virtual. Uma implantação _padrão_ destina-se à produção e implanta os microsserviços em diversas máquinas virtuais. Uma implantação _local_ configura um contêiner do Docker para executar o microservices em seu computador local e usa os serviços do Azure, como armazenamento e o Cosmos DB, na nuvem. |
 | Tempo de execução | `dotnet`, `java` | Seleciona a implementação de linguagem dos microsserviços. |
+
+Para saber mais sobre como usar a implantação local, consulte [Executar a solução de monitoramento remota localmente](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="deploy-the-preconfigured-solution"></a>Implantar a solução pré-configurada
 

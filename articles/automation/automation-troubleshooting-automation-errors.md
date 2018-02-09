@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 29362ea94fb86f86f7ff85be81cbf33fef6accce
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Solução de problemas comuns na Automação do Azure 
 Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados na Automação do Azure e sugere possíveis soluções para eles.
@@ -152,7 +152,7 @@ Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados
   * Para atribuir uma configuração de nó a um nó usando um cmdlet do PowerShell, use o cmdlet **Set-AzureRmAutomationDscNode**
 
 ### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Cenário: nenhuma configuração de nó (arquivos MOF) foi produzida quando uma compilação foi compilada
-**Erro:** seu trabalho de compilação de DSC foi suspenso com o seguinte erro: “Compilação concluída com êxito, mas nenhum arquivo .mofs de configuração de nó foi gerado”.
+**Erro:** seu trabalho de compilação de DSC foi suspenso com o erro: “Compilação concluída com êxito, mas nenhum configuration.mofs de nó foi gerado”.
 
 **Motivo do erro:** quando a expressão após a palavra-chave **Node** na configuração do DSC for avaliada como `$null`, nenhuma configuração de nó será produzida.
 
@@ -190,6 +190,24 @@ Esse código de erro significa que a consulta de pesquisa salva referente ao gru
 **Dicas de solução de problemas:**
 
 Você pode excluir a consulta dessa solução e reintegrar a solução, o que recria a consulta. A consulta pode ser encontrada em seu espaço de trabalho, em **Pesquisas salvas**. O nome da consulta é **MicrosoftDefaultComputerGroup**, e a categoria da consulta é o nome da solução associada a essa consulta. Se várias soluções estiverem habilitadas, o **MicrosoftDefaultComputerGroup** mostra várias vezes em**Pesquisas salvas**.
+
+### <a name="policyviolation"></a>PolicyViolation
+
+**Motivo do erro:**
+
+Esse código de erro significa que a implantação falhou devido à violação de uma ou mais políticas.
+
+**Dicas de solução de problemas:**
+
+Para implantar a solução com êxito, você precisa considerar alterar a política indicada. Como há muitos tipos diferentes de políticas que podem ser definidas, as alterações específicas necessárias dependem da política violada. Por exemplo, se uma política for definida em um grupo de recursos sem permissão para alterar o conteúdo de certos tipos de recursos nesse grupo de recursos, você pode, por exemplo, fazer qualquer uma das seguintes ações:
+
+*   Remover completamente a política.
+* Tentar se integrar a um grupo de recursos diferente.
+* Revisar a política, por exemplo:
+   * Redirecionando a política para um recurso específico (como uma conta de Automação específica).
+   * Revisando o conjunto de recursos ao qual a política foi configurada para negar.
+
+Verifique as notificações no canto superior direito do portal do Azure ou navegue para o grupo de recursos que contém sua conta de automação e selecione **Implantações** em **Configurações** para exibir a implantação com falha. Para saber mais sobre o Azure Policy, consulte: [Visão geral do Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="next-steps"></a>Próximas etapas
 

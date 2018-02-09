@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Configuração de Dimensionamento Automático para os recursos do Azure com base em dados de desempenho ou em um agendamento
 
@@ -35,11 +35,11 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Criar um Aplicativo Web e um Plano do Serviço de Aplicativo
-Clique na opção **Novo** no painel de navegação à esquerda
+1. Clique na opção **Novo** no painel de navegação à esquerda.
 
-Pesquise e selecione o item *Aplicativo Web* e clique em **Criar**
+2. Pesquise e selecione o item *Aplicativo Web* e clique em **Criar**.
 
-Selecione um nome de aplicativo como *MyTestScaleWebApp*. Crie um novo grupo de recursos *myResourceGroup e coloque-o no grupo de recursos de sua escolha.
+3. Selecione um nome de aplicativo como *MyTestScaleWebApp*. Crie um novo grupo de recursos *myResourceGroup* e coloque-o no grupo de recursos de sua escolha.
 
 Em poucos minutos, os recursos devem ser provisionados. Use o Aplicativo Web e o Plano do Serviço de Aplicativo correspondente no restante deste tutorial.
 

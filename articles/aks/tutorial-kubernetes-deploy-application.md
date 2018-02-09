@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 33725eb64399f446ff540a36f702c80107958242
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Executar aplicativos no AKS (Serviço de Contêiner do Azure)
 
@@ -57,7 +57,7 @@ Substitua `microsoft` pelo nome do servidor de logon do ACR. Esse valor pode ser
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
 ```
 
 Salve e feche o arquivo.

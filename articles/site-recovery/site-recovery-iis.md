@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: cff6a7502e80eb4ff447cc99fe31b48cb660c27e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 00d5c1fa8c0c16daef5d928147e169553672e1f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Replicar um aplicativo Web baseado em IIS de várias camadas usando o Azure Site Recovery
 
@@ -27,19 +27,19 @@ ms.lasthandoff: 12/13/2017
 
 Software de aplicativo é o motor da produtividade comercial em uma organização. Vários aplicativos Web podem servir para propósitos diferentes em uma organização. Alguns deles, como processamento de folha de pagamento, aplicativos financeiros e sites voltados para o cliente podem ser essenciais para uma organização. É importante que a organização os tenha sempre em execução para evitar a perda de produtividade e, acima de tudo, evitar danos à imagem da marca da organização.
 
-Os aplicativos Web críticos normalmente são configurados como aplicativos de várias camadas, com a Web, o banco de dados e o aplicativo em camadas diferentes. Além do serem espalhados em várias camadas, os aplicativos também podem usar vários servidores em cada camada a fim de balancear o tráfego. Além disso, os mapeamentos entre várias camadas e no servidor Web podem ter base em endereços IP estáticos. Durante o failover, será necessário atualizar alguns desses mapeamentos, especialmente se houver vários sites configurados no servidor da Web. No caso de aplicativos Web que usam SSL, será necessário atualizar as associações de certificado.
+Os aplicativos Web críticos normalmente são configurados como aplicativos de várias camadas, com a Web, o banco de dados e o aplicativo em camadas diferentes. Além do serem espalhados em várias camadas, os aplicativos também podem usar vários servidores em cada camada a fim de balancear o tráfego. Além disso, os mapeamentos entre várias camadas e no servidor Web podem ter base em endereços IP estáticos. Durante o failover, será necessário atualizar alguns desses mapeamentos, especialmente se houver vários sites configurados no servidor da Web. Se aplicativos Web usarem SSL, o certificado de vinculação de dados precisará ser atualizado.
 
 Os métodos tradicionais de recuperação sem base na replicação envolvem o backup de vários arquivos de configuração, configurações do Registro, associações, componentes personalizados (COM ou .NET), conteúdo e também certificados e recuperação dos arquivos por meio de um conjunto de etapas manuais. Está claro que essas técnicas são inconvenientes, propensas a erros e não escalonáveis. É possível, por exemplo, que você se esqueça facilmente de fazer backup de certificados e acabe ficando sem outra opção além de comprar novos certificados para o servidor após o failover.
 
-Uma boa solução de recuperação de desastres deve permitir a modelagem de planos de recuperação em torno das arquiteturas de aplicativo complexas indicadas acima, e também tem a capacidade de adicionar etapas personalizadas para lidar com mapeamentos de aplicativo entre as várias camadas, fornecendo uma solução certeira acionada com um único clique no caso de um desastre resultar em um RTO inferior.
+Uma boa solução de recuperação de desastre deve permitir a modelagem de planos de recuperação em torno de arquiteturas de aplicativo complexas. Ela também deve ter a capacidade de adicionar etapas personalizadas para manipular os mapeamentos de aplicativos entre várias camadas. Caso haja um desastre, isso fornece uma solução de tiro certeiro de clique único levando a um RTO inferior.
 
 
-Este artigo descreve como proteger um aplicativo Web baseado em IIS usando o [Azure Site Recovery](site-recovery-overview.md). Este artigo abordará as práticas recomendadas para a replicação de um aplicativo Web baseado em IIS no Azure, como você pode fazer uma análise de recuperação de desastres e como é possível realizar o failover do aplicativo no Azure.
+Este artigo descreve como proteger um aplicativo Web baseado em IIS usando o [Azure Site Recovery](site-recovery-overview.md). Este artigo aborda as práticas recomendadas para a replicação de um aplicativo Web baseado em IIS no Azure, como você pode fazer uma análise de recuperação de desastres e como é possível realizar o failover do aplicativo no Azure.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-Antes de começar, você precisa entender o seguinte:
+Antes de começar, você precisa entender os requisitos a seguir:
 
 1. [Replicar uma máquina virtual no Azure](site-recovery-vmware-to-azure.md)
 1. Como [criar uma rede de recuperação](site-recovery-network-design.md)
@@ -68,10 +68,10 @@ Para a criação deste artigo, usamos as máquinas virtuais VMware com o Servido
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | Sim | Sim
-**VMware** | Sim | Sim
-**Servidor físico** | Não | Sim
-**As tabelas**|ND|Sim
+**Hyper-V** | sim | sim
+**VMware** | sim | sim
+**Servidor físico** | Não  | sim
+**As tabelas**|ND|sim
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 
@@ -84,10 +84,10 @@ Se você estiver usando um IP estático, especifique o IP que você deseja usar 
 
 ## <a name="creating-a-recovery-plan"></a>Criar um plano de recuperação
 
-Um plano de recuperação permite o sequenciamento do failover de várias camadas em um aplicativo de várias camadas, mantendo assim a consistência do aplicativo. Execute as etapas abaixo ao criar um plano de recuperação para um aplicativo Web de várias camadas.  [Saiba mais sobre a criação de um plano de recuperação](./site-recovery-create-recovery-plans.md).
+Um plano de recuperação permite o sequenciamento do failover de várias camadas em um aplicativo de várias camadas, mantendo assim a consistência do aplicativo. A seguir estão as etapas para criar um plano de recuperação para um aplicativo Web de várias camadas.  [Saiba mais sobre a criação de um plano de recuperação](./site-recovery-create-recovery-plans.md).
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Adicionar máquinas virtuais aos grupos de failover
-Um aplicativo Web comum do IIS de várias camadas será formado por uma camada de banco de dados com máquinas virtuais SQL, pela camada da Web composta por um Servidor IIS, e uma camada de aplicativo. Adicione todas essas máquinas virtuais a outro grupo com base na camada abaixo. [Saiba mais sobre como personalizar o plano de recuperação](site-recovery-runbook-automation.md#customize-the-recovery-plan).
+Um aplicativo Web comum do IIS de várias camadas é formado por uma camada de banco de dados com máquinas virtuais SQL, pela camada da Web composta por um Servidor IIS, e uma camada de aplicativo. Adicione todas essas máquinas virtuais a outro grupo com base na camada, conforme mostrado nas etapas a seguir. [Saiba mais sobre como personalizar o plano de recuperação](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
 1. Crie um plano de recuperação. Adicione as máquinas virtuais da camada de banco de dados ao Grupo 1 para garantir que elas sejam encerradas por último e ativadas primeiro.
 
@@ -99,7 +99,7 @@ Um aplicativo Web comum do IIS de várias camadas será formado por uma camada d
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Adicionar scripts ao plano de recuperação
-Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover/teste de failover a fim de fazer o farm da Web do IIS funcionar corretamente. Automatize a operação pós-failover, como a atualização da entrada DNS, alteração da associação de site, alteração na cadeia de conexão, adicionando scripts correspondentes no plano de recuperação, conforme mostrado a seguir. [Saiba mais sobre como adicionar script ao plano de recuperação](./site-recovery-create-recovery-plans.md#add-scripts).
+Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover/teste de failover a fim de fazer o farm da Web do IIS funcionar corretamente. Automatize a operação pós-failover, como a atualização da entrada DNS, alteração da associação de site, alteração na cadeia de conexão, adicionando scripts correspondentes no plano de recuperação, conforme mostrado a seguir. [Saiba mais sobre como adicionar script ao plano de recuperação](./site-recovery-how-to-add-vmmscript.md).
 
 #### <a name="dns-update"></a>Atualização de DNS
 Se o DNS estiver configurado para atualização dinâmica de DNS, as máquinas virtuais normalmente atualizarão o DNS com o novo IP quando forem iniciadas. Se você quiser adicionar uma etapa explícita para atualizar o DNS com os novos IPs das máquinas virtuais, adicione este [script para atualizar o IP no DNS](https://aka.ms/asr-dns-update) como uma ação posterior nos grupos de plano de recuperação.  
@@ -107,7 +107,7 @@ Se o DNS estiver configurado para atualização dinâmica de DNS, as máquinas v
 #### <a name="connection-string-in-an-applications-webconfig"></a>Cadeia de conexão no web.config do aplicativo
 A cadeia de conexão especifica o banco de dados com o qual o banco de dados se comunica.
 
-Se a cadeia de conexão levar o nome da máquina virtual do banco de dados, nenhuma outra etapa será necessária após o failover, e o aplicativo será capaz de se comunicar automaticamente com o banco de dados. Além disso, se o endereço IP da máquina virtual do banco de dados for mantido, ele não será necessário para atualizar a cadeia de conexão. Se a cadeia de conexão se referir à máquina virtual do banco de dados usando um endereço IP, será necessário atualizá-lo após o failover. Por exemplo a cadeia de conexão abaixo aponta para o banco de dados com IP 127.0.1.2
+Se a cadeia de caracteres de conexão assumir o nome da máquina virtual do banco de dados, nenhuma outra etapa é necessária após o failover. O aplicativo pode se comunicar automaticamente com o banco de dados. Além disso, se o endereço IP da máquina virtual do banco de dados for mantido, ele não será necessário para atualizar a cadeia de conexão. Se a cadeia de conexão se referir à máquina virtual do banco de dados usando um endereço IP, será necessário atualizá-lo após o failover. Por exemplo, a cadeia de conexão a seguir aponta para o banco de dados com IP 127.0.1.2
 
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
@@ -119,7 +119,7 @@ Se a cadeia de conexão levar o nome da máquina virtual do banco de dados, nenh
 Atualize a cadeia de conexão na camada da Web adicionando o [script de atualização de conexão do IIS](https://aka.ms/asr-update-webtier-script-classic) após o Grupo 3 no plano de recuperação.
 
 #### <a name="site-bindings-for-the-application"></a>Associações de site para o aplicativo
-Cada site é composto por informações de associação que incluem o tipo de associação, o endereço IP no qual o servidor IIS escuta as solicitações para o site, o número da porta e os nomes de host do site. No momento de um failover, talvez seja necessário atualizar essas associações se houver uma alteração no endereço IP associado a elas.
+Cada site é composto por informações de associação que incluem o tipo de associação, o endereço IP no qual o servidor IIS escuta as solicitações para o site, o número da porta e os nomes de host do site. Durante um failover, talvez seja necessário atualizar essas associações se houver uma alteração no endereço IP associado a elas.
 
 > [!NOTE]
 >

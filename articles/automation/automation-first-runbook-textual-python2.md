@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 0cf0b1829c7e1f9b0b8be90983a705d82784c062
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="my-first-python-runbook"></a>Meu primeiro runbook Python
 
@@ -68,12 +68,11 @@ Clique em **Salvar** para salvar o runbook.
 Antes de publicar o runbook para disponibilizá-lo na produção, teste-o para verificar se ele funciona corretamente. Quando você testa um runbook, executa sua versão de **Rascunho** e vê sua saída interativamente.
 
 1. Clique em **Painel de teste** para abrir o Painel de teste.
-   ![Test Pane](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
-1. Clique em **Iniciar** para iniciar o teste. Essa deve ser a única opção habilitada.
-1. Um [trabalho de runbook](automation-runbook-execution.md) é criado e seu status é exibido.
+2. Clique em **Iniciar** para iniciar o teste. Essa deve ser a única opção habilitada.
+3. Um [trabalho de runbook](automation-runbook-execution.md) é criado e seu status é exibido.
    O status do trabalho inicia como *Na fila* , indicando que ele está aguardando um trabalho de runbook na nuvem ficar disponível. E ele muda para *Iniciando* quando um trabalhador reivindica o trabalho e para *Executando* quando o runbook realmente começa a ser executado.
-1. Quando o trabalho do runbook é concluído, sua saída é exibida. Neste caso, você deve ver *Olá, Mundo*.
-1. Feche o Painel de teste para retornar à tela.
+4. Quando o trabalho do runbook é concluído, sua saída é exibida. Neste caso, você deve ver *Olá, Mundo*.
+5. Feche o Painel de teste para retornar à tela.
 
 ## <a name="publish-and-start-the-runbook"></a>Publicar e iniciar o runbook
 
@@ -82,19 +81,18 @@ Publicar um runbook substitui a versão publicada existente pela versão de Rasc
 Neste caso, ainda não há uma versão publicada porque você acabou de criar o runbook.
 
 1. Clique em **Publicar** para publicar o runbook e em **Sim** quando solicitado.
-   ![Botão Publicar](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. Se você rolar para a esquerda para exibir o runbook no painel **Runbooks**, ele mostrará o **Status de Criação** **Publicado**.
+2. Se você rolar para a esquerda para exibir o runbook no painel **Runbooks**, ele mostrará o **Status de Criação** **Publicado**.
 1. Role para a direita para exibir o painel do **MyFirstRunbook-Python**.
    As opções na parte superior nos permitem iniciar o runbook, exibi-lo, agendá-lo para iniciar em algum momento no futuro ou criar um [webhook](automation-webhooks.md) para que ele possa ser iniciado por meio de uma chamada de HTTP.
-1. Você quer iniciar o runbook, sendo assim, clique em **Iniciar** e em **OK** quando a folha Iniciar Runbook for aberta.
-1. Um painel de trabalho é aberto para o trabalho de runbook criado. Você pode fechar esse painel, mas neste caso, deixe-o averto para acompanhar o progresso do trabalho.
-1. O status do trabalho é mostrado em **Resumo do trabalho** e corresponde aos status que você viu quando testou o runbook.
-1. Assim que o status do runbook mostrar *Concluído*, clique em **Saída**. O painel Saída é aberto e você pode ver seu *Olá, Mundo*.
-1. Feche o painel Saída.
-1. Clique em **Todos os Logs** para abrir o painel Fluxos do trabalho do runbook. Você só deve ver *Olá, Mundo* no fluxo de saída, mas isso pode mostrar outros fluxos de um trabalho do runbook como Detalhado e Erro se o runbook gravar neles.
-1. Feche os painéis Fluxos e Trabalho para retornar ao painel MyFirstRunbook-Python.
-1. Clique em **Trabalhos** para abrir o painel de trabalhos para este runbook. Ele lista todos os trabalhos criados por esse runbook. Você deve ver apenas um trabalho listado, já que executou o trabalho apenas uma vez.
-1. Você pode clicar nesse trabalho para abrir o mesmo painel do Trabalho exibido ao iniciar o runbook. Isso permite que você volte no tempo e veja os detalhes de qualquer trabalho que foi criado para um determinado runbook.
+2. Você quer iniciar o runbook, sendo assim, clique em **Iniciar** e em **OK** quando a folha Iniciar Runbook for aberta.
+3. Um painel de trabalho é aberto para o trabalho de runbook criado. Você pode fechar esse painel, mas neste caso, deixe-o averto para acompanhar o progresso do trabalho.
+4. O status do trabalho é mostrado em **Resumo do trabalho** e corresponde aos status que você viu quando testou o runbook.
+5. Assim que o status do runbook mostrar *Concluído*, clique em **Saída**. O painel Saída é aberto e você pode ver seu *Olá, Mundo*.
+6. Feche o painel Saída.
+7. Clique em **Todos os Logs** para abrir o painel Fluxos do trabalho do runbook. Você só deve ver *Olá, Mundo* no fluxo de saída, mas isso pode mostrar outros fluxos de um trabalho do runbook como Detalhado e Erro se o runbook gravar neles.
+8. Feche os painéis Fluxos e Trabalho para retornar ao painel MyFirstRunbook-Python.
+9. Clique em **Trabalhos** para abrir o painel de trabalhos para este runbook. Ele lista todos os trabalhos criados por esse runbook. Você deve ver apenas um trabalho listado, já que executou o trabalho apenas uma vez.
+10. Você pode clicar nesse trabalho para abrir o mesmo painel do Trabalho exibido ao iniciar o runbook. Isso permite que você volte no tempo e veja os detalhes de qualquer trabalho que foi criado para um determinado runbook.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Adicionar a autenticação para gerenciar os recursos do Azure
 
@@ -194,9 +192,7 @@ async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_n
 async_vm_start.wait()
 ```
 
-Ao iniciar um runbook Python (na folha **Teste** ou como um runbook publicado), é possível inserir os valores dos parâmetros na folha **Iniciar Runbook** em **Parâmetros**.
-
-![Caixa de valor de parâmetro](media/automation-first-runbook-textual-python/runbook-python-param-highlight.png)
+Ao iniciar um runbook Python (na página **Teste** ou como um runbook publicado), é possível inserir os valores dos parâmetros na página **Iniciar Runbook** em **Parâmetros**.
 
 Depois de começar a inserir um valor na primeira caixa, uma segunda aparecerá e assim por diante, para que você possa inserir quantos valores de parâmetro forem necessários.
 

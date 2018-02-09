@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com AzCopy no Windows
-O AzCopy é um utilitário de linha de comando projetado para copiar dados entre os armazenamentos de Blobs, Arquivos e Tabelas do Microsoft Azure usando comandos simples para ter um desempenho ideal. Você pode copiar dados entre um sistema de arquivos e uma conta de armazenamento, ou entre contas de armazenamento.  
+O AzCopy é um utilitário de linha de comando projetado para copiar dados entre o armazenamento de Blobs, Arquivos e Tabelas do Microsoft Azure, usando comandos simples para um desempenho ideal. Você pode copiar dados entre um sistema de arquivos e uma conta de armazenamento, ou entre contas de armazenamento.  
 
 Há duas versões do AzCopy que podem ser baixadas. O AzCopy no Windows se baseia no .NET Framework e oferece opções de linha de comando no estilo Windows. O [AzCopy no Linux](storage-use-azcopy-linux.md) se baseia no .NET Core Framework, que se destina a plataformas Linux que oferecem opções de linha de comando no estilo POSIX. Este artigo aborda o AzCopy no Windows.
 
@@ -750,7 +750,7 @@ Os arquivos de resposta podem incluir linhas de comentários iniciadas pelo sím
 
 ### <a name="y"></a>/Y
 
-Suprime todas as solicitações de confirmação do AzCopy.
+Suprime todas as solicitações de confirmação do AzCopy. Essa opção também permite o uso de tokens SAS somente gravação para cenários de upload de dados, quando /XO e /XN não são especificados.
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 

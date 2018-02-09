@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: anzaman
-ms.openlocfilehash: c78b3fe37a874fa25c7825046d91af62c39ab0d6
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 13ae129eefb717f22db25ab29232fe1efe69a8ce
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurar uma conexão ponto a site com uma VNet usando a autenticação RADIUS: PowerShell
 
 Este artigo mostra como criar uma rede virtual com uma conexão Ponto a Site que usa a autenticação RADIUS. Essa configuração está disponível somente para o modelo de implantação do Gerenciador de Recursos.
 
-Um gateway VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. As conexões VPN Ponto a Site são úteis quando você deseja se conectar à rede virtual de um local remoto, como ao trabalhar de casa ou em uma conferência. Uma VPN P2S também é uma solução útil para usar em vez de uma VPN Site a Site, quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual.
+Um gateway VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. As conexões VPN ponto a site são úteis quando você deseja se conectar à sua VNet a partir de um local remoto, como, por exemplo, fazendo telecomutação de casa ou uma conferência. Uma VPN P2S também é uma solução útil para usar em vez de uma VPN Site a Site, quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual.
 
 Uma conexão VPN P2S é iniciada em dispositivos Windows e Mac. Os clientes que se conectam podem usar os seguintes métodos de autenticação:
 

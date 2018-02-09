@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Adição de recursos de Automação do Azure a uma solução de gerenciamento do OMS (Preview)
 > [!NOTE]
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 > Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para as soluções de gerenciamento e estão descritos em [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) (Criando soluções de gerenciamento no OMS (Operations Management Suite)) 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este artigo pressupõe que você já esteja familiarizado com as informações a seguir.
 
 - Como [criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md).
@@ -40,7 +40,7 @@ Este artigo pressupõe que você já esteja familiarizado com as informações a
 - Como [criar modelos do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Conta de automação
-Todos os recursos na Automação do Azure estão contidos em um [Conta de automação](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito no [espaço de trabalho OMS e conta de automação](operations-management-suite-solutions.md#oms-workspace-and-automation-account), a conta de automação não está incluída na solução de gerenciamento, mas deve existir antes que a solução seja instalada.  Se ela não estiver disponível, a instalação da solução falhará.
+Todos os recursos na Automação do Azure estão contidos em um [Conta de automação](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito no [espaço de trabalho OMS e conta de automação](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), a conta de automação não está incluída na solução de gerenciamento, mas deve existir antes que a solução seja instalada.  Se ela não estiver disponível, a instalação da solução falhará.
 
 O nome de cada recurso de Automação inclui o nome de sua conta de Automação.  Isso é feito na solução com o parâmetro **accountName**, conforme descrito no exemplo a seguir de um recurso de runbook.
 
@@ -75,13 +75,13 @@ Os recursos do [runbook de Automação do Azure](../automation/automation-runboo
 
 As propriedades dos runbooks são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | runbookType |Especifica os tipos de runbook. <br><br> Script – Script do PowerShell <br>PowerShell – Fluxo de trabalho do PowerShell <br> GraphPowerShell – Runbook de script do PowerShell gráfico <br> GraphPowerShellWorkflow – Runbook de fluxo de trabalho do PowerShell gráfico |
 | logProgress |Especifica se [registros de progresso](../automation/automation-runbook-output-and-messages.md) devem ser gerados para o runbook. |
 | logVerbose |Especifica se [registros detalhados](../automation/automation-runbook-output-and-messages.md) devem ser gerados para o runbook. |
 | Descrição |Descrição opcional para o runbook. |
-| publishContentLink |Especifica o conteúdo do runbook. <br><br>uri – URI do conteúdo do runbook.  Ele será um arquivo .ps1 para runbooks do PowerShell e Script e um arquivo de runbook gráfico exportado para um runbook gráfico.  <br> versão – a versão do runbook para seu próprio acompanhamento. |
+| publishContentLink |Especifica o conteúdo do runbook. <br><br>uri – URI do conteúdo do runbook.  Ele será um arquivo .ps1 para runbooks do PowerShell e Script e um arquivo de runbook grafo exportado para um runbook de Grafo.  <br> versão – a versão do runbook para seu próprio acompanhamento. |
 
 
 ## <a name="automation-jobs"></a>Trabalhos de automação
@@ -111,10 +111,10 @@ Os recursos de trabalho têm o tipo **Microsoft.Automation/automationAccounts/jo
 
 As propriedades dos trabalhos de automação são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | runbook |Entidade de único nome com o nome do runbook a ser iniciado. |
-| parameters |Entidade para cada valor de parâmetro exigido pelo runbook. |
+| parâmetros |Entidade para cada valor de parâmetro exigido pelo runbook. |
 
 O trabalho inclui o nome do runbook e valores de parâmetro a ser enviado para o runbook.  O trabalho deve [depender](operations-management-suite-solutions-solution-file.md#resources) do runbook que está sendo iniciado, uma vez que o runbook deve ser criado antes do trabalho.  Caso tenha vários runbooks que devam ser iniciados, você pode definir a ordem deles com um trabalho que dependa de qualquer outro trabalho que deva ser executado primeiro.
 
@@ -142,7 +142,7 @@ Os [certificados de Automação do Azure](../automation/automation-certificates.
 
 As propriedades dos recursos de Certificado são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | base64Value |O valor de base 64 do certificado. |
 | impressão digital |A impressão digital do certificado. |
@@ -169,7 +169,7 @@ As [credenciais de Automação do Azure](../automation/automation-credentials.md
 
 As propriedades dos recursos de Credencial são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | userName |Nome de usuário da credencial. |
 | Senha |Senha da credencial. |
@@ -197,7 +197,7 @@ Os [agendamentos de Automação do Azure](../automation/automation-schedules.md)
 
 As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | Descrição |Descrição opcional para o agendamento. |
 | startTime |Especifica a hora de início de uma agenda como um objeto DateTime. Uma cadeia de caracteres pode ser fornecida se ele for convertido em um DateTime válido. |
@@ -240,14 +240,14 @@ Os recursos de agendamento vinculam um runbook a um agendamento.  Eles têm o ti
 
 As propriedades dos agendamentos de trabalho são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | nome do agendamento |Entidade de único **nome** com o nome do agendamento. |
 | nome do runbook  |Uma entidade com **nome** único com o nome do runbook.  |
 
 
 
-## <a name="variables"></a>Variáveis
+## <a name="variables"></a>variáveis
 As [variáveis de Automação do Azure](../automation/automation-variables.md) têm o tipo **Microsoft.Automation/automationAccounts/variables** e a estrutura a seguir.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro.
 
     {
@@ -267,7 +267,7 @@ As [variáveis de Automação do Azure](../automation/automation-variables.md) t
 
 As propriedades dos recursos de variáveis são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | Descrição | Descrição opcional para a variável. |
 | isEncrypted | Especifica se a variável deve ser criptografada. |
@@ -279,12 +279,12 @@ As propriedades dos recursos de variáveis são descritas na tabela a seguir.
 
 Se você definir o valor inicial da variável, ele deverá ser definido como o tipo de dados correto.  A tabela a seguir fornece os diferentes tipos de dados permitidos e sua sintaxe.  Observe que os valores em JSON devem sempre ser colocados entre aspas com caracteres especiais entre aspas.  Por exemplo, um valor de cadeia de caracteres deve ser especificado por aspas em volta da cadeia de caracteres (usando o caractere de escape \\) enquanto um valor numérico deve ser especificado por um conjunto de aspas.
 
-| Tipo de dados | Descrição | Exemplo | É resolvido desta forma |
+| Tipo de dados | DESCRIÇÃO | Exemplo | É resolvido desta forma |
 |:--|:--|:--|:--|
 | string   | Coloque o valor entre aspas duplas.  | "\"Olá, Mundo\"" | "Olá, Mundo" |
 | numérico  | Valor numérico com aspas simples.| "64" | 64 |
-| Booliano  | **true** ou **false** entre aspas.  Observe que esse valor deve estar em minúsculas. | "true" | verdadeiro |
-| datetime | Valor de data serializada.<br>Você pode usar o cmdlet ConvertTo-Json no PowerShell para gerar esse valor para uma determinada data.<br>Exemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| booleano  | **true** ou **false** entre aspas.  Observe que esse valor deve estar em minúsculas. | "true" | verdadeiro |
+| Datetime | Valor de data serializada.<br>Você pode usar o cmdlet ConvertTo-Json no PowerShell para gerar esse valor para uma determinada data.<br>Exemplo: get-date "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
 Sua solução de gerenciamento não precisa definir [módulos globais](../automation/automation-integration-modules.md) usados pelos seus runbooks porque eles sempre estarão disponíveis na conta de Automação.  Você precisa incluir um recurso para qualquer outro módulo usado pelos seus runbooks.
@@ -307,9 +307,9 @@ Os [módulos de integração](../automation/automation-integration-modules.md) t
 
 As propriedades dos recursos de módulo são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| contentLink |Especifica o conteúdo do módulo. <br><br>uri – Uri para o conteúdo do módulo.  Ele será um arquivo .ps1 para runbooks do PowerShell e Script e um arquivo de runbook gráfico exportado para um runbook gráfico.  <br> version – a versão do módulo para seu próprio acompanhamento. |
+| contentLink |Especifica o conteúdo do módulo. <br><br>uri – Uri para o conteúdo do módulo.  Ele será um arquivo .ps1 para runbooks do PowerShell e Script e um arquivo de runbook grafo exportado para um runbook de Grafo.  <br> version – a versão do módulo para seu próprio acompanhamento. |
 
 O runbook deve depender do recurso de módulo para garantir que ele seja criado antes do runbook.
 

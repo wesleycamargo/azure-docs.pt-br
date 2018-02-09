@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Implantar um aplicativo de contêiner Windows do Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis. 
@@ -35,7 +35,7 @@ Usando este guia de início rápido, você aprende a:
 > * Compilar e empacotar o aplicativo do Service Fabric
 > * Implantar o aplicativo de contêiner no Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Uma assinatura do Azure (você pode criar um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Um computador de desenvolvimento executando:
   * Visual Studio 2015 ou Visual Studio 2017.
@@ -79,24 +79,44 @@ Configure o mapeamento de porta, da porta para o host, do contêiner especifican
 Um arquivo de exemplo ApplicationManifest. XML completo é fornecido no final deste artigo.
 
 ## <a name="create-a-cluster"></a>Criar um cluster
-Para implantar o aplicativo em um cluster do Azure, você pode optar por criar seu próprio cluster ou usar um cluster de entidade.
+Para implantar o aplicativo em um cluster no Azure, você pode ingressar em um cluster de parceiro ou [criar seu próprio cluster no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Os clusters Party são clusters gratuitos de duração limitada do Service Fabric, hospedados no Azure e executados pela equipe do Service Fabric, nos quais qualquer pessoa pode implantar aplicativos e aprender mais sobre a plataforma. Para obter acesso a um cluster de entidade, [siga as instruções](http://aka.ms/tryservicefabric).  
+Os clusters Party são clusters gratuitos de duração limitada do Service Fabric, hospedados no Azure e executados pela equipe do Service Fabric, nos quais qualquer pessoa pode implantar aplicativos e aprender mais sobre a plataforma. O cluster usa um único certificado autoassinado para nó-a-nó, bem como segurança de cliente para nó. 
 
-Para obter informações sobre como criar seu próprio cluster, consulte [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Entre e [ingresse em um cluster do Windows](http://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Os valores de certificado e de **Ponto de extremidade de conexão** são utilizados nas etapas a seguir.
 
-Observe o ponto de extremidade de conexão, que você usará na etapa a seguir.  
+![PFX e ponto de extremidade de conexão](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Em um computador com Windows, instale o PFX no repositório de certificados *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Lembre-se da impressão digital para uma etapa posterior.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Implantar o aplicativo no Azure usando o Visual Studio
 Agora que o aplicativo está pronto, você poderá implantá-lo no cluster diretamente por meio do Visual Studio.
 
 Clique com botão direito do mouse em **MyFirstContainer** no Gerenciador de Soluções e escolha **Publicar**. A caixa de diálogo Publicar será exibida.
 
-![Caixa de diálogo Publicar](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Copie o **Ponto de Extremidade de Conexão** da página do cluster Party no campo **Ponto de Extremidade de Conexão**. Por exemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Clique em **Parâmetros Avançados de Conexão** e preencha as informações a seguir.  Os valores de *FindValue* e *ServerCertThumbprint* devem coincidir com a impressão digital do certificado instalado na etapa anterior. 
 
-Digite o ponto de extremidade de conexão do cluster no campo **Ponto de Extremidade de Conexão**. Ao se inscrever no cluster de entidade, o ponto de extremidade de conexão será fornecido no navegador, por exemplo, `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Clique em **Publicar** e o aplicativo será implantado.
+![Caixa de diálogo Publicar](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Abra um navegador e navegue até http://winh1x87d1d.westus.cloudapp.azure.com:80. Você deve ver a página da Web do IIS padrão: ![Página da Web do IIS padrão][iis-default]
+Clique em **Publicar**.
+
+Cada aplicativo no cluster deve ter um nome exclusivo.  No entanto, Clusters Party são um ambiente público compartilhado e pode haver um conflito com um aplicativo existente.  Se houver um conflito de nome, renomeie o projeto do Visual Studio e implante novamente.
+
+Abra um navegador e navegue até http://zwin7fh14scd.westus.cloudapp.azure.com:80. Você deve ver a página da Web do IIS padrão: ![Página da Web do IIS padrão][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Exemplo completo de manifestos de serviço e aplicativo do Service Fabric
 Aqui estão os manifestos de aplicativo e serviço completos usados neste guia rápido.
@@ -167,6 +187,7 @@ Aqui estão os manifestos de aplicativo e serviço completos usados neste guia r
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

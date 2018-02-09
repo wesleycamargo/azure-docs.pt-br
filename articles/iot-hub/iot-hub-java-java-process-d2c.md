@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 81f846e1fd8cca586613e6fc57737ec27e43a639
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 92ab10e5b8487e03d92b69114a2e3c5302f95ed6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>Roteando mensagens com o Hub IoT (Java)
 
@@ -105,7 +105,7 @@ Nesta seção, você modificará o aplicativo de dispositivo criado no tutorial 
     }
     ```
    
-    Esse método adiciona aleatoriamente as propriedades `"level": "critical"` e `"level": "storage"` a mensagens enviadas pelo dispositivo, que simula uma mensagem que exige ação imediata do back-end do aplicativo ou de um que precise ser armazenado permanentemente. O aplicativo passa essas informações nas propriedades da mensagem, e não no corpo da mensagem, de modo que o Hub IoT pode rotear a mensagem para o destino apropriado.
+    Esse método adiciona aleatoriamente as propriedades `"level": "critical"` e `"level": "storage"` a mensagens enviadas pelo dispositivo, que simula uma mensagem que exige ação imediata do back-end do aplicativo ou de um que precise ser armazenado permanentemente. O aplicativo fornece suporte para mensagens de roteamento baseado no corpo da mensagem.
    
    > [!NOTE]
    > Você pode usar as propriedades a fim de direcionar as mensagens para vários cenários, incluindo processamento de ampliação, além do exemplo de afunilamento mostrado aqui.
@@ -126,6 +126,9 @@ Nesta seção, você modificará o aplicativo de dispositivo criado no tutorial 
 Nesta seção, você cria uma fila do Barramento de Serviço, conecta-a ao Hub IoT e configura o Hub IoT para enviar mensagens à fila com base na presença de uma propriedade na mensagem. Para saber mais sobre como processar mensagens das filas do Barramento de Serviço, confira [Introdução às filas][lnk-sb-queues-java].
 
 1. Crie uma fila do Barramento de Serviço conforme descrito em [Introdução às filas][lnk-sb-queues-java]. Anote o namespace e o nome da fila.
+
+    > [!NOTE]
+    > As filas do Barramento de Serviço e os tópicos utilizados como pontos de extremidade do Hub IoT não devem ter **Sessões** nem **Detecção Duplicada** habilitadas. Se qualquer uma dessas opções estiver habilitada, o ponto de extremidade aparecerá como **Inacessível** no Portal do Azure.
 
 2. No Portal do Azure, abra o Hub IoT e clique em **Pontos de extremidade**.
 

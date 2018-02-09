@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure
 
@@ -27,39 +27,38 @@ Os [logs de diagnóstico de recursos do Azure](monitoring-overview-of-diagnostic
 ## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>Serviços e esquemas com suporte para os logs de diagnóstico de recurso
 O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e da categoria do log.   
 
-| O Barramento de | Esquema e Documentos |
+| Serviço | Esquema e Documentos |
 | --- | --- |
 | Serviços de análise | Esquema não disponível. |
-| Gerenciamento de API | [Logs de Diagnóstico de Gerenciamento de API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| Gerenciamento da API | [Logs de Diagnóstico de Gerenciamento de API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Gateways do Aplicativo |[Log de diagnóstico do Gateway de Aplicativo](../application-gateway/application-gateway-diagnostics.md) |
 | Automação do Azure |[Análise de log para automação do Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Lote do Azure |[Logs de diagnóstico do Lote do Azure](../batch/batch-diagnostics.md) |
 | Customer Insights | Esquema não disponível. |
 | Rede de Distribuição de Conteúdo | Esquema não disponível. |
 | CosmosDB | [Registro em log do Azure Cosmos DB](../cosmos-db/logging.md) |
-| Análises Data Lake |[Acessando os logs de diagnóstico do Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Data Lake Analytics |[Acessando os logs de diagnóstico do Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Repositório Data Lake |[Acessando os logs de diagnóstico do Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Hubs de Eventos |[Logs de diagnóstico dos Hubs de Eventos do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Hubs de evento |[Logs de diagnóstico dos Hubs de Eventos do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Hub IoT | [Operações do Hub IoT](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Cofre de Chaves |[Logs do Cofre da Chave do Azure](../key-vault/key-vault-logging.md) |
+| Cofre da Chave |[Logs do Cofre da Chave do Azure](../key-vault/key-vault-logging.md) |
 | Balanceador de carga |[Log Analytics para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Aplicativos Lógicos |[Esquema de controle personalizado dos Aplicativos Lógicos B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de segurança de rede |[Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Proteção contra DDOS | Esquema não disponível. |
 | Serviços de Recuperação | [Modelo de dados para os Backup do Azure](../backup/backup-azure-reports-data-model.md)|
-| Pesquisar |[Habilitação e uso da análise de tráfego de pesquisa](../search/search-traffic-analytics.md) |
+| Search |[Habilitação e uso da análise de tráfego de pesquisa](../search/search-traffic-analytics.md) |
 | Gerenciamento do Servidor | Esquema não disponível. |
 | Barramento de Serviço |[Logs de diagnóstico do Barramento de Serviço do Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Banco de dados SQL | [Log de diagnósticos do Banco de Dados SQL do Azure](../sql-database/sql-database-metrics-diag-logging.md) |
-| Stream Analytics |[Logs de diagnóstico do trabalho](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Análise de fluxo |[Logs de diagnóstico do trabalho](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Redes Virtuais | Esquema não disponível. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
 |Tipo de recurso|Categoria|Nome de exibição da categoria|
 |---|---|---|
-|microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Motor|Motor|
-|Microsoft.AnalysisServices/servers|O Barramento de|O Barramento de|
+|Microsoft.AnalysisServices/servers|Serviço|Serviço|
 |Microsoft.ApiManagement/service|GatewayLogs|Logs relacionados ao Gateway ApiManagement|
 |Microsoft.Automation/automationAccounts|JobLogs|Logs de trabalho|
 |Microsoft.Automation/automationAccounts|JobStreams|Transmissões de trabalho|
@@ -73,8 +72,8 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.DataLakeAnalytics/accounts|Audit|Logs de Auditoria|
 |Microsoft.DataLakeAnalytics/accounts|Solicitações|Logs de solicitação|
 |Microsoft.DataLakeStore/accounts|Audit|Logs de Auditoria|
-|Microsoft.DataLakeStore/accounts|Solicitações|Logs de solicitação|
-|Microsoft.Devices/IotHubs|Conexões|Conexões|
+|Microsoft.DataLakeStore/accounts|Requests|Logs de solicitação|
+|Microsoft.Devices/IotHubs|conexões|conexões|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetria de Dispositivo|
 |Microsoft.Devices/IotHubs|C2DCommands|Comandos C2C|
 |Microsoft.Devices/IotHubs|DeviceIdentityOperations|Operações de Identidade do Dispositivo|
@@ -116,6 +115,8 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Itens replicados do Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Estatísticas de Replicação do Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Pontos de Recuperação do Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Taxa de Carregamento de Dados de Replicação do Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Rotatividade de Dados de Disco Protegido do Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Logs de operação|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Logs operacionais|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de Tempo de Execução do Repositório de Consultas|
@@ -125,6 +126,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Sql/servers/databases|Tempos limite|Tempos limite|
 |Microsoft.Sql/servers/databases|Bloqueios|Bloqueios|
 |Microsoft.Sql/servers/databases|SQLInsights|Insights do SQL|
+|Microsoft.Sql/servers/databases|Audit|Logs de Auditoria|
 |Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
 |Microsoft.StreamAnalytics/streamingjobs|Criação|Criação|
 

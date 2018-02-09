@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configurando o GitHub para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
+title: "Tutorial: Configurar o GitHub para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
 description: "Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o GitHub."
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 7e202899b697872227da4d7bea54406f99089000
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e06d04234f33633275d85732a321a264c777fc59
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-github-for-automatic-user-provisioning"></a>Tutorial: Configurando o GitHub para o provisionamento automático de usuário
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para provisionamento automático de usuário
 
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no GitHub e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o GitHub. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
