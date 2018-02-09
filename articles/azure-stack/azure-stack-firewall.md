@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integração do Azure de firewall de pilha
 É recomendável que você use um dispositivo de firewall para ajudar a proteger pilha do Azure. Embora firewalls podem ajudar com coisas como ataques (DDOS) de negação de serviço distribuídos, detecção de intrusão e inspeção de conteúdo, eles também podem se tornar um afunilamento de taxa de transferência para serviços de armazenamento do Azure como blobs, tabelas e filas.
@@ -41,7 +41,7 @@ Estas são algumas das desvantagens do uso de NAT para VIP público:
 - Para cenários de nuvem híbrida com o Azure, considere a possibilidade de que o Azure não oferece suporte a configuração de um túnel VPN para um ponto de extremidade usando NAT.
 
 ### <a name="ssl-decryption"></a>Descriptografia de SSL
-Atualmente, nossa recomendação na descriptografia SSL é desabilitá-lo em todo o tráfego de pilha do Azure, no futuro, forneceremos orientações sobre como habilitar a descriptografia de SSL para a pilha do Azure.
+Atualmente, é recomendável desabilitar a descriptografia de SSL em todo o tráfego de pilha do Azure. Se ele é suportado em atualizações futuras, serão fornecidas diretrizes sobre como habilitar a descriptografia SSL para a pilha do Azure.
 
 ## <a name="edge-firewall-scenario"></a>Cenário de firewall de borda
 Em uma implantação de borda, a pilha do Azure é implantada diretamente por trás do firewall ou o roteador de borda. Nesses cenários, há suporte para o firewall acima da borda ou atuando como o dispositivo de borda se ele dá suporte a igual Cost Multi Path (ECMP) com BGP ou roteamento estático.

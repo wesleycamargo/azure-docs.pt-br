@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados de decisões de pilha do Azure de planejamento de implantação desconectada do Azure
-Depois que você decidir [como integrará pilha do Azure em seu ambiente de nuvem híbrida](azure-stack-deployment-decisions.md), em seguida, finalizar suas decisões de implantação da pilha do Azure.
+Depois que você decidir [como integrará pilha do Azure em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, finalizar suas decisões de implantação da pilha do Azure.
 
 Com a desconectada da opção de implantação do Azure, você pode implantar e usar o Azure pilha sem uma conexão à Internet. No entanto, com uma implantação desconectada, você está limitado a um repositório de identidades do AD FS e o modelo de cobrança baseado na capacidade. 
 
@@ -34,7 +34,7 @@ Escolha esta opção se você:
 > [!TIP]
 > Às vezes, esse tipo de ambiente também é chamado como um "cenário submarino".
 
-Uma implantação desconectada estritamente significa que você não pode mais tarde conectar sua instância de pilha do Azure do Azure para cenários VM de locatário híbridos. Isso significa que você não tem conectividade com o Azure durante a implantação ou você não quiser usar o Active Directory do Azure como armazenamento de identidade. No entanto, se você quiser ter conectividade com o Azure após a implantação, independentemente do que você deseja usar como armazenamento de identidade, você deve escolher a conectar-se a opção de implantação do Azure. 
+Uma implantação desconectada estritamente significa que você não pode mais tarde conectar sua instância de pilha do Azure do Azure para cenários VM de locatário híbridos. Isso significa que você não tem conectividade com o Azure durante a implantação ou você não quiser usar o Active Directory do Azure como armazenamento de identidade.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Recursos que são prejudicadas ou ficar indisponíveis em implantações desconectadas 
 Pilha do Azure foi projetada para funcionar melhor quando conectado ao Azure, portanto, é importante observar que há alguns recursos e funcionalidade prejudicada ou completamente indisponível no modo desconectado. 
