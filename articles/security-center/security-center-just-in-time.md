@@ -1,6 +1,6 @@
 ---
 title: "Acesso just in time à máquina virtual na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento orienta você sobre como o acesso just in time à VM, na Central de Segurança do Azure, ajuda você a controlar o acesso às suas máquinas virtuais do Azure."
+description: "Este documento demonstra como o acesso just in time à VM, na Central de Segurança do Azure, ajuda você a controlar o acesso às suas máquinas virtuais do Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Gerenciar o acesso à máquina virtual usando o just in time (versão prévia)
 
@@ -50,11 +50,13 @@ Quando um usuário solicita acesso a uma VM, a Central de Segurança verifica se
 
 ## <a name="using-just-in-time-access"></a>Usando o acesso just in time
 
-O bloco **Acesso à VM just in time** na **Central de Segurança** mostra o número de VMs configuradas para o acesso just in time e o número de solicitações de acesso aprovadas na última semana.
+1. Abra o painel **Central de Segurança**.
+
+2. No painel esquerdo, selecione **Acesso à VM Just-In-Time**.
 
 ![Bloco acesso à VM just in time][2]
 
-Selecione o bloco **Acesso à VM just in time** e **Acesso à VM just in time** é aberto.
+A janela de **Acesso à VM Just-In-Time** abre.
 
 ![Bloco acesso à VM just in time][10]
 

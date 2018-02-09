@@ -3,7 +3,7 @@ title: Como configurar o MSI em uma VM do Azure usando um modelo
 description: "Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciado) em uma VM do Azure usando um modelo do Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 047c4f69ae520c730d063246d41702207c55a0b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 814cc66b2138932a250223570d04c63e409df7cf
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar a Identidade de Serviço Gerenciado de um VM usando um modelo
 
@@ -27,7 +27,7 @@ A MSI (Identidade de Serviço Gerenciado) fornece aos serviços do Azure uma ide
 
 Neste artigo, você aprenderá a habilitar e a remover o MSI de uma VM do Windows Azure usando um modelo de implantação do Azure Resource Manager.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

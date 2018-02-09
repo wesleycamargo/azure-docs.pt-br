@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planeje a capacidade da máquina virtual do Hyper-V com a solução de capacidade e desempenho (visualização)
 
@@ -43,14 +43,14 @@ A solução:
 
 A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
 
-| Fonte Conectada | Suporte | Descrição |
+| Fonte Conectada | Suporte | DESCRIÇÃO |
 |---|---|---|
-| [Agentes do Windows](log-analytics-windows-agent.md) | Sim | A solução coleta informações de dados de desempenho e capacidade de agentes do Windows. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não    | A solução não coleta informações de dados de desempenho e capacidade de agentes do Linux diretos.|
-| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Sim |A solução coleta dados de desempenho e capacidade de agentes em um grupo de gerenciamento do SCOM conectado. Não é necessário ter uma conexão direta do agente SCOM com o OMS. Os dados são encaminhados do grupo de gerenciamento para o repositório do OMS.|
-| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | O armazenamento do Azure não inclui dados de desempenho, nem de capacidade.|
+| [Agentes do Windows](log-analytics-windows-agent.md) | sim | A solução coleta informações de dados de desempenho e capacidade de agentes do Windows. |
+| [Agentes do Linux](log-analytics-linux-agents.md) | Não     | A solução não coleta informações de dados de desempenho e capacidade de agentes do Linux diretos.|
+| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | sim |A solução coleta dados de desempenho e capacidade de agentes em um grupo de gerenciamento do SCOM conectado. Uma conexão direta do agente do SCOM ao Log Analytics não é necessária.|
+| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não  | O armazenamento do Azure não inclui dados de desempenho, nem de capacidade.|
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - O Windows ou agentes do Operations Manager devem ser instalados no Windows Server 2012 ou nos hosts superiores do Hyper-V, e não nas máquinas virtuais.
 
@@ -59,11 +59,11 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 
 Execute o seguinte procedimento para adicionar a solução de capacidade e desempenho ao seu espaço de trabalho.
 
-- Siga o processo descrito em [Como adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md) para adicionar a solução de capacidade e desempenho ao seu espaço de trabalho do OMS.
+- Adicione a solução Capacidade e Desempenho para seu espaço do Log Analytics usando o processo descrito em [Soluções do Log Analytics a partir da Galeria de Soluções](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
-Se o grupo de gerenciamento do SCOM estiver conectado ao seu espaço de trabalho do OMS, os pacotes de gerenciamento a seguir serão instalados no SCOM quando você adicionar essa solução. Não é necessária nenhuma configuração nem a manutenção desses pacotes de gerenciamento.
+Se o grupo de gerenciamento do SCOM estiver conectado ao seu espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no SCOM quando você adicionar essa solução. Não é necessária nenhuma configuração nem a manutenção desses pacotes de gerenciamento.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
@@ -120,7 +120,7 @@ Para resumir, a solução coleta dados de desempenho e capacidade de uma varieda
 
 A tabela a seguir fornece as pesquisas de log de exemplo para dados de desempenho e capacidade coletados e calculados pela solução.
 
-| Consultar | Descrição |
+| Consultar | DESCRIÇÃO |
 |---|---|
 | Todas as configurações de memória do host | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
 | Todas as configurações de memória da VM | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
@@ -133,7 +133,7 @@ A tabela a seguir fornece as pesquisas de log de exemplo para dados de desempenh
 >[!NOTE]
 > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir.
 
-> | Consultar | Descrição |
+> | Consultar | DESCRIÇÃO |
 |:--- |:--- |
 | Todas as configurações de memória do host | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | Todas as configurações de memória da VM | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |

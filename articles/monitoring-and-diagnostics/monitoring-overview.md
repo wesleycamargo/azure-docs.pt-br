@@ -1,7 +1,7 @@
 ---
-title: Monitoramento no Microsoft Azure | Microsoft Docs
-description: "Opções para monitorar qualquer coisa no Microsoft Azure. Azure Monitor, Application Insights e Log Analytics"
-author: rboucher
+title: Monitoramento dos aplicativos e recursos do Azure | Microsoft Docs
+description: "Visão geral dos diferentes serviços e funcionalidades da Microsoft que contribuem para uma estratégia de monitoramento completa para seus serviços e aplicativos do Azure."
+author: robb
 manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
@@ -12,79 +12,97 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
-ms.author: robb
-ms.openlocfilehash: c34211e0c55c10defaa32f1e0a2195514ff3ae5f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 01/30/2018
+ms.author: robb,bwren
+ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Visão Geral do Monitoramento no Microsoft Azure
-Este artigo fornece uma visão geral das ferramentas e serviços envolvidos no monitoramento global do Microsoft Azure. Aplicável a:
-- Usar os serviços do Azure para monitorar a infraestrutura e os aplicativos do Azure
-- Usar os serviços do Azure para monitorar a infraestrutura e os aplicativos não Azure
-- Usar serviços não Azure para monitorar a infraestrutura e os aplicativos do Azure
+# <a name="monitoring-azure-applications-and-resources"></a>Monitoramento dos aplicativos e recursos do Azure
 
-Esse artigo aborda os vários produtos e serviços disponíveis e como eles funcionam juntos. Ele pode ajudar a determinar quais ferramentas são as mais apropriadas para você em quais casos.  
+O monitoramento é o ato de coletar e analisar dados para determinar o desempenho, a integridade e a disponibilidade do seu aplicativo de negócios e os recursos necessários. Uma estratégia de monitoramento efetiva irá ajudá-lo a entender a operação detalhada dos diferentes componentes do aplicativo e a aumentar o tempo de atividade, notificando-o proativamente sobre problemas críticos para que possa resolvê-los antes de se tornarem problemas.
 
-## <a name="why-use-azures-monitoring-services"></a>Por que usar os serviços de monitoramento do Azure?
+O Azure inclui vários serviços que desempenham individualmente uma função ou tarefa específica no espaço de monitoramento e, em conjunto, entrega uma solução abrangente para coletar, analisar e atuar em telemetria do aplicativo e recursos do Azure subjacentes e fornecendo suporte.  Também é possível trabalhar para monitorar recursos críticos no local para fornecer um ambiente de monitoramento híbrido.   Compreender as ferramentas e os dados que estão disponíveis é a primeira etapa no desenvolvimento de uma estratégia de monitoramento completa para seu aplicativo. 
 
-Problemas de desempenho em seu aplicativo de nuvem podem afetar seus negócios. Com diversos componentes interconectados e frequentes lançamentos, degradações podem ocorrer a qualquer momento. E se você estiver desenvolvendo um aplicativo, seus usuários normalmente descobrirão problemas que você não encontrou durante os testes. Você precisa tomar conhecimento dessas questões imediatamente e precisa ter ferramentas para diagnosticar e corrigir problemas. Além disso, os problemas no seu aplicativo podem resultar da infraestrutura subjacente em que esses aplicativos são executados, então, ter uma visão holística do seu aplicativo e da infraestrutura é fundamental para monitorar o ambiente do Azure. O Microsoft Azure tem uma variedade de ferramentas para identificar e resolver esses problemas.
+O diagrama a seguir mostra uma exibição conceitual dos diferentes componentes que funcionam em conjunto para fornecer monitoramento dos recursos do Azure.  Cada um está descrito nas seções a seguir e com links para as informações técnicas detalhadas.
 
-## <a name="how-do-i-monitor-my-azure-environment"></a>Como monitorar o ambiente do Azure?
+![Visão geral de monitoramento](media/monitoring-overview/overview.png)
 
-Há uma variedade de ferramentas para monitorar o ambiente do Azure, do código do aplicativo em execução no Azure aos serviços e a infraestrutura que hospedam esse aplicativo. Essas ferramentas funcionam juntas para oferecer monitoramento abrangente de nuvem e incluem:
+## <a name="basic-monitoring"></a>Monitoramento básico
+O monitoramento básico fornece monitoramento fundamental necessário nos recursos do Azure.  Esses serviços requerem configuração mínima e coletam a telemetria fundamental que é alavancada pelos serviços de monitoramento Premium.    
 
--   **Azure Monitor**: serviço do Azure que funciona como um pipeline consolidado para todos os dados de monitoramento dos serviços do Azure. Dá acesso às métricas de desempenho e aos eventos que descrevem a operação de infraestrutura do Azure e quaisquer serviços do Azure que você estiver usando. O Azure Monitor é um pipeline de dados de monitoramento do ambiente do Azure e oferece esses dados diretamente para o Log Analytics, bem como ferramentas de terceiros em que é possível obter insights desses dados e combiná-los com os dados de recursos locais ou outros recursos de nuvem.
+### <a name="azure-monitor"></a>Azure Monitor
+[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) habilita o monitoramento básico para o serviço do Azure, permitindo a coleta de [Métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [Logs de Atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) e [Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).  Por exemplo, o log de atividades informará quando novos recursos forem criados ou modificados.  Métricas disponíveis que fornecem estatísticas de desempenho para diferentes recursos e até mesmo o sistema operacional dentro de uma máquina virtual.  É possível exibir esses dados com um dos exploradores no Portal do Azure, enviá-los ao Log Analytics para análise detalhada e de tendências, ou criar regras de alerta para informá-lo proativamente sobre problemas críticos.
 
--   **Application Insights**: serviço do Azure que oferece monitoramento do desempenho de aplicativos e análise de usuário. Ele monitora o código gravado e aplicativos implantados no Azure, localmente ou em outras nuvens. Por meio da instrumentação do aplicativo com o SDK do Application Insights, é possível obter acesso a uma variedade de dados, incluindo tempos de resposta de dependências, rastreamentos de exceção, depuração de instantâneos e perfis de execução. Oferece ferramentas avançadas para analisar a telemetria do aplicativo enquanto ele é desenvolvido e operado. Integra-se profundamente com o Visual Studio para que seja possível abordar diretamente a(s) linha(s) de código com problema e corrigi-las e também oferece a análise de uso dos seus aplicativos pelo cliente a gerentes de produto.
+### <a name="service-health"></a>Integridade do Serviço
+A integridade do aplicativo depende dos serviços do Azure necessários ao aplicativo.  A [Integridade do Serviço do Azure](../service-health/service-health-overview.md) identifica quaisquer problemas com os serviços do Azure que possam afetar o aplicativo e ajuda-o a planejar qualquer manutenção de programação.
 
--   **Log Analytics** – anteriormente conhecido como OMS Log Analytics, é um serviço do Azure que ingere os dados de log e métrica dos serviços do Azure (por meio do Azure Monitor), VMs do Azure e infraestruturas locais/em outras nuvens e oferece uma pesquisa de logs flexíveis e análises integradas sobre esses dados. Fornece ferramentas mais sofisticadas para analisar dados entre origens, permite consultas complexas em todos os logs e pode alertar proativamente sobre condições especificadas.  Você pode até mesmo coletar dados personalizados em seu repositório central para que possa consultar e visualizá-los. Também é possível tirar proveito das soluções internas do Log Analytics para obter imediatamente insights sobre a segurança e a funcionalidade da sua infraestrutura.
-
-## <a name="accessing-monitoring-in-the-azure-portal"></a>Acessando o monitoramento no Portal do Azure
-Agora, todos os serviços de monitoramento do Azure estão disponíveis em um único painel de interface do usuário. Para obter mais informações sobre como acessar essa área, consulte [Introdução ao Azure Monitor](monitoring-get-started.md). 
-
-Você também pode acessar as funções de monitoramento de recursos específicos do Azure realçando esses recursos e fazendo uma busca detalhada em suas opções de monitoramento. 
-
-## <a name="examples-of-when-to-use-which-tool"></a>Exemplos de quando usar qual ferramenta 
-
-As seções a seguir mostram alguns cenários básicos e quais ferramentas devem ser usadas. 
-
-### <a name="scenario-1--fix-errors-in-an-azure-application-under-development"></a>Cenário 1 – Corrigir erros em um aplicativo do Azure em desenvolvimento   
-
-**A melhor opção é usar o Application Insights, o Azure Monitor e o Visual Studio juntos**
-
-Agora, o Azure agora fornece toda a capacidade do depurador do Visual Studio na nuvem. Configure o Azure Monitor para enviar telemetria ao Application Insights. Habilite o Visual Studio para incluir o SDK do Application Insights em seu aplicativo. Uma vez no Application Insights, você pode usar o Mapa do aplicativo para descobrir visualmente quais partes do seu aplicativo em execução estão íntegras ou não. Para as partes que não estão íntegras, erros e exceções já estão disponíveis para exploração. Você pode usar as diferentes análises no Application Insights para obter mais detalhes. Se não tiver certeza quanto ao erro, você poderá usar o depurador do Visual Studio para rastrear o código e identificar o problema. 
-
-Para obter mais informações, consulte [Monitorando Aplicativos Web](../application-insights/app-insights-azure-web-apps.md) e consulte o sumário à esquerda para obter instruções sobre diversos tipos de aplicativos e linguagens.  
-
-### <a name="scenario-2--debug-an-azure-net-web-application-for-errors-that-only-show-in-production"></a>Cenário 2 – Depurar um aplicativo Web .NET do Azure para encontrar erros que aparecem somente na produção 
-
-> [!NOTE]
-> Esses recursos estão no modo de versão prévia. 
-
-**A melhor opção é usar o Application Insights e, se possível, o Visual Studio para ter a experiência de depuração completa.**
-
-Use o Depurador instantâneo do Application Insights para depurar seu aplicativo. Quando um determinado limite de erro ocorre com componentes de produção, o sistema captura automaticamente telemetria em janelas de tempo chamadas "instantâneos". O valor capturado é seguro para uma nuvem de produção porque é pequeno o suficiente para não afetar o desempenho, mas significativo o suficiente para permitir o rastreamento.  O sistema pode capturar vários instantâneos. Você pode examinar um ponto no tempo no Portal do Azure ou usar o Visual Studio para ter a experiência completa. Com o Visual Studio, os desenvolvedores podem percorrer o instantâneo como se estivessem depurando em tempo real. Quadros, memória, parâmetros e variáveis locais estão disponíveis. Os desenvolvedores devem obter acesso a esses dados de produção por meio de uma [função RBAC](../active-directory/role-based-access-built-in-roles.md).  
-
-Para obter mais informações, consulte [Depuração instantânea](../application-insights/app-insights-snapshot-debugger.md). 
-
-### <a name="scenario-3--debug-an-azure-application-that-uses-containers-or-microservices"></a>Cenário 3 – Depurar um aplicativo do Azure que usa contêineres ou microsserviços 
-
-**O mesmo que o cenário 1. Usar o Application Insights, o Azure Monitor e o Visual Studio juntos**
-
-O Application Insights também é compatível com a coleta de telemetria de processos em execução dentro de contêineres e de microsserviços (Kubernetes, Docker, Service Fabric do Azure). Para obter mais informações, [assista a este vídeo sobre a depuração de contêineres e microsserviços](https://go.microsoft.com/fwlink/?linkid=848184). 
+### <a name="azure-advisor"></a>Assistente do Azure
+O [Assistente do Azure](../advisor/advisor-overview.md) monitora constantemente a configuração de recursos e a telemetria de uso para fornecer recomendações personalizadas com base nas melhores práticas.  Seguir essas recomendações irão ajudá-lo a melhorar o desempenho, a segurança e a disponibilidade dos recursos fornecendo suporte a seus aplicativos.
 
 
-### <a name="scenario-4--fix-performance-issues-in-your-azure-application"></a>Cenário 4 – Solucionar problemas de desempenho em seu aplicativo do Azure
+## <a name="premium-monitoring-services"></a>Serviços de monitoramento Premium
+Os seguintes serviços do Azure fornecem recursos avançados para coletar e analisar dados de monitoramento.  Eles compilam o monitoramento básico, aproveitam a funcionalidade comum no Azure e fornecem análises avançadas com os dados coletados para proporcionar percepções exclusivas aos seus aplicativos e infraestrutura.  Além disso, apresentam dados no contexto de cenários específicos destinados a públicos diferentes.
 
-O [Application Insights Profiler](../application-insights/app-insights-profiler.md) foi projetado para ajudar a solucionar esses tipos de problemas. Você pode identificar e solucionar problemas de desempenho para aplicativos em execução nos Serviços de Aplicativos (Aplicativos Web, Aplicativos Lógicos, Aplicativos Móveis, Aplicativos de API, Aplicativos de Funções) e outros recursos de computação, como Máquinas Virtuais, VMSS (conjuntos de dimensionamento de máquinas virtuais), Serviços de Nuvem e Service Fabric. 
+### <a name="application-insights"></a>Application Insights
+O [Application Insights](http://azure.microsoft.com/documentation/services/application-insights) permite que você monitore a disponibilidade, o desempenho e o uso do seu aplicativo, estando ele hospedado na nuvem ou no local.  Ao instrumentar o aplicativo para trabalhar com o Application Insights, você poderá obter percepções detalhadas que permitirá identificar e diagnosticar os erros de maneira rápida, sem aguardar que um usuário relate-os. Com as informações coletadas, será possível fazer as escolhas informadas sobre a manutenção e as melhorias do seu aplicativo.  Além das ferramentas extensivas para interagir com os dados coletados, o Application Insights armazena seus dados em um repositório comum para aproveitar as funcionalidades compartilhadas como alertas, painéis e análises profundas com a linguagem de consulta do Log Analytics.
 
-> [!NOTE]
-> A capacidade de criar perfis de Máquinas Virtuais, VMSS (conjunto de dimensionamento de máquinas virtuais), Serviços de Nuvem e Service Fabric está em versão prévia.   
+### <a name="log-analytics"></a>Log Analytics
+O [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) desempenha uma função central na monitoração do Azure coletando dados de uma variedade de recursos em um único repositório, onde poderá ser analisado com uma linguagem de consulta avançada.  O Application Insights e a Central de Segurança do Azure armazenam seus dados no armazenamento de dados do Log Analytics e utilizam o mecanismo de análise.  Isso combinado com dados coletados do Azure Monitor, soluções de gerenciamento e agentes instalados em máquinas virtuais na nuvem ou no local permitem que você forme uma imagem completa de todo o seu ambiente. 
 
-Além disso, você será notificado proativamente por email sobre determinados tipos de erros, como lentidão para o carregamento de páginas, pela ferramenta de Detecção Inteligente.  Você não precisa fazer nenhuma configuração nessa ferramenta. Para obter mais informações, consulte [Detecção Inteligente – Anomalias de Desempenho](../application-insights/app-insights-proactive-performance-diagnostics.md).
+
+### <a name="service-map"></a>Mapa do Serviço
+O [Mapa do Serviço](../operations-management-suite/operations-management-suite-service-map.md) fornece informações sobre o seu ambiente de IaaS, analisando máquinas virtuais com seus diferentes processos e dependências em outros computadores e processos externos.  Ele integra eventos, dados de desempenho e soluções de gerenciamento no Log Analytics para que você possa exibir esses dados no contexto de cada computador e a relação com o restante do seu ambiente.  O Mapa do Serviço é semelhante ao [mapa do aplicativo no Application Insights](../application-insights/app-insights-app-map.md), mas concentra-se nos componentes da infraestrutura que dão suporte aos aplicativos.
+
+### <a name="network-watcher"></a>Observador de Rede
+O [Observador de Rede](../network-watcher/network-watcher-monitoring-overview.md) fornece diagnóstico e monitoramento baseado em cenários para diferentes cenários de rede no Azure.  Ele armazena dados em métricas e diagnósticos do Azure para análise posterior e trabalha com as [soluções de gerenciamento no Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) para monitorar completamente seus recursos de rede.
+
+
+### <a name="management-solutions"></a>Soluções de gerenciamento
+As [Soluções de gerenciamento](../log-analytics/log-analytics-add-solutions.md) são conjuntos de lógica empacotados que fornecem informações para um aplicativo ou serviço específico.  Elas dependem do Log Analytics para armazenar e analisar os dados de monitoramento que coletam.  As soluções de gerenciamento estão disponíveis a partir da Microsoft e de parceiros que fornecem monitoramento a vários serviços de terceiros e do Azure. O exemplo de soluções de monitoramento inclui o [Monitoramento de Contêiner](../log-analytics/log-analytics-containers.md) que ajuda-o a exibir e gerenciar seus hosts de contêineres e a [Análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md) que coleta e visualiza métricas de desempenho para bancos de dados do SQL Azure.
+
+
+## <a name="shared-functionality"></a>Funcionalidade compartilhada
+As ferramentas do Azure a seguir fornecem funcionalidades críticas para os serviços de monitoramento Premium.  Essas ferramentas são compartilhadas por vários serviços, permitindo que você aproveite a funcionalidade e as configurações comuns nos diversos serviços.
+
+### <a name="alerts"></a>Alertas
+Os [Alertas do Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) notificam proativamente as condições críticas e as potenciais medidas corretivas a serem tomadas.  As regras de alerta podem aproveitar dados de várias fontes, incluindo métricas e logs. Elas usam os [Grupos de Ações](../monitoring-and-diagnostics/monitoring-action-groups.md) que contêm conjuntos exclusivos de destinatários e as ações em resposta a um alerta.  Com base nas suas necessidades, é possível ter alertas para inicializar ações externas usando webhooks e integrar suas ferramentas de ITSM.
+
+### <a name="dashboards"></a>Painéis
+Os [Painéis do Azure](../azure-portal/azure-portal-dashboards.md) permitem combinar diferentes tipos de dados em um único painel no Portal do Azure e compartilhar com outros usuários do Azure.  Por exemplo, você pode criar um painel que combine blocos mostrando um grafo de métricas, uma tabela de logs de atividades, um gráfico de uso do Application Insights e a resposta de uma pesquisa de logs no Log Analytics.
+
+Adicionalmente, é possível exportar dados do Log Analytics ao [Power BI](https://docs.microsoft.com/power-bi/) para usufruir das visualizações adicionais e disponibilizar os dados a outros usuários dentro e fora de sua organização.
+
+### <a name="metrics-explorer"></a>Metrics Explorer
+As [Métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) são valores numéricos gerados pelos recursos do Azure que ajudam a entender a operação e o desempenho do recurso. Você pode enviar métricas aos Log Analytics para análise com dados de outras fontes.
+
+
+
+### <a name="activity-logs"></a>Logs de atividade
+Os [Logs de Atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) fornecem dados sobre a operação dos recursos do Azure.  Isso inclui informações como alterações de configuração para o recurso, incidentes de integridade do serviço, recomendações sobre melhor utilização do recurso e informações relacionadas às operações de autoescala.  Você pode exibir logs para um recurso específico em sua página no Portal do Azure ou exibir logs de vários recursos no Explorador do Log de Atividades.  Também é possível enviar logs de atividades para o Log Analytics de modo que possam ser analisados com dados coletados pelas soluções de gerenciamento, por agentes em máquinas virtuais e outras fontes.
+
+
+## <a name="example-scenarios"></a>Cenários de exemplo
+A seguir, são apresentados exemplos de alto nível que ilustram como é possível aproveitar as diferentes ferramentas de monitoramento no Azure para diferentes cenários.
+
+### <a name="monitoring-a-web-application"></a>Monitorando um aplicativo Web
+Considere um aplicativo Web implantado no Azure usando os Serviços de Aplicativos, Armazenamento do Microsoft Azure e um banco de dados SQL.  Você pode iniciar, acessando [métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) para cada um desses recursos individuais nas páginas no Portal do Azure.  Isso inclui informações críticas, como a quantidade de solicitações para o aplicativo e o tempo médio de resposta, além de identificar quaisquer alterações de configuração.
+
+Em seguida, você pode acessar Monitorar no portal para exibir as métricas e os logs dos diferentes recursos em conjunto.  À medida que determina os parâmetros padrão para as métricas, você [cria regras de alerta](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para notificá-lo proativamente quando, por exemplo, o tempo médio de resposta exceder um limite.  Para obter uma exibição rápida do desempenho diário do aplicativo, você cria um painel do Azure para mostrar grafos de métricas que representam KPI críticos.
+
+Para realizar um monitoramento profundo do aplicativo, você [configura-o para o Application Insights](../application-insights/quick-monitor-portal.md).  Agora, será possível coletar dados adicionais, fornecendo as informações adicionais sobre a operação e o desempenho do aplicativo.  O Application Insights detecta as relações subjacentes entre os componentes do seu aplicativo, permitindo a representação visual por meio do [Mapa do Aplicativo](../application-insights/app-insights-app-map.md) juntamente com o [rastreamento ponta a ponta](../application-insights/app-insights-transaction-diagnostics.md) para diagnosticar a dependência, exceção ou componente exato onde ocorreu um problema.  Você cria [Testes de disponibilidade](../application-insights/app-insights-monitor-web-app-availability.md) para testar proativamente o aplicativo de diferentes regiões.  Para ajudar os desenvolvedores, você [habilita o Profiler](../application-insights/enable-profiler-compute.md), de modo que seja possível rastrear solicitações e quaisquer exceções para uma linha de código específica.  
+
+Para obter uma maior visibilidade nos serviços utilizados no aplicativo, você adiciona a [solução SQL Analytics](../log-analytics/log-analytics-azure-sql.md) para coletar dados adicionais no Log Analytics. Após algum tempo, você decide investigar a causa raiz de períodos de tempo quando o desempenho no site ficou abaixo do limite.  Você grava uma consulta usando o Log Analytics para correlacionar os dados de uso e desempenho coletados pelo Application Insights com dados de configuração e desempenho nos recursos do Azure que dão suporte ao aplicativo.
+
+
+### <a name="monitoring-virtual-machines"></a>Monitoramento de máquinas virtuais
+Você possui uma combinação de máquinas virtuais do Windows e Linux que funcionam no Azure.  Você usa o Azure Monitor para exibir os [logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) e as [métricas em nível de host](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e, em seguida, adiciona a [extensão do Diagnóstico do Azure](../virtual-machines/linux/tutorial-monitoring.md#install-diagnostics-extension) às máquinas virtuais para coletar métricas do sistema operacional convidado.  Em seguida, você cria as [regras de alerta](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para notificá-lo de forma proativa quando exceder as métricas básicas, como a utilização do processador e os limites na memória.
+
+Para coletar mais detalhes sobre máquinas virtuais que executam um aplicativo de negócios, você [cria um espaço de trabalho do Log Analytics e habilita a extensão da VM](../log-analytics/log-analytics-quick-collect-azurevm.md) em cada computador.  Você configura a [coleção de fontes de dados diferentes](../log-analytics/log-analytics-data-sources.md) para o aplicativo e [cria exibições](../log-analytics/log-analytics-view-designer.md) para relatar sobre a operação e o desempenho diários.  Em seguida, você [cria regras de alerta](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para notificá-lo quando eventos de erro específicos forem recebidos.  Para monitorar continuamente a integridade do agente instalado, adicione a [solução de gerenciamento de Integridade do Agente](../operations-management-suite/oms-solution-agenthealth.md).
+
+Para obter mais informações sobre o aplicativo [adicione o agente de dependência ](../operations-management-suite/operations-management-suite-service-map-configure.md) às máquinas virtuais para adicioná-las ao [Mapa do Serviço](../operations-management-suite/operations-management-suite-service-map.md).  Ele descobre processos críticos e identifica as conexões entre computador com outros serviços.  Após uma interrupção relatada, você usará o Mapa do Serviço para executar análises e identificar os computadores específicos que experimentaram o problema.  Em seguida, crie uma [consulta nos dados do Log Analytics](../log-analytics/log-analytics-log-search-new.md) para identificar o problema no futuro e, crie uma regra de alerta para informá-lo proativamente quando a condição for detectada.
 
 
 
@@ -95,4 +113,4 @@ Saiba mais sobre
 * [Introdução ao Azure Monitor](monitoring-get-started.md)
 * [Diagnóstico do Azure](../azure-diagnostics.md) se você estiver tentando diagnosticar problemas em seu Serviço de Nuvem, Máquina Virtual, conjunto de dimensionamento de máquinas virtuais ou aplicativo do Service Fabric.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se você tiver problemas de diagnóstico em seu aplicativo Web do Serviço de Aplicativo.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e a solução de monitoramento de produção [Operations Management Suite](https://www.microsoft.com/oms/)
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) para analisar os dados de monitoramento coletados.

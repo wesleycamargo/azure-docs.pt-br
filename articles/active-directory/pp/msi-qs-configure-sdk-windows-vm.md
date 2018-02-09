@@ -3,7 +3,7 @@ title: "Como configurar uma MSI atribuída pelo usuário para uma VM do Azure us
 description: "Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciado) atribuída pelo usuário em uma VM do Azure usando um SDK do Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 19b6179803b8de4102818c1522b00e6b4881d0f0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 097304162b85599acd1f4591091f986a646ebc2a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-sdk"></a>Configurar uma MSI (Identidade de Serviço Gerenciado) para uma VM usando um SDK do Azure
 

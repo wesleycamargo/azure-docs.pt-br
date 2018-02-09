@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>Procura de mensagens
 
-A procura de mensagens (“espiada”) permite que um cliente enumere todas as mensagens que residem em uma fila ou assinatura, normalmente para fins de diagnóstico e depuração.
+A procura de mensagens (“espiada”) permite que um cliente do Barramento de Serviço enumere todas as mensagens que residem em uma fila ou assinatura, normalmente para fins de diagnóstico e depuração.
 
-As operações peek retornam todas as mensagens que existem no log de mensagem da fila ou da assinatura, não apenas aqueles disponíveis para a aquisição imediata com o loop *Receive()* ou o *OnMessage()*. A propriedade *State* de cada mensagem informa se a mensagem está ativa (disponível para ser recebida), adiada (consulte Adiamento [link TBD]) ou agendada (consulte Mensagens agendadas [link TBD]).
+As operações de espiada retornam todas as mensagens que existem no log de mensagem de fila ou de assinatura, não apenas aquelas disponíveis para a aquisição imediata com o loop `Receive()` ou `OnMessage()`. A `State` propriedade de cada mensagem informa se a mensagem está ativa (disponível para ser recebida), [adiada](message-deferral.md), ou [agendada](message-sequencing.md).
 
-Mensagens consumidas e expiradas são limpas por uma execução de “coleta de lixo” assíncrona e não necessariamente exatamente quando as mensagens expiram e, portanto, Peek pode de fato retornar mensagens que já expiraram e serão removidas ou estarão mortas quando uma operação de recebimento for invocada a seguir na fila ou assinatura.
+Mensagens consumidas e expiradas são limpas por uma execução de “coleta de lixo” assíncrona e não necessariamente exatamente quando as mensagens expiram e, portanto, `Peek` realmente podem retornar mensagens que já expiraram e serão removidas ou estarão mortas quando uma operação de recebimento for invocada a seguir na fila ou assinatura.
 
 Isso é especialmente importante para se ter em mente ao tentar recuperar mensagens desviadas da fila. Uma mensagem para a qual o instante [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) passou não é elegível para recuperação regular por outros meios, mesmo quando ela está sendo retornada por Peek. O retorno dessas mensagens é intencional, uma vez que Peek é uma ferramenta de diagnóstico refletindo o estado atual do log.
 
@@ -43,7 +43,7 @@ Você também pode propagar uma sobrecarga do método com um [SequenceNumber](/d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as mensagens do Barramento de Serviço, consulte os tópicos a seguir:
+Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)

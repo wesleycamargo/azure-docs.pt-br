@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizar clusters HDInsight baseados em Linux usando ações de script
 
@@ -55,7 +55,7 @@ Para saber mais sobre como trabalhar com o gerenciamento de acesso, confira os s
 
 ## <a name="understanding-script-actions"></a>Noções básicas sobre ações de Script
 
-Uma ação de script é simplesmente um script Bash para o qual você fornece um URI e parâmetros. O script é executado em nós no cluster HDInsight. A seguir, as características e os recursos das ações de script.
+Uma ação de script é Bash script executado em nós em um cluster HDInsight. A seguir, as características e os recursos das ações de script.
 
 * Deve estar armazenado em um URI que pode ser acessado do cluster HDInsight. Estes são os possíveis locais de armazenamento:
 
@@ -79,9 +79,7 @@ Uma ação de script é simplesmente um script Bash para o qual você fornece um
 
 * Pode ser **persistente** ou **ad hoc**.
 
-    Os scripts **persistentes** são aplicados aos nós de trabalho adicionados ao cluster depois que o script é executado. Por exemplo, ao escalar verticalmente o cluster.
-
-    Um script persistente também pode aplicar alterações a outro tipo de nó, como um nó de cabeçalho.
+    Os scripts **persistentes** são usados para personalizar novos nós de trabalho adicionados ao cluster por meio de operações de dimensionamento. Um script persistente também pode aplicar alterações a outro tipo de nó, como um nó de cabeçalho, quando ocorrem operações de dimensionamento.
 
   > [!IMPORTANT]
   > As ações de script persistentes devem ter um nome exclusivo.
@@ -94,30 +92,32 @@ Uma ação de script é simplesmente um script Bash para o qual você fornece um
   > Os scripts que falham não são persistentes, mesmo que você indique especificamente que eles devem ser.
 
 * Podem aceitar **parâmetros** usados pelo script durante a execução.
+
 * São executados com os **privilégios no nível da raiz** nos nós do cluster.
-* Podem ser usados por meio do **Portal do Azure**, do **Azure PowerShell**, da **CLI do Azure** ou do **SDK do .NET do HDInsight**
+
+* Podem ser usados por meio do **Portal do Azure**, do **Azure PowerShell**, da **CLI do Azure v1.0** ou do **SDK do .NET do HDInsight**
 
 O cluster mantém um histórico de todos os scripts que foram executados. O histórico é útil quando você precisa localizar a ID de um script para operações de promoção ou rebaixamento.
 
 > [!IMPORTANT]
 > Não há nenhuma forma automática de desfazer as alterações feitas por uma ação de script. Reverta manualmente as alterações ou forneça um script que as reverta.
 
-
 ### <a name="script-action-in-the-cluster-creation-process"></a>Ação de script no processo de criação do cluster
 
 As ações de script usadas durante a criação do cluster são levemente diferentes das ações de script executadas em um cluster existente:
 
 * O script é **automaticamente persistente**.
+
 * Uma **falha** no script pode fazer com que o processo de criação do cluster falhe.
 
 O diagrama a seguir ilustra quando a ação de script é executada durante o processo de criação:
 
 ![Personalização do cluster HDInsight e estágios durante a criação de cluster][img-hdi-cluster-states]
 
-O script é executado enquanto o HDInsight está sendo configurado. Nesse estágio, o script é executado em paralelo com todos os nós especificados no cluster e é executado com os privilégios de raiz nos nós.
+O script é executado enquanto o HDInsight está sendo configurado. O script é executado em paralelo com todos os nós especificados no cluster e é executado com os privilégios de raiz nos nós.
 
 > [!NOTE]
-> Como o script é executado com o privilégio de nível raiz nos nós do cluster, você pode executar operações como parar e iniciar serviços, incluindo os serviços relacionados ao Hadoop. Se você parar quaisquer serviços, você deve garantir que os serviços Ambari e outros serviços relacionados ao Hadoop estejam funcionando antes do script terminar a execução. Esses serviços são necessários para determinar com êxito a integridade e o estado do cluster enquanto ele está sendo criado.
+> Você pode executar operações como parar e iniciar serviços, incluindo serviços relacionados ao Hadoop. Se você parar quaisquer serviços, você deve garantir que os serviços Ambari e outros serviços relacionados ao Hadoop estejam funcionando antes do script ser concluído. Esses serviços são necessários para determinar com êxito a integridade e o estado do cluster enquanto ele está sendo criado.
 
 
 Durante a criação do cluster, você pode usar várias ações de script simultaneamente. Esses scripts são invocados na ordem em que eles foram especificados.
@@ -130,12 +130,12 @@ Durante a criação do cluster, você pode usar várias ações de script simult
 
 ### <a name="script-action-on-a-running-cluster"></a>Ação de script em um cluster em execução
 
-Ao contrário das ações de script usadas durante a criação do cluster, uma falha em um script executado em um cluster já em execução não faz com o cluster mude automaticamente para um estado de falha. Quando um script é concluído, o cluster deve retornar a um estado "em execução".
+Uma falha em um script executado em um cluster já em execução não faz com o cluster mude automaticamente para um estado de falha. Quando um script é concluído, o cluster deve retornar a um estado "em execução".
 
 > [!IMPORTANT]
 > Mesmo que o cluster apresente um estado "em execução", o script com falha pode ter partes desfeitas. Por exemplo, um script poderia excluir arquivos necessários para o cluster.
 >
-> As ações de script são executadas com privilégios de raiz, portanto, você deve assegurar que entendeu o que faz um script antes de aplicá-lo ao seu cluster.
+> Ações de scripts executados com privilégios de raiz. Você deve ter certeza de que entendeu o que um script faz antes de aplicá-lo ao seu cluster.
 
 Ao aplicar um script a um cluster, o estado do cluster muda de **Em execução** para **Aceito**, depois para **Configuração do HDInsight** e, por fim, de volta para **Em execução** para os scripts bem-sucedidos. O status do script é registrado no histórico de ações do script e você pode usar essas informações para determinar se o script teve êxito ou falhou. Por exemplo, o cmdlet `Get-AzureRmHDInsightScriptActionHistory` do PowerShell pode ser usado para exibir o status de um script. Isso retorna informações semelhantes ao seguinte texto:
 
@@ -144,7 +144,7 @@ Ao aplicar um script a um cluster, o estado do cluster muda de **Em execução**
     EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
-> [!NOTE]
+> [!IMPORTANT]
 > Se você alterou a senha de usuário (admin) do cluster depois que o cluster foi criado, ações de script executadas em relação a esse cluster podem falhar. Se você tiver ações de script persistente direcionadas para nós de trabalho, esses scripts poderão falhar quando você dimensionar o cluster.
 
 ## <a name="example-script-action-scripts"></a>Scripts de ação do de exemplo de script
@@ -153,12 +153,12 @@ Scripts de ação de script podem ser usados por meio dos utilitários a seguir:
 
 * Portal do Azure
 * Azure PowerShell
-* CLI do Azure
+* CLI do Azure v1.0
 * SDK do .NET do HDInsight
 
 O HDInsight fornece scripts para instalar os seguintes componentes nos clusters do HDInsight:
 
-| Nome | Script |
+| NOME | Script |
 | --- | --- |
 | **Adicionar uma conta de armazenamento do Azure** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. Veja [Adicionar armazenamento adicional a um cluster HDInsight](hdinsight-hadoop-add-storage.md). |
 | **Instalar o Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Veja [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md). |
@@ -193,9 +193,9 @@ Esta seção fornece exemplos sobre as diferentes maneiras em que você pode usa
     | Propriedade | Valor |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __Personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
-    | Nome |Especifique um nome para a ação de script. |
-    | URI do script Bash |Especifique o URI para o script que é chamado para personalizar o cluster. |
-    | Cabeçalho/Trabalho/Zookeeper |Especifique os nós (**Cabeçalho**, de **Trabalho** ou **ZooKeeper**) nos quais o script de personalização é executado. |
+    | NOME |Especifique um nome para a ação de script. |
+    | URI do script Bash |Especificar o URI do script. |
+    | Cabeçalho/Trabalho/Zookeeper |Especifique os nós (**Cabeçalho**, **Trabalho** ou **ZooKeeper**) nos quais o script é executado. |
     | parâmetros |Especifique os parâmetros, se exigido pelo script. |
 
     Use a entrada __Persistir essa ação de script__ para garantir que o script seja aplicado durante operações de colocação em escala.
@@ -270,9 +270,9 @@ Nesta seção, aprenda como aplicar ações de script a um cluster em execução
     | Propriedade | Valor |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
-    | Nome |Especifique um nome para a ação de script. |
-    | URI do script Bash |Especifique o URI para o script que é chamado para personalizar o cluster. |
-    | Cabeçalho/Trabalho/Zookeeper |Especifique os nós (**Cabeçalho**, de **Trabalho** ou **ZooKeeper**) nos quais o script de personalização é executado. |
+    | NOME |Especifique um nome para a ação de script. |
+    | URI do script Bash |Especificar o URI do script. |
+    | Cabeçalho/Trabalho/Zookeeper |Especifique os nós (**Cabeçalho**, **Trabalho** ou **ZooKeeper**) nos quais o script é executado. |
     | parâmetros |Especifique os parâmetros, se exigido pelo script. |
 
     Use a entrada __Persistir essa ação de script__ para garantir que o script seja aplicado durante operações de colocação em escala.
@@ -298,9 +298,10 @@ Quando a operação for concluída, você receberá informações semelhantes ao
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Aplicar uma ação de script em um cluster em execução da CLI do Azure
 
-Antes de prosseguir, certifique-se de ter instalado e configurado a CLI do Azure. Para obter mais informações, consulte [Instalar a CLI do Azure](../cli-install-nodejs.md).
+Antes de prosseguir, certifique-se de ter instalado e configurado a CLI do Azure. Para obter mais informações, consulte [Instalar a CLI do Azure 1.0](../cli-install-nodejs.md).
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+> [!IMPORTANT]
+> O HDInsight requer CLI do Azure 1.0. No momento a CLI do Azure 2.0 não fornece comandos para trabalhar com HDInsight.
 
 1. Para alternar para o modo Azure Resource Manager, use o seguinte comando na linha de comando:
 
@@ -422,7 +423,7 @@ O serviço HDInsight possibilita o uso de componentes personalizados de várias 
 
 3. Exemplos: para componentes personalizados populares, a Microsoft e outras empresas podem fornecer exemplos de uso desses componentes em clusters HDInsight. Esses exemplos são fornecidos sem suporte.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Você pode usar a interface do usuário da Web Ambari para exibir as informações registradas pelas ações de script. Se o script falhar durante a criação do cluster, os logs também estarão disponíveis na conta de armazenamento padrão associada ao cluster. Esta seção fornece informações sobre como recuperar logs usando ambas as opções.
 
@@ -458,7 +459,7 @@ Se a criação do cluster falhar devido a um erro de script, os logs serão mant
 
     * **Nó zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Todos os stdout e stderr do host correspondentes são carregados para a conta de armazenamento. Há um **output-\*.txt** e um **errors-\*.txt** para cada ação de script. O arquivo *.txt de saída contém informações sobre o URI do script que foi executado no host. Por exemplo,
+* Todos os stdout e stderr do host correspondentes são carregados para a conta de armazenamento. Há um **output-\*.txt** e um **errors-\*.txt** para cada ação de script. O arquivo *.txt de saída contém informações sobre o URI do script que foi executado no host. O texto a seguir é um exemplo destas informações:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 

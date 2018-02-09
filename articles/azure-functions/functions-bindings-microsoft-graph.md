@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 63b94c0a9b77a3f3a6fd394a130bf8f132d51369
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -43,7 +43,7 @@ As associações do Microsoft Graph estão disponíveis por meio de _extensões 
 
 Extensões de associação só estão disponíveis para versão prévia do Azure Functions 2.0. 
 
-Para obter informações sobre como configurar um aplicativo de funções para usar a versão prévia 2.0 do tempo de execução do Functions, confira [Direcione a versão 2.0 do tempo de execução](functions-versions.md#target-the-version-20-runtime).
+Para obter informações sobre como configurar um aplicativo de funções para usar a versão prévia 2.0 do tempo de execução do Functions, confira [Como direcionar versões do tempo de execução do Azure Functions](set-runtime-version.md).
 
 ### <a name="installing-the-extension"></a>Como instalar a extensão
 
@@ -85,7 +85,7 @@ Essa seção contém os seguintes procedimentos:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#auth-token---c-script-example)
+* [Script do C# (.csx)](#auth-token---c-script-example)
 * [JavaScript](#auth-token---javascript-example)
 
 #### <a name="auth-token---c-script-example"></a>Token de autenticação - exemplo de script C#
@@ -241,7 +241,7 @@ Essa seção contém os seguintes procedimentos:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#excel-input---c-script-example)
+* [Script do C# (.csx)](#excel-input---c-script-example)
 * [JavaScript](#excel-input---javascript-example)
 
 #### <a name="excel-input---c-script-example"></a>Entrada do Excel - exemplo de script C#
@@ -388,7 +388,7 @@ Essa seção contém os seguintes procedimentos:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#excel-output---c-script-example)
+* [Script do C# (.csx)](#excel-output---c-script-example)
 * [JavaScript](#excel-output---javascript-example)
 
 #### <a name="excel-output---c-script-example"></a>Saída do Excel - exemplo de script C#
@@ -545,7 +545,7 @@ Essa seção contém os seguintes procedimentos:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#file-input---c-script-example)
+* [Script do C# (.csx)](#file-input---c-script-example)
 * [JavaScript](#file-input---javascript-example)
 
 #### <a name="file-input---c-script-example"></a>Entrada do Arquivo - exemplo de script C#
@@ -663,7 +663,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - Fluxo
-- cadeia de caracteres
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -687,7 +687,7 @@ Essa seção contém os seguintes procedimentos:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#file-output---c-script-example)
+* [Script do C# (.csx)](#file-output---c-script-example)
 * [JavaScript](#file-output---javascript-example)
 
 #### <a name="file-output---c-script-example"></a>Saída do arquivo - exemplo de script C#
@@ -808,7 +808,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - Fluxo
-- cadeia de caracteres
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -831,7 +831,7 @@ Essa seção contém os seguintes procedimentos:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#outlook-output---c-script-example)
+* [Script do C# (.csx)](#outlook-output---c-script-example)
 * [JavaScript](#outlook-output---javascript-example)
 
 #### <a name="outlook-output---c-script-example"></a>Saída do Outlook - exemplo de script C#
@@ -956,7 +956,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- cadeia de caracteres
+- string
 - Tipos de objetos personalizados (usando a associação de modelos estrutural)
 
 
@@ -994,7 +994,7 @@ Essa seção contém os seguintes procedimentos:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#webhook-trigger---c-script-example)
+* [Script do C# (.csx)](#webhook-trigger---c-script-example)
 * [JavaScript](#webhook-trigger---javascript-example)
 
 #### <a name="webhook-trigger---c-script-example"></a>Gatilho de webhook - exemplo de script C#
@@ -1112,7 +1112,7 @@ Essa seção contém os seguintes procedimentos:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#webhook-input---c-script-example)
+* [Script do C# (.csx)](#webhook-input---c-script-example)
 * [JavaScript](#webhook-input---javascript-example)
 
 #### <a name="webhook-input---c-script-example"></a>Entrada de webhook - exemplo de script C#
@@ -1262,7 +1262,7 @@ Essa seção contém os seguintes procedimentos:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#webhook-output---c-script-example)
+* [Script do C# (.csx)](#webhook-output---c-script-example)
 * [JavaScript](#webhook-output---javascript-example)
 
 #### <a name="webhook-output---c-script-example"></a>Saída de webhook - exemplo de script C#
@@ -1383,7 +1383,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ### <a name="webhook-output---usage"></a>Saída de webhook - uso
 
 A associação expõe os seguintes tipos a funções .NET:
-- cadeia de caracteres
+- string
 - Microsoft.Graph.Subscription
 
 
@@ -1406,7 +1406,7 @@ Esta seção contém um exemplo para cada uma destas abordagens:
 
 Consulte o exemplo específico a um idioma:
 
-* [Script C# (.csx)](#app-identity-refresh---c-script-example)
+* [Script do C# (.csx)](#app-identity-refresh---c-script-example)
 * [JavaScript](#app-identity-refresh---javascript-example)
 
 ### <a name="app-identity-refresh---c-script-example"></a>Atualização de identidade de aplicativo - exemplo de script C#

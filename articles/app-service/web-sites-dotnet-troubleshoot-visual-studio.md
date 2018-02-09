@@ -3,8 +3,8 @@ title: "Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do A
 description: "Saiba como solucionar problemas de um aplicativo Web do Azure usando ferramentas de log, rastreamento e depuração remota criadas no Visual Studio 2013."
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio
 ## <a name="overview"></a>Visão geral
@@ -26,7 +26,7 @@ Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depura
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-Você aprenderá a:
+O que você aprenderá:
 
 * Quais funções de gerenciamento de aplicativo Web do Azure estão disponíveis no Visual Studio.
 * Como usar a exibição remota do Visual Studio para fazer alterações rápidas em um aplicativo Web remoto.
@@ -117,9 +117,9 @@ Se a mensagem de erro detalhada não oferecer informações suficientes e não f
 
 A depuração remota não funciona em edições Express do Visual Studio.
 
-Esta seção mostra como depurar remotamente usando o projeto que você cria no [Criar um aplicativo da web ASP.NET no Azure][app-service-web-get-started-dotnet.md].
+Esta seção mostra como depurar remotamente usando o projeto que você cria no [Criar um aplicativo da web ASP.NET no Azure](app-service-web-get-started-dotnet.md).
 
-1. Abra o projeto da web que você criou em [Criar um aplicativo da web ASP.NET no Azure][app-service-web-get-started-dotnet.md].
+1. Abra o projeto da web que você criou em [Criar um aplicativo da web ASP.NET no Azure](app-service-web-get-started-dotnet.md).
 
 2. Abra o *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ Esta seção mostra como depurar remotamente usando o projeto que você cria no 
 
 5. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e clique em **Publicar**.
 
-6. Na lista suspensa de **Perfil**, selecione o mesmo perfil que você usou em [Criar um aplicativo da web ASP.NET no Azure][app-service-web-get-started-dotnet.md]. Em seguida, clique em Configurações.
+6. Na lista suspensa de **Perfil**, selecione o mesmo perfil que você usou em [Criar um aplicativo da web ASP.NET no Azure](app-service-web-get-started-dotnet.md). Em seguida, clique em Configurações.
 
 7. Na caixa de diálogo **Publicar**, clique em **Configurações** e altere **Configuração** para D**epuração** e, em seguida, clique em **Salvar**.
 

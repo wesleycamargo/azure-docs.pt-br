@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 91aa10b1e7dfbe47107257fa0a5fe14f7b43ff71
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de runbook e de módulos para a Automação do Azure
 Em vez de criar seus próprios runbooks e módulos na Automação do Azure, você pode acessar uma variedade de cenários que já foram desenvolvidos pela Microsoft e pela comunidade.  É possível usar esses cenários sem modificação ou usá-los como um ponto de partida e editá-los para seus requisitos específicos.
@@ -37,11 +37,8 @@ Somente é possível importar diretamente da Galeria de Runbook usando o Portal 
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Para importar um runbook da Galeria de Runbook com o portal do Azure
 1. No portal do Azure, abra sua conta da Automação.
-2. Clique no bloco **Runbooks** para abrir a lista de runbooks.
-3. Clique no botão **Procurar na galeria** .
-   
-    ![Botão Procurar na galeria](media/automation-runbook-gallery/browse-gallery-button.png)
-4. Localize o item da galeria desejado e selecione-o para exibir seus detalhes.
+2. Em **Automação de Processo**, clique em **Galeria de Runbooks**
+3. Localize o item da galeria desejado e selecione-o para exibir seus detalhes. À esquerda, você pode inserir parâmetros de pesquisa adicionais para o tipo e o fornecedor.
    
     ![Procurar na galeria](media/automation-runbook-gallery/browse-gallery.png)
 5. Clique em **Exibir projeto de origem** para exibir o item no [Script Center do TechNet](http://gallery.technet.microsoft.com/).
@@ -94,14 +91,8 @@ Os módulos do PowerShell contêm cmdlets que você pode usar em seus runbooks, 
    
     ![Detalhes do módulo do PowerShell](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. Para instalar o módulo diretamente na Automação do Azure, clique no botão **Importar** .
-   
-    ![Botão Importar módulo](media/automation-runbook-gallery/module-import-button.png)
 8. Ao clicar no botão Importar, no painel **Importar**, você verá o nome do módulo que está prestes a importar. Se todas as dependências estiverem instaladas, o botão **OK** será ativado. Se não houver dependências, será necessário importá-las antes de importar esse módulo.
-9. Clique em **OK** para importar o módulo. Enquanto a Automação do Azure importa um módulo para sua conta, ela extrai os metadados sobre o módulo e os cmdlets.
-   
-    ![Página Importar Módulo](media/automation-runbook-gallery/module-import-blade.png)
-   
-    Isso pode demorar alguns minutos, pois cada atividade precisa ser extraída.
+9. Na página **Importar**, clique em **OK** para importar o módulo. Enquanto a Automação do Azure importa um módulo para sua conta, ela extrai os metadados sobre o módulo e os cmdlets. Isso pode demorar alguns minutos, pois cada atividade precisa ser extraída.
 10. Você recebe uma notificação inicial informando que o módulo está sendo implantado e outra notificação quando o processo é concluído.
 11. Depois que o módulo for importado, você verá as atividades disponíveis e será possível usar os recursos nos runbooks e a Desired State Configuration.
 

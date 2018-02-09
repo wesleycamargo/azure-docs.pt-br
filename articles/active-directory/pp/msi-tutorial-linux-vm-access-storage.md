@@ -3,7 +3,7 @@ title: "Utilizar uma MSI atribuída pelo usuário em uma VM do Linux para acessa
 description: "Um tutorial que orienta você durante o processo de usar uma MSI (Identidade de Serviço Gerenciado) atribuída pelo usuário em uma VM do Linux para acessar o Armazenamento do Microsoft Azure."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: arluca
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Use uma MSI (Identidade de Serviço Gerenciado) atribuída pelo usuário em uma VM do Linux para acessar o Armazenamento do Microsoft Azure
 
@@ -32,7 +32,7 @@ Este tutorial mostra como criar e usar a MSI (Identidade de Serviço Gerenciado)
 > * Conceder o acesso ao MSI para uma instância do Armazenamento do Microsoft Azure
 > * Obter um token de acesso usando a identidade da MSI atribuída pelo usuário e usá-la para acessar o Armazenamento do Microsoft Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -134,10 +134,10 @@ Como arquivos exigem armazenamento de blobs, é preciso criar um contêiner de b
 
 Usando uma MSI, seu código pode obter tokens de acesso para autenticar para recursos compatíveis com a autenticação do Microsoft Azure AD. Neste tutorial, você usará o Armazenamento do Microsoft Azure.
 
-Primeiro, você concederá o acesso de identidade da MSI a um contêiner do Armazenamento do Microsoft Azure. Nesse caso, você pode usar o contêiner criado anteriormente. Atualize os valores de `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` e `<CONTAINER NAME>` conforme apropriado para seu ambiente. Substitua `<CLIENT ID>` pela propriedade `clientId` retornada pelo comando `az identity create` em [Criar uma MSI atribuída pelo usuário](#create-a-user-assigned-msi):
+Primeiro, você concederá o acesso de identidade da MSI a um contêiner do Armazenamento do Microsoft Azure. Nesse caso, você pode usar o contêiner criado anteriormente. Atualize os valores de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` e `<CONTAINER NAME>` conforme apropriado para seu ambiente. Além disso, substitua `<MSI PRINCIPALID>` pela propriedade `principalId` retornada pelo comando `az identity create` em [Criar uma MSI atribuída pelo usuário](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 A resposta inclui os detalhes da atribuição de função criada:

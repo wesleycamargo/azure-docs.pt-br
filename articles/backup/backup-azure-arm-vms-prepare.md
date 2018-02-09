@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
@@ -63,7 +63,7 @@ Antes de preparar seu ambiente, certifique-se de compreender essas limitações:
 * Os dados de backup não incluem unidades de rede montadas anexadas à VM.
 * Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar restaurar a VM quando ela existir, a operação de restauração falhará.
 * Não há suporte para backup e restauração entre regiões.
-* Por enquanto, não há suporte para backup e restauração do armazenamento de VMs do ACLed. Não haverá suporte para o backup de VMs se você tiver habilitado o recurso de VNET que permite que as contas de armazenamento sejam acessadas apenas em determinadas VNETs/sub-redes e/ou IPs.
+* Não há suporte atualmente para Backup e Restauração de Máquinas Virtuais usando discos não gerenciados em contas de armazenamento com as regras de rede aplicadas. Ao configurar o backup, certifique-se de que as configurações de “Firewalls e redes virtuais” para a conta de armazenamento permitem acesso de “Todas as redes.”
 * Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure. (Consulte a [lista de verificação](https://azure.microsoft.com/regions/#services) das regiões compatíveis.) Se a região que você procura ainda não for compatível, ela não aparecerá na lista suspensa durante a criação de cofre.
 * A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Para saber mais, consulte [Restaurando um controlador de domínio com vários DCs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. VMs criadas por meio do fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

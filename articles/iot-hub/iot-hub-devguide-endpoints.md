@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos de extremidade do Hub IoT
 
@@ -81,7 +81,12 @@ Para conhecer os limites para a quantidade de pontos de extremidade que você po
 
 ### <a name="when-using-azure-storage-containers"></a>Ao usar os contêineres de Armazenamento do Azure
 
-O Hub IoT oferece suporte somente à gravação de dados em contêineres de Armazenamento do Azure como blobs no formato [Apache Avro](http://avro.apache.org/). O Hub IoT coloca as mensagens em lotes e grava os dados em um blob quando atinge um determinado tamanho ou após um determinado período de tempo decorrido, o que ocorrer primeiro. O Hub IoT não gravará um blob vazio se não houver nenhum dado para gravação.
+O Hub IoT oferece suporte somente à gravação de dados em contêineres de Armazenamento do Azure como blobs no formato [Apache Avro](http://avro.apache.org/). O Hub IoT processará mensagens em lote e gravará dados em um blob sempre que:
+
+* O lote alcançar um determinado tamanho.
+* Ou, uma determinada quantidade de tempo tenha decorrido.
+
+Se não houver dados para gravação, o Hub IoT gravará um blob vazio.
 
 O Hub IoT segue a seguinte convenção de nomenclatura de arquivo padrão:
 

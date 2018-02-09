@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2017
+ms.date: 2/1/2018
 ms.author: tedway
-ms.openlocfilehash: 9a8b39853e1a90815758af1d8fd772db7cc18ac5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb0d02bc580822dcc9451dc6c22bd28d895dbbf7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Consumindo um Serviço Web de Azure Machine Learning do Excel
  O Azure Machine Learning Studio torna fácil chamar serviços Web diretamente do Excel, sem a necessidade de escrever nenhum código.
@@ -58,7 +58,7 @@ Após ter um serviços Web, clique na seção **SERVIÇOS WEB** à esquerda do e
     ![][4]
 5. Para pontuar mais de uma linha, preencha a segunda linha com dados e os valores previstos serão produzidos. Você pode até mesmo colar várias linhas ao mesmo tempo.
 
-Você pode usar qualquer um dos recursos do Excel (gráficos, Power Map, formatação condicional, etc.) com os valores previstos para ajudar na visualização dos dados.    
+Você pode usar qualquer um dos recursos do Excel (grafos, Power Map, formatação condicional, etc.) com os valores previstos para ajudar na visualização dos dados.    
 
 ## <a name="sharing-your-workbook"></a>Compartilhar sua pasta de trabalho
 Para as macros funcionarem, sua Chave de API precisa fazer parte da planilha. Isso significa que você deve compartilhar a pasta de trabalho apenas com entidades/pessoas confiáveis.

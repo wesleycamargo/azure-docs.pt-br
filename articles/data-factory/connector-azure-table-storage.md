@@ -1,5 +1,5 @@
 ---
-title: Copiar dados para/do Armazenamento de Tabelas do Azure usando o Data Factory.| Microsoft Docs
+title: Copiar dados para e do Armazenamento de Tabelas do Azure usando o Data Factory | Microsoft Docs
 description: Saiba como copiar dados de armazenamentos de origem com suporte para o Armazenamento de Tabelas do Azure ou do Armazenamento de Tabelas para armazenamentos de coletor com suporte, usando o Data Factory.
 services: data-factory
 documentationcenter: 
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 9aa0a1ed7bb07609e087e82d64f5f1c80bb590d9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: fde85936760a167f1da2289ac1d18e97df7c9c04
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Copiar dados para ou das Tabelas do Azure usando o Azure Data Factory
+# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados para e do Armazenamento de Tabelas do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-azure-table-connector.md)
+> * [Versão 1 – Disponível de forma geral](v1/data-factory-azure-table-connector.md)
 > * [Versão 2 – Versão prévia](connector-azure-table-storage.md)
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados para e da Tabela do Azure. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar uma atividade de cópia no Azure Data Factory para copiar dados para e do Armazenamento de Tabelas do Azure. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 > [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponibilidade geral), consulte [Conector do Armazenamento de Tabelas do Azure na V1](v1/data-factory-azure-table-connector.md).
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você usar a versão 1 do Data Factory, que está disponível de forma geral, consulte [Conector de armazenamento de tabelas na versão 1](v1/data-factory-azure-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para a Tabela do Azure ou copiar dados da Tabela do Azure para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados de qualquer armazenamento de dados fonte compatível para o armazenamento de tabelas. Você também pode copiar dados de um armazenamento de tabelas para qualquer armazenamento de dados de coletor compatível. Para obter uma lista de armazenamentos de dados que têm suporte como fontes ou coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Especificamente, este conector de Tabela do Azure dá suporte à cópia de dados usando as autenticações de **chave de conta** e de **SAS de serviço** (Assinatura de Acesso Compartilhado).
+Especificamente, este conector de Tabela do Azure dá suporte à cópia de dados usando as autenticações de chave de conta e de assinatura de acesso compartilhado serviço.
 
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao Armazenamento de Tabelas do Azure.
+As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao Armazenamento de Tabelas.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-### <a name="using-account-key"></a>Usando chave de conta
+### <a name="use-an-account-key"></a>Usar uma chave de conta
 
-Você pode criar um serviço vinculado do Armazenamento do Azure usando a chave de conta, que fornece ao data factory o acesso global ao Armazenamento do Azure. Há suporte para as seguintes propriedades:
+Você pode criar um serviço vinculado do Armazenamento do Azure usando a chave de conta. Isso fornece ao data factory acesso global ao Armazenamento. Há suporte para as seguintes propriedades.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureStorage** |Sim |
-| connectionString | Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. Marque esse campo como SecureString. |Sim |
+| Tipo | A propriedade type deve ser definida como **AzureStorage**. |sim |
+| connectionString | Especifique as informações necessárias para se conectar ao Armazenamento para a propriedade connectionString. Marque esse campo como SecureString. |sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -74,25 +74,26 @@ Você pode criar um serviço vinculado do Armazenamento do Azure usando a chave 
 }
 ```
 
-### <a name="using-service-sas-authentication"></a>Usando a autenticação SAS de Serviço
+### <a name="use-service-shared-access-signature-authentication"></a>Autenticação da assinatura de acesso compartilhado de serviço
 
-Você também pode criar um serviço vinculado do Armazenamento do Azure usando uma SAS (Assinatura de Acesso Compartilhado), que fornece ao data factory o acesso restrito/com limite de tempo a todos os recursos ou a recursos específicos no armazenamento.
+Você também pode criar um serviço vinculado ao Armazenamento por meio de uma assinatura de acesso compartilhado. Isso fornece ao data factory acesso restrito/acesso total, com limite de tempo/recursos específicos no armazenamento.
 
-Uma SAS (Assinatura de Acesso Compartilhado) fornece acesso delegado aos recursos da sua conta de armazenamento. Isso permite conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa passar a SAS ao construtor apropriado ou ao método apropriado. Para obter informações detalhadas sobre SAS, consulte [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Você pode usá-la para conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado tempo e com um conjunto específico de permissões. Não é preciso compartilhar as chaves de acesso da conta. A assinatura de acesso compartilhado é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a assinatura de acesso compartilhado, o cliente só precisa passar a assinatura de acesso compartilhado ao construtor ou método apropriado. Para saber mais sobre assinaturas de acesso compartilhado, veja [Assinaturas de Acesso Compartilhado: entendendo o modelo de assinatura de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!IMPORTANT]
-> O Azure Data Factory agora dá suporte somente a **SAS do serviço**, mas não SAS de conta. Consulte os [Tipos de Assinaturas de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) para obter detalhes sobre esses dois tipos e como criá-los. A URL de SAS que pode ser gerada no Portal do Azure ou no Gerenciador de Armazenamento é uma SAS de conta, que não tem suporte.
+> O data factory agora oferece suporte apenas ao serviço de assinaturas de acesso compartilhado, mas não às assinaturas de acesso compartilhado de conta. Para obter mais informações sobre esses dois tipos e como construí-los, consulte [Tipos de assinaturas compartilhadas](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). A URL de assinatura de acesso compartilhado gerada a partir do portal do Azure ou do Gerenciador de Armazenamento do Microsoft Azure é uma assinatura de acesso compartilhado de conta, que não tem suporte.
 
 > [!TIP]
-> Você pode executar abaixo comandos do PowerShell para gerar uma SAS do serviço para sua conta de armazenamento (substitua os espaços reservados e conceda a permissão necessária):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> É possível executar os comandos de PowerShell a seguir para gerar uma assinatura de acesso compartilhado de serviço para sua conta de armazenamento. Substitua os espaços reservados e conceda a permissão necessária.
+> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-Para usar a autenticação de SAS de Serviço, há suporte para as seguintes propriedades:
+Para usar a autenticação de assinatura de acesso compartilhado de serviço, há suporte para as seguintes propriedades.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureStorage** |Sim |
-| sasUri | Especificar o URI de Assinatura de Acesso Compartilhado para os recursos de Armazenamento do Azure, como blob, contêiner ou tabela. Marque esse campo como SecureString. |Sim |
+| Tipo | A propriedade type deve ser definida como **AzureStorage**. |sim |
+| sasUri | Especifique o URI de assinatura de acesso compartilhado para os recursos de Armazenamento, como blob, contêiner ou tabela. Marque esse campo como SecureString. |sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -116,22 +117,22 @@ Para usar a autenticação de SAS de Serviço, há suporte para as seguintes pro
 }
 ```
 
-Ao criar um **URI de SAS**, considerando os seguintes pontos:
+Ao criar um URI de assinatura de acesso compartilhado, considere os seguintes pontos:
 
-- Defina as **permissões** apropriadas de leitura/gravação em objetos com base em como o serviço vinculado (leitura, gravação, leitura/gravação) será usado no data factory.
-- Defina o **Tempo de expiração** adequadamente. Certifique-se de que o acesso aos objetos de Armazenamento do Azure não expira dentro do período ativo do pipeline.
+- Defina as permissões apropriadas de leitura/gravação em objetos com base em como o serviço vinculado (leitura, gravação, leitura/gravação) será usado no data factory.
+- Defina o **Tempo de expiração** adequadamente. Certifique-se de que o acesso aos objetos de Armazenamento não expira dentro do período ativo do pipeline.
 - O URI deve ser criado no nível de tabela correto com base na necessidade.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre conjuntos de dados. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados da Tabela do Azure.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte do conjunto de dados da Tabela do Azure.
 
-Para copiar dados para/da Tabela do Azure, defina a propriedade type do conjunto de dados como **AzureTable**. Há suporte para as seguintes propriedades:
+Para copiar dados para e da Tabela do Azure, defina a propriedade type do conjunto de dados como **AzureTable**. Há suporte para as seguintes propriedades.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureTable** |Sim |
-| tableName |Nome da tabela na instância do Banco de Dados da Tabela do Azure à qual o serviço vinculado se refere. |Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como **AzureTable**. |sim |
+| tableName |O nome da tabela na instância do banco de dados do armazenamento de Tabelas à qual o serviço vinculado se refere. |sim |
 
 **Exemplo:**
 
@@ -154,26 +155,26 @@ Para copiar dados para/da Tabela do Azure, defina a propriedade type do conjunto
 
 ### <a name="schema-by-data-factory"></a>Esquema do Data Factory
 
-Para armazenamentos de dados sem esquema, como a Tabela do Azure, o serviço do Data Factory infere o esquema usando uma das seguintes maneiras:
+Para armazenamentos de dados sem esquema, como a Tabela do Azure, o Data Factory infere o esquema usando uma das seguintes maneiras:
 
-1. Se você especificar a estrutura dos dados usando a propriedade **structure** na definição de conjunto de dados, o serviço do Data Factory respeitará essa estrutura do esquema. Nesse caso, se uma linha não contiver um valor de uma coluna, um valor nulo será fornecido para ele.
-2. Se você não especificar a estrutura dos dados usando a propriedade **structure** na definição de conjunto de dados, o Data Factory inferirá o esquema usando a primeira linha dos dados. Nesse caso, se a primeira linha não contém o esquema completo, algumas colunas não estão presentes no resultado da operação de cópia.
+* Se você especificar a estrutura dos dados usando a propriedade **structure** na definição de conjunto de dados, o Data Factory respeitará essa estrutura do esquema. Nesse caso, se uma linha não contiver um valor de uma coluna, um valor nulo será fornecido para ele.
+* Se você não especificar a estrutura dos dados usando a propriedade **structure** na definição de conjunto de dados, o Data Factory inferirá o esquema usando a primeira linha dos dados. Nesse caso, se a primeira linha não contém o esquema completo, algumas colunas não estão presentes no resultado da operação de cópia.
 
-Portanto, para fontes de dados sem esquema, a prática recomendada é especificar a estrutura de dados usando a propriedade **structure** .
+Para fontes de dados sem esquema, a melhor prática é especificar a estrutura de dados usando a propriedade **structure**.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela fonte e pelo coletor da Tabela do Azure.
 
-### <a name="azure-table-as-source"></a>Tabela do Azure como fonte
+### <a name="azure-table-as-a-source-type"></a>Tabela do Azure como tipo de fonte
 
-Para copiar dados da Tabela do Azure, defina o tipo de fonte na atividade de cópia como **AzureTableSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
+Para copiar dados da Tabela do Azure, defina o tipo de fonte na atividade de cópia como **AzureTableSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureTableSource** |Sim |
-| AzureTableSourceQuery |Utiliza a consulta personalizada de tabela do Azure para ler os dados. Veja exemplos na próxima seção. |Não  |
-| azureTableSourceIgnoreTableNotFound |Indique se assimilar a exceção da tabela não existe.<br/>Os valores permitidos são: **True** e **False** (padrão). |Não  |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como **AzureTableSource**. |sim |
+| AzureTableSourceQuery |Utiliza a consulta personalizada de armazenamento de tabelas para ler os dados. Veja os exemplos na seção a seguir. |Não  |
+| azureTableSourceIgnoreTableNotFound |Indica se deve permitir que exceção da tabela não exista.<br/>Os valores permitidos são **True** e **False** (padrão). |Não  |
 
 ### <a name="azuretablesourcequery-examples"></a>Exemplos do azureTableSourceQuery
 
@@ -183,27 +184,27 @@ Se a coluna Tabela do Azure é do tipo datetime:
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
 
-Se a coluna Tabela do Azure é do tipo cadeia de caracteres:
+Se a coluna Tabela do Azure é do tipo string:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
 ```
 
-Caso esteja usando o parâmetro de pipeline, converta o valor datetime para o formato apropriado, de acordo com os exemplos acima.
+Caso use o parâmetro de pipeline, converta o valor datetime para o formato apropriado, de acordo com os exemplos anteriores.
 
-### <a name="azure-table-as-sink"></a>Tabela do Azure como coletor
+### <a name="azure-table-as-a-sink-type"></a>Tabela do Azure como tipo sink
 
-Para copiar dados da Tabela do Azure, defina o tipo de coletor na atividade de cópia como **AzureTableSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
+Para copiar dados da Tabela do Azure, defina o tipo de coletor na atividade de cópia como **AzureTableSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definida como: **AzureTableSink** |Sim |
-| azureTableDefaultPartitionKeyValue |Valor de chave de partição padrão que pode ser utilizado pelo coletor. |Não  |
+| Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definida como **AzureTableSink**. |sim |
+| azureTableDefaultPartitionKeyValue |O valor de chave de partição padrão que pode ser utilizado pelo coletor. |Não  |
 | azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são usados como chaves de partição. Se não especificado, "AzureTableDefaultPartitionKeyValue" será utilizado como a chave da partição. |Não  |
-| azureTableRowKeyName |Especifique o nome da coluna cujos valores são usados como chaves de linha. Se não especificado, um GUID é usado para cada linha. |Não  |
-| azureTableInsertType |O modo para inserir dados na tabela do Azure. Essa propriedade controla se linhas existentes na tabela de saída com a partição correspondente e as chaves de linha terão seus valores substituídos ou mesclados. <br/><br/>Os valores permitidos são: **merge** (padrão), **replace**. <br/><br> Essa configuração se aplica ao nível de linha e não ao nível de tabela e nenhuma das opções excluirá as linhas na tabela de saída que não existirem na entrada. Para saber mais sobre como essas configurações (mesclagem e substituição) funcionam, consulte os tópicos [Inserir ou Mesclar Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Inserir ou Substituir Entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx). |Não  |
-| writeBatchSize |Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido.<br/>Os valores permitidos são: inteiro (número de linhas) |Não (o padrão é 10000) |
-| writeBatchTimeout |Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido.<br/>Os valores permitidos são: período. Exemplo: "00:20:00" (20 minutos) |Não (o padrão é 90 segundos – tempo limite padrão do cliente de armazenamento) |
+| azureTableRowKeyName |Especifique o nome da coluna cujos valores são usados como as chaves de linha. Se não especificado, um GUID é usado para cada linha. |Não  |
+| azureTableInsertType |O modo para inserir dados na Tabela do Azure. Essa propriedade controla se linhas existentes na tabela de saída com a partição correspondente e as chaves de linha terão seus valores substituídos ou mesclados. <br/><br/>Os valores permitidos são **merge** (padrão) e **replace**. <br/><br> Essa configuração se aplica no nível de linha, não no nível de tabela. Nenhuma opção exclui linhas na tabela de saída que não existe na entrada. Para saber mais sobre como as configurações de mesclagem e substituição funcionam, consulte [Inserir ou mesclar entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Inserir ou substituir entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx). |Não  |
+| writeBatchSize |Insere dados na Tabela do Azure quando writeBatchSize ou writeBatchTimeout for atingido.<br/>Os valores permitidos são inteiro (número de linhas). |Não (o padrão é 10.000) |
+| writeBatchTimeout |Insere dados na Tabela do Azure quando writeBatchSize ou writeBatchTimeout for atingido.<br/>Os valores permitidos são timespan. Um exemplo é "00:20:00" (20 minutos). |Não (o padrão é 90 segundos, tempo limite padrão do cliente de armazenamento) |
 
 **Exemplo:**
 
@@ -240,9 +241,9 @@ Para copiar dados da Tabela do Azure, defina o tipo de coletor na atividade de c
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 
-Antes de poder usar a coluna de destino como o azureTablePartitionKeyName, será necessário mapear uma coluna de origem para uma coluna de destino usando a propriedade "translator".
+Antes de poder usar a coluna de destino como o azureTablePartitionKeyName, será necessário mapear uma coluna de origem para uma coluna de destino usando a propriedade **"translator"**.
 
-No exemplo a seguir, a coluna de origem DivisionID é mapeada para a coluna de destino DivisionID.
+No exemplo a seguir, a coluna de origem DivisionID é mapeada para a coluna de destino DivisionID:
 
 ```json
 "translator": {
@@ -251,7 +252,7 @@ No exemplo a seguir, a coluna de origem DivisionID é mapeada para a coluna de d
 }
 ```
 
-A "DivisionID" é especificada como a chave de partição.
+"DivisionID" é especificada como a chave de partição.
 
 ```json
 "sink": {
@@ -262,15 +263,15 @@ A "DivisionID" é especificada como a chave de partição.
 
 ## <a name="data-type-mapping-for-azure-table"></a>Mapeamento de tipo de dados para Tabela do Azure
 
-Ao copiar dados de/para a Tabela do Azure, os seguintes mapeamentos são usados de tipos de dados de Tabela do Azure para tipos de dados intermediários do Azure Data Factory. Consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md) para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor.
+Ao copiar dados de e para a Tabela do Azure, os seguintes mapeamentos são usados de tipos de dados de Tabela do Azure para tipos de dados intermediários do Data Factory. Para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor, consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
-Quando dados forem movidos para e da Tabela do Azure, os seguintes [mapeamentos definidos pelo serviço Tabela do Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) serão usados nos tipos OData da Tabela do Azure para o tipo .NET e vice-versa.
+Quando dados forem movidos para e da Tabela do Azure, os seguintes [mapeamentos definidos pela Tabela do Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) serão usados nos tipos OData da Tabela do Azure para o tipo .NET e vice-versa.
 
 | Tipo de dados de Tabela do Azure | Tipo de dados provisório do Data Factory | Detalhes |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Uma matriz de bytes de até 64 KB. |
 | Edm.Boolean |bool |Um valor booliano. |
-| Edm.DateTime |Datetime |Um valor de 64 bits expressado como Tempo Universal Coordenado (UTC). O intervalo de data e hora com suporte começa à 00:00 de 1º de janeiro de 1601 D.C. (C.E.), UTC. O intervalo termina em 31 de dezembro de 9999. |
+| Edm.DateTime |Datetime |Um valor de 64 bits expressado como Tempo Universal Coordenado (UTC). O intervalo de data e hora com suporte começa à meia-noite de 1º de janeiro de 1601 D.C. (C.E.), UTC. O intervalo termina em 31 de dezembro de 9999. |
 | Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
 | Edm.Guid |Guid |Um identificador global exclusivo de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
@@ -278,4 +279,4 @@ Quando dados forem movidos para e da Tabela do Azure, os seguintes [mapeamentos 
 | Edm.String |Cadeia de caracteres |Um valor codificado em UTF-16. Valores de cadeia de caracteres podem ter até 64 KB. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

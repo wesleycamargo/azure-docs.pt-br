@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Transmitir Big Data para um data warehouse
 
@@ -74,7 +74,7 @@ Para concluir este tutorial, você deve ter:
 
 ## <a name="deploy-the-infrastructure"></a>Implantar a infraestrutura
 
-Para simplificar este artigo, você implanta a infraestrutura necessária com um modelo do Resource Manager. Para ver os recursos que são implantados, exiba o [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Para a versão prévia, a Grade de Eventos dá suporte às regiões **westus2** e **westcentralus**. Use uma dessas regiões como o local do grupo de recursos.
+Para simplificar este artigo, você implanta a infraestrutura necessária com um modelo do Resource Manager. Para ver os recursos que são implantados, exiba o [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Use uma das [regiões com suporte](overview.md) como o local do grupo de recursos.
 
 Para a CLI do Azure, use:
 

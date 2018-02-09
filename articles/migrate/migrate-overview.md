@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
-O serviço Migrações para Azure avalia as cargas de trabalho locais para migração para o Azure. O serviço avalia a adequação da migração e o dimensionamento com base no desempenho e fornece estimativas de custo para a execução das máquinas locais no Azure. Se você estiver considerando as migrações lift-and-shift, ou se estiver nos primeiros estágios da migração, este serviço é para você. Após a avaliação, você pode usar serviços como o Azure Site Recovery e a Migração de Banco de Dados do Azure, para migrar as máquinas para o Azure.
+O serviço Migrações para Azure avalia as cargas de trabalho locais para migração para o Azure. O serviço avalia a adequação da migração e o dimensionamento com base no desempenho e fornece estimativas de custo para a execução das máquinas locais no Azure. Se está considerando as migrações lift-and-shift ou se está nos primeiros estágios da migração, este serviço é para você. Após a avaliação, você pode usar serviços como o Azure Site Recovery e a Migração de Banco de Dados do Azure para migrar as máquinas para o Azure.
 
 > [!NOTE]
-> A Migrações para Azure está atualmente em versão prévia e oferece suporte a cargas de trabalho de produção.
+> A Migrações para Azure está atualmente em versão prévia e dá suporte a cargas de trabalho de produção.
 
 ## <a name="why-use-azure-migrate"></a>Por que usar Migrações para Azure?
 
@@ -26,7 +26,7 @@ As Migrações para Azure ajudam você a:
 - **Avaliar a preparação para o Azure**: avalie se seus computadores locais são adequados para execução no Azure. 
 - **Obter recomendações de tamanho**: obtenha as recomendações de tamanho para VMs do Azure após a migração, com base no histórico de desempenho das VMs locais. 
 - **Estimar os custos mensais**: obtenha os custos estimados para execução de máquinas locais no Azure.  
-- **Migrar com confiança alta**: visualize as dependências de computadores locais para criar grupos de computadores que serão avaliados e migrados juntos. Você pode exibir de forma precisa as dependências para uma máquina específica, ou para todas as máquinas em um grupo.
+- **Migrar com confiança alta**: visualize as dependências de computadores locais para criar grupos de computadores que serão avaliados e migrados juntos. Você pode exibir de forma precisa as dependências de uma máquina específica ou de todas as máquinas em um grupo.
 
 ## <a name="current-limitations"></a>Limitações atuais
 
@@ -42,7 +42,7 @@ As Migrações para Azure ajudam você a:
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pelo que eu preciso pagar?
 
-As Migrações para Azure estão disponíveis sem custo adicional. No entanto, durante a visualização pública, serão cobradas tarifas adicionais pelo uso dos recursos de visualização de dependência. Para dar suporte à [visualização de dependência](concepts-dependency-visualization.md), por padrão, as Migrações para Azure criam um espaço de trabalho do Log Analytics. Se você usa a visualização de dependência, ou usa o espaço de trabalho fora das Migrações para Azure, você será cobrado pelo uso do espaço de trabalho. [Saiba mais](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) sobre os encargos. Quando o serviço ficar disponível, o uso dos recursos de visualização de dependência não será cobrado.
+Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## <a name="whats-in-an-assessment"></a>O que é uma avaliação?
@@ -53,18 +53,18 @@ Uma avaliação ajuda a identificar a adequação do Azure de VMs locais, a obte
 --- | ---
 **Local de destino** | O local do Azure para o qual você deseja migrar. Por padrão, o local de destino é definido como Oeste dos EUA 2. 
 **Redundância de armazenamento** | O tipo de armazenamento que as VMs do Azure usarão após a migração. LRS é o padrão.
-**Planos de preço** | A avaliação considera se você está inscrito na garantia de software, e se pode usar o [Benefício de Uso Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também considera as ofertas do Azure que devem ser aplicadas, e permite que você especifique descontos (%) específicos à assinatura, que você obtém sobre a oferta. 
-**Tipo de preços** | Você pode especificar o [tipo de preço (básico/standard)](../virtual-machines/windows/sizes-general.md) das VMs do Azure. Isso ajuda você a migrar para uma família de VMs do Azure adequada, dependendo se você estiver em um ambiente de produção. Por padrão o tipo [Standard](../virtual-machines/windows/sizes-general.md) é usado.
+**Planos de preço** | A avaliação considera se você está inscrito na garantia de software e se pode usar o [Benefício de Uso Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também considera as ofertas do Azure que devem ser aplicadas e permite que você especifique descontos (%) específicos à assinatura, que você obtém sobre a oferta. 
+**Tipo de preços** | Você pode especificar o [tipo de preço (básico/standard)](../virtual-machines/windows/sizes-general.md) das VMs do Azure. Isso o ajuda a migrar para uma família de VMs do Azure adequada, caso você esteja em um ambiente de produção. Por padrão o tipo [Standard](../virtual-machines/windows/sizes-general.md) é usado.
 **Histórico de desempenho** | Por padrão, as Migrações para Azure avaliam o desempenho das máquinas locais usando um mês de histórico, com um valor de percentil de 95%. Você pode modificar essa configuração.
 **Fator de conforto** | As Migrações para Azure consideram um buffer (fator de conforto) durante a avaliação. Esse buffer é aplicado sobre os dados de utilização da máquina para VMs (CPU, memória, disco e rede). O fator de conforto considera problemas como uso sazonal, histórico curto de desempenho e aumento provável do uso futuro.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização normalmente resulta em uma VM de dois núcleos. No entanto, com um fator de conforto de 2.0x, o resultado é uma VM de quatro núcleos. A configuração de conforto padrão é de 1.3 x.
 
 
-## <a name="how-does-azure-migrate-work"></a>Como funciona as Migrações para Azure?
+## <a name="how-does-azure-migrate-work"></a>Como funcionam as Migrações para Azure?
 
 1.  Você cria um projeto das Migrações para Azure.
 2.  As Migrações para Azure usam uma VM local chamada dispositivo coletor para descobrir informações sobre suas máquinas locais. Para criar o dispositivo, baixe o arquivo de configuração no formato Open Virtualization Appliance (.ova) e importe-o como uma VM em seu servidor local do vCenter Server.
 3.  Você se conecta à VM usando a conexão de console no vCenter Server, especifica uma nova senha para a máquina virtual durante a conexão e, em seguida, executa o aplicativo coletor na VM para iniciar a descoberta.
-4.  O coletor coleta metadados da VM usando os cmdlets de VMware PowerCLI. A descoberta não tem agente, e não instala nada em VMs ou hosts VMware. Os metadados coletados incluem informações da VM (núcleos, memória, discos, tamanhos de disco e adaptadores de rede). Também coleta dados de desempenho para VMs, incluindo CPU e uso da memória, IOPS de disco, taxa de transferência do disco (MBps) e saída da rede (MBps).
+4.  O coletor coleta metadados da VM usando os cmdlets de VMware PowerCLI. A descoberta não tem agente e não instala nada em VMs ou hosts VMware. Os metadados coletados incluem informações da VM (núcleos, memória, discos, tamanhos de disco e adaptadores de rede). Também coleta dados de desempenho para VMs, incluindo CPU e uso da memória, IOPS de disco, taxa de transferência do disco (MBps) e saída da rede (MBps).
 5.  Os metadados são enviados para o projeto das Migrações para Azure. Consulte-os no Portal do Azure.
 6.  Para fins de avaliação, junte as VMs descobertas em grupos. Por exemplo, agrupe as VMs que executam o mesmo aplicativo. Para um agrupamento mais preciso, você pode usar a visualização de dependência para exibir as dependências de um computador específico ou para todos os computadores em um grupo e refinar o grupo.
 7.  Depois que o grupo for formado, você poderá criar uma avaliação para o grupo. 

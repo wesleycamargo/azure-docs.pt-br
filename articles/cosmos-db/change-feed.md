@@ -3,7 +3,7 @@ title: "Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB | M
 description: "Use o suporte ao feed de alterações do Azure Cosmos DB para controlar as alterações nos documentos e executar o processamento baseado em eventos como gatilhos e manter os caches e sistemas de análise atualizados."
 keywords: "feed de alteração"
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 
@@ -60,6 +60,7 @@ Detalhes adicionais:
 * As alterações podem ser sincronizadas de qualquer ponto no tempo, ou seja, não há nenhum período de retenção de dados fixo para o qual haja alterações disponíveis.
 * As alterações estão disponíveis em blocos de intervalos de chaves de partição. Esse recurso permite que as alterações de coleções grandes sejam processadas em paralelo por vários consumidores/servidores.
 * Os aplicativos podem solicitar vários feeds de alterações simultaneamente na mesma coleção.
+* ChangeFeedOptions.StartTime pode ser usado para fornecer um ponto de partida inicial, por exemplo, para localizar o token de continuação correspondente a determinada hora. O ContinuationToken, se especificado, supera os valores de StartTime e StartFromBeginning. A precisão de ChangeFeedOptions.StartTime é de aproximadamente 5 segundos. 
 
 ## <a name="use-cases-and-scenarios"></a>Cenários e casos de uso
 
@@ -178,6 +179,7 @@ O cliente esquerdo foi iniciado primeiro e ele começou a monitorar todas as par
 
 Observe que, se você tiver duas funções do Azure sem servidor monitorando a mesma coleção e usando a mesma concessão, talvez as duas funções estejam recebendo documentos diferentes, dependendo de como a biblioteca do processador decide processar as partições.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Noções básicas sobre a biblioteca do Processador do Feed de Alterações
 
 Há quatro componentes principais da implementação do Processador do feed de alterações: a coleção monitorada, a coleção de concessão, o host de processador e os consumidores. 

@@ -1,6 +1,6 @@
 ---
-title: "Problema ao instalar a extensão do navegador do painel de acesso do aplicativo | Microsoft Docs"
-description: "Como corrigir erros comuns encontrados ao instalar a extensão do navegador do painel de acesso"
+title: "Instalar a extensão do navegador do painel de acesso do aplicativo - Azure | Microsoft Docs"
+description: "Corrija os erros comuns encontrados quando você instala a extensão do navegador do painel de acesso."
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,113 +14,108 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 26dc5d5ffce84206450123132c0633c2aa323e9f
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problema ao instalar a extensão do navegador do painel de acesso do aplicativo
+# <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
 
-O Painel de Acesso é um portal baseado na Web que permite a um usuário que tenha uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. Um usuário com as edições do Azure AD também pode usar os recursos de gerenciamento de grupo de autoatendimento e aplicativo por meio do Painel de Acesso. O Painel de Acesso é separado do Portal do Azure e não exige que os usuários tenham uma assinatura do Azure.
+O painel de acesso é um portal baseado na Web. Se você tiver uma conta de estudante ou corporativa no Azure Active Directory (Azure AD), você pode usar o painel de acesso para exibir e iniciar aplicativos baseados em nuvem para os quais um administrador do Azure AD tenha concedido acesso. 
 
-Para usar o SSO (logon único) baseado em senha no Painel de Acesso, a extensão do Painel de Acesso deve estar instalada no navegador do usuário. Essa extensão é baixada automaticamente quando um usuário seleciona um aplicativo configurado para SSO baseado em senha.
+Se você estiver usando as edições do Azure AD, você também pode usar grupos de autoatendimento e recursos de gerenciamento de aplicativo por meio do painel de acesso. 
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Atender aos requisitos de navegador para o Painel de Acesso
+O painel de acesso é separado do portal do Azure. Ele não requer que você tenha uma assinatura do Azure.
 
-O Painel de Acesso exige um navegador com suporte para JavaScript e CSS habilitado. Para usar o SSO (logon único) baseado em senha no Painel de Acesso, a extensão do Painel de Acesso deve estar instalada no navegador do usuário. Essa extensão é baixada automaticamente quando um usuário seleciona um aplicativo configurado para SSO baseado em senha.
+## <a name="web-browser-requirements"></a>Requisitos de navegador da Web
 
-Para SSO baseado em senha, os navegadores do usuário final podem ser:
+O painel de acesso requer, no mínimo, um navegador que ofereça suporte ao JavaScript e CSS habilitados. Para entrarem em aplicativos por meio do SSO baseada em senha no painel de acesso, você deve ter a extensão do painel de acesso instalada em seu navegador. A extensão é baixada automaticamente quando você seleciona um aplicativo que está configurado para SSO baseado em senha.
 
--   Edge no Windows 10 Anniversary Edition ou posterior 
+Para SSO baseado em senha, você pode usar qualquer um dos seguintes navegadores:
 
--   Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
+- **Edge**: na Edição de Aniversário do Windows 10 ou posterior. 
+- **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
+- **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
+- **Internet Explorer 8, 9, 10, 11**: no Windows 7 ou posterior (suporte limitado).
 
--   Firefox 26.0 ou posterior, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
+## <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
 
--   Internet Explorer 8, 9, 10 ou 11 – Windows 7 ou posterior (suporte limitado)
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
+Para instalar a extensão do navegador do painel de acesso, faça o seguinte:
 
-Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
+1.  Em um dos navegadores com suporte, abra o [painel de acesso](https://myapps.microsoft.com) e entre como um usuário em sua conta do Azure AD.
 
-1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
+2.  Selecione um aplicativo de SSO baseado em senha.
 
-2.  Clique em um **aplicativo de SSO com senha** no Painel de Acesso.
+3.  Quando você for solicitado, selecione **Instalar agora**.  
+    Você será direcionado para o link de download para o seu navegador selecionado. 
+    
+4.  Selecione **Adicionar**.
 
-3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
+5.  Se você for solicitado, você pode **Habilitar** ou **Permitir** a extensão.
 
-4.  Com base no seu navegador, você será direcionado para o link de download. **Adicione** a extensão ao seu navegador.
+6.  Após a instalação ser concluída, reinicie o navegador.
 
-5.  Se o navegador solicitar, selecione como **Habilitar** ou **Permitir** a extensão.
+7.  Entre no painel de acesso e verifique para ver se é possível iniciar os aplicativos de SSO baseados em senha.
 
-6.  Quando estiver instalado, **reinicie** a sessão do navegador.
+Você também pode baixar a extensão para o Chrome e para o Edge diretamente dos seguintes sites:
 
-7.  Entrar no Painel de Acesso e verificar se é possível **iniciar** os aplicativos de SSO de senha
+- [Extensão do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+- [Extensão do Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
-Também é possível baixar a extensão para Chrome e Edge diretamente pelos links abaixo:
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Use a extensão Conexão segura do Meus aplicativos
+* Se você estiver usando uma URL de Meus aplicativos diferente de `https://myapps.microsoft.com`, configure a URL padrão fazendo o seguinte:
+   1. Enquanto você *não* estiver conectado à extensão, clique com o botão direito do mouse no ícone de extensão.
+   2. No menu, selecione **URL de Meus aplicativos**.
+   3. Selecione a URL padrão.
+   4. Selecione o ícone de extensão.
+   5. Para conectar-se à extensão, selecione **Conectar-se para começar**.
 
--   [Extensão do Painel de Acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+* Para conectar-se diretamente a um aplicativo no navegador, faça o seguinte:
+   1. Depois de instalar a extensão, conecte-se a ela selecionando **Conectar-se para começar**.
+   2. Entrar no aplicativo com a URL de logon.  
+       A URL de logon geralmente é a URL do aplicativo que exibe o formulário para iniciar sessão.
+      A extensão deve alterar o estado e permite que você saiba que uma senha está disponível.
+   3. Para conectar-se, selecione o ícone de extensão.
 
--   [Extensão do Painel de Acesso do Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
-
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Como uso a Extensão de Entrada Segura dos Meus Aplicativos?
-Alterar a URL padrão de Meus Aplicativos para a extensão
-
-Se você estiver usando uma URL de Meus Aplicativos diferente de https://myapps.microsoft.com, será necessário configurar a URL padrão seguindo estas etapas:
-1. Enquanto não tiver se conectado à extensão, **clique com o botão direito do mouse** no ícone da extensão.
-2. Clique em **Selecionar URL de Meus Aplicativos** no menu.
-3. **Selecione** a URL padrão.
-4. Clique no ícone da extensão.
-5. Conecte-se à extensão selecionando **Entre para começar**.
-
-Entrar diretamente em um aplicativo do navegador
-1. Depois de instalar a extensão, conecte-se a ela selecionando **Entre para começar**.
-2. Navegue até a **URL de logon** do aplicativo no qual você deseja entrar, ela geralmente é a URL do aplicativo que exibe o formulário de logon.
-3. O estado da extensão deve se alterar e lhe informar que uma senha está disponível, clique então no **ícone da extensão** para entrar.
-
-Iniciar um aplicativo da extensão
-1. Depois de instalar a extensão, conecte-se a ela selecionando **Entre para começar**.
-2. Clique no ícone da extensão para abrir o **menu**.
-3. **Pesquise** por um aplicativo disponível no portal Meus Aplicativos.
-4. Clique no aplicativo de **resultados da pesquisa** para iniciá-lo.
-5. Os três últimos aplicativos iniciados também aparecerão na lista de atalhos **Usados Recentemente**
+* Para iniciar um aplicativo a partir da extensão, faça o seguinte:
+   1. Depois de instalar a extensão, conecte-se a ela selecionando **Conectar-se para começar**.
+   2. Selecione o ícone de extensão para abrir o menu.
+   3. Pesquise por um aplicativo que esteja disponível no portal Meus aplicativos.
+   4. Na lista de resultados de pesquisa, selecione o aplicativo.  
+       Os três aplicativos que você usou são exibidos na lista de atalho **Usados recentemente**.
 
 > [!NOTE]
-> Essas opções só estão disponíveis para o Edge, Chrome e Firefox.
+> As opções acima estão disponíveis apenas para Edge, Chrome e Firefox.
 
-## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
 
-É possível configurar uma política de grupo que permita instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários.
+Você pode configurar uma política de grupo que permite instalar remotamente a extensão do painel de acesso para o Internet Explorer nos computadores dos seus usuários.
 
-Os pré-requisitos incluem:
+Antes de configurar uma política de grupo, verifique se:
 
 -   Você configurou os [Serviços de Domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)e os computadores dos usuários ingressaram no domínio.
 
--   Você deve ter a permissão "Editar configurações" para editar o GPO (Objeto de Política de Grupo). Por padrão, os membros dos grupos de segurança a seguir têm esta permissão: Administradores de Domínio, Administradores de Empresa e Proprietários Criadores de Política de Grupo. [Saiba mais](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Para editar o Objeto de Política de Grupo (GPO), você deve ter permissões para *Editar configurações*. Por padrão, essa permissão é concedida a membros dos grupos de segurança a seguir: administradores de domínio, administradores de empresa e proprietários de criadores de política de grupo.
 
-Siga o tutorial [Como Implantar a Extensão do Painel de Acesso para o Internet Explorer usando Política de Grupo](active-directory-saas-ie-group-policy.md) para obter instruções passo a passo sobre como configurar política de grupo e implantá-la nos usuários.
+Para obter instruções passo a passo sobre como configurar a política de grupo e implantá-la para os usuários, consulte [Implantar a extensão do painel de acesso para o Internet Explorer usando a política de grupo](active-directory-saas-ie-group-policy.md).
 
-## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Solucionar problemas da Extensão do Painel de Acesso no Internet Explorer
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Solucionar problemas da extensão do painel de acesso no Internet Explorer
 
-Siga o guia [Solucionar problemas da Extensão do Painel de Acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) para acessar uma ferramenta de diagnóstico e as instruções passo a passo sobre como configurar a extensão para o IE.
+Para acessar uma ferramenta de diagnóstico e informações sobre como configurar a extensão para o Internet Explorer, consulte [Solucionar problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
-> O IE está em suporte limitado e não recebe mais novas atualizações de software. O Edge é o navegador recomendado.
+> O Internet Explorer está com suporte limitado e já não recebe mais atualizações de software. O Edge é o navegador recomendado.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema
+## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Se as etapas anteriores não resolverem o problema
 
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
 -   ID de erro de correlação
-
 -   UPN (endereço de email de usuário)
-
 -   TenantID
-
 -   Tipo de navegador
-
--   Fuso horário e hora/cronograma durante o erro
-
+-   Fuso horário e a hora ou o período de tempo durante o qual o erro ocorreu
 -   Rastreamentos do Fiddler
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: be3fe7199308606aaab002290319df9c82149433
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9136ebd15a995361a325804ca81ece0db30b3e6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Personalizar a IU (interface do usuário) do Azure AD B2C
 
@@ -38,7 +38,7 @@ Este artigo aborda os seguintes tópicos:
 
 ## <a name="the-page-ui-customization-feature"></a>O recurso de personalização da interface do usuário da página
 
-Você pode personalizar a aparência das páginas de inscrição, entrada, redefinição de senha e edição de perfil do cliente (com a configuração de [políticas](active-directory-b2c-reference-policies.md)). Seus clientes terão uma experiência integrada ao navegar entre seu aplicativo e as páginas atendidas pelo Azure AD B2C.
+Você pode personalizar a aparência de inscrição, a entrada do cliente (consulte a nota acima para ver as exceções relacionadas à identidade visual), a redefinição de senha e a as páginas de edição de perfil (por meio da configuração das [políticas](active-directory-b2c-reference-policies.md)). Seus clientes terão uma experiência integrada ao navegar entre seu aplicativo e as páginas atendidas pelo Azure AD B2C.
 
 Diferente de outros serviços em que há opções de interface do usuário, o Azure AD B2C usa uma abordagem simples e moderna para a personalização da interface do usuário.
 

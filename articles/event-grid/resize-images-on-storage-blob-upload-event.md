@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 22eafca56eb5677c63a833d298799b725c50f768
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprenderá como:
 > * Implantar o código sem servidor usando o Azure Functions
 > * Criar uma assinatura de evento do armazenamento de Blobs na Grade de Eventos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -51,7 +51,7 @@ Se você não estiver usando o Cloud Shell, primeiro você deve entrar usando `a
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-O Azure Functions exige uma conta de armazenamento geral. Crie uma conta de armazenamento geral separada no grupo de recursos usando o comando [az storage account create](/cli/azure/storage/account#create).
+O Azure Functions exige uma conta de armazenamento geral. Crie uma conta de armazenamento geral separada no grupo de recursos usando o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. 
 
@@ -65,7 +65,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções  
 
-Você deve ter um aplicativo de funções para hospedar a execução da função. O aplicativo de funções fornece um ambiente para execução sem servidor do seu código de função. Crie um aplicativo de funções ao usar o comando [az functionapp create](/cli/azure/functionapp#create). 
+Você deve ter um aplicativo de funções para hospedar a execução da função. O aplicativo de funções fornece um ambiente para execução sem servidor do seu código de função. Crie um aplicativo de funções ao usar o comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
 No comando a seguir, substitua seu próprio nome exclusivo do aplicativo de funções em que o espaço reservado `<function_app>` é exibido. O `<function_app>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. Nesse caso, `<general_storage_account>` é o nome da conta de armazenamento geral criada.  
 
@@ -78,7 +78,7 @@ Agora você deve configurar o aplicativo de funções para se conectar ao armaze
 
 ## <a name="configure-the-function-app"></a>Configurar o aplicativo de funções
 
-A função precisa da cadeia de conexão para se conectar à conta de armazenamento de blobs. Nesse caso, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs criado no tutorial anterior. Obtenha a cadeia de conexão com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). O nome do contêiner da imagem em miniatura também deve ser definido como `thumbs`. Adicione essas configurações de aplicativo ao aplicativo de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+A função precisa da cadeia de conexão para se conectar à conta de armazenamento de blobs. Nesse caso, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs criado no tutorial anterior. Obtenha a cadeia de conexão com o comando [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). O nome do contêiner da imagem em miniatura também deve ser definido como `thumbs`. Adicione essas configurações de aplicativo ao aplicativo de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -95,7 +95,7 @@ Agora você pode implantar um projeto de código de função nesse aplicativo de
 
 ## <a name="deploy-the-function-code"></a>Implantar o código de função 
 
-A função C# que executa o redimensionamento de imagem está disponível neste [repositório GitHub de exemplo](https://github.com/Azure-Samples/function-image-upload-resize). Implante esse projeto de código do Functions no aplicativo de funções usando o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+A função C# que executa o redimensionamento de imagem está disponível neste [repositório GitHub de exemplo](https://github.com/Azure-Samples/function-image-upload-resize). Implante esse projeto de código do Functions no aplicativo de funções usando o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config). 
 
 No comando a seguir, `<function_app>` é o mesmo aplicativo de funções criado no script anterior.
 
@@ -106,7 +106,9 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 A função de redimensionamento de imagem é disparada por uma assinatura de evento para um evento criado do Blob. Os dados passados para o gatilho incluem a URL do blob, que, por sua vez, é passada para a associação de entrada para obter a imagem carregada do armazenamento de Blobs. A função gera uma imagem em miniatura e grava o fluxo resultante em um contêiner separado no armazenamento de Blobs. Para saber mais sobre essa função, consulte o [arquivo Leiame no repositório de exemplo](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
- 
+
+Este projeto usa `EventGridTrigger` para o tipo de gatilho. O uso do gatilho de Grade de Eventos é recomendado em gatilhos HTTP genéricos. A Grade de Eventos valida automaticamente os gatilhos de Função da Grade de Eventos. Com os gatilhos HTTP genéricos, você deve implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
+
 O código de projeto de função é implantado diretamente no repositório público de exemplo. Para saber mais sobre as opções de implantação para o Azure Functions, consulte [Implantação contínua para o Azure Functions](../azure-functions/functions-continuous-deployment.md).
 
 ## <a name="create-your-event-subscription"></a>Criar a assinatura de evento
@@ -129,8 +131,8 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome** | imageresizersub | Nome que identifica a nova assinatura de evento. | 
     | **Tipo de tópico** |  Contas de armazenamento | Escolha o provedor de eventos da conta de Armazenamento. | 
-    | **Assinatura** | Sua assinatura | Por padrão, a assinatura atual deve estar selecionada.   |
-    | **Grupo de recursos** | myResourceGroup | Selecione **Usar existente** e escolha o grupo de recursos que está sendo usado neste tópico.  |
+    | **Assinatura** | Sua assinatura do Azure | Por padrão, a assinatura atual do Azure deve estar selecionada.   |
+    | **Grupo de recursos** | myResourceGroup | Selecione **Usar existente** e escolha o grupo de recursos que está sendo usado neste tutorial.  |
     | **Instância** |  `<blob_storage_account>` |  Escolha a conta de armazenamento de Blobs criada. |
     | **Tipos de evento** | Blob criado | Desmarque todos os tipos que não sejam **Blob criado**. Somente os tipos de evento `Microsoft.Storage.BlobCreated` são passados para a função.| 
     | **Ponto de extremidade do assinante** | gerado automaticamente | Use a URL de ponto de extremidade gerada para você. | 

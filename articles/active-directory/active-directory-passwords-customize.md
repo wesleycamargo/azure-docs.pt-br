@@ -1,5 +1,5 @@
 ---
-title: 'Personalizar: SSPR do Azure AD | Microsoft Docs'
+title: "Personalização de redefinição de senha por autoatendimento – Azure Active Directory"
 description: "Opções de personalização para redefinição de senha por autoatendimento do Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 36fc674ffcb8167a918f928d8821707d81198423
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade de Autoatendimento de Redefinição de Senha do Azure AD
 
@@ -74,31 +74,7 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
     * Ao passar o parâmetro *whr* para a página de redefinição de senha, como "https://login.microsoftonline.com/?whr=contoso.com"
     * Ao passar o parâmetro *username* para a página de redefinição de senha, como "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-### <a name="graphics-details"></a>Detalhes de elementos gráficos
-
-Use as seguintes configurações para alterar as características visuais da página de entrada. Vá a **Active Directory do Azure** > **Identidade visual da empresa** > **Editar identidade visual da empresa**:
-
-* A imagem da página de entrada deve ser um arquivo .png ou .jpg com 1420 x 1200 pixels e, no máximo, de 500 KB. Para obter melhores resultados, recomendamos que você a mantenha por volta dos 200 KB.
-* A cor da tela de fundo da página de entrada é usada em conexões de alta latência e deve estar no formato hexadecimal RGB.
-* A imagem da faixa deve ser um arquivo .png ou .jpg com 60 x 280 pixels e, no máximo, 10 KB.
-* O logotipo quadrado (tema escuro e normal) deve ser um arquivo .png ou .jpg, 240 x 240 pixels (redimensionável) e não pode exceder 10 KB.
-
-### <a name="sign-in-text-options"></a>Opções do texto de conexão
-
-Use as seguintes configurações para adicionar um texto à página de entrada relevante para sua organização. Vá a **Active Directory do Azure** > **Identidade visual da empresa** > **Editar identidade visual da empresa**:
-
-* **Dica de nome de usuário**: substitui o texto de exemplo de *someone@example.com* por algo mais adequado a seus usuários. Recomendamos que você deixe a dica padrão ao dar suporte a usuários internos e externos.
-* **Texto da página de conexão**: pode ser, no máximo, 256 caracteres. Esse texto é exibido em qualquer lugar quando os usuários fazem logon online e na experiência de Ingresso do Azure AD Workplace no Windows 10. Use este texto para os termos de uso, as instruções e as dicas para os usuários. 
-
-   >[!IMPORTANT]
-   >Qualquer pessoa pode ver sua página de entrada. Portanto, não forneça informações confidenciais aqui.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>A configuração "Manter-me conectado desabilitado"
-
-A opção **Manter-me conectado desabilitado** permite que os usuários permaneçam conectados ao fechar e reabrir a janela do navegador. Essa opção não afeta o tempo de vida da sessão. Vá a **Active Directory do Azure** > **Identidade visual da empresa** > **Editar identidade visual da empresa**.
-
-Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade de os usuários marcarem essa caixa de seleção. Se você ocultar essa opção, os usuários poderão receber prompts de conexão adicionais e inesperados.
+Encontre detalhes sobre como configurar a identidade visual da empresa no artigo [Adicionar uma identidade visual da empresa à página de entrada do Azure AD](customize-branding.md).
 
 ### <a name="directory-name"></a>Nome do diretório
 

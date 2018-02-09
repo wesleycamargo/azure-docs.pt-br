@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
-ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmissão do Log de Atividades do Azure para os Hubs de Eventos
 Os [**Logs de Atividade do Azure**](monitoring-overview-activity-logs.md) podem ser transmitidos quase em tempo real a qualquer aplicativo usando a opção interna "Exportar" no Portal, ou habilitando a ID da Regra de Barramento de Serviço em um Perfil de Log por meio de Cmdlets do Azure PowerShell ou da CLI do Azure.
@@ -35,16 +35,17 @@ Você pode habilitar o streaming do Log de Atividades programaticamente ou por m
 O namespace do barramento de serviço ou do hub de eventos não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ### <a name="via-azure-portal"></a>Via Portal do Azure
-1. Navegue até a folha **Log de Atividades** usando o menu no lado esquerdo do portal.
+1. Navegue até a folha **Log de Atividades** usando a pesquisa Todos os serviços no lado esquerdo do portal.
    
-    ![Navegue até o Log de Atividades no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Clique no botão **Exportar** na parte superior da folha.
+    ![Navegue até o Log de Atividades no portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. Clique no botão **Exportar** na parte superior da folha log de atividades.
    
-    ![Botão Exportar no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. Na folha que aparece, você pode selecionar as regiões para as quais você deseja realizar o streaming de eventos, e o Namespace do Barramento de Serviço no qual você gostaria de criar um Hub de Eventos para esses eventos de streaming.
+    ![Botão Exportar no portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. Na folha que aparece, você pode selecionar as regiões para as quais você deseja realizar o streaming de eventos, e o Namespace do Barramento de Serviço no qual você gostaria de criar um Hub de Eventos para esses eventos de streaming. Selecione **Todas as regiões**.
    
-    ![Folha Exportar Log de Atividades](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Clique em **Salvar** para salvar as configurações. As configurações serão aplicadas imediatamente à sua assinatura.
+    ![Folha Exportar Log de Atividades](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+4. Clique em **Salvar** para salvar as configurações. As configurações são aplicadas imediatamente à sua assinatura.
+5. Se você tiver várias assinaturas, você deve repetir essa ação e enviar todos os dados no mesmo hub de eventos.
 
 ### <a name="via-powershell-cmdlets"></a>Via Cmdlets do PowerShell
 Se já existir um perfil de log, primeiro remova esse perfil.
@@ -53,8 +54,10 @@ Se já existir um perfil de log, primeiro remova esse perfil.
 2. Se existir, use `Remove-AzureRmLogProfile` para removê-lo.
 3. Use `Set-AzureRmLogProfile` para criar um perfil:
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este formato: {ID de recurso do barramento de serviço} /authorizationrules/ {nome da chave}, por exemplo 
@@ -66,7 +69,7 @@ Se já existir um perfil de log, primeiro remova esse perfil.
 2. Se existir, use `azure insights logprofile delete` para removê-lo.
 3. Use `azure insights logprofile add` para criar um perfil:
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

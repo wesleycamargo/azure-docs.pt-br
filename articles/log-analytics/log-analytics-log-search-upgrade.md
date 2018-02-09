@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bb54f7897876d656da6f1a4b349c9db202a142d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Atualização do Azure Log Analytics para a nova pesquisa de logs
 
@@ -52,7 +52,7 @@ Se o seu espaço de trabalho for atualizado automaticamente, você verá uma fai
 As seguintes alterações são feitas ao seu espaço de trabalho quando ele é convertido:
 
 - Quaisquer pesquisas salvas, regras de alerta e exibições que você tenha criado com o Designer de Exibição são convertidas automaticamente na nova linguagem.  Pesquisas incluídas em soluções não são convertidas automaticamente, mas em vez disso são convertidas em tempo real quando abertas por você.  
-- [Meu painel](log-analytics-dashboards.md) está sendo preterido a favor do [Designer de Exibição](log-analytics-view-designer.md) e dos [Painéis do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Os blocos que você adicionou ao Meu Painel ainda estão disponíveis, mas são somente leitura.
+- [Meu painel](log-analytics-dashboards.md) está sendo preterido a favor do [Designer de Exibição](log-analytics-view-designer.md) e dos [Painéis do Azure](../azure-portal/azure-portal-dashboards.md).  Os blocos que você adicionou ao Meu Painel ainda estão disponíveis, mas são somente leitura.
 - A [Integração do Power BI](log-analytics-powerbi.md) é substituída por um novo processo.  Qualquer agenda existente do Power BI que você tenha criado será desabilitada e você precisa substituí-la pelo novo processo.
 - As respostas de [ações de alerta](log-analytics-alerts-actions.md) usando webhooks e runbooks têm um novo formato e talvez seja necessário atualizar suas regras de alerta adequadamente.
 - Examine as [Perguntas Frequentes de Pesquisa de Logs](log-analytics-log-search-faq.md) sobre perguntas comuns referentes à atualização.

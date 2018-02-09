@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: integração do Azure Active Directory com a Adobe Creative Cloud
 
@@ -32,7 +32,7 @@ A integração da Adobe Creative Cloud ao Azure AD oferece os seguintes benefíc
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com a Adobe Creative Cloud, são necessários os seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Adobe Creative Cloud da Galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Adicionando o Adobe Creative Cloud da Galeria
 Para configurar a integração da Adobe Creative Cloud com o Azure AD, será necessário adicionar a Creative Cloud da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -127,7 +127,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
      
 6. O aplicativo Adobe Creative Cloud espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Gerencie os valores desses atributos na guia **Atributo de Usuário** do aplicativo. A captura de tela a seguir mostra um exemplo disso.
 
-    ![Configurar Logon Único](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute.png)
+    ![Configurar o logon único](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute.png)
 
 7. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
 
@@ -141,7 +141,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Configurar o logon único](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
     
-    ![Configurar Logon Único](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
+    ![Configurar o logon único](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
     
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
     
@@ -157,11 +157,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configuração da Adobe Creative Cloud](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. Em uma janela diferente do navegador da Web, faça logon em seu locatário da Adobe Creative Cloud como administrador.
+10. Em outra janela do navegador da Web, entre no [Console de Administração do Adobe](https://adminconsole.adobe.com) como administrador.
 
-11. Vá para **Identidade** no painel de navegação esquerdo e clique em seu domínio. Em seguida, siga as etapas na seção **Configuração do logon único necessária**.
+11. Acesse **Configurações** na barra de navegação superior e, em seguida, escolha **Identidade**. A lista de domínios será aberta. Clique no link **Configurar** no domínio. Em seguida, siga as etapas na seção **Configuração do logon único necessária**. Para obter mais informações, consulte [Configurar um domínio](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-    ![Configurações](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "Configurações")
+    ![Configurações](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "Configurações")
     
     a. Clique em **Procurar** para carregar o certificado baixado do Azure AD para o **Certificado do IdP**.
     
@@ -176,8 +176,6 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     f. Clique no botão **Salvar** .
 
 12. Agra o painel apresentará o arquivo XML **"Baixar metadados"**. Ele contém a URL EntityDescriptor e a URL AssertionConsumerService da Adobe. Abra o arquivo e configure-os no aplicativo Azure AD.
-
-    ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -226,11 +224,9 @@ Para que os usuários do Azure AD façam logon na Adobe Creative Cloud, eles dev
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para provisionar contas de usuário, execute as seguintes etapas:
 
-1. Faça logon em seu site de empresa da Adobe Creative Cloud como administrador.
+1. Entre no site [Console de Administração do Adobe](https://adminconsole.adobe.com) como administrador.
 
-2. Adicione o usuário no console da Adobe como ID Federada e o atribua a um grupo para autorização
-
-    ![O link da Adobe Creative Cloud na lista de aplicativos](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. Adicione o usuário no console da Adobe como uma ID Federada e atribua-o a um Perfil de Produto. Para obter informações detalhadas sobre como adicionar usuários, consulte [Adicionar usuários no Console de Administração do Adobe](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. Neste ponto, digite seu endereço de email/upn no formulário signin da Adobe, pressione tab e você deve ser federado de volta ao Azure AD:
     * Acesso via Web: www.adobe.com > sign-in
@@ -278,6 +274,8 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configurar um domínio (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Configurar o Azure para uso com o SSO do Adobe (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

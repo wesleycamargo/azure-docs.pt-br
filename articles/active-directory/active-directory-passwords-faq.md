@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 29b25a476344ed048673039beacdffd39469ec85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -70,7 +70,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: posso sincronizar ou definir os campos telefone de autenticação, email de autenticação ou telefone de autenticação alternativo em nome dos meus usuários?**
 
-  > **R:** não, isso não é possível atualmente.
+  > **R:** Os campos que podem ser definidos por um Administrador Global são definidos no artigo [Requisitos de dados SSPR](active-directory-passwords-data.md).
   >
   >
 * **P: como o portal de registro determina quais opções mostrar aos meus usuários?**

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Configurar a expiração dos grupos do Office 365 (visualização)
 
@@ -34,11 +34,21 @@ Agora é possível gerenciar o ciclo de vida de grupos do Office 365 definindo-s
 
 Para obter informações sobre como baixar e instalar os cmdlets do PowerShell do Azure AD, confira [PowerShell do Azure Active Directory para Graph - Versão de visualização pública 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
+## <a name="roles-and-permissions"></a>Funções e permissões
+Essas são as funções que podem configurar e usar a expiração para grupos do Office 365 no Azure AD.
+
+Função | Permissões
+-------- | --------
+Administrador global<br>Administrador da conta de usuário | Pode criar, ler, atualizar ou excluir as configurações de política de expiração de grupos do Office 365
+Usuário | Pode renovar um grupo do Office 365 que ele possua<br>Pode restaurar um grupo do Office 365 que ele possua
+
+Para obter mais informações sobre permissões para restaurar os grupos excluídos, consulte [Restaurar um grupo excluído do Office 365](active-directory-groups-restore-azure-portal.md).
+
 ## <a name="set-group-expiration"></a>Definir a expiração de grupo
 
 1. Abra o [Centro de administração do Azure AD ](https://aad.portal.azure.com) com uma conta de administrador global no seu locatário do Azure AD.
 
-2. Abra o Azure AD e selecione **Usuários e grupos**.
+2. Selecione **Usuários e grupos**.
 
 3. Selecione **Configurações de grupo** e, em seguida, selecione **Vencimento** para abrir as configurações de vencimento.
   
@@ -48,7 +58,7 @@ Para obter informações sobre como baixar e instalar os cmdlets do PowerShell d
 
   * Definir o tempo de vida do grupo em dias. Selecionar um dos valores predefinidos ou um valor personalizado (deve ser 31 dias ou mais). 
   * Especificar um email para o qual as notificações de vencimento e renovação devem ser enviadas quando um grupo não tem nenhum proprietário. 
-  * Selecione quais grupos do Office 365 expirarão. Habilite a o vencimento para **Todos** os grupos do Office 365, selecione entre os grupos do Office 365 ou selecione **Nenhum** para desabilitar a validade de todos os grupos.
+  * Selecione quais grupos do Office 365 expirarão. Você pode habilitar a expiração para **Todos** grupos do Office 365, você pode optar por habilitar apenas grupos **Selecionados** do Office 365, ou selecionar **Nenhum** para desabilitar a expiração para todos os grupos.
   * Salve as configurações quando terminar selecionando **Salvar**.
 
 

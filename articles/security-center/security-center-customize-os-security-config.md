@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia)
 
@@ -26,7 +26,7 @@ Este passo a passo demonstra como personalizar as avaliações de configuração
 
 ## <a name="what-are-os-security-configurations"></a>O que são configurações de segurança do sistema operacional?
 
-A Central de Segurança do Azure monitora as configurações de segurança aplicando um conjunto de mais de 150 regras recomendadas para proteger o sistema operacional, incluindo regras relacionadas a firewalls, auditoria, políticas de senha e muito mais. Se uma configuração vulnerável é encontrada em um computador, a Central de Segurança gera uma recomendação de segurança.
+A Central de Segurança do Azure monitora as configurações de segurança aplicando um conjunto de [mais de 150 regras recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger o sistema operacional, incluindo regras relacionadas a firewalls, auditoria, políticas de senha e muito mais. Se uma configuração vulnerável é encontrada em um computador, a Central de Segurança gera uma recomendação de segurança.
 
 Com a personalização das regras, as organizações podem controlar quais opções de configuração são mais adequadas para o ambiente. Defina uma política de avaliação personalizada e, em seguida, aplique-a a todos os computadores aplicáveis na assinatura.
 
@@ -60,8 +60,8 @@ Para personalizar a configuração padrão de segurança do sistema operacional 
 3.  Selecione a assinatura que você deseja personalizar.
 
 4. Em **Componentes da Política**, selecione **Editar configurações de segurança**.  
-    A janela **Editar configurações de segurança** será aberta. 
-    
+    A janela **Editar configurações de segurança** será aberta.
+
     ![A janela “Editar configurações de segurança”](media/security-center-customize-os-security-config/blade.png)
 
 5. No painel direito, siga as etapas para baixar, editar e carregar o arquivo modificado.
@@ -70,7 +70,7 @@ Para personalizar a configuração padrão de segurança do sistema operacional 
    > Por padrão, o arquivo de configuração a ser baixado está em formato *json*. Para obter instruções sobre como modificar esse arquivo, acesse [Personalizar o arquivo de configuração](#customize-the-configuration-file).
    >
 
-   Depois de salvar o arquivo com êxito, a configuração é aplicada a todas as VMs e computadores conectados a todos os espaços de trabalho na assinatura. O processo geralmente leva alguns minutos, mas pode demorar mais, dependendo do tamanho da infraestrutura. 
+   Depois de salvar o arquivo com êxito, a configuração é aplicada a todas as VMs e computadores conectados a todos os espaços de trabalho na assinatura. O processo geralmente leva alguns minutos, mas pode demorar mais, dependendo do tamanho da infraestrutura.
 
 6. Para confirmar a alteração, selecione **Salvar**. Caso contrário, a política não será armazenada.
 

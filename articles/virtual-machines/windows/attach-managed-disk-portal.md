@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Como anexar um disco de dados gerenciado a uma VM Windows no portal do Azure
 
-Este artigo mostra como anexar um novo disco de dados gerenciado a máquinas virtuais Windows por meio do portal do Azure. Antes de fazer isso, revise estas dicas:
+Este artigo mostra como anexar um novo disco de dados gerenciados a máquinas virtuais Windows no portal do Azure. Antes de fazer isso, revise estas dicas:
 
 * O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](sizes.md).
 * Para um novo disco, você não precisa criá-lo primeiro porque o Azure cria quando você anexa o mesmo.

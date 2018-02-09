@@ -1,6 +1,6 @@
 ---
-title: "Direcionamento de solução no OMS | Microsoft Docs"
-description: "O Direcionamento de Solução é um recurso do OMS (Operations Management Suite) que permite limitar as soluções de gerenciamento a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de escopo e aplicá-la a uma solução."
+title: "Direcionamento de soluções de gerenciamento no Azure | Microsoft Docs"
+description: "Direcionamento de soluções de gerenciamento permite limitar as soluções de gerenciamento a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de escopo e aplicá-la a uma solução."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Usar o direcionamento de solução do OMS (Operations Management Suite) para definir o escopo das soluções de gerenciamento para agentes específicos (Visualização)
-Quando você adiciona uma solução ao OMS, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu espaço de trabalho do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso do OMS que permite aplicar um escopo às suas soluções.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Direcionamento de Soluções de Gerenciamento no Azure (versão prévia)
+Quando você adiciona uma solução de gerenciamento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu espaço de trabalho do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
 
 ## <a name="how-to-target-a-solution"></a>Como direcionar uma solução
-Há três etapas para direcionar uma solução, conforme descrito nas próximas seções.  Observe que você precisará do portal do OMS e do portal do Azure em etapas diferentes.
+Há três etapas para direcionar uma solução, conforme descrito nas próximas seções. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Criar um grupo de computadores

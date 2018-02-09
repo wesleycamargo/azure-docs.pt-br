@@ -1,6 +1,6 @@
 ---
-title: "Script automatizado para criar o aplicativo Web Service Manager para se conectar ao Conector de Gerenciamento de Serviços de TI no OMS | Microsoft Docs"
-description: "Crie um aplicativo Web Service Manager usando um script automatizado para se conectar ao Conector de Gerenciamento de Serviços de TI no OMS e monitorar e gerenciar de maneira centralizada os itens de trabalho ITSM."
+title: "Script automatizado para criar o aplicativo Web Service Manager para se conectar ao Conector de Gerenciamento de Serviços de TI no Azure | Microsoft Docs"
+description: "Crie um aplicativo Web Service Manager usando um script automatizado para se conectar ao Conector de Gerenciamento de Serviços de TI no Azure e monitorar e gerenciar de maneira centralizada os itens de trabalho ITSM."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Criar aplicativo Web Service Manager usando o script automatizado (Preview)
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web Service Manager usando o script automatizado
 
 Use o script a seguir a fim de criar o aplicativo Web para sua instância do Service Manager. Mais informações sobre a conexão do Service Manager estão aqui: [Aplicativo Web Service Manager](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -28,7 +28,7 @@ Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da assinatura do Azure
 - Nome do grupo de recursos
-- Local
+- Local padrão
 - Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de usuário e senha)
 - Prefixo de nome do site para seu aplicativo Web
 - Namespace do ServiceBus.
@@ -37,7 +37,7 @@ O script criará um aplicativo Web usando o nome especificado (junto com algumas
 
 Salve os valores. Você precisará deles quando criar uma conexão com o Conector de Gerenciamento de Serviços de TI.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
  Windows Management Framework 5.0 ou posterior.
 O Windows 10 tem 5.1 por padrão. Você pode baixar a estrutura [aqui](https://www.microsoft.com/download/details.aspx?id=53347):

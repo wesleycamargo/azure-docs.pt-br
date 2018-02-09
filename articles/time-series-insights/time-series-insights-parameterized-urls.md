@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 
@@ -63,14 +63,16 @@ Os valores aceitos correspondem ao menu **rápida** do explorador do Time Series
 
 O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os termos de uma exibição do Time Series Insights, onde:
 
-- `name=<string>`
+- "name":"<string>"
   - O nome do *termo*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - O nome da coluna para *dividido por*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - O nome da coluna de *medida*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - O cláusula *where* para filtragem do lado do servidor.
+-  "useSum":"true"
+  - Este é um parâmetro opcional que especifica o uso de soma para a medida.  Observe que, se "Eventos" for a medida selecionada, a contagem será selecionada por padrão.  Se "Eventos" não estiver selecionado, a média será selecionada por padrão.  
 
 O parâmetro "multiChartStack=<true/false>" permite o empilhamento no gráfico, e o parâmetro "multiChartSameScale=<true/false>" permite a mesma escala de eixo Y entre os termos de um parâmetro opcional.  
 

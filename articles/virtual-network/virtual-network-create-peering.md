@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: anavin;jdial
-ms.openlocfilehash: ab62164c85ece30181217a36a51d19fda52907bc
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 70fe948070147c01922fab68fb55a0f00c26a0f3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>Criar um emparelhamento de rede virtual – Resource Manager, mesma assinatura
 
@@ -164,7 +164,7 @@ Em vez de instalar a CLI e suas dependências, você pode usar o Azure Cloud She
      Todos os recursos do Azure criados na rede virtual agora podem se comunicar entre si por meio de seus endereços IP. Se você estiver usando a resolução de nomes padrão do Azure para as redes virtuais, os recursos nas redes virtuais não poderão resolver nomes entre as redes virtuais. Se você desejar resolver nomes entre redes virtuais em um emparelhamento, deverá criar seu próprio servidor DNS. Saiba como configurar a [Resolução de nomes usando seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 4. **Opcional**: embora a criação de máquinas virtuais não seja abordada neste tutorial, você poderá criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual a outra, para validar a conectividade.
-5. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-cli) deste artigo.
+5. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-cli) deste artigo.
 
 
 ## <a name="powershell"></a>Criar emparelhamento – PowerShell
@@ -272,9 +272,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
 ## <a name="register"></a>Registrar-se para a versão prévia de emparelhamento de rede virtual global
 
-A capacidade de emparelhar redes virtuais em diferentes regiões está em versão prévia no momento. A funcionalidade está disponível em um conjunto limitado de regiões (inicialmente, Centro-oeste dos EUA, Canadá Central e Oeste dos EUA 2). Emparelhamentos de rede virtual criados entre redes virtuais em regiões diferentes podem não ter o mesmo nível de disponibilidade e confiabilidade que emparelhamento entre redes virtuais na mesma região. Para ver as notificações mais recentes sobre disponibilidade e o status desse recurso, verifique a página [Atualizações da Rede Virtual](https://azure.microsoft.com/updates/?product=virtual-network) .
-
-Para emparelhar redes virtuais entre regiões, primeiro registre-se para versão prévia concluindo as etapas a seguir (na assinatura de cada rede virtual que você deseja emparelhar) usando o Azure PowerShell ou CLI do Azure:
+O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. Emparelhar redes virtuais em diferentes regiões está em versão prévia no momento. Consulte [Atualizações de rede virtual](https://azure.microsoft.com/en-us/updates/?product=virtual-network) para as regiões disponíveis. Para emparelhar redes virtuais entre regiões, primeiro registre-se para versão prévia concluindo as etapas a seguir (na assinatura de cada rede virtual que você deseja emparelhar) usando o Azure PowerShell ou CLI do Azure:
 
 ### <a name="powershell"></a>PowerShell
 

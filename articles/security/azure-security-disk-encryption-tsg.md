@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
@@ -30,7 +30,7 @@ A criptografia de disco do SO (sistema operacional) Linux deve desmontar a unida
 
 É bem provável que esse erro ocorra quando a criptografia de disco do SO for tentada em um ambiente de VM de destino modificado ou alterado usando a imagem da galeria de estoque suportada. Exemplos de desvios da imagem suportada, que podem interferir na capacidade da extensão de desmontar a unidade do SO incluem o seguinte:
 - Imagens personalizadas que não correspondem mais a um sistema de arquivos ou esquema de particionamento suportado.
-- Aplicativos grandes como SAP, MongoDB ou Apache Cassandra estão instalados e em execução no SO antes da criptografia. A extensão não pode desligar corretamente esses aplicativos. Se os aplicativos mantiverem os identificadores de arquivo abertos para a unidade do SO, a unidade não poderá ser desmontada, causando falha.
+- Não há suporte para aplicativos grandes, como SAP, MongoDB, Apache Cassandra e Docker, quando eles estão instalados e executados no sistema operacional antes da criptografia.  O Azure Disk Encryption não pode desligar esses processos com segurança, conforme necessário, em preparação da unidade do sistema operacional para a criptografia de disco.  Se ainda houver processos ativos mantendo identificadores de arquivo abertos para a unidade do sistema operacional, a unidade do sistema operacional não poderá ser desmontada, resultando em uma falha ao criptografar a unidade do sistema operacional. 
 - Scripts personalizados que são executados próximos à hora de encerramento da criptografia que está sendo habilitada ou se qualquer outra alteração estiver sendo feita na VM durante o processo de criptografia. Esse conflito pode acontecer quando um modelo do Azure Resource Manager define múltiplas extensões para executar simultaneamente ou quando uma extensão de script personalizada ou outra ação é executada simultaneamente com a criptografia de disco. Serializar e isolar tais etapas pode resolver o problema.
 - O SELinux (Security Enhanced Linux) não foi desabilitado antes da habilitação da criptografia, fazendo com que a etapa de desmontagem falhe. O SELinux pode ser reabilitado após a conclusão da criptografia.
 - O disco do SO usa um esquema LVM (Gerenciador de Volume Lógico). Embora o suporte ao disco de dados LVM limitado esteja disponível, um disco de SO LVM, não.
@@ -44,7 +44,7 @@ Em alguns casos, a criptografia de disco do Linux parece estar paralisada na "cr
 
 A sequência de criptografia de disco do SO Linux desmonta a unidade do SO temporariamente. Em seguida, ela realiza a criptografia bloco a bloco de todo o disco do SO, antes de remontá-lo em seu estado criptografado. Diferentemente do Azure Disk Encryption no Windows, o Linux Disk Encryption não permite o uso simultâneo da VM enquanto a criptografia estiver em andamento. As características de desempenho da VM podem fazer uma diferença significativa no tempo necessário para concluir a criptografia. Essas características incluem o tamanho do disco e se a conta de armazenamento é padrão ou premium (SSD).
 
-Para verificar o status da criptografia, sonde o campo **ProgressMessage** retornado do comando [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). Enquanto a unidade do SO está sendo criptografada, a VM entra em um estado de manutenção e desabilita o SSH para evitar qualquer interrupção no processo em andamento. A mensagem **EncryptionInProgress** será reportada a maior parte do tempo enquanto a criptografia estiver em andamento. Horas depois, uma mensagem **VMRestartPending** solicitará a reinicialização da VM. Por exemplo:
+Para verificar o status da criptografia, sonde o campo **ProgressMessage** retornado do comando [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). Enquanto a unidade do SO está sendo criptografada, a VM entra em um estado de manutenção e desabilita o SSH para evitar qualquer interrupção no processo em andamento. A mensagem **EncryptionInProgress** será reportada a maior parte do tempo enquanto a criptografia estiver em andamento. Horas depois, uma mensagem **VMRestartPending** solicitará a reinicialização da VM. Por exemplo: 
 
 
 ```
@@ -105,7 +105,7 @@ Para solucionar esse problema, copie os quatro arquivos a seguir de uma VM Data 
 
    4. Use DiskPart para verificar os volumes e continue.  
 
-Por exemplo:
+Por exemplo: 
 
 ```
 DISKPART> list vol
@@ -116,6 +116,10 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
+## <a name="troubleshooting-encryption-status"></a>Solução de problemas do status da criptografia
+
+Se o estado de criptografia esperado não corresponder ao que está sendo relatado no portal, consulte o seguinte artigo de suporte: [O status de criptografia é exibido incorretamente no Portal de Gerenciamento do Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste documento, você aprendeu mais sobre alguns problemas comuns no Azure Disk Encryption e como solucioná-los. Para saber mais sobre esse serviço e seus recursos, confira os seguintes artigos:

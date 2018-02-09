@@ -16,16 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorizar usuários para o Ambari Views
 
-Os [clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-introduction.md) fornecem recursos de nível empresarial, incluindo autenticação baseada no Azure Active Directory. Você pode sincronizar novos usuários
-<!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in Ambari is supported for both domain-joined HDInsight cluster and standard HDInsight cluster.
+Os [clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-introduction.md) fornecem recursos de nível empresarial, incluindo autenticação baseada no Azure Active Directory. Você pode sincronizar os novos usuários <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> adicionados aos grupos do Azure AD que receberam acesso ao cluster, permitindo a esses usuários específicos executar determinadas ações. Há suporte para trabalhar com usuários, grupos e permissões no Ambari tanto para o cluster HDInsight de domínio e quanto para o cluster HDInsight padrão.
 
 Os usuários do Active Directory podem fazer logon nos nós de cluster usando suas credenciais de domínio. Eles também podem usar suas credenciais de domínio para autenticar interações de cluster com outros pontos de extremidade aprovados, como Hue, Ambari Views, ODBC, JDBC, PowerShell e APIs REST.
 

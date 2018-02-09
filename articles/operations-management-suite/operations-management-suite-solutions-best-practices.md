@@ -1,5 +1,5 @@
 ---
-title: "Práticas recomendadas da solução OMSManagement | Microsoft Docs"
+title: "Práticas recomendadas da solução de gerenciamento no Azure | Microsoft Docs"
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Práticas recomendadas para a criação de soluções de gerenciamento no OMS (Operations Management Suite) (Preview)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Práticas recomendadas para a criação de soluções de gerenciamento no Azure (versão prévia)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.  
+> Esta é uma documentação preliminar para criar soluções de gerenciamento no Azure que atualmente estão em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.  
 
-Este artigo apresenta as práticas recomendadas para a [criação de um arquivo de solução de gerenciamento](operations-management-suite-solutions-solution-file.md) no OMS (Operations Management Suite).  Essas informações serão atualizadas à medida que práticas recomendadas adicionais forem identificadas.
+Este artigo apresenta as práticas recomendadas para a [criação de um arquivo de solução de gerenciamento](operations-management-suite-solutions-solution-file.md) no Azure.  Essas informações serão atualizadas à medida que práticas recomendadas adicionais forem identificadas.
 
 ## <a name="data-sources"></a>Fontes de dados
 - As fontes de dados podem ser [configuradas com um modelo do Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), mas não devem ser incluídas em um arquivo de solução.  Isso porque configurar fontes de dados, atualmente, não é idempotente, o que significa que a solução pode substituir a configuração existente no espaço de trabalho do usuário.<br><br>Por exemplo, a solução pode exigir eventos de Aviso e Erro do log de eventos do Aplicativo.  Caso especifique isso como uma fonte de dados em sua solução, você correrá o risco de remover eventos de Informações se o usuário tiver configurado isso no respectivo espaço de trabalho.  Caso tenha incluído todos os eventos, talvez você esteja coletando eventos de Informações excessivos no espaço de trabalho do usuário.

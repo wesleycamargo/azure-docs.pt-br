@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Noções básicas das configurações de dimensionamento automático
 As configurações de dimensionamento automático permitem que você verifique se tem a quantidade certa de recursos em execução para manipular a carga flutuante do aplicativo. Você pode definir as configurações de dimensionamento automático para serem disparadas com base em métricas que indicam a carga ou o desempenho, ou para serem disparadas em uma data e hora agendadas. Este artigo analisa detalhadamente a anatomia de uma configuração de dimensionamento automático. O artigo começa com as noções básicas sobre o esquema e as propriedades de uma configuração, percorre os diferentes tipos de perfil que podem ser configurados e, por fim, discute como o dimensionamento automático avalia qual perfil deve ser executado em um determinado momento.
@@ -125,7 +125,7 @@ Há três tipos de perfis de dimensionamento automático:
 
 1. **Perfil regular:** o perfil mais comum. Se você não precisar dimensionar seu recurso de maneira diferente com base no dia da semana ou em um dia específico, bastará configurar um perfil regular na configuração de dimensionamento automático. Este perfil poderá ser configurado com regras da métrica que determinam quando aumentar e quando reduzir. Deve haver somente um perfil regular definido.
 
-    O perfil de exemplo usado anteriormente neste artigo é um exemplo de um perfil regular. Também é possível definir um perfil para dimensionar para uma contagem de instância estática do recurso.
+    O perfil de exemplo usado anteriormente neste artigo é um exemplo de um perfil regular. Observe que também é possível definir um perfil para dimensionar para uma contagem de instância estática do recurso.
 
 2. **Perfil de data fixa:** com o perfil regular definido, digamos que você tenha um evento importante em 26 de dezembro de 2017 (PST) e deseje que as capacidades mínima/máxima do recurso sejam diferentes nesse dia, mas ainda sejam dimensionadas com as mesmas métricas. Nesse caso, você deve adicionar um perfil de data fixa à lista de perfis da configuração. O perfil será configurado para ser executado somente no dia do evento. Nos outros dias, o perfil regular será executado.
 

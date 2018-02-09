@@ -9,18 +9,18 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4344a450d218a7424cd055cf086c1e4865c9af10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: db86a08a19e97f8f415849aa060fe87d77cccf68
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Usar o Visual Studio Code para depurar Azure Functions com o Azure IoT Edge
 
 Este artigo fornece instruções detalhadas de como usar o [Visual Studio Code](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para depurar o Azure Functions no IoT Edge.
 
 ## <a name="prerequisites"></a>pré-requisitos
-Este tutorial assume que você esteja usando um computador ou uma máquina virtual que executa Windows ou Linux como seu computador de desenvolvimento. O dispositivo do IoT Edge pode ser outro dispositivo físico ou você pode simular o dispositivo do IoT Edge no computador de desenvolvimento.
+Este tutorial assume que você está usando um computador ou uma máquina virtual que executa Windows ou Linux como seu computador de desenvolvimento. O dispositivo do IoT Edge pode ser outro dispositivo físico ou você pode simular o dispositivo do IoT Edge em seu computador de desenvolvimento.
 
 Conclua os tutoriais a seguir antes de iniciar estas diretrizes.
 - [Usar o Visual Studio Code para desenvolver e implantar Azure Functions no Azure IoT Edge](how-to-vscode-develop-azure-function.md)
@@ -33,17 +33,36 @@ Depois de concluir o tutorial anterior, os seguintes itens deverão estar estão
 
 ## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>Criar o módulo do IoT Edge para fins de depuração
 1. Para iniciar a depuração, você precisa usar o **dockerfile.debug** para recriar a imagem do Docker e implantar a solução do Edge novamente. No gerenciador do VS Code, clique na pasta Docker para abri-la. Em seguida, clique na pasta `linux-x64`, clique com o botão direito do mouse em **Dockerfile.debug** e clique em **Criar imagem do Docker do módulo do IoT Edge**.
-3. Na janela **Selecionar Pasta**, navegue até o projeto **FilterFunction** e clique em **Selecionar Pasta como EXE_DIR**.
-4. Na caixa de texto pop-up na parte superior da janela do VS Code, insira o nome da imagem. Por exemplo: `<your container registry address>/filterfunction:latest`. Se você estiver implantando no registro local, deverá ser `localhost:5000/filterfunction:latest`.
-5. Envie a imagem por push para o repositório do Docker. Use o comando **Edge: Push IoT Edge module Docker image** e insira a URL da imagem na caixa de texto pop-up na parte superior da janela do VS Code. Use a mesma URL de imagem usada na etapa acima.
-6. Você pode reutilizar o `deployment.json` para reimplantar. Na paleta de comandos, digite e selecione **Edge: reiniciar Edge** para que a função de filtro seja executada com a versão de depuração.
+
+    ![Criar imagem de Depuração](./media/how-to-debug-csharp-function/build-debug-image.png)
+
+2. Na janela **Selecionar Pasta**, navegue até o projeto **FilterFunction** e clique em **Selecionar Pasta como EXE_DIR**.
+3. Na caixa de texto pop-up na parte superior da janela do VS Code, insira o nome da imagem. Por exemplo: `<your container registry address>/filterfunction:latest`. Se você estiver implantando o registro local, deverá ser `localhost:5000/filterfunction:latest`.
+
+    ![Enviar uma imagem por push](./media/how-to-debug-csharp-function/push-image.png)
+
+4. Envie a imagem por push para o repositório do Docker. Use o comando **Edge: Push IoT Edge module Docker image** e insira a URL da imagem na caixa de texto pop-up na parte superior da janela do VS Code. Use a mesma URL de imagem usada na etapa acima.
+5. Você pode reutilizar o `deployment.json` para reimplantar. Na paleta de comandos, digite e selecione **Edge: reiniciar Edge** para que a função de filtro seja executada com a versão de depuração.
 
 ## <a name="start-debugging-in-vs-code"></a>Iniciar a depuração no VS Code
 1. Acesse a janela de depuração do VS Code. Pressione **F5** e selecione **IoT Edge(.Net Core)**
+
+    ![Pressione F5](./media/how-to-debug-csharp-function/f5-debug-option.png)
+
 2. Em `launch.json`, navegue até **Depurar função do IoT Edge (.NET Core)** e preencha o `<container_name>` em `pipeArgs`. Deverá ser `filterfunction` neste tutorial.
+
+    ![Atualizar launch.json](./media/how-to-debug-csharp-function/update-launch-json.png)
+
 3. Navegue até run.csx. Adicione um ponto de interrupção na função.
-4. Pressione **F5** novamente. E selecione o processo ao qual ele deverá ser anexado.
-5. Na janela de depuração do VS Code, você pode ver as variáveis no painel esquerdo. 
+4. Navegue para a janela Depuração (Ctrl + Shift + D) e escolha **Depurar uma Função do IoT Edge (.NET Core)** na lista suspensa. 
+
+    ![Selecionar o modo de Depuração](./media/how-to-debug-csharp-function/choose-debug-mode.png)
+
+5. Clique no botão Iniciar Depuração ou pressione **F5** e selecione o processo ao qual anexar.
+
+    ![Processo Anexar Função](./media/how-to-debug-csharp-function/attach-function-process.png)
+
+6. Na janela de depuração do VS Code, você pode ver as variáveis no painel esquerdo. 
 
 > [!NOTE]
 > O exemplo acima mostra como depurar a função do IoT Edge do .NET Core em contêineres. Ele é baseado na versão de depuração do `Dockerfile.debug`, que inclui o VSDBG (o depurador da linha de comando do .NET Core) na imagem de contêiner durante a criação. Recomendamos que você use ou personalize diretamente o `Dockerfile` sem o VSDBG para a função do IoT Edge pronta para produção após concluir a depuração da sua função do C#.

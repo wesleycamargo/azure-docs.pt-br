@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
 
@@ -28,7 +28,7 @@ Ao criar um aplicativo de SaaS multilocatário, você deve escolher cuidadosamen
 
 Segue uma discussão de modelos de aluguel alternativo.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>R. Como escolher o modelo apropriado de aluguel
+## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>a. Como escolher o modelo apropriado de aluguel
 
 Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provavelmente afeta outros aspectos da solução geral.  Os critérios a seguir são usados para avaliar cada um dos modelos:
 
@@ -96,7 +96,7 @@ Banco de dados SQL do Azure fornece as ferramentas necessárias para configurar,
 
 A plataforma de banco de dados de SQL Azure tem muitos recursos de gerenciamento projetados para um grande número de gerenciamento de bancos de dados em grande escala, como bancos de dados bem mais de 100.000.  Esses recursos tornam o padrão de banco de dados por locatário plausível.
 
-Por exemplo, suponha que um sistema tem um banco de dados de 1000 locatário como apenas um banco de dados.  O banco de dados pode ter 20 índices.  Se o sistema converte a ter bancos de dados de único locatário 1000, quantidade de índices aumenta a 20.000.  No banco de dados SQL como parte do [ajuste automático][docu-sql-db-automatic-tuning-771a], os recursos de indexação automática estão habilitados por padrão.  A indexação automática gerencia para você, todos os índices de 20.000 e seus otimizações create e drop em andamento.  Essas ações automatizadas ocorrerem dentro de um banco de dados individual, e eles não são coordenados ou restrito a ações semelhantes em outros bancos de dados.  A indexação automática trata índices de forma diferente em um banco de dados ocupado que em um banco de dados menos ocupado.  Esse tipo de personalização de gerenciamento de índice seria impraticável em escala a banco de dados por locatário se essa tarefa de gerenciamento de grande tinha que ser feita manualmente.
+Por exemplo, suponha que um sistema tem um banco de dados de 1000 locatário como apenas um banco de dados.  O banco de dados pode ter 20 índices.  Se o sistema converter para ter bancos de dados de único locatário 1000, a quantidade de índices aumentará para 20.000.  No banco de dados SQL como parte do [ajuste automático][docu-sql-db-automatic-tuning-771a], os recursos de indexação automática estão habilitados por padrão.  A indexação automática gerencia para você, todos os índices de 20.000 e seus otimizações create e drop em andamento.  Essas ações automatizadas ocorrerem dentro de um banco de dados individual, e eles não são coordenados ou restrito a ações semelhantes em outros bancos de dados.  A indexação automática trata índices de forma diferente em um banco de dados ocupado que em um banco de dados menos ocupado.  Esse tipo de personalização de gerenciamento de índice seria impraticável em escala a banco de dados por locatário se essa tarefa de gerenciamento de grande tinha que ser feita manualmente.
 
 Outros recursos de gerenciamento que podem ser expandidos também incluem o seguinte:
 

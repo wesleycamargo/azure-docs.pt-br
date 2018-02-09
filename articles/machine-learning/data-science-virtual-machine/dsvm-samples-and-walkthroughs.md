@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Exemplos de Máquinas Virtuais de Ciência de Dados (DSVM)
 
@@ -28,13 +28,13 @@ As DSVMs vêm com exemplos totalmente trabalhados incluídos na forma de Blocos 
 > Consulte a seção [Acessar o Jupyter](#access-jupyter) para habilitar os Blocos de Anotações na sua DSVM.
 
 ## <a name="quick-reference-of-samples"></a>Referência rápida de amostras
-| Categoria de exemplos | Descrição | Locais |
+| Categoria de exemplos | DESCRIÇÃO | Locais |
 | ------------- | ------------- | ------------- |
 | Linguagem **R**  | Amostras em **R** explicando cenários como conectar-se aos armazenamentos de dados de nuvem do Azure, comparar R de Software Livre e R Microsoft e operacionalizar modelos no Microsoft R Server ou no SQL Server. <br/> [Captura de tela](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Linguagem **Python**  | Exemplos em **Python** explicando cenários como conectar-se a armazenamentos de dados de nuvem do Azure e trabalhar com **Azure Machine Learning**.  <br/> [Captura de tela](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Linguagem **Julia**  | Exemplo em **Julia** que detalha Plotagem em Julia, aprendizado profundo em Julia, chamada de C e Python de Julia etc. <br/> [Captura de tela](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Kit de Ferramentas Cognitivas da Microsoft)  | Exemplos de aprendizado profundo publicados pela equipe do Kit de Ferramentas Cognitivas na Microsoft.  <br/> [Captura de tela](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| Blocos de anotações **MXnet**  | Exemplos de Aprendizado Profundo utilizando redes neurais baseadas em **MXnet**. Há uma variedade de blocos de anotações que variam de cenários de iniciantes a avançados.  <br/> [Captura de tela](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| Notebooks do **MXNet**  | Amostras de Aprendizado Profundo que utilizam redes neurais baseadas no **MXNet**. Há uma variedade de blocos de anotações que variam de cenários de iniciantes a avançados.  <br/> [Captura de tela](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | Interagir com **Azure Machine Learning** Studio e criar pontos de extremidade de serviço Web usando modelos treinados localmente para fluxos de trabalho de pontuação baseados em nuvem. <br/> [Captura de tela](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Exemplos de Aprendizado Profundo utilizando redes neurais baseadas em **caffe2**. Há vários blocos de anotações que desenvolvidos para familiarizar os usuários com o caffe2 e como usá-los com eficiência, inclusive exemplos de como pré-processamento de imagem, criação de conjunto de dados, Regressão e uso de modelos pré-treinados. <br/> [Captura de tela](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Exemplos com base em Python utilizando **H2O** para muitos problemas de cenário do mundo real. <br/> [Captura de tela](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
@@ -60,7 +60,7 @@ Você pode acessar a Página Inicial do Jupyter quando o processo do Jupyter tiv
 <br/>![Habilitar a Exceção do Jupyter](./media/windows-jupyter-exception.png)<br/>
 Entrar com a nova senha que você acaba de definir.
 <br/>
-**DSVM do Linux**
+**Linux DSVM**
 
 Você pode acessar a Página Inicial do Jupyter na sua VM acessando **`https://localhost:8000`** no navegador. Consulte a captura de tela para adicionar a exceção e habilitar o acesso do Jupyter pelo navegador.
 <br/>![Habilitar a Exceção do Jupyter](./media/ubuntu-jupyter-exception.png)<br/>
@@ -83,7 +83,7 @@ Entre com a mesma senha usada para o logon na DSVM.
 <br/>![Exemplos de CNTK](./media/cntk-samples2.png)<br/>
 <br/>![Exemplos de CNTK](./media/cntk-samples.png)<br/>
 
-## <a name="mxnet"></a>MXnet
+## <a name="mxnet"></a>MXNet
 <br/>![Exemplos de MXnet](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 

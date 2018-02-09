@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapear um nome DNS personalizado existente para aplicativos Web do Azure
 
@@ -292,7 +292,7 @@ Na parte inferior da página, o diretório virtual raiz `/` aponta para `site\ww
 
 ![Personalizar o diretório virtual](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Quando a operação for concluída, o aplicativo deverá retornar a página certa no caminho raiz (por exemplo, http://contoso.com).
+Após a conclusão da operação, o aplicativo deverá retornar a página certa no caminho raiz (por exemplo, http://contoso.com).
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 

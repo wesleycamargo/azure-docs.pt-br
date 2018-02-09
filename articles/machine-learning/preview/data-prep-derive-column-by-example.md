@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Transformação Derivar coluna por exemplo
 
@@ -67,6 +67,10 @@ O Modo Avançado fornece uma experiência mais avançada para a Derivação de c
 No modo avançado, você pode adicionar qualquer linha como uma linha de exemplo clicando duas vezes na linha na grade. Após uma linha ser copiada como uma linha de exemplo, você também pode editar os dados nas colunas de origem para criar um exemplo sintético. Fazendo isso, você pode adicionar casos que não estão presentes no momento nos dados de exemplo.
 
 O usuário pode mudar entre o **Modo Básico** e o **Modo Avançado** clicando nos links no Editor de Transformação.
+
+### <a name="transform-editor-send-feedback"></a>Editor de transformação: Enviar Comentário
+
+Clicar no link **Enviar comentário** abre o diálogo **Comentário** com a caixa de comentários pré-preenchida com os exemplos que o usuário forneceu. O usuário deve revisar o conteúdo da caixa de comentários e fornecer mais detalhes para nos ajudar a entender o problema. Se o usuário não quiser compartilhar dados com a Microsoft, deve excluir os dados de exemplos pré-preenchidos antes de clicar no botão **Enviar Comentário**. 
 
 ### <a name="editing-existing-transformation"></a>Editando a transformação existente
 

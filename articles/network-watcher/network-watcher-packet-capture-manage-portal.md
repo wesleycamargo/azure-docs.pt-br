@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -80,6 +80,7 @@ As propriedades que podem ser definidas em uma captura de pacotes são:
 
 **Configuração da captura**
 
+- **Caminho de arquivo local** - Caminho local na máquina virtual em que a captura de pacote é salvo (válido somente quando **[arquivo]** está selecionado). É necessário especificar um caminho válido. Se você estiver usando uma máquina virtual Linux, o caminho deve começar com / var / captura.
 - **Conta de Armazenamento** - Determina se a captura do pacote é salva em uma conta de armazenamento.
 - **Arquivo** - determina se uma captura de pacote sé salva localmente na máquina virtual.
 - **Contas de Armazenamento** - a conta de armazenamento selecionada na qual salvar a captura de pacotes. O local padrão é https://{nome da conta de armazenamento}.blob.core.windows.net/network-watcher-logs/subscriptions/{id assinatura}/resourcegroups/{nome do grupo de recursos}/providers/microsoft.compute/virtualmachines/{nome máquina virtual}/{AA}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Habilitado somente se o **Armazenamento** estiver selecionado)

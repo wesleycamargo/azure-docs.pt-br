@@ -1,6 +1,6 @@
 ---
 title: "Demonstração individualizada da solução do Mapa do Serviço | Microsoft Docs"
-description: "O Mapa de Serviço é uma solução do OMS (Operations Management Suite) que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux, e mapeia a comunicação entre os serviços.  Esta é uma demonstração individualizada que orienta usando o Mapa de Serviço para identificar e diagnosticar um problema simulado em um aplicativo Web."
+description: "O Mapa do Serviço é uma solução no Azure que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux, e mapeia a comunicação entre os serviços.  Esta é uma demonstração individualizada que orienta usando o Mapa de Serviço para identificar e diagnosticar um problema simulado em um aplicativo Web."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35fe4e95eae8b63425abc8ed2970c0ad51073883
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Demonstração individualizada do OMS (Operations Management Suite) - Mapa de Serviço
-Esta é uma demonstração individualizada que percorre usando a [solução do Mapa de Serviço](operations-management-suite-service-map.md) no OMS (Operations Management Suite) para identificar e diagnosticar um problema simulado em um aplicativo Web.  O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços.  Isso consolida também os dados coletados por outros serviços OMS para ajudar a analisar o desempenho e identificar os problemas.  Você também usará as [pesquisas de log no Log Analytics](../log-analytics/log-analytics-log-searches.md) para fazer uma busca detalhada dos dados coletados para identificar a causa do problema.
+# <a name="self-paced-demo---service-map"></a>Demonstração em seu próprio ritmo - Mapa do Serviço
+Esta é uma demonstração individualizada que orienta usando a [solução do Mapa do Serviço](operations-management-suite-service-map.md) no Azure para identificar e diagnosticar um problema simulado em um aplicativo Web.  O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços.  Isso também consolida os dados coletados por outros serviços e soluções a fim de ajudar a analisar o desempenho e identificar os problemas.  Você também usa as [pesquisas de log no Log Analytics](../log-analytics/log-analytics-log-searches.md) para fazer uma busca detalhada dos dados coletados para identificar a causa do problema.
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -35,7 +35,7 @@ Você acabou de receber uma notificação de que o aplicativo do Portal do Clien
 ## <a name="walk-through"></a>Passo a passo
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. Conecte-se à Central de Experiência OMS
-Este passo a passo usa a [Central de Experiência do Operations Management Suite](https://experience.mms.microsoft.com/) que fornece um ambiente OMS completo com dados de exemplo. Comece seguindo esse link, forneça suas informações, em seguida, selecione o cenário **Insight e Analytics**.
+Este passo a passo usa a [Central de Experiência do Operations Management Suite](https://experience.mms.microsoft.com/) que fornece um ambiente do Log Analytics completo com dados de exemplo. Comece seguindo esse link, forneça suas informações, em seguida, selecione o cenário **Insight e Analytics**.
 
 
 ### <a name="2-start-service-map"></a>2. Iniciar o Mapa de Serviço
@@ -43,7 +43,7 @@ Inicie a solução do Mapa de Serviço clicando no bloco **Mapa de Serviço**.
 
 ![Bloco Mapa de Serviço](media/operations-management-suite-walkthrough-servicemap/tile.png)
 
-O console do Mapa de Serviço é exibido.  No painel esquerdo, está uma lista de computadores em seu ambiente com o agente do Mapa de Serviço instalado.  Você selecionará o computador que deseja exibir na lista.
+O console do Mapa de Serviço é exibido.  No painel esquerdo, está uma lista de computadores em seu ambiente com o agente do Mapa de Serviço instalado.  Você seleciona o computador que deseja exibir na lista.
 
 ![Lista de computadores](media/operations-management-suite-walkthrough-servicemap/computer-list.png)
 
@@ -80,7 +80,7 @@ Vamos examinar o **acmetomcat** com mais atenção.  Clique na parte direita sup
 
 
 ### <a name="7-view-change-tracking"></a>7. Exibir controle de alterações
-Vejamos se conseguimos descobrir o que pode ter causado essa utilização elevada.  Clique na guia **Resumo**.  Isso fornece as informações que o OMS coletou do computador, como conexões com falha, alertas críticos e alterações do software.  As seções com informações recentes interessantes já devem estar expandidas e você poderá expandir outras seções para inspecionar as informações que elas contêm.
+Vejamos se conseguimos descobrir o que pode ter causado essa utilização elevada.  Clique na guia **Resumo**.  Isso fornece as informações que o Log Analytics coletou do computador, como conexões com falha, alertas críticos e alterações do software.  As seções com informações recentes relevantes já devem estar expandidas e você poderá expandir outras seções para inspecionar as informações que elas contêm.
 
 
 Se o **Controle de Alterações** ainda não estiver aberto, expanda-o.  Isso mostra as informações coletadas pela [solução do Controle de Alterações](../log-analytics/log-analytics-change-tracking.md).  Parece que houve uma alteração do software feita durante a janela do tempo.  Clique em **Software** para obter detalhes.  Um processo de backup foi adicionado à máquina logo após as 4:00 manhã e isso parece ser o responsável pelo consumo excessivo de recursos.
@@ -90,13 +90,13 @@ Se o **Controle de Alterações** ainda não estiver aberto, expanda-o.  Isso mo
 
 
 ### <a name="8-view-details-in-log-search"></a>8. Exibir detalhes na Pesquisa de Logs
-Podemos verificar mais examinando as informações detalhadas do desempenho coletadas no repositório do Log Analytics.  Clique novamente na guia **Alertas** e, em seguida, clique em um dos alertas de **CPU Alta**.  Clique em **Mostrar na Pesquisa de Logs**.  Isso abre a janela Pesquisa de Logs, na qual você pode executar as [pesquisas de log](../log-analytics/log-analytics-log-searches.md) em todos os dados armazenados no repositório.  O Mapa de Serviço já preencheu uma consulta para recuperar o alerta no qual estamos interessados.  
+Podemos verificar mais examinando as informações detalhadas do desempenho coletadas no espaço de trabalho do Log Analytics.  Clique novamente na guia **Alertas** e, em seguida, clique em um dos alertas de **CPU Alta**.  Clique em **Mostrar na Pesquisa de Logs**.  Isso abre a janela Pesquisa de Logs, na qual você pode executar as [pesquisas de log](../log-analytics/log-analytics-log-searches.md) em todos os dados armazenados no espaço de trabalho.  O Mapa do Serviço já preencheu uma consulta para recuperar o alerta no qual estamos interessados.  
 
 ![Pesquisa de log](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### <a name="9-open-saved-search"></a>9. Abrir pesquisa salva
-Vejamos se podemos obter mais detalhes sobre a coleta do desempenho que gerou esse alerta e verificar nossa suspeita de que os problemas são causados por esse processo de backup.  Altere o intervalo de tempo para **6 horas**.  Em seguida, clique em **Favoritos** e role até as pesquisas salvas para o **Mapa de Serviço**.  Essas são as consultas criadas especificamente para a análise.  Clique em **5 Primeiros Processos por CPU para acmetomcat**.
+Vejamos se podemos obter mais detalhes sobre a coleta do desempenho que gerou esse alerta e verificar nossa suspeita de que os problemas são causados por esse processo de backup.  Altere o intervalo de tempo para **6 horas**.  Em seguida, clique em **Favoritos** e role até as pesquisas salvas para o **Mapa de Serviço**.  Criamos essas consultas especificamente para essa análise.  Clique em **5 Primeiros Processos por CPU para acmetomcat**.
 
 ![Pesquisa salva](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
@@ -108,10 +108,10 @@ Neste caso, podemos ver que o processo de backup está consumindo consistentemen
 
 ## <a name="summary-points"></a>Pontos do resumo
 - O[Mapa de Serviço](operations-management-suite-service-map.md) fornece uma exibição de todo o aplicativo, mesmo que você não conheça todos os servidores e dependências.
-- O Mapa de Serviço expõe os dados coletados por outras soluções do OMS para ajudar a identificar problemas com seu aplicativo e a infraestrutura subjacente.
-- As [Pesquisas de Log](../log-analytics/log-analytics-log-searches.md) permitem fazer uma busca detalhada nos dados específicos coletados no repositório do Log Analytics.    
+- O Mapa do Serviço expõe os dados coletados por outras soluções de gerenciamento para ajudar a identificar problemas com seu aplicativo e a infraestrutura subjacente.
+- As [Pesquisas de Log](../log-analytics/log-analytics-log-searches.md) permitem fazer uma busca detalhada nos dados específicos coletados no espaço de trabalho do Log Analytics.    
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [Mapa de Serviço](operations-management-suite-service-map.md).
 - [Implante e configure o](operations-management-suite-service-map-configure.md) Mapa de Serviço.
-- Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md) que é necessário para o Mapa de Serviço e armazena os dados operacionais guardados por agentes.
+- Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md) que é necessário para o Mapa do Serviço e armazena os dados operacionais guardados por agentes.

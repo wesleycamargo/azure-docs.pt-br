@@ -1,125 +1,251 @@
 ---
-title: "Criar um Gateway de Aplicativo usando as regras de roteamento de URL – CLI do Azure 2.0 | Microsoft Docs"
-description: "Esta página oferece instruções sobre como criar e configurar um gateway de aplicativo usando as regras de roteamento de URL."
-documentationcenter: na
+title: Criar um gateway de aplicativo com regras de roteamento com base em caminhos de URL - CLI do Azure | Microsoft Docs
+description: "Saiba como criar regras de roteamento com base em caminhos de URL para um gateway de aplicativo e conjunto de dimensionamento de máquina virtual usando a CLI do Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0593e37def43770efad7e07b306d8290b0590a48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Criar um Gateway de Aplicativo usando roteamento com base em caminho com a CLI do Azure 2.0
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Criar um gateway de aplicativo com regras de roteamento com base em caminhos de URL usando a CLI do Azure
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-url-route-portal.md)
-> * [PowerShell do Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
-> * [CLI 2.0 do Azure](application-gateway-create-url-route-cli.md)
+Você pode usar a CLI do Azure para configurar as [Regras de roteamento baseadas em caminhos de URL](application-gateway-url-route-overview.md) quando você cria um [gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você cria pools de back-end usando um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Você, em seguida, cria regras de roteamento que garantem que o tráfego da web chegue aos servidores apropriados nos pools.
 
-Com o roteamento com base em caminho de URL, você associa rotas com base no caminho de URL das solicitações HTTP. Ele verifica se há uma rota para um pool de servidores back-end configurado para a URL listada no gateway de aplicativo e envia o tráfego de rede para o pool definido. Um uso comum para o roteamento com base em caminho de URL é balancear a carga das solicitações para tipos de conteúdo diferentes para pools de servidores back-end diferentes.
+Neste artigo, você aprenderá a:
 
-O Gateway de Aplicativo do Azure usa dois tipos de regra: básica e com base no caminho de URL. O tipo de regra básica fornece serviço round robin para os pools de back-end. As regras com base no caminho, além da distribuição round robin, também usam o padrão de caminho da URL de solicitação para escolher o pool de back-ends apropriado.
+> [!div class="checklist"]
+> * Configurar a rede
+> * Criar um gateway de aplicativo com o mapa de URL
+> * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
 
-## <a name="scenario"></a>Cenário
+![Exemplo de roteamento de URL](./media/application-gateway-create-url-route-cli/scenario.png)
 
-No exemplo a seguir, um gateway de aplicativo fornece o tráfego para contoso.com com dois pools de servidor back-end: o pool de servidores padrão e o pool de servidores de imagem.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Solicitações para http://contoso.com/image* são roteadas para o pool de servidores de imagem (**imagesBackendPool**). Se o padrão de caminho não corresponder, o gateway de aplicativo selecionará o pool padrão de servidor (**appGatewayBackendPool**).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![Roteamento de URL](./media/application-gateway-create-url-route-cli/scenario.png)
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Abra o **Prompt de comando do Microsoft Azure** e entre:
+Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos usando [az group create](/cli/azure/group#create).
 
-```azurecli
-az login -u "username"
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupAG* no local *eastus*.
+
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> Você também pode usar `az login` sem a opção de logon de dispositivo que exige a inserção de um código em aka.ms/devicelogin.
+## <a name="create-network-resources"></a>Criar recursos da rede 
 
-Depois de inserir o comando anterior, você receberá um código. Acesse https://aka.ms/devicelogin em um navegador para continuar o processo de entrada.
+Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az_net). Você pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
-![Cmd mostrando logon do dispositivo][1]
+```azurecli-interactive
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
 
-No navegador, digite o código recebido. Isso o redireciona para uma página de entrada.
+## <a name="create-the-application-gateway-with-url-map"></a>Criar o gateway de aplicativo com o mapa de URL
 
-![Navegador para inserir código][2]
+Você pode usar [az network application-gateway create](/cli/azure/application-gateway#create) para criar o gateway do aplicativo denominado *myAppGateway*. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que você criou anteriormente. 
 
-Insira o código para entrar e, em seguida, feche o navegador para continuar.
+```azurecli-interactive
+az network application-gateway create \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGsubnet \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 80 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress
+```
 
-![Conectado com êxito][3]
+ Pode levar vários minutos para o gateway de aplicativo ser criado. Depois de criar o gateway de aplicativo, você pode ver esses novos recursos:
 
-## <a name="add-a-path-based-rule-to-an-existing-application-gateway"></a>Adicionar uma regra com base em caminho a um Gateway de Aplicativo existente
+- *appGatewayBackendPool* - Um gateway de aplicativo deve ter pelo menos um pool de endereços de back-end.
+- *appGatewayBackendHttpSettings* - Especifica que a porta 80 e um protocolo HTTP são usados para comunicação.
+- *appGatewayHttpListener* - O listener padrão associado com *appGatewayBackendPool*.
+- *appGatewayFrontendIP* - Atribui *myAGPublicIPAddress* para *appGatewayHttpListener*.
+- *rule1* - A regra de roteamento padrão que está associada com *appGatewayHttpListener*.
 
-As etapas a seguir mostram como adicionar uma regra com base em caminho a um gateway de aplicativo existente.
-### <a name="create-a-new-back-end-pool"></a>Criar um novo pool de back-end
 
-Defina a configuração de gateway de aplicativo **imagesBackendPool** para o tráfego de rede com balanceamento de carga no pool de back-end. Neste exemplo, defina as diferentes configurações de pool de back-end para o novo pool de back-end. Cada pool de back-end pode ter sua própria configuração. As regras com base em caminho usam as configurações HTTP de back-end rotear o tráfego para os membros do pool de back-end corretos. Isso determina o protocolo e a porta usados ao enviar tráfego aos membros do pool de back-ends. As configurações de HTTP do back-end também determinam as sessões baseadas em cookies.  Se habilitada, a afinidade de sessão baseada em cookies envia o tráfego para o mesmo back-end das solicitações anteriores para cada pacote.
+### <a name="add-image-and-video-backend-pools-and-port"></a>Adicionar porta e pools de back-end de imagem e vídeo
+
+Você pode adicionar os pools de back-end denominados *imagesBackendPool* e *videoBackendPool* para o seu gateway de aplicativo usando [az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). Adicionar a porta de front-end para os pools usando [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
---gateway-name AdatumAppGateway \
---name imagesBackendPool  \
---resource-group myresourcegroup \
---servers 10.0.0.6 10.0.0.7
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name imagesBackendPool
+az network application-gateway address-pool create \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name videoBackendPool
+az network application-gateway frontend-port create \
+  --port 8080 \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name port8080
 ```
 
-### <a name="create-a-new-front-end-port-for-an-application-gateway"></a>Criar uma nova porta de front-end para um gateway de aplicativo
+### <a name="add-backend-listener"></a>Adicionar o listener de back-end
 
-O objeto de configuração de porta front-end é usado por um ouvinte para definir a porta cujo tráfego deve ser ouvido pelo gateway de aplicativo.
+Adicione o listener de back-end denominado *backendListener* que é necessário para rotear o tráfego usando [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+
 
 ```azurecli-interactive
-az network application-gateway frontend-port create --port 82 --gateway-name AdatumAppGateway --resource-group myresourcegroup --name port82
+az network application-gateway http-listener create \
+  --name backendListener \
+  --frontend-ip appGatewayFrontendIP \
+  --frontend-port port8080 \
+  --resource-group myResourceGroupAG \
+  --gateway-name myAppGateway
 ```
 
-### <a name="create-a-new-listener"></a>Criar um novo ouvinte
+### <a name="add-url-path-map"></a>Adicionar mapa de caminho da URL
 
-Esta etapa configura o ouvinte para o endereço IP público, e a porta usada para receber o tráfego de rede. O exemplo a seguir usa a configuração de IP de front-end definida anteriormente, uma configuração de porta front-end e um protocolo (http ou https, que diferencia maiúsculas de minúsculas) e configura o ouvinte. Neste exemplo, o ouvinte ouve o tráfego HTTP na porta 82 no endereço IP público que foi criado anteriormente neste cenário.
-
-```azurecli-interactive
-az network application-gateway http-listener create --name imageListener --frontend-ip appGatewayFrontendIP  --frontend-port port82 --resource-group myresourcegroup --gateway-name AdatumAppGateway
-```
-
-### <a name="create-the-url-path-map"></a>Criar o mapa de caminho de URL
-
-Esta etapa configura o caminho relativo de URL usado pelo gateway de aplicativo para definir o mapeamento entre o caminho e o pool de back-end atribuído para lidar com o tráfego de entrada.
-
-> [!IMPORTANT]
-> Cada caminho deve começar com "/", e o único lugar no qual um asterisco é permitido é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*. A cadeia de caracteres inserida no correspondente de caminho não inclui qualquer texto após o primeiro “?” ou “#”, e esses caracteres não são permitidos. 
-
-O exemplo a seguir cria uma regra para o caminho /images/\* roteando o tráfego para o **imagesBackendPool** do back-end. Essa regra garante que o tráfego para cada conjunto de URLs seja roteado para o back-end. Por exemplo, http://adatum.com/images/figure1.jpg vai para **imagesBackendPool**. A configuração de mapa do caminho de regra também configurará um pool de endereços de back-end padrão se o caminho não corresponder a nenhuma das regras de caminho predefinidas. Por exemplo, http://adatum.com/shoppingcart/test.html vai para o **pool1**, já que ele está definido como o pool padrão para tráfego sem correspondência.
+Os mapas de caminho de URL certificam que as URLs específicas sejam roteadas para pools de back-end específicos. Você pode criar mapas de caminho de URL chamados *imagePathRule* e *videoPathRule* usando [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) e [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
---gateway-name AdatumAppGateway \
---name imagespathmap \
---paths /images/* \
---resource-group myresourcegroup2 \
---address-pool imagesBackendPool \
---default-address-pool appGatewayBackendPool \
---default-http-settings appGatewayBackendHttpSettings \
---http-settings appGatewayBackendHttpSettings \
---rule-name images
+  --gateway-name myAppGateway \
+  --name myPathMap \
+  --paths /images/* \
+  --resource-group myResourceGroupAG \
+  --address-pool imagesBackendPool \
+  --default-address-pool appGatewayBackendPool \
+  --default-http-settings appGatewayBackendHttpSettings \
+  --http-settings appGatewayBackendHttpSettings \
+  --rule-name imagePathRule
+az network application-gateway url-path-map rule create \
+  --gateway-name myAppGateway \
+  --name videoPathRule \
+  --resource-group myResourceGroupAG \
+  --path-map-name myPathMap \
+  --paths /video/* \
+  --address-pool videoBackendPool
 ```
+
+### <a name="add-routing-rule"></a>Adicionar regra de roteamento
+
+A regra de roteamento associa o mapa de URL ao listener que você criou. Você pode adicionar a regra denominada *rule2* usando [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name rule2 \
+  --resource-group myResourceGroupAG \
+  --http-listener backendListener \
+  --rule-type PathBasedRouting \
+  --url-path-map myPathMap \
+  --address-pool appGatewayBackendPool
+```
+
+## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
+
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual nas quais você instala o NGINX.
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  if [ $i -eq 1 ]
+  then
+    poolName="appGatewayBackendPool" 
+  fi
+  if [ $i -eq 2 ]
+  then
+    poolName="imagesBackendPool"
+  fi
+  if [ $i -eq 3 ]
+  then
+    poolName="videoBackendPool"
+  fi
+  az vmss create \
+    --name myvmss$i \
+    --resource-group myResourceGroupAG \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --admin-password Azure123456! \
+    --instance-count 2 \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --vm-sku Standard_DS2 \
+    --upgrade-policy-mode Automatic \
+    --app-gateway myAppGateway \
+    --backend-pool-name $poolName
+done
+```
+
+### <a name="install-nginx"></a>Instalar o NGINX
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  az vmss extension set \
+    --publisher Microsoft.Azure.Extensions \
+    --version 2.0 \
+    --name CustomScript \
+    --resource-group myResourceGroupAG \
+    --vmss-name myvmss$i \
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+done
+```
+
+## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
+
+Para obter o endereço IP público do gateway de aplicativo, você pode usar [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* ou *http://40.121.222.19:8080/video/test.htm*.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
+
+![Testar a URL de base no gateway de aplicativo](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
+
+Altere a URL para http://<ip-address>:8080/video/test.html ao final da URL de base e você verá algo parecido com o exemplo a seguir:
+
+![Testar a URL de imagens no gateway do aplicativo](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
+
+Altere a URL para http://<ip-address>:8080/video/test.html e você verá algo parecido com o exemplo a seguir.
+
+![Testar a URL de vídeo no gateway do aplicativo](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser aprender sobre o descarregamento de protocolo SSL, consulte [Configurar um Gateway de Aplicativo para descarregamento SSL](application-gateway-ssl-cli.md).
+Neste tutorial, você aprendeu como:
 
+> [!div class="checklist"]
+> * Configurar a rede
+> * Criar um gateway de aplicativo com o mapa de URL
+> * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
 
-[scenario]: ./media/application-gateway-create-url-route-cli/scenario.png
-[1]: ./media/application-gateway-create-url-route-cli/figure1.png
-[2]: ./media/application-gateway-create-url-route-cli/figure2.png
-[3]: ./media/application-gateway-create-url-route-cli/figure3.png
+Para saber mais sobre os gateways de aplicativos e seus recursos associados, continue a ler os artigos de instrução.

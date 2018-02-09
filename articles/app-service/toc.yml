@@ -75,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: Diagnostics
       href: app-service-diagnostics.md
+    - name: SO e aplicação de patch ao tempo de execução
+      href: app-service-patch-os-runtime.md
 - name: Guias de Instruções
   items:
     - name: Configurar aplicativo
@@ -164,7 +166,7 @@
         - name: Clonar um aplicativo
           href: app-service-web-app-cloning.md
         - name: Mover recursos
-          href: app-service-move-resources.md
+          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: Executar tarefas em segundo plano
       items:
         - name: Criar WebJobs

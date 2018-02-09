@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 43a45a31efffcd623e6381049876c3607663ec4f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoramento e diagnóstico no Azure Service Fabric
 
@@ -136,5 +136,6 @@ Para personalizar os gráficos, siga as instruções em [métricas no Microsoft 
 
 * Saiba mais sobre como monitorar a plataforma e os eventos que o Service Fabric fornece para você em [Geração de log e evento nível de plataforma](service-fabric-diagnostics-event-generation-infra.md)
 * Para começar a instrumentar seus aplicativos, consulte [Geração de log e evento de nível de aplicativo](service-fabric-diagnostics-event-generation-app.md)
-* Consulte o tutorial [Monitorar e diagnosticar um aplicativo ASP.NET Core no Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+* Siga as etapas para configurar o AI para seu aplicativo com [Monitorar e diagnosticar um aplicativo do ASP.NET Core no Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+* Saiba como configurar o Log Analytics do OMS para monitoramento de Contêineres - [Monitoramento e diagnóstico para contêineres do Windows no Service Fabric do Azure](service-fabric-tutorial-monitoring-wincontainers.md)
 

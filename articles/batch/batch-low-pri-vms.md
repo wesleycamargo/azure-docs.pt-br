@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usar VMs de baixa prioridade com o Lote
 
@@ -71,9 +71,12 @@ O Lote do Azure fornece vários recursos que tornam mais fácil consumir e se be
 
 -   Quando as tarefas são interrompidas, o Lote esse status e as coloca automaticamente em fila para nova execução.
 
--   VMs de baixa prioridade têm uma cota de vCPU separada, diferente das VMs dedicadas. 
+-   VMs de baixa prioridade têm uma cota de vCPU separada que difere das VMs dedicadas. 
     A cotação para VMs de baixa prioridade é maior do que a das VMs dedicadas, pois as VMs de baixa prioridade custam menos. Para saber mais, confira [Limites e cotas do serviço de Lote](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Atualmente, as VMs de baixa prioridade não têm suporte para contas do Lote criadas no [modo de assinatura de usuário](batch-api-basics.md#account).
+>
 
 ## <a name="create-and-update-pools"></a>Criar e atualizar pools
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 

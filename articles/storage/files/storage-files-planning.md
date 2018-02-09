@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Já que o Arquivos do Azure é totalmente gerenciado, implantá-lo em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de Arquivos do Azure para uso em produção dentro de sua organização.
@@ -64,7 +64,7 @@ O Arquivos do Azure tem várias opções integradas para garantir a segurança d
     * Clientes que não dão suporte a SMB 3.0 podem se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0, sem criptografia. Observe que os clientes não têm permissão para se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0 sem criptografia.
     * Os clientes podem se comunicar por REST de arquivo via HTTP ou HTTPS.
 * Criptografia em repouso ([Criptografia do Serviço de Armazenamento do Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): estamos no processo de habilitar a SSE (criptografia do serviço de armazenamento) na plataforma subjacente do Armazenamento do Azure. Isso significa que a criptografia será habilitada por padrão para todas as contas de armazenamento. Se você estiver criando uma nova conta de armazenamento em uma região com criptografia em repouso no padrão, você não precisa fazer nada para habilitar. Os dados em repouso são criptografados com chaves totalmente gerenciadas. Criptografia em repouso não aumenta os custos de armazenamento nem reduz o desempenho. 
-* Requisito opcional de dados criptografados em trânsito: quando selecionado, o Arquivos do Azure não permitirá acesso aos dados por canais sem criptografia. Especificamente, apenas conexões HTTPS e SMB 3.0 com criptografia serão permitidas. 
+* Requisito opcional de dados criptografados em trânsito: quando selecionado, o Arquivos do Azure rejeitam o acesso aos dados por canais sem criptografia. Especificamente, são permitidas somente HTTPS e SMB 3.0 com conexões de criptografia. 
 
     > [!Important]  
     > A exigência de transferência segura de dados fará com que clientes SMB mais antigos não sejam capazes de se comunicar com o SMB 3.0 com criptografia. Consulte [Montar no Windows](storage-how-to-use-files-windows.md), [Montar no Linux](storage-how-to-use-files-linux.md), [Montar no macOS](storage-how-to-use-files-mac.md) para obter mais informações.
@@ -74,10 +74,13 @@ Para segurança máxima, recomendamos habilitar ambas a criptografia em repouso 
 Se você estiver usando a Sincronização de Arquivos do Azure para acessar o compartilhamento de Arquivos do Azure, usaremos sempre HTTPS e SMB 3.0 com criptografia para sincronizar seus dados aos Windows Servers, independentemente de você exigir ou não criptografia de dados em repouso.
 
 ## <a name="data-redundancy"></a>Redundância de dados
-O Arquivos do Azure dá suporte a duas opções de redundância de dados: LRS (armazenamento com redundância local) e GRS (armazenamento com redundância geográfica). As seções a seguir descrevem as diferenças entre o armazenamento com redundância local e o armazenamento com redundância geográfica:
+Os arquivos do Azure oferecem suporte a três opções de redundância de dados: armazenamento localmente redundante (LRS), armazenamento com redundância de zona (ZRS) e armazenamento com redundância geográfica (GRS). As seções a seguir descrevem as diferenças entre as opções de redundância diferentes:
 
 ### <a name="locally-redundant-storage"></a>Armazenamento com redundância local
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>Armazenamento com redundância de zona
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Armazenamento com redundância geográfica
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]

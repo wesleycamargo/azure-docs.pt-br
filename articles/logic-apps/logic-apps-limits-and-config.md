@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limites e configuração de Aplicativos Lógicos
 
@@ -85,12 +85,12 @@ Estes limites se aplicam à execução de um único aplicativo lógico.
 Estes limites se aplicam uma única instância de aplicativo lógico.
 
 | NOME | Limite | Observações | 
-| ---- | ----- | ----- | 
-| Execuções de ações a cada cinco minutos | 100.000 | Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
+| ----- | ----- | ----- | 
+| Execuções de ações a cada cinco minutos | 100.000 |<p>O limite pode ser aumentado para 300.000 executando um aplicativo lógico no modo `High Througput`, e isso pode ser feito definindo a propriedade `operationOptions` em`runtimeConfiguration` do recurso de fluxo de trabalho para `OptimizedForHighThroughput`. <p>Observe que o modo de alta taxa de transferência está em versão prévia. Além disso, uma carga de trabalho pode ser distribuída entre vários aplicativos conforme necessário. | 
 | Chamadas de saída simultâneas a ações | ~2.500 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
-| Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas | ~1,000 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
-| Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos | 60.000 | Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
-| Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos | 45,000 | Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
+| Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas |~1,000 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
+| Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos  | 60.000 | Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
+| Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos| 45,000 |Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
 |||| 
 
 Para exceder esses limites no processamento normal ou executar um teste de carga que possa exceder esses limites, [entre em contato conosco](mailto://logicappsemail@microsoft.com) para que possamos ajudá-lo com suas necessidades.

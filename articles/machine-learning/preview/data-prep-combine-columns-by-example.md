@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Transformação Combinar colunas por exemplo
 Essa transformação permite que o usuário adicione uma nova coluna combinando valores de várias colunas. O usuário pode especificar um separador ou fornecer exemplos de valores combinados para realizar essa transformação. Quando o usuário fornece exemplos de combinação, a transformação é tratada pelo mesmo mecanismo **Por exemplo** usado na transformação **Derivar coluna por exemplo**.
@@ -28,7 +28,7 @@ Para executar essa transformação, siga essas etapas:
 3. Você pode atualizar o valor combinado na coluna recém-criada. O valor atualizado é usado como um exemplo para aprender a transformação.
 4. Clique em **OK** para aceitar a transformação.
 
-### <a name="transform-editor-advanced-mode"></a>Editor de transformação: modo avançado
+### <a name="transform-editor-advanced-mode"></a>Editor de transformação: Modo Avançado
 
 O Modo Avançado fornece uma experiência mais avançada para a combinação de colunas. 
 
@@ -37,6 +37,10 @@ Selecionar **Separador** em **Combinar Colunas por** permite que o usuário espe
 Selecionar **Exemplos** em **Combinar Colunas por** permite que o usuário forneça exemplos de valores combinados. Para promover uma linha como um exemplo, clique duas vezes nas linhas na grade. Digite a saída esperada na caixa de texto em relação à linha promovida. Saia da caixa de texto **Separador** para visualizar os resultados na grade de dados. Pressione **OK** para confirmar a transformação. 
 
 O usuário pode mudar entre o **Modo Básico** e o **Modo Avançado** clicando nos links no Editor de Transformação.
+
+### <a name="transform-editor-send-feedback"></a>Editor de transformação: Enviar Comentário
+
+Clicar no link **Enviar comentário** abre o diálogo **Comentário** com a caixa de comentários pré-preenchida com os exemplos que o usuário forneceu. O usuário deve revisar o conteúdo da caixa de comentários e fornecer mais detalhes para nos ajudar a entender o problema. Se o usuário não quiser compartilhar dados com a Microsoft, deve excluir os dados de exemplos pré-preenchidos antes de clicar no botão **Enviar Comentário**. 
 
 ### <a name="editing-existing-transformation"></a>Editando a transformação existente
 
