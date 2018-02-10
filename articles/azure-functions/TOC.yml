@@ -133,6 +133,8 @@
           href: functions-run-local.md
         - name: Desenvolvimento do Visual Studio
           href: functions-develop-vs.md
+        - name: Tratamento de erros
+          href: functions-bindings-error-pages.md
     - name: Implantar
       items:
         - name: Implantação contínua

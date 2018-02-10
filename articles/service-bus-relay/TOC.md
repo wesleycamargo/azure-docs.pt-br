@@ -1,8 +1,8 @@
 # Visão geral
 ## [O que é Retransmissão?](relay-what-is-it.md)
-## [PERGUNTAS FREQUENTES](relay-faq.md)
+## [Perguntas frequentes](relay-faq.md)
 
-# Introdução
+# Guia de início rápido
 ## [Criar um namespace](relay-create-namespace-portal.md)
 ## [Criar um aplicativo híbrido local/na nuvem](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Conexões Híbridas

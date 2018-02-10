@@ -4,7 +4,7 @@
 ## [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 ## [Perguntas frequentes](service-bus-faq.md)
 
-# Introdução
+# Guia de início rápido
 ## [Criar um namespace](service-bus-create-namespace-portal.md)
 ## Usar as filas
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
