@@ -359,6 +359,8 @@
           items:
             - name: Implantação do aplicativo de exemplo
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Locatários da provisão
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Banco de dados por locatário
           href: saas-dbpertenant-wingtip-app-overview.md
           items:
