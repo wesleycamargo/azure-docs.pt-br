@@ -29,6 +29,8 @@
       href: apache-kafka-mirroring.md
     - name: Analisar logs do Kafka
       href: apache-kafka-log-analytics-operations-management.md
+    - name: Usar o Kafka com o Serviço de Contêiner do Azure
+      href: apache-kafka-azure-container-services.md
     - name: Criar pipelines de transmissão
       items:
         - name: Kafka e Spark (Fluxo Estruturado)
