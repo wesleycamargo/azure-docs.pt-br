@@ -236,6 +236,7 @@
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog de marketing](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [Opções de Suporte do StorSimple](storsimple-8000-support-options.md)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Preços](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)

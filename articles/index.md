@@ -5,11 +5,11 @@ title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4263,12 +4263,12 @@ Ferramentas do SQL </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Um conjunto de arquiteturas recomendadas para aplicativos em nuvem. Cada arquitetura inclui práticas recomendadas, etapas prescritivas e um componente executável que incorpora as recomendações.
+O Centro de Arquitetura do Azure contém orientações para criar soluções de ponta a ponta no Microsoft Azure. Nele, você encontrará arquiteturas de referência, melhores práticas, padrões de design, guias de cenário e implementações de referência.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ Um conjunto de arquiteturas recomendadas para aplicativos em nuvem. Cada arquite
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Centro de Arquitetura do Azure</h3>
+                                                    <p>Diretrizes para criar soluções de ponta a ponta no Microsoft Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Guia de Arquitetura do Aplicativo do Azure</h3>
-                                                    <p>Conhecimento fundamental para ser bem-sucedido na nuvem. Se você ainda não conhece a nuvem ou o Azure, comece por aqui.</p>
+                                                    <p>Este guia apresenta uma abordagem estruturada para a criação de aplicativos do Azure que são escalonáveis, flexíveis e altamente disponíveis. Ele se baseia nas práticas comprovadas aprendemos de contratos com clientes.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ Um conjunto de arquiteturas recomendadas para aplicativos em nuvem. Cada arquite
                                                 <div class="cardText">
                                                     <h3>Padrões de design na nuvem</h3>
                                                     <p>Projete padrões para a nuvem. Cada padrão descreve um problema, um padrão que resolva o problema e um exemplo baseado no Azure.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Práticas recomendadas para aplicativos em nuvem</h3>
-                                                    <p>
-Um conjunto de práticas recomendadas para aplicativos em nuvem, que abrangem aspectos como o dimensionamento automático, o cache, o particionamento de dados, o design de APIs e o monitoramento.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

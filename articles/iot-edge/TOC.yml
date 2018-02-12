@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Depurar Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: Armazenar dados na borda
+      href: sql-storage.md
     - name: Solucionar problemas
       href: troubleshoot.md
 - name: Conceitos

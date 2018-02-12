@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: Log de atividades
           href: monitoring-overview-activity-logs.md
+        - name: Alertas do log de atividades (Versão Prévia)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Grupos de ação
           href: monitoring-action-groups.md
         - name: Logs de diagnóstico
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Configurar alertas com o Azure PowerShell
           href: insights-alerts-powershell.md
-        - name: Fazer com que a alerta de métrica chame um webhook
-          href: insights-webhooks-alerts.md
+        - name: Ações de Webhook para alertas do log
+          href: monitor-alerts-unified-log-webhook.md
         - name: Criar um alerta de métrica com um modelo do Resource Manager
           href: monitoring-enable-alerts-using-template.md
     - name: Usar autoescala

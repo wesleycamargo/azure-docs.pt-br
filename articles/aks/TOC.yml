@@ -35,28 +35,38 @@
       href: container-service-quotas.md
 - name: Guias de instruções
   items:
-    - name: Dimensionar um cluster AKS
-      href: scale-cluster.md
-    - name: Atualizar um cluster AKS
-      href: upgrade-cluster.md
-    - name: Autenticar com o ACR
-      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Executar aplicativos com Helm
-      href: kubernetes-helm.md
-    - name: Desenvolver aplicativos com Draft
-      href: kubernetes-draft.md
-    - name: Integrar no Azure com OSBA
-      href: integrate-azure.md
-    - name: Usar painel do Kubernetes
-      href: kubernetes-dashboard.md
-    - name: Criar uma entidade de serviço
-      href: kubernetes-service-principal.md
+    - name: Operações de cluster
+      items:
+        - name: Dimensionar um cluster AKS
+          href: scale-cluster.md
+        - name: Atualizar um cluster AKS
+          href: upgrade-cluster.md
+        - name: Excluir um cluster AKS
+          href: delete-cluster.md
     - name: Configurar volumes de dados
       items:
         - name: Discos do Azure - Volume Persistente
           href: azure-disks-dynamic-pv.md
         - name: Arquivos do Azure - Volume persistente
           href: azure-files-dynamic-pv.md
+    - name: Segurança e autenticação
+      items:
+        - name: Criar uma entidade de serviço
+          href: kubernetes-service-principal.md
+        - name: Autenticar com o ACR
+          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Desenvolver e executar aplicativos
+      items:
+        - name: Executar aplicativos com Helm
+          href: kubernetes-helm.md
+        - name: Desenvolver aplicativos com Draft
+          href: kubernetes-draft.md
+        - name: Integrar no Azure com OSBA
+          href: integrate-azure.md
+    - name: Noções básicas do Kubernetes
+      items:
+        - name: Usar painel do Kubernetes
+          href: kubernetes-dashboard.md
 - name: Referência
   items:
     - name: CLI do Azure

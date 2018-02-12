@@ -64,13 +64,13 @@
 
 ## Monitoramento
 ### [Monitorar serviço de nuvem](cloud-services-how-to-monitor.md)
+### [Usar contadores de desempenho](diagnostics-performance-counters.md)
 ### [Desempenho de testes](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Teste com o Criador de Perfil do Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Habilitar diagnósticos
 #### [PowerShell do Azure](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Usar contadores de desempenho no Diagnóstico do Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
 ### [Rastrear um Serviço de Nuvem com o Diagnóstico](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [Enviar dados de diagnóstico para o App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
