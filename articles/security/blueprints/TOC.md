@@ -17,8 +17,8 @@
 ### [Recursos técnicos de segurança](../azure-security-technical-capabilities.md)
 ### [Governança no Azure](../governance-in-azure.md)
 ### [Criptografia de dados em repouso](../azure-security-encryption-atrest.md)
-### Plantas de Arquitetura
-#### Conformidade - PCI DSS
+### Segurança do Azure e Esquemas de Conformidade
+#### PCI DSS
 ##### [Processamento de pagamento para ambientes em conformidade com o PCI DSS](payment-processing-blueprint.md)
 ##### [Visão geral dos requisitos](pci-dss-requirements-overview.md)
 ##### [Requisito 1 - firewalls](pci-dss-requirement-1-firewall.md)
@@ -33,8 +33,8 @@
 ##### [Requisito 10 - monitoramento](pci-dss-requirement-10-monitoring.md)
 ##### [Requisito 11 - teste](pci-dss-requirement-11-testing.md)
 ##### [Requisito 12 - política](pci-dss-requirement-12-policy.md)
-#### Conformidade - FedRAMP
-##### [Aplicativos Web para FedRAMP](fedramp.md)
+#### FedRAMP
+##### [Automação de Aplicativos Web](fedramp.md)
 ##### [Visão geral dos controles de segurança](fedramp-controls-overview.md)
 ##### [Controle de acesso](fedramp-access-controls.md)
 ##### [Auditoria e contabilidade](fedramp-audit-accountability-controls.md)
@@ -53,11 +53,11 @@
 ##### [Proteções do sistema e das comunicações](fedramp-system-communications-protection-controls.md)
 ##### [Integridades do sistema e das informações](fedramp-system-information-integrity-controls.md)
 ##### [Aquisições do sistema e de serviços](fedramp-system-services-acquisition-controls.md)
-#### Conformidade - UK-OFFICIAL
-##### [Aplicativos Web de três camadas para UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Automação de Aplicativos Web de Três Camadas](uk-official-three-tier-applications-overview.md)
 ##### [Visão geral](uk-official-three-tier-applications-overview.md)
 ##### [Visão geral dos princípios](uk-official-three-tier-applications-principles-overview.md)
-#### Conformidade - Serviços Financeiros
+#### Serviços Financeiros
 ##### [Serviços Financeiros para Cargas de Trabalho Regulamentadas](financial-services-regulated-workloads.md)
 
 # Introdução
@@ -93,7 +93,6 @@
 ### [Introdução à integração de log do Azure](../security-azure-log-integration-overview.md)
 #### [Introdução à integração de log do Azure](../security-azure-log-integration-get-started.md)
 #### [Integrar o Azure Active Directory a logs de auditoria](../security-azure-log-integration-ad.md)
-#### [Integrar os alertas da Central de Segurança](../security-azure-log-integration-security-center.md)
 #### [Integrar os logs do Key Vault usando Hubs de Eventos](../security-azure-log-integration-keyvault-eventhub.md)
 #### [Perguntas frequentes](../security-azure-log-integration-faq.md)
 
@@ -105,7 +104,7 @@
 ### [Práticas recomendadas de segurança de gerenciamento de identidade](../azure-security-identity-management-best-practices.md)
 
 ## Serviços PaaS
-### [Proteção das implantações PaaS](../security-paas-deployments.md)
+### [Proteção de implantações de PaaS](../security-paas-deployments.md)
 #### [Proteção dos aplicativos Web e móveis de PaaS usando os Serviços de Aplicativos](../security-paas-applications-using-app-services.md)
 #### [Proteção dos aplicativos Web e móveis de PaaS usando o SQL](../security-paas-applications-using-sql.md)
 ##### [Práticas recomendadas de segurança do Banco de Dados SQL](../azure-database-security-best-practices.md)
@@ -126,10 +125,10 @@
 ## [Microsoft Security Response Center](../azure-security-response-center.md)
 ## [Teste de caneta](../azure-security-pen-testing.md)
 ## [Central de Segurança](../../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
-## [Cofre de Chaves](../../key-vault/key-vault-whatis.md)
+## [Key Vault](../../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../../log-analytics/log-analytics-overview.md)
 ## [Autenticação Multifator](../../multi-factor-authentication/multi-factor-authentication.md)
-## [Active Directory do Azure](../../active-directory/active-directory-whatis.md)
+## [Azure Active Directory](../../active-directory/active-directory-whatis.md)
 ## [Operations Management Suite](../../operations-management-suite/oms-security-getting-started.md)
 
 # Recursos
