@@ -90,7 +90,6 @@
 ### [Introdução à integração de log do Azure](security-azure-log-integration-overview.md)
 #### [Introdução à integração de log do Azure](security-azure-log-integration-get-started.md)
 #### [Integrar o Azure Active Directory a logs de auditoria](security-azure-log-integration-ad.md)
-#### [Integrar os alertas da Central de Segurança](security-azure-log-integration-security-center.md)
 #### [Integrar os logs do Key Vault usando Hubs de Eventos](security-azure-log-integration-keyvault-eventhub.md)
 #### [Perguntas frequentes](security-azure-log-integration-faq.md)
 
@@ -126,7 +125,7 @@
 ## [Cofre da Chave](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Autenticação Multifator](../multi-factor-authentication/multi-factor-authentication.md)
-## [Active Directory do Azure](../active-directory/active-directory-whatis.md)
+## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Recursos
