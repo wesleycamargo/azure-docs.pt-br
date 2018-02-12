@@ -28,6 +28,7 @@
 ## Administrar um domínio gerenciado
 ### [Administrar um domínio gerenciado](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrar o DNS em um domínio gerenciado](active-directory-ds-admin-guide-administer-dns.md)
+### [Verificar a integridade do seu domínio](active-directory-ds-check-health.md)
 ### Configurar LDAP seguro para um domínio gerenciado
 #### [Tarefa 1: obter um certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tarefa 2: exportar o certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
@@ -55,7 +56,7 @@
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 
 # Relacionados
-## [Active Directory do Azure](../active-directory/active-directory-whatis.md)
+## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Autenticação Multifator](../multi-factor-authentication/multi-factor-authentication.md)
 
