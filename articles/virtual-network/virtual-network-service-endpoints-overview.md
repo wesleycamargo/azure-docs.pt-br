@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>Pontos de extremidade de serviço de rede virtual (versão prévia)
+# <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
 Os pontos de extremidade de serviço de VNet (rede virtual) estendem o espaço de endereço privado e a identidade da sua rede virtual para os serviços do Azure por meio de uma conexão direta. Os pontos de extremidade permitem que você possa garantir os recursos essenciais do serviço do Azure somente para suas redes virtuais. O tráfego de sua rede virtual para o serviço do Azure sempre permanece na rede de backbone do Microsoft Azure.
 
-Este recurso está disponível em versão prévia para os seguintes serviços e regiões do Azure:
+Este recurso está disponível para os seguintes serviços e regiões do Azure:
 
-- **Armazenamento do Azure**: Todas as regiões na nuvem pública do Azure.
-- **SQL do Azure**: todas as regiões na nuvem pública do Azure.
+- **Armazenamento do Azure**: geralmente disponível. Todas as regiões na nuvem pública do Azure e Azure Governamental.
+- **SQL do Azure**: versão prévia. Todas as regiões na nuvem pública do Azure.
 
 Para obter as notificações mais recentes sobre a versão prévia, verifique a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -66,7 +66,7 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 ### <a name="configuration"></a>Configuração
 
 - Os pontos de extremidade de serviço são configurados em uma sub-rede em uma rede virtual. Os pontos de extremidade funcionam com qualquer tipo de instâncias de computação em execução dentro dessa sub-rede.
-- Somente um ponto de extremidade de serviço pode ser habilitado para determinado serviço de uma sub-rede. Você pode configurar vários pontos de extremidade de serviço para todos os serviços do Azure compatíveis (por exemplo, Armazenamento do Azure ou Banco de dados SQL do Azure) em uma sub-rede.
+- Você pode configurar vários pontos de extremidade de serviço para todos os serviços do Azure compatíveis (por exemplo, Armazenamento do Azure ou Banco de dados SQL do Azure) em uma sub-rede.
 - As redes virtuais devem estar na mesma região do recurso do serviço do Azure. Se estiver usando contas GRS e RA-GRS do Armazenamento do Azure, a conta primária deverá estar na mesma região que a rede virtual.
 - A rede virtual em que o ponto de extremidade está configurado pode estar na mesma assinatura que o recurso do serviço do Azure ou em assinatura diferente. Para obter mais informações sobre as permissões necessárias para configurar pontos de extremidade e garantir os serviços do Azure, confira [Provisionamento](#Provisioning).
 - Para os serviços compatíveis, você pode proteger recursos novos ou existentes em redes virtuais usando pontos de extremidade de serviço.
@@ -106,7 +106,7 @@ Pontos de extremidade de serviço podem ser configurados em redes virtuais de fo
 
 Saiba mais sobre [funções internas](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e como atribuir permissões específicas a [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-As redes virtuais e os recursos de serviço do Azure podem estar na mesma assinatura ou em assinaturas diferentes. Se os recursos de serviço da rede virtual e do Azure estão em assinaturas diferentes, os recursos devem estar no mesmo locatário do AD (Active Directory) durante a versão prévia. 
+As redes virtuais e os recursos de serviço do Azure podem estar na mesma assinatura ou em assinaturas diferentes. Se os recursos de serviço da rede virtual e do Azure estão em assinaturas diferentes, os recursos devem estar no mesmo locatário do Active Directory (AD). 
 
 ## <a name="pricing-and-limits"></a>Preços e limites
 

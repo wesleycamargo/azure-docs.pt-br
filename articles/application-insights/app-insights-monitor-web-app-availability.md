@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
@@ -113,6 +113,11 @@ De um resultado do teste de disponibilidade, você pode:
 * Abrir o resultado do teste na Web no Visual Studio.
 
 *Parece correto, mas é relatado como uma falha?* Consulte [Perguntas frequentes](#qna) para conhecer maneiras de reduzir o ruído.
+
+
+> [!TIP]
+> É recomendável testar a partir de pelo menos dois locais para ter um monitoramento confiável.
+>
 
 ## <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente.

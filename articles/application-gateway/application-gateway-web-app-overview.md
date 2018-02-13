@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c29ff60a50e68c75b4e8f62713d6d1fffd2123d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>O Gateway de Aplicativo dá suporte a back-ends com vários locatários
 
-O Gateway de Aplicativo do Azure dá suporte a conjuntos de dimensionamento de máquina virtual, adaptadores de rede, IPs públicos/privados ou FQDN (nomes de domínio totalmente qualificados) como parte de seus pools de back-end. Por padrão, o gateway de aplicativo não altera o cabeçalho de host HTTP recebido do cliente e envia o cabeçalho inalterado para o back-end. Há muitos serviços, como [Aplicativos Web do Azure](../app-service/app-service-web-overview.md) e [Gerenciamento de API](../api-management/api-management-key-concepts.md), que tem vários locatários por natureza e contam com um cabeçalho de host ou extensão SNI específica para resolver para o ponto de extremidade correto. O Gateway de Aplicativo agora dá suporte aos usuários para que possam substituir o cabeçalho de host HTTP de entrada com base nas configurações HTTP de back-end. Esse recurso habilita o suporte a Aplicativos Web do Azure e ao Gerenciamento de APIs com back-ends com vários locatários. Esse recurso está disponível para as SKUs padrão e WAF. O suporte ao back-end com vários locatários funciona com terminação SSL e cenários do SSL de ponta a ponta.
+O Gateway de Aplicativo do Azure dá suporte a conjuntos de dimensionamento de máquina virtual, adaptadores de rede, IPs públicos/privados ou FQDN (nomes de domínio totalmente qualificados) como parte de seus pools de back-end. Por padrão, o gateway de aplicativo não altera o cabeçalho de host HTTP recebido do cliente e envia o cabeçalho inalterado para o back-end. Há muitos serviços, como [Aplicativos Web do Azure](../app-service/app-service-web-overview.md), que têm vários locatários por natureza e contam com um cabeçalho de host ou extensão SNI específica para resolver para o ponto de extremidade correto. O Gateway de Aplicativo agora dá suporte aos usuários para que possam substituir o cabeçalho de host HTTP de entrada com base nas configurações HTTP de back-end. Esse recurso habilita o suporte a Aplicativos Web do Azure e ao Gerenciamento de APIs com back-ends com vários locatários. Esse recurso está disponível para as SKUs padrão e WAF. O suporte ao back-end com vários locatários funciona com terminação SSL e cenários do SSL de ponta a ponta.
 
 ![cenário de aplicativo Web](./media/application-gateway-web-app-overview/scenario.png)
 

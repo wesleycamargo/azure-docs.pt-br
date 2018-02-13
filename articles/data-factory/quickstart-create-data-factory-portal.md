@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Criar um data factory usando a interface do usuário do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -133,7 +133,7 @@ Nas configurações de serviço vinculado, você especificou a conta de armazena
 
    c. Especifique **OutputDataset** para o nome.
 
-   d. Digite **adftutorial/saída** para a pasta. A Atividade de cópia cria a pasta de saída se ela não existir.
+   d. Digite **adftutorial/saída** para a pasta. Se a pasta de **saída**não existir, a atividade de cópia a cria em tempo de execução.
 
    e. Insira `@CONCAT(pipeline().RunId, '.txt')` como o nome do arquivo. 
    
@@ -142,7 +142,7 @@ Nas configurações de serviço vinculado, você especificou a conta de armazena
    ![Configurações conjunto de dados de saída](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
 ## <a name="create-a-pipeline"></a>Criar uma pipeline 
-Neste procedimento, você criará e validará um pipeline com uma atividade Copiar que usa o conjunto de dados de entrada e saída. A Atividade de cópia copia os dados do arquivo especificado nas configurações do conjunto de dados de entrada para o arquivo especificado nas configurações do conjunto de dados de saída. Se o conjunto de dados de entrada especifica apenas uma pasta (não o nome de arquivo), a Atividade de cópia copia todos os arquivos da pasta de origem para o destino. 
+Neste procedimento, você criará e validará um pipeline com uma atividade Copiar que usa o conjunto de dados de entrada e saída. A Atividade de cópia copia os dados do arquivo especificado por você nas configurações do conjunto de dados de entrada para o arquivo especificado por você nas configurações do conjunto de dados de saída. Se o conjunto de dados de entrada especifica apenas uma pasta (não o nome de arquivo), a Atividade de cópia copia todos os arquivos da pasta de origem para o destino. 
 
 1. Selecione o botão **+** (mais) adição e, em seguida, selecione **Pipeline**. 
 
@@ -180,7 +180,7 @@ Nesta etapa, execute um teste do pipeline antes de implantar o Data Factory.
 ## <a name="trigger-the-pipeline-manually"></a>Disparar o pipeline manualmente
 Nesta procedimento, você implanta entidades (serviços vinculados, conjuntos de dados, pipelines) ao Azure Data Factory. Depois, dispare manualmente a execução do pipeline. Você também pode publicar entidades em seu próprio repositório Git dos Visual Studio Team Services, que é abordado em [outro tutorial](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Antes de disparar um pipeline, você deve publicar as entidades no Data Factory. Para publicar, selecione **Publicar** no painel esquerdo. 
+1. Antes de disparar um pipeline, você deve publicar as entidades no Data Factory. Para publicar, selecione **Publicar Tudo** no painel esquerdo. 
 
    ![Botão Publicar](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. Para disparar o pipeline manualmente, selecione **Gatilho** na barra de ferramentas e selecione **Disparar Agora**. 
@@ -224,9 +224,9 @@ Este procedimento é opcional neste tutorial. Você pode criar um *agendador de 
 5. Examine a mensagem de aviso e selecione **Concluir**.
 
    ![Botão "Concluir" e de Aviso](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Clique em **Publicar** para publicar as alterações no Data Factory. 
+6. Clique em **Publicar Tudo** para publicar as alterações no Data Factory. 
 
-   ![Botão Publicar](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Botão Publicar](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Alterne para a guia **Monitorar** à esquerda. Selecione **Atualizar** para atualizar a lista. Você verá que o pipeline é executado uma vez por minuto desde o momento da publicação até hora de término. 
 
    Observe os valores na coluna **Disparado Por**. A execução do gatilho manual foi feita em uma etapa anterior (**Disparar agora**). 

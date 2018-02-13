@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação do Azure Machine Learning (Versão Prévia)"
+title: "Documentação dos serviços do Azure Machine Learning (versão prévia)"
 metadata:
-  title: "Documentação do Azure Machine Learning (Versão Prévia)"
-  meta.description: Learn how to use Azure Machine Learning public preview features.
+  title: "Documentação dos serviços do Azure Machine Learning (versão prévia)"
+  meta.description: Learn how to use Azure Machine Learning services (preview).
   services: machine-learning
   author: garyericson
   manager: jhubbard
@@ -11,27 +11,24 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/06/2017
+  ms.date: 01/18/2018
   ms.author: garye
-  ms.openlocfilehash: 98d106418472f66b8e5fe5d887eb8e75f5ce4a1b
-  ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+  ms.openlocfilehash: b5f55848e81b6faf2c8e2ab21ea32ee134e730bf
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/23/2018
+  ms.lasthandoff: 02/13/2018
 abstract:
-  description: "Saiba como preparar dados, criar e implantar modelos com nossos tutoriais e guias de início rápido. Os recursos de versão prévia do Azure Machine Learning permitem criar, implantar e gerenciar modelos ML e AI usando quaisquer ferramentas Python e bibliotecas. Você pode usar uma ampla variedade de dados e serviços de computação no Azure para armazenar e processar seus dados."
+  description: "Os serviços do Azure Machine Learning (versão prévia) permitem criar, implantar e gerenciar modelos de machine learning e inteligência artificial usando quaisquer ferramentas e bibliotecas do Python. Você pode usar uma ampla variedade de dados e serviços de computação no Azure para armazenar e processar seus dados."
 sections:
 - title: "Guia de início rápido de 5 minutos"
   items:
   - type: paragraph
     text: Crie seu primeiro projeto de Machine Learning
   - type: list
-    style: icon48
+    style: unordered
     items:
-    - image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-      text: Instalar e criar
-      href: quickstart-installation
+    - html: <a href="quickstart-installation.md">Instalar e criar</a>
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
@@ -39,10 +36,28 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-classifying-iris-part-1\">Percorrer as Noções básicas dos serviços de Machine Learning (versão prévia)</a>"
+    - html: "<a href=\"tutorial-classifying-iris-part-1\">Percorrer as noções básicas dos serviços de Machine Learning (versão prévia)</a>"
     - html: "<a href=\"tutorial-classifying-iris-part-2\">Use o Workbench de Machine Learning para criar um modelo com o conjunto de dados da flor Íris</a>"
     - html: <a href="tutorial-classifying-iris-part-3">Saiba como implantar um modelo de Machine Learning</a>
     - html: "<a href=\"tutorial-bikeshare-dataprep\">Use o Workbench do Azure Machine Learning para a preparação de dados avançados</a>"
+- title: Mais tecnologias do Azure Machine Learning
+  items:
+  - type: paragraph
+    text: "Outras tecnologias disponíveis no Azure Machine Learning:"
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Machine Learning Studio
+      href: /azure/machine-learning/studio/
+      image:
+        src: media/index/machine-learning-studio.svg
+        href: /azure/machine-learning/studio/
+    - title: "Máquina Virtual de Ciência de Dados"
+      href: /azure/machine-learning/data-science-virtual-machine/
+      image:
+        src: media/index/virtual-machines.svg
+        href: /azure/machine-learning/data-science-virtual-machine/
 - title: "Referência"
   items:
   - type: list

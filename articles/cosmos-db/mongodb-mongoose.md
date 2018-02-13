@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9878936b5dd76730633dec16b1c3a3eaac78e95a
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: fb6db6555171b65767a715c6b4c8ff37f42c94ef
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Usando a estrutura de Mongoose com o Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Este tutorial demonstra como usar o [Mongoose Framework](http://mongoosejs.com/)
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -55,7 +55,7 @@ Vamos criar uma conta do Azure Cosmos DB. Caso tenha uma conta que queira usar, 
 1. Instalar os pacotes necessários usando uma das opções ```npm install```:
     * Mongoose: ```npm install mongoose --save```
     * Dotenv (se você gostaria de carregar seus segredos de um arquivo de .env): ```npm install dotenv --save```
-    
+
     >[!Note]
     > O sinalizador ```--save``` adiciona a dependência ao arquivo package.json.
 
@@ -86,7 +86,7 @@ Vamos criar uma conta do Azure Cosmos DB. Caso tenha uma conta que queira usar, 
     > Aqui, as variáveis de ambiente são carregadas usando process.env.{variableName} usando o pacote npm 'dotenv'.
 
     Quando você estiver conectado ao Azure Cosmos DB, agora você pode começar a configuração de modelos de objeto em Mongoose.
-    
+
 ## <a name="caveats-to-using-mongoose-with-azure-cosmos-db"></a>Limitações ao uso de Mongoose com o Azure Cosmos DB
 
 Para cada modelo que você cria, Mongoose cria uma nova coleção MongoDB nos bastidores. No entanto, considerando o modelo de cobrança por coleção do Azure Cosmos DB, talvez não seja a maneira mais eficiente, se você tiver vários modelos de objeto que estão escassamente preenchidos.
@@ -181,7 +181,7 @@ O comportamento de Mongoose padrão é criar uma coleção do MongoDB toda vez q
 
 1. Agora, ao ir ao portal do Azure, você observa duas coleções criadas no Azure Cosmos DB.
 
-    ![Tutorial de Node.js - Captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com o nome da coleção realçado - banco de dados do nó][alldata]
+    ![Tutorial de Node.js – Captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com vários nomes de coleção realçados – banco de dados do nó][mutiple-coll]
 
 1. Por fim, vamos ler os dados do Azure Cosmos DB. Como estamos usando o modelo operacional de Mongoose padrão, as leituras são as mesmas que quaisquer outras leituras com o Mongoose.
 
@@ -286,7 +286,7 @@ Aqui, criamos um modelo do objeto base, definimos uma chave de diferenciação e
 
 1. Agora, se você voltar ao portal do Azure, observe que você tem apenas uma coleção chamada ```alldata``` com dados de 'Família' e 'Destinos de Férias'.
 
-    ![Tutorial de Node.js - Captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com o nome da coleção realçado - banco de dados do nó][mutiple-coll]
+    ![Tutorial de Node.js - Captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com o nome da coleção realçado - banco de dados do nó][alldata]
 
 1. Além disso, observe que cada objeto tem outro atributo chamado de ```__type```, que ajuda você a diferenciar entre os dois modelos de objeto diferente.
 

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilar um aplicativo Web Docker Python e PostgreSQL no Azure
 
@@ -27,13 +27,13 @@ O Aplicativo Web para Contêineres fornece um serviço de hospedagem na Web alta
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar banco de dados PostgreSQL no Azure
-> * Conectar um aplicativo Python ao MySQL
+> * Criar um servidor de banco de dados PostgreSQL no Azure
+> * Conectar a um aplicativo Python ao MySQL
 > * Implantar o aplicativo no Azure
 > * Atualizar o modelo de dados e reimplantar o aplicativo
 > * Gerenciar o aplicativo no portal do Azure
 
-Você pode seguir as etapas abaixo no macOS. As instruções do Linux e do Windows são as mesmas na maioria dos casos, mas as diferenças não são detalhadas neste tutorial.
+Você pode seguir as etapas deste artigo no macOS. As instruções do Linux e do Windows são as mesmas na maioria dos casos, mas as diferenças não são detalhadas neste tutorial.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -88,7 +88,7 @@ Esse repositório de exemplo contém um aplicativo [Flask](http://flask.pocoo.or
 ### <a name="run-the-application"></a>Executar o aplicativo
 
 > [!NOTE] 
-> Em uma etapa posterior, simplificaremos esse processo criando um contêiner do Docker para ser usado com o nosso banco de dados de produção.
+> Em uma etapa posterior, você simplificará esse processo criando um contêiner do Docker para ser usado com o nosso banco de dados de produção.
 
 Instale os pacotes necessários e inicie o aplicativo.
 
@@ -343,7 +343,7 @@ Você verá duas senhas. Tome nota do nome de usuário e da primeira senha.
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>Carregue o contêiner do Docker no Registro de Contêiner do Azure
 
-Faça logon em seu Registro. Mediante solicitação, forneça a senha que você acabou de recuperar.
+Faça logon em seu Registro. Mediante solicitação, forneça a senha que você recuperou.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>

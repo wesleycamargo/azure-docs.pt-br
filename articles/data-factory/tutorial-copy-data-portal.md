@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure usando o Azure Data Factory
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, consulte a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -144,10 +144,7 @@ Neste tutorial, você iniciará com a criação do pipeline e depois criará ser
 9. Na guia **Geral**, na janela **Propriedades** , na parte inferior, especifique **SourceBlobDataset** como o **nome**.
 
     ![Nome do conjunto de dados](./media/tutorial-copy-data-portal/dataset-name.png)
-10. Alterne para a guia **Conexão** na janela Propriedades.   
-
-    ![Guia Conexão](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Clique em **+ Novo**, ao lado da caixa de texto **Serviço vinculado**. Um serviço vinculado vincula um armazenamento de dados ou uma computação ao data factory. Nesse caso, você criou um serviço vinculado do armazenamento do Azure para vincular sua conta de armazenamento do Azure para o armazenamento de dados. O serviço vinculado tem as informações de conexão que os serviços do Data Factory usam para se conectar ao seu armazenamento de Blobs em tempo de execução. O conjunto de dados especifica o contêiner, a pasta e o arquivo (opcional) que contêm os dados de origem. 
+10. Alterne para a guia **Conexão** na janela Propriedades. Clique em **+ Novo**, ao lado da caixa de texto **Serviço vinculado**. Um serviço vinculado vincula um armazenamento de dados ou uma computação ao data factory. Nesse caso, você criou um serviço vinculado do armazenamento do Azure para vincular sua conta de armazenamento do Azure para o armazenamento de dados. O serviço vinculado tem as informações de conexão que os serviços do Data Factory usam para se conectar ao seu armazenamento de Blobs em tempo de execução. O conjunto de dados especifica o contêiner, a pasta e o arquivo (opcional) que contêm os dados de origem. 
 
     ![Botão Novo serviço vinculado](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. Na janela **Novo Serviço Vinculado**, execute estas etapas: 
@@ -282,8 +279,8 @@ Você pode fazer a execução de teste de um pipeline antes de publicar os artef
     ![Botão Execução de teste](./media/tutorial-copy-data-portal/test-run-output.png)
 2. Verifique se os dados do arquivo de origem estão inseridos no banco de dados SQL de destino. 
 
-    ![Verificar saída do SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Clique em **Publicar** no painel esquerdo. Esta ação publica as entidades (serviços vinculados, conjuntos de dados e pipelines) criadas por você anteriormente no Azure Data Factory.
+    ![Verifique a saída SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
+3. Clique em **Publicar Tudo** no painel esquerdo. Esta ação publica as entidades (serviços vinculados, conjuntos de dados e pipelines) criadas por você anteriormente no Azure Data Factory.
 
     ![Botão Publicar](./media/tutorial-copy-data-portal/publish-button.png)
 4. Aguarde até que você veja a mensagem **Publicado com êxito**. Para ver as mensagens de notificação, clique na guia **Mostrar Notificações** na barra lateral esquerda. Feche a janela de notificações clicando em **X**.
@@ -343,7 +340,7 @@ Se você não quiser trabalhar com o repositório de código do VSTS, pode ignor
 ## <a name="trigger-the-pipeline-manually"></a>Disparar o pipeline manualmente
 Nesta etapa, você aciona manualmente o pipeline publicado na etapa anterior. 
 
-1. Clique em **Gatilho** na barra de ferramentas e clique em **Disparar Agora**. 
+1. Clique em **Gatilho** na barra de ferramentas e, depois, em **Gatilho agora**. Na página **Executar Pipeline**, clique em **Concluir**.  
 
     ![Menu Disparar agora](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Alterne para a guia **Monitor** à esquerda. Você verá uma execução do pipeline que é disparada por um gatilho manual. Você pode usar os links na coluna Ações para exibir detalhes da atividade e executar o pipeline novamente.
@@ -386,10 +383,10 @@ Nesse cronograma, você criará um agendador de gatilho para o pipeline. O gatil
 6. Na página **Parâmetros de Execução do Gatilho**, leia o aviso e clique em **Concluir**. O pipeline neste exemplo não tem parâmetros. 
 
     ![Parâmetros de pipeline](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Clique em **Publicar** para publicar as alterações no repositório. O gatilho não está realmente ativado até que a publicação seja bem-sucedida. 
+7. Clique em **Sincronizar** para sincronizar as alterações em seu branch com o branch mestre. Por padrão, a opção **Publicar alterações após a sincronização** está selecionada. Portanto, quando você seleciona **Sincronizar**, também são publicadas as entidades atualizadas para o serviço do Azure Data Factory a partir do branch mestre. O gatilho não está realmente ativado até que a publicação seja bem-sucedida.
 
-    ![Publicar um gatilho](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Alterne para a guia **Monitor** à esquerda para ver as execuções de pipeline disparadas. 
+    ![Publicar um gatilho](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Alterne para a guia **Monitor** à esquerda para ver as execuções de pipeline disparadas. 
 
     ![Execuções de pipeline disparadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. Para alternar do modo de exibição de execuções de pipeline para o modo de exibição de execuções do gatilho, clique em Execuções de Pipeline e selecione Execuções de Gatilho.
