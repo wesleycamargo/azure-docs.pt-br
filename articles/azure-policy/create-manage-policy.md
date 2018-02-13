@@ -9,11 +9,11 @@ ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerenciar políticas para impor a conformidade
 
@@ -370,7 +370,7 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
 5. Selecione **Atribuir**.
 
-## <a name="resolve-a-non-compliant-or-denied-resource"></a>Resolver um recurso negado ou sem conformidade
+## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Isentar um recurso negado ou sem conformidade usando a Exclusão
 
 Seguindo o exemplo acima, após atribuir a definição de política para exigir o SQL Server versão 12.0, um SQL Server criado com uma versão diferente seria recusado. Nesta seção, você verá como resolver uma tentativa negada de criar um SQL Server de uma versão diferente solicitando uma exclusão. A exclusão basicamente impede a aplicação de políticas. Uma exclusão pode aplicar a um grupo de recursos, ou você pode restringir a exclusão a recursos individuais.
 

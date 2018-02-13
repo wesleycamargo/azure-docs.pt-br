@@ -37,6 +37,8 @@
   items:
     - name: Operações de cluster
       items:
+        - name: Criar um cluster AKS
+          href: create-cluster.md
         - name: Dimensionar um cluster AKS
           href: scale-cluster.md
         - name: Atualizar um cluster AKS
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Configurar volumes de dados
       items:
-        - name: Discos do Azure - Volume Persistente
+        - name: Discos do Azure
           href: azure-disks-dynamic-pv.md
-        - name: Arquivos do Azure - Volume persistente
+        - name: Arquivos do Azure
           href: azure-files-dynamic-pv.md
+    - name: Configurar a rede
+      items:
+        - name: Endereço IP estático
+          href: static-ip.md
     - name: Segurança e autenticação
       items:
         - name: Criar uma entidade de serviço

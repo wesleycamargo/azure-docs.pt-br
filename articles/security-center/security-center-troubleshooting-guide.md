@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: 8c5c999d7c9924726804ccd18183d8e383a037cc
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 Este guia é para os profissionais de TI (tecnologia da informação), analistas de segurança de informações e administradores de nuvem cujas organizações estão usando a Central de Segurança do Azure e precisam solucionar os problemas relacionados a Central de Segurança.
@@ -60,7 +60,7 @@ Há dois cenários de instalação que podem produzir resultados diferentes ao i
 * **Agente instalado manualmente em uma máquina virtual localizada no Azure**: nesse cenário, se você estiver usando agentes baixados e instalados manualmente antes de fevereiro de 2017, será capaz de exibir os alertas no portal da Central de Segurança somente se filtrar na assinatura à qual o espaço de trabalho pertence. No caso de você filtrar a assinatura à qual o recurso pertence, não será possível ver todos os alertas. Você receberá notificações por email para o endereço de email configurado na política de segurança para a assinatura à qual o espaço de trabalho pertence.
 
 >[!NOTE]
-> Para evitar o comportamento explicado no segundo, baixe a versão mais recente do agente.
+> Para evitar o comportamento explicado no segundo cenário, baixe a versão mais recente do agente.
 >
 
 ## <a name="monitoring-agent-health-issues"></a>Problemas de integridade do agente de monitoramento

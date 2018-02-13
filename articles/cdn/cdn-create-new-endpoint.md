@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Introdução à CDN do Azure
-Este artigo descreve como habilitar a CDN (Rede de Distribuição de Conteúdo) do Azure criando um novo perfil e ponto de extremidade de CDN.
-
-> [!IMPORTANT]
-> Para obter uma introdução à CDN e uma lista de recursos, confira [visão geral da CDN](cdn-overview.md).
-> 
-> 
+Este artigo descreve como habilitar a [Rede de Distribuição de Conteúdo (CDN)](cdn-overview.md) do Azure criando um novo perfil e ponto de extremidade de CDN.
 
 ## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil CDN
 Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil pode conter um ou mais pontos de extremidade CDN. Para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério, use vários perfis.

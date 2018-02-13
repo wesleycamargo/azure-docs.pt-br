@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurar pontos de extremidade de serviço de rede virtual
 
@@ -67,15 +67,15 @@ Faça logon no Azure usando sua conta do Azure. Se não tiver uma conta do Azure
 
 Configuração | Valor
 ------- | -----
-Nome    | myVnet
+NOME    | myVnet
 Espaço de endereço | 10.0.0.0/16
 Nome da sub-rede|mySubnet
 Intervalo de endereços da sub-rede|10.0.0.0/24
 Grupo de recursos|Deixe Criar novo selecionado e digite um nome.
-Local|Qualquer região com suporte, digamos, Leste da Austrália
+Local padrão|Qualquer região com suporte, digamos, Leste da Austrália
 Assinatura|Selecione sua assinatura.
 __ServiceEndpoints__|habilitado
-__Serviços__ | Selecione um ou todos os serviços disponíveis. Durante a versão prévia, serviços com suporte: __"Microsoft.Storage", "Microsoft.Sql"__.
+__Serviços__ | Selecione um ou todos os serviços disponíveis. Serviços com suporte: __"Microsoft.Storage", "Microsoft.Sql"__.
 
 Selecione os serviços para os pontos de extremidade: ![Selecionar Serviços de Ponto de Extremidade de Serviço](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -136,7 +136,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Saída: 
-Nome | ID | Tipo
+NOME | ID | type
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -387,7 +387,7 @@ Para garantir recursos de serviço do Azure para uma rede virtual, o usuário de
 
 Saiba mais sobre [funções internas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e como atribuir permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-As VNets e os recursos de serviço do Azure podem estar na mesma assinatura ou em assinaturas diferentes. Se eles estão em assinaturas diferentes, os recursos devem estar no mesmo locatário do AD (Active Directory) durante essa versão prévia.
+As VNets e os recursos de serviço do Azure podem estar na mesma assinatura ou em assinaturas diferentes. Se eles estão em assinaturas diferentes, os recursos devem estar no mesmo locatário do Active Directory (AD).
 
 ## <a name="next-steps"></a>Próximas etapas
 

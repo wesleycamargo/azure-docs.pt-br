@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e173394f4ad55f8e94ef3db60bd171463b2cf48
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc4f2fd72860278fcd6c41c64f6f55715eb1884c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar um aplicativo Web do Node.js no Azure
 
@@ -69,8 +69,6 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Upload zip file](../../includes/app-service-web-upload-zip.md)]
-
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
@@ -106,15 +104,18 @@ Navegue até o aplicativo Web recém-criado. Substitua _&lt;nome do aplicativo>_
 ```bash
 http://<app name>.azurewebsites.net
 ```
+
+Seu novo aplicativo Web deve ficar assim:
+
 ![Página de aplicativo Web vazia](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
+[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## <a name="browse-to-the-app"></a>Navegar até o aplicativo
 
 Navegue até o aplicativo implantado usando o navegador da Web.
 
-```bash
+```
 http://<app_name>.azurewebsites.net
 ```
 
@@ -142,13 +143,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-Carregue esse novo arquivo zip no Cloud Shell, usando as mesmas etapas em [Carregar o arquivo zip](#upload-the-zip-file).
-
-Em seguida, no Cloud Shell, implante novamente o arquivo zip carregado.
-
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
-```
+Implante esse novo arquivo ZIP no Serviço de Aplicativo, usando as mesmas etapas em [Carregar o arquivo ZIP](#upload-the-zip-file).
 
 Mude para a janela do navegador aberta na etapa **Navegar até o aplicativo** e atualize a página.
 

@@ -1,9 +1,23 @@
-## <a name="deploy-uploaded-zip-file"></a>Implantar o arquivo ZIP carregado
+---
+title: "Arquivo de inclusão"
+description: "Arquivo de inclusão"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: 917f8cc4a22199351614d101f1300b80052ee9a9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 02/03/2018
+---
+## <a name="deploy-zip-file"></a>Implantar arquivo ZIP
 
-No Cloud Shell, implante o arquivo ZIP carregado em seu aplicativo Web usando o comando [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Verifique se você substituiu o *\<app_name>* pelo nome do seu aplicativo Web.
+No navegador, navegue até `https://<app_name>.scm.azurewebsites.net/ZipDeploy`.
 
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip
-```
+Carregue o arquivo ZIP que você criou em [Criar um arquivo ZIP de projeto](#create-a-project-zip-file) arrastando-o para a área do gerenciador de arquivos na página da Web.
 
-Esse comando implanta os arquivos e diretórios do arquivo ZIP para sua pasta de aplicativo padrão do Serviço de Aplicativo (`\home\site\wwwroot`) e reinicia o aplicativo. Se qualquer processo de compilação personalizada adicional for configurado, ele também será executado.
+Quando a implantação está em andamento, um ícone no canto superior direito mostra o progresso em porcentagem. A página também mostra as mensagens detalhadas para a operação abaixo da área do explorer. Quando for concluído, a última mensagem de implantação deve dizer `Deployment successful`.
