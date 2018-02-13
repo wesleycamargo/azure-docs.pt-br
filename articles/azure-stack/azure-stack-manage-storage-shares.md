@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para a pilha do Azure
 
@@ -130,7 +130,7 @@ Migração consolida um blob de contêineres no compartilhamento de novo.
 - Se você não tem permissões para um grupo de recursos e não pode usar o PowerShell para consultar os volumes adicionais para dados de estouro, trabalhe com o proprietário desses grupos de recursos e contêineres para entender o tamanho total dos dados para migrar antes de migrar os dados.  
 
 > [!IMPORTANT]
-> Migração de blobs para um contêiner é uma operação offline que requer o uso do PowerShell. Até que a migração é concluída, todos os blobs para o contêiner que você está migrando permanecerão offline e não podem ser usados.
+> Migração de blobs para um contêiner é uma operação offline que requer o uso do PowerShell. Até que a migração é concluída, todos os blobs para o contêiner que você está migrando permanecerão offline e não podem ser usados. Você deve evitar atualizando Azure pilha até a conclusão da migração em andamento todos os.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Para migrar usando o PowerShell de contêineres
 1. Confirme se você tem [PowerShell do Azure instalado e configurado](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
