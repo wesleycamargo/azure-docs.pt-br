@@ -1,4 +1,5 @@
 - name: Documentação de Máquina Virtual de Ciência de Dados
+  href: index.yml
   items: null
 - name: Visão geral
   expanded: true
