@@ -1,5 +1,5 @@
 - name: Documentação do Machine Learning Studio
-  href: index.md
+  href: index.yml
 - name: Visão geral
   expanded: true
   items:
