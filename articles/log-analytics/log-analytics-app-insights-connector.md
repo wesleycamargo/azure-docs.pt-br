@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Solução Conector do Application Insights (Versão Prévia) no OMS (Operations Management Suite)
+# <a name="application-insights-connector-management-solution-preview"></a>Solução de gerenciamento Conector do Application Insights (versão prévia) 
 
 ![Símbolo do Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-A solução Conector do Application Insights ajuda você a diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o [Application Insights](../application-insights/app-insights-overview.md). Exibições da mesma telemetria de aplicativo que os desenvolvedores visualizam no Application Insights estão disponíveis no OMS. No entanto, ao integrar os aplicativos do Application Insights ao OMS, a visibilidade dos aplicativos aumenta, pois os dados do aplicativo e da operação ficam em um único lugar. Ter as mesmas exibições ajuda na colaboração com os desenvolvedores de aplicativos. As exibições comuns podem ajudar a reduzir o tempo para detectar e resolver problemas do aplicativo e da plataforma.
+A solução Conector do Application Insights ajuda você a diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o [Application Insights](../application-insights/app-insights-overview.md). Exibições da mesma telemetria de aplicativo que os desenvolvedores visualizam no Application Insights estão disponíveis no Log Analytics. No entanto, ao integrar os aplicativos do Application Insights com o Log Analytics, a visibilidade dos aplicativos aumenta, pois os dados do aplicativo e da operação ficam em um único lugar. Ter as mesmas exibições ajuda na colaboração com os desenvolvedores de aplicativos. As exibições comuns podem ajudar a reduzir o tempo para detectar e resolver problemas do aplicativo e da plataforma.
 
 Ao usar a solução, você pode:
 
 - Exibir todos os aplicativos do Application Insights em um único lugar, mesmo quando eles estiverem em assinaturas diferentes do Azure
 - Correlacionar os dados da infraestrutura com os dados do aplicativo
 - Visualizar os dados do aplicativo com perspectivas na pesquisa de logs
-- Dinamizar dos dados do Log Analytics para o aplicativo do Application Insights no OMS e nos portais do Azure
+- Dinamizar dos dados do Log Analytics para o aplicativo do Application Insights no Portal do Azure
 
 ## <a name="connected-sources"></a>Fontes conectadas
 
@@ -63,8 +63,8 @@ Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Appli
 
 Outros pontos a serem considerados:
 
-- Só é possível vincular os aplicativos do Application Insights a um único espaço de trabalho do OMS.
-- Só é possível vincular os [recursos do Application Insights Standard ou Premium](https://azure.microsoft.com/pricing/details/application-insights) ao Log Analytics do OMS. No entanto, você pode usar a camada Gratuita do Log Analytics.
+- Você pode vincular aplicativos do Application Insights somente a um único espaço de trabalho do Log Analytics.
+- Só é possível vincular os [recursos do Application Insights Standard ou Premium](https://azure.microsoft.com/pricing/details/application-insights) ao Log Analytics. No entanto, você pode usar a camada Gratuita do Log Analytics.
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
@@ -129,7 +129,7 @@ Os componentes da perspectiva são atualizados, dependendo da consulta de pesqui
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Dinamizar para um aplicativo no portal do Azure
 
-As folhas do Conector do Application Insights foram projetadas para permitir que você dinamiza para o aplicativo selecionado do Application Insights *quando usar o portal do OMS*. Use a solução como uma plataforma de monitoramento de alto nível que ajuda você a solucionar problemas de um aplicativo. Quando você encontrar um problema potencial em um de seus aplicativos conectados, faça uma busca detalhada na pesquisa do OMS ou dinamize diretamente para o aplicativo do Application Insights.
+As folhas do Conector do Application Insights foram projetadas para permitir que você dinamiza para o aplicativo selecionado do Application Insights *quando usar o portal do OMS*. Use a solução como uma plataforma de monitoramento de alto nível que ajuda você a solucionar problemas de um aplicativo. Ao encontrar um possível problema em um de seus aplicativos conectados, você pode fazer uma busca detalhada na pesquisa do Log Analytics ou dinamizar diretamente até o aplicativo do Application Insights.
 
 Para dinamizar, clique nas reticências (**...**) exibidas ao final de cada linha e selecione **Abrir no Application Insights**.
 
@@ -140,7 +140,7 @@ Para dinamizar, clique nas reticências (**...**) exibidas ao final de cada linh
 
 ### <a name="sample-corrected-data"></a>Dados corrigido por amostra
 
-O Application Insights fornece a *[correção de amostragem](../application-insights/app-insights-sampling.md)* para ajudar a reduzir o tráfego de telemetria. Quando você habilita a amostragem no aplicativo do Application Insights, você obtém um número reduzido de entradas armazenadas no Application Insights e no OMS. Embora a consistência dos dados seja preservada na página e nas perspectivas do **Conector do Application Insights**, você deverá corrigir manualmente os dados amostrados das consultas personalizadas.
+O Application Insights fornece a *[correção de amostragem](../application-insights/app-insights-sampling.md)* para ajudar a reduzir o tráfego de telemetria. Ao habilitar a amostragem no aplicativo do Application Insights, você obtém um número reduzido de entradas armazenadas no Application Insights e no Log Analytics. Embora a consistência dos dados seja preservada na página e nas perspectivas do **Conector do Application Insights**, você deverá corrigir manualmente os dados amostrados das consultas personalizadas.
 
 Este é um exemplo de correção de amostragem em uma consulta da pesquisa de logs:
 
@@ -162,7 +162,7 @@ A solução recebe os seguintes tipos de telemetria de dados dos aplicativos con
 - Exibições de página – para que o espaço de trabalho receba exibições de página, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Eventos personalizados – para que o espaço de trabalho receba eventos personalizados, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Os dados são recebidos pelo OMS por meio do Application Insights assim que estiverem disponíveis.
+Os dados provenientes do Application Insights são recebidos pelo Log Analytics assim que estiverem disponíveis.
 
 ## <a name="output-data"></a>Dados de saída
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/02/2018
 ms.author: magoedte
-ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Coletar dados de computadores em seu ambiente com o Log Analytics
 
@@ -66,11 +66,11 @@ As informações abaixo listam as informações de configuração de proxy e fir
 |*.azure-automation.net | 443 | sim | 
 
 ### <a name="linux-operating-systems"></a>Sistemas operacionais Linux
-As seguintes distribuições Linux têm suporte oficialmente.  No entanto, o agente para Linux também pode ser executado em outras distribuições não listadas.
+As seguintes distribuições Linux têm suporte oficialmente.  No entanto, o agente para Linux também pode ser executado em outras distribuições não listadas.  Salvo indicação em contrário, todas as versões secundárias são compatíveis com cada versão principal listada.  
 
 * Amazon Linux 2012.09 a 2015.09 (x86/x64)
-* CentOS Linux 5, 6 e 7 (x86/x64)
-* Oracle Linux 5, 6 e 7 (x86/x64)
+* CentOS Linux 5, 6 e 7 (x86/x64)  
+* Oracle Linux 5, 6 e 7 (x86/x64) 
 * Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
 * Debian GNU/Linux 6, 7 e 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)

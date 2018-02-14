@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2018
@@ -156,7 +156,6 @@ Os serviços que atualmente não permitem mover um recurso são:
 * AD Domain Services
 * Serviço de Integridade Híbrida do AD
 * Gateway de Aplicativo
-
 * Serviços do BizTalk
 * Serviço de Contêiner
 * ExpressRoute
@@ -191,43 +190,29 @@ Você não pode mover uma rede virtual para uma assinatura diferente caso a rede
 
 ## <a name="app-service-limitations"></a>Limitações do Serviço de Aplicativo
 
-Ao trabalhar com aplicativos do Serviço de Aplicativo, você não pode mover um plano de Serviço de Aplicativo. Para mover os Aplicativos do Serviço de Aplicativo, as opções são:
+As limitações para mover recursos do Serviço de Aplicativo diferem se você está movendo os recursos dentro de uma assinatura ou para uma nova assinatura.
 
-* Mova o plano do Serviço de Aplicativo e todos os outros recursos do Serviço de Aplicativo nesse grupo de recursos para um novo grupo de recursos que ainda não têm os recursos do Serviço de Aplicativo. Esse requisito significa que você precisa mover até mesmo os recursos do Serviço de Aplicativo que não estão associados ao plano do Serviço de Aplicativo.
-* Mova os aplicativos para um grupo de recursos diferente, mas mantenha todos os planos do Serviço de Aplicativo no grupo de recursos original.
+### <a name="moving-within-the-same-subscription"></a>Movendo dentro da mesma assinatura
 
-O Plano do Serviço de Aplicativo não precisa residir no mesmo grupo de recursos que o aplicativo para que o aplicativo funcione corretamente.
+Ao mover um aplicativo Web _dentro da mesma assinatura_, você não pode mover os certificados SSL carregados. No entanto, você pode mover um aplicativo Web para o novo grupo de recursos sem mover o respectivo certificado SSL carregado, mantendo a funcionalidade SSL do aplicativo. 
 
-Por exemplo, se o grupo de recursos contém:
+Se você deseja mover o certificado SSL com o aplicativo Web, siga estas etapas:
 
-* **web-a** associado a **plan-a**
-* **web-b** associado a **plan-b**
+1.  Exclua o certificado carregado do aplicativo Web.
+2.  Mova o aplicativo Web.
+3.  Carregue o certificado no aplicativo Web movido.
 
-Suas opções são:
+### <a name="moving-across-subscriptions"></a>Movendo entre assinaturas
 
-* Mover **web-a**, **plan-a**, **web-b** e **plan-b**
-* Mover **web-a** e **web-b**
-* Mover **web-a**
-* Mover **web-b**
+Ao mover um aplicativo Web _entre assinaturas_, as seguintes limitações se aplicam:
 
-Todas as outras combinações envolvem deixar para trás um tipo de recurso que não pode ser deixado para trás ao mover um plano do Serviço de Aplicativo (qualquer tipo de recurso do Serviço de Aplicativo).
-
-Caso o aplicativo Web resida em um grupo de recursos diferente de seu plano do Serviço de Aplicativo, mas você desejar mover ambos para um novo grupo de recursos, será necessário realizar a movimentação em duas etapas. Por exemplo: 
-
-* **web-a** reside em **web-group**
-* **plan-a** reside em **plan-group**
-* Você quer que **web-a** e **plan-a** residam em **combined-group**
-
-Para realizar essa movimentação, execute duas operações de movimentação separadas na sequência a seguir:
-
-1. Mover **web-a** para **plan-group**
-2. Mover **web-a** e **plan-a** para **combined-group**.
-
-Você pode mover um Certificado do Serviço de Aplicativo para um novo grupo de recursos ou assinatura sem problemas. No entanto, se seu aplicativo Web incluir um certificado SSL que você tiver comprado externamente e carregado para o aplicativo, você deverá excluir o certificado antes de mover o aplicativo Web. Por exemplo, você pode executar as seguintes etapas:
-
-1. Excluir o certificado carregado do aplicativo Web
-2. Mover o aplicativo Web
-3. Carregar o certificado no aplicativo Web
+- O grupo de recursos de destino não pode ter nenhum recurso de Serviço de Aplicativo existente. Os recursos de Serviço de Aplicativo incluem:
+    - Aplicativos Web
+    - Planos do Serviço de Aplicativo
+    - Certificados SSL importados ou carregados
+    - Ambientes de Serviço de Aplicativo
+- Todos os recursos de Serviço de Aplicativo no grupo de recursos devem ser movidos juntos.
+- Recursos do Serviço de Aplicativo podem ser movidos apenas no grupo de recursos no qual eles foram originalmente criados. Se um recurso do Serviço de Aplicativo não estiver mais em seu grupo de recursos original, ele deverá ser movido de volta para esse grupo de recursos original primeiro e, em seguida, poderá ser movido entre assinaturas. 
 
 ## <a name="classic-deployment-limitations"></a>Limitações da implantação clássica
 

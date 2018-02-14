@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Movendo dados para dentro e para fora do Armazenamento do Azure
 Se você quiser mover dados locais para o Armazenamento do Azure (ou vice-versa), há várias maneiras de fazer isso. A melhor abordagem para você dependerá do seu cenário. Este artigo fornece uma visão geral rápida de diferentes cenários e ofertas apropriadas para cada um.
@@ -41,9 +41,9 @@ Confira nossa lista de [Gerenciadores de Armazenamento do Azure](../storage-expl
 Se você se sentir mais à vontade com um utilitário de linha de comando (por exemplo, Administradores de Sistema), veja algumas das opções a serem consideradas:
 
 ### <a name="azcopy"></a>AzCopy
-O AzCopy é um utilitário de linha de comando do Windows desenvolvido para cópia de dados de alto desempenho para dentro e para fora do Armazenamento do Azure. Você também pode copiar dados em uma conta de armazenamento ou entre diferentes contas de armazenamento.
+O AzCopy é um utilitário de linha de comando desenvolvido para cópia de dados de alto desempenho para dentro e para fora do Armazenamento do Azure. Você também pode copiar dados em uma conta de armazenamento ou entre diferentes contas de armazenamento. O AzCopy está disponível no [Windows](storage-use-azcopy.md) e no [Linux](storage-use-azcopy-linux.md).
 
-Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) para saber mais.
+Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) ou [Transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md) para saber mais.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 O Azure PowerShell é um módulo que fornece cmdlets para gerenciar serviços no Azure. Trata-se de uma linguagem de scripts e shell de linha de comando baseada em tarefas projetada especialmente para administração do sistema.

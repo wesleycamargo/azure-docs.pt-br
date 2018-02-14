@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para as distribuições não endossadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ O [agente Linux do Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-
 * O agente Linux do Azure requer Python v2.6+.
 * Além disso, o agente requer o módulo python-pyasn1. A maioria das distribuições fornece esse módulo como uma pacote autônomo instalável.
 * Em alguns casos, é possível que o agente Linux do Azure não seja compatível com o NetworkManager. Muitos pacotes RPM/DEB fornecidos pelas distribuições configuram o NetworkManager como um conflito para o pacote do waagent e, portanto, desinstalam o NetworkManager quando você instala o pacote do agente Linux.
+* O Agente Linux do Azure deve ser acima da versão mínima compatível; consulte este artigo para obter [detalhes](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Requisitos gerais do sistema Linux
 
@@ -150,7 +151,7 @@ O [agente Linux do Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
   
-    Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração.
+    Isso também garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração.
   
     Além disso, recomendamos que você *remova* os seguintes parâmetros, se eles existirem:
   

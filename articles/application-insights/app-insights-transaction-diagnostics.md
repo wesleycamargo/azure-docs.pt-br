@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação entre componentes unificado
 
-*Atualmente, essa experiência está em versão prévia e substitui as folhas de diagnóstico existentes para solicitações, dependências e exceções do servidor.*
+*Atualmente, essa experiência está em versão prévia e substitui as folhas de diagnóstico existentes para solicitações, dependências e exceções do lado do servidor.*
 
-A versão prévia apresenta uma nova experiência de diagnóstico unificado que correlaciona automaticamente a telemetria no servidor de todos os seus componentes monitorados do Application Insights em uma única visualização. Não importa se você tem vários recursos com chaves de instrumentação separadas, o Application Insights detecta o relacionamento subjacente e permite diagnosticar facilmente o componente, a dependência ou a exceção do aplicativo que causou uma desaceleração ou falha na transação.
+A versão prévia apresenta uma nova experiência de diagnóstico unificado que correlaciona automaticamente a telemetria no servidor de todos os seus componentes monitorados do Application Insights em uma única visualização. Não importa se você tem vários recursos com chaves de instrumentação separadas. O Application Insights detecta o relacionamento subjacente e permite diagnosticar facilmente o componente, a dependência ou a exceção do aplicativo que causou uma desaceleração ou falha na transação.
 
-## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>O que significa componente no contexto do Application Insights?
+## <a name="what-is-a-component"></a>O que é um componente?
 
 Os componentes são partes independentes dos aplicativos de microsserviços/distribuídos. As equipes de operações e desenvolvedores têm acesso ou visibilidade nível de código para telemetria gerada por esses componentes de aplicativos.
 
@@ -32,10 +32,12 @@ Os componentes são partes independentes dos aplicativos de microsserviços/dist
 * Os componentes são executados em qualquer número de instâncias de contêiner/função/servidor.
 * Os componentes podem ser chaves de instrumentação do Application Insights separadas (mesmo se as assinaturas forem diferentes) ou diferentes funções relatando para uma única chave de instrumentação do Application Insights. A nova experiência mostra detalhes em todos os componentes, independentemente de como foram configurados.
 
-> [!Tip]
-> Para obter os melhores resultados, assegure-se de que todos os componentes são instrumentados com os SDKs estáveis mais recentes do Application Insights. Se houver diferentes recursos do Application Insights, assegure-se de ter direitos apropriados para exibir a telemetria.
+> [!NOTE]
+> * **Não encontra os links dos itens relacionados?** Toda a telemetria relacionada à solicitação, às dependências e à exceção do lado do servidor estão nas seções [superior](#cross-component-transaction-chart) e [inferior](#all-telemetry-related-to-the-selected-component-operation) do lado esquerdo. 
+> * A seção [superior](#cross-component-transaction-chart) correlaciona a transação entre todos os componentes. Para obter os melhores resultados, assegure-se de que todos os componentes são instrumentados com os SDKs estáveis mais recentes do Application Insights. Se houver diferentes recursos do Application Insights, assegure-se de ter direitos apropriados para exibir a telemetria.
+> * A seção [inferior](#all-telemetry-related-to-the-selected-component-operation) do lado esquerdo mostra **toda** a telemetria, incluindo rastreamentos e eventos relacionados à solicitação proveniente do componente selecionado.
 
-## <a name="enable-and-access"></a>Habilitar e acessar
+## <a name="enable-transaction-diagnostics-experience"></a>Habilitar a Experiência de diagnóstico de transação
 Habilitar "Detalhes unificados: Diagnóstico de transação E2E" a partir da [lista de visualizações](app-insights-previews.md)
 
 ![Habilitar visualização](media/app-insights-e2eTxn-diagnostics/previews.png)
@@ -49,7 +51,7 @@ Essa exibição tem três partes principais: um gráfico de transações entre c
 
 ![Partes principais](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="1-cross-component-transaction-chart"></a>[1] Gráfico de transações entre componentes
+## <a name="cross-component-transaction-chart"></a>Gráfico de transações entre componentes
 
 Esse gráfico fornece uma linha do tempo com barras horizontais para a duração das solicitações e dependências entre componentes. As exceções coletadas também são marcadas na linha do tempo.
 
@@ -57,20 +59,20 @@ Esse gráfico fornece uma linha do tempo com barras horizontais para a duração
 * Todas as chamadas para dependências externas são linhas não recolhíveis simples, com ícones que representam o tipo de dependência.
 * As chamadas para outros componentes são linhas recolhíveis. Cada linha corresponde a uma operação específica invocada no componente.
 * Por padrão, a solicitação, dependência ou exceção solicitada inicialmente é exibida no gráfico.
-* Selecione qualquer linha para ver os detalhes à direita. Clique em "Abrir rastreamentos do profiler" ou "Abrir instantâneo de depuração" para diagnósticos de nível de código nos painéis de detalhes correspondentes.
+* Selecione qualquer linha para ver os [detalhes à direita](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-As chamadas para outros componentes têm duas linhas: uma linha representa a chamada de saída (dependência) do componente do chamador e a outra linha corresponde à solicitação de entrada no componente chamado. O ícone principal e o estilo distinto das barras de duração ajudarão a diferenciá-las.
+As chamadas para outros componentes têm duas linhas: uma linha representa a chamada de saída (dependência) do componente do chamador e a outra linha corresponde à solicitação de entrada no componente chamado. O ícone principal e o estilo distinto das barras de duração ajudam a diferenciá-las.
 
-### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] Telemetria sequenciada no tempo da operação do componente selecionado
+## <a name="all-telemetry-related-to-the-selected-component-operation"></a>Toda telemetria relacionada à operação do componente selecionado
 
-Qualquer linha selecionada no gráfico de transações entre componentes está relacionada a uma operação invocada em um componente específico. Essa operação de componente selecionada é refletida no título da seção inferior. Abra essa seção para ver uma sequência de tempo fixo de toda a telemetria relacionada a essa operação específica. É possível selecionar qualquer item de telemetria nessa lista para ver os detalhes correspondentes à direita.
+Qualquer linha selecionada no gráfico de transações entre componentes está relacionada a uma operação invocada em um componente específico. Essa operação de componente selecionada é refletida no título da seção inferior. Abra essa seção para ver uma sequência de tempo fixo de toda a telemetria relacionada a essa operação específica. É possível selecionar qualquer item de telemetria nessa lista para ver os [detalhes correspondentes à direita](#details-of-the-selected-telemetry).
 
 ![Sequência de tempo de toda a telemetria](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="3-details-pane"></a>[3] Painel de detalhes
+## <a name="details-of-the-selected-telemetry"></a>Detalhes da telemetria selecionada
 
-Esse painel mostra o detalhe dos itens selecionados de qualquer uma das duas seções à esquerda. "Mostrar tudo" lista todos os atributos padrão que são coletados. Todos os atributos personalizados são listados separadamente abaixo do conjunto padrão.
+Esse painel mostra o detalhe dos itens selecionados de qualquer uma das duas seções à esquerda. "Mostrar tudo" lista todos os atributos padrão que são coletados. Todos os atributos personalizados são listados separadamente abaixo do conjunto padrão. Clique em "Abrir rastreamentos do profiler" ou "Abrir instantâneo de depuração" para diagnósticos de nível de código nos painéis de detalhes correspondentes.
 
 ![Detalhes de exceção](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 
@@ -104,7 +106,7 @@ Sim. A nova experiência unifica toda a telemetria do servidor em um modo de exi
 
 *Eu vejo linhas duplicadas para as dependências. Isso é esperado?*
 
-Nesse momento, mostramos a chamada de dependência de saída separada da solicitação de entrada. Normalmente, as duas chamadas parecem idênticas, apenas o valor da duração sendo diferente devido à viagem de ida e volta da rede. O ícone principal e o estilo distinto das barras de duração ajudarão a diferenciá-las. Essa apresentação dos dados está confusa? Envie-nos seus comentários!
+Nesse momento, mostramos a chamada de dependência de saída separada da solicitação de entrada. Normalmente, as duas chamadas parecem idênticas, apenas o valor da duração sendo diferente devido à viagem de ida e volta da rede. O ícone principal e o estilo distinto das barras de duração ajudam a diferenciá-las. Essa apresentação dos dados está confusa? Envie-nos seus comentários!
 
 *O que significa o relógio distorcer entre instâncias do componente diferentes?*
 

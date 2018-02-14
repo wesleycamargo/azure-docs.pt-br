@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas Frequentes
 
@@ -152,7 +152,7 @@ Veja [Privacidade e Retenção de Dados][data].
 
 Isso é possível se o seu código envia tais dados. Isso também pode acontecer se as variáveis nos rastreamentos de pilha incluírem PII. Sua equipe de desenvolvimento deve realizar avaliações de risco para garantir que as PII sejam devidamente tratadas. [Saiba mais sobre privacidade e retenção de dados ](app-insights-data-retention-privacy.md).
 
-O último octeto do endereço Web do cliente sempre é definido como 0 após ingestão pelo portal.
+**Todos** os octetos do endereço web do cliente são sempre definidos como 0 depois que os atributos de localização geográfica são pesquisados.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Meu iKey está visível na minha fonte da página da Web. 
 

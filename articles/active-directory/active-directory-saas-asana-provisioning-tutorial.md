@@ -15,86 +15,90 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 4f3bd11a99f43d6405ea285a7a283179d561f92a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d72b5aa352a9c6724e801c1741969525387f6b90
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configurar o Asana para provisionamento automático de usuário
 
-O objetivo deste tutorial é mostrar as etapas que você precisa realizar no Asana e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para Asana.
+O objetivo deste tutorial é mostrar as etapas que você precisa realizar no Asana e no Azure AD (Azure Active Directory) para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Asana.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-*   Um locatário de diretório do Azure Active Directory
-*   Um locatário do Asana com o plano [Enterprise](https://www.asana.com/pricing) ou melhor habilitado 
+*   Um locatário do Azure AD
+*   Um locatário do Asana com um plano [Enterprise](https://www.asana.com/pricing) ou melhor habilitado 
 *   Uma conta de usuário no Asana com permissões de administrador 
 
 > [!NOTE] 
-> A integração do provisionamento do Azure AD depende da [API da Asana](https://app.asana.com/api/1.0/scim/Users) que está disponível para Asana.
+> A integração do provisionamento do Azure AD depende da [API do Asana](https://app.asana.com/api/1.0/scim/Users) que está disponível para o Asana.
 
-## <a name="assigning-users-to-asana"></a>Atribuir usuários ao Asana
+## <a name="assign-users-to-asana"></a>Atribuir usuários ao Asana
 
-O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto de provisionamento automático de conta de usuário, apenas os usuários que foram "atribuídos" a um aplicativo no Azure AD serão sincronizados. 
+O Azure AD usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários atribuídos a um aplicativo no Azure AD são sincronizados. 
 
-Antes de configurar e habilitar o serviço de provisionamento, você precisará decidir quais os usuários no Azure AD representam os usuários que precisam de acesso ao seu aplicativo Asana. Depois de decidir, você pode atribuir esses usuários ao seu aplicativo Asana seguindo as instruções aqui:
+Antes de configurar e habilitar o serviço de provisionamento, você deve decidir quais usuários, no Azure AD, precisam de acesso ao aplicativo Asana. Então, você pode atribuir esses usuários ao seu aplicativo Asana seguindo as instruções aqui:
 
 [Atribuir um usuário a um aplicativo empresarial](active-directory-coreapps-assign-user-azure-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-asana"></a>Dicas importantes para atribuir usuários ao Asana
 
-*   É recomendável que um único usuário do Azure AD seja atribuído ao Asana para testar a configuração de provisionamento. Outros usuários podem ser atribuídos mais tarde.
+Recomendamos que você atribua um único usuário do Azure AD ao Asana para testar a configuração de provisionamento. Você pode atribuir outros usuários mais tarde.
 
-## <a name="configuring-user-provisioning-to-asana"></a>Configurar o provisionamento de usuário para Asana 
+## <a name="configure-user-provisioning-to-asana"></a>Configurar o provisionamento de usuário ao Asana 
 
-Esta seção mostra como conectar o Azure AD para a API de provisionamento de conta de usuário do Asana e configurar o serviço de provisionamento para criar, atualizar e desativar contas de usuário atribuídas no Asana com base na atribuição do usuário no Azure AD.
+Esta seção orienta você sobre como conectar o Azure AD à API de provisionamento de conta de usuário do Asana. Você também configura o serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas no Asana com base nas atribuições de usuário do Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para Asana, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+> Para habilitar o logon único baseado em SAML para o Asana, siga as instruções fornecidas no [Portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Para configurar o provisionamento automático da conta do usuário para Asana no Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Para configurar o provisionamento automático da conta do usuário para o Asana no Azure AD
 
-1)  No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
+1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory** > **Aplicativos Empresariais** > **Todos os aplicativos**.
 
-2) Se você já tiver configurado o Asana para logon único, procure sua instância do Asana usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procure **Asana** na galeria de aplicativos. Selecione **Asana** nos resultados da pesquisa e adicione-o à sua lista de aplicativos.
+2. Se você já configurou o Asana para logon único, pesquise sua instância do Asana usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procure **Asana** na galeria de aplicativos. Selecione **Asana** nos resultados da pesquisa e adicione-o à sua lista de aplicativos.
 
-3)  Selecione sua instância do Asana e a guia **Provisionamento**.
+3. Selecione sua instância do Asana e, em seguida, selecione a guia **Provisionamento**.
 
-4)  Defina o **Modo de Provisionamento** como **Automático**.
+4. Defina o **Modo de Provisionamento** como **Automático**.
 
-![Provisionamento do Asana](./media/active-directory-saas-asana-provisioning-tutorial/asanaazureprovisioning.png)
+    ![Provisionamento do Asana](./media/active-directory-saas-asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-5) Na seção de Credenciais de administrador, siga as instruções abaixo para gerar o token e insira-a na caixa de texto **Token secreto**.
+5. Na seção de **Credenciais de Administrador**, siga essas instruções para gerar o token e inseri-la em **Token Secreto**:
 
-* Faça logon no [Asana](https://app.asana.com) usando a conta de administrador
-* Clique na foto do perfil da barra superior e selecione Configurações atuais do nome da organização
-* Navegue até a guia Contas de serviço
-* Clique em Adicionar conta de serviço
-* Atualize o Nome, Sobre e a foto de perfil, conforme necessário, copie o **Token** e clique em Salvar alterações
+    a. Entre no [Asana](https://app.asana.com) usando sua conta do administrador.
 
-6) No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD possa se conectar ao seu aplicativo Asana. Se a conexão falhar, certifique-se de que sua conta do Asana possui permissões de administrador e tente a etapa **Testar conectividade** novamente.
+    b. Selecione a foto do perfil da barra superior e selecione as configurações atuais de nome da organização.
 
-7) Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
+    c. Acesse a guia **Contas de Serviço**.
 
-8) Clique em **Salvar**. 
+    d. Selecione **Adicionar Conta de Serviço**.
 
-9) Na seção Mapeamentos, selecione **Sincronizar usuários do Azure Active Directory para o Asana**.
+    e. Atualize **Nome** e **Sobre**, bem como a foto do perfil, conforme necessário. Copie o token em **Token** e selecione-o em **Salvar Alterações**.
 
-10) Na seção **Mapeamentos de atributo**, verifique os atributos do usuário que serão sincronizados entre o Azure AD e o Asana. Observe que os atributos selecionados como propriedades de **Correspondência** serão usados para associação com as contas de usuário no Asana para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações. Consulte [Personalizando mapeamentos de atributo de provisionamento de usuário](active-directory-saas-customizing-attribute-mappings.md) para saber mais detalhes
+6. No Portal do Azure, selecione **Testar Conectividade** para verificar se o Azure AD pode se conectar ao aplicativo Asana. Se a conexão falhar, verifique se sua conta do Asana tem permissões de administrador e tente a etapa **Testar Conectividade** novamente.
 
-11) Para habilitar o serviço de provisionamento do Azure AD para Asana, altere o **Status de provisionamento** para **Ativado** na seção **Configurações**
+7. Insira o endereço de email de uma pessoa ou um grupo que você deseja que receba notificações de erro de provisionamento no campo **Email de Notificação**. Marque a caixa de seleção logo abaixo.
 
-12) Clique em **Salvar**. 
+8. Selecione **Salvar**. 
 
-Isso inicia a sincronização inicial de todos os usuários atribuídos ao Asana na seção usuários. As sincronizações iniciais demoram mais do que as sincronizações posteriores, que ocorrem aproximadamente a cada 20 minutos desde que o serviço esteja em execução. Você pode usar a seção **Detalhes de sincronização** para monitorar o andamento e seguir os links para relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento no seu aplicativo Asana.
+9. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o Asana**.
+
+10. Na seção **Mapeamentos de Atributo**, verifique os atributos do usuário a serem sincronizados entre o Azure AD e o Asana. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre as contas de usuário no Asana para operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**. Para obter mais informações, consulte [Personalizar mapeamentos de atributo de provisionamento de usuário](active-directory-saas-customizing-attribute-mappings.md).
+
+11. Para habilitar o serviço de provisionamento do Azure AD para o Asana, na seção **Configurações**, altere o **Status de Provisionamento** para **Ativado**.
+
+12. Selecione **Salvar**. 
+
+Agora, a sincronização inicial de todos os usuários atribuídos ao Asana na seção **Usuários** é iniciada. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os relatórios da atividade de provisionamento. Os relatórios descrevem todas as ações executadas pelo serviço de provisionamento no aplicativo Asana.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](active-directory-enterprise-apps-manage-provisioning.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Configurar Logon Único](active-directory-saas-asana-tutorial.md)

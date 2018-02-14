@@ -64,7 +64,7 @@ Execute aplicativos de HPC comerciais ou personalizados no Azure. Vários exempl
 
 ### <a name="graphics-and-rendering"></a>Gráficos e renderização
 
-* [Autodesk Maya, 3ds Max e Arnold](../articles/batch/batch-rendering-service.md) no Lote do Azure (versão prévia)
+* [Autodesk Maya, 3ds Max e Arnold](../articles/batch/batch-rendering-service.md) no Lote do Azure 
 
 ### <a name="ai-and-deep-learning"></a>IA e deep learning
 
@@ -103,11 +103,12 @@ Os provedores ou desenvolvedores SaaS podem usar os SDKs e as ferramentas do Lot
 
 Saiba como:
 
-* [Introdução ao desenvolvimento com o Lote](../articles/batch/batch-dotnet-get-started.md)
+* [Introdução ao desenvolvimento com o Lote](../articles/batch/quick-run-dotnet.md)
 * [Usar exemplos de código do Lote do Azure](https://github.com/Azure/azure-batch-samples)
 * [Usar VMs de baixa prioridade com o Lote](../articles/batch/batch-low-pri-vms.md)
 * [Executar cargas de trabalho de HPC em contêineres com Shipyard do Lote](https://github.com/Azure/batch-shipyard)
 * [Usar a linguagem R com o Lote](https://github.com/Azure/doAzureParallel)
+* [Executar o Kit de ferramentas de Engenharia de Dados distribuídos do Azure no Lote](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Gerenciadores de carga de trabalho
 
@@ -127,6 +128,7 @@ Cargas de trabalho do Lote e de HPC em larga escala têm exigências de armazena
 Saiba mais:
 
 * [Sistemas de arquivos paralelos para o armazenamento HPC no Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Soluções de armazenamento em nuvem de alto desempenho da [Avere](http://www.averesystems.com/about-us/about-avere) (agora [unida à Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Serviços do Azure relacionados
@@ -139,11 +141,14 @@ As máquinas virtuais do Azure, os conjuntos de dimensionamento de máquinas vir
 * [Armazenamento de arquivos](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Dados e análises
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) para clusters Hadoop no Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Fábrica de dados](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [Banco de Dados SQL](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>IA e serviços cognitivos
+* [Lote AI](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>Rede
 * [Rede Virtual](../articles/virtual-network/virtual-networks-overview.md)
