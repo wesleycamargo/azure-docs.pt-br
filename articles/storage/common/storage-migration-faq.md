@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
 
@@ -41,7 +41,7 @@ O script de automação destina-se à implantação do Azure Resource Manager, n
 
 **Há algum encargo para cópia de dados entre dois compartilhamentos de arquivo na mesma conta de armazenamento dentro da mesma região?**
 
-Não. Não há encargos para esse processo.
+Nº Não há encargos para esse processo.
 
 **Como fazer backup de toda minha conta de armazenamento para outra conta de armazenamento?**
 
@@ -195,7 +195,7 @@ Use o [Gerenciador de Armazenamento](https://azure.microsoft.com/features/storag
 
 **Existem pré-requisitos para alterar a replicação de uma conta de armazenamento, de armazenamento com redundância geográfica para armazenamento com redundância local?**
 
-Não. 
+Nº 
 
 **Como acessar o armazenamento com redundância dos Arquivos do Azure?**
 
@@ -278,7 +278,7 @@ Para dar a outras pessoas acesso aos meus recursos de armazenamento:
 
 -   Se você estiver usando armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer hora. Use um dos seguintes métodos:  
       
-    - **AzCopy**: acrescente **-secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
+    - **AzCopy**: acrescente **-secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:   
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
@@ -294,6 +294,10 @@ Mas você pode usar domínios personalizados não HTTPS. Para saber mais, confir
 Não é possível acessar uma conta de armazenamento diretamente por meio de FTP. No entanto, você pode configurar uma máquina virtual do Azure e, depois, instalar um servidor FTP na máquina virtual. Você pode fazer com que o servidor FTP armazene arquivos em um compartilhamento dos Arquivos do Azure ou em um disco de dados que está disponível para a máquina virtual.
 
 Se você quiser só baixar os dados sem a necessidade de usar o Gerenciador de Armazenamento ou um aplicativo semelhante, talvez seja possível usar um token SAS. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md).
+
+**Como fazer para migrar Blobs de uma conta de armazenamento para outra?**
+
+ Você pode fazer isso usando nosso [Script de migração de Blob](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 

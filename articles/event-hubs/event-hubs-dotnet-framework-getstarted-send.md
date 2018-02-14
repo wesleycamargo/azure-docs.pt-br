@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Enviar eventos para Hubs de Eventos do Azure usando o .NET Framework
 
@@ -39,7 +39,7 @@ A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para cria
 
 ## <a name="create-a-sender-console-application"></a>Criar um aplicativo de console do remetente
 
-Nesta seção, você escreverá um aplicativo de console do Windows para enviar eventos para o hub de eventos.
+Nesta seção, você escreve um aplicativo de console do Windows para enviar eventos para o hub de eventos.
 
 1. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console** . Nomeie o projeto como **Remetente**.
    
@@ -89,7 +89,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
   ```
    
   Esse método envia continuamente os eventos para seu hub de eventos com um atraso de 200 ms.
-7. Por fim, adicione as seguintes linhas ao método **Main** :
+7. Por fim, adicione as seguintes linhas ao método **Principal** :
    
   ```csharp
   Console.WriteLine("Press Ctrl-C to stop the sender process");
@@ -106,7 +106,7 @@ Agora que você criou um aplicativo funcional que cria um hub de eventos e envia
 
 * [Receber eventos usando o Host de Processador de Eventos](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 * [Referência do host de processador de eventos](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
-* [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png

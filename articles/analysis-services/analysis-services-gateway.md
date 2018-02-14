@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local do Azure
 O gateway de dados local atua como uma ponte, fornecendo transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. Você pode associar vários serviços na mesma região a um único gateway. 
@@ -28,11 +28,11 @@ Instalar o gateway pela primeira vez é um processo de quatro partes:
 
 - **Baixar e executar a instalação** – esta etapa instala um serviço de gateway em um computador em sua organização. Você também pode entrar no Azure usando uma conta no Azure AD do seu [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Não há suporte para contas B2B (convidadas) do Azure.
 
-- **Registrar seu gateway** – nesta etapa, você especifica um nome e uma chave de recuperação para o gateway e seleciona uma região, registrando o gateway no Serviço de Nuvem do Gateway. O recurso de gateway **deve ser registrado na mesma região** que os seus servidores do Analysis Services. 
+- **Registrar seu gateway** – nesta etapa, você especifica um nome e uma chave de recuperação para o gateway e seleciona uma região, registrando o gateway no Serviço de Nuvem do Gateway. O recurso de gateway pode ser registrado em qualquer região, mas recomendamos que seja na mesma região que os seus servidores do Analysis Services. 
 
 - **Criar um recurso de gateway no Azure** – nesta etapa, você cria um recurso de gateway em sua assinatura do Azure.
 
-- **Conectar os servidores ao recurso de gateway** – assim que tiver um recurso de gateway em sua assinatura, você pode começar a conectar seus servidores a ele. Você pode conectar vários servidores e outros recursos a ele, desde que estejam na região.
+- **Conectar os servidores ao recurso de gateway** – assim que tiver um recurso de gateway em sua assinatura, você pode começar a conectar seus servidores a ele. Você pode conectar vários servidores e outros recursos a ele.
 
 Para começar imediatamente, consulte [Instalar e configurar gateway de dados local](analysis-services-gateway-install.md).
 
@@ -67,14 +67,14 @@ Recomendamos a inclusão dos endereços IP em uma lista de permissões para a re
 
 Veja a seguir os nomes de domínio totalmente qualificados usados pelo gateway.
 
-| Nomes de domínio | Portas de saída | Descrição |
+| Nomes de domínio | Portas de saída | DESCRIÇÃO |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP usado para baixar o instalador. |
 | *.powerbi.com |443 |HTTPS |
 | *.analysis.windows.net |443 |HTTPS |
 | *.login.windows.net |443 |HTTPS |
-| *.servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP) |
-| *.servicebus.windows.net |443, 9350-9354 |Ouvintes de Retransmissão do Barramento de Serviço por meio de TCP (requer 443 para aquisição de token de Controle de Acesso) |
+| * .servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP) |
+| * .servicebus.windows.net |443, 9350-9354 |Ouvintes de Retransmissão do Barramento de Serviço por meio de TCP (requer 443 para aquisição de token de Controle de Acesso) |
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
@@ -95,15 +95,15 @@ Você pode forçar o gateway para se comunicar com o Barramento de Serviço do A
 ### <a name="general"></a>Geral
 
 **P**: Preciso de um gateway para fontes de dados na nuvem, como o Banco de Dados SQL do Azure? <br/>
-**R:** Não. Um gateway é necessário para se conectar a fontes de dados locais apenas.
+**R**: Não. Um gateway é necessário para se conectar a fontes de dados locais apenas.
 
 **Pergunta**: O gateway precisa ser instalado no mesmo computador que a fonte de dados? <br/>
-**R:** Não. O gateway precisa apenas da capacidade de se conectar ao servidor, geralmente na mesma rede.
+**R**: Não. O gateway precisa apenas da capacidade de se conectar ao servidor, geralmente na mesma rede.
 
 <a name="why-azure-work-school-account"></a>
 
 **P**: Por que eu preciso usar uma conta corporativa ou de estudante para entrar? <br/>
-**R**: Você apenas pode usar uma conta corporativa ou de estudante ao instalar o gateway de dados local. E essa conta deve estar no mesmo locatário que a assinatura na qual você está configurando o recurso de gateway. Sua conta de entrada é armazenada em um locatário gerenciado pelo Azure AD (Azure Active Directory). Geralmente, o nome UPN da conta do Azure AD corresponde ao endereço de email.
+**R**: Você só pode usar uma conta corporativa ou de estudante ao instalar o gateway de dados local. E essa conta deve estar no mesmo locatário que a assinatura na qual você está configurando o recurso de gateway. Sua conta de entrada é armazenada em um locatário gerenciado pelo Azure AD (Azure Active Directory). Geralmente, o nome UPN da conta do Azure AD corresponde ao endereço de email.
 
 **P**: Em que local minhas credenciais são armazenadas? <br/>
 **R**: As credenciais inseridas para uma fonte de dados são criptografadas e armazenadas no Serviço de Nuvem do Gateway. As credenciais são descriptografadas no gateway de dados local.
@@ -119,7 +119,7 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 **R**: Os resultados são enviados por meio do Barramento de Serviço do Azure.
 
 **P**: Existem conexões de entrada para o gateway da nuvem? <br/>
-**R:** Não. O gateway usa conexões de saída para o Barramento de Serviço do Azure.
+**R**: Não. O gateway usa conexões de saída para o Barramento de Serviço do Azure.
 
 **P**: O que acontecerá se eu bloquear conexões de saída? O que preciso abrir? <br/>
 **R**: Verifique as portas e os hosts que o gateway usa.
@@ -128,10 +128,10 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 **R**: Em Serviços, o gateway é chamado de Serviço de gateway de dados local.
 
 **P**: O serviço Windows do gateway pode ser executado com uma conta do Azure Active Directory? <br/>
-**R:** Não. O serviço do Windows deve ter uma conta válida do Windows. Por padrão, o serviço é executado com o SID de Serviço, NT SERVICE\PBIEgwService.
+**R**: Não. O serviço do Windows deve ter uma conta válida do Windows. Por padrão, o serviço é executado com o SID de Serviço, NT SERVICE\PBIEgwService.
 
 **P**: como faço para controlar um gateway? <br/>
-**R**: para controlar um gateway (ao executar Instalar/Alterar no Painel de Controle > Programas), você precisa ser um Proprietário para o recurso do gateway no Azure e ter a chave de recuperação. Os Proprietários de recursos do gateway são configuráveis no Controle de Acesso.
+**R**: Para controlar um gateway (ao executar Instalar/Alterar no Painel de Controle > Programas), você precisa ser um Proprietário do recurso do gateway no Azure e ter a chave de recuperação. Os Proprietários de recursos do gateway são configuráveis no Controle de Acesso.
 
 ### <a name="high-availability"></a>Alta disponibilidade e recuperação de desastres
 
@@ -139,12 +139,12 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 **R**: Você pode usar a chave de recuperação para restaurar ou mover um gateway. Ao instalar o gateway, especifique a chave de recuperação.
 
 **P**: Qual é o benefício da chave de recuperação? <br/>
-**R**: A chave de recuperação oferece uma maneira de migrar ou recuperar as configurações de gateway após um desastre.
+**R**: A chave de recuperação oferece uma maneira de migrar ou recuperar as configurações do gateway após um desastre.
 
 ## <a name="troubleshooting"> </a>Solução de problemas
 
 **P**: Por que não vejo meu gateway na lista de instâncias de gateway ao tentar criar o recurso de gateway no Azure? <br/>
-**R**: Há dois motivos possíveis. Primeiro, é que um recurso já foi criado para o gateway na assinatura atual ou em alguma outra. Para eliminar essa possibilidade, enumere recursos do tipo **Gateways de Dados Locais** no portal. Selecione todas as assinaturas ao enumerar todos os recursos. Observe que depois que o recurso for criado, o gateway não aparecerá na lista de instâncias de gateway na experiência do portal Criar o Recurso de Gateway. A segunda possibilidade é que a identidade do Azure AD do usuário que instalou o gateway é diferente do usuário conectado ao Portal do Azure. Para resolver isso, entre portal usando a mesma conta que o usuário que instalou o gateway.
+**R**: Há dois motivos possíveis. Primeiro, é que um recurso já foi criado para o gateway na assinatura atual ou em alguma outra. Para eliminar essa possibilidade, enumere recursos do tipo **Gateways de Dados Locais** no portal. Selecione todas as assinaturas ao enumerar todos os recursos. Depois que o recurso é criado, o gateway não aparece na lista de instâncias de gateway na experiência do portal Criar Recurso de Gateway. A segunda possibilidade é que a identidade do Azure AD do usuário que instalou o gateway é diferente do usuário conectado ao Portal do Azure. Para resolver, entre portal usando a mesma conta que o usuário que instalou o gateway.
 
 **P**: Como posso ver quais consultas estão sendo enviadas à fonte de dados local? <br/>
 **R**: Você pode habilitar o rastreamento de consulta, que inclui as consultas que são enviadas. Lembre-se de alterar o rastreamento de consulta de volta para o valor original quando concluir a solução de problemas. Deixar o acompanhamento de consulta ativado cria logs maiores.

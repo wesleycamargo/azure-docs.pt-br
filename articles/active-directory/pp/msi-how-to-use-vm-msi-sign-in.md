@@ -3,7 +3,7 @@ title: "Como usar uma Identidade de Serviço Gerenciado da VM do Azure para entr
 description: "Instruções passo a passo sobre exemplos para usar uma entidade de serviço MSI da VM do Azure para entrada do cliente de script e acesso a recursos."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,19 +12,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/05/2018
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c5c1be01947dba8b7f4ef8aa54aa6aedfb191d32
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Entrar usando uma MSI (Identidade de Serviço Gerenciado) de VM atribuída pelo usuário
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)] Este artigo fornece exemplos de script da CLI para se conectar usando uma entidade de serviço da MSI atribuída pelo usuário e diretrizes sobre tópicos importantes, como tratamento de erro.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Este artigo fornece exemplos de script da CLI para se conectar usando uma entidade de serviço da MSI atribuída pelo usuário, bem como diretrizes sobre tópicos importantes, como o tratamento de erro.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
