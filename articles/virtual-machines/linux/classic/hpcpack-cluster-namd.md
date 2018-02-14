@@ -103,7 +103,7 @@ Agora, configure um compartilhamento de arquivo SMB e monte a pasta compartilhad
 O primeiro comando cria uma pasta chamada /namd2 em todos os nós do grupo LinuxNodes. O segundo comando monta a pasta compartilhada //CentOS66HN/Namd/namd2 para a pasta com os bits de dir_mode e file_mode definidos como 777. O *nome de usuário* e a *senha* no comando devem ser as credenciais de um usuário no nó principal.
 
 > [!NOTE]
-> O símbolo \"\`\" no segundo comando é um símbolo de escape para o PowerShell. "\\`,\" significa que "\,\" (uma vírgula) é uma parte do comando.
+> O símbolo \"\`\" no segundo comando é um símbolo de escape para o PowerShell. \"\`\,"\ significa que "\,\" (uma vírgula) é uma parte do comando.
 > 
 > 
 
