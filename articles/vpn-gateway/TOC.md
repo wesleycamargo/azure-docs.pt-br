@@ -94,8 +94,7 @@
 
 # Relacionados
 ## [Rede Virtual](/azure/virtual-network/)
-## [Gateway de Aplicativo
-](/azure/application-gateway/)
+## [Gateway de Aplicativo](/azure/application-gateway/)
 ## [DNS do Azure](/azure/dns/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 ## [Balanceador de Carga](/azure/load-balancer/)
