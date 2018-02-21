@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão de carga de trabalho de servidor em terabytes de dados
 
@@ -42,7 +42,7 @@ Prever a carga de trabalho nos servidores é uma necessidade de negócios comum 
 Neste cenário, você vai se concentrar na previsão de carga de trabalho para cada computador (ou servidor). Mais especificamente, você usa os dados da sessão em cada servidor para prever a classe de carga de trabalho do servidor no futuro. Você classifica a carga de cada servidor em classes baixa, média e alta usando o Classificador Random Forest no [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). As técnicas de aprendizado de máquina e o fluxo de trabalho neste exemplo podem ser facilmente estendidas para outros problemas semelhantes. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os pré-requisitos para executar este exemplo são os seguintes:
 
@@ -51,7 +51,7 @@ Os pré-requisitos para executar este exemplo são os seguintes:
 * Windows 10 (as instruções neste exemplo são geralmente as mesmas para sistemas macOS).
 * Uma máquina Virtual de ciência de dados (DSVM) para Linux (Ubuntu), preferencialmente na região Leste dos EUA, onde os dados se localizam. É possível provisionar uma DSVM Ubuntu seguindo estas [instruções](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Você também pode ver [este guia de início rápido](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 32 GB de memória. 
 
-Siga as [instruções](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) para habilitar o acesso sem senha na VM para o AML Workbench.  Você pode optar por usar [a autenticação baseada em chave SSH para criar e usar a VM no Workbench AML](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, usamos a senha para acessar a máquina virtual.  Salve a tabela a seguir com as informações da DSVM para etapas posteriores:
+Siga as [instruções](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) para habilitar o acesso sem senha na VM para o AML Workbench.  Você pode optar por usar [a autenticação baseada em chave SSH para criar e usar a VM no Workbench AML](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, usamos a senha para acessar a máquina virtual.  Salve a tabela a seguir com as informações da DSVM para etapas posteriores:
 
  Nome do campo| Valor |  
  |------------|------|
@@ -330,7 +330,7 @@ Na barra lateral direita do Workbench, navegue até **Execuções** para ver o h
 
 Nesta seção, você vai operacionalizar o modelo criado nas etapas anteriores como um serviço Web. Você também aprenderá a usar o serviço Web para prever a carga de trabalho. Use CLIs (interfaces de linha de comando) de operacionalização de Machine Language para empacotar o código e as dependências como imagens do Docker e publicar o modelo como serviço Web em contêineres.
 
-Você pode usar o prompt de linha de comando no Machine Learning Workbench para executar as CLIs.  Você também pode executar as CLIs no Ubuntu Linux seguindo o [guia de instalação](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+Você pode usar o prompt de linha de comando no Machine Learning Workbench para executar as CLIs.  Você também pode executar as CLIs no Ubuntu Linux seguindo o [guia de instalação](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > Em todos os comandos a seguir, substitua as variáveis de argumento por seus valores reais. Leva cerca de 40 minutos para concluir esta seção.
@@ -416,7 +416,7 @@ Escolha uma cadeia de caracteres exclusiva como o ambiente para operacionalizaç
 
 8. Dimensione o serviço Web. 
 
-   Para saber mais, confira [Como dimensionar a operacionalização no Cluster do Serviço de Contêiner do Azure](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
+   Para saber mais, confira [Como dimensionar a operacionalização no Cluster do Serviço de Contêiner do Azure](how-to-scale-clusters.md).
  
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -84,22 +84,6 @@ sql-database-elastic-pool.md
 | Armazenamento máximo por banco de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Limites de pool elástico Premium RS
-
-| eDTUs por pool | **125** | **250** | **500** | **1000** |
-|:---|---:|---:|---:| ---: | ---: | 
-| Armazenamento incluído por pool (GB) | 250 | 500 | 750 | 750 |
-| Opções de espaço de armazenamento máximo por pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| Armazenamento máximo OLTP na memória por pool (GB) | 1 | 2 | 4 | 10 |
-| Número máximo de BDs por pool | 50 | 100 | 100 | 100 |
-| Máximo de trabalhos simultâneos (solicitações) por pool | 200 | 400 | 800 | 1600 |
-| Máximo de logons simultâneos por pool | 200 | 400 | 800 | 1600 |
-| Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 |
-| Opções de mínimo de eDTUs por banco de dados | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Opções de máximo de eDTUs por banco de dados | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Armazenamento máximo por banco de dados (GB) | 1024 | 1024 | 1024 | 1024 | 
-||||||||
-
 > [!IMPORTANT]
 > \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 >

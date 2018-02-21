@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Criar clusters HDInsight com o Data Lake Store usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 Saiba como usar o portal do Azure para criar um cluster HDInsight com uma conta do Azure Data Lake Store como o armazenamento padrão ou um armazenamento adicional. Embora armazenamento adicional seja opcional para um cluster HDInsight, é recomendável armazenar seus dados comerciais em contas de armazenamento adicionais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial, verifique se você atendeu aos seguintes requisitos:
 
 * **Uma assinatura do Azure**. Acesse [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -56,7 +56,7 @@ Nesta seção, você cria um cluster HDInsight com contas do Data Lake Store com
 
     ![Adicionar entidade de serviço ao cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Adicionar entidade de serviço ao cluster do HDInsight")
 
-    - **Selecionar conta do Data Lake Store**: selecione uma conta existente do Data Lake Store. Uma conta existente do Data Lake Store é necessária.  Consulte [Pré-requisitos](#prereuisites).
+    - **Selecionar conta do Data Lake Store**: selecione uma conta existente do Data Lake Store. Uma conta existente do Data Lake Store é necessária.  Consulte [Pré-requisitos](#prerequisites).
     - **Caminho raiz**: insira um caminho em que os arquivos específicos de cluster deverão ser armazenados. Na captura de tela, é __/clusters/myhdiadlcluster/__, em que a pasta __/clusters__ deve existir e o Portal cria a pasta *myhdicluster*.  O *myhdicluster* é o nome do cluster.
     - **Acesso ao Data Lake Store**: configure o acesso entre a conta do Data Lake Store e o cluster HDInsight. Para obter instruções, consulte [Configurar acesso ao Data Lake Store](#configure-data-lake-store-access).
     - **Contas de armazenamento adicionais**: adicione Contas de Armazenamento do Azure como contas de armazenamento adicionais para o cluster. Para adicionar mais Data Lake Stores, dê ao cluster permissões sobre os dados em mais contas do Data Lake Store enquanto configura uma conta do Data Lake Store como o tipo de armazenamento principal. Consulte [Configurar acesso ao Data Lake Store](#configure-data-lake-store-access).

@@ -3,7 +3,7 @@ title: Otimizar seu ambiente do System Center Operations Manager com o Azure Log
 description: "Você pode usar a solução System Center Operations Manager Health Check para avaliar o risco e a integridade de seus ambientes em intervalos regulares."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
@@ -60,7 +60,7 @@ Use as informações a seguir para instalar e configurar a solução.
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Detalhes da coleta de dados de avaliação do System Center Operations Manager
 
-A avaliação do System Center Operations Manager coleta dados das seguintes fontes: 
+A avaliação do System Center Operations Manager coleta dados das seguintes fontes:
 
 * Registro
 * WMI (Instrumentação de Gerenciamento do Windows)
@@ -72,7 +72,7 @@ Os dados são coletados no servidor de gerenciamento e encaminhados para o Log A
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Contas Executar como do Operations Manager para Log Analytics
 
-O Log Analytics utiliza os pacotes de gerenciamento das cargas de trabalho para fornecer serviços com valor agregado. Cada carga de trabalho exige privilégios específicos da carga para executar pacotes de gerenciamento em um contexto de segurança diferente, como uma conta de usuário do domínio. Configure uma conta Executar como do Operations Manager com credenciais com privilégios. Para saber mais, confira [Como criar uma conta Executar como](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) na documentação do Operations Manager. 
+O Log Analytics utiliza os pacotes de gerenciamento das cargas de trabalho para fornecer serviços com valor agregado. Cada carga de trabalho exige privilégios específicos da carga para executar pacotes de gerenciamento em um contexto de segurança diferente, como uma conta de usuário do domínio. Configure uma conta Executar como do Operations Manager com credenciais com privilégios. Para saber mais, confira [Como criar uma conta Executar como](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) na documentação do Operations Manager.
 
 Use as informações a seguir para definir a conta Executar como do Operations Manager para o System Center Operations Health Check.
 
@@ -82,13 +82,13 @@ Antes de tudo, a conta Executar como deve atender aos seguintes requisitos:
 
 * Uma conta de usuário de domínio que seja membro do grupo Administradores local em todos os servidores que deem suporte a funções do Operations Manager: servidor de gerenciamento, SQL Server que hospede servidores operacionais, data warehouse e banco de dados ACS, relatórios, console da Web e servidor de gateway.
 * Função de Administrador do Operation Manager para o grupo de gerenciamento que está sendo avaliado
-* Se a conta não tem direitos de sysadmin do SQL, execute o [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) para conceder permissões detalhadas para a conta em cada instância do SQL Server que hospeda um ou todos os bancos de dados do Operations Manager. 
+* Se a conta não tem direitos de sysadmin do SQL, execute o [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) para conceder permissões detalhadas para a conta em cada instância do SQL Server que hospeda um ou todos os bancos de dados do Operations Manager.
 
 1. Abra o console do Operations Manager e selecione o botão de navegação **Administração**.
 2. Em **Configuração para Executar Como**, clique em **Contas**.
 3. No assistente **Criar Conta Executar Como**, na página **Introdução**, clique em **Avançar**.
 4. Na página **Propriedades Gerais**, selecione **Windows** na lista **Tipo de Conta Executar Como:**.
-5. Digite um nome para exibição na caixa de texto **Nome de Exibição**; opcionalmente, digite uma descrição na caixa **Descrição** e clique em **Avançar**. 
+5. Digite um nome para exibição na caixa de texto **Nome de Exibição**; opcionalmente, digite uma descrição na caixa **Descrição** e clique em **Avançar**.
 6. Na página **Segurança da Distribuição**, selecione **Mais seguro**.
 7. Clique em **Criar**.  
 
@@ -96,7 +96,7 @@ Agora que a conta Executar como foi criada, ela precisa ser direcionada para ser
 
 1. Em **Configuração Executar Como**, **Contas**, no painel de resultados, clique duas vezes na conta criada anteriormente.
 2. Na guia **Distribuição**, clique em **Adicionar** na caixa **Computadores selecionados** e adicione o servidor de gerenciamento onde a conta deve ser distribuída.  Clique em **OK** duas vezes para salvar as alterações.
-3. Em **Configuração Executar Como**, clique em **Perfis**. 
+3. Em **Configuração Executar Como**, clique em **Perfis**.
 4. Pesquise o *Perfil de Avaliação do SCOM*.
 5. O nome do perfil deve ser: *Perfil para Executar Como do Microsoft System Center Advisor SCOM Assessment*.
 6. Clique com botão direito, atualize suas propriedades e adicione a Conta Executar como criada recentemente.
@@ -216,7 +216,7 @@ Antes de usar a solução Health Check no Log Analytics, é necessário tê-la i
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
-1. Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+1. Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 3. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e clique no bloco **Portal do OMS**.  
 4. Na página **Visão Geral**, clique no bloco **System Center Operations Manager Health Check**.
@@ -228,10 +228,10 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 
 Se houver recomendações que você deseja ignorar, poderá criar um arquivo de texto que é usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Para identificar as recomendações que você deseja ignorar
-1. No portal do Azure, na página do espaço de trabalho Log Analytics de seu espaço de trabalho selecionado, clique no bloco **Pesquisa de Log**.
+1. No portal do Azure, na página do espaço de trabalho Log Analytics de seu espaço de trabalho selecionado, clique no bloco **Pesquisa de Logs**.
 2. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
     ```

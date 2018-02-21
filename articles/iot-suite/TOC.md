@@ -17,6 +17,7 @@
 #### [Permissões no azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Passo a passo da solução de monitoramento remoto](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Conectar seu Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Conecte seu DevKit de IoT MXChip](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Usar C
 ###### [Dados simulados](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Usar sensores reais](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -76,7 +77,7 @@
 ## Fábrica conectada
 ### [Implantar um gateway da fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
 ### [Personalizar a fábrica conectada](iot-suite-connected-factory-customize.md)
-### [Usar Editor OPC para fábrica conectada](iot-suite-connected-factory-publisher.md)
+### [Usar Editor OPC para fábrica conectada](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Configurar a fábrica conectada](iot-suite-connected-factory-configure.md)
 ## [Permissões no azureiotsuite.com](iot-suite-permissions.md)
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Criar grupos de segurança de rede usando a CLI do Azure
 
@@ -36,9 +36,9 @@ Os seguintes exemplos de comandos de CLI do Azure esperam um ambiente simples ex
 
 Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cenário anterior.
 
-1. Caso ainda não tenha feito isso, instale e configure a versão mais recente da [CLI do Azure 2.0](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#login). 
+1. Caso ainda não tenha feito isso, instale e configure a versão mais recente da [CLI do Azure 2.0](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#az_login). 
 
-2. Crie um NSG usando o comando [az network nsg create](/cli/azure/network/nsg#create). 
+2. Crie um NSG usando o comando [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). 
 
     ```azurecli
     az network nsg create \
@@ -76,7 +76,7 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cená
 
 
 
-3. Execute o comando [az network nsg rule create](/cli/azure/network/nsg/rule#create) para criar uma regra que permite o acesso à porta 3389 (RDP) a partir da Internet.
+3. Execute o comando [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) para criar uma regra que permite o acesso à porta 3389 (RDP) a partir da Internet.
 
     > [!NOTE]
     > Dependendo do shell que você está usando, talvez seja necessário modificar o caractere `*` nos argumentos a seguir para evitar a expansão do argumento antes da execução.
@@ -171,7 +171,7 @@ Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cená
     }
     ```
 
-5. Associe o NSG à sub-rede do **FrontEnd** rede com o comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#update).
+5. Associe o NSG à sub-rede do **FrontEnd** rede com o comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
         
     ```azurecli
     az network vnet subnet update \

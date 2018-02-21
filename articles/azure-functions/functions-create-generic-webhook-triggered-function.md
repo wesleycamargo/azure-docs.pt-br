@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cf86325971b607c7e1ec4b026f7df274e14c5e52
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Criar uma função disparada por um webhook genérico
 
@@ -28,7 +28,7 @@ O Azure Functions lhe permite executar seu código em um ambiente sem servidor s
 
 ![Função disparada pelo webhook genérico no Portal do Azure](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>pré-requisitos 
 
 Para concluir este tutorial:
 
@@ -72,7 +72,7 @@ Em seguida, crie um ponto de extremidade de webhook em um alerta do log de ativi
 
     ![Criar um alerta do log de atividades](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
-    | Configuração      |  Valor sugerido   | Descrição                              |
+    | Configuração      |  Valor sugerido   | DESCRIÇÃO                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome do alerta do log de atividades** | resource-group-create-alert | Nome do alerta do log de atividades. |
     | **Assinatura** | Sua assinatura | A assinatura que você está usando para este tutorial. | 
@@ -82,7 +82,7 @@ Em seguida, crie um ponto de extremidade de webhook em um alerta do log de ativi
     | **Grupo de recursos**<br/>e **Recurso** | Todos | Monitore todos os recursos. |
     | **Nome da operação** | Criar grupo de recursos | Filtra alertas para criar operações. |
     | **Level** | Informativo | Inclua os alertas de nível informativo. | 
-    | **Status** | Bem-sucedido | Filtra alertas para ações que foram concluídas com êxito. |
+    | **Status** | Bem-sucedida | Filtra alertas para ações que foram concluídas com êxito. |
     | **Grupo de ações** | Novo | Crie um novo grupo de ações, que define a ação a ser usada quando um alerta for gerado. |
     | **Nome do grupo de ações** | function-webhook | Um nome para identificar o grupo de ações.  | 
     | **Nome curto** | funcwebhook | Um nome curto para o grupo de ações. |  
@@ -128,7 +128,7 @@ O webhook agora é chamado quando um grupo de recursos é criado na sua assinatu
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            log.Error("An error occured");
+            log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
             {
                 error = "Unexpected message payload or wrong alert received."

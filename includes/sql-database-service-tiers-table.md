@@ -52,18 +52,6 @@ sql-database-single-database-resources.md
 | Máximo de sessões simultâneas | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-### <a name="premium-rs-service-tier"></a>Camada de serviço Premium RS 
-| **Nível de desempenho** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
-| :--- |---:|---:|---:|---:|---:|---:|
-| Número máximo de DTUs | 125 | 250 | 500 | 1000 |
-| Armazenamento incluído (GB) | 500 | 500 | 500 | 500 |
-| Opções de espaço de armazenamento máximo (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
-| Armazenamento máximo OLTP na memória (GB) | 1 | 2 | 4 | 8 |
-| Máximo de trabalhos simultâneos (solicitações)| 200 | 400 | 800 | 1600 |
-| Máximo de logons simultâneos | 200 | 400 | 800 | 1600 |
-| Máximo de sessões simultâneas | 30000 | 30000 | 30000 | 30000 |
-|||||||
-
 > [!IMPORTANT]
 > \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
