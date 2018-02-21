@@ -9,14 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 779ec70a3b45a0ac3e766c956aac94932d4d126b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Proteger um servidor de arquivos usando o Azure Site Recovery 
 
@@ -66,10 +66,10 @@ O diagrama a seguir fornece uma representação visual destinada a facilitar a d
 Já que a replicação do Site Recovery é independente do aplicativo, as recomendações fornecidas aqui devem servir também para os seguintes cenários:
 | Fonte    |Para um site secundário    |Para o Azure
 |---------|---------|---------|
-|As tabelas| -|Sim|
-|Hyper-V|   Sim |Sim
-|VMware |Sim|   Sim
-|Servidor físico|   Sim |Sim
+|As tabelas| -|sim|
+|Hyper-V|   sim |sim
+|VMware |sim|   sim
+|Servidor físico|   sim |sim
  
 
 > [!IMPORTANT]

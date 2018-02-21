@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4ecef0526bcdc61d29ae0ee0ac0d55c5651a1b2b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI usou o Azure para acelerar o ciclo de desenvolvimento e aprimorar o serviço de atendimento ao cliente e o desempenho
 ![Logotipo da CSI/Daxko](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -37,7 +37,7 @@ Além de melhorar o desempenho para os clientes, os pools elásticos do Azure li
 O Azure também ajudou a CSI Software a acelerar e melhorar o ciclo de desenvolvimento e QA (garantia de qualidade) habilitando opções de automação. Com a implementação do Azure na empresa, os gerentes de compilação podem empacotar componentes com o clique de um botão. Como Molina descreve, "Como parte do ciclo de liberação, o QA agora é capaz de implantar em um ambiente de teste no Azure, imitando de modo bem próximo nossa pilha de produção. Podemos implantar compilações imediatamente em nosso ambiente de desenvolvimento para verificar as alterações. Uma grande vitória para nós, pois não tínhamos paridade para testar antes disso".
 
 ## <a name="offloading-to-the-cloud"></a>Descarregando na nuvem
-Antes de passar para a nuvem, a CSI Software tinha criado com sucesso sua própria infraestrutura multilocatária em um datacenter local em Houston. À medida que a empresa expandia, ela enfrentava cada vez mais dificuldades com a compra, o provisionamento e a manutenção de todos os componentes de hardware e software necessários para atender aos clientes. A equipe de TI se tornou outro obstáculo ao lidar com operações, o que diminuiu a velocidade do provisionamento de novos recursos e da distribuição de novos serviços aos clientes.
+Antes de passar para a nuvem, a CSI Software tinha criado com sucesso sua própria infraestrutura multilocatária em um datacenter local em Houston. À medida que a empresa expandia, ela enfrentava cada vez mais dificuldades com a compra, o provisionamento e a manutenção de todos os componentes de hardware e software necessários para atender aos clientes. A equipe de TI se tornou outro gargalo ao lidar com operações, o que diminuiu a velocidade do provisionamento de novos recursos e da distribuição de novos serviços aos clientes.
 
 A CSI Software investigou as opções de nuvem para eliminar essa sobrecarga, de modo que ela pudesse focar em seu código, e não nas operações. A empresa descobriu que muitos dos mais importantes provedores de nuvem oferecem apenas soluções IaaS (infraestrutura como serviço), o que ainda exige uma grande equipe de TI para gerenciar a pilha IaaS. No fim, a CSI Software determinou que a solução PaaS do Azure foi a melhor opção para suas necessidades. Molina explica, "O Azure tira do caminho o hardware e o software de sistema para que possamos nos concentrar em nossas ofertas de software, ao mesmo tempo que reduzimos nossa sobrecarga de TI".
 
@@ -91,7 +91,6 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 * Para saber mais sobre as ferramentas de bancos de dados e dimensionamento elástico, confira as [ferramentas de banco de dados elástico e dimensionamento elástico](sql-database-elastic-scale-get-started.md).
 * Para saber mais sobre como migrar um banco de dados do SQL Server, confira [Migrar um banco de dados do SQL Server para o Azure](sql-database-cloud-migrate.md).
 * Para saber mais sobre a replicação geográfica ativa, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
-* Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
 * Para saber mais sobre dimensionamento automático, confira o artigo sobre o [dimensionamento de serviços de nuvem](../cloud-services/cloud-services-how-to-scale-portal.md).
 

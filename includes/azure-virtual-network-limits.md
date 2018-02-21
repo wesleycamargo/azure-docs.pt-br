@@ -52,7 +52,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Regras por recurso, Básico | 150 | 250 |
 | Regras por recurso, Standard | 1250 | 1500 |
 | Regras por configuração de IP | 299 |299 |
-| Configurações de IP de front-end, Básico | 10 | entrar em contato com o suporte |
+| Configurações de IP de front-end, Básico | 10 | 200 |
 | Configurações de IP de front-end, Standard | 10 | 600 |
 | Pool de back-end, Básico | 100, um único conjunto de disponibilidade | - |
 | Pool de back-end, Standard | 1000, única VNet | - |

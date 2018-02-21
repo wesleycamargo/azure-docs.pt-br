@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Proteja Novamente do Azure para um site local
 
@@ -42,7 +42,7 @@ Para obter uma visão geral, assista a este vídeo sobre como fazer failover do 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 > [!IMPORTANT]
 > Durante o failover para o Azure, o site local pode não estar acessível e, portanto, o servidor de configuração pode não estar disponível ou estar desligado. Durante a nova proteção e o failback, o servidor de configuração local deve estar em execução e em um estado conectado OK.
@@ -221,13 +221,7 @@ Também é possível proteger novamente no nível de um plano de recuperação. 
 
 Depois que nova proteção for bem-sucedida, a máquina virtual entrará em um estado protegido.
 
-## <a name="next-steps"></a>Próximas etapas
-
-Depois que a máquina virtual entrou em um estado protegido, você poderá [iniciar um failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
-
-O failback desligará a máquina virtual no Azure e inicializará a máquina virtual local. Espere algum tempo de inatividade do aplicativo. Escolha um horário para realizar failback quando o aplicativo puder tolerar o tempo de inatividade.
-
-## <a name="common-problems"></a>Problemas comuns
+## <a name="common-issues"></a>Problemas comuns
 
 * Se você usou um modelo para criar suas máquinas virtuais, verifique se cada máquina virtual tem seus próprios UUIDs para os discos. Se o UUID da máquina virtual local estiver em conflito com o do destino mestre, porque ambos foram criados com base no mesmo modelo, a nova proteção falhará. Implante outro destino mestre que não tenha sido criado com base no mesmo modelo.
 
@@ -245,38 +239,9 @@ O failback desligará a máquina virtual no Azure e inicializará a máquina vir
 
 * Um servidor Windows Server 2008 R2 SP1 que é protegido, já que um servidor local físico não pode fazer failback do Azure para um site local.
 
-### <a name="common-error-codes"></a>Códigos de erro comuns
 
-#### <a name="error-code-95226"></a>Código de erro 95226
+## <a name="next-steps"></a>Próximas etapas
 
-*A nova proteção falhou porque a máquina virtual do Azure não foi capaz de alcançar o servidor de configuração local.*
+Depois que a máquina virtual entrou em um estado protegido, você poderá [iniciar um failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
 
-Isso ocorre quando 
-1. A máquina virtual do Azure não foi capaz de alcançar o servidor de configuração local e, portanto, não pôde ser descoberta e registrada no servidor de configuração. 
-2. O serviço de aplicativo do InMage Scout na máquina virtual do Azure que precisa estar em execução para comunicar-se com o servidor de configuração local pode não estar executando após o failover.
-
-Para resolver esse problema
-1. Você precisa verificar se a rede de máquina virtual do Azure está configurada de modo que a máquina virtual possa se comunicar com o servidor de configuração local. Para fazer isso, defina uma VPN Site a Site para seu datacenter local ou configure uma conexão ExpressRoute com emparelhamento privado na rede virtual da máquina virtual do Azure. 
-2. Se você já tiver uma rede configurada de forma que a máquina virtual do Azure possa se comunicar com o servidor de configuração local, faça logon na máquina virtual e marque o 'Serviço de Aplicativo InMage Scout'. Se você observar que o Serviço de Aplicativo InMage Scout não está em execução, inicie o serviço manualmente e verifique se o tipo de inicialização do serviço está definido como Automático.
-
-### <a name="error-code-78052"></a>Código de erro 78052
-A nova proteção falha com a mensagem de erro: *Não foi possível concluir a proteção para a máquina virtual.*
-
-Isso pode acontecer devido a duas razões
-1. A máquina virtual que você está protegendo novamente é um Windows Server 2016. Atualmente, esse sistema operacional não tem suporte para failback, mas terá suporte em breve.
-2. Já existe uma máquina virtual com o mesmo nome no servidor de destino Mestre para o qual você está fazendo failback.
-
-Para resolver esse problema, você pode selecionar um servidor de destino mestre diferente em um host diferente, de modo que a nova proteção crie a máquina em um host diferente no qual não ocorra conflito entre os nomes. Você também pode fazer vMotion do destino mestre para um host diferente no qual não ocorra conflito entre os nomes. Se a máquina virtual existente for uma máquina isolada, você pode apenas renomeá-la para que a nova máquina virtual possa ser criada no mesmo host ESXi.
-
-### <a name="error-code-78093"></a>Código de erro 78093
-
-*A VM não está em execução, está em um estado suspenso ou não está acessível.*
-
-Para proteger novamente uma máquina virtual que sofreu failover de volta para o local, é necessário que a máquina virtual do Azure esteja em execução. Isso é para que o serviço de mobilidade registre-se no servidor de configuração local e possa iniciar a replicação comunicando-se com o servidor de processo. Se o computador estiver em uma rede incorreta ou não estiver em execução (estado suspenso ou desligado), o servidor de configuração não poderá acessar o serviço de mobilidade na máquina virtual para iniciar a nova proteção. Você pode reiniciar a máquina virtual para que ela possa começar a comunicar-se de volta localmente. Reiniciar o trabalho de nova proteção depois de iniciar a máquina virtual do Azure
-
-### <a name="error-code-8061"></a>Código de erro 8061
-
-*A loja de dados não está acessível no host ESXi.*
-
-Consulte os [pré-requisitos de destino](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) e as [lojas de dados de suporte](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) para failback
-
+O failback desligará a máquina virtual no Azure e inicializará a máquina virtual local. Espere algum tempo de inatividade do aplicativo. Escolha um horário para realizar failback quando o aplicativo puder tolerar o tempo de inatividade.

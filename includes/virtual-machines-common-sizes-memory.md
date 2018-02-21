@@ -23,7 +23,7 @@ As instâncias ESv3-series são baseadas no processador Intel XEON ® E5-2673 v4
 | Standard_E4s_v3  | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6.400 / 96                                | 2 / 2,000                                   |
 | Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12.800 / 192                              | 4 / 4,000                                       |
 | Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8 / 8,000                                       |
-| Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8 / 16,000                             |
+| Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8 / 16.000                             |
 | Standard_E64s_v3 <sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
 
 <sup>1</sup>A tecnologia Intel® Hyper-Threading da VM Esv3-series <sup>2</sup>Tamanhos limitados de núcleo disponíveis 
@@ -43,7 +43,7 @@ O armazenamento do disco de dados é faturado separadamente das máquinas virtua
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2,000                 |
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4,000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
-| Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
+| Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16.000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 
 <sup>1</sup> A tecnologia Intel® Hyper-Threading da VM Ev3-series
@@ -81,7 +81,7 @@ ACU: 180 - 240
 
 <sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série GS pode ser limitada pelo número, tamanho e distribuição dos discos anexados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-<sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
+<sup>2</sup> A instância é isolada em hardware dedicado a um único cliente. 
 
 <sup>3</sup> Tamanhos limitados de núcleos disponíveis 
 
@@ -117,7 +117,7 @@ ACU: 210 - 250
 
 <sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
-<sup>2</sup> A instância é um nó isolado que garante que sua VM é a única VM em nosso nó Intel Haswell.
+<sup>2</sup> A instância é isolada em hardware dedicado a um único cliente. 
 
 <sup>3</sup> 25000 Mbps com Rede Acelerada.
 
@@ -135,7 +135,7 @@ ACU: 210 - 250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
 | Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1.000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> A instância é um nó isolado que garante que sua VM é a única VM em nosso nó Intel Haswell.
+<sup>1</sup> A instância é isolada em hardware dedicado a um único cliente. 
 
 <sup>2</sup> 25000 Mbps com Rede Acelerada.
 

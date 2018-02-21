@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 31477cbf478d2d836c2d7c3472e3a53f13831480
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 7ad53c7cfc49958abbe6200a892ba4e0c24c434c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
 
@@ -26,7 +26,113 @@ ms.lasthandoff: 01/22/2018
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
+Os exemplos neste artigo exigem a versão 3.0 ou posterior do Azure PowerShell. Se você não tiver a versão 3.0 ou posterior, [atualize sua versão](/powershell/azureps-cmdlets-docs/) usando a Galeria do PowerShell ou o Web Platform Installer.
+
+Para conferir as marcas existentes para um *grupo de recursos*, use:
+
+```powershell
+(Get-AzureRmResourceGroup -Name examplegroup).Tags
+```
+
+Esse script retorna o seguinte formato:
+
+```powershell
+Name                           Value
+----                           -----
+Dept                           IT
+Environment                    Test
+```
+
+Para conferir as marcas existentes para um *recurso que tem uma ID de recurso especificada*, use:
+
+```powershell
+(Get-AzureRmResource -ResourceId {resource-id}).Tags
+```
+
+Ou, para conferir as marcas existentes para um *recurso que tem um nome especificado, e um grupo de recursos*, use:
+
+```powershell
+(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+```
+
+Para obter *grupos de recursos que têm uma marca específica*, use:
+
+```powershell
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
+```
+
+Para obter *recursos que têm uma marca específica*, use:
+
+```powershell
+(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+```
+
+Ao aplicar marcas a um recurso ou grupo de recursos, você pode substituir as marcas existentes nesse recurso ou grupo de recursos. Portanto, você deve usar uma abordagem diferente com base em se o recurso ou o grupo de recursos tem marcas existentes.
+
+Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
+
+```powershell
+Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```
+
+Para adicionar marcas a um *grupo de recursos que tem marcas existentes*, recupere as marcas existentes, adicione a nova marca e reaplique as marcas:
+
+```powershell
+$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+```
+
+Para adicionar marcas a um *recurso sem marcas existentes*, use:
+
+```powershell
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
+```
+
+Para adicionar marcas a um *grupo de recursos que tem marcas existentes*, use:
+
+```powershell
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$r.tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
+```
+
+Para aplicar todas as marcas de um grupo de recursos em seus recursos, e *não manter as marcas existentes nos recursos*, use o seguinte script:
+
+```powershell
+$groups = Get-AzureRmResourceGroup
+foreach ($g in $groups)
+{
+    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+}
+```
+
+Para aplicar todas as marcas de um grupo de recursos em seus recursos, e *manter as marcas existentes nos recursos que não são duplicados*, use o seguinte script:
+
+```powershell
+$group = Get-AzureRmResourceGroup "examplegroup"
+if ($group.Tags -ne $null) {
+    $resources = $group | Find-AzureRmResource
+    foreach ($r in $resources)
+    {
+        $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+        foreach ($key in $group.Tags.Keys)
+        {
+            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+        }
+        $resourcetags += $group.Tags
+        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+    }
+}
+```
+
+Para remover todas as marcas, passe uma tabela de hash vazio:
+
+```powershell
+Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
+```
+
 
 ## <a name="azure-cli"></a>CLI do Azure
 

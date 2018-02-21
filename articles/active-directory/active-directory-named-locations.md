@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 231255d9a119c404c0c947c00414572aaab82719
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Localizações nomeadas no Azure Active Directory
 
@@ -26,7 +26,7 @@ Com locais nomeados, você pode rotular os intervalos de endereços IP confiáve
 
 - A detecção de [eventos de risco](active-directory-reporting-risk-events.md) para reduzir o número de falsos positivos relatados.  
 
-- [Acesso condicional com base em localização](active-directory-conditional-access-azure-portal.md#locations).
+- [Acesso condicional com base em localização](active-directory-conditional-access-locations.md).
 
 
 Este artigo explica como você pode configurar localizações nomeadas em seu ambiente.

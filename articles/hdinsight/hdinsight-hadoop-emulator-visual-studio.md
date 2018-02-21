@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 904bbfcd02984b301d9eb9faaa6203f16139eba5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio com a Área Restrita da Hortonworks
 
@@ -27,7 +27,7 @@ O Azure Data Lake inclui ferramentas para trabalhar com clusters Hadoop genéric
 
 O uso da Hortonworks Sandbox permite que você trabalhe com o Hadoop localmente em seu ambiente de desenvolvimento. Após você desenvolver uma solução e querer implantá-la em escala, mude para um cluster HDInsight.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * A Área Restrita da Hortonworks em execução em uma máquina virtual em seu ambiente de desenvolvimento. Este documento foi criado e testado com a área restrita em execução no Oracle VirtualBox. Para obter informações sobre como configurar a área restrita, confira o documento [Introdução a uma área restrita Hortonworks](hadoop/apache-hadoop-emulator-get-started.md) .
 
@@ -102,7 +102,7 @@ O Hive fornece uma linguagem de consulta do tipo SQL (HiveQL) para trabalhar com
 
     ![Captura de tela da caixa de diálogo Exibir Trabalho, com o Estado do Trabalho realçado](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
-    Após o **Estado do Trabalho** mudar para **Concluído**, um DAG (gráfico acíclico dirigido) é exibido. Este diagrama descreve o caminho de execução determinado por Tez durante o processamento da consulta de Hive. O Tez é o mecanismo padrão de execução para Hive no cluster local.
+    Após o **Estado do Trabalho** mudar para **Concluído**, um DAG (grafo direcionado acíclico) é exibido. Este diagrama descreve o caminho de execução determinado por Tez durante o processamento da consulta de Hive. O Tez é o mecanismo padrão de execução para Hive no cluster local.
 
     > [!NOTE]
     > O Tez também é o padrão quando você usa clusters HDInsight baseados em Linux. Ele não é o padrão em HDInsight baseado no Windows. Para usá-lo, você deve adicionar a linha `set hive.execution.engine = tez;` ao início de sua consulta de Hive.

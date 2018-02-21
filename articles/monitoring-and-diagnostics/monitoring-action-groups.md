@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
@@ -58,10 +58,10 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
     b. **Tipo de Ação**: selecione SMS, email, webhook, aplicativo do Azure, ITSM ou runbook de Automação.
 
-    c. **Detalhes**: de acordo com o tipo de ação, insira um número de telefone, endereço de email, URI de webhook, aplicativo do Azure, conexão de ITSM ou runbook de Automação. Para Ação do ITSM, além disso, especifique **Item de Trabalho** e outros campos necessários para a ferramenta de ITSM. 
+    c. **Detalhes**: de acordo com o tipo de ação, insira um número de telefone, endereço de email, URI de webhook, aplicativo do Azure, conexão de ITSM ou runbook de Automação. Para Ação do ITSM, além disso, especifique **Item de Trabalho** e outros campos necessários para a ferramenta de ITSM.
 
    > [!NOTE]
-   > Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../log-analytics/log-analytics-itsmc-overview.md). Atualmente, a Ação de ITSM funciona apenas em Alertas do Log de Atividades. Em outros tipos de alerta, essa ação é inoperante no momento.
+   > Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../log-analytics/log-analytics-itsmc-overview.md). 
 
 8. Selecione **OK** para criar o grupo de ações.
 
@@ -75,6 +75,6 @@ Depois de criar um grupo, ele ficará visível na seção **Grupos de ações** 
 * Saiba mais sobre o [comportamento de alertas por SMS](monitoring-sms-alert-behavior.md).  
 * Tenha uma [compreensão do esquema de webhook de alerta do log de atividades](monitoring-activity-log-alerts-webhook.md).  
 * Saiba mais sobre o [Conector de ITSM](../log-analytics/log-analytics-itsmc-overview.md)
-* Saiba mais sobre a [limitação de taxa](monitoring-alerts-rate-limiting.md) para alertas. 
+* Saiba mais sobre a [limitação de taxa](monitoring-alerts-rate-limiting.md) para alertas.
 * Obtenha uma [visão geral dos alertas do log de atividades](monitoring-overview-alerts.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do serviço é postada](monitoring-activity-log-alerts-on-service-notifications.md).

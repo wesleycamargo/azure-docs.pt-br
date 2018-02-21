@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d72094fb34c73e511b1003be25594a1dedddb1e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Criar uma VM Linux usando disco personalizado com a CLI 2.0 do Azure
 
@@ -35,7 +35,7 @@ Você tem duas opções:
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
-Ao criar uma nova VM usando [az vm create](/cli/azure/vm#create) de um disco especializado ou personalizado, você **anexa** o disco (--attach-os-disk), em vez de especificar uma imagem do marketplace ou personalizada (--imagem). O exemplo a seguir cria uma VM denominada *myVM* usando o disco gerenciado denominado *myManagedDisk* criado com base no seu VHD personalizado:
+Ao criar uma nova VM usando [az vm create](/cli/azure/vm#az_vm_create) de um disco especializado ou personalizado, você **anexa** o disco (--attach-os-disk), em vez de especificar uma imagem do marketplace ou personalizada (--imagem). O exemplo a seguir cria uma VM denominada *myVM* usando o disco gerenciado denominado *myManagedDisk* criado com base no seu VHD personalizado:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location eastus --name myVM \
@@ -56,7 +56,7 @@ Para concluir as etapas a seguir, você precisa:
 > 
 
 
-* Certifique-se de que você tenha instalado a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-az-cli2) e entrado em uma conta do Azure usando [az login](/cli/azure/#login).
+* Certifique-se de que você tenha instalado a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-az-cli2) e entrado em uma conta do Azure usando [az login](/cli/azure/#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Exemplos de nomes de parâmetro incluem *myResourceGroup*, *mystorageaccount* e *mydisks*.
 
@@ -87,7 +87,7 @@ Você pode carregar um VHD personalizado que esteja em execução em um computad
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Antes de carregar seu disco personalizado e criar VMs, primeiro você precisa criar um grupo de recursos com [az group create](/cli/azure/group#create).
+Antes de carregar seu disco personalizado e criar VMs, primeiro você precisa criar um grupo de recursos com [az group create](/cli/azure/group#az_group_create).
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*: [Visão geral do Azure Managed Disks](../windows/managed-disks-overview.md)
 ```azurecli
@@ -98,7 +98,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Criar uma conta de armazenamento para seu disco personalizado e VMs com [az storage account create](/cli/azure/storage/account#create). 
+Criar uma conta de armazenamento para seu disco personalizado e VMs com [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 O exemplo a seguir cria uma conta de armazenamento denominada *mystorageaccount* no grupo de recursos criado anteriormente:
 
@@ -112,7 +112,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>Listar chaves da conta de armazenamento
-O Azure gera duas chaves de acesso de 512 bits para cada conta de armazenamento. Essas chaves de acesso são usadas ao autenticar para a conta de armazenamento, como executar operações de gravação. Leia mais sobre [como gerenciar o acesso ao armazenamento aqui](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Exibir as chaves de acesso com [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#list).
+O Azure gera duas chaves de acesso de 512 bits para cada conta de armazenamento. Essas chaves de acesso são usadas ao autenticar para a conta de armazenamento, como executar operações de gravação. Leia mais sobre [como gerenciar o acesso ao armazenamento aqui](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Exibir as chaves de acesso com [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Veja as chaves de acesso da conta de armazenamento que você criou:
 
@@ -136,7 +136,7 @@ info:    storage account keys list command OK
 Tome nota da **key1**, pois você a usará para interagir com sua conta de armazenamento nas próximas etapas.
 
 ### <a name="create-a-storage-container"></a>Criar um contêiner de armazenamento
-Da mesma forma que você cria diferentes diretórios para organizar logicamente seu sistema de arquivos local, crie contêineres em uma conta de armazenamento para organizar seus discos. Uma conta de armazenamento pode conter qualquer quantidade de contêineres. Crie um contêiner com [az storage container create](/cli/azure/storage/container#create).
+Da mesma forma que você cria diferentes diretórios para organizar logicamente seu sistema de arquivos local, crie contêineres em uma conta de armazenamento para organizar seus discos. Uma conta de armazenamento pode conter qualquer quantidade de contêineres. Crie um contêiner com [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 O seguinte exemplo cria um contêiner chamado *mydisks*:
 
@@ -147,7 +147,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>Carregar o VHD
-Agora, carregue seu disco personalizado com [az storage blob upload](/cli/azure/storage/blob#upload). Carregue e armazene seu disco personalizado como um blob de páginas.
+Agora, carregue seu disco personalizado com [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Carregue e armazene seu disco personalizado como um blob de páginas.
 
 Especifique sua chave de acesso, o contêiner que você criou na etapa anterior e o caminho para o disco personalizado no seu computador local:
 
@@ -164,7 +164,7 @@ Carregar o VHD pode demorar um pouco.
 ### <a name="create-a-managed-disk"></a>Criar um disco gerenciado
 
 
-Criar um disco gerenciado do VHD usando [az disk create](/cli/azure/disk#create). O exemplo a seguir cria um disco gerenciado chamado *myManagedDisk* usando o VHD carregado para o contêiner e a conta de armazenamento nomeados:
+Criar um disco gerenciado do VHD usando [az disk create](/cli/azure/disk#az_disk_create). O exemplo a seguir cria um disco gerenciado chamado *myManagedDisk* usando o VHD carregado para o contêiner e a conta de armazenamento nomeados:
 
 ```azurecli
 az disk create \
@@ -210,7 +210,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Criar a VM
 
-Agora, crie a VM com [az vm create](/cli/azure/vm#create) e anexe (--attach-os-disk) o disco gerenciado como o disco do sistema operacional. O exemplo a seguir cria uma VM denominada *myNewVM* usando o disco gerenciado criado com base no seu VHD carregado:
+Agora, crie a VM com [az vm create](/cli/azure/vm#az_vm_create) e anexe (--attach-os-disk) o disco gerenciado como o disco do sistema operacional. O exemplo a seguir cria uma VM denominada *myNewVM* usando o disco gerenciado criado com base no seu VHD carregado:
 
 ```azurecli
 az vm create \

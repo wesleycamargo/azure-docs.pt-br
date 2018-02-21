@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 7a28accce1bd328b2b486b588c44d91b03e42122
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 318f322196b0028e42268b8d6d003457869d1117
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Solucionar problemas de uma VM Linux anexando o disco do SO a uma VM de recuperação com a CLI 2.0 do Azure
 Se a VM (máquina virtual) do Linux tiver um erro de disco ou de inicialização, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida em `/etc/fstab` que impede que a VM possa ser inicializada corretamente. Este artigo fornece detalhes sobre como usar a CLI 2.0 do Azure para conectar o disco rígido virtual a outra VM Linux para corrigir erros e recriar a VM original. Você também pode executar essas etapas com a [CLI do Azure 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -32,7 +32,7 @@ O processo de solução de problemas é o seguinte:
 4. Desmonte e desanexe o disco rígido virtual da VM de solução de problemas.
 5. Crie uma VM usando o disco rígido virtual original.
 
-Para realizar essas etapas de solução de problemas, é preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
+Para realizar essas etapas de solução de problemas, é preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios valores. Os nomes de parâmetro de exemplo incluem `myResourceGroup`, `mystorageaccount` e `myVM`.
 
@@ -40,7 +40,7 @@ Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios val
 ## <a name="determine-boot-issues"></a>Determinar problemas de inicialização
 Examine a saída serial para determinar por que a VM não pode ser inicializada corretamente. Um exemplo comum é uma entrada inválida em `/etc/fstab` ou a exclusão ou movimentação do disco rígido virtual subjacente.
 
-Obtenha os logs de inicialização com [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#get-boot-log). O exemplo a seguir obtém a saída serial da VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
+Obtenha os logs de inicialização com [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log). O exemplo a seguir obtém a saída serial da VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
@@ -52,7 +52,7 @@ Examine a saída serial para determinar por que a VM não é inicializada corret
 ## <a name="view-existing-virtual-hard-disk-details"></a>Exibir detalhes do disco rígido virtual existente
 Antes de anexar o VHD (disco rígido virtual) a outra VM, você precisa identificar o URI do disco do sistema operacional. 
 
-Exiba informações sobre a VM com [az vm show](/cli/azure/vm#show). Use o sinalizador `--query` para extrair o URI para o disco do sistema operacional. O exemplo a seguir obtém informações de disco da VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
+Exiba informações sobre a VM com [az vm show](/cli/azure/vm#az_vm_show). Use o sinalizador `--query` para extrair o URI para o disco do sistema operacional. O exemplo a seguir obtém informações de disco da VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM \
@@ -66,7 +66,7 @@ Discos rígidos virtuais e VMs são dois recursos distintos no Azure. Um disco r
 
 A primeira etapa para recuperar a VM é excluir o recurso de VM em si. A exclusão da VM deixa os discos rígidos virtuais na conta de armazenamento. Depois que a VM for excluída, você anexa o disco rígido virtual a outra VM para solucionar os erros.
 
-Exclua a VM com [az vm delete](/cli/azure/vm#delete). O seguinte exemplo exclui a VM chamada `myVM` do grupo de recursos chamado `myResourceGroup`:
+Exclua a VM com [az vm delete](/cli/azure/vm#az_vm_delete). O seguinte exemplo exclui a VM chamada `myVM` do grupo de recursos chamado `myResourceGroup`:
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 
@@ -78,7 +78,7 @@ Aguarde até que a VM tenha concluído a exclusão antes de anexar o disco rígi
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Anexar um disco rígido virtual existente a outra VM
 Para as próximas etapas, você pode usar outra VM para fins de solução de problemas. Você anexa o disco rígido virtual existente a essa VM de solução de problemas para procurar e editar o conteúdo do disco. Esse processo permite que você corrija os erros de configuração ou examine arquivos de aplicativo ou de log do sistema adicionais, por exemplo. Escolha ou crie outra VM a ser usada para fins de solução de problemas.
 
-Anexe o disco rígido virtual existente com [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk#attach). Ao anexar o disco rígido virtual existente, especifique o URI para o disco obtido no comando `az vm show` anterior. O seguinte exemplo anexa um disco rígido virtual existente à VM de solução de problemas chamada `myVMRecovery` no grupo de recursos chamado `myResourceGroup`:
+Anexe o disco rígido virtual existente com [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_attach). Ao anexar o disco rígido virtual existente, especifique o URI para o disco obtido no comando `az vm show` anterior. O seguinte exemplo anexa um disco rígido virtual existente à VM de solução de problemas chamada `myVMRecovery` no grupo de recursos chamado `myResourceGroup`:
 
 ```azurecli
 az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -144,7 +144,7 @@ Depois de resolver os erros, desmonte e desanexe o disco rígido virtual existen
     sudo umount /dev/sdc1
     ```
 
-2. Agora desanexe o disco rígido virtual da VM. Saia da sessão do SSH da VM de solução de problemas. Liste os discos de dados anexados à VM de solução de problemas com [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk#list). O seguinte exemplo lista os discos de dados anexados à VM chamada `myVMRecovery` no grupo de recursos chamado `myResourceGroup`:
+2. Agora desanexe o disco rígido virtual da VM. Saia da sessão do SSH da VM de solução de problemas. Liste os discos de dados anexados à VM de solução de problemas com [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_list). O seguinte exemplo lista os discos de dados anexados à VM chamada `myVMRecovery` no grupo de recursos chamado `myResourceGroup`:
 
     ```azurecli
     azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -153,7 +153,7 @@ Depois de resolver os erros, desmonte e desanexe o disco rígido virtual existen
 
     Observe o nome do disco rígido virtual existente. Por exemplo, o nome de um disco com o URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** é **myVHD**. 
 
-    Desanexe o disco de dados da sua VM com [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#detach). O exemplo a seguir desanexa o disco chamado `myVHD` da VM chamada `myVMRecovery` no grupo de recursos chamado `myResourceGroup`:
+    Desanexe o disco de dados da sua VM com [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach). O exemplo a seguir desanexa o disco chamado `myVHD` da VM chamada `myVMRecovery` no grupo de recursos chamado `myResourceGroup`:
 
     ```azurecli
     az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -166,7 +166,7 @@ Para criar uma VM com base no disco rígido virtual original, use [esse modelo d
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-O modelo implanta uma VM usando o URI do VHD do comando anterior. Implante o modelo com [az group deployment create](/cli/azure/group/deployment#create). Forneça o URI para o VHD original e, em seguida, especifique o tipo do sistema operacional, o tamanho da VM e o nome da VM da seguinte maneira:
+O modelo implanta uma VM usando o URI do VHD do comando anterior. Implante o modelo com [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Forneça o URI para o VHD original e, em seguida, especifique o tipo do sistema operacional, o tamanho da VM e o nome da VM da seguinte maneira:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \
@@ -178,7 +178,7 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
 ```
 
 ## <a name="re-enable-boot-diagnostics"></a>Habilitar o diagnóstico de inicialização novamente
-Ao criar a VM com base no disco rígido virtual existente, o diagnóstico de inicialização poderá não ser habilitado automaticamente. Habilite o diagnóstico de inicialização com [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics#enable). O seguinte exemplo habilita a extensão de diagnóstico na VM chamada `myDeployedVM` no grupo de recursos chamado `myResourceGroup`:
+Ao criar a VM com base no disco rígido virtual existente, o diagnóstico de inicialização poderá não ser habilitado automaticamente. Habilite o diagnóstico de inicialização com [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). O seguinte exemplo habilita a extensão de diagnóstico na VM chamada `myDeployedVM` no grupo de recursos chamado `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03a29faeed71334253f9aa5bc88653fd689cc55b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Baixar um VHD do Linux por meio do Azure
 
@@ -43,7 +43,7 @@ Para usar o VHD como uma imagem para criar outras VMs, conclua estas etapas:
     exit 
     ```
 
-2. Entre em sua conta do Azure com [az login](https://docs.microsoft.com/cli/azure/#login).
+2. Entre em sua conta do Azure com [az login](https://docs.microsoft.com/cli/azure/#az_login).
 3. Pare e desaloque a VM.
 
     ```azurecli
@@ -58,7 +58,7 @@ Para usar o VHD como uma imagem para criar outras VMs, conclua estas etapas:
 
 Para usar o VHD como um disco de uma nova instância de uma VM existente ou um disco de dados, conclua estas etapas:
 
-1.  Entre no [Portal do Azure](https://portal.azure.com/).
+1.  Entre no [portal do Azure](https://portal.azure.com/).
 2.  No menu Hub, clique em **Máquinas Virtuais**.
 3.  Selecione a VM na lista.
 4.  Na folha da VM, clique em **Parar**.

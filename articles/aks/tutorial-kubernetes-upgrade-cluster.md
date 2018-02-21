@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d82232d590bcc5c578ebe8ed7c85d25aebcfe097
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Fazer upgrade do Kubernetes no AKS (Serviço de Contêiner do Azure)
 
@@ -30,7 +30,7 @@ Neste tutorial, parte oito de oito, é feito o upgrade de um cluster Kubernetes.
 
 Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêiner, essa imagem foi carregada no Registro de Contêiner do Azure e um cluster Kubernetes foi criado. Em seguida, o aplicativo foi executado no cluster Kubernetes.
 
-Se você ainda não tiver realizado essas etapas e desejar continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner][aks-tutorial-prepare-app].
+Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Obter versões de cluster
@@ -38,7 +38,7 @@ Se você ainda não tiver realizado essas etapas e desejar continuar acompanhand
 Antes de atualizar um cluster, use o comando `az aks get-versions` para verificar quais versões do Kubernetes estão disponíveis para upgrade.
 
 ```azurecli-interactive
-az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
+az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
 Aqui você pode ver que a versão atual do nó é `1.7.7` e que as versões `1.7.9`, `1.8.1` e `1.8.2` estão disponíveis.
@@ -54,16 +54,16 @@ default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7           
 Use o comando `az aks upgrade` para fazer upgrade dos nós de cluster. Os exemplos a seguir atualizam o cluster para a versão `1.8.2`.
 
 ```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
 Saída:
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -78,7 +78,7 @@ Saída:
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
@@ -118,7 +118,7 @@ Saída:
 Agora você pode confirmar se o upgrade obteve êxito com o comando `az aks show`.
 
 ```azurecli-interactive
-az aks show --name myK8sCluster --resource-group myResourceGroup --output table
+az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
 Saída:
@@ -126,7 +126,7 @@ Saída:
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
+myAKSCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

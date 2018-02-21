@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory
 
@@ -41,11 +41,11 @@ O acesso condicional com base no dispositivo associa o **acesso condicional do A
 
 Em um mundo móvel e em nuvem, o Azure Active Directory permite o logon único para dispositivos, aplicativos e serviços de qualquer lugar. Para determinados recursos no seu ambiente, conceder acesso aos usuários certos talvez não seja o suficiente. Além dos usuários certos, você também pode exigir que um dispositivo confiável seja usado para acessar um recurso. Em seu ambiente, é possível definir em que um dispositivo confiável se baseia nos seguintes componentes:
 
-- As [plataformas de dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms) em um dispositivo
+- As [plataformas de dispositivo](active-directory-conditional-access-conditions.md#device-platforms) em um dispositivo
 - Se um dispositivo está em conformidade
 - Se um dispositivo foi adicionado ao domínio 
 
-As [plataformas de dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms) são caracterizadas pelo sistema operacional que está em execução no seu dispositivo. Em sua política de acesso condicional com base no dispositivo, você pode limitar o acesso para determinados recursos a plataformas de dispositivo específicas.
+As [plataformas de dispositivo](active-directory-conditional-access-conditions.md#device-platforms) são caracterizadas pelo sistema operacional que está em execução no seu dispositivo. Em sua política de acesso condicional com base no dispositivo, você pode limitar o acesso para determinados recursos a plataformas de dispositivo específicas.
 
 
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -39,7 +39,7 @@ Se essa não é a informação que você está procurando, deixe um comentário 
 
 ## <a name="cloud-apps-assignments"></a>Atribuições de aplicativos de nuvem
 
-Com as políticas de acesso condicional, você controla como os usuários acessam seus [aplicativos de nuvem](active-directory-conditional-access-azure-portal.md#who). Ao configurar uma política de acesso condicional, será necessário selecionar pelo menos um aplicativo na nuvem. 
+Com as políticas de acesso condicional, você controla como os usuários acessam seus [aplicativos de nuvem](active-directory-conditional-access-conditions.md#cloud-apps). Ao configurar uma política de acesso condicional, será necessário selecionar pelo menos um aplicativo na nuvem. 
 
 ![Selecione os aplicativos em nuvem para sua política](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -105,7 +105,7 @@ Em uma política de acesso condicional, é possível configurar a condição de 
 
 ## <a name="client-apps-condition"></a>Condição de aplicativos cliente 
 
-Em sua política de acesso condicional, você pode configurar a condição de [aplicativos cliente](active-directory-conditional-access-azure-portal.md#client-apps) para vincular a política ao aplicativo cliente que iniciou uma tentativa de acesso. Defina a condição de aplicativos cliente para conceder ou bloquear acesso quando uma tentativa de acesso for realizada a partir dos seguintes tipos de aplicativos cliente:
+Em sua política de acesso condicional, você pode configurar a condição de [aplicativos cliente](active-directory-conditional-access-conditions.md#client-apps) para vincular a política ao aplicativo cliente que iniciou uma tentativa de acesso. Defina a condição de aplicativos cliente para conceder ou bloquear acesso quando uma tentativa de acesso for realizada a partir dos seguintes tipos de aplicativos cliente:
 
 - Navegador
 - Aplicativos móveis e de da área de trabalho
@@ -169,10 +169,9 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 |Outlook 2016 (Office para macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Aplicativo móvel do Outlook|Office 365 Exchange Online|Android, iOS|
-|Aplicativo PowerBI. Atualmente, o aplicativo Power BI para Android não dá suporte ao acesso condicional baseado no dispositivo.|Serviço PowerBI|Windows 10, Windows 8.1, Windows 7 e iOS|
+|Aplicativo PowerBI|Serviço PowerBI|Windows 10, Windows 8.1, Windows 7 e iOS|
 |Skype for Business|Office 365 Exchange Online|Android, IOS |
 |Aplicativo Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS e Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Requisito de aplicativo cliente aprovado 
@@ -186,6 +185,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 
 - Proteção de Informações do Microsoft Azure
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -193,6 +193,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
+- Microsoft StaffHub
 - Equipes da Microsoft
 - Microsoft Visio
 - Microsoft Word

@@ -3,7 +3,7 @@ title: "Controle de acesso baseado em função com REST – Azure AD | Microsoft
 description: "Gerenciar o controle de acesso com base em função com a API REST"
 services: active-directory
 documentationcenter: na
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: andredm
-ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: rolyon
+ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Gerenciar o Controle de Acesso com Base em Função com a API REST
 > [!div class="op_single_selector"]
@@ -151,10 +151,10 @@ Para o corpo da solicitação, forneça os valores no seguinte formato:
 
 ```
 
-| Nome do elemento | Obrigatório | Tipo | Descrição |
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO |
 | --- | --- | --- | --- |
-| roleDefinitionId |Sim |Cadeia de caracteres |Identificador da função. O formato do identificador é: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Sim |Cadeia de caracteres |ID de objeto da entidade de segurança do Azure AD (usuário, grupo ou entidade de serviço) para o qual a função é atribuída. |
+| roleDefinitionId |sim |Cadeia de caracteres |Identificador da função. O formato do identificador é: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId |sim |Cadeia de caracteres |ID de objeto da entidade de segurança do Azure AD (usuário, grupo ou entidade de serviço) para o qual a função é atribuída. |
 
 ### <a name="response"></a>Response
 Código de status: 201
@@ -434,15 +434,15 @@ Para o corpo da solicitação, forneça os valores no seguinte formato:
 
 ```
 
-| Nome do elemento | Obrigatório | Tipo | Descrição |
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO |
 | --- | --- | --- | --- |
-| name |Sim |Cadeia de caracteres |Identificador GUID da função personalizada. |
-| properties.roleName |Sim |Cadeia de caracteres |Nome de exibição da função personalizada. Tamanho máximo de 128 caracteres. |
-| properties.description |Não |Cadeia de caracteres |Descrição da função personalizada. Tamanho máximo de 1024 caracteres. |
-| properties.type |Sim |Cadeia de caracteres |Defina como "CustomRole". |
-| properties.permissions.actions |Sim |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações concedidas pela função personalizada. |
-| properties.permissions.notActions |Não |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações concedidas pela função personalizada. |
-| properties.assignableScopes |Sim |String[] |Uma matriz de escopos no qual a função personalizada pode ser usada. |
+| Nome |sim |Cadeia de caracteres |Identificador GUID da função personalizada. |
+| properties.roleName |sim |Cadeia de caracteres |Nome de exibição da função personalizada. Tamanho máximo de 128 caracteres. |
+| properties.description |Não  |Cadeia de caracteres |Descrição da função personalizada. Tamanho máximo de 1024 caracteres. |
+| properties.type |sim |Cadeia de caracteres |Defina como "CustomRole". |
+| properties.permissions.actions |sim |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações concedidas pela função personalizada. |
+| properties.permissions.notActions |Não  |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações concedidas pela função personalizada. |
+| properties.assignableScopes |sim |String[] |Uma matriz de escopos no qual a função personalizada pode ser usada. |
 
 ### <a name="response"></a>Response
 Código de status: 201
@@ -537,15 +537,15 @@ Para o corpo da solicitação, forneça os valores no seguinte formato:
 
 ```
 
-| Nome do elemento | Obrigatório | Tipo | Descrição |
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO |
 | --- | --- | --- | --- |
-| name |Sim |Cadeia de caracteres |Identificador GUID da função personalizada. |
-| properties.roleName |Sim |Cadeia de caracteres |Nome de exibição da função personalizada a ser atualizada. |
-| properties.description |Não |Cadeia de caracteres |Nome de exibição da função personalizada atualizada. |
-| properties.type |Sim |Cadeia de caracteres |Defina como "CustomRole". |
-| properties.permissions.actions |Sim |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações para as quais a função personalizada atualizada concede acesso. |
-| properties.permissions.notActions |Não |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações para as quais a função personalizada atualizada concede acesso. |
-| properties.assignableScopes |Sim |String[] |Uma matriz de escopos na qual a função personalizada atualizada pode ser usada. |
+| Nome |sim |Cadeia de caracteres |Identificador GUID da função personalizada. |
+| properties.roleName |sim |Cadeia de caracteres |Nome de exibição da função personalizada a ser atualizada. |
+| properties.description |Não  |Cadeia de caracteres |Nome de exibição da função personalizada atualizada. |
+| properties.type |sim |Cadeia de caracteres |Defina como "CustomRole". |
+| properties.permissions.actions |sim |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações para as quais a função personalizada atualizada concede acesso. |
+| properties.permissions.notActions |Não  |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações para as quais a função personalizada atualizada concede acesso. |
+| properties.assignableScopes |sim |String[] |Uma matriz de escopos na qual a função personalizada atualizada pode ser usada. |
 
 ### <a name="response"></a>Response
 Código de status: 201
