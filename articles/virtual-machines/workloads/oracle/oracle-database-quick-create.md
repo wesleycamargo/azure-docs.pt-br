@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f760165fa8a93bbb7646539af748b647fe63bba
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar um Banco de Dados Oracle em uma VM do Azure
 
@@ -33,7 +33,7 @@ Se você optar por instalar e usar a CLI localmente, este guia de início rápid
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
 
-Para criar uma VM (máquina virtual), use o comando [az vm create](/cli/azure/vm#create). 
+Para criar uma VM (máquina virtual), use o comando [az vm create](/cli/azure/vm#az_vm_create). 
 
 O exemplo a seguir cria uma VM chamada `myVM`. Ele também criará chaves SSH, se elas ainda não existirem em um local de chave padrão. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.  
 
@@ -270,7 +270,7 @@ Por padrão, o banco de dados Oracle não inicia automaticamente quando você re
 
 A última tarefa é configurar alguns pontos de extremidade externos. Para configurar o Grupo de Segurança de Rede do Azure que protege a VM, primeiro saia da sessão SSH na VM (você de ter saído do SSH ao reiniciar na etapa anterior). 
 
-1.  Para abrir o ponto de extremidade que você usa para acessar o banco de dados Oracle remotamente, crie uma regra de Grupo de Segurança de Rede com [az network nsg rule create](/cli/azure/network/nsg/rule#create) da seguinte maneira: 
+1.  Para abrir o ponto de extremidade que você usa para acessar o banco de dados Oracle remotamente, crie uma regra de Grupo de Segurança de Rede com [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) da seguinte maneira: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -282,7 +282,7 @@ A última tarefa é configurar alguns pontos de extremidade externos. Para confi
         --destination-port-range 1521
     ```
 
-2.  Para abrir o ponto de extremidade que você usa para acessar o Oracle EM Express remotamente, crie uma regra de Grupo de Segurança de Rede com [az network nsg rule create](/cli/azure/network/nsg/rule#create) da seguinte maneira:
+2.  Para abrir o ponto de extremidade que você usa para acessar o Oracle EM Express remotamente, crie uma regra de Grupo de Segurança de Rede com [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) da seguinte maneira:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -294,7 +294,7 @@ A última tarefa é configurar alguns pontos de extremidade externos. Para confi
         --destination-port-range 5502
     ```
 
-3. Se for necessário, obtenha o endereço IP público de sua VM com [az network public-ip show](/cli/azure/network/public-ip#show) da seguinte maneira:
+3. Se for necessário, obtenha o endereço IP público de sua VM com [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) da seguinte maneira:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -316,7 +316,7 @@ Você pode fazer logon usando a conta **SYS** e marcar a caixa de seleção **co
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de terminar de explorar seu primeiro banco de dados Oracle no Azure e a VM não for mais necessária, você poderá usar o comando [az group delete](/cli/azure/group#delete) para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Depois de terminar de explorar seu primeiro banco de dados Oracle no Azure e a VM não for mais necessária, você poderá usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

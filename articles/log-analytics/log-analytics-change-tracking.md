@@ -3,7 +3,7 @@ title: "Controlar alterações com o Azure Log Analytics | Microsoft Docs"
 description: "A solução Controle de Alterações no Log Analytics ajuda a identificar alterações no software e nos Serviços Windows que ocorrem no ambiente."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações de software no ambiente com a solução Controle de Alterações
 
@@ -40,7 +40,7 @@ Use as etapas a seguir para configurar arquivos para controle em computadores Li
 
 1. No portal do OMS, clique em **Configurações** (símbolo de engrenagem).
 2. Na página **Configurações**, clique em **Dados** e, em seguida, clique em **Controle de Arquivos do Linux**.
-3. Em Controle de Alterações de Arquivos do Linux, digite o caminho completo, incluindo o nome do arquivo que você deseja controlar e, em seguida, clique no símbolo **Adicionar**. Por exemplo: “/etc/* .conf”
+3. Em Controle de Alterações de Arquivos do Linux, digite o caminho completo, incluindo o nome do arquivo que você deseja controlar e, em seguida, clique no símbolo **Adicionar**. Por exemplo: “/etc/*.conf”
 4. Clique em **Salvar**.  
 
 > [!NOTE]
@@ -114,7 +114,7 @@ A tabela a seguir mostra a frequência da coleta de dados para os tipos de alter
 
 | **change type** | **frequency** | **O** **agente** **envia as diferenças quando encontradas?**  |
 | --- | --- | --- |
-| Registro do Windows | 50 minutos | Não |
+| Registro do Windows | 50 minutos | Não  |
 | Arquivo do Windows | 30 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
 | Arquivo Linux | 15 minutos | Sim. Se não houver nenhuma alteração em até 24 horas, um instantâneo é enviado. |
 | Serviços do Windows | 30 minutos | Sim, quando as alterações são encontradas a cada 30 minutos. A cada 24 horas um instantâneo é enviado, independentemente da mudança. Portanto, o instantâneo é enviado até mesmo quando não há nenhuma alteração. |

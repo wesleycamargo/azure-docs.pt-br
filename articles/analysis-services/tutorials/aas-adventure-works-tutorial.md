@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – tutorial da Adventure Works
 
@@ -45,12 +45,12 @@ Se você estiver pouco familiarizado com o Analysis Services e a modelagem tabul
   
 -   Como implantar um modelo tabular para um servidor do **Azure Analysis Services** ou um servidor local do SQL Server 2017 Analysis Services.  
   
-## <a name="prerequisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>pré-requisitos  
 Para concluir este tutorial, você precisará:  
   
 -   Um servidor do Analysis Services do Azure. Inscreva-se para uma [avaliação gratuita do Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) e [crie um servidor](../analysis-services-create-server.md). 
 
--   Um [SQL Data Warehouse do Azure](../../sql-data-warehouse/create-data-warehouse-portal.md) com o **banco de dados de exemplo AdventureWorksDW** ou um SQL Server Data Warehouse com o [banco de dados de exemplo da Adventure Works](http://go.microsoft.com/fwlink/?LinkID=335807).
+-   Um [SQL Data Warehouse do Azure](../../sql-data-warehouse/create-data-warehouse-portal.md) com o **banco de dados de exemplo AdventureWorksDW** ou um SQL Server Data Warehouse com o [banco de dados de exemplo da Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
     **Importante:** se você tiver instalado o banco de dados de exemplo em um SQL Server Warehouse Server local e está implantando seu modelo em um servidor do Azure Analysis Services, um [gateway de dados local](../analysis-services-gateway.md) é necessário.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
@@ -30,7 +30,7 @@ O registro em log de diagnóstico permite que você colete as trilhas de auditor
 
 ## <a name="enable-logging"></a>Habilitar o registro em log
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Abra sua conta do Data Lake Analytics e selecione **Logs de diagnóstico** na seção __Monitorar__. Em seguida, selecione __Ativar o diagnóstico__.
 
@@ -130,10 +130,10 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 
-| Name | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
-| resourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
+| ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
 | categoria |Cadeia de caracteres |A categoria do log. Por exemplo, **Solicitações**. |
 | operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, GetAggregatedJobHistory. |
 | resultType |Cadeia de caracteres |O status da operação, por exemplo, 200. |
@@ -144,7 +144,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 
-| Name | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 | --- | --- | --- |
 | HttpMethod |Cadeia de caracteres |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |Cadeia de caracteres |O caminho em que a operação foi executada |
@@ -182,15 +182,15 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 
-| Name | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
-| resourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
+| ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
 | categoria |Cadeia de caracteres |A categoria do log. Por exemplo, **Auditoria**. |
 | operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, JobSubmitted. |
 | resultType |Cadeia de caracteres |Um substatus para o status do trabalho (operationName). |
 | resultSignature |Cadeia de caracteres |Detalhes adicionais sobre o status do trabalho (operationName). |
-| identidade |Cadeia de caracteres |O usuário que solicitou a operação. Por exemplo: susan@contoso.com. |
+| identidade |Cadeia de caracteres |O usuário que solicitou a operação. Por exemplo, susan@contoso.com. |
 | propriedades |JSON |Veja a próxima seção (Esquema de propriedades do log de auditoria) para obter detalhes |
 
 > [!NOTE]
@@ -200,7 +200,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 
-| Name | Tipo | Descrição |
+| Name | type | DESCRIÇÃO |
 | --- | --- | --- |
 | JobId |Cadeia de caracteres |A ID atribuída ao trabalho |
 | JobName |Cadeia de caracteres |O nome fornecido para o trabalho |

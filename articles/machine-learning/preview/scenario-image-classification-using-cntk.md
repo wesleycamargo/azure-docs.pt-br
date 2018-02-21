@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificação de imagens usando o Azure Machine Learning Workbench
 
@@ -193,7 +193,7 @@ Por fim, o bloco de anotações `showResults.py` é fornecido para percorrer as 
 ### <a name="step-6-deployment"></a>Etapa 6: Implantação
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-O sistema treinado agora pode ser publicado como uma API REST. A implantação é explicada no bloco de anotações `deploy.ipynb` e é baseada na funcionalidade no Azure Machine Learning Workbench (lembre-se de definir, como kernel, o kernel do projeto local com o nome "PROJECTNAME local"). Consulte também a excelente seção de implantação do [tutorial do IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) para obter mais informações relacionadas à implantação.
+O sistema treinado agora pode ser publicado como uma API REST. A implantação é explicada no bloco de anotações `deploy.ipynb` e é baseada na funcionalidade no Azure Machine Learning Workbench (lembre-se de definir, como kernel, o kernel do projeto local com o nome "PROJECTNAME local"). Consulte também a excelente seção de implantação do [tutorial do IRIS](tutorial-classifying-iris-part-3.md) para obter mais informações relacionadas à implantação.
 
 Depois de implantado, o serviço Web pode ser chamado usando o script `6_callWebservice.py`. Observe que o endereço IP (local ou na nuvem) do serviço Web precisa ser definido primeiro no script. O bloco de anotações `deploy.ipynb` explica como encontrar esse endereço IP.
 
@@ -228,7 +228,7 @@ Como pode ser visto no gráfico abaixo, a precisão que usa o refinamento de DNN
 
 ### <a name="run-history-tracking"></a>Acompanhamento do histórico de execuções
 
-O Azure Machine Learning Workbench armazena o histórico de cada execução no Azure para permitir a comparação de duas ou mais execuções que têm uma diferença de até mesmo semanas. Isso é explicado em detalhes no [tutorial do Iris](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). Isso também é ilustrado nas capturas de tela a seguir, nas quais comparamos duas execuções do script `5_evaluate.py`, usando o refinamento de DNN, ou seja, `classifier = "dnn"`(número de execução 148) ou o treinamento de SVM, ou seja, `classifier = "svm"` (número de execução 150).
+O Azure Machine Learning Workbench armazena o histórico de cada execução no Azure para permitir a comparação de duas ou mais execuções que têm uma diferença de até mesmo semanas. Isso é explicado em detalhes no [tutorial do Iris](tutorial-classifying-iris-part-2.md). Isso também é ilustrado nas capturas de tela a seguir, nas quais comparamos duas execuções do script `5_evaluate.py`, usando o refinamento de DNN, ou seja, `classifier = "dnn"`(número de execução 148) ou o treinamento de SVM, ou seja, `classifier = "svm"` (número de execução 150).
 
 Na primeira captura de tela, o refinamento de DNN leva a melhores precisões do que o treinamento de SVM para todas as classes. A segunda captura de tela mostra todas as métricas que estão sendo rastreadas, incluindo qual foi o classificador. Esse acompanhamento é feito no script `5_evaluate.py` chamando o agente do Azure Machine Learning Workbench. Além disso, o script também salva a curva ROC e a matriz de confusão na pasta *outputs*. Essa pasta *outputs* é especial pois seu conteúdo também é rastreado pelo recurso de histórico do Workbench e, portanto, os arquivos de saída podem ser acessados a qualquer momento, independentemente se as cópias locais foram substituídas.
 
