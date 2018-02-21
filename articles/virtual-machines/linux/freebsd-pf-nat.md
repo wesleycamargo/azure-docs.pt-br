@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: cd777291a1321eabf4efe0d7b9b101f932d9398b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e6927b0bfa4591089657e36caddb442156457e5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Como usar o Filtro de Pacote do FreeBSD para criar um firewall seguro no Azure
 Este artigo apresenta como implantar um firewall NAT usando o Filtro de Pacote do FreeBSD por meio do modelo do Azure Resource Manager para um cenário comum de servidor Web.
@@ -34,13 +34,13 @@ O modelo do Azure Resource Manager configura uma máquina virtual FreeBSD que ex
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Implantar por meio da CLI do Azure
-É necessário ter a última [CLI 2.0 do Azure](/cli/azure/install-az-cli2) instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login). Crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos chamado `myResourceGroup` na localização `West US`.
+É preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#az_login). Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado `myResourceGroup` na localização `West US`.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Em seguida, implante o modelo [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) com [az group deployment create](/cli/azure/group/deployment#create). Baixe [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) no mesmo caminho e defina seus próprios valores de recursos, como `adminPassword`, `networkPrefix` e `domainNamePrefix`. 
+Em seguida, implante o modelo [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) com [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Baixe [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) no mesmo caminho e defina seus próprios valores de recursos, como `adminPassword`, `networkPrefix` e `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

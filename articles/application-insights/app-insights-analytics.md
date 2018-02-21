@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
 O Analytics é a ferramenta de pesquisa e consulta avançada do [Application Insights](app-insights-overview.md). O Analytics é uma ferramenta de Web, portanto, nenhuma configuração é necessária. Se já tiver configurado o Application Insights para um de seus aplicativos, você poderá analisar os dados do aplicativo abrindo o Analytics na [folha de visão geral](app-insights-dashboards.md) desse aplicativo.
@@ -47,9 +47,9 @@ Em seguida, contamos o número de registros por país (esses dados se encontram 
 
 A linguagem tem muitos recursos atrativos:
 
-* [Filtre](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) a telemetria bruta de aplicativos por qualquer campo, incluindo suas métricas e propriedades personalizadas.
-* [Una](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) várias tabelas: correlacione as solicitações com exibições de página, as chamadas de dependência, as exceções e os rastreamentos de log.
-* [Agregações](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions)estatísticas poderosas.
+* [Filtre](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) a telemetria bruta de aplicativos por qualquer campo, incluindo suas métricas e propriedades personalizadas.
+* [Una](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) várias tabelas: correlacione as solicitações com exibições de página, as chamadas de dependência, as exceções e os rastreamentos de log.
+* [Agregações](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions)estatísticas poderosas.
 * Visualizações imediatas e eficientes.
 * Uma [API REST](https://dev.applicationinsights.io/) que você pode usar para executar consultas de modo programático; no PowerShell, por exemplo.
 

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.author: raymondl
+ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Treinar novamente um serviço Web Clássico
 O Serviço Web Preditivo implantado é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e os experimentos de pontuação; portanto, o modelo treinado para o ponto de extremidade padrão não pode ser substituído. Para adaptar novamente o serviço Web, você deve adicionar um novo ponto de extremidade ao serviço Web. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em [Readaptar os modelos do Machine Learning de forma programática](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]

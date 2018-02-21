@@ -69,13 +69,13 @@ Os registros CAA permitem aos proprietários do domínio especificar quais ACs (
 
 Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um conjunto de registros CNAME com o nome relativo 'www' e um registro A com o nome relativo 'www' ao mesmo tempo.
 
-Como o ápice da zona (nome = '@') sempre contém os conjuntos de registro NS e SOA criados quando a zona foi criada, não é possível criar um conjunto de registros CNAME no ápice da zona.
+Como o ápice da zona (nome = '\@\') sempre contém os conjuntos de registro NS e SOA criados quando a zona foi criada, não é possível criar um conjunto de registros CNAME no ápice da zona.
 
 Essas restrições são provenientes dos padrões DNS e não são limitações do DNS do Azure.
 
 ### <a name="ns-records"></a>Registros NS
 
-O conjunto de registros de NS no apex da zona (nome '@') é criado automaticamente com cada zona DNS e excluído automaticamente quando a zona é excluída (não pode ser excluído separadamente).
+O conjunto de registros de NS no apex da zona (nome '\@\') é criado automaticamente com cada zona DNS e excluído automaticamente quando a zona é excluída (não pode ser excluído separadamente).
 
 Esse conjunto de registros contém os nomes dos servidores de nome DNS do Azure atribuídos à zona. Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à coospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados. 
 
@@ -83,7 +83,7 @@ Observe que isso se aplica somente ao conjunto de registros NS definido no apex 
 
 ### <a name="soa-records"></a>Registros SOA
 
-Um conjunto de registros SOA é criado automaticamente no ápice de cada zona (nome = '@') e é excluído automaticamente quando a zona é excluída.  Os registros SOA não podem ser criados ou excluídos separadamente.
+Um conjunto de registros SOA é criado automaticamente no ápice de cada zona (nome = '\@\') e é excluído automaticamente quando a zona é excluída.  Os registros SOA não podem ser criados ou excluídos separadamente.
 
 Você pode modificar todas as propriedades do registro SOA, exceto a propriedade 'host', que é pré-configurada para se referir ao nome do servidor de nomes primário fornecido pelo DNS do Azure.
 
@@ -95,7 +95,7 @@ Você pode modificar todas as propriedades do registro SOA, exceto a propriedade
 
 Os [registros SRV](https://en.wikipedia.org/wiki/SRV_record) são usados por vários serviços para especificar locais de servidor. Ao especificar um registro SRV no DNS do Azure:
 
-* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo, '\_sip.\_tcp.nome'.  Para um registro no ápice da zona, não é necessário especificar '@' no nome do registro; basta usar o serviço e o protocolo, por exemplo, '\_sip.\_tcp'.
+* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo, '\_sip.\_tcp.nome'.  Para um registro no ápice da zona, não é necessário especificar '\@\' no nome do registro; basta usar o serviço e o protocolo, por exemplo, '\_sip.\_tcp'.
 * A *prioridade*, o *peso*, a *porta* e o *destino* são especificados como parâmetros de cada registro no conjunto de registros.
 
 ### <a name="txt-records"></a>Registros TXT

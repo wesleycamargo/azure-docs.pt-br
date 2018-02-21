@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Como usar o armazenamento de Blob do Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,7 +33,7 @@ Este artigo mostra como executar cenários comuns usando o Armazenamento de Blob
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
-Para obter instruções sobre como criar um aplicativo do Node.js, confira [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure], [Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando a Matriz da Web](https://www.microsoft.com/web/webmatrix/).
+Para obter instruções sobre como criar um aplicativo do Node.js, confira [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure](../../app-service/app-service-web-get-started-nodejs.md), [Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando a Matriz da Web](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configurar seu aplicativo para acessar o armazenamento
 Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST do armazenamento.
@@ -192,7 +192,7 @@ Para acrescentar um bloco em um blob de acréscimo existente, use o seguinte:
 * **appendBlockFromText** – acrescentar o conteúdo de uma cadeia de caracteres para um blob de acréscimo existente
 
 > [!NOTE]
-> As APIs appendFromXXX causarão uma falha rápida da validação do lado do cliente para evitar chamadas de servidor desnecessárias. appendBlockFromXXX não fará isso.
+> As APIs appendFromXXX causarão com que a validação do lado do cliente falhe rapidamente para evitar chamadas de servidor desnecessárias. appendBlockFromXXX não fará isso.
 >
 >
 
@@ -415,7 +415,7 @@ Para saber mais, consulte os recursos a seguir.
 * [SDK de Armazenamento do Azure para Referência de API de Nó][SDK de Armazenamento do Azure para Referência de API de Nó]  
 * [Blog da equipe de Armazenamento do Azure][Blog da equipe de Armazenamento do Azure]  
 * Repositório [Microsoft Azure Storage SDK for Node.js][Azure Storage SDK for Node] (SDK do Armazenamento do Microsoft Azure para Node.js) no GitHub  
-* [Centro de Desenvolvedores do Node.js](https://azure.microsoft.com/develop/nodejs/)  
+* [Centro de desenvolvedores do Node. js](https://azure.microsoft.com/develop/nodejs/)  
 * [Transferir dados com o utilitário de linha de comando AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
@@ -423,6 +423,6 @@ Para saber mais, consulte os recursos a seguir.
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
-[Criar e implantar um aplicativo Node.js em um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
-[Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
-[SDK de Armazenamento do Azure para Referência de API de Nó]: http://dl.windowsazure.com/nodestoragedocs/index.html  
+[Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Blog da Equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
+[SDK do Armazenamento do Azure para Referência de API de Nó]: http://dl.windowsazure.com/nodestoragedocs/index.html  

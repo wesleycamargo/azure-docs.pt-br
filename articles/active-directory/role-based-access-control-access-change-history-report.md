@@ -3,7 +3,7 @@ title: "Relatórios de acesso – RBAC do Azure | Microsoft Docs"
 description: "Gere um relatório que lista todas as alterações no acesso a suas assinaturas do Azure com Controle de Acesso Baseado em Função nos últimos 90 dias."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c430e1206e6e97f2c7fb7d2a6ff0dd6e65ee8bbf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 169ed8dd6d14d8d9d0fd49ad7306b1d4fb2c4d90
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Criar um relatório de acesso para o Controle de Acesso Baseado em Função
 Sempre que alguém concede ou revoga acesso em suas assinaturas, as alterações são registradas em log em eventos do Azure. Você pode criar relatórios de histórico de alterações de acesso para ver todas as alterações nos últimos 90 dias.
@@ -29,7 +29,7 @@ Para criar um relatório do histórico de alterações de acesso no PowerShell, 
 
 Ao chamar esse comando, você pode especificar quais propriedades das atribuições deseja listar, incluindo o seguinte:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | **Ação** |Se o acesso foi concedido ou revogado |
 | **Chamador** |O proprietário responsável por alterar o acesso |

@@ -2,24 +2,18 @@
 title: Migrar as VMs do AWS para o Azure com o Azure Site Recovery | Microsoft Docs
 description: "Este artigo descreve como migrar VMs em execução no AWS (Amazon Web Services) para o Azure usando o Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4acdc540ca1a87a4545130eb5fbc096633b0605c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
@@ -66,7 +60,7 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 
 O novo cofre é exibido no **Painel** > **Todos os recursos** e na página **Cofres dos Serviços de Recuperação** principal.
 
-### <a name="set-up-an-azure-network"></a>Configurar uma rede do Azure
+### <a name="set-up-an-azure-network"></a>Configure uma rede do Azure
 
 Quando as VMs do Azure são criadas após a migração (failover), elas são ingressadas nessa rede.
 

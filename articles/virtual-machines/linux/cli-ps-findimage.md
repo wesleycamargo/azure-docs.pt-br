@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79eb69b83e4ffc0a4ad7c2631ce4d1306a1e335c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Como localizar imagens de VMs Linux no Azure Marketplace com a CLI do Azure
 Este tópico descreve como usar a CLI do Azure 2.0 para localizar imagens de VM no Azure Marketplace. Use essas informações para especificar uma imagem do Marketplace quando você criar uma VM Linux.
@@ -41,7 +41,7 @@ Para especificar uma imagem do Marketplace, você normalmente usa o *URN* da a i
 
 ## <a name="list-popular-images"></a>Listar imagens populares
 
-Execute o comando [az vm image list](/cli/azure/vm/image#list) sem a opção `--all` para ver uma lista de imagens de VM populares no Azure Marketplace. Por exemplo, execute o comando a seguir para exibir uma lista armazenada em cache de imagens populares em formato de tabela:
+Execute o comando [az vm image list](/cli/azure/vm/image#az_vm_image_list) sem a opção `--all` para ver uma lista de imagens de VM populares no Azure Marketplace. Por exemplo, execute o comando a seguir para exibir uma lista armazenada em cache de imagens populares em formato de tabela:
 
 ```azurecli
 az vm image list --output table
@@ -134,7 +134,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Navegar pelas imagens 
-Outra maneira de localizar uma imagem em um local é executar os comandos [az vm image list-publishers](/cli/azure/vm/image#list-publishers), [az vm image list-offers](/cli/azure/vm/image#list-offers) e [az vm image list-skus](/cli/azure/vm/image#list-skus) em sequência. Com esses comandos, você determina estes valores:
+Outra maneira de localizar uma imagem em um local é executar os comandos [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image#az_vm_image_list_offers) e [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) em sequência. Com esses comandos, você determina estes valores:
 
 1. Liste os editores de imagem.
 2. Para um determinado editor, liste suas ofertas.
@@ -257,4 +257,4 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>Próximas etapas
-Agora você pode escolher exatamente a imagem que deseja usar anotando o valor do URN. Passe esse valor com o parâmetro `--image` quando criar uma VM com o comando [az vm create](/cli/azure/vm#create). Lembre-se de que é possível substituir, como opção, o número de versão no URN por "mais recente". Essa versão é sempre a versão mais recente da distribuição. Para criar uma máquina virtual rapidamente usando as informações de URN, confira [Criar e gerenciar VMs do Linux usando a CLI do Azure](tutorial-manage-vm.md).
+Agora você pode escolher exatamente a imagem que deseja usar anotando o valor do URN. Passe esse valor com o parâmetro `--image` quando criar uma VM com o comando [az vm create](/cli/azure/vm#az_vm_create). Lembre-se de que é possível substituir, como opção, o número de versão no URN por "mais recente". Essa versão é sempre a versão mais recente da distribuição. Para criar uma máquina virtual rapidamente usando as informações de URN, confira [Criar e gerenciar VMs do Linux usando a CLI do Azure](tutorial-manage-vm.md).

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Ferramenta “E se” de acesso condicional do Azure Active Directory - versão prévia
 
@@ -78,14 +78,14 @@ O padrão para essa configuração é **Todos os aplicativos de nuvem**. A confi
 
 ### <a name="ip-address"></a>Endereço IP
 
-O endereço IP é um único endereço IPv4 para imitar a [condição local](active-directory-conditional-access-azure-portal.md#locations). O endereço representa o endereço de internet do dispositivo usado pelo usuário para fazer acesso. Você pode verificar o endereço IP de um dispositivo, por exemplo, navegando até [Qual é o meu endereço IP](https://whatismyipaddress.com).    
+O endereço IP é um único endereço IPv4 para imitar a [condição local](active-directory-conditional-access-locations.md). O endereço representa o endereço de internet do dispositivo usado pelo usuário para fazer acesso. Você pode verificar o endereço IP de um dispositivo, por exemplo, navegando até [Qual é o meu endereço IP](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-Essa configuração imita a [condição de plataformas de dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms) e representa o equivalente a **todas as plataformas (incluindo plataformas sem suporte)**. 
+Essa configuração imita a [condição de plataformas de dispositivo](active-directory-conditional-access-conditions.md#device-platforms) e representa o equivalente a **todas as plataformas (incluindo plataformas sem suporte)**. 
 ### <a name="client-apps"></a>Aplicativos cliente
 
-Essa configuração imita a [condição de aplicativos do cliente](active-directory-conditional-access-azure-portal.md#client-apps).
+Essa configuração imita a [condição de aplicativos do cliente](active-directory-conditional-access-conditions.md#client-apps).
 Por padrão, essa configuração faz com que uma avaliação de todas as políticas com **navegador** ou **aplicativos móveis e clientes de desktop** sejam cada ou ambos selecionados. Ela também detecta políticas que impõem o **Exchange ActiveSync (EAS)**. Você pode reduzir essa configuração selecionando:
 
 - **Navegador** para avaliar todas as políticas com menos **Navegador** selecionado. 
@@ -95,7 +95,7 @@ Por padrão, essa configuração faz com que uma avaliação de todas as políti
 
 ### <a name="sign-in-risk"></a>Risco de entrada
 
-Essa configuração imita a [condição de risco de logon](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+Essa configuração imita a [condição de risco de logon](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Avaliação 

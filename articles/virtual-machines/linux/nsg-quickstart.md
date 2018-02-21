@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: eaa3039c369057d39dfce0896b9a4d1cfad75550
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 91908b03522788d470fdb93121f620bfcdef9085
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir portas e pontos de extremidade para uma VM Linux com a CLI do Azure
 No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou interface de rede de VM. Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80. Este artigo mostra como abrir uma porta para uma VM usando a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](nsg-quickstart-nodejs.md).
 
-Para criar regras e um Grupo de Segurança de Rede, é necessário ter a última [CLI 2.0 do Azure](/cli/azure/install-az-cli2) instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
+Para criar regras e um Grupo de Segurança de Rede, é necessário ter a última [CLI 2.0 do Azure](/cli/azure/install-az-cli2) instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
 
@@ -39,7 +39,7 @@ Para obter mais controle sobre as regras, como a definição de um intervalo de 
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>Criar um Grupo de Segurança de Rede e suas regras
-Crie o grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg#create). O exemplo a seguir cria um grupo de segurança de rede chamado *myNetworkSecurityGroup* na localização *eastus*:
+Crie o grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). O exemplo a seguir cria um grupo de segurança de rede chamado *myNetworkSecurityGroup* na localização *eastus*:
 
 ```azurecli
 az network nsg create \
@@ -48,7 +48,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Adicione uma regra com [az network nsg rule create](/cli/azure/network/nsg/rule#create) para permitir o tráfego HTTP para o servidor Web (ou faça ajustes para seu próprio cenário, como acesso ao SSH ou conectividade de banco de dados). O exemplo a seguir cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego TCP na porta 80:
+Adicione uma regra com [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) para permitir o tráfego HTTP para o servidor Web (ou faça ajustes para seu próprio cenário, como acesso ao SSH ou conectividade de banco de dados). O exemplo a seguir cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego TCP na porta 80:
 
 ```azurecli
 az network nsg rule create \
@@ -62,7 +62,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>Aplicar o Grupo de Segurança de Rede à VM
-Associe o Grupo de Segurança de Rede à NIC (adaptador de rede) da VM com [az network nic update](/cli/azure/network/nic#update). O exemplo a seguir associa uma NIC existente chamada *myNic* ao Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
+Associe o Grupo de Segurança de Rede à NIC (adaptador de rede) da VM com [az network nic update](/cli/azure/network/nic#az_network_nic_update). O exemplo a seguir associa uma NIC existente chamada *myNic* ao Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \
@@ -71,7 +71,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Como alternativa, você pode associar o Grupo de Segurança de Rede a uma sub-rede de uma rede virtual com [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) em vez de apenas ao adaptador de rede em uma única VM. O exemplo a seguir associa uma sub-rede existente chamada *mySubnet* na rede virtual *myVnet* ao Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
+Como alternativa, você pode associar o Grupo de Segurança de Rede a uma sub-rede de uma rede virtual com [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) em vez de apenas ao adaptador de rede em uma única VM. O exemplo a seguir associa uma sub-rede existente chamada *mySubnet* na rede virtual *myVnet* ao Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
 
 ```azurecli
 az network vnet subnet update \

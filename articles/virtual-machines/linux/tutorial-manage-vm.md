@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2e9324cbe7ae683a472ecc0ee93329773886f88
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Criar e gerenciar VMs do Linux com a CLI do Azure
 
@@ -93,7 +93,7 @@ exit
 
 O Azure marketplace inclui muitas imagens que podem ser usadas para criar VMs. Nas etapas anteriores, uma máquina virtual foi criada usando uma imagem do Ubuntu. Nesta etapa, a CLI do Azure é usada para pesquisar no marketplace para uma imagem CentOS, que é usado para implantar uma segunda máquina virtual.  
 
-Para ver uma lista dos mais usados imagens, use o comando [lista de imagens de vm az](/cli/azure/vm/image#list).
+Para ver uma lista dos mais usados imagens, use o comando [lista de imagens de vm az](/cli/azure/vm/image#az_vm_image_list).
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -150,7 +150,7 @@ Um tamanho de máquina virtual determina a quantidade de recursos de computaçã
 
 A tabela a seguir categoriza tamanhos em casos de uso.  
 
-| Tipo                     | Tamanhos           |    Descrição       |
+| type                     | Tamanhos           |    DESCRIÇÃO       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Propósito geral](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
 | [Computação otimizada](sizes-compute.md)   | Fs, F             | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
@@ -162,7 +162,7 @@ A tabela a seguir categoriza tamanhos em casos de uso.
 
 ### <a name="find-available-vm-sizes"></a>Encontrar tamanhos de VM disponíveis
 
-Para ver uma lista de tamanhos de VM disponíveis em uma região específica, use o comando [lista-tamanhos de vm az](/cli/azure/vm#list-sizes). 
+Para ver uma lista de tamanhos de VM disponíveis em uma região específica, use o comando [lista-tamanhos de vm az](/cli/azure/vm#az_vm_list_sizes). 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -193,7 +193,7 @@ Resultado parcial:
 
 ### <a name="create-vm-with-specific-size"></a>Criar VM com um tamanho específico
 
-No exemplo de criação de VM anterior, um tamanho não foi fornecido, que resulta em um tamanho padrão. Um tamanho de VM pode ser selecionado no momento da criação usando [criar vm az](/cli/azure/vm#create) e `--size` argumento. 
+No exemplo de criação de VM anterior, um tamanho não foi fornecido, que resulta em um tamanho padrão. Um tamanho de VM pode ser selecionado no momento da criação usando [criar vm az](/cli/azure/vm#az_vm_create) e `--size` argumento. 
 
 ```azurecli-interactive 
 az vm create \
@@ -206,24 +206,24 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Redimensionar uma VM
 
-Após a implantação de uma VM, ela pode ser redimensionada para aumentar ou diminuir a alocação de recursos. Você pode exibir atual do tamanho de uma VM com [az vm show](/cli/azure/vm#show):
+Após a implantação de uma VM, ela pode ser redimensionada para aumentar ou diminuir a alocação de recursos. Você pode exibir atual do tamanho de uma VM com [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [az vm lista-vm--opções de redimensionamento](/cli/azure/vm#list-vm-resize-options) retorna a lista de tamanhos. 
+Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [az vm lista-vm--opções de redimensionamento](/cli/azure/vm#az_vm_list_vm_resize_options) retorna a lista de tamanhos. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Se o tamanho desejado estiver disponível, a VM poderá ser redimensionada a partir de um estado ligado. No entanto, ela é reinicializada durante a operação. Use o [az vm redimensionar]( /cli/azure/vm#resize) comando para executar o redimensionamento.
+Se o tamanho desejado estiver disponível, a VM poderá ser redimensionada a partir de um estado ligado. No entanto, ela é reinicializada durante a operação. Use o [az vm redimensionar]( /cli/azure/vm#az_vm_resize) comando para executar o redimensionamento.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Se o tamanho desejado não estiver no cluster atual, a VM precisará ser desalocada antes que a operação de redimensionamento ocorra. Utilize o comando [az vm deallocate]( /cli/azure/vm#deallocate) para parar e desalocar a máquina virtual. Observe que quando a VM é ligada novamente, todos os dados no disco temporário podem ser removidos. O endereço IP público também altera a menos que um endereço IP estático está sendo usado. 
+Se o tamanho desejado não estiver no cluster atual, a VM precisará ser desalocada antes que a operação de redimensionamento ocorra. Utilize o comando [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) para parar e desalocar a máquina virtual. Observe que quando a VM é ligada novamente, todos os dados no disco temporário podem ser removidos. O endereço IP público também altera a menos que um endereço IP estático está sendo usado. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
@@ -247,19 +247,19 @@ Uma VM do Azure pode ter um dentre vários estados de energia. Esse estado repre
 
 ### <a name="power-states"></a>Estados de energia
 
-| Estado de energia | Descrição
+| Estado de energia | DESCRIÇÃO
 |----|----|
 | Iniciando | Indica que a máquina virtual está sendo iniciada. |
 | Executando | Indica que a máquina virtual está em execução. |
 | Parando | Indica que a máquina virtual está sendo interrompida. | 
-| Parada | Indica que a máquina virtual foi parada. Máquinas virtuais no estado interrompido ainda incorrerá em encargos de computação.  |
+| Parado | Indica que a máquina virtual foi parada. Máquinas virtuais no estado interrompido ainda incorrerá em encargos de computação.  |
 | Desalocando | Indica que a máquina virtual está sendo desalocada. |
 | Desalocada | Indica que a máquina virtual é removido do hipervisor, mas ainda estão disponíveis no plano de controle. Máquinas virtuais no estado Desalocado não incorrem em encargos de computação. |
 | - | Indica que o estado de energia da máquina virtual é desconhecido. |
 
 ### <a name="find-power-state"></a>Localizar o estado de energia
 
-Para recuperar o estado de uma determinada VM, use o [az vm ver da instância](/cli/azure/vm#get-instance-view) comando. Especifique um nome válido para uma máquina virtual e grupo de recursos. 
+Para recuperar o estado de uma determinada VM, use o [az vm ver da instância](/cli/azure/vm#az_vm_get_instance_view) comando. Especifique um nome válido para uma máquina virtual e grupo de recursos. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

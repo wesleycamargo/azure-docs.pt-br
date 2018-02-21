@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: d593b011ce4d0998ef07bc257d3c26f1286e3b0e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7a668f30d7acb1ea14fe9fd8921066d40a6669b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Implantar a origem do OpenShift no Azure
 
@@ -127,7 +127,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#delete) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
 
 ```azurecli 
 az group delete --name myResourceGroup

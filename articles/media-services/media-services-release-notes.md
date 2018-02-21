@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 Estas notas de versão para os Serviços de Mídia do Azure resumem as alterações de versões anteriores e os problemas conhecidos.
@@ -348,8 +348,8 @@ O SDK dos Serviços de Mídia para .NET agora está na versão 3.0.0.7
 * Versão prévia de transmissão ao vivo. Para obter mais informações, consulte [Trabalhar com Live Streaming dos Serviços de Mídia](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Serviço de entrega de chave. Para obter mais informações, consulte [Usar o serviço de entrega de chave e a criptografia dinâmica AES-128](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Criptografia dinâmica do EAS. Para obter mais informações, consulte [Usar o serviço de entrega de chave e a criptografia dinâmica AES-128](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* Serviço de entrega de licença do PlayReady. Para obter mais informações, consulte [Usar o serviço de entrega de licenças e a criptografia dinâmica PlayReady](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* Criptografia dinâmica do PlayReady. Para obter mais informações, consulte [Usar o serviço de entrega de licenças e a criptografia dinâmica PlayReady](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* Serviço de entrega de licença do PlayReady. 
+* Criptografia dinâmica do PlayReady. 
 * Modelo de licença do PlayReady dos Serviços de Mídia. Para obter mais informações, consulte [Visão geral do modelo de licença do PlayReady dos Serviços de Mídia].
 * Transmitir ativos criptografados no armazenamento. Para obter mais informações, consulte [Transmitir conteúdo criptografado no armazenamento](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 

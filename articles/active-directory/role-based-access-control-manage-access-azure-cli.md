@@ -3,7 +3,7 @@ title: "Gerenciar RBAC (controle de acesso baseado em função) com a CLI do Azu
 description: "Saiba como gerenciar o RBAC (Controle de Acesso baseado em função) com a interface de linha de comando do Azure listando as funções e ações de função, e atribuindo funções às assinaturas e escopos de aplicativo."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/29/2018
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1995cb34595fa9195e176e9ee341d551162f8ea5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
 > [!div class="op_single_selector"]

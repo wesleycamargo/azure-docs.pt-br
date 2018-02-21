@@ -6,17 +6,17 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 11/08/2017
+ms.date: 01/24/2018
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 22eb9989f24bb61638410a0c5361c0a888076e3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2088844693748f090a67ad56f9b5fba4514d1282
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Criar sua primeira função usando a CLI do Azure
 
@@ -49,8 +49,9 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 No comando a seguir, substitua um nome de aplicativo de funções exclusivo quando você vir o espaço reservado `<app_name>` e o nome da conta de armazenamento por `<storage_name>`. O `<app_name>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. O parâmetro _deployment-source-url_ é um repositório de exemplo no GitHub que contém uma função de gatilho HTTP "Olá, Mundo".
 
 ```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---consumption-plan-location westeurope --deployment-source-url https://github.com/Azure-Samples/functions-quickstart
+az functionapp create --deployment-source-url https://github.com/Azure-Samples/functions-quickstart  \
+--resource-group myResourceGroup --consumption-plan-location westeurope \
+--name <app_name> --storage-account  <storage_name>  
 ```
 Definir o parâmetro _local do plano de consumo_ significa que o aplicativo da função é hospedado em um plano de hospedagem de consumo. Nesse plano, os recursos são adicionados dinamicamente conforme exigido por suas funções e você paga apenas quando as funções estão em execução. Para obter mais informações, consulte [Escolher o plano de hospedagem correto](functions-scale.md). 
 

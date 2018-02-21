@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Exibir logs de atividade para auditar ações em recursos
 Com os logs de atividade, você pode determinar:
@@ -29,7 +29,11 @@ Com os logs de atividade, você pode determinar:
 * o status da operação
 * os valores de outras propriedades que podem ajudar você a pesquisar a operação
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+O log de atividade contém todas as operações de gravação (PUT, POST, DELETE) executadas nos recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [Operações do provedor de recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md). É possível usar os logs de auditoria para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
+
+Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado.
+
+
 
 Você pode recuperar informações dos logs de atividade por meio do Portal, do PowerShell, da CLI do Azure, da API REST do Insights ou da [Biblioteca .NET do Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 

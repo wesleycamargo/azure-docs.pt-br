@@ -2,19 +2,19 @@
 title: "Como usar o Histórico de Execuções e métricas do Azure Machine Learning Workbench | Microsoft Docs"
 description: "Guia para usar os recursos Histórico de Execuções e Métricas de Modelo Azure Machine Learning Workbench"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 2d1bce6463ac7880fd9091b4f3f2cbb226ea516d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Como usar o Histórico de Execuções e as Métricas do Modelo no Azure Machine Learning Workbench
 
@@ -23,7 +23,7 @@ O **Histórico de Execuções** fornece um meio para rastrear as saídas de seus
 **Métricas de Modelo** podem ser registradas em log de qualquer ponto dos seus scripts, acompanhando quaisquer valores que sejam mais importantes em seus experimentos de ciência de dados.
 Este artigo descreve como usar de maneira eficiente esses recursos para aumentar a velocidade e a qualidade da sua experimentação de ciência de dados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para percorrer este guia de instruções, você precisa:
 * [Criar e instalar o Azure Machine Learning](quickstart-installation.md)
 - [Criar um projeto](quickstart-installation.md)
@@ -111,7 +111,7 @@ Isso permite a melhor utilização de recursos sem necessidade de executar cada 
 ## <a name="view-results-in-run-history"></a>Exibir os resultados no Histórico de Execuções
 Progresso e os resultados de execuções acompanhadas estão disponíveis para análise no **Histórico de Execuções** do Azure ML Workbench.
 O **Histórico de Execuções** oferece três exibições diferentes:
-- Painel
+- painel
 - Detalhes
 - Comparação
 

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: v-donglo
-ms.openlocfilehash: 630e9958d5083300fdf7910c5fdd47989b0376ad
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 2a9302502594fa23d7bde1a71e7b096bc4152e59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Readaptar um novo serviço Web baseado no Resource Manager usando os cmdlets do PowerShell de Gerenciamento do Machine Learning
 Quando você readapta um novo serviço Web, também atualiza a definição do serviço Web de previsão para fazer referenciar ao novo modelo treinado.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Você deve ter configurado um teste de treinamento e um experimento de previsão, como mostrado em [Readaptar os modelos do Machine Learning de forma programática](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]

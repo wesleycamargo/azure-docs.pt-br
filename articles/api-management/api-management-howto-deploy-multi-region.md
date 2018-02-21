@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: e126e34bc9fce21243b0ef79f5ab661aec3a2de6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure
 O Gerenciamento de API dá suporte à implantação multirregião, que permite a editores de API distribuir um único serviço de gerenciamento de API por qualquer número desejado de regiões do Azure. Isso ajuda a reduzir a solicitação de latência percebida pelos consumidores de API distribuídos geograficamente e também melhora a disponibilidade do serviço se uma região ficar offline. 
@@ -52,13 +52,12 @@ Clique em **Adicionar** para colocar sua seleção na tabela Locais.
 Repita esse processo até que todos os locais estejam configurados e clique em **Salvar** na barra de ferramentas para iniciar o processo de implantação.
 
 ## <a name="remove-region"> </a>Excluir uma instância do serviço de Gerenciamento de API de um local
+
 No Portal do Azure, navegue até a página **Escala e preço** da sua instância do serviço de Gerenciamento de API. 
 
 ![Guia Escala][api-management-scale-service]
 
 Para o local em que você deseja remover, abra o menu de contexto usando o botão **...** na extremidade direita da tabela. Selecione a opção **Excluir**.
-
-![Remover região][api-management-remove-region]
 
 Confirme a exclusão e clique em **Salvar** para aplicar as alterações.
 

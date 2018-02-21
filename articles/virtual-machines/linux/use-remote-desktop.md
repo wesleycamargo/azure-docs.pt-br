@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar a Área de Trabalho Remota para conectar-se uma VM do Linux no Azure
 As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([xfce](https://www.xfce.org)) e área de trabalho remota ([xrdp](http://www.xrdp.org)) para sua VM do Linux usando o modelo de implantação do Resource Manager.
@@ -85,7 +85,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Criar uma regra de Grupo de Segurança de Rede para tráfego de Área de Trabalho Remota
 Para permitir que o tráfego da Área de Trabalho Remota alcance sua VM do Linux, é necessário criar uma regra de grupo de segurança de rede que permite ao TCP na porta 3389 acessar sua VM. Para saber mais sobre grupos de segurança de rede, confira [O que é um Grupo de Segurança de Rede?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Você também pode [usar o Portal do Azure para criar uma regra de grupo de segurança de rede](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-O exemplo a seguir cria uma regra de grupo de segurança de rede com [az vm open-port](/cli/azure/vm#open-port) na porta *3389*.
+O exemplo a seguir cria uma regra de grupo de segurança de rede com [az vm open-port](/cli/azure/vm#az_vm_open_port) na porta *3389*.
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Visualização e análise de eventos com o Application Insights
 
@@ -100,7 +100,7 @@ Certifique-se de fazer as alterações necessárias nos filtros, assim como incl
 
 Em geral, é recomendável utilizar EventFlow e WAD como soluções de agregação porque permitem uma abordagem mais modular para diagnósticos e monitoramento, ou seja, se você deseja alterar suas saídas do EventFlow isso não requer nenhuma alteração na sua instrumentação real, apenas uma modificação simples do seu arquivo de configuração. No entanto, se você decidir investir na utilização do Application Insights e não é provável que mude para uma plataforma diferente, será necessário procurar usar o novo SDK do AI para agregar eventos e enviá-los ao AI. Isso significa que não será mais necessário configurar o EventFlow para enviar os dados para o AI, mas, em vez disso, irá instalar o pacote do NuGet Service Fabric do Application Insight. Detalhes sobre o pacote podem ser encontrados [aqui](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[O suporte do Application Insights para Microsserviços e Contêineres](https://azure.microsoft.com/app-insights-microservices/) apresenta alguns dos novos recursos que estão sendo trabalhados (atualmente ainda em versão beta), os quais permitem que você tenha opções de monitoramento prontas para uso com o AI. Isso inclui o acompanhamento de dependência (utilizado na construção de um AppMap de todos os seus serviços e aplicativos em um cluster e a comunicação entre eles) e uma melhor correlação de rastreamentos provenientes de seus serviços (ajuda a identificar melhor um problema no fluxo de trabalho de um aplicativo ou serviço).
+[O suporte do Application Insights para Microsserviços e Contêineres](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) apresenta alguns dos novos recursos que estão sendo trabalhados (atualmente ainda em versão beta), os quais permitem que você tenha opções de monitoramento prontas para uso com o AI. Isso inclui o acompanhamento de dependência (utilizado na construção de um AppMap de todos os seus serviços e aplicativos em um cluster e a comunicação entre eles) e uma melhor correlação de rastreamentos provenientes de seus serviços (ajuda a identificar melhor um problema no fluxo de trabalho de um aplicativo ou serviço).
 
 Se você estiver desenvolvendo em .NET e provavelmente estará usando alguns dos modelos de programação do Service Fabric, e disposto a utilizar o AI como sua plataforma para visualizar e analisar dados de eventos e logs, então, é recomendável que você vá via a rota SDK do AI como seu fluxo de trabalho de diagnóstico e monitoramento. Leia [este](../application-insights/app-insights-asp-net-more.md) e [este](../application-insights/app-insights-asp-net-trace-logs.md) para começar a utilizar o AI para coletar e exibir seus logs.
 

@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: jgao
-ms.openlocfilehash: fe2b84aac718ff5eddd4d73b5dc2120362952c1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbd4f1ae5eeec971a378c41761508629e530887c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introdução ao Azure Data Lake Analytics usando a CLI do Azure 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (Valores Separados por Tabulação) e irá convertê-lo em um arquivo CSV (valores separados por vírgula). Para acompanhar o mesmo tutorial usando outras ferramentas compatíveis,use a lista suspensa na parte superior desta seção.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial, você deve ter os seguintes itens:
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **CLI 2.0 do Azure**. Consulte [Instalar e configurar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
@@ -133,7 +133,7 @@ Este script U-SQL lê o arquivo de dados de origem usando **Extractors.Tsv()**, 
 
 Não modifique os dois caminhos, a menos que você copie o arquivo de origem para um local diferente.  O Data Lake Analytics criará a pasta de saída se ela não existir.
 
-É mais simples usar caminhos relativos para arquivos armazenados em contas padrão do Data Lake Store. Você também pode usar caminhos absolutos.  Por exemplo:
+É mais simples usar caminhos relativos para arquivos armazenados em contas padrão do Data Lake Store. Você também pode usar caminhos absolutos.  Por exemplo: 
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
@@ -158,7 +158,7 @@ Use a sintaxe a seguir para enviar um trabalho.
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-Por exemplo:
+Por exemplo: 
 
 ```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -183,16 +183,16 @@ az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity 
 Depois que um trabalho é concluído, use os seguintes comandos para listar os arquivos de saída e baixá-los:
 
 ```
-az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
+az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destination>"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
-az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
+az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-Por exemplo:
+Por exemplo: 
 
 ```
-az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
+az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
 ```
 
 ## <a name="pipelines-and-recurrences"></a>Pipelines e recorrências

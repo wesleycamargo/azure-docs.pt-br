@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 48b4e5f2429ce2bd8a875b084694f83e467b5575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Reimplantar uma máquina virtual Linux em um novo nó do Azure
 Se você tiver dificuldades ao solucionar problemas de SSH ou de acesso do aplicativo a uma VM (máquina virtual) Linux no Azure, reimplantar a VM poderá ajudar. Quando você reimplanta uma VM, ela é movida para um novo nó dentro da infraestrutura do Azure e, depois, é ligada novamente. Todos os recursos associados e opções de configuração são mantidos. Este artigo mostra como reimplantar uma VM usando a CLI do Azure ou o Portal do Azure.
@@ -33,9 +33,9 @@ Reimplante uma VM usando uma das opções a seguir. Escolha uma opção para rei
 - [portal do Azure](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Usar a CLI 2.0 do Azure
-Instale a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente e faça logon em uma conta do Azure usando [az login](/cli/azure/#login).
+Instale a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente e faça logon em uma conta do Azure usando [az login](/cli/azure/#az_login).
 
-Reimplante a VM com [az vm redeploy](/cli/azure/vm#redeploy). O exemplo a seguir reimplanta a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
+Reimplante a VM com [az vm redeploy](/cli/azure/vm#az_vm_redeploy). O exemplo a seguir reimplanta a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

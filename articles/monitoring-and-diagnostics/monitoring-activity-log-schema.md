@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
 O **Log de Atividades do Azure** é um log que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo descreve o esquema de evento por categoria de dados.
@@ -27,82 +27,95 @@ Essa categoria contém o registro de todas as operações de criação, atualiza
 ### <a name="sample-event"></a>Evento de exemplo
 ```json
 {
-  "authorization": {
-    "action": "microsoft.support/supporttickets/write",
-    "role": "Subscription Admin",
-    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
-  },
-  "caller": "admin@contoso.com",
-  "channels": "Operation",
-  "claims": {
-    "aud": "https://management.core.windows.net/",
-    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-    "iat": "1421876371",
-    "nbf": "1421876371",
-    "exp": "1421880271",
-    "ver": "1.0",
-    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-    "puid": "20030000801A118C",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-    "name": "John Smith",
-    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-    "appidacr": "2",
-    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-  },
-  "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "description": "",
-  "eventDataId": "44ade6b4-3813-45e6-ae27-7420a95fa2f8",
-  "eventName": {
-    "value": "EndRequest",
-    "localizedValue": "End request"
-  },
-  "httpRequest": {
-    "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
-    "clientIpAddress": "192.168.35.115",
-    "method": "PUT"
-  },
-  "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
-  "level": "Informational",
-  "resourceGroupName": "MSSupportGroup",
-  "resourceProviderName": {
-    "value": "microsoft.support",
-    "localizedValue": "microsoft.support"
-  },
-  "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-  "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "operationName": {
-    "value": "microsoft.support/supporttickets/write",
-    "localizedValue": "microsoft.support/supporttickets/write"
-  },
-  "properties": {
-    "statusCode": "Created"
-  },
-  "status": {
-    "value": "Succeeded",
-    "localizedValue": "Succeeded"
-  },
-  "subStatus": {
-    "value": "Created",
-    "localizedValue": "Created (HTTP Status Code: 201)"
-  },
-  "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
-  "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
-  "subscriptionId": "s1"
+    "authorization": {
+        "action": "Microsoft.Network/networkSecurityGroups/write",
+        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+    },
+    "caller": "rob@contoso.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "_claim_names": "{\"groups\":\"src1\"}",
+        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+        "appid": "355249ed-15d9-460d-8481-84026b065942",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "10845a4d-ffa4-4b61-a3b4-e57b9b31cdb5",
+        "e_exp": "262800",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Robertson",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Rob",
+        "ipaddr": "111.111.1.111",
+        "name": "Rob Robertson",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "onprem_sid": "S-1-5-21-4837261184-168309720-1886587427-18514304",
+        "puid": "18247BBD84827C6D",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "rob@contoso.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "rob@contoso.com",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
+    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "level": "Informational",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Network/networkSecurityGroups/write",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups/write"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Network",
+        "localizedValue": "Microsoft.Network"
+    },
+    "resourceType": {
+        "value": "Microsoft.Network/networkSecurityGroups",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups"
+    },
+    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
+    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "properties": {
+        "statusCode": "Created",
+        "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
+        "responseBody": "",
+        "requestbody": ""
+    },
+    "relatedEvents": []
 }
+
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Descrição |
+| Nome do elemento | DESCRIÇÃO |
 | --- | --- |
-| authorization |Blob de propriedades RBAC do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
+| autorização |Blob de propriedades RBAC do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
 | chamador |Endereço de email do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. |
 | canais |Um dos seguintes valores: "Admin", "Operação" |
 | declarações |O token JWT usado pelo Active Directory para autenticar o usuário ou aplicativo a fim de executar essa operação no Gerenciador de Recursos. |
@@ -113,7 +126,7 @@ Essa categoria contém o registro de todas as operações de criação, atualiza
 | level |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso”, “Informativo” e “Detalhado” |
 | resourceGroupName |Nome do grupo de recursos do recurso afetado. |
 | resourceProviderName |Nome do provedor de recursos do recurso afetado |
-| resourceId |Id de recurso do recurso afetado. |
+| ResourceId |Id de recurso do recurso afetado. |
 | operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Conjunto de pares de `<Key, Value>` (ou seja, um Dicionário) que descreve os detalhes do evento. |
@@ -183,7 +196,7 @@ Essa categoria contém o registro de qualquer incidente de integridade do servi�
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-Nome do elemento | Descrição
+Nome do elemento | DESCRIÇÃO
 -------- | -----------
 canais | É um dos seguintes valores: “Admin” ou “Operation”
 correlationId | Geralmente, é um GUID no formato de cadeia de caracteres. Eventos que pertencem à mesma ação superior geralmente compartilham a mesma correlationId.
@@ -200,7 +213,7 @@ subscriptionId | A assinatura do Azure na qual esse evento foi registrado.
 status | Cadeia de caracteres que descreve o status da operação. Alguns valores comuns são: Ativo, Resolvido.
 operationName | Nome da operação. Normalmente Microsoft.ServiceHealth/incident/action.
 categoria | “ServiceHealth”
-resourceId | ID de recurso do recurso afetado, se conhecido. Caso contrário, a ID da assinatura é fornecida.
+ResourceId | ID de recurso do recurso afetado, se conhecido. Caso contrário, a ID da assinatura é fornecida.
 Properties.title | O título localizado dessa comunicação. Inglês é o idioma padrão.
 Properties.communication | Os detalhes localizados da comunicação com marcação HTML. Inglês é o padrão.
 Properties.incidentType | Possíveis valores: AssistedRecovery, ActionRequired, Information, Incident, Maintenance, Security
@@ -276,7 +289,7 @@ Essa categoria contém o registro de todas as ativações de alertas do Azure. U
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Descrição |
+| Nome do elemento | DESCRIÇÃO |
 | --- | --- |
 | chamador | Always Microsoft.Insights/alertRules |
 | canais | Sempre "Administrador, Operação" |
@@ -287,7 +300,7 @@ Essa categoria contém o registro de todas as ativações de alertas do Azure. U
 | level |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso”, “Informativo” e “Detalhado” |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado, se for um alerta de métrica. Para outros tipos de alerta, será o nome do grupo de recursos que contém o alerta em si. |
 | resourceProviderName |Nome do provedor de recursos para o recurso afetado, se for um alerta de métrica. Para outros tipos de alerta, será o nome do provedor de recursos do próprio alerta. |
-| resourceId | Nome da ID de recurso do recurso afetado, se for um alerta de métrica. Para outros tipos de alerta, essa é a ID de recurso do próprio recurso de alerta. |
+| ResourceId | Nome da ID de recurso do recurso afetado, se for um alerta de métrica. Para outros tipos de alerta, essa é a ID de recurso do próprio recurso de alerta. |
 | operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Conjunto de pares de `<Key, Value>` (ou seja, um Dicionário) que descreve os detalhes do evento. |
@@ -301,7 +314,7 @@ Essa categoria contém o registro de todas as ativações de alertas do Azure. U
 O campo de propriedades conterá valores diferentes dependendo da fonte do evento de alerta. Dois provedores de alerta de evento comuns são alertas do Log de Atividades e de métrica.
 
 #### <a name="properties-for-activity-log-alerts"></a>Propriedades de alertas do Log de Atividades
-| Nome do elemento | Descrição |
+| Nome do elemento | DESCRIÇÃO |
 | --- | --- |
 | properties.subscriptionId | A ID da assinatura do evento do log de atividades que ativou essa regra de alerta do log de atividades. |
 | properties.eventDataId | A ID dos dados de evento do evento do log de atividades que ativou essa regra de alerta do log de atividades. |
@@ -312,7 +325,7 @@ O campo de propriedades conterá valores diferentes dependendo da fonte do event
 | properties.status | O status do evento do log de atividades que ativou essa regra de alerta do log de atividades.|
 
 #### <a name="properties-for-metric-alerts"></a>Propriedades de alertas de métrica
-| Nome do elemento | Descrição |
+| Nome do elemento | DESCRIÇÃO |
 | --- | --- |
 | properties.RuleUri | A ID de recurso da própria regra de alerta de métrica. |
 | properties.RuleName | O nome da regra de alerta de métrica. |
@@ -385,7 +398,7 @@ Essa categoria contém o registro de todos os eventos relacionados à operação
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Descrição |
+| Nome do elemento | DESCRIÇÃO |
 | --- | --- |
 | chamador | Always Microsoft.Insights/autoscaleSettings |
 | canais | Sempre "Administrador, Operação" |
@@ -396,7 +409,7 @@ Essa categoria contém o registro de todos os eventos relacionados à operação
 | level |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso”, “Informativo” e “Detalhado” |
 | resourceGroupName |Nome do grupo de recursos para a configuração de dimensionamento automático. |
 | resourceProviderName |Nome do provedor de recursos para a configuração de dimensionamento automático. |
-| resourceId |ID de recurso da configuração de dimensionamento automático. |
+| ResourceId |ID de recurso da configuração de dimensionamento automático. |
 | operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Conjunto de pares de `<Key, Value>` (ou seja, um Dicionário) que descreve os detalhes do evento. |
@@ -475,11 +488,11 @@ Esta categoria contém o registro de todos os alertas gerados pela Central de Se
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Descrição |
+| Nome do elemento | DESCRIÇÃO |
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| description |Descrição de texto estático do evento de segurança. |
+| Descrição |Descrição de texto estático do evento de segurança. |
 | eventDataId |Identificador exclusivo do evento de segurança. |
 | eventName |Nome amigável do evento de segurança. |
 | ID |Identificador de recursos exclusivo do evento de segurança. |
@@ -487,7 +500,7 @@ Esta categoria contém o registro de todos os alertas gerados pela Central de Se
 | resourceGroupName |Nome do grupo de recursos para o recurso. |
 | resourceProviderName |Nome do provedor de recursos para a Central de Segurança do Azure. Sempre "Microsoft.Security". |
 | resourceType |O tipo de recurso que gerou o evento de segurança, como "Microsoft.Security/locations/alerts" |
-| resourceId |ID do recurso do alerta de segurança. |
+| ResourceId |ID do recurso do alerta de segurança. |
 | operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Conjunto de pares de `<Key, Value>` (ou seja, um Dicionário) que descreve os detalhes do evento. Essas propriedades variam dependendo do tipo de alerta de segurança. Consulte [essa página](../security-center/security-center-alerts-type.md) para obter uma descrição dos tipos de alertas originados da Central de Segurança. |

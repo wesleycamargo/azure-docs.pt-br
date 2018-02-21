@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 02b709bb8dbab5d10ce9f4cf6155ff26ce229298
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b45d1287444d200727550a81ce72a19a417fe510
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Fazer failover e failback de VMs do Azure entre regiões do Azure (versão prévia)
 
@@ -30,7 +27,7 @@ Este tutorial descreve como fazer failover de uma única VM do Azure para uma re
 > * Fazer failback da VM secundária
 > * Proteger novamente a VM primária de volta para a região secundária
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Verifique se você concluiu uma [simulação de recuperação de desastre](azure-to-azure-tutorial-dr-drill.md) para verificar se tudo está funcionando conforme o esperado.
 - Verifique as propriedades da VM antes de executar o failover de teste. A VM deve atender aos [requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).

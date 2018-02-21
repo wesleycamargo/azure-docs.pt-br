@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f13ca506197ff8b9b86cf1f69300fd974b9ddd5a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Painel do Kubernetes com o AKS (Serviço de Contêiner do Azure)
 
@@ -30,7 +30,7 @@ Você também precisa da CLI do Azure versão 2.0.21 ou posterior instalada e co
 Use o comando `az aks browse` para iniciar o painel do Kubernetes. Ao executar esse comando, substitua o nome de cluster e do grupo de recursos.
 
 ```azurecli
-az aks browse --resource-group myResourceGroup --name myK8SCluster
+az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kubernetes, e abre um navegador da Web para o painel do Kubernetes.

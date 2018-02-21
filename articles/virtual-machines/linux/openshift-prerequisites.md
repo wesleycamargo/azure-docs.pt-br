@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implantar OpenShift no Azure
 
@@ -52,14 +52,14 @@ Este guia descreve como criar os artefatos associados aos pré-requisitos.
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure 
-Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#login) e siga as instruções na tela ou clique em **Experimentar** para usar o Cloud Shell.
+Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#az_login) e siga as instruções na tela ou clique em **Experimentar** para usar o Cloud Shell.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você pode usar um grupo de recursos dedicados para hospedar o Cofre de chaves. Esse grupo é separado do grupo de recursos no qual os recursos de cluster OpenShift implantam. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você pode usar um grupo de recursos dedicados para hospedar o Cofre de chaves. Esse grupo é separado do grupo de recursos no qual os recursos de cluster OpenShift implantam. 
 
 O exemplo abaixo cria um grupo de recursos denominado *keyvaultrg* no local *eastus*:
 
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chave
-Crie um KeyVault para armazenar as chaves de SSH para o cluster com o comando [az keyvault create](/cli/azure/keyvault#create). O nome do Key Vault deve ser globalmente exclusivo.
+Crie um KeyVault para armazenar as chaves de SSH para o cluster com o comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create). O nome do Key Vault deve ser globalmente exclusivo.
 
 O exemplo abaixo cria um keyvault denominado *keyvault* no grupo de recursos *keyvaultrg*:
 
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço 
 O OpenShift se comunica com o Azure usando um nome de usuário e a senha ou uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o OpenShift. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure. Para aprimorar a segurança, em vez de apenas fornecer um nome de usuário e uma senha, este exemplo cria uma entidade de serviço básica.
 
-Crie uma entidade de serviço com [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e gere as credenciais necessárias para o OpenShift.
+Crie uma entidade de serviço com [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) e gere as credenciais necessárias para o OpenShift.
 
 O exemplo a seguir cria uma entidade de serviço e atribui permissões de Colaborador a um grupo de recursos denominado myResourceGroup. Se usar o Windows, execute ```az group show --name myResourceGroup --query id``` separadamente e use a saída para alimentar a opção de escopos.
 

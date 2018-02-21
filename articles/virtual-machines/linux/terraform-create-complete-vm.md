@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 13390c2db203332433e7e3c39c8d9ed5f688448c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8abc98a6f1a222e2533eb9f742fb83f4a23d5e90
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Criar uma infraestrutura completa de máquina virtual do Linux no Azure usando o Terraform
 
@@ -456,7 +456,7 @@ Se tudo estiver correto, e você estiver pronto para criar a infraestrutura no A
 terraform apply
 ```
 
-Após a conclusão do Terraform, sua infraestrutura de VM estará pronta. Obtenha o endereço IP público da sua VM com [az vm show](/cli/azure/vm#show):
+Após a conclusão do Terraform, sua infraestrutura de VM estará pronta. Obtenha o endereço IP público da sua VM com [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/19/2017
 ms.author: anoopkv
-ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1b75acb13ac4c8990f99f7454a6de5483f6ca2f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Gerenciar um servidor de processo em execução no Azure (Gerenciador de recursos)
 > [!div class="op_single_selector"]
-> * [Gerenciador de Recursos](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
+> * [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 > * [Clássico](./site-recovery-vmware-setup-azure-ps-classic.md)
 
 Durante o failback, é recomendável implantar o servidor de processo no Azure se houver alta latência entre a rede Virtual do Azure e sua rede local. Este artigo descreve como você pode definir, configurar e gerenciar os servidores de processo em execução no Azure.
@@ -30,7 +30,7 @@ Durante o failback, é recomendável implantar o servidor de processo no Azure s
 > [!NOTE]
 > Use este artigo se você tiver utilizado o **Resource Manager** como o modelo de implantação para as máquinas virtuais durante o failover. Se você usou **Clássico** como o modelo de implantação, siga as etapas em [Como configurar um servidor de processo de Failback (Clássico)](./site-recovery-vmware-setup-azure-ps-classic.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
@@ -48,7 +48,7 @@ Durante o failback, é recomendável implantar o servidor de processo no Azure s
 |Escolha onde você deseja implantar o servidor de processo|Selecione o valor **implantar um servidor de processo de failback no Azure** |
 |Assinatura|Selecione a assinatura do Azure onde você fez failover das máquinas virtuais|
 |Grupo de recursos|Você pode criar um grupo de recursos para implantar este servidor de processo ou optar por implantar o servidor de processo em um grupo de recursos existente|
-|Local|Selecione o Data Center do Azure no qual as máquinas virtuais onde falhou em|
+|Local padrão|Selecione o Data Center do Azure no qual as máquinas virtuais onde falhou em|
 |Rede do Azure|Selecione o Network(VNet) Virtual do Azure que as máquinas virtuais onde o failover em. Se você fez failover máquinas virtuais em vários VNets do Azure, em seguida, é necessário um servidor de processo implantado por rede virtual|
 
 4. Preencha o restante das propriedades do servidor de processo
@@ -57,7 +57,7 @@ Durante o failback, é recomendável implantar o servidor de processo no Azure s
 |**Nome do Campo**|**Valor**|
 |-|-|
 |Nome do Servidor|Nome de exibição < / nome de Host para sua máquina de virtual do servidor de processo|
-| Nome de usuário|Um nome de usuário que se torna um administrador na máquina virtual|
+| Nome do Usuário|Um nome de usuário que se torna um administrador na máquina virtual|
 |Conta de armazenamento|Nome da conta de armazenamento em que é colocado do disco virtual da máquina virtual|
 |Sub-rede|A sub-rede da rede virtual do Azure à qual a máquina virtual está conectada|
 | Endereço IP|Endereço IP que você deseja que o servidor de processo uma vez assumi-lo inicializado|

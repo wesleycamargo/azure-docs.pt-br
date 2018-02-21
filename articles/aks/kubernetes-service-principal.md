@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entidades de serviço com o Serviço de Contêiner do Azure (AKS)
 
@@ -35,7 +35,7 @@ Ao implantar um cluster AKS com o comando `az aks create`, você tem a opção p
 No exemplo a seguir, um cluster AKS é criado e, como não há uma entidade de serviço existente especificada, será criada uma entidade de serviço para o cluster. Para concluir esta operação, sua conta deverá ter os direitos adequados para a criação de uma entidade de serviço.
 
 ```azurecli
-az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Usa um SP existente
@@ -67,7 +67,7 @@ A saída deverá ser semelhante à seguinte. Anote `appId` e `password`. Esses v
 Ao usar uma entidade de serviço previamente criada, forneça `appId` e `password` como valores de argumento para o comando `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
+az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
 Se você estiver implantando um cluster do Serviço de Contêiner do Azure usando o portal do Azure, insira o valor `appId` no campo **ID do cliente de entidade de serviço** e o valor `password` no campo **Segredo do cliente de entidade de serviço** no formulário de configuração de cluster do AKS.

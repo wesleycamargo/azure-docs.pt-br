@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montar o Armazenamento de Arquivos do Azure em VMs Linux usando SMB
 
@@ -67,7 +67,7 @@ Mover arquivos de uma VM para uma montagem SMB hospedada no Armazenamento de arq
 
 Para este passo a passo detalhado, criamos os pré-requisitos necessários para primeiro criar o compartilhamento do Armazenamento de arquivos e, depois, montá-lo pelo SMB em uma VM Linux.
 
-1. Crie um grupo de recursos com [az group create](/cli/azure/group#create) para armazenar o compartilhamento de arquivo.
+1. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create) para armazenar o compartilhamento de arquivo.
 
     Para criar um grupo de recursos denominado `myResourceGroup` na localização Oeste dos EUA, use o seguinte exemplo:
 
@@ -75,7 +75,7 @@ Para este passo a passo detalhado, criamos os pré-requisitos necessários para 
     az group create --name myResourceGroup --location westus
     ```
 
-2. Crie uma conta de armazenamento do Azure com [az storage account create](/cli/azure/storage/account#create) para armazenar os arquivos reais.
+2. Crie uma conta de armazenamento do Azure com [az storage account create](/cli/azure/storage/account#az_storage_account_create) para armazenar os arquivos reais.
 
     Para criar uma conta de armazenamento denominada mystorageaccount usando o SKU de armazenamento Standard_LRS, use o exemplo a seguir:
 
@@ -90,7 +90,7 @@ Para este passo a passo detalhado, criamos os pré-requisitos necessários para 
 
     Ao criar uma conta de armazenamento, as chaves da conta são criadas em pares, para que possam ser giradas sem nenhuma interrupção de serviço. Depois de mudar as chaves para a segunda chave do par, você cria um novo par de chaves. Novas chaves de conta de armazenamento são sempre criadas em pares, garantindo que você sempre tenha, pelo menos, uma chave de conta de armazenamento não utilizada pronta para ser mudada.
 
-    Exiba as chaves da conta de armazenamento com a [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#list). As chaves da conta de armazenamento para o `mystorageaccount` denominado estão listadas no seguinte exemplo:
+    Exiba as chaves da conta de armazenamento com a [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#az_storage_account_keys_list). As chaves da conta de armazenamento para o `mystorageaccount` denominado estão listadas no seguinte exemplo:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ Para este passo a passo detalhado, criamos os pré-requisitos necessários para 
 
 4. Criar o compartilhamento do Armazenamento de arquivos.
 
-    O compartilhamento de Armazenamento de arquivos contém o compartilhamento SMB com [az storage share create](/cli/azure/storage/share#create). A cota é sempre expressa em gigabytes (GB). Passe em uma das chaves do comando `az storage account keys list` anterior. Crie um compartilhamento chamado mystorageshare com uma cota de 10 GB usando o exemplo a seguir:
+    O compartilhamento de Armazenamento de arquivos contém o compartilhamento SMB com [az storage share create](/cli/azure/storage/share#az_storage_share_create). A cota é sempre expressa em gigabytes (GB). Passe em uma das chaves do comando `az storage account keys list` anterior. Crie um compartilhamento chamado mystorageshare com uma cota de 10 GB usando o exemplo a seguir:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,7 +137,7 @@ Para este passo a passo detalhado, criamos os pré-requisitos necessários para 
     Ao reinicializar a VM Linux, o compartilhamento SMB montado é desmontado durante o desligamento. Para montar novamente o compartilhamento SMB durante a inicialização, adicione uma linha ao /etc/fstab do Linux. O Linux usa o arquivo fstab para listar os sistemas de arquivos que precisa montar durante o processo de inicialização. A adição do compartilhamento SMB garante que o compartilhamento do Armazenamento de arquivos seja um sistema de arquivos montado permanentemente para a VM Linux. É possível adicionar o compartilhamento SMB do Armazenamento de arquivos a uma nova VM ao usar a inicialização de nuvem.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -2,23 +2,17 @@
 title: "Planejar a capacidade e o dimensionamento para a replicação do VMware para o Azure com o Azure Site Recovery | Microsoft Docs"
 description: Use este artigo para planejar a capacidade e a escala ao replicar VMs do VMware para o Azure com o Azure Site Recovery
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: 
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: rayne
-ms.openlocfilehash: 0f4d82d450a6ca2e73c68452a409f300841dbf32
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planejar capacidade e dimensionamento para replicação VMware com o Azure Site Recovery
 
@@ -34,7 +28,7 @@ Colete informações sobre seu ambiente de replicação executando o [Planejador
 --- | --- | ---
 **Replicação** | **Taxa máxima de alteração diária**: um computador protegido só pode usar um servidor de processo, e um único servidor de processo pode lidar com uma taxa de alteração diária de até 2 TB. Portanto, 2 TB é a taxa de alteração diária máxima com suporte para um computador protegido.<br/><br/> **Taxa de transferência máxima**: um computador replicado pode pertencer a uma conta de armazenamento no Azure. Uma conta de armazenamento padrão pode lidar com um máximo de 20 mil solicitações por segundo e o recomendável é manter o número de operações IOPS (entrada/saída por segundo) em um computador de origem como 20 mil. Por exemplo, se você tiver um computador de origem com 5 discos e cada disco gerar 120 IOPS (8 K de tamanho) no computador de origem, ele estará dentro do limite IOPS de 500 por disco do Azure. (O número de contas de armazenamento necessário é igual ao total de IOPS do computador de origem, dividido por 20 mil).
 **Servidor de configuração** | O servidor de configuração deve ser capaz de lidar com a capacidade da taxa de alteração diária em todas as cargas de trabalho em execução em computadores protegidos e precisa ter largura de banda suficiente para replicar continuamente os dados no Armazenamento do Azure.<br/><br/> Como prática recomendada, aloque o servidor de configuração na mesma rede e no mesmo segmento de LAN que os computadores que deseja proteger. Ele pode ser colocado em uma rede diferente, mas os computadores que você quer proteger devem ter visibilidade de rede de camada 3 para ele.<br/><br/> As recomendações de tamanho para o servidor de configuração são resumidas na tabela da seção a seguir.
-**Servidor de processo** | O primeiro servidor de processo é instalado por padrão no servidor de configuração. Você pode implantar servidores de processo adicionais par dimensionar seu ambiente. <br/><br/> O servidor de processo recebe os dados de replicação de computadores protegidos e os otimiza com caching, compactação e criptografia. Em seguida, ele envia os dados ao Azure. O computador do servidor de processo deve ter recursos suficientes para executar essas tarefas.<br/><br/> O servidor de processo usa o cache baseado em disco. Use um disco de cache separado de 600 GB ou mais para lidar com alterações de dados armazenados em caso de afunilamento ou interrupção da rede.
+**Servidor de processo** | O primeiro servidor de processo é instalado por padrão no servidor de configuração. Você pode implantar servidores de processo adicionais par dimensionar seu ambiente. <br/><br/> O servidor de processo recebe os dados de replicação de computadores protegidos e os otimiza com caching, compactação e criptografia. Em seguida, ele envia os dados ao Azure. O computador do servidor de processo deve ter recursos suficientes para executar essas tarefas.<br/><br/> O servidor de processo usa o cache baseado em disco. Use um disco de cache separado de 600 GB ou mais para lidar com alterações de dados armazenados em caso de gargalo ou interrupção da rede.
 
 ## <a name="size-recommendations-for-the-configuration-server"></a>Recomendações de tamanho para o servidor de configuração
 
@@ -85,7 +79,7 @@ Depois de usar [a ferramenta Planejador de Implantação](site-recovery-deployme
   * O valor de registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** especifica o número de threads usados para a transferência de dados (replicação inicial ou delta) de um disco. Um valor mais alto aumenta a largura de banda de rede usada para replicação.
   * O **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** especifica o número de threads usados para transferência de dados durante o failback.
 
-### <a name="throttle-bandwidth"></a>Restringir a largura de banda
+### <a name="throttle-bandwidth"></a>Limitar largura de banda
 
 1. Abra o snap-in do MMC do Backup do Azure no computador atuando como o servidor de processo. Por padrão, um atalho para o Backup está disponível na área de trabalho ou na seguinte pasta: C:\Arquivos de Programas\Serviços de Recuperação do Microsoft Azure\bin\wabadmin.
 2. No snap-in, clique em **Alterar Propriedades**.
