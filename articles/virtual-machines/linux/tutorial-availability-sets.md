@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e7780a29f6633b444608d96012fabe67b9b6d924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 504c4a666d1abd7a495d6759d62815f53f0b54fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Como usar os conjuntos de disponibilidade
 
@@ -50,7 +50,7 @@ Use Conjuntos de Disponibilidade quando você deseja implantar soluções confi�
 
 ## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade usando [az vm availability-set create](/cli/azure/vm/availability-set#create). Nesse exemplo, definimos o número de domínios de atualização e de falha como *2* para o conjunto de disponibilidade chamado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
+Crie um conjunto de disponibilidade usando [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). Nesse exemplo, definimos o número de domínios de atualização e de falha como *2* para o conjunto de disponibilidade chamado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
 
 Crie um grupos de recursos.
 
@@ -74,7 +74,7 @@ Os Conjuntos de Disponibilidade permitem que você isole os recursos em "domíni
 
 As VMs devem ser criadas dentro do conjunto de disponibilidade para assegurar a distribuição correta pelo hardware. Você não pode adicionar uma VM existente a um conjunto de disponibilidade após sua criação. 
 
-Ao criar uma VM usando [az vm create](/cli/azure/vm#create), você especifica a conjunto de disponibilidade usando o parâmetro `--availability-set` para especificar o nome do conjunto de disponibilidade.
+Ao criar uma VM usando [az vm create](/cli/azure/vm#az_vm_create), você especifica a conjunto de disponibilidade usando o parâmetro `--availability-set` para especificar o nome do conjunto de disponibilidade.
 
 ```azurecli-interactive 
 for i in `seq 1 2`; do
@@ -92,13 +92,13 @@ done
 
 Agora temos duas máquinas virtuais em nosso conjunto de disponibilidade recém-criado. Como elas estão no mesmo conjunto de disponibilidade, o Azure garantirá que as VMs e todos os seus recursos (incluindo discos de dados) sejam distribuídos entre o hardware físico isolado. Essa distribuição ajuda a garantir uma disponibilidade muito maior de nossa solução de VM geral.
 
-Se você verificar o conjunto de disponibilidade no portal acessando Grupos de Recursos > myResourceGroupAvailability > myAvailabilitySet, você deve ver como as VMs estão distribuídas entre os 2 domínios de atualização e de falha.
+Se você verificar o conjunto de disponibilidade no portal acessando Grupos de Recursos > myResourceGroupAvailability > myAvailabilitySet, você deve ver como as VMs estão distribuídas entre os dois domínios de atualização e de falha.
 
 ![Conjunto de disponibilidade no portal](./media/tutorial-availability-sets/fd-ud.png)
 
 ## <a name="check-for-available-vm-sizes"></a>Conferir os tamanhos de VM disponíveis 
 
-Você pode adicionar posteriormente outras VMs ao conjunto de disponibilidade, mas você precisa saber quais tamanhos de VM estão disponíveis no hardware.  Use [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade.
+Você pode adicionar posteriormente outras VMs ao conjunto de disponibilidade, mas você precisa saber quais tamanhos de VM estão disponíveis no hardware.  Use [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade.
 
 ```azurecli-interactive 
 az vm availability-set list-sizes \
@@ -119,5 +119,5 @@ Neste tutorial, você aprendeu como:
 Avance para o próximo tutorial para saber mais sobre conjuntos de disponibilidade de máquinas virtuais.
 
 > [!div class="nextstepaction"]
-> [Criar um conjunto de dimensionamento da VM](tutorial-create-vmss.md)
+> [Criar um conjunto de dimensionamento de máquinas virtuais](tutorial-create-vmss.md)
 

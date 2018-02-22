@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: cb7183cbec1c3efafe58f4508042d329be5dcecf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Cenário da Automação do Azure - automatize a remoção de grupos de recursos
 Muitos clientes criam mais de um grupo de recursos. Alguns podem ser usados para gerenciar aplicativos de produção e outros podem ser usados como ambientes de desenvolvimento, teste e preparo. A automatização da implantação desses recursos é uma coisa, mas poder encerrar um grupo de recursos com um clique do botão é outra. Você pode simplificar essa tarefa comum de gerenciamento usando a Automação do Azure. Isso é útil se você está trabalhando com uma assinatura do Azure com um limite de gastos por meio de uma oferta de membro como o MSDN ou o programa Microsoft Partner Network Cloud Essentials.
@@ -37,30 +37,30 @@ Os parâmetros de entrada a seguir são definidos para este runbook:
 
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| NameFilter (Obrigatório) |Especifica um filtro de nome para limitar os grupos de recursos que você pretende excluir. Você pode passar vários valores usando uma lista separada por vírgulas.<br>O filtro não diferencia maiúsculas de minúsculas e corresponderá a qualquer grupo de recursos que contenha a cadeia de caracteres. |
+| NameFilter (Obrigatório) |Especifica um filtro de nome para limitar os grupos de recursos que você pretende excluir. Você pode passar vários valores usando uma lista separada por vírgulas.<br>O filtro não diferencia maiúsculas de minúsculas e corresponde a qualquer grupo de recursos que contenha a cadeia de caracteres. |
 | PreviewMode (opcional) |Executa o runbook para ver quais grupos de recursos seriam excluídos, mas não realiza nenhuma ação.<br>O padrão é **true** para ajudar a evitar a exclusão acidental de um ou mais grupos de recursos passados para o runbook. |
 
 ## <a name="install-and-configure-this-scenario"></a>Instalar e configurar esse cenário
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Esse runbook se autentica usando a [conta Executar como do Azure](automation-sec-configure-azure-runas-account.md).    
 
 ### <a name="install-and-publish-the-runbooks"></a>Instalar e publicar os runbooks
 Depois de baixar o runbook, você poderá importá-lo usando o procedimento em [Procedimentos para importar runbooks](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Publique o runbook depois que ele for importado com êxito em sua conta de Automação.
 
 ## <a name="using-the-runbook"></a>Usando o runbook
-As etapas a seguir orientarão você pela execução deste runbook e o ajudarão a se familiarizar com o funcionamento dele. Você só testará o runbook neste exemplo, e não excluirá de fato o grupo de recursos.  
+As etapas a seguir orientam você pela execução deste runbook e o ajudarão a se familiarizar com o funcionamento dele. Você testará o runbook neste exemplo, sem excluir o grupo de recursos.  
 
 1. No Portal do Azure, abra sua conta da Automação e clique no bloco **Runbooks**.
 2. Selecione o runbook **Remove-ResourceGroup** e clique em **Iniciar**.
-3. Quando você inicia o runbook, a folha **Iniciar Runbook** é aberta e você pode configurar valores a seguir para os parâmetros. Digite os nomes dos grupos de recursos em sua assinatura que você pode usar para testar e não causarão danos se forem excluídos acidentalmente.<br> ![Parâmetros Remove-ResouceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+3. Quando você inicia o runbook, a página **Iniciar Runbook** é aberta e você pode configurar valores a seguir para os parâmetros. Digite os nomes dos grupos de recursos em sua assinatura que você pode usar para testar e não causem danos se forem excluídos acidentalmente.
 
    > [!NOTE]
-   > Verifique se **Previewmode** está definido como **true** para evitar a exclusão de grupos de recursos selecionados.  **Observe** que este runbook não removerá o grupo de recursos com a conta da Automação que está executando esse runbook.  
+   > Verifique se **Previewmode** está definido como **true** para evitar a exclusão de grupos de recursos selecionados. Este runbook não remove o grupo de recursos com a conta da Automação que está executando esse runbook.  
    >
    >
-4. Depois de configurar todos os valores de parâmetro, clique em **OK** e o runbook será enfileirado para execução.  
+1. Depois de configurar todos os valores de parâmetro, clique em **OK** e o runbook será enfileirado para execução.  
 
-Para exibir os detalhes do trabalho do runbook **Remove-ResourceGroup** no Portal do Azure, selecione o bloco **Trabalhos** do runbook. O resumo do trabalho exibe os parâmetros de entrada e o fluxo de saída, além de informações gerais sobre o trabalho e todas as exceções ocorridas.<br> ![Status de trabalho do runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+Para exibir os detalhes do trabalho do runbook **Remove-ResourceGroup** no Portal do Azure, em **Recurso** selecione **Trabalhos** no runbook. Selecione o trabalho que você deseja exibir. O resumo do trabalho exibe os parâmetros de entrada e o fluxo de saída, além de informações gerais sobre o trabalho e todas as exceções ocorridas.<br> ![Status de trabalho do runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
 O **Resumo do Trabalho** inclui mensagens de fluxos de saída, de aviso e de erro. Selecione **Saída** para exibir os resultados detalhados da execução do runbook.<br> ![Resultados da saída do runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 

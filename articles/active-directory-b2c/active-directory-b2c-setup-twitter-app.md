@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.openlocfilehash: dde17c89c49223c75842f328f455c6637aa1915b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: fornecer inscrição e credenciais para consumidores com contas do Twitter
-
-> [!NOTE]
-> Essa funcionalidade está em visualização.
-> 
 
 ## <a name="create-a-twitter-application"></a>Criar um aplicativo do Twitter
 Para usar o Twitter como um provedor de identidade no Azure AD (Azure Active Directory) B2C, você precisa criar um aplicativo Twitter e fornecer a ele os parâmetros certos. Você precisa de uma conta de desenvolvedor do Twitter para fazer isso. Se não tiver uma, você poderá obtê-la em [https://dev.twitter.com/](https://dev.twitter.com/).
@@ -46,3 +42,6 @@ Para usar o Twitter como um provedor de identidade no Azure AD (Azure Active Dir
 6. Clique em **Configurar esse provedor de identidade** e insira a **Chave do Consumidor** do Twitter para a **ID do cliente** e o **Segredo do Consumidor** do Twitter para o **Segredo do cliente**.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do Twitter.
 
+## <a name="next-steps"></a>Próximas etapas
+
+Criar ou editar uma [política interna](active-directory-b2c-reference-policies.md) e adicionar o Twitter como provedor de identidade.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 ## <a name="overview"></a>Visão geral
@@ -65,9 +65,9 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado de canal | Indicadores da interface do usuário do portal | Trata-se de cobrança? |
 | --- | --- | --- |
 | Iniciando |Iniciando |Nenhum (estado transitório) |
-| Executando |Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (pelo menos um programa em execução) |SIM |
+| Executando |Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (há pelo menos um programa em execução) |SIM |
 | Parando |Parando |Nenhum (estado transitório) |
-| Parado |Parado |Não |
+| Parado |Parado |Não  |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Desligamento automático para canais não usados
 A partir de 25 de janeiro de 2016, os Serviços de Mídia distribuíram uma atualização que interrompe automaticamente um canal (com codificação ativa desabilitada) depois que ele tiver sido executado em um estado não utilizado por um longo período. Isso se aplica aos canais que não tem programas ativos e que não receberam um feed de contribuição de entrada por um período de tempo estendido.
@@ -83,7 +83,7 @@ O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que 
 A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de streaming ao vivo.
 
 > [!NOTE]
-> Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived em Microsoft.com se precisar executar um Canal por longos períodos. Lembre-se de que há um impacto de cobrança para a codificação ativa e você deve se lembrar que deixar um canal de codificação ativa no estado "Em execução" incorrerá em cobranças por hora.  É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. 
+> Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Contate  amslived@microsoft.com se precisar executar um Canal por longos períodos. Lembre-se de que há um impacto de cobrança para a codificação ativa e você deve se lembrar que deixar um canal de codificação ativa no estado "Em execução" incorrerá em cobranças por hora.  É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. 
 > 
 > 
 
@@ -262,7 +262,7 @@ Pode haver até 8 conjuntos de fluxo de áudio especificados se a entrada para o
 ### <a id="preset"></a>Predefinição do sistema
 Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste canal. Atualmente, o único valor permitido é **Default720p** (padrão).
 
-Observe que, se você precisar de predefinições personalizadas, você deverá entrar em contato com amslived em Microsoft.com.
+Observe que, se você precisar de predefinições personalizadas deverá contatar amslived@microsoft.com.
 
 **Default720p** codificará o vídeo nas 7 camadas a seguir.
 
@@ -290,7 +290,7 @@ Quando o canal está com codificação ao vivo habilitada, você tem um componen
 
 A seguir estão as propriedades que você pode definir ao sinalizar anúncios. 
 
-### <a name="duration"></a>Duração
+### <a name="duration"></a>Duration
 A duração, em segundos, do intervalo comercial. Isso deve ser um valor positivo diferente de zero para iniciar o intervalo comercial. Quando um intervalo comercial está em andamento e a duração é definida como zero com o CueId correspondente ao intervalo comercial em curso, esse intervalo é cancelado.
 
 ### <a name="cueid"></a>CueId
@@ -306,7 +306,7 @@ O codificador ao vivo no canal pode ser sinalizado para alternar para uma imagem
 
 O codificador ao vivo pode ser configurado para alternar para uma imagem slate e ocultar o sinal de vídeo de entrada em determinadas situações – por exemplo, durante um intervalo comercial. Se um slate desse tipo não estiver configurado, o vídeo de entrada não é mascarado durante esse intervalo comercial.
 
-### <a name="duration"></a>Duração
+### <a name="duration"></a>Duration
 A duração do slate em segundos. Isso deve ser um valor positivo diferente de zero para iniciar o slate. Se houver um slate em andamento e uma duração de zero for especificada, esse slate será encerrado.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserir o slate no marcador de anúncio
@@ -329,9 +329,9 @@ Opcional. Especifica a ID do ativo de Serviços de Mídia que contém a imagem d
 Se a **ID padrão do ativo de imagem fixa** não for especificada e **inserir imagem fixa no marcador de anúncio** estiver definido como **verdadeiro**, uma imagem padrão dos Serviços de Mídia do Azure será usada para ocultar a transmissão de vídeo de entrada. O áudio também é desligado durante o slate. 
 
 ## <a name="channels-programs"></a>Programas do canal
-Um canal é associado a programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele Canal.
+Um canal é associado a programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele Canal.
 
-Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
+Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
 Cada programa está associado um ativo que armazena o conteúdo transmitido. Um ativo é mapeado para um contêiner de blob de blocos na conta de Armazenamento do Azure e os arquivos no ativo são armazenados como blobs nesse contêiner. Para publicar o programa para que seus clientes possam exibir o fluxo, você deve criar um localizador OnDemand para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
 
@@ -366,7 +366,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Iniciando |Iniciando |Nenhum (estado transitório) |
 | Executando |Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (há pelo menos um programa em execução) |SIM |
 | Parando |Parando |Nenhum (estado transitório) |
-| Parado |Parado |Não |
+| Parado |Parado |Não  |
 
 > [!NOTE]
 > Atualmente, a média de início de Canal é de cerca de 2 minutos, mas às vezes pode levar até 20 minutos ou mais. A redefinição de canal pode levar até 5 minutos.
@@ -381,7 +381,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 * Por padrão, você pode adicionar somente 5 canais à sua conta de Serviços de Mídia. Essa é uma cota flexível em todas as novas contas. Para obter mais informações, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
 * Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
 * Você será cobrado apenas quando o canal estiver no estado **Executando** . Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
-* Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived na Microsoft.com se precisar executar um Canal por períodos mais longos.
+* Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Contate amslived@microsoft.com se precisar executar um Canal por períodos mais longos.
 * Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando**.
 * Ao inserir várias faixas de idioma e fazer a codificação ao vivo com o Azure, somente o RTP tem suporte para vários idioma entrada. Você pode definir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. A ingestão de várias faixas de áudio com RTMP ou Smooth streaming não tem suporte atualmente. Ao fazer a codificação ativa com [codificações ativos locais](media-services-live-streaming-with-onprem-encoders.md), não há nenhuma limitação desse tipo, porque tudo o que é enviado para o AMS passa por um canal sem processamento adicional.
 * A predefinição de codificação usa a noção de "taxa de quadros máxima" de 30 fps. Portanto, se a entrada é 60fps/59,97i, os quadros de entrada são descartados/divididos para 30/29,97 fps. Se a entrada é 50fps/50i, os quadros de entrada são descartados/divididos para 25 fps. Se a entrada é 25 fps, a saída permanece em 25 fps.

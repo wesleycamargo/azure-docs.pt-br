@@ -16,7 +16,7 @@ Você pode exibir a telemetria enviada do dispositivo na página **Dispositivos*
 
 ## <a name="act-on-your-device"></a>Agir no dispositivo
 
-Para invocar métodos em seus dispositivos, use a página **Dispositivos** na solução de monitoramento remoto. Por exemplo, na solução de monitoramento remoto, os dispositivos **Resfriadores** implementam o método **Reiniciar**.
+Para invocar métodos em seus dispositivos, use a página **Dispositivos** na solução de monitoramento remoto. Por exemplo, na solução de monitoramento remoto, os dispositivos **Chiller** implementam um método **FirmwareUpdate**.
 
 1. Escolha **Dispositivos** para navegar até a página **Dispositivos** na solução.
 
@@ -26,11 +26,15 @@ Para invocar métodos em seus dispositivos, use a página **Dispositivos** na so
 
 1. Para exibir uma lista dos métodos que você pode chamar em seu dispositivo, escolha **Agendar**. Para agendar um método a ser executado em vários dispositivos, você pode selecionar vários dispositivos na lista. O painel **Agendar** mostra os tipos de método comuns a todos os dispositivos selecionados.
 
-1. Escolha **Reiniciar**, defina o nome do trabalho como **RebootPhysicalChiller**e escolha **Aplicar**:
+1. Escolha **FirmwareUpdate**, defina o nome do trabalho para **UpdatePhysicalChiller**. Defina **Firmware Version** para **2.0.0**, defina **Firmware URI** para **http://contoso.com/updates/firmware.bin** e, em seguida, escolha **Aplicar**:
 
-    ![Agendar o reinício](media/iot-suite-visualize-connecting/deviceschedule.png)
+    ![Agendar a atualização do firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. Uma mensagem é exibida no console que executa o código do dispositivo quando o método é executado no dispositivo.
+1. Uma sequência de mensagens é exibida no console executando o código de dispositivo, enquanto o dispositivo simulado manipula o método.
+
+1. Quando a atualização estiver concluída, a nova versão do firmware é exibida na página **Dispositivos**:
+
+    ![Atualização concluída](media/iot-suite-visualize-connecting/complete.png)
 
 > [!NOTE]
 > Para acompanhar o status do trabalho na solução, escolha **Exibir**.

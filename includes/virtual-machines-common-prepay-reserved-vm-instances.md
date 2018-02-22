@@ -30,8 +30,15 @@ Você pode comprar Instâncias de Máquina Virtual Reservadas no [portal do Azur
 
     ![Captura de tela antes de enviar a compra de reserva](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>Próximas etapas após a compra de uma reserva
+## <a name="next-steps"></a>Próximas etapas 
 O desconto da reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao escopo e atributos da reserva. Você pode atualizar o escopo de reserva por meio do [portal do Azure](https://portal.azure.com), PowerShell, CLI ou por meio da API. 
 
-Para aprender a gerenciar uma reserva, confira [Gerenciar Instâncias de Máquina Virtual Reservadas do Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Para aprender a gerenciar uma reserva, confira [Gerenciar Instâncias de Máquinas Virtuais Reservadas do Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+Para saber mais sobre as Instâncias de Máquina Virtual Reservadas, consulte os artigos a seguir.
+
+- [Economizar dinheiro de máquinas virtuais com Instâncias de Máquinas Virtuais Reservadas](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Entender como é aplicado o desconto em Instâncias de Máquina Virtual Reservada](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Entender o uso da Instância Reservada na sua assinatura Paga pelo Uso](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Entender o uso da Instância Reservada no seu registro de Empresa](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Os custos de software do Windows não estão incluídos nas Instâncias Reservadas](../articles/billing/billing-reserved-instance-windows-software-costs.md)

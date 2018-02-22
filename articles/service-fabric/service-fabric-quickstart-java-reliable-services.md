@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aec4db684a9067e1dee424f2c0e05e3674f84d1a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-java-application"></a>Criar um aplicativo Java
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços. 
@@ -36,7 +36,7 @@ Neste guia de início rápido, você aprende a:
 > * Implantar o aplicativo em um cluster no Azure
 > * Expandir o aplicativo para vários nós
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir este guia de início rápido:
 1. [Instalar o SDK do Service Fabric e a CLI (interface de linha de comando) do Service Fabric (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Instalar o Git](https://git-scm.com/)
@@ -79,16 +79,42 @@ Agora, você pode adicionar um conjunto de opções de votação e começar a vo
 ## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Configurar o cluster do Azure Service Fabric
-Para implantar o aplicativo em um cluster no Azure, use seu próprio cluster ou use um Cluster de Entidade.
+Para implantar o aplicativo em um cluster no Azure, crie seu próprio cluster.
 
 Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure. Eles são executados pela equipe do Service Fabric, em que qualquer pessoa pode implantar aplicativos e conhecer a plataforma. Para obter acesso a um Cluster de Terceiros, [siga as instruções](http://aka.ms/tryservicefabric). 
+
+Para executar operações de gerenciamento no cluster de entidade seguro, é possível usar o Service Fabric Explorer, a CLI ou o Powershell. Para usar o Service Fabric Explorer, será preciso baixar o arquivo PFX do site do cluster de entidade e importar o certificado para o repositório de certificados (Windows ou Mac) ou para o navegador propriamente dito (Ubuntu). Não há nenhuma senha para os certificados autoassinados do cluster de entidade. 
+
+Para executar operações de gerenciamento com o Powershell ou a CLI, você precisará do PFX (Powershell) ou PEM (CLI). Para converter o PFX em um arquivo PEM, execute o seguinte comando:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Para obter informações sobre como criar seu próprio cluster, consulte [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> O serviço de front-end da Web está configurado para escutar o tráfego de entrada na porta 8080. Verifique se a porta está aberta no cluster. Se você estiver usando o Cluster de Entidade, essa porta estará aberta.
+> O serviço Spring Boot está configurado para escutar o tráfego de entrada na porta 8080. Verifique se a porta está aberta no cluster. Se você estiver usando o Cluster de Entidade, essa porta estará aberta.
 >
 
+### <a name="add-certificate-information-to-your-application"></a>Adicionar informações de certificado ao seu aplicativo
+
+A impressão digital do certificado precisa ser adicionada ao seu aplicativo porque ele está usando modelos de programação do Service Fabric. 
+
+1. Você precisará da impressão digital do certificado no arquivo ```Voting/VotingApplication/ApplicationManiest.xml``` ao executar em um cluster seguro. Execute o comando a seguir para extrair a impressão digital do certificado.
+
+    ```bash
+    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    ```
+
+2. Em ```Voting/VotingApplication/ApplicationManiest.xml```, adicione o trecho de código a seguir sob da marca **ApplicationManifest**. O **X509FindValue** deve ser a impressão digital da etapa anterior (sem ponto e vírgula). 
+
+    ```xml
+    <Certificates>
+        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+    </Certificates>   
+    ```
+    
 ### <a name="deploy-the-application-using-eclipse"></a>Implantar o aplicativo usando o Eclipse
 Agora que o aplicativo e o cluster estão prontos, você pode implantá-los no cluster diretamente do Eclipse.
 
@@ -100,8 +126,8 @@ Agora que o aplicativo e o cluster estão prontos, você pode implantá-los no c
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
             "ConnectionPort": "19080",
-            "ClientKey": "",
-            "ClientCert": ""
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
     }
     ```
@@ -121,7 +147,7 @@ O Service Fabric Explorer é executado em todos os clusters do Service Fabric e 
 
 Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
 
-1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+1. Abra o Service Fabric Explorer no cluster – por exemplo, `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 2. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/VotingWeb** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
 
     ![Dimensionar Serviço do Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)

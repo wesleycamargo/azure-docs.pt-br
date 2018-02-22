@@ -7,14 +7,14 @@ author: vhorne
 manager: byronr
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Criar uma máquina virtual Linux com o portal de pilha do Azure
 
@@ -59,7 +59,7 @@ Entre portal do Azure pilha. O endereço do portal do Azure pilha depende de qua
 
 ## <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 
-1. Clique o **novo** botão localizado no canto superior esquerdo do portal do Azure pilha.
+1. Clique em **criar um recurso** no canto superior esquerdo do portal do Azure pilha.
 
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Clique em **Criar**.

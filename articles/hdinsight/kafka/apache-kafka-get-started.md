@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/18/2018
 ms.author: larryfr
-ms.openlocfilehash: 6191d81d6b55f5ffe943f800be542d7ea4614eaf
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 639adb2fdc5a7d76c11397b5027199626a0a4016
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Começar com o Apache Kafka no HDInsight
 
@@ -233,3 +233,5 @@ Neste documento, você aprendeu os fundamentos do trabalho com o Apache Kafka no
 * [Usar o streaming estruturado do Apache Spark para mover dados do Kafka no HDInsight para o Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Usar Apache Storm com Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Conectar-se ao Kafka por meio de uma Rede Virtual do Azure](apache-kafka-connect-vpn-gateway.md)
+* [Usar o Kafka com o Serviço de Contêiner do Azure](apache-kafka-azure-container-services.md)
+* [Usar o Kafka com Aplicativos de funções do Azure](apache-kafka-azure-functions.md)

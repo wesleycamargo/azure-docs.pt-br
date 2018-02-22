@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Como proteger um back-end de API da Web com o Active Directory do Azure e Gerenciamento de API
 O vídeo a seguir mostra como criar um back-end de API da Web e protegê-lo usando o protocolo OAuth 2.0 com o Active Directory do Azure e Gerenciamento de API.  Este artigo fornece uma visão geral e informações adicionais sobre as etapas no vídeo. Este vídeo de 24 minutos mostra como:
@@ -33,7 +33,7 @@ O vídeo a seguir mostra como criar um back-end de API da Web e protegê-lo usan
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Criar um diretório do AD do Azure
-Para proteger sua API da Web usando o Active Directory do Azure, você deve primeiramente ter um locatário AAD. Neste vídeo, um locatário chamado **APIMDemo** é usado. Para criar um locatário do AAD, entre no [Portal Clássico do Azure](https://manage.windowsazure.com) e clique em **Novo**->**Serviço de Aplicativos**->**Active Directory**->**Diretório**->**Criação Personalizada**. 
+Para proteger seu back-end de API da Web usando o Active Directory do Azure, você deve primeiramente ter um locatário AAD. Neste vídeo, um locatário chamado **APIMDemo** é usado. Para criar um locatário do AAD, entre no [Portal Clássico do Azure](https://manage.windowsazure.com) e clique em **Novo**->**Serviço de Aplicativos**->**Active Directory**->**Diretório**->**Criação Personalizada**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 

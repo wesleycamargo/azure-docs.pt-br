@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros de atualização de aplicativo
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de um aplicativo do Service Fabric do Azure. Os parâmetros incluem o nome e a versão do aplicativo. Eles são botões que controlam o tempo limite e as verificações de integridade que são aplicadas durante a atualização, e especificam as políticas que devem ser aplicadas quando uma atualização falha.
 
 <br>
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | ApplicationName |Nome do aplicativo que está sendo atualizado. Exemplos: fabric:/VisualObjects, fabric:/ClusterMonitor |
 | TargetApplicationTypeVersion |Versão do tipo de aplicativo visado pela atualização. |
@@ -45,14 +45,14 @@ Os critérios de avaliação de integridade são opcionais. Se os critérios de 
 
 <br>
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | ConsiderWarningAsError |O valor padrão é Falso. Trata os eventos de integridade de aviso do aplicativo como erros ao avaliar a integridade do aplicativo durante a atualização. Por padrão, o Service Fabric não avalia os eventos de integridade de aviso como falhas (erros); portanto, a atualização pode continuar mesmo se houver eventos de aviso. |
-| MaxPercentUnhealthyDeployedApplications |O valor padrão e recomendado é 0. Especifica o número máximo de aplicativos implantados (confira a [seção Integridade](service-fabric-health-introduction.md)) que podem comprometer a integridade antes que o aplicativo seja considerado não íntegro e sofra falha na atualização. Esse parâmetro define a integridade do aplicativo no nó e ajuda a detectar problemas durante a atualização. Tipicamente, as réplicas do aplicativo têm a carga balanceada para outro nó, o que permite que o aplicativo pareça íntegro, permitindo assim que a atualização continue. Ao especificar uma integridade MaxPercentUnhealthyDeployedApplications estrita, o Service Fabric pode detectar um problema com o pacote de aplicativos rapidamente e ajudar a produzir em uma atualização rápida em caso de falha. |
+| MaxPercentUnhealthyDeployedApplications |O valor padrão e recomendado é 0. Especifica o número máximo de aplicativos implantados (confira a [seção Integridade](service-fabric-health-introduction.md)) que podem comprometer a integridade antes que o aplicativo seja considerado não íntegro e sofra falha na atualização. Esse parâmetro define a integridade do aplicativo no nó e ajuda a detectar problemas durante a atualização. Tipicamente, as réplicas do aplicativo têm a carga balanceada para outro nó, o que permite que o aplicativo pareça íntegro, permitindo assim que a atualização continue. Ao especificar uma integridade MaxPercentUnhealthyDeployedApplications estrita, o Service Fabric pode detectar um problema com o pacote de aplicativos rapidamente e ajudar a produzir em uma atualização rápida fail-fast. |
 | MaxPercentUnhealthyServices |O valor padrão e recomendado é 0. Especifica o número máximo de serviços na instância do aplicativo que podem não estar íntegros antes que o aplicativo seja considerado não íntegro e tenha atualização com falha. |
 | MaxPercentUnhealthyPartitionsPerService |O valor padrão e recomendado é 0. Especifica o número máximo de partições em um serviço que podem não estar íntegras antes que o serviço seja considerado não íntegro. |
 | MaxPercentUnhealthyReplicasPerPartition |O valor padrão e recomendado é 0. Especifica o número máximo de réplicas em partição que podem não estar íntegras antes que a partição seja considerada não íntegra. |
-| UpgradeReplicaSetCheckTimeout |**Serviço sem monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que haja instâncias adicionais do serviço disponíveis. Se a contagem de instâncias de destino for mais de um, o Service Fabric esperará que mais de uma instância fique disponível, até um valor de tempo limite máximo. Esse tempo limite é especificado usando a propriedade UpgradeReplicaSetCheckTimeout. Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente do número de instâncias de serviço. Se a contagem de instâncias de destino for um, a Malha do Serviço não espera e prossegue imediatamente com a atualização. **Serviço com monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que o conjunto de réplicas tenha um quorum. O Service Fabric aguarda pela disponibilidade de um quorum até um valor de tempo limite máximo (especificado pela propriedade UpgradeReplicaSetCheckTimeout). Se o tempo limite expirar, o Service Fabric continuará com a atualização, independentemente de quorum. Essa configuração está definida como nunca (infinito) durante o roll forward e 900 segundos durante a reversão. |
+| UpgradeReplicaSetCheckTimeout |<p>**Serviço sem monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que haja instâncias adicionais do serviço disponíveis. Se a contagem de instâncias de destino for mais de um, o Service Fabric esperará que mais de uma instância fique disponível, até um valor de tempo limite máximo. Esse tempo limite é especificado usando a propriedade UpgradeReplicaSetCheckTimeout. Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente do número de instâncias de serviço. Se a contagem de instâncias de destino for um, a Malha do Serviço não espera e prossegue imediatamente com a atualização.</p><p>**Serviço com monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que o conjunto de réplicas tenha um quorum. O Service Fabric aguarda pela disponibilidade de um quorum até um valor de tempo limite máximo (especificado pela propriedade UpgradeReplicaSetCheckTimeout). Se o tempo limite expirar, o Service Fabric continuará com a atualização, independentemente de quorum. Essa configuração está definida como nunca (infinito) durante o roll forward e 1200 segundos durante a reversão.</p> |
 | ForceRestart |Se você atualizar uma configuração ou um pacote de dados sem atualizar o código de serviço, o serviço será reiniciado somente se a propriedade ForceRestart estiver definida como verdadeira. Quando a atualização é concluída, a Malha do Serviço notifica o serviço de que um novo pacote de configuração ou pacote de dados está disponível. O serviço é responsável pela aplicação das alterações. Se necessário, o serviço pode se reiniciar. |
 
 <br>

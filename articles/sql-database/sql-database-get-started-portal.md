@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar um Banco de Dados SQL do Azure no portal do Azure
 
@@ -84,7 +84,7 @@ Execute estas etapas para criar um Banco de Dados SQL que contém os dados de ex
    >\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Central do Canadá, Leste do Canadá, Centro dos EUA, França Central, Centro da Alemanha, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. Para este tutorial de início rápido, selecione a camada de serviço **Standard** e use o controle deslizante para selecionar **100 DTUs (S3)** e **400** GB de armazenamento.
+7. Para este tutorial de início rápido, selecione a camada de serviço **Standard** e use o controle deslizante para selecionar **10 DTUs (S0)** e **1** GB de armazenamento.
 
    ![Criar database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -138,17 +138,13 @@ Agora, você pode conectar o servidor do Banco de Dados SQL e seus bancos de dad
 
 Agora que você criou um banco de dados de exemplo no Azure, usaremos a ferramenta de consulta interna no portal do Azure para confirmar que você pode conectar o banco de dados e consultar os dados.
 
-1. Na página do Banco de dados SQL para o seu banco de dados, localize e clique em **Data Explorer (versão prévia)** no menu à esquerda
+1. Na página de Banco de Dados SQL do seu banco de dados, clique em **Editor de consultas (versão prévia)** no menu do lado esquerdo e, em seguida, clique em **Login**.
 
-   ![localizar editor de consultas](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![logon](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Clique em **Logon**, revise as informações de logon e clique em **OK** para se conectar usando a autenticação do SQL Server com o logon e a senha de administrador do servidor criados anteriormente.
+2. Selecione a autenticação do SQL Server, forneça as informações de logon necessárias e, em seguida, clique em **OK** para fazer logon.
 
-   ![logon](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Clique em **OK** para fazer logon.
-
-4. Depois de autenticado como **ServerAdmin**, digite a consulta a seguir no painel do editor de consulta.
+3. Depois de autenticado como **ServerAdmin**, digite a consulta a seguir no painel do editor de consulta.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,11 +153,11 @@ Agora que você criou um banco de dados de exemplo no Azure, usaremos a ferramen
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. Clique em **Executar** e reveja os resultados da consulta no painel **Resultados**.
+4. Clique em **Executar** e reveja os resultados da consulta no painel **Resultados**.
 
    ![resultados do editor de consultas](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. Feche a página **Data Explorer** e clique em **OK** para descartar suas edições não salvas.
+5. Feche a página **Data Explorer** e clique em **OK** para descartar suas edições não salvas.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

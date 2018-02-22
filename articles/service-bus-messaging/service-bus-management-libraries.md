@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 3b7096a073b509217a6ed29b53f88f912e6613f6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 7946958bec8b2f444155b5a9701f1f7401fe4f3c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gerenciamento do Barramento de Serviço
 
@@ -31,9 +31,9 @@ As bibliotecas de gerenciamento do Barramento de Serviço do Azure podem provisi
 * Criação de tópico, atualização, exclusão
 * Criação da assinatura, atualização, exclusão
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-Para começar a usar as bibliotecas de gerenciamento do Barramento de Serviço, você deve se autenticar com o serviço AAD (Azure Active Directory). AAD exige que você autentique como uma entidade de serviço, que fornece acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
+Para começar a usar as bibliotecas de gerenciamento do Barramento de Serviço, você deve se autenticar com o serviço Azure Active Directory (Azure AD). O Microsoft Azure Active Directory exige que você autentique como uma entidade de serviço que forneça acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 
 * [Usar o portal do Azure para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
@@ -45,13 +45,13 @@ Estes tutoriais fornecem uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret
 
 O padrão para manipular qualquer recurso do Barramento de Serviço segue um protocolo comum:
 
-1. Obtenha um token do Azure Active Directory usando a biblioteca **Microsoft.IdentityModel.Clients.ActiveDirectory**.
+1. Obtenha um token do Azure AD usando a biblioteca **Microsoft.IdentityModel.Clients.ActiveDirectory**:
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
-2. Crie o objeto `ServiceBusManagementClient`.
+2. Crie o objeto `ServiceBusManagementClient`:
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -60,7 +60,7 @@ O padrão para manipular qualquer recurso do Barramento de Serviço segue um pro
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-3. Defina os parâmetros `CreateOrUpdate` com os valores especificados.
+3. Defina os parâmetros `CreateOrUpdate` com os seus valores especificados:
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -69,12 +69,13 @@ O padrão para manipular qualquer recurso do Barramento de Serviço segue um pro
        EnablePartitioning = true
    };
    ```
-4. Execute a chamada.
+4. Execute a chamada:
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Amostra de gerenciamento do .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Referência de API de Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

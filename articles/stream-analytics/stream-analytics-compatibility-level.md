@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
  
@@ -57,7 +57,10 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
   * **versões anteriores:** nomes de campos foram alterados para letras minúsculas quando processados pelo mecanismo do Azure Stream Analytics. 
 
   * **versão atual:** a diferenciação entre maiúsculas e minúsculas são mantidos para nomes de campos quando eles são processados pelo mecanismo do Azure Stream Analytics. 
- 
+
+  > [!NOTE] 
+  > Diferenciação de maiúsculas e minúsculas persistente ainda não está disponível para trabalhos de Análise de Fluxo hospedados usando o ambiente do Edge. Como resultado, todos os nomes de campo são convertidos em minúsculas se o trabalho estiver hospedado no Edge. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **versões anteriores:** o comando CREATE TABLE não filtra eventos com NaN (não é um número. Por exemplo, Infinity, -Infinity) em um tipo de coluna FLOAT porque eles estão fora do intervalo documentado para esses números.

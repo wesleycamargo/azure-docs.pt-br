@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -50,7 +50,7 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 Os logs de atividades fornecem informações sobre as operações que foram realizadas em seus serviços de Gerenciamento de API. Usando logs de atividades, é possível determinar “o que, quem e quando” para quaisquer operações de gravação (PUT, POST, DELETE) realizadas em seus serviços de Gerenciamento de API. 
 
 > [!NOTE]
-> Os logs de atividades não incluem operações de leitura (GET) ou operações realizadas no Portal do Publicador clássico ou usando as APIs de gerenciamento original.
+> Os logs de atividades não incluem operações de leitura (GET) ou operações realizadas no portal do Azure ou usando as APIs de gerenciamento original.
 
 É possível acessar os logs de atividades em seu serviço de Gerenciamento de API ou acessar logs de todos os seus recursos do Azure no Azure Monitor. 
 

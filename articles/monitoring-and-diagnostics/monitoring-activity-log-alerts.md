@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>Criar alertas do log de atividades
 
 ## <a name="overview"></a>Visão geral
 Os alertas de log de atividades são alertas ativados quando ocorre um novo evento de log de atividades que corresponde às condições especificadas no alerta. Eles são recursos do Azure e, portanto, podem ser criados usando um modelo do Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Ele então mostra como usar o portal do Azure para configurar um alerta em eventos do log de atividades.
+
+> [!NOTE]
+
+>  [Alertas (Visualização)](monitoring-overview-unified-alerts.md) atualmente oferece uma experiência aprimorada na criação e gerenciamento de log de atividades.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
 Normalmente, você cria alertas de log de atividade para receber notificações quando:
 
@@ -43,15 +47,13 @@ Você pode configurar um alerta do log de atividades com base em qualquer propri
 - **Status**: o status do evento, normalmente Iniciado, Falha ou Êxito.
 - **Evento iniciado por**: também conhecido como o "chamador". O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
 
->[!NOTE]
->Você deve especificar pelo menos dois dos critérios anteriores em seu alerta, sendo que um deve ser a categoria. Você não pode criar um alerta que seja ativado sempre que um evento for criado nos logs de atividades.
->
->
+> [!NOTE]
+> Quando a categoria for "administrativa", você deverá especificar pelo menos um dos critérios anteriores no seu alerta. Você não pode criar um alerta que seja ativado sempre que um evento for criado nos logs de atividades.
 
 Quando um alerta do log de atividades é ativado, ele usa um grupo de ações para gerar ações ou notificações. Um grupo de ações é um conjunto reutilizável de destinatários de notificação, como endereços de email, URLs de webhook ou números de telefone de SMS. Os destinatários podem ser referenciados de vários alertas para centralizar e agrupar seus canais de notificação. Quando você define o alerta do log de atividades, tem duas opções. Você pode:
 
-* Use um grupo existente no seu alerta do log de atividades. 
-* Crie um novo grupo de ações. 
+* Use um grupo existente no seu alerta do log de atividades.
+* Crie um novo grupo de ações.
 
 Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações no portal do Azure](monitoring-action-groups.md).
 

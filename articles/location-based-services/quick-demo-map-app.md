@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 09022648c03ffa12aa3b060e5094c40ea5c3d61e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Iniciar uma pesquisa no mapa interativo de demonstração usando os Serviços do Azure Baseados na Localização (versão prévia)
 
-Este artigo demonstra os recursos dos Serviços do Azure Baseados na Localização (versão prévia), ou LBS, usando uma pesquisa interativa usando Mapas do Azure. Ele também orienta você pelas etapas básicas da criação da sua própria conta do LBS e na obtenção da chave da conta a ser usada no aplicativo Web de demonstração. 
+Este artigo demonstra os recursos dos Serviços do Azure Baseados na Localização (LBS), para realizar uma pesquisa interativa usando Mapas do Azure. Ele também orienta você pelas etapas básicas da criação da sua própria conta do LBS e na obtenção da chave da conta a ser usada no aplicativo Web de demonstração. 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -34,7 +34,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 1. No canto superior esquerdo do [portal do Azure](https://portal.azure.com), clique em **Criar um recurso**.
 2. Na caixa *Pesquisar no Marketplace*, digite **serviços baseados na localização**.
 3. Em *Resultados*, clique em **Serviços Baseados na Localização (versão prévia)**. Clique no botão **Criar** que aparece abaixo do mapa. 
-4. Na página **Criar Conta dos Serviços Baseados na Localização**, insira o *Nome* da sua nova conta, selecione a *Assinatura* a ser usada e insira o nome de um *Grupo de recursos* novo ou existente. Selecione o local para o grupo de recursos, aceite os *Termos de Versão Prévia* e clique em **Criar**.
+4. Na página **Criar conta dos Serviços Baseados na Localização**, insira o *Nome* da sua nova conta, selecione a *Assinatura* a ser usada e insira o nome de um *Grupo de recursos* novo ou existente. Selecione o local para o grupo de recursos, aceite os *Termos de Versão Prévia* e clique em **Criar**.
 
     ![Criar conta Serviços Baseados na Localização no portal](./media/quick-demo-map-app/create-lbs-account.png)
 

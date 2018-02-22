@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>API de streams do Apache Kafka
 
@@ -100,6 +100,12 @@ Utilize as seguintes etapas para criar e implantar o projeto para o Kafka no Clu
     * Inicie um produtor que faça gravação para o tópico `test`.
     * Iniciar um consumidor de modo que seja possível visualizar a saída gravada para o tópico `wordcounts`
 
+    > [!NOTE]
+    > Você precisa verificar se a propriedade `auto.create.topics.enable` está definida como `true` no arquivo de configuração de Kafka Broker. Essa propriedade pode ser exibida e modificada no arquivo de configuração avançada de Kafka Broker usando a interface do usuário do Ambari Web. Caso contrário, você precisa criar o tópico intermediário `RekeyedIntermediateTopic` manualmente antes de executar este exemplo executando o seguinte comando:
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     É possível realizar essas operações, abrindo três sessões SSH. Porém, em seguida, você deverá definir `$KAFKABROKERS` e `$KAFKAZKHOSTS` para cada um executando a etapa 4 dessa seção em cada sessão SSH. Uma solução mais fácil é usar o utilitário `tmux` que pode dividir a exibição SSH atual em várias seções. Para iniciar o fluxo, produtor e consumidor usando `tmux`, use o seguinte comando:
 
     ```bash

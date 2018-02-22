@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 2bfeba27b6de9e5db623eba1526bd2d2ff1b7211
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Criar um alerta do log de atividades com um modelo do Resource Manager
 Este artigo mostra como usar um [modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar alertas do log de atividades. Usando modelos, você pode facilmente configurar vários alertas que são ativados com base em condições específicas de evento de log de atividades como parte do processo de implantação automática.
@@ -82,10 +82,10 @@ Para criar um alerta do log de atividades usando um modelo do Resource Manager, 
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -99,6 +99,10 @@ Para criar um alerta do log de atividades usando um modelo do Resource Manager, 
 ```
 
 Visite nossa [Galeria de Início Rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) para obter alguns exemplos de modelos de alerta do log de atividades.
+
+> [!NOTE]
+
+> Você também pode regras de alerta de log de atividade usando a experiência de usuário aprimorada no Monitor > [Alertas (versão prévia)](monitoring-overview-unified-alerts.md). Para obter mais informações sobre como criá-los, consulte [este artigo](monitoring-activity-log-alerts-new-experience.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [alertas](monitoring-overview-alerts.md).

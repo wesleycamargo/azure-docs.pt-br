@@ -1,6 +1,6 @@
 ---
 title: "Custos de software do Windows para Instâncias de VM de Reserva do Azure | Microsoft Docs"
-description: "Saiba quais medidores são usados para software do Windows na VM do Windows que se qualifica para a Instância Reservada."
+description: "Saiba quais medidores de software do Windows não estão incluídos nos custos de instância de máquina virtual reservada."
 services: billing
 documentationcenter: 
 author: manish-shukla01
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: b985e6e9575ffeedcac5bcb3f94a43d23fdbb85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Os custos de software do Windows não estão incluídos nas Instâncias Reservadas
 
-Se você não tiver o Benefício do Uso de Híbrido do Azure na sua VM de Instância Reservada, será cobrado pelos medidores de software do Windows listados na tabela a seguir:
+Se não tiver um Benefício do Uso de Híbrido do Azure em suas máquinas virtuais de Instância Reservada, você será cobrado pelos medidores de software do Windows listados na seção a seguir.
+
+## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>O custo de medidores de software do Windows não está incluído no custo da Instância Reservada
 
 | MeterId | MeterName no arquivo de utilização | Utilizado por VM |
 | ------- | ------------------------| --- |
@@ -48,3 +50,13 @@ Se você não tiver o Benefício do Uso de Híbrido do Azure na sua VM de Instâ
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reservation-Windows Svr (96 Núcleos) | Todas, exceto Série B |
 
 Você pode obter o custo de cada um desses medidores por meio da API RateCard do Azure. Para obter informações sobre como obter as taxas de um medidor do Azure, consulte [Obter informações sobre preço e metadados para recursos usados em uma assinatura do Azure](https://msdn.microsoft.com/library/azure/mt219004).
+
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre as Instâncias de Máquina Virtual Reservadas, consulte os artigos a seguir.
+
+- [Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerenciar Instâncias de Máquina Virtual Reservadas](billing-manage-reserved-vm-instance.md)
+- [Economizar dinheiro de máquinas virtuais com Instâncias de Máquinas Virtuais Reservadas](billing-save-compute-costs-reservations.md)
+- [Entender como é aplicado o desconto em Instâncias de Máquina Virtual Reservada](billing-understand-vm-reservation-charges.md)
+- [Entender o uso da Instância Reservada na sua assinatura Paga Conforme o Uso](billing-understand-reserved-instance-usage.md)
+- [Entender o uso da Instância Reservada no seu registro de Empresa](billing-understand-reserved-instance-usage-ea.md)

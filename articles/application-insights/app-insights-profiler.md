@@ -10,36 +10,36 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5f691fb88c6764309bf012dfc65b561ec87afede
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 80792a82adbb93e80c94b4829b704b70d2a8ed23
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Criar o perfil de aplicativos Web dinâmicos do Azure com o Application Insights
 
 *Geralmente, este recurso do Application Insights está disponível para o Serviço de Aplicativo do Azure e está em versão prévia para recursos de computação do Azure.*
 
-Descubra quanto tempo é gasto em cada método em seu aplicativo Web em tempo real ao usar o [Application Insights](app-insights-overview.md). A ferramenta de criação de perfil do Application Insights mostra perfis detalhados de solicitações dinâmicas que foram atendidas pelo seu aplicativo e realça o *afunilamento* que usa mais tempo. Solicitações com tempos de resposta diferentes são analisadas em uma base de amostragem. A sobrecarga para o aplicativo é minimizada usando várias técnicas.
+Descubra quanto tempo é gasto em cada método do seu aplicativo Web em tempo real ao usar o [Application Insights](app-insights-overview.md). A ferramenta de criação de perfil do Application Insights mostra perfis detalhados de solicitações dinâmicas que foram atendidas pelo seu aplicativo e realça o *afunilamento* que usa mais tempo. Solicitações com tempos de resposta diferentes são analisadas em uma base de amostragem. A sobrecarga para o aplicativo é minimizada usando várias técnicas.
 
-O criador de perfil atualmente funciona para aplicativos Web do ASP.NET e ASP.NET Core em execução no Serviço de Aplicativo do Azure, pelo menos na camada de serviço **Básica**.
+O criador de perfil atualmente funciona para aplicativos Web do ASP.NET e ASP.NET Core em execução no Serviço de Aplicativo do Azure. A camada de serviço **Básica** ou superior é necessária para usar o Profiler.
 
 ## <a id="installation"></a>Habilitar o criador de perfil para aplicativo Web dos Serviços de Aplicativos
-Se você já tiver o aplicativo publicado nos Serviços de Aplicativos, mas não fez nada no código-fonte para usar o Application Insights, navegue até o painel de serviços de aplicativo no portal do Azure, vá para **Monitoramento | Application Insights**, siga as instruções no painel para criar um novo recurso ou selecione o recurso existente do Application Insights para monitorar seu Aplicativo Web. Observe que o Profiler funciona apenas com o plano de Serviços de Aplicativos **Básico** ou acima.
+Se você já tiver o aplicativo publicado nos Serviços de Aplicativos, mas não fez nada no código-fonte para usar o Application Insights, navegue até o painel de serviços de aplicativo no portal do Azure, vá para **Monitoramento | Application Insights**, siga as instruções no painel para criar um novo recurso ou selecione um recurso existente do Application Insights para monitorar seu Aplicativo Web.
 
 ![Habilitar Insights de Aplicativo no portal de Serviços de Aplicativos][appinsights-in-appservices]
 
 Se você tiver acesso ao código-fonte seu projeto, [instale o Application Insights](app-insights-asp-net.md). Se já estiver instalado, verifique se que você tem a versão mais recente. Para verificar a versão mais recente, no Gerenciador de Soluções, clique com o botão direito do mouse em seu projeto e, em seguida, selecione **Gerenciar pacotes NuGet** > **Atualizações** > **Atualizar todos os pacotes**. Em seguida, implante seu aplicativo.
 
-Um aplicativo ASP.NET Core precisa instalar o pacote NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 ou posterior para trabalhar com o criador de perfil. A partir de 27 de junho de 2017, não damos suporte a versões anteriores.
+Aplicativos ASP.NET Core requerem a instalação do pacote NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 ou posterior para trabalhar com o criador de perfil. A partir de 27 de junho de 2017, não haverá suporte para versões anteriores.
 
 No [Portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para seu aplicativo Web. Selecione **Desempenho** > **Habilitar o Application Insights Profiler**.
 
 ![Selecionar a faixa Habilitar criador de perfil][enable-profiler-banner]
 
-Como alternativa, você pode selecionar a configuração de **Criador de perfil** para exibir o status e habilitar ou desabilitar o criador de perfil.
+Como alternativa, você pode selecionar a configuração do **Profiler** para exibir o status e habilitar ou desabilitar o criador de perfil.
 
 ![Em Desempenho, selecione configuração de Criador de perfil][performance-blade]
 
@@ -57,9 +57,9 @@ Obtenha informações sobre um [recurso em versão prévia do criador de perfil 
 
 ## <a name="view-profiler-data"></a>Exibir dados do criador de perfil
 
-**Certifique-se de que o aplicativo está recebendo tráfegos.** Se você estiver fazendo um experimento, você pode gerar solicitações para seu aplicativo Web usando o [Testes de Desempenho do Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Se você habilitou recentemente o Criador de perfil, você pode executar um teste de carga curto por cerca de 15 minutos e obter rastreamentos do criador de perfil. Se você já tiver o Criador de perfil habilitado há algum tempo, lembre-se de que o Criador de perfil é executado aleatoriamente por duas vezes a cada hora e dois minutos toda vez que for executado. Sugira executar o teste de carga por uma hora para certificar-se de que você obtenha rastreamentos de criador de perfil de exemplo.
+**Certifique-se de que o aplicativo está recebendo tráfego.** Se estiver fazendo um experimento, você pode gerar solicitações para seu aplicativo Web usando [Testes de Desempenho do Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Se você habilitou recentemente o Profiler, pode executar um teste de carga curto por cerca de 15 minutos, deve gerar rastreamentos do criador de perfil. Se você já habilitou o Profiler há algum tempo, lembre-se de que o ele é executado aleatoriamente duas vezes a cada hora e por uma duração de dois minutos toda vez que é executado. Sugerimos executar primeiro o teste de carga por uma hora para certificar-se de que você obtenha rastreamentos de criador de perfil de exemplo.
 
-Uma vez que o aplicativo recebeu algum tráfego, vá para a folha **Desempenho**, vá para a seção da página **Realizar Ação** para exibir rastreamentos do criador de perfil. Selecione o botão **Rastreamentos do criador de perfil**.
+Uma vez que o aplicativo receba algum tráfego, vá para a folha **Desempenho** > **Realizar Ação** para exibir rastreamentos do criador de perfil. Selecione o botão **Rastreamentos do criador de perfil**.
 
 ![Rastreamentos do criador de perfil de versão prévia do painel de desempenho do Application Insights][performance-blade-v2-examples]
 
@@ -76,7 +76,7 @@ O explorador de rastreamento mostra as seguintes informações:
 
 ## <a name="how-to-read-performance-data"></a>Como ler dados de desempenho
 
-O criador de perfil de serviço Microsoft usa uma combinação de métodos de amostragem e instrumentação para analisar o desempenho do seu aplicativo. Quando a coleção detalhada está em andamento, o criador de perfil de serviço obtém a amostra do ponteiro de instrução de cada CPU do computador em cada milissegundo. Cada amostra captura a pilha de chamadas completa do thread em execução no momento. Ela oferece informações detalhadas e úteis sobre o que esse thread estava fazendo, ambos em um alto nível e um baixo nível de abstração. O criador de perfil de serviço também coleta outros eventos para rastrear a correlação e causalidade da atividade, incluindo eventos de alternância de contexto, eventos TPL (Biblioteca de Paralelismo de Tarefas) e eventos de pool de threads.
+O criador de perfil de serviço Microsoft usa uma combinação de métodos de amostragem e instrumentação para analisar o desempenho do seu aplicativo. Quando a coleção detalhada está em andamento, o criador de perfil de serviço obtém a amostra do ponteiro de instrução de cada CPU do computador em cada milissegundo. Cada amostra captura a pilha de chamadas completa do thread que está em execução no momento. Ela oferece informações detalhadas sobre o que esse thread estava fazendo, ambos em um alto nível e um baixo nível de abstração. O criador de perfil de serviço também coleta outros eventos para rastrear a correlação e causalidade da atividade, incluindo eventos de alternância de contexto, eventos TPL (Biblioteca de Paralelismo de Tarefas) e eventos de pool de threads.
 
 A pilha de chamadas mostrada na exibição de linha do tempo é o resultado da amostragem e da instrumentação. Como cada amostra captura a pilha de chamadas completa do thread, ela inclui o código do Microsoft .NET Framework e de outras estruturas que você referencia.
 
@@ -86,10 +86,10 @@ A pilha de chamadas mostrada na exibição de linha do tempo é o resultado da a
 ### <a id="theprestub"></a>Carregando código (clr!ThePreStub)
 **clr!ThePreStub** é uma função auxiliar no .NET Framework que prepara o código para ser executado pela primeira vez. Normalmente isso inclui a compilação JIT (Just-In-Time), entre outras. Para cada método C#, **clr!ThePreStub** deve ser invocado no máximo uma vez durante o tempo de vida de um processo.
 
-Se a solicitação de **clr!ThePreStub** levar uma quantidade significativa de tempo, isso indicará que a solicitação será a primeira que executará esse método. O tempo para o tempo de execução do .NET Framework carregar esse método é significativo. Você pode considerar usar um processo de aquecimento que executa essa parte do código antes que seus usuários a acessem ou considerar executar o Gerador de Imagem Nativa (ngen.exe) em seus assemblies.
+Se a solicitação de **clr!ThePreStub** levar uma quantidade significativa de tempo, isso indicará que a solicitação será a primeira que executará esse método. O tempo para o tempo de execução do .NET Framework carregar o primeiro método é significativo. Você pode considerar usar um processo de aquecimento que executa essa parte do código antes que seus usuários a acessem ou considerar executar o Gerador de Imagem Nativa (ngen.exe) em seus assemblies.
 
 ### <a id="lockcontention"></a>Contenção de bloqueio (clr!JITutil\_MonContention ou clr!JITutil\_MonEnterWorker)
-**clr!JITutil\_MonContention** ou **clr!JITutil\_MonEnterWorker** indica que o thread atual está aguardando um bloqueio ser liberado. Normalmente isso é exibido ao executar uma instrução **LOCK** em C#, ao invocar o método **Monitor.Enter** ou ao invocar o método com o atributo **MethodImplOptions.Synchronized**. Normalmente, a contenção de bloqueio ocorre quando um thread A adquire um bloqueio e um thread B tenta adquirir o mesmo bloqueio antes que o thread A o libere.
+**clr!JITutil\_MonContention** ou **clr!JITutil\_MonEnterWorker** indica que o thread atual está aguardando um bloqueio ser liberado. Normalmente isso é exibido ao executar uma instrução **LOCK** em C#, ao invocar o método **Monitor.Enter** ou ao invocar o método com o atributo **MethodImplOptions.Synchronized**. Normalmente, a contenção de bloqueio ocorre quando um thread _A_ adquire um bloqueio e um thread _B_ tenta adquirir o mesmo bloqueio antes que o thread _A_ o libere.
 
 ### <a id="ngencold"></a>Carregando código ([COLD])
 Se o nome do método contiver **[COLD]**, como **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, o tempo de execução do .NET Framework estará executando código pela primeira vez que ele não for otimizado pela <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">otimização guiada por perfil</a>. Para cada método, ele deve aparecer no máximo uma vez durante o tempo de vida do processo.
@@ -124,11 +124,11 @@ A coluna **Quando** é uma visualização de como as amostras INCLUSIVAS coletad
 
 A retenção de dados padrão é de cinco dias. A ingestão máxima de dados por dia é de 10 GB.
 
-Não há encargos para usar o serviço do criador de perfil. Para usar o serviço do criador de perfil, seu aplicativo Web deverá estar hospedado pelo menos na camada Básica do Serviço de Aplicativo.
+Não há encargos para usar o serviço do criador de perfil. Para usar o serviço do criador de perfil, seu aplicativo Web deverá estar hospedado pelo menos na camada Básica do Serviço de Aplicativo do Azure.
 
 ## <a name="overhead-and-sampling-algorithm"></a>Algoritmo de sobrecarga e amostragem
 
-O criador de perfil é executado aleatoriamente dois minutos a cada hora em cada máquina virtual que hospeda o aplicativo que com o criador de perfil habilitado para capturar rastreamentos. Quando o criador de perfil estiver em execução, ele adicionará uma sobrecarga entre 5% e 15% de CPU ao servidor.
+O criador de perfil é executado aleatoriamente dois minutos a cada hora em cada máquina virtual que hospeda o aplicativo com o criador de perfil habilitado para capturar rastreamentos. Quando o criador de perfil estiver em execução, ele adicionará uma sobrecarga entre 5% e 15% de CPU ao servidor.
 Quanto mais servidores estiverem disponíveis para hospedar o aplicativo, menor será o impacto do criador de perfil no desempenho geral do aplicativo. Isso ocorre porque o algoritmo de amostragem faz o criador de perfil ser executado em apenas 5% dos servidores a qualquer momento. Mais servidores estão disponíveis para tender as solicitações da Web para deslocar a sobrecarga do servidor causada pela execução do criador de perfil.
 
 ## <a name="disable-the-profiler"></a>Desabilitar o criador de perfil
@@ -161,9 +161,9 @@ Aqui estão algumas coisas que você pode verificar:
 * Certifique-se de que seu aplicativo Web está sendo executado no .NET Framework 4.6.
 * Se seu aplicativo Web for um aplicativo ASP.NET Core, verifique [as dependências necessárias](#aspnetcore).
 
-Depois que o criador de perfil é iniciado, há um período de aquecimento curto durante o qual o criador de perfil coleta ativamente vários rastreamentos de desempenho. Depois disso, o criador de perfil coleta rastreamentos de desempenho de dois minutos em cada hora.  
+Depois que o criador de perfil é iniciado, há um período de aquecimento curto durante o qual o criador de perfil coleta ativamente vários rastreamentos de desempenho. Depois disso, o criador de perfil coleta rastreamentos de desempenho de dois minutos a cada hora.
 
-### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Estava usando o criador de perfil de serviço do Azure. O que aconteceu?  
+### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Estava usando o criador de perfil de serviço do Azure. O que aconteceu?
 
 Quando você habilita o Application Insights Profiler, o agente do Criador de Perfil de Serviço do Azure está desabilitado.
 
@@ -171,9 +171,9 @@ Quando você habilita o Application Insights Profiler, o agente do Criador de Pe
 
 Em alguns casos, a métrica de tempo toral no visualizador de pilha é maior que a duração da solicitação.
 
-Isso poderá ocorrer quando houver dois ou mais threads associados a uma solicitação e eles estiverem operando em paralelo. Nesse caso, o tempo total de thread é maior que o tempo decorrido. Um thread pode estar aguardando até que o outro seja concluído. O visualizador tenta detectar este e omite a espera desinteressante, mas erra ao mostrar muito em vez de omitir o que poderiam ser informações críticas.  
+Isso poderá ocorrer quando houver dois ou mais threads associados a uma solicitação e eles estiverem operando em paralelo. Nesse caso, o tempo total de thread é maior que o tempo decorrido. Um thread pode estar aguardando até que o outro seja concluído. O visualizador tenta detectar este e omite a espera desinteressante, mas erra ao mostrar muito em vez de omitir o que poderiam ser informações críticas.
 
-Quando você vir threads paralelos em seus rastreamentos, determine quais threads estão aguardando para você poder determinar o caminho crítico para a solicitação. Na maioria dos casos, o thread rapidamente entra em estado de espera é simplesmente aguardando outros threads. Concentre-se nos outros threads e ignore o tempo nos threads em espera.
+Quando você vir threads paralelos em seus rastreamentos, determine quais threads estão aguardando para você poder verificar o caminho crítico para a solicitação. Na maioria dos casos, o thread rapidamente entra em estado de espera é simplesmente aguardando outros threads. Concentre-se nos outros threads e ignore o tempo nos threads em espera.
 
 ### <a id="issue-loading-trace-in-viewer"></a>Nenhum dado de criação de perfil
 
@@ -204,7 +204,7 @@ Esses parâmetros excluem a pasta usada pelo Application Insights Profiler e des
 
 ## <a name="manual-installation"></a>Instalação manual
 
-Quando você configura o criador de perfil, são feitas atualizações nas configurações do aplicativo Web. Será possível aplicar as atualizações manualmente se seu ambiente exigir. Por exemplo, se seu aplicativo for executado no Ambiente do Serviço de Aplicativo para PowerApps.
+Quando você configura o criador de perfil, são feitas atualizações nas configurações do aplicativo Web. Será possível aplicar as atualizações manualmente se seu ambiente exigir. Por exemplo, se seu aplicativo for executado em um Ambiente do Serviço de Aplicativo para PowerApps.
 
 1. No painel de controle do aplicativo Web, abra **Configurações**.
 2. Defina a **versão do .Net Framework** como **v4.6**.
@@ -217,13 +217,13 @@ Quando você configura o criador de perfil, são feitas atualizações nas confi
 9. Reinicie o aplicativo Web.
 
 ## <a id="profileondemand"></a>Disparar criador de perfil manualmente
-Quando desenvolvemos o criador de perfil adicionamos uma interface de linha de comando para podemos testar o criador de perfil nos serviços de aplicativos. Usando essa mesma interface, os usuários também podem personalizar como o criador de perfil é iniciado. Em um nível alto, o criador de perfil usa o Sistema Kudu do Serviço de Aplicativo para gerenciar a criação de perfil em segundo plano. Quando você instala a extensão do Application Insights, criamos um trabalho Web contínuo que hospeda o criador de perfil. Usamos essa mesma tecnologia para criar um novo trabalho Web que você pode personalizar de acordo com suas necessidades.
+Quando desenvolvemos o criador de perfil, adicionamos uma interface de linha de comando para podermos testar o criador de perfil nos serviços de aplicativos. Usando essa mesma interface, os usuários também podem personalizar como o criador de perfil é iniciado. Em um nível alto, o criador de perfil usa o Sistema Kudu do Serviço de Aplicativo para gerenciar a criação de perfil em segundo plano. Quando você instala a extensão do Application Insights, criamos um trabalho Web contínuo que hospeda o criador de perfil. Usamos essa mesma tecnologia para criar um novo trabalho Web que você pode personalizar de acordo com suas necessidades.
 
 Esta seção explica como:
 
-1.  Criar um trabalho Web, que pode iniciar o criador de perfil por dois minutos com o toque de um botão.
-2.  Criar um trabalho Web, que pode agendar a execução do criador de perfil.
-3.  Definir argumentos para o criador de perfil.
+1. Criar um trabalho Web, que pode iniciar o criador de perfil por dois minutos com o toque de um botão.
+2. Criar um trabalho Web, que pode agendar a execução do criador de perfil.
+3. Definir argumentos para o criador de perfil.
 
 
 ### <a name="set-up"></a>Configurar
@@ -235,35 +235,35 @@ Como você pode ver, o painel mostra todos os trabalhos Web que estão atualment
 
 Primeiro, vamos obter os binários necessários.
 
-1.  Vá para o site do Kudu. Na guia de ferramentas de desenvolvimento, clique na guia "Advanced Tools" (Ferramentas Avançadas) com o logotipo do Kudu. Clique em "Go" (Ir). Isso o levará a um novo site e fará seu logon automaticamente.
+1.  Acesse o site do Kudu. Na guia de ferramentas de desenvolvimento, clique na guia "Advanced Tools" (Ferramentas Avançadas) com o logotipo do Kudu. Clique em "Go" (Ir). Isso o leva a um novo site e faz seu logon automaticamente.
 2.  Em seguida, precisamos baixar os binários do criador de perfil. Navegue até o Explorador de Arquivos pelo Debug Console -> CMD localizado na parte superior da página.
-3.  Clique no site -> wwwroot -> App_Data -> jobs -> continuous. Você deve ver uma pasta "ApplicationInsightsProfiler2". Clique no ícone de download à esquerda da pasta. Isso baixará um arquivo "ApplicationInsightsProfiler2.zip".
-4.  Isso baixará todos os arquivos que serão usados no futuro. Recomendo criar um diretório limpo para mover o arquivo zip antes de continuar.
+3.  Clique no site -> wwwroot -> App_Data -> jobs -> continuous. Você deve ver uma pasta "ApplicationInsightsProfiler2". Clique no ícone de download à esquerda da pasta. Isso faz o download do arquivo "ApplicationInsightsProfiler2.zip".
+4.  Isso faz o download de todos os arquivos necessários. Recomendo criar um diretório limpo para mover o arquivo zip antes de continuar.
 
 ### <a name="setting-up-the-web-job-archive"></a>Configurando o arquivo de trabalho Web
-Quando você adiciona um novo serviço Web para o site do azure, basicamente cria um arquivo zip com um run.cmd dentro. O run.cmd informa ao sistema de trabalho Web o que fazer quando você executá-lo. Há outras opções que você poderá ler na documentação do trabalho Web, mas, para nosso objetivo, não precisamos de mais nada.
+Quando adiciona um novo serviço Web para o site do Azure, você basicamente cria um arquivo zip com um run.cmd dentro. O run.cmd informa ao sistema de trabalho Web o que fazer quando você executá-lo.
 
-1.  Para iniciar criar uma nova pasta, chamei a minha de "RunProfiler2Minutes".
+1.  Para iniciar a criação de uma nova pasta, nosso exemplo foi chamado de "RunProfiler2Minutes".
 2.  Copie os arquivos da pasta ApplicationInsightProfiler2 extraída para essa nova pasta.
-3.  Crie um novo arquivo run.cmd. (Abri esta pasta de trabalho no VS Code antes de iniciar por questão de conveniência)
+3.  Crie um novo arquivo run.cmd. (Você pode abrir esta pasta de trabalho no VS Code antes de iniciar por questão de conveniência)
 4.  Adicione o comando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120` e salve o arquivo.
 a.  O comando `start` manda o criador de perfil iniciar.
 b.  `--engine-mode immediate` diz ao criador de perfil que desejamos iniciar a criação de perfil imediatamente.
 c.  `--single` significa executar e parar automaticamente d.  `--immediate-profiling-duration 120` significa executar o criador de perfil por 120 segundos ou 2 minutos.
 5.  Salve o arquivo.
-6.  Arquive essa pasta, você pode clicar com o botão direito na pasta e escolher Enviar para -> Pasta compactada (zipada). Isso criará um arquivo .zip usando o nome da pasta.
+6.  Arquive essa pasta, você pode clicar com o botão direito na pasta e escolher Enviar para -> Pasta compactada (zipada). Isso cria um arquivo .zip usando o nome da pasta.
 
 ![comando iniciar criador de perfil](./media/app-insights-profiler/start-profiler-command.png)
 
 Agora temos um. zip de trabalho Web que podemos usar para configurar os trabalhos Web em nosso site.
 
 ### <a name="add-a-new-web-job"></a>Adicionar um novo serviço Web
-Em seguida, adicionaremos um novo trabalho Web em nosso site. O exemplo mostra como adicionar um trabalho Web disparado manualmente. Depois de você aprender a fazer isso, o processo será quase o mesmo para os agendados. Você pode ler mais sobre trabalhos disparados agendados por conta própria.
+Em seguida, adicionamos um novo trabalho Web em nosso site. Esse exemplo mostra como adicionar um trabalho Web disparado manualmente. Depois de você aprender a fazer isso, o processo será quase o mesmo para os agendados.
 
 1.  Vá para painel de trabalhos Web.
 2.  Clique no comando Adicionar na barra de ferramentas.
-3.  Nomeie seu trabalho Web (escolhi o nome correspondente ao meu arquivo para maior clareza) e abra-o até ter versões diferentes do run.cmd.
-4.  Na parte de carregamento de arquivo do formulário, clique no ícone Abrir arquivo e encontre o arquivo .zip criado anteriormente.
+3.  Dê um nome ao trabalho Web. Para maior clareza, pode ajudar corresponder o nome do seu arquivo e abri-lo para que tenha versões diferentes do run.cmd.
+4.  Na parte de carregamento de arquivo do formulário, clique no ícone Abrir arquivo e encontre o arquivo .zip que criado anteriormente.
 5.  Como tipo, escolha Triggered.
 6.  Como gatilhos, escolha Manual.
 7.  Pressione OK para salvar.
@@ -274,20 +274,23 @@ Em seguida, adicionaremos um novo trabalho Web em nosso site. O exemplo mostra c
 
 Agora que temos um novo trabalho Web que podemos disparar manualmente, podemos tentar executá-lo.
 
-1.  É proposital só poder ter um processo ApplicationInsightsProfiler.exe executando em um computador de cada vez. Portanto, para começar, desabilite o trabalho Web Contínuo deste painel. Clique na linha e pressione "Stop". Atualize a barra de ferramentas e confirme se o status confirma que o trabalho foi interrompido.
-2.  Clique na linha com o novo trabalho Web adicionado e pressione Executar.
-3.  Com a linha ainda selecionada, clique no comando Logs na barra de ferramentas; isso o levará a um painel de trabalhos Web para esse trabalho Web iniciado. Ele listará as execuções mais recentes e seus resultados.
-4.  Clique na execução recém-iniciada.
-5.  Se tudo correr bem, você deve ver alguns logs de diagnóstico provenientes do criador de perfil confirmando que começamos a criação de perfil.
+1. É proposital só poder ter um processo ApplicationInsightsProfiler.exe executando em um computador de cada vez. Portanto, para começar, desabilite o trabalho Web Contínuo deste painel. Clique na linha e pressione "Stop". Em seguida, selecione Atualizar na barra de ferramentas e confirme se o status indica que o trabalho foi interrompido.
+2. Clique na linha com o novo trabalho Web adicionado e pressione Executar.
+3. Com a linha ainda selecionada, clique no comando Logs na barra de ferramentas; isso o leva a um painel de trabalhos Web para o trabalho Web iniciado. Ele lista as execuções mais recentes e seus resultados.
+4. Clique na instância de execução recém-iniciada.
+5. Se tudo correr bem, você deve ver alguns logs de diagnóstico provenientes do criador de perfil confirmando que começamos a criação de perfil.
 
 ### <a name="things-to-consider"></a>Itens a serem considerados
 
 Embora esse método seja relativamente simples, há algumas coisas precisam ser levadas em conta.
 
-1.  Como isso não é gerenciado pelo nosso serviço, não temos nenhuma maneira de atualizar os binários de agente para seu trabalho Web. Atualmente, não temos uma página de download estável para nosso binários e, portanto, a única maneira de obter a versão mais recente é atualizando sua extensão e buscando na pasta contínua, como fizemos acima.
-2.  Como ela usa argumentos de linha de comando que foram originalmente criados para uso de desenvolvedor em vez de uso do usuário final, esses argumentos podem mudar no futuro e, portanto, esteja ciente disso na hora de atualizar. Isso não deve ser um problema porque você pode adicionar um trabalho Web, executá-lo e testar se funciona. Eventualmente, vamos criar uma interface do usuário para fazer isso sem o processo manual, mas é algo a ser levado em conta.
-3.  O recurso trabalhos Web para Serviços de Aplicativos é único porque quando ele executa o trabalho Web, faz com que o processo tenha as mesmas variáveis de ambiente e configurações do aplicativo que o seu site terá. Isso significa que você não precisa passar a chave de instrumentação por meio da linha de comando para o criador de perfil; ele precisa apenas buscar a chave de instrumentação do ambiente. No entanto, se deseja executar o criador de perfil na caixa de desenvolvimento ou em um computador fora dos Serviços de Aplicativos, você precisa fornecer uma chave de instrumentação. Você pode fazer isso passando um argumento `--ikey <instrumentation-key>`. Observe que esse valor deve corresponder à chave de instrumentação que seu aplicativo está usando. A saída do log do criador de perfil dirá qual chave de instrumentação usada na inicialização do criador de perfil e se detectamos atividade da chave de instrumentação enquanto criamos os perfis.
-4.  Os trabalhos Web disparados manualmente podem, na verdade, ser disparados por meio de webhook. Você pode obter essa URL clicando com o botão direito do mouse no trabalho da Web no painel e exibindo as propriedades, Ou escolhendo propriedades na barra de ferramentas depois de selecionar o trabalho Web na tabela. Há muitos artigos online sobre isso e, portanto, não entrarei muito em detalhes, mas isso cria a possibilidade de disparar o criador de perfil de seu pipeline de CI/CD (como VSTS) ou algo como o Microsoft Flow (https://flow.microsoft.com/pt-br/). Dependendo do grau de refinamento desejado para seu run.cmd, que, aliás, pode ser um run.ps1, as possibilidades são infinitas.  
+- Como isso não é gerenciado pelo nosso serviço, não temos nenhuma maneira de atualizar os binários de agente para seu trabalho Web. Atualmente, não temos uma página de download estável para nossos binários e, portanto, a única maneira de obter a versão mais recente é atualizando sua extensão e buscando na pasta contínua, como fizemos nas etapas anteriores.
+
+- Como ela usa argumentos de linha de comando que foram originalmente criados para uso de desenvolvedor em vez de uso do usuário final, esses argumentos podem mudar no futuro e, portanto, esteja ciente disso na hora de atualizar. Isso não deve ser um problema porque você pode adicionar um trabalho Web, executá-lo e testar se funciona. Por fim, vamos criar uma IU para lidar com isso sem o processo manual.
+
+- O recurso trabalhos Web para Serviços de Aplicativos é único porque quando ele executa o trabalho Web, faz com que o processo tenha as mesmas variáveis de ambiente e configurações do aplicativo que o seu site terá. Isso significa que você não precisa passar a chave de instrumentação por meio da linha de comando para o criador de perfil. Ele deve apenas escolher a chave de instrumentação do ambiente. No entanto, se deseja executar o criador de perfil na caixa de desenvolvimento ou em um computador fora dos Serviços de Aplicativos, você precisa fornecer uma chave de instrumentação. Você pode fazer isso passando um argumento `--ikey <instrumentation-key>`. Esse valor deve corresponder à chave de instrumentação que seu aplicativo está usando. A saída do log do criador de perfil diz qual chave de instrumentação foi usada na inicialização do criador de perfil e se detectamos atividade da chave de instrumentação enquanto criamos os perfis.
+
+- Os trabalhos Web disparados manualmente podem, na verdade, ser disparados por meio de webhook. Você pode obter essa URL clicando com o botão direito do mouse no trabalho Web do painel e exibindo as propriedades. Ou escolhendo Propriedades na barra de ferramentas depois de selecionar o trabalho Web na tabela. Isso abre infinitas possibilidades, como acionar o criador de perfil de seu pipeline de CI/CD (como VSTS) ou algo parecido com o Microsoft Flow (https://flow.microsoft.com/en-us/). Por fim, isso depende da complexidade que você deseja atribuir ao run.cmd (que também pode ser um run.ps1), mas há flexibilidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

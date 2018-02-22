@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+experiment: 
+ms.openlocfilehash: 82f87447a2176dffd55dcf71155c389398f7d64c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar sua primeira função no portal do Azure
 
@@ -30,9 +31,9 @@ O Azure Functions lhe permite executar seu código em um ambiente [sem servidor]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Abra o portal do Azure. Para fazer isso, entre no [Portal do Azure](https://portal.azure.com/) com sua conta do Azure.
+Entre no portal do Azure no endereço <http://portal.azure.com> com sua conta do Azure.
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
@@ -64,7 +65,7 @@ Agora você pode executar a nova função enviando uma solicitação HTTP.
 
 2. Cole a URL de função na barra de endereços do navegador. Adicione o valor da cadeia de caracteres de consulta `&name=<yourname>` ao final desta URL e pressione `Enter` em seu teclado para executar a solicitação. Você deverá ver a resposta retornada pela função exibida no navegador.  
 
-    A seguir há um exemplo da resposta no navegador Edge (outros navegadores podem incluir XML exibido):
+    O exemplo a seguir mostra a resposta no navegador Edge (outros navegadores podem incluir XML exibido):
 
     ![Resposta da função no navegador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
@@ -76,7 +77,7 @@ Agora você pode executar a nova função enviando uma solicitação HTTP.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 01/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: afa7f569853df15a5d52e38f476665e34781acfd
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: abbcb246ada9974e53c677eed37a1ab9ce48d6c5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Crie seu primeiro aplicativo Java de Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -31,24 +31,12 @@ ms.lasthandoff: 01/20/2018
 Este guia de início rápido ajuda a criar seu primeiro aplicativo Java do Azure Service Fabric em um ambiente de desenvolvimento Linux em alguns minutos.  Quando terminar, você terá um aplicativo simples de serviço único Java em execução no cluster de desenvolvimento local.  
 
 ## <a name="prerequisites"></a>pré-requisitos
-Antes de começar, instale o SDK do Service Fabric, a CLI do Service Fabric e configure um cluster de desenvolvimento no seu [ambiente de desenvolvimento Linux](service-fabric-get-started-linux.md). Se estiver usando o Mac OS X, você poderá [configurar um ambiente de desenvolvimento Linux em uma máquina virtual usando Vagrant](service-fabric-get-started-mac.md).
+Antes de começar, instale o SDK do Service Fabric, a CLI do Service Fabric, Yeoman, configure o ambiente de desenvolvimento Java e configure um cluster de desenvolvimento no seu [ambiente de desenvolvimento Linux](service-fabric-get-started-linux.md). Se estiver usando o Mac OS X, você poderá [Configurar um ambiente de desenvolvimento no Mac usando Docker](service-fabric-get-started-mac.md).
 
 Instale também a [CLI do Service Fabric](service-fabric-cli.md).
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>Instalar e configurar os geradores do Java
-O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um aplicativo Java do Service Fabric no terminal usando gerador de modelos Yeoman. Siga as etapas abaixo para garantir que você tenha o gerador de modelos yeoman do Service Fabric para Java funcionando em seu computador.
-1. Instalar o nodejs e o NPM em seu computador
-
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
-2. Instalar o gerador de modelos [Yeoman](http://yeoman.io/) em seu computador a partir do NPM
-
-  ```bash
-  sudo npm install -g yo
-  ```
-3. Instalar o gerador de aplicativos Java Yeoman do Service Fabric desde o NPM
+O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um aplicativo Java do Service Fabric no terminal usando gerador de modelos Yeoman.  Se Yeoman já não estiver instalado, consulte [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) para obter instruções sobre como configurar Yeoman. Execute o seguinte comando para instalar o gerador de modelo Yeoman do Service Fabric para Java.
 
   ```bash
   sudo npm install -g generator-azuresfjava
@@ -199,12 +187,7 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="build-the-application"></a>Compilar o aplicativo
 Os modelos Yeoman do Service Fabric incluem um script de compilação para [Gradle](https://gradle.org/), que pode ser usado para compilar o aplicativo no terminal.
-As dependências Java do Service Fabric são obtidas no Maven. Para criar e trabalhar nos aplicativos Java do Service Fabric, você precisa ter o JDK e o Gradle instalados. Se ainda não instalou, poderá executar o seguinte para instalar o JDK (openjdk-8-jdk) e o Gradle -
-
-  ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+As dependências Java do Service Fabric são obtidas no Maven. Para criar e trabalhar nos aplicativos Java do Service Fabric, você precisa ter o JDK e o Gradle instalados. Se eles não estiverem instalados, consulte [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md#set-up-java-development) para obter instruções sobre como instalar JDK e Gradle.
 
 Para compilar e empacotar o aplicativo, execute o seguinte:
 
@@ -347,9 +330,6 @@ Suporte no nível do sistema para o Service Fabric, que se comunica com a execu�
       compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
   }
   ```
-
-## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Migrando os antigos aplicativos Java do Service Fabric para serem usados com o Maven
-Recentemente, movemos as bibliotecas Java do Service Fabric do SDK Java do Service Fabric para o repositório Maven. Embora os novos aplicativos gerados usando o Yeoman ou o Eclipse gerem projetos atualizados mais recentes (que serão capazes de trabalhar com o Maven), você poderá atualizar os aplicativos Java sem estado ou do ator existentes do Service Fabric, que estavam usando o SDK Java do Service Fabric antes, para usar as dependências Java do Service Fabric a partir do Maven. Siga as etapas mencionadas [aqui](service-fabric-migrate-old-javaapp-to-use-maven.md) para garantir o funcionamento do seu aplicativo mais antigo com o Maven.
 
 ## <a name="next-steps"></a>Próximas etapas
 

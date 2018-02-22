@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Exibir operações de implantação com o Azure Resource Manager
 
 
 Você pode exibir as operações para uma implantação por meio do portal do Azure. Você pode estar mais interessado em ver as operações quando recebeu um erro durante a implantação para que este artigo foque em exibir as operações que falharam. O portal fornece uma interface que permite encontrar facilmente os erros e determinar as possíveis correções.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+É possível solucionar problemas da implantação examinando os logs de auditoria ou as operações de implantação. Este tópico mostra ambos os métodos. Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Para ver as operações de implantação, use as etapas a seguir:
@@ -42,7 +42,7 @@ Para ver as operações de implantação, use as etapas a seguir:
     ![exibir implantação com falha](./media/resource-manager-deployment-operations/view-error.png)
    
     Essa mensagem de erro deve ser suficiente para você começar a solucionar o problema. No entanto, se você precisar de mais detalhes sobre quais tarefas foram concluídas, poderá exibir as operações, como mostrado nas etapas a seguir.
-4. Você pode exibir todas as operações de implantação na folha **Implantação**. Selecione qualquer operação para ver mais detalhes.
+4. Você pode exibir todas as operações de implantação. Selecione qualquer operação para ver mais detalhes.
    
     ![exibir operações](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ Para ver as operações de implantação, use as etapas a seguir:
 5. Você pode exibir os eventos para a implantação selecionando **Eventos**.
    
     ![exibir eventos](./media/resource-manager-deployment-operations/view-events.png)
-6. Você vê todos os eventos da implantação e seleciona qualquer um para obter mais detalhes. Observe também a IDs de correlação. Esse valor pode ser útil ao trabalhar com o suporte técnico para solucionar um problema de implantação.
+6. Você vê todos os eventos da implantação e seleciona qualquer um para obter mais detalhes. Observe as IDs de correlação. Esse valor pode ser útil ao trabalhar com o suporte técnico para solucionar um problema de implantação.
    
     ![consultar eventos](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -178,7 +178,7 @@ Para ver as operações de implantação, use as etapas a seguir:
   }
   ```
 
-2. Obtenha informações sobre operações de implantação com a operação [Listar todas as operações de implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. Obtenha informações sobre implantação com [Listar todas as operações de implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

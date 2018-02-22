@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitoramento de integridade de segurança na Central de segurança do Azure
 Este artigo o ajuda a usar os recursos de monitoramento na Central de segurança do Azure para monitorar a conformidade com as políticas.
@@ -87,6 +87,13 @@ Para exibir os detalhes de recomendação, clique no nome da atualização ausen
 > [!NOTE]
 > As recomendações de segurança são as mesmas na opção de **Recomendações**. Confira o artigo [Implementar recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) para obter mais informações sobre como resolver as recomendações. Isso é aplicável não apenas a máquinas virtuais e computadores, mas também a todos os recursos que estão disponíveis no bloco **Integridade de Recursos**.
 >
+
+#### <a name="unmonitored-vms"></a>VMs sem monitoramento
+Uma VM fica sem monitoramento da Central de Segurança caso ela não esteja executando a extensão do Microsoft Monitoring Agent. Uma VM pode ter um agente local já instalado, por exemplo, o agente direto do OMS ou o agente do SCOM. VMs com esses agentes são identificadas como sem monitoramento porque esses agentes não têm suporte total na Central de Segurança. Para aproveitar ao máximo todos os recursos da Central de Segurança, é necessária a extensão do Microsoft Monitoring Agent.
+
+É possível instalar a extensão na máquina virtual sem monitoramento, além do agente local já instalado. Configure os dois agentes iguais, conectando-os ao mesmo espaço de trabalho. Isso permite que a Central de Segurança interaja com a extensão do Microsoft Monitoring Agent e colete dados.  Consulte [Habilitar a extensão da VM](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) para obter instruções sobre como instalar a extensão do Microsoft Monitoring Agent.
+
+Consulte [Monitorando problemas de integridade do agente](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) para saber mais sobre o motivo pelo qual a Central de Segurança não consegue monitorar com êxito as VMs e os computadores inicializados para o provisionamento automático.
 
 #### <a name="vms--computers-section"></a>Seção VMs e computadores
 A seção de máquinas virtuais e computadores fornece uma visão geral de todas as máquinas virtuais e recomendações de computadores. Cada coluna representa um conjunto de recomendações, conforme mostrado na seguinte captura de tela:

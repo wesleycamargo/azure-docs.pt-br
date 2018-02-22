@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9f750f0e2764e7753c9d6c62de60ab27df9620c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copiar dados de uma fonte OData usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do OData:
 | url | URL raiz do serviço OData. |sim |
 | authenticationType | Tipo de autenticação usada para se conectar ao armazenamento de dados OData.<br/>Os valores permitidos são: **Anônima**, **Básica** e **Windows**. Observe que não há suporte para OAuth. | sim |
 | userName | Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. | Não  |
-| Senha | Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como SecureString. | Não  |
+| Senha | Especifique a senha da conta de usuário que você especificou para userName. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo 1: usando a autenticação Anônima**

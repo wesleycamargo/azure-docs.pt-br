@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -28,7 +28,8 @@ Os pontos de extremidade de serviço de VNet (rede virtual) estendem o espaço d
 Este recurso está disponível para os seguintes serviços e regiões do Azure:
 
 - **Armazenamento do Azure**: geralmente disponível. Todas as regiões na nuvem pública do Azure e Azure Governamental.
-- **SQL do Azure**: versão prévia. Todas as regiões na nuvem pública do Azure.
+- **Banco de Dados SQL do Azure**: disponível geralmente em todas as regiões do Azure. 
+- **DataWarehouse do Azure SQL (visualização)**: versão prévia. Todas as regiões na nuvem pública do Azure.
 
 Para obter as notificações mais recentes sobre a versão prévia, verifique a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

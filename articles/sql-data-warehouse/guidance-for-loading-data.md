@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Práticas recomendadas para carregar dados no SQL Data Warehouse do Azure
 Recomendações e otimizações de desempenho para carregar dados no SQL Data Warehouse do Azure. 
@@ -120,15 +120,19 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Para girar chaves de conta de armazenamento do Azure:
 
-1. Crie uma segunda credencial de escopo do banco de dados com base na chave de acesso de armazenamento secundário.
-2. Crie uma segunda fonte de dados externa com base nessa nova credencial.
-3. Remova e crie as tabelas externas para que apontem para a nova fonte de dados externa. 
+Para cada conta de armazenamento cuja chave foi alterada, execute [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-Depois de migrar suas tabelas externas para a nova fonte de dados, execute as tarefas de limpeza a seguir:
+Exemplo:
 
-1. Remover a primeira fonte de dados externa.
-2. Remover a primeira credencial no escopo do banco de dados na chave de acesso de armazenamento primária.
-3. Fazer logon no Azure e regenerar a chave de acesso primária para que ela esteja pronta para a próxima rotação.
+A chave original é criada
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Altere a chave 1 para a chave 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+Não é necessária nenhuma outra alteração nas fontes de dados externas subjacentes.
 
 
 ## <a name="next-steps"></a>Próximas etapas

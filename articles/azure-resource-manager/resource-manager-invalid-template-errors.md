@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolva erros de modelo inválido
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 Verifique uma segunda vez os valores permitidos no modelo e forneça um durante a implantação.
 
-### <a name="solution-4---circular-dependency-detected"></a>Solução 4 – dependência circular detectada
+### <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 – Muitos grupos de recursos de destino
+
+Se especificar mais de cinco grupos de recursos de destino em uma única implantação, você receberá esse erro. Considere a possibilidade de consolidar o número de grupos de recursos em sua implantação ou implantar alguns dos modelos como implantações separadas. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
+
+### <a name="solution-5---circular-dependency-detected"></a>Solução 5 – Dependência circular detectada
 
 Você recebe esse erro quando recursos dependem entre si de uma maneira que impede que a implantação seja iniciado. Uma combinação de interdependências faz com que dois ou mais recursos aguardar para outros recursos que também estão aguardando. Por exemplo, recurso1 depende resource3 resource2 depende recurso1 e resource3 depende resource2. Geralmente você pode resolver esse problema removendo dependências desnecessárias.

@@ -3,8 +3,8 @@ title: Criar e publicar um item do Marketplace na pilha do Azure | Microsoft Doc
 description: Criar e publicar um item do Marketplace na pilha do Azure.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: erikje
-ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar um item do Marketplace
 
@@ -72,12 +73,12 @@ ms.lasthandoff: 10/11/2017
 ## <a name="publish-a-marketplace-item"></a>Publicar um item do marketplace
 1. Use PowerShell ou Gerenciador de armazenamento do Azure para carregar o item do Marketplace (.azpkg) para o armazenamento de BLOBs do Azure. Você pode carregar no armazenamento do Azure pilha local ou carregar no armazenamento do Azure. (É um local temporário para o pacote.) Certifique-se de que o blob é publicamente acessível.
 2. Na máquina virtual cliente no ambiente de pilha do Microsoft Azure, certifique-se de que sua sessão do PowerShell está configurado com as credenciais de administrador de serviço. Você pode encontrar instruções sobre como autenticar PowerShell na pilha do Azure no [implantar um modelo com o PowerShell](user/azure-stack-deploy-template-powershell.md).
-3. Use o **AzureRMGalleryItem adicionar** cmdlet do PowerShell para publicar o item do Marketplace a pilha do Azure. Por exemplo:
+3. Use o **AzureRMGalleryItem adicionar** cmdlet do PowerShell para publicar o item do Marketplace a pilha do Azure. Por exemplo: 
    
        Add-AzureRMGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
-   | Parâmetro | Descrição |
+   | Parâmetro | DESCRIÇÃO |
    | --- | --- |
    | SubscriptionID |ID de assinatura do administrador. Você pode recuperá-la usando o PowerShell. Se você preferir obtê-lo no portal, vá para a assinatura do provedor e copie a ID de assinatura. |
    | GalleryItemUri |URI do blob para seu pacote de galeria já foi carregado no armazenamento. |
@@ -100,29 +101,29 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Referência: Manifest.json de item do Marketplace
 ### <a name="identity-information"></a>Informações de identidade
-| Nome | Obrigatório | Tipo | Restrições | Descrição |
+| NOME | Obrigatório | type | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
-| Nome |X |Cadeia de caracteres |[A-Za-z0-9]+ | |
+| NOME |X |Cadeia de caracteres |[A-Za-z0-9]+ | |
 | Publicador |X |Cadeia de caracteres |[A-Za-z0-9]+ | |
 | Versão |X |Cadeia de caracteres |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadados
-| Nome | Obrigatório | Tipo | Restrições | Descrição |
+| NOME | Obrigatório | type | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Cadeia de caracteres |Recomendação de 80 caracteres |O portal não pode exibir o nome do item normalmente se ele tem mais de 80 caracteres. |
 | PublisherDisplayName |X |Cadeia de caracteres |Recomendação de 30 caracteres |O portal não pode exibir o nome do publicador normalmente se for maior que 30 caracteres. |
 | PublisherLegalName |X |Cadeia de caracteres |Máximo de 256 caracteres | |
 | Resumo |X |Cadeia de caracteres |60 a 100 caracteres | |
 | LongSummary |X |Cadeia de caracteres |140 a 256 caracteres |Ainda aplicável na pilha do Azure. |
-| Descrição |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |caracteres de 500 a 5.000 | |
+| DESCRIÇÃO |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |caracteres de 500 a 5.000 | |
 
 ### <a name="images"></a>Imagens
 O Marketplace usa os ícones a seguir:
 
-| Nome | Largura | Altura | Observações |
+| NOME | Largura | Altura | Observações |
 | --- | --- | --- | --- |
 | Ampla |255 px |115 px |Sempre necessário |
-| Grande |115 px |115 px |Sempre necessário |
+| grande |115 px |115 px |Sempre necessário |
 | Média |90 px |90 px |Sempre necessário |
 | Pequena |40 px |40 px |Sempre necessário |
 | Captura de tela |533 px |32 px |Opcional |
@@ -133,7 +134,7 @@ Cada item do Marketplace deve ser marcada com uma categoria que identifica onde 
 ### <a name="links"></a>Links
 Cada item do Marketplace pode incluir vários links para conteúdo adicional. Os links são especificados como uma lista de nomes e URIs.
 
-| Nome | Obrigatório | Tipo | Restrições | Descrição |
+| NOME | Obrigatório | type | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Cadeia de caracteres |Máximo de 64 caracteres | |
 | Uri |X |URI | | |
@@ -141,7 +142,7 @@ Cada item do Marketplace pode incluir vários links para conteúdo adicional. Os
 ### <a name="additional-properties"></a>Propriedades adicionais
 Além de metadados anteriores, os autores do Marketplace podem fornecer dados de par chave/valor personalizado no seguinte formato:
 
-| Nome | Obrigatório | Tipo | Restrições | Descrição |
+| NOME | Obrigatório | type | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Cadeia de caracteres |Máximo de 25 caracteres | |
 | Valor |X |Cadeia de caracteres |Máximo de 30 caracteres | |
@@ -149,7 +150,7 @@ Além de metadados anteriores, os autores do Marketplace podem fornecer dados de
 ### <a name="html-sanitization"></a>Limpeza de HTML
 Para qualquer campo que permite que o HTML, os seguintes elementos e atributos são permitidos:
 
-S1, S2, h3, h4, h5, p, ol, ul, li, um [destino | href], br, forte, em, b,
+h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i
 
 ## <a name="reference-marketplace-item-ui"></a>Referência: Item do Marketplace interface do usuário
 Ícones e texto de itens do Marketplace como visto no portal do Azure pilha são da seguinte maneira.

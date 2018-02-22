@@ -12,25 +12,25 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Procurar um ponto de interesse próximo usando os Serviços do Azure Baseados na Localização
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Procurar pontos de interesse próximos usando os Serviços do Azure Baseados na Localização
 
 Este tutorial mostra como configurar uma conta com os Serviços do Azure Baseados na Localização e depois usar as APIs fornecidas para procurar um ponto de interesse. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar uma conta com os Serviços do Azure Baseados na Localização
 > * Saiba a chave primária de sua Conta dos Serviços do Azure Baseados na Localização
-> * Criar nova página da Web usando a API de Controle de mapa
+> * Criar uma nova página da Web usando a API de Controle de Mapeamento
 > * Usar o Serviço de Pesquisa para localizar um ponto de interesse próximo
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-# <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 Faça logon no [Portal do Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>

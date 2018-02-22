@@ -3,6 +3,7 @@
 > * [Dispositivo: Node.js Serviço: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
 > * [Dispositivo: C# Serviço: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Dispositivo: serviço de Java: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Dispositivo: serviço Python: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
 Os aplicativos de back-end podem usar primitivos no Hub IoT do Azure, ou seja, o [dispositivo gêmeo][lnk-devtwin] e [métodos diretos][lnk-c2dmethod], para iniciar remotamente e monitorar as ações de gerenciamento de dispositivo nos dispositivos. Este tutorial mostra como um aplicativo de back-end e um dispositivo podem trabalhar juntos para permitir que você inicie e monitore uma reinicialização remota por meio do Hub IoT.
 

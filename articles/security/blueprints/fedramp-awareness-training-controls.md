@@ -1,6 +1,6 @@
 ---
-title: "Automação das Especificações Técnicas do Azure do FedRAMP - Reconhecimento e Treinamento"
-description: Aplicativos Web para FedRAMP - Reconhecimento e Treinamento
+title: "Especificações técnicas de segurança e conformidade do Azure – Automação de Aplicativos Web para FedRAMP – Reconhecimento e treinamento"
+description: "Automação de Aplicativos Web para FedRAMP – Reconhecimento e treinamento"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b8749238bc8b673503fa1b3627de11d923cfe892
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a019f76929ea3c7d27492f8a9d6b6994e471aabe
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="awareness-and-training-at"></a>AT (Reconhecimento e Treinamento)
 
 > [!NOTE]
-> Estes controles são definidos pelo NIST e pelo Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre as diretrizes e os procedimentos de teste para cada controle.
+> Estes controles são definidos pelo NIST e pelos EUA. Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre as diretrizes e os procedimentos de teste para cada controle.
 
 ## <a name="nist-800-53-control-at-1"></a>NIST 800-53 Controle AT-1
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-1** A organização desenvolve, documenta e distribui à [Atribuição: equipe ou funções definidos pela organização] uma política de reconhecimento e treinamento de segurança que aborda a finalidade, o escopo, as funções, as responsabilidades, o compromisso de gerenciamento, a coordenação entre entidades organizacionais e a conformidade; e os procedimentos para facilitar a implementação da política de reconhecimento e treinamento de segurança e os controles de treinamento e reconhecimento de segurança associados; e revisa e atualiza a política atual de reconhecimento e treinamento de segurança [Atribuição: frequência definida pela organização]; e os procedimentos de reconhecimento e treinamento de segurança [Atribuição: frequência definida pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-2.a** A organização fornece treinamento básico de reconhecimento de segurança aos usuários do sistema de informação (incluindo gerentes, executivos sêniores e contratados) como parte do treinamento inicial para novos usuários.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,12 +59,12 @@ ms.lasthandoff: 11/23/2017
 
 **AT-2.b** A organização fornece treinamento básico de reconhecimento de segurança aos usuários do sistema de informações (incluindo gerentes, executivos sêniores e contratados) quando exigido pelas mudanças no sistema de informações.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O programa de treinamento de reconhecimento de segurança de nível empresarial do cliente pode fornecer treinamento baseado em necessidade para todos os usuários do sistema. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-at-2c"></a>NIST 800-53 Controle AT-2.c
@@ -87,12 +87,12 @@ ms.lasthandoff: 11/23/2017
 
 **AT-2 (2)** A organização inclui treinamento de reconhecimento de segurança para reconhecer e relatar indicadores potenciais de ameaça interna.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O conteúdo de treinamento de reconhecimento de segurança de nível empresarial do cliente pode abranger o reconhecimento de ameaça interna. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-at-3a"></a>NIST 800-53 Controle AT-3.a
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O programa de treinamento empresarial do cliente pode fornecer treinamento de segurança baseado em funções com base nos requisitos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-at-3c"></a>NIST 800-53 Controle AT-3.c
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O programa de treinamento de nível empresarial do cliente pode fornecer treinamento contínuo em segurança baseado em funções. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-at-3-3"></a>NIST 800-53 Controle AT-3 (3)
@@ -143,12 +143,12 @@ ms.lasthandoff: 11/23/2017
 
 **AT-3 (3)** A organização inclui exercícios práticos de treinamento de segurança que reforçam os objetivos de treinamento.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O treinamento de segurança baseado em funções de nível empresarial do cliente pode incluir exercícios práticos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-at-3-4"></a>NIST 800-53 Controle AT-3 (4)
@@ -157,12 +157,12 @@ ms.lasthandoff: 11/23/2017
 
 **AT-3 (4)** A organização fornece treinamento para seu pessoal em [Atribuição: indicadores definidos pela organização de código malicioso] para reconhecer comunicações suspeitas e comportamento anômalo nos sistemas de informação organizacional.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | Treinamento de segurança baseada em funções de nível empresarial do cliente pode incluir o reconhecimento de comunicações suspeitas e comportamento anômalo do sistema. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-at-4a"></a>NIST 800-53 Controle AT-4.a
@@ -185,9 +185,9 @@ ms.lasthandoff: 11/23/2017
 
 **AT-4.b** A organização retém registros de treinamento individuais para [Atribuição: período de tempo definido pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O programa de treinamento de reconhecimento de segurança de nível empresarial do cliente pode atender aos requisitos de retenção de registros de treinamento. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |

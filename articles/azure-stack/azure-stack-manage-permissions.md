@@ -3,8 +3,8 @@ title: "Gerenciar permissões para recursos por usuário no Azure pilha (adminis
 description: "Como um administrador de serviços ou Locatário, saiba como gerenciar permissões RBAC."
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: fenila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,29 +12,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: e558f9de9bc3182bbe20ceb9d8f3f96e47fa542c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/14/2018
+ms.author: mabrigg
+ms.reviewer: thomas.roettinger
+ms.openlocfilehash: 0e50ea44ebb0b0a7285dab04666dd55cad480c6a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-role-based-access-control"></a>Gerenciar o controle de acesso baseado em função
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Um usuário do Azure Stack pode ser um leitor, proprietário ou colaborador para cada instância de uma assinatura, um grupo de recursos ou serviço. Por exemplo, o Usuário A pode ter permissões de leitura à Assinatura 1, mas ter permissões de proprietário à Máquina Virtual 7.
+Um usuário do Azure Stack pode ser um leitor, proprietário ou colaborador para cada instância de uma assinatura, um grupo de recursos ou serviço. Por exemplo, o usuário A pode ter permissões de leitura para uma assinatura, mas ter permissões de proprietário para a máquina Virtual sete.
 
-* Leitor: o usuário pode exibir tudo, mas não pode fazer alterações.
-* Colaborador: o usuário pode gerenciar tudo, exceto o acesso aos recursos.
-* Proprietário: o usuário pode gerenciar tudo, incluindo o acesso aos recursos.
+ - Leitor: o usuário pode exibir tudo, mas não pode fazer alterações.
+ - Colaborador: o usuário pode gerenciar tudo, exceto o acesso aos recursos.
+ - Proprietário: o usuário pode gerenciar tudo, incluindo o acesso aos recursos.
 
 ## <a name="set-access-permissions-for-a-user"></a>Definir permissões de acesso para um usuário
+
 1. Entre com uma conta que tenha permissões de proprietário ao recurso que deseja gerenciar.
 2. Na folha do recurso, clique no **acesso** ícone ![](media/azure-stack-manage-permissions/image1.png).
 3. No **usuários** folha, clique em **funções**.
 4. No **funções** folha, clique em **adicionar** para adicionar permissões para o usuário.
+
+## <a name="set-access-permissions-for-a-universal-group"></a>Definir permissões de acesso para um grupo universal 
+
+> [!Note]  
+Aplicável somente ao Active Directory Federated Services (AD FS).
+
+1. Entre com uma conta que tenha permissões de proprietário ao recurso que deseja gerenciar.
+2. Na folha do recurso, clique no **acesso** ícone ![](media/azure-stack-manage-permissions/image1.png).
+3. No **usuários** folha, clique em **funções**.
+4. No **funções** folha, clique em **adicionar** adicionar permissões para Universal grupo grupo do Active Directory.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Adicionar um locatário do Azure Stack](azure-stack-add-new-user-aad.md)

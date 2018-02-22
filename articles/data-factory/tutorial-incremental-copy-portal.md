@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
@@ -154,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -192,7 +193,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 3. Na página **Geral** da janela **Propriedades** para o pipeline, digite o nome **IncrementalCopyPipeline**. 
 
    ![Nome do pipeline](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. Vamos adicionar a primeira atividade de pesquisa para recuperar o último valor de marca-d'água. Na caixa de ferramentas **Atividades**, expanda **Banco de Dados SQL** e arraste e solte a atividade de **Pesquisa** para a superfície do designer de pipeline. Alterar o nome da atividade para **LookupOldWaterMarkActivity**.
+4. Vamos adicionar a primeira atividade de pesquisa para recuperar o último valor de marca-d'água. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte a atividade de **Pesquisa** para a superfície do designer de pipeline. Alterar o nome da atividade para **LookupOldWaterMarkActivity**.
 
    ![Primeira atividade de pesquisa - nome](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Alterne para a guia **Configurações** e, em seguida, clique em **+ Novo** para o **Conjunto de dados de origem**. Nesta etapa, você cria um conjuntos de dados para representar os dados na **watermarktable**. Esta tabela contém a marca d'água antiga que foi usada na operação de cópia anterior. 
@@ -224,7 +225,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 11. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline n modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **WatermarkDataset** está selecionado para o campo **Conjunto de Dados de Origem**. 
 
     ![Pipeline - conjunto de dados de marca d'água antigo](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. Na caixa de ferramentas **atividades**, expanda **Banco de Dados SQL** e arraste e solte outra atividade de **Pesquisa** para a superfície do designer de pipeline e defina o nome como  **LookupNewWaterMarkActivity** na guia **Geral** da janela Propriedades. Esta atividade de Pesquisa obtém o novo valor de marca d'água da tabela com os dados de origem a serem copiados para o destino. 
+12. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte outra atividade de **Pesquisa** para a superfície do designer de pipeline e defina o nome como  **LookupNewWaterMarkActivity** na guia **Geral** da janela Propriedades. Esta atividade de Pesquisa obtém o novo valor de marca d'água da tabela com os dados de origem a serem copiados para o destino. 
 
     ![Segunda atividade de pesquisa - nome](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. Na janela Propriedades da segunda atividade de **Pesquisa**, alterne para a guia **Configurações** e clique em **Novo**. Você cria um conjunto de dados para apontar para a tabela de origem que contém o novo valor de marca d'água (valor máximo de LastModifyTime). 
@@ -295,7 +296,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
         ![Conjunto de dados do coletor - configurações de conexão](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Alterne para o editor de **pipeline** clicando na guia Pipeline na parte superior ou clicando no nome do pipeline no modo de exibição de árvore à esquerda. 
-29. Na caixa de ferramentas **Atividades**, expanda o **Banco de Dados SQL** e arraste e solte a atividade de **Procedimento armazenado** da caixa de ferramentas **Atividades** para a superfície de designer do pipeline. **Conecte** a saída verde (Bem-sucedida) da atividade de **Cópia** à atividade de **Procedimento armazenado**. 
+29. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte a atividade de **Procedimento armazenado** da caixa de ferramentas **Atividades** para a superfície de designer do pipeline. **Conecte** a saída verde (Bem-sucedida) da atividade de **Cópia** à atividade de **Procedimento armazenado**. 
     
     ![Atividade de cópia - origem](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Selecione **Atividade de Procedimento armazenado** no designer de pipeline, altere seu nome para **StoredProceduretoWriteWatermarkActivity**. 
@@ -306,8 +307,8 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
     ![Atividade de procedimento armazenado - Conta SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Alterne para a guia **Procedimento armazenado** e execute as etapas a seguir: 
 
-    1. Digite **sp_write_watermark** para o **Nome do procedimento armazenado**. 
-    2. Para especificar valores para os parâmetros de procedimento armazenado, clique em **+ Novo** na seção de **Parâmetros de procedimento armazenado** e insira os seguintes valores: 
+    1. Selecione **sp_write_watermark** para o **Nome do procedimento armazenado**. 
+    2. Para especificar valores para os parâmetros de procedimento armazenado, clique em **Importar parâmetros** e insira os seguintes valores para os parâmetros: 
 
         | NOME | type | Valor | 
         | ---- | ---- | ----- | 
@@ -318,14 +319,15 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 27. Para validar as configurações de pipeline, clique em **Validar** na barra de ferramentas. Confirme se não houver nenhum erro de validação. Para fechar a janela **Relatório de validação do pipeline** clique em >>.   
 
     ![Validar o pipeline](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. Publique as entidades (serviços vinculados, conjuntos de dados e pipelines) para o serviço de Azure Data Factory clicando no botão **Publicar**. Aguarde até que você veja a mensagem informando que a publicação foi bem-sucedida. 
+28. Publique as entidades (serviços vinculados, conjuntos de dados e pipelines) para o serviço de Azure Data Factory selecionando o botão **Publicar tudo**. Aguarde até que você veja a mensagem informando que a publicação foi bem-sucedida. 
 
     ![Botão Publicar](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Disparar uma execução de pipeline
-Clique em **Gatilho** na barra de ferramentas e clique em **Disparar agora**. 
+1. Clique em **Gatilho** na barra de ferramentas e clique em **Disparar agora**. 
 
-![Botão Disparar agora](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![Botão Disparar agora](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. Na janela **Execução de Pipeline**, selecione **Concluir**. 
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorar a execução de pipeline
 

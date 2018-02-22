@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 02/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: da463bcaf91321b65c8ad1067e457b88c8dcd58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 4efa053afd26bde208441c4b841c5d02142a2d18
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sql-database-faq"></a>Perguntas frequentes sobre o Banco de Dados SQL
 
@@ -30,7 +30,7 @@ A versão atual do banco de dados SQL é V12. Versão V11 foi desativado.
 Garantimos que, por pelo menos 99,99% do tempo, os clientes terão conectividade entre seu Banco de Dados SQL Basic, Standard ou Premium do Microsoft Azure único ou elástico e o nosso gateway de Internet. Para saber mais, veja [SLA](http://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>Como redefinir a senha para o administrador do servidor?
-No [portal do Azure](https://portal.azure.com), clique em **Servidores SQL**, escolha o servidor na lista e clique em **Redefinir Senha**.
+No [Portal do Azure](https://portal.azure.com), clique em **Servidores SQL**, escolha o servidor na lista e clique em **Redefinir Senha**.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>Como gerenciar logons e bancos de dados?
 Consulte [gerenciamento de bancos de dados e logons](sql-database-manage-logins.md).
@@ -44,7 +44,7 @@ O Banco de Dados SQL é cobrado de acordo com uma taxa por hora previsível base
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>E se um banco de dados único ficar ativo por menos de uma hora ou usar uma camada de serviço mais alta por menos de uma hora?
 Você será cobrado por cada hora em que um banco de dados existir usando a camada de serviço mais alta mais o nível de desempenho aplicado durante aquela hora, independentemente do uso ou se o banco de dados ficou ativo por menos de uma hora. Por exemplo, se você criar um banco de dados individual e o excluir depois de cinco minutos, sua fatura apresentará uma cobrança referente a uma hora de banco de dados. 
 
-Exemplos
+Exemplos:
 
 * Se você criar um banco de dados Básico e atualizá-lo imediatamente para Standard S1, será cobrado pela tarifa Standard S1 na primeira hora.
 * Se você atualizar um banco de dados do Básico para Premium às 22h e a atualização for concluída à 1h35, no dia seguinte, você será cobrado na taxa Premium começando à 1h. 
@@ -53,7 +53,7 @@ Exemplos
 ## <a name="how-does-elastic-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool"></a>Como o uso do pool elástico é mostrado em minha fatura e o que acontece se eu alterar as eDTUs por pool?
 As cobranças do pool elástico são mostradas em sua fatura como DTUs Elásticas (eDTUs) nos incrementos mostrados sob eDTUs por pool na [página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Não há cobrança por banco de dados para pools elásticos. Você será cobrado por hora de existência de um pool no eDTU mais alto, independentemente do uso ou se o pool estive ativo por menos de uma hora. 
 
-Exemplos
+Exemplos:
 
 * Se você criar um pool elástico Standard com 200 eDTUs às 11h18, adicionando cinco bancos de dados ao pool, será cobrado por 200 eDTUs pela hora cheia, começando às 11h e se estendendo pelo resto do dia.
 * No Dia 2, às 5:05h, o Banco de Dados 1 começa a consumir 50 eDTUs e se mantém estável ao longo do dia. Os Bancos de Dados 2 a 5 flutuam entre 0 e 80 eDTUs. Durante o dia, você adiciona cinco outros bancos de dados que consomem eDTUs variados durante o dia. O Dia 2 é um dia inteiro cobrado a 200 eDTUs. 
@@ -76,17 +76,17 @@ Para entender as camadas de serviço e eDTUs, consulte [Opções e desempenho de
 Ao contrário dos bancos de dados únicos, o uso da [replicação geográfica ativa](sql-database-geo-replication-overview.md) com bancos de dados elásticos não tem um impacto direto no faturamento.  Você só será cobrado pelos eDTUs provisionados para cada um dos pools (o pool primário e o pool secundário)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Como o uso do recurso de auditoria afeta minha fatura?
-A auditoria é interna ao serviço de Banco de Dados SQL sem custo extra e está disponível para os bancos de dados Básico, Standard, Premium e Premium RS. No entanto, para armazenar os logs de auditoria, o recurso de auditoria usa uma conta do Armazenamento do Azure e as taxas para tabelas e consultas no Armazenamento do Azure são aplicadas com base no tamanho do seu log de auditoria.
+A auditoria é interna ao serviço Banco de Dados SQL sem custo extra e está disponível para os bancos de dados Básico, Standard e Premium. No entanto, para armazenar os logs de auditoria, o recurso de auditoria usa uma conta do Armazenamento do Azure e as taxas para tabelas e consultas no Armazenamento do Azure são aplicadas com base no tamanho do seu log de auditoria.
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>Como encontro a camada de serviço e o nível de desempenho corretos para bancos de dados únicos e pools elásticos?
-Existem algumas ferramentas disponíveis para você. 
+Há algumas ferramentas disponíveis: 
 
 * Para os bancos de dados locais, use o [Supervisor de dimensionamento de DTU](http://dtucalculator.azurewebsites.net/), para recomendar os bancos de dados e os DTUs necessários, além de avaliar vários bancos de dados para os pools elásticos.
 * Se um banco de dados individual puder se beneficiar de estar em um pool, o mecanismo inteligente do Azure recomendará um pool elástico se perceber um padrão de uso histórico que garanta isso. Consulte [Monitorar e gerenciar um pool elástico com o Portal do Azure](sql-database-elastic-pool-manage-portal.md). Para obter detalhes sobre como fazer os cálculos você mesmo, consulte [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool.md)
 * Para ver se você precisa aumentar ou reduzir um banco de dados único, consulte [diretrizes sobre desempenho para bancos de dados únicos](sql-database-performance-guidance.md).
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>Com que frequência posso alterar a camada de serviço ou o nível de desempenho de um banco de dados único?
-Você pode alterar a camada de serviço (entre Básico, Standard, Premium e Premium RS) ou o nível de desempenho dentro de uma camada de serviço (por exemplo, S1 para S2) sempre que desejar. Para bancos de dados de versão anteriores, você pode alterar o nível de desempenho ou de camada de serviço no máximo quatro vezes em um período de 24 horas.
+Você pode alterar a camada de serviço (entre Básico, Standard e Premium) ou o nível de desempenho dentro de uma camada de serviço (por exemplo, S1 para S2) sempre que desejar. Para bancos de dados de versão anteriores, você pode alterar o nível de desempenho ou de camada de serviço no máximo quatro vezes em um período de 24 horas.
 
 ## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>Com que frequência posso ajustar eDTUs por pool?
 Quantas vezes desejar.
@@ -101,7 +101,7 @@ Em geral, os pools elásticos são projetados para um típico [padrão de aplica
 O armazenamento para backup é aquele associado aos seus backups de banco de dados automatizados utilizados para [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore) e [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore). O Banco de Dados SQL do Microsoft Azure fornece até 200% de seu armazenamento máximo de banco de dados provisionado em armazenamento de backup, sem custo adicional. Por exemplo, se você tiver uma instância de banco de dados Standard com tamanho provisionado de 250 GB, serão oferecidos a você 500 GB de espaço de armazenamento para backup sem custo adicional. Se seu banco de dados exceder o armazenamento de backup fornecido, é possível optar por reduzir o período de retenção ao entrar em contato com o Suporte do Azure ou pagar pelo armazenamento de backup adicional com a taxa padrão do Armazenamento com Redundância Geográfica com Acesso de Leitura (RA-GRS). Para saber mais sobre a cobrança de RA-GRS, consulte Detalhes de preços de armazenamento.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Estou mudando de Web/Negócios para novas camadas de serviço, o que eu preciso saber?
-Os bancos de dados SQL Business e Web do Azure foram desativados. As camadas Básico, Standard, Premium, Premium RS e Elástica substituem os bancos de dados Web e Business obsoletos. 
+Os bancos de dados SQL Business e Web do Azure foram desativados. As camadas Básico, Standard, Premium e Elástica substituem os bancos de dados Web e Business desativados. 
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Qual é o retardo de replicação esperado durante a replicação geográfica de um banco de dados entre duas regiões na mesma região geográfica do Azure?
 Atualmente, damos suporte a um RPO de cinco segundos e o retardo de replicação tem sido menor que isso, desde que o secundário geográfico esteja hospedado na região emparelhada recomendada pelo Azure e esteja na mesma camada de serviço.
@@ -119,7 +119,7 @@ O secundário geográfico é uma réplica assíncrona e não tentamos mantê-la 
 Expomos o retardo de replicação em tempo real entre o banco de dados primário e o secundário geográfico por meio de um DMV. Para obter detalhes, veja [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
 ## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>Para mover um banco de dados para um servidor diferente na mesma assinatura
-* No [Portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL**, selecione um banco de dados na lista e, em seguida, clique em **Copiar**. Para obter mais detalhes, consulte [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md) .
+No [Portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL**, selecione um banco de dados na lista e, em seguida, clique em **Copiar**. Para obter mais detalhes, consulte [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md) .
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Para mover um banco de dados entre assinaturas
-* No [Portal do Azure](https://portal.azure.com), clique em **servidores SQL** e, em seguida, selecione o servidor que hospeda seu banco de dados da lista. Clique em **Mover**, então selecione os recursos a mover e a assinatura para a qual movê-los.
+No [Portal do Azure](https://portal.azure.com), clique em **servidores SQL** e, em seguida, selecione o servidor que hospeda seu banco de dados da lista. Clique em **Mover**, então selecione os recursos a mover e a assinatura para a qual movê-los.

@@ -3,7 +3,7 @@ title: "Acesso elevado de administrador de locatários — Azure AD | Microsoft 
 description: "Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função)."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevar o acesso como um administrador de locatários com Controle de Acesso Baseado em Função
 
@@ -101,7 +101,7 @@ O processo básico funciona com as seguintes etapas:
 
 Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo, de modo que para revogar esses privilégios é preciso excluir a atribuição.
 
-1.  Chame as definições de função GET, em que roleName = Administrador de Acesso do Usuário determina o GUID do nome da função de Administrador de Acesso do Usuário.
+1.  Chame GET roleDefinitions, em que roleName = Administrador de Acesso do Usuário, para determinar o GUID do nome da função de Administrador de Acesso do Usuário.
     1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
@@ -127,9 +127,9 @@ Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo
     1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
     
         >[!NOTE] 
-        >Um administrador de locatário não deve ter muitas atribuições, se a consulta acima retorna atribuições demais, você também pode consultar por todas as atribuições apenas no nível de escopo de locatário e, em seguida, filtrar os resultados: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+        >Um administrador de locatário não deve ter muitas atribuições. Se a consulta anterior retorna atribuições demais, você também pode consultar por todas as atribuições apenas no nível de escopo de locatário e, em seguida, filtrar os resultados: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
         
-    2. As chamadas acima retornam uma lista de atribuições de função. Localize a atribuição de função em que o escopo é "/" e a RoleDefinitionId termina com o GUID de nome da função encontrado na etapa 1 e a PrincipalId corresponde à ObjectId do administrador de locatário. A atribuição de função deve ter esta aparência:
+    2. As chamadas anteriores retornam uma lista de atribuições de função. Localize a atribuição de função em que o escopo é "/" e a RoleDefinitionId termina com o GUID de nome da função encontrado na etapa 1 e a PrincipalId corresponde à ObjectId do administrador de locatário. A atribuição de função deve ter esta aparência:
 
         ```
         {"value":[{"properties":{

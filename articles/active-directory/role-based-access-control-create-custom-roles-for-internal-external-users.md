@@ -3,7 +3,7 @@ title: "Criar funções personalizadas de Controle de Acesso Baseado em Função
 description: "Atribuir funções RBAC personalizadas criadas usando o PowerShell e a CLI para usuários internos e externos"
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Introdução ao controle de acesso baseado em função do Azure
 
@@ -28,7 +28,7 @@ Controle de acesso baseado em função é um recurso apenas do portal do Azure q
 
 RBAC permite um melhor gerenciamento de segurança para grandes empresas e SMBs que trabalham com colaboradores externos, fornecedores ou freelancers que precisam de acesso a recursos específicos em seu ambiente, mas não necessariamente a toda a infraestrutura nem nenhum escopo relacionado à cobrança. O RBAC proporciona a flexibilidade de ter uma assinatura do Azure gerenciada pela conta de administrador (função de administrador de serviços no nível da assinatura) e ter vários usuários convidados para trabalhar na mesma assinatura, mas sem os direitos administrativos para ela. De uma perspectiva de cobrança e gerenciamento, o recurso RBAC é uma opção eficiente em termos de tempo e gerenciamento para o uso do Azure em vários cenários.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Usar o RBAC no ambiente do Azure requer:
 
 * Ter uma assinatura autônoma do Azure atribuída ao usuário como o proprietário (função de assinatura)
@@ -59,7 +59,7 @@ No portal do Azure, depois de entrar como administrador, selecione "Assinaturas"
 ![folha de assinatura no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) Por padrão, se o usuário administrador tiver comprado a assinatura do Azure, ele aparecerá como **Administrador da conta**, sendo essa a função da assinatura. Para obter mais detalhes sobre as funções de assinatura do Azure, consulte [Adicionar ou alterar funções de administrador do Azure que gerenciam a assinatura ou os serviços](/billing/billing-add-change-azure-subscription-administrator.md).
 
 Neste exemplo, o usuário "alflanigan@outlook.com" é o **Proprietário** da assinatura de "Avaliação Gratuita" no locatário AAD definido como "Locatário padrão do Azure". Uma vez que esse usuário é o criador da assinatura do Azure com a Conta da Microsoft inicial "Outlook" (Conta da Microsoft = Outlook, Live etc.), o nome de domínio padrão para todos os outros usuários adicionados neste locatário será **"@alflaniganuoutlook.onmicrosoft.com"**. Por design, a sintaxe do novo domínio é formada reunindo o nome de usuário e o nome de domínio do usuário que criou o locatário e adicionando a extensão **".onmicrosoft.com"**.
-Além disso, os usuários podem entrar com um nome de domínio personalizado no locatário depois de o adicionarem e verificarem para o novo locatário. Para obter mais detalhes sobre como verificar um nome de domínio personalizado em um locatário do Azure Active Directory, consulte [Adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).
+Além disso, os usuários podem entrar com um nome de domínio personalizado no locatário depois de o adicionarem e verificarem para o novo locatário. Para obter mais informações sobre como verificar um nome de domínio personalizado em um locatário do Azure Active Directory, consulte [Adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).
 
 Neste exemplo, o diretório "Locatário padrão do Azure" contém somente usuários com o nome de domínio "@alflanigan.onmicrosoft.com".
 
@@ -129,7 +129,7 @@ Enquanto for um convidado no diretório, o usuário externo poderá gerenciar to
 
 ![acesso restrito ao azure active-directory, portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-O Azure Active Directory e uma assinatura do Azure não têm uma relação de pai-filho como outros recursos do Azure (por exemplo: máquinas virtuais, redes virtuais, aplicativos Web, armazenamento etc.) têm com uma assinatura do Azure. Todos estes segundos são criados, gerenciados e cobrados em uma assinatura do Azure, enquanto uma assinatura do Azure é usada para gerenciar o acesso a um diretório do Azure. Para saber mais, consulte [Como uma assinatura do Azure está relacionada ao Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
+O Azure Active Directory e uma assinatura do Azure não têm uma relação de pai-filho como outros recursos do Azure (por exemplo: máquinas virtuais, redes virtuais, aplicativos Web, armazenamento etc.) têm com uma assinatura do Azure. Todos estes segundos são criados, gerenciados e cobrados em uma assinatura do Azure, enquanto uma assinatura do Azure é usada para gerenciar o acesso a um diretório do Azure. Para mais informações, consulte [Como uma assinatura do Azure está relacionada ao Microsoft Azure Active Directory](/active-directory/active-directory-how-subscriptions-associated-directory).
 
 De todas as funções RBAC internas, **Proprietário** e **Colaborador** oferecem acesso de gerenciamento total a todos os recursos no ambiente, sendo a diferença que um Colaborador não pode criar nem excluir novas funções de RBAC. Outras funções internas, como **Colaborador de Máquina Virtual** oferecem acesso de gerenciamento completo apenas aos recursos indicados pelo nome, não importa o **Grupo de Recursos** em que eles estão sendo criados.
 

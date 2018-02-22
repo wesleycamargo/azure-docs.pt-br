@@ -12,15 +12,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
-ms.date: 10/05/2017
+ms.topic: tutorial
+ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2345b434a51b768793c2dea4587dc0a49ab35b70
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8577a02f0c9396b64af986950fddaa1e00925ec
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Como usar os conjuntos de disponibilidade
 
@@ -34,7 +34,9 @@ Neste tutorial, você aprenderá como:
 > * Verificar os tamanhos de VM disponíveis
 > * Verificar o Assistente do Azure
 
-Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.3 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. 
 
 ## <a name="availability-set-overview"></a>Visão geral do conjunto de disponibilidade
 
@@ -46,7 +48,7 @@ Use Conjuntos de Disponibilidade quando você deseja implantar soluções confi�
 
 ## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Você pode criar um conjunto de disponibilidade usando [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). Nesse exemplo, definimos o número de domínios de atualização e de falha como *2* para o conjunto de disponibilidade chamado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
+Você pode criar um conjunto de disponibilidade usando [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). Nesse exemplo, defina o número de domínios de atualização e de falha como *2* para o conjunto de disponibilidade chamado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
 
 Crie um grupos de recursos.
 
@@ -54,126 +56,52 @@ Crie um grupos de recursos.
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
-Criar um conjunto de disponibilidade gerenciado usando [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) com o parâmetro **-sku aligned**.
+Criar um conjunto de disponibilidade gerenciado usando [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) com o parâmetro `-sku aligned`.
 
 ```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
-   -Location EastUS `
-   -Name myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability `
-   -sku aligned `
+   -Location "EastUS" `
+   -Name "myAvailabilitySet" `
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -Sku aligned `
    -PlatformFaultDomainCount 2 `
    -PlatformUpdateDomainCount 2
 ```
 
 ## <a name="create-vms-inside-an-availability-set"></a>Criar VMs dentro de um conjunto de disponibilidade
-
 As VMs devem ser criadas dentro do conjunto de disponibilidade para assegurar a distribuição correta pelo hardware. Você não pode adicionar uma VM existente a um conjunto de disponibilidade após sua criação. 
 
 O hardware em um local é dividido em vários domínios de atualização e domínios de falha. Um **domínios de atualização** é um grupo de VMs e hardware físico subjacente que podem ser reinicializados simultaneamente. As VMs no mesmo **domínio de falha** compartilham armazenamentos comuns, bem como um comutador de rede e fonte de energia comuns. 
 
-Ao criar uma configuração de VM usando [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), você usa o parâmetro `-AvailabilitySetId` para especificar a ID do conjunto de disponibilidade.
+Ao criar uma VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm), você usa o parâmetro `-AvailabilitySetName` para especificar o nome do conjunto de disponibilidade.
 
-Criar duas VMs com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) no conjunto de disponibilidade.
+Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
-$availabilitySet = Get-AzureRmAvailabilitySet `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Name myAvailabilitySet
-
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-    
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -Location eastus `
-    -Name myNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAvailability `
-    -SecurityRules $nsgRuleRDP
-    
-# Apply the network security group to a subnet
-Set-AzureRmVirtualNetworkSubnetConfig `
-    -VirtualNetwork $vnet `
-    -Name mySubnet `
-    -NetworkSecurityGroup $nsg `
-    -AddressPrefix 192.168.1.0/24
-
-# Update the virtual network
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-
-for ($i=1; $i -le 2; $i++)
-{
-   $pip = New-AzureRmPublicIpAddress `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name "mypublicdns$(Get-Random)" `
-        -AllocationMethod Static `
-        -IdleTimeoutInMinutes 4
-
-   $nic = New-AzureRmNetworkInterface `
-        -Name myNic$i `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -SubnetId $vnet.Subnets[0].Id `
-        -PublicIpAddressId $pip.Id `
-        -NetworkSecurityGroupId $nsg.Id
-
-   # Here is where we specify the availability set
-   $vm = New-AzureRmVMConfig `
-        -VMName myVM$i `
-        -VMSize Standard_D1 `
-        -AvailabilitySetId $availabilitySet.Id
-
-   $vm = Set-AzureRmVMOperatingSystem `
-        -ComputerName myVM$i `
-        -Credential $cred `
-        -VM $vm `
-        -Windows `
-        -EnableAutoUpdate `
-        -ProvisionVMAgent
-   $vm = Set-AzureRmVMSourceImage `
-        -VM $vm `
-        -PublisherName MicrosoftWindowsServer `
-        -Offer WindowsServer `
-        -Skus 2016-Datacenter `
-        -Version latest
-   $vm = Set-AzureRmVMOSDisk `
-        -VM $vm `
-        -Name myOsDisk$i `
-        -DiskSizeInGB 128 `
-        -CreateOption FromImage `
-        -Caching ReadWrite
-   $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-   New-AzureRmVM `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -VM $vm
-}
-
+$cred = Get-Credential
 ```
 
-Demora alguns minutos para criar e configurar ambas as VMs. Quando tiver terminado, você terá duas máquinas virtuais distribuídas entre o hardware subjacente. 
+Agora crie duas VMs com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) no conjunto de disponibilidade.
 
-Se você verificar o conjunto de disponibilidade no portal acessando Grupos de Recursos > myResourceGroupAvailability > myAvailabilitySet, você deve ver como as VMs estão distribuídas entre os 2 domínios de atualização e de falha.
+```azurepowershell-interactive
+for ($i=1; $i -le 2; $i++)
+{
+    New-AzureRmVm `
+        -ResourceGroupName "myResourceGroupAvailability" `
+        -Name "myVM$i" `
+        -Location "East US" `
+        -VirtualNetworkName "myVnet" `
+        -SubnetName "mySubnet" `
+        -SecurityGroupName "myNetworkSecurityGroup" `
+        -PublicIpAddressName "myPublicIpAddress$i" `
+        -AvailabilitySetName "myAvailabilitySet" `
+        -Credential $cred
+}
+```
+
+O parâmetro `-AsJob` cria a VM como uma tarefa em segundo plano, para que os prompts do PowerShell sejam exibidos de volta para você. Você pode exibir os detalhes de trabalhos em segundo plano com o cmdelt `Job`. Demora alguns minutos para criar e configurar ambas as VMs. Quando tiver terminado, você terá duas máquinas virtuais distribuídas entre o hardware subjacente. 
+
+Se você verificar o conjunto de disponibilidade no portal acessando Grupos de Recursos > myResourceGroupAvailability > myAvailabilitySet, você deve ver como as VMs estão distribuídas entre os dois domínios de atualização e de falha.
 
 ![Conjunto de disponibilidade no portal](./media/tutorial-availability-sets/fd-ud.png)
 
@@ -183,8 +111,8 @@ Você pode adicionar posteriormente outras VMs ao conjunto de disponibilidade, m
 
 ```azurepowershell-interactive
 Get-AzureRmVMSize `
-   -AvailabilitySetName myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability  
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -AvailabilitySetName "myAvailabilitySet"
 ```
 
 ## <a name="check-azure-advisor"></a>Verificar o Assistente do Azure 

@@ -1,6 +1,6 @@
 ---
-title: Controles no acesso condicional do Azure Active Directory | Microsoft Docs
-description: Saiba como funcionam os controles no acesso condicional do Active Directory do Azure.
+title: Controles de acesso no acesso condicional do Azure Active Directory | Microsoft Docs
+description: Saiba como os controles de acesso no acesso condicional do Azure Active Directory funcionam.
 services: active-directory
 keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
 documentationcenter: 
@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Controles no acesso condicional ao Azure Active Directory 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controles de acesso no acesso condicional do Azure Active Directory 
 
-Com o [acesso condicional do Azure AD (Azure Active Directory)](active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Em uma política de acesso condicional, você define a resposta ("faça isto") para uma condição específica ("quando isto acontecer"). No contexto de acesso condicional, 
+Com o [acesso condicional do Azure AD (Azure Active Directory)](active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Em uma política de acesso condicional, você define a resposta ("faça isso") para a razão ao disparar sua política ("quando isso acontece"). 
 
-- "**Quando isso acontecer**" chama-se **instrução de condição**
+![Controle](./media/active-directory-conditional-access-controls/10.png)
 
-- "**, faça isso**" chama-se **controles**
 
-![Controle](./media/active-directory-conditional-access-controls/11.png)
+No contexto de acesso condicional, 
+
+- "**Quando isso acontece**" é chamado de **condições**
+
+- "**Então faça isso**" é chamado de **controles de acesso**
+
 
 A combinação de uma instrução de condição com seus controles representa uma política de acesso condicional.
 
-![Controle](./media/active-directory-conditional-access-controls/12.png)
+![Controle](./media/active-directory-conditional-access-controls/61.png)
 
 Cada controle é um requisito que deve ser atendido pela pessoa ou sistema que está entrando, ou uma restrição sobre que o usuário poderá fazer depois de entrar. 
 

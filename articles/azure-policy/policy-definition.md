@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -66,14 +66,11 @@ Todos os exemplos de modelo do Azure Policy estão em [Modelos para o Azure Poli
 
 ## <a name="mode"></a>Mode
 
-Recomendamos que você defina `mode` como `all` para que uma atribuição de política avalie todos os grupos e tipos de recursos. Você pode ver um exemplo de uma definição de política que impõe marcas em um grupo de recursos em [Permitir imagem personalizada da VM de um Grupo de Recursos](scripts/allow-custom-vm-image.md).
+O **modo** determina quais tipos de recursos serão avaliados para uma política. Os modos suportados são:
+* `all`: avaliar grupos de recursos e todos os tipos de recursos 
+* `indexed`: avaliar apenas os tipos de recursos que oferecem suporte a marcas e local
 
-Quando você define como **all**, os grupos de recursos e todos os tipos de recurso são avaliados para a política. O portal usa **all** para todas as políticas. Se usar o PowerShell ou a CLI do Azure, você precisará especificar o parâmetro `mode` e defini-lo como **all**.
-
-Todas as definições de política criadas usando o portal de usam um modo `all`, porém, se você quiser usar o PowerShell ou a CLI do Azure, precisará especificar o parâmetro `mode` e defini-lo como `all`.
-
-Se você definir o modo como `indexed`, a atribuição de política será avaliada apenas em tipos de recursos que dão suporte a marcas e a local.
-
+É recomendável definir o **modo** para `all`. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o parâmetro do **modo** e defini-lo para `all`. 
 
 ## <a name="parameters"></a>parâmetros
 
@@ -265,6 +262,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 | Microsoft.Compute/virtualMachines/imageVersion | Defina a versão da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Defina o URI do vhd. |
 | Microsoft.Compute/virtualMachines/sku.name | Defina o tamanho da máquina virtual. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Defina a ID do conjunto de disponibilidade para a máquina virtual. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -335,6 +333,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Defina se o serviço criptografa os dados conforme eles são armazenados no serviço de armazenamento de arquivos. |
 | Microsoft.Storage/storageAccounts/sku.name | Defina o nome da SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Configurado para permitir somente o tráfego https para o serviço de armazenamento. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Verifique se o Ponto de Extremidade de Serviço de Rede Virtual está habilitado. |
 
 ## <a name="initiatives"></a>Iniciativas
 

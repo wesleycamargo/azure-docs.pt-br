@@ -26,5 +26,5 @@ Se ainda não tiver adicionado o aplicativo Web como um ponto de extremidade do 
    
    Depois que a configuração estiver concluída, o nome do domínio personalizado será listado na seção **nomes de domínio** de seu aplicativo Web.
 
-Nesse ponto, você deve ser capaz de inserir o nome de domínio do Gerenciador de Tráfego no navegador e ver se ele te leva com êxito ao aplicativo Web.
+Neste ponto, é possível inserir o nome de domínio do Gerenciador de Tráfego no navegador e verificar se é conduzido com êxito ao aplicativo Web.
 

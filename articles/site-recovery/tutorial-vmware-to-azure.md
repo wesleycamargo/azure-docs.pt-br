@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3d9248d2501c7fea0492bad2687b6bdfb0b903e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação de desastre de VMs VMware locais para o Azure
 
@@ -38,7 +38,7 @@ Antes de começar, é aconselhável [examinar a arquitetura](concepts-vmware-to-
 1. Em **cofres dos Serviços de Recuperação**, clique no nome do cofre, **ContosoVMVault**.
 2. Em **Introdução**, clique em Site Recovery. A seguir, clique em **Preparar Infraestrutura**.
 3. Em **Objetivo de proteção** > **Onde os seus computadores estão localizados**, selecione **local**.
-4. Em **Para qual deseja replicar os seus computadores?, selecione **Para o Azure**.
+4. Em **Para qual deseja replicar os seus computadores**, selecione **Para o Azure**.
 5. Em **Os seus computadores estão virtualizados?**, selecione **Sim, com o Hipervisor do VMware vSphere**. Em seguida, clique em **OK**.
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
@@ -104,7 +104,7 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, faça-o an
 1. No assistente de gerenciamento do servidor de configuração > **Configurar conectividade**, selecione a NIC que receberá o tráfego de replicação. Em seguida, clique em **Salvar**. Você não pode alterar essa configuração após ela ter sido definida.
 2. Em **Selecionar cofre de Serviços de Recuperação**, selecione sua assinatura do Azure, o grupo de recursos relevantes e o cofre.
 3. Em **Instalar software de terceiros**, aceite o contrato de licença e clique em **Baixar e instalar**, para instalar o MySQL Server.
-4. Clique em **Instalar VMware PowerLCI**. Verifique se todas as janelas de navegador estão fechadas antes de fazer isso. Clique em **Continuar**
+4. Clique em **Instalar VMware PowerCLI**. Verifique se todas as janelas de navegador estão fechadas antes de fazer isso. Clique em **Continuar**
 5. Em **Validar configuração de dispositivo**, os pré-requisitos serão verificados antes de você poder continuar.
 6. Em **Configurar vCenter Server/vSphere ESXi Server**, especifique o FQDN ou endereço IP do vCenter Server ou host vSphere, nos quais as máquinas virtuais que você deseja replicar estão localizadas. Especifique a porta na qual o servidor está escutando e um nome amigável a ser usado para o VMware Server no cofre.
 7. Especifique as credenciais que serão usadas pelo servidor de configuração para se conectar ao VMware Server. O Site Recovery usa essas credenciais para descobrir automaticamente as VMs do VMware que estão disponíveis para replicação. Clique em **Adicionar** e depois em **Continuar**.

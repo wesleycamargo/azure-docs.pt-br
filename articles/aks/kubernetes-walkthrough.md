@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: abefbf94c9e28b21def15e6179b7dbd464c43644
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f0ed49c94dc83624b5f6f1ee0a4dcdff9284d5a5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implantar um cluster do AKS (Serviço de Contêiner do Azure)
 
@@ -63,10 +63,10 @@ Saída:
 
 ## <a name="create-aks-cluster"></a>Criar cluster AKS
 
-O exemplo a seguir cria um cluster chamado *myK8sCluster* com um nó.
+O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 Após alguns minutos, o comando é concluído e retorna informações formatadas em JSON sobre o cluster.
@@ -85,7 +85,7 @@ az aks install-cli
 Para configurar o kubectl e se conectar ao cluster Kubernetes, execute o comando a seguir. Esta etapa baixa credenciais e configura a CLI de Kubernetes para usá-las.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Para verificar a conexão ao seu cluster, use o comando [kubectl get][kubectl-get] para retornar uma lista de nós do cluster.
@@ -98,7 +98,7 @@ Saída:
 
 ```
 NAME                          STATUS    ROLES     AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 ```
 
 ## <a name="run-the-application"></a>Executar o aplicativo
@@ -210,7 +210,20 @@ Agora você pode navegar para o endereço IP externo a fim de ver o aplicativo A
 
 ![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## <a name="open-kubernetes-dashboard"></a>Abrir painel do Kubernetes
+
+A CLI do Azure também pode ser usada para configurar uma conexão com o painel de Kubernetes. Para fazer isso, use o comando [az aks browse][az-aks-browse].
+
+```azurecli-interactive
+az aks browse --resource-group myResourceGroup --name myAKSCluster
+```
+
+Quando executado, um navegador é aberto para o painel Kubernetes.
+
+![Painel do Kubernetes](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
+
 ## <a name="delete-cluster"></a>Excluir cluster
+
 Quando o cluster não for mais necessário, você poderá usar o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
 
 ```azurecli-interactive
@@ -241,6 +254,7 @@ Para saber mais sobre o AKS e percorrer um código completo de exemplo de implan
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete

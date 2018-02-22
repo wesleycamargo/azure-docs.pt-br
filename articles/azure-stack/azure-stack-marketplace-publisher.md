@@ -3,8 +3,8 @@ title: Use o Kit de ferramentas do Marketplace para criar e publicar itens do ma
 description: "Aprenda a criar rapidamente itens do marketplace com a publicação do Kit de ferramentas"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Adicionar itens do marketplace usando a ferramenta de publicação
 Adicionando seu conteúdo para o [Azure Marketplace de pilha](azure-stack-marketplace.md) torna as soluções disponíveis para você e seus locatários para implantação.  O Kit de ferramentas do Marketplace cria arquivos de pacotes do Marketplace do Azure (.azpkg) com base em seus modelos de IaaS do Azure Resource Manager ou extensões de VM.  Você também pode usar o Kit de ferramentas do Marketplace para publicar arquivos .azpkg, criada com a ferramenta ou usando [manual](azure-stack-create-and-publish-marketplace-item.md) etapas.  Este tópico orienta você baixar a ferramenta, criando um item do marketplace com base em um modelo de VM e, em seguida, publicando esse item para a pilha do Azure Marketplace.     
@@ -70,9 +71,9 @@ Nesta seção, você pode publicar o item do marketplace para o Azure Marketplac
 
 1.  O assistente requer informações para publicar sua solução:
     
-    |Campo|Descrição|
+    |Campo|DESCRIÇÃO|
     |-----|-----|
-    | Nome do administrador de serviço | Conta de administrador de serviço.  Exemplo:ServiceAdmin@mydomain.onmicrosoft.com |
+    | Nome do administrador de serviço | Conta de administrador de serviço.  Exemplo: ServiceAdmin@mydomain.onmicrosoft.com |
     | Senha | Senha da conta de administrador de serviço. |
     | Ponto de extremidade de API | Ponto de extremidade do Gerenciador de recursos do Azure de pilha do Azure.  Exemplo: management.local.azurestack.external |
 2.  Clique em **publicar** e o log de publicação é exibido.
@@ -86,12 +87,12 @@ O Kit de ferramentas do Marketplace inclui um *solution.parameters.ps1* você po
 
 
 ## <a name="support-files"></a>Arquivos de suporte
-| Descrição | Amostra |
+| DESCRIÇÃO | Amostra |
 | ----- | ----- |
-| ícone de PNG 40 x 40 | ![](./media/azure-stack-marketplace-publisher/image1.png) |
+| 40x40 .png icon | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | ícone do x 90 a 90. PNG | ![](./media/azure-stack-marketplace-publisher/image2.png) |
 | ícone do 115 x 115. PNG | ![](./media/azure-stack-marketplace-publisher/image3.png) |
-| ícone do 255 x 115. PNG | ![](./media/azure-stack-marketplace-publisher/image4.png) |
+| 255x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image4.png) |
 | 533, 324. PNG miniatura | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
 

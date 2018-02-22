@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Core e Java. Neste tutorial, vamos ver como criar um aplicativo para Linux e compilar um serviço usando C# no .NET Core 2.0.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar, verifique se você [configurar o ambiente de desenvolvimento Linux](service-fabric-get-started-linux.md). Se você estiver usando Mac OS X, poderá [configurar um ambiente de uma caixa do Linux em uma máquina virtual usando Vagrant](service-fabric-get-started-mac.md).
 
 Você também desejará instalar a [CLI do Service Fabric](service-fabric-cli.md)
@@ -40,10 +40,18 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
 
 1. Instalar o nodejs e o NPM em seu computador
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (suporte à visualização do Service Fabric)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. Instalar o gerador de modelos [Yeoman](http://yeoman.io/) em seu computador a partir do NPM
 
   ```bash
@@ -118,11 +126,6 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas:
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
 2. Execute o `yo azuresfcsharp:AddService`
-
-## <a name="migrating-from-projectjson-to-csproj"></a>Migração do project.json para o .csproj
-1. Executar 'dotnet migrar' no diretório raiz do projeto migrará todos os project.json para o formato csproj.
-2. Atualize as referências de projeto de acordo com os arquivos csproj em arquivos de projeto.
-3. Atualize os nomes de arquivo de projeto para arquivos csproj em build.sh.
 
 ## <a name="next-steps"></a>Próximas etapas
 

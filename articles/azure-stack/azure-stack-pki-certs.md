@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública da pilha do Azure
 A pilha do Azure tem uma rede de infraestrutura pública usando externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, máquinas virtuais do locatário. Certificados PKI com os nomes DNS apropriados para esses pontos de extremidade do Azure pilha infraestrutura pública são necessários durante a implantação da pilha do Azure. Este artigo fornece informações sobre:
@@ -33,7 +33,7 @@ A pilha do Azure tem uma rede de infraestrutura pública usando externamente ace
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 A lista a seguir descreve os requisitos de certificado que são necessários para implantar o Azure pilha: 
 - Certificados devem ser emitidos por uma autoridade de certificação interna ou uma autoridade de certificação pública. Se uma autoridade de certificação pública for usada, ela deve ser incluída na imagem base do sistema operacional como parte do programa de autoridade de raiz confiável do Microsoft. Você pode encontrar a lista completa aqui: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- O certificado pode ser um certificado curinga único que abrangem todos os espaços de nome no campo nome alternativo da entidade (SAN). Como alternativa, você pode usar certificados individuais usando caracteres curinga para pontos de extremidade, como armazenamento e chave de cofre onde eles são necessários. 
+- O certificado pode ser um certificado curinga único que abrangem todos os espaços de nome no campo nome alternativo da entidade (SAN). Como alternativa, você pode usar certificados individuais usando caracteres curinga para pontos de extremidade como o acs e o Cofre de chaves em que eles são necessários. 
 - O algoritmo de assinatura de certificado não pode ser SHA1, ele deve ser mais forte. 
 - O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação da pilha do Azure. 
 - O arquivo pfx de certificado deve ter um valor de "Assinatura Digital" e "KeyEncipherment" em seu campo "Key Usage".
