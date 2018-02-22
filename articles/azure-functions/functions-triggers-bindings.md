@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a122271b5fdffd9db33a7dca5908e15f002041d7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -484,6 +484,12 @@ No C#, e em outras linguagens .NET, você pode usar um padrão de associação o
 
 O esquema de arquivo *function.json* está disponível em [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
+## <a name="handling-binding-errors"></a>Tratamento de erros de associação
+
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+
+Para obter links de todos os tópicos de erro relevantes para os vários serviços compatíveis com as Funções, consulte a seção [Códigos de erro de associação](functions-bindings-error-pages.md#binding-error-codes) do tópico de visão geral [Tratamento de erros das Funções do Azure](functions-bindings-error-pages.md).  
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre uma associação específica, consulte os artigos a seguir:
@@ -495,7 +501,7 @@ Para saber mais sobre uma associação específica, consulte os artigos a seguir
 - [Armazenamento de tabelas](functions-bindings-storage-table.md)
 - [Hub de Evento](functions-bindings-event-hubs.md)
 - [Barramento de Serviço](functions-bindings-service-bus.md)
-- [Banco de dados do Azure Cosmos](functions-bindings-cosmosdb.md)
+- [Azure Cosmos DB](functions-bindings-cosmosdb.md)
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)

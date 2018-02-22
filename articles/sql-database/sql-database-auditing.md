@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 A auditoria do banco de dados SQL do Azure acompanha eventos do banco de dados e grava-os em um log de auditoria em sua conta de armazenamento do Azure. A auditoria também:
@@ -39,8 +39,10 @@ A auditoria do banco de dados SQL do Azure acompanha eventos do banco de dados e
 
 Você pode configurar a auditoria para diferentes tipos de categorias de evento, conforme explicado na seção [Configurar a auditoria do banco de dados](#subheading-2).
 
-Os logs de auditoria são gravados no Armazenamento de blobs do Azure em sua assinatura do Azure.
-
+> [!IMPORTANT]
+> Os logs de auditoria são gravados nos **Blobs Acrescentados** em um armazenamento de Blob do Azure em sua assinatura do Azure.
+>
+> Atualmente, o **armazenamento na VNet** **não tem suporte**.
 
 ## <a id="subheading-8"></a>Definir a política de auditoria no nível do servidor versus no nível do banco de dados
 
@@ -80,7 +82,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
    >Para aproveitar ao máximo os modelos de relatórios de auditoria, use a mesma conta de armazenamento para todos os bancos de dados auditados.
 
     <a id="storage-screenshot"></a> ![Painel de navegação][4]
-6. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio do PowerShell ou da API REST. 
+6. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio do PowerShell ou da API REST.
 7. Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais informações, consulte [Introdução à detecção de ameaças](sql-database-threat-detection-get-started.md).
 8. Clique em **Salvar**.
 

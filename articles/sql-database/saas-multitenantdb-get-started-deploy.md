@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
 
-Neste tutorial, você pode implantar e explorar um aplicativo de banco de dados multilocatário de SaaS de exemplo chamado Wingtip tíquetes. O aplicativo foi projetado para demonstrar os recursos do Banco de dados SQL do Azure que habilitam de forma simples cenários SaaS.
+Neste tutorial, você pode implantar e explorar um aplicativo de SaaS multilocatário de exemplo chamado Wingtip Tickets. O aplicativo Wingtip Tickets foi projetado para demonstrar os recursos do Banco de dados SQL do Azure que habilitam de forma simples cenários SaaS.
 
-Essa implementação de Wingtips usa um padrão de banco de dados multilocatário fragmentado. A fragmentação é pelo identificador do locatário. Dados de locatário são distribuídos para um determinado banco de dados de acordo com os valores de identificador de locatário. Independentemente de quantos locatários contém qualquer determinado banco de dados, todos os bancos de dados são multilocatários no sentido de que os esquemas de tabela incluem um identificador de locatário. 
+Essa implementação do aplicativo Wingtip Tickets usa um padrão de banco de dados multilocatário fragmentado. A fragmentação é pelo identificador do locatário. Dados de locatário são distribuídos para um determinado banco de dados de acordo com os valores de identificador de locatário. 
 
 Esse padrão de banco de dados permite que você armazene um ou mais locatários em cada fragmento ou banco de dados. Você pode otimizar o custo mais baixo tendo cada banco de dados a ser compartilhado por vários locatários. Ou você pode otimizar para isolamento, fazer com que cada banco de dados armazenar somente um locatário. Sua escolha de otimização pode ser feita independentemente para cada locatário específico. A opção pode ser feita quando o locatário é armazenado primeiro, ou você pode mudar de ideia mais tarde. O aplicativo é projetado para funcionar bem em qualquer modo.
 
 #### <a name="app-deploys-quickly"></a>Aplicativo implantado rapidamente
 
-A seção de implantação a seguir fornece o botão azul **Implantar no Azure**. Quando o botão for pressionado, o aplicativo Wingtip é totalmente implantado um cinco minutos depois. O aplicativo Wingtip é executado na nuvem do Azure e usa o banco de dados do SQL Azure. Wingtip é implantado em sua assinatura do Azure. Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo.
+O aplicativo é executado na nuvem do Azure e usa o banco de dados do SQL Azure. A seção de implantação a seguir fornece o botão azul **Implantar no Azure**. Quando o botão é pressionado, o aplicativo é totalmente implantado na assinatura do Azure em cinco minutos. Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo.
 
 O aplicativo é implantado com dados para três locatários de exemplo. Os locatários são armazenados juntos em um banco de dados de vários locatários.
 
@@ -40,7 +40,7 @@ Qualquer pessoa pode baixar o código fonte do C# e do PowerShell para Wingtip T
 #### <a name="learn-in-this-tutorial"></a>Neste tutorial, você aprende
 
 > [!div class="checklist"]
-> - Como implantar o aplicativo SaaS do Wingtip.
+> - Como implantar o aplicativo SaaS Wingtip Tickets.
 > - Onde obter o código-fonte do aplicativo e scripts de gerenciamento.
 > - Sobre os servidores e bancos de dados que constituem o aplicativo.
 > - Quantos locatários são mapeados para seus dados com o *catálogo*.

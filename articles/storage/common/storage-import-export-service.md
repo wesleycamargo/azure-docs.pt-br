@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 56cc2a82e7957e677f96c638f7e3e903a3b717e1
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento do Azure
 Neste artigo, apresentamos instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para transferir com segurança grandes quantidades de dados para o armazenamento de Blobs e do Azure e Arquivos do Azure enviando unidades de disco para um data center do Azure. Este serviço também pode ser usado para transferir dados do armazenamento do Azure para as discos rígidos e enviá-los aos seu site local. Os dados de uma única unidade de disco SATA interna podem ser importados para o armazenamento de Blobs do Azure ou para o os Arquivos do Azure. 
@@ -299,7 +299,7 @@ Quando você envia unidades do Azure, você paga pelo custo de envio para a tran
 
 **Custos de transação**
 
-Não há custos de transação ao importar dados para o Armazenamento do Azure. Os encargos de saída padrão são aplicáveis quando dados são exportados do armazenamento de Blobs. Para obter mais detalhes sobre os custos da transação, consulte [Preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Não há custos de transação além dos custos de transação armazenamento padrão ao importar dados para o Armazenamento do Azure. Os encargos de saída padrão são aplicáveis quando dados são exportados do armazenamento de Blobs. Para obter mais detalhes sobre os custos da transação, consulte [Preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 

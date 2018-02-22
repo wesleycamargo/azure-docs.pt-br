@@ -11,15 +11,18 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado 
 
 Quando você cria uma instância de Gerenciamento de API (APIM), o Azure a atribui a um subdomínio do azure-api.net (por exemplo, `apim-service-name.azure-api.net`). No entanto, você também pode expor seus pontos de extremidade do APIM usando seu próprio nome de domínio, como **contoso.com**. Este tutorial mostra como mapear um nome DNS personalizado existente para pontos de extremidade expostos por uma instância de Gerenciamento de API do Azure.
+
+> [!WARNING]
+> Clientes que desejam usar a anexação de certificado para aumentar a segurança de seus aplicativos devem usar um nome de domínio personalizado > e o certificado que gerenciam, não o padrão. Clientes que fixam o certificado padrão > assumirão uma dependência forte das propriedades do certificado que não controlam, o que não é uma prática recomendada.
 
 ## <a name="prerequisites"></a>pré-requisitos
 

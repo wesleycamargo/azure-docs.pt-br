@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiar dados para ou do Azure Data Lake Store usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Para usar a autenticação de entidade de serviço, registre uma entidade de apl
 
 >[!IMPORTANT]
 > Verifique se você concedeu a permissão apropriada à entidade de serviço no Azure Data Lake Store:
->- **Como origem**, conceda pelo menos a permissão de acesso a dados de **Leitura + Execução** para listar e copiar o conteúdo de uma pasta ou a permissão de **Leitura** para copiar um único arquivo. Nenhum requisito de controle de acesso no nível da conta (IAM).
->- **Como coletor**, conceda pelo menos a permissão de acesso a dados de **Gravação + Execução** para criar itens filho na pasta. E, se você usar o Azure IR para copiar (tanto a origem quanto o coletor estão na nuvem), para permitir ao Data Factory detectar a região do Data Lake Store, conceda pelo menos a função **Leitor** no controle de acesso da conta (IAM). Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir:
+>- **Como fonte**, no Data explorer -> Access, conceder pelo menos permissão **leitura + Execução** para listar e copie os arquivos na pasta/subpastas, ou permissão de **Leitura** para copiar um único arquivo e optar por adicionar como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
+>- **Como o coletor**, no Data explorer -> Access, conceda pelo menos a permissão **Gravar + Executar** para criar itens filho na pasta e escolha para adicionar como **permissão de acesso e entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
 
 Há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | sim |
-| servicePrincipalKey | Especifique a chave do aplicativo. Marque esse campo como uma SecureString. | sim |
+| servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
 
 **Exemplo:**
 
@@ -114,12 +114,12 @@ Uma data factory pode ser associada a uma [identidade de serviço gerenciada](da
 Para usar a autenticação de identidade do serviço gerenciado (MSI):
 
 1. [Recuperar a identidade do serviço de data factory](data-factory-service-identity.md#retrieve-service-identity) copiando o valor de "SERVIÇO DE IDENTIDADE ID DO APLICATIVO" gerado junto com seu alocador.
-2. Conceda o acesso de identidade do serviço do Data Lake Store da mesma maneira que faria para a entidade de serviço. Para etapas detalhadas, veja [Autenticação Serviço para serviço - Atribuir o aplicativo do Azure AD ao arquivo ou pasta da conta do Azure Data Lake Store](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. Conceda o acesso de identidade do serviço do Data Lake Store da mesma maneira que faria para a entidade de serviço abaixo das notas.
 
 >[!IMPORTANT]
 > Verifique se você concedeu a permissão apropriada à identidade de serviço do data factory no Azure Data Lake Store:
->- **Como origem**, conceda pelo menos a permissão de acesso a dados de **Leitura + Execução** para listar e copiar o conteúdo de uma pasta ou a permissão de **Leitura** para copiar um único arquivo. Nenhum requisito de controle de acesso no nível da conta (IAM).
->- **Como coletor**, conceda pelo menos a permissão de acesso a dados de **Gravação + Execução** para criar itens filho na pasta. E, se você usar o Azure IR para copiar (tanto a origem quanto o coletor estão na nuvem), para permitir ao Data Factory detectar a região do Data Lake Store, conceda pelo menos a função **Leitor** no controle de acesso da conta (IAM). Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir:
+>- **Como fonte**, no Data explorer -> Access, conceder pelo menos permissão **leitura + Execução** para listar e copie os arquivos na pasta/subpastas, ou permissão de **Leitura** para copiar um único arquivo e optar por adicionar como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
+>- **Como o coletor**, no Data explorer -> Access, conceda pelo menos a permissão **Gravar + Executar** para criar itens filho na pasta e escolha para adicionar como **permissão de acesso e entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
 
 No Azure Data Factory, você não precisa especificar nenhuma propriedade além das informações do Data Lake Store gerais no serviço vinculado.
 
@@ -197,7 +197,7 @@ Para copiar dados do Azure Data Lake Store, defina o tipo de fonte na atividade 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureDataLakeStoreSource** |sim |
-| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando recursivo for definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, uma pasta/subpasta vazia não será copiado/criado no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
+| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
 
 **Exemplo:**
 

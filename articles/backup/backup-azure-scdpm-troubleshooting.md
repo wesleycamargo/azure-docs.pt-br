@@ -14,64 +14,84 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: pullabhk;markgal;adigan
-ms.openlocfilehash: 2244a39217f54eb5906d05990f19fc8ca2fdeb0e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bf4ea676c5309bb732f6a4ce71849606b4d2e4df
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Solucionar Problemas do System Center Data Protection Manager
 
-Você pode encontrar as notas de versão mais recente do SC DPM [aqui](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016).
-A matriz de suporte de proteção podem ser encontrada [aqui](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+Este artigo descreve soluções para problemas que você pode encontrar ao usar o Data Protection Manager.
 
-## <a name="replica-is-inconsistent"></a>A réplica está inconsistente
+Para obter as notas de versão mais recentes para o System Center Data Protection Manager, veja a [documentação do System Center](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Você pode aprender mais sobre o suporte para o Data Protection Manager [nesta matriz](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
-Esse erro pode ocorrer por vários motivos, como - falha do trabalho de criação de réplica, problemas com o diário de alterações, erros de bitmap de filtro de nível de volume, computador de origem foi desligado inesperadamente, estouro do log de sincronização ou a réplica está inconsistente realmente. Siga estas etapas para resolver esses problemas:
-- Para remover o status inconsistente, execute a verificação de consistência manualmente ou agende a verificação de consistência diária.
-- Verifique se você está usando a versão mais recente do servidor MAB ou System Center DPM
-- Certifique-se de que a verificação de consistência automática está habilitada
-- Tente reiniciar os serviços do Prompt de comando ("net stop dpmra" seguido de "net start dpmra")
-- Verifique se os requisitos de largura de banda e conectividade de rede são atendidos
-- Verifique se o computador de origem foi desligado inesperadamente
-- Verifique se o disco está íntegro e há espaço suficiente para a réplica
-- Certifique-se de que nenhum trabalho de backup duplicado é executado simultaneamente
 
-## <a name="online-recovery-point-creation-failed"></a>Falha na Criação do Ponto de Recuperação Online
+## <a name="error-replica-is-inconsistent"></a>Erro: a réplica é inconsistente
 
-Siga estas etapas para resolver esses problemas:
-- Verifique se você está na versão mais recente do Agente de Backup do Azure
-- Tente criar manualmente um ponto de recuperação na área de tarefa proteção
-- Certifique-se de que você execute a verificação de consistência na fonte de dados
-- Verifique se os requisitos de largura de banda e conectividade de rede são atendidos
-- Dados de réplica estão em estado inconsistente. Criar um ponto de recuperação de disco dessa fonte de dados
-- Verifique se a réplica está presente e não ausente
-- A réplica tem espaço suficiente para criar o diário de USN
+Uma réplica pode ser inconsistente pelos seguintes motivos:
+- O trabalho de criação da réplica falha.
+- Há problemas com o diário de alterações.
+- O bitmap do filtro de nível de volume contém erros.
+- O computador de origem desliga inesperadamente.
+- O log de sincronização estoura.
+- A réplica está realmente inconsistente.
 
-## <a name="unable-to-configure-protection"></a>Não é possível configurar a proteção
+Para resolver esse problema, faça o seguinte:
+- Para remover o status inconsistente, execute a verificação de consistência manualmente ou agende uma verificação de consistência diária.
+- Verifique se você está usando a versão mais recente do Servidor de Backup do Microsoft Azure e do Data Protection Manager.
+- Verifique se a configuração **Consistência Automática** está habilitada.
+- Tente reiniciar os serviços do prompt de comando. Use o comando `net stop dpmra` seguido de `net start dpmra`.
+- Verifique se você está cumprindo os requisitos de largura de banda e conectividade de rede.
+- Verifique se o computador de origem desligou inesperadamente.
+- Verifique se o disco está íntegro e se há espaço suficiente para a réplica.
+- Confirme que nenhum trabalho de backup duplicado é executado simultaneamente.
 
-Este erro aparece quando o servidor DPM não pode entrar em contato com o servidor protegido. Siga estas etapas para resolver esses problemas:
-- Verifique se você está na versão mais recente do Agente de Backup do Azure
-- Verifique se há conectividade (rede/firewall/proxy) entre o servidor DPM e o servidor protegido
-- Se você estiver protegendo o SQL Server, certifique-se de que NT AUTHORITY\SYSTEM tenha sysadmin habilitado nas Propriedades de Logon
+## <a name="error-online-recovery-point-creation-failed"></a>Erro: falha na criação do ponto de recuperação online
 
-## <a name="this-server-is-not-registered-to-the-vault-specified-by-the-vault-credential"></a>Este servidor não está registrado no cofre especificado pelas credenciais de cofre
+Para resolver esse problema, faça o seguinte:
+- Verifique se você está usando a versão mais recente do agente de Backup do Azure.
+- Tente criar manualmente um ponto de recuperação na área de tarefa proteção.
+- Não deixe de executar a verificação de consistência na fonte de dados.
+- Verifique se você está cumprindo os requisitos de largura de banda e conectividade de rede.
+- Quando os dados de réplica estão em um estado inconsistente, crie um ponto de recuperação de disco dessa fonte de dados.
+- Verifique se a réplica está presente e não ausente.
+- Verifique se a réplica tem espaço suficiente para criar o diário de USN (números de sequência de atualização).
 
-Este erro aparece quando o arquivo de credencial do cofre selecionado não pertence ao cofre dos Serviços de Recuperação associado ao Servidor de Backup do Azure / System Center DPM em que ocorre a tentativa de recuperação. Siga estas etapas para resolver esses problemas:
-- Faça o download do arquivo de credencial de cofre do cofre dos Serviços de Recuperação em que o Servidor de Backup do Azure / System Center DPM está registrado.
-- Tente registrar o servidor com o cofre usando o arquivo de credencial do cofre baixado mais recente.
+## <a name="error-unable-to-configure-protection"></a>Erro: não é possível configurar a proteção
 
-## <a name="either-the-recoverable-data-is-not-available-or-the-selected-server-is-not-a-dpm-server"></a>Os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor DPM
-Este erro aparece quando não há outros Servidores de Backup do Azure registrados no cofre dos Serviços de Recuperação ou os servidores ainda não carregaram os metadados ou o servidor selecionado é não um Servidor de Backup do Azure / System Center DPM.
-- Se houver outros Servidores de Backup do Azure / System Center DPM registrados no cofre dos Serviços de Recuperação, verifique se o agente do Backup do Azure mais recente está instalado.
-- Se houver outros Servidores de Backup do Azure / System Center DPM registrados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno carregará os metadados de todos os backups protegidos para a nuvem. Os dados estarão disponíveis para recuperação.
+Esse erro ocorre quando o servidor do Data Protection Manager não é capaz de contatar o servidor protegido. 
 
-## <a name="the-encryption-passphrase-provided-does-not-match-with-passphrase-associated-with-the-following-server"></a>A senha de criptografia fornecida não corresponde à senha associada ao seguinte servidor
+Para resolver esse problema, faça o seguinte:
+- Verifique se você está usando a versão mais recente do agente de Backup do Azure.
+- Verifique se há conectividade (rede/firewall/proxy) entre o servidor do Data Protection Manager e o servidor protegido.
+- Se você estiver protegendo um SQL Server, verifique se a propriedade **Propriedades de Logon** > **NT AUTHORITY\SYSTEM** mostra a configuração **sysadmin** habilitada.
 
-> [!NOTE]
->Se você esqueceu/perder a senha de criptografia, há nenhuma opção para recuperar os dados. Sua única opção é regenerar a frase secreta e usar a criptografia de dados de backup futuros.
+## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Erro: servidor não registrado conforme especificado no arquivo de credencial de cofre
+
+Esse erro ocorre durante o processo de recuperação de dados do servidor do Data Protection Manager/Backup do Azure. O arquivo de credencial de cofre que é usado no processo de recuperação não pertence ao cofre dos Serviços de Recuperação para o servidor do Data Protection Manager/Backup do Azure.
+
+Para resolver esse problema, siga estas etapas:
+1. Faça o download do arquivo de credencial de cofre do cofre dos Serviços de Recuperação em que o servidor do Data Protection Manager/Backup do Azure está registrado.
+2. Tente registrar o servidor com o cofre usando o arquivo de credenciais do cofre baixado mais recentemente.
+
+## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Erro: não há dados recuperáveis ou o servidor selecionado não é um servidor do Data Protection Manager
+
+Esse erro ocorre pelos seguintes motivos:
+- Nenhum outro servidor do Data Protection Manager/Backup do Azure é registrado no cofre dos Serviços de Recuperação.
+- Os servidores ainda não carregaram os metadados.
+- O servidor selecionado não é um servidor do Data Protection Manager/Backup do Azure.
+
+Quando outros servidores do Data Protection Manager/Backup do Azure estão registrados no cofre dos Serviços de Recuperação, realize essas etapas para resolver o problema:
+1. Verifique se o agente do Backup do Azure mais recente está instalado.
+2. Depois de garantir que o agente mais recente está instalado, aguarde um dia antes de iniciar o processo de recuperação. O trabalho de backup noturno carrega os metadados de todos os backups protegidos para a nuvem. Os dados de backup ficam então disponíveis para recuperação.
+
+## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Erro: a senha de criptografia fornecida não corresponde à senha para o servidor
+
+Esse erro ocorre durante o processo de criptografia ao recuperar dados do servidor do Data Protection Manager/Backup do Azure. A senha de criptografia que é usada no processo de recuperação não corresponde à senha de criptografia do servidor. Como resultado, o agente não é capaz de descriptografar os dados e a recuperação falha.
+
+> [!IMPORTANT]
+> Se você esquecer ou perder a senha de criptografia, não haverá nenhum outro método para recuperar os dados. É a única opção gerar novamente a senha. Use a nova senha para criptografar dados de backup futuros.
 >
+> Quando você estiver recuperando dados, forneça sempre a mesma senha de criptografia associada ao servidor do Data Protection Manager/Backup do Azure. 
 >
-
-Este erro aparece quando a senha de criptografia usada no processo de criptografia de dados dos dados do Servidor de Backup do Azure / System Center DPM que estão sendo recuperados não corresponde à senha de criptografia fornecida. O agente não pode descriptografar os dados. Portanto, a recuperação falha. Siga estas etapas para resolver esses problemas:
-- Forneça exatamente a mesma senha de criptografia associada ao Servidor de Backup do Azure / System Center DPM cujos dados serão recuperados. 

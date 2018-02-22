@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurar a camada PremiumV2 para o Serviço de Aplicativo do Azure
 
-O novo tipo de preço **PremiumV2** fornece [VMs de série Dv2](../virtual-machines/windows/sizes-general.md#dv2-series), com processadores mais rápidos, armazenamento SSD e relação memória/núcleo duas vezes maior quando comparado ao tipo de preço **Standard**. Neste artigo, você aprenderá a criar um aplicativo na camada **PremiumV2** ou expandir para uma camada **PremiumV2**.
+O novo tipo de preço **PremiumV2** fornece processadores mais rápidos, armazenamento SSD e dobra o índice memória/núcleo dos tipos de preço existentes. Com a vantagem de ter um melhor desempenho, você pode economizar dinheiro executando seus aplicativos em menos instâncias. Neste artigo, você aprenderá a criar um aplicativo na camada **PremiumV2** ou expandir para uma camada **PremiumV2**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para expandir um aplicativo Web para **PremiumV2**, você precisa ter um aplicativo Web no Serviço de Aplicativo do Azure que é executado em um tipo de preço inferior a **PremiumV2**.
 
@@ -33,7 +33,7 @@ Para expandir um aplicativo Web para **PremiumV2**, você precisa ter um aplicat
 
 ## <a name="premiumv2-availability"></a>Disponibilidade de PremiumV2
 
-O tipo de preço PremiumV2 está atualmente disponível para o Serviço de Aplicativo somente em _Windows_. Ainda não há suporte para contêineres do Linux.
+O tipo de preço PremiumV2 está atualmente disponível para o Serviço de Aplicativo somente em _Windows_. Contêineres do Linux ainda não têm suporte.
 
 O PremiumV2 já está disponível na maioria das regiões do Azure e está em expansão. Para ver se ele está disponível em sua região, execute o comando da CLI do Azure a seguir no [Azure Cloud Shell](../cloud-shell/overview.md):
 
@@ -56,11 +56,11 @@ Escolha uma das opções de **PremiumV2** e clique em **Selecionar**.
 ![](media/app-service-configure-premium-tier/pick-premium-tier.png)
 
 > [!IMPORTANT] 
-> Se você não vê **P1V2**, **P2V2** e **P3V2** como opções, isso significa que **PremiumV2** não está disponível em sua região de preferência ou então que você está configurando um Plano do Serviço de Aplicativo do Linux, o qual não dá suporte ao **PremiumV2**.
+> Se você não vê **P1V2**, **P2V2** e **P3V2** como opções, isso significa que **PremiumV2** não está disponível em sua região de preferência ou que você está configurando um Plano do Serviço de Aplicativo do Linux, que não dá suporte ao **PremiumV2**.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Expandir um aplicativo existente para o tipo de preço PremiumV2
 
-Antes de escalonar um aplicativo existente para o tipo de preço **PremiumV2**, verifique se **PremiumV2** está disponível em sua região. Para obter informações, consulte [Disponibilidade do PremiumV2](#availability). Se ele não estiver disponível em sua região, consulte [Expandir de uma região sem suporte](#unsupported).
+Antes de escalonar um aplicativo existente para o tipo de preço **PremiumV2**, verifique se **PremiumV2** está disponível em sua região. Para obter informações, consulte [Disponibilidade do PremiumV2](#availability). Se ele não estiver disponível em sua região, veja [Expandir de uma região sem suporte](#unsupported).
 
 Dependendo do seu ambiente de hospedagem, a expansão poderá exigir etapas adicionais. 
 
@@ -74,21 +74,21 @@ Selecione um dos tamanhos de **PremiumV2** e, em seguida, clique em **Selecionar
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
-Se a operação for concluída com êxito, a página de visão geral do aplicativo mostrará que ele estará então em um tipo de preço **PremiumV2**.
+Se a operação for concluída com êxito, a página de visão geral do aplicativo mostrará que ele está no tipo de preço **PremiumV2**.
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
 ### <a name="if-you-get-an-error"></a>Se você obtiver um erro
 
-Alguns Planos de Serviço de Aplicativo não podem expandir para o tipo de preço PremiumV2. Se a operação de expansão apresentar um erro, será necessário um novo Plano do Serviço de Aplicativo para seu aplicativo.
+Alguns planos do Serviço de Aplicativo não podem expandir para o tipo de preço PremiumV2. Se a operação de expansão apresentar um erro, será necessário um novo Plano do Serviço de Aplicativo para seu aplicativo.
 
-Crie um Plano do Serviço de Aplicativo do _Windows_ no mesmo grupo de recursos e região que seu aplicativo do Serviço de Aplicativo existente. Siga as etapas em [Criar um aplicativo no tipo de preço PremiumV2](#create) para defini-lo no tipo de preço **PremiumV2**. Se desejado, use a mesma configuração de expansão do seu Plano do Serviço de Aplicativo existente (número de instâncias, dimensionamento automático e assim por diante).
+Crie um Plano do Serviço de Aplicativo do _Windows_ no mesmo grupo de recursos e região que seu aplicativo do Serviço de Aplicativo existente. Siga as etapas em [Criar um aplicativo no tipo de preço PremiumV2](#create) para defini-lo no tipo de preço **PremiumV2**. Se quiser, use a mesma configuração de expansão de seu plano do Serviço de Aplicativo existente (número de instâncias, dimensionamento automático e assim por diante).
 
 Abra sua página de aplicativo do Serviço de Aplicativo novamente. No painel de navegação à esquerda do seu Serviço de Aplicativo, selecione **Alterar Plano do Serviço de Aplicativo**.
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-Selecione o Plano do Serviço de Aplicativo que você acabou de criar.
+Selecione o plano do Serviço de Aplicativo que você criou.
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -98,14 +98,14 @@ Quando a operação de alteração for concluída, o aplicativo estará sendo ex
 
 ## <a name="scale-up-from-an-unsupported-region"></a>Expandir de uma região sem suporte
 
-Se seu aplicativo for executado em uma região em que **PremiumV2** ainda não estiver disponível, você poderá mover seu aplicativo para uma região diferente para aproveitar os benefícios do **PremiumV2**. Você tem duas opções:
+Se o aplicativo for executado em uma região em que **PremiumV2** ainda não estiver disponível, você poderá mover o aplicativo para uma região diferente para aproveitar os benefícios do **PremiumV2**. Você tem duas opções:
 
 - Crie um aplicativo no novo plano **PremiumV2** e então reimplante o código do aplicativo. Siga as etapas em [Criar um aplicativo no tipo de preço PremiumV2](#create) para defini-lo no tipo de preço **PremiumV2**. Se desejado, use a mesma configuração de expansão do seu Plano do Serviço de Aplicativo existente (número de instâncias, dimensionamento automático e assim por diante).
 - Se seu aplicativo já é executado em uma camada **Premium** existente, você pode clonar o seu aplicativo com todas as configurações do aplicativo, cadeias de conexão e configuração de implantação.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    Na página **Clonar aplicativo**, você pode criar um novo Plano do Serviço de Aplicativo na região desejada e especificar as configurações que você deseja clonar.
+    Na página **Clonar aplicativo**, você pode criar um plano do Serviço de Aplicativo na região desejada e especificar as configurações que deseja clonar.
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 

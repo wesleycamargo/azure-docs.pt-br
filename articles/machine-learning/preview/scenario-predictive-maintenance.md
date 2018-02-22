@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 21cf8201236224244e6ed34f91f9c5c601ab9a79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Cenário do mundo real de manutenção preditiva.
 
-O impacto do tempo de inatividade não agendado de um equipamento pode ser prejudicial para qualquer negócio. É essencial, portanto, manter os equipamentos de campo em execução para maximizar o uso e o desempenho e minimizar o tempo de inatividade não agendado e dispendioso. A identificação antecipada de problemas pode ajudar a alocar recursos de manutenção limitados de maneira mais econômica e a melhorar a qualidade e os processos da cadeia de fornecimento. 
+O impacto do tempo de inatividade não agendado de um equipamento pode ser prejudicial para qualquer negócio. É essencial manter os equipamentos de campo em execução para maximizar o uso e o desempenho e minimizar o tempo de inatividade não agendado e dispendioso. A identificação antecipada de problemas pode ajudar a alocar recursos de manutenção limitados de maneira mais econômica e a melhorar a qualidade e os processos da cadeia de fornecimento. 
 
 Esse cenário explora um [conjunto de dados simulados em escala relativamente grande](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) para explicar um projeto de ciência de dados de manutenção preditiva a partir da ingestão de dados, engenharia de recursos, criação de modelos, e operacionalização e implantação de modelos. O código para todo o processo é escrito nos Notebooks Jupyter usando o PySpark dentro do Azure ML Workbench. O modelo final é implantado usando o Gerenciamento de Modelos do Machine Learning do Azure para fazer previsões de falhas de equipamentos em tempo real.   
 
 ## <a name="link-to-the-gallery-github-repository"></a>Link para o repositório GitHub da galeria
 
-A seguir está o link para o repositório GitHub público: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+A seguir está o link para o repositório público do GitHub para relatórios de problemas e contribuições: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## <a name="use-case-overview"></a>Visão geral de casos de uso
@@ -36,11 +36,11 @@ Esse cenário leva ideias do [guia estratégico de manutenção preditiva](https
 
 O problema de negócios para esses dados simulados é prever problemas causados por falhas em componentes. A pergunta de negócios, portanto, é “*qual é a probabilidade de um computador ficar inoperante devido à falha de um componente*?” Esse problema é formatado como um problema de classificação multiclasse (vários componentes por computador) e um algoritmo de aprendizado de máquina é usado para criar o modelo preditivo. O modelo é treinado em dados históricos coletados dos computadores. Nesse cenário, o usuário passa por várias etapas de implementação desse modelo no ambiente do Azure Machine Learning Workbench.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma [conta do Azure](https://azure.microsoft.com/en-us/free/) (avaliações gratuitas estão disponíveis).
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](./quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.
-* A Operacionalização do Azure Machine Learning exige um ambiente de implantação local e uma [conta de gerenciamento de modelos](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* A Operacionalização do Azure Machine Learning exige um ambiente de implantação local e uma [conta de gerenciamento de modelos](model-management-overview.md)
 
 Este exemplo pode ser executado em qualquer contexto de computação do AML Workbench. No entanto, é recomendável executá-lo com pelo menos 16 GB de memória. Esse cenário foi criado e testado em um computador Windows 10 que executa remotamente uma [Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) de padrão DS4_V2.
 
@@ -52,8 +52,8 @@ Crie um novo projeto usando este exemplo como modelo:
 1.  Abra o Azure Machine Learning Workbench
 2.  Na página **Projetos**, clique no sinal **+** e selecione **Novo Projeto**
 3.  No painel **Criar Novo Projeto**, preencha as informações do seu novo projeto
-4.  Na caixa de pesquisa **Pesquisar modelos de projeto**, digite "Manutenção preditiva" e selecione o modelo
-5.  Clique em **Criar**
+4.  Na caixa de pesquisa **Pesquisar modelos de projeto**, digite "Manutenção preditiva" e selecione o modelo **Manutenção preditiva**
+5.  Clique no botão **Criar**
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>Preparar o destino de computação do servidor de notebook
 
@@ -125,13 +125,15 @@ Este cenário fornece ao leitor uma visão geral de como criar uma solução de 
 
 ## <a name="references"></a>Referências
 
-Esse caso de uso foi desenvolvido anteriormente em várias plataformas:
+Há outros exemplos de casos de uso de manutenção preditiva disponíveis em uma variedade de plataformas:
 
 * [Modelo da solução de manutenção preditiva](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Guia de modelagem de manutenção preditiva](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Guia de modelagem de manutenção preditiva usando os Serviços R do SQL](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Bloco de anotações do Python do guia de modelagem de manutenção preditiva](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Manutenção preditiva usando o PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Aprendizado profundo para manutenção preditiva](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
 title: Acesso condicional ao Azure Active Directory | Microsoft Docs
-description: "Use o controle de acesso condicional no Azure Active Directory para verificar se há condições específicas ao autenticar para acessar aplicativos."
+description: Saiba como o acesso condicional no Azure Active Directory pode ajudar a gerenciar o controle de acesso em um local central.
 services: active-directory
 keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
 documentationcenter: 
@@ -13,208 +13,83 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 3c5e893508126c87f6e4371918d33d3d040a5894
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
-Em um mundo móvel e em nuvem, o Azure Active Directory permite o logon único para dispositivos, aplicativos e serviços de qualquer lugar. Com a proliferação de dispositivos (incluindo BYOD), trabalho fora de redes corporativas e aplicativos de SaaS de terceiros, os profissionais de TI têm duas metas opostas:
+Segurança é uma grande preocupação para organizações que usam a nuvem. Um aspecto importante da segurança em nuvem é a identidade e o acesso quando o assunto é gerenciar os recursos em nuvem. Em um mundo primeiro o dispositivo móvel e a nuvem, os usuários podem acessar os recursos da organização usando uma grande variedade de dispositivos e aplicativos de qualquer lugar. Por causa disso, concentrar-se apenas em quem pode acessar um recurso não é mais suficiente. Para dominar o equilíbrio entre segurança e produtividade, os profissionais de TI também precisam considerar como um recurso está sendo acessado em uma decisão de controle de acesso. Com acesso condicional do Azure AD, você pode atender a esse requisito. Acesso condicional é um recurso do Azure Active Directory que permite impor controles sobre o acesso a aplicativos no ambiente com base em condições específicas em um local central. 
 
-- Capacitar os usuários finais para serem produtivos sempre e em qualquer lugar
-- Proteger os ativos corporativos a qualquer momento
 
-Para melhorar a produtividade, o Azure Active Directory fornece aos seus usuários uma ampla gama de opções para acessar seus recursos corporativos. Com o gerenciamento de acesso do aplicativo, o Azure Active Directory permite que você garanta que apenas *as pessoas certas* possam acessar seus aplicativos. Mas e se você quiser ter mais controle sobre a forma como as pessoas estão acessando os recursos sob determinadas condições? E se você ainda tiver condições sob as quais deseja bloquear o acesso a determinados aplicativos, mesmo para as *pessoas certas*? Por exemplo, você pode permitir que as pessoas certas acessem determinados aplicativos em uma rede confiável; no entanto, você talvez não queira que eles acessem esses aplicativos de uma rede em que você não confia. Você pode tratar essas questões usando o acesso condicional.
+![Controle](./media/active-directory-conditional-access-azure-portal/81.png)
 
-O acesso condicional é um recurso do Azure Active Directory que permite que você aplique controles de acesso a aplicativos ao seu ambiente com base em condições específicas. Com controles, também é possível vincular requisitos adicionais para o acesso ou bloqueá-lo. A implementação de acesso condicional baseia-se em políticas. Uma abordagem baseada em política simplifica sua experiência de configuração porque ela segue sua maneira de pensar sobre os requisitos de acesso.  
-
-Normalmente, você define os requisitos de acesso usando as instruções com base no seguinte padrão:
-
-![Controle](./media/active-directory-conditional-access-azure-portal/10.png)
-
-Quando você substitui as duas ocorrências "*disso*" por informações do mundo real, você tem um exemplo de uma declaração de política que provavelmente parece familiar:
-
-*Quando prestadores de serviço estiverem tentando acessar nossos aplicativos de nuvem de redes que não sejam confiáveis, bloquear o acesso.*
-
-A declaração de política acima destaca o poder de acesso condicional. Embora você possa permitir que os prestadores de serviço acessem de forma básica seus aplicativos de nuvem (**quem**), com o acesso condicional, você também pode definir condições sob as quais o acesso é possível (**como**).
-
-No contexto do Acesso condicional ao Azure Active Directory,
-
-- "**Quando isso acontecer**" chama-se **instrução de condição**
-- "**, faça isso**" chama-se **controles**
-
-![Controle](./media/active-directory-conditional-access-azure-portal/11.png)
-
-A combinação de uma instrução de condição com seus controles representa uma política de acesso condicional.
-
-![Controle](./media/active-directory-conditional-access-azure-portal/12.png)
-
-
-## <a name="controls"></a>Controles
-
-Em uma política de acesso condicional, os controles definem o que é que deverá acontecer quando uma instrução de condição tiver sido atendida.  
-Com controles, você pode bloquear o acesso ou permitir acesso com requisitos adicionais.
-Quando você configura uma política que permita o acesso, precisa selecionar pelo menos um requisito.  
-
-Há dois tipos de controle: 
-
-- **Controles de concessão** - Os controles de concessão determinam se um usuário pode ou não concluir a autenticação e acessar os recursos aos quais ele está tentando se conectar. Se você tiver vários controles selecionados, você pode configurar se todos eles serão obrigatórios quando sua política for processada.
-A implementação atual do Azure Active Directory permite que você configure os seguintes requisitos de controles de concessão:
-
-    ![Controle](./media/active-directory-conditional-access-azure-portal/73.png)
-
-- **Controles de sessão** - Os controles de sessão permitem a limitação da experiência dentro de um aplicativo na nuvem. Os controles de sessão são impostos por aplicativos de nuvem e contam com informações adicionais sobre a sessão fornecidas pelo Azure AD para o aplicativo.
-
-    ![Controle](./media/active-directory-conditional-access-azure-portal/31.png)
-
-
-Para saber mais, confira [Controles de acesso condicional no Azure Active Directory](active-directory-conditional-access-controls.md).
-
-
-## <a name="condition-statement"></a>Instrução de condição
-
-A seção anterior apresentou opções com suporte para bloquear ou restringir o acesso aos recursos na forma de controles. Em uma política de acesso condicional, você define os critérios que devem ser atendidos para que os controles sejam aplicados em forma de uma instrução de condição.  
-
-Você pode incluir as atribuições a seguir em sua instrução de condição:
-
-![Controle](./media/active-directory-conditional-access-azure-portal/07.png)
-
-
-### <a name="who"></a>Quem?
-
-Ao configurar uma política de acesso condicional, você precisa selecionar os usuários ou grupos aos quais sua política se aplica. Em muitos casos, você deseja que os controles sejam aplicados a um conjunto específico de usuários. Em uma instrução de condição, você pode definir esse conjunto, selecionando os usuários e os grupos necessários aos quais a política se aplica. Se necessário, você pode excluir explicitamente um conjunto de usuários de sua política ao dispensá-los.  
-
-![Controle](./media/active-directory-conditional-access-azure-portal/08.png)
-
-
-
-### <a name="what"></a>O quê?
-
-Ao configurar uma política de acesso condicional, você precisa selecionar os aplicativos de nuvem aos quais sua política se aplica.
-Normalmente, há certos aplicativos em seu ambiente que exigem, de uma perspectiva de proteção, mais atenção do que outros. Isso afeta, por exemplo, os aplicativos que têm acesso a dados confidenciais.
-Selecionando aplicativos na nuvem, você define o escopo de aplicativos de nuvem aos quais sua política se aplica. Se necessário, você pode excluir explicitamente um conjunto de aplicativos de sua política.
-
-![Controle](./media/active-directory-conditional-access-azure-portal/09.png)
-
-Para obter uma lista completa dos aplicativos de nuvem que você pode usar em sua política de acesso condicional, consulte a [referência técnica de acesso condicional do Azure Active Directory](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).
-
-### <a name="how"></a>Como?
-
-Desde que o acesso a seus aplicativos seja executado sob condições que você pode controlar, talvez não haja necessidade de impor controles adicionais sobre como seus aplicativos em nuvem são acessados pelos usuários. No entanto, tudo pode mudar se o acesso aos seus aplicativos de nuvem for executado, por exemplo, de redes não confiáveis ou de dispositivos não compatíveis. Em uma instrução de condição, você pode definir certas condições de acesso com requisitos adicionais sobre a execução do acesso aos seus aplicativos.
-
-![Condições](./media/active-directory-conditional-access-azure-portal/01.png)
-
-
-## <a name="conditions"></a>Condições
-
-Na implementação atual do Azure Active Directory, você pode definir condições para as seguintes áreas:
-
-- Risco de entrada
-- Plataformas de dispositivo
-- Locais
-- Aplicativos cliente
-
-
-![Condições](./media/active-directory-conditional-access-azure-portal/01.png)
-
-### <a name="sign-in-risk"></a>Risco de entrada
-
-Um risco de conexão é um objeto que é usado pelo Azure Active Directory para controlar a probabilidade de uma tentativa de conexão não ter sido realizada pelo proprietário legítimo de uma conta de usuário. Nesse objeto, a probabilidade (Alta, Média ou Baixa) é armazenada na forma de um atributo chamado [nível de risco de conexão](active-directory-reporting-risk-events.md#risk-level). Esse objeto será gerado durante uma conexão de um usuário riscos de conexão tiverem sido detectados pelo Azure Active Directory. Para obter mais informações, consulte [Entradas de risco](active-directory-identityprotection.md#risky-sign-ins).  
-Você pode usar o nível de risco de conexão calculado como uma condição em uma política de acesso condicional. 
-
-![Condições](./media/active-directory-conditional-access-azure-portal/22.png)
-
-### <a name="device-platforms"></a>Plataformas de dispositivo
-
-A plataforma de dispositivo é caracterizada pelo sistema operacional que está em execução no dispositivo: é possível definir as plataformas de dispositivo que são incluídas, bem como as plataformas de dispositivo que são isentas de uma política.  
-Para usar as plataformas de dispositivo na política, primeiro altere a configuração para **Sim** e selecione todos ou plataformas de dispositivos individuais às quais a política se aplica. Se você selecionar plataformas de dispositivos individuais, a política afetará apenas essas plataformas. Nesse caso, as entradas para outras plataformas com suporte não serão afetadas pela política.
-
-
-![Condições](./media/active-directory-conditional-access-azure-portal/02.png)
-
-Para obter uma lista completa das plataformas de dispositivo com suporte, consulte [Condição de plataforma de dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition).
-
-
-### <a name="locations"></a>Locais
-
-Com localizações, você tem a opção de definir condições com base no local dedo qual uma tentativa de conexão foi iniciada. As entradas na lista de locais são **localizações nomeadas** ou **IPs confiáveis de MFA**.  
-
-**Localizações nomeadas** é um recurso do Azure Active Directory que permite que você defina rótulos para as localizações das quais as tentativas de conexão locais feitas. Para definir uma localização, você pode configurar um intervalo de endereços IP ou selecionar um país / região.  
-
-![Condições](./media/active-directory-conditional-access-azure-portal/42.png)
-
-Além disso, você pode marcar uma localização nomeado como uma localização confiável. Para uma política de acesso condicional, a localização confiável é outra opção de filtro que permite que você selecione *Todas as localizações confiáveis* na sua condição de localizações.
-As localizações nomeadas também são importantes no contexto da detecção de [eventos de risco](active-directory-reporting-risk-events.md) para reduzir o número de falsos positivos para o evento de risco Viagem impossível a localizações atípicas. 
-
-O número de localizações que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Você pode configurar:
- 
- - Um local nomeado com até 500 intervalos de IP
- - Um máximo de 60 locais nomeados (visualização) com um intervalo IP atribuído a cada um deles 
-
-Para obter mais informações, consulte [Localizações nomeadas no Azure Active Directory](active-directory-named-locations.md).
-
-
-**IPs confiáveis do MFA** é um recurso de autenticação multifator que permite que você defina intervalos de endereços IP confiáveis que representam a intranet local da sua organização. Quando você configura uma condição de localização, IPs Confiáveis permite distinguir entre conexões feitas desde a rede da sua organização e de todos os outros locais. Para obter mais informações, confira [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
-
-Em sua política de acesso condicional, você pode:
-
-- Incluir
-    - Qualquer local
-    - Todos os locais confiáveis
-    - Locais selecionados
-- Excluir
-    - Todos os locais confiáveis
-    - Locais selecionados
-     
-![Condições](./media/active-directory-conditional-access-azure-portal/03.png)
-
-
-### <a name="client-apps"></a>Aplicativos cliente
-
-O aplicativo cliente pode estar em um nível genérico do aplicativo (navegador da Wb, aplicativos móveis, cliente da área de trabalho) que você usou para se conectar ao Azure Active Directory ou pode selecionar especificamente o Exchange Active Sync.  
-A autenticação herdada refere-se aos clientes usando a autenticação básica, como clientes do Office mais antigos que não usam a autenticação moderna. No momento, o acesso condicional não tem suporte na autenticação herdada.
-
-![Condições](./media/active-directory-conditional-access-azure-portal/04.png)
-
-
-Para obter uma lista completa dos aplicativos de cliente que você pode usar em sua política de acesso condicional, consulte a [referência técnica de acesso condicional do Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
-
-
+Este artigo apresenta uma visão geral conceitual do acesso condicional no Azure AD.
 
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
-### <a name="requiring-multi-factor-authentication-for-apps"></a>Exibir a autenticação multifator para aplicativos
+Em um mundo móvel e em nuvem, o Azure Active Directory permite o logon único para dispositivos, aplicativos e serviços de qualquer lugar. Com a proliferação de dispositivos (incluindo BYOD), trabalho fora de redes corporativas e aplicativos de SaaS de terceiros, os profissionais de TI têm duas metas opostas:
 
-Muitos ambientes têm aplicativos que exigem um nível mais alto de proteção do que outros.
-Isso é, por exemplo, o caso para aplicativos que têm acesso a dados confidenciais.
-Se você quiser adicionar outra camada de proteção para esses aplicativos, poderá configurar uma política de acesso condicional que exija a autenticação multifator quando os usuários acessarem esses aplicativos.
+- Capacitar os usuários para serem produtivos sempre e em qualquer lugar
+- Proteger os ativos corporativos a qualquer momento
 
+Usando políticas de acesso condicional, você pode aplicar os controles de acesso certos nas condições necessárias. O acesso condicional do AD Azure oferece segurança adicional quando necessário e fica fora do caminho do usuário quando não o é. 
 
-### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>Exigir autenticação multifator para acesso de redes que não são confiáveis
-
-Esse cenário é semelhante ao cenário anterior porque adiciona um requisito para a autenticação multifator.
-No entanto, a principal diferença é a condição para esse requisito.  
-Embora o foco do cenário anterior fosse em aplicativos com acesso a dados confidenciais, o foco deste cenário é em locais confiáveis.  
-Em outras palavras, você pode ter um requisito para autenticação multifator se um aplicativo for acessado por um usuário de uma rede em que você não confia.
+Abaixo estão algumas preocupações de acesso comuns em que o acesso condicional pode ajudar:
 
 
-### <a name="only-trusted-devices-can-access-office-365-services"></a>Somente os dispositivos confiáveis podem acessar os serviços do Office 365
 
-Se você estiver usando o Intune em seu ambiente, poderá começar imediatamente usando a interface de política de acesso condicional no console do Azure.
+- **[Risco de entrada](active-directory-conditional-access-conditions.md#sign-in-risk)**: o Azure AD Identity Protection detecta riscos de entrada. Como você restringe o acesso caso um risco de entrada detectado indique um mau ator? E se você quisesse obter uma prova mais sólida de que uma entrada foi realmente realizada pelo usuário legítimo, ou a dúvida é forte o suficiente para até mesmo bloquear o acesso de usuários específicos a um aplicativo?
 
-Muitos clientes do Intune estão usando o acesso condicional para garantir que somente os dispositivos confiáveis possam acessar os serviços do Office 365. Isso significa que os dispositivos móveis estão registrados no Intune e atendem aos requisitos da política de conformidade e que os computadores com Windows fazem parte de um domínio local. Uma melhoria-chave é que você não precisa definir a mesma política para cada um dos serviços do Office 365.  Quando você criar uma nova política, configure os aplicativos de nuvem para incluir cada um dos aplicativos do O365 que você deseja proteger com o acesso condicional.
+- **[Local de rede](active-directory-conditional-access-locations.md)**: o Azure AD é acessível de qualquer lugar. E se uma tentativa de acesso for realizada em um local de rede que não esteja sob o controle do departamento de TI? O uso de uma combinação de nome de usuário e senha pode ser bom o suficiente como prova de identidade para tentativas de acesso aos recursos da rede corporativa. E se você exigir uma prova de identidade mais forte para tentativas de acesso iniciadas de outros países ou regiões do mundo inesperados? E se você ainda quiser bloquear tentativas de acesso de determinados locais?  
 
-### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Alternância de um dispositivo de corporativo para BYOD (traga seu próprio dispositivo)
-Se quiser bloquear os dispositivos registrados alterando a propriedade do dispositivo de corporativa para pessoal, você poderá fazer isso usando o acesso condicional do AAD (Azure Active Directory). Primeiro, você precisa criar uma política de acesso condicional em que **Bloquear o acesso** esteja selecionado na folha **Concessão** dos controles de acesso. Em seguida, crie um grupo **Dispositivo Dinâmico** definindo a propriedade **deviceOwnership** como **Pessoal**. Em seguida, direcione a política acima ao novo grupo.
+- **[Gerenciamento de dispositivos](active-directory-conditional-access-conditions.md#device-platforms)**: no Azure AD, os usuários podem acessar aplicativos em nuvem em uma grande variedade de dispositivos, inclusive dispositivos para dispositivos móveis e também pessoais. E se você exigir que uma tentativa de acesso só deva ser realizada por um usuário com dispositivos gerenciados pelo departamento de TI? E se você ainda quiser bloquear determinados tipos de dispositivo de acessar aplicativos em nuvem no ambiente? 
+
+- **[Aplicativo cliente](active-directory-conditional-access-conditions.md#client-apps)**: atualmente, você pode acessar muitos aplicativos em nuvem usando tipos de aplicativos diferentes, como aplicativos baseados na web, aplicativos móveis ou aplicativos da área de trabalho. E se uma tentativa de acesso for realizada usando-se um tipo de aplicativo cliente que causa problemas conhecidos? E se você precisar de um dispositivo gerenciado pelo departamento de TI para determinados tipos de aplicativo? 
+
+Essas perguntas e as respostas relacionadas representam cenários de acesso comuns para acesso condicional do Azure AD. Acesso condicional é um recurso do Azure Active Directory que permite processar cenários de acesso usando uma abordagem baseada em política.
+
+
+## <a name="conditional-access-policies"></a>Políticas de acesso condicional
+
+Política de acesso condicional é a definição de um cenário de acesso que usa o seguinte padrão:
+
+![Controle](./media/active-directory-conditional-access-azure-portal/10.png)
+
+**Em seguida, isso** define a resposta da política. É importante observar que o objetivo de uma política de acesso condicional não é conceder acesso a um aplicativo de nuvem. No Azure AD, a concessão do acesso a aplicativos de nuvem é assunto de atribuições do usuário. Com uma política de acesso condicional, você controla como usuários autorizados (usuários que receberam acesso a um aplicativo de nuvem) podem acessar aplicativos de nuvem em condições específicas. Na resposta, você impõe requisitos adicionais, como autenticação multifator, um dispositivo gerenciado e outros. No contexto de acesso condicional do Azure AD, os requisitos que a política impõe são chamados de controles de acesso. Na formulário mais restritiva, a política pode bloquear o acesso. Para obter mais informações, consulte [Controles de acesso no acesso condicional do Azure Active Directory](active-directory-conditional-access-controls.md).
+     
+
+**Quando isso acontece** define o motivo de disparar a política. Esse motivo é caracterizado por um grupo de condições que foram atendidas. No acesso condicional do Azure AD, as duas condições de atribuição desempenham um papel especial:
+
+- **[Usuários](active-directory-conditional-access-conditions.md#users-and-groups)**: os usuários que realizam uma tentativa de acesso (**Quem**). 
+
+- **[Aplicativos de nuvem](active-directory-conditional-access-conditions.md#cloud-apps)**: os destinos de uma tentativa de acesso (**O quê**).    
+
+Essas duas condições são obrigatórias em uma política de acesso condicional. Além das duas condições obrigatórias, você também pode incluir condições adicionais que descrevam como a tentativa de acesso é realizada. Os exemplos comuns estão usando dispositivos móveis ou locais que estejam fora da rede corporativa. Para saber mais, confira [Condições no acesso condicional do Azure Active Directory](active-directory-conditional-access-conditions.md).   
+
+A combinação de condições e seus controles de acesso representa uma política de acesso condicional. 
+
+![Controle](./media/active-directory-conditional-access-azure-portal/51.png)
+
+Com o acesso condicional do Azure AD, você pode controlar como os usuários autorizados podem acessar seus aplicativos na nuvem. O objetivo de uma política de acesso condicional é impor controles de acesso adicionais em uma tentativa de acesso a um aplicativo de nuvem controlado por como uma tentativa de acesso é realizada.
+
+Uma vantagem de usar uma abordagem baseada em política para proteger o acesso aos aplicativos de nuvem é poder começar esboçando os requisitos de política para o ambiente usando a estrutura descrita neste artigo, sem se preocupar com a implementação técnica. 
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Se você quiser saber mais sobre:
+    - Condições, consulte [Condições no acesso condicional do Azure Active Directory](active-directory-conditional-access-conditions.md).
+
+    - Controles de acesso, consulte [Controles de acesso no acesso condicional do Azure Active Directory](active-directory-conditional-access-controls.md).
+
+- Se você quiser experimentar a configuração de políticas de acesso condicionais, consulte [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 

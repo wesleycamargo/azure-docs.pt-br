@@ -1,6 +1,6 @@
 ---
-title: "Automação das Especificações Técnicas do Azure FedRAMP – Planejamento"
-description: Aplicativos Web para FedRAMP - Planejamento
+title: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP – Planejamento"
+description: "Automação de Aplicativos Web para FedRAMP – Planejamento"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8e4d4f228940d08bc522aabcd6f4ab573ff231d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="planning-pl"></a>PL (Planejamento)
 
 > [!NOTE]
-> Estes controles são definidos pelo NIST e pelo Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre as diretrizes e os procedimentos de teste para cada controle.
+> Estes controles são definidos pelo NIST e pelos EUA. Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
 
 ## <a name="nist-800-53-control-pl-1"></a>NIST 800-53 Controle PL-1
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-1** A organização desenvolve, documenta e distribui à [Atribuição: equipe ou funções definidas pela organização] uma política de planejamento de segurança que aborda a finalidade, o escopo, as funções, as responsabilidades, o compromisso de gerenciamento, a coordenação entre entidades organizacionais e a conformidade; e os procedimentos para facilitar a implementação da política de planejamento de segurança e os controles de planejamento de segurança associados; e revisa e atualiza a política de planejamento de segurança atual [Atribuição: frequência definida pela organização]; e os procedimentos de planejamento de segurança [Atribuição: frequência definida pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por desenvolver um SSP (plano de segurança do sistema) que atenda aos critérios definidos pela autorização de destino (por exemplo, FedRAMP). Os clientes podem fazer referência à Publicação especial do NIST 800-18 R1, Guia para o desenvolvimento de planos de segurança para sistemas de informação federais. O SSP do cliente deve abordar os controles herdados do Microsoft Azure e referir-se ao SSP do Microsoft Azure para detalhes de implementação. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-pl-2b"></a>NIST 800-53 Controle PL-2.b
@@ -59,12 +59,12 @@ ms.lasthandoff: 11/23/2017
 
 **PL-2.b** A organização distribui cópias do plano de segurança e comunica mudanças subsequentes ao plano para [Atribuição: pessoal ou funções definidos pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por distribuir o plano de segurança do sistema. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-pl-2c"></a>NIST 800-53 Controle PL-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por revisar o plano de segurança do sistema. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-pl-2d"></a>NIST 800-53 Controle PL-2.d
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por proteger o plano de segurança do sistema. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-pl-2-3"></a>NIST 800-53 Controle PL-2 (3)
@@ -115,12 +115,12 @@ ms.lasthandoff: 11/23/2017
 
 **PL-2 (3)** A organização planeja e coordena atividades relacionadas à segurança que afetam o sistema de informações com [Atribuição: indivíduos ou grupos definidos pela organização] antes de realizar tais atividades para reduzir o impacto em outras entidades organizacionais.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pelo planejamento e coordenação de atividades relacionadas à segurança para reduzir o impacto em outras entidades organizacionais. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-pl-4a"></a>NIST 800-53 Controle PL-4.a
@@ -129,12 +129,12 @@ ms.lasthandoff: 11/23/2017
 
 **PL-4.a** A organização estabelece e disponibiliza prontamente às pessoas que precisam de acesso ao sistema de informação, as regras que descrevem suas responsabilidades e o comportamento esperado em relação à informação e ao uso do sistema de informação.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | As regras de comportamento de nível empresarial do cliente podem ser suficientes para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-pl-4b"></a>NIST 800-53 Controle PL-4.b
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | As regras de comportamento de nível empresarial do cliente podem ser suficientes para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-pl-4-1"></a>NIST 800-53 Controle PL-4 (1)
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-4 (1)** A organização inclui as regras de comportamento, restrições explícitas sobre o uso de redes sociais/sites de redes e postagem de informações organizacionais em sites públicos.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por revisar e atualizar a arquitetura de segurança da informação. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-pl-8c"></a>NIST 800-53 Controle PL-8.c
@@ -232,4 +232,4 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por contabilizar as mudanças planejadas na arquitetura de segurança da informação. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |

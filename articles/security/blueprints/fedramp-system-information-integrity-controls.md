@@ -1,6 +1,6 @@
 ---
-title: "Automação da Especificação Técnica do Azure no FedRAMP - Integridade do sistema e das informações"
-description: "Aplicativos Web para FedRAMP - Integridade do sistema e das informações"
+title: "Projeto de Segurança e Conformidade do Azure – Automação de Aplicativos Web para FedRAMP – Integridade das Informações e do Sistema"
+description: "Automação de Aplicativos Web para FedRAMP – Integridade das Informações e do Sistema"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1dc6805a5a1f610f06ce58bd4bd644346436294e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Integridade do sistema e das informações (SI)
 
 > [!NOTE]
-> Estes controles são definidos pelo NIST e pelo Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
+> Estes controles são definidos pelo NIST e pelos EUA. Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
 
 ## <a name="nist-800-53-control-si-1"></a>Controle NIST 800-53 SI-1
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A política e os procedimentos de integridade do sistema e das informações de nível empresarial do cliente podem ser suficientes para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-2a"></a>Controle NIST 800-53 SI-2.a
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta a solução de controle e automação de OMS para acompanhar o status das atualizações para as máquinas virtuais do Windows implantadas nesta arquitetura. No painel do OMS, o bloco de gerenciamento de atualizações exibe o status de correção de falhas para todos os servidores Windows implantados. |
+| **Cliente** | Este projeto implanta a solução OMS Automation and Control para acompanhar o status das atualizações para as máquinas virtuais do Windows implantadas nesta arquitetura. No painel do OMS, o bloco de gerenciamento de atualizações exibe o status de correção de falhas para todos os servidores Windows implantados. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -59,12 +59,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-2.b** A organização testa atualizações de software e firmware relacionadas à correção de falhas para eficácia e possíveis efeitos colaterais antes da instalação.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por testar atualizações relacionadas à correção de falhas de eficácia e possíveis efeitos colaterais antes da instalação em recursos implantados pelo cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-2c"></a>Controle NIST 800-53 SI-2.c
@@ -73,12 +73,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-2.c** A organização instala atualizações de software e firmware relevantes à segurança dentro de [Atribuição: período de tempo definido pela organização] da versão das atualizações.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais do Windows implantadas por essa Especificação Técnica do Azure são configuradas por padrão para receberem atualizações automáticas do serviço Windows Update. Essa solução também implanta a solução de automação e controle do OMS por meio da qual implantações de atualizações podem ser criadas para implantar patches para servidores Windows quando necessário. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Máquinas virtuais do Windows implantadas por esse projeto são configuradas por padrão para receberem atualizações automáticas do serviço Windows Update. Essa solução também implanta a solução de automação e controle do OMS por meio da qual implantações de atualizações podem ser criadas para implantar patches para servidores Windows quando necessário. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-2d"></a>Controle NIST 800-53 SI-2.d
@@ -87,12 +87,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-2.d** A organização incorpora a correção de falhas no processo de gerenciamento de configuração organizacional.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por incluir a correção de falhas no gerenciamento de configuração. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-2-1"></a>Controle NIST 800-53 SI-2 (1)
@@ -101,12 +101,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-2 (1)** A organização gerencia centralmente o processo de correção de falhas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta a solução de controle e automação de OMS para acompanhar o status das atualizações para as máquinas virtuais do Windows implantadas nesta arquitetura. No painel do OMS, o bloco de gerenciamento de atualizações exibe o status de correção de falhas para todos os servidores Windows implantados. Implantações de atualizações podem ser criadas para implantar patches em servidores Windows quando necessário. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta a solução OMS Automation and Control para acompanhar o status das atualizações para as máquinas virtuais do Windows implantadas nesta arquitetura. No painel do OMS, o bloco de gerenciamento de atualizações exibe o status de correção de falhas para todos os servidores Windows implantados. Implantações de atualizações podem ser criadas para implantar patches em servidores Windows quando necessário. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-2-2"></a>Controle NIST 800-53 SI-2 (2)
@@ -115,12 +115,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-2 (2)** A organização emprega mecanismos automatizados [Atribuição: frequência definida pela organização] para determinar o estado dos componentes do sistema de informações em relação à correção de falhas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta a solução de controle e automação de OMS para acompanhar o status das atualizações para as máquinas virtuais do Windows implantadas nesta arquitetura. Para cada computador gerenciado do Windows, uma verificação é executada duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o status for alterado e, nesse caso, é iniciada uma verificação de conformidade. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta a solução OMS Automation and Control para acompanhar o status das atualizações para as máquinas virtuais do Windows implantadas nesta arquitetura. Para cada computador gerenciado do Windows, uma verificação é executada duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o status for alterado e, nesse caso, é iniciada uma verificação de conformidade. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-2-3a"></a>Controle NIST 800-53 SI-2 (3).a
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente pode se basear em benchmarks de nível corporativo para processos de correção de falhas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-3a"></a>Controle NIST 800-53 SI-3.a
@@ -157,12 +157,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-3.a** A organização emprega mecanismos de proteção contra código mal-intencionado em pontos de entrada e saída do sistema de informações para detectar e eliminar código mal-intencionado.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-3b"></a>Controle NIST 800-53 SI-3.b
@@ -175,8 +175,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. A extensão está configurada para atualizar automaticamente o mecanismo antimalware e assinaturas de proteção quando a versão ficar disponível. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. A extensão está configurada para atualizar automaticamente o mecanismo antimalware e assinaturas de proteção quando a versão ficar disponível. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-3c"></a>Controle NIST 800-53 SI-3.c
@@ -185,12 +185,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-3.c** A organização configura mecanismos de proteção contra código mal-intencionado para executar verificações periódicas do sistema de informações [Atribuição: frequência definida pela organização] e verificações em tempo real dos arquivos de fontes externas em [Seleção (um ou mais); ponto de extremidade; pontos de entrada/saída de rede] conforme os arquivos são baixados, abertos ou executados de acordo com a política de segurança organizacional; e [Seleção (um ou mais): bloquear código mal-intencionado; colocar em código mal-intencionado em quarentena; enviar alerta para o administrador; [Atribuição: ação definida pelo organização]] em resposta à detecção de códigos mal-intencionados.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. Essa extensão está configurada para executar verificações em tempo real e periódicas (semanalmente), atualizar automaticamente o mecanismo de malware e as assinaturas de proteção e executar ações de correção automáticas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. Essa extensão está configurada para executar verificações em tempo real e periódicas (semanalmente), atualizar automaticamente o mecanismo de malware e as assinaturas de proteção e executar ações de correção automáticas. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-3d"></a>Controle NIST 800-53 SI-3.d
@@ -217,8 +217,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. O Azure OMS fornece uma funcionalidade centralizada para revisar o status atual da solução antimalware. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. O Azure OMS fornece uma funcionalidade centralizada para revisar o status atual da solução antimalware. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-3-2"></a>Controle NIST 800-53 SI-3 (2)
@@ -227,12 +227,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-3 (2)** O sistema de informações atualiza automaticamente mecanismos de proteção contra código mal-intencionado.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. A extensão está configurada para atualizar automaticamente o mecanismo antimalware e assinaturas de proteção quando a versão ficar disponível. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. A extensão está configurada para atualizar automaticamente o mecanismo antimalware e assinaturas de proteção quando a versão ficar disponível. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-3-7"></a>Controle NIST 800-53 SI-3 (7)
@@ -245,8 +245,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. Essa extensão está configurada para executar a detecção heurística. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta proteções antimalware baseadas em host em todas as máquinas virtuais do Windows implementadas usando a extensão de máquina virtual Microsoft Antimalware. Essa extensão está configurada para executar a detecção heurística. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-4a"></a>Controle NIST 800-53 SI-4.a
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta o Log Analytics e a solução de segurança e auditoria do OMS. Essa solução fornece uma visão abrangente de postura de segurança, ataques e indicadores de possíveis ataques. O painel de Segurança e auditoria fornece insight de alto nível do estado de segurança de recursos implantados usando os dados disponíveis em soluções do OMS implantadas. |
+| **Cliente** | Este projeto implanta o Log Analytics e a solução de Segurança e Auditoria do OMS. Essa solução fornece uma visão abrangente de postura de segurança, ataques e indicadores de possíveis ataques. O painel de Segurança e auditoria fornece insight de alto nível do estado de segurança de recursos implantados usando os dados disponíveis em soluções do OMS implantadas. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta a solução de segurança e auditoria do OMS. O domínio de identidade e acesso fornece um painel com uma visão geral do estado de identidade do sistema de informações, incluindo o número de tentativas com falha de logon e o número atual de contas que estão conectadas. As informações disponíveis neste painel podem ajudá-lo na identificação de uma possível atividade suspeita. |
+| **Cliente** | Este projeto implanta a solução de Segurança e Auditoria do OMS. O domínio de identidade e acesso fornece um painel com uma visão geral do estado de identidade do sistema de informações, incluindo o número de tentativas com falha de logon e o número atual de contas que estão conectadas. As informações disponíveis neste painel podem ajudá-lo na identificação de uma possível atividade suspeita. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta o Log Analytics e a solução de segurança e auditoria do OMS. O painel de Segurança e auditoria fornece insight de alto nível do estado de segurança de recursos implantados usando os dados disponíveis em soluções do OMS implantadas, incluindo insight sobre dados de monitoramento do sistema operacional da VM. |
+| **Cliente** | Este projeto implanta o Log Analytics e a solução de Segurança e Auditoria do OMS. O painel de Segurança e auditoria fornece insight de alto nível do estado de segurança de recursos implantados usando os dados disponíveis em soluções do OMS implantadas, incluindo insight sobre dados de monitoramento do sistema operacional da VM. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Controles de acesso lógicos são usados para proteger informações de monitoramento dentro da Especificação Técnica do Azure contra acesso, modificação e exclusão não autorizados. O Azure Active Directory impõe o acesso aprovado lógico usando associações de grupo baseadas em função. A capacidade de exibir informações de monitoramento e usar as ferramentas de monitoramento pode ser limitada aos usuários que requerem essas permissões. |
+| **Cliente** | Controles de acesso lógicos são usados para proteger informações de monitoramento dentro deste projeto contra acesso, modificação e exclusão não autorizados. O Azure Active Directory impõe o acesso aprovado lógico usando associações de grupo baseadas em função. A capacidade de exibir informações de monitoramento e usar as ferramentas de monitoramento pode ser limitada aos usuários que requerem essas permissões. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por monitorar recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-4f"></a>Controle NIST 800-53 SI-4.f
@@ -325,12 +325,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-4.f** A organização obtém opinião legal com relação a atividades de monitoramento do sistema de informações de acordo com as leis federais, pedidos executivos, diretivas, políticas ou regulamentações aplicáveis.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por monitorar recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-4g"></a>Controle NIST 800-53 SI-4.g
@@ -367,12 +367,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-4 (2)** A organização emprega ferramentas automatizadas para dar suporte a análise de eventos quase em tempo real.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta o Log Analytics e várias soluções de OMS, incluindo a solução de segurança e auditoria do OMS. O Log Analytics fornece análise de eventos quase em tempo real em todos os recursos implantados. As soluções de OMS fornecem uma visão abrangente da postura de segurança em domínios de soluções. O OMS fornece insight do estado de segurança de recursos implantados usando os dados disponíveis em soluções do OMS implantadas. OMS pode ser configurado para gerar alertas com base em critérios definidos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta o Log Analytics e várias soluções de OMS, incluindo a solução de Segurança e Auditoria. O Log Analytics fornece análise de eventos quase em tempo real em todos os recursos implantados. As soluções de OMS fornecem uma visão abrangente da postura de segurança em domínios de soluções. O OMS fornece insight do estado de segurança de recursos implantados usando os dados disponíveis em soluções do OMS implantadas. OMS pode ser configurado para gerar alertas com base em critérios definidos. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-4-4"></a>Controle NIST 800-53 SI-4 (4)
@@ -395,12 +395,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-4 (5)** Os alertas do sistema de informações [Atribuição: equipe ou funções definidas pela organização] quando ocorrem as indicações de comprometimento ou possível comprometimento a seguir: [Atribuição: indicadores de comprometimento definidos pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta várias soluções de OMS, incluindo a solução de segurança e auditoria do OMS. O Log Analytics fornece análise de eventos quase em tempo real em todos os recursos implantados. As soluções de OMS fornecem uma visão abrangente da postura de segurança em domínios de soluções. OMS pode ser configurado para gerar alertas com base em critérios definidos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta várias soluções de OMS, incluindo a solução de Segurança e Auditoria. O Log Analytics fornece análise de eventos quase em tempo real em todos os recursos implantados. As soluções de OMS fornecem uma visão abrangente da postura de segurança em domínios de soluções. OMS pode ser configurado para gerar alertas com base em critérios definidos. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-4-11"></a>Controle NIST 800-53 SI-4 (11)
@@ -409,12 +409,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-4 (11)** A organização analisa o tráfego de comunicações de saída no limite externo do sistema de informações de organização e selecionou [Atribuição: pontos interiores definidos pela organização dentro do sistema (por exemplo, sub-redes, subsistemas)] para descobrir anomalias.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por analisar anomalias no tráfego de comunicações para recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-4-14"></a>Controle NIST 800-53 SI-4 (14)
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta o Log Analytics e várias soluções de OMS, incluindo a solução de segurança e auditoria do OMS. O OMS fornece insight do estado de segurança de recursos implantados usando os dados disponíveis em soluções do OMS implantadas. |
+| **Cliente** | Este projeto implanta o Log Analytics e várias soluções de OMS, incluindo a solução de Segurança e Auditoria. O OMS fornece insight do estado de segurança de recursos implantados usando os dados disponíveis em soluções do OMS implantadas. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -451,12 +451,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-4 (18)** A organização analisa o tráfego de comunicações de saída no limite externo do sistema de informações de organização (por exemplo, perímetro do sistema) e em [Atribuição: pontos interiores definidos pela organização dentro do sistema (por exemplo, subsistemas, sub-redes)] para detectar vazamento oculto de informações.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por analisar o tráfego de comunicações para recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-4-19"></a>Controle NIST 800-53 SI-4 (19)
@@ -479,12 +479,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-4 (20)** A organização implementa [Atribuição: monitoramento adicional definido pela organização] de usuários privilegiados.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por monitorar usuários privilegiados. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-4-22"></a>Controle NIST 800-53 SI-4 (22)
@@ -498,7 +498,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por detectar serviços de rede não autorizados. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-4-23"></a>Controle NIST 800-53 SI-4 (23)
@@ -511,8 +511,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure coleta dados de monitoramento de recursos implantados, incluindo dados de recursos de monitoramento baseados em host. O Microsoft Monitoring Agent é instalado em todas as máquinas virtuais do Windows para coletar dados de monitoramento usados pelo Log Analytics e outras soluções de OMS. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto coleta dados de monitoramento de recursos implantados, incluindo dados de recursos de monitoramento baseados em host. O Microsoft Monitoring Agent é instalado em todas as máquinas virtuais do Windows para coletar dados de monitoramento usados pelo Log Analytics e outras soluções de OMS. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-4-24"></a>Controle NIST 800-53 SI-4 (24)
@@ -521,7 +521,7 @@ ms.lasthandoff: 11/23/2017
 
 **SI-4 (24)** O sistema de informações descobre, coleta, distribui e usa indicadores de comprometimento.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por gerenciar alertas, avisos e diretivas de segurança para recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-5c"></a>Controle NIST 800-53 SI-5.c
@@ -577,7 +577,7 @@ ms.lasthandoff: 11/23/2017
 
 **SI-5.d** A organização implementa as diretivas de segurança de acordo com períodos de tempo estabelecidos ou notifica a organização emissora do grau de não conformidade.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 11/23/2017
 
 **SI-5 (1)** A organização emprega mecanismos automatizados para tornar informações de alerta e aviso de segurança disponíveis em toda a organização.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -605,12 +605,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-6.a** O sistema de informações verifica a operação correta de [Atribuição: funções de segurança definidas pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela verificação de função de segurança para recursos implantados por ele (para incluir aplicativos, sistemas operacionais, bancos de dados e software). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-6b"></a>Controle NIST 800-53 SI-6.b
@@ -638,7 +638,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela verificação de função de segurança para recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-6d"></a>Controle NIST 800-53 SI-6.d
@@ -647,12 +647,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-6.d** O sistema de informações [Seleção (um ou mais): desliga o sistema de informações; reinicia o sistema de informações; [Atribuição: ações alternativas definidas pela organização]] quando as anomalias são descobertas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela verificação de função de segurança para recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-7"></a>Controle NIST 800-53 SI-7
@@ -661,12 +661,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-7** A organização emprega ferramentas de verificação de integridade para detectar alterações não autorizadas a [Atribuição: software, firmware e informações definidos pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implantadas por essa Especificação Técnica do Azure executam sistemas operacionais Windows. O Windows fornece validação de integridade de arquivo em tempo real, proteção e recuperação de arquivos do sistema de núcleo que são instalados como parte do Windows ou de atualizações do sistema Windows autorizadas pelo recurso WRP (Proteção de Recursos do Windows). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | As máquinas virtuais implantadas por esse projeto executam sistemas operacionais Windows. O Windows fornece validação de integridade de arquivo em tempo real, proteção e recuperação de arquivos do sistema de núcleo que são instalados como parte do Windows ou de atualizações do sistema Windows autorizadas pelo recurso WRP (Proteção de Recursos do Windows). |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-7-1"></a>Controle NIST 800-53 SI-7 (1)
@@ -675,12 +675,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-7 (1)** O sistema de informações executa uma verificação de integridade de [Atribuição: software, firmware e informações definidos pela organização] [Seleção (um ou mais): na inicialização; em [Atribuição: estados de transição ou eventos relevantes para a segurança definidos pela organização]; [Atribuição: frequência definida pela organização]].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implantadas por essa Especificação Técnica do Azure executam sistemas operacionais Windows. O Windows fornece validação de integridade de arquivo em tempo real, proteção e recuperação de arquivos do sistema de núcleo que são instalados como parte do Windows ou de atualizações do sistema Windows autorizadas pelo recurso WRP (Proteção de Recursos do Windows). WRP permite a verificação de integridade em tempo real. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | As máquinas virtuais implantadas por esse projeto executam sistemas operacionais Windows. O Windows fornece validação de integridade de arquivo em tempo real, proteção e recuperação de arquivos do sistema de núcleo que são instalados como parte do Windows ou de atualizações do sistema Windows autorizadas pelo recurso WRP (Proteção de Recursos do Windows). WRP permite a verificação de integridade em tempo real. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-7-2"></a>Controle NIST 800-53 SI-7 (2)
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implantadas por essa Especificação Técnica do Azure executam sistemas operacionais Windows. O Windows fornece validação de integridade de arquivo em tempo real, proteção e recuperação de arquivos do sistema de núcleo que são instalados como parte do Windows ou de atualizações do sistema Windows autorizadas pelo recurso WRP (Proteção de Recursos do Windows).  |
+| **Cliente** | As máquinas virtuais implantadas por esse projeto executam sistemas operacionais Windows. O Windows fornece validação de integridade de arquivo em tempo real, proteção e recuperação de arquivos do sistema de núcleo que são instalados como parte do Windows ou de atualizações do sistema Windows autorizadas pelo recurso WRP (Proteção de Recursos do Windows).  |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -703,12 +703,12 @@ ms.lasthandoff: 11/23/2017
 
 **SI-7 (5)** O sistema de informações automaticamente [Seleção (um ou mais): desliga o sistema de informações; reinicia o sistema de informações; implementa [Atribuição: garantias de segurança definidas pela organização]] quando violações de integridade são descobertas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por responder automaticamente a violações de integridade em recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-7-7"></a>Controle NIST 800-53 SI-7 (7)
@@ -722,7 +722,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por proteger a integridade de software e informações para recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-7-14"></a>Controle NIST 800-53 SI-7 (14)
@@ -736,7 +736,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os procedimentos de integridade do sistema e de informações em nível corporativo do cliente podem estabelecer requisitos para obter o código-fonte do código executável binário ou de máquina de algumas fontes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-8a"></a>Controle NIST 800-53 SI-8.a
@@ -745,11 +745,11 @@ ms.lasthandoff: 11/23/2017
 
 **SI-8.a** A organização emprega mecanismos de proteção contra spam em pontos de entrada e saída do sistema de informações para detectar e tomar ação com relação a mensagens não solicitadas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Não existem servidores email implantados como parte dessa Especificação Técnica do Azure. |
+| **Cliente** | Não existem servidores email implantados como parte desse projeto. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem servidores email implantados como parte dessa Especificação Técnica do Azure. |
+| **Cliente** | Não existem servidores email implantados como parte desse projeto. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -777,8 +777,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem servidores email implantados como parte dessa Especificação Técnica do Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Não existem servidores email implantados como parte desse projeto. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-si-8-2"></a>Controle NIST 800-53 SI-8 (2)
@@ -791,8 +791,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem servidores email implantados como parte dessa Especificação Técnica do Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Não existem servidores email implantados como parte desse projeto. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-10"></a>Controle NIST 800-53 SI-10
@@ -819,8 +819,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os recursos implantados por esta Especificação Técnica do Azure empregam sistemas operacionais comerciais e aplicativos de software. Este software usa melhores práticas do setor para garantir que informações confidenciais não serão reveladas em mensagens de erro. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Os recursos implantados por esse projeto empregam sistemas operacionais comerciais e aplicativos de software. Este software usa melhores práticas do setor para garantir que informações confidenciais não serão reveladas em mensagens de erro. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-11b"></a>Controle NIST 800-53 SI-11.b
@@ -833,8 +833,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os recursos implantados por esta Especificação Técnica do Azure empregam sistemas operacionais comerciais e aplicativos de software. Este software usa melhores práticas para fornecer mensagens de erro que são apropriadas no contexto dos usos com recebimento de mensagem. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Os recursos implantados por esse projeto empregam sistemas operacionais comerciais e aplicativos de software. Este software usa melhores práticas para fornecer mensagens de erro que são apropriadas no contexto dos usos com recebimento de mensagem. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-12"></a>Controle NIST 800-53 SI-12
@@ -848,7 +848,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por manipular e reter informações dentro de recursos implantados pelo cliente (para incluir aplicativos, sistemas operacionais, bancos de dados e software) e a saída de informações desses recursos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-si-16"></a>Controle NIST 800-53 SI-16
@@ -857,9 +857,9 @@ ms.lasthandoff: 11/23/2017
 
 **SI-16** O sistema de informações implementa [Atribuição: garantias de segurança definidas pela organização] para proteger sua memória de execução de código não autorizado.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implantadas por essa Especificação Técnica do Azure executam sistemas operacionais Windows. O Windows tem proteções em vigor para impedir a execução de código em locais de memória restritos: NX (No Execute), ASLR (Address Space Layout Randomization) e DEP (Prevenção de Execução de Dados). |
+| **Cliente** | As máquinas virtuais implantadas por esse projeto executam sistemas operacionais Windows. O Windows tem proteções em vigor para impedir a execução de código em locais de memória restritos: NX (No Execute), ASLR (Address Space Layout Randomization) e DEP (Prevenção de Execução de Dados). |
 | **Provedor (Microsoft Azure)** | Não aplicável |

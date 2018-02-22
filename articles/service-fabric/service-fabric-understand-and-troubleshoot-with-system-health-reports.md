@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -638,6 +638,21 @@ Outras chamadas à API que podem ficar paralisadas estão na interface **IReplic
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: este aviso indica um problema no processo de build. Para obter mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md) (Ciclo de vida da réplica). Isso pode acontecer devido a uma configuração incorreta do endereço do replicador. Para obter mais informações, consulte [Configurar Reliable Services com estado](service-fabric-reliable-services-configuration.md) e [Especificar recursos em um manifesto de serviço](service-fabric-service-manifest-resources.md). Também pode ser um problema no nó remoto.
 
+### <a name="replicator-system-health-reports"></a>Relatórios de integridade do sistema replicador
+**Fila de replicação cheia:**
+**System.Replicator** relata um aviso quando a fila de replicação está cheia. Na primária, a fila de replicação normalmente fica cheia porque uma ou mais réplicas secundárias são lentas em confirmar operações. No local secundário, isso geralmente acontece quando o serviço está lento para aplicar as operações. O aviso será removido quando a fila não estiver mais cheia.
+
+* **SourceId**: System.Replicator
+* **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função da réplica.
+* **Próximas etapas**: se o relatório estiver no primário, verifique a conexão entre os nós no cluster. Caso todas as conexões estejam íntegras, talvez haja pelo menos um secundário lento com uma latência de disco alto para aplicar operações. Se o relatório estiver no secundário, verifique o uso do disco e o desempenho no nó primeiro e, em seguida, a conexão de saída a partir do nó lento para o primário.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** na réplica primária relata um aviso quando a conexão com um replicador (remoto) secundário não está íntegra. O endereço do replicador remoto é mostrado na mensagem do relatório, facilitando detectar se uma configuração incorreta foi passada ou se há problemas de rede entre os replicadores.
+
+* **SourceId**: System.Replicator
+* **Propriedade**: **RemoteReplicatorConnectionStatus**
+* **Próximas etapas**: verifique a mensagem de erro e se o endereço do replicador remoto está configurado corretamente (por exemplo, se o replicador remoto está aberto com o endereço de escuta "localhost", não é acessível por fora). Se o endereço estiver correto, verifique a conexão entre o nó primário e o endereço remoto para encontrar eventuais problemas potenciais de rede.
+
 ### <a name="replication-queue-full"></a>Fila de replicação cheia
 **System.Replicator** relata um aviso quando a fila de replicação está cheia. Na primária, a fila de replicação normalmente fica cheia porque uma ou mais réplicas secundárias são lentas em confirmar operações. No local secundário, isso geralmente acontece quando o serviço está lento para aplicar as operações. O aviso será removido quando a fila não estiver mais cheia.
 
@@ -747,7 +762,7 @@ HealthEvents                       :
 System.Hosting relatará um erro se o download do pacote de aplicativos falhar.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: **download:***RolloutVersion*.
+* **Propriedade**: **Download:***RolloutVersion*.
 * **Próximas etapas**: investigue o motivo pelo qual o download falhou no nó.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>Relatórios de integridade do sistema DeployedServicePackage
@@ -825,7 +840,7 @@ HealthEvents               :
 System.Hosting relatará um erro se o download do pacote de serviço falhar.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: **download:***RolloutVersion*.
+* **Propriedade**: **Download:***RolloutVersion*.
 * **Próximas etapas**: investigue o motivo pelo qual o download falhou no nó.
 
 ### <a name="upgrade-validation"></a>Validação da atualização

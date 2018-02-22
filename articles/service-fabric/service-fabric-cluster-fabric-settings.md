@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
 Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los através do [Portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager.
@@ -482,17 +482,32 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 ### <a name="section-name-securityclientx509names"></a>Nome da seção: Segurança/ClientX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
 
 ### <a name="section-name-securityclusterx509names"></a>Nome da seção: Segurança/ClusterX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
 
 ### <a name="section-name-securityserverx509names"></a>Nome da seção: Segurança/ServerX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
+
+### <a name="section-name-securityclientcertificateissuerstores"></a>Nome da seção: Segurança/ClientCertificateIssuerStores
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, o padrão é None |Dinâmico|Repositórios de certificados do emissor X509 para certificados do cliente; Nome = clientIssuerCN; Valor = lista separada por vírgula de repositórios |
+
+### <a name="section-name-securityclustercertificateissuerstores"></a>Nome da seção: Segurança/ClusterCertificateIssuerStores
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, o padrão é None |Dinâmico|Repositórios de certificados do emissor X509 para certificados do cluster; Nome = clusterIssuerCN; Valor = lista separada por vírgula de repositórios |
+
+### <a name="section-name-securityservercertificateissuerstores"></a>Nome da seção: Segurança/ServerCertificateIssuerStores
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, o padrão é None |Dinâmico|Repositórios de certificados do emissor X509 para certificados do servidor; Nome = serverIssuerCN; Valor = lista separada por vírgula de repositórios |
 
 ### <a name="section-name-securityclientaccess"></a>Nome da seção: segurança/ClientAccess
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
@@ -583,7 +598,7 @@ PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
 |CreateComposeDeployment|string, o padrão é L"Admin"| Dinâmico|Cria uma implantação de redação descrita pelos arquivos de redação |
 |DeleteComposeDeployment|string, o padrão é L"Admin"| Dinâmico|Exclui a implantação de redação |
 |UpgradeComposeDeployment|string, o padrão é L"Admin"| Dinâmico|Atualiza a implantação de redação |
-|ResolveSystemService|string, o padrão é L"Admin\|\|User"|Dinâmico| Configuração de segurança para determinar os serviços de sistema |
+|ResolveSystemService|cadeia de caracteres, o padrão é L"Admin\|\|User"|Dinâmico| Configuração de segurança para determinar os serviços de sistema |
 |GetUpgradeOrchestrationServiceState|string, o padrão é L"Admin"| Dinâmico|Induz GetUpgradeOrchestrationServiceState em uma partição |
 |SetUpgradeOrchestrationServiceState|string, o padrão é L"Admin"| Dinâmico|Induz SetUpgradeOrchestrationServiceState em uma partição |
 
@@ -721,8 +736,6 @@ PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
 |MaxDataMigrationTimeout |Tempo em segundos, o padrão é 600 |Dinâmico|Especifique o intervalo de tempo em segundos. O tempo limite máximo para operações de recuperação de migração de dados depois que ocorreu uma atualização do Fabric. |
 |MaxOperationRetryDelay |Tempo em segundos, o padrão é 5|Dinâmico| Especifique o intervalo de tempo em segundos. O atraso máximo para as repetições internas quando são encontradas falhas. |
 |ReplicaSetCheckTimeoutRollbackOverride |Tempo em segundos, o padrão é 1200 |Dinâmico| Especifique o intervalo de tempo em segundos. Se ReplicaSetCheckTimeout for definido como o valor máximo de DWORD, ele será substituído pelo valor dessa configuração para fins de reversão. O valor usado para avanço nunca é substituído. |
-|ImageBuilderJobQueueThrottle |Int, o padrão é 10 |Dinâmico|Restrição de contagem de threads para a fila de trabalho do proxy do Image Builder em solicitações do aplicativo. |
-|MaxExponentialOperationRetryDelay|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(30)|Dinâmico|Especifique o intervalo de tempo em segundos. O atraso máximo exponencial para as repetições internas quando são encontradas falhas repetidamente |
 
 ### <a name="section-name-defragmentationemptynodedistributionpolicy"></a>Nome da seção: DefragmentationEmptyNodeDistributionPolicy
 | **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou Descrição resumida** |

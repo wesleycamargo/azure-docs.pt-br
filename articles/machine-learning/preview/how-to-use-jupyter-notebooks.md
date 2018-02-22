@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Como usar blocos de anotações do Jupyter no Azure Machine Learning Workbench
 
 O Azure Machine Learning Workbench tem suporte para experimentação de ciência de dados interativa por meio da integração do bloco de anotações do Jupyter. Este artigo descreve como usar de maneira eficiente esse recurso para aumentar a velocidade e a qualidade da sua experimentação de ciência de dados interativa.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 - [Instalar e criar o Azure Machine Learning](quickstart-installation.md).
 - Familiarize-se com [bloco de anotações do Jupyter](http://jupyter.org/), uma vez que este artigo não ensina a usar o Jupyter.
 
@@ -42,15 +42,15 @@ Você pode acessar muitos kernels diferentes no Azure ML Workbench simplesmente 
 >Examine [Configurar execução](experimentation-service-configuration.md) para obter mais detalhes sobre configurações de execução e destinos de computação.
 
 ### <a name="kernel-naming-convention"></a>Convenção de nomenclatura do kernel
-Os kernels geralmente são nomeados no formato "\<nome do projeto> \<nome da configuração de execução>". Por exemplo, se você tiver uma configuração de execução chamada _docker python_ em um projeto chamado _myIris_, poderá encontrar um kernel denominado "myIris docker-python" na lista de kernel ao abrir um bloco de anotações do Jupyter.
-
+O Azure ML Workbench gera kernels do Jupyter personalizados.  Eles se chamam "\<project name> \<run config name>". Por exemplo, se você tiver uma configuração de execução chamada _docker-python_ em um projeto chamado _myIris_, o Azure ML disponibiliza um kernel chamado "myIris docker-python".  Defina o kernel em execução do menu "Kernel" do Jupyter Notebook, no submenu “Alterar kernel”. O nome do kernel em execução é exibido na extremidade direita da barra de menus.
+ 
 Atualmente, o Workbench tem suporte para os tipos de kernels a seguir.
 
 ### <a name="local-python-kernel"></a>Kernel Python local
 Esse kernel Python dá suporte à execução no computador local. Ele é integrado ao suporte do Histórico de Execução do Azure Machine Learning. O nome do kernel normalmente é "my_project_name local".
 
 >[!NOTE]
->Não use o kernel "Python 3". É um kernel autônomo fornecido pelo Jupyter por padrão. Ele é integrado à funcionalidade de Execução do Azure Machine Learning.
+>Não use o kernel "Python 3". É um kernel autônomo fornecido pelo Jupyter por padrão. Ele é integrado à funcionalidade de Execução do Azure Machine Learning. Por exemplo, as funções mágicas _%azureml_ do Jupyter retornam erros "não encontrados". 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Python Kernel no Docker (local ou remoto)
 Esse kernel Python é executado em um contêiner do Docker em seu computador local ou em uma VM do Linux remota. O nome do kernel normalmente é "my_project docker". O arquivo `docker.runconfig` associado tem o campo `Framework` definido como `Python`.

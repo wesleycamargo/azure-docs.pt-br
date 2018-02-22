@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analisar sua mídia usando o Portal do Azure
 > [!NOTE]
@@ -45,7 +45,7 @@ Este tópico aborda como processar sua mídia com processadores de mídia (MPs) 
 5. Pressione **Criar** para iniciar um trabalho.
 
 ## <a name="azure-media-indexer"></a>Indexador de Mídia do Azure
-O processador de mídia do **Azure Media Indexer** permite tornar conteúdo e arquivos de mídia pesquisáveis, bem como gerar faixas de legendagem oculta. Esta seção fornece alguns detalhes sobre as opções que você pode especificar para esse MP.
+O processador de mídia do **Azure Media Indexer** permite tornar conteúdo e arquivos de mídia pesquisáveis, bem como gerar faixas de legendagem oculta. Esta seção fornece alguns detalhes sobre as opções que você especifica para esse MP.
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
@@ -74,7 +74,7 @@ Um nome amigável que permite identificar o trabalho. [Esse](media-services-port
 Um nome amigável que permite identificar o conteúdo de saída. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-O Azure Media Hyperlapse é um MP que cria vídeos suaves de lapso de tempo de conteúdo de primeira pessoa ou de uma câmera de ação.  Para obter mais informações, consulte [este](media-services-hyperlapse-content.md) tópico. Esta seção fornece alguns detalhes sobre as opções que você pode especificar para esse MP.
+O Azure Media Hyperlapse é um MP que cria vídeos suaves de lapso de tempo de conteúdo de primeira pessoa ou de uma câmera de ação.  Para obter mais informações, consulte [este](media-services-hyperlapse-content.md) tópico. Esta seção fornece alguns detalhes sobre as opções que você especifica para esse MP.
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -135,6 +135,17 @@ Um nome amigável que permite identificar o trabalho. [Esse](media-services-port
 ### <a name="output-file"></a>Arquivo de saída
 Um nome amigável que permite identificar o conteúdo de saída. 
 
+## <a name="azure-media-content-moderator"></a>Azure Media Content Moderator
+Este processador ajuda a detectar possível conteúdo adulto e erótico em vídeos. O processador detecta automaticamente capturas e quadros-chave no vídeo. Ele classifica os quadros-chave de conteúdo adulto ou erótico possíveis e sugere análises com base em limites padrão. Para obter informações detalhadas e exemplos, consulte [Usar Azure Media Content Moderator para moderar o vídeo](media-services-content-moderation.md)
+
+![Moderar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>Versão 
+Use "2.0".
+
+### <a name="mode"></a>Mode
+A versão 2.0 ignora a configuração `Mode`.
+
 ## <a name="next-steps"></a>Próximas etapas
 Exibir os roteiros de aprendizagem dos Serviços de Mídia.
 
@@ -142,4 +153,3 @@ Exibir os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cef7fc282edc7396a0f26dab98ea7f1087315b23
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Localizar dados usando as pesquisas de logs no Log Analytics
 
@@ -39,7 +39,7 @@ Vamos começar com exemplos práticos, simples e desenvolvê-los para que você 
 Depois que você se acostumar com as técnicas de pesquisa, poderá examinar a [referência de pesquisa de log do Log Analytics](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Usar filtros básicos
-A primeira coisa a saber é que a primeira parte de uma consulta de pesquisa, antes de um caractere de barra vertical "|", é sempre um *filtro*. Você pode pensar nisso como uma cláusula WHERE no TSQL-- isso determina *qual* subconjunto de dados efetuar pull para o espaço de trabalho do Log Analytics. A pesquisa no repositório de dados é basicamente a especificação das características dos dados que você deseja extrair; portanto, é natural que uma consulta deva começar com a cláusula WHERE.
+A primeira coisa a saber é que a primeira parte de uma consulta de pesquisa, antes de um caractere de barra vertical "|", é sempre um *filtro*. Você pode pensar nele como uma cláusula WHERE no TSQL – ele determina *qual* subconjunto de dados obter do espaço de trabalho do Log Analytics. A pesquisa no repositório de dados é basicamente a especificação das características dos dados que você deseja extrair; portanto, é natural que uma consulta deva começar com a cláusula WHERE.
 
 Os filtros mais básicos que você pode usar são *palavras-chave*, como 'erro', 'tempo limite' ou um nome de computador. Esses tipos de consultas simples normalmente retornam diversas formas de dados dentro do mesmo conjunto de resultados. Isso acontece porque o Log Analytics tem diferentes *tipos* de dados no sistema.
 

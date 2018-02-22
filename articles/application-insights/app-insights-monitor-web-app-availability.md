@@ -1,23 +1,8 @@
----
-title: Monitorar a disponibilidade e a capacidade de resposta de qualquer site da Web | Microsoft Docs
-description: "Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente."
-services: application-insights
-documentationcenter: 
-author: SoubhagyaDash
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/14/2017
-ms.author: sdash
-ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ ;--- title: Monitorar disponibilidade e resposta de qualquer site | Descrição do Microsoft Docs: Configure testes da Web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
+services: application-insights documentationcenter: '' author: SoubhagyaDash manager: carmonm
+
+ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: na ms.topic: get-started-article ms.date: 02/09/2018 ms.author: sdash ; mbullwin
+
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
@@ -41,7 +26,7 @@ Você pode criar até 100 testes de disponibilidade por recurso de aplicativo.
 
 **Se você já configurou o Application Insights** para seu aplicativo web, abra o recurso Application Insights no [portal do Azure](https://portal.azure.com).
 
-**Ou, se preferir ver os relatórios em um novo recurso,** Inscreva-se no [Microsoft Azure](http://azure.com), vá ao [portal do Azure](https://portal.azure.com)e crie um recurso Application Insights.
+**Ou, se preferir ver os relatórios em um novo recurso,** vá ao [Portal do Azure](https://portal.azure.com)e crie um recurso do Application Insights.
 
 ![Novo > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -56,9 +41,13 @@ Abra a folha Disponibilidade e adicione um teste.
 * **Analisar as solicitações dependentes**: se esta opção estiver marcada, o teste solicitará imagens, scripts, arquivos de estilo e outros arquivos que fazem parte da página da Web em teste. O tempo de resposta gravado inclui o tempo necessário para obter esses arquivos. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro. 
 
     Se a opção não estiver marcada, o teste solicitará apenas o arquivo na URL especificada.
+
 * **Habilitar tentativas novas**: se esta opção estiver marcada, quando o teste falhar, ele será repetido após um breve intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. Recomendamos essa opção. Em média, aproximadamente 80% das falhas desaparecem na repetição.
-* **Frequência de teste**: define a frequência com que o teste é executado em cada local de teste. Com uma frequência de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.
+
+* **Frequência de teste**: define a frequência com que o teste é executado em cada local de teste. Com uma frequência padrão de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.
+
 * **locais de teste** são os locais por meio dos quais nossos servidores enviam solicitações da Web para sua URL. Escolha dois ou três para que você possa diferenciar problemas no site de problemas da rede. Você pode selecionar até 16 locais.
+
 * **Critérios de sucesso**:
 
     **Tempo limite do teste**: reduza esse valor para ser alertado sobre respostas lentas. O teste é considerado uma falha se as respostas de seu site não são recebidas dentro desse período. Se você tiver selecionado **Analisar solicitações dependentes**, todas as imagens, arquivos de estilo, scripts e outros recursos dependentes devem ter sido recebidos dentro desse período.

@@ -4,7 +4,7 @@ description: "Marque uma sub-rede como um ponto de extremidade de serviço de Re
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/31/2018
-ms.author: genemi
-ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/13/2018
+ms.reviewer: genemi
+ms.author: dmalik
+ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Use pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure
 
@@ -143,6 +144,12 @@ Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as s
     - [Rede privada virtual (VPN) de site a site (S2S)][vpn-gateway-indexmd-608y]
     - No local por meio de [ExpressRoute][expressroute-indexmd-744v]
 
+#### <a name="considerations-when-using-service-endpoints"></a>Considerações ao usar pontos de extremidade de serviço
+Ao usar pontos de extremidade de serviço para o Banco de Dados SQL do Azure, veja as considerações a seguir:
+
+- **Saída para IPs públicos do Banco de Dados SQL do Azure é necessária**: NSGs (Grupos de Segurança de Rede) devem ser abertos para IPs do Banco de Dados SQL do Azure para permitir a conectividade. Você pode fazer isso usando o NSG [Marcas de Serviço](../virtual-network/security-overview.md#service-tags) para o Banco de Dados SQL do Azure.
+- **Não há suporte para o Banco de Dados do Azure para PostgreSQL e MySQL**: pontos de extremidade de serviço não têm suporte para o Banco de Dados do Azure para PostgreSQL ou MySQL. A habilitação de pontos de extremidade de serviço para o Banco de Dados SQL interromperá a conectividade com esses serviços. Temos uma mitigação para isso; entre em contato com *dmalik@microsoft.com*.
+
 #### <a name="expressroute"></a>ExpressRoute
 
 Se sua rede estiver conectada à rede do Azure através do [ExpressRoute][expressroute-indexmd-744v], cada circuito é configurado com dois endereços IP públicos no Microsoft Edge. Os dois endereços IP são usados para se conectar aos serviços da Microsoft, como o Armazenamento do Azure, usando o emparelhamento público do Azure.
@@ -170,6 +177,8 @@ O Editor de Consulta do Banco de Dados SQL do Azure é implantado em máquinas v
 #### <a name="table-auditing"></a>Auditoria de tabela
 No momento, há duas maneiras para habilitar a auditoria do Banco de Dados SQL. A auditoria de tabela falha depois que você habilita pontos de extremidade de serviço no Azure SQL Server. Aqui, a mitigação é movida para a auditoria de blob.
 
+#### <a name="impact-on-data-sync"></a>Impacto sobre a Sincronização de Dados
+O Banco de Dados SQL do Azure tem o recurso de Sincronização de Dados que se conecta a bancos de dados usando IPs do Azure. Ao usar pontos de extremidade de serviço, é provável que você desative a opção de **Permitir que serviços do Microsoft Azure** acessem seu servidor lógico. Isso interromperá o recurso de Sincronização de Dados.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto de usar pontos de extremidade de serviço de VNet com Armazenamento do Azure
 
@@ -177,7 +186,7 @@ O Armazenamento do Azure implementou o mesmo recurso que permite que você limit
 Se optar por usar esse recurso com uma conta de Armazenamento que está sendo usada por um Azure SQL Server, você poderá encontrar problemas. A seguir há uma lista e uma discussão sobre os recursos do Azure SQLDB que são afetados por isso.
 
 #### <a name="azure-sqldw-polybase"></a>PolyBase do Azure SQLDW
-O PolyBase normalmente é usado para carregar dados no Azure SQLDW de contas de Armazenamento. Se a conta de Armazenamento da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase à conta será interrompida.
+O PolyBase normalmente é usado para carregar dados no Azure SQLDW de contas de Armazenamento. Se a conta de Armazenamento da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase à conta será interrompida. Há uma mitigação para isso; entre em contato com *dmalik@microsoft.com* para obter mais informações.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Auditoria de blob do Azure SQLDB
 A auditoria de blob envia por push logs de auditoria para sua própria conta de armazenamento. Se essa conta de armazenamento usar o recurso de pontos de extremidade de serviço VENT, a conectividade do Azure SQLDB à conta de armazenamento será interrompida.

@@ -6,21 +6,20 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro;
-ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.custom: it-pro
+ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuindo funções de administrador no Azure Active Directory
 
@@ -64,7 +63,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **Emissor do Convite ao Convidado**: os usuários nessa função podem gerenciar convites para usuários convidados do Azure Active Directory B2B quando a configuração de usuário "Membros podem convidar" está definida como Não. Mais informações sobre a colaboração B2B podem ser obtidas em [Sobre a Visualização de Colaboração do Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Ela não inclui nenhuma outra permissão.
 
-* **Administrador da Proteção de Informações**: os usuários com essa função podem acessar a Proteção de Informações do Azure no portal do Azure. Eles podem configurar rótulos para a política da Proteção de Informações do Azure, gerenciar modelos de proteção e ativar a proteção.
+* **Administrador da proteção de informações (versão prévia)**: usuários com esta função têm direitos de usuário somente no serviço de Proteção de Informações do Azure. Eles não têm direitos de usuário no Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 ou Centro de Segurança e Conformidade do Office 365. Eles podem configurar rótulos para a política da Proteção de Informações do Azure, gerenciar modelos de proteção e ativar a proteção.
 
 * **Administrador de Serviços do Intune**: os usuários com essa função têm permissões globais no Microsoft Intune Online quando o serviço está presente. Além disso, essa função contém a capacidade de gerenciar usuários e dispositivos para associar a política, bem como criar e gerenciar grupos.
 
@@ -128,11 +127,10 @@ As seguintes funções de administrador estão disponíveis:
 | --- | --- |
 | <p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Alterar senhas somente de usuários e outros administradores de Assistência Técnica</p>|<p>Executar operações de cobrança e compra de produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Editar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar sincronização de diretório</p><p>Exibir relatórios</p>|
 
-### <a name="information-protection-administrator"></a>Administrador da Proteção de Informações 
+### <a name="information-protection-administrator-preview"></a>Administrador da proteção de informações (versão prévia)
 No | O que ele pode fazer
 -------- | ---------
-Proteção de Informações do Azure | * Configurar rótulos e políticas globais com escopo<br>* Gerenciar, configurar e atualizar modelos de proteção<br>* Habilitar ativação de proteção para uso 
-Privileged Identity Management | * Permissões de leitura<br>* Não é possível gerenciar associações de função ou configurações do Azure AD.
+Proteção de Informações do Azure | <li>Definir configurações e rótulos em políticas globais e com escopo<li>Configurar e gerenciar modelos de proteção<li>Ativar ou desativar a proteção –
  
 ### <a name="reports-reader"></a>Leitor de Relatórios 
 O que ele pode fazer | O que não pode fazer
