@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: v-craic
-ms.openlocfilehash: ffa669e2d07a93e9e5071ac8aab81ec14ea24eab
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e784b6ebffa215fc090af0f915900a41972fb778
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Reiniciar uma VM em um laboratório no Azure DevTest Labs
 Você pode reiniciar de forma rápida e fácil uma máquina virtual em DevTest Labs seguindo as etapas neste artigo. Considere o seguinte antes de reiniciar uma VM:
@@ -37,7 +37,7 @@ Você pode reiniciar de forma rápida e fácil uma máquina virtual em DevTest L
 
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Etapas para reiniciar uma VM em um laboratório no Azure DevTest Labs
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **Mais Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 1. Na lista de laboratórios, selecione o laboratório que inclui a VM que você deseja reiniciar.  
 1. No painel esquerdo, selecione **Minhas Máquinas Virtuais**. 
 1. Na lista de VMs, selecione uma VM em execução.

@@ -3,8 +3,8 @@ title: "Armazenar e exibir dados de diagnóstico no Armazenamento do Azure | Mic
 description: "Obter dados de diagnóstico do Azure no Armazenamento do Azure e exibi-los"
 services: cloud-services
 documentationcenter: .net
-author: rboucher
-manager: jwhit
+author: thraka
+manager: timlt
 editor: tysonn
 ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: robb
-ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adegeo
+ms.openlocfilehash: 448d685cf2c0a21f4f87e672644a3cf72c2a576f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e exibir dados de diagnóstico no Armazenamento do Azure
 Os dados de diagnóstico não são armazenados permanentemente, a menos que sejam transferidos para o emulador de armazenamento do Microsoft Azure ou para o armazenamento do Azure. Quando estiverem no armazenamento, eles poderão ser exibidos com uma das várias ferramentas disponíveis.
@@ -42,8 +42,8 @@ Dependendo do tipo de dados de diagnóstico que estejam sendo coletados, o diagn
 | Logs do IIS 7.0 |Blob |
 | Logs de infraestrutura do Diagnóstico do Azure |Tabela |
 | Logs de Rastreamento de Solicitação com Falha |Blob |
-| Log de eventos do Windows |Tabela |
-| Contadores de desempenho |Tabela |
+| Logs de Eventos do Windows |Tabela |
+| contadores de desempenho |Tabela |
 | Despejos de falhas |Blob |
 | Logs de erros personalizados |Blob |
 
@@ -76,7 +76,7 @@ Os dados de log são armazenados no armazenamento de Blob ou de Tabela com os se
 * **"custom"** – um contêiner personalizado com base na configuração de diretórios que são monitorados pelo monitor de diagnóstico.  O nome desse contêiner de blob será especificado em WADDirectoriesTable.
 
 ## <a name="tools-to-view-diagnostic-data"></a>Ferramentas para exibir dados de diagnóstico
-Várias ferramentas estão disponíveis para exibir os dados depois de serem transferidos para o armazenamento. Por exemplo:
+Várias ferramentas estão disponíveis para exibir os dados depois de serem transferidos para o armazenamento. Por exemplo: 
 
 * Gerenciador de Servidores no Visual Studio – Se tiver instalado as Ferramentas do Azure para o Microsoft Visual Studio, será possível usar o nó do Armazenamento do Azure no Gerenciador de Servidores para exibir os dados de tabela e de blob somente leitura de suas contas de armazenamento do Azure. Você pode exibir dados de conta do emulador de armazenamento local e também de contas de armazenamento que você criou para o Azure. Para obter mais informações, veja [Procurando e gerenciando recursos de armazenamento com o Gerenciador de Servidores](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 * [Gerenciamento de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite trabalhar facilmente com os dados de Armazenamento do Azure no Windows, OSX e Linux.

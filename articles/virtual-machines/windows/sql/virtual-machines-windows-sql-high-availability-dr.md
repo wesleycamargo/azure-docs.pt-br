@@ -4,7 +4,7 @@ description: "Uma discussão sobre os diversos tipos de estratégias HADR do SQL
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: a81b956107ef82f40ad5304808068a7573ca7d27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9b4ca959b93e097bb52a841cec02cc476ef5f48
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure
 
@@ -69,7 +69,7 @@ Você pode ter uma solução de recuperação de desastres para seus bancos de d
 | Tecnologia | Arquiteturas de exemplo |
 | --- | --- |
 | **Grupos de Disponibilidade** |Algumas réplicas de disponibilidade executadas em VMs do Azure e outras réplicas executadas localmente para recuperação de desastres intersite. O site de produção pode ser local ou em um datacenter do Azure.<br/>![Grupos de Disponibilidade](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Como todas as réplicas de disponibilidade devem estar no mesmo cluster de failover, o cluster deve abranger as duas redes (um cluster de failover de várias sub-redes). Essa configuração requer uma conexão VPN entre o Azure e a rede local.<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres.<br/><br/>É possível usar o Assistente de Adição de Réplica no SSMS para adicionar uma réplica do Azure a um grupo de disponibilidade AlwaysOn existente. Para obter mais informações, consulte o Tutorial: estender seu grupo de disponibilidade AlwaysOn para o Azure. |
-| **Espelhamento de banco de dados** |Um parceiro executado em uma VM do Azure e o outro executado localmente para recuperação de desastres intersite usando certificados de servidor. Os parceiros não precisam estar no mesmo domínio do Active Directory e nenhuma conexão VPN é necessária.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Outro cenário que o espelhamento de banco de dados envolve é um parceiro em execução em uma VM do Azure e o outro em execução localmente no mesmo domínio do Active Directory para recuperação de desastres intersite. Uma [conexão VPN entre a rede virtual do Azure e a rede local](../../../vpn-gateway/vpn-gateway-site-to-site-create.md) é necessária.<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres. |
+| **Espelhamento de banco de dados** |Um parceiro executado em uma VM do Azure e o outro executado localmente para recuperação de desastres intersite usando certificados de servidor. Os parceiros não precisam estar no mesmo domínio do Active Directory e nenhuma conexão VPN é necessária.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Outro cenário que o espelhamento de banco de dados envolve é um parceiro em execução em uma VM do Azure e o outro em execução localmente no mesmo domínio do Active Directory para recuperação de desastres intersite. Uma [conexão VPN entre a rede virtual do Azure e a rede local](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) é necessária.<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres. |
 | **Envio de logs** |Um servidor em execução em uma VM do Azure e outro em execução local para recuperação de desastre intersite. O envio de log depende do compartilhamento de arquivos do Windows, assim, uma conexão VPN entre a rede virtual do Azure e a rede local é necessária.<br/>![Envio de logs](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres. |
 | **Backup e restauração com o Serviço de armazenamento de blob do Azure** |Bancos de dados de produção local com backup diretamente no armazenamento de blob do Azure para recuperação de desastres.<br/>![Backup e restauração](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e Restauração para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md). |
 | **Replicação e failover do SQL Server para o Azure com o Azure Site Recovery** |SQL Server de produção local replicado diretamente no Armazenamento do Azure para recuperação de desastre.<br/>![Replicar usando o Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>Para obter mais informações, consulte [Proteger o SQL Server usando a recuperação de desastre do SQL Server e o Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
@@ -104,7 +104,7 @@ Há duas opções principais para configurar o ouvinte: externo (público) ou in
 Se o Grupo de disponibilidade abranger várias sub-redes do Azure (como uma implantação que cruza regiões do Azure), a cadeia de conexão do cliente deve incluir "**MultisubnetFailover=True**". Isso resulta em tentativas de conexão em paralelo às réplicas nas diferentes sub-redes. Para obter instruções sobre como configurar um ouvinte, consulte
 
 * [Configurar um ouvinte de ILB para grupos de disponibilidade no Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
-* [Configurar um ouvinte externo para grupos de disponibilidade no Azure](../classic/ps-sql-ext-listener.md).
+* [Configurar um ouvinte externo para grupos de disponibilidade no Azure](../sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 Você pode ainda se conectar a cada réplica de disponibilidade separadamente conectando-se diretamente à instância do serviço. Além disso, como os grupos de disponibilidade são compatíveis com versões anteriores com clientes de espelhamento de banco de dados, você pode se conectar a réplicas de disponibilidade, como parceiros de espelhamento, desde que as réplicas sejam configuradas de forma semelhante ao espelhamento do banco de dados:
 

@@ -55,7 +55,7 @@ A descriptografia com a técnica de envelope funciona da seguinte maneira:
 A biblioteca de cliente de armazenamento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
 
 ### <a name="blobs"></a>Blobs
-Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, a criptografia tem suporte quando os usuários utilizam os métodos **create***. Para downloads, os downloads completos e de intervalo têm suporte e a paralelização do download e do upload está disponível.
+Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, a criptografia tem suporte quando os usuários utilizam os métodos **create**\*. Para downloads, os downloads completos e de intervalo têm suporte e a paralelização do download e do upload está disponível.
 
 Durante a criptografia, a biblioteca de cliente gerará um vetor de inicialização aleatório (IV) de 16 bytes, juntamente com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes e executará a criptografia de envelope dos dados blob usando essas informações. O CEK encapsulado e alguns metadados adicionais de criptografia são armazenadas como metadados com o blob criptografado no serviço de blob.
 
@@ -64,7 +64,7 @@ Durante a criptografia, a biblioteca de cliente gerará um vetor de inicializaç
 > 
 > 
 
-Baixar um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **get***. O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
+Baixar um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **get**\*. O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
 
 Baixar um intervalo arbitrário (métodos**get*** com parâmetros de intervalo passados) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado.
 

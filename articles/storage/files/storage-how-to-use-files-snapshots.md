@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: eb5c7d0fcb9e1106dbc0aa577ba5ecfa1bf6bee7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Trabalhar com instantâneos de compartilhamento (versão prévia)
 O instantâneo de compartilhamento (versão prévia) é uma versão somente leitura de um compartilhamento dos Arquivos do Azure feita em determinado momento. Quando um instantâneo de compartilhamento é criado, ele pode ser lido, copiado ou excluído, mas não modificado. Um instantâneo de compartilhamento fornece uma maneira de fazer backup do compartilhamento da maneira como ele aparece em um momento específico. 
@@ -246,7 +246,6 @@ Na saída, você verá que o conteúdo do arquivo baixado e suas propriedades s�
 }
 ```
 
-<<<<<<< HEAD
 ### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Operações de instantâneo de compartilhamento no Azure PowerShell
 Você pode usar Azure PowerShell para executar operações como procurar conteúdo de instantâneos de compartilhamento, restaurar ou fazer o download de arquivos desses instantâneos, listar instantâneos de compartilhamento ou excluí-los.
 
@@ -281,11 +280,7 @@ $directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWork
 Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
-
-## <a name="delete-azure-files-share-snapshot"></a>Excluir instantâneos de compartilhamento de Arquivos do Azure
-=======
 ## <a name="delete-a-share-snapshot"></a>Excluir um instantâneo de compartilhamento
->>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Você pode excluir instantâneos de compartilhamento usando o Portal do Azure, o PowerShell, a CLI, a API REST ou qualquer SDK de Armazenamento. As seções a seguir descrevem como excluir instantâneos de compartilhamento usando o portal do Azure, a CLI e o PowerShell.
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: bfd176aaf02dd96cee8877f1754dd0ce7ebded13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Usar o MapReduce no Hadoop do HDInsight
 
@@ -31,10 +31,10 @@ Saiba como executar trabalhos do MapReduce em clusters HDInsight. Use a tabela a
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Usar o comando Hadoop por meio de **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |Enviar o trabalho remotamente usando a **REST** (os exemplos usam cURL) |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Enviar o trabalho remotamente usando o **Windows PowerShell** |Linux ou Windows |Windows |
-| [Área de trabalho remota](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 e 3.3) |Usar o comando Hadoop por meio da **Área de trabalho remota** |Windows |Windows |
 
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+>
 
 ## <a id="whatis"></a>O que é o MapReduce
 
@@ -168,7 +168,6 @@ O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tab
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Usar o comando Hadoop por meio de **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Enviar o trabalho remotamente usando a **REST** |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Enviar o trabalho remotamente usando o **Windows PowerShell** |Linux ou Windows |Windows |
-| [Área de trabalho remota](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 e 3.3) |Usar o comando Hadoop por meio da **Área de trabalho remota** |Windows |Windows |
 
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

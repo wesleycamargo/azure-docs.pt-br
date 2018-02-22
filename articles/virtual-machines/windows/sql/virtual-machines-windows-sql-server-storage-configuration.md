@@ -4,7 +4,7 @@ description: "Este tópico descreve como o Azure configura o armazenamento para 
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 21c8b955d48da03559097db93b2cb66029a203ec
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 Quando você configurar uma imagem de máquina virtual do SQL Server no Azure, o Portal ajuda você a automatizar a configuração de armazenamento. Isso inclui a anexação de armazenamento para a VM, tornando o armazenamento acessível para o SQL Server e configurando-o para otimizar seus requisitos específicos de desempenho.
@@ -27,7 +27,7 @@ Este tópico explica como o Azure configura o armazenamento para suas VMs do SQL
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para usar as definições automatizadas de configuração de armazenamento, sua máquina virtual exige as seguintes características:
 
 * Deve ser provisionada com uma [imagem da galeria do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -117,8 +117,8 @@ O Azure usa as configurações a seguir para criar o pool de armazenamento em VM
 | Tamanhos do disco |1 TB cada |
 | Cache |Ler |
 | Tamanho da alocação |Tamanho da unidade de alocação de NTFS de 64 KB |
-| Inicialização de arquivo instantânea |Habilitado |
-| Bloquear páginas na memória |Habilitado |
+| Inicialização de arquivo instantânea |habilitado |
+| Bloquear páginas na memória |habilitado |
 | Recuperação |Recuperação simples (sem resiliência) |
 | Número de colunas |Número de discos de dados<sup>1</sup> |
 | Local do TempDB |Armazenados em discos de dados<sup>2</sup> |
@@ -130,7 +130,7 @@ O Azure usa as configurações a seguir para criar o pool de armazenamento em VM
 ## <a name="workload-optimization-settings"></a>Configurações de otimização da carga de trabalho
 A tabela a seguir descreve as três opções de tipo de carga de trabalho disponíveis e suas otimizações correspondentes:
 
-| Tipo de carga de trabalho | Descrição | Otimizações |
+| Tipo de carga de trabalho | DESCRIÇÃO | Otimizações |
 | --- | --- | --- |
 | **Geral** |Configuração padrão que oferece suporte à maioria das cargas de trabalho |Nenhum |
 | **Processamento transacional** |Otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados |Sinalizador de Rastreamento 1117<br/>Sinalizador de Rastreamento 1118 |

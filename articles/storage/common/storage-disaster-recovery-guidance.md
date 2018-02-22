@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se uma interrupção no Armazenamento do Azure ocorrer
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas em uma ou mais regiões. Para ajudá-lo a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes de alto nível para serviços de Armazenamento do Azure.
@@ -27,9 +27,9 @@ Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempr
 É essencial para todos os clientes preparar seu próprio plano de recuperação de desastre. O esforço para se recuperar de uma interrupção de armazenamento geralmente envolve a equipe de operações e procedimentos automatizados para reativar os aplicativos em um estado funcional. Consulte a documentação do Azure abaixo para compilar seu próprio plano de recuperação de desastre:
 
 * [Lista de verificação de disponibilidade](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Projeto de aplicativos resilientes do Azure](/azure/architecture/resiliency)
+* [Projeto de aplicativos resilientes do Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Serviço do Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-* [Replicação de Armazenamento do Azure](storage-redundancy)
+* [Replicação de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Como detectar

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 3cc4278ca7d4603f4bfb916885d44e6a85864b25
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de aprendizado de máquina: Crie sua primeira experiência no Azure Machine Learning Studio
 
@@ -159,8 +159,6 @@ Primeiro, adicionamos um módulo que remove completamente a coluna **normalized-
 
     > [!TIP]
     É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Neste caso, clique duas vezes no módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e digite o comentário “Excluir perdas normalizadas”.
-    >
-    >
 
 
     ![Clique duas vezes em um módulo para adicionar um comentário][add-comment]

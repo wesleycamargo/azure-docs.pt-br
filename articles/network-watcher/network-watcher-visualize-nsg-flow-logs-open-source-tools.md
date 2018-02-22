@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6caff3237e9694a00fc0847d5612b7a6e08d4b69
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo NSG do Observador de Rede do Azure usando ferramentas de código aberto
 
@@ -46,7 +46,7 @@ Ao conectar os logs de fluxo NSG ao Elastic Stack, podemos criar um painel Kiban
 1. O Elastic Stack da versão 5.0 e superior exige o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o java instalado, consulte a documentação no [site da Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Baixe o pacote de binários correto para seu sistema:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ Ao conectar os logs de fluxo NSG ao Elastic Stack, podemos criar um painel Kiban
 
 1. Verifique se o Elasticsearch está sendo executado com o comando:
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     Você deve ver uma resposta semelhante a essa:
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ Para obter instruções adicionais sobre a instalação da pesquisa elástica, c
 
 1. Para instalar o Logstash, execute os seguintes comandos:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Em seguida, precisamos configurar o Logstash para acessar e analisar os logs de fluxo. Crie um arquivo logstash.conf usando:
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -162,13 +162,13 @@ Para obter mais informações sobre como instalar o Logstash, consulte a [docume
 
 Esse plug-in do Logstash permitirá o acesso direto aos logs do fluxo por meio da conta de armazenamento designada. Para instalar esse plug-in, no diretório de instalação padrão do Logstash (nesse caso, /usr/share/logstash/bin), execute o comando:
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Para iniciar o Logstash, execute o comando:
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,14 +178,14 @@ Para obter mais informações sobre esse plug-in, consulte a documentação [aqu
 
 1. Execute os seguintes comandos para instalar o Kibana:
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Para executar o Kibana, use os comandos:
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```

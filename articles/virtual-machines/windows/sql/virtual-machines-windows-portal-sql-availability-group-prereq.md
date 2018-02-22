@@ -4,7 +4,7 @@ description: "Este tutorial mostra como configurar os pré-requisitos para a cri
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Conclua os pré-requisitos para a criação de grupos de disponibilidade AlwaysOn em máquinas virtuais do Azure
 
@@ -185,11 +185,11 @@ A tabela a seguir mostra as configurações para esses dois computadores:
 | **Tamanho** |DS1_V2 |
 | **Armazenamento** | **Usar discos gerenciados** - **Sim** |
 | **Rede virtual** |autoHAVNET |
-| **Sub-rede** |admin |
+| **Sub-rede** |administrador |
 | **Endereço IP público** |*Mesmo nome que a VM* |
 | **Grupo de segurança de rede** |*Mesmo nome que a VM* |
 | **Conjunto de disponibilidade** |adavailabilityset </br>**Domínios de falha**: 2</br>**Domínio de atualização**: 2|
-| **Diagnostics** |Habilitado |
+| **Diagnostics** |habilitado |
 | **Conta de armazenamento de diagnóstico** |*Criada automaticamente* |
 
    >[!IMPORTANT]
@@ -486,7 +486,7 @@ O método de abrir as portas depende da solução de firewall usada. A próxima 
 
    ![Firewall do SQL](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. Clique em **Avançar**.
+5. Clique em **Próximo**.
 6. Na página **Ação**, mantenha selecionado **Permitir a conexão** e, em seguida, clique em **Avançar**.
 7. Na página **Perfil**, aceite as configurações padrão e, em seguida, clique em **Avançar**.
 8. Na página **Nome**, especifique um nome de regra, como **Investigação do Azure LB** na caixa de texto **Nome** e clique em **Concluir**.

@@ -3,22 +3,20 @@ title: "Criar uma maquina virtual e uma conta de armazenamento para um aplicativ
 description: "Saiba como implantar uma máquina virtual para executar um aplicativo escalonável usando o armazenamento de blobs do Azure"
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: aafb79a021b76b1347314815b1786a23f699be7a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Crie uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável
 

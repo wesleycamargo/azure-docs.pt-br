@@ -4,7 +4,7 @@ description: "Este artigo descreve como gerenciar a extensão do agente do SQL S
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -15,24 +15,22 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 1d2b681660ae6f59dec8a287baa853085c64ebeb
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6510c4205234f5dfb98a7463af61b1293061bb4e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure com a Extensão do Agente do SQL Server (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
-> * [Clássico](../classic/sql-server-agent-extension.md)
-> 
-> 
+> * [Clássico](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 A extensão do SQL Server IaaS Agent (SQLIaaSExtension) é executada em máquinas virtuais do Azure para automatizar tarefas de administração. Este artigo fornece uma visão geral dos serviços compatíveis com a extensão, bem como instruções de instalação, status e remoção.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para exibir a versão clássica deste artigo, confira [Extensão do SQL Server Agent para VMs do SQL Server (Clássico)](../classic/sql-server-agent-extension.md).
+Para exibir a versão clássica deste artigo, confira [Extensão do SQL Server Agent para VMs do SQL Server (Clássico)](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## <a name="supported-services"></a>Serviços com suporte
 A Extensão do Agente IaaS do SQL Server dá suporte às seguintes tarefas de administração:
@@ -45,7 +43,7 @@ A Extensão do Agente IaaS do SQL Server dá suporte às seguintes tarefas de ad
 
 Uma vez instalada e em execução, a Extensão do Agente IaaS do SQL Server disponibiliza esses recursos de administração no painel do SQL Server da máquina virtual no portal do Azure e através do Azure PowerShell para as imagens do marketplace do SQL Server e, através do Azure PowerShell para as instalações manuais da extensão. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Requisitos para uso da extensão SQL Server IaaS Agent em sua VM:
 
 **Sistema operacional**:

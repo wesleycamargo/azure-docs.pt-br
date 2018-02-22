@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 63fdd5a5dabdd9083afa23e5400684b3b144b911
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8973c3289c5b17c03166c09db821e299d50f2f9c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Tutorial: Integração do Active Directory do Azure ao FloQast
 
@@ -106,22 +106,17 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do FloQast](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.floqast.com/`
-
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.floqast.com/api/sso/saml/azure`
+     Na caixa de texto **Identificador**, digite uma URL: `https://go.floqast.com/`
 
 4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Informações de logon único de Domínio e URLs do FloQast](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.floqast.com/login/sso`
+     Na caixa de texto **URL de Logon**, digite uma URL: `https://go.floqast.com/login/sso`
      
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Contate a [equipe de suporte ao cliente do FloQast](mailto:support@floqast.com) para obter esses valores.
-
 5. O aplicativo FloQast espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. A captura de tela a seguir mostra um exemplo disso.
     
-    ![Configurar logon único attb](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
+    ![Configurar o atributo Logon único](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
     
 6. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
     
@@ -241,8 +236,6 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

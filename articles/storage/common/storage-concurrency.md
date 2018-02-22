@@ -95,12 +95,12 @@ A tabela a seguir resume as operações de contêiner que aceitam cabeçalhos co
 | Get Container Metadata |Sim |Não |
 | Set Container Metadata |Sim |Sim |
 | Get Container ACL |Sim |Não |
-| Set Container ACL |Sim |Sim (*) |
+| Set Container ACL |Sim |Sim (\*) |
 | Delete Container |Não |Sim |
 | Lease Container |Sim |Sim |
 | Listar Blobs |Não |Não |
 
-(*) As permissões definidas por SetContainerACL são armazenadas em cache e as atualizações dessas permissões levam 30 segundos para serem propagadas, período durante o qual não há garantia de que as atualizações são consistentes.  
+(\*) As permissões definidas por SetContainerACL são armazenadas em cache e as atualizações dessas permissões levam 30 segundos para serem propagadas, período durante o qual não há garantia de que as atualizações são consistentes.  
 
 A tabela a seguir resume as operações de blob que aceitam cabeçalhos condicionais como **If-Match** na solicitação e retornam um valor de ETag na resposta.
 
@@ -112,7 +112,7 @@ A tabela a seguir resume as operações de blob que aceitam cabeçalhos condicio
 | Set Blob Properties |Sim |Sim |
 | Get Blob Metadata |Sim |Sim |
 | Set Blob Metadata |Sim |Sim |
-| Lease Blob (*) |Sim |Sim |
+| Lease Blob (\*) |Sim |Sim |
 | Blob de instantâneo |Sim |Sim |
 | Copiar blob |Sim |Sim (para o blob de origem e destino) |
 | Anular copiar Blob |Não |Não |
@@ -123,7 +123,7 @@ A tabela a seguir resume as operações de blob que aceitam cabeçalhos condicio
 | Put Page |Sim |Sim |
 | Get Page Ranges |Sim |Sim |
 
-(*) Lease Blob não altera a ETag em um blob.  
+(\*) Lease Blob não altera a ETag em um blob.  
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Simultaneidade pessimista para blobs
 Para bloquear um blob para uso exclusivo, é possível obter uma [concessão](http://msdn.microsoft.com/library/azure/ee691972.aspx) sobre ele. Ao adquirir uma concessão, você especifica por quanto tempo precisa dela: esse período pode ser entre 15 e 60 segundos ou infinito, o que resulta em um bloqueio exclusivo. Você pode renovar uma concessão finita para estendê-la e pode liberar qualquer concessão quando terminar de trabalhar com ela. O serviço Blob libera as concessões finitas automaticamente quando elas expiram.  
@@ -208,9 +208,9 @@ Para usar a simultaneidade otimista e verificar se outro processo modificou uma 
 2. Ao atualizar a entidade, inclua o valor da ETag recebido na etapa 1 no cabeçalho obrigatório **If-Match** da solicitação enviada para o serviço.
 3. O serviço compara o valor da ETag na solicitação com o valor da ETag atual da entidade.
 4. Se o valor da ETag atual da entidade for diferente da ETag no cabeçalho obrigatório **If-Match** na solicitação, o serviço retornará um erro 412 para o cliente. Isso indica para o cliente que outro processo atualizou a entidade desde que ele a recuperou.
-5. Se o valor da ETag atual da entidade for o mesmo da ETag no cabeçalho obrigatório **If-Match** na solicitação ou o cabeçalho **If-Match** contiver o caractere curinga (*), o serviço realizará a operação solicitada e atualizará o valor da ETag atual da entidade para mostrar que ela foi atualizada.  
+5. Se o valor da ETag atual da entidade for o mesmo da ETag no cabeçalho obrigatório **If-Match** na solicitação ou o cabeçalho **If-Match** contiver o caractere curinga (\*), o serviço realizará a operação solicitada e atualizará o valor da ETag atual da entidade para mostrar que ela foi atualizada.  
 
-Observe que diferente do serviço Blob, o serviço Tabela exige que o cliente inclua um cabeçalho **If-Match** em solicitações de atualização. No entanto, é possível forçar uma atualização incondicional (estratégia último a gravar vence) e ignorar as verificações de simultaneidade se o cliente definir o cabeçalho **If-Match** com o caractere curinga (*) na solicitação.  
+Observe que diferente do serviço Blob, o serviço Tabela exige que o cliente inclua um cabeçalho **If-Match** em solicitações de atualização. No entanto, é possível forçar uma atualização incondicional (estratégia último a gravar vence) e ignorar as verificações de simultaneidade se o cliente definir o cabeçalho **If-Match** com o caractere curinga (\*) na solicitação.  
 
 O trecho de C# a seguir mostra uma entidade de cliente que foi criada ou recuperada anteriormente tendo seu endereço de email atualizado. A operação de recuperação ou inserção inicial armazena o valor da ETag no objeto do cliente e, como a amostra usa a mesma instância de objeto ao executar a operação de substituição, ela automaticamente envia o valor da ETag de volta ao serviço Tabela, permitindo que o serviço verifique se há violações de simultaneidade. Se outro processo atualizou a entidade no armazenamento de tabela, o serviço retorna uma mensagem de status HTTP 412 (Falha de precondição).  Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -231,7 +231,7 @@ catch (StorageException ex)
 }  
 ```
 
-Para desabilitar explicitamente a verificação de simultaneidade, você deve definir a propriedade **ETag** do objeto **employee** para "*" antes de executar a operação de substituição.  
+Para desabilitar explicitamente a verificação de simultaneidade, você deve definir a propriedade **ETag** do objeto **employee** para "\*" antes de executar a operação de substituição.  
 
 ```csharp
 customer.ETag = "*";  

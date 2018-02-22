@@ -61,7 +61,7 @@ Durante a criptografia, a biblioteca de cliente gerará um vetor de inicializaç
 
 Baixar um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **download*/openInputStream** . O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
 
-Baixar um intervalo arbitrário (métodos**downloadRange***) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar o intervalo solicitado com êxito.  
+Baixar um intervalo arbitrário (métodos**downloadRange**\*) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar o intervalo solicitado com êxito.  
 
 Todos os tipos de blob (blobs de blocos, blobs de páginas e blobs de anexo) podem ser criptografados/descriptografados usando este esquema.
 

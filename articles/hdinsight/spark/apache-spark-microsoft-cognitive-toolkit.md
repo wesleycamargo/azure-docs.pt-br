@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: 036efd040370a821befbbd57beec24372fd0d204
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ebbbcd7a1d61ba0eac13a184aa48cacb800524e8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Use o modelo de aprendizado profundo treinado das Ferramentas Cognitivas da Microsoft com o cluster do Azure HDInsight Spark
 
@@ -29,7 +29,7 @@ Neste artigo, você executa as seguintes etapas.
 
 2. Carregar um Notebook Jupyter no cluster do Spark para ver como aplicar um modelo de aprendizado profundo treinado do Kit de Ferramentas Cognitivas da Microsoft a arquivos em uma Conta de Armazenamento de Blobs do Azure usando a [API Python Spark (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Uma assinatura do Azure**. Antes de começar este tutorial, você deverá ter uma assinatura do Azure. Consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free).
 
@@ -98,7 +98,6 @@ Para usar o Kit de Ferramentas Cognitivas da Microsoft com o cluster do Azure HD
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: use o Spark no HDInsight para a criação de aplicativos streaming em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Análise da telemetria de dados do Application Insight usando o Spark no HDInsight](apache-spark-analyze-application-insight-logs.md)
 

@@ -4,7 +4,7 @@ description: "Fornece práticas recomendadas para a escolha do modelo de preços
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Diretrizes de preços para VMs do Azure do SQL Server
 
@@ -91,7 +91,7 @@ Trazer seu próprio licenciamento do SQL por meio da Mobilidade de Licença é r
 
 Para usar BYOL com uma VM do SQL Server, você deve ter uma licença para o SQL Server Standard ou Enterprise e o [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que é uma opção obrigatória em alguns programas de [Licenciamento por Volume](https://www.microsoft.com/en-us/download/details.aspx?id=10585) e uma compra adicional com outros.  O nível de preço fornecido pelos programas de Licenciamento por Volume varia, com base no tipo de contrato e na quantidade e/ou no compromisso com o SQL Server. Porém, como uma regra geral, trazer sua própria licença para cargas de trabalho de produção contínuas agrega os seguintes benefícios:
 
-| Benefício do método BYOL | Descrição |
+| Benefício do método BYOL | DESCRIÇÃO |
 |-----|-----|
 | **Economia de custos** | Trazer usa própria licença do SQL Server é mais econômico do que pagar pelo uso se uma carga de trabalho for executar continuamente o SQL Server Standard ou Enterprise por *mais de 10 meses*. |
 | **Economias de longo prazo** | Em média, é *30% mais barato por ano* comprar ou renovar uma licença do SQL Server pelos três primeiros anos. Além disso, depois de três anos, você não precisa mais renovar a licença, apenas pagar pelo Software Assurance. Nesse ponto, *a economia é de 200%*. |

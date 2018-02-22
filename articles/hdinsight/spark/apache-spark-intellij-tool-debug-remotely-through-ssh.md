@@ -17,11 +17,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 6ea6d94453583c6b5ed680f96ebc43d33d0262a0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: dfffe935cd7e896fb251a3ed40a5493fbf836a6c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depure aplicativos Spark local ou remotamente em um cluster HDInsight com o kit de ferramentas do Azure para IntelliJ por meio do SSH
 
@@ -170,7 +170,6 @@ Para resolver esse erro, [baixe o executável](http://public-repo-1.hortonworks.
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos

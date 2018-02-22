@@ -701,7 +701,7 @@ Se você deseja criptografar seu HLS com o AES-128, terá a opção de usar a cr
 > [!NOTE]
 > Para converter o conteúdo em HLS, primeiro você deverá converter/codificar seu conteúdo em Smooth Streaming.
 > Além disso, para que o HLS seja criptografado com o AES, defina as propriedades a seguir em seu arquivo MediaPackager_SmoothToHLS.xml: defina a propriedade de criptografia como verdadeira, defina o valor da chave e o valor de keyuri para apontar para seu servidor de autenticação/autorização.
-> O Serviços de Mídia cria um arquivo de chave e o posiciona no contêiner do ativo. Copie o arquivo /asset-containerguid/*.key para seu servidor (ou crie seu próprio arquivo de chave) e, em seguida, exclua o arquivo *.key do contêiner do ativo.
+> O Serviços de Mídia cria um arquivo de chave e o posiciona no contêiner do ativo. Copie o arquivo /asset-containerguid/\*.key para seu servidor (ou crie seu próprio arquivo de chave) e, em seguida, exclua o arquivo *.key do contêiner do ativo.
 > 
 > 
 

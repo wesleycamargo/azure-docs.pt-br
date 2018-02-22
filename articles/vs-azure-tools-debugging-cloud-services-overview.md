@@ -14,20 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/18/2017
 ms.author: mikejo
-ms.openlocfilehash: 196a39a75f8a3151c277f0b2a7944e6886192171
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 0ba0871cdc522cb1ffbafa617181931fe6fd5b59
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Conheça as várias maneiras de depurar um serviço de nuvem do Azure
 Este artigo fornece links para as várias maneiras de depurar um serviço de nuvem do Azure. 
 
 ## <a name="debugging-an-azure-cloud-service-in-visual-studio"></a>Depurando um serviço de nuvem do Azure no Visual Studio
 Você pode economizar tempo e dinheiro usando o emulador de computação para depurar o serviço de nuvem em um computador local. Ao depurar um serviço localmente antes de implantá-lo, você pode aprimorar a confiabilidade e o desempenho sem pagar pelo tempo de computação. No entanto, alguns erros podem ocorrer somente quando um serviço de nuvem é executado no Azure. Os erros que ocorrem apenas quando um serviço de nuvem é executado no Azure podem ser depurados com a habilitação da depuração remota ao publicar o serviço e, em seguida, com a anexação do depurador a uma instância de função. Para saber mais, consulte [Depurar o serviço de nuvem no computador local](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-your-cloud-service-on-your-local-computer)
-
-## <a name="using-azure-diagnostics"></a>Usando o Diagnóstico do Azure 
-Você pode usar o Diagnóstico do Azure para registrar em log informações detalhadas do código em execução nas funções, estejam as funções em execução no ambiente de desenvolvimento ou no Azure. Para saber mais, confira [Habilitando o Diagnóstico do Azure nos Serviços de Nuvem do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
 ## <a name="using-intellitrace"></a>Usando o IntelliTrace 
 Se você estiver usando o Visual Studio Enterprise para escrever funções destinadas ao .NET Framework 4.5, poderá habilitar o IntelliTrace durante a implantação de um serviço de nuvem do Azure por meio do Visual Studio. O IntelliTrace fornece um log que você pode usar com o Visual Studio para depurar seu aplicativo, como se ele estivesse em execução no Azure. Para saber mais, consulte [Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=623016).

@@ -1,26 +1,26 @@
 ---
 title: Restaurar arquivos para uma VM com o Backup do Azure | Microsoft Docs
 description: "Saiba como executar restaurações em nível de arquivo em uma VM do Azure com os serviços de backup e recuperação."
-services: backup, virtual-machines
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e1bbae56b70c50fcf691db47efd9dc587686e7da
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 77084c5663f9e12347c243c4e78160657d7443b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar arquivos para uma máquina virtual no Azure
 O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Ao restaurar de um ponto de recuperação, você pode restaurar a VM inteira ou arquivos individuais. Este artigo fornece detalhes de como restaurar arquivos individuais. Neste tutorial, você aprenderá a:
@@ -35,7 +35,7 @@ O Backup do Azure cria pontos de recuperação que são armazenados em cofres de
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.18 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este tutorial requer uma VM do Linux que tenha sido protegida com o Backup do Azure. Para simular um processo de exclusão acidental e recuperação de arquivo, você exclui uma página de um servidor Web. Se você precisar de uma VM do Linux que execute um servidor Web e tenha sido protegida com o Backup do Azure, consulte [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md) (Fazer backup de uma máquina virtual no Azure com a CLI).
 
 

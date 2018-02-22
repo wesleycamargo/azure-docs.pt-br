@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: implantar seu primeiro módulo IoT Edge do Portal do Azure para um dispositivo Windows – versão prévia
 
@@ -21,7 +21,7 @@ Neste guia de início rápido, use a interface de nuvem do Azure IoT Edge para i
 
 Se você não tiver uma assinatura do Azure ativa, crie uma [conta gratuita][lnk-account] antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Este tutorial pressupõe que você esteja usando um computador ou uma máquina virtual que execute o Windows para simular um dispositivo da Internet das Coisas. Caso esteja executando o Windows em uma máquina virtual, habilite a [virtualização aninhada][lnk-nested] e aloque pelo menos 2 GB de memória. 
 
@@ -32,7 +32,7 @@ Este tutorial pressupõe que você esteja usando um computador ou uma máquina v
 3. Instale o [Python 2.7 no Windows][lnk-python] e verifique se você pode usar o comando Pip.
 4. Execute o comando a seguir para baixar o script de controle do IoT Edge.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ Este tutorial pressupõe que você esteja usando um computador ou uma máquina v
 >    * Windows IoT Core (Build 16299) em um dispositivo com base em x64
 >
 > Para o Windows IoT Core, siga as instruções em [Instalar o tempo de execução do IoT Edge no Windows IoT Core][lnk-install-iotcore]. Caso contrário, basta [configurar o Docker para usar contêineres do Windows][lnk-docker-containers] e, como opção, validar seus pré-requisitos com o seguinte comando do PowerShell:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edg
 
 Configure o tempo de execução com a cadeia de conexão do dispositivo IoT Edge da seção anterior.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Inicie o tempo de execução.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Verifique o Docker para ver se o agente IoT Edge está sendo executado como um módulo.
 
-```
+```cmd
 docker ps
 ```
 

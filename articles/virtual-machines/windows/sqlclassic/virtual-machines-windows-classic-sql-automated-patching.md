@@ -4,7 +4,7 @@ description: "Explica o recurso de Aplicação de Patch Automatizada para Máqui
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
-ms.openlocfilehash: 1959871141f196ba80ffd7b37e62e5ea5b42dba3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 42be8c814a7b4c0bb1bd2f88d2e610d20442048e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure (Clássico)
 > [!div class="op_single_selector"]
-> * [Gerenciador de Recursos](../sql/virtual-machines-windows-sql-automated-patching.md)
+> * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)
 > * [Clássico](../classic/sql-automated-patching.md)
 > 
 > 
@@ -33,7 +33,7 @@ A aplicação de patch automatizada estabelece uma janela de manutenção para u
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para exibir a versão do Resource Manager deste artigo, consulte [Aplicação de Patch Automatizada para o SQL Server em Máquinas Virtuais do Azure do Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para usar a Aplicação de Patch Automatizada, considere os seguintes pré-requisitos:
 
 **Sistema operacional**:
@@ -59,7 +59,7 @@ Para usar a Aplicação de Patch Automatizada, considere os seguintes pré-requi
 ## <a name="settings"></a>Configurações
 A tabela a seguir descreve as opções que podem ser configuradas para Aplicação de Patch Automatizada. Para VMs clássicas, você deve usar o PowerShell para definir essas configurações.
 
-| Configuração | Valores possíveis | Descrição |
+| Configuração | Valores possíveis | DESCRIÇÃO |
 | --- | --- | --- |
 | **Aplicação de patch automatizada** |Habilitar/desabilitar (Desabilitado) |Habilita ou desabilita a Aplicação de Patch Automatizada para uma máquina virtual do Azure. |
 | **Agenda de manutenção** |Todos os dias, segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira, sábado e domingo |A agenda para baixar e instalar atualizações do Windows, do SQL Server e do Microsoft para sua máquina virtual. |

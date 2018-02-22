@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 4acaac52ec86f902a7971459ed4b19c1e5992a28
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 914811812b7e01f7b58f92c85cb5a16580c45796
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight 
 
@@ -175,7 +175,6 @@ Inicie a interface do usuário do Yarn, conforme mostrado no início do artigo. 
 * [Criar um aplicativo autônomo usando Scala](apache-spark-create-standalone-application.md)
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](apache-spark-livy-rest-interface.md)
 * [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Streaming Spark: use o Spark no HDInsight para a criação de aplicativos streaming em tempo real](apache-spark-eventhub-streaming.md)
 * [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)

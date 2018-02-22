@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: e6795f09e275f9fcd38000d48710560244abc11d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bbc548ff7394ebdf158d8040eb8e188de951be2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Agendar e difundir trabalhos (.NET/Node.js)
 
@@ -52,7 +52,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Visual Studio 2015 ou Visual Studio 2017.
 * Node.js versão 4.0.x ou posterior. O artigo [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
-* Uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
+* Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -80,6 +80,7 @@ Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trab
 1. Adicione a instrução `using` a seguir caso ela não esteja presente nas instruções padrão.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     ```
 
@@ -143,7 +144,7 @@ Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trab
     }
     ```
 
-1. Por fim, adicione as seguintes linhas ao método **Main** :
+1. Por fim, adicione as seguintes linhas ao método **Principal** :
 
     ```csharp
     jobClient = JobClient.CreateFromConnectionString(connString);

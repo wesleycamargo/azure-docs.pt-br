@@ -20,13 +20,10 @@
 #### [Armazenamento de blobs e serviços conectados](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Armazenamento em fila e serviços conectados](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Armazenamento de tabelas e serviços conectados](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Configurar pacotes para compilação e implantação contínuas
-#### [TFS e o Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurar regras de tráfego para uma função](cloud-services-enable-communication-role-instances.md)
 ### [Manipular eventos de ciclo de vida do Serviço de Nuvem](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Usar o Twilio para fazer uma chamada telefônica (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Configurar tarefas de inicialização
 #### [Criar tarefas de inicialização](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
 ### [Rastrear um Serviço de Nuvem com o Diagnóstico](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Enviar dados de diagnóstico para o App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Solucionar problemas
 ### Depurar 
-#### [Habilitar a depuração remota com entrega contínua](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Opções para um Serviço de Nuvem](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Serviço de Nuvem local com o Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Serviço de Nuvem publicado com o Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Criar uma conta de armazenamento e reciclar suas chaves de acesso da conta
 
@@ -45,12 +45,12 @@ az group delete --name myResourceGroup
 
 Esse script usa os comandos a seguir para criar a conta de armazenamento e recuperar e reciclar as respectivas chaves de acesso. Cada item em que a tabela contém links para a documentação específica do comando.
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
-| [az group create](/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](/cli/azure/storage/account#create) | Cria uma conta de Armazenamento do Azure no grupo de recursos especificado. |
-| [az storage account keys list](/cli/azure/storage/account/keys#list) | Exibe as chaves de acesso da conta de armazenamento da conta especificada. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#renew) | Regenera a chave de acesso da conta de armazenamento primária ou secundária. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de Armazenamento do Azure no grupo de recursos especificado. |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Exibe as chaves de acesso da conta de armazenamento da conta especificada. |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Regenera a chave de acesso da conta de armazenamento primária ou secundária. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

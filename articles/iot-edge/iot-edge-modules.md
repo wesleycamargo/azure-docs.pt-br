@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 726bbafa9e4ba35cfa4a9cbf4d89056d52fe7963
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0f3ce7496427b6975eb4ac476e7d1737321ed2e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-azure-iot-edge-modules---preview"></a>Entenda os módulos do Azure IoT Edge - versão prévia
 
@@ -50,7 +50,7 @@ Cada instância de módulo também tem um módulo gêmeo correspondente que voc�
 
 O módulo gêmeo é um documento JSON que armazena as propriedades de configuração e as informações do módulo. Esse conceito é comparável ao conceito de [dispositivo gêmeo][lnk-device-twin] do Hub IoT. A estrutura de um módulo gêmeo é exatamente igual a de um dispositivo gêmeo. As APIs usadas para interagir com os dois tipos de gêmeos também são as mesmas. A única diferença entre os dois é a identidade usada para instanciar o SDK do cliente. 
 
-```
+```csharp
 // Create a DeviceClient object. This DeviceClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 

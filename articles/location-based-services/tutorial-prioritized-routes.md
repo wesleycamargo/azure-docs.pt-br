@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Encontre rotas para diferentes modos de viagem usando os Serviços do Azure Baseados na Localização
 
@@ -209,9 +209,9 @@ Esta seção mostra como usar a API do Serviço de Roteiros dos Serviços do Azu
     ```
     Esse trecho de código cria uma [XMLHttpRequest](https://xhr.spec.whatwg.org/) e adiciona um manipulador de eventos para analisar a resposta de entrada. Para uma resposta bem-sucedida, ele cria uma matriz de coordenadas para a rota retornada e adiciona a camada `truckRouteLayerName` do mapa. 
     
-    O trecho de código também envia a consulta ao Serviço de Roteiros para obter a rota entre o ponto de partida e final especificados da chave de sua conta. Os parâmetros opcionais a seguir são usados para indicar a rota de um caminhão pesado: - O parâmetro `travelMode=truck` especifica o modo de viagem como *caminhão*. Outros modos de viagem com suporte são *táxi*, *ônibus*, *van*, *motocicleta* e o *carro*  padrão.  
-        - Os parâmetros `vehicleWidth`, `vehicleHeight` e `vehicleLength` especificam as dimensões do veículo em metros e só são considerados se o modo de viagem for *caminhão*.  
-        - O `vehicleLoadType` classifica a carga como perigosa e restrita em algumas estradas. Isso também só é considerado para o modo *caminhão* atualmente.  
+    O trecho de código também envia a consulta ao Serviço de Roteiros para obter a rota entre o ponto de partida e final especificados da chave de sua conta. Os parâmetros opcionais a seguir são usados para indicar a rota de um caminhão pesado: - O parâmetro `travelMode=truck` especifica o modo de viagem como *caminhão*. Outros modos de viagem com suporte são *táxi*, *ônibus*, *van*, *motocicleta* e o *carro*  padrão.
+        - Os parâmetros `vehicleWidth`, `vehicleHeight` e `vehicleLength` especificam as dimensões do veículo em metros e só são considerados se o modo de viagem for *caminhão*.
+        - O `vehicleLoadType` classifica a carga como perigosa e restrita em algumas estradas. Isso também só é considerado para o modo *caminhão* atualmente.
 
 2. Adicione o seguinte código JavaScript para obter a rota para um carro usando o Serviço de Roteiros:
 

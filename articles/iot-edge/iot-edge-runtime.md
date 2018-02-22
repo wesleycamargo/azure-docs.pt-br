@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Noções básicas sobre o tempo de execução do Azure IoT Edge e sua arquitetura - versão prévia
 
@@ -64,14 +64,18 @@ O hub do Edge facilita a comunicação de módulo para módulo. O uso do hub do 
 
 Para enviar dados ao hub do Edge, um módulo chamará o método SendEventAsync. O primeiro argumento especifica em qual saída enviar a mensagem. O pseudocódigo a seguir envia uma mensagem na saída1:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 Para receber uma mensagem, registre um retorno de chamada que processa as mensagens recebidas em uma entrada específica. O pseudocódigo a seguir registra a função messageProcessor a ser usada para processar todas as mensagens recebidas em entrada1:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 O desenvolvedor da solução é responsável por especificar as regras que determinam como o hub do Edge passa mensagens entre os módulos. As regras de roteamento são definidas na nuvem e propagadas para o hub do Edge no seu dispositivo gêmeo. A mesma sintaxe para rotas do Hub IoT é usada para definir rotas entre módulos no Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
