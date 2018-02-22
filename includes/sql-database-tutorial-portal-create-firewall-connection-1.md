@@ -8,7 +8,7 @@ Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos d
 
 Siga estas etapas para criar um banco de dados SQL em branco. 
 
-1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+1. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 
 2. Selecione **Bancos de Dados** na página **Novo** e selecione **Criar** em **Banco de Dados SQL** na página **Novo**.
 
