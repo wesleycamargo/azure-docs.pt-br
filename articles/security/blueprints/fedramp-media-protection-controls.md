@@ -1,6 +1,6 @@
 ---
-title: "Automação do Diagrama do Azure para FedRAMP – Proteção de mídia"
-description: "Aplicativos Web para FedRAMP - Proteção de mídia"
+title: "Projeto de segurança e conformidade do Azure – Automação de aplicativos Web para FedRAMP – Proteção de mídia"
+description: "Automação de aplicativos Web para FedRAMP – Proteção de mídia"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9cb33abc7ab88aaa54a77308c7863f8128f2e6c7
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-protection-mp"></a>Proteção de mídia (MP)
 
 > [!NOTE]
-> Estes controles são definidos pelo NIST e pelos EUA Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
+> Estes controles são definidos pelo NIST e pelos EUA. Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
 
 ## <a name="nist-800-53-control-mp-1"></a>Controle NIST 800-53 MP-1
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A política e procedimentos de proteção de mídia de nível empresarial do cliente pode ser suficiente para endereçar este controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-mp-2"></a>Controle NIST 800-53 MP-2
@@ -45,12 +45,12 @@ ms.lasthandoff: 11/23/2017
 
 **MP-2** A organização restringe o acesso a [Atribuição: tipos de mídia digital e/ou não digital definidos pela organização] para [Atribuição: pessoal ou funções definidas pela organização].
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure implementou o acesso à mídia por meio da implementação da Política de segurança da Microsoft. O acesso lógico à mídia digital é controlado por meio dos objetos de política de grupo do Active Directory (AD GPOs) e grupos de segurança. O acesso físico a todas as mídias é restringido pelo processo de acesso do datacenter. O acesso é restrito a indivíduos que tenham finalidade de negócios legítima para acessar os dados. Consulte PE-3, Controle de acesso físico, para obter mais detalhes sobre os controles de acesso de datacenter em vigor. O padrão de proteção de ativos define as garantias necessárias para proteger a confidencialidade, integridade e disponibilidade dos ativos de informações em datacenters do Microsoft Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure implementou o acesso à mídia por meio da implementação da Política de segurança da Microsoft. O acesso lógico à mídia digital é controlado por meio dos objetos de política de grupo do Active Directory (AD GPOs) e grupos de segurança. O acesso físico a todas as mídias é restringido pelo processo de acesso do datacenter. O acesso é restrito a indivíduos que tenham finalidade de negócios legítima para acessar os dados. Consulte PE-3, Controle de acesso físico, para obter mais detalhes sobre os controles de acesso de datacenter em vigor. O padrão de proteção de ativos define as garantias necessárias para proteger a confidencialidade, integridade e disponibilidade dos ativos de informações em datacenters do Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-mp-3a"></a>Controle NIST 800-53 MP-3.a
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure marca ativos em datacenters da Microsoft com uma designação HBI, MBI ou LBI (alto, médio e baixo impacto nos negócios, respectivamente), o que exige diferentes níveis de segurança e precauções de manuseio. Os proprietários dos ativos precisam classificar seus ativos armazenados em um datacenter da Microsoft. Consulte o Padrão de classificação de ativos e o Padrão de proteção de ativos para obter mais informações. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure marca ativos em datacenters da Microsoft com uma designação HBI, MBI ou LBI (alto, médio e baixo impacto nos negócios, respectivamente), o que exige diferentes níveis de segurança e precauções de manuseio. Os proprietários dos ativos precisam classificar seus ativos armazenados em um datacenter da Microsoft. Consulte o Padrão de classificação de ativos e o Padrão de proteção de ativos para obter mais informações. |
 
 
  ## <a name="nist-800-53-control-mp-3b"></a>Controle NIST 800-53 MP-3.b
@@ -73,12 +73,12 @@ ms.lasthandoff: 11/23/2017
 
 **MP-3.b** A organização isenta [Atribuição: tipos de mídia do sistema de informações definidos pela organização] de marcação desde que a mídia permaneça em [Atribuição: áreas controladas definidas pela organização].
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure exige que os proprietários dos ativos atribuam seus ativos a uma classificação de ativos e nenhum ativo está isento dessa exigência. No ambiente de datacenter da Microsoft, os ativos referem-se a servidores, dispositivos de rede e fitas magnéticas. Outras mídias digitais, como unidades USB, discos rígidos externos/removíveis ou CDs/DVDs, não são usadas. Mídias não digitais não são usadas no datacenter. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure exige que os proprietários dos ativos atribuam seus ativos a uma classificação de ativos e nenhum ativo está isento dessa exigência. No ambiente de datacenter da Microsoft, os ativos referem-se a servidores, dispositivos de rede e fitas magnéticas. Outras mídias digitais, como unidades USB, discos rígidos externos/removíveis ou CDs/DVDs, não são usadas. Mídias não digitais não são usadas no datacenter. |
 
 
  ## <a name="nist-800-53-control-mp-4a"></a>Controle NIST 800-53 MP-4.a
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | Os ativos de mídia digital do Microsoft Azure são armazenados fisicamente e com segurança em salas de colocação do datacenter. Datacenters da Microsoft têm diversas camadas de controles de acesso físico (credencial de acesso, biometria; consulte PE-3 para obter mais detalhes sobre controles de acesso físico) e vigilância em vídeo em vigor para fornecer armazenamento seguro. As mídias digitais incluem servidores, dispositivos de rede e fitas magnéticas usados para backup. As mídias não digitais não são usadas no ambiente do datacenter. |
+| **Fornecedor (Microsoft Azure)** | Os ativos de mídia digital do Microsoft Azure são armazenados fisicamente e com segurança em salas de colocação do datacenter. Datacenters da Microsoft têm diversas camadas de controles de acesso físico (credencial de acesso, biometria; consulte PE-3 para obter mais detalhes sobre controles de acesso físico) e vigilância em vídeo em vigor para fornecer armazenamento seguro. As mídias digitais incluem servidores, dispositivos de rede e fitas magnéticas usados para backup. As mídias não digitais não são usadas no ambiente do datacenter. |
 
 
  ## <a name="nist-800-53-control-mp-4b"></a>Controle NIST 800-53 MP-4.b
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure mantém a responsabilidade pelos ativos que deixam o datacenter por meio das diretrizes do NIST SP 800-88: limpeza/remoção consistente, destruição de ativos, criptografia, inventário preciso, controle e proteção de cadeia de custódia durante o transporte. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure mantém a responsabilidade pelos ativos que deixam o datacenter por meio das diretrizes do NIST SP 800-88: limpeza/remoção consistente, destruição de ativos, criptografia, inventário preciso, controle e proteção de cadeia de custódia durante o transporte. |
 
 
  ## <a name="nist-800-53-control-mp-5c"></a>Controle NIST 800-53 MP-5.c
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure mantém registros de inventário antes do transporte, controle e proteção da cadeia de custódia durante o transporte, limpeza/remoção de ativos, destruição de ativos, recebimento de ativos e validação de inventário depois do transporte. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure mantém registros de inventário antes do transporte, controle e proteção da cadeia de custódia durante o transporte, limpeza/remoção de ativos, destruição de ativos, recebimento de ativos e validação de inventário depois do transporte. |
 
 
  ## <a name="nist-800-53-control-mp-5d"></a>Controle NIST 800-53 MP-5.d
@@ -157,12 +157,12 @@ ms.lasthandoff: 11/23/2017
 
 **MP-5.d** A organização restringe as atividades associadas ao transporte de mídia do sistema de informações ao pessoal autorizado.
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure restringe as atividades de transporte de ativos ao pessoal autorizado por meio da proteção da cadeia de custódia. O uso de cadeados, lacres à prova de violação e exigência de validação dos inventários de ativos garante que somente pessoas autorizadas estejam envolvidas no transporte dos ativos. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure restringe as atividades de transporte de ativos ao pessoal autorizado por meio da proteção da cadeia de custódia. O uso de cadeados, lacres à prova de violação e exigência de validação dos inventários de ativos garante que somente pessoas autorizadas estejam envolvidas no transporte dos ativos. |
 
 
  ### <a name="nist-800-53-control-mp-5-4"></a>Controle NIST 800-53 MP-5 (4)
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure exige que as mídias digitais no ambiente de datacenter do Microsoft Azure sejam limpas/removidas usando ferramentas aprovadas do Microsoft Azure e de maneira consistente com NIST SP 800-88, Diretrizes para limpeza de mídia, antes de serem reutilizadas ou descartadas. As mídias não digitais não são usadas pelo Microsoft Azure no ambiente do datacenter. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure exige que as mídias digitais no ambiente de datacenter do Microsoft Azure sejam limpas/removidas usando ferramentas aprovadas do Microsoft Azure e de maneira consistente com NIST SP 800-88, Diretrizes para limpeza de mídia, antes de serem reutilizadas ou descartadas. As mídias não digitais não são usadas pelo Microsoft Azure no ambiente do datacenter. |
 
 
  ## <a name="nist-800-53-control-mp-6b"></a>Controle NIST 800-53 MP-6.b
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-6.b** A organização emprega mecanismos de limpeza com a força e a integridade proporcionais à categoria de segurança ou à classificação das informações.
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure implementou procedimentos de limpeza de mídia em conformidade com a diretriz NIST SP 800-88 para o Padrão de classificação de ativos e o Padrão de proteção de ativos. Todas as mídias magnéticas ou eletrônicas são limpas/removidas seguindo a especificação NIST SP 800-88 de acordo com a classificação de ativos do Azure. O Azure utiliza unidades de eliminação de dados da Extreme Protocol Solutions (EPS). O software da EPS é compatível com os requisitos de NIST SP 800-88 para a limpeza e remoção/eliminação segura. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure implementou procedimentos de limpeza de mídia em conformidade com a diretriz NIST SP 800-88 para o Padrão de classificação de ativos e o Padrão de proteção de ativos. Todas as mídias magnéticas ou eletrônicas são limpas/removidas seguindo a especificação NIST SP 800-88 de acordo com a classificação de ativos do Azure. O Azure utiliza unidades de eliminação de dados da Extreme Protocol Solutions (EPS). O software da EPS é compatível com os requisitos de NIST SP 800-88 para a limpeza e remoção/eliminação segura. |
 
 
  ### <a name="nist-800-53-control-mp-6-2"></a>Controle NIST 800-53 MP-6 (2)
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Não há nenhuma mídia controlada pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure usa unidades de eliminação de dados e processos para limpar/remover dados de maneira consistente com NIST SP 800-88. A cada 180 dias, as operações de DCS testam as unidades de eliminação de dados do Microsoft Azure e o processo de eliminação. No teste, as operações de DCS verificam se a limpeza pretendida está sendo obtida por meio de uma análise forense de discos rígidos testados para confirmar que os dados foram limpos pelas unidades de eliminação de dados |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure usa unidades de eliminação de dados e processos para limpar/remover dados de maneira consistente com NIST SP 800-88. A cada 180 dias, as operações de DCS testam as unidades de eliminação de dados do Microsoft Azure e o processo de eliminação. No teste, as operações de DCS verificam se a limpeza pretendida está sendo obtida por meio de uma análise forense de discos rígidos testados para confirmar que os dados foram limpos pelas unidades de eliminação de dados |
 
 
  ### <a name="nist-800-53-control-mp-6-3"></a>Controle NIST 800-53 MP-6 (3)
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-7** A organização [Seleção: restringe; proíbe] o uso de [Atribuição: tipos de mídia do sistema de informações definidos pela organização] em [Atribuição: sistema ou componentes do sistema de informações definidos pela organização] usando [Atribuição: garantias de segurança definidos pela organização].
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|

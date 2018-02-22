@@ -1,6 +1,6 @@
 ---
-title: "Automação das Especificações Técnicas do Azure FedRAMP – Manutenção"
-description: "Aplicativos Web para FedRAMP - Manutenção"
+title: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web para FedRAMP – Manutenção"
+description: "Automação de Aplicativos Web para FedRAMP – Manutenção"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a0546f6e10b04bbfdb5b02e5c0bbe6d907c76e72
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="maintenance-ma"></a>Manutenção (MA)
 
 > [!NOTE]
-> Estes controles são definidos pelo NIST e pelo Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
+> Estes controles são definidos pelo NIST e pelos EUA. Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
 
 ## <a name="nist-800-53-control-ma-1"></a>Controle NIST 800-53 MA-1
 
@@ -31,12 +31,12 @@ ms.lasthandoff: 11/23/2017
 
 **MA-1** A organização desenvolve, documenta e distribui à [Atribuição: equipe ou funções definidas pela organização] uma política de manutenção do sistema que aborda a finalidade, o escopo, as funções, as responsabilidades, o compromisso de gerenciamento, a coordenação entre entidades organizacionais e a conformidade; e os procedimentos para facilitar a implementação da política de manutenção do sistema e os controles de manutenção do sistema associados; e revisa e atualiza a política de manutenção do sistema atual [Atribuição: frequência definida pela organização]; e os procedimentos de manutenção do sistema [Atribuição: frequência definida pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A política e os procedimentos de manutenção do sistema de nível empresarial do cliente podem ser suficientes para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-2a"></a>Controle NIST 800-53 MA-2.a
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela manutenção controlada. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-2b"></a>Controle NIST 800-53 MA-2.b
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os clientes não têm acesso físico a nenhum recurso do sistema em datacenters do Azure. |
+| **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
 | **Provedor (Microsoft Azure)** | O Microsoft Azure exige que os ativos proprietários (por exemplo, dispositivo ou servidor de rede) que necessitam de transferência externa obtenham aprovação expressa do proprietário do ativo. |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os clientes não têm acesso físico a nenhum recurso do sistema em datacenters do Azure. |
+| **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
 | **Provedor (Microsoft Azure)** | O Padrão de Proteção de Ativos do Microsoft Azure define as precauções de manuseio necessárias para a transferência externa de ativos. O Padrão de Proteção de Ativos exige que os ativos de armazenamento de dados sejam limpos de uma maneira consistente com o NIST SP 800-88, Diretrizes para Limpeza de Mídia, antes de sair do datacenter. |
 
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela manutenção controlada. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-2f"></a>Controle NIST 800-53 MA-2.f
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela manutenção controlada. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ma-2-2a"></a>Controle NIST 800-53 MA-2 (2).a
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por automatizar as atividades de manutenção. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ma-2-2b"></a>Controle NIST 800-53 MA-2 (2).b
@@ -157,12 +157,12 @@ ms.lasthandoff: 11/23/2017
 
 **MA-3** A organização aprova, controla e monitora as ferramentas de manutenção do sistema de informações.
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
-| **Cliente** | Os clientes não têm acesso físico a nenhum recurso do sistema em datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure utiliza diversas ferramentas para realizar manutenções. As ferramentas de manutenção de software são aprovadas, controladas e mantidas por meio do processo de liberação e alteração do Microsoft Azure. <br /> A equipe de Serviços de Site mantém um inventário das ferramentas de manutenção aprovadas para uso no data center (consulte MA-3). A equipe de manutenção é instruída a usar as ferramentas de manutenção fornecidas. A aprovação de gerenciamento do datacenter é necessária para usar ferramentas não fornecidas pelo datacenter. Ferramentas manuais físicas (chaves de fenda, chaves inglesas, etc.) estão isentas desse controle. <br /> Cada instalação contém uma caixa de bloqueio físico restrita ou um espaço com acesso controlado para o armazenamento de ferramentas de manutenção especializadas, como escopos de éter de fluke, testadores de canal de fibra de fluke, toners Ethernet, etc. A equipe de Serviços de Site executa verificações rotineiras de inventário para conferir o status de todas as ferramentas. O acesso à caixa de bloqueio ou ao espaço de armazenamento de manutenção é controlado nos logs do leitor de crachás de acesso, que estão disponíveis na eventualidade de uma investigação. |
+| **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure utiliza diversas ferramentas para realizar manutenções. As ferramentas de manutenção de software são aprovadas, controladas e mantidas por meio do processo de liberação e alteração do Microsoft Azure. <br /> A equipe de Serviços de Site mantém um inventário das ferramentas de manutenção aprovadas para uso no data center (consulte MA-3). A equipe de manutenção é instruída a usar as ferramentas de manutenção fornecidas. A aprovação de gerenciamento do datacenter é necessária para usar ferramentas não fornecidas pelo datacenter. Ferramentas manuais físicas (chaves de fenda, chaves inglesas, etc.) estão isentas desse controle. <br /> Cada instalação contém uma caixa de bloqueio físico restrita ou um espaço com acesso controlado para o armazenamento de ferramentas de manutenção especializadas, como escopos de éter de fluke, testadores de canal de fibra de fluke, toners Ethernet, etc. A equipe de Serviços de Site executa verificações rotineiras de inventário para conferir o status de todas as ferramentas. O acesso à caixa de bloqueio ou ao espaço de armazenamento de manutenção é controlado nos logs do leitor de crachás de acesso, que estão disponíveis na eventualidade de uma investigação. |
 
 
  ### <a name="nist-800-53-control-ma-3-1"></a>Controle NIST 800-53 MA-3 (1)
@@ -171,11 +171,11 @@ ms.lasthandoff: 11/23/2017
 
 **MA-3 (1)** A organização inspeciona as ferramentas de manutenção transportadas para determinada instalação pela equipe de manutenção para verificar se há modificações inadequadas ou não autorizadas.
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
-| **Cliente** | Os clientes não têm acesso físico a nenhum recurso do sistema em datacenters do Azure. |
+| **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
 | **Provedor (Microsoft Azure)** | A equipe de Serviços de Site do Microsoft Azure mantém um inventário das ferramentas de manutenção aprovadas para uso no datacenter (consulte o MA-3 para obter mais detalhes). A equipe de manutenção é instruída a usar as ferramentas de manutenção fornecidas. A aprovação do DMC é necessária para usar ferramentas não fornecidas pelo datacenter. |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os clientes não têm acesso físico a nenhum recurso do sistema em datacenters do Azure. |
+| **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
 | **Provedor (Microsoft Azure)** | O Microsoft Azure proíbe o uso de mídias de armazenamento ou de computação móvel no ambiente de produção de data centers do Microsoft Azure sem aprovação da gerência do data center. É proibido o uso de mídia pessoais no ambiente de produção de data centers do Microsoft Azure. <br /> O Microsoft Azure implementou um processo para inspecionar laptops antes de serem usados no ambiente de produção de data centers do Microsoft Azure. Os agentes de segurança são treinados para confrontar pessoal que utiliza laptops no ambiente de produção com o intuito de verificar se os laptops foram submetidos a inspeções e aprovados. |
 
 
@@ -203,8 +203,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os clientes não têm acesso físico a nenhum recurso do sistema em datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure utiliza ferramentas de manutenção específicas para datacenters que são mantidas na instalação e jamais removidas. Cada instalação contém uma caixa de bloqueio físico restrita ou um espaço de armazenamento que mantém ferramentas, como escopos de éter de fluke, testadores de canal de fibra de fluke, toners Ethernet, etc. O acesso é controlado da caixa de bloqueio ou do espaço de armazenamento nas DCAT para impedir acesso não autorizado às ferramentas de manutenção. <br /> As informações organizacionais são protegidas durante a manutenção por controles no MA-4. Para acessar informações organizacionais, o usuário deve ter contas e autenticadores com privilégios. |
+| **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure utiliza ferramentas de manutenção específicas para datacenters que são mantidas na instalação e jamais removidas. Cada instalação contém uma caixa de bloqueio físico restrita ou um espaço de armazenamento que mantém ferramentas, como escopos de éter de fluke, testadores de canal de fibra de fluke, toners Ethernet, etc. O acesso é controlado da caixa de bloqueio ou do espaço de armazenamento nas DCAT para impedir acesso não autorizado às ferramentas de manutenção. <br /> As informações organizacionais são protegidas durante a manutenção por controles no MA-4. Para acessar informações organizacionais, o usuário deve ter contas e autenticadores com privilégios. |
 
 
  ## <a name="nist-800-53-control-ma-4a"></a>Controle NIST 800-53 MA-4.a
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por executar manutenções não locais em sistemas operacionais implantados por clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-4d"></a>Controle NIST 800-53 MA-4.d
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por executar manutenções não locais em sistemas operacionais implantados por clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-4e"></a>Controle NIST 800-53 MA-4.e
@@ -269,12 +269,12 @@ ms.lasthandoff: 11/23/2017
 
 **MA-4.e** A organização encerra conexões de rede e de sessão quando a manutenção não local é concluída.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por executar manutenções não locais em sistemas operacionais implantados por clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ma-4-2"></a>Controle NIST 800-53 MA-4 (2)
@@ -288,7 +288,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por documentar manutenções não locais no plano de segurança de sistemas operacionais implantados por clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ma-4-3"></a>Controle NIST 800-53 MA-4 (3)
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por executar toda manutenção não local de sistemas operacionais implantados por clientes em um sistema de informações equipado com segurança comparável. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ma-4-6"></a>Controle NIST 800-53 MA-4 (6)
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por implementar mecanismos criptográficos ao executar manutenções e diagnósticos não locais de sistemas operacionais implantados por clientes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-5a"></a>Controle NIST 800-53 MA-5.a
@@ -325,7 +325,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA 5.a** A organização estabelece um processo de autorização de equipes de manutenção e mantém uma lista de organizações ou equipes de manutenção autorizadas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os processos de acompanhamento e autorização de funcionários de manutenção de nível empresarial do cliente podem ser suficientes para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-5c"></a>Controle NIST 800-53 MA-5.c
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os processos de acompanhamento e autorização de funcionários de manutenção de nível empresarial do cliente podem ser suficientes para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ma-5-1a"></a>Controle NIST 800-53 MA-5 (1).a
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os processos de acompanhamento e autorização de funcionários de manutenção de nível empresarial do cliente podem ser suficientes para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ma-5-1b"></a>Controle NIST 800-53 MA-5 (1).b
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os processos de acompanhamento e autorização de funcionários de manutenção de nível empresarial do cliente podem ser suficientes para atender a esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ma-6"></a>Controle NIST 800-53 MA-6
@@ -399,5 +399,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os clientes não têm acesso físico a nenhum recurso do sistema em datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | Os data centers do Microsoft Azure mantêm equipes de manutenção residentes para dar suporte a sistemas de infraestrutura de datacenter críticos, bem como às operações do datacenter. As equipes identificaram componentes do sistema de segurança e tecnologia críticos para os quais mantêm peças sobressalentes no local. Os sistemas críticos foram projetados em configurações de N + 1, enquanto os serviços são projetados para serem resilientes. Isso permite que a equipe de gerenciamento de datacenter alcance os objetivos de recuperação caso haja interrupção de serviço ou uma situação de plano de contingência. Os serviços críticos do sistema de informações são provenientes de mais de um datacenter para impedir interrupções no serviço devido a um incidente em um dos data centers. Os aplicativos de clientes são responsáveis por implantar em vários data centers para fornecer redundância e resiliência. |
+| **Cliente** | Os clientes não têm acesso físico a qualquer recurso do sistema em datacenters do Azure. |
+| **Fornecedor (Microsoft Azure)** | Os data centers do Microsoft Azure mantêm equipes de manutenção residentes para dar suporte a sistemas de infraestrutura de datacenter críticos, bem como às operações do datacenter. As equipes identificaram componentes do sistema de segurança e tecnologia críticos para os quais mantêm peças sobressalentes no local. Os sistemas críticos foram projetados em configurações de N + 1, enquanto os serviços são projetados para serem resilientes. Isso permite que a equipe de gerenciamento de datacenter alcance os objetivos de recuperação caso haja interrupção de serviço ou uma situação de plano de contingência. Os serviços críticos do sistema de informações são provenientes de mais de um datacenter para impedir interrupções no serviço devido a um incidente em um dos data centers. Os aplicativos de clientes são responsáveis por implantar em vários data centers para fornecer redundância e resiliência. |

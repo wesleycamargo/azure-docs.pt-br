@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 441bb0a269de400c82abc083118f5e0642523640
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 901bacd450561ee5eb4811320626d6ecbcc8c916
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um emparelhamento de rede virtual – modelos de implantação e assinaturas diferentes
 
@@ -33,18 +33,16 @@ As etapas para criar um emparelhamento de rede virtual são diferentes, dependen
 |[Ambos Resource Manager](create-peering-different-subscriptions.md) |Diferente|
 |[Um Resource Manager, um clássico](create-peering-different-deployment-models.md) |Idêntico|
 
-Não é possível criar um emparelhamento de rede virtual entre duas redes virtuais implantadas por meio do modelo de implantação clássico. A capacidade de emparelhar redes virtuais criadas por meio de diferentes modelos de implantação que existem em assinaturas diferentes está em versão prévia. Para concluir este tutorial, primeiro você deve [registrar-se](#register) para usar o recurso. Este tutorial usa as redes virtuais existentes na mesma região. A capacidade de emparelhar redes virtuais em diferentes regiões também está em versão prévia. Para usar esse recurso, você também deverá [registrar-se](#register) nele. Os dois recursos são independentes. Para concluir este tutorial, você deve se registrar apenas para a capacidade de redes virtuais criadas por meio de diferentes modelos de implantação que existem em diferentes assinaturas. 
+Não é possível criar um emparelhamento de rede virtual entre duas redes virtuais implantadas por meio do modelo de implantação clássico. Este tutorial usa as redes virtuais existentes na mesma região. A capacidade de emparelhar redes virtuais em diferentes regiões está em versão prévia. Para usar essa funcionalidade, é necessário [registrar-se](#register). 
 
-Ao criar um emparelhamento de rede virtual entre redes virtuais em assinaturas diferentes, as assinaturas devem estar ambas associadas ao mesmo locatário do Azure Active Directory. Se você ainda não tem um locatário do Azure Active Directory, você pode [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch) rapidamente. 
-
-A capacidade de conectar redes virtuais criadas por meio do modelo de implantação, de modelos de implantação diferentes, de regiões diferentes ou assinaturas associadas aos mesmos locatários do Azure Active Directory ou locatários diferentes usando um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure está na versão prévia e não exige o registro.
+Ao criar um emparelhamento de rede virtual entre redes virtuais em assinaturas diferentes, as assinaturas devem estar ambas associadas ao mesmo locatário do Azure Active Directory. Se você ainda não tem um locatário do Azure Active Directory, você pode [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch) rapidamente. É possível conectar redes virtuais em diferentes assinaturas e diferentes locatários do Azure Active Directory usando um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure.
 
 Você pode usar o [portal do Azure](#portal), a [CLI](#cli) (interface de linha de comando) do Azure ou o [Azure PowerShell](#powershell) para criar um emparelhamento de rede virtual. Clique em um dos links de ferramentas anteriores para ir diretamente para as etapas para a criação de um emparelhamento de rede virtual usando a ferramenta de sua escolha.
 
 ## <a name="portal"></a>Criar emparelhamento – portal do Azure
 
-Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, pule as etapas para fazer logoff do portal e ignore as etapas para atribuir permissões de outro usuário para as redes virtuais. Antes de completar qualquer uma das etapas a seguir, você deve se registrar para a versão prévia. Para se registrar, conclua as etapas na seção [Registrar-se para a versão prévia](#register) deste artigo. As etapas restantes falharão se você não registrar ambas as assinaturas para a versão prévia.
- 
+Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, pule as etapas para fazer logoff do portal e ignore as etapas para atribuir permissões de outro usuário para as redes virtuais.
+
 1. Faça logon no [Portal do Azure](https://portal.azure.com) como UserA. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Consulte a seção [Permissões](#permissions) deste artigo para obter detalhes.
 2. Clique em **+ Novo**, em **Rede** e, em seguida, em **Rede virtual**.
 3. Na folha **Criar rede virtual**, insira ou selecione valores para as seguintes configurações e, depois, clique em **Criar**:
@@ -99,8 +97,6 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
 ## <a name="cli"></a>Criar emparelhamento – CLI do Azure
 
 Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, ignore as etapas para fazer logoff do Azure e remova as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com e UserB@azure.com em todos os scripts a seguir com os nomes de usuário que você está usando para UserA e UserB. 
-
-Antes de completar qualquer uma das etapas a seguir, você deve se registrar para a versão prévia. Para se registrar, conclua as etapas na seção [Registrar-se para a versão prévia](#register) deste artigo. As etapas restantes falharão se você não registrar ambas as assinaturas para a versão prévia.
 
 1. [Instale](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a CLI do Azure 1.0 para criar a rede virtual (clássico).
 2. Abra uma sessão da CLI e faça logon no Azure como UserB usando o comando `azure login`.
@@ -181,13 +177,11 @@ Antes de completar qualquer uma das etapas a seguir, você deve se registrar par
     Todos os recursos do Azure criados na rede virtual agora podem se comunicar entre si por meio de seus endereços IP. Se você estiver usando a resolução de nomes padrão do Azure para as redes virtuais, os recursos nas redes virtuais não poderão resolver nomes entre as redes virtuais. Se você desejar resolver nomes entre redes virtuais em um emparelhamento, deverá criar seu próprio servidor DNS. Saiba como configurar a [Resolução de nomes usando seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 11. **Opcional**: embora a criação de máquinas virtuais não seja abordada neste tutorial, você poderá criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual a outra, para validar a conectividade.
-12. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-cli) deste artigo.
+12. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-cli) deste artigo.
 
 ## <a name="powershell"></a>Criar emparelhamento – PowerShell
 
 Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, ignore as etapas para fazer logoff do Azure e remova as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com e UserB@azure.com em todos os scripts a seguir com os nomes de usuário que você está usando para UserA e UserB. 
-
-Antes de completar qualquer uma das etapas a seguir, você deve se registrar para a versão prévia. Para se registrar, conclua as etapas na seção [Registrar-se para a versão prévia](#register) deste artigo. As etapas restantes falharão se você não registrar ambas as assinaturas para a versão prévia.
 
 1. Instale a última versão dos módulos [Azure](https://www.powershellgallery.com/packages/Azure) e [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) do PowerShell. Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie uma sessão do PowerShell.
@@ -273,7 +267,7 @@ Antes de completar qualquer uma das etapas a seguir, você deve se registrar par
     Todos os recursos do Azure criados na rede virtual agora podem se comunicar entre si por meio de seus endereços IP. Se você estiver usando a resolução de nomes padrão do Azure para as redes virtuais, os recursos nas redes virtuais não poderão resolver nomes entre as redes virtuais. Se você desejar resolver nomes entre redes virtuais em um emparelhamento, deverá criar seu próprio servidor DNS. Saiba como configurar a [Resolução de nomes usando seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 12. **Opcional**: embora a criação de máquinas virtuais não seja abordada neste tutorial, você poderá criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual a outra, para validar a conectividade.
-13. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-powershell) deste artigo.
+13. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-powershell) deste artigo.
 
 ## <a name="permissions"></a>Permissões
 
@@ -341,62 +335,6 @@ Ao concluir este tutorial, talvez você deseje excluir os recursos criados no tu
 
     > [!WARNING]
     > Importar um arquivo de configuração de rede alterado pode causar alterações em redes virtuais existentes (clássico) na sua assinatura. Verifique se você removeu apenas a rede virtual anterior e se você não alterou nem removeu nenhuma outra rede virtual existente da sua assinatura. 
-
-## <a name="register"></a>Registrar-se para a versão prévia
-
-A capacidade de emparelhar redes virtuais criadas por meio de diferentes modelos de implantação que existem em assinaturas diferentes está em versão de versão prévia. Os recursos da versão prévia não têm o mesmo nível de disponibilidade e confiabilidade dos recursos da versão geral. Para obter as notificações mais atualizadas sobre a disponibilidade e o status dos recursos de versão prévia, confira a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network). 
-
-Você deverá primeiro registrar-se no recurso de implantação cruzada entre assinaturas antes de poder usá-lo. Conclua as etapas a seguir na assinatura em que cada rede virtual que você deseja emparelhar esteja usando o Azure PowerShell ou a CLI do Azure:
-
-### <a name="powershell"></a>PowerShell
-
-1. Instale a última versão do módulo [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) do PowerShell. Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Iniciar uma sessão do PowerShell e faça logon no Azure usando o comando `Login-AzureRmAccount`.
-3. Registre a assinatura na qual cada rede virtual que você deseja emparelhar está para a versão prévia inserindo os seguintes comandos:
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-4. Digite o seguinte comando para confirmar que você está registrado para a versão prévia:
-
-    ```powershell    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    Não conclua as etapas nas seções Portal, CLI do Azure, PowerShell ou Modelo do Resource Manager deste artigo até a saída de **RegistrationState** que você recebe depois de inserir os comandos anteriores ser **Registrada** para ambas as assinaturas.
-
-> [!NOTE]
-> Este tutorial usa as redes virtuais existentes na mesma região. A capacidade de emparelhar redes virtuais em diferentes regiões também está em versão prévia. Para registrar-se no emparelhamento de região cruzada ou global, conclua as etapas 1 a 4 novamente, usando `-FeatureName AllowGlobalVnetPeering` em vez de `-FeatureName AllowClassicCrossSubscriptionPeering`. Os dois recursos são independentes um do outro. Você não precisa se registrar em ambos, a menos que queira usar os dois. A funcionalidade está disponível em um conjunto limitado de regiões (inicialmente, Centro-oeste dos EUA, Canadá Central e Oeste dos EUA 2).
-
-### <a name="azure-cli"></a>CLI do Azure
-
-1. [Instalar e configurar a CLI do Azure](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
-2. Verifique se você está usando a versão 2.0.18 ou superior da CLI do Azure digitando o comando `az --version`. Se não estiver, instale a versão mais recente.
-3. Faça logon no Azure com o comando `az login`.
-4. Registre-se para a versão prévia inserindo os seguintes comandos:
-
-   ```azurecli-interactive
-   az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-   az provider register --name Microsoft.Network
-   ```
-
-5. Digite o seguinte comando para confirmar que você está registrado para a versão prévia:
-
-    ```azurecli-interactive
-    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-    ```
-
-    Não conclua as etapas nas seções de modelo de Portal, CLI do Azure, PowerShell ou Resource Manager deste artigo até a saída **RegistrationState** que você recebe depois de inserir o comando ser **Registrada** para ambas as assinaturas.
-
-> [!NOTE]
-> Este tutorial usa as redes virtuais existentes na mesma região. A capacidade de emparelhar redes virtuais em diferentes regiões também está em versão prévia. Para registrar-se no emparelhamento de região cruzada ou global, conclua as etapas 1 a 5 novamente, usando `--name AllowGlobalVnetPeering` em vez de `--name AllowClassicCrossSubscriptionPeering`. Os dois recursos são independentes um do outro. Você não precisa se registrar em ambos, a menos que queira usar os dois. A funcionalidade está disponível em um conjunto limitado de regiões (inicialmente, Centro-oeste dos EUA, Canadá Central e Oeste dos EUA 2).
 
 ## <a name="next-steps"></a>Próximas etapas
 

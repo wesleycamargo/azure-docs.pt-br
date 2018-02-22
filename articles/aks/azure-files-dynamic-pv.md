@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: ce37cfdd70f95822a912f6ea71b9e4a3f9a30a14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Volumes persistentes com arquivos do Azure - provisionamentos dinâmicos
+# <a name="persistent-volumes-with-azure-files"></a>Volumes persistentes com arquivos do Azure
 
 Um volume persistente representa uma parte do armazenamento que foi provisionado para uso em um cluster Kubernetes. Um volume persistente pode ser usado por um ou vários compartimentos e pode ser estática ou dinamicamente provisionado. Este documento detalha o provisionamento dinâmico de um compartilhamento de arquivos do Azure como um volume persistente Kubernetes em um cluster AKS. 
 
 Para obter mais informações sobre volumes persistentes Kubernetes, consulte [Volumes persistentes Kubernetes][kubernetes-volumes].
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Durante o provisionamento dinâmico de um compartilhamento de arquivos do Azure como um volume Kubernetes, qualquer conta de armazenamento pode ser usada como está contido no mesmo grupo de recursos de cluster AKS. Se necessário, crie uma conta de armazenamento no mesmo grupo de recursos que o cluster AKS. 
 

@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fde85936760a167f1da2289ac1d18e97df7c9c04
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados para e do Armazenamento de Tabelas do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1 – Disponível de forma geral](v1/data-factory-azure-table-connector.md)
 > * [Versão 2 – Versão prévia](connector-azure-table-storage.md)
 
-Este artigo descreve como usar uma atividade de cópia no Azure Data Factory para copiar dados para e do Armazenamento de Tabelas do Azure. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar uma atividade de cópia no Azure Data Factory para copiar dados para e do Armazenamento de Tabelas do Azure. Ele amplia o artigo [visão geral da Atividade de Cópia](copy-activity-overview.md) que apresenta uma visão geral da Atividade de Cópia.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você usar a versão 1 do Data Factory, que está disponível de forma geral, consulte [Conector de armazenamento de tabelas na versão 1](v1/data-factory-azure-table-connector.md).
@@ -50,7 +50,7 @@ Você pode criar um serviço vinculado do Armazenamento do Azure usando a chave 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como **AzureStorage**. |sim |
-| connectionString | Especifique as informações necessárias para se conectar ao Armazenamento para a propriedade connectionString. Marque esse campo como SecureString. |sim |
+| connectionString | Especifique as informações necessárias para se conectar ao Armazenamento para a propriedade connectionString. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -93,7 +93,7 @@ Para usar a autenticação de assinatura de acesso compartilhado de serviço, h�
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como **AzureStorage**. |sim |
-| sasUri | Especifique o URI de assinatura de acesso compartilhado para os recursos de Armazenamento, como blob, contêiner ou tabela. Marque esse campo como SecureString. |sim |
+| sasUri | Especifique o URI de assinatura de acesso compartilhado para os recursos de Armazenamento, como blob, contêiner ou tabela. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -125,7 +125,7 @@ Ao criar um URI de assinatura de acesso compartilhado, considere os seguintes po
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte do conjunto de dados da Tabela do Azure.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte do conjunto de dados da Tabela do Azure.
 
 Para copiar dados para e da Tabela do Azure, defina a propriedade type do conjunto de dados como **AzureTable**. Há suporte para as seguintes propriedades.
 

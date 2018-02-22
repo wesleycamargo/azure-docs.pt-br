@@ -4,7 +4,7 @@ description: Saiba como adicionar, alterar ou excluir uma sub-rede de rede virtu
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,98 +13,87 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2017
+ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f8b60a27e760ae74c7f068844fad1ae0d4324366
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou excluir uma sub-rede da rede virtual
 
-Saiba como adicionar, alterar ou excluir uma sub-rede de rede virtual. 
-
-Se você não estiver familiarizado com as redes virtuais, antes de adicionar, alterar ou excluir uma sub-rede recomendamos que você leia [Visão geral da rede virtual do Azure](virtual-networks-overview.md) e [Criar, alterar ou excluir uma rede virtual](virtual-network-manage-network.md). Todos os recursos do Azure implantados em uma rede virtual são implantados em uma sub-rede dentro de uma rede virtual. Normalmente, várias sub-redes são criadas dentro de uma rede virtual para:
-- **Filtra o tráfego entre sub-redes**. É possível aplicar grupos de segurança de rede às sub-redes para filtrar tráfego de rede de entrada e saída para todos os recursos (como máquinas virtuais) que estão na rede virtual. Para saber mais sobre como criar um grupo de segurança de rede, consulte [Criar grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
-- **Controlar o roteamento entre sub-redes**. O Azure cria rotas padrão para que o tráfego seja roteado automaticamente entre sub-redes. Você pode substituir as rotas padrão do Azure, criando rotas definidas pelo usuário. Para saber mais sobre as rotas definidas pelo usuário, consulte [Criar rotas definidas pelo usuário](virtual-network-create-udr-arm-ps.md). 
-
-Este artigo explica como adicionar, alterar e excluir uma sub-rede de redes virtuais que foram criadas utilizando o modelo de implantação do Azure Resource Manager.
+Saiba como adicionar, alterar ou excluir uma sub-rede de rede virtual. Se você não estiver familiarizado com as redes virtuais, antes de adicionar, alterar ou excluir uma sub-rede recomendamos que você leia [Visão geral da rede virtual do Azure](virtual-networks-overview.md) e [Criar, alterar ou excluir uma rede virtual](virtual-network-manage-network.md). Todos os recursos do Azure implantados em uma rede virtual são implantados em uma sub-rede dentro de uma rede virtual.
  
-## <a name="before"></a>Antes de começar
+## <a name="before-you-begin"></a>Antes de começar
 
-Antes de iniciar as tarefas descritas neste artigo, complete os seguintes pré-requisitos:
+Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção deste artigo:
 
-- Caso não tenha experiência em trabalhar com redes virtuais, recomendamos que você examine o exercício em [Criar sua primeira rede virtual do Azure](quick-create-portal.md). Esse exercício pode ajudá-lo a se familiarizar melhor com as redes virtuais.
-- Para saber mais sobre os limites para redes virtuais, examine [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- Entre no portal do Azure, na ferramenta de linha de comando do Azure (CLI do Azure) ou no Azure PowerShell utilizando sua conta do Azure. Caso você não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se você pretende utilizar os comandos do PowerShell para completar as tarefas descritas, primeiro deverá [instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de ter a versão mais recente dos cmdlets do Azure PowerShell instalada. Para obter ajuda sobre os comandos do PowerShell nos exemplos, digite `get-help <command> -full`.
-- Se você pretende utilizar os comandos CLI do Azure para completar as tarefas descritas neste artigo, primeiro deverá:
-    - [Instalar e configurar a CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de ter a versão mais recente da CLI do Azure instalada.
-    - Use o Azure Cloud Shell. Em vez de instalar a CLI e suas dependências, você pode usar o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que podem ser executado diretamente no portal do Azure. Ele tem a CLI do Azure instalada e configurada para usar com sua conta. Para usar o Cloud Shell, clique no ícone (**>_**) do Cloud Shell na parte superior do Portal do Azure. 
+- Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
+- Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
+- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo do Azure PowerShell versão 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.26 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
-  Para obter ajuda com os comandos CLI do Azure, digite `az <command> --help`.
+## <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
-## <a name="create-subnet"></a>Adicionar uma sub-rede
-
-Para adicionar uma sub-rede:
-
-1. Entre no [portal](https://portal.azure.com) com uma conta que é atribuída permissões para a função Colaborador de Rede (no mínimo) para sua assinatura. Para saber mais sobre como atribuir funções e permissões às contas, consulte [Funções internas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. Na caixa de pesquisa do portal, insira **redes virtuais**. Nos resultados da pesquisa, clique em **Redes virtuais**.
-3. Na folha **Redes virtuais** clique na rede virtual à qual você deseja adicionar uma sub-rede.
-4. Na folha da rede virtual, clique em **Sub-redes**.
-5. Clique em **+Sub-rede**.
-6. Na folha **Adicionar sub-rede** insira os valores para os seguintes parâmetros:
+1. Na caixa de pesquisa na parte superior do portal, digite *redes virtuais* na caixa de pesquisa. Quando os resultados da pesquisa exibirem **Redes virtuais**, selecione essa opção.
+2. Na lista de redes virtuais, selecione a rede virtual à qual deseja adicionar uma sub-rede.
+3. Em **CONFIGURAÇÕES**, selecione **Sub-redes**.
+4. Selecione **+Sub-rede**.
+5. Insira os valores dos seguintes parâmetros:
     - **Nome**: o nome deve ser exclusivo na rede virtual.
-    - **Intervalo de endereços**: o intervalo deve ser exclusivo dentro do espaço de endereços para a rede virtual. O intervalo não pode sobrepor-se com outros intervalos de endereços de sub-rede dentro da rede virtual. O espaço de endereçamento deve ser especificado utilizando a notação CIDR (Roteamento Entre Domínios sem Classes). Por exemplo, em uma rede virtual com espaço de endereçamento 10.0.0.0/16, você pode definir um espaço de endereçamento de sub-rede de 10.0.0.0/24. O menor intervalo que você pode especificar é de /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade de protocolo. Três endereços adicionais são reservados para uso pelo serviço do Azure. Como resultado, definir uma sub-rede com um intervalo de endereços /29 resulta em três endereços IP utilizáveis na sub-rede. Caso pretenda conectar uma rede virtual a um gateway de VPN, será necessário criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereços específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Sob condições específicas, você pode alterar o intervalo de endereços depois que a sub-rede é adicionada. Para saber como alterar um intervalo de endereços de sub-rede, consulte [Alterar as configurações de sub-rede](#change-subnet) neste artigo.
-    - **Grupo de segurança de rede**: opcionalmente, é possível associar um grupo de segurança de rede existente à sub-rede para controlar a filtragem de tráfego de rede de entrada e saída para a sub-rede. O grupo de segurança da rede deve existir na mesma assinatura e local da rede virtual. Além disso, deve ser criado utilizando o modelo de implantação Resource Manager. Para saber mais sobre como criar um grupo de segurança de rede, consulte [Grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
-    - **Tabela de rotas**: opcionalmente, é possível associar uma tabela de rota existente à sub-rede para controlar o roteamento de tráfego da rede para outras redes. A tabela de rotas deve existir na mesma assinatura e localização da rede virtual. Além disso, deve ser criado utilizando o modelo de implantação Resource Manager. Para saber mais sobre como criar tabelas de rotas, consulte [Rotas definidas pelo usuário](virtual-network-create-udr-arm-ps.md).
+    - **Intervalo de endereços**: o intervalo deve ser exclusivo dentro do espaço de endereços para a rede virtual. O intervalo não pode sobrepor-se com outros intervalos de endereços de sub-rede dentro da rede virtual. O espaço de endereçamento deve ser especificado utilizando a notação CIDR (Roteamento Entre Domínios sem Classes). Por exemplo, em uma rede virtual com espaço de endereçamento 10.0.0.0/16, você pode definir um espaço de endereçamento de sub-rede de 10.0.0.0/24. O menor intervalo que você pode especificar é de /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade de protocolo. Três endereços adicionais são reservados para uso pelo serviço do Azure. Como resultado, definir uma sub-rede com um intervalo de endereços /29 resulta em três endereços IP utilizáveis na sub-rede. Caso pretenda conectar uma rede virtual a um gateway de VPN, será necessário criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereços específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Sob condições específicas, você pode alterar o intervalo de endereços depois que a sub-rede é adicionada. Para saber como alterar um intervalo de endereços de sub-rede, consulte [Alterar as configurações de sub-rede](#change-subnet-settings).
+    - **Grupo de segurança de rede**: é possível associar zero ou um grupo de segurança de rede existente à sub-rede para filtrar o tráfego de rede de entrada e saída para a sub-rede. O grupo de segurança da rede deve existir na mesma assinatura e local da rede virtual. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [como criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
+    - **Tabela de rotas:** você pode associar zero ou uma tabela de rotas existente à sub-rede a controlar o roteamento de tráfego de rede para outras redes. A tabela de rotas deve existir na mesma assinatura e localização da rede virtual. Saiba mais sobre o [Roteamento do Azure](virtual-networks-udr-overview.md) e [como criar uma tabela de rotas](create-user-defined-route-portal.md)
+    - **Pontos de extremidade de serviço:** uma sub-rede pode ter zero ou vários pontos de extremidade do serviço habilitados. Para habilitar um ponto de extremidade de serviço para um serviço, selecione o serviço ou serviços para os quais deseja habilitar os pontos de extremidade de serviço na lista **Serviços**. Para remover um ponto de extremidade de serviço, desmarque o serviço para o qual deseja remover o ponto de extremidade de serviço. Para saber mais sobre os pontos de extremidade do serviço, consulte [Visão geral dos pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md). Depois de habilitar um ponto de extremidade de serviço para um serviço, você também precisa habilitar o acesso à rede para a sub-rede para um recurso criado com o serviço. Por exemplo, se habilitar o ponto de extremidade de serviço para *Microsoft.Storage*, você também deverá habilitar o acesso à rede para todas as contas de Armazenamento do Azure a que deseja conceder acesso à rede. Para obter detalhes sobre como habilitar o acesso à rede para sub-redes para as quais um ponto de extremidade de serviço está habilitado, consulte a documentação do serviço individual para o qual você habilitou o ponto de extremidade de serviço.
+6. Para adicionar a sub-rede à rede virtual que você selecionou, selecione **OK**.
+
+**Comandos**
+
+- CLI do Azure: [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
+- PowerShell: [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
+
+## <a name="change-subnet-settings"></a>Alterar as configurações de sub-rede
+
+1. Na caixa de pesquisa na parte superior do portal, digite *redes virtuais* na caixa de pesquisa. Quando os resultados da pesquisa exibirem **Redes virtuais**, selecione essa opção.
+2. Na lista de redes virtuais, selecione a rede virtual que contém a sub-rede para a qual deseja alterar as configurações.
+3. Em **CONFIGURAÇÕES**, selecione **Sub-redes**.
+4. Na lista de sub-redes, selecione a sub-rede para a qual deseja alterar as configurações. É possível adicionar ou remover as seguintes configurações:
+
+    - **Intervalo de endereços:** se nenhum recurso for implantado dentro da sub-rede, você poderá alterar o intervalo de endereços. Se houver recursos na sub-rede, você deverá mover os recursos para outra sub-rede ou excluí-los da sub-rede primeiro. As etapas necessárias para mover ou excluir um recurso variam de acordo com o recurso. Para saber como mover ou excluir os recursos que estão nas sub-redes, leia a documentação para cada tipo de recurso que deseja mover ou excluir. Consulte as restrições de **Intervalo de endereços** na etapa 5 de [Adicionar uma sub-rede](#add-a-subnet).
     - **Usuários**: é possível controlar o acesso à sub-rede utilizando funções internas ou suas próprias funções personalizadas. Para saber mais sobre como atribuir funções e usuários para acessar a sub-rede, consulte [Utilizar atribuição de função para gerenciar o acesso aos recursos do Azure](../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
-7. Para adicionar a sub-rede à rede virtual que você selecionou, clique em **OK**.
+    - Para obter informações sobre como alterar o **Grupo de segurança de rede**, **Tabela de rotas**, **Usuários** e **Pontos de extremidade de serviço**, consulte a etapa 5 em [Adicionar uma sub-rede](#add-a-subnet).
+5. Selecione **Salvar**.
 
 **Comandos**
 
-|Ferramenta|Get-Help|
-|---|---|
-|CLI do Azure|[az network vnet subnet create](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
-## <a name="change-subnet"></a>Alterar as configurações de sub-rede
+## <a name="delete-a-subnet"></a>Excluir uma sub-rede
 
-É possível alterar grupos de segurança de rede, tabelas de rotas e acesso de usuário de uma sub-rede gerenciando recursos que estão em uma sub-rede. Para saber mais sobre essas configurações, em [Adicionar uma sub-rede](#create-subnet), veja a etapa 6. Caso queira alterar o espaço de endereçamento de uma sub-rede, primeiro você deverá excluir todos os recursos que estão na sub-rede. As etapas necessárias para excluir um recurso variam de acordo com o recurso. Para saber como excluir os recursos que estão nas sub-redes, leia a documentação para cada tipo de recurso que deseja excluir. Para alterar o intervalo de endereços de uma sub-rede:
+Uma sub-rede somente pode ser excluída se não houver recursos na sub-rede. Se houver recursos na sub-rede, será necessário excluir os recursos na sub-rede antes de excluí-la. As etapas necessárias para excluir um recurso variam de acordo com o recurso. Para saber como excluir os recursos que estão nas sub-redes, leia a documentação para cada tipo de recurso que deseja excluir.
 
-1. Entre no [portal](https://portal.azure.com) com uma conta que é atribuída permissões para a função Colaborador de Rede (no mínimo) para sua assinatura. Para saber mais sobre como atribuir funções e permissões às contas, consulte [Funções internas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. Na caixa de pesquisa do portal, insira **redes virtuais**. Nos resultados da pesquisa, clique em **Redes virtuais**.
-3. Na folha **Redes virtuais** clique na rede virtual para a qual deseja alterar um intervalo de endereços de sub-rede.
-4. Clique na sub-rede para a qual deseja alterar o intervalo de endereços.
-5. Na folha de sub-rede, na caixa **Intervalo de endereços** digite o novo intervalo de endereços. O intervalo deve ser exclusivo dentro do espaço de endereçamento para a rede virtual. O intervalo não pode sobrepor-se com outros intervalos de endereços de sub-rede dentro da rede virtual. O espaço de endereçamento deve ser especificado utilizando a notação CIDR. Por exemplo, em uma rede virtual com espaço de endereçamento 10.0.0.0/16, você pode definir um espaço de endereçamento de sub-rede de 10.0.0.0/24. O menor intervalo que você pode especificar é de /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade de protocolo. Três endereços adicionais são reservados para uso pelo serviço do Azure. Como resultado, uma sub-rede com um intervalo de endereços /29 tem três endereços IP utilizáveis. Caso pretenda conectar uma rede virtual a um gateway de VPN, será necessário criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereços específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Sob condições específicas, você pode alterar o intervalo de endereços depois que a sub-rede é criada. Para saber como alterar um intervalo de endereços de sub-rede, consulte [Alterar as configurações de sub-rede](#change-subnet) neste artigo.
-6. Clique em **Salvar**.
+1. Na caixa de pesquisa na parte superior do portal, digite *redes virtuais* na caixa de pesquisa. Quando os resultados da pesquisa exibirem **Redes virtuais**, selecione essa opção.
+2. Na lista de redes virtuais, selecione a rede virtual que contém a sub-rede que você deseja excluir.
+3. Em **CONFIGURAÇÕES**, selecione **Sub-redes**.
+4. Na lista de sub-redes, selecione **...**, à direita, para a sub-rede que deseja excluir
+5. Selecione **Excluir** e, em seguida, selecione **Sim**.
 
 **Comandos**
 
-|Ferramenta|Get-Help|
-|---|---|
-|CLI do Azure|[az network vnet subnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- CLI do Azure: [az network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)
+- PowerShell: [Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
+## <a name="permissions"></a>Permissões
 
-## <a name="delete-subnet"></a>Excluir uma sub-rede
+Para executar tarefas em sub-redes, sua conta deve ser atribuída à função de [colaborador da rede](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma função [personalizada](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à qual são atribuídas as permissões apropriadas listadas na tabela a seguir:
 
-Uma sub-rede somente pode ser excluída se não houver recursos na sub-rede. Se houver recursos na sub-rede, será necessário excluir os recursos na sub-rede antes de excluí-la. As etapas necessárias para excluir um recurso variam de acordo com o recurso. Para saber como excluir os recursos que estão nas sub-redes, leia a documentação para cada tipo de recurso que deseja excluir. Para excluir uma sub-rede:
-
-1. Entre no [portal](https://portal.azure.com) com uma conta que é atribuída permissões para a função Colaborador de Rede (no mínimo) para sua assinatura. Para saber mais sobre como atribuir funções e permissões às contas, consulte [Funções internas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. Na caixa de pesquisa do portal, insira **redes virtuais**. Nos resultados da pesquisa, clique em **Redes virtuais**.
-3. Na folha **Redes virtuais**, clique na rede virtual da qual você deseja excluir uma sub-rede.
-4. Na folha da rede virtual, em **SETTINGS**, clique em **Sub-redes**.
-5. Na lista de sub-redes que aparece na folha de sub-redes, clique com o botão direito do mouse na sub-rede que deseja excluir, clique em **Excluir** e, em seguida, clique em **Sim** para excluir a sub-rede.
-
-**Comandos**
-
-|Ferramenta|Get-Help|
-|---|---|
-|CLI do Azure|[az network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
-## <a name="next-steps"></a>Próximas etapas
-
-Para criar uma máquina virtual em uma sub-rede, veja [Criar uma rede virtual e implantar VMs na sub-rede](quick-create-portal.md#create-virtual-machines).
+|Operação                                                                |   Nome da operação                               |
+|-----------------------------------------------------------------------  |   -------------------------------------------  |
+|Microsoft.Network/virtualNetworks/subnets/read                           |   Obter Sub-rede da Rede Virtual                   |
+|Microsoft.Network/virtualNetworks/subnets/write                          |   Criar ou Atualizar Sub-rede da Rede Virtual      |
+|Microsoft.Network/virtualNetworks/subnets/delete                         |   Excluir Sub-rede da Rede Virtual                |
+|Microsoft.Network/virtualNetworks/subnets/join/action                    |   Associar Rede Virtual                         |
+|Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action  |   Associar Serviço a uma Sub-rede                     |
+|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read           |   Obter Máquinas Virtuais da Sub-rede de Rede Virtual  |

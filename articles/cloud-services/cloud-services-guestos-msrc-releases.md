@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
@@ -26,8 +26,14 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 ## <a name="january-guest-os"></a>SO convidado de janeiro
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| N/D | [4056898] |Somente Segurança do Windows |4.50 |3 de janeiro de 2018 |
-| N/D | [4056890] |Somente Segurança do Windows |5.15 |3 de janeiro de 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Somente Segurança do Windows |2.70, 3.57, 4.50 |3 de janeiro de 2018 |
+| Rel 18-01 | [4056890], [4056892] |Somente Segurança do Windows |5.15 |3 de janeiro de 2018 |
+| N/D | [4054518] |Pacote cumulativo de atualizações não relacionado à segurança de dezembro |2.70 |12 de dezembro de 2017 |
+| N/D | [4054520] |Pacote cumulativo de atualizações não relacionado à segurança de dezembro |3.57 |12 de dezembro de 2017 |
+| N/D | [4054519] |Pacote cumulativo de atualizações não relacionado à segurança de dezembro |4.50 |12 de dezembro de 2017 |
+| N/D | [4051956] |Atualização de fuso horário |2.70, 3.57, 4.50 |12 de dezembro de 2017 |
+
+
 
 ## <a name="december-guest-os"></a>SO convidado de dezembro
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -36,7 +42,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Rel 17-12 | [4054521], [4054522], [4054523] |Somente Segurança do Windows |2.69, 3.56, 4.49 |12 de dezembro de 2017 |
 | Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 de dezembro de 2017 |
 | Rel 17-12 | [4052978] |Piscando |3.56, 4.49, 5.14 |12 de dezembro de 2017 |
-| N/D | [4048957] |Pacote cumulativo de atualizações não relacionado à segurança de novembro |2.67 |14 de novembro de 2017 |
+| N/D | [4048957] |Pacote cumulativo de atualizações não relacionado à segurança de novembro |2.69 |14 de novembro de 2017 |
 | N/D | [4048959] |Pacote cumulativo de atualizações não relacionado à segurança de novembro |3.56 |14 de novembro de 2017 |
 | N/D | [4048958] |Pacote cumulativo de atualizações não relacionado à segurança de novembro |4.49 |14 de novembro de 2017 |
 | N/D | [4049068] |Atualização de fuso horário de dezembro |2.69, 3.56, 4.49 |12 de dezembro de 2017 |
@@ -48,7 +54,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Rel 17-11 | [4048960], [4048962], [4048961] |Somente Segurança do Windows |2.68, 3.55, 4.48 |14 de novembro de 2017 |
 | Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 de novembro de 2017 |
 | Rel 17-11 | [4048951] |Piscando |3.55, 4.48, 5.13 |14 de novembro de 2017 |
-| N/D | [4041681] |Pacote cumulativo de atualizações não relacionado à segurança de outubro |2.67 |10 de outubro de 2017 |
+| N/D | [4041681] |Pacote cumulativo de atualizações não relacionado à segurança de outubro |2.68 |10 de outubro de 2017 |
 | N/D | [4041690] |Pacote cumulativo de atualizações não relacionado à segurança de outubro |3.55 |10 de outubro de 2017 |
 | N/D | [4041693] |Pacote cumulativo de atualizações não relacionado à segurança de outubro |4.48 |10 de outubro de 2017 |
 | N/D | [3191566] |Atualização do Windows Management Framework 5.1  |2.68 |14 de novembro de 2017 |
@@ -582,7 +588,14 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 
 [4056898]: http://support.microsoft.com/kb/4056898
+[4056897]: http://support.microsoft.com/kb/4056897
+[4056899]: http://support.microsoft.com/kb/4056899
 [4056890]: http://support.microsoft.com/kb/4056890 
+[4056892]: http://support.microsoft.com/kb/4056892
+[4054518]: http://support.microsoft.com/kb/4054518
+[4054520]: http://support.microsoft.com/kb/4054520
+[4054519]: http://support.microsoft.com/kb/4054519
+[4051956]: http://support.microsoft.com/kb/4051956
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

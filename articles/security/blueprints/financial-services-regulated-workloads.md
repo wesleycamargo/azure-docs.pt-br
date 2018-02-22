@@ -1,6 +1,6 @@
 ---
-title: "Automação de plano gráfico do Azure – serviços financeiros para cargas de trabalho regulamentadas"
-description: "Plano gráfico de serviços financeiros para cargas de trabalho regulamentadas"
+title: "Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC"
+description: "Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Automação de plano gráfico do Azure: planos gráficos de serviços financeiros para cargas de trabalho regulamentadas
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Projeto de Segurança e de Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC
 
 ## <a name="overview"></a>Visão geral
 
-O plano gráfico de serviços financeiros para cargas de trabalho regulamentadas ajuda a implantar um aplicativo Web de PaaS (plataforma como serviço) seguro e em conformidade, projetado para lidar com os dados confidenciais na nuvem. O plano gráfico consiste em scripts automatizados e diretrizes que mostram uma arquitetura de referência simples e um design que ajuda a simplificar a adoção de soluções do Microsoft Azure. Este plano gráfico ilustra uma solução de ponta a ponta para atender às necessidades das organizações que buscam maneiras de reduzir a carga e o custo da implantação na nuvem.
+O Projeto de Segurança e Conformidade do Azure – cargas de trabalho regulamentadas pelos serviços financeiros FFIEC ajuda a implantar um aplicativo Web de PaaS (plataforma como serviço) seguro e em conformidade, projetado para lidar com os dados confidenciais na nuvem. O plano gráfico consiste em scripts automatizados e diretrizes que mostram uma arquitetura de referência simples e um design que ajuda a simplificar a adoção de soluções do Microsoft Azure. Este plano gráfico ilustra uma solução de ponta a ponta para atender às necessidades das organizações que buscam maneiras de reduzir a carga e o custo da implantação na nuvem.
 
 Este plano gráfico foi projetado para atender aos requisitos de padrões de conformidade rigorosos definidos pelo Instituto Americano de Contadores Públicos Certificados como SOC 1, SOC 2, pelo DSS 3.2 do conselho do Payment Card Industry Data Security Standards e pelo FFIEC para coleta, armazenamento e recuperação de dados financeiros confidenciais. Ele demonstra a manipulação correta desses dados implantando uma solução que gerencia dados financeiros em um ambiente seguro, em conformidade e multicamadas. A solução é implantada como uma solução de PaaS baseada no Azure de ponta a ponta. 
 
@@ -52,7 +52,7 @@ A arquitetura é composta dos seguintes componentes e usa os recursos de implant
 
 O plano gráfico abrange o caso de uso abaixo.
 
-> Esse cenário ilustra como um webstore fictício passou dados confidenciais para uma solução de PaaS em nuvem baseada no Azure. A solução de exemplo ilustra o tratamento e a coleta de informações básicas do usuário e dados confidenciais selecionados. Esse trabalho emprestada da automação de plano gráfico do Azure: processamento de pagamento para ambientes em conformidade com o PCI DSS para processamento de cartão de pagamento. Para obter mais informações sobre a expansão deste trabalho, o documento ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) (Revisão e diretrizes de implementação) fornece uma análise dos ambientes em conformidade com o PCI DSS.
+> Esse cenário ilustra como um webstore fictício passou dados confidenciais para uma solução de PaaS em nuvem baseada no Azure. A solução de exemplo ilustra o tratamento e a coleta de informações básicas do usuário e dados confidenciais selecionados. Este trabalho faz uso de elementos dos ambientes do Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS. Para obter mais informações sobre a expansão deste trabalho, o documento ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) (Revisão e diretrizes de implementação) fornece uma análise dos ambientes em conformidade com o PCI DSS.
 
 ### <a name="use-case"></a>Caso de uso
 Uma pequeno webstore chamada *Contoso Webstore* está pronta para passar dados financeiros que incluem informações de pagamento de cliente para a nuvem. 
@@ -111,7 +111,7 @@ Melissa Mello é a recepcionista e gerente de negócios. Ela é responsável por
 - Melissa pode substituir as informações financeiras.
 - A conta da Melissa não pode exibir informações financeiras não filtradas.
 
-> Na Contoso Webstore, o usuário é automaticamente a usuária **Melissa** para testar os recursos do ambiente implantado.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - Preços estimados
 
@@ -120,7 +120,6 @@ Essa arquitetura fundamental e o aplicativo Web de exemplo têm uma estrutura de
 A solução usou os serviços do Azure a seguir. Os detalhes da arquitetura de implantação estão localizados na [Arquitetura de Implantação](#deployment-architecture).
 
 >- Gateway de Aplicativo
-
 >- Azure Active Directory
 >- Ambiente do Serviço de Aplicativo v2
 >- Log Analytics do OMS
@@ -150,7 +149,6 @@ A seção a seguir fornece detalhes sobre os elementos de desenvolvimento e impl
 
 #### <a name="application-gateway"></a>Gateway de Aplicativo
 
-
 A arquitetura de base reduz o risco de vulnerabilidades de segurança usando o Gateway de Aplicativo com um WAF (firewall do aplicativo Web) e o conjunto de regras OWASP habilitado. Dentre outros recursos estão:
 
 - [SSL de ponta a ponta](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
@@ -174,7 +172,7 @@ Cada uma das camadas de rede tem um NSG (grupo de segurança de rede dedicado):
 - Um NSG para jumpbox de gerenciamento (host bastião)
 - Um NSG para o ambiente do serviço de aplicativo
 
-Cada NSG tem portas e protocolos específicos abertos para o funcionamento seguro e correto da solução. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](#network-security-groups).
+Cada NSG tem portas e protocolos específicos abertos para o funcionamento seguro e correto da solução. 
 
 Além disso, as seguintes configurações estão habilitadas para cada NSG:
 
@@ -307,7 +305,7 @@ A implantação padrão destina-se a fornecer uma linha de base de recomendaçõ
 
 ## <a name="deploy-the-solution"></a>Implantar a solução
 
-Os componentes para implantar essa solução estão disponíveis no [Repositório de código do plano gráfico de processamento de pagamento][code-repo]. A implantação da arquitetura fundamental requer várias etapas executadas por meio do Microsoft PowerShell v5. Para conectar-se ao site, você deve fornecer um nome de domínio personalizado (por exemplo, contoso.com). Isso é especificado usando a opção `-customHostName` na etapa 2. Para saber mais, confira [Comprar um nome de domínio personalizado Aplicativos Web do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implantar e executar a solução com êxito, mas não será possível se conectar ao site para fins de demonstração.
+Os componentes para implantar esta solução estão disponíveis no [Repositório de código do projeto][code-repo]. A implantação da arquitetura fundamental requer várias etapas executadas por meio do Microsoft PowerShell v5. Para conectar-se ao site, você deve fornecer um nome de domínio personalizado (por exemplo, contoso.com). Isso é especificado usando a opção `-customHostName` na etapa 2. Para saber mais, confira [Comprar um nome de domínio personalizado Aplicativos Web do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implantar e executar a solução com êxito, mas não será possível se conectar ao site para fins de demonstração.
 
 Os scripts adicionam usuários de domínio ao locatário do Azure AD que você especifica. A Microsoft recomenda criar um novo locatário do Azure AD para ser usado como um teste.
 
@@ -363,7 +361,7 @@ A Microsoft realmente recomenda que uma instalação limpa do PowerShell seja us
     
 ## <a name="threat-model"></a>Modelo de ameaça
 
-Um diagrama de fluxo de dados (DFD) e o modelo de ameaça de exemplo para a Contoso Webstore [Modelo de ameaça de plano gráfico de processamento de pagamento](https://aka.ms/pciblueprintthreatmodel).
+Um diagrama de fluxo de dados (DFD) e o modelo de risco de exemplo para a Contoso Webstore [Modelo de risco de projeto](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

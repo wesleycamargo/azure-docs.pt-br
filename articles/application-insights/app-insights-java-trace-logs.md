@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento de Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
 
 ## <a name="install-the-java-sdk"></a>Instalar o SDK do Java
 
-Instale o [SDK do Application Insights para Java][java] se ainda não tiver feito isso.
-
-(Se não quiser rastrear as solicitações HTTP, você poderá omitir a maior parte do arquivo de configuração .xml, mas deverá incluir pelo menos o elemento `InstrumentationKey`. Você também deve chamar `new TelemetryClient()` para inicializar o SDK.)
-
+Siga as instruções para instalar o [SDK do Application Insights para Java][java] se ainda não tiver feito isso.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Adicionar bibliotecas de log ao seu projeto
 *Escolha o modo apropriado para seu projeto.*
@@ -101,13 +98,14 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 ```
 
 #### <a name="otherwise-"></a>Caso contrário...
-Baixe e extraia o appender apropriado, em seguida adicione a biblioteca apropriada ao seu projeto:
+Siga as orientações para instalar manualmente o SDK do Java do Application Insights, baixe o jar (após chegar na Página Central do Maven, clique no link para "jar" na seção de download) correspondente ao appender apropriado e adicione-o ao projeto.
 
 | Agente | Baixar | Biblioteca |
 | --- | --- | --- |
-| Logback |[SDK com appender de Logback](https://aka.ms/xt62a4) |applicationinsights-logging-logback |
-| Log4J v2.0 |[SDK com appender de Log4J v2](https://aka.ms/qypznq) |applicationinsights-logging-log4j2 |
-| Log4J v1.2 |[SDK com appender de Log4J v1.2](https://aka.ms/ky9cbo) |applicationinsights-logging-log4j1_2 |
+| Logback |[Jar do appender de Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Jar do appender de Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4J v1.2 |[Jar do appender de Log4J v1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Adicionar o appender à sua estrutura de log
 Para começar a obter rastreamentos, mescle o trecho de código relevante ao arquivo de configuração Log4J ou Logback: 
@@ -128,7 +126,7 @@ Para começar a obter rastreamentos, mescle o trecho de código relevante ao arq
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -157,6 +155,8 @@ Os appenders Application Insights podem ser referenciados por qualquer agente co
 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Explorar seus rastreamentos no portal do Application Insights
 Agora que você configurou o projeto para enviar os rastreamentos para o Application Insights, é possível exibir e pesquisar esses rastreamentos no portal do Application Insights, na folha [Pesquisa][diagnostic].
+
+Exceções enviadas por meio de agentes serão exibidas no portal como Telemetria de exceção.
 
 ![No portal do Application Insights, abra a Pesquisa](./media/app-insights-java-trace-logs/10-diagnostics.png)
 

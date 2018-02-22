@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associações HTTP e de webhook do Azure Functions
 
@@ -493,6 +493,9 @@ Por padrão, todas as rotas de função são prefixadas com *api*. Você também
 ### <a name="authorization-keys"></a>Chaves de autorização
 
 Os gatilhos HTTP permitem que você use chaves para aumentar a segurança. Um gatilho HTTP padrão pode usá-las como uma chave de API, exigindo que a chave esteja presente na solicitação. Os webhooks podem usar chaves para autorizar solicitações de várias maneiras, dependendo daquilo a que o provedor oferece suporte.
+
+> [!NOTE]
+> Ao executar as funções localmente, a autorização é desabilitada, independentemente do `authLevel` definido em `function.json`. Assim que você publica nas Funções do Azure, `authLevel` entra em vigor imediatamente.
 
 As chaves são armazenadas como parte do seu aplicativo de funções no Azure e criptografadas em repouso. Para exibir suas chaves, criar novas ou reverter chaves para novos valores, navegue para uma de suas funções no portal e selecione "Gerenciar". 
 

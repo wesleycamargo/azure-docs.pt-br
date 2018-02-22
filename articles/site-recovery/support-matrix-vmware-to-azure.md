@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para replicação de VMware e servidor físico no Azure
 
@@ -49,7 +49,7 @@ Sistema operacional do computador (Linux) | Red Hat Enterprise Linux: 5.2 a 5.11
 >
 > - Em distribuições Linux, há suporte somente para os kernels de estoque que fazem parte da versão/atualização da versão secundária da distribuição.
 >
-> - Atualizações de versões principais de uma distribuição Linux em uma máquina virtual do VMware protegida pelo Azure Site Recovery ou em um servidor físico não são compatíveis. Durante a atualização do sistema operacional em versões principais (por exemplo, CentOS 6.* para CentOS 7.*), desabilite a replicação para a máquina, atualize o sistema operacional nela, em seguida, habilite a replicação novamente.
+> - Atualizações de versões principais de uma distribuição Linux em uma máquina virtual do VMware protegida pelo Azure Site Recovery ou em um servidor físico não são compatíveis. Durante a atualização do sistema operacional em versões principais (por exemplo, CentOS 6.* para CentOS 7.\*), desabilite a replicação para a máquina, atualize o sistema operacional nela, em seguida, habilite a replicação novamente.
 >
 
 ### <a name="ubuntu-kernel-versions"></a>Versões de kernel do Ubuntu
@@ -130,10 +130,14 @@ RDM do convidado/servidor | sim<br/><br/> N/D para servidores físicos
 Disco do convidado/servidor > 1 TB | sim<br/><br/>Até 4.095 GB 
 Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | sim
 Disco do convidado/servidor com tamanho de setor lógico de 4.000 e físico de 512 bytes | sim 
-Volume do convidado/servidor com discos distribuídos > 1 TB<br/><br/> (LVM) Gerenciamento de Volume lógico Convidado/servidor – Espaços de Armazenamento | Não Adição/remoção a quente de disco do convidado/servidor | Não Convidado/servidor – excluir disco | Sim MPIO (Múltiplos caminhos) do convidado/servidor | N/D
+Volume do convidado/servidor com discos distribuídos > 4 TB <br><br/>Gerenciamento de Volume lógico LVM | sim
+Convidado/servidor - espaços de armazenamento | Não  
+Adicionar/remover disco a quente por convidado/servidor | Não  
+Convidado/servidor - excluir disco | sim 
+Múltiplos caminhos (MPIO) de convidado/servidor | N/D
 
 > [!NOTE]
-> ** Máquinas virtuais da VMware com inicialização UEFI ou Servidores físicos com Windows Server 2012 ou posterior podem ser migrados para o Azure. As restrições a seguir se aplicam.
+> Máquinas virtuais da VMware com inicialização ** UEFI ** ou Servidores físicos com Windows Server 2012 ou posterior podem ser migrados para o Azure. As restrições a seguir se aplicam.
 > - Há suporte apenas para a migração para o Azure. O failback não é compatível com o site do VMware local.
 > - O servidor não deve ter mais de 4 partições no disco do sistema operacional.
 > - Exige o Serviço de mobilidade do Azure Site Recovery versão 9.13 ou posterior.
@@ -196,7 +200,7 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentr
 
 **Nome** | **Descrição** | **Última versão** | **Detalhes**
 --- | --- | --- | --- | ---
-**Configuração Unificada do Azure Site Recovery ** | Coordena as comunicações entre servidores VMware locais e o Azure  <br/><br/> Instalado nos servidores VMware no locais | 9.12.4653.1 (disponível no portal) | [Recursos e correções mais recentes](https://aka.ms/latest_asr_updates)
+** Configuração Unificada do Azure Site Recovery ** | Coordena as comunicações entre servidores VMware locais e o Azure  <br/><br/> Instalado nos servidores VMware no locais | 9.12.4653.1 (disponível no portal) | [Recursos e correções mais recentes](https://aka.ms/latest_asr_updates)
 **Serviço de mobilidade** | Coordena a replicação entre servidores VMware/servidores físicos locais e o Azure/site secundário<br/><br/> Instalado na VM VMware ou nos servidores físicos que você deseja replicar  | 9.12.4653.1 (disponível no portal) | [Recursos e correções mais recentes](https://aka.ms/latest_asr_updates)
 
 

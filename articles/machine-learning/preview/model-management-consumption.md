@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="consuming-web-services"></a>Consumindo serviços Web
 Depois de implantar um modelo como um serviço Web em tempo real, você poderá enviar dados a ele e obter previsões de uma variedade de plataformas e aplicativos. O serviço Web em tempo real expõe uma API REST para obter previsões. Você pode enviar dados para o serviço Web no formato de única linha ou de várias linhas para obter uma ou mais previsões de cada vez.
 
-Com o [serviço Web do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), um aplicativo externo comunica-se com um modelo de previsão de forma síncrona, fazendo uma chamada HTTP POST para a URL do serviço. Para fazer uma chamada ao serviço Web, o aplicativo cliente precisa especificar a chave de API que é criada quando você implanta uma previsão e colocar os dados da solicitação no corpo da solicitação POST.
+Com o [serviço Web do Azure Machine Learning](model-management-service-deploy.md), um aplicativo externo comunica-se com um modelo de previsão de forma síncrona, fazendo uma chamada HTTP POST para a URL do serviço. Para fazer uma chamada ao serviço Web, o aplicativo cliente precisa especificar a chave de API que é criada quando você implanta uma previsão e colocar os dados da solicitação no corpo da solicitação POST.
 
 Observe que as chaves de API só estão disponíveis no modo de implantação de cluster. Os serviços Web locais não têm chaves.
 
@@ -29,7 +29,7 @@ Os serviços Web do Azure Machine Learning podem ser implantados nos clusters ba
 A API e a CLI do Azure Machine Learning fornecem comandos convenientes para criar e gerenciar ambientes de computação para implantações de serviço usando a opção ```az ml env```. 
 
 ## <a name="list-deployed-services-and-images"></a>Listar serviços e imagens implantados
-Você pode listar os serviços e as imagens do Docker implantados no momento usando o comando da CLI ```az ml service list realtime -o table```. Observe que esse comando sempre funciona no contexto do ambiente de computação atual e não mostra os serviços implantados em um ambiente que não está definido para ser o atual. Para definir o ambiente, use ```az ml env set```. 
+Você pode listar os serviços e as imagens do Docker implantados no momento usando o comando da CLI ```az ml service list realtime -o table```. Esse comando sempre funciona no contexto do ambiente de computação atual. Ele não mostraria serviços implantados em um ambiente não definido para ser o atual. Para definir o ambiente, use ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Obter informações de serviço
 Depois que o serviço Web for implantado com êxito, use o seguinte comando para obter a URL do serviço e outros detalhes para chamar o ponto de extremidade de serviço. 
@@ -38,7 +38,7 @@ Depois que o serviço Web for implantado com êxito, use o seguinte comando para
 az ml service usage realtime -i <service name>
 ```
 
-Este comando imprimirá a URL do serviço, os cabeçalhos de solicitação necessários, a URL do Swagger e os dados de exemplo para chamar o serviço se o esquema da API do serviço tiver sido fornecido no momento da implantação.
+Este comando imprime a URL do serviço, os cabeçalhos de solicitação necessários, a URL do Swagger e os dados de exemplo para chamar o serviço se o esquema da API do serviço tiver sido fornecido no momento da implantação.
 
 Você pode testar o serviço diretamente da CLI sem compor uma solicitação HTTP, inserindo o comando da CLI de exemplo com os dados de entrada:
 

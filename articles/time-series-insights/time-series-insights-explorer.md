@@ -12,18 +12,18 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 Este artigo aborda os vários recursos e opções disponíveis no aplicativo Web do Time Series Insights Explorer. Use o Time Series Insights Explorer no navegador da Web para criar visualizações dos dados.
  
 O Azure Time Series Insights é um serviço totalmente gerenciado de análise, armazenamento e visualização que facilita a exploração e análise de bilhões de eventos de IoT simultaneamente. Ele fornece uma exibição global dos dados, o que permite validar rapidamente sua solução de IoT e evitar um tempo de inatividade dispendioso de dispositivos críticos. Descubra tendências ocultas, detecte anomalias e realize análises de causa raiz quase em tempo real. Atualmente, o Time Series Insights Explorer está em visualização pública.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de usar o Time Series Insights Explorer, é necessário:
 - Criar um ambiente do Time Series Insights
@@ -37,7 +37,7 @@ Alguns minutos após conectar a origem do evento ao ambiente do Time Series Insi
 
 2. Depois de selecionar um ambiente, use as configurações **FROM** e **TO** da parte superior ou clique e arraste sobre o período de tempo desejado.  Clique na lupa na parte superior direita ou clique com o botão direito do mouse sobre o período de tempo selecionado e selecione **Pesquisar**.  
 
-3. Também atualize a disponibilidade automaticamente a cada minuto, selecionando o botão **Automático Ativado**.
+3. Também atualize a disponibilidade automaticamente a cada minuto, selecionando o botão **Automático Ativado**.  O botão “Ligado Automático” só se aplica ao gráfico de disponibilidade, e não ao conteúdo da visualização principal.
 
 4. Observe que o ícone de nuvem do Azure leva você para seu ambiente no portal do Azure.
 

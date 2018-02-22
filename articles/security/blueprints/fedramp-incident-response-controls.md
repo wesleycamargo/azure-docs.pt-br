@@ -1,6 +1,6 @@
 ---
-title: Aplicativos Web para FedRAMP - Resposta a incidentes
-description: Aplicativos Web para FedRAMP - Resposta a incidentes
+title: "Segurança e Conformidade do Azure Blueprint - Automação de Aplicativos Web para FedRAMP - Resposta a incidente"
+description: "Automação de Aplicativos Web para FedRAMP - visão geral"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4db5e02bfe925c402ca19e6145c4f4c825bef54
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="incident-response-ir"></a>IR (Resposta a Incidentes)
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O treinamento de resposta a incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-2b"></a>NIST 800-53 Controle IR-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O treinamento de resposta a incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-2c"></a>NIST 800-53 Controle IR-2.c
@@ -73,12 +73,12 @@ ms.lasthandoff: 11/23/2017
 
 **IR-2.c** A organização fornece treinamento de resposta a incidentes para usuários do sistema de informações consistente com as funções e responsabilidades atribuídas [Atribuição: frequência definida pela organização] depois.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O treinamento de resposta a incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-2-1"></a>NIST 800-53 Controle IR-2 (1)
@@ -87,12 +87,12 @@ ms.lasthandoff: 11/23/2017
 
 **IR-2 (1)** A organização incorpora eventos simulados no treinamento de resposta a incidentes para facilitar a resposta eficaz pelo pessoal em situações de crise.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O treinamento de resposta a incidentes de nível empresarial do cliente pode incluir eventos simulados. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-2-2"></a>NIST 800-53 Controle IR-2 (2)
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O treinamento de resposta a incidentes de nível empresarial do cliente pode empregar um ambiente de treinamento automatizado. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-3"></a>NIST 800-53 Controle IR-3
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O teste de capacidade de resposta a incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-3-2"></a>NIST 800-53 Controle IR-3 (2)
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O teste de capacidade de resposta a incidentes de nível empresarial do cliente pode incluir coordenação com testes de planos relacionados. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-4a"></a>NIST 800-53 Controle IR-4.a
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de tratamento de incidentes de nível corporativo do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-4b"></a>NIST 800-53 Controle IR-4.b
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de tratamento de incidentes de nível corporativo do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-4-1"></a>NIST 800-53 Controle IR-4 (1)
@@ -185,12 +185,12 @@ ms.lasthandoff: 11/23/2017
 
 **IR-4 (1)** A organização emprega mecanismos automatizados para suportar o processo de tratamento de incidentes.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A capacidade de tratamento de incidentes de nível empresarial do cliente pode empregar automação para suportar o processo de tratamento de incidentes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-4-2"></a>NIST 800-53 Controle IR-4 (2)
@@ -204,7 +204,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por incluir a reconfiguração dinâmica de todos os recursos implantados pelo cliente como parte da capacidade de resposta a incidentes (por exemplo, regras de filtro para firewalls e gateways, listas de controle de acesso). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-4-3"></a>NIST 800-53 Controle IR-4 (3)
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de tratamento de incidentes de nível empresarial do cliente pode abordar a continuação de missões organizacionais e funções comerciais durante um incidente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-4-4"></a>NIST 800-53 Controle IR-4 (4)
@@ -247,7 +247,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de tratamento de incidentes de nível empresarial do cliente pode abordar ameaças internas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-4-8"></a>NIST 800-53 Controle IR-4 (8)
@@ -261,7 +261,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de tratamento de incidentes de nível empresarial do cliente pode incluir capacidade para se correlacionar com organizações externas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-5"></a>NIST 800-53 Controle IR-5
@@ -275,7 +275,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de monitoramento de incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-5-1"></a>NIST 800-53 Controle IR-5 (1)
@@ -289,7 +289,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de monitoramento de incidentes de nível empresarial do cliente pode empregar mecanismos automatizados de acompanhamento, coleta e análise. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-6a"></a>NIST 800-53 Controle IR-6.a
@@ -303,7 +303,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os procedimentos de resposta a incidentes de nível empresarial do cliente podem atender aos requisitos de relatórios de pessoal. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-6b"></a>NIST 800-53 Controle IR-6.b
@@ -317,7 +317,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os procedimentos de resposta a incidentes de nível empresarial do cliente podem atender aos requisitos de relatórios de pessoal. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-6-1"></a>NIST 800-53 Controle IR-6 (1)
@@ -345,7 +345,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O recurso de resposta a incidentes de nível empresarial do cliente pode incluir recursos de suporte de resposta a incidentes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-7-1"></a>NIST 800-53 Controle IR-7 (1)
@@ -359,7 +359,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de resposta a incidentes de nível empresarial do cliente pode empregar mecanismos automatizados para disponibilizar suporte e recursos de resposta a incidentes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-7-2a"></a>NIST 800-53 Controle IR-7 (2).a
@@ -368,12 +368,12 @@ ms.lasthandoff: 11/23/2017
 
 **IR-7 (2).a** A organização estabelece uma relação direta e cooperativa entre sua capacidade de resposta a incidentes e provedores externos de capacidade de proteção de sistema de informações.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A capacidade de resposta a incidentes de nível empresarial do cliente pode abordar a coordenação com provedores externos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-7-2b"></a>NIST 800-53 Controle IR-7 (2).b
@@ -387,7 +387,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de resposta a incidentes de nível empresarial do cliente pode abordar a coordenação com provedores externos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-8a"></a>NIST 800-53 Controle IR-8.a
@@ -401,7 +401,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O plano de resposta a incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-8b"></a>NIST 800-53 Controle IR-8.b
@@ -415,7 +415,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O programa de resposta a incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-8c"></a>NIST 800-53 Controle IR-8.c
@@ -429,7 +429,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O programa de resposta a incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-8d"></a>NIST 800-53 Controle IR-8.d
@@ -438,12 +438,12 @@ ms.lasthandoff: 11/23/2017
 
 **IR-8.d** A organização atualiza o plano de resposta a incidentes para abordar as mudanças no sistema/organização ou problemas encontrados durante a implementação, execução ou o teste do plano.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O programa de resposta a incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-8e"></a>NIST 800-53 Controle IR-8.e
@@ -457,7 +457,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O programa de resposta a incidentes de nível empresarial do cliente pode ser suficiente para resolver esse controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-8f"></a>NIST 800-53 Controle IR-8.f
@@ -466,7 +466,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-8.f** A organização protege o plano de resposta a incidentes de divulgação e modificação não autorizadas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -499,7 +499,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de resposta ao vazamento de informações de nível empresarial do cliente pode ser suficiente para resolver esse controle.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-9c"></a>NIST 800-53 Controle IR-9.c
@@ -513,7 +513,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de resposta ao vazamento de informações de nível empresarial do cliente pode ser suficiente para resolver esse controle.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-9d"></a>NIST 800-53 Controle IR-9.d
@@ -527,7 +527,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de resposta ao vazamento de informações de nível empresarial do cliente pode ser suficiente para resolver esse controle.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-9e"></a>NIST 800-53 Controle IR-9.e
@@ -536,12 +536,12 @@ ms.lasthandoff: 11/23/2017
 
 **IR-9.e** A organização responde aos vazamentos de informações, identificando outros sistemas de informação ou componentes do sistema que podem ter sido subsequentemente contaminados.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A capacidade de resposta ao vazamento de informações de nível empresarial do cliente pode ser suficiente para resolver esse controle.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-ir-9f"></a>NIST 800-53 Controle IR-9.f
@@ -569,7 +569,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os procedimentos de resposta a incidentes de nível empresarial do cliente podem estabelecer pessoal ou funções com responsabilidades de resposta ao vazamento de informações. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-9-2"></a>NIST 800-53 Controle IR-9 (2)
@@ -578,12 +578,12 @@ ms.lasthandoff: 11/23/2017
 
 **IR-9 (2)** A organização fornece treinamento de resposta ao vazamento de informações [Atribuição: frequência definida pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O treinamento de resposta a incidentes de nível empresarial do cliente pode incluir resposta ao vazamento de informações. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-9-3"></a>NIST 800-53 Controle IR-9 (3)
@@ -597,7 +597,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A capacidade de resposta ao pós-vazamento do vazamento de informações de nível empresarial do cliente pode ser suficiente para resolver esse controle.  |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-ir-9-4"></a>NIST 800-53 Controle IR-9 (4)

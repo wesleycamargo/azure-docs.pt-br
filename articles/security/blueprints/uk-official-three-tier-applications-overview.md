@@ -1,6 +1,6 @@
 ---
-title: "Automação do Azure Blueprint - Aplicativos Web de três camadas para UK-OFFICIAL"
-description: "Automação do Azure Blueprint - Aplicativos Web de três camadas para UK-OFFICIAL"
+title: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web de Três Camadas UK-OFFICIAL"
+description: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web de Três Camadas UK-OFFICIAL"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Automação do Azure Blueprint: aplicativos Web de três camadas para UK-OFFICIAL
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web de Três Camadas UK-OFFICIAL
 
 ## <a name="overview"></a>Visão geral
 
  Este artigo fornece orientação e scripts de automação para fornecer uma arquitetura de três camadas baseada na Web do Microsoft Azure apropriada para lidar com várias cargas de trabalho classificadas como OFFICIAL no Reino Unido.
 
- Usando uma infraestrutura como código abordagem, o conjunto de modelos do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) (ARM) implantam um ambiente que se alinha com os [Princípios de Segurança de Nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) 14 do NCSC (UK National Cyber Security Center) e com os [controles de segurança crítica](https://www.cisecurity.org/critical-controls.cfm) de CIS (Center for Internet Security).
+ Usando uma abordagem de infraestrutura como código, o conjunto de modelos do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) implanta um ambiente que se alinha aos [Princípios de Segurança de Nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) 14 do NCSC (UK National Cyber Security Center) e aos [Controles de Segurança Crítica](https://www.cisecurity.org/critical-controls.cfm) do CIS (Center for Internet Security).
 
  O NCSC recomenda que seus Princípios de Segurança de Nuvem sejam usados pelos clientes para avaliar as propriedades de segurança do serviço e para ajudar a entender a divisão de responsabilidades entre cliente e fornecedor. Fornecemos informações em relação a cada um desses princípios para ajudá-lo a entender a divisão das responsabilidades.
 
- Essa arquitetura e os modelos ARM correspondentes têm suporte pelo Microsoft white paper, [Diagrama do Azure para o governo do Reino Unido](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Este documento cataloga como os serviços do Azure estão de acordo com os Princípios de Segurança de Rede 14 do UK NCSC, permitindo que as organizações agilizem sua capacidade de atender às obrigações de conformidade usando serviços baseados em nuvem globalmente e no Reino Unido na nuvem do Microsoft Azure.
+ Essa arquitetura e modelos correspondentes do Azure Resource Manager têm suporte do white paper da Microsoft [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Este documento cataloga como os serviços do Azure estão de acordo com os Princípios de Segurança de Rede 14 do UK NCSC, permitindo que as organizações agilizem sua capacidade de atender às obrigações de conformidade usando serviços baseados em nuvem globalmente e no Reino Unido na nuvem do Microsoft Azure.
 
  Este modelo implanta a infraestrutura para a carga de trabalho. O código do aplicativo e o software de camada de dados e de negócios precisa estar instalado e configurado. As instruções detalhadas de implantação estão disponíveis [aqui](https://aka.ms/ukwebappblueprintrepo).
 
@@ -195,17 +195,17 @@ Essas VNets ainda são gerenciados como recursos separados, mas aparecem como um
 
 ### <a name="security"></a>Segurança
 
-**Segurança de Gerenciamento**: este diagrama do Azure permite que os administradores se conectem à VNet de gerenciamento e ao Jumpbox usando o RDP de uma fonte confiável. O tráfego de rede para a VNet de gerenciamento é controlado usando NSGs. O acesso à porta 3389 é restrito ao tráfego de um intervalo de IP confiável que pode acessar a sub-rede que contém o Jumpbox.
+**Segurança de Gerenciamento**: este projeto permite que os administradores se conectem à VNet de gerenciamento e ao Jumpbox usando o RDP de uma fonte confiável. O tráfego de rede para a VNet de gerenciamento é controlado usando NSGs. O acesso à porta 3389 é restrito ao tráfego de um intervalo de IP confiável que pode acessar a sub-rede que contém o Jumpbox.
 
 Os clientes podem optar por usar um [modelo administrativo de segurança aprimorada](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) para proteger o ambiente durante a conexão com o Jumpbox e a VNet de gerenciamento. É recomendável que, para aumentar a segurança, os clientes usem uma [estação de trabalho de acesso privilegiado](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) e configuração RDGateway. O uso de dispositivos de rede virtual e DMZ pública/privada oferecem segurança mais aprimorada.
 
-**Segurança da rede**: os NSGs [(grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) são recomendados para cada sub-rede para fornecer um segundo nível de proteção contra o tráfego de entrada ignorando um gateway configurado incorretamente ou desabilitado. Exemplo - [modelo do ARM para implantação de um NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Segurança da rede**: os NSGs [(grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) são recomendados para cada sub-rede para fornecer um segundo nível de proteção contra o tráfego de entrada ignorando um gateway configurado incorretamente ou desabilitado. Exemplo – [Modelo do Resource Manager para implantar um NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Garantindo pontos de extremidade públicos**: o gateway de Internet expõe os serviços de aplicativo aos usuários pela Internet. O tráfego de acesso a esses serviços é protegido usando um [Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), que fornece o gerenciamento de protocolo HTTPS e o firewall do aplicativo Web.
 
 **Intervalos de IP**: os intervalos de IP na arquitetura são intervalos sugeridos. Os clientes devem considerar seu próprio ambiente e usar os intervalos adequados.
 
-**Conectividade híbrida**: as cargas de trabalho baseadas em nuvem estão conectadas ao datacenter local por meio de VPN IPSEC usando o Gateway de VPN do Azure. Os clientes devem garantir que estão usando um Gateway de VPN apropriado para se conectarem ao Azure. Exemplo - [modelo do ARM de Gateway de VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Clientes que executam cargas de trabalho críticas em larga escala com requisitos de big data podem querer considerar uma arquitetura de rede híbrida usando o [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) para conectividade de rede privada para os serviços de nuvem da Microsoft.
+**Conectividade híbrida**: as cargas de trabalho baseadas em nuvem estão conectadas ao datacenter local por meio da VPN IPSEC usando o Gateway de VPN do Azure. Os clientes devem garantir que estão usando um Gateway de VPN apropriado para se conectarem ao Azure. Exemplo – [Modelo do Resource Manager do Gateway de VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Clientes que executam cargas de trabalho críticas em larga escala com requisitos de big data podem querer considerar uma arquitetura de rede híbrida usando o [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) para conectividade de rede privada para os serviços de nuvem da Microsoft.
 
 **Separação de preocupações**: essa arquitetura de referência separa as VNets entre operações de gerenciamento e operações de negócios. A separação de VNets e sub-redes permitem o gerenciamento de tráfego, incluindo restrições de entrada e saída de tráfego, usando os NSGs entre segmentos de rede, seguindo as melhores práticas de [segurança de rede e serviços de nuvem da Microsoft](https://docs.microsoft.com/azure/best-practices-network-security).
 
@@ -221,17 +221,17 @@ Os clientes podem optar por usar um [modelo administrativo de segurança aprimor
 
 O Crown Commercial Service (departamento que funciona para melhorar as atividades comerciais e de compras do governo inglês) renovou a classificação dos serviços de nuvem empresariais da Microsoft em escopo como G-Cloud v6, abrangendo todas as suas ofertas no nível OFFICIAL. Os detalhes do Azure e do G-Cloud podem ser encontrados no [Resumo da avaliação da segurança do Azure UK G-Cloud](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-Essa solução do Azure Blueprint UK-OFICIAL está de acordo com os 14 princípios de segurança de nuvem que estão documentados nos [Princípios de Segurança de Nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) do NCSC para ajudar a garantir um ambiente que dê suporte a cargas de trabalho classificadas como UK-OFFICIAL.
+Esse projeto está de acordo com os 14 princípios de segurança de nuvem que estão documentados nos [Princípios de Segurança de Nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) do NCSC para ajudar a garantir um ambiente que dê suporte a cargas de trabalho classificadas como UK-OFFICIAL.
 
 A [Matriz de Responsabilidades do Cliente](https://aka.ms/blueprintuk-gcrm) (pasta de trabalho do Excel) lista todos os 14 princípios de segurança de nuvem e a matriz indica, para cada entidade de segurança (ou subitem do princípio), se a implementação do princípio é de responsabilidade da Microsoft, do cliente ou compartilhado entre os dois.
 
-A [Matriz de Implementação de Princípios](https://aka.ms/ukwebappblueprintpim) (pasta de trabalho do Excel) lista todos os 14 princípios de segurança, e a matriz denota, para cada princípio (ou subitem do princípio), que acarreta a responsabilidade do cliente na Matriz de Responsabilidades do Cliente, 1) se a Automação do Diagrama do Azure implementa o princípio e 2) uma descrição de como a implementação se alinha com os requisitos do princípio. Este conteúdo também está disponível [aqui](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+A [Matriz de Implementação de Princípios](https://aka.ms/ukwebappblueprintpim) (pasta de trabalho do Excel) lista todos os 14 princípios de segurança, e a matriz denota, para cada princípio (ou subitem do princípio) que acarreta a responsabilidade do cliente na Matriz de Responsabilidades do Cliente, 1), se a automação do projeto implementa o princípio e 2) uma descrição de como a implementação se alinha com os requisitos do princípio. Este conteúdo também está disponível [aqui](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 Além disso, a CSA (Cloud Security Alliance) publicou a Matriz de Controle de Nuvem para ajudar os clientes na avaliação de provedores de nuvem e a identificar perguntas que devem ser respondidas antes da migração para os serviços de nuvem. Em resposta, o Microsoft Azure respondeu ao Questionário de Iniciativa de Avaliação de Consenso da CSA ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), que descreve como a Microsoft trata os princípios sugeridos.
 
 ## <a name="deploy-the-solution"></a>Implantar a solução
 
-Há dois métodos que os usuários de implantação podem usar para implantar a solução Azure Blueprint. O primeiro método usa um script do PowerShell e o segundo método usar o Portal do Azure para implantar a arquitetura de referência. As instruções detalhadas de implantação estão disponíveis [aqui](https://aka.ms/ukwebappblueprintrepo).
+Há dois métodos que os usuários de implantação podem usar para implantar essa automação do projeto. O primeiro método usa um script do PowerShell e o segundo usa o portal do Azure para implantar a arquitetura de referência. As instruções detalhadas de implantação estão disponíveis [aqui](https://aka.ms/ukwebappblueprintrepo).
 
 ## <a name="disclaimer"></a>Isenção de responsabilidade
 

@@ -1,6 +1,6 @@
 ---
-title: "Automação da Especificação Técnica do Azure no FedRAMP - Proteção do sistema e das comunicações"
-description: "Aplicativos Web para FedRAMP - Proteção de do sistema e das comunicações"
+title: "Segurança e conformidade do Azure Blueprint – Automação de aplicativos Web para FedRAMP – Proteção de sistema e comunicações"
+description: "Automação de aplicativos Web para FedRAMP – Proteção de sistema e comunicações"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Proteção do sistema e das comunicações (SC)
 
 > [!NOTE]
-> Estes controles são definidos pelo NIST e pelo Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
+> Estes controles são definidos pelo NIST e pelos EUA. Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
 
 ## <a name="nist-800-53-control-sc-1"></a>Controle NIST 800-53 SC-1
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Essa Especificação Técnica do Azure separa a funcionalidade do usuário da funcionalidade de gerenciamento do sistema por meio da aplicação de controles de acesso lógico e a da arquitetura do sistema. A funcionalidade de usuário é limitada a interfaces de aplicativo Web implantados pelo cliente. As interfaces para a funcionalidade de gerenciamento do sistema são independentes das interfaces do usuário. Toda a conectividade de gerenciamento é executada por meio de um host bastião seguro (jumpbox) localizado em uma sub-rede de gerenciamento com regras do grupo de segurança de rede para limitar o acesso aos recursos de produção conforme adequado. |
+| **Cliente** | Este projeto separa a funcionalidade do usuário da funcionalidade de gerenciamento do sistema por meio da aplicação de controles de acesso lógico e a da arquitetura do sistema. A funcionalidade de usuário é limitada a interfaces de aplicativo Web implantados pelo cliente. As interfaces para a funcionalidade de gerenciamento do sistema são independentes das interfaces do usuário. Toda a conectividade de gerenciamento é executada por meio de um host bastião seguro (jumpbox) localizado em uma sub-rede de gerenciamento com regras do grupo de segurança de rede para limitar o acesso aos recursos de produção conforme adequado. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implantadas por essa Especificação Técnica do Azure executam sistemas operacionais Windows. O Windows mantém domínios de execução separados para cada processo em execução designando um espaço de endereço virtual privado para cada processo. Além disso, a solução implementa uma arquitetura e controles de acesso criados para isolar a funcionalidade de segurança quando necessário. |
+| **Cliente** | As máquinas virtuais implantadas por esse projeto executam sistemas operacionais Windows. O Windows mantém domínios de execução separados para cada processo em execução designando um espaço de endereço virtual privado para cada processo. Além disso, a solução implementa uma arquitetura e controles de acesso criados para isolar a funcionalidade de segurança quando necessário. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -77,8 +77,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implantadas por essa Especificação Técnica do Azure executam sistemas operacionais Windows. O sistema operacional gerencia recursos (por exemplo, memória, armazenamento), de modo que essas informações fiquem acessíveis somente para usuários e funções com permissões apropriadas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | As máquinas virtuais implantadas por esse projeto executam sistemas operacionais Windows. O sistema operacional gerencia recursos (por exemplo, memória, armazenamento), de modo que essas informações fiquem acessíveis somente para usuários e funções com permissões apropriadas. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-5"></a>Controle NIST 800-53 SC-5
@@ -87,11 +87,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-5** O sistema de informações protege contra ou limita os efeitos dos seguintes tipos de ataques negação de serviço: [Atribuição: tipos de ataques de negação de serviço ou referências a fontes para essas informações definidos pela organização] empregando [Atribuição: garantias de segurança definidas pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta um Gateway de Aplicativo que inclue um firewall do aplicativo Web e recursos de balanceamento de carga. Máquinas virtuais implantadas com suporte a camada da Web, a camada de banco de dados e o Active Directory são implantados em um conjunto de disponibilidade escalonável. |
+| **Cliente** | Este projeto implanta um Gateway de Aplicativo que inclui um firewall do aplicativo Web e recursos de balanceamento de carga. Máquinas virtuais implantadas com suporte a camada da Web, a camada de banco de dados e o Active Directory são implantados em um conjunto de disponibilidade escalonável. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -101,12 +101,12 @@ ms.lasthandoff: 11/23/2017
 
 **SC-6** O sistema de informações protege a disponibilidade de recursos alocando [Atribuição: recursos definidos pela organização] por [Seleção (um ou mais); prioridade; cota; [Atribuição: garantias de segurança definidas pela organização]].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implantadas por essa Especificação Técnica do Azure executam sistemas operacionais Windows. Cada processo do Windows fornece os recursos necessários para executar um programa. A prioridade de recursos é gerenciada pelo sistema operacional. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | As máquinas virtuais implantadas por esse projeto executam sistemas operacionais Windows. Cada processo do Windows fornece os recursos necessários para executar um programa. A prioridade de recursos é gerenciada pelo sistema operacional. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-7a"></a>Controle NIST 800-53 SC-7.c
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta um Gateway de Aplicativo, um balanceador de carga e configura as regras de grupo de segurança de rede para controlar as trocas em limites externos e entre sub-redes internas. O Gateway de Aplicativo, o balanceador de carga e o evento de grupo de segurança de rede e logs de diagnóstico são coletados pelo Log Analytics do OMS para permitir o monitoramento de clientes. |
+| **Cliente** | Este projeto implanta um Gateway de Aplicativo, um balanceador de carga e configura as regras de grupo de segurança de rede para controlar as trocas em limites externos e entre sub-redes internas. O Gateway de Aplicativo, o balanceador de carga e o evento de grupo de segurança de rede e logs de diagnóstico são coletados pelo Log Analytics do OMS para permitir o monitoramento de clientes. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -133,8 +133,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta recursos em uma arquitetura com uma sub-rede separada e Web, sub-rede do banco de dados, sub-rede do Active Directory e sub-rede de gerenciamento. Sub-redes são separadas logicamente pelas regras do grupo de segurança de rede aplicadas a sub-redes individuais para restringir o tráfego entre as sub-redes para somente o que é necessário para a funcionalidade de gerenciamento e de sistema (por exemplo, o tráfego externo não pode acessar o banco de dados, o gerenciamento nem sub-redes do Active Directory). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta recursos em uma arquitetura com uma sub-rede Web separada, uma sub-rede do banco de dados, uma sub-rede do Active Directory e uma sub-rede de gerenciamento. Sub-redes são separadas logicamente pelas regras do grupo de segurança de rede aplicadas a sub-redes individuais para restringir o tráfego entre as sub-redes para somente o que é necessário para a funcionalidade de gerenciamento e de sistema (por exemplo, o tráfego externo não pode acessar o banco de dados, o gerenciamento nem sub-redes do Active Directory). |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-7c"></a>Controle NIST 800-53 SC-7.c
@@ -143,11 +143,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7.c** O sistema de informações se conecta a redes externas ou sistemas de informações somente por meio de interfaces gerenciadas que consistem em dispositivos com proteção de limites organizados de acordo com uma arquitetura de segurança organizacional.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta um Gateway de Aplicativo para gerenciar conexões externas para um aplicativo Web implantado pelo cliente. Conexões externas para acesso de gerenciamento são restritas ao host bastião/jumpbox implantado em uma sub-rede de gerenciamento com as regras de segurança de rede aplicadas para restringir as conexões externas a endereços IP autorizados. |
+| **Cliente** | Este projeto implanta um Gateway de Aplicativo para gerenciar conexões externas para um aplicativo Web implantado pelo cliente. Conexões externas para acesso de gerenciamento são restritas ao host bastião/jumpbox implantado em uma sub-rede de gerenciamento com as regras de segurança de rede aplicadas para restringir as conexões externas a endereços IP autorizados. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -157,12 +157,12 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (3)** A organização limita o número de conexões de rede externas no sistema de informações.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta dois endereços IP públicos: um associado com o Gateway de Aplicativo; um associado ao host de bastiões gerenciamento/jumpbox. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta dois endereços IP públicos: um associado ao Gateway de Aplicativo e um associado ao host de bastiões gerenciamento/jumpbox. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-4a"></a>Controle NIST 800-53 SC-7 (4).a
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta dois endereços IP públicos: um associado com o Gateway de Aplicativo; um associado ao host de bastiões gerenciamento/jumpbox. O gerenciamento dessas interfaces é habilitada por meio da rede definida por software. |
+| **Cliente** | Este projeto implanta dois endereços IP públicos: um associado ao Gateway de Aplicativo e um associado ao host de bastiões gerenciamento/jumpbox. O gerenciamento dessas interfaces é habilitada por meio da rede definida por software. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -189,8 +189,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta dois endereços IP públicos: um associado com o Gateway de Aplicativo; um associado ao host de bastiões gerenciamento/jumpbox. O gerenciamento dessas interfaces é habilitada por meio da rede definida por software. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta dois endereços IP públicos: um associado ao Gateway de Aplicativo e um associado ao host de bastiões gerenciamento/jumpbox. O gerenciamento dessas interfaces é habilitada por meio da rede definida por software. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-4c"></a>Controle NIST 800-53 SC-7 (4).c
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | O gateway de aplicativo Web implantado por esta Especificação Técnica do Azure está configurado com um ouvinte HTTPS, garantindo confidencialidade e integridade de sessões de comunicações. Conexões de área de trabalho remota para o jumpbox também são criptografadas para fornecer confidencialidade e integridade. |
+| **Cliente** | O gateway de aplicativo Web implantado por este projeto é configurado com um ouvinte HTTPS, garantindo confidencialidade e integridade de sessões de comunicações. Conexões de área de trabalho remota para o jumpbox também são criptografadas para fornecer confidencialidade e integridade. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os clientes não são responsáveis por operações do datacenter (para incluir serviços de telecomunicações). Todos os serviços de telecomunicação são fornecidos e gerenciados pelo Microsoft Azure. Esse controle é herdado do Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-5"></a>Controle NIST 800-53 SC-7 (5)
@@ -245,8 +245,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Conjuntos de regras aplicados a grupos de segurança de rede implantados por essa Especificação Técnica do Azure são configurados usando um esquema negar por padrão. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Conjuntos de regras aplicados a grupos de segurança de rede implantados por este projeto são configurados usando um esquema de negar por padrão. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-7"></a>Controle NIST 800-53 SC-7 (7)
@@ -255,12 +255,12 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (7)** O sistema de informações, em conjunto com um dispositivo remoto, impede que o dispositivo estabeleça simultaneamente conexões não remotas com o sistema e se comunique por meio de alguma outra conexão a recursos em redes externas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A política de configuração de dispositivo remoto de nível empresarial do cliente pode abordar a divisão de túnel. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-8"></a>Controle NIST 800-53 SC-7 (8)
@@ -269,7 +269,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (8)** O sistema de informações roteia [Atribuição: tráfego de comunicação interna definido pela organização] para [Atribuição: redes externas definidas pela organização] por meio de servidores proxy autenticados em interfaces gerenciadas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,11 +297,11 @@ ms.lasthandoff: 11/23/2017
 
 **SI-7 (12)** A organização implementa [Atribuição: mecanismos de proteção de limite baseados em host definidos pela organização] em [Atribuição: componentes do sistema de informações definidos pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais implantadas por essa Especificação Técnica do Azure são configuradas com um firewall baseado em host habilitado. |
+| **Cliente** | Máquinas virtuais implantadas por este projeto são configuradas com um firewall baseado em host habilitado. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -315,8 +315,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta recursos em uma arquitetura com uma sub-rede de gerenciamento separado para implantação de cliente de ferramentas de segurança de informações e componentes de suporte. Subredes são separadas logicamente pelas regras de grupo do segurança de rede. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta recursos em uma arquitetura com uma sub-rede de gerenciamento separada para implantação de cliente de ferramentas de segurança de informações e componentes de suporte. Subredes são separadas logicamente pelas regras de grupo do segurança de rede. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-18"></a>Controle NIST 800-53 SC-7 (18)
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por garantir que o sistema tenha a capacidade de isolar dinamicamente recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-7-21"></a>Controle NIST 800-53 SC-7 (21)
@@ -357,8 +357,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta recursos em uma arquitetura com uma sub-rede separada e Web, sub-rede do banco de dados, sub-rede do Active Directory e sub-rede de gerenciamento. Sub-redes são separadas logicamente pelas regras do grupo de segurança de rede aplicadas a sub-redes individuais para restringir o tráfego entre as sub-redes para somente o que é necessário para a funcionalidade de gerenciamento e de sistema. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto implanta recursos em uma arquitetura com uma sub-rede Web separada, uma sub-rede do banco de dados, uma sub-rede do Active Directory e uma sub-rede de gerenciamento. Sub-redes são separadas logicamente pelas regras do grupo de segurança de rede aplicadas a sub-redes individuais para restringir o tráfego entre as sub-redes para somente o que é necessário para a funcionalidade de gerenciamento e de sistema. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-8"></a>Controle NIST 800-53 SC-8
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A implementação de SI-8 (1) satisfaz esse requisito de controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-8-1"></a>Controle NIST 800-53 SI-8 (1)
@@ -385,8 +385,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure configura recursos para se comunicar usando somente protocolos seguros. O componente WAF do Gateway de Aplicativo está configurado para aceitar comunicações de usos externos por HTTPS/TLS e comunicar-se com o pool de back-end somente por HTTPS/TLS. O SQL Server está configurado para se comunicar somente por meio de HTTPS/TLS. Serviços de Área de Trabalho Remota são configurados para usar conexões seguras. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Este projeto configura recursos para se comunicarem usando somente protocolos seguros. O componente WAF do Gateway de Aplicativo está configurado para aceitar comunicações de usos externos por HTTPS/TLS e comunicar-se com o pool de back-end somente por HTTPS/TLS. O SQL Server está configurado para se comunicar somente por meio de HTTPS/TLS. Serviços de Área de Trabalho Remota são configurados para usar conexões seguras. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-10"></a>Controle NIST 800-53 SC-10
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta um Azure Key Vault. O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. O Azure Key Vault pode gerar chaves usando um recurso de segurança de módulo de segurança de hardware (HSM) FIPS 140-2 nível 2. |
+| **Cliente** | Este projeto implanta um Azure Key Vault. O Cofre de Chaves do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. O Azure Key Vault pode gerar chaves usando um recurso de segurança de módulo de segurança de hardware (HSM) FIPS 140-2 nível 2. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -427,8 +427,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | O Azure Key Vault é usado para armazenar chaves de criptografia e segredos na Especificação Técnica do Azure. O Key Vault simplifica o processo de gerenciamento de chaves para chaves que acessam e criptografam dados. Os autenticadores a seguir são armazenadas no Key Vault: senha do Azure para implantar conta, senha de administrador da máquina virtual, senha de conta de serviço do SQL Server. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | O Azure Key Vault é usado para armazenar chaves de criptografia e segredos neste projeto. O Key Vault simplifica o processo de gerenciamento de chaves para chaves que acessam e criptografam dados. Os autenticadores a seguir são armazenadas no Key Vault: senha do Azure para implantar conta, senha de administrador da máquina virtual, senha de conta de serviço do SQL Server. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-12-2"></a>Controle NIST 800-53 SC-12 (2)
@@ -437,12 +437,12 @@ ms.lasthandoff: 11/23/2017
 
 **SC-12 (2)** A organização produz, controla e distribui chaves de criptografia simétricas usando [Seleção: compatível com FIPS NIST; com aprovação NSA] tecnologia e processos de gerenciamento de chaves.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O Azure Key Vault é usado para produzir, controlar e distribuir chaves criptográficas. O Azure Key Vault pode gerar chaves usando um recurso de segurança de módulo de segurança de hardware (HSM) FIPS 140-2 nível 2. As chaves são armazenadas e gerenciadas em contêineres criptografados com segurança no Azure Key Vault. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-sc-12-3"></a>Controle NIST 800-53 SC-12 (3)
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | A autenticação do Windows, a área de trabalho remota e o BitLocker são empregadas por esta Especificação Técnica do Azure. Esses componentes podem ser configurados para confiar em módulos criptográficos validados por FIPS 140. |
+| **Cliente** | A autenticação do Windows, a área de trabalho remota e o BitLocker são empregados por este projeto. Esses componentes podem ser configurados para confiar em módulos criptográficos validados por FIPS 140. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -479,11 +479,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-15.a** O sistema de informações proíbe a ativação remota de dispositivos de computação colaborativos com as exceções a seguir: [Atribuição: exceções definidas pela organização onde a ativação remota é permitida].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Não há nenhum dispositivo de computação colaborativo implantado como parte dessa Especificação Técnica do Azure. Observação: há dispositivos de computação colaborativos físicos dentro do escopo de sistemas implantados no Azure. |
+| **Cliente** | Não há nenhum dispositivo de computação colaborativa implantado como parte deste projeto. Observação: há dispositivos de computação colaborativos físicos dentro do escopo de sistemas implantados no Azure. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -493,12 +493,12 @@ ms.lasthandoff: 11/23/2017
 
 **SC-15.b** O sistema de informações fornece uma indicação explícita de uso para os usuários fisicamente presentes nos dispositivos.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Não há nenhum dispositivo de computação colaborativo implantado como parte dessa Especificação Técnica do Azure. Observação: há dispositivos de computação colaborativos físicos dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Não há nenhum dispositivo de computação colaborativa implantado como parte deste projeto. Observação: há dispositivos de computação colaborativos físicos dentro do escopo de sistemas implantados no Azure. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-17"></a>Controle NIST 800-53 SC-17
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente pode depender de uma infraestrutura de chave pública de nível corporativo para emissão de certificados. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-18a"></a>Controle NIST 800-53 SC-18.a
@@ -521,12 +521,12 @@ ms.lasthandoff: 11/23/2017
 
 **SC-18.a** A organização define código móvel aceitável e inaceitável e tecnologias de código móvel.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O sistema de nível empresarial do cliente e os procedimentos de proteção de comunicações podem definir um código móvel como aceitável e inaceitável. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-18b"></a>Controle NIST 800-53 SC-18.b
@@ -535,12 +535,12 @@ ms.lasthandoff: 11/23/2017
 
 **SC-18.b** A organização estabelece restrições de uso e diretrizes de implementação para código móvel aceitável e tecnologias de código móvel.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O sistema de nível empresarial do cliente e os procedimentos de proteção de comunicações podem estabelecer restrições no uso de código móvel. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-18c"></a>Controle NIST 800-53 SC-18.c
@@ -567,8 +567,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não há nenhuma tecnologia de protocolo IP de voice over implantada como parte dessa Especificação Técnica do Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Não há nenhuma tecnologia de protocolo IP de voice over implantada como parte deste projeto. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-19b"></a>Controle NIST 800-53 SC-19.b
@@ -581,8 +581,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não há nenhuma tecnologia de protocolo IP de voice over implantada como parte dessa Especificação Técnica do Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Não há nenhuma tecnologia de protocolo IP de voice over implantada como parte deste projeto. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-20a"></a>Controle NIST 800-53 SC-20.a
@@ -610,7 +610,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por um serviço de nome seguro e resolução de endereço. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-21"></a>Controle NIST 800-53 SC-21
@@ -624,7 +624,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por configurar recursos implantados por ele para solicitar e executar autenticação de origem de dados e verificação de integridade de dados em respostas de resolução de nome/endereço recebidas das fontes autoritativas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-22"></a>Controle NIST 800-53 SC-22
@@ -638,7 +638,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por garantir que os sistemas fornecendo serviços de resolução de endereço para recursos implantados por ele sejam tolerantes a falhas e implementem a separação de função interna/externa. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-23"></a>Controle NIST 800-53 SC-23
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | O acesso remoto aos recursos implantados por esta Especificação Técnica do Azure, incluindo o portal do Azure, a conexão de área de trabalho remota e o gateway de aplicativo Web, é protegido com o uso de TLS. O TLS fornece autenticidade para comunicações no nível da sessão. |
+| **Cliente** | O acesso remoto aos recursos implantados por este projeto, incluindo o portal do Azure, a conexão de área de trabalho remota e o gateway de aplicativo Web, é protegido com o uso de TLS. O TLS fornece autenticidade para comunicações no nível da sessão. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -665,8 +665,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | O acesso remoto aos recursos implantados por esta Especificação Técnica do Azure, incluindo o portal do Azure, a conexão de área de trabalho remota e o gateway de aplicativo Web, é protegido com o uso de TLS. O portal do Azure e sessões de área de trabalho remota invalidam identificadores de sessão no logout. A invalidação de sessão Web é imposta por meio do Gateway de aplicativo do Azure - regras de Firewall de aplicativo Web (WAF). O WAF aplica afinidade por cookies por sessão e executa o tempo limite da sessão após 30 minutos (configurável após a implantação para regras específicas da organização) de inatividade do cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | O acesso remoto aos recursos implantados por este projeto, incluindo o portal do Azure, a conexão de área de trabalho remota e o gateway de aplicativo Web, é protegido com o uso de TLS. O portal do Azure e sessões de área de trabalho remota invalidam identificadores de sessão no logout. A invalidação de sessão Web é imposta por meio do Gateway de aplicativo do Azure - regras de Firewall de aplicativo Web (WAF). O WAF aplica afinidade por cookies por sessão e executa o tempo limite da sessão após 30 minutos (configurável após a implantação para regras específicas da organização) de inatividade do cliente. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-24"></a>Controle NIST 800-53 SC-24
@@ -680,7 +680,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por garantir a falha de recursos implantados por ele em um estado conhecido. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-sc-28"></a>Controle NIST 800-53 SC-28
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais implantadas por essa Especificação Técnica do Azure implementam a criptografia de disco para proteger a confidencialidade e a integridade das informações em repouso. A criptografia de disco do Azure para Windows é implementada usando o recurso BitLocker do Windows. O SQL Server está configurado para usar dados TDE (Transparent Data Encryption), que executa criptografia e descriptografia de dados e arquivos de log em tempo real para proteger informações em repouso. O TDE fornece a garantia de que os dados armazenados não tenham ficado sujeitos a acesso não autorizado. Clientes podem optar por implementar controles de nível de aplicativo adicionais para proteger a integridade de informações armazenadas. A confidencialidade e a integridade de todos os blobs de armazenamento implantados por essa Especificação Técnica do Azure estão protegidas por meio da SSE (Criptografia do Serviço de Armazenamento) do Azure. A SSE protege dados em repouso em contas de armazenamento do Azure usando criptografia AES de 256 bits. |
+| **Cliente** | Máquinas virtuais implantadas por este projeto implementam a criptografia de disco para proteger a confidencialidade e a integridade das informações em repouso. A criptografia de disco do Azure para Windows é implementada usando o recurso BitLocker do Windows. O SQL Server está configurado para usar dados TDE (Transparent Data Encryption), que executa criptografia e descriptografia de dados e arquivos de log em tempo real para proteger informações em repouso. O TDE fornece a garantia de que os dados armazenados não tenham ficado sujeitos a acesso não autorizado. Clientes podem optar por implementar controles de nível de aplicativo adicionais para proteger a integridade de informações armazenadas. A confidencialidade e a integridade de todos os blobs de armazenamento implantados por este projeto estão protegidas por meio da SSE (Criptografia do Serviço de Armazenamento) do Azure. A SSE protege dados em repouso em contas de armazenamento do Azure usando criptografia AES de 256 bits. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -717,9 +717,9 @@ ms.lasthandoff: 11/23/2017
 
 **SC-39** O sistema de informações mantém um domínio de execução separado para cada processo em execução.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implantadas por essa Especificação Técnica do Azure executam sistemas operacionais Windows. O Windows mantém domínios de execução separados para cada processo em execução designando um espaço de endereço virtual privado para cada processo. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | As máquinas virtuais implantadas por esse projeto executam sistemas operacionais Windows. O Windows mantém domínios de execução separados para cada processo em execução designando um espaço de endereço virtual privado para cada processo. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limites e configuração de Aplicativos Lógicos
 
-Esse tópico descreve os limites atuais e detalhes de configuração para Aplicativos Lógicos do Azure.
+Esse artigo descreve os limites atuais e detalhes de configuração para Aplicativos Lógicos do Azure.
 
 ## <a name="limits"></a>limites
 
@@ -66,7 +66,7 @@ Estes limites se aplicam à execução de um único aplicativo lógico.
 | Intervalo de recorrência máx. | 500 dias | 
 ||| 
 
-Para exceder os limites de retenção de duração ou armazenamento no fluxo de processamento normal, [entre em contato conosco](mailto://logicappsemail@microsoft.com) para que podemos ajudar com suas necessidades.
+Para exceder os limites de retenção de duração ou armazenamento no fluxo de processamento normal, [entre em contato com a equipe do produto](mailto://logicappsemail@microsoft.com) para receber ajuda com os requisitos.
 
 ### <a name="looping-and-debatching-limits"></a>Limites de loop e debatching
 
@@ -82,18 +82,18 @@ Estes limites se aplicam à execução de um único aplicativo lógico.
 
 ### <a name="throughput-limits"></a>Limites de taxa de transferência
 
-Estes limites se aplicam uma única instância de aplicativo lógico.
+Estes limites se aplicam a um único recurso de aplicativo lógico.
 
 | NOME | Limite | Observações | 
 | ----- | ----- | ----- | 
-| Execuções de ações a cada cinco minutos | 100.000 |<p>O limite pode ser aumentado para 300.000 executando um aplicativo lógico no modo `High Througput`, e isso pode ser feito definindo a propriedade `operationOptions` em`runtimeConfiguration` do recurso de fluxo de trabalho para `OptimizedForHighThroughput`. <p>Observe que o modo de alta taxa de transferência está em versão prévia. Além disso, uma carga de trabalho pode ser distribuída entre vários aplicativos conforme necessário. | 
+| Execuções de ações a cada cinco minutos | 100.000 |<p>O limite pode ser aumentado até 300.000 executando um aplicativo lógico em modo `High Througput`. Modo de alta taxa de transferência pode ser configurado definindo-se a propriedade `operationOptions` em`runtimeConfiguration` do recurso do fluxo de trabalho como `OptimizedForHighThroughput`. <p>O modo de alta taxa de transferência está em visualização. Além disso, uma carga de trabalho pode ser distribuída entre vários aplicativos conforme necessário. | 
 | Chamadas de saída simultâneas a ações | ~2.500 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
 | Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas |~1,000 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
 | Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos  | 60.000 | Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
 | Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos| 45,000 |Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
 |||| 
 
-Para exceder esses limites no processamento normal ou executar um teste de carga que possa exceder esses limites, [entre em contato conosco](mailto://logicappsemail@microsoft.com) para que possamos ajudá-lo com suas necessidades.
+Para exceder esses limites no processamento normal ou executar um teste de carga que possa exceder esses limites, [entre em contato com a equipe do produto](mailto://logicappsemail@microsoft.com) para que possamos ajudá-lo com suas necessidades.
 
 ### <a name="logic-app-definition-limits"></a>Limites de definição de aplicativos lógicos
 

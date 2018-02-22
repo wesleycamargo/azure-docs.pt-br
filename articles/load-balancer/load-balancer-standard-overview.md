@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Visão geral do Azure Load Balancer Standard (versão prévia)
 
 Juntos, o SKU do Azure Load Balancer Standard e o SKU de IP público Standard, permitem compilar arquiteturas altamente escalonáveis e confiáveis. Os aplicativos que usam o Load Balancer Standard podem usufruir novos recursos. Baixa latência, alta taxa de transferência e escala estão disponíveis para milhões de fluxos para todos os aplicativos de TCP e UDP.
 
 >[!NOTE]
-> No momento, o SKU do Load Balancer Standard está em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use o [SKU do Load Balancer Básico](load-balancer-overview.md) geralmente disponível para os serviços de produção. Os recursos associados a essa versão prévia, [Zonas de disponibilidade](https://aka.ms/availabilityzones) e [Portas HA](https://aka.ms/haports), exigem uma inscrição separada nesse momento. Siga as respectivas instruções para inscrição desses recursos, além de se inscrever na [versão prévia do](#preview-sign-up) Load Balancer Standard.
+> No momento, o SKU do Load Balancer Standard está em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use o [SKU do Load Balancer Básico](load-balancer-overview.md) geralmente disponível para os serviços de produção. Para usar [Visualização das Zonas de Disponibilidade](https://aka.ms/availabilityzones) com essa Visualização exige uma [inscrição separada](https://aka.ms/availabilityzones), além de se inscrever na [Visualização padrão do Load Balancer](#preview-sign-up).
 
 ## <a name="why-use-load-balancer-standard"></a>Por que usar o Load Balancer Standard?
 
@@ -325,13 +325,11 @@ Os SKUs não são mutáveis. Siga as etapas nesta seção para mover de um SKU d
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O Load Balancer Standard está disponível atualmente nestas regiões:
-- Leste dos EUA 2
-- Centro dos EUA
-- Norte da Europa
-- Centro-Oeste dos EUA
-- Europa Ocidental
-- Sudeste Asiático
+O Load Balancer Padrão está disponível atualmente em todas as regiões de nuvem pública.
+
+>[!IMPORTANT]
+> Por um curto período, o acesso a regiões fora das regiões de lançamento iniciais (Leste dos EUA 2, Centro dos EUA, Norte da Europa, Região Central Ocidental dos EUA, Europa Ocidental, Sudeste da Ásia) exige o registro de recursos de assinatura adicionais (AllowLBPreviewWave2 e AllowLBPreviewWave3).  [Siga estas etapas](#additionalpreviewregions). Execute todas elas, mesmo se você já tiver se inscrito em AllowLBPreview.
+> Esse requisito será removido nas próximas semanas.
 
 ## <a name="sku-service-limits-and-abilities"></a>Limites de serviço e capacidades do SKU
 
@@ -369,7 +367,12 @@ A tabela a seguir compara os limites e as capacidades dos SKUs Básico e Standar
 Para participar da versão prévia do SKU do Load Balancer Standard e seu SKU de IP Público Standard complementar, registre sua assinatura.  Registrar sua assinatura oferece acesso do PowerShell ou CLI do Azure 2.0. Para se registrar, siga estas etapas:
 
 >[!NOTE]
->O registro do recurso Standard do Load Balancer pode levar até uma hora para entrar em vigor globalmente. Se desejar usar o Padrão do Load Balancer com [Zonas de disponibilidade](https://aka.ms/availabilityzones) e [Portas de HA](https://aka.ms/haports), uma inscrição separada será necessária para essas visualizações. Siga as respectivas instruções para a inscrição desses recursos.
+>O registro do recurso Standard do Load Balancer pode levar até uma hora para entrar em vigor globalmente. Se desejar usar o Padrão do Load Balancer com [Zonas de disponibilidade](https://aka.ms/availabilityzones), uma [inscrição separada](https://aka.ms/availabilityzones) será necessária para a AZ Preview.
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> Por um curto período, o acesso a regiões fora das regiões de lançamento iniciais (Leste dos EUA 2, Centro dos EUA, Norte da Europa, Região Central Ocidental dos EUA, Europa Ocidental, Sudeste da Ásia) exige o registro de recursos de assinatura adicionais (AllowLBPreviewWave2 e AllowLBPreviewWave3).  As etapas a seguir foram modificadas para habilitar recursos adicionais de assinatura. Execute todas elas, mesmo se você já tiver se inscrito em AllowLBPreview. Esse requisito será removido nas próximas semanas.
+
 
 ### <a name="sign-up-by-using-azure-cli-20"></a>Inscrever-se usando a CLI do Azure 2.0
 
@@ -377,15 +380,19 @@ Para participar da versão prévia do SKU do Load Balancer Standard e seu SKU de
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. Essa operação pode demorar até 10 minutos para ser concluída. É possível verificar o status da operação com o comando a seguir:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    Passe para a próxima etapa quando o estado de registro do recurso retornar 'Registrado':
+    Passe para a próxima etapa quando o estado de registro do recurso retornar 'Registrado' para cada um dos recursos de assinatura acima. Exemplo:
    
     ```json
     {
@@ -398,28 +405,33 @@ Para participar da versão prévia do SKU do Load Balancer Standard e seu SKU de
     }
     ```
     
-3. Conclua a inscrição da versão prévia registrando novamente sua assinatura com o provedor de recursos:
+4. Conclua a inscrição da versão prévia registrando novamente sua assinatura com o provedor de recursos:
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### <a name="sign-up-by-using-powershell"></a>Inscrever-se usando o PowerShell
 
 1. Registre o recurso com o provedor:
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. Essa operação pode demorar até 10 minutos para ser concluída. É possível verificar o status da operação com o comando a seguir:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    Passe para a próxima etapa quando o estado de registro do recurso retornar 'Registrado':
-   
+  Passe para a próxima etapa quando o estado de registro do recurso retornar 'Registrado' para cada um dos recursos de assinatura acima. Exemplo:
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -450,11 +462,14 @@ As seguintes limitações se aplicam no momento da versão prévia e estão suje
 - Não há suporte para IPv6.
 - No contexto das Zonas de disponibilidade, um front-end não pode ser alternado de zonal para com redundância de zona ou vice-versa. Depois que um front-end é criado como sendo com redundância de zona, ele permanecerá com redundância de zona. Depois que um front-end é criado como zonal, ele permanecerá zonal.
 - No contexto das Zonas de disponibilidade, um endereço IP Público zonal não pode ser movido de uma zona para outra.
+- [Alertas do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são compatíveis no momento.
+- O Portal ainda não dá suporte para as regiões de visualização expandida.  Use as ferramentas de cliente como modelos, Azure CLI 2.0 ou PowerShell como solução alternativa.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Load Balancer Básico](load-balancer-overview.md).
 - Saiba mais sobre as [Zonas de disponibilidade](../availability-zones/az-overview.md).
+- Saiba mais sobre [Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md).
 - Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) no Azure.
-
+- Saiba mais sobre [métricas expostas](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).

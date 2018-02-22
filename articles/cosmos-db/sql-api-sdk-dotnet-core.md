@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -58,6 +58,14 @@ O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais
 
 > [!NOTE] 
 > O SDK do .NET Core do Azure Cosmos DB não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Regressão fixa em que FeedOptions.MaxItemCount = -1 gerou uma System.ArithmeticException: o tamanho da página é negativo.
+* Uma nova função ToString() foi adicionada a QueryMetrics.
+* Estatísticas de partição foram expostas em coleções de leitura.
+* A propriedade PartitionKey foi adicionada a ChangeFeedOptions.
+* Correções de bug secundárias.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -157,6 +165,7 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |5 de fevereiro de 2018 |--- |
 | [1.7.1](#1.7.1) |16 de novembro de 2017 |--- |
 | [1.7.0](#1.7.0) |10 de novembro, 2017 |--- |
 | [1.6.0](#1.6.0) |17 de outubro de 2017 |--- |

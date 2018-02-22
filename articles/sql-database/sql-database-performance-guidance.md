@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajustando o desempenho no Banco de Dados SQL do Azure
 
@@ -34,7 +34,7 @@ Esses são métodos manuais, porque você precisa decidir quais [camadas de serv
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumentando o nível de desempenho do banco de dados
 
-O Banco de Dados SQL do Azure oferece quatro [camadas de serviço](sql-database-service-tiers.md) que estão à sua disposição: Básico, Standard, Premium e Premium RS (o desempenho é medido em unidades de produtividade do banco de dados ou [DTUs](sql-database-what-is-a-dtu.md). Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
+O Banco de Dados SQL do Azure oferece quatro [camadas de serviço](sql-database-service-tiers.md): Básico, Standard e Premium (o desempenho é medido em unidades de produtividade do banco de dados ou [DTUs](sql-database-what-is-a-dtu.md). Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
 
 > [!NOTE]
 > Este artigo se concentra em fornecer orientações sobre o desempenho de bancos de dados únicos no Banco de Dados SQL do Azure. Para obter as diretrizes de desempenho relacionadas aos pools elásticos, consulte [Considerações de preço e desempenho para pools elásticos](sql-database-elastic-pool-guidance.md). No entanto, observe que você pode aplicar muitas das recomendações de ajuste neste artigo a bancos de dados em um pool elástico e obter benefícios de desempenho semelhantes.
@@ -49,7 +49,6 @@ O Banco de Dados SQL do Azure oferece quatro [camadas de serviço](sql-database-
   * **Alta carga de pico**. Um aplicativo que exige muita CPU, memória ou entrada/saída (E/S) para concluir suas operações requer um nível de alto desempenho dedicado. Por exemplo, uma operação de banco de dados conhecida por consumir vários núcleos de CPU por um longo período é uma candidata para a camada de serviço Premium.
   * **Muitas solicitações simultâneas**. Alguns aplicativos de banco de dados atendem muitas solicitações simultâneas, por exemplo, ao servir um site com alto volume de tráfego. As camadas de serviço Básica e Standard limitam a quantidade de solicitações simultâneas por banco de dados. Aplicativos que exigem mais conexões precisariam escolher um tamanho de reserva apropriado para lidar com o número máximo de solicitações necessárias.
   * **Baixa latência**. Alguns aplicativos precisam garantir uma resposta do banco de dados em tempo mínimo. Se um procedimento armazenado específico for chamado como parte de uma operação de cliente mais ampla, poderá haver o requisito de ter um retorno daquela chamada em não mais do que 20 milissegundos, 99% do tempo. Esse tipo de aplicativo se beneficia da camada de serviço Premium para certificar-se de que a capacidade de computação exigida esteja disponível.
-* **Premium RS**: a camada Premium RS foi projetada para cargas de trabalho com uso intensivo de E/S que não exigem garantias da mais alta disponibilidade. Exemplos de cargas de trabalho de alto desempenho ou uma carga de trabalho analítica onde o banco de dados não é o sistema de registro.
 
 O nível de serviço necessário para seu banco de dados SQL depende dos requisitos de carga de pico para cada dimensão de recurso. Alguns aplicativos usam quantidades comuns de um recurso, mas têm requisitos significativos para outros recursos.
 

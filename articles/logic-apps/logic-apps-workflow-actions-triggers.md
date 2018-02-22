@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 981bf5555d1941509e787adf656fe6310dd43cb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Gatilhos e ações para fluxos de trabalho de aplicativos lógicos
 
-Todos os aplicativos lógicos começam com um gatilho seguido por ações. Este tópico descreve os tipos de gatilhos e ações que você pode usar para criar integrações do sistema e automatizar processos ou fluxos de trabalho de negócios criando aplicativos lógicos. 
+Todos os aplicativos lógicos começam com um gatilho seguido por ações. Este artigo descreve os tipos de gatilhos e ações que você pode usar para criar integrações do sistema e automatizar processos ou fluxos de trabalho de negócios criando aplicativos lógicos. 
   
 ## <a name="triggers-overview"></a>Visão geral de gatilhos 
 
@@ -51,7 +51,7 @@ Todos os gatilhos contêm estes elementos de alto nível:
 
 Cada tipo de gatilho tem uma interface diferente e *entradas* diferentes que definem seu comportamento. 
 
-| Tipo de gatilho | Descrição | 
+| Tipo de gatilho | DESCRIÇÃO | 
 | ------------ | ----------- | 
 | **Recorrência** | Acionado com base em um agendamento definido. Você pode definir uma data e hora futura para acionar esse gatilho. Com base na frequência, você também pode especificar os horários e dias para executar o fluxo de trabalho. | 
 | **Solicitação**  | Torna seu aplicativo lógico em um ponto de extremidade que você pode chamar, também conhecido como "gatilho manual". | 
@@ -111,15 +111,15 @@ Eis uma definição para esse gatilho:
 }
 ```
 
-| Nome do elemento | Obrigatório | Tipo | Descrição | 
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO | 
 | ------------ | -------- | ---- | ----------- | 
-| frequência | Sim | Cadeia de caracteres | A unidade de tempo para a frequência com que o gatilho dispara. Use apenas um destes valores: "second", "minute", "hour", "day", "week" ou "month" | 
-| intervalo | Sim | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
-| timeZone | Não | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que deseja aplicar. | 
-| startTime | Não | Cadeia de caracteres | Especifique a data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você especificar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como “Hora do Pacífico”. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** a hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. Para obter mais informações sobre datas e horas de início, consulte [Criar e agendar tarefas de execução regularmente](../connectors/connectors-native-recurrence.md). | 
-| weekDays | Não | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana" para `frequency`, poderá selecionar um ou mais dias, separados por vírgulas, nos quais deseja executar o fluxo de trabalho: “segunda-feira”, “terça-feira”, “quarta-feira”, “quinta-feira”, “Sexta-feira”, “sábado” e “domingo” | 
-| hours | Não | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana" para `frequency`, poderá selecionar um ou mais números inteiros, de 0 a 23, separados por vírgulas, como as horas do dia nas quais você deseja executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", você obterá 10h, 12h e 14h como as marcas de hora. | 
-| minutes | Não | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana" para `frequency`, poderá selecionar um ou mais números inteiros, de 0 a 59, separados por vírgulas, como os minutos da hora nos quais você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minutos e, usando o exemplo anterior como as horas do dia, você obtém 10h30, 12h30 e 14h30. | 
+| frequência | sim | Cadeia de caracteres | A unidade de tempo para a frequência com que o gatilho dispara. Use apenas um destes valores: "second", "minute", "hour", "day", "week" ou "month" | 
+| intervalo | sim | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
+| timeZone | Não  | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que deseja aplicar. | 
+| startTime | Não  | Cadeia de caracteres | Especifique a data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você especificar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como “Hora do Pacífico”. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** a hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. Para obter mais informações sobre datas e horas de início, consulte [Criar e agendar tarefas de execução regularmente](../connectors/connectors-native-recurrence.md). | 
+| weekDays | Não  | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana" para `frequency`, poderá selecionar um ou mais dias, separados por vírgulas, nos quais deseja executar o fluxo de trabalho: “segunda-feira”, “terça-feira”, “quarta-feira”, “quinta-feira”, “Sexta-feira”, “sábado” e “domingo” | 
+| hours | Não  | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana" para `frequency`, poderá selecionar um ou mais números inteiros, de 0 a 23, separados por vírgulas, como as horas do dia nas quais você deseja executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", você obterá 10h, 12h e 14h como as marcas de hora. | 
+| minutes | Não  | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana" para `frequency`, poderá selecionar um ou mais números inteiros, de 0 a 59, separados por vírgulas, como os minutos da hora nos quais você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minutos e, usando o exemplo anterior como as horas do dia, você obtém 10h30, 12h30 e 14h30. | 
 |||||| 
 
 Por exemplo, esse gatilho de recorrência especifica que o seu aplicativo lógico é executado semanalmente toda segunda-feira às 10:30, 12:30 e 14:30 na Hora Padrão do Pacífico, não iniciando antes de 9 de setembro de 2017 às 14:00:
@@ -178,9 +178,9 @@ Esse gatilho serve como um ponto de extremidade que você usa para chamar seu ap
 
 Esse gatilho também tem uma propriedade opcional denominada *esquema*:
   
-| Nome do elemento | Obrigatório | Tipo | Descrição |
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO |
 | ------------ | -------- | ---- | ----------- |
-| schema | Não | Objeto | Um esquema JSON que valida a solicitação de entrada. Útil para ajudar as etapas subsequentes do fluxo de trabalho a saberem a quais propriedades fazer referência. | 
+| schema | Não  | Objeto | Um esquema JSON que valida a solicitação de entrada. Útil para ajudar as etapas subsequentes do fluxo de trabalho a saberem a quais propriedades fazer referência. | 
 ||||| 
 
 Para invocar esse ponto de extremidade, você precisa chamar a API *listCallbackUrl*. Consulte [API REST do Serviço do Fluxo de Trabalho](https://docs.microsoft.com/rest/api/logic/workflows).
@@ -189,24 +189,24 @@ Para invocar esse ponto de extremidade, você precisa chamar a API *listCallback
 
 Os gatilhos HTTP sondam um ponto de extremidade especificado e verifica a resposta para determinar se o fluxo de trabalho deve ser executado. Aqui, o objeto `inputs` usa esses parâmetros necessários para construir uma chamada HTTP:  
 
-| Nome do elemento | Obrigatório | Tipo | Descrição | 
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO | 
 | ------------ | -------- | ---- | ----------- | 
-| estático | Sim | Cadeia de caracteres | Usa um dos seguintes métodos HTTP: “GET”, “POST”, “PUT”, “DELETE”, “PATCH” ou “HEAD” | 
-| uri | Sim| Cadeia de caracteres | O ponto de extremidade HTTP ou HTTPS que o gatilho verifica. Tamanho máximo da cadeia de caracteres: 2 KB | 
-| consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
-| headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
-| Autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). <p>Além do Agendador, há mais uma propriedade com suporte: `authority`. Por padrão, esse valor é `https://login.windows.net` quando não especificado, mas você pode usar um valor diferente, como `https://login.windows\-ppe.net`. | 
+| estático | sim | Cadeia de caracteres | Usa um dos seguintes métodos HTTP: “GET”, “POST”, “PUT”, “DELETE”, “PATCH” ou “HEAD” | 
+| uri | sim| Cadeia de caracteres | O ponto de extremidade HTTP ou HTTPS que o gatilho verifica. Tamanho máximo da cadeia de caracteres: 2 KB | 
+| consultas | Não  | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
+| headers | Não  | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Não  | Objeto | Representa a carga enviada para o ponto de extremidade. | 
+| retryPolicy | Não  | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
+| Autenticação | Não  | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). <p>Além do Agendador, há mais uma propriedade com suporte: `authority`. Por padrão, esse valor é `https://login.windows.net` quando não especificado, mas você pode usar um valor diferente, como `https://login.windows\-ppe.net`. | 
 ||||| 
  
 Para funcionar bem com seu aplicativo lógico, o gatilho HTTP requer a API HTTP estar em conformidade com um padrão específico. O gatilho reconhece estas propriedades:  
   
-| Resposta | Obrigatório | Descrição | 
+| Response | Obrigatório | DESCRIÇÃO | 
 | -------- | -------- | ----------- |  
-| Código de status | Sim | O código de status 200 ("OK") causa uma execução. Qualquer outro código de status não provoca uma execução. | 
-| Cabeçalho Retry-after | Não | O número de segundos até que o aplicativo lógico sonde o ponto de extremidade novamente. | 
-| Cabeçalho do local | Não | A URL a chamar no próximo intervalo de sondagem. Se não for especificada, a URL original será usada. | 
+| Código de status | sim | O código de status 200 ("OK") causa uma execução. Qualquer outro código de status não provoca uma execução. | 
+| Cabeçalho Retry-after | Não  | O número de segundos até que o aplicativo lógico sonde o ponto de extremidade novamente. | 
+| Cabeçalho do local | Não  | A URL a chamar no próximo intervalo de sondagem. Se não for especificada, a URL original será usada. | 
 |||| 
 
 Aqui estão alguns exemplos de comportamentos para diferentes tipos de solicitações:
@@ -222,7 +222,7 @@ Aqui estão alguns exemplos de comportamentos para diferentes tipos de solicita�
 
 Aqui estão as saídas do gatilho HTTP: 
   
-| Nome do elemento | Tipo | Descrição |
+| Nome do elemento | type | DESCRIÇÃO |
 | ------------ | ---- | ----------- |
 | headers | Objeto | Os cabeçalhos da resposta HTTP | 
 | body | Objeto | O corpo da resposta HTTP | 
@@ -230,7 +230,7 @@ Aqui estão as saídas do gatilho HTTP:
 
 ## <a name="api-connection-trigger"></a>Gatilho de conexão da API  
 
-O gatilho de conexão da API é semelhante ao gatilho HTTP em sua funcionalidade básica. No entanto, os parâmetros para identificar a ação são diferentes. Aqui está um exemplo:  
+O gatilho de conexão da API é semelhante ao gatilho HTTP em sua funcionalidade básica. No entanto, os parâmetros para identificar a ação são diferentes. Veja um exemplo:  
   
 ```json
 "myDailyReportTrigger": {
@@ -252,33 +252,35 @@ O gatilho de conexão da API é semelhante ao gatilho HTTP em sua funcionalidade
 }
 ```
 
-| Nome do elemento | Obrigatório | Tipo | Descrição | 
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO | 
 | ------------ | -------- | ---- | ----------- | 
-| host | Sim | Objeto | O gateway hospedado e a ID para o Aplicativo de API | 
-| estático | Sim | Cadeia de caracteres | Usa um dos seguintes métodos HTTP: “GET”, “POST”, “PUT”, “DELETE”, “PATCH” ou “HEAD” | 
-| consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
-| headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
-| Autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). | 
+| host | sim | Objeto | O gateway hospedado e a ID para o Aplicativo de API | 
+| estático | sim | Cadeia de caracteres | Usa um dos seguintes métodos HTTP: “GET”, “POST”, “PUT”, “DELETE”, “PATCH” ou “HEAD” | 
+| consultas | Não  | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
+| headers | Não  | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Não  | Objeto | Representa a carga enviada para o ponto de extremidade. | 
+| retryPolicy | Não  | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
+| Autenticação | Não  | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
 Para o objeto `host`, estas são as propriedades:  
   
-| Nome do elemento | Obrigatório | Descrição | 
+| Nome do elemento | Obrigatório | DESCRIÇÃO | 
 | ------------ | -------- | ----------- | 
-| api runtimeUrl | Sim | O ponto de extremidade da API gerenciada | 
+| api runtimeUrl | sim | O ponto de extremidade da API gerenciada | 
 | nome da conexão |  | O nome da conexão de API gerenciada que o fluxo de trabalho usa. Deve fazer referência a um parâmetro denominado `$connection`. |
 |||| 
 
 Estas são as saídas de um gatilho de Conexão da API:
   
-| Nome do elemento | Tipo | Descrição |
+| Nome do elemento | type | DESCRIÇÃO |
 | ------------ | ---- | ----------- |
 | headers | Objeto | Os cabeçalhos da resposta HTTP | 
 | body | Objeto | O corpo da resposta HTTP | 
 |||| 
-  
+
+Saiba mais sobre [como funcionam os preços de gatilhos da Conexão de API](../logic-apps/logic-apps-pricing.md#triggers).
+
 ## <a name="httpwebhook-trigger"></a>Gatilho HTTPWebhook  
 
 O gatilho HTTPWebhook fornece um ponto de extremidade, semelhante ao gatilho de Solicitação, mas o gatilho HTTPWebhook também chama uma URL especificada para registrar e cancelar o registro. Aqui está um exemplo de como um gatilho HTTPWebhook pode ser:  
@@ -316,10 +318,10 @@ O gatilho HTTPWebhook fornece um ponto de extremidade, semelhante ao gatilho de 
 
 Muitas dessas seções são opcionais e o comportamento de gatilho HTTPWebhook depende das seções que você fornecer ou omitir. Estas são as propriedades para o gatilho HTTPWebhook:
   
-| Nome do elemento | Obrigatório | Descrição | 
+| Nome do elemento | Obrigatório | DESCRIÇÃO | 
 | ------------ | -------- | ----------- |  
-| assinar | Não | Especifica a solicitação de saída para chamar quando o gatilho é criado e realiza o registro inicial. | 
-| cancelar assinatura | Não | Especifica a solicitação de saída para chamar quando o gatilho é excluído. | 
+| assinar | Não  | Especifica a solicitação de saída para chamar quando o gatilho é criado e realiza o registro inicial. | 
+| cancelar assinatura | Não  | Especifica a solicitação de saída para chamar quando o gatilho é excluído. | 
 |||| 
 
 Você pode especificar os limites em uma ação de webhook da mesma maneira como os [Limites Assíncronos do HTTP](#asynchronous-limits). Aqui estão mais informações sobre as ações `subscribe` e `unsubscribe`:
@@ -338,7 +340,7 @@ Você pode especificar os limites em uma ação de webhook da mesma maneira como
 
 Estas são as saídas do gatilho HTTPWebhook e são o conteúdo da solicitação de entrada:
   
-| Nome do elemento | Tipo | Descrição |
+| Nome do elemento | type | DESCRIÇÃO |
 | ------------ | ---- | ----------- |
 | headers | Objeto | Os cabeçalhos da resposta HTTP | 
 | body | Objeto | O corpo da resposta HTTP | 
@@ -346,7 +348,7 @@ Estas são as saídas do gatilho HTTPWebhook e são o conteúdo da solicitação
 
 ## <a name="conditions"></a>Condições  
 
-Para qualquer gatilho, você pode usar uma ou mais condições para determinar se o fluxo de trabalho deve ser executado ou não. Por exemplo:  
+Para qualquer gatilho, você pode usar uma ou mais condições para determinar se o fluxo de trabalho deve ser executado ou não. Por exemplo:   
 
 ```json
 "myDailyReportTrigger": {
@@ -460,7 +462,7 @@ Há muitos tipos de ações, cada um com um comportamento exclusivo. Cada tipo d
 
 ### <a name="standard-actions"></a>Ações padrão  
 
-| Tipo de ação | Descrição | 
+| Tipo de ação | DESCRIÇÃO | 
 | ----------- | ----------- | 
 | **HTTP** | Chama um ponto de extremidade HTTP da Web. | 
 | **ApiConnection**  | Funciona como a ação HTTP, mas usa [APIs gerenciadas pela Microsoft](https://docs.microsoft.com/azure/connectors/apis-list). | 
@@ -469,16 +471,16 @@ Há muitos tipos de ações, cada um com um comportamento exclusivo. Cada tipo d
 | **Função** | Representa uma função do Azure. | 
 | **Aguardar** | Aguarda um período fixo de tempo ou até uma hora específica. | 
 | **Fluxo de trabalho** | Representa um fluxo de trabalho aninhado. | 
-| **Compor** | Constrói um objeto arbitrário de entradas da ação. | 
+| **Compor** | Cria um objeto arbitrário de entradas da ação. | 
 | **Consulta** | Filtra uma matriz com base em uma condição. | 
-| **Seleção** | Projeta cada elemento de uma matriz em um novo valor. Por exemplo, você pode converter uma matriz de números em uma matriz de objetos. | 
+| **Selecionar** | Projeta cada elemento de uma matriz em um novo valor. Por exemplo, você pode converter uma matriz de números em uma matriz de objetos. | 
 | **Tabela** | Converte uma matriz de itens em uma tabela CSV ou HTML. | 
 | **Encerrar** | Interrompe a execução de um fluxo de trabalho. | 
 ||| 
 
 ### <a name="collection-actions"></a>Ações de coleção
 
-| Tipo de ação | Descrição | 
+| Tipo de ação | DESCRIÇÃO | 
 | ----------- | ----------- | 
 | **Condição** | Avalia uma expressão e, com base no resultado, executa a ramificação correspondente. | 
 | **Escopo** | Use para o agrupamento lógico de outras ações. | 
@@ -488,7 +490,7 @@ Há muitos tipos de ações, cada um com um comportamento exclusivo. Cada tipo d
 
 ## <a name="http-action"></a>Ação HTTP  
 
-As ações HTTP chamam um ponto de extremidade especificado e verifica a resposta para determinar se o fluxo de trabalho deve ser executado. Por exemplo:
+As ações HTTP chamam um ponto de extremidade especificado e verifica a resposta para determinar se o fluxo de trabalho deve ser executado. Por exemplo: 
   
 ```json
 "myLatestNewsAction": {
@@ -502,16 +504,16 @@ As ações HTTP chamam um ponto de extremidade especificado e verifica a respost
 
 Aqui, o objeto `inputs` usa esses parâmetros necessários para construir uma chamada HTTP: 
 
-| Nome do elemento | Obrigatório | Tipo | Descrição | 
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO | 
 | ------------ | -------- | ---- | ----------- | 
-| estático | Sim | Cadeia de caracteres | Usa um dos seguintes métodos HTTP: “GET”, “POST”, “PUT”, “DELETE”, “PATCH” ou “HEAD” | 
-| uri | Sim| Cadeia de caracteres | O ponto de extremidade HTTP ou HTTPS que o gatilho verifica. Tamanho máximo da cadeia de caracteres: 2 KB | 
-| consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
-| headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | Não | string | Define o conjunto de comportamentos especiais a substituir. | 
-| autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). <p>Além do Agendador, há mais uma propriedade com suporte: `authority`. Por padrão, esse valor é `https://login.windows.net` quando não especificado, mas você pode usar um valor diferente, como `https://login.windows\-ppe.net`. | 
+| estático | sim | Cadeia de caracteres | Usa um dos seguintes métodos HTTP: “GET”, “POST”, “PUT”, “DELETE”, “PATCH” ou “HEAD” | 
+| uri | sim| Cadeia de caracteres | O ponto de extremidade HTTP ou HTTPS que o gatilho verifica. Tamanho máximo da cadeia de caracteres: 2 KB | 
+| consultas | Não  | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
+| headers | Não  | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Não  | Objeto | Representa a carga enviada para o ponto de extremidade. | 
+| retryPolicy | Não  | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | Não  | Cadeia de caracteres | Define o conjunto de comportamentos especiais a substituir. | 
+| Autenticação | Não  | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). <p>Além do Agendador, há mais uma propriedade com suporte: `authority`. Por padrão, esse valor é `https://login.windows.net` quando não especificado, mas você pode usar um valor diferente, como `https://login.windows\-ppe.net`. | 
 ||||| 
 
 Nesse exemplo, a ação HTTP tenta buscar as notícias mais recentes duas vezes se houver falhas intermitentes, com um total de três execuções, com um atraso de 30 segundos entre cada tentativa:
@@ -537,7 +539,7 @@ O intervalo de repetição é especificado no [formato ISO 8601](https://en.wiki
 
 Por padrão, todas as ações baseadas no HTTP suportam o padrão de operação assíncrona padrão. Portanto, se o servidor remoto indicar que a solicitação é aceita para o processamento, com uma resposta “202 ACEITO”, o mecanismo dos Aplicativos Lógicos continuará sondando a URL especificada no cabeçalho de local da resposta até atingir um estado terminal de resposta não 202.
   
-Para desabilitar o comportamento assíncrono descrito anteriormente, defina `operationOptions` como `DisableAsyncPattern` nas entradas de ação. Neste caso, a saída da ação baseia-se na resposta 202 inicial do servidor. Por exemplo:
+Para desabilitar o comportamento assíncrono descrito anteriormente, defina `operationOptions` como `DisableAsyncPattern` nas entradas de ação. Neste caso, a saída da ação baseia-se na resposta 202 inicial do servidor. Por exemplo: 
   
 ```json
 "invokeLongRunningOperationAction": {
@@ -594,17 +596,17 @@ Aqui está um exemplo de ação APIConnection:
 }
 ```
 
-| Nome do elemento | Obrigatório | Tipo | Descrição | 
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO | 
 | ------------ | -------- | ---- | ----------- | 
-| host | Sim | Objeto | Representa as informações do conector, como `runtimeUrl` e uma referência para o objeto de conexão. | 
-| estático | Sim | Cadeia de caracteres | Usa um dos seguintes métodos HTTP: “GET”, “POST”, “PUT”, “DELETE”, “PATCH” ou “HEAD” | 
-| path | Sim | Cadeia de caracteres | O caminho da operação da API | 
-| consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
-| headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | Não | string | Define o conjunto de comportamentos especiais a substituir. | 
-| autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). |
+| host | sim | Objeto | Representa as informações do conector, como `runtimeUrl` e uma referência para o objeto de conexão. | 
+| estático | sim | Cadeia de caracteres | Usa um dos seguintes métodos HTTP: “GET”, “POST”, “PUT”, “DELETE”, “PATCH” ou “HEAD” | 
+| caminho | sim | Cadeia de caracteres | O caminho da operação da API | 
+| consultas | Não  | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
+| headers | Não  | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Não  | Objeto | Representa a carga enviada para o ponto de extremidade. | 
+| retryPolicy | Não  | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | Não  | Cadeia de caracteres | Define o conjunto de comportamentos especiais a substituir. | 
+| Autenticação | Não  | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="apiconnection-webhook-action"></a>Ação do webhook de APIConnection
@@ -638,16 +640,16 @@ A ação APIConnectionWebhook se refere a um conector gerenciado pela Microsoft.
 }
 ```
 
-| Nome do elemento | Obrigatório | Tipo | Descrição | 
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO | 
 | ------------ | -------- | ---- | ----------- | 
-| host | Sim | Objeto | Representa as informações do conector, como `runtimeUrl` e uma referência para o objeto de conexão. | 
-| path | Sim | Cadeia de caracteres | O caminho da operação da API | 
-| consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
-| headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | Não | string | Define o conjunto de comportamentos especiais a substituir. | 
-| autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). |
+| host | sim | Objeto | Representa as informações do conector, como `runtimeUrl` e uma referência para o objeto de conexão. | 
+| caminho | sim | Cadeia de caracteres | O caminho da operação da API | 
+| consultas | Não  | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
+| headers | Não  | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Não  | Objeto | Representa a carga enviada para o ponto de extremidade. | 
+| retryPolicy | Não  | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | Não  | Cadeia de caracteres | Define o conjunto de comportamentos especiais a substituir. | 
+| Autenticação | Não  | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="response-action"></a>Ação de resposta  
@@ -706,13 +708,13 @@ Essa ação permite que você represente e chame uma [função do Azure](../azur
     "runAfter": {}
 }
 ```
-| Nome do elemento | Obrigatório | Tipo | Descrição | 
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO | 
 | ------------ | -------- | ---- | ----------- |  
-| Id de Função | Sim | Cadeia de caracteres | A ID de recurso para a função do Azure que deseja chamar. | 
-| estático | Não | Cadeia de caracteres | O método HTTP usado para chamar a função. Se não for especificado, "POST" será o método padrão. | 
-| consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
-| headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
+| Id de Função | sim | Cadeia de caracteres | A ID de recurso para a função do Azure que deseja chamar. | 
+| estático | Não  | Cadeia de caracteres | O método HTTP usado para chamar a função. Se não for especificado, "POST" será o método padrão. | 
+| consultas | Não  | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
+| headers | Não  | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Não  | Objeto | Representa a carga enviada para o ponto de extremidade. | 
 |||||
 
 Quando você salva seu aplicativo lógico, os Aplicativos Lógicos do Azure executam verificações na função referenciada:
@@ -756,13 +758,13 @@ Como alternativa, para esperar até um momento específico, você poderá usar e
 > [!NOTE]  
 > A duração de espera pode ser especificada com o objeto `until` ou o objeto `interval`, mas não com ambos.
   
-| Nome do elemento | Obrigatório | Tipo | Descrição | 
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO | 
 | ------------ | -------- | ---- | ----------- | 
-| until | Não | Objeto | A duração de espera com base em um ponto no tempo | 
-| until carimbo data/hora | Sim | Cadeia de caracteres | O ponto no tempo no [formato de hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) quando a espera expira | 
-| intervalo | Não | Objeto | A duração de espera com base na contagem e unidade do intervalo | 
-| unidade do intervalo | Sim | Cadeia de caracteres | A unidade de tempo. Use apenas um destes valores: "second", "minute", "hour", "day", "week" ou "month" | 
-| contagem do intervalo | Sim | Número inteiro | Um inteiro positivo que representa o número de unidades de intervalo usado para a duração de espera | 
+| until | Não  | Objeto | A duração de espera com base em um ponto no tempo | 
+| until carimbo data/hora | sim | Cadeia de caracteres | O ponto no tempo no [formato de hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) quando a espera expira | 
+| intervalo | Não  | Objeto | A duração de espera com base na contagem e unidade do intervalo | 
+| unidade do intervalo | sim | Cadeia de caracteres | A unidade de tempo. Use apenas um destes valores: "second", "minute", "hour", "day", "week" ou "month" | 
+| contagem do intervalo | sim | Número inteiro | Um inteiro positivo que representa o número de unidades de intervalo usado para a duração de espera | 
 ||||| 
 
 ## <a name="workflow-action"></a>Ação do fluxo de trabalho   
@@ -795,13 +797,13 @@ As saídas da ação baseiam-se no que foi definido na ação `response` no flux
 }
 ```
 
-| Nome do elemento | Obrigatório | Tipo | Descrição | 
+| Nome do elemento | Obrigatório | type | DESCRIÇÃO | 
 | ------------ | -------- | ---- | ----------- |  
-| id do host | Sim | Cadeia de caracteres| A ID de recurso do fluxo de trabalho que você deseja chamar | 
-| triggerName do host | Sim | Cadeia de caracteres | O nome do gatilho que você deseja invocar | 
-| consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
-| headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
+| id do host | sim | Cadeia de caracteres| A ID de recurso do fluxo de trabalho que você deseja chamar | 
+| triggerName do host | sim | Cadeia de caracteres | O nome do gatilho que você deseja invocar | 
+| consultas | Não  | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
+| headers | Não  | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Não  | Objeto | Representa a carga enviada para o ponto de extremidade. | 
 |||||   
 
 ## <a name="compose-action"></a>Ação para compor
@@ -839,10 +841,10 @@ Por exemplo, para converter uma matriz de números em uma matriz de objetos, voc
 }
 ```
 
-| Nome | Obrigatório | Tipo | Descrição | 
+| NOME | Obrigatório | type | DESCRIÇÃO | 
 | ---- | -------- | ---- | ----------- | 
-| Da | Sim | Matriz | A matriz de origem |
-| selecionar | Sim | Qualquer | A projeção a ser aplicada a cada elemento da matriz de origem |
+| de | sim | Matriz | A matriz de origem |
+| selecionar | sim | Qualquer | A projeção a ser aplicada a cada elemento da matriz de origem |
 ||||| 
 
 A saída da ação `select` é uma matriz que tem a mesma cardinalidade da matriz de entrada. Cada elemento é transformado conforme definido pela propriedade `select`. Se a entrada for uma matriz vazia, a saída também será uma matriz vazia.
@@ -866,10 +868,10 @@ A saída da ação `query` é uma matriz com elementos da matriz de entrada que 
 > [!NOTE]
 > Se nenhum valor atender a condição `where`, o resultado será uma matriz vazia.
 
-| Nome | Obrigatório | Tipo | Descrição | 
+| NOME | Obrigatório | type | DESCRIÇÃO | 
 | ---- | -------- | ---- | ----------- | 
-| Da | Sim | Matriz | A matriz de origem |
-| onde | Sim | Cadeia de caracteres | A condição que é aplicada a cada elemento da matriz de origem |
+| de | sim | Matriz | A matriz de origem |
+| onde | sim | Cadeia de caracteres | A condição que é aplicada a cada elemento da matriz de origem |
 ||||| 
 
 ## <a name="table-action"></a>Ação tabela
@@ -903,7 +905,7 @@ E você define uma ação de tabela, como neste exemplo:
 
 O resultado desse exemplo se parece com esta tabela HTML: 
 
-<table><thead><tr><th>ID</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
+<table><thead><tr><th>ID</th><th>Nome</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
 
 Para personalizar essa tabela, você pode especificar explicitamente as colunas, por exemplo:
 
@@ -929,15 +931,15 @@ Para personalizar essa tabela, você pode especificar explicitamente as colunas,
 
 O resultado desse exemplo se parece com esta tabela HTML: 
 
-<table><thead><tr><th>Produzir ID</th><th>Descrição</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
+<table><thead><tr><th>Produzir ID</th><th>DESCRIÇÃO</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
 
-| Nome | Obrigatório | Tipo | Descrição | 
+| NOME | Obrigatório | type | DESCRIÇÃO | 
 | ---- | -------- | ---- | ----------- | 
-| Da | Sim | Matriz | A matriz de origem. Se o valor da propriedade `from` for uma matriz vazia, a saída será uma tabela vazia. | 
-| formato | Sim | Cadeia de caracteres | O formato de tabela que você deseja, **CSV** ou **HTML** | 
-| colunas | Não | Matriz | As colunas da tabela que você deseja. Use para substituir a forma da tabela padrão. | 
-| cabeçalho de coluna | Não | Cadeia de caracteres | O cabeçalho da coluna | 
-| valor da coluna | Sim | Cadeia de caracteres | O valor da coluna | 
+| de | sim | Matriz | A matriz de origem. Se o valor da propriedade `from` for uma matriz vazia, a saída será uma tabela vazia. | 
+| formato | sim | Cadeia de caracteres | O formato de tabela que você deseja, **CSV** ou **HTML** | 
+| colunas | Não  | Matriz | As colunas da tabela que você deseja. Use para substituir a forma da tabela padrão. | 
+| cabeçalho de coluna | Não  | Cadeia de caracteres | O cabeçalho da coluna | 
+| valor da coluna | sim | Cadeia de caracteres | O valor da coluna | 
 ||||| 
 
 ## <a name="terminate-action"></a>Ação para finalizar
@@ -959,12 +961,12 @@ Por exemplo, para interromper uma execução que tem o status de "falha", você 
 }
 ```
 
-| Nome | Obrigatório | Tipo | Descrição | 
+| NOME | Obrigatório | type | DESCRIÇÃO | 
 | ---- | -------- | ---- | ----------- | 
-| runStatus | Sim | Cadeia de caracteres | O status da execução de destino, que é `Failed` ou `Cancelled` |
-| runError | Não | Objeto | Os detalhes do erro. Com suporte somente quando `runStatus` estiver definido como `Failed`. |
-| código runError | Não | Cadeia de caracteres | O código de erro da execução |
-| mensagem runError | Não | Cadeia de caracteres | A mensagem de erro da execução |
+| runStatus | sim | Cadeia de caracteres | O status da execução de destino, que é `Failed` ou `Cancelled` |
+| runError | Não  | Objeto | Os detalhes do erro. Com suporte somente quando `runStatus` estiver definido como `Failed`. |
+| código runError | Não  | Cadeia de caracteres | O código de erro da execução |
+| mensagem runError | Não  | Cadeia de caracteres | A mensagem de erro da execução |
 ||||| 
 
 ## <a name="collection-actions-overview"></a>Visão geral de ações da coleção
@@ -1005,11 +1007,11 @@ Essa ação permite que você avalie uma condição e execute um desvio caso a e
 }
 ``` 
 
-| Nome | Obrigatório | Tipo | Descrição | 
+| NOME | Obrigatório | type | DESCRIÇÃO | 
 | ---- | -------- | ---- | ----------- | 
-| Ações | Sim | Objeto | As ações internas para executar quando `expression` for avaliado como `true` | 
-| expressão | Sim | Cadeia de caracteres | A expressão a avaliar |
-| else | Não | Objeto | As ações internas para executar quando `expression` for avaliado como `false` |
+| Ações | sim | Objeto | As ações internas para executar quando `expression` for avaliado como `true` | 
+| expressão | sim | Cadeia de caracteres | A expressão a avaliar |
+| else | Não  | Objeto | As ações internas para executar quando `expression` for avaliado como `false` |
 ||||| 
 
 Se a condição for avaliada com êxito, a condição será marcada como `Succeeded`. Ações nos objetos `actions` ou `else` são avaliadas como: 
@@ -1047,9 +1049,9 @@ Essa ação permite agrupar logicamente as ações em um fluxo de trabalho.
 }
 ```
 
-| Nome | Obrigatório | Tipo | Descrição | 
+| NOME | Obrigatório | type | DESCRIÇÃO | 
 | ---- | -------- | ---- | ----------- |  
-| Ações | Sim | Objeto | As ações internas para serem executadas dentro do escopo |
+| Ações | sim | Objeto | As ações internas para serem executadas dentro do escopo |
 ||||| 
 
 ## <a name="foreach-action"></a>Ação ForEach
@@ -1083,11 +1085,11 @@ Esta ação de loop itera por meio de uma matriz e executa as ações internas d
 }
 ```
 
-| Nome | Obrigatório | Tipo | Descrição | 
+| NOME | Obrigatório | type | DESCRIÇÃO | 
 | ---- | -------- | ---- | ----------- | 
-| Ações | Sim | Objeto | As ações internas a serem executadas dentro do loop | 
-| foreach | Sim | Cadeia de caracteres | A matriz pela qual iterar | 
-| operationOptions | Não | Cadeia de caracteres | Especifica as opções de operação para personalizar o comportamento. Atualmente, dá suporte apenas a `Sequential` para executar em sequência iterações em que o comportamento padrão é paralelo. |
+| Ações | sim | Objeto | As ações internas a serem executadas dentro do loop | 
+| foreach | sim | Cadeia de caracteres | A matriz pela qual iterar | 
+| operationOptions | Não  | Cadeia de caracteres | Especifica as opções de operação para personalizar o comportamento. Atualmente, dá suporte apenas a `Sequential` para executar em sequência iterações em que o comportamento padrão é paralelo. |
 ||||| 
 
 ## <a name="until-action"></a>Ação Until
@@ -1116,13 +1118,13 @@ Esta ação de loop executa as ações internas até uma condição ser verdadei
 }
 ```
 
-| Nome | Obrigatório | Tipo | Descrição | 
+| NOME | Obrigatório | type | DESCRIÇÃO | 
 | ---- | -------- | ---- | ----------- | 
-| Ações | Sim | Objeto | As ações internas a serem executadas dentro do loop | 
-| expressão | Sim | Cadeia de caracteres | A expressão a avaliar após cada iteração | 
-| limite | Sim | Objeto | Os limites do loop. Deve definir, pelo menos, um limite. | 
-| count | Não | Número inteiro | O limite do número de iterações para executar | 
-| Tempo limite | Não | Cadeia de caracteres | O tempo limite no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica por quanto tempo o loop deve ser executado |
+| Ações | sim | Objeto | As ações internas a serem executadas dentro do loop | 
+| expressão | sim | Cadeia de caracteres | A expressão a avaliar após cada iteração | 
+| limite | sim | Objeto | Os limites do loop. Deve definir, pelo menos, um limite. | 
+| count | Não  | Número inteiro | O limite do número de iterações para executar | 
+| Tempo limite | Não  | Cadeia de caracteres | O tempo limite no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica por quanto tempo o loop deve ser executado |
 ||||| 
 
 ## <a name="next-steps"></a>Próximas etapas

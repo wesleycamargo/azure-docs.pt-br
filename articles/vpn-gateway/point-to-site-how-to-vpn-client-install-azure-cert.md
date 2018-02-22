@@ -1,10 +1,10 @@
 ---
 title: Instalar um certificado de cliente P2S | Azure
-description: "Este artigo ajuda você a instalar um certificado de cliente para autenticação de certificado P2S."
+description: "Instalar um certificado de cliente do Windows ou Mac para autenticação de certificado P2S."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager, azure-service-management
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/24/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc0cc37794ef291c9d27b094211b38cec90da55c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de98201b65f5531f334aded1056f622cecb6e190
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Instalar um certificado de cliente para conexões de autenticação de certificado do Azure Ponto a Site
 
@@ -47,6 +47,6 @@ Os clientes de VPN de MAC têm suporte somente para o modelo de implantação do
 
 Continue com as etapas de configuração Ponto a Site.
 
-* [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 * [Portal do Azure (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)

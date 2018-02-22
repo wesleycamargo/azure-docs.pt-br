@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3f093f84758fe8622f09212b6a11a2c5f3795aa
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 772af3bce6947a92fa62a93a84ee84ee34093d82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Arquivos do Azure usando o Azure Data Factory
 
@@ -47,7 +47,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Armazenamento de 
 | Tipo | A propriedade type deve ser definida como: **FileServer**. | sim |
 | host | Especifica o ponto de extremidade do Armazenamento de Arquivos do Azure como `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | sim |
 | userid | Especifique o usuário para acessar o Armazenamento de Arquivos do Azure como `"userid": "AZURE\\<storage name>"`. | sim |
-| Senha | Especifique a chave de acesso de armazenamento. Marque esse campo como SecureString.<br/> | sim |
+| Senha | Especifique a chave de acesso de armazenamento. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não para fonte, Sim para o coletor |
 
 >[!IMPORTANT]
@@ -131,7 +131,7 @@ Para copiar dados do Armazenamento de Arquivos do Azure, defina o tipo de origem
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **FileSystemSource** |sim |
-| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando recursivo for definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, uma pasta/subpasta vazia não será copiado/criado no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
+| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
 
 **Exemplo:**
 

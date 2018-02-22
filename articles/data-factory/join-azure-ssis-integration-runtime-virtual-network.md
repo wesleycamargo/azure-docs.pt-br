@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Una o tempo de execução de integração (IR) do Azure-SSIS a uma rede virtual (VNet) do Azure nos cenários a seguir: 
@@ -31,7 +31,13 @@ Una o tempo de execução de integração (IR) do Azure-SSIS a uma rede virtual 
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory versão 1](v1/data-factory-introduction.md).
 
 ## <a name="access-on-premises-data-stores"></a>Acessar armazenamentos de dados locais
-Se os pacotes do SSIS acessam apenas armazenamentos de dados de nuvem pública, você não precisa unir o IR do Azure-SSIS a uma rede virtual. Se os pacotes do SSIS acessam armazenamentos de dados locais, você deve unir o IR do Azure-SSIS a uma VNet que esteja conectada à rede local. Se o catálogo do SSIS estiver hospedado em um banco de dados SQL do Azure que não esteja na VNet, você precisará abrir as portas apropriadas. Se o Catálogo do SSIS estiver hospedado na Instância Gerenciada do Azure SQL que está em uma VNET do Azure Resource Manager ou em uma VNet clássica, você poderá unir o Azure-SSIS IR à mesma VNet (ou) uma VNet diferente que possua uma conexão VNet-to-VNet com a que tem a Instância Gerenciada do Azure SQL. As seções a seguir apresentam mais detalhes.
+Se os pacotes do SSIS acessam apenas armazenamentos de dados de nuvem pública, você não precisa unir o IR do Azure-SSIS a uma rede virtual. Se os pacotes do SSIS acessam armazenamentos de dados locais, você deve unir o IR do Azure-SSIS a uma VNet que esteja conectada à rede local. 
+
+Se o catálogo do SSIS estiver hospedado em um banco de dados SQL do Azure que não esteja na VNet, você precisará abrir as portas apropriadas. 
+
+Se o Catálogo do SSIS estiver hospedado na Instância Gerenciada (MI) em uma VNet, você poderá unir o Azure-SSIS IR à mesma VNet (ou) uma VNet diferente que possua uma conexão VNet-to-VNet com a que tem a Instância Gerenciada do Azure SQL. A VNet pode ser uma VNet clássica ou uma VNet de Gerenciamento de Recursos do Azure. Se você estiver planejando unir a IR IV Azure SSIS na **mesma VNet** que tenha a SQL MI, certifique-se de que a IR Azure-SSIS do Azure está em uma **sub-rede diferente** do que tem a SQL MI.   
+
+As seções a seguir apresentam mais detalhes.
 
 Alguns pontos importantes a serem considerados: 
 
@@ -58,10 +64,11 @@ Esta seção mostra como unir um tempo de execução do SSIS do Azure existente 
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>Usar o portal para configurar uma VNet Clássica
 Primeiro você precisa configurar a VNet antes de adicionar um IR do Azure-SSIS à VNet.
 
-1. Faça logon no [portal do Azure](https://portal.azure.com).
-2. Clique em **Mais serviços**. Filtre e selecione **Redes virtuais (clássicas)**.
-3. Filtre e selecione a sua **rede virtual** na lista. 
-4. Na página Rede virtual (clássica), selecione **Propriedades**. 
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas em navegadores da Web Microsoft Edge e Google Chrome.
+2. Faça logon no [portal do Azure](https://portal.azure.com).
+3. Clique em **Mais serviços**. Filtre e selecione **Redes virtuais (clássicas)**.
+4. Filtre e selecione a sua **rede virtual** na lista. 
+5. Na página Rede virtual (clássica), selecione **Propriedades**. 
 
     ![ID de recurso da rede virtual clássica](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. Clique no botão de copiar para que a **ID DE RECURSO** copie a ID de recurso da rede clássica para a área de transferência. Salve a ID da área de transferência no OneNote ou em um arquivo.
@@ -93,13 +100,14 @@ Primeiro você precisa configurar a VNet antes de adicionar um IR do Azure-SSIS 
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Usar o portal para configurar uma VNet do Azure Resource Manager
 Primeiro você precisa configurar a VNet antes de adicionar um IR do Azure-SSIS à VNet.
 
-1. Faça logon no [portal do Azure](https://portal.azure.com).
-2. Clique em **Mais serviços**. Filtre e selecione **Redes virtuais**.
-3. Filtre e selecione a sua **rede virtual** na lista. 
-4. Na página Rede virtual, selecione **Propriedades**. 
-5. Clique no botão Copiar para que a **ID DO RECURSO** copie a ID do recurso da rede virtual para a área de transferência. Salve a ID da área de transferência no OneNote ou em um arquivo.
-6. Clique em **Sub-redes** no menu à esquerda e certifique-se de que o número de **endereços disponíveis** seja maior do que os nós em seu tempo de execução de integração do Azure-SSIS.
-5. Verifique se o provedor do lote do Azure está registrado na assinatura do Azure que tem a VNet ou registre o provedor de lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas em navegadores da Web Microsoft Edge e Google Chrome.
+2. Faça logon no [portal do Azure](https://portal.azure.com).
+3. Clique em **Mais serviços**. Filtre e selecione **Redes virtuais**.
+4. Filtre e selecione a sua **rede virtual** na lista. 
+5. Na página Rede virtual, selecione **Propriedades**. 
+6. Clique no botão Copiar para que a **ID DO RECURSO** copie a ID do recurso da rede virtual para a área de transferência. Salve a ID da área de transferência no OneNote ou em um arquivo.
+7. Clique em **Sub-redes** no menu à esquerda e certifique-se de que o número de **endereços disponíveis** seja maior do que os nós em seu tempo de execução de integração do Azure-SSIS.
+8. Verifique se o provedor do lote do Azure está registrado na assinatura do Azure que tem a VNet ou registre o provedor de lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure.
     1. No portal do Azure, clique em **Assinaturas** no menu à esquerda. 
     2. Selecione sua **assinatura**. 
     3. Clique em **Provedores de recursos** à esquerda e confirme se `Microsoft.Batch` é um provedor registrado. 
@@ -111,7 +119,8 @@ Primeiro você precisa configurar a VNet antes de adicionar um IR do Azure-SSIS 
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>Unir o IR do Azure-SSIS a uma VNet
 
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Data factories** no menu à esquerda. Se não vir **Data factories** no menu, selecione **Mais serviços**, selecione **Data factories** na seção **INTELIGÊNCIA + ANÁLISE**. 
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas em navegadores da Web Microsoft Edge e Google Chrome.
+2. No [portal do Azure](https://portal.azure.com), selecione **Data factories** no menu à esquerda. Se não vir **Data factories** no menu, selecione **Mais serviços**, selecione **Data factories** na seção **INTELIGÊNCIA + ANÁLISE**. 
     
     ![Lista de Data factories](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Selecione seu data factory com o tempo de execução de integração do SSIS do Azure na lista. Você verá a home page do seu data factory. Selecione o bloco **Criar & Implantar**. Você verá a interface do usuário (IU) do Azure Data Factory em uma guia separada. 

@@ -1,6 +1,6 @@
 ---
-title: Diagrama de processamento de pagamento para ambientes em conformidade com o PCI DSS
-description: Requisito de PCI DSS
+title: "Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS"
+description: "Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Automação do plano gráfico do Azure: processamento de pagamento para ambientes em conformidade com o PCI DSS
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS
 
 ## <a name="overview"></a>Visão geral
 
@@ -43,7 +43,7 @@ A arquitetura fundamental consiste nos seguintes componentes:
 - **Modelos de implantação** Nessa implantação, os [modelos do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são usados para implantar os componentes da arquitetura automaticamente no Microsoft Azure especificando parâmetros de configuração durante a instalação.
 - **Scripts de implantação automatizada**. Esses scripts ajudam a implantar a solução de ponta a ponta. Os scripts consistem em:
     - Uma instalação do módulo e um script de configuração de [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) são usados para instalar e verificar se os módulos do PowerShell obrigatórios e as funções de administrador global foram configuradas corretamente.
-    - Um script de instalação do PowerShell é usada para implantar a solução completa, fornecida por meio de um arquivo .zip e um arquivo .bacpac que contêm um aplicativo Web de demonstração criado previamente com o [conteúdo de exemplo de banco de dados SQL](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código-fonte desta solução está disponível para análise no [repositório de código do plano gráfico de processamento de pagamento][code-repo]. 
+    - Um script de instalação do PowerShell é usada para implantar a solução completa, fornecida por meio de um arquivo .zip e um arquivo .bacpac que contêm um aplicativo Web de demonstração criado previamente com o [conteúdo de exemplo de banco de dados SQL](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código-fonte desta solução está disponível para análise no [repositório de código do projeto][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitetura
 
@@ -72,7 +72,7 @@ Funções de usuário usadas para explicar o caso de uso e fornecer informaçõe
 
 #### <a name="role-site-and-subscription-admin"></a>Função: administração de site e assinatura
 
-|Item      |Exemplo|
+|item      |Exemplo|
 |----------|------|
 |Nome de Usuário: |`adminXX@contosowebstore.com`|
 | Nome: |`Global Admin Azure PCI Samples`|
@@ -84,7 +84,7 @@ Funções de usuário usadas para explicar o caso de uso e fornecer informaçõe
 
 #### <a name="role-sql-administrator"></a>Função: administrador SQL
 
-|Item      |Exemplo|
+|item      |Exemplo|
 |----------|------|
 |Nome de Usuário: |`sqlAdmin@contosowebstore.com`|
 | Nome: |`SQLADAdministrator PCI Samples`|
@@ -97,7 +97,7 @@ Funções de usuário usadas para explicar o caso de uso e fornecer informaçõe
 
 #### <a name="role-clerk"></a>Função: atendente
 
-|Item      |Exemplo|
+|item      |Exemplo|
 |----------|------|
 |Nome de Usuário:| `receptionist_EdnaB@contosowebstore.com`|
 | Nome: |`Edna Benson`|
@@ -111,8 +111,6 @@ Melissa Mello é a recepcionista e gerente de negócios. Ela é responsável por
 - Melissa pode modificar as informações do cliente.
 - Melissa pode substituir as informações de número de cartão de crédito, validade e CVV.
 
-> Na Contoso Webstore, o usuário fica automaticamente como a usuária **Melissa** para testar os recursos do ambiente implantado.
-
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - Preços estimados
 
 Essa arquitetura fundamental e o aplicativo Web de exemplo têm uma estrutura de valor mensal e um custo de uso por hora que devem ser considerados na hora de dimensionar a solução. Esses custos podem ser previstos usando a [Calculadora de custos do Azure](https://azure.microsoft.com/pricing/calculator/). A partir de setembro de 2017, o custo mensal estimado para essa solução é de aproximadamente US$ 2.500,00, que inclui uma taxa de uso de US$ 1.000/mês para ASE v2. Esses custos variam com base na quantidade de uso e estão sujeitos a alterações. Cabe ao cliente calcular os custos mensais estimados no momento da implantação para uma estimativa mais precisa. 
@@ -120,7 +118,6 @@ Essa arquitetura fundamental e o aplicativo Web de exemplo têm uma estrutura de
 A solução usou os serviços do Azure a seguir. Os detalhes da arquitetura de implantação estão localizados na [Arquitetura de Implantação](#deployment-architecture).
 
 >- Gateway de Aplicativo
-
 >- Azure Active Directory
 >- Ambiente do Serviço de Aplicativo v2
 >- Log Analytics do OMS
@@ -149,7 +146,6 @@ A seção a seguir fornece detalhes sobre os elementos de desenvolvimento e impl
 ![](images/pci-tiers-diagram.png)
 
 #### <a name="application-gateway"></a>Gateway de Aplicativo
-
 
 A arquitetura fundamental reduz o risco de vulnerabilidades de segurança usando o Gateway de Aplicativo com WAF (firewall do aplicativo Web) e o conjunto de regras OWASP habilitado. Dentre outros recursos estão:
 
@@ -359,7 +355,7 @@ Se você encontrar problemas durante a implantação, confira [Perguntas frequen
     
 ## <a name="threat-model"></a>Modelo de ameaça
 
-Um diagrama de fluxo de dados (DFD) e o modelo de ameaça de exemplo para a Contoso Webstore [Modelo de ameaça de plano gráfico de processamento de pagamento](https://aka.ms/pciblueprintthreatmodel).
+Um diagrama de fluxo de dados (DFD) e o modelo de risco de exemplo para a Contoso Webstore [Modelo de risco de projeto](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

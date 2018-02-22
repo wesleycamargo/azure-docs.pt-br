@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
 O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsíveis e vários modelos de consistência amena bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão, prefixo consistente e eventual. Desatualização limitada, sessão, prefixo consistente e eventual são chamados de "modelos de consistência amena", pois fornecem menos consistência de alta segurança, que é o modelo mais consistente disponível. 
@@ -117,6 +117,10 @@ Por padrão, para recursos definidos pelo usuário, o nível de consistência pa
 | Nenhum |Selecione entre forte, desatualização limitada, sessão, prefixo consistente ou eventual |Não aplicável |
 
 Assim como nas solicitações de leitura, você pode diminuir o nível de consistência de uma solicitação de consulta específica em cada API.
+
+## <a name="consistency-levels-for-the-mongodb-api"></a>Níveis de consistência para a API do MongoDB
+
+O Azure Cosmos DB implementa o MongoDB versão 3.4, que tem duas configurações de consistência, forte e eventual. Como o Azure Cosmos DB tem várias APIs, as configurações de consistência são aplicáveis no nível da conta e a imposição da consistência é controlada por cada API.  Até o MongoDB 3.6, não havia nenhum conceito de consistência de sessão, portanto, se você definir uma conta de API do MongoDB para usar a consistência da sessão, será feito o downgrade da consistência para eventual ao usar APIs do MongoDB. Se você precisar de uma garantia do tipo read-your-own-write para uma conta de API do MongoDB, o nível de consistência padrão da conta deverá ser definido como forte ou desatualização limitada.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamos os seguintes recursos:

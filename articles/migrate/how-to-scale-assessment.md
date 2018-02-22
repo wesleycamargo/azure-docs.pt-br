@@ -6,17 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
 Este artigo descreve como avaliar grandes números de VMs (máquinas virtuais) locais usando o [Migrações para Azure](migrate-overview.md). O Migrações para Azure avalia essas máquinas para verificar se elas são adequadas para a migração para o Azure. O serviço fornece estimativas de dimensionamento e custo para a execução das máquinas no Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - **VMware**: as VMs que você planeja migrar devem ser gerenciadas por um vCenter Server versão 5.5, 6.0 ou 6.5. Além disso, é necessário um host ESXi executando a versão 5.0 ou posterior para implantar a VM de coletor.
 - **Conta do vCenter**: você precisa de uma conta de somente leitura para acessar o vCenter Server. O Migrações para Azure usa essa conta para descobrir as VMs locais.
@@ -38,7 +38,7 @@ Planeje suas descobertas e avaliações com base nos limites a seguir:
 - Se você tiver entre 1.001 e 1.500 máquinas, precisará de um único projeto contendo duas descobertas.
 - Se você tiver mais de 1.500 máquinas, precisará criar vários projetos e executar várias descobertas, de acordo com suas necessidades. Por exemplo: 
     - Se você tiver 3.000 máquinas, poderá configurar dois projetos com duas descobertas cada ou três projetos com uma única descoberta cada.
-    - Se você tiver 5.000 máquinas, poderá definir quatro projetos: dois com uma descoberta de 1.500 máquinas cada e um com uma descoberta de 500 máquinas. Como alternativa, você pode configurar cinco projetos com uma única descoberta em cada um. 
+    - Se tiver 5.000 máquinas, você poderá configurar quatro projetos: três com uma descoberta de 1.500 máquinas e uma com uma descoberta de 500 máquinas. Como alternativa, você pode configurar cinco projetos com uma única descoberta em cada um. 
 
 ## <a name="plan-multiple-discoveries"></a>Planejar várias descobertas
 
@@ -77,7 +77,7 @@ Se você tiver vários projetos, você precisará baixar o dispositivo coletor s
 Verifique se o arquivo OVA é seguro antes de implantá-lo:
 
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
-2. Execute o seguinte comando para gerar o hash para a OVA:
+2. Execute o seguinte comando para gerar o hash para o arquivo OVA:
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
@@ -88,9 +88,9 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
 
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     Para a versão OVA 1.0.8.40:
 
@@ -112,7 +112,7 @@ Importe o arquivo baixado para o vCenter Server:
 3. Em **Nome** e **Local**, especifique um nome amigável para a VM do coletor e o objeto do inventário no qual a VM será hospedada.
 5. Em **Host/Cluster**, especifique o host ou cluster no qual a VM do coletor será executada.
 7. No armazenamento, especifique o destino de armazenamento para a VM do coletor.
-8. Em **Formato de disco**, especifique o tipo e o tamanho do disco.
+8. Em **Formato de Disco**, especifique o tipo e o tamanho do disco.
 9. Em **Mapeamento de rede**, especifique a rede à qual a VM do coletor se conectará. A rede precisa de conectividade com a Internet para poder enviar metadados para o Azure. 
 10. Examine e confirme as configurações e selecione **Concluir**.
 

@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="what-are-azure-sql-database-service-tiers"></a>Quais são as camadas de serviço do Banco de Dados SQL do Azure
+# <a name="what-are-azure-sql-database-service-tiers"></a>Quais são as camadas de serviço do Banco de Dados SQL do Azure?
 
-[Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferece as camadas de serviço **Básica**, **Standard**, **Premium**, e **Premium RS** para [bancos de dados individuais](sql-database-single-database-resources.md) e [pools elásticos](sql-database-elastic-pool.md). As camadas de serviço são diferenciadas principalmente por uma gama de níveis de desempenho e opções de tamanho de armazenamento, além do preço.  Todas as camadas de serviço fornecem flexibilidade na alteração do tamanho de armazenamento e no nível de desempenho.  Bancos de dados individuais e pools elásticos são cobrados por hora com base na camada de serviço, nível de desempenho e tamanho de armazenamento.   
+[Banco de Dados SQL](sql-database-technical-overview.md) do Azure oferece as camadas de serviço **Basic**, **Standard**, e  **Premium** para ambos [os bancos de dados únicos ](sql-database-single-database-resources.md) e [pools elásticos](sql-database-elastic-pool.md). As camadas de serviço são diferenciadas principalmente por uma gama de níveis de desempenho e opções de tamanho de armazenamento, além do preço.  Todas as camadas de serviço fornecem flexibilidade na alteração do tamanho de armazenamento e no nível de desempenho.  Bancos de dados individuais e pools elásticos são cobrados por hora com base na camada de serviço, nível de desempenho e tamanho de armazenamento.   
 
 ## <a name="choosing-a-service-tier"></a>Como escolher uma camada de serviço
 
 Escolher uma camada de serviço depende principalmente da continuidade dos negócios, armazenamento e requisitos de desempenho.
-| | **Básico** | **Standard** |**Premium** |**Premium RS** |
+| | **Básico** | **Standard** |**Premium**  |
 | :-- | --: |--:| --:| --:| 
-|Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|Carga de trabalho que pode tolerar perda de dados por até 5 minutos devido a falhas de serviço|
+|Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção||
 |SLA de tempo de atividade|99,99%|99,99%|99,99%|N/d enquanto estiver em versão prévia|
-|Retenção de backup|7 dias|35 dias|35 dias|35 dias|
-|CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|Média|
-|Taxa de transferência de E/S|Baixo  | Média | Ordem de magnitude maior do que o Standard|Mesmo que o Premium|
-|Latência de E/S|Maior do que o Premium|Maior do que o Premium|Menor do que o Básico e Standard|Mesmo que o Premium|
-|Indexação de ColumnStore e OLTP in-memory|N/D|N/D|Com suporte|Com suporte|
+|Retenção de backup|7 dias|35 dias|35 dias|
+|CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|
+|Taxa de transferência de E/S|Baixo  | Média | Ordem de magnitude maior do que o Standard|
+|Latência de E/S|Maior do que o Premium|Maior do que o Premium|Menor do que o Básico e Standard|
+|Indexação de ColumnStore e OLTP in-memory|N/D|N/D|Com suporte|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Limites de tamanho de armazenamento e nível de desempenho
 
-Os níveis de desempenho são expressos em termos de DTUs (Unidades de transação de banco de dados) para bancos de dados individuais, e eDTUs (Unidades de transação de banco de dados elásticos) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [O que são DTUs e eDTUs?](sql-database-what-is-a-dtu.md).
+Os níveis de desempenho são expressos em termos de DTUs (Unidades de transação de banco de dados) para bancos de dados individuais, e eDTUs (Unidades de transação de banco de dados elásticos) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [O que são DTUs e eDTUs?](sql-database-what-is-a-dtu.md)
 
 ### <a name="single-databases"></a>Bancos de dados únicos
 
-|  | **Básico** | **Standard** | **Premium** | **Premium RS**|
+|  | **Básico** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Tamanho máximo de armazenamento* | 2 GB | 1 TB | 4 TB  | 1 TB  |
-| Máximo de DTUs | 5 | 3000 | 4000 | 1000 |
+| Tamanho máximo de armazenamento* | 2 GB | 1 TB | 4 TB  | 
+| Máximo de DTUs | 5 | 3000 | 4000 | |
 ||||||
 
 ### <a name="elastic-pools"></a>Pools elásticos
 
-| | **Básico** | **Standard** | **Premium** | **Premium RS**|
+| | **Básico** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Tamanho máximo de armazenamento por banco de dados*  | 2 GB | 1 TB | 1 TB | 1 TB |
-| Tamanho máximo de armazenamento por pool* | 156 GB | 4 TB | 4 TB | 1 TB |
-| Máximo de eDTUs por banco de dados | 5 | 3000 | 4000 | 1000 |
-| Máximo de eDTUs por pool | 1600 | 3000 | 4000 | 1000 |
-| Número máximo de bancos de dados por pool | 500  | 500 | 100 | 100 |
+| Tamanho máximo de armazenamento por banco de dados*  | 2 GB | 1 TB | 1 TB | 
+| Tamanho máximo de armazenamento por pool* | 156 GB | 4 TB | 4 TB | 
+| Máximo de eDTUs por banco de dados | 5 | 3000 | 4000 | 
+| Máximo de eDTUs por pool | 1600 | 3000 | 4000 | 
+| Número máximo de bancos de dados por pool | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]
