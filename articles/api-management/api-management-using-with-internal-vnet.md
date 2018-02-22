@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usar o serviço de Gerenciamento de API do Azure com rede virtual interna
 Com as VNETs (Redes Virtuais) do Azure, o Gerenciamento de API pode gerenciar as APIs que não estão acessíveis pela Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O Gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:
@@ -26,7 +26,7 @@ Com as VNETs (Redes Virtuais) do Azure, o Gerenciamento de API pode gerenciar as
 * Interna
 
 
-Quando o Gerenciamento de API é implantado em um modo de rede virtual interna, todos os pontos de extremidade de serviço (gateway, portal do desenvolvedor, portal do editor, gerenciamento direto e Git) ficam visíveis apenas de dentro de uma rede virtual cujo acesso você controla. Nenhum dos pontos de extremidade de serviço é registrado no servidor DNS público.
+Quando o Gerenciamento de API é implantado em um modo de rede virtual interna, todos os pontos de extremidade de serviço (gateway, portal do Desenvolvedor, portal do Azure, gerenciamento direto e Git) ficam visíveis apenas de dentro de uma rede virtual cujo acesso você controla. Nenhum dos pontos de extremidade de serviço é registrado no servidor DNS público.
 
 Usando o Gerenciamento de API no modo interno você pode chegar aos seguintes cenários:
 * Torne as APIs hospedadas em seu datacenter privado seguras e acessíveis por terceiros externamente usando as conexões VPN Site a Site ou ExpressRoute do Azure.
@@ -34,7 +34,7 @@ Usando o Gerenciamento de API no modo interno você pode chegar aos seguintes ce
 * Gerencie suas APIs hospedadas em várias localizações geográficas usando um único ponto de extremidade de gateway. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para executar as etapas descritas neste artigo, você precisa ter:
 
@@ -72,14 +72,14 @@ Você também pode habilitar a conectividade de rede virtual usando cmdlets do P
 Quando o Gerenciamento de API está no modo de rede virtual externa, o DNS é gerenciado pelo Azure. Para o modo de rede virtual interna, você precisa gerenciar o seu próprio roteamento.
 
 > [!NOTE]
-> O serviço de Gerenciamento de API não escuta as solicitações que vêm de endereços IP. Ele só responde às solicitações para o nome de host configurado em seus pontos de extremidade de serviço. Esses pontos de extremidade incluem o gateway, o portal do desenvolvedor, o portal do editor, o ponto de extremidade de gerenciamento direto e o Git.
+> O serviço de Gerenciamento de API não escuta as solicitações que vêm de endereços IP. Ele só responde às solicitações para o nome de host configurado em seus pontos de extremidade de serviço. Esses pontos de extremidade incluem o gateway, o portal do Desenvolvedor, o portal do Azure, o ponto de extremidade de gerenciamento direto e o Git.
 
 ### <a name="access-on-default-host-names"></a>Acesso em nomes de host padrão
 Ao criar um serviço de Gerenciamento de API, chamado "contoso", por exemplo, os seguintes pontos de extremidade de serviço são configurados por padrão:
 
    * Gateway ou proxy: contoso.azure-api.net
 
-   * Portal do editor e portal do desenvolvedor: contoso.portal.azure-api.net
+   * Portal do Azure e portal do Desenvolvedor: contoso.portal.azure-api.net
 
    * Ponto de extremidade de gerenciamento direto: contoso.management.azure-api.net
 

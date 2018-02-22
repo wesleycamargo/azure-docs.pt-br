@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guia de início rápido para o Back no Azure Cloud Shell
 
@@ -59,7 +59,7 @@ Crie uma VM do Ubuntu em seu novo grupo de recursos. A CLI do Azure 2.0 criará 
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Por padrão, as chaves pública e privada usadas para autenticar sua VM são colocadas em `/User/.ssh/id_rsa` e `/User/.ssh/id_rsa.pub` pela CLI do Azure 2.0. Sua pasta .ssh é mantida na imagem de 5 GB do compartilhamento de arquivos anexados do Azure.
+> Por padrão, as chaves pública e privada usadas para autenticar sua VM são colocadas em `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub` pela CLI do Azure 2.0. Sua pasta .ssh é mantida na imagem de 5 GB do compartilhamento de arquivos anexados do Azure.
 
 Seu nome de usuário nessa VM será o nome de usuário usado no Cloud Shell ($User@Azure:).
 

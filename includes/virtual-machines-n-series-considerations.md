@@ -4,9 +4,7 @@
 
 * As VMs da Série N só podem ser implantadas no modelo de implantação do Resource Manager.
 
-* Ao criar uma VM da Série N usando o portal do Azure, na folha **Noções Básicas**, selecione um **Tipo de disco de VM** **HDD**. Para escolher um tamanho de Série N disponível na folha **Tamanho** folha, clique em **Exibir tudo**.
-
-* As VMs NC e NV não dão suporte a discos de VM incluídos em backup no Armazenamento Premium do Azure.
+* As VMs da série N diferem no tipo de Armazenamento do Microsoft Azure que dão suporte aos discos. As VMs NC e NV dão suporte somente a discos de VM que executam backup em HDD (Armazenamento em Disco Standard). As VMs NCv2, ND e NCv3 (versão prévia) somente dão suporte a discos de VM que executam backup em SSD (Armazenamento em Disco Premium).
 
 * Se você quiser implantar mais do que algumas VMs da Série N, considere uma assinatura pré-paga ou outras opções de compra. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
 

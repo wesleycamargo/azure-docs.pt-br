@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Empacotar e implantar contêineres como um aplicativo do Service Fabric
 
@@ -34,7 +34,7 @@ Este tutorial é a parte dois de uma série. Neste tutorial, uma ferramenta gera
 > * Implantar e executar o aplicativo 
 > * Limpar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - As imagens de contêiner enviadas por push ao Registro de Contêiner do Azure criadas na [Parte 1](service-fabric-tutorial-create-container-images.md) desta série de tutoriais são usadas.
 - O ambiente de desenvolvimento do Linux está [configurado](service-fabric-tutorial-create-container-images.md).
@@ -218,9 +218,17 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 Neste ponto no tutorial, o modelo para um aplicativo de Pacote de serviços está disponível para implantação em um cluster. No tutorial subsequente, esse aplicativo será implantado e executado em um cluster do Service Fabric.
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
-Para implantar o aplicativo em um cluster do Azure, use seu próprio cluster ou um cluster de entidade.
+Para implantar o aplicativo em um cluster no Azure, crie seu próprio cluster.
 
-Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure. Ele é mantido pela equipe do Service Fabric em que qualquer pessoa pode implantar aplicativos e conhecer a plataforma. Para obter acesso a um Cluster de Terceiros, [siga as instruções](http://aka.ms/tryservicefabric). 
+Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure. Eles são executados pela equipe do Service Fabric, em que qualquer pessoa pode implantar aplicativos e conhecer a plataforma. Para obter acesso a um Cluster de Terceiros, [siga as instruções](http://aka.ms/tryservicefabric). 
+
+Para executar operações de gerenciamento no cluster de entidade seguro, é possível usar o Service Fabric Explorer, a CLI ou o Powershell. Para usar o Service Fabric Explorer, você precisa baixar o arquivo PFX do site do cluster de terceiros e importar o certificado para o repositório de certificados (Windows ou Mac) ou para o navegador propriamente dito (Ubuntu). Não há nenhuma senha para os certificados autoassinados do cluster de entidade. 
+
+Para executar operações de gerenciamento com o Powershell ou a CLI, você precisará do PFX (Powershell) ou PEM (CLI). Para converter o PFX em um arquivo PEM, execute o seguinte comando:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Para obter informações sobre como criar seu próprio cluster, consulte [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -230,7 +238,7 @@ Para obter informações sobre como criar seu próprio cluster, consulte [Criar 
 Conectar-se ao cluster do Service Fabric no Azure. Substitua o ponto de extremidade de espaço reservado com seus próprios. O ponto de extremidade deve ser uma URL completa semelhante à mostrada abaixo.
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 Use o script de instalação fornecido no diretório **TestContainer** para copiar o pacote de aplicativos para o repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.

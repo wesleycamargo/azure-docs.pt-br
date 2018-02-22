@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados do SAP Cloud for Customer (C4C) usando o Azure Data Factory
 
@@ -44,10 +44,10 @@ As propriedades a seguir são compatíveis com o serviço vinculado SAP Cloud fo
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **SapCloudForCustomer**. | Sim |
-| url | A URL do serviço SAP C4C OData. | Sim |
-| Nome de Usuário | Especifique o nome de usuário para se conectar ao SAP C4C. | Sim |
-| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como uma SecureString. | Sim |
+| Tipo | A propriedade type deve ser definida como: **SapCloudForCustomer**. | sim |
+| url | A URL do serviço SAP C4C OData. | sim |
+| Nome de Usuário | Especifique o nome de usuário para se conectar ao SAP C4C. | sim |
+| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para fonte, Sim para o coletor |
 
 >[!IMPORTANT]
@@ -84,8 +84,8 @@ Para copiar dados do SAP Cloud for Customer, defina a propriedade type do conjun
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **SapCloudForCustomerResource** |Sim |
-| caminho | Especifique o caminho da entidade SAP C4C OData. |Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **SapCloudForCustomerResource** |sim |
+| caminho | Especifique o caminho da entidade SAP C4C OData. |sim |
 
 **Exemplo:**
 
@@ -115,7 +115,7 @@ Para copiar dados do SAP Cloud for Customer, defina o tipo de origem na atividad
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **SapCloudForCustomerSource**  | Sim |
+| Tipo | A propriedade type deve ser definida como: **SapCloudForCustomerSource**  | sim |
 | query | Especifique a consulta OData personalizada para ler dados. | Não  |
 
 Consulta de exemplo para obter dados de um dia específico:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
@@ -158,7 +158,7 @@ Para copiar dados do SAP Cloud for Customer, defina o tipo de coletor na ativida
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **SapCloudForCustomerSink**  | Sim |
+| Tipo | A propriedade type deve ser definida como: **SapCloudForCustomerSink**  | sim |
 | writeBehavior | O comportamento da operação de gravação. Pode ser “Inserir”, “Atualizar”. | Nº Padrão “Inserir”. |
 | writeBatchSize | O tamanho do lote da operação de gravação. O tamanho do lote para obter o melhor desempenho pode ser diferente da tabela ou do servidor diferente. | Nº Padrão 10. |
 

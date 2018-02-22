@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2a6ac8d9c2f3694cf08357d6ccec874f7e076514
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure
 Este artigo explica as diferenças importantes entre implantar o AD DS (Serviços de Domínio do Active Directory) do Windows Server e o AD FS (Serviços de Federação do Active Directory) no local e implantá-los em máquinas virtuais do Microsoft Azure.
@@ -258,7 +258,7 @@ A seção a seguir descreve os cenários comuns de implantação para chamar a a
 ![Implantação do AD DS somente na nuvem](media/active-directory-deploying-ws-ad-guidelines/ADDS_cloud.png)
 **Figura 1**
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>DESCRIÇÃO
 O SharePoint é implantado em uma máquina virtual do Azure e o aplicativo não tem dependências nos recursos da rede corporativa. O aplicativo requer o AD DS do Windows Server, mas *não* requer o AD DS do Windows Server corporativo. Nenhuma confiança federada ou Kerberos é necessária porque os usuários são autoprovisionados pelo aplicativo no domínio do AD DS do Windows Server que também está hospedado na nuvem em máquinas virtuais do Azure.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>Considerações sobre cenário e como as áreas de tecnologia se aplicam ao cenário
@@ -278,7 +278,7 @@ O SharePoint é implantado em uma máquina virtual do Azure e o aplicativo não 
 ![Federação com conectividade entre locais](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png)
 **Figura 2**
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>DESCRIÇÃO
 Um aplicativo com reconhecimento de declarações implantado com êxito localmente e usado por usuários corporativos precisa poder ser acessado diretamente pela Internet. O aplicativo serve como um front-end da Web para um banco de dados SQL em que ele armazena dados. Os servidores SQL usados pelo aplicativo também estão localizados na rede corporativa. Dois STSs do AD FS do Windows Server e um balanceador de carga foram implantados localmente para fornecer acesso a usuários corporativos. Agora, o aplicativo precisa ser acessado diretamente pela Internet por parceiros de negócios usando suas próprias identidades corporativas e por usuários corporativos existentes.
 
 Na tentativa de simplificar e atender às necessidades de implantação e configuração dessa nova exigência, decidiu-se que dois front-ends adicionais da Web e dois servidores proxy do AD FS do Windows Server serão instalados em máquinas virtuais do Azure. Todas as quatro máquinas virtuais serão expostas diretamente à Internet e terão conectividade à rede local usando o recurso de VPN site a site da rede virtual do Azure.
@@ -302,7 +302,7 @@ Para saber mais, confira o [Guia de implantação do AD DS](https://technet.micr
 ![Implantação do AD DS entre instalações](media/active-directory-deploying-ws-ad-guidelines/ADDS_xprem.png)
 **Figura 3**
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>DESCRIÇÃO
 Um aplicativo com reconhecimento de LDAP é implantado em uma máquina virtual do Azure. Ele é compatível com a autenticação integrada do Windows e usa o AD DS do Windows Server como um repositório para dados de perfil de usuário e de configuração. O objetivo é que o aplicativo aproveite o AD DS existente do Windows Server corporativo e forneça logon único. O aplicativo não reconhece declarações. Os usuários também precisam acessar o aplicativo diretamente da Internet. Para otimizar o desempenho e o custo, ficou decidido que dois controladores de domínio adicionais que fazem parte do domínio corporativo seriam implantados juntamente com o aplicativo no Azure.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>Considerações sobre cenário e como as áreas de tecnologia se aplicam ao cenário
@@ -329,7 +329,7 @@ Por exemplo, se você implantar uma controlador de domínio de réplica em uma r
 
 | Área de tecnologia do Active Directory do Windows Server | Decisões | Fatores |
 | --- | --- | --- |
-| [Topologia de rede](#BKMK_NetworkTopology) |Você cria uma rede virtual? |<li>Requisitos para acessar os recursos da corporação</li> <li>Autenticação</li> <li>Gerenciamento de Contas</li> |
+| [Topologia de rede](#BKMK_NetworkTopology) |Você cria uma rede virtual? |<li>Requisitos para acessar os recursos da corporação</li> <li>Autenticação</li> <li>Gerenciamento de contas</li> |
 | [Configuração de implantação do controlador de domínio](#BKMK_DeploymentConfig) |<li>Implantar uma floresta separada sem nenhuma relações de confiança?</li> <li>Implantar uma nova floresta com federação?</li> <li>Implantar uma nova floresta com a relação de confiança da floresta do Active Directory do Windows Server ou Kerberos?</li> <li>Estender a floresta da corporação implantando um controlador de domínio de réplica?</li> <li>Estender a floresta da corporação implantando um novo domínio filho ou árvore de domínio?</li> |<li>Segurança</li> <li>Conformidade</li> <li>Custo</li> <li>Resiliência e tolerância a falhas</li> <li>Compatibilidade de aplicativos</li> |
 | [Topologia do site do Active Directory do Windows Server](#BKMK_ADSiteTopology) |Como você configura sub-redes, sites e links de site com a rede virtual do Azure para otimizar o tráfego e minimizar os custos? |<li>Definições de sub-rede e site</li> <li>Propriedades do link do site e notificação de alteração</li> <li>Compactação de replicação</li> |
 | [Endereçamento IP e DNS](#BKMK_IPAddressDNS) |Como configurar endereços IP e resolução de nome? |<li>Use o cmdlet Set-AzureStaticVNetIP para atribuir um endereço IP estático</li> <li>Instale o servidor Windows Server DNS e configure as propriedades de rede virtual com o nome e o endereço IP da máquina virtual que hospeda as funções de servidor DNS e controlador de domínio.</li> |
@@ -433,7 +433,7 @@ Não use SYSPREP para implantar ou clonar controladores de domínio. A capacidad
 Escolha onde localizar o banco de dados, logs e SYSVOL do AD DS do Windows Server. Eles devem ser implantados em discos de dados do Azure.
 
 > [!NOTE]
-> Os discos de dados do Azure são restritos a 1 TB.
+> Os discos de dados do Azure são restritos a 4 TB.
 > 
 > 
 

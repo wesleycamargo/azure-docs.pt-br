@@ -3,8 +3,8 @@ title: "Criar uma conexão de VPN site a site entre duas redes virtuais em difer
 description: "Procedimento passo a passo que um administrador de nuvem usa para criar uma conexão de VPN site a site entre dois ambientes de Kit de desenvolvimento de pilha do Azure de nó único."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: scottnap
-ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Criar uma conexão de VPN site a site entre duas redes virtuais em diferentes ambientes de Kit de desenvolvimento de pilha do Azure
 ## <a name="overview"></a>Visão geral
@@ -50,9 +51,9 @@ A tabela a seguir resume a configuração de rede para ambos os ambientes do Kit
 **Tabela de configuração de rede**
 |   |POC1|POC2|
 |---------|---------|---------|
-|Nome de rede virtual     |REDE VIRTUAL-01|REDE VIRTUAL-02 |
+|Nome de rede virtual     |VNET-01|VNET-02 |
 |Espaço de endereço de rede virtual |10.0.10.0/23|10.0.20.0/23|
-|Nome da sub-rede     |Subrede-01|Subrede-02|
+|Nome da sub-rede     |Subnet-01|Subnet-02|
 |Intervalo de endereços da sub-rede|10.0.10.0/24 |10.0.20.0/24 |
 |Gateway de sub-rede     |10.0.11.0/24|10.0.21.0/24|
 |Endereço BGPNAT externo     |         |         |
@@ -94,7 +95,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
     ![Criar nova rede virtual](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
 3. Vá para **Marketplace**e, em seguida, selecione **rede**.
-4. Selecione **rede Virtual**.
+4. Selecione **Rede virtual**.
 5. Para **nome**, **espaço de endereço**, **nome da sub-rede**, e **intervalo de endereços de sub-rede**, use os valores que aparecem anteriormente na rede tabela de configuração.
 6. Em **assinatura**, a assinatura que você criou anteriormente é exibida.
 7. Para **grupo de recursos**, você pode criar um grupo de recursos ou se você já tiver um, selecione **usar existente**.
@@ -184,7 +185,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
 1. Entrar usando uma conta de locatário.
 2. No portal do usuário, selecione **novo**.
 3. Vá para **Marketplace**e, em seguida, selecione **rede**.
-4. Selecione **rede Virtual**.
+4. Selecione **Rede virtual**.
 5. Use as informações que aparece anteriormente na tabela de configuração de rede para identificar os valores para o POC2 **nome**, **espaço de endereço**, **nome da sub-rede**e **Intervalo de endereços de sub-rede**.
 6. Em **assinatura**, a assinatura que você criou anteriormente é exibida.
 7. Para **grupo de recursos**, crie um novo grupo de recursos ou, se você já tiver um, selecione **usar existente**.
@@ -365,4 +366,4 @@ Se você quiser saber a quantidade de dados passa por meio de sua conexão site 
 2. Vá para **todos os recursos**e, em seguida, selecione o **POC2 POC1** conexão. **Conexões** é exibida.
 4. Sobre o **Conexão** folha, as estatísticas de **dados em** e **dados** aparecem. Na captura de tela a seguir, os números grandes são atribuídos a transferência de arquivos adicionais. Você deve ver alguns valores de zero.
    
-    ![Dados de entrada e saída](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![Entrada e saída de dados](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

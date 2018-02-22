@@ -6,15 +6,16 @@ keywords:
 author: chrissie926
 manager: timlt
 ms.author: menchi
-ms.date: 01/11/2018
-ms.topic: tutorial
+ms.date: 02/12/2018
+ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 26067187864f9a2a4c85c953ae8aca888458d245
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.reviewer: kgremban
+ms.openlocfilehash: ce3e979428233af578d71dee5ed10103e105f4f4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0
 
@@ -24,144 +25,145 @@ A CLI do Azure 2.0 permite que você gerencie instantaneamente recursos, instân
 
 Neste tutorial, você primeiro conclui as etapas para configurar a CLI do Azure 2.0 e a extensão de IoT. Em seguida, você aprende como implantar módulos em um dispositivo de IoT Edge usando os comandos disponíveis da CLI.
 
-## <a name="installation"></a>Instalação 
+## <a name="prerequisites"></a>pré-requisitos
 
-### <a name="step-1---install-python"></a>Etapa 1 - Instale o Python
+* Uma conta do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/free/?v=17.39a) hoje. 
 
-[Python 2.7x ou Python 3.x](https://www.python.org/downloads/) são necessários.
+* [Python 2.7x ou Python 3.x](https://www.python.org/downloads/).
 
-### <a name="step-2---install-azure-cli-20"></a>Etapa 2 - Instale a CLI do Azure 2.0
+* [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. Uma maneira simples de instalar no Windows é fazer o download e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
 
-Siga as [instruções de instalação](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar a CLI do Azure 2.0 no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. Uma maneira simples de instalar no Windows é baixar e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
-
-### <a name="step-3---install-iot-extension"></a>Etapa 3 - Instale a extensão de IoT
-
-[O Leiame da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension) descreve várias maneiras de instalar a extensão. A maneira mais simples é executar `az extension add --name azure-cli-iot-ext`. Após a instalação, você pode usar `az extension list` para validar as extensões instaladas no momento ou `az extension show --name azure-cli-iot-ext` para ver os detalhes sobre a extensão de IoT. Para remover a extensão, você pode usar `az extension remove --name azure-cli-iot-ext`.
-
-
-## <a name="deploy-modules-to-an-iot-edge-device"></a>Implantar módulos em um dispositivo do IoT Edge
-Neste tutorial, você aprenderá como criar uma implantação do IoT Edge. O exemplo mostra como fazer logon em sua conta do Azure, criar um Grupo de Recursos do Azure (um contêiner que contém recursos relacionados para uma solução do Azure), criar um IoT Hub, criar três identidade de dispositivos IoT Edge, definir marcas e, em seguida, criar uma implantação de IoT Edge que tem como alvo esses dispositivos. Conclua as etapas de instalação descritas anteriormente antes de começar. Se você ainda não tiver uma conta do Azure, você pode [criar uma conta gratuita](https://azure.microsoft.com/free/?v=17.39a) hoje. 
+* [Extensão de IoT para CLI 2.0 do Azure](https://github.com/Azure/azure-iot-cli-extension):
+   1. Execute `az extension add --name azure-cli-iot-ext`. 
+   2. Após a instalação, use `az extension list` para validar as extensões instaladas no momento ou `az extension show --name azure-cli-iot-ext` para ver os detalhes sobre a extensão de IoT.
+   3. Para remover a extensão, use `az extension remove --name azure-cli-iot-ext`.
 
 
-### <a name="1-login-to-the-azure-account"></a>1. Faça logon na conta Azure
-  
-    az login
+## <a name="create-an-iot-edge-device"></a>Criar um dispositivo IoT Edge
+Este artigo fornece instruções para criar uma implantação do IoT Edge. O exemplo mostra como entrar na sua conta do Azure, criar um Grupo de Recursos do Azure (um contêiner que contém recursos relacionados a uma solução do Azure), criar um Hub IoT, criar três identidades de dispositivos IoT Edge, definir marcas e criar uma implantação do IoT Edge direcionada a esses dispositivos. 
 
-![logon][1]
+Faça logon na sua conta do Azure. Após inserir o seguinte comando de logon, você será solicitado a usar um navegador da Web para entrar, usando um código avulso: 
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Criar um grupo de recursos IoTHubBlogDemo no eastus
+   ```cli
+   az login
+   ```
 
-    az group create -l eastus -n IoTHubBlogDemo
+Crie um novo grupo de recursos chamado **IoTHubCLI** na região Leste dos EUA: 
 
-![Criar grupo de recursos][2]
+   ```cli
+   az group create -l eastus -n IoTHubCLI
+   ```
 
+   ![Criar grupo de recursos][2]
 
-### <a name="3-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>3. Criar um blogDemoHub do Hub IoT no grupo de recursos recentemente criado
+Crie um Hub IoT chamado **CLIDemoHub** no grupo de recursos criado recentemente:
 
-    az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+   ```cli
+   az iot hub create --name CLIDemoHub --resource-group IoTHubCLI --sku S1
+   ```
 
-![Criar Hub IoT][3]
+   >[!TIP]
+   >Cada assinatura é atribuída a um Hub IoT gratuito. Para criar um hub gratuito com o comando CLI, substitua o valor SKU por `--sku F1`. Se você já tiver um hub gratuito na sua assinatura, uma mensagem de erro será exibida ao tentar criar um segundo. 
 
+Crie um dispositivo IoT Edge:
 
-### <a name="4-create-an-iot-edge-device"></a>4. Criar um dispositivo IoT Edge
+   ```cli
+   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   ```
 
-    az iot hub device-identity create -d edge001 -n blogDemoHub --edge-enabled
+   ![Criar dispositivo IoT Edge][4]
 
-![Criar dispositivo IoT Edge][4]
+## <a name="configure-the-iot-edge-device"></a>Configurar o dispositivo IoT Edge
 
-### <a name="5-apply-configuration-to-the-iot-edge-device"></a>5. Aplicar a configuração para o dispositivo de IoT Edge
+Crie um modelo JSON de implantação e salve-o localmente como um arquivo txt. Você precisará do caminho para o arquivo quando executar o comando para a aplicar configuração.
 
-Salve o modelo de implantação de JSON localmente como um arquivo txt. Você precisará do caminho para o arquivo quando executar o comando para a aplicar configuração.
+Os modelos JSON de implantação sempre devem incluir os dois módulos do sistema, edgeAgent e edgeHub. Além desses dois, é possível usar esse arquivo para implantar módulos adicionais no dispositivo IoT Edge. Use o exemplo a seguir para configurar o dispositivo IoT Edge com um módulo tempSensor:
 
-Abaixo está um modelo de implantação de JSON de exemplo que contém um módulo tempSensor:
+   ```json
+   {
+     "moduleContent": {
+       "$edgeAgent": {
+         "properties.desired": {
+           "schemaVersion": "1.0",
+           "runtime": {
+             "type": "docker",
+             "settings": {
+               "minDockerVersion": "v1.25",
+               "loggingOptions": ""
+             }
+           },
+           "systemModules": {
+             "edgeAgent": {
+               "type": "docker",
+               "settings": {
+                 "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
+                 "createOptions": "{}"
+               }
+             },
+             "edgeHub": {
+               "type": "docker",
+               "status": "running",
+               "restartPolicy": "always",
+               "settings": {
+                 "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
+                 "createOptions": "{}"
+               }
+             }
+           },
+           "modules": {
+             "tempSensor": {
+               "version": "1.0",
+               "type": "docker",
+               "status": "running",
+               "restartPolicy": "always",
+               "settings": {
+                 "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
+                 "createOptions": "{}"
+               }
+             }
+           }
+         }
+       },
+       "$edgeHub": {
+         "properties.desired": {
+           "schemaVersion": "1.0",
+           "routes": {},
+           "storeAndForwardConfiguration": {
+             "timeToLiveSecs": 7200
+           }
+         }
+       },
+       "tempSensor": {
+         "properties.desired": {}
+       }
+     }
+   }
+   ```
 
-```json
-{
-  "moduleContent": {
-    "$edgeAgent": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "runtime": {
-          "type": "docker",
-          "settings": {
-            "minDockerVersion": "v1.25",
-            "loggingOptions": ""
-          }
-        },
-        "systemModules": {
-          "edgeAgent": {
-            "type": "docker",
-            "settings": {
-              "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
-              "createOptions": "{}"
-            }
-          },
-          "edgeHub": {
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
-              "createOptions": "{}"
-            }
-          }
-        },
-        "modules": {
-          "tempSensor": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
-              "createOptions": "{}"
-            }
-          }
-        }
-      }
-    },
-    "$edgeHub": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "routes": {},
-        "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 7200
-        }
-      }
-    },
-    "tempSensor": {
-      "properties.desired": {}
-    }
-  }
-}
-```
+Aplique a configuração no seu dispositivo IoT Edge:
 
-    az iot hub apply-configuration --device-id edge001 --hub-name blogDemoHub --content C:\<yourLocation>\edgeconfig.txt
+   ```cli
+   az iot hub apply-configuration --device-id edge001 --hub-name CLIDemoHub --content C:\<configuration.txt file path>
+   ```
 
-![Aplicar configuração][5]
-
-### <a name="6-list-modules"></a>6. Listar módulos
+Exiba os módulos no seu dispositivo IoT Edge:
     
-    az iot hub module-identity list --device-id edge001 --hub-name blogDemoHub
+   ```cli
+   az iot hub module-identity list --device-id edge001 --hub-name CLIDemoHub
+   ```
 
-![Listar módulos][6]
+   ![Listar módulos][6]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou uma função do Azure que contém código para filtrar os dados brutos gerados pelo seu dispositivo IoT Edge. Para continuar explorando o Azure IoT Edge, aprenda a usar um dispositivo IoT Edge como gateway. 
-
-> [!div class="nextstepaction"]
-> [Criar um dispositivo de gateway IoT Edge](how-to-create-transparent-gateway.md)
+* Saiba mais como [usar um dispositivo IoT Edge como um gateway](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 
 <!-- Images -->
-[1]: ./media/tutorial-create-deployment-with-cli-iot-extension/login.jpg
-[2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.jpg
-[3]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-hub.jpg
+[2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.png
 [4]: ./media/tutorial-create-deployment-with-cli-iot-extension/Create-edge-device.png
-[5]: ./media/tutorial-create-deployment-with-cli-iot-extension/apply-configuration.PNG
-[6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.PNG
+[6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.png
 

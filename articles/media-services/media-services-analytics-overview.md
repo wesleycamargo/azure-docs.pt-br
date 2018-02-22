@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análise de Mídia na plataforma de Serviços de Mídia
 ## <a name="overview"></a>Visão geral
@@ -50,6 +50,8 @@ O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração 
 O OCR (reconhecimento óptico de caracteres) de Mídia do Azure permite que você converta o conteúdo de texto de arquivos de vídeo em texto digital editável e pesquisável. Você poderá então automatizar a extração de metadados significativos do sinal de vídeo de sua mídia.
 ### <a name="scalable-face-redaction"></a>Edição facial escalonável
 O Azure Media Redactor é um processador de mídia da Análise de Mídia do Azure que oferece edição facial escalonável na nuvem. Usar a edição facial permite modificar seu vídeo para desfocar rostos de pessoas selecionadas. Pode ser útil usar o serviço de edição facial em cenários jornalísticos ou de segurança pública. Alguns minutos de vídeo que contém vários rostos podem levar horas para serem editados manualmente, contudo, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte o artigo [Edição facial com a Análise de Mídia do Azure](media-services-face-redaction.md).
+### <a name="content-moderation"></a>Moderação de conteúdo
+O Content Moderator do Azure possibilita usar a moderação auxiliada por computador para seus vídeos. Por exemplo, você talvez queira detectar possível conteúdo adulto e erótico em vídeos e revisar o conteúdo sinalizado por suas equipes de moderação humanas. Moderar manualmente o conteúdo indesejável de vídeos é uma tarefa cara e demorada. Com esse serviço e as ferramentas de revisão associadas, você combina a moderação auxiliada por computador com recursos humanos para obter melhores resultados de forma eficiente e econômica. Para saber mais, confira o artigo [Processar seus vídeos com Content Moderator do Azure](media-services-content-moderation.md).
 
 ## <a name="common-scenarios"></a>Cenários comuns
 A Análise de Mídia pode ajudar as organizações e empresas a obter novas informações de vídeos e gerenciar grandes volumes de conteúdo de vídeo com mais eficácia. Veja os diversos cenários a seguir:
@@ -69,6 +71,7 @@ Esta seção lista todos os processadores de mídia da Análise de Mídia e most
 * Detector de Movimento em Mídias do Azure
 * Miniaturas de Vídeo de Mídia do Azure
 * OCR de Mídia do Azure
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
 A função a seguir usa um dos nomes de MP especificados e retorna um objeto MP.
@@ -123,11 +126,6 @@ Resposta:
 ## <a name="demos"></a>Demonstrações
 Consulte [Demonstrações da Análise de Mídia do Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="next-steps"></a>Próximas etapas
-Examine os roteiros de aprendizagem dos Serviços de Mídia.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -137,3 +135,8 @@ Consulte o [Comunicado da análise dos Serviços de Mídia](https://azure.micros
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>Próximas etapas
+Examine os roteiros de aprendizagem dos Serviços de Mídia.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: "Automação de Especificações Técnicas do FedRAMP Azure – Planejamento de contingência"
-description: "Aplicativos Web para FedRAMP – Planejamento de contingência"
+title: "Especificações técnicas de segurança e conformidade do Azure – Automação de Aplicativos Web para FedRAMP – Planejamento de contingências"
+description: "Automação de Aplicativos Web para FedRAMP – Planejamento de contingências"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="contingency-planning-cp"></a>CP (Planejamento de contingência)
 
 > [!NOTE]
-> Estes controles são definidos pelo NIST e pelo Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre as diretrizes e os procedimentos de teste para cada controle.
+> Estes controles são definidos pelo NIST e pelos EUA. Departamento de Comércio dos EUA como parte da Publicação especial do NIST 800-53 Revisão 4. Consulte o NIST 800-53 Rev. 4 para obter informações sobre os procedimentos de teste e orientações para cada controle.
 
 ## <a name="nist-800-53-control-cp-1"></a>Controle NIST 800-53 CP-1
 
@@ -31,12 +31,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-1** A organização desenvolve, documenta e distribui à [Atribuição: equipe ou funções definidas pela organização] uma política de planejamento de contingência que aborda a finalidade, o escopo, as funções, as responsabilidades, o compromisso de gerenciamento, a coordenação entre entidades organizacionais e a conformidade; e os procedimentos para facilitar a implementação da política de planejamento de contingência e os controles de planejamento de contingência associados; e revisa e atualiza a política de planejamento de contingência atual [Atribuição: frequência definida pela organização]; e os procedimentos de planejamento de contingência [Atribuição: frequência definida pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | A política e procedimentos de planejamento de contingência de nível empresarial do cliente pode ser suficiente para endereçar este controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-2a"></a>Controle NIST 800-53 CP-2.a
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por distribuir o plano de contingência. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-2c"></a>Controle NIST 800-53 CP-2.c
@@ -73,12 +73,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2.c** A organização coordena atividades de planejamento de contingência com atividades de tratamento de incidentes.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela coordenação do planejamento de contingência com tratamento de incidentes. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-2d"></a>Controle NIST 800-53 CP-2.d
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por examinar o plano de contingência. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-2e"></a>Controle NIST 800-53 CP-2.e
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por atualizar o plano de contingência. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-2f"></a>Controle NIST 800-53 CP-2.f
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por comunicar alterações feitas no plano de contingência. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-2g"></a>Controle NIST 800-53 CP-2.g
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por proteger o plano de contingência. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-2-1"></a>Controle NIST 800-53 CP-2 (1)
@@ -143,12 +143,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-2 (1)** A organização coordena o desenvolvimento do plano de contingência com os elementos organizacionais responsáveis por planos relacionados.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente pode contar com a coordenação do plano de contingência de nível empresarial. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-2-2"></a>Controle NIST 800-53 CP-2 (2)
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente pode contar com um planejamento de contingência em toda a organização de nível empresarial para missões e funções de negócios essenciais. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-2-4"></a>Controle NIST 800-53 CP-2 (4)
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente pode contar com o planejamento de contingência em toda a organização de nível empresarial. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-2-5"></a>Controle NIST 800-53 CP-2 (5)
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente pode contar com o planejamento de contingência em toda a organização de nível empresarial para identificar ativos críticos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-3a"></a>Controle NIST 800-53 CP-3.a
@@ -227,12 +227,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-3.a** A organização fornece treinamento de continência para usuários do sistema de informações consistente com as funções e responsabilidades atribuídas dentro da [Atribuição: período de tempo definido pela organização] de assumir uma função ou responsabilidade de contingência.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O programa de treinamento de nível empresarial do cliente pode fornecer treinamento de contingência. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-3b"></a>Controle NIST 800-53 CP-3.b
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O programa de treinamento de nível empresarial do cliente pode fornecer treinamento de contingência baseado com base nos requisitos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-3c"></a>Controle NIST 800-53 CP-3.c
@@ -255,12 +255,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-3.c** A organização fornece treinamento de contingência para usuários do sistema de informações consistente com as funções e responsabilidades atribuídas [Atribuição: frequência definida pela organização] depois.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O programa de treinamento de nível empresarial do cliente pode fornecer treinamento de contingência contínuo. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-3-1"></a>Controle NIST 800-53 CP-3 (1)
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por examinar os resultados do teste do plano de contingência (consulte CP-04.a). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-4c"></a>Controle NIST 800-53 CP-4.c
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por iniciar a ação corretiva com relação ao teste do plano de contingência. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-4-1"></a>Controle NIST 800-53 CP-4 (1)
@@ -367,12 +367,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-6.a** A organização estabelece um site de armazenamento alternativo, incluindo contratos necessários, para permitir o armazenamento e a recuperação de informações de backup do sistema de informações.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Todas as contas de armazenamento implantadas por estas Especificações Técnicas do Azure são replicadas para garantir alta disponibilidade usando GRS (armazenamento com redundância geográfica). O GRS garante que os dados sejam replicados para uma região secundária; seis cópias de todos os dados são mantidas em nós separados entre dois datacenters. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Todas as contas de armazenamento implantadas por estas especificações técnicas são replicadas para garantir alta disponibilidade usando GRS (armazenamento com redundância geográfica). O GRS garante que os dados sejam replicados para uma região secundária; seis cópias de todos os dados são mantidas em nós separados entre dois datacenters. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-6b"></a>Controle NIST 800-53 CP-6.b
@@ -385,8 +385,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as contas de armazenamento implantadas por estas Especificações Técnicas do Azure são replicadas para garantir alta disponibilidade usando GRS (armazenamento com redundância geográfica). São implementados controles de segurança físicos uniformemente nos datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Todas as contas de armazenamento implantadas por estas especificações técnicas são replicadas para garantir alta disponibilidade usando GRS (armazenamento com redundância geográfica). São implementados controles de segurança físicos uniformemente nos datacenters do Azure. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-6-1"></a>Controle NIST 800-53 CP-6 (1)
@@ -399,8 +399,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as contas de armazenamento implantadas por estas Especificações Técnicas do Azure são replicadas para garantir alta disponibilidade usando GRS (armazenamento com redundância geográfica). O GRS garante que os dados são replicados para uma região secundária. Regiões primárias e secundárias são emparelhadas para garantir a distância necessária entre data centers e assegurar a disponibilidade em caso de desastre ou interrupção em toda a área. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Todas as contas de armazenamento implantadas por estas especificações técnicas são replicadas para garantir alta disponibilidade usando GRS (armazenamento com redundância geográfica). O GRS garante que os dados são replicados para uma região secundária. Regiões primárias e secundárias são emparelhadas para garantir a distância necessária entre data centers e assegurar a disponibilidade em caso de desastre ou interrupção em toda a área. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-6-2"></a>Controle NIST 800-53 CP-6 (2)
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as contas de armazenamento implantadas por estas Especificações Técnicas do Azure são replicadas para garantir alta disponibilidade usando GRS (armazenamento com redundância geográfica). O GRS garante que os dados são replicados para uma região secundária. Os clientes devem garantir que o modelo de replicação de dados do Azure é compatível com os objetivos de contingência. |
+| **Cliente** | Todas as contas de armazenamento implantadas por estas especificações técnicas são replicadas para garantir alta disponibilidade usando GRS (armazenamento com redundância geográfica). O GRS garante que os dados são replicados para uma região secundária. Os clientes devem garantir que o modelo de replicação de dados do Azure é compatível com os objetivos de contingência. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -428,7 +428,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os clientes não têm acesso aos datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure gerencia todos os datacenters da Microsoft e tem EMT (Equipes de Gerenciamento de Emergência) ativas para discutir com todos os membros da equipe quaisquer problemas de acessibilidade em sites de processamento alternativo caso haja um desastre ou interrupção em toda a área e detalha as ações de migração explícitas. Se houver uma interrupção no site primário, a equipe do Azure desse site não precisará acessar o site secundário, uma vez que já haverá uma equipe do Azure envolvida e operando no site secundário. Um desastre ou interrupção em toda a área no site primário não afetaria o site de armazenamento secundário do Microsoft Azure, porque ele está localizado em regiões geograficamente separadas para cada sistema. <br /> A equipe do Microsoft Azure com acesso lógico está localizada em Puget Sound, funcionando remotamente; portanto, não há preocupações de acessibilidade para a administração lógica do Microsoft Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure gerencia todos os datacenters da Microsoft e tem EMT (Equipes de Gerenciamento de Emergência) ativas para discutir com todos os membros da equipe quaisquer problemas de acessibilidade em sites de processamento alternativo caso haja um desastre ou interrupção em toda a área e detalha as ações de migração explícitas. Se houver uma interrupção no site primário, a equipe do Azure desse site não precisará acessar o site secundário, uma vez que já haverá uma equipe do Azure envolvida e operando no site secundário. Um desastre ou interrupção em toda a área no site primário não afetaria o site de armazenamento secundário do Microsoft Azure, porque ele está localizado em regiões geograficamente separadas para cada sistema. <br /> A equipe do Microsoft Azure com acesso lógico está localizada em Puget Sound, funcionando remotamente; portanto, não há preocupações de acessibilidade para a administração lógica do Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-cp-7a"></a>Controle NIST 800-53 CP-7.a
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Estas Especificações Técnicas do Azure contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. |
+| **Cliente** | Estas especificações técnicas contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Estas Especificações Técnicas do Azure contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. Ao implantar uma região alternativa do Azure, o provisionamento de equipamentos é gerenciado de forma transparente pelo Azure. |
+| **Cliente** | Estas especificações técnicas contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. Ao implantar uma região alternativa do Azure, o provisionamento de equipamentos é gerenciado de forma transparente pelo Azure. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -465,12 +465,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-7.c** A organização assegura que o site de processamento alternativo fornece garantias de segurança da informação equivalentes às do site primário.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Estas Especificações Técnicas do Azure contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. As garantias de segurança são implementadas uniformemente nos datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. As garantias de segurança são implementadas uniformemente nos datacenters do Azure. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-7-1"></a>Controle NIST 800-53 CP-7 (1)
@@ -483,8 +483,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Estas Especificações Técnicas do Azure contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. Os datacenters do Azure estão separados geograficamente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. Os datacenters do Azure estão separados geograficamente. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-7-2"></a>Controle NIST 800-53 CP-7 (2)
@@ -493,12 +493,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-7 (2)** A organização identifica potenciais problemas de acessibilidade no site de processamento alternativo em caso de desastres ou de interrupção em toda a área e descreve ações de mitigação explícitas.
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Os clientes não têm acesso aos datacenters do Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure gerencia todos os datacenters da Microsoft e tem EMT (Equipes de Gerenciamento de Emergência) ativas para discutir com todos os membros da equipe quaisquer problemas de acessibilidade em sites de processamento alternativo caso haja um desastre ou interrupção em toda a área e detalha as ações de migração explícitas. Se houver uma interrupção no site primário, a equipe do Azure desse site não precisará acessar o site secundário, uma vez que já haverá uma equipe do Azure envolvida e operando no site secundário. Um desastre ou interrupção em toda a área no site primário não afetaria o site de armazenamento secundário do Microsoft Azure, porque ele está localizado em regiões geograficamente separadas para cada sistema. <br /> A equipe do Microsoft Azure com acesso lógico está localizada em Puget Sound, funcionando remotamente; portanto, não há preocupações de acessibilidade para a administração lógica do Microsoft Azure. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure gerencia todos os datacenters da Microsoft e tem EMT (Equipes de Gerenciamento de Emergência) ativas para discutir com todos os membros da equipe quaisquer problemas de acessibilidade em sites de processamento alternativo caso haja um desastre ou interrupção em toda a área e detalha as ações de migração explícitas. Se houver uma interrupção no site primário, a equipe do Azure desse site não precisará acessar o site secundário, uma vez que já haverá uma equipe do Azure envolvida e operando no site secundário. Um desastre ou interrupção em toda a área no site primário não afetaria o site de armazenamento secundário do Microsoft Azure, porque ele está localizado em regiões geograficamente separadas para cada sistema. <br /> A equipe do Microsoft Azure com acesso lógico está localizada em Puget Sound, funcionando remotamente; portanto, não há preocupações de acessibilidade para a administração lógica do Microsoft Azure. |
 
 
  ### <a name="nist-800-53-control-cp-7-3"></a>Controle NIST 800-53 CP-7 (3)
@@ -511,8 +511,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Estas Especificações Técnicas do Azure contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. Ao implantar em uma região alternativa do Azure, a disponibilidade de recursos é gerenciada de forma transparente pelo Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. Ao implantar em uma região alternativa do Azure, a disponibilidade de recursos é gerenciada de forma transparente pelo Azure. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-7-4"></a>Controle NIST 800-53 CP-7 (4)
@@ -521,12 +521,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-7 (4)** A organização prepara o site de processamento alternativo para que ele esteja pronto para ser usado como o site operacional que dá suporte a missões e funções de negócios essenciais.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Estas Especificações Técnicas do Azure contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. Ao implantar em uma região alternativa do Azure, a preparação de recursos físicos é gerenciada de forma transparente pelo Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas contêm diretrizes sobre como esta solução pode ser implantada simultaneamente em várias regiões e configurada para fornecer redundância completa em um site de processamento alternativo. Ao implantar em uma região alternativa do Azure, a preparação de recursos físicos é gerenciada de forma transparente pelo Azure. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-8"></a>Controle NIST 800-53 CP-8
@@ -535,12 +535,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-8** A organização estabelecerá serviços de telecomunicações alternativos incluindo contratos necessários para permitir a retomada de [Atribuição: operações de sistema de informações definidas pela organização] para missões e funções de negócios essenciais dentro da [Atribuição: período de tempo definido pela organização] quando as funcionalidades de telecomunicações primários não estiverem disponíveis nos sites de armazenamento ou de processamento primários ou alternativos.
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Os clientes não controlam os serviços de telecomunicações que fornecem conectividade para sistemas no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure está localizado dentro dos datacenters do Microsoft Azure. O Microsoft Azure é responsável por garantir a continuidade de seus serviços de telecomunicações por meio do processo de utilização de diversas rotas de fibra e de hardware redundante para fornecer a máxima disponibilidade. Cada um dos datacenters representados como parte do limite do Microsoft Azure está ativo, é independente entre si e totalmente operacional com a capacidade de fornecer serviços a qualquer momento. Além da configuração ativa do datacenter, o Microsoft Azure minimiza também o risco de pontos únicos de falhas com vínculos de telecomunicações, exigindo que cada datacenter tenha pelo menos dois caminhos de fibra diferentes. A Microsoft tem e mantém sua própria rede de fibra cuja finalidade é dar suporte exclusivamente a propriedades da Microsoft, funcionando como um backbone de fibra global comparável a vários ISPs. A Microsoft fechou um contrato com a Level 3 Communications para fornecer a manutenção do serviço de campo em caso de falhas ou defeitos. O objetivo do nível de serviço para o tempo crítico e manutenção sob demanda para reparo é de 4 horas. Os problemas críticos são definidos como incidentes ou interrupções, diferentes dos causados por uma Interrupção dispensada, que causa uma falha no Equipamento da Microsoft o que faz a Microsoft não poder receber nenhum dado. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure está localizado dentro dos datacenters do Microsoft Azure. O Microsoft Azure é responsável por garantir a continuidade de seus serviços de telecomunicações por meio do processo de utilização de diversas rotas de fibra e de hardware redundante para fornecer a máxima disponibilidade. Cada um dos datacenters representados como parte do limite do Microsoft Azure está ativo, é independente entre si e totalmente operacional com a capacidade de fornecer serviços a qualquer momento. Além da configuração ativa do datacenter, o Microsoft Azure minimiza também o risco de pontos únicos de falhas com vínculos de telecomunicações, exigindo que cada datacenter tenha pelo menos dois caminhos de fibra diferentes. A Microsoft tem e mantém sua própria rede de fibra cuja finalidade é dar suporte exclusivamente a propriedades da Microsoft, funcionando como um backbone de fibra global comparável a vários ISPs. A Microsoft fechou um contrato com a Level 3 Communications para fornecer a manutenção do serviço de campo em caso de falhas ou defeitos. O objetivo do nível de serviço para o tempo crítico e manutenção sob demanda para reparo é de 4 horas. Os problemas críticos são definidos como incidentes ou interrupções, diferentes dos causados por uma Interrupção dispensada, que causa uma falha no Equipamento da Microsoft o que faz a Microsoft não poder receber nenhum dado. |
 
 
  ### <a name="nist-800-53-control-cp-8-1a"></a>Controle NIST 800-53 CP-8 (1).a
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os clientes não controlam os serviços de telecomunicações que fornecem conectividade para sistemas no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure está localizado dentro dos datacenters do Microsoft Azure. O Microsoft Azure controla seu próprio roteamento de rede e, portanto, a configuração de Prioridade de serviço para fins de emergência não é necessária. O Microsoft Azure é responsável por definir sua própria prioridade de roteamento com base nos requisitos de disponibilidade de propriedade e fins de emergência. No ambiente de nuvem, não há nenhuma ordem de prioridade, porque há diferentes equipes para colocar cada componente online novamente nos RTOs definidos para cada componente. Portanto, todos os componentes são uma prioridade em um cenário de interrupção. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure está localizado dentro dos datacenters do Microsoft Azure. O Microsoft Azure controla seu próprio roteamento de rede e, portanto, a configuração de Prioridade de serviço para fins de emergência não é necessária. O Microsoft Azure é responsável por definir sua própria prioridade de roteamento com base nos requisitos de disponibilidade de propriedade e fins de emergência. No ambiente de nuvem, não há nenhuma ordem de prioridade, porque há diferentes equipes para colocar cada componente online novamente nos RTOs definidos para cada componente. Portanto, todos os componentes são uma prioridade em um cenário de interrupção. |
 
 
  ### <a name="nist-800-53-control-cp-8-1b"></a>Controle NIST 800-53 CP-8 (1).b
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os clientes não controlam os serviços de telecomunicações que fornecem conectividade para sistemas no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure está localizado dentro dos datacenters do Microsoft Azure. O Microsoft Azure controla seu próprio roteamento de rede e, portanto, a configuração de Prioridade de serviço para fins de emergência não é necessária. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure está localizado dentro dos datacenters do Microsoft Azure. O Microsoft Azure controla seu próprio roteamento de rede e, portanto, a configuração de Prioridade de serviço para fins de emergência não é necessária. |
 
 
  ### <a name="nist-800-53-control-cp-8-2"></a>Controle NIST 800-53 CP-8 (2)
@@ -577,12 +577,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-8 (2)** A organização obtém os serviços de telecomunicações alternativos para reduzir a probabilidade de compartilhar um ponto único de falha com serviços de telecomunicações primários.
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
 | **Cliente** | Os clientes não controlam os serviços de telecomunicações que fornecem conectividade para sistemas no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure minimiza o risco de pontos únicos de falhas com vínculos de telecomunicações, exigindo que cada datacenter tenha pelo menos dois caminhos de fibra diferentes. A Microsoft tem e mantém sua própria rede de fibra cuja finalidade é dar suporte exclusivamente a propriedades da Microsoft, funcionando como um backbone de fibra global comparável a vários ISPs. O Microsoft Azure fechou um contrato com um grande provedor para oferecer manutenção de serviço de campo em caso de falhas ou defeitos. O objetivo do nível de serviço para o tempo crítico e manutenção sob demanda para reparo é de 4 horas. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure minimiza o risco de pontos únicos de falhas com vínculos de telecomunicações, exigindo que cada datacenter tenha pelo menos dois caminhos de fibra diferentes. A Microsoft tem e mantém sua própria rede de fibra cuja finalidade é dar suporte exclusivamente a propriedades da Microsoft, funcionando como um backbone de fibra global comparável a vários ISPs. O Microsoft Azure fechou um contrato com um grande provedor para oferecer manutenção de serviço de campo em caso de falhas ou defeitos. O objetivo do nível de serviço para o tempo crítico e manutenção sob demanda para reparo é de 4 horas. |
 
 
  ### <a name="nist-800-53-control-cp-8-3"></a>Controle NIST 800-53 CP-8 (3)
@@ -610,7 +610,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os clientes não controlam os serviços de telecomunicações que fornecem conectividade para sistemas no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure implementou a política de planejamento de contingência por meio da publicação da Política de segurança da Microsoft, mantida pela segurança do Azure. O objetivo da política de gerenciamento de continuidade do Azure é proteger os clientes externos e o negócio interno da Microsoft fornecendo uma resiliência funcional e de serviço juntamente com uma funcionalidade de segurança para restaurar os serviços assinados e as principais competências de negócios em um período de tempo predeterminado durante uma interrupção significativa. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure implementou a política de planejamento de contingência por meio da publicação da Política de segurança da Microsoft, mantida pela segurança do Azure. O objetivo da política de gerenciamento de continuidade do Azure é proteger os clientes externos e o negócio interno da Microsoft fornecendo uma resiliência funcional e de serviço juntamente com uma funcionalidade de segurança para restaurar os serviços assinados e as principais competências de negócios em um período de tempo predeterminado durante uma interrupção significativa. |
 
 
  ### <a name="nist-800-53-control-cp-8-4b"></a>Controle NIST 800-53 CP-8 (4).b
@@ -624,7 +624,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os clientes não controlam os serviços de telecomunicações que fornecem conectividade para sistemas no Azure. |
-| **Provedor (Microsoft Azure)** | A Política de segurança do Microsoft Azure é revisada e aprovada anualmente pelo gerenciamento de segurança do Azure e mantida na ferramenta do GRC. A Política de segurança da Microsoft aplica-se em toda a organização a todas as informações e processos usados na condução de negócios da Microsoft. Todos os funcionários e a equipe contingente da Microsoft são responsáveis por cumprir estes princípios fundamentais e suas funções designadas. |
+| **Fornecedor (Microsoft Azure)** | A Política de segurança do Microsoft Azure é revisada e aprovada anualmente pelo gerenciamento de segurança do Azure e mantida na ferramenta do GRC. A Política de segurança da Microsoft aplica-se em toda a organização a todas as informações e processos usados na condução de negócios da Microsoft. Todos os funcionários e a equipe contingente da Microsoft são responsáveis por cumprir estes princípios fundamentais e suas funções designadas. |
 
 
  ### <a name="nist-800-53-control-cp-8-4c"></a>Controle NIST 800-53 CP-8 (4).c
@@ -638,7 +638,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Os clientes não controlam os serviços de telecomunicações que fornecem conectividade para sistemas no Azure. |
-| **Provedor (Microsoft Azure)** | O Microsoft Azure implementa testes e exercícios do plano de contingência seguindo a política definida no ERDRP do Datacenter do Azure. Os procedimentos de manutenção e de testes do plano de contingência são implementados com o objetivo de manter o ERDRP em um estado de preparação consistente. Esses procedimentos aplicam-se à manutenção contínua, testes e requisitos de treinamento do ERDRP. A coordenação do ERDRP é de responsabilidade do Gerenciador de Datacenter. O Gerenciador de Datacenter é responsável pela revisão e pelo teste do ERDRP pelo menos uma vez por ano. |
+| **Fornecedor (Microsoft Azure)** | O Microsoft Azure implementa testes e exercícios do plano de contingência seguindo a política definida no ERDRP do Datacenter do Azure. Os procedimentos de manutenção e de testes do plano de contingência são implementados com o objetivo de manter o ERDRP em um estado de preparação consistente. Esses procedimentos aplicam-se à manutenção contínua, testes e requisitos de treinamento do ERDRP. A coordenação do ERDRP é de responsabilidade do Gerenciador de Datacenter. O Gerenciador de Datacenter é responsável pela revisão e pelo teste do ERDRP pelo menos uma vez por ano. |
 
 
  ## <a name="nist-800-53-control-cp-9a"></a>Controle NIST 800-53 CP-9.a
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Estas Especificações Técnicas do Azure implantam um Cofre de Serviços de Recuperação. As informações de nível de usuário no banco de dados SQL implantado são implementadas usando a extensão IaaS da VM do SQL. |
+| **Cliente** | Estas especificações técnicas implantam um Cofre dos Serviços de Recuperação do Microsoft Azure. As informações de nível de usuário no banco de dados SQL implantado são implementadas usando a extensão IaaS da VM do SQL. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Estas Especificações Técnicas do Azure implantam um Cofre de Serviços de Recuperação. Uma política de Backup do Azure é estabelecida para todas as máquinas virtuais que implementam uma retenção de imagem de backup diária, semanal, mensal e anual.  |
+| **Cliente** | Estas especificações técnicas implantam um Cofre dos Serviços de Recuperação do Microsoft Azure. Uma política de Backup do Azure é estabelecida para todas as máquinas virtuais que implementam uma retenção de imagem de backup diária, semanal, mensal e anual.  |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -689,12 +689,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-9.d** A organização protege a confidencialidade, integridade e disponibilidade das informações de backup em locais de armazenamento.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | A confidencialidade e a integridade de todos os blobs de armazenamento implantados por estas Especificações Técnicas do Azure são protegidas por meio do uso do Azure SSE, que usa a criptografia AES de 256 bit para todos os dados em repouso. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | A confidencialidade e a integridade de todos os blobs de armazenamento implantados por estas especificações técnicas são protegidas por meio do uso do Azure SSE, que usa a criptografia AES de 256 bits para todos os dados em repouso. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-9-1"></a>Controle NIST 800-53 CP-9 (1)
@@ -703,7 +703,7 @@ ms.lasthandoff: 11/23/2017
 
 **CP-9 (1)** A organização testa informações de backup [Atribuição: frequência definida pela organização] para verificar a confiabilidade de mídia e a integridade das informações.
 
-**Responsabilidades:** `Azure Only`
+**Responsibilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -722,7 +722,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por testar informações de backup. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-9-3"></a>Controle NIST 800-53 CP-9 (3)
@@ -736,7 +736,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por armazenar informações de backup separadamente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-9-5"></a>Controle NIST 800-53 CP-9 (5)
@@ -749,8 +749,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as contas de armazenamento implantadas dentro destas Especificações Técnicas do Azure, incluindo as usadas para backup, implementam o armazenamento com redundância geográfica, garantindo que seis cópias de todos os dados sejam mantidas em nós separados em dois datacenters. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Todas as contas de armazenamento implantadas com estas especificações técnicas, incluindo as usadas para backup, implementam o armazenamento com redundância geográfica, garantindo que seis cópias de todos os dados sejam mantidas em nós separados em dois datacenters. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cp-10"></a>Controle NIST 800-53 CP-10
@@ -759,12 +759,12 @@ ms.lasthandoff: 11/23/2017
 
 **CP-10** A organização proporciona a recuperação e a reconstituição do sistema de informações para um estado conhecido após uma interrupção, comprometimento ou falha.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela recuperação e reconstituição de recursos implantados pelo cliente (para incluir aplicativos, sistemas operacionais, bancos de dados e software). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cp-10-2"></a>Controle NIST 800-53 CP-10 (2)
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Estas Especificações Técnicas do Azure implantam o SQL Server em um Grupo de Disponibilidade AlwaysOn. O SQL Server mantém um log de transações que é compatível com a recuperação de transações em caso de falha no sistema. |
+| **Cliente** | Estas especificações técnicas implantam o SQL Server em um Grupo de Disponibilidade AlwaysOn. O SQL Server mantém um log de transações que é compatível com a recuperação de transações em caso de falha no sistema. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -792,5 +792,5 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por restaurar recursos implantados por ele para um estado operacional conhecido. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 

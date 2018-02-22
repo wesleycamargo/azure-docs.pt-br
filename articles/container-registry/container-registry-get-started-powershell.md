@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/08/2017
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Criar um Registro de Contêiner do Azure usando o PowerShell
 
@@ -21,7 +21,7 @@ O Registro de Contêiner do Azure é um serviço de registro de contêiner Docke
 
 Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Você também deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Você também deve ter o Docker instalado localmente. O Docker fornece pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -57,13 +57,13 @@ Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Depois, use o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) para fazer logon na instância do ACR.
+Depois, use o comando [logon do docker][docker-login] para fazer logon na instância do ACR.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-O comando retorna uma mensagem de 'Logon bem-sucedido' assim que ele for concluído.
+O comando retorna `Login Succeeded` na conclusão. Você também poderá ver um aviso de segurança recomendando usar o parâmetro `--password-stdin`. Embora seu uso esteja fora do escopo deste artigo, é recomendável seguir essa prática recomendada. Consulte a referência do comando [docker login][docker-login] para ver mais informações.
 
 ## <a name="push-image-to-acr"></a>Enviar imagem por push para o ACR
 
@@ -79,13 +79,13 @@ A imagem precisa ser marcada com o nome do servidor de logon do ACR. Execute o c
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Marque a imagem usando o comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Substitua o *acrLoginServer* pelo nome do servidor de logon da sua instância do ACR.
+Marque a imagem usando o comando [docker tag][docker-tag]. Substitua o *acrLoginServer* pelo nome do servidor de logon da sua instância do ACR.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Por fim, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) para enviar as imagens por push para a instância do ACR. Substitua o *acrLoginServer* pelo nome do servidor de logon da sua instância do ACR.
+Por fim, use [push do docker][docker-push] para enviar as imagens por push para a instância do ACR. Substitua o *acrLoginServer* pelo nome do servidor de logon da sua instância do ACR.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -105,3 +105,11 @@ Neste guia de início rápido, você ciou um Registro de Contêiner do Azure com
 
 > [!div class="nextstepaction"]
 > [Tutorial sobre Instâncias de Contêiner do Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Como criar um ambiente externo do Serviço de Aplicativo #
 
@@ -32,7 +32,7 @@ Este artigo mostra como criar um ASE Externo. Para obter uma visão geral do ASE
 
 Depois de criar o seu ASE, você não pode alterar os seguintes itens:
 
-- Local
+- Local padrão
 - Assinatura
 - Grupo de recursos
 - VNET usada
@@ -87,7 +87,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
     b. Digite um novo nome de sub-rede.
 
-    c. Selecionar o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos `/25`, que tem 128 endereços e pode manipular um ASE de tamanho máximo. Não recomendamos `/28`, por exemplo, porque tem somente 16 endereços disponíveis. Infraestrutura usa pelo menos cinco endereços. Em uma sub-rede `/28`, você tem um dimensionamento máximo de 11 instâncias.
+    c. Selecionar o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos `/25`, que tem 128 endereços e pode manipular um ASE de tamanho máximo. Não recomendamos `/28`, por exemplo, porque tem somente 16 endereços disponíveis. A infraestrutura usa pelo menos sete endereços e a Rede do Azure usa outros 5. Em uma sub-rede `/28`, você fica com um dimensionamento máximo de 4 instâncias do Plano do Serviço de Aplicativo para uma ASE externa e apenas 3 instâncias do Plano do Serviço de Aplicativo para uma ASE ILB.
 
     d. Selecione o intervalo de IP da sub-rede.
 

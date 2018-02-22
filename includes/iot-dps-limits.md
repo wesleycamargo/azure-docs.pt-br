@@ -9,7 +9,7 @@ A tabela a seguir lista os limites que se aplicam aos recursos do Serviço de Pr
 | Número máximo de CAs | 10 |
 
 > [!NOTE]
-> Esses limites são para versão prévia pública. Quando o serviço estiver disponível, você poderá contatar o [Suporte da Microsoft](https://azure.microsoft.com/support/options/) para aumentar o número de instâncias em sua assinatura.
+> Você pode contatar o [Suporte da Microsoft](https://azure.microsoft.com/support/options/) para aumentar o número de instâncias em sua assinatura.
 
 O serviço de Provisionamento de Dispositivo restringe as solicitações quando as seguintes cotas são excedidas:
 

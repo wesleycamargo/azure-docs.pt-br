@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do SQL Server para o Armazenamento de Blobs usando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados de um armazenamento de dados local para a nuvem do Azure usando o tempo de execução integrado e auto-hospedado no Azure Data Factory."
+description: "Saiba como copiar dados de um armazenamento de dados local para a nuvem usando o tempo de execução integrado e auto-hospedado no Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ced708febe848d4555429b78c0227a35b7f0c79f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar os dados de um banco de dados de SQL Server local para um Armazenamento de Blobs do Azure
-Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual move dados entre locais e armazenamentos de dados da nuvem. 
+# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
+Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual move dados entre locais e armazenamentos de dados da nuvem.
 
 > [!NOTE]
-> Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do Data Factory, que está geralmente disponível, confira a [Documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> Este artigo não fornece uma introdução detalhada do serviço de Data Factory. Para obter mais informações, consulte [Introdução ao Azure Data Factory](introduction.md). 
+> Este artigo não fornece uma introdução detalhada ao Data Factory. Para saber mais, confira [Introdução ao Data Factory](introduction.md). 
 
 Neste tutorial, você executa as seguintes etapas:
 
@@ -43,19 +43,18 @@ Neste tutorial, você executa as seguintes etapas:
 Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
 ### <a name="azure-roles"></a>Funções do Azure
-Para criar instâncias de data factory, a conta de usuário usada para fazer logon no Azure deve ter uma função de *colaborador* ou *proprietário* atribuída ou deve ser um *administrador* da assinatura do Azure. 
+Para criar instâncias de data factory, a conta de usuário usada para entrar no Azure deve ter uma função de *colaborador* ou *proprietário* atribuída, ou deve ser um *administrador* da assinatura do Azure. 
 
-Para exibir as permissões que você tem com a assinatura, vá até o portal do Azure, selecione seu nome de usuário no canto superior direito e depois **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, consulte o artigo [Adicionar funções](../billing/billing-add-change-azure-subscription-administrator.md).
+Para exibir as permissões que você tem na assinatura, acesse o portal do Azure. Selecione seu nome de usuário no canto superior direito e depois selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira [Adicionar funções](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
-Neste tutorial, você usa um banco de dados do SQL Server local como um armazenamento de dados de *fonte*. O pipeline no data factory criado neste tutorial copia dados desse banco de dados do SQL Server local (fonte) para um armazenamento de Blobs do Azure (coletor). Depois, crie uma tabela chamada **emp** no seu banco de dados do SQL Server e insira algumas entradas de exemplo na tabela. 
+Neste tutorial, você usa um banco de dados do SQL Server local como um armazenamento de dados de *fonte*. O pipeline no data factory criado neste tutorial copia dados desse banco de dados do SQL Server local (origem) para um Armazenamento de blobs (coletor). Depois você cria uma tabela chamada **emp** no seu banco de dados do SQL Server e insere algumas entradas de exemplo na tabela. 
 
 1. Inicie o SQL Server Management Studio. Se ainda não estiver instalado em seu computador, vá para [Baixar o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
 
 2. Conecte-se à sua instância do SQL Server usando suas credenciais. 
 
 3. Criar um banco de dados de exemplo. No modo de exibição de árvore, clique com o botão direito do mouse em **Bancos de Dados** e selecione **Novo Banco de Dados**. 
- 
 4. Na janela **Novo Banco de Dados**, digite um nome para o banco de dados e selecione **OK**. 
 
 5. Para criar a tabela **emp** e inserir alguns dados de exemplo nela, execute o seguinte script de consulta no banco de dados:
@@ -77,43 +76,43 @@ Neste tutorial, você usa um banco de dados do SQL Server local como um armazena
 6. No modo de exibição de árvore, clique com o botão direito do mouse no banco de dados que você criou e selecione **Nova Consulta**.
 
 ### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
-Neste tutorial, use uma conta de armazenamento do Azure de uso geral (especificamente o Armazenamento de Blobs do Azure) como um armazenamento de dados de destino/coletor. Se você não tiver uma conta de armazenamento de uso geral do Azure, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account). O pipeline no data factory criado neste tutorial copia dados do banco de dados do SQL Server local (fonte) para este armazenamento de Blobs do Azure (coletor). 
+Neste tutorial, você usa uma conta de armazenamento do Azure para fins gerais (especificamente o Armazenamento de blobs) como armazenamento de dados de destino/coletor. Se você não tiver uma conta de armazenamento de uso geral do Azure, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account). O pipeline no data factory que você cria neste tutorial copia dados do banco de dados do SQL Server local (origem) para este armazenamento de Blobs do Azure (coletor). 
 
-#### <a name="get-storage-account-name-and-account-key"></a>Obter o nome da conta de armazenamento e a chave da conta
-Você usa o nome e a chave da sua conta de armazenamento do Azure neste tutorial. Obtenha o nome e a chave da sua conta de armazenamento fazendo o seguinte: 
+#### <a name="get-the-storage-account-name-and-account-key"></a>Obter o nome da conta de armazenamento e a chave da conta
+Use o nome e a chave da sua conta de armazenamento neste tutorial. Para obter o nome e a chave da sua conta de armazenamento, realize as etapas a seguir: 
 
-1. Entre no [portal do Azure](https://portal.azure.com) com sua conta e senha do Azure. 
+1. Entre no [portal do Azure](https://portal.azure.com) com seu nome de usuário e senha do Azure. 
 
-2. No painel esquerdo, selecione **Mais serviços**, filtre usando a palavra-chave **Armazenamento** e selecione **Contas de armazenamento**.
+2. No painel esquerdo, selecione **Mais serviços**. Filtre usando a palavra-chave **Armazenamento** e selecione **Contas de armazenamento**.
 
-    ![Pesquisar conta de armazenamento](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![Pesquisa na conta de armazenamento](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
 
-3. Na lista de contas de armazenamento, filtre pela sua conta de armazenamento (se necessário) e, em seguida, selecione a sua conta de armazenamento. 
+3. Na lista de contas de armazenamento, filtre pela sua conta de armazenamento, se necessário. Em seguida, selecione sua conta de armazenamento. 
 
 4. Na janela **Conta de armazenamento**, selecione **Chaves de acesso**.
 
-    ![Obter nome e chave da conta de armazenamento](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
+    ![Chaves de acesso](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 5. Nas caixas **Nome da conta de armazenamento** e **key1**, copie os valores e depois cole-os no Bloco de Notas ou outro editor para uso posterior neste tutorial. 
 
 #### <a name="create-the-adftutorial-container"></a>Criar o contêiner adftutorial 
-Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu armazenamento de Blobs do Azure. 
+Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu Armazenamento de blobs. 
 
-1. Na janela **Conta de armazenamento**, alterne para **Visão geral** e depois selecione **Blobs**. 
+1. Na janela **Conta de armazenamento**, vá para **Visão geral** e depois selecione **Blobs**. 
 
     ![Selecione a opção Blobs](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
 2. Na janela **Serviço Blob**, selecione **Contêiner**. 
 
-    ![Botão Adicionar contêiner](media/tutorial-hybrid-copy-powershell/add-container-button.png)
+    ![Botão Contêiner](media/tutorial-hybrid-copy-powershell/add-container-button.png)
 
-3. Na janela **Novo contêiner**, na caixa **Nome**, insira **adftutorial** e depois selecione **OK**. 
+3. Na janela **Novo contêiner**, em **Nome**, digite **adftutorial**. Depois, selecione **OK**. 
 
-    ![Inserir o nome do contêiner](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    ![Janela Novo contêiner](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
-4. Na lista de contêineres, selecione **adftutorial**.  
+4. Na lista de contêineres, selecione **adftutorial**.
 
-    ![Selecione o contêiner](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Seleção de contêiner](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
 5. Mantenha aberta a janela **contêiner** para **adftutorial**. Você o usa para verificar a saída no final do tutorial. O Data Factory cria automaticamente a pasta de saída nesse contêiner, portanto você não precisa criar uma.
 
@@ -121,154 +120,169 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
-Nesta etapa, você criará um data factory e iniciará a interface do usuário do Azure Data Factory para criar um pipeline no data factory. 
+Nesta etapa, você cria um data factory e inicia a interface do usuário do Data Factory para criar um pipeline no data factory. 
 
-1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
+1. Abra o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+2. No menu à esquerda, selecione **Novo** > **Dados + Análise** > **Data Factory**.
    
-   ![Novo -> DataFactory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
-2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **nome**. 
+   ![Criação do novo data factory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
+3. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**. 
       
      ![Página de novo data factory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
  
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se a seguinte mensagem de erro for exibida para o campo nome, altere o nome do data factory (por exemplo, yournameADFTutorialDataFactory). Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
+   O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem de erro for exibida para o campo nome, altere o nome do data factory (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
   
-     ![Página de novo data factory](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
-3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
-4. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
+   ![Novo nome do data factory](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
+4. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
+5. Em **Grupo de Recursos**, use uma das seguintes etapas:
      
-      - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
-      - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
-         
-        Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selecione **V2 (Versão Prévia)** para a **versão**.
-5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
-6. Selecione **Fixar no painel**.     
-7. Clique em **Criar**.      
-8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
+      - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
 
-    ![implantando bloco data factory](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
-9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
+      - Selecione **Criar novo**e insira o nome de um grupo de recursos.
+         
+    Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+6. Em **Versão**, selecione **V2 (Versão prévia)**.
+7. Em **Local**, selecione o local para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo Data Factory podem estar em outras regiões.
+8. Selecione **Fixar no painel**. 
+9. Selecione **Criar**.
+10. No painel, o bloco com o seguinte status é exibido: **Implantando o Data Factory**:
+
+    ![Bloco Como implantar o Data Factory](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
+11. Depois que a criação estiver concluída, a página **Data Factory** será exibida conforme mostrado na imagem:
    
-   ![Página inicial da data factory](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
-10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada. 
+    ![Página inicial da data factory](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
+12. Selecione o bloco **Criar e Monitorar** para iniciar a interface do usuário do Data Factory em uma guia separada. 
 
 
 ## <a name="create-a-pipeline"></a>Criar uma pipeline
 
-1. Na página **Introdução**, clique em **Criar pipeline**. Um pipeline é criado automaticamente para você. Você vê o pipeline na exibição de árvore e abre o editor. 
+1. Na página **Introdução**, selecione **Criar pipeline**. Um pipeline é criado automaticamente para você. Você vê o pipeline no modo de exibição de árvore e o editor é aberto. 
 
    ![Página Introdução](./media/tutorial-hybrid-copy-portal/get-started-page.png)
-2. Na guia **Geral** da janela **Propriedades** na parte inferior, insira **SQLServerToBlobPipeline** em **Nome**.
+2. Na guia **Geral** na parte inferior da janela **Propriedades**, insira **SQLServerToBlobPipeline** em **Nome**.
 
    ![Nome do pipeline](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
-2. Na caixa de ferramentas **Atividades**, expanda **Fluxo de Dados**e arraste e solte a atividade **Cópia** para a superfície de design do pipeline. Defina o nome da atividade como **CopySqlServerToAzureBlobActivity**.
+3. Na caixa de ferramentas **Atividades**, expanda **DataFlow**. Arraste e solte a atividade de **Cópia** na superfície de design do pipeline. Defina o nome da atividade como **CopySqlServerToAzureBlobActivity**.
 
    ![Nome da atividade](./media/tutorial-hybrid-copy-portal/copy-activity-name.png)
-3. Na janela Propriedades, alterne para a guia **Origem** e, em seguida, clique em **+ Novo**.
+4. Na janela **Propriedades**, vá para a guia **Origem** e selecione **+ Novo**.
 
-   ![Novo conjunto de dados de origem - botão](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
-4. Na janela **Novo Conjunto de Dados**, procure **SQL Server**, selecione **SQL Server** e clique em **Concluir**. Você verá uma nova guia intitulada **SqlServerTable1**. Consulte também o conjunto de dados **SqlServerTable1** no modo de exibição de árvore à esquerda. 
+   ![Guia Origem](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
+5. Na janela **Novo Conjunto de Dados**, procure **SQL Server**. Selecione **SQL Server**e selecione **Concluir**. Você verá uma nova guia intitulada **SqlServerTable1**. Você também pode ver o conjunto de dados **SqlServerTable1** no modo de exibição de árvore à esquerda. 
 
-   ![Selecionar SQL Server](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
-5. Na guia **Geral** da janela Propriedades, insira **SqlServerDataset** como **Nome**.
+   ![Seleção do SQL Server](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
+6. Na guia **Geral** na parte inferior da janela **Propriedades**, insira **SqlServerDataset** em **Nome**.
     
-   ![Conjunto de Dados de Origem - nome](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
-6. Alterne para a guia **Conexões** e, em seguida, clique em **+ Novo**. Você pode criar uma conexão com o repositório de dados de origem (banco de dados do SQL Server) nesta etapa. 
+   ![Nome do conjunto de dados de origem](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
+7. Vá para a guia **Conexão** e selecione **+ Novo**. Você pode criar uma conexão com o repositório de dados de origem (banco de dados do SQL Server) nesta etapa. 
 
-   ![Conjunto de Dados de Origem - botão nova conexão](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
-7. Na janela **Novo Serviço Vinculado**, clique em **Novo tempo de execução de integração**. Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um computador local com o banco de dados do SQL Server. O Integration Runtime auto-hospedado é o componente que copia dados do banco de dados do SQL Server em seu computador para o armazenamento de Blobs do Azure. 
+   ![Conexão com o conjunto de dados de origem](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
+8. Na janela **Novo Serviço Vinculado**, selecione **Novo Tempo de Execução de Integração**. Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um computador local com o banco de dados do SQL Server. O tempo de execução de integração auto-hospedado é o componente que copia dados do banco de dados do SQL Server em seu computador para o armazenamento de Blobs. 
 
    ![Novo tempo de execução de integração](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
-8. Na janela **Instalação do Integration Runtime**, selecione **Rede Privada** e clique em **Avançar**. 
+9. Na janela **Instalação do Tempo de Execução de Integração**, selecione **Rede Privada** e clique em **Avançar**. 
 
-   ![Selecionar rede privada](./media/tutorial-hybrid-copy-portal/select-private-network.png)
-9. Insira um nome para o tempo de execução de integração e clique em **Avançar**.  
+   ![Seleção de rede privada](./media/tutorial-hybrid-copy-portal/select-private-network.png)
+10. Insira um nome para o tempo de execução de integração e selecione **Avançar**.
     
-   ![Integration Runtime - nome](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
-10. Clique em **Clique aqui para iniciar a instalação expressa para este computador** na seção **Opção 1: instalação Expressa**. 
+    ![Nome do tempo de execução de integração](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
+11. Selecione **Clique aqui para iniciar a instalação expressa para este computador** em **Opção 1: Instalação expressa**. 
 
-   ![Clique no link de instalação Expressa](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
-11. Na janela **Instalação Expressa do Microsoft Integration Runtime (auto-hospedado)**, clique em **Fechar**. 
+    ![Clique no link Instalação expressa](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+12. Na janela **Instalação Expressa do Tempo de Execução de Integração (auto-hospedado)**, selecione **Fechar**. 
 
-   ![Instalação do tempo de execução de integração - êxito](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. No navegador da Web, na janela **Configuração de Tempo de Execução de Integração**, clique em **Concluir**. 
+    ![Instalação expressa do tempo de execução de integração (auto-hospedado)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
+13. No navegador da Web, na janela **Instalação do Tempo de Execução de Integração**, selecione **Concluir**. 
 
-   ![Configuração do tempo de execução de integração - conclusão](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
-13. Na janela **Novo serviço vinculado** execute as seguintes etapas:
+    ![Configuração do tempo de execução de integração](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
+14. Na janela **Novo Serviço Vinculado**, siga as etapas a seguir:
 
-    1. Insira **SqlServerLinkedService** como **Nome**.
-    2. Confirme que o tempo de execução de integração auto-hospedado criado anteriormente é mostrado para **Conectar por meio da integração de tempo de execução**.
-    3. Especifique o nome do SQL Server para **Nome do servidor**. 
-    4. Especifique o nome do banco de dados com a tabela **emp** para o campo **Nome do banco de dados**. 
-    5. Selecione o **tipo de autenticação** adequado que o Data Factory deve usar para se conectar ao seu banco de dados do SQL Server. 
-    6. Insira o **nome de usuário** e a **senha**. Se precisar usar um caractere de barra invertida (\\) em sua conta de usuário e nome de servidor, use o caractere de escape à frente (\\). Por exemplo, use *mydomain\\\\myuser*. 
-    7. Clique em **Testar conectividade**. Siga esta etapa para confirmar que o serviço Data Factory pode se conectar ao banco de dados do SQL Server usando o tempo de execução de integração auto-hospedado criado por você. 
-    8. Para salvar um serviço vinculado, clique em **Salvar**.
+    a. Em **Nome**, insira **SqlServerLinkedService**.
 
-       ![Serviço vinculado do SQL Server - configurações](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
-14. Você deve ter voltado para a janela com o conjunto de dados de origem aberto. Na **Conexão** da janela **Propriedades**, siga estas etapas: 
+    b. Confirme que o tempo de execução de integração auto-hospedado criado anteriormente é mostrado em **Conectar por meio do tempo de execução de integração**.
 
-    1. Confirme que você vê **SqlServerLinkedService** como **Serviço vinculado**. 
-    2. Selecione **[dbo].[emp]** como **Tabela**.
+    c. Em **Nome do servidor**, insira o nome da instância do SQL Server. 
 
-        ![Conjunto de Dados de Origem - informações de conexão](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
-15. Alterne para a guia com p SQLServerToBlobPipeline (ou) clique em **SQLServerToBlobPipeline** no modo de exibição de árvore. 
+    d. Em **Nome do banco de dados**, insira o nome do banco de dados com a tabela **emp**.
+
+    e. Em **tipo de autenticação**, selecione o tipo de autenticação adequado que o Data Factory deve usar para se conectar ao seu banco de dados do SQL Server.
+
+    f. Em **Nome de usuário** e **Senha**, digite o nome de usuário e a senha. Se precisar usar um caractere de barra invertida (\\) em sua conta de usuário e nome de servidor, use o caractere de escape à frente (\\). Por exemplo, use *mydomain\\\\myuser*.
+
+    g. Selecione **Testar conexão**. Siga esta etapa para confirmar que o Data Factory pode se conectar ao banco de dados do SQL Server usando o tempo de execução de integração auto-hospedado criado por você.
+
+    h. Para salvar o serviço vinculado, selecione **Salvar**.
+
+       ![Configurações de novo serviço vinculado](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
+15. Você deve ter voltado para a janela com o conjunto de dados de origem aberto. Na guia **Conexão** da janela **Propriedades**, siga as etapas a seguir: 
+
+    a. Em **Serviço vinculado**, confirme que você vê **SqlServerLinkedService** como Serviço vinculado.
+
+    b. Em **Tabela**, selecione **[dbo].[emp]**.
+
+    ![Conjunto de dados de origem - informações de conexão](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
+16. Vá para a guia com **SQLServerToBlobPipeline**, ou selecione **SQLServerToBlobPipeline** no modo de exibição de árvore. 
 
     ![Guia Pipeline](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
-16. Alterne para a guia **Coletor** na janela **Propriedades** e clique em **+ Novo**. 
+17. Vá para a guia **Coletor** na parte inferior da janela **Propriedades** e selecione **+ Novo**. 
 
-    ![Conjunto de dados do coletor- botão Novo](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
-17. Na janela **Novo serviço vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**. Você vê uma nova guia aberta para o conjunto de dados. Você também pode ver o conjunto de dados na exibição de árvore. 
+    ![Guia Coletor](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
+18. Na janela **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure**. Em seguida, selecione **Concluir**. Você verá uma nova guia aberta para o conjunto de dados. Você também verá o conjunto de dados no modo de exibição de árvore. 
 
-    ![Selecionar Armazenamento de Blobs do Azure](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
-18. Insira **AzureBlobDataset** como **Nome**.
+    ![Seleção de armazenamento de blobs](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+19. Em **Nome**, insira **AzureBlobDataset**.
 
     ![Conjunto de dados do coletor - nome](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
-19. Alterne para a guia **Conexão** na janela **Propriedades** e clique em **+Novo** para o **Serviço vinculado**. 
+20. Vá para a guia **Conexão** na parte inferior da janela **Propriedades**. Ao lado de **Serviço vinculado**, selecione **+ Novo**. 
 
-    ![Novo serviço vinculado - botão](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
-20. Na janela **Novo serviço vinculado** execute as seguintes etapas:
+    ![Botão Novo serviço vinculado](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
+21. Na janela **Novo Serviço Vinculado**, siga as etapas a seguir:
 
-    1. Insira **AzureStorageLinkedService** como o **Nome**.
-    2. Selecione sua conta de armazenamento do Azure como o **Nome da conta de armazenamento**. 
-    3. Teste a conexão à sua conta de armazenamento do Azure clicando em **Testar conectividade**.
-    4. Clique em **Salvar**.
+    a. Em **Nome**, insira **AzureStorageLinkedService**.
 
-        ![Serviço vinculado do Armazenamento do Azure - configurações](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
-21.  Você deve ter voltado para a janela com o conjunto de dados do coletor aberto. Na guia **Conexão**, siga estas etapas: 
+    b. Em **Nome da conta de armazenamento**, selecione sua conta de armazenamento.
 
-        1. Confirme se **AzureStorageLinkedService** está selecionado como **Serviço vinculado**.
-        2. Insira **adftutorial/fromonprem** como a parte da **pasta** do **Caminho do arquivo**. Se a pasta de saída não existir no contêiner adftutorial, o serviço Data Factory cria automaticamente a pasta de saída.
-        3. Insira `@CONCAT(pipeline().RunId, '.txt')` como a parte **nome de arquivo** do **Caminho do arquivo**.
+    c. Para testar a conexão com a conta de armazenamento, selecione **Testar conectividade**.
 
-            ![Conjunto de dados do coletor - conexão](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
-22. Alterne para a guia com o pipeline aberto (ou) clique no **pipeline** no **modo de exibição de árvore**. Confirme se **AzureBlobDataset** está selecionado para **Conjunto de Dados do Coletor**. 
+    d. Selecione **Salvar**.
 
-    ![Conjunto de dados do coletor selecionado ](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
-23. Para validar as configurações de pipeline, clique em validar na barra de ferramentas para o pipeline. Feche o **Relatório de Validação de Pipe** clicando em **X** no canto direito. 
+    ![Configurações do serviço vinculado do armazenamento](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
+22.  Você deve ter voltado para a janela com o conjunto de dados do coletor aberto. Na guia **Conexão**, siga estas etapas: 
+
+        a. Confirme se **AzureStorageLinkedService** está selecionado como **Serviço vinculado**.
+
+        b. Insira **adftutorial/fromonprem** como a parte da **pasta** do **Caminho do arquivo**. Se a pasta de saída não existir no contêiner adftutorial, o serviço Data Factory criará essa pasta automaticamente.
+
+        c. Na parte **nome de arquivo** do **Caminho do arquivo**, insira `@CONCAT(pipeline().RunId, '.txt')`.
+
+     ![Conexão com o conjunto de dados do coletor](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+23. Alterne para a guia com o pipeline aberto ou selecione o pipeline no modo de exibição de árvore. Confirme se **AzureBlobDataset** está selecionado no **Conjunto de Dados do Coletor**. 
+
+    ![Conjunto de dados do coletor selecionado](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
+24. Para validar as configurações de pipeline, selecione **Validar** na barra de ferramentas do pipeline. Para fechar o **Relatório de Validação de Pipe**, selecione **Fechar**. 
 
     ![Validar o pipeline](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
-1. Publique entidades que você criou para o serviço do Azure Data Factory clicando em **Publicar**.
+25. Para publicar as entidades criadas no Data Factory, selecione **Publicar Tudo**.
 
     ![Botão Publicar](./media/tutorial-hybrid-copy-portal/publish-button.png)
-24. Aguarde até que você veja o pop-up **Publicado com êxito**. Você também pode verificar o status da publicação clicando no link **Mostrar Notificações** à esquerda. Feche a janela de notificações clicando em **X**. 
+26. Aguarde até que você veja o pop-up **Publicado com êxito**. Para verificar o status da publicação, selecione o link **Mostrar Notificações** à esquerda. Para fechar a janela de notificação, selecione **Fechar**. 
 
     ![Publicado com êxito](./media/tutorial-hybrid-copy-portal/publishing-succeeded.png)
     
 
 ## <a name="trigger-a-pipeline-run"></a>Disparar uma execução de pipeline
-Clique em **Gatilho** na barra de ferramentas para o pipeline e clique em **Disparar agora**.
+Selecione **Gatilho** na barra de ferramentas do pipeline e selecione **Disparar Agora**.
 
-![Disparar Agora](./media/tutorial-hybrid-copy-portal/trigger-now.png)
+![Disparar uma execução de pipeline](./media/tutorial-hybrid-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorar a execução de pipeline
 
-1. Alterne para a guia **Monitorar**. Você verá o pipeline que disparou manualmente na etapa anterior. 
+1. Vá para a guia **Monitorar**. Você vê o pipeline que disparou manualmente na etapa anterior. 
 
-    ![Execuções de pipeline](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-2. Para ver as atividades em execução associadas com o pipeline de execução, clique em **Exibir atividades em execução** na coluna **Ações**. Você vê somente as execuções de atividade, já que há apenas uma atividade no pipeline. Para ver detalhes sobre a operação de cópia, clique em **Detalhes** (ícone de óculos) na coluna **Ações**. Você pode alternar novamente para o modo de execução do pipeline clicando no link **Pipelines** na parte superior.
+    ![Monitorar execuções de pipeline](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
+2. Para exibir as execuções de atividade associadas à execução do pipeline, clique no link **Exibir Execuções de Atividade** na coluna **Ações**. Você vê somente as execuções de atividade, já que há apenas uma atividade no pipeline. Para ver detalhes sobre a operação de cópia, selecione o link **Detalhes** (ícone de óculos) na coluna **Ações**. Para voltar para a exibição de **Execuções de pipeline**, selecione **Pipelines** na parte superior.
 
-    ![Execuções de atividade](./media/tutorial-hybrid-copy-portal/activity-runs.png)
+    ![Monitorar execuções de atividade](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 
 ## <a name="verify-the-output"></a>Verificar a saída
 O pipeline cria automaticamente a pasta de saída chamada *fromonprem* no contêiner de blobs `adftutorial`. Confirme que você vê o arquivo *dbo.emp.txt* na pasta de saída. 
@@ -283,20 +297,20 @@ O pipeline cria automaticamente a pasta de saída chamada *fromonprem* no contê
 
 
 ## <a name="next-steps"></a>Próximas etapas
-O pipeline nesse exemplo copia dados de uma localização para outra no Armazenamento de Blobs do Azure. Você aprendeu como:
+O pipeline neste exemplo copia dados de uma localização para outra no Armazenamento de blobs. Você aprendeu como:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
 > * Crie um Integration Runtime auto-hospedado.
-> * Criar serviços vinculados do SQL Server e do Armazenamento do Azure. 
-> * Criar conjuntos de dados do SQL Server e de Blobs do Azure.
+> * Criar serviços vinculados de armazenamento e do SQL Server. 
+> * Criar conjuntos de dados do SQL Server e de armazenamento de blobs.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.
 > * Inicie uma execução de pipeline.
 > * Monitore a execução de pipeline.
 
-Para obter uma lista dos armazenamentos de dados com suporte pelo Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos armazenamentos de dados com suporte pelo Data Factory, confira [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Para saber mais sobre copiar dados em massa de uma origem para um destino, avance para o tutorial a seguir:
+Avance para o tutorial seguinte para aprender a copiar dados em massa de uma origem para um destino:
 
 > [!div class="nextstepaction"]
 >[Copiar dados em massa](tutorial-bulk-copy-portal.md)

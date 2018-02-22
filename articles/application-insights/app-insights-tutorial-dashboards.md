@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar painéis de KPI personalizados usando o Azure Application Insights
 
@@ -29,7 +29,7 @@ Você pode criar vários painéis no portal do Azure que incluam dados de visual
 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -74,7 +74,7 @@ Um painel com texto estático apenas não é muito interessante, então agora ad
 
 
 ## <a name="add-custom-metric-chart"></a>Adicionar gráfico de métrica personalizada
-O painel **Métricas** permite fazer o gráfico de uma métrica coletada pelo Application Insights ao longo do tempo com filtros opcionais e agrupamento.  Como tudo no Application Insights, você pode adicionar este gráfico ao painel.  Isso requer um pouco personalização primeiro.
+O painel **Métricas** permite fazer o grafo de uma métrica coletada pelo Application Insights ao longo do tempo com filtros opcionais e agrupamento.  Como tudo no Application Insights, você pode adicionar este gráfico ao painel.  Isso requer um pouco personalização primeiro.
 
 1. Selecione **Application Insights** no menu do Azure e, em seguida, selecione seu aplicativo.
 1. Selecione **Métricas**.  
@@ -88,13 +88,13 @@ O painel **Métricas** permite fazer o gráfico de uma métrica coletada pelo Ap
 
 3. Na parte superior da tela, clique em **Exibir painel** para retornar ao painel.
 
-4. A Linha do Tempo de Visão Geral agora é adicionada ao seu painel.  Clique e arraste-a para a posição e, em seguida, clique em **Personalização concluída** e **Publicar alterações**. 
+4. O Gráfico de Métricas de Linha do Tempo agora é adicionado ao seu painel. Clique e arraste-a para a posição e, em seguida, clique em **Personalização concluída** e **Publicar alterações**. 
 
     ![Painel com métricas](media/app-insights-tutorial-dashboards/dashboard-03.png)
 
 
 ## <a name="metrics-explorer"></a>Metrics Explorer
-O **Metrics Explorer** é semelhante a Métricas, embora permita significativamente mais personalização quando adicionado ao painel.  O que você usa para colocar suas métricas em gráfico depende das suas preferência e necessidades específicas.
+O **Metrics Explorer** é semelhante a Métricas, embora permita significativamente mais personalização quando adicionado ao painel.  O que você usa para colocar suas métricas em grafo depende das suas preferência e necessidades específicas.
 
 1. Selecione **Application Insights** no menu do Azure e, em seguida, selecione seu aplicativo.
 1. Selecione **Metrics Explorer**. 

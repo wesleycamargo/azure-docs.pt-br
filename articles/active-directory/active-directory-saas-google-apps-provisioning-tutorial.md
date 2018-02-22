@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Tutorial: configurar o Google Apps para o provisionamento automático de usuário
 
@@ -157,9 +157,9 @@ Esta seção orienta você sobre o processo de conectar o Azure AD à API de pro
 
 20. Selecione **Salvar**.
 
-Esse processo inicia a sincronização inicial de todos os usuários ou grupos atribuídos ao Google Apps na seção Usuários e Grupos. A sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos enquanto o serviço está em execução. 
+Esse processo inicia a sincronização inicial de todos os usuários ou grupos atribuídos ao Google Apps na seção Usuários e Grupos. A sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos enquanto o serviço está em execução. É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os logs de atividade de provisionamento. Esses logs descrevem todas as ações que são executadas pelo serviço de provisionamento no aplicativo Google Apps.
 
-É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os relatórios de atividade de provisionamento. Esses relatórios descrevem todas as ações executadas pelo serviço de provisionamento no aplicativo Google Apps.
+Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -61,7 +61,10 @@ Navegue até o [portal do Azure](https://portal.azure.com) e clique em **Rede** 
 A página de visão geral mostra uma lista de todas as capturas de pacotes existentes, independentemente do estado.
 
 > [!NOTE]
-> A captura de pacotes requer uma conectividade com a conta de armazenamento na porta 443.
+> A captura de pacote requer a seguinte conectividade.
+> * Conectividade de saída para a conta de armazenamento na porta 443.
+> * Conectividade de entrada e saída para 169.254.169.254
+> * Conectividade de entrada e saída para 168.63.129.16
 
 ![tela de visão geral da captura de pacotes][1]
 

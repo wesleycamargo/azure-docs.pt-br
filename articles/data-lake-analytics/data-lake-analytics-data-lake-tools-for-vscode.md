@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio Code
 
@@ -86,36 +86,52 @@ Você precisa abrir um arquivo U-SQL ou uma pasta para trabalhar com o U-SQL.
 
     O script cria um arquivo departments.csv com alguns dados incluídos na pasta /output.
 
-5. Salve o arquivo como **myUSQL.usql** na pasta aberta. Um arquivo de configuração xxx_settings.json também é adicionado à pasta.
-6. Abra e configure xxx_settings.json com as seguintes propriedades:
-
-    - Conta: uma conta do Data Lake Analytics em sua assinatura do Azure que é necessária para compilar e executar trabalhos de U-SQL. Portanto, você precisa configurar a conta de computador antes de compilar e executar trabalhos de U-SQL.
-    - Banco de dados: um banco de dados em sua conta. O padrão é **mestre**.
-    - Esquema: um esquema em seu banco de dados. O padrão é **dbo**.
-    - Configurações opcionais:
-        - Prioridade: o intervalo de prioridade é de 1 a 1000, sendo que 1 é a prioridade mais alta. O valor padrão é **1000**.
-        - Paralelismo: o intervalo de paralelismo é de 1 a 150. O valor padrão é o paralelismo máximo permitido em sua conta do Azure Data Lake Analytics. 
-        
-        ![Arquivo de configuração das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
-      
-        > [!NOTE] 
-        > Após salvar a configuração, as informações da conta, banco de dados e esquema aparecerão na barra de status na parte inferior esquerda do arquivo .usql correspondente.
+5. Salve o arquivo como **myUSQL.usql** na pasta aberta.
 
 **Para compilar um script U-SQL**
 
 1. Selecione Ctrl + Shift + P para abrir a paleta de comandos. 
 2. Insira **ADL: Compilar Script**. Os resultados da compilação aparecem na janela **Saída**. Também é possível clicar com o botão direito do mouse em um arquivo de script e, depois, selecionar **ADL: Compilar Script** para compilar um trabalho em U-SQL. O resultado da compilação aparece no painel **Saída**.
  
-
 **Para enviar um script U-SQL**
 
 1. Selecione Ctrl + Shift + P para abrir a paleta de comandos. 
 2. Insira **ADL: Enviar Trabalho**.  Também é possível clicar com o botão direito do mouse em um arquivo de script e, depois, selecionar **ADL: Enviar Trabalho**. 
 
-Depois de enviar um trabalho em U-SQL, os logs de envio aparecerão na janela **Saída** no VS Code. Se o envio for bem-sucedido, a URL do trabalho também será exibida. É possível abrir a URL do trabalho em um navegador da Web para acompanhar o status do trabalho em tempo real.
+ Depois de enviar um trabalho em U-SQL, os logs de envio aparecerão na janela **Saída** no VS Code. A exibição do trabalho é exibida no painel direito. Se o envio for bem-sucedido, a URL do trabalho também será exibida. É possível abrir a URL do trabalho em um navegador da Web para acompanhar o status do trabalho em tempo real. Na guia Resumo da Exibição do Trabalho, é possível ver os detalhes do trabalho. As principais funções incluem reenviar script, duplicar script, abrir no portal. Na guia Dados de Exibição do Trabalho, é possível consultar os Arquivos de Entrada, Arquivos de Saída, Recursos. Os arquivos podem ser baixados para o computador local.
 
-Para habilitar a saída dos detalhes do trabalho: defina **jobInformationOutputPath** no arquivo **vscode for u-sql_settings.json**.
- 
+   ![Arquivo de configuração das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/job-view-summary.png)
+
+   ![Arquivo de configuração das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/job-view-data.png)
+
+**Definir contexto padrão**
+
+ É possível definir o contexto padrão para aplicar essa configuração a todos os arquivos de script, se você não definiu parâmetros para o arquivo, respectivamente.
+
+1. Selecione Ctrl + Shift + P para abrir a paleta de comandos. 
+2. Insira **ADL: Definir contexto padrão**.
+3. Ou clique com o botão direito do mouse no editor do script e selecione **ADL: definir contexto padrão** e, em seguida, escolha a conta, o banco de dados e o esquema que você deseja. A configuração é salva no arquivo de configuração xxx_settings.json.
+
+    ![Arquivo de configuração das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-sequence.png)
+
+**Definir parâmetros de script**
+
+1. Selecione Ctrl + Shift + P para abrir a paleta de comandos. 
+2. Insira **ADL: Definir parâmetros de script**.
+3. O arquivo xxx_settings.json é aberto com as propriedades a seguir:
+
+  - Conta: uma conta do Data Lake Analytics em sua assinatura do Azure que é necessária para compilar e executar trabalhos de U-SQL. Portanto, você precisa configurar a conta de computador antes de compilar e executar trabalhos de U-SQL.
+    - Banco de dados: um banco de dados em sua conta. O padrão é **mestre**.
+    - Esquema: um esquema em seu banco de dados. O padrão é **dbo**.
+    - Configurações opcionais:
+        - Prioridade: o intervalo de prioridade é de 1 a 1000, sendo que 1 é a prioridade mais alta. O valor padrão é **1000**.
+        - Paralelismo: o intervalo de paralelismo é de 1 a 150. O valor padrão é o paralelismo máximo permitido em sua conta do Azure Data Lake Analytics. 
+
+        ![Arquivo de configuração das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-setting.png)
+      
+        > [!NOTE] 
+        > Depois que a configuração é salva, a conta, o banco de dados e as informações de esquema aparecerão na barra de status no canto inferior esquerdo do arquivo .usql correspondente, se você não tiver configurado o contexto padrão.
+
 **Configurar Git Ignore**
 
 1. Selecione Ctrl + Shift + P para abrir a paleta de comandos. 
@@ -124,7 +140,7 @@ Para habilitar a saída dos detalhes do trabalho: defina **jobInformationOutputP
     - Se você não tiver um arquivo **.gitignore** na pasta de trabalho do VSCode, um arquivo chamado **.gitIgnore** será criado na pasta. Quatro itens (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) são adicionados no arquivo por padrão. Mais tarde você pode fazer atualizações, se necessário.
     - Se você já tiver um arquivo **.gitIgnore** na pasta de trabalho do VSCode, a ferramenta adicionará quatro itens (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) em seu arquivo **.gitIgnore** caso os quatro itens não tenham sido incluídos no arquivo.
 
-  ![Arquivo de configuração das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+    ![Arquivo de configuração das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>Usar o arquivo code-behind Python, R e CSharp
 A Ferramenta Azure Data Lake é compatível com vários códigos personalizados. Veja as instruções em [Desenvolver U-SQL com Python, R e CSharp para o Azure Data Lake Analytics no VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
@@ -137,7 +153,7 @@ Use as Ferramentas do Data Lake para registrar assemblies de código personaliza
 
 **Para registrar um assembly**
 
-Você pode registrar o assembly por meio dos comandos **ADL: Registrar Assembly** ou **ADL: Registrar Assembly através da Configuração**.
+É possível registrar o assembly através dos comandos **ADL: Registrar Assembly** ou **ADL: Registrar Assembly (Avançado)**.
 
 **Para registrar por meio do comando ADL: Registrar Assembly**
 1.  Selecione Ctrl + Shift + P para abrir a paleta de comandos.
@@ -150,51 +166,52 @@ Resultados: o portal será aberto em um navegador e exibirá o processo de regis
 
 Outra maneira conveniente de disparar o comando **ADL: Registrar Assembly** é clicar com o botão direito no arquivo .dll no Explorador de Arquivos. 
 
-**Para registrar por meio do comando ADL: Registrar o Assembly através da Configuração**
+**Para registrar através de ADL: Registrar Assembly (Avançado)**
 1.  Selecione Ctrl + Shift + P para abrir a paleta de comandos.
-2.  Digite **ADL: Registrar Assembly através da Configuração**. 
+2.  Insira **ADL: Registrar Assembly (Avançado)**. 
 3.  Especifique o caminho do assembly local. 
 4.  O arquivo JSON será exibido. Examine e edite as dependências do assembly e os parâmetros de recursos, se necessário. As instruções serão exibidas na janela **Saída**. Para prosseguir com o registro do assembly, salve (CTRL+S) o arquivo JSON.
 
-![Code-behind das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
->[!NOTE]
->- Dependências de assembly: as Ferramentas do Azure Data Lake detectam automaticamente se a DLL tem todas as dependências. As dependências são exibidas no arquivo JSON, após a detecção. 
->- Recursos: é possível carregar os recursos de DLL (por exemplo, .txt, .png e .csv) como parte do registro do assembly. 
+    ![Code-behind das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
+    
+   >[!NOTE]
+   >- Dependências de assembly: as Ferramentas do Azure Data Lake detectam automaticamente se a DLL tem todas as dependências. As dependências são exibidas no arquivo JSON, após a detecção. 
+   >- Recursos: é possível carregar os recursos de DLL (por exemplo, .txt, .png e .csv) como parte do registro do assembly. 
 
-Outra maneira conveniente de disparar o comando **ADL: Registrar Assembly através da Configuração** é clicar com o botão direito no arquivo .dll no Explorador de Arquivos. 
+Outra maneira para disparar o comando **ADL: Registrar Assembly (Avançado)** é clicar com o botão direito no arquivo .dll no Explorador de Arquivos. 
 
 O código de U-SQL a seguir demonstra como chamar um assembly. No exemplo, o nome do assembly é *test*.
 
-```
-REFERENCE ASSEMBLY [test];
 
-@a = 
-    EXTRACT 
-        Iid int,
-    Starts DateTime,
-    Region string,
-    Query string,
-    DwellTime int,
-    Results string,
-    ClickedUrls string 
-    FROM @"Sample/SearchLog.txt" 
-    USING Extractors.Tsv();
+        REFERENCE ASSEMBLY [test];
 
-@d =
-    SELECT DISTINCT Region 
-    FROM @a;
+        @a = 
+            EXTRACT 
+                Iid int,
+            Starts DateTime,
+            Region string,
+            Query string,
+            DwellTime int,
+            Results string,
+            ClickedUrls string 
+            FROM @"Sample/SearchLog.txt" 
+            USING Extractors.Tsv();
 
-@d1 = 
-    PROCESS @d
-    PRODUCE 
-        Region string,
-    Mkt string
-    USING new USQLApplication_codebehind.MyProcessor();
+        @d =
+            SELECT DISTINCT Region 
+            FROM @a;
 
-OUTPUT @d1 
-    TO @"Sample/SearchLogtest.txt" 
-    USING Outputters.Tsv();
-```
+        @d1 = 
+            PROCESS @d
+            PRODUCE 
+                Region string,
+            Mkt string
+            USING new USQLApplication_codebehind.MyProcessor();
+
+        OUTPUT @d1 
+            TO @"Sample/SearchLogtest.txt" 
+            USING Outputters.Tsv();
+
 
 ## <a name="connect-to-azure"></a>Conecte-se ao Azure
 
@@ -243,10 +260,10 @@ Depois que estiver conectado ao Azure, você poderá usar as seguintes etapas pa
 ## <a name="view-data-lake-analytics-jobs"></a>Exibir trabalhos do Data Lake Analytics
 
 **Para exibir trabalhos do Data Lake Analytics**
-1.  Abra a paleta de comandos (Ctrl+Shift+P) e escolha **ADL: Mostrar Trabalho**. 
+1.  Abra a paleta de comandos (Ctrl+Shift+P) e escolha **ADL: Mostrar Trabalhos**. 
 2.  Selecione uma conta do Data Lake Analytics ou local. 
 3.  Aguarde a exibição da lista de trabalhos da conta.
-4.  Selecione um trabalho da lista. As Ferramentas do Data Lake abrem os detalhes do trabalho no Portal do Azure e exibem o arquivo JobInfo no VS Code.
+4.  Selecione um trabalho na lista de tarefas, o Data Lake Tools abre a exibição do trabalho no painel direito e exibe algumas informações no VS Code **SAÍDA**.
 
     ![Tipos de objeto do IntelliSense das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
@@ -258,7 +275,7 @@ Você pode usar comandos relacionados ao Armazenamento do Azure Data Lake:
  - Carregue o arquivo diretamente no Armazenamento do Azure Data Lake no VS Code. [Carregar arquivo ou pasta](#upload-file-or-folder).
  - Faça download do arquivo diretamente no Armazenamento do Azure Data Lake no VS Code. [Fazer download do arquivo](#download-file).
 
-## <a name="list-the-storage-path"></a>Listar caminho de armazenamento 
+### <a name="list-the-storage-path"></a>Listar caminho de armazenamento 
 
 **Para listar o caminho de armazenamento por meio da paleta de comandos**
 
@@ -277,7 +294,7 @@ Clique com o botão direito do mouse na cadeia de caminho para selecionar **List
 ![Menu de contexto acessado com o botão direito das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
-## <a name="preview-the-storage-file"></a>Visualizar arquivo de armazenamento
+### <a name="preview-the-storage-file"></a>Visualizar arquivo de armazenamento
 
 Clique no editor de scripts com o botão direito do mouse e selecione **ADL: Visualizar Caminho**.
 
@@ -287,7 +304,7 @@ Selecione a **Conta do ADLA**. -> Insira um caminho de arquivo de armazenamento 
 
 Outra maneira de visualizar um arquivo é clicar com o botão direito do mouse no menu no caminho completo do arquivo ou no caminho relativo do arquivo no editor de scripts. 
 
-## <a name="upload-file-or-folder"></a>Carregar arquivo ou pasta
+### <a name="upload-file-or-folder"></a>Carregar arquivo ou pasta
 
 1. Clique com o botão direito no editor de scripts e selecione **Carregar Arquivo** ou **Carregar Pasta**.
 
@@ -301,7 +318,7 @@ Outra maneira de visualizar um arquivo é clicar com o botão direito do mouse n
 Ao mesmo tempo, é possível monitorar o [status do carregamento](#check-storage-tasks-status).
 
 
-## <a name="download-file"></a>Fazer download do arquivo 
+### <a name="download-file"></a>Fazer download do arquivo 
 É possível baixar os arquivos inserindo os comandos **ADL: Baixar o Arquivo** ou **ADL: Baixar Arquivo (Avançado)**.
 
 **Para baixar os arquivos por meio do comando ADL: Baixar Arquivo (Avançado)**
@@ -329,7 +346,7 @@ Ao mesmo tempo, é possível monitorar o [status do download](#check-storage-tas
 
 Ao mesmo tempo, é possível monitorar o [status do download](#check-storage-tasks-status).
 
-## <a name="check-storage-tasks-status"></a>Verificar o status de tarefas de armazenamento
+### <a name="check-storage-tasks-status"></a>Verificar o status de tarefas de armazenamento
 O status é exibido na parte inferior da barra de status quando o download e o carregamento é concluído.
 1. Clique na barra de status abaixo e o status de download e carregamento serão mostrados no painel **SAÍDA**.
 

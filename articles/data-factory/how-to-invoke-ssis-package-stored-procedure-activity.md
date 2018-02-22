@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chamar um pacote do SSIS usando o Azure Data Factory - Atividade de Procedimento Armazenado | Microsoft Docs
 Este artigo descreve como chamar um pacote do SSIS a partir de um pipeline do Azure Data Factory usando uma atividade de procedimento armazenado. 
@@ -39,8 +39,9 @@ Nesta seção, você usa a interface do usuário do Data Factory para criar um p
 ### <a name="create-a-data-factory"></a>Criar uma data factory
 A primeira etapa é criar uma data factory usando o Portal do Azure. 
 
-1. Navegue até o [Portal do Azure](https://portal.azure.com). 
-2. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+2. Navegue até o [Portal do Azure](https://portal.azure.com). 
+3. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **nome**. 
@@ -75,7 +76,7 @@ Nesta etapa, você usa a interface do usuário do Data Factory para criar um pip
 1. Na página de introdução, clique em **Criar pipeline**: 
 
     ![Página Introdução](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. Na caixa de ferramentas **Atividades**, expanda **Banco de Dados SQL** e arraste e solte a atividade de **Procedimento Armazenado** na superfície do designer de pipeline. 
+2. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e solte a atividade **Procedimento Armazenado** na superfície do designer de pipeline. 
 
     ![Arrastar e solta a atividade de procedimento armazenado](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. Na janela de propriedades para a atividade do procedimento armazenado, alterne para a guia **Conta SQL** e clique em **+ Novo**. Você cria uma conexão com o Banco de dados SQL do Azure que hospeda o Catálogo SSIS (banco de dados SSISDB). 
@@ -94,11 +95,12 @@ Nesta etapa, você usa a interface do usuário do Data Factory para criar um pip
         ![Serviço vinculado para o Banco de Dados SQL do Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Na janela de propriedades, alterne para a guia **Procedimento Armazenado** da aba **Conta SQL** e execute as seguintes etapas: 
 
-    1. No campo **Nome do procedimento armazenado**, Insira `sp_executesql`. 
-    2. Clique em **+ Novo** na seção **Parâmetros do procedimento armazenado**. 
-    3. Para o **nome** do parâmetro, insira **stmt**. 
-    4. Para o **tipo** do parâmetro, insira **Cadeia de caracteres**. 
-    5. Para o **valor** do parâmetro, insira a consulta SQL a seguir:
+    1. Selecione **Editar**. 
+    2. No campo **Nome do procedimento armazenado**, Insira `sp_executesql`. 
+    3. Clique em **+ Novo** na seção **Parâmetros do procedimento armazenado**. 
+    4. Para o **nome** do parâmetro, insira **stmt**. 
+    5. Para o **tipo** do parâmetro, insira **Cadeia de caracteres**. 
+    6. Para o **valor** do parâmetro, insira a consulta SQL a seguir:
 
         Na consulta SQL, especifique os valores certos para os parâmetros **nom_da_pasta**, **nome_do_projeto** e **nome_do_pacote**. 
 
@@ -120,7 +122,8 @@ Nesta seção, você dispara uma execução do pipeline e, em seguida, faz o mon
 1. Para disparar uma execução de pipeline, clique em **Disparar** na barra de ferramentas e clique em **Disparar agora**. 
 
     ![Disparar agora](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Alterne para a guia **Monitorar** à esquerda. Você verá o pipeline de execução e seu status junto com outras informações (como a Hora de início da execução). Para atualizar o modo de exibição, clique em **Atualizar**.
+2. Na janela **Execução de Pipeline**, selecione **Concluir**. 
+3. Alterne para a guia **Monitorar** à esquerda. Você verá o pipeline de execução e seu status junto com outras informações (como a Hora de início da execução). Para atualizar o modo de exibição, clique em **Atualizar**.
 
     ![Execuções de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Clique no link **Exibir Execuções da atividade** na coluna **Ações**. Você verá apenas uma execução da atividade, pois o pipeline possui apenas uma atividade (atividade de procedimento armazenado).

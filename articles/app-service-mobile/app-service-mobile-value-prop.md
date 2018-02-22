@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure
 O Serviço de Aplicativo do Azure é uma oferta de [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (plataforma como um serviço) para desenvolvedores profissionais. O serviço oferece um conjunto avançado de recursos para cenários Web, móveis e de integração. 
@@ -38,21 +38,21 @@ Com o recurso Aplicativos Móveis, você pode:
 ## <a name="mobile-apps-features"></a>Recursos dos Aplicativos Móveis
 Os recursos a seguir são importantes para o desenvolvimento móvel habilitado para nuvem:
 
-* **Autenticação e autorização**: selecione em uma lista crescente de provedores de identidade, incluindo o Azure Active Directory para autenticação corporativa, além de provedores sociais, como contas do Facebook, do Google, do Twitter e da Microsoft. Os Aplicativos Móveis oferecem um serviço OAuth 2.0 para cada provedor. Você também pode integrar o SDK do provedor de identidade à funcionalidade específica do provedor.
+* **Autenticação e autorização**: suporte para provedores de identidade, incluindo o Azure Active Directory para autenticação corporativa, além de provedores sociais, como contas do Facebook, do Google, do Twitter e da Microsoft. Os Aplicativos Móveis oferecem um serviço OAuth 2.0 para cada provedor. Você também pode integrar o SDK do provedor de identidade à funcionalidade específica do provedor.
 
-    Descubra mais sobre os nossos [recursos de autenticação].
+    Descubra mais sobre os [recursos de autenticação].
 
 * **Acesso a Dados**: os Aplicativos Móveis fornecem uma fonte de dados OData v3 compatível com dispositivos móveis vinculada ao Banco de Dados SQL do Azure ou a um SQL Server local. Como esse serviço pode ser baseado no Entity Framework, você pode integrar facilmente com outros provedores de dados NoSQL e SQL, incluindo o [Armazenamento de Tabelas do Azure], o MongoDB, o [Azure Cosmos DB] e os provedores de API SaaS, como o Office 365 e o Salesforce.com.
 
-* **Sincronização offline**: os SDKs do nosso cliente facilita a criação de aplicativos móveis robustos e dinâmicos que funcionam com um conjunto de dados offline. Você pode sincronizar esse conjunto de dados automaticamente com os dados de back-end, incluindo o suporte a resolução de conflitos.
+* **Sincronização offline**: os SDKs do nosso cliente facilitam a criação de aplicativos móveis robustos e dinâmicos que funcionam com um conjunto de dados offline. Você pode sincronizar esse conjunto de dados automaticamente com os dados de back-end, incluindo o suporte a resolução de conflitos.
 
-  Descubra mais sobre nossos [recursos de dados].
+  Descubra mais sobre os [recursos de dados].
 
-* **Notificações por push**: nossos SDKs de cliente se integram perfeitamente aos recursos de registro dos Hubs de Notificação do Azure, permitindo que você envie notificações por push para milhões de usuários simultaneamente.
+* **Notificações por push**: os SDKs de cliente se integram perfeitamente aos recursos de registro dos Hubs de Notificação do Azure, permitindo que você envie notificações por push para milhões de usuários simultaneamente.
 
-  Descubra mais sobre os nossos [recursos de notificação por push].
+  Descubra mais sobre os [recursos de notificação por push].
 
-* **SDKs de Cliente**: fornecemos um conjunto completo de SDKs de Cliente que abrangem o desenvolvimento nativo ([iOS], [Android] e [Windows]), desenvolvimento de plataforma cruzada ([Xamarin.iOS e Xamarin.Android], [Xamarin.Forms]) e o desenvolvimento de aplicativos híbridos ([Apache Cordova]). Cada SDK de cliente está disponível com uma licença MIT e é software livre.
+* **SDKs de Cliente**: há um conjunto completo de SDKs de cliente que abrangem o desenvolvimento nativo ([iOS], [Android] e [Windows]), desenvolvimento de plataforma cruzada ([Xamarin.iOS e Xamarin.Android], [Xamarin.Forms]) e o desenvolvimento de aplicativos híbridos ([Apache Cordova]). Cada SDK de cliente está disponível com uma licença MIT e é software livre.
 
 ## <a name="azure-app-service-features"></a>Recursos do Serviço de Aplicativo do Azure
 Os recursos de plataforma abaixo são úteis para sites de produção móvel:
@@ -65,7 +65,7 @@ Os recursos de plataforma abaixo são úteis para sites de produção móvel:
 
   Descubra mais sobre [ambientes de preparo].
 
-* **Implantação contínua**: o Serviço de Aplicativo pode integrar sistemas SCM (gerenciamento de controle de origem comum), permitindo que você implante automaticamente uma nova versão do seu back-end por push para uma ramificação de seu sistema SCM.
+* **Implantação contínua**: o Serviço de Aplicativo pode se integrar a sistemas comuns de _gerenciamento de controle de origem_ (SCM), permitindo que você implante facilmente uma nova versão do seu back-end.
 
   Descubra mais sobre [opções de implantação](../app-service/app-service-deploy-local-git.md).
 
@@ -73,7 +73,7 @@ Os recursos de plataforma abaixo são úteis para sites de produção móvel:
 
   Descubra mais sobre as [conexões híbridas], as [redes virtuais] e o [ExpressRoute].
 
-* **Ambientes Isolados e dedicados**: você pode executar o Serviço de Aplicativo em um ambiente totalmente isolado e dedicado para executar com segurança aplicativos do Serviço de Aplicativo do Azure em alta escala. Esse ambiente é ideal para cargas de trabalho de aplicativos que exigem escala alta, isolamento ou acesso seguro à rede.
+* **Ambientes Isolados e dedicados**: para executar com segurança aplicativos do Serviço de Aplicativo do Azure, é possível executar o Serviço de Aplicativo em um ambiente totalmente isolado e dedicado. Esse ambiente é ideal para cargas de trabalho de aplicativos que exigem escala alta, isolamento ou acesso seguro à rede.
 
   Descubra mais sobre os [Ambientes do Serviço de Aplicativo].
 

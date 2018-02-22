@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Economizar dinheiro de máquinas virtuais com Instâncias de Máquinas Virtuais Reservadas 
 As Instâncias de Máquina Virtual Reservada permitem que você pague previamente por um ou três anos de capacidade de computação para receber um desconto nas máquinas virtuais que você usa. Isso reduz de maneira significativa os custos com máquina virtual em até 72% nos preços pagos conforme o uso, com comprometimento antecipado de um ou de três anos. As Instâncias de Máquina Virtual Reservada são um desconto na cobrança e não afeta o estado de tempo de execução de máquinas virtuais.
@@ -60,5 +60,14 @@ As reservas de estão disponíveis para a maioria dos tamanhos de VM, com alguma
 
 ## <a name="next-steps"></a>Próximas etapas
 Comece a economizar em máquinas virtuais comprando uma [Instância de Máquina Virtual Reservada](https://go.microsoft.com/fwlink/?linkid=861721). 
+
+Para saber mais sobre as instâncias de máquina virtual reservada, consulte os artigos a seguir.
+
+- [Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerenciar instâncias de máquina virtual reservadas](billing-manage-reserved-vm-instance.md)
+- [Entender como é aplicado o desconto em Instâncias de Máquina Virtual Reservada](billing-understand-vm-reservation-charges.md)
+- [Entender o uso da Instância Reservada na sua assinatura Paga pelo Uso](billing-understand-reserved-instance-usage.md)
+- [Entender o uso da Instância Reservada no seu registro de Empresa](billing-understand-reserved-instance-usage-ea.md)
+- [Os custos de software do Windows não estão incluídos nas Instâncias Reservadas](billing-reserved-instance-windows-software-costs.md)
 
 Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

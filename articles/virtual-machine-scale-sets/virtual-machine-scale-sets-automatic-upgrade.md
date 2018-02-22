@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Upgrades automáticos de sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -40,9 +40,7 @@ A atualização de sistema operacional do Azure tem as seguintes característica
 Enquanto estão na versão prévia, as seguintes limitações e restrições se aplicam:
 
 - Os upgrades automáticos do sistema operacional dão suporte a apenas [quatro SKUs de sistema operacional](#supported-os-images). Não há nenhum SLA ou garantias. Recomendamos que você não use upgrades automáticos em cargas de trabalho críticas de produção durante a versão prévia.
-- O suporte para conjuntos de dimensionamento nos clusters do Service Fabric estará disponível em breve.
 - No momento, **não** há suporte para a criptografia de disco do Azure (atualmente em versão prévia) com atualização automática do sistema operacional do conjunto de dimensionamento de máquinas virtuais.
-- Uma experiência do portal disponível em breve.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registrar-se para usar a atualização automática do sistema operacional
@@ -58,17 +56,23 @@ Leva aproximadamente 10 minutos para que o estado de registro seja reportado com
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Recomendamos que seus aplicativos usem investigações de integridade. Para registrar o recurso do provedor para investigações de integridade, use o [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) da seguinte maneira:
+> [!NOTE]
+> Clusters de Service Fabric têm sua próprias noção da integridade do aplicativo, mas conjuntos de dimensionamento sem o Service Fabric usam a investigação de integridade do balanceador de carga para monitorar a integridade do aplicativo. Para registrar o recurso do provedor para investigações de integridade, use o [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) da seguinte maneira:
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> Novamente, levará aproximadamente 10 minutos para que o estado de registro seja reportado como *Registrado*. É possível verificar o status do registro atual com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Depois de registrado, certifique-se de que o provedor *Microsoft.Network* está registrado com o [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) da seguinte maneira:
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>Experiência do Portal
+Depois de seguir as etapas de registro acima, você pode ir ao [portal do Azure](https://aka.ms/managed-compute) para habilitar atualizações automáticas do sistema operacional em seus conjuntos de dimensionamento e ver o progresso das atualizações:
 
-Novamente, levará aproximadamente 10 minutos para que o estado de registro seja reportado como *Registrado*. É possível verificar o status do registro atual com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Depois de registrado, certifique-se de que o provedor *Microsoft.Network* está registrado com o [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) da seguinte maneira:
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>Imagens do sistema operacional com suporte
@@ -85,7 +89,10 @@ No momento, há suporte para os seguintes SKUs (serão adicionados mais):
 
 
 
-## <a name="application-health"></a>Integridade do aplicativo
+## <a name="application-health-without-service-fabric"></a>Integridade do aplicativo sem o Service Fabric
+> [!NOTE]
+> Esta seção aplica-se somente para conjuntos de dimensionamento sem o Service Fabric. O Service Fabric tem sua própria noção da integridade do aplicativo. Ao usar as atualizações automáticas do sistema operacional com o Service Fabric, a nova imagem do sistema operacional é implementada ao domínio de atualização pelo domínio de atualização para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para obter mais informações sobre as características de durabilidade de clusters do Service Fabric, consulte [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 Durante a atualização do sistema operacional, as instâncias de VM em um conjunto de dimensionamento são atualizadas em um lote por vez. A atualização deverá continuar apenas se o aplicativo do cliente for íntegro nas instâncias de VM atualizadas. Recomendamos que o aplicativo ofereça sinais de integridade ao mecanismo de atualização do sistema operacional do conjunto de dimensionamento. Por padrão, durante os upgrades do sistema operacional, a plataforma considera o estado de energia da VM e o estado de provisionamento da extensão para determinar se uma instância VM é íntegra após uma atualização. Durante a atualização do sistema operacional de uma instância VM, o disco do sistema operacional em uma instância VM é substituído por um novo com base na versão mais recente da imagem. Após a conclusão de atualização do sistema operacional, as extensões configuradas são executadas nessas VMs. Apenas quando todas as extensões em uma VM forem provisionadas com êxito é que o aplicativo será considerado íntegro. 
 
 Um conjunto de dimensionamento pode opcionalmente ser configurado com Investigações de integridade do aplicativo para oferecer à plataforma informações precisas sobre o estado em andamento do aplicativo. As Investigações de integridade do aplicativo são Investigações personalizadas do Load Balancer usadas como um sinal de integridade. O aplicativo em execução em uma instância VM do conjunto de dimensionamento pode responder a solicitações HTTP ou TCP externas que indicam se ele é íntegro. Para obter mias informações sobre como as Investigações personalizadas do Load Balancer funcionam, consulte [Noções básicas de investigações do balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Não é necessária uma Investigação de integridade do aplicativo para upgrades automáticos do sistema operacional, mas é recomendável.

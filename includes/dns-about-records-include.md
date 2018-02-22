@@ -2,7 +2,7 @@
 
 No DNS do Azure, os registros são especificados usando nomes relativos. Um FQDN (nome de domínio *totalmente qualificado*) inclui o nome da zona, enquanto um nome *relativo* não o inclui. Por exemplo, o nome relativo do registro 'www' na zona 'contoso.com' fornece o nome totalmente qualificado do registro 'www.contoso.com'.
 
-Um registro *apex* é um registro DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, na zona DNS ‘contoso.com’, um registro apex também tem o nome totalmente qualificado 'contoso.com' (ele às vezes é chamado de domínio *sem www*).  Por convenção, o nome relativo '@' é usado para representar os registros de vértices.
+Um registro *apex* é um registro DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, na zona DNS ‘contoso.com’, um registro apex também tem o nome totalmente qualificado 'contoso.com' (ele às vezes é chamado de domínio *sem www*).  Por convenção, o nome relativo '\@\' é usado para representar os registros de vértices.
 
 ### <a name="record-types"></a>Tipos de registro
 

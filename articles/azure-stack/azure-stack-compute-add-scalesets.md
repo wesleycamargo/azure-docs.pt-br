@@ -1,18 +1,22 @@
 ---
-title: "Disponibilizar conjuntos de escala de máquina virtual na pilha do Azure"
-description: "Saiba como um administrador de nuvem pode adicionar escala de máquinas virtuais para a pilha do Azure Marketplace"
+title: "Conjuntos de escala de máquinas virtuais de tornar disponível na pilha do Azure | Microsoft Docs"
+description: "Saiba como um operador de nuvem pode adicionar escala de máquinas virtuais para a pilha do Azure Marketplace"
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar conjuntos de escala de máquina virtual na pilha do Azure
 
@@ -47,7 +51,7 @@ Na pilha do Azure, conjuntos de escala de máquina Virtual não dão suporte a d
 
 Edite o seguinte script do PowerShell para o seu ambiente e, em seguida, execute-o para adicionar uma escala de máquina virtual definida como a pilha do Azure Marketplace. 
 
-``$User``é a conta usada para conectar-se o portal do administrador. Por exemplo: serviceadmin@contoso.onmicrosoft.com.
+``$User`` é a conta usada para conectar-se o portal do administrador. Por exemplo, serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"

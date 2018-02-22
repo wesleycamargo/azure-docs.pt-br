@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 88123cead40968ebf7327b81f94233529f97aa2f
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 34a6722fdd06cf0b198320e551daccc21956dc69
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implantação rápida da redefinição da senha de autoatendimento do Azure AD
 
@@ -33,7 +33,7 @@ Este guia pressupõe que você já tem um locatário do Azure Active Directory (
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Habilitar SSPR para seu locatário do Azure AD
 
-1. No seu locatário existente do Azure AD, selecione **Redefinir senha**.
+1. A partir do seu locatário existente do Azure AD, no **Portal do Azure** em **Azure Active Directory** selecione **Redefinição de senha**.
 
 2. Na página **Propriedades**, na opção **Redefinição da senha de autoatendimento habilitada**, escolha uma das seguintes opções:
    * **Ninguém**: Ninguém pode usar a funcionalidade de SSPR.

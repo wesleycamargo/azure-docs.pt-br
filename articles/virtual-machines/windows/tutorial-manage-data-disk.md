@@ -3,24 +3,24 @@ title: Gerenciar discos do Azure com o Azure PowerShell | Microsoft Docs
 description: "Tutorial – Gerenciar discos do Azure com o Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
-ms.author: nepeters
+ms.date: 02/09/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: ea38fe599960db42c518603b59a60a920d1f1daf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Gerenciar discos do Azure com o PowerShell
 
@@ -35,7 +35,7 @@ Máquinas virtuais do Azure usam discos para armazenar o sistema operacional de 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. 
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.3 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. 
 
 ## <a name="default-azure-disks"></a>Discos padrão do Azure
 
@@ -47,29 +47,29 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 
-| type | Tamanho da VM | Tamanho máximo do disco temporário (GB) |
+| type | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
 |----|----|----|
-| [Propósito geral](sizes-general.md) | Série A e D | 800 |
-| [Computação otimizada](sizes-compute.md) | Série F | 800 |
-| [Memória otimizada](../virtual-machines-windows-sizes-memory.md) | Série D e G | 6144 |
-| [Armazenamento otimizado](../virtual-machines-windows-sizes-storage.md) | Série L | 5630 |
+| [Propósito geral](sizes-general.md) | Série A, B e D | 1600 |
+| [Computação otimizada](sizes-compute.md) | Série F | 576 |
+| [Memória otimizada](sizes-memory.md) | Série D, E, G e M | 6144 |
+| [Armazenamento otimizado](sizes-storage.md) | Série L | 5630 |
 | [GPU](sizes-gpu.md) | Série N | 1440 |
 | [Alto desempenho](sizes-hpc.md) | Séries A e H | 2000 |
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Os discos de dados extras podem ser adicionados para instalação de aplicativos e armazenamento de dados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. Cada disco de dados tem uma capacidade máxima de 1 terabyte. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados dois discos de dados. 
+Os discos de dados extras podem ser adicionados para instalação de aplicativos e armazenamento de dados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. Cada disco de dados tem uma capacidade máxima de 4 terabytes. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados dois discos de dados. 
 
 ### <a name="max-data-disks-per-vm"></a>Máximo de discos de dados por VM
 
-| type | Tamanho da VM | Máximo de discos de dados por VM |
+| type | Tamanhos comuns | Máximo de discos de dados por VM |
 |----|----|----|
-| [Propósito geral](sizes-general.md) | Série A e D | 32 |
-| [Computação otimizada](sizes-compute.md) | Série F | 32 |
-| [Memória otimizada](../virtual-machines-windows-sizes-memory.md) | Série D e G | 64 |
-| [Armazenamento otimizado](../virtual-machines-windows-sizes-storage.md) | Série L | 64 |
-| [GPU](sizes-gpu.md) | Série N | 48 |
-| [Alto desempenho](sizes-hpc.md) | Série A e H | 32 |
+| [Propósito geral](sizes-general.md) | Série A, B e D | 64 |
+| [Computação otimizada](sizes-compute.md) | Série F | 64 |
+| [Memória otimizada](sizes-memory.md) | Série D, E, G e M | 64 |
+| [Armazenamento otimizado](sizes-storage.md) | Série L | 64 |
+| [GPU](sizes-gpu.md) | Série N | 64 |
+| [Alto desempenho](sizes-hpc.md) | Série A e H | 64 |
 
 ## <a name="vm-disk-types"></a>Tipos de disco da máquina virtual
 
@@ -81,50 +81,84 @@ Armazenamento padrão é apoiado por HDDs e oferece armazenamento econômico e e
 
 ### <a name="premium-disk"></a>Disco Premium
 
-Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS e FS. Os discos Premium são apresentados em cinco tipos (P10, P20, P30, P40, P50), o tamanho do disco determina o tipo de disco. Na escolha do tamanho de um disco, o valor é arredondado para o próximo tipo. Por exemplo, se o tamanho for inferior a 128 GB, o tipo de disco será P10, entre 129 e 512 P20, 512 para P30, P40 para 2TB e P50 4TB . 
+Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS e FS. Os discos Premium são apresentados em cinco tipos (P10, P20, P30, P40, P50), o tamanho do disco determina o tipo de disco. Na escolha do tamanho de um disco, o valor é arredondado para o próximo tipo. Por exemplo, se o tamanho estiver abaixo de 128 GB o tipo de disco é P10 ou entre 129 GB e 512 GB de disco é P20.
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 
-|Tipo de disco de armazenamento Premium | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 128 GB | 512 GB | 1.024 GB (1 TB) |
-| IOPS por disco | 500 | 2.300 | 5.000 |
-Taxa de transferência por disco | 100 MB/s | 150 MB/s | 200 MB/s |
+|Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2,048 GB (2 TB) | 4,095 GB (4 TB) |
+| IOPS máxima por disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
+Taxa de transferência por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto de desempenho pode ser obtido com a distribuição de vários discos de dados. Por exemplo, 64 discos de dados podem ser anexados à VM Standard_GS5. Se cada um desses discos for dimensionado como um P30, será possível chegar a um máximo de 80.000 IOPS. Para obter informações detalhadas sobre o máximo de IOPS por VM, veja [Tipos e tamanhos de VM](./sizes.md).
 
 ## <a name="create-and-attach-disks"></a>Criar e anexar discos
 
-Para concluir o exemplo neste tutorial, você deverá ter uma máquina virtual. Se necessário, este [exemplo de script](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) pode criar uma para você. Ao trabalhar com este tutorial, substitua o grupo de recursos e os nomes de VM onde for necessário.
+Para concluir o exemplo neste tutorial, você deverá ter uma máquina virtual. Se necessário, crie uma máquina virtual com os seguintes comandos.
+
+Defina o nome de usuário e a senha necessários para a conta de administrador na máquina virtual com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```azurepowershell-interactive
+$cred = Get-Credential
+```
+
+Crie a máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupDisk" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred `
+    -AsJob
+```
+
+O parâmetro `-AsJob` cria a VM como uma tarefa em segundo plano, para que os prompts do PowerShell sejam exibidos de volta para você. Você pode exibir os detalhes de trabalhos em segundo plano com o cmdelt `Job`.
 
 Crie a configuração inicial com [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). O exemplo a seguir configura um disco com tamanho de 128 gigabytes.
 
 ```azurepowershell-interactive
-$diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig `
+    -Location "EastUS" `
+    -CreateOption Empty `
+    -DiskSizeGB 128
 ```
 
 Crie o disco de dados com o comando [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk).
 
 ```azurepowershell-interactive
-$dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
+$dataDisk = New-AzureRmDisk `
+    -ResourceGroupName "myResourceGroupDisk" `
+    -DiskName "myDataDisk" `
+    -Disk $diskConfig
 ```
 
 Obtenha a máquina virtual à qual deseja adicionar o disco de dados com o comando [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm).
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
 ```
 
 Adicione o disco de dados à configuração da máquina virtual com o comando [Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
 
 ```azurepowershell-interactive
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
+$vm = Add-AzureRmVMDataDisk `
+    -VM $vm `
+    -Name "myDataDisk" `
+    -CreateOption Attach `
+    -ManagedDiskId $dataDisk.Id `
+    -Lun 1
 ```
 
 Atualize a máquina virtual com o comando [Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk).
 
 ```azurepowershell-interactive
-Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
+Update-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 ```
 
 ## <a name="prepare-data-disks"></a>Preparar discos de dados
@@ -135,7 +169,7 @@ Depois que um disco é anexado à máquina virtual, o sistema operacional precis
 
 Crie uma conexão RDP com a máquina virtual. Abra o PowerShell e execute este script.
 
-```azurepowershell-interactive
+```azurepowershell
 Get-Disk | Where partitionstyle -eq 'raw' | `
 Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `

@@ -7,11 +7,11 @@ author: dcaro
 ms.author: dcaro
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 253e5d341f93e61d851893eb05832fbf35707cfc
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="terraform-cloud-shell-development"></a>Desenvolvimento do Terraform Cloud Shell 
 
@@ -36,7 +36,7 @@ provider "azurerm" {
 }
 ```
 
-O Cloud Shell passa os valores necessários para o provedor `azurerm` por meio de variáveis de ambiente ao usar qualquer um dos comandos de CLI `terraform`.
+O Cloud Shell passa os valores necessários ao provedor `azurerm` por meio de variáveis de ambiente ao usar qualquer um dos comandos de CLI `terraform`.
 
 ## <a name="other-cloud-shell-developer-tools"></a>Outras ferramentas de desenvolvedor do Cloud Shell
 

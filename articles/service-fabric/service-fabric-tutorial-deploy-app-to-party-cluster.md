@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Implantar um aplicativo em um Cluster Party no Azure
 Este tutorial é a segunda parte de uma série e mostra como implantar um aplicativo do Azure Service Fabric em um Cluster Party no Azure.
@@ -59,14 +59,33 @@ Você pode usar seu próprio cluster em vez do Cluster Party, se desejar.  O fro
 > [!NOTE]
 > Os clusters Party não são protegidos, portanto seus aplicativos e os dados que você colocar neles poderão ficar visíveis para outras pessoas. Não implante nada que você não queira que outras pessoas vejam. Certifique-se de ler nossos Termos de Uso para conhecer todos os detalhes.
 
+Entre e [ingresse em um cluster do Windows](http://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Os valores de certificado e de **Ponto de extremidade de conexão** são utilizados nas etapas a seguir.
+
+![PFX e ponto de extremidade de conexão](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Em um computador com Windows, instale o PFX no repositório de certificados *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Implantar o aplicativo no Azure
 Agora que o aplicativo está pronto, você pode implantá-lo no Cluster Party diretamente do Visual Studio.
 
-1. Clique com o botão direito do mouse em **Votação** no Gerenciador de Soluções e escolha **Publicar**.
+1. Clique com o botão direito do mouse em **Votação** no Gerenciador de Soluções e escolha **Publicar**. 
 
-    ![Caixa de diálogo Publicar](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Caixa de diálogo Publicar](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Digite o ponto de extremidade de conexão do Cluster Party no campo **Ponto de Extremidade de Conexão** e clique em **Publicar**.
+2. Copie o **Ponto de Extremidade de Conexão** da página do cluster Party no campo **Ponto de Extremidade de Conexão**. Por exemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Clique em **Parâmetros Avançados de Conexão** e preencha as informações a seguir.  Os valores de *FindValue* e *ServerCertThumbprint* devem coincidir com a impressão digital do certificado instalado na etapa anterior. Clique em **Publicar**. 
 
     Depois que a publicação for concluída, você poderá enviar uma solicitação ao aplicativo por meio de um navegador.
 
@@ -81,7 +100,7 @@ O Service Fabric Explorer é uma interface gráfica do usuário para explorar e 
 
 Para remover o aplicativo Cluster de Terceiros:
 
-1. Navegue até o Service Fabric Explorer usando o link fornecido pela página de entrada do Cluster Party. Por exemplo, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Navegue até o Service Fabric Explorer usando o link fornecido pela página de entrada do Cluster Party. Por exemplo, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
 2. No Service Fabric Explorer, navegue até o nó **fabric://Voting** no modo de exibição em árvore à esquerda.
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>Considerações de rede para um ambiente do Serviço de Aplicativo #
+# <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
 ## <a name="overview"></a>Visão geral ##
 
@@ -54,6 +54,13 @@ As portas de acesso normais do aplicativo são:
 |  Depuração remota no Visual Studio  |  Configurável pelo usuário |  4016, 4018, 4020, 4022 |
 
 Isso será verdadeiro se você estiver em um ASE externo ou em um ASE ILB. Se você estiver em um ASE externo, chegará a essas portas no VIP público. Se você estiver em um ASE ILB, chegará a essas portas no ILB. Se você bloquear a porta 443, poderá haver um efeito sobre alguns recursos expostos no portal. Para saber mais, confira [Dependências do portal](#portaldep).
+
+## <a name="ase-subnet-size"></a>Tamanho da sub-rede ASE ##
+
+O tamanho da sub-rede usada para hospedar um ASE não pode ser alterado depois da implantação do ASE.  O ASE usa um endereço para cada função de infraestrutura, bem como para cada instância de plano do serviço de aplicativo isolado.  Além disso, existem 5 endereços usados pela rede do Azure para cada sub-rede criada.  Um ASE sem nenhum plano do serviço de aplicativo usará 12 endereços antes de criar um aplicativo.  Se for um ASE ILB, ele usará 13 endereços antes de você criar um aplicativo no ASE. À medida que você expande seus planos de serviço de aplicativo, eles vão exigir endereços adicionais para cada Front-End adicionado.  Por padrão, os servidores de Front-End são adicionados para todas as 15 instâncias do plano de serviço de aplicativo. 
+
+   > [!NOTE]
+   > Nada mais pode existir na sub-rede além do ASE. Escolha um espaço de endereço que possibilite crescimento futuro. Você não poderá alterar essa configuração mais tarde. Recomendamos um tamanho de `/25`, com 128 endereços.
 
 ## <a name="ase-dependencies"></a>Dependências do ASE ##
 
@@ -150,7 +157,7 @@ Em um ASE, você não tem acesso às VMs usadas para hospedar o ASE em si. Elas 
 
 Os NSGs podem ser configurados por meio do portal do Azure ou por meio do PowerShell. As informações aqui mostram o portal do Azure. Crie e gerencie os NSGs no portal como um recurso de nível superior em **Rede**.
 
-Quando os requisitos de entrada e saída são levados em conta, os NSGs devem ser semelhantes aos NSGs mostrados neste exemplo. O intervalo de endereços da VNet é _192.168.250.0/16_ e a sub-rede em que o ASE está é _192.168.251.128/25_.
+Quando os requisitos de entrada e saída são levados em conta, os NSGs devem ser semelhantes aos NSGs mostrados neste exemplo. O intervalo de endereços da VNet é _192.168.250.0/23_ e a sub-rede em que o ASE está é _192.168.251.128/25_.
 
 Os primeiro dois requisitos de entrada para que o ASE funcione são mostrados no alto da lista neste exemplo. Eles habilitam o gerenciamento do ASE e permitem que o ASE se comunique com ele mesmo. As outras entradas todas podem ser configuradas pelo locatário e podem controlar o acesso de rede aos aplicativos hospedados pelo ASE. 
 
@@ -168,13 +175,13 @@ Depois que seus NSGs estiverem definidos, atribua-os à sub-rede em que está se
 
 ## <a name="routes"></a>Rotas ##
 
-As rotas costumam se tornar problemáticas principalmente quando você configura a VNet com o Azure ExpressRoute. Há três tipos de rotas em uma VNet:
+As rotas são um aspecto importante do que o túnel forçado é e como lidar com ele. Em uma rede virtual do Azure, o roteamento é feito com base na LPM (correspondência de prefixo mais longo). Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
 
--   Rotas do sistema
--   Rotas BGP
--   UDRs (Rotas Definidas pelo Usuário)
+- UDR (rota definida pelo usuário)
+- Rota BGP (quando o ExpressRoute é usado)
+- Rota de sistema
 
-Rotas de BGP que substituem as rotas do sistema. UDRs que substituem as rotas de BGP. Para saber mais sobre rotas em redes virtuais do Azure, confira [Visão geral das rotas definidas pelo usuário][UDRs].
+Para saber mais sobre como rotear em uma rede virtual, leia [User-defined routes and IP forwarding][UDRs] (Rotas definidas pelo usuário e encaminhamento de IP).
 
 O banco de dados SQL do Azure que usa o ASE para gerenciar o sistema tem um firewall. Ele exige que a comunicação origine-se do VIP público do ASE. Conexões ao banco de dados SQL do ASE serão negadas se forem enviadas para a conexão do ExpressRoute e outro endereço IP.
 

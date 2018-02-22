@@ -5,21 +5,18 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/16/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure pilha datacenter integração - publicar pontos de extremidade
-
-*Aplica-se a: sistemas integrados de pilha do Azure*
-
-A pilha do Azure define vários pontos de extremidade (VIPs - endereços IP virtuais) para suas funções de infraestrutura. Esses VIPs são alocados do pool de endereços IP público. Cada VIP é protegida com uma lista de controle de acesso (ACL) na camada de rede definida pelo software. As ACLs também são usadas entre os comutadores físicos (tes e BMC) para proteger ainda mais a solução. Uma entrada de DNS é criada para cada ponto de extremidade na zona DNS externo que foi especificado no momento da implantação.
+A pilha do Azure define vários virtual VIPs (endereços IP) para suas funções de infraestrutura. Esses VIPs são alocados do pool de endereços IP público. Cada VIP é protegida com uma lista de controle de acesso (ACL) na camada de rede definida pelo software. As ACLs também são usadas entre os comutadores físicos (tes e BMC) para proteger ainda mais a solução. Uma entrada de DNS é criada para cada ponto de extremidade na zona DNS externo que foi especificado no momento da implantação.
 
 
 O seguinte diagrama de arquitetura mostra as camadas de rede diferente e ACLs:
@@ -28,7 +25,7 @@ O seguinte diagrama de arquitetura mostra as camadas de rede diferente e ACLs:
 
 ## <a name="ports-and-protocols-inbound"></a>Portas e protocolos (entrada)
 
-VIPs de infraestrutura que são necessários para publicação pontos de extremidade de pilha do Azure para redes externas são listados na tabela a seguir. A lista mostra cada ponto de extremidade, a porta necessária e o protocolo. Pontos de extremidade necessários para provedores de recursos adicionais, como o provedor de recursos do SQL e outros, são abordados a documentação de implantação do provedor de recurso específico.
+VIPs de infraestrutura que são necessários para publicação pontos de extremidade de pilha do Azure para redes externas estão listados abaixo. A lista mostra cada ponto de extremidade, a porta necessária e o protocolo. Pontos de extremidade necessários para provedores de recursos adicionais, como o provedor de recursos do SQL e outros, são abordados a documentação de implantação do provedor de recurso específico.
 
 Infraestrutura interna que VIPs não são listadas porque eles não são necessários para a pilha de publicação do Azure.
 
@@ -52,7 +49,11 @@ Infraestrutura interna que VIPs não são listadas porque eles não são necess�
 |Tabela de Armazenamento|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Blob de Armazenamento|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Provedor de recursos do SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|Provedor de recursos MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
+|Provedor de recursos MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Serviço de Aplicativo|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Gerenciador de recursos do azure)|
+|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
 
 ## <a name="ports-and-urls-outbound"></a>Portas e URLs (saídas)
 

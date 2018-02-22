@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e161bb308f08e2a7c137c696e77bf1dfb86e8d31
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure
-Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Este recurso foi lançado na visualização técnica de 18 de novembro de 2015 e foi incluído no [Azure Active Directory Premium](active-directory-editions.md). Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md).
+Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Este recurso foi lançado a partir da versão prévia em 18 de novembro de 2015 e está incluído no [Azure Active Directory Premium](active-directory-editions.md). Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md).
 
-A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplicativos que reconhecidamente dão suporte a um formulário de logon único com o Active Directory do Azure, conforme descrito [neste artigo](active-directory-appssoaccess-whatis.md). Como especialista em TI ou integrador de sistema em sua organização, quando você tiver localizado o aplicativo que deseja conectar, poderá começar seguindo as instruções apresentadas no portal de gerenciamento do Azure para habilitar o logon único.
+A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplicativos que reconhecidamente dão suporte a um formulário de logon único com o Active Directory do Azure, conforme descrito [neste artigo](active-directory-appssoaccess-whatis.md). Como especialista em TI ou integrador de sistema em sua organização, quando você tiver localizado o aplicativo que deseja conectar, poderá começar seguindo as instruções apresentadas no Portal do Azure para habilitar o logon único.
 
-Os clientes com licenças do [Active Directory Premium do Azure](active-directory-editions.md) também obtêm estes recursos adicionais:
+Clientes com licenças do [Azure Active Directory Premium](active-directory-editions.md) também obtêm esses recursos adicionais:
 
 * Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0 (iniciado por SP ou IdP)
 * Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
@@ -38,32 +38,32 @@ Isso pode incluir não apenas aplicativos SaaS usados por você que ainda não f
 Esses recursos, também conhecidos como *modelos de integração de aplicativos*, fornecem pontos de conexão baseados em padrões para aplicativos que dão suporte à autenticação baseada em formulários, a SCIM ou a SAML e que incluem opções e configurações flexíveis para compatibilidade com um grande número de aplicativos. 
 
 ## <a name="adding-an-unlisted-application"></a>Adicionando um aplicativo não listado
-Para conectar um aplicativo usando um modelo de integração de aplicativo, entre no portal de gerenciamento do Azure usando sua conta de administrador do Active Directory do Azure e navegue até a seção **Active Directory > [Diretório] > Aplicativos**, selecione **Adicionar** e **Adicionar um aplicativo da galeria**. 
+Para conectar um aplicativo usando um modelo de integração de aplicativos, inscreva-se no portal Azure usando sua conta de administrador do Azure Active Directory e navegue até a seção **Active Directory > Aplicativos Empresariais > Novo aplicativo > Aplicativo inexistente na galeria**, selecione **Adicionar** e, em seguida, **Adicionar um aplicativo da galeria**.
 
-![][1]
+  ![][1]
 
-Na galeria de aplicativos, você pode adicionar um aplicativo não listado usando a categoria **Personalizado** à esquerda ou selecionando o link **Adicionar um aplicativo não listado** mostrado nos resultados da pesquisa se seu aplicativo desejado não foi encontrado. Depois de inserir um nome para seu aplicativo, você pode configurar as opções de logon único e comportamento. 
+Na galeria do aplicativo, você pode adicionar um aplicativo não listado, selecionando o bloco **Aplicativo inexistente na galeria** que será mostrado nos resultados da pesquisa se o aplicativo desejado não for localizado. Depois de inserir um nome para seu aplicativo, você pode configurar as opções de logon único e comportamento. 
 
-**Dica rápida**: como uma prática recomendada, use a função de pesquisa para verificar se o aplicativo já existe na galeria de aplicativos. Se o aplicativo for encontrado e sua descrição mencionar "logon único", o aplicativo já tem suporte para logon único federado. 
+**Dica rápida**: como uma prática recomendada, use a função de pesquisa para verificar se o aplicativo já existe na galeria de aplicativos. Se o aplicativo for localizado e a descrição mencionar "logon único", o aplicativo já terá suporte para logon único federado.
 
-![][2]
+  ![][2]
 
-A adição de um aplicativo dessa maneira oferece uma experiência muito semelhante àquela disponível para aplicativos previamente integrados. Para iniciar, selecione **Configurar Logon Único**. A próxima tela apresenta três opções para configurar o logon único, descritas nas seções a seguir.
+A adição de um aplicativo dessa maneira oferece uma experiência muito semelhante àquela disponível para aplicativos previamente integrados. Para iniciar, selecione **Configurar Logon Único**. A próxima tela apresenta as três opções a seguir para configurar o logon único, descritas nas seções a seguir.
 
-![][3]
+  ![][3]
 
-## <a name="azure-ad-single-sign-on"></a>Logon Único do AD do Azure
-Selecione esta opção para configurar a autenticação baseada em SAML no aplicativo. Isso requer que o aplicativo dê suporte a SAML 2.0, e você deve coletar informações sobre como usar os recursos SAML do aplicativo antes de continuar. Depois de selecionar **Próximo**, você será solicitado a inserir três URLs diferentes correspondentes aos pontos de extremidade SAML para o aplicativo. 
+## <a name="saml-based-sign-on"></a>Logon baseado em SAML
+Selecione esta opção para configurar a autenticação baseada em SAML no aplicativo. Isso requer que o aplicativo dê suporte a SAML 2.0, e você deve coletar informações sobre como usar os recursos SAML do aplicativo antes de continuar. Depois de selecionar **Próximo**, você será solicitado a inserir três URLs diferentes correspondentes aos pontos de extremidade SAML para o aplicativo.
 
-![][4]
+  ![][4]
 
 Estes são:
 
-* **URL de logon (somente iniciado por SP)** – onde o usuário vai para entrar nesse aplicativo. Se o aplicativo estiver configurado para executar logon único iniciado pelo provedor de serviços, quando um usuário navegar para essa URL, o provedor de serviços fará o redirecionamento necessário para o Azure AD a fim de autenticar e conectar o usuário. Se esse campo estiver preenchido, o Azure AD usará essa URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se esse campo for omitido, o Azure AD executará, em vez disso, o logon iniciado pelo provedor de identidade quando o aplicativo for iniciado do Office 365, do painel de acesso do Azure AD ou da URL de logon único do Azure AD (pode ser copiada da guia Painel).
+* **URL de logon (somente iniciado por SP)** – onde o usuário vai para entrar nesse aplicativo. Se o aplicativo estiver configurado para executar logon único iniciado pelo provedor de serviços, quando um usuário navegar para essa URL, o provedor de serviços fará o redirecionamento necessário para o Azure Active Directory autenticar e conectar o usuário. Se esse campo estiver preenchido, o Azure AD usará essa URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se esse campo for omitido, o Azure Active Directory executará, em vez disso, o logon iniciado pelo provedor de identidade quando o aplicativo for iniciado do Office 365, do painel de acesso do Azure Active Directory ou da URL de logon único do Azure Active Directory (copiável a partir da guia Painel).
 * **URL do emissor** – a URL do emissor deve identificar exclusivamente o aplicativo para o qual o SSO está sendo configurado. Esse é o valor que o Azure AD envia para o aplicativo como o parâmetro **Audiência** do token SAML e o aplicativo deve validá-lo. Esse valor também aparece como a **ID da entidade** em todos os metadados SAML fornecidos pelo aplicativo. Verifique a documentação SAML do aplicativo para obter detalhes sobre o que é a ID da Entidade ou o valor Audiência. Abaixo está um exemplo de como a URL da Audiência aparece no token SAML retornado para o aplicativo:
-
-```
-    <Subject>
+  
+  ```
+  <Subject>
     <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
         <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
       </Subject>
@@ -72,12 +72,14 @@ Estes são:
           <Audience>https://tenant.example.com</Audience>
         </AudienceRestriction>
       </Conditions>
-```
+    ```
 
 * **URL de resposta** – a URL de resposta é onde o aplicativo espera receber o token SAML. Ela também é chamada de **URL de ACS (Serviço do Consumidor de Declaração)**. Verifique a documentação SAML do aplicativo para obter detalhes sobre o que é a URL de resposta de token SAML ou a URL de ACS.
-  Depois que eles tiverem sido inseridos, clique em **Próximo** para prosseguir para a próxima tela. Esta tela fornece informações sobre o que precisa ser configurado no lado do aplicativo para habilitá-lo a aceitar um token SAML do AD do Azure. 
+  Depois que eles tiverem sido inseridos, clique em **Próximo** para prosseguir para a próxima tela. Esta tela fornece informações sobre o que precisa ser configurado no lado do aplicativo para habilitá-lo a aceitar um token SAML do AD do Azure.
 
-![][5]
+  * Clique em **Configurar Litware**.
+  
+    ![][5]
 
 Os valores necessários variam de acordo com o aplicativo; portanto, verifique a documentação do SAML do aplicativo para obter detalhes. As URLs de serviço **logon** e **saída** resolvem para o mesmo ponto de extremidade, que é o ponto de extremidade de tratamento de solicitação SAML para a instância do Azure AD. A URL de emissor é o valor que aparece como o "emissor" dentro do token SAML emitido para o aplicativo. 
 
@@ -86,9 +88,9 @@ Depois que o aplicativo tiver sido configurado, clique no botão **Próximo** e 
 ## <a name="assigning-users-and-groups-to-your-saml-application"></a>Atribuindo usuários e grupos a seu aplicativo SAML
 Quando o aplicativo estiver configurado para usar o AD do Azure como um provedor de identidade baseado em SAML, estará quase pronto para teste. Como controle de segurança, o AD do Azure somente emitirá um token permitindo que eles entrem no aplicativo se receberem acesso usando o AD do Azure. Os usuários podem ter acesso diretamente ou através de um grupo do qual sejam membros. 
 
-Para atribuir um usuário ou grupo ao seu aplicativo, clique no botão **Atribuir Usuários** . Selecione o usuário ou grupo que você deseja atribuir e selecione o botão **Atribuir** . 
+Para atribuir um usuário ou grupo ao seu aplicativo, clique no botão **Atribuir Usuários** . Selecione o usuário ou grupo que você deseja atribuir e selecione o botão **Atribuir** .
 
-![][6]
+  ![][6]
 
 A atribuição de um usuário permite que o AD do Azure emita um token para o usuário e faz aparecer um bloco para esse aplicativo no Painel de Acesso do usuário. Um bloco do aplicativo também aparece no iniciador do aplicativo do Office 365 se o usuário estiver usando o Office 365. 
 
@@ -97,9 +99,9 @@ Você pode carregar um logotipo de bloco para o aplicativo usando o botão **Car
 ### <a name="customizing-the-claims-issued-in-the-saml-token"></a>Personalizando as declarações emitidas no token SAML
 Quando um usuário é autenticado no aplicativo, o AD do Azure emite um token SAML para o aplicativo que contém informações (ou declarações) sobre o usuário que o identifica com exclusividade. Por padrão, isso inclui o nome de usuário, o endereço de email, o nome e sobrenome do usuário. 
 
-Você pode exibir ou editar as declarações enviadas no token SAML para o aplicativo na guia **Atributos** . 
+Você pode exibir ou editar as declarações enviadas no token SAML para o aplicativo na guia **Atributos** .
 
-![][7]
+  ![][7]
 
 Há duas razões possíveis para você precisar editar as declarações emitidas no token SAML: • O aplicativo foi escrito para exigir um conjunto diferente de URIs de declaração ou valores de declaração • Seu aplicativo foi implantado de uma forma que requer que a declaração NameIdentifier seja algo diferente do nome de usuário (conhecido como UPN) armazenado no Active Directory do Azure. 
 

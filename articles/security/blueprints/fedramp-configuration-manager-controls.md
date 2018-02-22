@@ -1,6 +1,6 @@
 ---
-title: "Automação de Especificações Técnicas do FedRAMP Azure – Gerenciamento de Configuração"
-description: "Aplicativos da Web para FedRAMP - Gerenciamento de Configuração"
+title: "Especificações técnicas de segurança e conformidade do Azure – Automação de Aplicativos Web para FedRAMP – Gerenciamento de configurações"
+description: "Automação de Aplicativos Web para FedRAMP – Gerenciamento de configurações"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>Gerenciamento de Configuração (CM)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | A política e procedimentos de gerenciamento de configuração de nível empresarial do cliente pode ser suficiente para endereçar este controle. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-2"></a>Controle NIST 800-53 CM-2
@@ -49,8 +49,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os modelos do Azure Resource Manager e os recursos que compõem essa Especificação Técnica do Azure representam uma linha de base de "configuração como código" para a arquitetura implantada. A solução é fornecida pelo GitHub, que pode ser usado para controle de configuração. A solução inclui uma linha de base de Configuração de Estado Desejado (DSC) para cada máquina virtual implantada. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Os modelos do Azure Resource Manager e os recursos que compõem estas especificações técnicas representam uma linha de base para "configuração como código" para a arquitetura implantada. A solução é fornecida pelo GitHub, que pode ser usado para controle de configuração. A solução inclui uma linha de base de Configuração de Estado Desejado (DSC) para cada máquina virtual implantada. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-2-1a"></a>Controle NIST 800-53 CM-2 (1).a
@@ -59,12 +59,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-2 (1).a** A organização revisa e atualiza a configuração de linha de base do sistema de informações [Atribuição: frequência definida pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por revisar e atualizar a configuração de linha de base dos recursos por ele implantados (para incluir aplicativos, sistemas operacionais, bancos de dados e software). |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-2-1b"></a>Controle NIST 800-53 CM-2 (1).b
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por revisar e atualizar a configuração de linha de base dos recursos implantados do cliente quando requeridos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-2-2"></a>Controle NIST 800-53 CM-2 (2)
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os modelos do Azure Resource Manager e os recursos que compõem essa Especificação Técnica do Azure representam uma linha de base de "configuração como código" para a arquitetura implantada. A solução é fornecida pelo GitHub, que pode ser usado para controle de configuração. No portal do Azure, um script de automação está disponível para todos os recursos implantados e fornece uma representação sempre atualizada desses recursos.  |
+| **Cliente** | Os modelos do Azure Resource Manager e os recursos que compõem estas especificações técnicas representam uma linha de base para "configuração como código" para a arquitetura implantada. A solução é fornecida pelo GitHub, que pode ser usado para controle de configuração. No portal do Azure, um script de automação está disponível para todos os recursos implantados e fornece uma representação sempre atualizada desses recursos.  |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -115,12 +115,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-2 (3)** A organização retém [Atribuição: versões anteriores das configurações de linha de base do sistema de informações definidas pela organização] para oferecer suporte à reversão.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por manter versões anteriores de configurações de linha de base para os recursos implantados pelo cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-2-7a"></a>Controle NIST 800-53 CM-2 (7).a
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Não há nenhum dispositivo físico controlado pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | Conteúdo de cliente do Microsoft Azure nunca é armazenado fora do Microsoft Azure, que é fisicamente localizados nos Estados Unidos. Equipe do Microsoft Azure não viaja com dispositivos contidos no inventário do Microsoft Azure. Sendo assim, esse controle não se aplica ao Microsoft Azure. |
+| **Fornecedor (Microsoft Azure)** | Conteúdo de cliente do Microsoft Azure nunca é armazenado fora do Microsoft Azure, que é fisicamente localizados nos Estados Unidos. Equipe do Microsoft Azure não viaja com dispositivos contidos no inventário do Microsoft Azure. Sendo assim, esse controle não se aplica ao Microsoft Azure. |
 
 
  ### <a name="nist-800-53-control-cm-2-7b"></a>Controle NIST 800-53 CM-2 (7).b
@@ -143,12 +143,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-2 (7).b** A organização se aplica [Atribuição: proteções de segurança definidas pela organização] para os dispositivos quando retornam os indivíduos.
 
-**Responsabilidades:** `Not Applicable`
+**Responsibilidades:** `Not Applicable`
 
 |||
 |---|---|
 | **Cliente** | Não há nenhum dispositivo físico controlado pelo cliente dentro do escopo de sistemas implantados no Azure. |
-| **Provedor (Microsoft Azure)** | Conteúdo de cliente do Microsoft Azure nunca é armazenado fora do Microsoft Azure e a equipe do Microsoft Azure não viaja com dispositivos contidos no inventário do Microsoft Azure, portanto, esse controle não é aplicável. |
+| **Fornecedor (Microsoft Azure)** | Conteúdo de cliente do Microsoft Azure nunca é armazenado fora do Microsoft Azure e a equipe do Microsoft Azure não viaja com dispositivos contidos no inventário do Microsoft Azure, portanto, esse controle não é aplicável. |
 
 
  ## <a name="nist-800-53-control-cm-3a"></a>Controle NIST 800-53 CM-3.a
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por determinar os tipos de mudanças de recursos implantados por clientes (que incluem aplicativos, sistemas operacionais, bancos de dados e software) são controladas pela configuração. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-3b"></a>Controle NIST 800-53 CM-3.b
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3.b** A organização revisa as alterações propostas controladas por configuração para o sistema de informações da organização e aprova ou desaprova tais alterações considerando explicitamente para análise de impacto de segurança.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3.c** A organização documenta decisões de mudança de configuração associadas com o sistema de informação.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por reter um registro de mudanças de configuração controlada para recursos implantados pelo cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-3f"></a>Controle NIST 800-53 CM-3.f
@@ -227,7 +227,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3.f** A organização audita e revisa as atividades associadas a configuração controlada alterações no sistema de informações da organização.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,12 +241,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3.g** A organização coordena e fornece supervisão para atividades de controle de alteração de configuração por meio de organização [Atribuição: elemento de controle de alteração de configuração definida pela organização (por exemplo, comitê, quadro)] que age [Seleção ( um ou mais): [Atribuição: frequência definida pela organização]; [Atribuição: condições de alteração de configuração definida pela organização]].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por coordenar e fornecer supervisão para atividades de controle de alteração de configuração. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-3-1a"></a>Controle NIST 800-53 CM-3 (1).a
@@ -269,12 +269,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3 (1).b** A organização emprega mecanismos automatizados para notificar [Atribuição: autoridades de aprovação definidas e organizadas] das alterações propostas para as informações de sistema e solicitação de aprovação de alteração.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por empregar um mecanismo automatizado para rotear e solicitar aprovação para mudanças propostas para recursos implantados de cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-3-1c"></a>Controle NIST 800-53 CM-3 (1).c
@@ -288,7 +288,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por empregar um mecanismo automatizado para realçar propostas de mudanças não revisadas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-3-1d"></a>Controle NIST 800-53 CM-3 (1).d
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por empregar um mecanismo automatizado para proibir a implementação de mudanças recusadas para recursos implantados de cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-3-1e"></a>Controle NIST 800-53 CM-3 (1).e
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por empregar um mecanismo automatizado para documentar toda a implementação para recursos implantados de cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-3-1f"></a>Controle NIST 800-53 CM-3 (1).f
@@ -325,12 +325,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3 (1).f** A organização emprega mecanismos automatizados para notificar [Atribuição: pessoal definido pela organização] quando mudanças aprovadas para o sistema de informação são completadas.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por empregar um mecanismo automatizado para fornecer notificações quando mudanças aprovadas para recursos implantados de cliente são completadas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-3-2"></a>Controle NIST 800-53 CM-3 (2)
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por testar, validar e documentadas alterações aos recursos de cliente implantados antes da implementação. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-3-4"></a>Controle NIST 800-53 CM-3 (4)
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por garantir que os mecanismos de criptografia estejam sob o gerenciamento de configuração. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-4"></a>Controle NIST 800-53 CM-4
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por analisar as mudanças propostas para recursos implantados por ele. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-4-1"></a>Controle NIST 800-53 CM-4 (1)
@@ -400,7 +400,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela análise de alterações propostas para recursos de cliente implantado em um ambiente de teste antes da implementação em um ambiente operacional. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-5"></a>Controle NIST 800-53 CM-5
@@ -409,7 +409,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-5** A organização define, documenta, aprova e impõe restrições de acesso físico e lógico associadas a alterações no sistema de informações.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -442,7 +442,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por revisar as alterações aos recursos implantados pelo cliente para determinar se ocorreram alterações não autorizadas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-5-3"></a>Controle NIST 800-53 CM-5 (3)
@@ -455,8 +455,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais implantadas por esse projeto do Azure implementam Windows AppLocker para especificar quais usuários podem instalar e/ou executar aplicativos específicos. Além disso, todas as janelas de atualizações do sistema operacional Windows são digitalmente assinadas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Máquinas virtuais implantadas por estas especificações técnicas implementam o Windows AppLocker para especificar quais usuários podem instalar e/ou executar aplicativos específicos. Além disso, todas as janelas de atualizações do sistema operacional Windows são digitalmente assinadas. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-5-5a"></a>Controle NIST 800-53 CM-5 (5).a
@@ -470,7 +470,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por limitar os privilégios para fazer alterações em ambientes operacionais ou de produção implantado pelo cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-5-5b"></a>Controle NIST 800-53 CM-5 (5).b
@@ -484,7 +484,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por revisar e reavaliando privilégios definidos em CM-05(05).a. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-6a"></a>Controle NIST 800-53 CM-6.a
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Projeto do Azure inclui uma linha de base de Configuração de Estado Desejado (DSC) para cada máquina virtual implantada. Esses scripts declarativos do PowerShell definem e configuram os recursos aos quais elas são aplicadas. A linha de base DSC incluída para os recursos implantados por essa solução pode ser estendida pelo cliente para atender às necessidades de missão. |
+| **Cliente** | Estas especificações técnicas incluem uma linha de base de Configuração de estado desejado (DSC) para cada máquina virtual implantada. Esses scripts declarativos do PowerShell definem e configuram os recursos aos quais elas são aplicadas. A linha de base DSC incluída para os recursos implantados por essa solução pode ser estendida pelo cliente para atender às necessidades de missão. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -507,12 +507,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-6.b** A organização implementa as definições de configuração.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este Projeto do Azure inclui uma linha de base de Configuração de Estado Desejado (DSC) para cada máquina virtual implantada. As linhas de base são aplicadas automaticamente a máquinas virtuais durante a implantação usando a extensão de máquina virtual de script personalizado. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas incluem uma linha de base de Configuração de estado desejado (DSC) para cada máquina virtual implantada. As linhas de base são aplicadas automaticamente a máquinas virtuais durante a implantação usando a extensão de máquina virtual de script personalizado. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-6c"></a>Controle NIST 800-53 CM-6.c
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por identificar, documentar e aprovar quaisquer desvios das definições de configuração estabelecidos para recursos de implantação de cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-6d"></a>Controle NIST 800-53 CM-6.d
@@ -535,12 +535,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-6.d** A organização monitora e controla mudanças para as configurações de acordo com as políticas organizacionais e os procedimentos.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta um DSC de Automação. DSC de Automação alinha as configurações de máquina com uma configuração específica da organização definida. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Esta especificação técnica implanta uma DSC de Automação. DSC de Automação alinha as configurações de máquina com uma configuração específica da organização definida. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-6-1"></a>Controle NIST 800-53 CM-6 (1)
@@ -549,11 +549,11 @@ ms.lasthandoff: 11/23/2017
 
 **CM-6 (1)** A organização emprega mecanismos automatizados para gerenciar centralmente, aplicar e verificar as configurações para [Atribuição: componentes de sistema de informações definidos pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta um DSC de Automação. DSC de Automação alinha as configurações de máquina com uma configuração específica da organização definida e monitora continuamente por mudanças. |
+| **Cliente** | Esta especificação técnica implanta uma DSC de Automação do Azure. DSC de Automação alinha as configurações de máquina com uma configuração específica da organização definida e monitora continuamente por mudanças. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Esta Especificação Técnica do Azure implanta um DSC de Automação. Parte do Azure Operations Management Suite (OMS), o DSC de Automação pode ser configurado para gerar um alerta ou para solucionar problemas de configuração quando detectado. |
+| **Cliente** | Esta especificação técnica implanta uma DSC de Automação do Azure. Parte do Azure Operations Management Suite (OMS), o DSC de Automação pode ser configurado para gerar um alerta ou para solucionar problemas de configuração quando detectado. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -577,12 +577,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-7.a** A organização configura o sistema de informações para fornecer apenas os recursos essenciais.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Os recursos implantados por este projeto do Azure são configurados para fornecer a funcionalidade mínima para a finalidade pretendida. A linha de base de Configuração de Estado Desejado (DSC) é incluída para cada máquina virtual. Esses scripts declarativos do PowerShell definem e configuram os recursos aos quais elas são aplicadas. A linha de base DSC incluída para os recursos implantados por essa solução pode ser estendida pelo cliente para atender às necessidades de missão. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Os recursos implantados por estas especificações técnicas são configurados para fornecer a funcionalidade mínima para a finalidade pretendida. A linha de base de Configuração de Estado Desejado (DSC) é incluída para cada máquina virtual. Esses scripts declarativos do PowerShell definem e configuram os recursos aos quais elas são aplicadas. A linha de base DSC incluída para os recursos implantados por essa solução pode ser estendida pelo cliente para atender às necessidades de missão. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-7b"></a>Controle NIST 800-53 CM-7.b
@@ -595,8 +595,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Projeto Azure implanta os grupos de segurança de rede e Gateway de Aplicativo do Azure para restringir o uso de portas e protocolos apenas àquelas necessárias. Application Gateway, grupos de segurança de rede e as linhas de base do DSC para máquinas virtuais podem ser melhor configuradas pelo cliente para restringir o uso de funções e serviços para fornecer apenas a funcionalidade que se destina, protocolos e portas. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas implantam os grupos de segurança de rede e o Gateway de Aplicativo do Azure para restringir o uso de portas e protocolos apenas àqueles que são necessários. Application Gateway, grupos de segurança de rede e as linhas de base do DSC para máquinas virtuais podem ser melhor configuradas pelo cliente para restringir o uso de funções e serviços para fornecer apenas a funcionalidade que se destina, protocolos e portas. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-7-1a"></a>Controle NIST 800-53 CM-7 (1).a
@@ -605,12 +605,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-7 (1).a** A organização examina o sistema de informações [Atribuição: frequência definida pela organização] para identificar funções, portas, protocolos e serviços desnecessários e/ou não seguros.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por revisar e analisar os registros de auditoria dos recursos por ele implantados (para incluir aplicativos, sistemas operacionais, bancos de dados e software) para identificar funções, portas, protocolos, e serviços desnecessários e/ou inseguros. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-7-1b"></a>Controle NIST 800-53 CM-7 (1).b
@@ -619,12 +619,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-7 (1).b** A organização desabilita o sistema de informações [Atribuição: funções, portas, protocolos e serviços desnecessários e/ou não seguros definidos pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por desabilitar funções, portas, protocolos e serviços que foram considerados inseguros ou desnecessários. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-7-2"></a>Controle NIST 800-53 CM-7 (2)
@@ -638,7 +638,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por impedir a execução do programa de acordo com políticas de uso do programa de software definida pelo cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-7-5a"></a>Controle NIST 800-53 CM-7 (5).a
@@ -647,12 +647,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-7 (5).a** A organização identifica [Atribuição: programas de software autorizado a executar no sistema de informações definidos pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por identificar programas autorizados. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-7-5b"></a>Controle NIST 800-53 CM-7 (5).b
@@ -661,12 +661,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-7 (5).b** A organização emprega uma política negar tudo, permitir por exceção para permitir a execução de programas de software autorizado no sistema de informações.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por utilizar uma política negar tudo, permitir por exceção para permitir a execução de programas de software autorizado nos recursos de implantação de cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-7-5c"></a>Controle NIST 800-53 CM-7 (5).c
@@ -693,8 +693,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Projeto Azure implanta todos os recursos a um grupo de recursos do Azure Resource Manager. Azure Resource Manager fornece uma lista de recursos implantados sempre atualizada e pode ser personalizado para marcar e agrupar recursos para gerenciamento de estoque. Recursos implantados por esta solução recebem uma marca de recurso específica que pode ser associada com o limite de sistema. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas implantam todos os recursos em um grupo de recursos do Azure Resource Manager. Azure Resource Manager fornece uma lista de recursos implantados sempre atualizada e pode ser personalizado para marcar e agrupar recursos para gerenciamento de estoque. Recursos implantados por esta solução recebem uma marca de recurso específica que pode ser associada com o limite de sistema. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-8b"></a>Controle NIST 800-53 CM-8.b
@@ -707,8 +707,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Projeto Azure implanta todos os recursos a um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista sempre atualizada de recursos implantados disponíveis para revisão no portal do Azure. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas implantam todos os recursos em um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista sempre atualizada de recursos implantados disponíveis para revisão no portal do Azure. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-8-1"></a>Controle NIST 800-53 CM-8 (1)
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Projeto Azure implanta todos os recursos a um grupo de recursos do Azure Resource Manager. A folha de recursos no portal do Azure lista todos os recursos implantados, fornecendo um inventário sempre atualizado conforme recursos são implantados e removidos. |
+| **Cliente** | Estas especificações técnicas implantam todos os recursos em um grupo de recursos do Azure Resource Manager. A folha de recursos no portal do Azure lista todos os recursos implantados, fornecendo um inventário sempre atualizado conforme recursos são implantados e removidos. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -735,8 +735,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Projeto Azure implanta todos os recursos a um grupo de recursos do Azure Resource Manager. A folha de recursos no portal do Azure lista todos os recursos implantados, fornecendo um inventário sempre atualizado conforme recursos são implantados e removidos. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas implantam todos os recursos em um grupo de recursos do Azure Resource Manager. A folha de recursos no portal do Azure lista todos os recursos implantados, fornecendo um inventário sempre atualizado conforme recursos são implantados e removidos. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-8-3a"></a>Controle NIST 800-53 CM-8 (3).a
@@ -750,7 +750,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por utilizar mecanismos automatizados para detectar a presença de software não autorizado em recursos de implantação de cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-8-3b"></a>Controle NIST 800-53 CM-8 (3).b
@@ -764,7 +764,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por tomar ação quando um software não autorizado for detectado. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-8-4"></a>Controle NIST 800-53 CM-8 (4)
@@ -773,12 +773,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-8 (4)** A organização inclui as informações de inventário de componente de sistema informações um meio para identificar por [Seleção (um ou mais): nome, posição; função], indivíduos responsáveis/responsável para administrar esses componentes.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este Projeto Azure implanta todos os recursos a um grupo de recursos do Azure Resource Manager. As marcas de recurso do Azure são de chave / valor pares que podem ser empregadas para categorizar os recursos para fins de gerenciamento e/ou responsabilidade. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Estas especificações técnicas implantam todos os recursos em um grupo de recursos do Azure Resource Manager. As marcas de recurso do Azure são de chave / valor pares que podem ser empregadas para categorizar os recursos para fins de gerenciamento e/ou responsabilidade. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ### <a name="nist-800-53-control-cm-8-5"></a>Controle NIST 800-53 CM-8 (5)
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Projeto Azure implanta todos os recursos a um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista sempre atualizada de recursos implantados. Recursos implantados por esta solução recebem uma marca de recurso específica que pode ser associada com o limite de sistema. |
+| **Cliente** | Estas especificações técnicas implantam todos os recursos em um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista sempre atualizada de recursos implantados. Recursos implantados por esta solução recebem uma marca de recurso específica que pode ser associada com o limite de sistema. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -820,7 +820,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por desenvolver, documentar, e implementar um plano de gerenciamento de configuração para recursos de implantação do cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-9c"></a>Controle NIST 800-53 CM-9.c
@@ -843,12 +843,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-9.d** A organização desenvolve, documenta e implementa um plano de gerenciamento de configuração para o sistema de informações que protege o plano de gerenciamento de configuração de divulgação não autorizado e a modificação.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por desenvolver, documentar, e implementar um plano de gerenciamento de configuração para recursos de implantação do cliente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-10a"></a>Controle NIST 800-53 CM-10.a
@@ -861,7 +861,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Licenças de Windows e SQL Server estão incluídas para os recursos implantados por este Projeto Azure. Este é um recurso interno do Azure. Organizações com contratos de licença de software existente podem considerar a implantação de modelos de licença alternativa. |
+| **Cliente** | Licenças do Windows e do SQL Server estão inclusas para os recursos implantados por estas especificações técnicas. Este é um recurso interno do Azure. Organizações com contratos de licença de software existente podem considerar a implantação de modelos de licença alternativa. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -871,12 +871,12 @@ ms.lasthandoff: 11/23/2017
 
 **CM-10.b** A organização controla o uso de software e documentação associada protegida pelas licenças de quantidade para controlar copiagem e distribuição.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Licenças de Windows e SQL Server estão incluídas para os recursos implantados por este Projeto Azure. O usuário não é necessário para controlar o uso das licenças separadamente. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Cliente** | Licenças do Windows e do SQL Server estão inclusas para os recursos implantados por estas especificações técnicas. O usuário não é necessário para controlar o uso das licenças separadamente. |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-10c"></a>Controle NIST 800-53 CM-10.c
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não há nenhum recurso implantado por este projeto do Azure de compartilhamento de arquivos de ponto a ponto. |
+| **Cliente** | Não há nenhum recurso de compartilhamento de arquivos de ponto a ponto implantado por estas especificações técnicas. |
 | **Provedor (Microsoft Azure)** | Não aplicável |
 
 
@@ -904,7 +904,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | Política de gerenciamento de configuração de nível empresarial do cliente pode tratar restrições no uso de software livre. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-11a"></a>Controle NIST 800-53 CM-11.a
@@ -918,7 +918,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por estabelecer uma política que controla a instalação de software nos recursos de cliente implantado por usuários. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-11b"></a>Controle NIST 800-53 CM-11.b
@@ -932,7 +932,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Cliente** | O cliente é responsável pela aplicação de políticas de instalação de software. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 
 
  ## <a name="nist-800-53-control-cm-11c"></a>Controle NIST 800-53 CM-11.c
@@ -941,7 +941,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-11.c** A organização monitora política de conformidade em [Atribuição: frequência definida pela organização].
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -955,10 +955,10 @@ ms.lasthandoff: 11/23/2017
 
 **CM-11 (1)** Os alertas do sistema de informações [Atribuição: pessoal ou funções definidos pela organização] quando a instalação não autorizada do software é detectada.
 
-**Responsabilidades:** `Customer Only`
+**Responsibilidades:** `Customer Only`
 
 |||
 |---|---|
 | **Cliente** | O cliente é responsável por fornecer alertas quando a instalação não autorizada do software é detectada. |
-| **Provedor (Microsoft Azure)** | Não aplicável |
+| **Fornecedor (Microsoft Azure)** | Não aplicável |
 

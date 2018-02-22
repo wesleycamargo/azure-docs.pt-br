@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Entender o uso da Instância Reservada no seu registro de Empresa
 Entender a utilização da Instância Reservada com o uso de ReservationId da [página Reserva](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) e o arquivo de utilização do [portal EA.](https://ea.azure.com) Você também pode ver o uso de reserva na seção de resumo de uso do [portal EA.](https://ea.azure.com)
@@ -37,7 +37,7 @@ Na seção a seguir, suponha que você esteja executando uma VM do Windows Stand
 
 ## <a name="reservation-application"></a>Aplicação de reserva
 
-A parte de hardware da VM é coberta porque a VM implantada coincide com os atributos de reserva. Para ver qual software do Windows não é coberto pela Instância Reservada, vá até [Custos de software do Windows para Instâncias de VM de Reserva do Azure.](billing-reserved-instance-windows-software-costs.md)
+A parte de hardware da VM é coberta porque a VM implantada coincide com os atributos de reserva. Para ver qual software do Windows não é coberto pela Instância Reservada, vá até [Custos de software do Windows para Instâncias de VM Reservadas do Azure.](billing-reserved-instance-windows-software-costs.md)
 
 
 ### <a name="reservation-usage-in-csv"></a>Uso de reserva em arquivo csv
@@ -56,6 +56,16 @@ O uso da Instância Reservada também é mostrado na seção sobre resumo de uso
 
 1. Você não é cobrado pelo componente de hardware da VM, pois ele é coberto pela Instância Reservada. 
 2. Você é cobrado pelo software do Windows, pois o Benefício Híbrido do Azure não é usado. 
+
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre as Instâncias de Máquina Virtual Reservadas, confira os artigos a seguir.
+
+- [Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerenciar Instâncias de Máquina Virtual Reservadas](billing-manage-reserved-vm-instance.md)
+- [Economizar dinheiro em máquinas virtuais com Instâncias de Máquinas Virtuais Reservadas](billing-save-compute-costs-reservations.md)
+- [Entender como é aplicado o desconto em Instâncias de Máquina Virtual Reservadas](billing-understand-vm-reservation-charges.md)
+- [Entender o uso da Instância Reservada na sua assinatura de Pagamento Conforme o Uso](billing-understand-reserved-instance-usage.md)
+- [Custos de software do Windows não inclusos nas Instâncias Reservadas](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 

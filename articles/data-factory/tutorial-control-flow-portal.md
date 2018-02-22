@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 Neste tutorial, você deve criar um pipeline de Data Factory que apresente alguns dos recursos de fluxo de controle. Esse pipeline faz uma cópia simples de um contêiner no Armazenamento de Blobs do Azure para outro contêiner na mesma conta de armazenamento. Se a atividade de cópia for bem-sucedida, o pipeline enviará detalhes da operação de cópia bem-sucedida (tais como a quantidade de dados gravados) em um email de êxito. Se a atividade de cópia falhar, o pipeline enviará detalhes da falha de cópia (por exemplo, a mensagem de erro) em um email de falha. Ao longo do tutorial, você verá como passar parâmetros.
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
         - Nome do Data Factory – passagem do valor de `@{pipeline().DataFactory}` Essa é uma variável de sistema, permitindo que você acesse o nome do data factory correspondente. Para obter uma lista das variáveis de sistema, consulte o artigo [Variáveis de Sistema](control-flow-system-variables.md).
         - Nome do Pipeline – passagem do valor de `@{pipeline().Pipeline}`. Essa também é uma variável de sistema, permitindo que você acesse o nome do pipeline correspondente. 
         - Destinatário – passagem do valor de "@pipeline(). parameters.receiver"). Acessando os parâmetros de pipeline.
-    6. As **Configurações** devem ser semelhantes à seguinte imagem: 
-
+    
         ![Configurações para a primeira atividade da Web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Conecte a atividade **Cópia** à atividade da **Web** ao arrastar o botão verde ao lado da atividade de Cópia e soltar na atividade de Web. 
 
@@ -266,8 +266,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. As **Configurações** devem ser semelhantes à seguinte imagem: 
-    
+
         ![Configurações para a segunda atividade da Web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Selecione a atividade **Cópia** no designer do pipeline e clique no botão **+->** e, em seguida, selecione **Erro**.  
 
@@ -278,7 +277,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
 24. Para validar o pipeline, clique no botão **Validar** na barra de ferramentas. Feche a janela **Saída da Validação do Pipeline** clicando no botão **>>**.
 
     ![Validar o pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. Para publicar as entidades (conjuntos de dados, pipelines etc.) no serviço Data Factory, clique em **Publicar**. Aguarde até que você veja a mensagem **Publicado com êxito**.
+24. Para publicar as entidades (conjuntos de dados, pipelines etc.) no serviço Data Factory, selecione **Publicar tudo**. Aguarde até que você veja a mensagem **Publicado com êxito**.
 
     ![Publicar](./media/tutorial-control-flow-portal/publish-button.png)
  

@@ -6,11 +6,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: a5019d3f729f2efbd01fca021b0089c7f99b0014
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.custom: mvc
+ms.openlocfilehash: bbcfe95f5427681f8d55d647b102d35fc37f15ee
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -19,7 +20,7 @@ Os serviços de [Migrações para Azure](migrate-overview.md) avaliam as cargas 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar um projeto das Migrações para Azure.
+> * Criar um projeto do Migrações para Azure.
 > * Configurar uma máquina virtual (VM) de coletor local, para descobrir VMs do VMware locais para avaliação.
 > * Agrupar VMs e criar uma avaliação.
 
@@ -27,7 +28,7 @@ Neste tutorial, você aprenderá como:
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - **VMware**: as VMs que você planeja migrar devem ser gerenciadas por um vCenter Server executando a versão 5.5, 6.0 ou 6.5. Além disso, é necessário um host ESXi executando a versão 5.0 ou posteriores para implantar a VM de coletor. 
  
@@ -53,11 +54,11 @@ Faça logon no [Portal do Azure](https://portal.azure.com).
     
 
 
-## <a name="download-the-collector-appliance"></a>Baixar o dispositivo coletor
+## <a name="download-the-collector-appliance"></a>Baixe o dispositivo coletor
 
-O Migrações para Azure cria uma VM local conhecida como o dispositivo coletor. Essa VM descobre as VMs do VMware locais e envia os metadados sobre elas para o serviço Migrações para Azure. Para configurar o dispositivo coletor, você baixa um arquivo .OVA e o importa para o servidor do vCenter local para criar a VM.
+O Migrações para Azure cria uma VM local conhecida como o dispositivo coletor. Essa VM descobre as VMs do VMware locais e envia os metadados sobre elas para o serviço Migrações para Azure. Para configurar o dispositivo coletor, baixe um arquivo .OVA e importe-o para o servidor do vCenter local para criar a VM.
 
-1. No projeto do Migrações para Azure, clique em **Introdução** > **Descobrir e avaliar** > **Descobrir máquinas**.
+1. No projeto do Migrações para Azure, clique em **Introdução** > **Descobrir e Avaliar** > **Descobrir Máquinas**.
 2. Em **Descobrir máquinas**, clique em **Baixar**, para baixar o arquivo .OVA.
 3. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto. Você precisará delas quando configurar o coletor.
 
@@ -68,7 +69,7 @@ O Migrações para Azure cria uma VM local conhecida como o dispositivo coletor.
 Verifique se o arquivo .OVA é seguro antes de implantá-lo.
 
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
-2. Execute o seguinte comando para gerar o hash para a OVA:
+2. Execute o seguinte comando para gerar o hash para o arquivo OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. O hash gerado deve corresponder a estas configurações.
@@ -76,15 +77,15 @@ Verifique se o arquivo .OVA é seguro antes de implantá-lo.
     Para a versão OVA 1.0.8.49
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7 
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8 
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     Para a versão OVA 1.0.8.40:
 
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 |afbae5a2e7142829659c21fd8a9def3f
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
@@ -100,14 +101,14 @@ Importe o arquivo baixado para o vCenter Server.
 3. Em **Nome** e **Local**, especifique um nome amigável para a VM do coletor e o objeto do inventário no qual a VM será hospedada.
 5. Em **Host/Cluster**, especifique o host ou cluster no qual a VM do coletor será executada.
 7. No armazenamento, especifique o destino de armazenamento para a VM do coletor.
-8. Em **Formato de disco**, especifique o tipo e o tamanho do disco.
-9. Em **Mapeamento de rede**, especifique a rede à qual a VM do coletor se conectará. A rede precisa de conectividade com a Internet, para enviar metadados para o Azure. 
+8. Em **Formato de Disco**, especifique o tipo e o tamanho do disco.
+9. Em **Mapeamento de rede**, especifique a rede à qual a VM do coletor se conectará. A rede precisa de conectividade com a Internet para enviar metadados para o Azure. 
 10. Revise e confirme as configurações e clique em **Concluir**.
 
 ## <a name="run-the-collector-to-discover-vms"></a>Execute o coletor para descobrir as VMs
 
 1. No console do cliente do vSphere, clique com botão direito do mouse na VM > **Abrir console**.
-2. Forneça o idioma, fuso horário e preferências de senha para o dispositivo.
+2. Forneça o idioma, o fuso horário e as preferências de senha para o dispositivo.
 3. Na área de trabalho, clique no atalho **Executar coletor**.
 4. No Coletor de Migrações para Azure, abra **Configurar Pré-Requisitos**.
     - Aceite os termos de licença e leia as informações de terceiros.
@@ -125,7 +126,7 @@ Importe o arquivo baixado para o vCenter Server.
     - Em **Nome de usuário** e **Senha**, especifique as credenciais de conta de somente leitura que o coletor usará para descobrir VMs no servidor do vCenter.
     - Em **Escopo de coleção**, selecione um escopo de descoberta de VM. O coletor só pode descobrir VMs dentro do escopo especificado. O escopo pode ser definido para uma pasta, datacenter ou cluster específicos. Ele não deve conter mais de 1000 VMs. 
 
-6. Em **Especificar projeto de migração**, especifique a ID do projeto de Migrações para Azure e da chave que você copiou do portal. Se você não as copiou, abra o portal do Azure da VM do coletor. Na página de **Visão geral** do projeto, clique em **Descobrir Máquinas** e copie os valores.  
+6. Em **Especificar projeto de migração**, especifique a ID do projeto de Migrações para Azure e da chave que você copiou do portal. Se não as copiar, abra o portal do Azure da VM do coletor. Na página de **Visão geral** do projeto, clique em **Descobrir Máquinas** e copie os valores.  
 7. Em **Visualizar progresso de coleção**, monitore a descoberta e verifique se os metadados coletados das VMs estão no escopo. O coletor fornece um tempo aproximado de descoberta.
 
 > [!NOTE]
@@ -144,7 +145,7 @@ O tempo de descoberta depende de quantas VMs estão sendo descobertas. Geralment
 
 Após as VMs terem sido descobertas, você pode agrupá-las e criar uma avaliação. 
 
-1. Na página de **Visão geral** do projeto, clique em **Criar avaliação**.
+1. Na página **Visão geral** do projeto, clique em **Criar avaliação**.
 2. Clique em **Exibir tudo** para examinar as propriedades da avaliação.
 3. Crie o grupo e especifique um nome de grupo.
 4. Selecione as máquinas que deseja adicionar ao grupo.

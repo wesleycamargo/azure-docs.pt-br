@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 183e11bed0d2399ffa714bc544f88eb359647b9a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro no relatório de atividade de entrada no portal do Azure Active Directory
 
@@ -38,9 +38,7 @@ O seu primeiro ponto de entrada para todos os dados de atividades de entrada é 
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins-errors/61.png "Atividade de entrada")
 
-
 Em seu relatório de entradas, você pode exibir todas as falhas de entradas selecionando **Falha** como **Status de Entrada**.
-
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins-errors/06.png "Atividade de entrada")
 
@@ -56,51 +54,52 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 
 ## <a name="error-codes"></a>Códigos do Erro
 
-| Erro| Descrição |
-| --- | --- |
-| 50001| A entidade de serviço denominada X não foi encontrada no locatário chamado Y. Isso pode acontecer se o aplicativo não foi instalado pelo administrador do locatário. Ou a entidade de segurança do recurso não foi encontrada no diretório ou é inválida.|
-| 50008| A instrução de declaração SAML está ausente ou foi configurada incorretamente no token.|
-| 50011| O endereço de resposta está ausente, foi configurado incorretamente ou não coincide com os endereços de resposta configurados para o aplicativo.|
-| 50012| O usuário relatou uma fraude durante a autenticação multifator.|
-| 50053| A conta está bloqueada porque o usuário tentou entrar muitas vezes com uma ID de usuário ou senha incorreta.|
-| 50054| Uma senha antiga está sendo usada para autenticação.|
-| 50055| Senha inválida; a senha inserida expirou.|
-| 50057| A conta de usuário está desabilitada.|
-| 50058| Nenhuma informação sobre a identidade do usuário é encontrada entre as credenciais fornecidas ou O usuário não foi encontrado no locatário ou Uma solicitação de entrada sem confirmação foi enviada, mas nenhum usuário está conectado ou O serviço não pôde autenticar o usuário.|
-| 50074| O usuário não passou no desafio de MFA.|
-| 50079| O usuário deve se registrar para autenticação de dois fatores.|
-| 50126| Nome de usuário ou senha inválida ou Nome de usuário ou senha local inválida.|
-| 50131| Usado em vários erros de acesso condicional. Por exemplo: estado de dispositivo Windows inválido, solicitação bloqueada devido a atividades suspeitas, decisões de política de acesso e política de segurança.|
-| 50133| A sessão é inválida devido à expiração ou alteração de senha recente.|
-| 50144| A senha do Active Directory do usuário expirou.|
-| 65001| O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do aplicativo: Y para o recurso: Z.|
-| 65005| A lista de acesso a recursos exigida pelo aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso a recursos que não foram especificados na lista de acesso a recursos exigida ou O serviço Graph retornou uma solicitação inválida ou o recurso não foi encontrado.|
-| 70001| O aplicativo de nome X não foi encontrado no locatário de nome Y. Isso pode acontecer se o aplicativo não foi instalado pelo administrador do locatário ou aceito por algum usuário no locatário. Você pode ter enviado a solicitação de autenticação ao locatário errado.|
-| 80001| O Agente de Autenticação não pode se conectar ao Active Directory.|
-| 80002| A solicitação de validação de senha do Agente de Autenticação atingiu o tempo limite.|
-| 80003| Resposta inválida recebida pelo Agente de Autenticação.|
-| 80004| Nome UPN incorreto usado na solicitação de entrada.|
-| 80005| Agente de Autenticação: erro.|
-| 80007| O Agente de Autenticação não pode validar a senha do usuário.|
-| 80010| O Agente de Autenticação não pode descriptografar a senha.|
-| 80011| O Agente de Autenticação não pode recuperar a chave de descriptografia.|
-| 81001| O tíquete de Kerberos do usuário é muito grande.|
-| 81002| Não é possível validar o tíquete de Kerberos do usuário.|
-| 81003| Não é possível validar o tíquete de Kerberos do usuário.|
-| 81004| Falha na tentativa de autenticação Kerberos.|
-| 81008| Não é possível validar o tíquete de Kerberos do usuário.|
-| 81009| Não é possível validar o tíquete de Kerberos do usuário.|
-| 81010| O SSO contínuo falhou porque o tíquete de Kerberos do usuário expirou ou é inválido.|
-| 81011| Não foi possível localizar o objeto de usuário com base nas informações do tíquete de Kerberos do usuário.|
-| 81012| O usuário que está tentando entrar no Azure AD é diferente do usuário conectado ao dispositivo.|
-| 81013| Não foi possível localizar o objeto de usuário com base nas informações do tíquete de Kerberos do usuário.|
-| 90014| Usado em vários casos em que um campo esperado não está presente na credencial.|
-| 90093| O Graph retornou código de erro "proibido" para a solicitação.|
-
+|Erro|DESCRIÇÃO|
+|---|---|
+|50001|A entidade de serviço denominada X não foi encontrada no locatário chamado Y. Isso pode acontecer se o aplicativo não foi instalado pelo administrador do locatário. Ou a entidade de segurança do recurso não foi encontrada no diretório ou é inválida.|
+|50008|A instrução de declaração SAML está ausente ou foi configurada incorretamente no token.|
+|50011|O endereço de resposta está ausente, foi configurado incorretamente ou não coincide com os endereços de resposta configurados para o aplicativo.|
+|50012|O usuário relatou uma fraude durante a autenticação multifator.|
+|50053|A conta está bloqueada porque o usuário tentou entrar muitas vezes com uma ID de usuário ou senha incorreta.|
+|50054|Uma senha antiga está sendo usada para autenticação.|
+|50055|Senha inválida; a senha inserida expirou.|
+|50057|A conta de usuário está desabilitada.|
+|50058|Nenhuma informação sobre a identidade do usuário é encontrada entre as credenciais fornecidas ou O usuário não foi encontrado no locatário ou Uma solicitação de entrada sem confirmação foi enviada, mas nenhum usuário está conectado ou O serviço não pôde autenticar o usuário.|
+|50074|O usuário não passou no desafio de MFA.|
+|50079|O usuário deve se registrar para autenticação de dois fatores.|
+|50089|Falha na validação de token do fluxo devido à expiração do token de fluxo.|
+|50097|O dispositivo não está autenticado.|
+|50105|O usuário conectado não está atribuído a uma função para este aplicativo.|
+|50126|Nome de usuário ou senha inválida ou Nome de usuário ou senha local inválida.|
+|50131|Usado em vários erros de acesso condicional. Por exemplo: estado de dispositivo Windows inválido, solicitação bloqueada devido a atividades suspeitas, decisões de política de acesso e política de segurança.|
+|50133|A sessão é inválida devido à expiração ou alteração de senha recente.|
+|50144|A senha do Active Directory do usuário expirou.|
+|65001|O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do aplicativo: Y para o recurso: Z.|
+|65005|A lista de acesso a recursos exigida pelo aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso a recursos que não foram especificados na lista de acesso a recursos exigida ou O serviço Graph retornou uma solicitação inválida ou o recurso não foi encontrado.|
+|70001|O aplicativo de nome X não foi encontrado no locatário de nome Y. Isso pode acontecer se o aplicativo não foi instalado pelo administrador do locatário ou aceito por algum usuário no locatário. Você pode ter enviado a solicitação de autenticação ao locatário errado.|
+|80001|O Agente de Autenticação não pode se conectar ao Active Directory.|
+|80002|A solicitação de validação de senha do Agente de Autenticação atingiu o tempo limite.|
+|80003|Resposta inválida recebida pelo Agente de Autenticação.|
+|80004|Nome UPN incorreto usado na solicitação de entrada.|
+|80005|Agente de Autenticação: erro.|
+|80007|O Agente de Autenticação não pode validar a senha do usuário.|
+|80010|O Agente de Autenticação não pode descriptografar a senha.|
+|80011|O Agente de Autenticação não pode recuperar a chave de descriptografia.|
+|81001|O tíquete de Kerberos do usuário é muito grande.|
+|81002|Não é possível validar o tíquete de Kerberos do usuário.|
+|81003|Não é possível validar o tíquete Kerberos do usuário.|
+|81004|Falha na tentativa de autenticação Kerberos.|
+|81008|Não é possível validar o tíquete Kerberos do usuário.|
+|81009|Não é possível validar o tíquete Kerberos do usuário.|
+|81010|O SSO contínuo falhou porque o tíquete de Kerberos do usuário expirou ou é inválido.|
+|81011|Não foi possível localizar o objeto de usuário com base nas informações do tíquete de Kerberos do usuário.|
+|81012|O usuário que está tentando entrar no Azure AD é diferente do usuário conectado ao dispositivo.|
+|81013|Não foi possível localizar o objeto de usuário com base nas informações no tíquete Kerberos do usuário.|
+|90014|Usado em vários casos em que um campo esperado não está presente na credencial.|
+|90093|O Graph retornou código de erro "proibido" para a solicitação.|
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para ver mais detalhes, confira a [Introdução aos relatórios de atividade de entrada no portal do Azure Active Directory](active-directory-reporting-activity-sign-ins.md).
-

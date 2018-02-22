@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: deb2572de363ca5d0dec0f78f2e30ad648e9b5f8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Verificar o tráfego com um aplicativo lógico baseado em agendador
 
@@ -148,7 +148,7 @@ Agora que você tem um gatilho, adicione uma [ação](../logic-apps/logic-apps-o
    | **Unidades de distância** | <*your-preference*> | A unidade de distância da rota. Este artigo usa a seguinte unidade: "Milhas"  | 
    | **Modo de navegação** | Automóvel | O modo de viagem da rota. Selecione este modo: "Automóvel" | 
    | **Data /Hora de trânsito** | Nenhum | Aplica-se somente ao modo de trânsito | 
-   | **Tipo de data de trânsito** | Nenhum | Aplica-se somente ao modo de trânsito | 
+   | **Tipo de data e hora** | Nenhum | Aplica-se somente ao modo de trânsito | 
    |||| 
 
    Para saber mais sobre esses parâmetros, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx).

@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
 Saiba como usar as Ferramentas do Azure HDInsight para VS Code (Visual Studio Code) para criar e enviar trabalhos em lotes do Hive, consultas interativas do Hive e scripts pySpark. As Ferramentas do Azure HDInsight podem ser instaladas em plataformas compatíveis com VS Code. Isso inclui Windows, Linux e macOS. Você pode encontrar os pré-requisitos para diferentes plataformas.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os itens a seguir são necessários para concluir as etapas neste artigo:
 
@@ -71,7 +71,7 @@ Crie um espaço de trabalho no VSCode para poder se conectar ao Azure.
 
 ## <a name="connect-to-azure"></a>Conecte-se ao Azure
 
-Antes que você possa enviar scripts a clusters do HDInsight do VS Code, você precisará se conectar à sua conta do Azure.
+Para enviar scripts a clusters do HDInsight do VS Code, você precisará se conectar à sua conta do Azure.
 
 **Para se conectar ao Azure**
 
@@ -101,6 +101,26 @@ Antes que você possa enviar scripts a clusters do HDInsight do VS Code, você p
     - Enviar consultas interativas do PySpark
     - Enviar os scripts em lote do PySpark
     - Definir configurações
+
+**Vincular um cluster**
+
+É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com).
+1. Abra a paleta de comandos selecionando **CTRL+SHIFT+P** e, em seguida, insira **HDInsight: Vincular um cluster**.
+
+   ![comando para vincular cluster](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Insira a URL do Cluster HDInsight -> Nome de usuário de entrada -> Senha de entrada -> selecione o tipo de cluster -> informações de êxito serão exibidas se a verificação for aprovada.
+   
+   ![caixa de diálogo para vincular cluster](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > Usamos o nome de usuário e a senha vinculados se o cluster registrou na assinatura do Azure e vinculou um cluster. 
+   
+3. É possível ver um cluster vinculado, usando o comando**Listar cluster**. Agora, você pode enviar um script para esse cluster vinculado.
+
+   ![cluster vinculado](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. Você também pode desvincular um cluster inserindo **HDInsight: Desvincular um cluster** da paleta de comandos.
 
 ## <a name="list-hdinsight-clusters"></a>Listar clusters HDInsight
 
@@ -255,7 +275,10 @@ As Ferramentas do HDInsight para VS Code também permitem enviar consultas inter
 
    ![Enviar o resultado do trabalho do Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
-Depois de enviar um trabalho Python, os logs de envio aparecem na janela **SAÍDA** no VS Code. A **URL de interface do usuário do Spark** e a **URL de interface do usuário do Yarn** também são mostradas. Você pode abrir a URL em um navegador da Web para acompanhar o status do trabalho.
+Depois que você envia um trabalho Python, os logs de envio aparecem na janela **SAÍDA** no VS Code. A **URL de interface do usuário do Spark** e a **URL de interface do usuário do Yarn** também são mostradas. Você pode abrir a URL em um navegador da Web para acompanhar o status do trabalho.
+
+
+   
 
 
 ## <a name="additional-features"></a>Recursos adicionais
@@ -273,7 +296,7 @@ O HDInsight para VSCode é compatível com os seguintes recursos:
 ## <a name="next-steps"></a>Próximas etapas
 
 ### <a name="demo"></a>Demonstração
-* HDInsight para VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight para VS Code: [vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 

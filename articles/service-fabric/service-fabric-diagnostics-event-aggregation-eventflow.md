@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação e coleta de eventos usando EventFlow
 
@@ -43,6 +43,9 @@ Depois que todos os pacotes são instalados, a próxima etapa é configurar e ha
 
 ## <a name="configure-and-enable-log-collection"></a>Configurar e habilitar a coleta de logs
 O pipeline de EventFlow, responsável pelo envio de logs, é criado de uma especificação armazenada em um arquivo de configuração. O `Microsoft.Diagnostics.EventFlow.ServiceFabric`pacote instala um arquivo de configuração inicial do EventFlow em `PackageRoot\Config` pasta da solução, chamada `eventFlowConfig.json`. Esse arquivo de configuração precisa ser modificado para capturar dados da classe `EventSource` do serviço padrão e quaisquer outras entradas que você deseja configurar, bem como enviar dados ao local apropriado.
+
+>[!NOTE]
+>Se o arquivo de projeto tiver um formato de VisualStudio 2017, o arquivo `eventFlowConfig.json` não será automaticamente adicionado. Para corrigir isso, crie o arquivo na pasta `Config` e defina a ação de compilação para `Copy if newer`. 
 
 Aqui está um *eventFlowConfig.json* de exemplo com base nos pacotes NuGet mencionados acima:
 ```json

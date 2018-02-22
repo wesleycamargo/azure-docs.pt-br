@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Dimensionar a contagem de instância manualmente ou automaticamente
 No [Portal do Azure](https://portal.azure.com/), você pode definir manualmente a contagem de instâncias de seu serviço ou definir parâmetros para que o dimensionamento seja feito automaticamente com base na demanda. Isso é normalmente conhecido como *escala horizontal* ou *redução horizontal*.
@@ -30,7 +30,7 @@ Você pode reduzir horizontalmente no portal e também pode usar a [API REST](ht
 ## <a name="scaling-manually"></a>Dimensionando manualmente
 1. No [Portal do Azure](https://portal.azure.com/), clique em **Procurar**, navegue até o recurso que você deseja dimensionar, como um **plano do Serviço de Aplicativo**.
 2. Clique em **Configurações > Escalar horizontalmente (Plano do Serviço de Aplicativo).**
-3. Na parte superior da folha **Escala**, você pode ver um histórico das ações de dimensionamento automático do serviço.
+3. Na parte superior da folha **Escala**, na guia **Histórico de execuções**, você pode ver um histórico das ações de dimensionamento automático do serviço.
    
     ![Lâmina Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ Você pode reduzir horizontalmente no portal e também pode usar a [API REST](ht
    > Apenas as ações executadas pelo dimensionamento automático aparecerão neste gráfico. Se você ajustar manualmente a contagem de instâncias, a alteração não será refletida no gráfico.
    > 
    > 
-4. Você pode ajustar manualmente o número de **instâncias** com o controle deslizante.
+4. Você pode ajustar manualmente o número de **instâncias** na guia **Configurar**.
 5. Clique no comando **Salvar** e o dimensionamento será realizado para esse número de instâncias quase imediatamente.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Dimensionamento com base em uma métrica predefinida

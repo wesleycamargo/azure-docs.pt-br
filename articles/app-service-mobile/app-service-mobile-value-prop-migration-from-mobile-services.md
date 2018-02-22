@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bdf49265b5ef88d11f4ed669aa05036839c574eb
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>Eu uso os serviços móveis, como o serviço de aplicativo ajuda?
 ## <a name="overview"></a>Visão geral
-Seu serviço móvel existente é seguro e permanecerá com suporte. No entanto, há uma série de vantagens que a plataforma *Serviço de Aplicativo do Azure* oferece para seu aplicativo móvel que não estão disponíveis hoje com os serviços móveis:
+Seu serviço móvel existente é seguro e permanecerá com suporte. No entanto, há vantagens que a plataforma de *Serviço de Aplicativo do Azure* oferece para seu aplicativo móvel que não estão disponíveis hoje com os Serviços Móveis:
 
 * Oferta mais simples, mais fácil e mais econômica para aplicativos que incluem tanto Web quanto clientes móveis
 * Novos recursos de host, incluindo Trabalhos da Web, CNames personalizados, melhor monitoramento
-* Integração pronta para uso com o Gerenciador de Tráfego
+* Integração com o Gerenciador de Tráfego
 * Conectividade com seus recursos locais e VPNs usando VNet, além de conexões híbridas
 * Monitoramento, alerta e solução de problemas de seu aplicativo usando o NewRelic ou o AppInsights
 * Espectro mais avançado dos recursos de computação subjacentes e preço
@@ -34,18 +34,18 @@ Seu serviço móvel existente é seguro e permanecerá com suporte. No entanto, 
 * Recursos de preparação integrada, backup, reversão e testes em produção
 
 ## <a name="new-hosting-features"></a>Novos recursos de hospedagem
-Em *Serviço de Aplicativo do Azure*, o código de back-end *Aplicativo Móvel* é executado no mesmo contêiner como Aplicativo Web e Aplicativo de API. Desse modo você pode tirar proveito de todos os recursos nesse contêiner, incluindo alguns que não estão atualmente presentes nos serviços móveis:
+Em *Serviço de Aplicativo do Azure*, o código de back-end do *Aplicativo Móvel* é executado no mesmo contêiner do Aplicativo Web e do Aplicativo de API. Você pode tirar proveito de todos os recursos nesse contêiner, incluindo alguns que não estão atualmente presentes nos Serviços Móveis:
 
 * Adicionar lógica de back-end em execução contínua por meio de trabalhos da Web
 * Assegurar que seu código de back-end esteja sempre em execução
 * Usar CNames personalizado para fornecer nomes amigáveis e estáveis para seus pontos de extremidade móveis de back-end
 * Realizar o geodimensionamento de seu aplicativo com o Gerenciador de Tráfego
 * Inclua os pacotes e bibliotecas que desejar.
-* (Para .NET) Utilizar qualquer recurso do ASP.NET, inclusive MVC
-* (Para Node.js) Utilizar qualquer biblioteca JavaScript pura do ecossistema Node, incluindo bibliotecas comuns do MVC.
+* (Para .NET) Utilize qualquer recurso do ASP.NET, inclusive MVC
+* (Para Node.js) Utilize qualquer biblioteca JavaScript pura do ecossistema Node, incluindo bibliotecas comuns do MVC.
 
 ## <a name="access-on-premises-data-using-vnet"></a>Acessar dados locais usando VNet
-Com os serviços móveis, hoje, você já pode usar conexões híbridas para acessar os recursos locais. No entanto, há situações em que uma solução VPN é preferível. Com o *Serviço de Aplicativo do Azure* você pode usar o Azure VNet para seu código de back-end de aplicativo móvel.
+Com os Serviços Móveis, hoje você já pode usar Conexões Híbridas para acessar os recursos locais. No entanto, há situações em que uma solução VPN é preferível. Com o *Serviço de Aplicativo do Azure*, é possível usar o Azure VNet para seu código de back-end de aplicativo móvel.
 
 ## <a name="use-your-favorite-backend-language"></a>Use sua linguagem de back-end favorita
 *Serviço de Aplicativo do Azure* oferece um suporte mais amplo e avançado para as plataformas ASP.NET e Node.js, incluindo o acesso aos tempos de execução mais recentes.
@@ -54,12 +54,12 @@ Com os serviços móveis, hoje, você já pode usar conexões híbridas para ace
 Com os serviços móveis, todas as instâncias do seu código de back-end estavam sendo executados em VMs pequenas. *Serviço de Aplicativo do Azure* permite que você selecione o tamanho das VMs de um conjunto muito mais rico de opções. Você também pode escalar vertical ou horizontalmente de forma rápida para lidar com qualquer carga de cliente de entrada, com base em várias métricas de desempenho.
 
 ## <a name="be-in-the-know"></a>Estar no "saber"
-Reaja aos problemas em tempo real com monitoramento e alertas para notificar automaticamente você e sua equipe. Integre a análise avançada de aplicativos e monitoramento de funcionalidades a partir do New Relic e AppInsights para obter uma compreensão ainda melhor do desempenho do seu aplicativo móvel. Com o *Serviço de Aplicativo do Azure* , você pode configurar alertas com base em várias métricas de desempenho, tanto programaticamente quanto por meio do Portal do Azure.
+Reaja aos problemas em tempo real com monitoramento e alertas para notificar automaticamente você e sua equipe. Integre a análise avançada de aplicativos e monitoramento de funcionalidades a partir do New Relic e AppInsights para obter uma compreensão sobre o desempenho do seu aplicativo móvel. Com o *Serviço de Aplicativo do Azure*, é possível configurar alertas com base em uma variedade de métricas de desempenho, tanto programaticamente quanto por meio do portal do Azure.
 
 ## <a name="keep-your-assets-safe"></a>Mantenha seus ativos seguros
 Faça backup automático de seu back-end e banco de dados. O seu código e dados são protegidos contra desastres e facilmente restaurados, permitindo a você gerir seus negócios com confiança.
 
 ## <a name="ready-stage-go"></a>Preparar, apontar, fogo!
-Com o *Serviço de Aplicativo do Azure* , agora você pode criar vários ambientes particulares de teste e preparo para seus aplicativos móveis. Use-os para executar testes antes de implantar. Alterne para a produção sem tempo de inatividade. Aplicativos Web são pré-carregados, garantindo a melhor experiência do cliente.
+Com o *Serviço de Aplicativo do Azure*, agora é possível criar vários ambientes particulares de teste e preparo para seus aplicativos móveis. Use-os para executar testes antes de implantar. Alterne para a produção sem tempo de inatividade. Aplicativos Web são pré-carregados, garantindo a melhor experiência do cliente.
 
 Você pode começar aproveitando o *Serviço de Aplicativo* de seu Serviço Móvel existente seguindo este [tutorial](app-service-mobile-migrating-from-mobile-services.md).

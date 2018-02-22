@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos
 
@@ -31,13 +31,7 @@ Há três maneiras básicas para personalizar o portal do desenvolvedor no Geren
 Modelos são usados para personalizar o conteúdo das páginas de portal de desenvolvedor geradas pelo sistema (por exemplo, documentos de API, produtos, autenticação do usuário etc.). Com a sintaxe do [DotLiquid](http://dotliquidmarkup.org/), e um conjunto fornecido de recursos de cadeia de caracteres localizados, ícones e controles de página, você conta com muita flexibilidade para configurar o conteúdo das páginas como quiser.
 
 ## <a name="developer-portal-templates-overview"></a>Visão geral de modelos de portal do desenvolvedor
-A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como administrador. Para chegar lá, primeiro abra o Portal do Azure e clique em **Portal do editor** na barra de ferramentas de serviço da sua instância de Gerenciamento de API.
-
-![Portal do editor][api-management-management-console]
-
-Em seguida, clique em **Portal do desenvolvedor** no canto superior direito. 
-
-![Menu do portal do desenvolvedor][api-management-developer-portal-menu]
+A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como administrador. Para chegar lá, primeiro abra o Portal do Azure e clique em **Portal do desenvolvedor** na barra de ferramentas de serviço da sua instância de Gerenciamento de API.
 
 Para acessar os modelos de portal do desenvolvedor, clique no ícone de personalizar à esquerda para exibir o menu de personalização e clique em **Modelos**.
 
@@ -65,7 +59,7 @@ O painel **Dados de modelo** fornece um guia para o modelo de dados para as enti
 
 ![Modelo de dados de modelo][api-management-template-data]
 
-No exemplo anterior, há dois produtos exibidos no portal do desenvolvedor que foram recuperados dos dados exibidos no painel **Dados de modelo** , conforme mostrado no exemplo a seguir.
+No exemplo anterior, há dois produtos exibidos no portal do desenvolvedor que foram recuperados dos dados exibidos no painel **Dados de modelo**, conforme mostrado no exemplo a seguir:
 
 ```json
 {

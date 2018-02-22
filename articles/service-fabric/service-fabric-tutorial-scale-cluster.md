@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Colocar em escala um cluster do Service Fabric
 
@@ -39,7 +39,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial:
 - Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Instale o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [CLI 2.0 do Azure](/cli/azure/install-azure-cli).
@@ -85,7 +85,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Agora que você está conectado, pode usar um comando para obter o status de cada nó no cluster. Para o PowerShell, use o comando `Get-ServiceFabricClusterHealth` e, para **sfctl**, use o comando ``.
+Agora que você está conectado, pode usar um comando para obter o status de cada nó no cluster. Para o PowerShell, use o comando `Get-ServiceFabricClusterHealth` e, para **sfctl**, use o comando `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Expansão
 
@@ -95,7 +95,7 @@ Ao aumentar, você adicionar mais instâncias de máquina virtual ao conjunto de
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 Esse código define a capacidade para 6.
@@ -120,11 +120,11 @@ Reduzir é igual a aumentando, exceto pelo uso de um valor de **capacidade** men
 Quando você reduz um conjunto de dimensionamento de máquinas virtuais, a o conjunto de dimensionamento (na maioria dos casos) remove a última instância de máquina virtual criada. Portanto, você precisa localizar o último nó do service fabric criado correspondente. Você pode encontrar este último nó verificando o maior valor da propriedade `NodeInstanceId` em nós do service fabric. Os exemplos de código abaixo são classificados pela instância do nó e retornam os detalhes sobre a instância com o maior valor de ID. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
 O cluster do service fabric precisa saber que este nó será removido. Você precisa executar três etapas:
@@ -146,8 +146,9 @@ Depois que essas três etapas tiverem sido aplicadas ao nó, ele poderá ser rem
 O bloco de código a seguir obtém o último nó criado, desabilita, para e remove o nó do cluster.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-No código **sfctl** abaixo, o comando a seguir é usado para obter o os valores **node-name** e **node-instance-id** do último nó criado: `sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+No código **sfctl** abaixo, o comando a seguir é usado para obter o valor **node-name** do último nó criado: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -219,10 +220,10 @@ sfctl node remove-state --node-name _nt1vm_5
 > Use as seguintes consultas **sfctl** para verificar o status de cada etapa
 >
 > **Verificar o status de desativação**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
 > **Verificar o status de parada**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 

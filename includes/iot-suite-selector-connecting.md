@@ -19,7 +19,7 @@ O dispositivo de exemplo também:
 * Responde às ações disparadas da página **Dispositivos** na solução.
 * Responde às alterações de configuração da página **Dispositivos** na solução.
 
-Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -36,13 +36,13 @@ Quando o processo de provisionamento para a solução de monitoramento remoto fo
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Provisionar o dispositivo na solução de monitoramento remoto
 
 > [!NOTE]
-> Se você já configurou um dispositivo em sua solução, poderá ignorar esta etapa. Você precisará das credenciais do dispositivo ao criar o aplicativo cliente.
+> Se você já configurou um dispositivo em sua solução, poderá ignorar esta etapa. Ao criar o aplicativo cliente, você precisará da cadeia de conexão de dispositivo que pode ser recuperada pelo Portal do Azure.
 
-Para um dispositivo conectar-se à solução pré-configurada, ele deve identificar-se no Hub IoT usando credenciais válidas. Você pode recuperar as credenciais do dispositivo na página **Dispositivos** da solução. Você pode incluir as credenciais do dispositivo em seu aplicativo cliente posteriormente neste tutorial.
+Para um dispositivo conectar-se à solução pré-configurada, ele deve identificar-se no Hub IoT usando credenciais válidas. É possível salvar a cadeia de conexão de dispositivo contendo as credenciais, quando você adiciona o dispositivo à solução. Você incluirá a cadeia de conexão de dispositivo no seu aplicativo cliente, mais adiante neste tutorial.
 
 Para adicionar um dispositivo à sua solução de monitoramento remoto, conclua as seguintes etapas na página **Dispositivos** na solução:
 
-1. Escolha **Provisionar** e, em seguida, escolha **Físico** como o **Tipo de dispositivo**:
+1. Escolha **+ Novo dispositivo** e, em seguida, escolha **Físico** como o **Tipo de dispositivo**:
 
     ![Provisionar um dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -50,17 +50,11 @@ Para adicionar um dispositivo à sua solução de monitoramento remoto, conclua 
 
     ![Escolher as opções do dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
 
+1. Escolha **Aplicar**. Em seguida, anote os valores **ID do dispositivo**, **Chave Primária** e **Cadeia de conexão – Chave primária**:
+
+    ![Recuperar credenciais](media/iot-suite-selector-connecting/credentials.png)
+
 Para localizar as credenciais que o dispositivo deverá usar para conectar-se à solução pré-configurada, navegue até o portal do Azure no navegador. Entre em sua assinatura.
-
-1. Localize o grupo de recursos que contém os serviços do Azure que a solução de monitoramento remoto usa. O grupo de recursos tem o mesmo nome que a solução de monitoramento remoto provisionada.
-
-1. Navegue até o Hub IoT neste grupo de recursos. Em seguida, escolha **dispositivos IoT**:
-
-    ![Gerenciador de dispositivos](media/iot-suite-selector-connecting/deviceexplorer.png)
-
-1. Escolha a **ID do dispositivo** criada na página **Dispositivos** na solução de monitoramento remoto.
-
-1. Anote os valores da **ID do dispositivo** e da **Chave primária**. Você usará esses valores ao adicionar o código para conectar o dispositivo à solução.
 
 Você acabou de provisionar um dispositivo físico na solução de monitoramento remoto pré-configurada. Nas seções a seguir, você implementará o aplicativo cliente que usa as credenciais do dispositivo para conectar-se à solução.
 
@@ -68,4 +62,4 @@ O aplicativo cliente implementa o modelo de dispositivo **Resfriador** interno. 
 
 * As propriedades que o dispositivo relata à solução. Por exemplo, um dispositivo **Resfriador** relata informações sobre seu firmware e sua localização.
 * Os tipos de telemetria que o dispositivo envia para a solução. Por exemplo, um dispositivo **Resfriador** envia valores de temperatura, umidade e pressão.
-* Os métodos que você pode agendar na solução para serem executados no dispositivo. Por exemplo, um dispositivo **Resfriador** deve implementar os métodos **Reiniciar**, **FirmwareUpdate**, **EmergencyValveRelease** e **IncreasePressuree**.
+* Os métodos que você pode agendar na solução para serem executados no dispositivo. Por exemplo, um dispositivo **Resfriador** deve implementar os métodos **Reiniciar**, **FirmwareUpdate**, **EmergencyValveRelease** e **IncreasePressure**.

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3c1095c67b9a5369a9ac797bf17342499675e244
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3dd40bb6fc5754ca8f41360cc735a9136b3f89ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cdn-pop-locations"></a>Locais POP da CDN do Azure
 Este artigo lista os locais atuais de POP para **Azure CDN da Verizon** e **Azure CDN da Akamai**.
 
 > [!IMPORTANT]
-> **Os locais de cidade POP do** Azure CDN da Akamai não são divulgados individualmente.  
+> Os locais de cidade POP para o **Azure CDN da Akamai** não são divulgados individualmente.  
 > 
 > Ambos os provedores têm maneiras diferentes de criar suas infraestruturas de CDN.  É recomendável não usar locais POP para decidir qual produto de CDN do Azure deverá ser usado, em vez disso, considere recursos e desempenho do usuário final.  Teste o desempenho com os dois provedores para escolher o produto correto de CDN do Azure para seus usuários. 
 > 
@@ -32,9 +32,9 @@ Este artigo lista os locais atuais de POP para **Azure CDN da Verizon** e **Azur
 
 | Região | Verizon | Akamai |
 | --- | --- | --- |
-| América do Norte | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />Nova Iorque, NY<br />Filadélfia, PA<br />São José, CA<br />Seattle, WA<br />Washington, D.C. | Canadá<br />México<br />Estados Unidos |
+| América do Norte | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />Nova Iorque, NY<br />Filadélfia, PA<br />São José, CA<br />Seattle, WA<br />Washington, D.C.<br />Puebla, México<br />Querétaro, México | Canadá<br />México<br />Estados Unidos |
 | América do Sul | Buenos Aires, Argentina<br />Rio de Janeiro, Brasil<br />São Paulo, Brasil<br />Valparaíso, Chile<br />Barranquilla, Colômbia<br />Medellin, Colômbia<br />Quito, Equador<br />Lima, Peru | Brasil<br />Peru |
-| Europa Setentrional e Oriental | Copenhague, Dinamarca<br />Helsinki, Finlândia<br />Varsóvia, Polônia<br />Estocolmo, Suécia | Dinamarca<br />Polônia<br />Suécia<br /> |
+| Europa Setentrional e Oriental | Copenhague, Dinamarca<br />Helsinki, Finlândia<br />Riga, Letônia<br />Varsóvia, Polônia<br />Estocolmo, Suécia | Dinamarca<br />Polônia<br />Suécia<br /> |
 | Europa Ocidental | Viena, Áustria<br />Paris, França<br />Frankfurt, Alemanha<br />Amsterdã, Holanda<br />Londres, Reino Unido | Áustria<br />França<br />Alemanha<br />Irlanda<br />Países Baixos<br />Suíça<br />Reino Unido |
 | Sul da Europa | Milão, Itália<br />Madri, Espanha | Itália<br />Espanha |
 | África | Joanesburgo, África do Sul | |

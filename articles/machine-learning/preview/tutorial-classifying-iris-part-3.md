@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de Classificação da Íris: Implantar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais. Os cientistas de dados podem usá-los para preparar dados, desenvolver experimentos e implantar modelos em escala de nuvem.
@@ -198,7 +198,7 @@ Agora você está pronto para criar o serviço Web em tempo real.
    * `-n`: o nome do aplicativo, que deve ter só letras minúsculas.
    * `-f`: o nome do arquivo de script de pontuação.
    * `--model-file`: o arquivo de modelo. Nesse caso, é o arquivo pickled model.pkl.
-   * `-r`: o tipo de modelo. Nesse caso, é um modelo de Python.
+   * `-r`: o tempo de execução do modelo. Nesse caso, é um modelo de Python. Os tempos de execução válidos são `python` e `spark-py`.
    * `--collect-model-data true`: isso habilita a coleta de dados.
    * `-c`: caminho para o arquivo de dependências conda onde os pacotes adicionais são especificados.
 

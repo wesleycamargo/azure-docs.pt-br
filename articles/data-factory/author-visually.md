@@ -1,6 +1,6 @@
 ---
-title: Criar visualmente data factories do Azure | Microsoft Docs
-description: Saiba como criar visualmente data factories do Azure
+title: "Criação visual no Azure Data Factory | Microsoft Docs"
+description: "Saiba como usar a criação visual no Azure Data Factory"
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,98 +13,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 3e67665facba78c4ca8e2317f0323b4c5c02a49c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="visually-author-data-factories"></a>Criar visualmente as fábricas de dados
-Com a experiência de UX do Azure Data Factory, os usuários podem criar visualmente e implantar recursos em seu data factory sem precisar escrever uma única linha de código. Essa interface sem código permite que você arraste e solte atividades em uma tela de pipeline, realizar execuções de teste, depurar iterativamente e implantar e monitorar a execução do pipeline. Você pode usar a ferramenta de ADF UX de duas maneiras:
+# <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
+A experiência (UX) da interface do usuário do Azure Data Factory permite criar e implantar visualmente recursos para seu data factory sem ter que gravar nenhum código. Você pode arrastar atividades para uma tela de pipeline, realizar execuções de teste, depurar iterativamente e implantar e monitorar as execuções do pipeline. Há duas abordagens para usar a UX para executar a criação visual:
 
-1. Trabalhar diretamente com o serviço de Data Factory
-2. Configurar a integração do Git do VSTS para colaboração, controle do código-fonte e controle de versão
+- Criar diretamente com o serviço de Data Factory.
+- Criar com a integração do Git do VSTS (Visual Studio Team Services) para colaboração, controle do código-fonte e controle de versão.
 
-## <a name="authoring-with-data-factory"></a>Criar com Data Factory
-A primeira opção é criar diretamente com o modo Data Factory. Essa abordagem é diferente da criação por meio do repositório de código do VSTS em que não há nenhum repositório armazenando as entidades JSON de suas alterações, nem é otimizado para colaboração ou controle de versão.
+## <a name="author-directly-with-the-data-factory-service"></a>Criar diretamente com o serviço de Data Factory
+A criação visual com o serviço de Data Factory difere da criação visual de com VSTS de duas maneiras:
 
-![Configurar o Data Factory](media/author-visually/configure-data-factory.png)
+- O serviço de Data Factory não inclui um repositório para armazenar as entidades JSON para as alterações.
+- O serviço de Data Factory não está otimizado para colaboração ou controle de versão.
 
-No modo Data Factory, há apenas o modo 'Publicar'. As alterações feitas são publicadas diretamente no serviço do Data Factory.
+![Configurar o serviço do Data Factory ](media/author-visually/configure-data-factory.png)
 
-![Publicação do Data Factory](media/author-visually/data-factory-publish.png)
+Quando você usa a UX **Tela de criação** para criar diretamente com o serviço do Data Factory, somente o modo **Publicar** está disponível. As alterações feitas são publicadas diretamente no serviço do Data Factory.
 
-## <a name="authoring-with-vsts-git-integration"></a>Criando com a integração do Git do VSTS
-A criação com a integração do Git do VSTS permite o controle do código-fonte e de colaboração durante a criação de seus pipelines de data factory. Os usuários têm a opção de associar um data factory com um repositório de conta do Git do VSTS para controle do código-fonte, colaboração, controle de versão etc. Uma única conta do GIT do VSTS pode ter vários repositórios. No entanto, um repositório Git do VSTS só pode ser associado a uma única data factory. Se você não tiver uma conta do VSTS e já tiver o repositório, crie um [aqui](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
+![Modo Publicar](media/author-visually/data-factory-publish.png)
 
-### <a name="configure-vsts-git-repo-with-azure-data-factory"></a>Configurar o repositório Git do VSTS com Azure Data Factory
-Os usuários podem configurar um repositório GIT do VSTS com um data factory por meio de dois métodos.
+## <a name="author-with-vsts-git-integration"></a>Criar com a integração do Git do VSTS
+A criação visual com a integração do Git do VSTS oferece suporte ao controle do código-fonte e à colaboração para trabalhar em seus pipelines de data factory. Você pode associar um data factory com um repositório de conta do Git do VSTS para controle do código-fonte, colaboração, controle de versão e assim por diante. Uma única conta do Git do VSTS pode ter vários repositórios, mas um repositório do Git do VSTS pode ser associado somente a um data factory. Se não tiver uma conta ou repositório do VSTS, siga [estas instruções](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) para criar seus recursos.
 
-#### <a name="method-1-lets-get-started-page"></a>Método 1: Página 'Vamos começar'
+### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurar o repositório do Git do VSTS com o Azure Data Factory
+Você pode configurar um repositório do GIT do VSTS com um data factory por meio de dois métodos.
 
-Vá para a página 'Vamos começar' e clique em 'Configurar Repositório de Código'
+<a name="method1"></a>
+#### <a name="configuration-method-1-lets-get-started-page"></a>Método de configuração 1: Página Vamos começar
+No Azure Data Factory, vá para a página **Vamos começar**. Selecione **Configurar Repositório de Código**:
 
-![Configurar Repositório de Código](media/author-visually/configure-repo.png)
+![Configurar um repositório de código de VSTS](media/author-visually/configure-repo.png)
 
-A partir daí, um painel lateral será exibido para definir as configurações do repositório.
+O painel de configuração **Definições do repositório** é exibido:
 
-![Parâmetros de configuração do repositório](media/author-visually/repo-settings.png)
-* **Tipo de repositório**: Git do Visual Studio Team Services (no momento, não há suporte para Github).
-* **Conta do Visual Studio Team Services**: o nome da conta pode ser localizado em https://{nome da conta}.visualstudio.com. Entre em sua conta do VSTS [aqui](https://www.visualstudio.com/team-services/git/) e acesse seu perfil do Visual Studio para ver seus repositórios e projetos
-* **ProjectName:** o nome do projeto pode ser localizado em https://{nome da conta}.visualstudio.com/{nome do projeto}
-* **RepositoryName:** o nome do repositório. Os projetos do VSTS contêm repositórios Git para gerenciar seu código-fonte, à medida que o projeto se expande. Crie um novo repositório ou use um existente que já esteja no projeto.
-* **Importar recursos existentes do Data Factory para o repositório**: se você marcar esta caixa, poderá importar seus recursos atuais do data factory criados na tela de UX para o repositório GIT do VSTS associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, serviços vinculados e conjuntos de dados são exportados para JSONs separados).    Se você desmarcar essa caixa de seleção, os recursos existentes não são importados para o repositório Git.
+![Configurar as definições do repositório de código](media/author-visually/repo-settings.png)
 
-#### <a name="method-2-from-authoring-canvas"></a>Método 2: Da tela de criação
+O painel mostra as definições do repositório de código do VSTS a seguir:
 
-Em 'Tela de criação', clique no menu suspenso de 'Data Factory' sob o nome do data factory. Em seguida, clique em 'Configurar Repositório de Código'. Assim como ocorre no **Método 1**, um painel lateral é exibido para definir as configurações do repositório. Consulte as seções anteriores para obter informações sobre as configurações.
+| Configuração | DESCRIÇÃO | Valor |
+|:--- |:--- |:--- |
+| **Tipo de repositório** | O tipo de repositório de código do VSTS.<br/>**Observação**: atualmente, não há suporte para o GitHub. | Git do Visual Studio Team Services |
+| **Conta do Visual Studio Team Services** | O novo nome da conta do VSTS. Você pode localizar o nome da conta do VSTS em `https://{account name}.visualstudio.com`. Você pode [entrar em sua conta do VSTS](https://www.visualstudio.com/team-services/git/) para acessar seu perfil do Visual Studio e ver seus repositórios e projetos. | \<nome da sua conta> |
+| **ProjectName** | O nome do projeto VSTS. Você pode localizar o nome do projeto VSTS em `https://{account name}.visualstudio.com/{project name}`. | \<nome do projeto VSTS> |
+| **RepositoryName** | O nome do repositório de código do VSTS. Os projetos do VSTS contêm repositórios Git para gerenciar seu código-fonte, à medida que o projeto se expande. Você pode criar um novo repositório ou usar um existente que já esteja no projeto. | \<nome do repositório de código do VSTS> |
+| **Importar recursos existentes do Data Factory para o repositório** | Especifica se deve-se importar recursos do data factory existentes da UX **Tela de criação** em um repositório do Git do VSTS. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
 
-![Configurar repositório de código 2](media/author-visually/configure-repo-2.png)
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de criação da UX
+Na UX **Tela de criação** do Azure Data Factory, localize seu data factory. Selecione o menu suspenso **Data Factory** e selecione **Configurar repositório de código**.
 
-### <a name="version-control"></a>Controle de versão
-Os sistemas de controle de versão, também chamado de controle do código-fonte, permitem aos desenvolvedores colaborar em código e acompanhar as alterações feitas no código base. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
+Um painel de configuração é exibido. Para obter detalhes sobre as definições de configuração, consulte as descrições no <a href="#method1">Método de configuração 1</a>.
 
-Cada repositório Git do VSTS uma vez associado a um data factory tem um branch mestre. A partir daí, cada usuário que tem acesso ao repositório Git do VSTS tem duas opções ao fazer alterações: sincronizar e publicar.
+![Configurar as definições do repositório de código para a criação de UX](media/author-visually/configure-repo-2.png)
 
-![Sincronizar publicação](media/author-visually/sync-publish.png)
+### <a name="use-version-control"></a>Usar controle de versão
+Os sistemas de controle de versão (também conhecidos como _controle do código-fonte_) permitem aos desenvolvedores colaborar em código e acompanhar as alterações feitas no código base. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
 
-#### <a name="sync"></a>Sincronizar
+Cada repositório do Git do VSTS associado a um data factory tem um branch mestre. Quando você tem acesso a um repositório do Git do VSTS, pode alterar o código escolhendo **Sincronizar** ou **Publicar**:
 
-Depois de clicar em 'sincronizar', você poderá receber alterações do branch mestre para o branch local ou enviar por push as alterações de seu branch local para o branch mestre.
+![Alterar o código sincronizando ou publicando](media/author-visually/sync-publish.png)
 
-![Sincronização de alterações](media/author-visually/sync-change.png)
+#### <a name="sync-code-changes"></a>Sincronizar alterações de código
+Depois de selecionar em **Sincronizar**, você poderá receber alterações do branch mestre para o branch local ou enviar por push as alterações de seu branch local para o branch mestre.
 
-#### <a name="publish"></a>Publicar
- Publique as alterações no branch mestre para o serviço Data Factory.
+![Sincronizar alterações de código](media/author-visually/sync-change.png)
 
-> [!NOTE]
-> O **branch mestre não é representativo do que é implantado no serviço de Data Factory.** O branch mestre *deve* ser publicado manualmente no serviço de Data Factory.
+#### <a name="publish-code-changes"></a>Publicar alterações de código
+Selecione **Publicar** para publicar manualmente as alterações de código no branch mestre para o serviço de data factory.
 
+> [!IMPORTANT]
+> O branch mestre não é representativo do que é implantado no serviço de Data Factory. O branch mestre *deve* ser publicado manualmente no serviço de Data Factory.
 
+## <a name="use-the-expression-language"></a>Usar linguagem de expressão
+Você pode especificar expressões para valores de propriedade usando a linguagem de expressão com suporte do Azure Data Factory. Para obter informações sobre as expressões compatíveis, consulte [Expressões e funções no Azure Data Factory](control-flow-expression-language-functions.md).
 
+Especifique expressões para valores de propriedade usando A UX **Tela de criação**:
 
-## <a name="expression-language"></a>Linguagem de expressão
+![Usar linguagem de expressão](media/author-visually/expression-language.png)
 
-Os usuários podem especificar expressões ao definir valores de propriedade usando a linguagem de expressão com suporte pelo Azure Data Factory. Consulte [Expressões e funções no Azure Data Factory](control-flow-expression-language-functions.md) para saber mais sobre quais expressões têm suporte.
+## <a name="specify-parameters"></a>Especificar parâmetros
+Você pode especificar parâmetros para pipelines e conjuntos de dados na guia **Parâmetros** do Azure Data Factory. É possível usar facilmente os parâmetros em propriedades selecionando **Adicionar conteúdo dinâmico**:
 
-Especifique as expressões em valores de propriedade de UX da seguinte forma.
+![Adicionar conteúdo dinâmico](media/author-visually/dynamic-content.png)
 
-![Linguagem de expressão](media/author-visually/expression-language.png)
+Você pode usar parâmetros existentes ou especificar novos para os valores de propriedade:
 
-## <a name="parameters"></a>parâmetros
-Os usuários podem especificar parâmetros para pipelines e conjuntos de dados na guia 'Parâmetros'. Além disso, use parâmetros nas propriedades com facilidade pressionando "Adicionar Conteúdo Dinâmico".
+![Especificar parâmetros para os valores de propriedade](media/author-visually/parameters.png)
 
-![Conteúdo dinâmico](media/author-visually/dynamic-content.png)
-
-A partir daí, você pode utilizar um parâmetro existente ou especificar um novo no valor da propriedade.
-
-![parâmetros](media/author-visually/parameters.png)
-
-## <a name="feedback"></a>Comentários
-Clique no ícone 'Comentários' para fazer comentários para a Microsoft em vários recursos ou problemas que você possa estar enfrentando.
+## <a name="provide-feedback"></a>Fornecer comentários
+Selecione **Feedback** para comentar sobre os recursos ou notificar a Microsoft sobre problemas com a ferramenta:
 
 ![Comentários](media/monitor-visually/feedback.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-
-Para saber mais sobre o monitoramento e o gerenciamento de pipelines, veja o artigo [Monitorar e gerenciar os pipelines programaticamente](monitor-programmatically.md)
+Para saber mais sobre o monitoramento e o gerenciamento de pipelines, c [Monitorar e gerenciar os pipelines programaticamente](monitor-programmatically.md).
