@@ -5,15 +5,15 @@ services: backup
 keywords: "backup de máquina virtual; backup da máquina virtual, fazer backup de vm, fazer backup da vm, fazer backup de vm do Azure, backup e recuperação de desastre"
 author: markgalioto
 ms.author: markgal
-ms.date: 09/16/2017
+ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 74ccf95b559b690eb53c2f4df14513dab5a94677
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 
@@ -33,7 +33,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 O cofre dos Serviços de Recuperação contém os dados de backup e a política de backup aplicada às máquinas virtuais protegidas. O backup de máquinas virtuais é um processo local. Não é possível fazer backup de uma máquina virtual de um local para um Cofre dos Serviços de Recuperação em outro local. Portanto, para cada local do Azure que tenha máquinas virtuais que devam passar por backup, pelo menos um Cofre dos Serviços de Recuperação deverá existir nesse local.
 
-1. No menu à esquerda, selecione **Mais serviços** e, na lista de serviços, digite *Serviços de Recuperação*. A lista de recursos é filtrada enquanto você digita. Quando você vir os Cofres dos Serviços de Recuperação na lista, selecione-os para abrir o menu dos Cofres dos Serviços de Recuperação.
+1. No menu à esquerda, selecione **Todos os serviços** e na lista de serviços, digite *Serviços de Recuperação*. A lista de recursos é filtrada enquanto você digita. Quando você vir os Cofres dos Serviços de Recuperação na lista, selecione-os para abrir o menu dos Cofres dos Serviços de Recuperação.
 
     ![Abrir menu do Cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
 

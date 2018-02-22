@@ -273,7 +273,7 @@ Conforme você move dados de um armazenamento de dados em uma rede privada (loca
 3. Na janela **Instalação do Integration Runtime**, selecione **Executar atividades de movimentação e distribuição de dados para cálculos externos** e clique em **Avançar**. 
 
    ![Selecionar tipo de tempo de execução de integração](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-4. Selecione **Rede Privada** e clique em **Avançar**. 
+4. Selecione ** Rede Privada** e clique em **Avançar**. 
 
    ![Selecionar rede privada](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 5. Insira **MySelfHostedIR** como **Nome** e clique em **Avançar**. 

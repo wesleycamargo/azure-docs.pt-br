@@ -1,26 +1,26 @@
 ---
 title: Fazer backup do Windows Server no Azure | Microsoft Docs
 description: "Este tutorial oferece detalhes de como fazer backups do Windows Server local para um Cofre dos Serviços de Recuperação."
-services: back up
+services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
 keywords: "backup do windows server; fazer backup do windows server; backup e recuperação de desastre"
 ms.assetid: 
-ms.service: back up
-ms.workload: storage-back up-recovery
+ms.service: backup
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/23/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 0dbf3850c7fcccb1a02e70a19b498522a4ce0e79
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-windows-server-to-azure"></a>Fazer backup do Windows Server para o Azure
 
@@ -118,7 +118,7 @@ Você pode usar o Agente de Serviços de Recuperação do Microsoft Azure para a
 
 4. Clique em **Adicionar Itens** e, na caixa de diálogo que é aberta, selecione **Estado do Sistema** e as pastas ou os arquivos dos quais você deseja fazer backup. Em seguida, clique em **OK**.
 
-5. Clique em **Avançar**.
+5. Clique em **Próximo**.
 
 6. Na página **Especificar Agendamento de Backup (Estado do Sistema)**, especifique a hora do dia ou da semana e que os backups precisam ser disparados para o Estado do Sistema e clique em **Avançar** 
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop baseados no Windows no HDInsight usando o Portal do Azure
 
@@ -32,7 +32,7 @@ As informações neste artigo aplicam-se apenas aos clusters HDInsight baseados 
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar este artigo, você deve ter o seguinte:
 
@@ -43,7 +43,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 1. Entre em [https://portal.azure.com](https://portal.azure.com).
 2. Depois de abrir o portal, você poderá:
 
-   * Clique em **Novo** no menu esquerdo para criar um novo cluster:
+   * Clique em **Criar um recurso** no menu à esquerda para criar um novo cluster:
 
        ![novo botão do cluster HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Clique em **Clusters HDInsight** no menu esquerdo.
@@ -258,7 +258,7 @@ Por padrão, esses serviços são concedidos para acesso. Você pode revogar/con
     ![HDInsight grand remove http web service access](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 ## <a name="find-the-default-storage-account"></a>Encontrar a conta de armazenamento padrão
-Cada cluster HDInsight tem uma conta de armazenamento padrão. A conta de armazenamento padrão e as chaves para um cluster são exibidos em **Configurações**/**Propriedades**/**Chaves de Armazenamento do Azure**. Consulte [Listar e mostrar clusters](#list-and-show-clusters).
+Cada cluster HDInsight tem uma conta de armazenamento padrão. A conta de armazenamento padrão e as chaves para um cluster são exibidos em **Configurações**/**Propriedades**/**Chaves de Armazenamento do Azure**. Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
 ## <a name="find-the-resource-group"></a>Encontrar o grupo de recursos
 No modo Azure Resource Manager, cada cluster HDInsight é criado com um grupo de recursos do Azure. O grupo de recursos do Azure ao qual um cluster pertence aparece em:
@@ -266,7 +266,7 @@ No modo Azure Resource Manager, cada cluster HDInsight é criado com um grupo de
 * A lista de clusters tem uma coluna **Grupo de Recursos** .
 * Bloco **Fundamentos** do cluster.  
 
-Consulte [Listar e mostrar clusters](#list-and-show-clusters).
+Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
 ## <a name="open-hdinsight-query-console"></a>Abrir o console de Consulta do HDInsight
 O console de Consulta do HDInsight inclui os seguintes recursos:
@@ -356,7 +356,7 @@ Para conectar-se ao cluster usando a área de trabalho remota e usar a linha de 
 
     Para obter mais informações sobre os comandos Hadoop, consulte [Referência de comandos Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-Na captura de tela anterior, o nome da pasta tem o número de versão do Hadoop incorporado. O número da versão pode ser alterado com base na versão dos componentes do Hadoop instalados no cluster. Você pode usar variáveis de ambiente do Hadoop para referir-se a essas pastas. Por exemplo:
+Na captura de tela anterior, o nome da pasta tem o número de versão do Hadoop incorporado. O número da versão pode ser alterado com base na versão dos componentes do Hadoop instalados no cluster. Você pode usar variáveis de ambiente do Hadoop para referir-se a essas pastas. Por exemplo: 
 
     cd %hadoop_home%
     cd %hive_home%

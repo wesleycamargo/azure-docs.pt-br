@@ -4,7 +4,7 @@ description: "Este artigo explica como criar a instância de Cluster de Failover
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de Failover do SQL Server em máquinas virtuais do Azure
 
@@ -28,7 +28,7 @@ Este artigo explica como criar uma FCI (Instância de Cluster de Failover) do SQ
 
 O diagrama a seguir mostra a solução completa em máquinas virtuais do Azure:
 
-![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
+![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
 
 O diagrama acima mostra:
 
@@ -117,7 +117,7 @@ Com esses pré-requisitos em vigor, é possível continuar com a criação do cl
       >[!IMPORTANT]
       >Você não pode definir nem alterar a disponibilidade definida depois que uma máquina virtual é criada.
 
-   Escolha uma imagem do Azure Marketplace. Você pode usar uma imagem do Marketplace com isso que inclua apenas o Windows Server e o SQL Server ou o Windows Server. Para obter detalhes, confira [Visão geral do SQL Server em máquinas virtuais do Azure](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Escolha uma imagem do Azure Marketplace. Você pode usar uma imagem do Marketplace com isso que inclua apenas o Windows Server e o SQL Server ou o Windows Server. Para obter detalhes, confira [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
    As imagens oficiais do SQL Server na Galeria do Azure incluem uma instância do SQL Server instalada, mais o software de instalação do SQL Server e a chave necessária.
 
@@ -221,14 +221,14 @@ Para validar o cluster com a interface do usuário, execute as etapas a seguir e
 
 1. Em **Gerenciador do Servidor**, clique em **Ferramentas** e clique em **Gerenciador de Cluster de Failover**.
 1. Em **Gerenciador de Cluster de Failover**, clique em **Ação** e clique em **Validar Configuração...**.
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 1. Em **Selecionar Servidores ou um Cluster**, digite o nome de ambas as máquinas virtuais.
-1. Em **Opções de teste**, escolha **Executar apenas os testes selecionados**. Clique em **Avançar**.
+1. Em **Opções de teste**, escolha **Executar apenas os testes selecionados**. Clique em **Próximo**.
 1. Em **Testar seleção**, inclua todos os testes, exceto **Armazenamento**. Confira a seguinte figura:
 
    ![Validar Testes](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 1. Em **Confirmação**, clique em **Avançar**.
 
 O **Assistente para Validar uma Configuração** executa os testes de validação.
@@ -481,7 +481,7 @@ Para testar a conectividade, faça logon em outra máquina virtual na mesma rede
 ## <a name="limitations"></a>Limitações
 Em máquinas virtuais do Azure, o DTC (Coordenador de Transações Distribuídas) da Microsoft não tem suporte em FCIs porque a porta RPC não tem suporte no balanceador de carga.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Instalação S2D com área de trabalho remota (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

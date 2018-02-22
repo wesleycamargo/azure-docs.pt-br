@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/09/2017
 ms.author: mikhegn
-ms.openlocfilehash: 959fdb4aceee48863f3914d1b91f2bec6e256d6b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gerenciar aplicativos para vários ambientes
 
@@ -55,8 +55,8 @@ Ao criar instâncias de um aplicativo nomeado no Service Fabric, você tem a op�
 ## <a name="next-steps"></a>Próximas etapas
 Os artigos a seguir mostram como usar alguns dos conceitos descritos aqui:
 
-- [Como especificar variáveis de ambiente para serviços no Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [Como especificar o número da porta de um serviço usando parâmetros no Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [Como especificar variáveis de ambiente para serviços no Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [Como especificar o número da porta de um serviço usando parâmetros no Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [Como parametrizar os arquivos de configuração](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [Referência da variável de ambiente](service-fabric-environment-variables-reference.md)

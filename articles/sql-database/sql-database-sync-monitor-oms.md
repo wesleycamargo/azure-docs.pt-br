@@ -2,17 +2,17 @@
 title: "Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics do OMS | Microsoft Docs"
 description: "Saiba como monitorar a Sincronização de Dados SQL do Azure usando a análise de logs do OMS"
 services: sql-database
-ms.date: 11/7/2017
+ms.date: 11/07/2017
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Monitorar a Sincronização de Dados SQL (versão prévia) com o Log Analytics do OMS 
 
@@ -52,7 +52,7 @@ Baixe os dois seguintes exemplos:
 
 -   [Exibição do OMS do Log da Sincronização de Dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 Verifique se você configurou o seguinte:
 
@@ -126,7 +126,7 @@ Para criar um alerta que usa o Log Analytics do OMS, realize as etapas a seguir.
 
 1.  No portal do OMS, selecione **Pesquisa de Logs**.
 
-2.  Crie uma consulta para selecionar os erros e avisos por grupo de sincronização dentro do intervalo selecionado. Por exemplo:
+2.  Crie uma consulta para selecionar os erros e avisos por grupo de sincronização dentro do intervalo selecionado. Por exemplo: 
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
@@ -192,7 +192,7 @@ Baixe os exemplos de código descritos neste artigo nos seguintes locais:
 Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)
--   [Configurar a Sincronização de Dados SQL Azure](sql-database-get-started-sql-data-sync.md)
+-   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
 -   [Melhores práticas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 

@@ -157,7 +157,7 @@ Essas operações são permitidas nos tipos listados na seção anterior.
 | double *operador* timeinterval |* |timeinterval |
 | doubleVec *operador* double |+, -, *, / |doubleVec |
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
-| timeinterval *operador* double |*, / |timeinterval |
+| timeinterval *operador* double |\*, / |timeinterval |
 | timeinterval *operador* timeinterval |+, - |timeinterval |
 | timeinterval *operador* timestamp |+ |timestamp |
 | timestamp *operador* timeinterval |+ |timestamp |

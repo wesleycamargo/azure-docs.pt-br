@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 14e9f9d85bc0c1428240f15831632eafe2a0f80e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d12299d08fa989c0990ae45a41c638470e1075a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Ajustar a escala de um cluster do Serviço de Contêiner do Azure
 
@@ -48,9 +48,9 @@ az group delete --name myResourceGroup
 
 Esse script usa os seguintes comandos para criar a implantação. Cada item em que a tabela contém links para a documentação específica do comando.
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
-| [az acs scale](/cli/azure/acs#scale) | Dimensionar um cluster do ACS. |
+| [az acs scale](/cli/azure/acs#az_acs_scale) | Dimensionar um cluster do ACS. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
