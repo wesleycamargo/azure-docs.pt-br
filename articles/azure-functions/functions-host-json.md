@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Referência de host.json para Azure Functions
 
@@ -115,7 +115,7 @@ Especifica quantas invocações de função são agregadas ao [calcular métrica
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade |Padrão  | DESCRIÇÃO |
 |---------|---------|---------| 
 |batchSize|1000|Número máximo de solicitações para agregação.| 
 |flushTimeout|00:00:30|Período de tempo máximo para agregação.| 
@@ -237,25 +237,7 @@ Controles de filtragem de logs gravados por um [objeto ILogger](functions-monito
 
 Parâmetros de configuração para [gatilhos e associações de Armazenamento](functions-bindings-storage-queue.md).
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|Propriedade  |Padrão | DESCRIÇÃO |
-|---------|---------|---------| 
-|maxPollingInterval|60000|O intervalo máximo em milissegundos entre as votações da fila.| 
-|visibilityTimeout|0|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha.| 
-|batchSize|16|O número de mensagens da fila a recuperar e processar em paralelo. O máximo é 32.| 
-|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de mensagens suspeitas.| 
-|newBatchThreshold|batchSize/2|O limite em que a busca de um novo lote de mensagens é realizada.| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -268,6 +250,7 @@ Parâmetro de configuração para [gatilhos e associações do Barramento de Ser
 Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para obter mais informações, consulte [Problema com o GitHub referente ao suporte de singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",

@@ -97,7 +97,7 @@ Veja a seguir as métricas que você pode obter do relatório AWR:
 - Taxa de transferência de rede
 - Taxa de latência de rede (baixa/alta)
 - Tamanho do banco de dados em GB
-- Bytes recebidos por meio de SQL*Net de/para o cliente
+- Bytes recebidos por meio de SQL \*Net de/para o cliente
 
 ### <a name="virtual-machine-size"></a>Tamanho da máquina virtual
 
@@ -130,7 +130,7 @@ O diagrama a seguir mostra a relação entre a taxa de transferência e o IOPS:
 ![Captura de tela da taxa de transferência](./media/oracle-design/throughput.png)
 
 A taxa de transferência de rede total é estimada com base nas seguintes informações:
-- Tráfego SQL*Rede
+- Tráfego SQL \*Rede
 - MBps x número de servidores (fluxo de saída, como o Oracle Data Guard)
 - Outros fatores, como replicação de aplicativo
 

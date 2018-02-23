@@ -4,7 +4,7 @@ description: "Este artigo explica como configurar um grupo de disponibilidade do
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 1ce90cf4bae66bfd6387a2698fd9b1ba7fc64595
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a954ca10bdec3343dbd8796b50053a1c8c40ff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um Grupo de Disponibilidade Always On em máquinas virtuais do Azure em diferentes regiões
 
@@ -52,7 +52,7 @@ Quando as réplicas de grupo de disponibilidade em máquinas virtuais do Azure e
 
 O diagrama a seguir mostra como as redes se comunicam entre data centers.
 
-   ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
+   ![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >Essa arquitetura incorre em encargos de dados de saída para os dados replicados entre regiões do Azure. Veja [Preços de Largura de Banda](http://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -117,7 +117,7 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
 
    Captura de tela a seguir mostra um recurso de cluster de endereço IP configurado corretamente:
 
-   ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
+   ![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
 
    >[!IMPORTANT]
    >O grupo de recursos de cluster inclui os dois endereços IP. Os dois endereços IP são dependências para o ponto de acesso de cliente do ouvinte. Use o **ou** operador na configuração de dependência do cluster.
@@ -163,7 +163,7 @@ Para testar a conectividade do ouvinte para a região remota, é possível reali
 
 Depois de testar a conectividade, mova a réplica primária de volta para seu data center principal e definir o modo de disponibilidade para suas configurações operacionais normais. A tabela a seguir mostra as configurações operacionais normais para a arquitetura descrita neste documento:
 
-| Local | Instância do servidor | Função | Modo de Disponibilidade | Modo de failover
+| Local padrão | Instância do servidor | Função | Modo de Disponibilidade | Modo de failover
 | ----- | ----- | ----- | ----- | -----
 | Data center principal | SQL-1 | Primário | Síncrono | Automático
 | Data center principal | SQL-2 | Secundário | Síncrono | Automático

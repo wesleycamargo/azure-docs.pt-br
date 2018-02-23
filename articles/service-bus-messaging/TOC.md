@@ -41,6 +41,8 @@
 #### [Transferências de mensagem, bloqueios e liquidação](message-transfers-locks-settlement.md)
 #### [Carimbos de data/hora e sequenciamento de mensagem](message-sequencing.md)
 #### [Expiração da mensagem (vida útil)](message-expiration.md)
+#### [Lidar com mensagens usando a Grade de Eventos do Azure](service-bus-to-event-grid-integration-concept.md)
+#### [Exemplos de Grade de Eventos do Azure](service-bus-to-event-grid-integration-example.md)
 ### [Autenticação e autorização](service-bus-authentication-and-authorization.md)
 #### [Migrar do ACS para o SAS](service-bus-migrate-acs-sas.md)
 #### [Autenticação com assinaturas de acesso compartilhado](service-bus-sas.md)

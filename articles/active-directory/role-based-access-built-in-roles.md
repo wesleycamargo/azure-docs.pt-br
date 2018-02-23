@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o controle de acesso baseado em função do Azure
 O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar as definições de funções internas. No entanto, você pode criar [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md) para atender às necessidades específicas de sua organização.
@@ -61,7 +61,6 @@ Este artigo aborda apenas as diferentes funções que existem atualmente. Quando
 | [Leitor de monitoramento](#monitoring-reader) |Pode ler todos os dados de monitoramento |
 | [Colaborador de monitoramento](#monitoring-contributor) |Pode ler dados de monitoramento e editar configurações de monitoramento |
 | [Colaborador de rede](#network-contributor) |Pode gerenciar todos os recursos de rede |
-| [Colaborador de Conta APM do New Relic](#new-relic-apm-account-contributor) |Pode gerenciar contas e aplicativos de Gerenciamento de Desempenho do Aplicativo New Relic |
 | [Proprietário](#owner) |Pode gerenciar tudo, incluindo o acesso |
 | [Leitor](#reader) |Pode ver tudo, mas não pode fazer alterações |
 | [Colaborador do Cache Redis](#redis-cache-contributor) |Pode gerenciar caches Redis |
@@ -440,19 +439,6 @@ Pode gerenciar todos os recursos de rede
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
-
-### <a name="new-relic-apm-account-contributor"></a>Colaborador de Conta APM do New Relic
-Pode gerenciar contas e aplicativos de Gerenciamento de Desempenho do Aplicativo New Relic
-
-| **Ações** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Ler funções e atribuições de função |
-| Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
-| Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
-| Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
-| NewRelic.APM/accounts/* |Criar e gerenciar contas de gerenciamento de desempenho do aplicativo New Relic |
 
 ### <a name="owner"></a>Proprietário
 Pode gerenciar tudo, incluindo o acesso

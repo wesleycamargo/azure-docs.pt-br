@@ -3,8 +3,8 @@ title: "Tornar as máquinas virtuais disponíveis para seus usuários de pilha d
 description: "Tutorial para disponibilizar as máquinas virtuais na pilha do Azure"
 services: azure-stack
 documentationcenter: 
-author: vhorne
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/23/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f6fce4a3230c98295afb19e633bf2801c115831f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Tornar as máquinas virtuais disponíveis para seus usuários de pilha do Azure
 
@@ -52,7 +53,7 @@ Agora você pode obter as coisas pronto para seus usuários. Quando você inicia
    Ofertas são grupos de um ou mais planos provedores apresentam aos usuários para comprar ou assinar.
 
    a. [Entrar](azure-stack-connect-azure-stack.md) para o portal como um administrador de nuvem e clique **novo** > **oferece + planos** > **oferecem**.
-   ![Nova oferta](media/azure-stack-tutorial-tenant-vm/image01.png)
+   ![nova oferta](media/azure-stack-tutorial-tenant-vm/image01.png)
 
    b. No **oferecem nova** seção, preencha **nome de exibição** e **nome do recurso**e, em seguida, selecione um novo ou existente **grupo de recursos**. O Nome de Exibição é o nome amigável da oferta. Somente o operador de nuvem pode ver o nome do recurso. Esse é o nome que os administradores usam para trabalhar com a oferta como um recurso do Gerenciador de Recursos do Azure.
 
@@ -68,7 +69,7 @@ Agora você pode obter as coisas pronto para seus usuários. Quando você inicia
 
    e. Clique em **serviços**, selecione **Microsoft. Compute**, **Network**, e **Microsoft**e, em seguida, clique em **Selecionar**.
 
-   ![Serviços de plano](media/azure-stack-tutorial-tenant-vm/image05.png)
+   ![Serviços do plano](media/azure-stack-tutorial-tenant-vm/image05.png)
 
    f. Clique em **cotas**e, em seguida, selecione o primeiro para o qual você deseja criar uma cota de serviço. Para uma cota de IaaS, siga estas etapas para os serviços de computação, rede e armazenamento.
 
@@ -118,7 +119,7 @@ Agora que você criou uma oferta, você pode testá-lo. Faça logon como um usu�
    - Para um sistema integrado, a URL varia com base na região do operador e o nome de domínio externo e será em https://portal o formato. &lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se você estiver usando o Kit de desenvolvimento de pilha do Azure, o endereço do portal é https://portal.local.azurestack.external.
 
-   ![Obter uma subscrição](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Obtenha uma assinatura](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
    b. No **nome de exibição** campo, digite um nome para sua assinatura, clique em **oferecem**, clique em uma das ofertas no **escolha uma oferta de** seção e, em seguida, clique em  **Criar**.
 

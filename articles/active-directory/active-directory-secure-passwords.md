@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Uma abordagem de várias camadas à segurança de senha do Azure AD
 
 Este artigo discute algumas práticas recomendadas que você pode seguir como um usuário ou como um administrador para proteger sua Conta da Microsoft ou do Azure AD (Azure Active Directory).
 
  > [!NOTE]
- > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+ > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Em caso afirmativo, [veja como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
  >
  > Os administradores do Azure AD podem redefinir senhas de usuário usando as diretrizes neste artigo [Redefinir a senha de um usuário no Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
  >
@@ -46,7 +46,7 @@ O Azure AD e o Sistema de Contas da Microsoft usam abordagens comprovadas do set
 * Senhas banidas dinamicamente
 * Bloqueio de Senha Inteligente
 
-Para obter informações sobre o gerenciamento de senha com base na pesquisa atual, confira o white paper [Password Guidance](http://aka.ms/passwordguidance) (Diretrizes de senha).
+Para obter informações sobre o gerenciamento de senha com base na pesquisa atual, confira o white paper [Password Guidance](https://aka.ms/passwordguidance) (Diretrizes de senha).
 
 ### <a name="dynamically-banned-passwords"></a>Senhas banidas dinamicamente
 

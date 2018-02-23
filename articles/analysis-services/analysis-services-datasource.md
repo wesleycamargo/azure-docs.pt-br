@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 Os servidores do Azure Analysis Services oferecem suporte à conexão às fontes de dados na nuvem e locais na sua organização. O tempo todo são adicionadas mais fontes de dados com suporte. Verifique com frequência. 
@@ -40,7 +40,7 @@ Atualmente, há suporte às seguintes fontes de dados:
 | Serviços de análise  | Linhas de binário*  | SAP HANA*  |
 | Analytics Platform System  | Banco de Dados MySQL  | SAP Business Warehouse*  | |
 | Dynamics CRM*  | Feed OData*  | SharePoint*  |
-| Pasta de trabalho do Excel  | Consulta ODBC  | Banco de Dados SQL  |
+| Pasta de trabalho do Excel  | Consulta ODBC  | Banco de dados SQL  |
 | Exchange*  | OLE DB  | Banco de dados Sybase  |
 
 \*Somente modelos Tabular 1400. 

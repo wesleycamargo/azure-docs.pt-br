@@ -1,8 +1,8 @@
 | Recurso | Limite padrão |
 | --- | :--- |
-| Nós máx por cluster | 250 |
+| Nós máx por cluster | 100 |
 | Pods máx por nó | 110 |
-| Cluster máx por assinatura | 5<sup>1</sup> |
+| Cluster máx por assinatura | 20<sup>1</sup> |
 
 <sup>1</sup> Crie uma [solicitação de suporte do Azure][azure-support] para solicitar um aumento de limite.<br />
 

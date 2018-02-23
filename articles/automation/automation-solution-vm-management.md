@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 4424cbb83bdb31c60e15d62f9387b4050611a98d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial (versão prévia) na Automação do Azure
 
@@ -129,7 +129,7 @@ Você não deve habilitar todas os agendamentos, porque isso poderá criar açõ
 
 Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do horário comercial à sua conta de Automação e, em seguida, configure as variáveis para personalizar a solução.
 
-1. No portal do Azure, clique em **Novo**.<br> ![portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. No portal do Azure, clique em **Criar um recurso**.<br> ![portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. No painel Marketplace, digite uma palavra-chave como **Iniciar** ou **Iniciar/Parar**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Como alternativa, você pode digitar uma ou mais palavras-chave do nome completo da solução e, em seguida, pressionar Enter.  Selecione **Iniciar/Parar VMs fora do horário comercial [Visualização]** nos resultados da pesquisa.  
 3. No painel **Iniciar/Parar VMs fora do horário comercial [Visualização]** da solução selecionada, analise as informações de resumo e clique em **Criar**.  
 4. O painel **Adicionar Solução** é exibido. Você será solicitado a configurar a solução antes de importá-la na sua assinatura da Automação.<br><br> ![Folha Adicionar Solução do Gerenciamento de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
@@ -318,7 +318,7 @@ A conta de Automação e o espaço de trabalho do Log Analytics não serão excl
       
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como criar consultas de pesquisa diferentes e examinar os logs de trabalho da Automação com o Log Analytics, confira [Pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-searches.md).
+- Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de trabalho de Automação com o Log Analytics, confira [Efetuar pesquisas no Log Analytics](../log-analytics/log-analytics-log-searches.md).
 - Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md).
 - Para saber mais sobre o Log Analytics e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md).
 
