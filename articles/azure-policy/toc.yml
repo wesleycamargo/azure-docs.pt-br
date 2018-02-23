@@ -25,10 +25,6 @@
   items:
     - name: Estrutura de definição da Política do Azure
       href: policy-definition.md
-- name: Guias de instruções
-  items:
-    - name: Criar políticas com a API REST
-      href: policy-insights.md
 - name: Referência
   items:
     - name: CLI do Azure
