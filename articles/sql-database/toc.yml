@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Como gerenciar esquemas de locatário
               href: saas-tenancy-schema-management.md
-            - name: Como executar consultas ad hoc
-              href: saas-tenancy-adhoc-analytics.md
+            - name: Relatório entre locatários
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL para análise
               href: saas-tenancy-tenant-analytics.md
         - name: Banco de dados multilocatário

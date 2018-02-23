@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
 Várias técnicas e ferramentas estão disponíveis para testar o desempenho de serviços de nuvem.
@@ -44,31 +44,35 @@ Você pode usar essas instruções com um projeto existente ou com um novo proje
 
 Para fins de exemplo, adicione um código ao seu projeto que demore muito tempo e demonstre alguns problemas óbvios de desempenho. Por exemplo, adicione o seguinte código a um projeto de função de trabalho:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Chame esse código do método RunAsync na classe derivada de RoleEntryPoint da função de trabalho. (Ignore o alerta relacionado ao método estar em execução de modo sincronizado.)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Compile e execute seu serviço de nuvem localmente sem depuração (Ctrl+F5), com a configuração da solução definida como **Versão**. Isso garante que todos os arquivos e pastas sejam criados para executar o aplicativo localmente e garante que todos os emuladores estejam iniciados. Inicie a UI do Emulador de Computação na barra de tarefas para confirmar que sua função de trabalho esteja em execução.
 
@@ -88,9 +92,11 @@ Se a pasta de seu projeto estiver em uma unidade de rede, o criador de perfis so
  Também é possível conectar-se a uma função web, conectando-se ao WaIISHost.exe.
 Se houver vários processos de função de trabalho em seu aplicativo, você precisará usar o processID para diferenciá-los. Você pode consultar o processID programaticamente acessando o objeto Process. Por exemplo, adicionando este código ao método Run da classe derivada de RoleEntryPoint em uma função, você pode examinar o log na interface do usuário do Emulador de Computação para saber a qual processo conectar-se.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Para exibir o log, inicie a interface do usuário do Emulador de Computação.
 
@@ -126,16 +132,18 @@ Se você adicionou o código de concatenação de cadeia de caracteres deste art
 ## <a name="4-make-changes-and-compare-performance"></a>4: Fazer alterações e comparar o desempenho
 Você também pode comparar o desempenho antes e depois de uma alteração no código.  Interrompa o processo em execução e edite o código para substituir a operação de concatenação de cadeia de caracteres pelo uso de StringBuilder:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Realize outra execução de desempenho e, em seguida, compare o desempenho. No Gerenciador de Desempenho, se as execuções forem na mesma sessão, você poderá selecionar os dois relatórios, abrir o menu de atalho e escolher **Comparar Relatórios de Desempenho**. Se desejar comparar com uma execução em outra sessão de desempenho, abra o menu **Analisar** e escolha **Comparar Relatórios de Desempenho**. Especifique os dois arquivos na caixa de diálogo que é exibida.
 
@@ -147,7 +155,7 @@ Os relatórios destacam as diferenças entre as duas execuções.
 
 Parabéns! Você começou a usar o criador de perfis.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 * Verifique se você está criando o perfil de uma compilação de versão e inicie sem depurar.
 * Se a opção Conectar/Desconectar não estiver habilitada no menu Criador de Perfis, execute o Assistente de Desempenho.
 * Use a interface do usuário do Emulador de Computação para exibir o status do seu aplicativo. 

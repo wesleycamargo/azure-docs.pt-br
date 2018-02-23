@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: d14195abf1c17d11e259ed9edb5112626b063112
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 3eab1878c2a5f6b1d031ef3208e30a4df19dc41e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Excluir contêineres com base no prefixo de nome de contêiner
 
@@ -45,13 +45,13 @@ az group delete --name myResourceGroup
 
 Esse script usa os comandos a seguir para excluir contêineres com base no prefixo do nome do contêiner. Cada item em que a tabela contém links para a documentação específica do comando.
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
-| [az group create](/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](/cli/azure/storage/account#create) | Cria uma conta de Armazenamento do Azure no grupo de recursos especificado. |
-| [az storage container create](/cli/azure/storage/container#create) | Cria um contêiner no Armazenamento de Blobs do Azure. |
-| [az storage container list](/cli/azure/storage/container#list) | Lista os contêineres em uma conta de Armazenamento do Azure. |
-| [az storage container delete](/cli/azure/storage/container#delete) | Exclui os contêineres em uma conta de Armazenamento do Azure. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de Armazenamento do Azure no grupo de recursos especificado. |
+| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Cria um contêiner no Armazenamento de Blobs do Azure. |
+| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Lista os contêineres em uma conta de Armazenamento do Azure. |
+| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Exclui os contêineres em uma conta de Armazenamento do Azure. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1004f7d6938b4038df7681dc7f7551db2e988e61
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Criação de projetos do Azure na linha de comando
 Ao usar o Microsoft Build Engine (MSBuild), você pode criar produtos nos ambientes de laboratório de criação em que o Visual Studio não está instalado. O MSBuild usa um formato XML para arquivos de projeto extensíveis e com suporte total da Microsoft. Usando o formato de arquivo MSBuild, é possível descrever quais itens devem ser criados para uma ou mais plataformas e configurações.
@@ -36,5 +36,4 @@ Por padrão, cada projeto do Azure inclui um arquivo de configuração de servi�
 Se você quiser usar um diretório alternativo para o pacote armazenado e arquivos de configuração, defina o caminho usando a opção `/p:PublishDir=Directory\`, incluindo o separador de barra invertida à direita.
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois que o pacote é compilado, você pode implantá-lo no Azure. Para ver um tutorial que demonstra como automatizar esse processo, confira [Fornecimento contínuo de serviços de nuvem no Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
+Depois que o pacote é compilado, você pode implantá-lo no Azure.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure
 
@@ -52,7 +52,7 @@ Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos d
 
 Siga estas etapas para criar um banco de dados SQL em branco. 
 
-1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+1. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 
 2. Selecione **Bancos de Dados** na página **Novo** e selecione **Criar** em **Banco de Dados SQL** na página **Novo**.
 

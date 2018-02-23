@@ -56,7 +56,7 @@
     - name: Supervisor
       tocHref: /azure/advisor/
       topicHref: /azure/advisor/
-    - name: "Gateway de Aplicativo\r\n"
+    - name: Gateway de Aplicativo
       tocHref: /azure/application-gateway/
       topicHref: /azure/application-gateway/
     - name: Application Insights
@@ -254,6 +254,9 @@
     - name: Cofre da Chave
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
+    - name: Serviços Baseados no Local
+      tocHref: /azure/location-based-services/
+      topicHref: /azure/location-based-services/
     - name: Balanceador de carga
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/

@@ -71,9 +71,9 @@ Aqui está um exemplo de uma única regra CORS, especificada por meio de uma ope
 
 Cada elemento incluído na regra de CORS é descrito abaixo:
 
-* **AllowedOrigins**: os domínios de origem que têm permissão para fazer uma solicitação no serviço de armazenamento por meio de CORS. O domínio de origem é o domínio do qual se origina a solicitação. Observe que a origem deve ser uma correspondência exata de maiúsculas e minúsculas com a origem que a idade do usuário envia para o serviço. Você também pode usar o caractere curinga '*' para permitir que todos os domínios de origem façam solicitações por CORS. No exemplo acima, os domínios [http://www.contoso.com](http://www.contoso.com) e [http://www.fabrikam.com](http://www.fabrikam.com) podem fazer solicitações no serviço usando CORS.
+* **AllowedOrigins**: os domínios de origem que têm permissão para fazer uma solicitação no serviço de armazenamento por meio de CORS. O domínio de origem é o domínio do qual se origina a solicitação. Observe que a origem deve ser uma correspondência exata de maiúsculas e minúsculas com a origem que a idade do usuário envia para o serviço. Você também pode usar o caractere curinga '\*' para permitir que todos os domínios de origem façam solicitações por CORS. No exemplo acima, os domínios [http://www.contoso.com](http://www.contoso.com) e [http://www.fabrikam.com](http://www.fabrikam.com) podem fazer solicitações no serviço usando CORS.
 * **AllowedMethods**: os métodos (verbos de solicitação HTTP) que podem usar o domínio de origem para uma solicitação CORS. No exemplo acima, somente as solicitações PUT e GET são permitidas.
-* **AllowedHeaders**: os cabeçalhos de solicitação que o domínio de origem pode especificar na solicitação de CORS. No exemplo acima, todos os cabeçalhos de metadados, começando com x-ms-meta-datas, x-ms-meta-target e x-ms-meta-abc são permitidos. Observe que o caractere curinga '*' indica que todos os cabeçalhos que começam com o prefixo especificado são permitidos.
+* **AllowedHeaders**: os cabeçalhos de solicitação que o domínio de origem pode especificar na solicitação de CORS. No exemplo acima, todos os cabeçalhos de metadados, começando com x-ms-meta-datas, x-ms-meta-target e x-ms-meta-abc são permitidos. Observe que o caractere curinga '\*' indica que todos os cabeçalhos que começam com o prefixo especificado são permitidos.
 * **ExposedHeaders**: os cabeçalhos de resposta que podem ser enviados em resposta à solicitação de CORS e expostos pelo navegador para o emissor da solicitação. No exemplo acima, o navegador é instruído para expor quaisquer cabeçalhos que começam com x-ms-meta.
 * **MaxAgeInSeconds**: a quantidade máxima de tempo pela qual um navegador deve armazenar em cache a solicitação OPTIONS de simulação.
 
@@ -86,7 +86,7 @@ As seguintes limitações se aplicam a regras de CORS:
 * O comprimento de um cabeçalho permitido, cabeçalho exposto ou origem permitida não deve exceder 256 caracteres.
 * Cabeçalhos expostos e cabeçalhos permitidos podem ser:
   * Cabeçalhos literais, nos quais o nome exato do cabeçalho é fornecido, como **x-ms-meta-processed**. Um máximo de 64 cabeçalhos literais pode ser especificado na solicitação.
-  * Cabeçalhos prefixados, nos quais um prefixo do cabeçalho, como **x-ms-meta-data***, é fornecido. Especificando um prefixo dessa maneira permite ou expõe qualquer cabeçalho que começa com o prefixo especificado. Um máximo de dois cabeçalhos prefixados pode ser especificado na solicitação.
+  * Cabeçalhos prefixados, nos quais um prefixo do cabeçalho, como **x-ms-meta-data**\*, é fornecido. Especificando um prefixo dessa maneira permite ou expõe qualquer cabeçalho que começa com o prefixo especificado. Um máximo de dois cabeçalhos prefixados pode ser especificado na solicitação.
 * Os métodos (ou verbos HTTP) especificados no elemento **AllowedMethods** devem estar em conformidade com os métodos aos quais as APIs do serviço de armazenamento do Azure oferecem suporte. Métodos com suporte são DELETE, GET, HEAD, MERGE, POST, OPTIONS e PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Noções básicas sobre a lógica de avaliação da regra de CORS
@@ -94,7 +94,7 @@ Quando um serviço de armazenamento recebe uma solicitação de simulação ou r
 
 As regras de CORS são avaliadas da seguinte maneira:
 
-1. Primeiro, o domínio de origem da solicitação é verificado nos domínios listados para o elemento **AllowedOrigins** . Se o domínio de origem está incluído na lista ou todos os domínios são permitidos com o caractere curinga '*', então a avaliação de regras continua. Se o domínio de origem não for incluído, então a solicitação falhará.
+1. Primeiro, o domínio de origem da solicitação é verificado nos domínios listados para o elemento **AllowedOrigins** . Se o domínio de origem está incluído na lista ou todos os domínios são permitidos com o caractere curinga '\*', então a avaliação de regras continua. Se o domínio de origem não for incluído, então a solicitação falhará.
 2. Em seguida, o método (ou verbo HTTP) da solicitação é verificado em relação aos métodos listados no elemento **AllowedMethods**. Se o método estiver incluído na lista, então a avaliação de regras continua. Caso contrário, a solicitação falhará.
 3. Se a solicitação corresponde a uma regra no seu domínio de origem e seu método, essa regra estará selecionada para processar a solicitação e nenhuma regra adicional é avaliada. Antes que a solicitação possa ser bem-sucedida, no entanto, todos os cabeçalhos especificados na solicitação são comparados aos cabeçalhos listados no elemento **AllowedHeaders** . Se os cabeçalhos enviados não corresponderem aos cabeçalhos permitidos, a solicitação falhará.
 

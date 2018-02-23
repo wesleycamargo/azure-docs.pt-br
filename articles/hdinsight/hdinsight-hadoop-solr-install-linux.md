@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: edee4fbb37744a8ef93c6a0b7e60b0790d1af9c4
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalar e usar o Solr em clusters HDInsight do Hadoop
 
@@ -34,7 +34,7 @@ Saiba como instalar o Solr no Azure HDInsight usando a Ação de Script. O Solr 
 
 ## <a name="whatis"></a>O que é Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) é uma plataforma de pesquisa empresarial que habilita operações poderosas de pesquisa de texto completo nos dados. Enquanto o Hadoop permite armazenar e gerenciar grandes quantidades de dados, o Apache Solr oferece os recursos de pesquisa para recuperar rapidamente os dados.
+O [Apache Solr](http://lucene.apache.org/solr/features.html) é uma plataforma de pesquisa empresarial que habilita operações poderosas de pesquisa de texto completo nos dados. Enquanto o Hadoop permite armazenar e gerenciar grandes quantidades de dados, o Apache Solr oferece os recursos de pesquisa para recuperar rapidamente os dados.
 
 > [!WARNING]
 > Componentes fornecidos com o cluster HDInsight contam com suporte total da Microsoft.
@@ -178,7 +178,7 @@ Depois de estabelecer um túnel SSH, use as seguintes etapas para usar o painel 
 
 1. Determine o nome de host para o nó de cabeçalho primário:
 
-   1. Use SSH para conectar-se ao nó principal do cluster. Por exemplo: `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+   1. Use SSH para conectar-se ao nó principal do cluster. Por exemplo, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
        Para saber mais sobre como usar SSH, consulte [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

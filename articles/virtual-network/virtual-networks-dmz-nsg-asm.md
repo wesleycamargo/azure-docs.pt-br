@@ -131,7 +131,7 @@ Cada regra é discutida em mais detalhes da seguinte maneira (**Observação**: 
          -Protocol *
     ```
 
-5. Essa regra permite que o tráfego passe do servidor IIS01 para o servidor AppVM01; uma regra posterior bloqueia todo o tráfego de Frontend para Backend. Para melhorar essa regra, se a porta for conhecida, ela deve ser adicionada. Por exemplo, se o servidor IIS está atingindo somente o SQL Server no AppVM01, o intervalo de porta de destino deve ser alterado de "*" (qualquer) para 1433 (a porta do SQL), permitindo uma menor superfície de ataque de entrada em AppVM01 se o aplicativo Web for comprometido.
+5. Essa regra permite que o tráfego passe do servidor IIS01 para o servidor AppVM01; uma regra posterior bloqueia todo o tráfego de Frontend para Backend. Para melhorar essa regra, se a porta for conhecida, ela deve ser adicionada. Por exemplo, se o servidor IIS está atingindo somente o SQL Server no AppVM01, o intervalo de porta de destino deve ser alterado de " \* " (qualquer) para 1433 (a porta do SQL), permitindo uma menor superfície de ataque de entrada em AppVM01 se o aplicativo Web for comprometido.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `

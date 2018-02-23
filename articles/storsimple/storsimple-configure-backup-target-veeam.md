@@ -382,7 +382,7 @@ A tabela a seguir mostra como configurar backups para execução no local e disc
 | StorSimple semanas 2 a 4 |Disco StorSimple (longo prazo) | 1 | 4 | 4 |
 | Mensal completo |Disco StorSimple (longo prazo) | 1 | 12 | 12 |
 | Anual completo |Disco StorSimple (longo prazo) | 1 | 1 | 1 |
-|Requisito de tamanho de volumes do GFS |  |  |  | 18*|
+|Requisito de tamanho de volumes do GFS |  |  |  | 18\*|
 A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume RAID local.
 
 

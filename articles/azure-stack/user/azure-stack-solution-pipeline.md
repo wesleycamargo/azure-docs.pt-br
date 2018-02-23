@@ -3,8 +3,8 @@ title: Implantar seu aplicativo no Azure e o Azure pilha | Microsoft Docs
 description: "Saiba como implantar aplicativos do Azure e a pilha do Azure com um pipeline de CI/CD híbrida."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Implantar aplicativos do Azure e o Azure pilha
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
@@ -71,7 +72,7 @@ Nesta seção, você cria um aplicativo simples ASP.NET e enviar por push para V
 ### <a name="commit-and-push-changes-to-vsts"></a>Confirmar e enviar alterações por push para VSTS
 1.  Usando o Team Explorer no Visual Studio, selecione o menu suspenso e clique em **alterações**.
 2.  Forneça uma mensagem de confirmação e selecione **confirmar todos os**. Você pode ser solicitado a salvar o arquivo de solução, clique em Sim para salvar todos os.
-3.  Uma vez confirmado, o Visual Studio oferece para sincronizar alterações ao seu projeto. Selecione **sincronização**.
+3.  Uma vez confirmado, o Visual Studio oferece para sincronizar alterações ao seu projeto. Selecione **Sincronizar**.
 
     ![Imagem mostrando a tela de confirmação após a conclusão de confirmação](./media/azure-stack-solution-pipeline/image1.png)
 
@@ -114,11 +115,11 @@ Agora que você criou uma definição de versão vazia e vinculada a ele para a 
     | Parâmetro | Valor |
     | ----- | ----- |
     |Método de autenticação| Insira as credenciais|
-    |URL do servidor | A URL de FTP de aplicativo Web é recuperado do portal do Azure |
+    |URL do Servidor | A URL de FTP de aplicativo Web é recuperado do portal do Azure |
     |Nome de Usuário | Nome de usuário configurado ao criar credenciais de FTP para o aplicativo Web |
     |Senha | Senha criados durante o estabelecimento de credenciais de FTP para o aplicativo Web|
-    |Diretório de origem | $(System.DefaultWorkingDirectory)\**\ |
-    |Diretório remoto | /site/wwwroot / |
+    |Diretório de Origem | $(System.DefaultWorkingDirectory)\**\ |
+    |Diretório remoto | /site/wwwroot/ |
     |Preservar os caminhos de arquivo | Ativado (marcado)|
 
 4.  Clique em **Salvar**
@@ -158,11 +159,11 @@ Agora que você criou uma versão, você configurará as etapas necessárias par
     | Parâmetro | Valor |
     | -----     | ----- |
     |Método de autenticação| Insira as credenciais|
-    |URL do servidor | A URL de FTP de aplicativo Web é recuperado do portal do Azure pilha |
+    |URL do Servidor | A URL de FTP de aplicativo Web é recuperado do portal do Azure pilha |
     |Nome de Usuário | Nome de usuário configurado ao criar credenciais de FTP para o aplicativo Web |
     |Senha | Senha criados durante o estabelecimento de credenciais de FTP para o aplicativo Web|
-    |Diretório de origem | $(System.DefaultWorkingDirectory)\**\ |
-    |Diretório remoto | /site/wwwroot /|
+    |Diretório de Origem | $(System.DefaultWorkingDirectory)\**\ |
+    |Diretório remoto | /site/wwwroot/|
     |Preservar os caminhos de arquivo | Ativado (marcado)|
 
 2.  Clique em **Salvar**

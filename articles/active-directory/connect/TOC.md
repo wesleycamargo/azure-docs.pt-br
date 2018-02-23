@@ -17,6 +17,7 @@
 ### [Atualização do DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Atualizar de uma versão anterior](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Instalar usando um banco de dados ADSync existente](active-directory-aadconnect-existing-database.md)
+### [Instalar usando permissões de administrador delegadas pelo SQL](active-directory-aadconnect-sql-delegation.md)
 
 # Como
 ## Planejar e projetar
@@ -51,6 +52,7 @@
 
 
 ## Gerenciar a sincronização do Azure AD Connect
+### [Conformidade GDPR e Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Conta de serviço do Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -81,6 +83,7 @@
 ### [Conectividade](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Erros durante a sincronização](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [O objeto não está sincronizado](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Sincronização de objetos usando tarefa de solução de problemas](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Sincronização de senha](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [Erro de LargeObject causado por userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Como se recuperar de um limite de 10 GB LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

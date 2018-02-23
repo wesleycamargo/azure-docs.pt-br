@@ -79,7 +79,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 | **11.** |Alteração de senha |O console do dispositivo de matriz virtual só aceita a entrada no formato de teclado en-US. | |
 | **12.** |CHAP |Não é possível remover as credenciais CHAP depois de criadas. Além disso, se você modificar as credenciais CHAP, precisará colocar os volumes offline e colocá-los novamente online para que a alteração tenha efeito. |Isso será corrigido em uma versão futura. |
 | **13.** |Servidor iSCSI |O 'Armazenamento usado' exibido para um volume iSCSI pode ser diferente no serviço StorSimple Manager e no host iSCSI. |O host iSCSI tem o modo de exibição do sistema de arquivos.<br></br>O dispositivo detecta os blocos atribuídos quando o volume está no tamanho máximo. |
-| **14.** |Servidor de arquivos* |Se um arquivo em uma pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não será copiado ou restaurado por meio da recuperação de desastres, clonagem e Recuperação no Nível do Item. | |
+| **14.** |Servidor de arquivos\* |Se um arquivo em uma pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não será copiado ou restaurado por meio da recuperação de desastres, clonagem e Recuperação no Nível do Item. | |
 
 ## <a name="next-step"></a>Próxima etapa
 [Instale as Atualizações](storsimple-ova-install-update-01.md) em seu StorSimple Virtual Array.

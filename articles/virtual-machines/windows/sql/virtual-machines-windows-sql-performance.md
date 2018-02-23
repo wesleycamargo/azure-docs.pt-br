@@ -4,7 +4,7 @@ description: "Fornece as práticas recomendadas para aprimoramento do desempenho
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2018
 ms.author: jroth
-ms.openlocfilehash: 6eb55c3d1f339a621050de6b239f840d2cff63fa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d0668a5fff3e5a69162c1893c07d5f4c2a015a28
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
 
@@ -39,7 +39,7 @@ Veja a seguir uma lista de verificação rápida para obter o melhor desempenho 
 
 | Área | Otimizações |
 | --- | --- |
-| [Tamanho da VM](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) ou superior para o SQL Enterprise Edition.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) ou superior para os SQL Standard e Web Editions. |
+| [Tamanho da VM](#vm-size-guidance) |[DS3](../sizes-memory.md) ou superior para o SQL Enterprise Edition.<br/><br/>[DS2](../sizes-memory.md) ou superior para os SQL Standard e Web Editions. |
 | [Armazenamento](#storage-guidance) |Use o [Armazenamento Premium](../premium-storage.md). O armazenamento padrão é recomendado somente para desenvolvimento/teste.<br/><br/>Mantenha a [conta de armazenamento](../../../storage/common/storage-create-storage-account.md) e a VM do SQL Server na mesma região.<br/><br/>Desabilite o [armazenamento com redundância geográfica](../../../storage/common/storage-redundancy.md) (replicação geográfica) do Azure na conta de armazenamento. |
 | [Discos](#disks-guidance) |Usar no mínimo dois [discos P30](../premium-storage.md#scalability-and-performance-targets) (um para arquivos de log; um para arquivos de dados e o TempDB).<br/><br/>Evite usar o sistema operacional ou discos temporários para armazenamento de banco de dados ou registro em log.<br/><br/>Habilite o caching nos discos que hospedam os arquivos de dados e o TempDB.<br/><br/>Não habilite o caching em discos que hospedam o arquivo de log.<br/><br/>Importante: interrompa o serviço do SQL Server ao alterar as configurações de cache para um disco de VM do Azure.<br/><br/>Particione vários discos de dados do Azure para obter maior taxa de transferência de E/S.<br/><br/>Formate com os tamanhos de alocação documentados. |
 | [E/S](#io-guidance) |Habilite a compactação de página do banco de dados.<br/><br/>Habilite a inicialização instantânea de arquivos para arquivos de dados.<br/><br/>Limite ou desabilite o crescimento automático no banco de dados.<br/><br/>Desabilite a redução automática no banco de dados.<br/><br/>Mova todos os bancos de dados para discos de dados, incluindo bancos de dados do sistema.<br/><br/>Mova o log de erros do SQL Server e os diretórios de arquivos de rastreamento para discos de dados<br/><br/>Configure os locais do arquivo de banco de dados e backup padrão.<br/><br/>Habilite as páginas bloqueadas.<br/><br/>Aplique correções de desempenho do SQL Server. |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: b28f5c7c90783c5abd933b50ddb9631739b8f421
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 72e1d5250de214c063a970f5761105b2329ccf7f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identidade de Serviço Gerenciado (MSI) para recursos do Azure
 
@@ -87,12 +87,12 @@ Os seguintes serviços dão suporte à autenticação do Azure AD e foram testad
 
 | Serviço | ID de Recurso | Status | Data | Atribuir acesso |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Gerenciador de Recursos do Azure | https://management.azure.com/ | Disponível | Setembro de 2017 | [portal do Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[CLI do Azure](msi-howto-assign-access-CLI.md) |
-| Cofre da Chave do Azure | https://vault.azure.net/ | Disponível | Setembro de 2017 | |
-| Azure Data Lake | https://datalake.azure.net/ | Disponível | Setembro de 2017 | |
-| SQL do Azure | https://database.windows.net/ | Disponível | Outubro de 2017 | |
-| Hubs de eventos do Azure | https://eventhubs.azure.net/ | Disponível | Dezembro de 2017 | |
-| Barramento de Serviço do Azure | https://servicebus.azure.net/ | Disponível | Dezembro de 2017 | |
+| Gerenciador de Recursos do Azure | https://management.azure.com | Disponível | Setembro de 2017 | [portal do Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[CLI do Azure](msi-howto-assign-access-CLI.md) |
+| Cofre da Chave do Azure | https://vault.azure.net | Disponível | Setembro de 2017 | |
+| Azure Data Lake | https://datalake.azure.net | Disponível | Setembro de 2017 | |
+| SQL do Azure | https://database.windows.net | Disponível | Outubro de 2017 | |
+| Hubs de eventos do Azure | https://eventhubs.azure.net | Disponível | Dezembro de 2017 | |
+| Barramento de Serviço do Azure | https://servicebus.azure.net | Disponível | Dezembro de 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Quanto custa a Identidade de Serviço Gerenciado?
 

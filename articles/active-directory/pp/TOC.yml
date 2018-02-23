@@ -23,6 +23,10 @@
       items:
         - name: De uma VM do Linux
           href: msi-tutorial-linux-vm-access-arm.md
+    - name: Usar uma VM MSI para acessar o Azure Cosmos DB
+      items:
+        - name: De uma VM do Linux
+          href: msi-tutorial-linux-vm-access-cosmosdb.md
     - name: Usar uma VM MSI para acessar o armazenamento do Azure
       items:
         - name: De uma VM do Linux usando a chave de acesso

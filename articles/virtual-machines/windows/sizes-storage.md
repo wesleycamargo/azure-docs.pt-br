@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/12/2018
 ---
-# <a name="storage-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com otimizado para armazenamento
+# <a name="storage-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais otimizados para armazenamento
 
 
 

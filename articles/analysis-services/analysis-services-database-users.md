@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 53e946bba6bbd882e78b51ee8d222ab0d3ec056a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
@@ -46,7 +46,7 @@ Ao criar um projeto de modelo tabular, você cria funções e adiciona usuários
   
 4.  Selecione uma das seguintes permissões:  
   
-    |Permissão|Descrição|  
+    |Permissão|DESCRIÇÃO|  
     |----------------|-----------------|  
     |**Nenhum**|Os membros não podem modificar o esquema do modelo e não podem consultar dados.|  
     |**Ler**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema de modelo.|  
@@ -73,7 +73,7 @@ Para adicionar funções e usuários a um modelo de banco de dados implantado, v
 2. Em **Criar Função**, insira um nome de função e uma descrição.
 
 3. Selecione uma permissão.
-   |Permissão|Descrição|  
+   |Permissão|DESCRIÇÃO|  
    |----------------|-----------------|  
    |**Controle total (Administrador)**|Os membros podem modificar o esquema de modelo, processar e consultar todos os dados.| 
    |**Processar banco de dados**|Os membros podem executar as operações Processar e Processar Tudo. Não podem modificar o esquema do modelo e não podem consultar dados.|  
@@ -121,7 +121,7 @@ Neste exemplo, um usuário externo B2B e um grupo são adicionados à função A
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Para adicionar funções e usuários usando o PowerShell
 O módulo [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) fornece cmdlets de gerenciamento de banco de dados de tarefas específicas e o cmdlet Invoke-ASCmd de uso geral, que aceita um script ou consulta de TMSL (Linguagem de Script de Modelo Tabular). Os cmdlets a seguir são usados para gerenciar usuários e funções de banco de dados.
   
-|Cmdlet|Descrição|
+|Cmdlet|DESCRIÇÃO|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Adicionar um membro a uma função de banco de dados.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remover um membro de uma função de banco de dados.|   

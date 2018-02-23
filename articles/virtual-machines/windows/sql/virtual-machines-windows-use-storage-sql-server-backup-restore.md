@@ -4,7 +4,7 @@ description: "Saiba como fazer backup do SQL Server no Armazenamento do Azure. E
 services: virtual-machines-windows
 documentationcenter: 
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39d4f452143454a345bd91f550e44c93651ff933
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usar o armazenamento do Azure para o backup e restauração do SQL Server
 ## <a name="overview"></a>Visão geral
@@ -46,7 +46,7 @@ As seções a seguir apresentam o serviço de armazenamento de Blobs do Azure, i
 ## <a name="azure-blob-storage-service-components"></a>Componentes do serviço de armazenamento de blobs do Azure
 Os seguintes componentes do Azure são usados durante o backup para o serviço de armazenamento de Blobs do Azure.
 
-| Componente | Descrição |
+| Componente | DESCRIÇÃO |
 | --- | --- |
 | **Conta de armazenamento** |A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para acessar um serviço de armazenamento de BLOBs do Azure, primeiro crie uma conta de armazenamento do Azure. Para obter mais informações sobre os serviços de armazenamento de blobs do Azure, consulte [Como usar o serviço de armazenamento de blobs do Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Contêiner** |Um contêiner fornece um agrupamento de um conjunto de blobs e pode armazenar um número ilimitado de blobs. Para escrever um SQL Server backup para um serviço Blob do Azure, você deve ter pelo menos o contêiner raiz criado. |
@@ -55,7 +55,7 @@ Os seguintes componentes do Azure são usados durante o backup para o serviço d
 ## <a name="sql-server-components"></a>Componentes do SQL Server
 Os seguintes componentes do SQL Server são usados durante o backup para o serviço de armazenamento de Blobs do Azure.
 
-| Componente | Descrição |
+| Componente | DESCRIÇÃO |
 | --- | --- |
 | **URL** |Uma URL especifica um URI (Uniform Resource Identifier) para um único arquivo de backup. A URL é usada para fornecer o local e o nome do arquivo de backup do SQL Server. A URL deve apontar para um Blob real, não apenas um contêiner. Se o blob não existir, ele será criado. Se um blob existente for especificado, o BACKUP falhará, a menos que a > opção COM FORMATO seja especificada. A seguir está um exemplo da URL que deve ser especificada com o comando BACKUP: **http[s]://[contadearmazenamento].blob.core.windows.net/[contêiner]/[FILENAME.bak]**. HTTPS é recomendável, mas não obrigatório. |
 | **Credencial** |As informações necessárias para se conectar e autenticar ao serviço de armazenamento de blobs do Azure são armazenadas como uma credencial.  Para o SQL Server gravar backups para uma restauração ou BLOBs do Azure dela, uma credencial do SQL Server deve ser criada. Para obter mais informações, veja [Credencial do SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
