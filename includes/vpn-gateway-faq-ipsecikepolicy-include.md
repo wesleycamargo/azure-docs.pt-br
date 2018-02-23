@@ -38,7 +38,7 @@ A configuração do dispositivo VPN local deve corresponder ou conter os seguint
 * Algoritmo de criptografia IPsec
 * Algoritmo de integridade de IPsec
 * Grupo PFS
-* Seletor de tráfego (*)
+* Seletor de tráfego (\*)
 
 Os tempos de vida da SA são apenas especificações locais, portanto não precisam ser correspondentes.
 

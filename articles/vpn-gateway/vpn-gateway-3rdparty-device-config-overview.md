@@ -48,7 +48,7 @@ Esta seção lista os parâmetros para os exemplos descritos nas seções anteri
 | * ASN de BGP local         | 65050                        |
 | * IP de par no BGP local     | 10.52.255.254                |
 
-\* Parâmetro opcional apenas para BGP.
+\\* Parâmetro opcional apenas para BGP.
 
 ### <a name="sample-powershell-script"></a>Exemplo de script do PowerShell
 Esta seção apresenta um exemplo de script para você começar. Para obter instruções detalhadas, confira [Criar uma conexão VPN S2S usando o PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
