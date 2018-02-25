@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 89f3ceeb95b4a8b498523e0d73930740bcadd268
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública da pilha do Azure
 A pilha do Azure tem uma rede de infraestrutura pública usando externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, máquinas virtuais do locatário. Certificados PKI com os nomes DNS apropriados para esses pontos de extremidade do Azure pilha infraestrutura pública são necessários durante a implantação da pilha do Azure. Este artigo fornece informações sobre:
@@ -37,6 +37,7 @@ A lista a seguir descreve os requisitos de certificado que são necessários par
 - O algoritmo de assinatura de certificado não pode ser SHA1, ele deve ser mais forte. 
 - O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação da pilha do Azure. 
 - O arquivo pfx de certificado deve ter um valor de "Assinatura Digital" e "KeyEncipherment" em seu campo "Key Usage".
+- O arquivo pfx de certificado deve ter os valores "Autenticação do servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação de cliente (1.3.6.1.5.5.7.3.2)" no campo "Uso avançado de chave".
 - As senhas para todos os arquivos pfx de certificado devem ser o mesmo no momento da implantação
 - Certifique-se de que os nomes de entidade e entidade alternativa nomes de todos os certificados correspondem as especificações descritas neste artigo para evitar falhas de implantação.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: a5b321bc06ef14207eddf5aa77ff983ada1e409f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Fazer o download de itens do marketplace do Azure para a pilha do Azure
 
@@ -44,7 +44,7 @@ Como decidir qual conteúdo para incluir no seu mercado de pilha do Azure, você
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Selecione o item desejado na lista e, em seguida, clique em **baixar**. Isso inicia o download da imagem VM para o item selecionado. Tempos de download variam.
+5. Selecione o item desejado na lista e, em seguida, clique em **baixar**. A imagem VM para o item selecionado começa a fazer o download. Tempos de download variam.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -62,7 +62,7 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
 
 1. Abra um console do PowerShell como administrador e [instalar módulos do PowerShell específicos do Azure pilha](azure-stack-powershell-install.md). Certifique-se de que você instale **PowerShell versão 1.2.11 ou superior**.  
 
-2. Adicione a conta do Azure que você usou para registrar a pilha do Azure. Para fazer isso, execute o **AzureRmAccount adicionar** cmdlet sem parâmetros. Você for solicitado a digitar suas credenciais de conta do Azure e talvez você precise usar a autenticação de 2 fatores com base na configuração da sua conta.  
+2. Adicione a conta do Azure que você usou para registrar a pilha do Azure. Para adicionar a conta, execute o **AzureRmAccount adicionar** cmdlet sem parâmetros. Você for solicitado a digitar suas credenciais de conta do Azure e talvez você precise usar a autenticação de 2 fatores com base na configuração da sua conta.  
 
 3. Se você tiver várias assinaturas, execute o seguinte comando para selecionar o que você usou para registro:  
 
@@ -75,16 +75,16 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -94,7 +94,7 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -103,15 +103,17 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
 
    ![Pop-up itens do Azure Marketplace](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Selecione a imagem que você deseja fazer download (você pode selecionar várias imagens, mantendo a tecla Ctrl) e anote a versão da imagem, você usará esta versão para importar a imagem na próxima seção > clique **Okey** > aceitar os termos legais clicando em **Sim**. Você também pode filtrar a lista de imagens usando o **adicionar critérios** opção. O download demora algum tempo dependendo do tamanho da imagem. Uma vez os downloads de imagem, ele está disponível no caminho de destino que você forneceu anteriormente. O download contém os itens de arquivo e a Galeria VHD no formato Azpkg.  
+7. Selecione a imagem que você deseja baixar e anote a versão da imagem. Você pode selecionar várias imagens, mantendo a tecla Ctrl. Você pode usar a versão da imagem para importar a imagem na próxima seção.  Em seguida, clique em **Okey**e, em seguida, aceite os termos legais clicando em **Sim**. Você também pode filtrar a lista de imagens usando o **adicionar critérios** opção. 
+
+   O download demora algum tempo dependendo do tamanho da imagem. Uma vez os downloads de imagem, ele está disponível no caminho de destino que você forneceu anteriormente. O download contém os itens de arquivo e a Galeria VHD no formato Azpkg.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importar a imagem e publicá-lo no marketplace de pilha do Azure
 
-1. Depois de baixar o pacote de imagem & Galeria, salve-os e o conteúdo na pasta AzureStack de ferramentas de vnext para uma unidade de disco removível e copiá-lo para o ambiente de pilha do Azure (copie-a localmente em qualquer local, como: "C:\MarketplaceImages".)   
+1. Depois de baixar o pacote de imagem e galeria, salvá-los e o conteúdo na pasta de ferramentas AzureStack-mestre para uma unidade de disco removível e copiá-lo para o ambiente de pilha do Azure (você pode copiá-lo localmente em qualquer local, como: "C:\MarketplaceImages").   
 
 2. Antes de importar a imagem, você deve conectar-se ao ambiente do operador de pilha do Azure usando as etapas descritas em [configurar o ambiente do PowerShell do operador da pilha do Azure](azure-stack-powershell-configure-admin.md).  
 
-3. Importe a imagem para a pilha do Azure usando o cmdlet Add-AzsVMImage. Ao usar esse cmdlet, certifique-se de substituir o publicador, oferta e outros valores de parâmetros com os valores da imagem que você está importando. Você pode obter o "publisher", "oferta" e "sku" valores da imagem do objeto imageReference do arquivo Azpkg que você baixou anteriormente e o valor de "versão" da etapa 6 na seção anterior.
+3. Importe a imagem para a pilha do Azure usando o cmdlet Add-AzsVMImage. Ao usar esse cmdlet, certifique-se de substituir o *publicador*, *oferecem*e outros valores de parâmetros com os valores da imagem que você está importando. Você pode obter o *publicador*, *oferecem*, e *sku* valores da imagem do objeto imageReference do arquivo Azpkg que você baixou anteriormente e o  *versão* valor da etapa 6 na seção anterior.
 
    ```json
    "imageReference": {
@@ -131,8 +133,8 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```

@@ -67,7 +67,7 @@
               href: azure-stack-understanding-dns.md
             - name: DNS no Azure Stack
               href: azure-stack-dns.md
-        - name: Cofre de Chaves
+        - name: Cofre da Chave
           items:
             - name: Visão geral
               href: azure-stack-kv-intro.md
@@ -127,11 +127,15 @@
       href: /azure/azure-stack/
 - name: Recursos
   items:
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Roteiro de pilha do Azure
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Fórum do MSDN de pilha do Azure
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Comentários de documentação de pilha do Azure
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informações sobre preço
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Treinamento e certificação
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
