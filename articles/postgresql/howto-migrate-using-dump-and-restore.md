@@ -35,7 +35,7 @@ Por exemplo, se você tiver um servidor local e um banco de dados chamado **test
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Restaurar os dados no banco de dados de destino do Azure para PostrgeSQL usando pg_restore
+## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Restaurar os dados no banco de dados de destino do Azure para PostgreSQL usando pg_restore
 Depois de criar o banco de dados de destino, você poderá usar o comando pg_restore e o parâmetro -d, --dbname para restaurar os dados no banco de dados de destino do arquivo de despejo.
 ```bash
 pg_restore -v –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
