@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d2cf578d6328e6e53d1081b9ab4de3ad262390df
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 69a2967be1709c3b3e3bd9fa5854482ecc5e3aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -445,7 +445,7 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 ### <a name="monitor-the-full-copy-pipeline"></a>Monitorar o pipeline de cópia completa
 
 1. Faça logon no [portal do Azure](https://portal.azure.com).
-2. Clique em **Mais serviços**, pesquise com a palavra-chave `data factories` e selecione **Data factories**. 
+2. Clique em **Todos os serviços**, pesquise com a palavra-chave `data factories` e selecione **Data factories**. 
 
     ![Menu Data factories](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
 3. Procure **seu data factory** na lista de data factories e selecione-o para iniciar a página Data factory. 

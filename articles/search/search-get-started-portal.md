@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Criar, consultar e filtrar um índice do Azure Search no portal
 
@@ -36,7 +36,7 @@ Esta introdução sem código apresenta dados predefinidos para que você possa 
 
 Como alternativa, incremente usando uma [introdução baseada em código sobre a programação do Azure Search no .NET](search-howto-dotnet-sdk.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Este tutorial assume que você tem uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e [o serviço Azure Search](search-create-service-portal.md). 
 
@@ -46,7 +46,7 @@ Se não quiser provisionar um serviço imediatamente, você pode assistir a uma 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Abra o painel de serviços de seu serviço de Azure Search. Se você não fixar o bloco do serviço ao seu painel, poderá encontrar o serviço desta maneira: 
    
-   * Na Barra de Navegação, clique em **Mais serviços** na parte inferior do painel de navegação à esquerda.
+   * Na barra de navegação, clique em **Todos os serviços** no painel de navegação à esquerda.
    * Na caixa de pesquisa, digite *pesquisa* para obter uma lista de serviços de pesquisa da sua assinatura. Seu serviço deve aparecer na lista. 
 
 ## <a name="check-for-space"></a>Verificar o espaço

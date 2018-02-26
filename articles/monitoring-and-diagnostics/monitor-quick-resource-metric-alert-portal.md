@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Receber uma notificação quando um valor de métrica atender a uma condição
 
@@ -26,15 +26,15 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
-1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+1. Clique no botão **Criar um recurso** encontrado na parte superior esquerda do portal do Azure.
 
-2. Pesquise e selecione **Aplicativo Lógico**. Crie um novo grupo de recursos chamado **myResourceGroup**. Use o local padrão. Selecione o botão **Criar** .
+2. Pesquise e selecione **Aplicativo Lógico**. Selecione o botão **Criar** .
 
-3. Insira as informações do aplicativo lógico e marque a opção **Fixar no Painel**. Ao concluir, clique em **Criar**.
+3. Insira as informações do aplicativo lógico mostradas na imagem a seguir.  Use o local padrão. Marque a opção **Fixar no Painel**.  Ao concluir, clique em **Criar**. 
 
     ![Inserir informações básicas sobre o aplicativo lógico no portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -61,6 +61,8 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
 12. Clique em **Salvar**.
 
+13. Pode levar até 5 minutos para o aplicativo lógico executar ações para ocorrer.  
+
 ## <a name="view-metrics-for-your-logic-app"></a>Exibir as métricas do aplicativo lógico
 
 1. Clique na opção **Monitorar** no painel de navegação à esquerda.
@@ -71,7 +73,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
 4. Modifique o **Intervalo de tempo** do gráfico para exibir dados da hora anterior.
 
-5. Agora você deverá ver um gráfico plotando o número total de execuções que o aplicativo lógico iniciou durante a última hora.
+5. Agora você deverá ver um gráfico plotando o número total de execuções que o aplicativo lógico iniciou durante a última hora. Se você não vir nenhuma, verifique se aguardou pelo menos 5 minutos após a etapa anterior. Em seguida, atualize seu navegador. 
 
     ![Plotar um gráfico de métrica para o recurso do aplicativo lógico](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 

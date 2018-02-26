@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Opções da conta de Armazenamento do Azure
 
@@ -125,7 +125,7 @@ Não é possível definir o nível de acesso para arquivo morto nos exemplos a s
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. No menu Hub, selecione **Novo** > **Dados + Armazenamento** > **Conta de armazenamento**.
+2. No menu Hub, selecione **Criar um recurso** > **Dados + Armazenamento** > **Conta de armazenamento**.
 
 3. Insira um nome para a conta de armazenamento.
 
@@ -159,7 +159,7 @@ Não é possível definir o nível de acesso para arquivo morto nos exemplos a s
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Para navegar até sua conta de armazenamento, selecione Todos os Recursos e sua conta de armazenamento.
+2. Para navegar até sua conta de armazenamento, selecione **Todos os recursos** e selecione sua conta de armazenamento.
 
 3. Na seção de Configurações, clique em **Configuração**.
 
@@ -173,7 +173,7 @@ Não é possível definir o nível de acesso para arquivo morto nos exemplos a s
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Para navegar até sua conta de armazenamento, selecione Todos os Recursos e sua conta de armazenamento.
+2. Para navegar até sua conta de armazenamento, selecione **Todos os recursos** e selecione sua conta de armazenamento.
 
 3. Na folha Configurações, clique em **Configuração** para exibir e/ou alterar a configuração da conta.
 
@@ -185,7 +185,7 @@ Não é possível definir o nível de acesso para arquivo morto nos exemplos a s
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Para navegar até seu blob em sua conta de armazenamento, selecione Todos os Recursos, selecione sua conta de armazenamento, selecione seu contêiner e depois seu blob.
+2. Para navegar até seu blob em sua conta de armazenamento, selecione **Todos os recursos**, selecione sua conta de armazenamento, selecione seu contêiner e depois seu blob.
 
 3. Na folha de propriedades do Blob, clique no menu suspenso **Camada de Acesso** para selecionar a camada de armazenamento **Frequente**, **Esporádico**, ou **Arquivamo**.
 

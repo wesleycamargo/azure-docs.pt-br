@@ -4,7 +4,7 @@ description: "Crie uma conexão de gateway de VPN entre redes virtuais usando o 
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 406cb4faf53bde5f615593e2e904d91a1d90a729
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a24bd41adbe26b1905f7817f5e5888e492d234f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Configurar uma conexão de gateway de VPN de VNet para VNet usando o portal do Azure
 
-Este artigo mostra como conectar redes virtuais usando o tipo de conexão VNet a VNet. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. Ao conectar-se a redes virtuais a partir de assinaturas diferentes, as assinaturas não precisam ser associadas ao mesmo locatário do Active Directory. 
+Este artigo ajuda você a conectar redes virtuais usando o tipo de conexão de rede virtual a rede virtual. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. Ao conectar-se a redes virtuais a partir de assinaturas diferentes, as assinaturas não precisam ser associadas ao mesmo locatário do Active Directory. 
 
 As etapas neste artigo se aplicam ao modelo de implantação do Resource Manager e o uso do Portal do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)

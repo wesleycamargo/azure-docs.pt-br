@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-faq"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -29,9 +29,9 @@ Para obter mais informações, confira [O que é Azure Active Directory?](active
 ## <a name="access-azure-and-azure-active-directory"></a>Acessar o Azure e o Azure Active Directory
 **P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no Portal do Azure?**
 
-**R:** para acessar o Portal do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se tiver uma assinatura paga do Office 365 ou Azure AD, acesse [http://aka.ms/accessAAD](http://aka.ms/accessAAD) para obter uma etapa de ativação única. Caso contrário, você precisará ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) grátis ou uma assinatura paga.
+**R:** para acessar o Portal do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se você tiver uma assinatura paga do Office 365 ou Azure AD, acesse [https://aka.ms/accessAAD](https://aka.ms/accessAAD) para obter uma etapa de ativação única. Caso contrário, você precisará ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) grátis ou uma assinatura paga.
 
-Para obter mais informações, consulte:
+Para obter mais informações, confira:
 
 * [Como as assinaturas do Azure são associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gerenciar o diretório para sua assinatura do Office 365 no Azure](active-directory-manage-o365-subscription.md)
@@ -160,7 +160,7 @@ Para obter uma lista completa dos aplicativos pré-integrados, confira o [Active
 
 **R:** com o Azure AD Premium, você pode adicionar e configurar qualquer aplicativo que desejar. Dependendo dos recursos do aplicativo e de suas preferências, você pode configurar o SSO e o provisionamento automatizado.  
 
-Para obter mais informações, consulte:
+Para obter mais informações, confira:
 
 * [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
@@ -182,7 +182,7 @@ Para saber mais, confira [Implantar os aplicativos integrados do Azure AD para u
 
 **R:** o Azure AD dá suporte a vários protocolos padronizados para autenticação e autorização, como SAML 2.0, OpenID Connect, OAuth 2.0 e WS-Federation. O Azure AD também dá suporte a cofres de senhas e recursos de entrada automatizada para aplicativos que dão suporte apenas à autenticação baseada em formulários.  
 
-Para obter mais informações, consulte:
+Para obter mais informações, confira:
 
 * [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md)
 * [Protocolos de autenticação do Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)

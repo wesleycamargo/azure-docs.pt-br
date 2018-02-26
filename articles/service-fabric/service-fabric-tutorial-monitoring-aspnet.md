@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb6aca8d99e32948b8a01a2f893bcf40d160a76c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Monitorar e diagnosticar um aplicativo ASP.NET Core no Service Fabric
 Este tutorial é a parte quatro de uma série. Ele passa pelas etapas para configurar o monitoramento e o diagnóstico para um aplicativo ASP.NET Core em execução em um cluster do Service Fabric usando o Application Insights. Coletaremos a telemetria do aplicativo desenvolvido na primeira parte do tutorial, [Criar um aplicativo .NET do Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -38,7 +38,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar CI/CD usando o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurar o monitoramento e o diagnóstico do aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial:
 - Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Instale o Visual Studio 2017](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="set-up-an-application-insights-resource"></a>Configurar um recurso do Application Insights
-O Application Insights é a plataforma de gerenciamento de desempenho de aplicativo do Azure e a plataforma recomendada do Service Fabric para monitoramento e diagnóstico de aplicativos. Para criar um recurso do Application Insights navegue até o [Portal do Azure](https://portal.azure.com). Clique em **Novo** no menu de navegação esquerdo para abrir o Azure Marketplace. Clique em **Monitoramento + gerenciamento** e, em seguida, em **Application Insights**.
+O Application Insights é a plataforma de gerenciamento de desempenho de aplicativo do Azure e a plataforma recomendada do Service Fabric para monitoramento e diagnóstico de aplicativos. Para criar um recurso do Application Insights navegue até o [Portal do Azure](https://portal.azure.com). Clique em **Criar um recurso** no menu de navegação à esquerda para abrir o Azure Marketplace. Clique em **Monitoramento + gerenciamento** e, em seguida, em **Application Insights**.
 
 ![Criar novo recurso do AI](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 

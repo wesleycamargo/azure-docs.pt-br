@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurar pontos de extremidade de serviço de rede virtual
 
@@ -62,8 +62,8 @@ Durante a versão prévia, o recurso de pontos de extremidade de serviço de red
 
 1. Abra o [portal do Azure](https://portal.azure.com/).
 Faça logon no Azure usando sua conta do Azure. Se não tiver uma conta do Azure, você poderá assinar uma versão de avaliação gratuita. A conta deve ter as [permissões](#provisioning) necessárias para criar uma rede virtual e um ponto de extremidade de serviço.
-2. Clique em + Novo > Rede > Rede Virtual > +Adicionar.
-3. Em “Criar rede virtual”, insira os valores a seguir e clique em Criar:
+2. Clique em **Criar um recurso** > **Rede** > **Rede virtual** > **+Adicionar**.
+3. Em “Criar rede virtual”, insira os valores a seguir e depois clique em **Criar**:
 
 Configuração | Valor
 ------- | -----

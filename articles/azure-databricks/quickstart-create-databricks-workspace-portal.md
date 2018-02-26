@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
@@ -32,7 +32,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com).
 
 Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando o Portal do Azure. 
 
-1. No Portal do Azure, clique em **+**, depois em **Dados + Análise** e em **Azure Databricks (versão prévia)**. 
+1. No Portal do Azure, clique em **Criar um recurso**, clique em **Dados + Análise** e em **Azure Databricks (Versão prévia)**. 
 
     ![Databricks no portal do Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks no portal do Azure")
 

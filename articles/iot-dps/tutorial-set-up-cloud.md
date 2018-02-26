@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 088d127521ce89d3a82e30ad8797fe5746ae7e03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 247c2155943d651c3be7791571522b652cf63483
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar recursos de nuvem para provisionamento de dispositivos com o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -38,7 +38,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 Siga estas etapas para criar uma nova instância do Serviço de Provisionamento de Dispositivos.
 
-1. No canto superior esquerdo do Portal do Azure, clique em **Novo**.
+1. No canto superior esquerdo do portal do Azure, clique em **Criar um recurso**.
 2. Na caixa Pesquisa, digite **provisionamento de dispositivos**. 
 3. Clique em **Serviço de Provisionamento de Dispositivos no Hub IoT**.
 4. Preencha o formulário **Serviço de Provisionamento de Dispositivos no Hub IoT** com as seguintes informações:

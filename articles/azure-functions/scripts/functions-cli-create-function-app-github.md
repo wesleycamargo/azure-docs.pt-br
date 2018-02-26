@@ -9,15 +9,17 @@ ms.date: 04/27/2017
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 39e26ba6c3ae0927fbf6c62af0bd3b48d16657ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 382fbe8919a031ca29a32e708b12070c584ed21f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Criar um Aplicativo de funções e implantar o código da função do GitHub
 
-Este exemplo de script cria um aplicativo de funções usando o [plano de consumo](../functions-scale.md#consumption-plan) com seus recursos relacionados e, em seguida, implanta seu código de função de um repositório GitHub público (sem a implantação contínua). Para o fornecimento contínuo do código da função do GitHub, leia [Criar um aplicativo de funções e implantar continuamente do GitHub](functions-cli-create-function-app-github-continuous.md)
+Este exemplo de script cria um aplicativo de funções usando o [plano de consumo](../functions-scale.md#consumption-plan) com seus recursos relacionados e, em seguida, implanta seu código de função de um repositório GitHub público (sem a implantação contínua). Para entrega contínua do código de função do GitHub, leia [Criar um aplicativo de funções e implantar continuamente no GitHub](functions-cli-create-function-app-github-continuous.md).
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +39,7 @@ Este exemplo cria um Aplicativo de funções do Azure e implanta o código da fu
 
 Cada comando na tabela redireciona para a documentação específica do comando. Este script usa os seguintes comandos:
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um Plano do Serviço de Aplicativo. |

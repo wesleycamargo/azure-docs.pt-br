@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
@@ -55,7 +55,7 @@ Há algumas coisas que você não pode fazer ao usar um ASE ILB:
 
 Para criar um ASE ILB:
 
-1. No Portal do Azure, escolha **Novo** > **Web + Móvel** > **Ambiente do Serviço de Aplicativo** .
+1. No Portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Ambiente do Serviço de Aplicativo** .
 
 2. Selecione sua assinatura.
 
@@ -106,7 +106,7 @@ Se você definir **Tipo de VIP** como **Interno**, o nome do ASE não será usad
 
 Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um aplicativo em um ASE.
 
-1. No Portal do Azure, escolha **Novo** > **Web + Móvel** > **Web** ou **Móvel** ou **Aplicativo de API**.
+1. No Portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Web** ou **Celular** ou **Aplicativo de API**.
 
 2. Digite o nome do aplicativo.
 

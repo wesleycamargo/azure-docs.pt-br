@@ -1,6 +1,6 @@
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Novo**, em seguida, **Web + Móvel** e **Mobile Engagement**.
+2. Clique em **Criar um recurso** e, em seguida, **Web + Celular** e **Mobile Engagement**.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
 3. Na folha **Nova Coleção de Aplicativos do Mobile Engagement** que é exibida, você criará uma Coleção de Aplicativos. Insira as seguintes informações:

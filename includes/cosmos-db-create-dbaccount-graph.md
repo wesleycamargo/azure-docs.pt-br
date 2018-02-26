@@ -1,6 +1,6 @@
 1. Em uma nova janela do navegador, entre no [Portal do Azure](https://portal.azure.com/).
 
-2. Clique em **Novo** > **Bancos de Dados** > **Azure Cosmos DB**.
+2. Clique em **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB**.
    
    ![Painel “Bancos de dados” do portal do Azure](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
 

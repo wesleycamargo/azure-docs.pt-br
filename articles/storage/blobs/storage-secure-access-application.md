@@ -2,23 +2,20 @@
 title: Proteger o acesso aos dados de um aplicativo na nuvem com o Armazenamento do Azure | Microsoft Docs
 description: Use tokens SAS, criptografia e HTTPS para proteger os dados do aplicativo na nuvem
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de um aplicativo na nuvem
 
@@ -33,7 +30,7 @@ Na terceira parte da série, você aprenderá a:
 
 O [Armazenamento de Blobs do Azure](../common/storage-introduction.md#blob-storage) fornece um serviço robusto para armazenar arquivos de aplicativos. Este tutorial estende o [tópico anterior][previous-tutorial] para mostrar como proteger o acesso à sua conta de armazenamento de um aplicativo Web. Quando você terminar as imagens são criptografadas e o aplicativo Web usa tokens SAS seguros para acessar as imagens em miniatura.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial você deve ter concluído o Tutorial de armazenamento anterior: [Automate resizing uploaded images using Event Grid][previous-tutorial] (Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos). 
 
@@ -53,7 +50,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>Configurar tokens SAS para miniaturas
 
-Na parte um dessa série de tutoriais, o aplicativo Web estava mostrando imagens de um contêiner público. Nessa parte da série, você usa tokens de [SAS (Assinatura de Acesso Seguro)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) para recuperar as imagens em miniatura. Os tokens SAS permitem que você forneça acesso restrito a um contêiner ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos.
+Na parte um dessa série de tutoriais, o aplicativo Web estava mostrando imagens de um contêiner público. Nessa parte da série, você usa tokens de [SAS (Assinatura de Acesso Compartilhado)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) para recuperar as imagens em miniatura. Os tokens SAS permitem que você forneça acesso restrito a um contêiner ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos.
 
 Neste exemplo, o repositório de código-fonte usa o branch `sasTokens`, que tem um exemplo de código atualizado. Exclua a implantação existente do GitHub com o [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Em seguida, configure a implantação do GitHub para o aplicativo Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config).  
 

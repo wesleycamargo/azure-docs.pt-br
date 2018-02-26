@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b8577a02f0c9396b64af986950fddaa1e00925ec
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 247f86dafe35d69dd742583d246862b739d9fe90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Como usar os conjuntos de disponibilidade
 
@@ -119,7 +119,7 @@ Get-AzureRmVMSize `
 
 Você também pode usar o Assistente do Azure para saber mais sobre as maneiras de melhorar a disponibilidade das suas máquinas virtuais. O Assistente do Azure ajuda você a seguir as práticas recomendadas para otimizar as implantações do Azure. Ele analisa a telemetria de uso e configuração do recurso e, depois, recomenda soluções que podem ajudar você a melhorar a economia, o desempenho, a alta disponibilidade e a segurança de seus recursos do Azure.
 
-Entre no [portal do Azure](https://portal.azure.com), selecione **Mais serviços** e digite **Assistente**. O painel do Assistente exibe recomendações personalizadas para a assinatura selecionada. Para saber mais, veja [Introdução ao Assistente do Azure](../../advisor/advisor-get-started.md).
+Entre no [portal do Azure](https://portal.azure.com), selecione **Todos os serviços** e digite **Assistente**. O painel do Assistente exibe recomendações personalizadas para a assinatura selecionada. Para saber mais, veja [Introdução ao Assistente do Azure](../../advisor/advisor-get-started.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

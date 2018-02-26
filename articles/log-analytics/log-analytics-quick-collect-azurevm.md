@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: be43701f96a71ad5cd9239c4ec7b3eea7fd6db21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Coletar dados sobre as Máquinas Virtuais do Azure
 O [Azure Log Analytics](log-analytics-overview.md) pode coletar dados diretamente das máquinas virtuais do Azure e de outros recursos do ambiente em um único repositório para correlação e análise detalhada.  Este guia de início rápido mostra como configurar e coletar dados de VMs Linux ou Windows do Azure com algumas etapas simples.  
@@ -30,7 +30,7 @@ Este guia de início rápido pressupõe que você tenha uma máquina virtual do 
 Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Criar um espaço de trabalho
-1. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br> ![portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br> ![portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Clique em **Criar** e, em seguida, selecione opções para os seguintes itens:
 
   * Forneça um nome para o novo **Espaço de Trabalho do OMS**, como *DefaultLAWorkspace*. 

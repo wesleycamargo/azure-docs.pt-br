@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9971eb9e069d9fe1148c293c3459a8b11d931c2a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 96a5caca1f00b46330c839ef3380d58cf9913ad5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
@@ -70,7 +70,7 @@ Crie um Banco de Dados SQL do Azure contendo dados de exemplo do Adventure Works
 
 Para o Banco de Dados SQL e o SQL Data Warehouse, permita que os serviços do Azure acessem o SQL Server. Verifique se a configuração **Permitir acesso aos serviços do Azure** está **ATIVADA** para o Azure SQL Server. Essa configuração permite que o serviço Data Factory leia dados do Banco de Dados SQL do Azure e grave dados no SQL Data Warehouse do Azure. Para verificar e ativar essa configuração, faça as seguintes etapas:
 
-1. Clique no hub **Mais serviços** à esquerda e clique em **Servidores SQL**.
+1. Clique em **Todos os serviços** à esquerda e selecione **Servidores SQL**.
 2. Selecione seu servidor e clique em **Firewall** em **CONFIGURAÇÕES**.
 3. Na página **Configurações de Firewall**, clique em **ATIVADO** para **Permitir acesso aos serviços do Azure**.
 

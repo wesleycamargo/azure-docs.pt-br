@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f7a2344b6676a9067cf0adff04f49a73ce457fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Como monitorar seus serviços do Node.js e aplicativos com o Application Insights
 
@@ -35,7 +35,7 @@ Você pode usar a API TelemetryClient para instrumentar e monitorar manualmente 
 
 Conclua as seguintes tarefas para configurar o monitoramento em um aplicativo ou serviço.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 Antes de iniciar, verifique se você tem uma assinatura do Azure ou [obtenha uma gratuitamente][azure-free-offer]. Se sua organização já tiver uma assinatura do Azure, um administrador pode seguir [estas instruções][add-aad-user] para adicioná-lo a ela.
 
@@ -47,7 +47,7 @@ Antes de iniciar, verifique se você tem uma assinatura do Azure ou [obtenha uma
 
 
 1. Entre no [Portal do Azure][portal].
-2. Selecione **Novo** > **Ferramentas de desenvolvedor** > **Application Insights**. O recurso inclui um ponto de extremidade para receber dados de telemetria, armazenamento para esses dados, painéis e relatórios salvos, configurações de alerta e regra e muito mais.
+2. Selecione **Criar um recurso** > **Ferramentas de desenvolvedor** > **Application Insights**. O recurso inclui um ponto de extremidade para receber dados de telemetria, armazenamento para esses dados, painéis e relatórios salvos, configurações de alerta e regra e muito mais.
 
   ![Criar um recurso do Application Insights](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 

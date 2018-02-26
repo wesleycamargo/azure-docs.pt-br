@@ -6,7 +6,7 @@ Para criar uma Rede Virtual no modelo de implantação do Gerenciador de Recurso
 >
 
 1. Em um navegador, acesse o [Portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
-2. Clique em **Novo**. No campo **Pesquisar no marketplace**, digite ‘rede virtual’. Localize a **Rede virtual** na lista retornada e clique para abrir a página **Rede Virtual**.
+2. Clique em **Criar um recurso**. No campo **Pesquisar no marketplace**, digite ‘rede virtual’. Localize a **Rede virtual** na lista retornada e clique para abrir a página **Rede Virtual**.
 3. Perto da parte inferior da página Rede Virtual, na lista **Selecionar um modelo de implantação**, selecione **Gerenciador de Recursos** e clique em **Criar**. Isso abre a página ‘Criar rede virtual’.
 
     ![Página Criar rede virtual](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Página Criar rede virtual")

@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4c7f48c993d66dd79538fd73ccaed1355c2e8cdd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d2d317d6c66aa0fb81779c3a8a192b6a50571d1f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
 As Instâncias de Contêiner do Azure facilitam criar e gerenciar contêineres do Docker no Azure, sem a necessidade de provisionar máquinas virtuais ou adotar um serviço de nível superior. Neste início rápido, você cria um contêiner no Azure e o expõe à Internet com um endereço IP público. Essa operação é concluída com um único comando. Em poucos segundos, você verá o seguinte em seu navegador:
@@ -40,41 +40,32 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
-Você pode criar um contêiner fornecendo um nome, uma imagem do Docker e um grupo de recursos do Azure para o comando [az container create][az-container-create]. Opcionalmente, você pode expor o contêiner à Internet com um endereço IP público. Neste guia de início rápido, você implanta um contêiner que hospeda um pequeno aplicativo Web escrito no [Node.js][node-js].
+Você pode criar um contêiner fornecendo um nome, uma imagem do Docker e um grupo de recursos do Azure para o comando [az container create][az-container-create]. Outra opção é expor o contêiner à Internet, especificando um rótulo de nome DNS. Neste guia de início rápido, você implanta um contêiner que hospeda um pequeno aplicativo Web escrito no [Node.js][node-js].
+
+Execute o comando a seguir para iniciar uma instância do contêiner. O valor `--dns-name-label` deve ser exclusivo dentro da região do Azure na qual você criar a instância, portanto, talvez seja preciso modificar esse valor para garantir a exclusividade.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
 Em alguns segundos, você deve obter uma resposta à solicitação. Inicialmente, o contêiner fica no estado **Criando**, mas ele deve começar em alguns segundos. Você pode verificar o status usando o comando [az container show][az-container-show]:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
+az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-Na parte inferior da saída, você verá o estado de provisionamento do contêiner e seu endereço IP:
+Quando você executar o comando, o nome de domínio totalmente qualificado (FQDN) do contêiner e seu estado de provisionamento são exibidos:
 
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    },
-    "location:": "eastus",
-    "name": "mycontainer",
-    "osType": "Linux",
-    "provisioningState": "Succeeded"
-...
+```console
+$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+FQDN                               ProvisioningState
+---------------------------------  -------------------
+aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Depois que o contêiner muda para o estado **Êxito**, você pode acessá-lo no navegador, usando o endereço IP fornecido.
+Depois que o contêiner muda para o estado **Êxito**, é possível acessá-lo no navegador, navegando até seu FQDN:
 
-![Os aplicativos implantados usando Instâncias de Contêiner do Azure são exibidos no navegador][aci-app-browser]
+![Captura de tela de navegador mostrando aplicativo em execução em uma instância de contêiner do Azure][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Acessar os logs de contêiner
 

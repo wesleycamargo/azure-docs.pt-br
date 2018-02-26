@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 11/03/2017
-ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 215de7113421670dae5745ddd5fc2cc22d2143e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure
 
@@ -30,7 +30,7 @@ Neste tutorial, você usará o Portal do Azure para aprender a:
 > * Atualizar dados
 > * Restaurar dados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
@@ -41,8 +41,8 @@ Faça logon no [Portal do Azure](https://portal.azure.com).
 Um Banco de Dados do Azure para PostgreSQL é criado com um conjunto definido de [recursos de computação e armazenamento](./concepts-compute-unit-and-storage.md). O servidor é criado dentro de um [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
 Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreSQL:
-1.  Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
-2.  Selecione **Bancos de dados** na página **Novo** e selecione **Banco de Dados do Azure para PostgreSQL** na página **Bancos de dados**.
+1.  Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
+2.  Selecione **Bancos de Dados** na página **Novo** e selecione **Banco de Dados do Azure para PostgreSQL** na página **Bancos de Dados**.
  ![Banco de Dados do Azure para PostgreSQL – Criar o banco de dados](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
 3.  Preencha o formulário de detalhes do novo servidor com as informações abaixo, conforme mostrado na imagem anterior:
@@ -50,7 +50,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
     - Assinatura: se você tiver várias assinaturas, escolha a que for adequada, na qual o recurso exista ou é cobrado.
     - Grupo de recursos: **myresourcegroup**
     - Logon e senha de administrador do servidor à sua escolha
-    - Local
+    - Local padrão
     - Versão do PostgreSQL
 
   > [!IMPORTANT]

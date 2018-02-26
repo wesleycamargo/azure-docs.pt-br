@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>Gerenciar espaços de trabalho
 
@@ -34,7 +34,7 @@ Para criar um espaço de trabalho, você precisa:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de espaços de trabalho que você precisa
 Um espaço de trabalho é um recurso do Azure e é um contêiner no qual os dados são coletados, agregados, analisados e apresentados no portal do Azure.
 
-Você pode ter vários espaços de trabalho por assinatura do Azure e ter acesso a mais de um espaço de trabalho. Minimizar o número de espaços de trabalho permite que você consulte e correlacione a maioria dos dados, já que não é possível consultar em vários espaços de trabalho. Esta seção descreve quando pode ser útil criar mais de um espaço de trabalho.
+Você pode ter vários espaços de trabalho por assinatura do Azure e ter acesso a mais de um espaço de trabalho. Anteriormente você poderia apenas analisar dados no espaço de trabalho atual e isso limitava sua capacidade de consultar em vários espaços de trabalho definidos em sua assinatura. Agora, você pode [consultar em vários espaços de trabalho](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), fornecendo uma exibição de todo o sistema de seus dados. Esta seção descreve quando pode ser útil criar mais de um espaço de trabalho.
 
 Hoje, um espaço de trabalho fornece:
 
@@ -62,10 +62,10 @@ Você pode exibir detalhes sobre o espaço de trabalho no portal do Azure.
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Exibir informações do espaço de trabalho no portal do Azure
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Mais serviços**, encontrado no canto inferior esquerdo do portal do Azure.  Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Log Analytics**.  
-    ![Hub do Azure](./media/log-analytics-manage-access/hub.png)  
-3. Na folha de assinaturas do Log Analytics, selecione um espaço de trabalho.
-4. A folha de espaço de trabalho exibe detalhes sobre o espaço de trabalho e links para obter informações adicionais.  
+2. Clique em **Todos os serviços**.  Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Log Analytics**.  
+    ![Captura de tela que mostra o menu à esquerda do Azure](./media/log-analytics-manage-access/hub.png)  
+3. Na página de assinaturas do Log Analytics, selecione um espaço de trabalho.
+4. A página de espaço de trabalho exibe detalhes sobre o espaço de trabalho e links para obter informações adicionais.  
     ![detalhes do espaço de trabalho](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -83,8 +83,8 @@ A tabela a seguir resume o acesso que pode ser definido usando cada modelo de pe
 
 |                          | Portal do Log Analytics | Portal do Azure | API (incluindo PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Funções de usuário do Log Analytics | Sim                  | Não           | Não                         |
-| Acesso baseado em função do Azure  | Sim                  | Sim          | Sim                        |
+| Funções de usuário do Log Analytics | sim                  | Não            | Não                          |
+| Acesso baseado em função do Azure  | sim                  | sim          | sim                        |
 
 > [!NOTE]
 > O Log Analytics está passando a usar o acesso baseado em função do Azure como o modelo de permissão, substituindo as funções de usuário do Log Analytics.
@@ -114,7 +114,7 @@ Os membros da função *Leitor do Log Analytics* podem:
 - Exibir e pesquisar todos os dados de monitoramento 
 - Exiba configurações de monitoramento, incluindo exibir a configuração do diagnóstico do Azure em todos os recursos do Azure.
 
-| Tipo    | Permissão | Descrição |
+| type    | Permissão | DESCRIÇÃO |
 | ------- | ---------- | ----------- |
 | Ação | `*/read`   | Capacidade de exibir todos os recursos e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos |
 | Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidade de execução de consultas de Pesquisa de Logs v2 |
@@ -136,7 +136,7 @@ Os membros da função *Colaborador do Log Analytics* podem:
 > [!NOTE] 
 > Você pode usar a capacidade de adicionar uma extensão da máquina virtual a uma máquina virtual para ter controle total sobre uma máquina virtual.
 
-| Permissão | Descrição |
+| Permissão | DESCRIÇÃO |
 | ---------- | ----------- |
 | `*/read`     | Capacidade de exibir todos os recursos e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos |
 | `Microsoft.Automation/automationAccounts/*` | Capacidade de criar e configurar Contas de automação do Azure, incluindo adicionar e editar runbooks |

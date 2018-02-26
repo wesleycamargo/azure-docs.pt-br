@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implantar um contêiner em Instâncias de Contêiner do Azure
 
@@ -50,13 +50,15 @@ Senha de registro de contêiner:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Para implantar a imagem de contêiner do registro de contêiner com uma solicitação de recurso de 1 núcleo de CPU e 1 GB de memória, execute o seguinte comando. Substitua `<acrLoginServer>` e `<acrPassword>` pelos valores obtidos dos dois comandos anteriores.
+Para implantar a imagem de contêiner do registro de contêiner com uma solicitação de recurso de 1 núcleo de CPU e 1 GB de memória, execute o seguinte comando. Substitua `<acrLoginServer>` e `<acrPassword>` pelos valores obtidos dos dois comandos anteriores. Substitua `<acrName>` pelo nome do seu Registro de contêiner.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Em alguns segundos, você deverá receber uma resposta inicial do Azure Resource Manager. Para exibir o estado da implantação, use o comando [az container show][az-container-show]:
+Em alguns segundos, você deverá receber uma resposta inicial do Azure Resource Manager. O valor `--dns-name-label` deve ser exclusivo dentro da região do Azure em que você criar a instância do contêiner. Atualize o valor no exemplo anterior se você receber uma mensagem de erro do **rótulo do nome DNS** ao executar o comando.
+
+Para exibir o estado da implantação, use o comando [az container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
@@ -66,15 +68,15 @@ Repita o comando [az container show][az-container-show] até que o estado mude d
 
 ## <a name="view-the-application-and-container-logs"></a>Exibir os logs do aplicativo e do contêiner
 
-Depois que a implantação for bem-sucedida, exiba o endereço IP público do contêiner com o comando [az container show][az-container-show]:
+Depois que a implantação for bem-sucedida, exiba o nome de domínio totalmente qualificado (FQDN) do contêiner com o comando [az container show][az-container-show]:
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Saída de exemplo: `"13.88.176.27"`
+Saída de exemplo: `"aci-demo.eastus.azurecontainer.io"`
 
-Para ver o aplicativo em execução, navegue até o endereço IP público no seu navegador favorito.
+Para ver o aplicativo em execução, navegue até o nome DNS exibido em seu navegador favorito:
 
 ![Aplicativo Olá, Mundo no navegador][aci-app-browser]
 

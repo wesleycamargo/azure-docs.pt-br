@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 02/11/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 804d9df37b5c89501200fc4e233108c09cce9262
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: bc7c7ea1a01ad784ae53090f1ae0edb042b4f07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Coletar dados de computadores Linux hospedados no seu ambiente
 O [Azure Log Analytics](log-analytics-overview.md) pode coletar dados diretamente dos computadores Linux físicos ou virtuais e de outros recursos do ambiente em um único repositório para correlação e análise detalhadas.  Este guia de início rápido mostra como configurar e coletar dados do computador Linux com algumas etapas simples.  Para VMs Linux do Azure, consulte o tópico a seguir [Coletar dados sobre as Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Criar um espaço de trabalho
-1. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Clique em **Criar** e, em seguida, selecione opções para os seguintes itens:
 
   * Forneça um nome para o novo **Espaço de Trabalho do OMS**, como *DefaultLAWorkspace*. 
@@ -49,7 +49,7 @@ Enquanto as informações são verificadas e o espaço de trabalho é criado, vo
 ## <a name="obtain-workspace-id-and-key"></a>Obter a ID e a chave do espaço de trabalho
 Antes de instalar o agente do OMS para Linux, você precisa da ID do espaço de trabalho e da chave para o espaço de trabalho do Log Analytics.  Essas informações são exigidas pelo script de wrapper de agente para configurar o agente corretamente e garantir que ele pode se comunicar com o Log Analytics com êxito.  
 
-1. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 2. Na lista de espaços de trabalho do Log Analytics, selecione *DefaultLAWorkspace* criado anteriormente.
 3. Selecione **Configurações avançadas**.<br><br> ![Configurações avançadas do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Fontes Conectadas** e, em seguida, selecione **Servidores Linux**.   

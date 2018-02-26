@@ -1,4 +1,4 @@
-1. Clique no botão **Novo** encontrado à esquerda superior do Portal do Azure, e selecione **Computação** > **Aplicativo de funções**. 
+1. Clique em **Criar um recurso** no canto esquerdo superior do Portal do Azure e, em seguida, selecione **Computação** > **Aplicativo de funções**. 
 
     ![Criar um aplicativo de funções no portal do Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
 

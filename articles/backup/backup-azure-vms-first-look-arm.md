@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação
 
@@ -50,9 +50,9 @@ Dependendo do número de máquinas virtuais que você deseja proteger, é possí
 Use as etapas a seguir para configurar o trabalho de backup na folha de gerenciamento da máquina virtual no Portal do Azure. As etapas a seguir se aplicam somente a máquinas virtuais no portal do Azure.
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. No menu do Hub, clique em **Mais Serviços** e, na caixa de diálogo Filtrar, digite **Máquinas virtuais**. A lista de recursos é filtrada enquanto você digita. Ao ver Máquinas virtuais, selecione-a.
+2. No menu do Hub, clique em **Todos os serviços** e, na caixa de diálogo Filtrar, digite **Máquinas virtuais**. A lista de recursos é filtrada enquanto você digita. Ao ver Máquinas virtuais, selecione-a.
 
-  ![No menu do Hub, clique em Mais Serviços para abrir a caixa de diálogo de texto e digite Máquinas virtuais](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Captura de tela que mostra como navegar para as máquinas virtuais de Todos os serviços](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   A lista de VMs (máquinas virtuais) na assinatura é exibida.
 
@@ -131,7 +131,7 @@ Um cofre de Serviços de Recuperação é uma entidade que armazena todos os pon
 Para criar um cofre de Serviços de Recuperação:
 
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com/) usando a sua assinatura do Azure.
-2. No menu do Hub, clique em **Mais Serviços** e, na caixa de diálogo Filtrar, digite **Serviços de Recuperação**. A lista de recursos é filtrada enquanto você digita. Quando vir a opção cofres dos Serviços de Recuperação na lista, clique nela.
+2. No menu do Hub, clique em **Todos os serviços** e, na caixa de diálogo Filtrar, digite **Serviços de Recuperação**. A lista de recursos é filtrada enquanto você digita. Quando vir a opção cofres dos Serviços de Recuperação na lista, clique nela.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ Para editar a configuração de replicação de armazenamento:
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selecionar a meta de backup, definir a política e os itens a serem protegidos
 Antes de registrar uma VM em um cofre, execute o processo de descoberta para garantir que todas as novas máquinas virtuais adicionadas à assinatura sejam identificadas. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região. No portal do Azure, o cenário se refere ao que você vai colocar no cofre de serviços de recuperação. A Política é o agendamento para quando e com que frequência os pontos de recuperação serão feitos. A Política também inclui o período de retenção dos pontos de recuperação.
 
-1. Se você já tiver um cofre dos Serviços de Recuperação aberto, vá para a etapa 2. Caso contrário, no menu do Hub, clique em **Mais serviços** e, na lista de recursos, digite **Serviços de Recuperação** e clique em **Cofres de Serviços de Recuperação**.
+1. Se você já tiver um cofre dos Serviços de Recuperação aberto, vá para a etapa 2. Caso contrário, clique em **Todos os serviços**. Digite **Serviços de Recuperação** e clique em **Cofres dos Serviços de Recuperação**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

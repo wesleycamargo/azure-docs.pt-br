@@ -16,15 +16,17 @@ ms.workload: web
 ms.date: 10/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 9436cafa775f2ad658c0c9901f7f8eae769c7052
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f3e4ce63a8b418b68494262df8a771ac553ad22d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-app-for-serverless-execution"></a>Criar um Aplicativo de funções para execução sem servidor
+# <a name="create-a-function-app-for-serverless-code-execution"></a>Criar um aplicativo de funções para execução de código sem servidor
 
-Este exemplo de script cria um Aplicativo de funções do Azure, que é um contêiner para suas funções. O Aplicativo de funções é criado usando o [plano de consumo](../functions-scale.md#consumption-plan), que é ideal para cargas de trabalho sem servidor controladas por evento.
+Este script de exemplo do Azure Functions cria um aplicativo de funções, que é um contêiner para suas funções. O aplicativo de funções é criado usando o [plano de consumo](../functions-scale.md#consumption-plan), que é ideal para cargas de trabalho sem servidor controladas por evento.
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,7 +46,7 @@ Esse script cria um Aplicativo de funções do Azure usando o [plano de consumo]
 
 Cada comando na tabela redireciona para a documentação específica do comando. Este script usa os seguintes comandos:
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento do Azure. |

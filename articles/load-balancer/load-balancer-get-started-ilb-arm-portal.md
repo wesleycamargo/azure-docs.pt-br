@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5274ec13ec2d04194e2dd4c8ec93be0f78329b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Criar um Balanceador de carga interno no portal do Azure
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/11/2018
 Use as etapas a seguir para criar um balanceador de carga interno no portal do Azure.
 
 1. Abra um navegador, navegue até o [portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
-2. No canto superior esquerdo da tela, clique em **Novo** > **Rede** > **Balanceador de carga**.
+2. No canto superior esquerdo da tela, clique em **Criar um recurso** > **Rede** > **Balanceador de carga**.
 3. Na folha **Criar balanceador de carga**, insira um **Nome** para o balanceador de carga.
 4. Em **Tipo**, clique em **Interno**.
 5. Clique em **Rede virtual**e selecione a rede virtual na qual você deseja criar o balanceador de carga.
