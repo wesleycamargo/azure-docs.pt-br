@@ -62,6 +62,7 @@
 ### [Considerações da ordenação de eventos](stream-analytics-out-of-order-and-late-events.md)
 ### [Limites de leitor de hub de eventos](stream-analytics-event-hub-consumer-groups.md)
 ### [Logs de diagnóstico](stream-analytics-job-diagnostic-logs.md)
+### [Obter eventos malformados](stream-analytics-malformed-events.md)
 
 ## Automatizar
 ### [Usar o SDK do .NET de Gerenciamento](stream-analytics-dotnet-management-sdk.md)

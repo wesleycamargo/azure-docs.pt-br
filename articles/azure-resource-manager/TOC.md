@@ -3,6 +3,7 @@
 ## [Provedores e tipos de recursos](resource-manager-supported-services.md)
 ## [Resource Manager e a implantação clássica](resource-manager-deployment-model.md)
 ## [Governança de assinatura](resource-manager-subscription-governance.md)
+## [Organizar recursos com grupos de gerenciamento](management-groups-overview.md)
 
 # Introdução
 ## [Criar e implantar modelo](resource-manager-create-first-template.md)
@@ -45,7 +46,8 @@
 ### [API REST](resource-manager-rest-api.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
-### [Organizar assinaturas com grupos de gerenciamento](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Criar grupos de gerenciamento](management-groups-create.md)
+### [Gerenciar seus grupos de gerenciamento](management-groups-manage.md)
 ### [Exemplos de governança](resource-manager-subscription-examples.md)
 ### [Aplicativos gerenciados](../managed-applications/overview.md)
 

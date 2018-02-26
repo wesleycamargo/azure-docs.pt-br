@@ -36,14 +36,16 @@
       href: delivery-and-retry.md
 - name: Guias de instruções
   items:
+    - name: Postar para tópico personalizado
+      href: post-to-custom-topic.md
     - name: Receber eventos em um ponto de extremidade HTTP
       href: receive-events.md
     - name: Enviar dados dos Hubs de Eventos para o data warehouse
       href: event-grid-event-hubs-integration.md
     - name: Enviar notificações sobre eventos do Hub IoT
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Postar para tópico personalizado
-      href: post-to-custom-topic.md
+    - name: Escutar eventos do Barramento de Serviço com Funções e Aplicativos Lógicos
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Modelos para assinaturas de evento
       href: event-subscription-template.md
     - name: Monitorize as entregas de eventos
@@ -67,7 +69,7 @@
           href: event-schema-subscriptions.md
         - name: Armazenamento de blob
           href: event-schema-blob-storage.md
-        - name: Hubs de Eventos
+        - name: Hubs de evento
           href: event-schema-event-hubs.md
         - name: Hub IoT
           href: event-schema-iot-hub.md
