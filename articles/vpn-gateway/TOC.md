@@ -19,6 +19,8 @@
 ### [CLI do Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portal do Azure (clássico)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [Baixar scripts de configuração do dispositivo VPN](vpn-gateway-download-vpndevicescript.md)
+
 ## Configurar conexões ponto a site - autenticação de certificado do Azure nativo
 ### Configurar um VPN P2S
 #### [portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -94,7 +96,8 @@
 
 # Relacionados
 ## [Rede Virtual](/azure/virtual-network/)
-## [Gateway de Aplicativo](/azure/application-gateway/)
+## [Gateway de Aplicativo
+](/azure/application-gateway/)
 ## [DNS do Azure](/azure/dns/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 ## [Balanceador de Carga](/azure/load-balancer/)

@@ -42,7 +42,7 @@
 #### [Usar o Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Colocação em escala vertical em um conjunto de dimensionamento](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Atualizações automáticas do Sistema Operacional](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Atualizações para conjuntos de dimensionamento](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Modificar um conjunto de dimensionamento](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Usar DSC e conjuntos de dimensionamento](virtual-machine-scale-sets-dsc.md)
 ### [Sistema de rede para conjuntos de dimensionamento](virtual-machine-scale-sets-networking.md)
 ### [Converter um modelo em discos gerenciados](virtual-machine-scale-sets-convert-template-to-md.md)

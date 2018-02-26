@@ -48,61 +48,62 @@
           href: security-center-customize-os-security-config.md
         - name: Política de segurança usando a política do Azure
           href: security-center-azure-policy.md
-    - name: Monitorar integridade da segurança
-      href: security-center-monitoring.md
-    - name: Identidade e Acesso
-      href: security-center-identity-access.md
     - name: Implementar recomendações de segurança
       href: security-center-recommendations.md
-    - name: Segurança de computação
-      href: security-center-virtual-machine-recommendations.md
+    - name: Monitorar integridade da segurança
+      href: security-center-monitoring.md
       items:
-        - name: Aplicar a criptografia de disco
-          href: security-center-apply-disk-encryption.md
-        - name: Aplicar atualizações do sistema
-          href: security-center-apply-system-updates.md
-        - name: Habilitar a criptografia para a conta de armazenamento
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Habilitar o Agente de VM
-          href: security-center-enable-vm-agent.md
-        - name: Instalar proteção do ponto de extremidade
-          href: security-center-install-endpoint-protection.md
-        - name: Reinicializar após as atualizações do sistema
-          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Corrigir as configurações de segurança
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Atualizar a versão do sistema operacional
-          href: security-center-update-os-version.md
-        - name: Avaliação de vulnerabilidade não instalada
-          href: security-center-vulnerability-assessment-recommendations.md
-    - name: Segurança de rede
-      href: security-center-network-recommendations.md
-      items:
-        - name: Adicionar um firewall da próxima geração
-          href: security-center-add-next-generation-firewall.md
-        - name: Habilitar Grupos de Segurança de Rede
-          href: security-center-enable-network-security-groups.md
-        - name: Restringir o acesso por meio de ponto de extremidade voltado para a Internet
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: Rotear o tráfego apenas através do NGFW
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-    - name: Segurança de dados e de armazenamento
-      href: security-center-sql-service-recommendations.md
-      items:
-        - name: Habilitar a detecção de ameaças e auditoria em bancos de dados SQL
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: Habilitar a detecção de ameaças e auditoria em servidores SQL
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: Habilitar Transparent Data Encryption
-          href: security-center-enable-transparent-data-encryption.md
-    - name: Segurança de aplicativo
-      href: security-center-application-recommendations.md
-      items:
-        - name: Adicione um firewall do aplicativo Web
-          href: security-center-add-web-application-firewall.md
-        - name: Finalizar a proteção do aplicativo
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-    - name: Proteções de nuvem
+        - name: Segurança de computação
+          href: security-center-virtual-machine-recommendations.md
+          items:
+            - name: Aplicar a criptografia de disco
+              href: security-center-apply-disk-encryption.md
+            - name: Aplicar atualizações do sistema
+              href: security-center-apply-system-updates.md
+            - name: Habilitar a criptografia para a conta de armazenamento
+              href: security-center-enable-encryption-for-storage-account.md
+            - name: Habilitar o Agente de VM
+              href: security-center-enable-vm-agent.md
+            - name: Instalar proteção do ponto de extremidade
+              href: security-center-install-endpoint-protection.md
+            - name: Reinicializar após as atualizações do sistema
+              href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+            - name: Corrigir as configurações de segurança
+              href: security-center-remediate-os-vulnerabilities.md
+            - name: Atualizar a versão do sistema operacional
+              href: security-center-update-os-version.md
+            - name: Avaliação de vulnerabilidade não instalada
+              href: security-center-vulnerability-assessment-recommendations.md
+        - name: Segurança de rede
+          href: security-center-network-recommendations.md
+          items:
+            - name: Adicionar um firewall da próxima geração
+              href: security-center-add-next-generation-firewall.md
+            - name: Habilitar Grupos de Segurança de Rede
+              href: security-center-enable-network-security-groups.md
+            - name: Restringir o acesso por meio de ponto de extremidade voltado para a Internet
+              href: security-center-restrict-access-through-internet-facing-endpoints.md
+            - name: Rotear o tráfego apenas através do NGFW
+              href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: Segurança de dados e de armazenamento
+          href: security-center-sql-service-recommendations.md
+          items:
+            - name: Habilitar a detecção de ameaças e auditoria em bancos de dados SQL
+              href: security-center-enable-auditing-on-sql-databases.md
+            - name: Habilitar a detecção de ameaças e auditoria em servidores SQL
+              href: security-center-enable-auditing-on-sql-servers.md
+            - name: Habilitar Transparent Data Encryption
+              href: security-center-enable-transparent-data-encryption.md
+        - name: Segurança de aplicativo
+          href: security-center-application-recommendations.md
+          items:
+            - name: Adicione um firewall do aplicativo Web
+              href: security-center-add-web-application-firewall.md
+            - name: Finalizar a proteção do aplicativo
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Identidade e Acesso
+          href: security-center-identity-access.md
+    - name: Aplicar proteção de nuvem
       items:
         - name: Acesso just in time
           href: security-center-just-in-time.md
@@ -136,7 +137,7 @@
           href: security-center-threat-intel.md
         - name: Investigação
           href: security-center-investigation.md
-    - name: Automatizar e orquestrar
+    - name: Automatizar fluxos de trabalho da segurança
       items:
         - name: Guias estratégicos de Aplicativos Lógicos
           href: security-center-playbooks.md
