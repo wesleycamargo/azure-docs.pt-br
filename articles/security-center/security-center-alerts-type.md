@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 959c0e8693f4bba49488bbe85e334599823ad0ed
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Noções básicas de alertas de segurança na Central de Segurança do Azure
 Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança e as informações relacionadas disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas e os incidentes, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
@@ -93,16 +93,11 @@ A Central de Segurança usa análises avançadas para identificar recursos compr
 * **Desativando e excluindo arquivos de log do IIS**: esse alerta indica que o arquivo de log do IIS foi desabilitado e/ou excluído, o que normalmente é usado pelos invasores para tentar esconder seus rastros.
 * **Exclusão de arquivo suspeito**: esse alerta indica a exclusão suspeita de arquivos, o que pode ser usado por um invasor para remover evidências de binários mal-intencionados.
 * **Todas as cópias de sombra de arquivo foram excluídas**: esse alerta indica que as cópias de sombra foram excluídas.
-* **Um arquivo de histórico foi limpo**: esse alerta indica que o arquivo de log do histórico de comandos foi limpo, o que pode ser usado por um invasor para esconder seus rastros.
 * **Comandos de limpeza de arquivo suspeito**: esse alerta indica uma combinação de comandos systeminfo usada para executar uma atividade de autolimpeza pós-comprometimento.  Embora *systeminfo.exe* seja uma ferramenta legítima do Windows, executá-la duas vezes consecutivas seguida por um comando de exclusão da maneira que ocorreu aqui é raro.
 * **Criação de conta suspeita**: esse alerta indica que foi criada uma conta bastante semelhante a uma conta interna com privilégio administrativo. Essa técnica pode ser usada para criar uma conta de invasor sem ser detectada.
-* **Atividade de logon suspeita**: esse alerta indica uma atividade de logon incomum, o que pode indicar um ataque de força bruta ao protocolo SMB (Server Message Block). Se o recurso afetado atua como um servidor do IIS, esse alerta pode ocorrer devido a uma configuração de autenticação específica do IIS que é legítima.
 * **Atividade de cópia de sombra de volume suspeita**: esse alerta indica uma atividade de exclusão de cópia de sombra no recurso. Cópia de sombra de volume (VSC) é um artefato importante que armazena instantâneos de dados. Essa atividade é geralmente associada a Ransowmare, mas também poderia ser legítima.
 * **Método de persistência de registro do Windows**: esse alerta indica uma tentativa de manter um executável no registro do Windows. Um malware geralmente usa essa técnica para sobreviver a uma inicialização.
-* **O firewall do Windows foi desabilitado**: esse alerta indica que um firewall do Windows foi desabilitado.
 * **Nova regra de firewall suspeita**: esse alerta indica que uma nova regra de firewall foi adicionada por meio do *netsh.exe* para permitir o tráfego de um executável em um local suspeito.
-* **Um novo usuário foi adicionado ao grupo de administradores**: esse alerta indica que um novo usuário foi adicionado ao grupo de administradores local.
-* **Um novo serviço foi criado**: esse alerta indica que um novo serviço foi criado.
 * **Execuções de XCOPY suspeitas**: esse alerta indica uma série de execuções de XCOPY, o que pode sinalizar que um dos seus computadores foi comprometido e usado para propagar o malware.
 * **Supressão de aviso legal exibido aos usuários durante o logon**: esse alerta indica uma alteração na chave do registro que controla se um aviso legal é exibido aos usuários quando eles fazem logon. Essa é uma atividade comum realizada por invasores depois de terem comprometido um host.
 * **Detectada uma mistura anormal de caracteres maiúsculos e minúsculos na linha de comando**: esse alerta indica o uso de uma mistura de caracteres maiúsculos e minúsculos na linha de comando, que é uma técnica usada por invasores para burlar regras de computador baseadas em maiúsculas e minúsculas ou em hash.
@@ -123,15 +118,10 @@ A Central de Segurança usa análises avançadas para identificar recursos compr
 * **Alterações suspeitas de Set-ExecutionPolicy e WinRM** : esse alerta indica alterações de configuração, que são associadas com o uso de webshell ChinaChopper mal-intencionado.
 * **Desabilitação de serviços essenciais**: esse alerta indica que o comando “net.exe stop” foi usado para parar os serviços críticos como SharedAccess ou Central de Segurança do Windows.
 * **Uso suspeito de opção de FTP -s**: esse alerta indica o uso de opção de FTPs "-s", que pode ser usado por um malware para se conectar a um servidor FTP e baixar binários mal-intencionados adicionais.
-* **Preparação para vazamento de documentos por meio da backdoor do IIS**: esse alerta indica que documentos estão sendo reunidos e preparados para vazamento.
 * **Execução suspeita do comando VBScript.Encode**: esse alerta indica que o comando *VBScript.Encode* foi executado, o que codifica scripts em texto ilegível, tornando mais difícil o exame do código pelos usuários.
 * **Alocação de objeto VBScript HTTP**: esse alerta indica a criação de um arquivo VBScript usando o Prompt de comando, o que pode ser usado para baixar arquivos mal-intencionados.
 * **Ataque a teclas sticky**: esse alerta indica que um invasor pode estar subvertendo um binário de acessibilidade (por exemplo teclas sticky, teclado na tela, narrador) para fornecer acesso a backdoor.
 * **Indicadores de ransomware Petya**: esse alerta indica que as técnicas associadas ao ransomware Petya foram observadas.
-* **Um módulo de kernel foi carregado**: esse alerta indica que um módulo de kernel foi carregado.
-* **Um módulo de kernel foi removido**: esse alerta indica que um módulo de kernel foi removido.
-* **Logon anormal em um computador**: esse alerta indica que um usuário fez logon de um endereço IP incomum.
-* **Um arquivo foi baixado e executado**: esse alerta indica que um arquivo foi baixado para o computador, recebeu privilégios de execução e foi executado.
 * **Tentativa de desabilitar a AMSI**: esse alerta indica uma tentativa de desabilitar a interface de verificação antimalware (AMSI), o que pode desativar a detecção antimalware.
 * **Indicadores de ransomware**: esse alerta indica atividades suspeitas tradicionalmente associadas a ransomware de tela de bloqueio e de criptografia.
 * **Arquivo de saída de rastreamento de coleção suspeito**: esse alerta indica que um rastreamento (por exemplo, de atividade de rede) foi coletado e enviado para um tipo de arquivo incomum.
@@ -145,14 +135,8 @@ A Central de Segurança usa análises avançadas para identificar recursos compr
 * **Criação dinâmica de script do PS**: esse alerta indica um script do PowerShell que está sendo construído dinamicamente. Os invasores usam essa técnica para compilar um script progressivamente para fugir de sistemas IDS.
 * **Indicadores de Metasploit**: esse alerta indica atividades associadas com a estrutura Metasploit, que fornece uma variedade de ferramentas e recursos ao invasor.
 * **Atividade suspeita da conta**: esse alerta indica uma tentativa de se conectar a um computador usando uma conta que foi comprometida recentemente.
-* **Acesso possivelmente suspeito a tarefas de agendamento**: esse alerta indica que um trabalho cron foi executado, o que pode ser usado por invasores para executar programas mal-intencionados de forma programada.
-* **Acesso possivelmente suspeito a arquivos de histórico de comando**: esse alerta indica acesso anormal ao arquivo de histórico de comandos.
 * **Criação de conta**: esse alerta indica a criação de uma nova conta no computador.
-* **Alteração da configuração de bash**: esse alerta indica que um arquivo de perfil Bash foi acessado, o que pode ser evidência de que um invasor está tentando executar programas mal-intencionados de forma programada.
-* **Sequência suspeita de tentativas com falha de sudo**: esse alerta indica uma sequência de comandos do sudo sem êxito, que é geralmente observada em tentativas de força bruta de escalonar privilégios por usuários não autorizados.
-* **Tentativas suspeitas de sudo com êxito**: esse alerta indica uma sequência de tentativas de sudo com falha seguida de uma tentativa de sudo com êxito, que é geralmente observada em tentativas de força bruta de escalonar privilégios por usuários não autorizados.
-* **Um novo usuário foi adicionado ao grupo sudoers**: esse alerta indica que um usuário foi adicionado ao grupo sudoers, que permite que seus membros executem comandos com privilégios elevados.
-* **Logon de rede com credenciais de texto sem formatação**: esse alerta indica que foi observado um logon de rede onde a senha foi enviada pela rede no formato de texto não criptografado. Isso é comum em logons de um script ASP usando a ADVAPI ou quando um usuário faz logon no IIS usando o modo de autenticação básica do IIS. A autenticação básica não é o método recomendado, a menos que seja encapsulada em uma camada de criptografia, como SSL (ou seja, usando apenas a conexões HTTPS).
+
 
 ### <a name="crash-analysis"></a>Análise de falha
 
@@ -206,6 +190,8 @@ Se houver informações adicionais disponíveis, elas serão mostradas no Incide
 - Limpar eventos do log
 - Dispositivo PNP conectado de dispositivo desconhecido
 - Alertas que não são acionáveis
+- Nova criação de conta
+- Arquivo decodificado usando a ferramenta certutil 
 
 ![Alerta de acesso incomum](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

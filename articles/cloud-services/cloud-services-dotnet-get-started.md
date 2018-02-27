@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -45,7 +45,7 @@ Este tutorial mostra como executar front-end e back-end no serviço de nuvem do 
 * Como carregar arquivos e armazená-los no serviço Blob do Azure.
 * Como usar o serviço Fila do Azure para comunicação entre camadas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 O tutorial assume que você conhece os [conceitos básicos sobre os serviços de nuvem do Azure](cloud-services-choose-me.md) como terminologia de *função web* e de *função de trabalho*.  Também assumimos que você sabe como trabalhar com projetos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou de [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. O aplicativo função Web usa MVC, mas a maior parte do tutorial também aplica-se a Formulários da Web.
 
 Você também pode executar o aplicativo localmente sem uma assinatura do Azure, mas precisará de uma para implantar o aplicativo na nuvem. Se não tem uma conta, você pode [ativar os benefícios de assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [inscrever-se em uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -116,7 +116,7 @@ Você seguirá as etapas abaixo para executar o aplicativo na nuvem:
 Um serviço de nuvem do Azure é o ambiente em que o aplicativo será executado.
 
 1. No seu navegador, abra o [portal do Azure](https://portal.azure.com).
-2. Clique em **Novo > Computação > Serviço de Nuvem**.
+2. Clique em **Criar um recurso > Computação > Serviço de Nuvem**.
 
 3. Na caixa de entrada do nome DNS, digite um prefixo de URL para o serviço de nuvem.
 
@@ -135,7 +135,7 @@ Um serviço de nuvem do Azure é o ambiente em que o aplicativo será executado.
 ### <a name="create-an-azure-sql-database"></a>Criar um banco de dados SQL do Azure
 Quando o aplicativo é executado na nuvem, ele usa um banco de dados com base na nuvem.
 
-1. No [portal do Azure](https://portal.azure.com), clique em **Novo > Bancos de Dados > Banco de Dados SQL**.
+1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso > Bancos de Dados > Banco de Dados SQL**.
 2. Na caixa **Nome do Banco de Dados** , insira *contosoads*.
 3. No **Grupo de recursos**, clique em **Usar existente** e selecione o grupo de recursos usado no serviço de nuvem.
 4. Na imagem a seguir, clique em **Servidor - Configurar as configurações necessárias** e **Criar um novo servidor**.
@@ -162,7 +162,7 @@ Uma conta de armazenamento do Azure fornece os recursos para dados de blob e fil
 
 Em um aplicativo do mundo real, geralmente você cria contas separadas para dados de aplicativos e dados de log, e contas separadas para dados de teste e dados de produção. Neste tutorial você usará apenas uma conta.
 
-1. No [portal do Azure](https://portal.azure.com), clique em **Novo > Armazenamento > Conta de armazenamento - blob, arquivo, tabela, fila**.
+1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso > Armazenamento > Conta de armazenamento - blob, arquivo, tabela, fila**.
 2. Na caixa da **Nome** , insira um prefixo de URL.
 
     Esse prefixo, além do texto que você vê sob a caixa será a URL exclusiva de sua conta de armazenamento. Se o prefixo inserido já estiver sendo usado por outra pessoa, você terá que escolher um diferente.
@@ -740,7 +740,7 @@ Esse código lê o banco de dados para obter a URL da imagem, converte a imagem 
 >
 >
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Caso algo não funcione enquanto você estiver seguindo as instruções nesse tutorial, veja a seguir alguns erros comuns e como resolvê-los.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException

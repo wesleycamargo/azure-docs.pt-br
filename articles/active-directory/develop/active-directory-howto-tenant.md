@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Como obter um locatário do Active Directory do Azure
 No AD do Azure, um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) é representativo de uma organização.  Ele é uma instância dedicada do serviço Azure AD que uma organização recebe e detém como sua propriedade quando se inscreve em um serviço de nuvem da Microsoft, como o Azure, o Microsoft InTune ou o Office 365.  Cada locatário do AD do Azure é distinto e separado de outros diretórios do AD do Azure.  
@@ -44,7 +44,7 @@ Se você já se inscreveu anteriormente para uma assinatura do Azure com sua con
 Para fazer isso, siga essas etapas.  Como alternativa, você poderá criar um novo locatário e criar um administrador nesse locatário seguindo um processo semelhante.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta individual
-2. Navegue até a seção "Azure Active Directory" do portal (localizado na barra de navegação à esquerda, em **Mais Serviços**)
+2. Navegue até a seção "Azure Active Directory" do portal (localizado na barra de navegação à esquerda, em **Todos os serviços**)
 3. Você deve entrar automaticamente no "Diretório Padrão". Se isso não acontecer, alterne pastas clicando no nome da sua conta no canto superior direito.
 4. Na seção **Tarefas Rápidas**, escolha **Adicionar um usuário**.
 5. No formulário Adicionar Usuário, forneça os detalhes a seguir:
@@ -58,7 +58,7 @@ Para fazer isso, siga essas etapas.  Como alternativa, você poderá criar um no
 8. Para alterar a senha temporária, acesse [https://login.microsoftonline.com](https://login.microsoftonline.com) usando essa nova conta de usuário e altere a senha quando for solicitado.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Use uma assinatura organizacional do Azure
-Se você já se inscreveu anteriormente para uma assinatura do Azure com sua conta organizacional, você já tem um locatário!  No [Portal do Azure](https://portal.azure.com), você deve encontrar um locatário ao navegar até "Mais Serviços" e "Azure Active Directory".  Você é livre para usar esse locatário como desejar.
+Se você já se inscreveu anteriormente para uma assinatura do Azure com sua conta organizacional, você já tem um locatário!  No [Portal do Azure](https://portal.azure.com), você deve encontrar um locatário ao navegar até "Todos os serviços" e "Azure Active Directory".  Você é livre para usar esse locatário como desejar.
 
 ## <a name="start-from-scratch"></a>Começar do zero
 Se todos os itens acima forem sem sentido para você, não se preocupe. Visite o [Portal do Azure](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) para criar um novo diretório do Azure AD. Depois de concluir o processo, você terá seu próprio locatário do Azure AD com o nome de domínio escolhido durante a inscrição.  No [Portal do Azure](https://portal.azure.com), você pode localizar seu locatário navegando até **Azure Active Directory** no painel de navegação à esquerda.

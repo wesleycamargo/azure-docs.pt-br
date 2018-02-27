@@ -1,6 +1,6 @@
 1. Entre no [Portal do Azure].
 
-2. Clique em **Novo**.
+2. Clique em **Criar um recurso**.
 
 3. Na caixa de pesquisa, digite **Aplicativos Móveis**.
 

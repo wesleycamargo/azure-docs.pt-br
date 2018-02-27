@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>Implantar
 
@@ -27,8 +27,8 @@ Nesta lição, você configura as propriedades de implantação especificando um
   
 Tempo estimado para conclusão desta lição: **5 minutos**  
   
-## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 12: analisar no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+## <a name="prerequisites"></a>pré-requisitos  
+Este artigo faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 12: analisar no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > Você deve ter [permissões de Administrador](../analysis-services-server-admins.md) no servidor remoto do Analysis Services para poder implantar nele.  
@@ -67,6 +67,9 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
   
 3. Quando a implantação for concluída com êxito, vá em frente e clique em **Fechar**.  
   
+
+Esta lição descreve o método mais fácil e mais comum para implantar um modelo tabular do SSDT. Opções de implantação avançadas, como o Assistente de Implantação ou automatização com XMLA e AMO fornecem maior flexibilidade, consistência e implantações agendadas. Para obter mais informações, confira [Implantação de solução de modelo tabular](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## <a name="conclusion"></a>Conclusão  
 Parabéns! Você terminou de criar e implantar seu primeiro modelo tabular do Analysis Services. Este tutorial ajudou a orientá-lo a concluir as tarefas mais comuns na criação de um modelo tabular. Agora que seu modelo de vendas de Internet da Adventure Works está implantado, você pode usar o SQL Server Management Studio para gerenciar o modelo; crie scripts de processo e um plano de backup. Os usuários agora também podem se conectar ao modelo usando um aplicativo cliente de relatório, como o Microsoft Excel ou o Power BI.  
 

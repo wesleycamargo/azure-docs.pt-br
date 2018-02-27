@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o portal do Azure
 
@@ -31,7 +31,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
-1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+1. Clique no botão **Criar um recurso** encontrado na parte superior esquerda do portal do Azure.
 
 2. Selecione **Internet das Coisas**, selecione **Hub IoT**e clique no botão **Criar**. 
 
@@ -44,9 +44,9 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Criar uma nova instância para o Serviço de Provisionamento de Dispositivos do Hub IoT
 
-1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+1. Clique no botão **Criar um recurso** encontrado na parte superior esquerda do portal do Azure.
 
-2. *Pesquise no Marketplace* o **serviço de Provisionamento de Dispositivos**. Selecione **Serviço de Provisionamento de Dispositivos IoT** e clique no botão **Criar**. 
+2. *Pesquise no Marketplace* o **serviço de Provisionamento de Dispositivos**. Selecione o botão **Serviço de Provisionamento de Dispositivos no Hub IoT** e clique em **Criar**. 
 
 3. **Nomeie** sua instância do Serviço de Provisionamento de Dispositivos. Selecione a assinatura que é usada para essa instância e nomeie um grupo de recursos novo ou existente. Selecione o local. Ao concluir, clique em **Criar**.
 

@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 04e379e1bbd84929fca68cf2de8ebfcc217a51d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar seu aplicativo móvel com o App Center e o Application Insights
 
 Este guia de início rápido percorre as etapas para conectar a instância do App Center do seu aplicativo ao Application Insights. Com o Application Insights, você pode consultar, segmentar, filtrar e analisar a telemetria com ferramentas mais avançadas que estão disponíveis no serviço [Análise](https://docs.microsoft.com/mobile-center/analytics/) do App Center.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este início rápido, você precisa de:
 
@@ -66,13 +66,13 @@ Para verificar se os eventos personalizados estão sendo recebidos, vá para a g
 Quando o aplicativo estiver enviando eventos personalizados e eles forem recebidos pelo App Center, você precisará criar um recurso do Application Insights do tipo App Center no portal do Azure:
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Novo** > **Monitoramento + Gerenciamento** > **Application Insights**.
+2. Selecione **Criar um recurso** > **Monitoramento + Gerenciamento** > **Application Insights**.
 
     ![Adicionando um recurso do Application Insights](./media/app-insights-mobile-center-quickstart/add.png)
 
     Será exibida uma caixa de configuração. Use a tabela a seguir para preencher os campos de entrada.
 
-    | Configurações        |  Valor           | Descrição  |
+    | Configurações        |  Valor           | DESCRIÇÃO  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Um valor globalmente exclusivo, como "myApp iOS" | Nome que identifica o aplicativo que você está monitorando |
    | **Tipo de Aplicativo** | Aplicativo do App Center | O tipo do aplicativo que você está monitorando |

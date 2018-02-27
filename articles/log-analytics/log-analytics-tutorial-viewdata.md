@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics
 
@@ -41,7 +41,7 @@ Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azur
 ## <a name="open-the-log-search-portal"></a>Abra o portal de Pesquisa de Logs 
 Inicie abrindo o portal de Pesquisa de Logs.   
 
-1. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 2. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e, em seguida, selecione o bloco **Pesquisa de Logs**.<br> ![Botão Pesquisa de Logs](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
 Talvez você tenha observado a faixa na parte superior da página de recursos do Log Analytics no portal convidando você a fazer a atualização.<br> ![Aviso de atualização do Log Analytics no portal do Azure](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
@@ -50,7 +50,7 @@ Recentemente, o Log Analytics introduziu uma nova linguagem de consulta para fac
 
 O upgrade é simples.  Inicie o processo clicando na faixa que indica **Saber mais e fazer atualização**.  Leia as informações adicionais sobre a atualização na página de informações de atualização e, em seguida, clique em **Fazer Atualização Agora**.
 
-O processo levará alguns minutos para ser concluído e, durante esse tempo, você poderá acompanhar o progresso em **Notificações** no menu. Saiba mais sobre os [Benefícios da nova linguagem de consulta](log-analytics-log-search-upgrade.md#why-the-new-language).
+O processo levará alguns minutos para ser concluído e, durante esse tempo, você poderá acompanhar o andamento em **Notificações** no menu. Saiba mais sobre os [Benefícios da nova linguagem de consulta](log-analytics-log-search-upgrade.md#why-the-new-language).
 
 ## <a name="create-a-simple-search"></a>Crie uma pesquisa simples
 A maneira mais rápida de recuperar alguns dados para trabalhar é uma consulta simples que retorna todos os registros na tabela.  Se você tiver algum cliente Windows ou Linux conectado ao seu espaço de trabalho, você terá dados na tabela de Eventos (Windows) ou Syslog (Linux).
@@ -82,7 +82,7 @@ Event | where (EventLevelName == "Error")
 Syslog | where (SeverityLevel == "err")
 ```
 
-![Filtro](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
+![Filter](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
 
 Adicione propriedades ao painel de filtro, selecionando **Adicionar para filtros** do menu de propriedades em um dos registros.
 

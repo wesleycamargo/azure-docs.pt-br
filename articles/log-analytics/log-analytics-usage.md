@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
 O Log Analytics inclui informações sobre a quantidade de dados coletados, quais sistemas enviaram os dados e os tipos diferentes de dados enviados.  Utilize o painel **Uso do Log Analytics** para ver a quantidade de dados enviados para o serviço Log Analytics. O painel mostra quantos dados são coletados por cada solução e quantos dados são enviados pelos seus computadores.
@@ -44,13 +44,17 @@ O painel **Uso de Log Analytics** exibe as seguintes informações:
 ![painel de uso](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Para trabalhar com dados de uso
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho.
-4. Selecione **uso do Log Analytics** na lista no painel esquerdo.
-5. No painel **Uso do Log Analytics**, clique em **Tempo: últimas 24 horas** para alterar o intervalo de tempo.<br><br> ![intervalo de tempo](./media/log-analytics-usage/time.png)<br><br>
-6. Exiba as folhas de categoria de uso que mostram as áreas de seu interesse. Escolha uma folha e clique em um item para exibir mais detalhes em [Pesquisa de Log](log-analytics-log-searches.md).<br><br> ![folha de uso de dados de exemplo](./media/log-analytics-usage/blade.png)<br><br>
-7. No painel de Pesquisa de Log, examine os resultados que são retornados da pesquisa.<br><br> ![pesquisa de log de uso de exemplo](./media/log-analytics-usage/usage-log-search.png)
+1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com) usando a sua assinatura do Azure.
+2. Clique em **Todos os serviços** e, na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Log Analytics**.  
+    ![Hub do Azure](./media/log-analytics-usage/hub.png)
+3. O painel **Log Analytics** mostra uma lista dos espaços de trabalho. Selecione um espaço de trabalho.
+4. No painel *espaço de trabalho*, clique em **Uso do Log Analytics**.
+5. No painel **Uso do Log Analytics**, clique em **Tempo: últimas 24 horas** para alterar o intervalo de tempo.  
+    ![intervalo de tempo](./media/log-analytics-usage/time.png)
+6. Exiba as folhas de categoria de uso que mostram as áreas de seu interesse. Escolha uma folha e clique em um item para exibir mais detalhes em [Pesquisa de Log](log-analytics-log-searches.md).  
+    ![folha de uso de dados de exemplo](./media/log-analytics-usage/blade.png)
+7. No painel de Pesquisa de Log, examine os resultados que são retornados da pesquisa.  
+    ![pesquisa de log de uso de exemplo](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Criar um alerta quando a coleta de dados for maior que a esperada
 Este artigo descreve como criar um alerta quando:

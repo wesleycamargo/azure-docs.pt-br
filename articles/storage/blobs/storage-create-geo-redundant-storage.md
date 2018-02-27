@@ -2,23 +2,19 @@
 title: "Tornar os dados de aplicativos altamente disponíveis no Azure | Microsoft Docs"
 description: "Use o armazenamento com redundância geográfica com acesso de leitura para tornar os dados do aplicativo altamente disponíveis"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Torne os dados do aplicativo altamente disponíveis com o armazenamento do Azure
 
@@ -64,7 +60,7 @@ Uma conta de armazenamento fornece um namespace exclusivo para armazenar e acess
 
 Siga estas etapas para criar uma conta de armazenamento com redundância geográfica com acesso de leitura:
 
-1. Selecione no botão **Novo** encontrado à esquerda superior do Portal do Azure.
+1. Selecione o botão **Criar um recurso**, localizado no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Armazenamento** na página **Novo** e selecione **Conta de armazenamento – blob, arquivo, tabela, fila** em **Em destaque**.
 3. Preencha o formulário de conta de armazenamento com as informações a seguir, conforme mostrado na imagem a seguir e selecione **Criar**:

@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e rotear eventos personalizados com o portal do Azure e a Grade de Eventos
 
@@ -43,7 +43,7 @@ Os tópicos de Grade de Eventos são recursos do Azure e devem ser colocados em 
 
 Um tópico fornece um ponto de extremidade definido pelo usuário aonde você posta seus eventos. 
 
-1. Para criar um tópico no seu grupo de recursos, selecione **Mais serviços** e procure *grade de eventos*. Selecione **Tópicos de Grade de Eventos** entre as opções disponíveis.
+1. Para criar um tópico em seu grupo de recursos, selecione **Todos os serviços** e procure *grade de eventos*. Selecione **Tópicos de Grade de Eventos** entre as opções disponíveis.
 
    ![Criar tópico de grade de eventos](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -67,7 +67,7 @@ Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem d
 
 Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. 
 
-1. Para criar uma assinatura de Grade de Eventos, selecione novamente **Mais Serviços** e procure *grade de eventos*. Selecione **Assinaturas de Grade de Eventos** entre as opções disponíveis.
+1. Para criar uma assinatura da Grade de Eventos, selecione novamente **Todos os serviços** e procure *grade de eventos*. Selecione **Assinaturas de Grade de Eventos** entre as opções disponíveis.
 
    ![Criar assinatura de grade de eventos](./media/custom-event-quickstart-portal/create-subscription.png)
 

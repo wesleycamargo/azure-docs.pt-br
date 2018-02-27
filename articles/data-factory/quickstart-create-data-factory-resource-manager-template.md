@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 77b30610072fb7f573597d035dcc161b4739ec7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar um data factory do Azure usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -428,7 +428,7 @@ O gatilho implantado está no estado interrompido. Uma das maneiras de iniciar o
     ```
 
 ## <a name="monitor-the-pipeline"></a>Monitorar o Pipeline
-1. Após o logon no [portal do Azure](https://portal.azure.com/), clique em **Mais serviços**, pesquise com uma palavra-chave como **data fa** e selecione **Data factories**.
+1. Após o logon no [portal do Azure](https://portal.azure.com/), clique em **Todos os serviços**, pesquise com uma palavra-chave como **data fa** e selecione **Data factories**.
 
     ![Procurar no menu de data factories](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. Na página **Data Factories**, clique no data factory que você criou. Se for necessário, filtre a lista com o nome de seu data factory.  

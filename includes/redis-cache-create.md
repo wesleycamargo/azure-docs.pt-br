@@ -1,4 +1,4 @@
-Para criar um cache, primeiro entre no [portal do Azure](https://portal.azure.com) e clique em **Novo** > **Bancos de dados** > **Cache Redis**.
+Para criar um cache, primeiro entre no [Portal do Azure](https://portal.azure.com) e clique em **Criar um recurso** > **Bancos de dados** > **Cache Redis**.
 
 > [!NOTE]
 > Se você não tiver uma conta do Azure, poderá [Abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) em poucos minutos.
@@ -16,7 +16,7 @@ Para criar um cache, primeiro entre no [portal do Azure](https://portal.azure.co
 > 
 > 
 
-Na folha **Novo Cache Redis** , especifique a configuração desejada para o cache.
+No **Novo Cache Redis**, especifique a configuração desejada para o cache.
 
 ![Criar o cache](media/redis-cache-create/redis-cache-cache-create.png) 
 

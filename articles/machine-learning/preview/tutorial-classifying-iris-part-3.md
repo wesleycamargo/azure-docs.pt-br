@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 54f81a93876549d624cef6c37dd659af084d0b37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de Classificação da Íris: Implantar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais. Os cientistas de dados podem usá-los para preparar dados, desenvolver experimentos e implantar modelos em escala de nuvem.
@@ -285,7 +285,7 @@ Teste o serviço Web **irisapp** em execução, use um registro codificado por J
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Localize todas as suas contas de armazenamento. Para isso, selecione **Mais Serviços**.
+2. Localize todas as suas contas de armazenamento. Para isso, selecione **Todos os serviços**.
 
 3. Na caixa de pesquisa, insira **Contas de armazenamento** e, em seguida, selecione a tecla **Enter**.
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ea842ecb40e2aff3316ed255388412597bb28eae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>O que são conjuntos de dimensionamento de máquinas virtuais no Azure?
 Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de dimensionamento são projetados para dar suporte total ao dimensionamento e nenhum pré-provisionamento de VMs é necessário. Portanto, é mais fácil compilar serviços em larga escala direcionados a cargas de trabalho com uso intenso de computação, muitos dados e em contêineres.
@@ -33,7 +33,7 @@ Para saber mais sobre conjuntos de dimensionamento, assista a estes vídeos:
 * [Conjuntos de Dimensionamento de Máquina Virtual com Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Criando e gerenciando conjuntos de dimensionamento
-Você pode criar um conjunto de dimensionamento no [Portal do Azure](https://portal.azure.com) selecionando **novo** e digitando **escala** na barra de pesquisa. **Conjunto de dimensionamento de máquinas virtuais** está listado nos resultados. A partir daí, você pode preencher os campos obrigatórios para personalizar e implantar o conjunto de dimensionamento. Você também tem opções para configurar as regras básicas de dimensionamento automático baseadas no uso da CPU no portal. Para gerenciar sua escala definida, você poderá usar o portal do Azure, os [cmdlets do Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) ou a CLI do Azure 2.0.
+Você pode criar um conjunto de dimensionamento no [Portal do Azure](https://portal.azure.com) selecionando **Criar um recurso** e digitando **escala** na barra de pesquisa. **Conjunto de dimensionamento de máquinas virtuais** está listado nos resultados. A partir daí, você pode preencher os campos obrigatórios para personalizar e implantar o conjunto de dimensionamento. Você também tem opções para configurar as regras básicas de dimensionamento automático baseadas no uso da CPU no portal. Para gerenciar sua escala definida, você poderá usar o portal do Azure, os [cmdlets do Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) ou a CLI do Azure 2.0.
 
 Os conjuntos de dimensionamento podem ser implantados em várias [zonas de disponibilidade](virtual-machine-scale-sets-use-availability-zones.md).
 

@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 3ab8d32eb4b3f2748249f40139de76c8e7f4d971
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Responder a eventos com alertas do Log Analytics
-Alertas no Log Analytics identificam informações importante no repositório de Log Analytics.  Eles são criados por regras de alerta que executam pesquisas de logs automaticamente em intervalos regulares. Se os resultados da pesquisa de logs correspondem a critérios específicos, é criado um registro de alerta e ele pode ser configurado para executar uma resposta automatizada.  Este tutorial é uma continuação do tutorial [Criar e compartilhar painéis de dados do Log Analytics](log-analytics-tutorial-dashboards.md).   
+Alertas no Log Analytics identificam informações importante no repositório de Log Analytics. Eles são criados por regras de alerta que executam pesquisas de logs automaticamente em intervalos regulares. Se os resultados da pesquisa de logs correspondem a critérios específicos, é criado um registro de alerta e ele pode ser configurado para executar uma resposta automatizada.  Este tutorial é uma continuação do tutorial [Criar e compartilhar painéis de dados do Log Analytics](log-analytics-tutorial-dashboards.md).   
 
 Neste tutorial, você aprenderá como:
 
@@ -37,11 +37,11 @@ Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-alerts"></a>Criar alertas
 
-Os alertas são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Crie alertas com base em métricas de desempenho específicas ou quando determinados eventos são criados, na ausência de um evento ou quando um número de eventos são criados em uma janela de tempo específica.  Por exemplo, os alertas podem ser usados para notificá-lo de quando o uso médio da CPU excede determinado limite ou um evento é gerado quando um serviço Windows ou um daemon do Linux específico não está em execução.   Se os resultados da pesquisa de log corresponderem a critérios específicos, um registro de alerta será criado. A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo. 
+Os alertas são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Crie alertas com base em métricas de desempenho específicas ou quando determinados eventos são criados, na ausência de um evento ou quando um número de eventos são criados em uma janela de tempo específica.  Por exemplo, os alertas podem ser usados para notificá-lo de quando o uso médio da CPU excede determinado limite ou um evento é gerado quando um serviço Windows ou um daemon do Linux específico não está em execução.   Se os resultados da pesquisa de logs corresponderem a critérios específicos, um registro de alerta será criado. A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo. 
 
-No exemplo a seguir, criamos uma regra de alerta de medida de métrica que criará um alerta para cada objeto de computador na consulta com um valor que excede um limite de 90%.
+No exemplo a seguir, você criou uma regra de alerta de medida de métrica que cria um alerta para cada objeto de computador na consulta com um valor que excede um limite de 90%.
 
-1. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 2. Inicie o portal do OMS selecionando o Portal do OMS e, na página **Visão Geral**, selecione **Pesquisa de Logs**.  
 3. Selecione **Favoritos** na parte superior do portal e, no painel **Pesquisas Salvas** à direita, selecione a consulta *VMs do Azure – Utilização do Processador*.  
 4. Clique em **Alerta** na parte superior da página para abrir a tela **Adicionar Regra de Alerta**.  

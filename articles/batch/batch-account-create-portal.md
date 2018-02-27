@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Lote com o Portal do Azure
 
@@ -41,7 +41,7 @@ Para saber mais sobre contas do Lote e cenários, confira a [visão geral do rec
 > Ao criar uma conta do Lote, escolha o modo **Serviço em Lotes**, no qual os pools são alocados em segundo plano nas assinaturas gerenciadas do Azure. No modo alternativo **Assinatura de usuário**, o qual não é mais recomendado para a maioria dos cenários, as VMs do Lote e outros recursos são criados diretamente em sua assinatura quando um pool é criado. Para criar uma conta do Lote no modo de assinatura do usuário, você também deverá registrar sua assinatura com o Lote do Azure e associar a conta com um Azure Key Vault.
 
 1. Entre no [Portal do Azure][azure_portal].
-2. Clique em **Novo** e pesquise no Marketplace por **Serviço de Lote**.
+2. Clique em **Criar um recurso** e pesquise no Marketplace por **Serviço de Lote**.
 
     ![Lote no Marketplace][marketplace_portal]
 3. Selecione **Serviço de Lote**, clique em **Criar** e insira as configurações da **Nova conta do Lote**. Confira os seguintes detalhes.

@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9b6b9df01f0e56cac3fe45bd0ef8290ca1587a1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Início rápido: Criar seu fluxo de trabalho de aplicativo lógico - portal do Azure
 
@@ -38,7 +38,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
 
 ## <a name="create-your-logic-app"></a>Criar seu aplicativo lógico 
 
-1. No menu principal do Azure, escolha **Novo** > **Enterprise Integration** > **Aplicativo Lógico**.
+1. No portal principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
 
    ![Criar aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
@@ -49,7 +49,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
    | Configuração | Valor | DESCRIÇÃO | 
    | ------- | ----- | ----------- | 
    | **Nome** | MyFirstLogicApp | O nome do seu aplicativo lógico | 
-   | **Assinatura** | <*your-Azure-subscription-name*> | O nome e a ID da assinatura do Azure | 
+   | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | O nome e a ID da assinatura do Azure | 
    | **Grupo de recursos** | My-First-LA-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados | 
    | **Localidade** | Leste dos EUA 2 | A região onde as informações do seu aplicativo lógico serão armazenadas | 
    | **Log Analytics** | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 

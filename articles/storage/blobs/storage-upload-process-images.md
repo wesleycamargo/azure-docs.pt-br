@@ -3,22 +3,20 @@ title: Carregar dados de imagem na nuvem com o Armazenamento do Azure | Microsof
 description: Use o armazenamento de Blobs do Azure com um aplicativo Web para armazenar dados de aplicativo
 services: storage
 documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Carregar dados de imagem na nuvem com o Armazenamento do Azure
 
@@ -67,7 +65,7 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>Criar contêineres de armazenamento de blobs
  
-O aplicativo usa dois contêineres na conta de armazenamento de blobs. Os contêineres são semelhantes às pastas e são usados para armazenar blobs. O contêiner de _imagens_ é onde o aplicativo carrega as imagens de alta resolução. Em uma parte posterior da série, um aplicativo de função do Azure carrega miniaturas de imagem redimensionada para o contêiner _miniaturas_. 
+O aplicativo usa dois contêineres na conta de armazenamento de blobs. Os contêineres são semelhantes às pastas e são usados para armazenar blobs. O contêiner de _imagens_ é onde o aplicativo carrega as imagens de alta resolução. Em uma parte posterior da série, um aplicativo de funções do Azure carrega miniaturas de imagem redimensionada para o contêiner _miniaturas_. 
 
 Obtenha a chave de conta de armazenamento usando o comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Use essa chave para criar dois contêineres usando o comando [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
@@ -82,7 +80,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -135,7 +133,7 @@ No comando a seguir, `<blob_storage_account>` é o nome da sua conta de armazena
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -196,7 +194,7 @@ Verifique se a imagem é mostrada no contêiner.
 
 Para testar a exibição de miniaturas, você carregará uma imagem para o contêiner de miniatura para garantir que o aplicativo pode ler o contêiner de miniatura.
 
-Entre no [Portal do Azure](https://portal.azure.com). No menu à esquerda, selecione **Contas de armazenamento**, em seguida, selecione o nome da sua conta de armazenamento. Selecione **Contêineres** em **Serviço Blob** e selecione o contêiner **miniaturas**. Selecione **Carregar** para abrir o painel **Carregar blob**.
+Entre no [Portal do Azure](https://portal.azure.com). No menu à esquerda, selecione **Contas de armazenamento**, em seguida, selecione o nome da sua conta de armazenamento. Clique em **Contêineres** em **Serviço Blob** e selecione o contêiner **miniaturas**. Selecione **Carregar** para abrir o painel **Carregar blob**.
 
 Escolha um arquivo usando o seletor de arquivos e selecione **Carregar**.
 
@@ -204,7 +202,7 @@ Navegue de volta para seu aplicativo para verificar se a imagem carregada para o
 
 ![Exibição do contêiner de imagens](media/storage-upload-process-images/figure2.png)
 
-No contêiner **miniaturas** no Portal do Azure, selecione a imagem carregada e selecione **Excluir** para excluir a imagem. Na parte dois da série, você automatizará a criação de imagens em miniatura, portanto, essa imagem de teste não será necessária.
+No contêiner **miniaturas** no portal do Azure, selecione a imagem carregada e selecione **Excluir** para excluir a imagem. Na parte dois da série, você automatizará a criação de imagens em miniatura, portanto, essa imagem de teste não será necessária.
 
 A CDN pode ser habilitada para armazenar em cache o conteúdo da sua conta de armazenamento do Azure. Embora não esteja descrito nesse tutorial, para saber como habilitar a CDN com sua conta de armazenamento do Azure, você pode visitar: [Integrar uma conta de armazenamento do Azure com a CDN do Azure](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 

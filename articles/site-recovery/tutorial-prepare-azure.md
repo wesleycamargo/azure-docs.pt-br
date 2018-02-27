@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d1aadd6b44d64f0bdb35ea02d628bedfc366ad3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos do Azure para replicação de máquinas locais
 
@@ -60,8 +60,7 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
-1. No menu do portal do Azure, clique em **Novo** > **Monitoramento e Gerenciamento** >
-   **Backup e Site Recovery**.
+1. No portal do Azure, clique em **Criar um recurso** > **Monitoramento + Gerenciamento** > **Backup e Site Recovery**.
 2. Em **Nome**, especifique um nome amigável para identificar o cofre. Para este tutorial, usamos **ContosoVMVault**.
 3. Selecione o grupo de recursos existente denominado **contosoRG**.
 4. Especifique a região do Azure **Europa Ocidental**, que estamos usando neste conjunto de tutoriais.
@@ -75,8 +74,7 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 
 Quando as VMs do Azure são criadas do armazenamento após o failover, elas são associadas a esta rede.
 
-1. No menu [Portal do Azure](https://portal.azure.com), clique em **Novo** > **Rede** >
-   **Rede Virtual**
+1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso** > **Rede** > **Rede virtual**.
 2. Deixe **Resource Manager** selecionado como o modelo de implantação. Resource Manager é o modelo de implantação preferencial.
    - Especifique um nome de rede. O nome deve ser exclusivo dentro do grupo de recursos do Azure. Usaremos o nome **ContosoASRnet**
    - Use o grupo de recursos existente **contosoRG**.
