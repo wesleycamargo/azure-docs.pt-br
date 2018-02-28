@@ -52,7 +52,7 @@ Há duas abordagens para restringir o tráfego para esse ponto de extremidade:
 * [Grupos de segurança de rede][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Restringindo o acesso com uma ACL de rede
-A porta 1433 pode ser protegida usando uma lista de controle de acesso de rede.  O exemplo abaixo coloca endereços de cliente originados dentro de uma rede virtual em lista branca e bloqueia o acesso a todos os outros clientes.
+A porta 1433 pode ser protegida usando uma lista de controle de acesso de rede.  O exemplo abaixo coloca endereços de cliente originados dentro de uma rede virtual em lista de permissões e bloqueia o acesso a todos os outros clientes.
 
 ![Exemplo de lista de controle de acesso de rede][NetworkAccessControlListExample]
 
