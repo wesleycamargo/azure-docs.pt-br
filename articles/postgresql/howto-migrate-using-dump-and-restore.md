@@ -1,4 +1,4 @@
----
+﻿---
 title: Como despejar e restaurar no Banco de Dados do Azure para PostgreSQL | Microsoft Docs
 description: Descreve como extrair um banco de dados PostgreSQL para um arquivo de despejo e restaurar o banco de dados PostgreSQL de um arquivo criado por pg_dump no Banco de Dados do Azure para PostgreSQL.
 services: postgresql
