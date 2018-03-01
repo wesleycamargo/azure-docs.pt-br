@@ -1,3 +1,5 @@
+# [Documentação do ExpressRoute](index.md)
+
 # Visão geral
 ## [O que é o ExpressRoute?](expressroute-introduction.md)
 ## [Perguntas Frequentes sobre o ExpressRoute](expressroute-faqs.md)
@@ -30,11 +32,11 @@
 ### [CLI do Azure](howto-linkvnet-cli.md)
 ## [Configurar uma VPN site a site no emparelhamento da Microsoft](site-to-site-vpn-over-microsoft-peering.md)
 ## Configurar um gateway de rede virtual para ExpressRoute
-### [Portal do Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [portal do Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell do Azure](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configurar ExpressRoute e conexões coexistentes site a site](expressroute-howto-coexist-resource-manager.md)
 ## Configurar os filtros de rota para o emparelhamento da Microsoft
-### [Portal do Azure](how-to-routefilter-portal.md)
+### [portal do Azure](how-to-routefilter-portal.md)
 ### [PowerShell do Azure](how-to-routefilter-powershell.md)
 ### [CLI do Azure](how-to-routefilter-cli.md)
 ## [Mover do emparelhamento público para o emparelhamento da Microsoft](how-to-move-peering.md)

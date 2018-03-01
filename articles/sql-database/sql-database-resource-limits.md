@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/12/2018
+ms.date: 02/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos do Banco de Dados SQL do Azure
 
@@ -114,7 +114,16 @@ Você pode aumentar ou diminuir os recursos disponíveis para um pool elástico 
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Qual é o número máximo de servidores e bancos de dados?
 
-O número máximo de serviços por assinatura por região é 21. O número máximo de bancos de dados por servidor é 5000. Esses são limites flexíveis estabelecidos de modo experimental com base na análise do tamanho do conteúdo, na análise de coleção de telemetria mestre lógica e em alguns outros aspectos. Você pode solicitar limites maiores, desde que permaneça dentro de sua cota de DTU. Conforme o número de servidores e bancos de dados aumentar, o problema que você enfrentará será a coleta de estatísticas de recursos no mestre lógico e na contenção em operações de gerenciamento. Esses problemas não são fatais, eles aumentarão a latência.
+| Máximo | Valor |
+| :--- | :--- |
+| Bancos de dados por servidor | 5.000 |
+| Número de servidores por assinatura por região | 21 |
+|||
+
+> [!IMPORTANT]
+> Conforme o número de bancos de dados vai se aproximando do limite por servidor, pode ocorrer o seguinte:
+> <br> • Aumento de latência nas consultas em execução no banco de dados mestre.  Isso inclui modos de exibição de estatísticas de utilização de recursos, como sys.resource_stats.
+> <br> • Aumento de latência nas operações de gerenciamento e pontos de vista do portais de renderização que envolvem a enumeração de bancos de dados no servidor.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>O que acontece quando os limites de recursos do banco de dados e do pool elástico forem atingidos?
 

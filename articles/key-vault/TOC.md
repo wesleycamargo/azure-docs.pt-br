@@ -1,3 +1,5 @@
+# [Documentação do Key Vault](index.md)
+
 # Visão geral
 ## [O que é o Cofre de Chaves?](key-vault-whatis.md)
 ## [Visão geral do serviço](https://azure.microsoft.com/services/key-vault/)
@@ -49,7 +51,7 @@
 ## [REST](/rest/api/keyvault)
 
 # Relacionados
-## [Active Directory do Azure](https://azure.microsoft.com/documentation/services/active-directory/)
+## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 ## [Azure Rights Management](https://technet.microsoft.com/en-US/dn175750)
 ## [Gerenciamento de chaves extensível usando o Cofre de Chaves](https://msdn.microsoft.com/en-us/library/azure/dn198405)
 ## [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)

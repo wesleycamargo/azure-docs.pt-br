@@ -10,14 +10,14 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opções e desempenho do Banco de Dados do Azure para MySQL: noções básicas sobre o que está disponível em cada tipo de preço
 Quando você cria um banco de dados do Azure para o servidor MySQL, você decide três principais opções para configurar os recursos alocados para o servidor. Essas opções afetam o desempenho e dimensionamento do servidor.
-- Camada de preços
+- Tipo de preço 
 - Unidades de computação
 - Armazenamento (GB)
 
@@ -45,8 +45,8 @@ Para decidir sobre uma faixa de preço, comece determinando se sua carga de trab
 | :------------------------ | :-------- | :----------- |
 | Unidades de computação máxima | 100 | 800 | 
 | Armazenamento total máximo | 1 TB | 1 TB | 
-| Garantia IOPS de armazenamento | N/D  | Sim | 
-| IOPS de armazenamento máximo | N/D  | 3.000 | 
+| Garantia IOPS de armazenamento | N/D | sim | 
+| IOPS de armazenamento máximo | N/D | 3.000 | 
 | Período de retenção do backup de banco de dados | 7 dias | 35 dias | 
 
 Durante o período de visualização, você não pode alterar o tipo de preço depois que o servidor for criado. No futuro, será possível atualizar ou fazer downgrade de um tipo de preço para outro.
@@ -86,7 +86,7 @@ Algumas capacidades de armazenamento estão incluídas no mínimo com cada tipo 
 
 A configuração de IOPS em cada nível de desempenho está relacionada à faixa de preços e o tamanho de armazenamento escolhido. A faixa Básico não oferece garantia de IOPS. Na faixa de preços Padrão, o IOPS dimensiona proporcionalmente ao tamanho máximo de armazenamento em uma taxa fixa de 3:1. O armazenamento incluído de 125 GB garante 375 de IOPS provisionados, cada um com um tamanho de E/S de 256 KB. Você pode escolher armazenamento adicional máximo de 1 TB, para garantir 3.000 IOPS provisionados.
 
-Monitorar o gráfico de métricas no Portal do Azure ou gravar comandos de CLI do Azure para medir o consumo de armazenamento e IOPS. Métricas relevantes para monitorar são o Limite de armazenamento, Porcentagem de armazenamento, Armazenamento usado e porcentagem de IO.
+Monitorar o grafo de métricas no Portal do Azure ou gravar comandos de CLI do Azure para medir o consumo de armazenamento e IOPS. Métricas relevantes para monitorar são o Limite de armazenamento, Porcentagem de armazenamento, Armazenamento usado e porcentagem de IO.
 
 >[!IMPORTANT]
 > Enquanto estiver no modo de visualização, escolha a quantidade de armazenamento no momento em que o servidor é criado. Ainda não há suporte para a alteração do tamanho de armazenamento em um servidor existente. 

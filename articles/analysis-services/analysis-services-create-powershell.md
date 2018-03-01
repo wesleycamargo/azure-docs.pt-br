@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 02/14/2018
 ms.author: owend
 ms.custom: mvc
-ms.openlocfilehash: 99798af8cb0a2b13f2c3c3808222113656a5a388
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 083c5a9bb5c57f3287c259900e6a23d6f0a886de
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>Criar a um servidor do Azure Analysis Services usando PowerShell
 
@@ -30,7 +30,7 @@ Esta tarefa exige o módulo do Azure PowerShell, versão 4.0 ou posterior. Para 
 > [!NOTE]
 > Criar um servidor pode resultar em um novo serviço faturável. Para saber mais, veja [Preços do Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="before-you-begin"></a>Antes de começar
 Para concluir este início rápido, você precisa de:
 
 * **Assinatura do Azure**: visite a [Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.

@@ -1,6 +1,6 @@
 ---
-title: "Usar a solução Mapa do Serviço no Operations Management Suite | Microsoft Docs"
-description: "O Mapa do Serviço é uma solução do Operations Management Suite que descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre a implantação do Mapa do Serviço em seu ambiente e sobre como usá-lo em diversos cenários."
+title: "Usando a solução Mapa do Serviço no Azure | Microsoft Docs"
+description: "O Mapa do Serviço é uma solução no Azure que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux, e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre a implantação do Mapa do Serviço em seu ambiente e sobre como usá-lo em diversos cenários."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usar a solução Mapa do Serviço no Operations Management Suite
+# <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
 
-Este artigo descreve os detalhes de como usar o Mapa do Serviço. Para obter mais informações sobre como configurar o Mapa do Serviço e os agentes de integração, consulte [Configurar a solução Mapa do Serviço no Operations Management Suite](operations-management-suite-service-map-configure.md).
+Este artigo descreve os detalhes de como usar o Mapa do Serviço. Para obter mais informações sobre como configurar o Mapa do Serviço e os agentes de integração, consulte [Configurar a solução Mapa do Serviço no Azure](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: Fazer com que seus processos de TI reconheçam a dependência
@@ -32,7 +32,7 @@ Este artigo descreve os detalhes de como usar o Mapa do Serviço. Para obter mai
 O Mapa do Serviço compila automaticamente um mapa de referência comum de dependências em seus servidores, processos e serviços de terceiros. Ele descobre e mapeia todas as dependências TCP, identificando conexões inesperadas, sistemas remotos de terceiros dos quais você depende e dependências para áreas escuras tradicionais da rede, como o Active Directory. O Mapa do Serviço descobre conexões de rede com falha que seus sistemas gerenciados estão tentando realizar, ajudando você a identificar potenciais configurações incorretas do servidor, interrupções de serviço e problemas de rede.
 
 ### <a name="incident-management"></a>Gerenciamento de incidentes
-O Mapa do Serviço ajuda a eliminar as suposições de isolamento do problema, mostrando a você como os sistemas estão conectados e afetando uns aos outros. Além de identificar conexões com falha, ele ajuda a identificar balanceadores de carga configurados incorretamente, carga excessiva ou inesperada em serviços críticos e clientes invasores, como computadores de desenvolvedores conversando com sistemas de produção. Ao utilizar fluxos de trabalho integrados com o Controle de Alterações do Operations Management Suite, também é possível verificar se um evento de alteração em um computador de back-end ou serviço explica a causa raiz de um incidente.
+O Mapa do Serviço ajuda a eliminar as suposições de isolamento do problema, mostrando a você como os sistemas estão conectados e afetando uns aos outros. Além de identificar conexões com falha, ele ajuda a identificar balanceadores de carga configurados incorretamente, carga excessiva ou inesperada em serviços críticos e clientes invasores, como computadores de desenvolvedores conversando com sistemas de produção. Ao utilizar fluxos de trabalho integrados com o Controle de Alterações, também é possível verificar se um evento de alteração em um computador de back-end ou serviço explica a causa raiz de um incidente.
 
 ### <a name="migration-assurance"></a>Garantia de migração
 Ao utilizar o Mapa do Serviço você pode, efetivamente, planejar, acelerar e validar as migrações do Azure, permitindo assegurar que nada seja deixado para trás e que interrupções inesperadas não ocorram. Você pode descobrir todos os sistemas interdependentes que precisam migrar juntos, avaliar a capacidade e a configuração do sistema e identificar se um sistema em execução ainda está atendendo aos usuários ou é candidato para encerramento em vez de migração. Após a conclusão do movimento será possível inspecionar a identidade e carregamento do cliente para verificar se os sistemas de teste e os clientes estão se conectando. Se o seu planejamento de sub-rede e definições de firewall tiverem problemas, as conexões com falha em mapas do Mapa do Serviço apontarão para os sistemas que precisam de conectividade.
@@ -41,7 +41,7 @@ Ao utilizar o Mapa do Serviço você pode, efetivamente, planejar, acelerar e va
 Se você estiver usando o Azure Site Recovery e precisar de ajuda para definir a sequência de recuperação para seu ambiente de aplicativo, o Mapa do Serviço poderá mostrar automaticamente como os sistemas dependem uns dos outros para assegurar que seu plano de recuperação seja confiável. Ao escolher um grupo ou servidor crítico e exibir seus clientes, será possível identificar quais são os sistemas front-end a serem recuperados depois que o servidor estiver restaurado e disponível. Por outro lado, ao analisar as dependências de back-end de servidores críticos, você poderá identificar os sistemas a serem recuperados antes que seus sistemas de foco sejam restaurados.
 
 ### <a name="patch-management"></a>Gerenciamento de patch
-O Mapa do Serviço aprimora seu uso da Avaliação de Atualização do Sistema do Operations Management Suite, mostrando quais outras equipes e servidores dependem do seu serviço, de modo que você possa notificá-los com antecedência antes de tornar inoperante seus sistemas para aplicação de patches. O Mapa do Serviço também aprimora o gerenciamento de patch no Operations Management Suite, mostrando se seus serviços estão disponíveis e conectados corretamente após terem sido corrigidos e reiniciados.
+O Mapa do Serviço aprimora seu uso da Avaliação de atualização do sistema, mostrando que outras equipes e servidores dependem de seu serviço, para que você possa notificá-los com antecedência antes de desativar seus sistemas para aplicação de patch. O Mapa do Serviço também aprimora o gerenciamento de patch mostrando se os seus serviços estão disponíveis e conectados corretamente após terem sido corrigidos e reiniciados.
 
 
 ## <a name="mapping-overview"></a>Visão geral do mapeamento
@@ -54,7 +54,7 @@ Computadores podem ser expandidos no mapa para mostrar os grupos de processos em
 Por padrão, os mapas do Mapa do Serviço mostram os últimos 30 minutos de informações de dependência. Ao usar os controles de tempo na parte superior esquerda, você poderá consultar mapas para intervalos de tempo históricos de até uma hora para mostrar como as dependências foram analisadas no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração). Os dados do Mapa do Serviço são armazenados por 30 dias em espaços de trabalho pagos, e por sete dias em espaços de trabalho gratuitos.
 
 ## <a name="status-badges-and-border-coloring"></a>Notificações de status e a cor de borda
-Na parte inferior de cada servidor no mapa pode haver uma lista de notificações de status que passam informações sobre o status do servidor. As notificações indicam que há algumas informações relevantes para o servidor de uma das integrações de solução do Operations Management Suite. Ao clicar em uma notificação, você será direcionado diretamente para os detalhes do status no painel direito. As notificações de status atualmente disponíveis incluem Alertas, Central de Serviços, Alterações, Segurança e Atualizações.
+Na parte inferior de cada servidor no mapa pode haver uma lista de notificações de status que passam informações sobre o status do servidor. As notificações indicam que há algumas informações relevantes para o servidor de uma das integrações de solução. Ao clicar em uma notificação, você será direcionado diretamente para os detalhes do status no painel direito. As notificações de status atualmente disponíveis incluem Alertas, Central de Serviços, Alterações, Segurança e Atualizações.
 
 Dependendo da gravidade das notificações de status, as bordas do nó do computador poderão ser coloridas em vermelho (crítico), amarelo (aviso) ou azul (informativo). A cor representa o status mais grave de qualquer uma das notificações de status. Uma borda cinza indica um nó que não possui indicadores de status.
 
@@ -168,12 +168,12 @@ Ao clicar em **Carregar Mapa do Servidor**, você será direcionado para um novo
 Ao clicar em **Mostrar Self-Links** redefine o nó de servidor, incluindo quaisquer self-links, que são conexões TCP que iniciam e finalizam em processos dentro do servidor. Se os self-links forem mostrados, o comando de menu irá alterar para **Ocultar Self-Links**, de modo que você possa desativá-los.
 
 ## <a name="computer-summary"></a>Resumo do computador
-O painel **Resumo do Computador** inclui uma visão geral do sistema operacional de um servidor, contagens de dependência e dados de outras soluções do Operations Management Suite. Esses dados incluem métricas de desempenho, tíquetes de central serviços, controle de alterações, segurança e atualizações.
+O painel **Resumo do Computador** inclui uma visão geral do sistema operacional de um servidor, contagens de dependência e dados de outras soluções. Esses dados incluem métricas de desempenho, tíquetes de central serviços, controle de alterações, segurança e atualizações.
 
 ![Painel Resumo do Computador](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Propriedades do computador e do processo
-Ao navegar no mapa do Mapa do Serviço, é possível selecionar computadores e processos para obter um contexto adicional sobre suas propriedades. Os computadores fornecem informações sobre o nome DNS, endereços IPv4, CPU e capacidade de memória, tipo de VM, sistema operacional e versão, último tempo de reboot e IDs dos agentes do Mapa do Serviço e Operations Management Suite.
+Ao navegar no mapa do Mapa do Serviço, é possível selecionar computadores e processos para obter um contexto adicional sobre suas propriedades. As máquinas fornecem informações sobre o nome DNS, endereços IPv4, capacidade de CPU e memória, tipo de VM, sistema operacional e versão, horário da última reinicialização e as IDs de seus agentes OMS e Mapa do Serviço.
 
 ![Painel Propriedades do Computador](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ O painel **Resumo do Processo** fornece informações adicionais sobre a conecti
 
 ![Painel Resumo do Processo](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Integração de Alertas do Operations Management Suite
-O Mapa do Serviço integra-se com os Alertas do Operations Management Suite para mostrar alertas disparados ao servidor selecionado no intervalo de tempo selecionado. Se houver alertas atuais, o servidor exibirá um ícone e o painel **Alertas do Computador** listará os alertas.
+## <a name="alerts-integration"></a>Integração de alertas
+O Mapa do Serviço integra-se aos Alertas no Log Analytics para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado. Se houver alertas atuais, o servidor exibirá um ícone e o painel **Alertas do Computador** listará os alertas.
 
 ![Painel Alertas do Computador](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ Para habilitar o Mapa do Serviço para exibir alertas relevantes, crie uma regra
 ![Configuração do alerta](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Integração de eventos de log do Operations Management Suite
+## <a name="log-events-integration"></a>Integração de eventos de log
 O Mapa do Serviço integra-se à Pesquisa de Logs para mostrar uma contagem de todos os eventos de log disponíveis para o servidor selecionado no intervalo de tempo selecionado. Você pode clicar em qualquer linha na lista de contagens de eventos para pular para a Pesquisa de Logs e ver os eventos de log individuais.
 
 ![Painel Eventos de Log do Computador](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Integração da Central de Serviços do Operations Management Suite
-A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviço de TI é automática quando ambas as soluções estão habilitadas e configuradas no espaço de trabalho do Operations Management Suite. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+## <a name="service-desk-integration"></a>Integração da Central de Serviços
+A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no espaço de trabalho do Log Analytics. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 O painel **Central de Serviços do Computador** lista todos os eventos de Gerenciamento de Serviço de TI para o servidor selecionado no intervalo de tempo selecionado. Se houver itens atuais, o servidor exibirá um ícone e o painel da Central de Serviços do Computador irá listá-los.
 
@@ -214,8 +214,8 @@ Para abrir o item na sua solução ITSM conectada, clique em **Exibir Item de Tr
 Para exibir os detalhes do item na Pesquisa de Logs, clique em **Mostrar na Pesquisa de Logs**.
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Integração do Controle de Alterações do Operations Management Suite
-A integração do Mapa do Serviço com o Controle de Alterações é automática quando ambas as soluções estão habilitadas e configuradas no espaço de trabalho do Operations Management Suite.
+## <a name="change-tracking-integration"></a>Integração de Controle de Alterações
+A integração do Mapa do Serviço com o Controle de Alterações é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
 
 O painel **Controle de Alterações do Computador** lista todas as alterações, as mais recentes primeiro, juntamente com um link para fazer busca detalhada da Pesquisa de Logs para obter detalhes adicionais.
 
@@ -226,7 +226,7 @@ A imagem a seguir é uma exibição detalhada de um evento ConfigurationChange q
 ![Evento ConfigurationChange](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Integração de desempenho do Operations Management Suite
+## <a name="performance-integration"></a>Integração de desempenho
 O painel **Desempenho do Computador** exibe métricas de desempenho padrão para o servidor selecionado. As métricas incluem utilização de CPU, utilização de memória, bytes de rede enviados e recebidos, e uma lista dos principais processos por bytes de rede enviados e recebidos.
 
 ![Painel Desempenho do Computador](media/oms-service-map/machine-performance.png)
@@ -245,20 +245,20 @@ Linux:
 - Adaptador de Rede(*)\\Bytes Enviados/s
 - Adaptador de Rede(*)\\Bytes Recebidos/s
 
-Para obter os dados de desempenho da rede, você também deverá habilitar a solução Wire Data 2.0 no Operations Management Suite.
+Para obter os dados de desempenho da rede, você deve habilitar também a solução Wire Data 2.0 no espaço de trabalho.
  
-## <a name="operations-management-suite-security-integration"></a>Integração de segurança do Operations Management Suite
-A integração do Mapa do Serviço com a Segurança e Auditoria é automática quando ambas as soluções estão habilitadas e configuradas no espaço de trabalho do Operations Management Suite.
+## <a name="security-integration"></a>Integração de segurança
+A integração do Mapa do Serviço com Segurança e Auditoria é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
 
-O painel **Segurança do Computador** mostra os dados da solução de Segurança e Auditoria do Operations Management Suite para o servidor selecionado. O painel lista um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado. Ao clicar em qualquer um dos problemas de segurança, a busca detalhada será realizada em uma Pesquisa de Logs para obter mais detalhes sobre esses problemas.
+O painel **Segurança do Computador** mostra dados da solução de Segurança e Auditoria para o servidor selecionado. O painel lista um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado. Ao clicar em qualquer um dos problemas de segurança, a busca detalhada será realizada em uma Pesquisa de Logs para obter mais detalhes sobre esses problemas.
 
 ![Painel Segurança do Computador](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Integração de Atualizações do Operations Management Suite
-A integração do Mapa do Serviço com o Gerenciamento de Atualizações é automática quando ambas as soluções estão habilitadas e configuradas no espaço de trabalho do Operations Management Suite.
+## <a name="updates-integration"></a>Integração de atualizações
+A integração do Mapa do Serviço com o Gerenciamento de Atualizações é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
 
-O painel **Atualizações do Computador** exibe dados da solução de Gerenciamento de Atualizações do Operations Management Suite para o servidor selecionado. O painel lista um resumo de quaisquer atualizações ausentes para o servidor durante o intervalo de tempo selecionado.
+O painel **Atualizações do Computador** exibe dados da solução de Gerenciamento de Atualizações para o servidor selecionado. O painel lista um resumo de quaisquer atualizações ausentes para o servidor durante o intervalo de tempo selecionado.
 
 ![Painel Controle de Alterações do Computador](media/oms-service-map/machine-updates.png)
 
@@ -272,8 +272,8 @@ Um registro é gerado por hora para cada computador e processo exclusivo, além 
 
 Há propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
 
-- Computador: Utilize ResourceId ou ResourceName_s para identificar exclusivamente um computador em um espaço de trabalho do Operations Management Suite.
-- Processo: Utilize ResourceId para identificar exclusivamente um processo em um espaço de trabalho do Operations Management Suite. ResourceName_s é exclusivo dentro do contexto do computador no qual o processo está em execução (MachineResourceName_s) 
+- Computador: use ResourceId ou ResourceName_s para identificar exclusivamente um computador em um Espaço de Trabalho do Log Analytics.
+- Processo: use ResourceId para identificar exclusivamente um processo dentro de um Espaço de Trabalho do Log Analytics. ResourceName_s é exclusivo dentro do contexto do computador no qual o processo está em execução (MachineResourceName_s) 
 
 Como vários registros podem existir para um processo e computador específicos em um intervalo de tempo específico, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir somente o registro mais recente, adicione "| dedup ResourceId" à consulta.
 

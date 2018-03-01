@@ -1,3 +1,5 @@
+# [Documentação do StorSimple](index.md)
+
 # Matriz Virtual do StorSimple
 
 ## Visão geral

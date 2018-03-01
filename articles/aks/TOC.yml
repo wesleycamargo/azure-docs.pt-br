@@ -77,6 +77,10 @@
       items:
         - name: Usar painel do Kubernetes
           href: kubernetes-dashboard.md
+    - name: Solucionar problemas
+      items:
+        - name: Acesso ao nó de SSH
+          href: aks-ssh.md
 - name: Referência
   items:
     - name: CLI do Azure

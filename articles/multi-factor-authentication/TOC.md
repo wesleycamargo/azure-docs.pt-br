@@ -1,3 +1,5 @@
+# [Documentação da Autenticação Multifator](index.md)
+
 # Visão geral
 ## [O que é a Autenticação Multifator do Azure?](multi-factor-authentication.md)
 ## [Como funciona](multi-factor-authentication-how-it-works.md)

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 8aff62dd32395c1ef292942e977467779f945931
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Barramento de Serviço do Azure para exemplos da Grade de Eventos do Azure
 
@@ -118,7 +118,7 @@ Clique em salvar e executar.
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>Conecte a função e o namespace através da Grade de Eventos
 
-A próxima etapa é unir a função e o namespace do barramento de serviço. Para este exemplo, use o portal do Azure. Confira a página [conceitos](service-bus-to-event-grid-integration-concept.md) para entender como usar o PowerShell ou a CLI do Azure para obter o mesmo.
+A próxima etapa é unir a função e o namespace do barramento de serviço. Para este exemplo, use o portal do Azure. Confira a página [conceitos](service-bus-to-event-grid-integration-concept.md para entender como usar o PowerShell ou a CLI do Azure para obter o mesmo.
 
 Para criar uma nova assinatura da Grade de Eventos do Azure, navegue até o namespace no portal do Azure e selecione a folha da Grade de Eventos. Clique em “+ Assinatura de Evento”.
 
@@ -190,10 +190,10 @@ Salve o aplicativo lógico e envie uma mensagem para o tópico do Barramento de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [Grade de Eventos do Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Saiba mais sobre o [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Saiba mais sobre [Aplicativos Lógicos do Azure](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Saiba mais sobre o [Barramento de Serviço do Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Saiba mais sobre a [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/).
+* Saiba mais sobre o [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+* Saiba mais sobre [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/).
+* Saiba mais sobre o [Barramento de Serviço do Azure](https://docs.microsoft.com/azure/service-bus/).
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
 [3]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid3.png
