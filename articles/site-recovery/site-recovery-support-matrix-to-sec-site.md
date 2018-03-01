@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 256bad0c3c06182b6be2b647ae27db90fe69724d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Suporte a matriz para replicação em um site secundário com o Azure Site Recovery
 
@@ -67,21 +67,21 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com o VMM)**
 --- | --- | ---
-Agrupamento NIC | Sim | Sim
-VLAN | Sim | Sim
-IPv4 | Sim | Sim
-IPv6 | Não | Não
+Agrupamento NIC | sim | sim
+VLAN | sim | sim
+IPv4 | sim | sim
+IPv6 | Não  | Não 
 
 ### <a name="guest-vms"></a>VMs convidadas
 
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com o VMM)**
 --- | --- | ---
-Agrupamento NIC | Não | Não
-IPv4 | Sim | Sim
-IPv6 | Não | Não
-IP estático (Windows) | Sim | Sim
-IP estático (Linux) | Sim | Sim
-NIC múltipla | Sim | Sim
+Agrupamento NIC | Não  | Não 
+IPv4 | sim | sim
+IPv6 | Não  | Não 
+IP estático (Windows) | sim | sim
+IP estático (Linux) | sim | sim
+NIC múltipla | sim | sim
 
 
 ## <a name="storage"></a>Armazenamento
@@ -90,37 +90,37 @@ NIC múltipla | Sim | Sim
 
 **Armazenamento (host)** | **Servidor VMware/físico** | **Hyper-V (com o VMM)**
 --- | --- | ---
-NFS | Sim | N/D
-SMB 3.0 | N/D | Sim
-SAN (ISCSI) | Sim | Sim
-Múltiplos caminhos (MPIO) | Sim | Sim
+NFS | sim | N/D
+SMB 3.0 | N/D | sim
+SAN (ISCSI) | sim | sim
+Múltiplos caminhos (MPIO) | sim | sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com o VMM)**
 --- | --- | ---
-VMDK | Sim | N/D
+VMDK | sim | N/D
 VHD/VHDX | N/D | Sim (até 16 discos)
-VM ger 2 | N/D | Sim
-Disco de cluster compartilhado | Sim  | Não
-Disco criptografado | Não | Não
-UEFI| Sim | N/D
-NFS | Não | Não
-SMB 3.0 | Não | Não
-RDM | Sim | N/D
-Disco > 1 TB | Sim | Sim
-Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim | Sim
-Espaços de Armazenamento | Não | Sim
-Adição/remoção de disco a quente | Sim | Não
-Exclusão de disco | Sim | Sim
-Múltiplos caminhos (MPIO) | N/D | Sim
+VM ger 2 | N/D | sim
+Disco de cluster compartilhado | sim  | Não 
+Disco criptografado | Não  | Não 
+UEFI| sim | N/D
+NFS | Não  | Não 
+SMB 3.0 | Não  | Não 
+RDM | sim | N/D
+Disco > 1 TB | sim | sim
+Volume com discos distribuídos > 1 TB<br/><br/> LVM | sim | sim
+Espaços de Armazenamento | Não  | sim
+Adição/remoção de disco a quente | sim | Não 
+Exclusão de disco | sim | sim
+Múltiplos caminhos (MPIO) | N/D | sim
 
 ## <a name="vaults"></a>Cofres
 
 **Ação** | **Servidor VMware/físico** | **Hyper-V (com o VMM)**
 --- | --- | ---
-Mover cofres entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) | Não | Não
-Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) | Não | Não
+Mover cofres entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) | Não  | Não 
+Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) | Não  | Não 
 
 ## <a name="provider-and-agent"></a>Provedor e agente
 

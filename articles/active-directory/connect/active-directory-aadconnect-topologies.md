@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -114,7 +114,7 @@ Algumas cargas de trabalho do Office 365 têm certas restrições em topologias 
 | Exchange Online | Para obter mais informações sobre topologias híbridas com suporte pelo Exchange Online, consulte [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Para obter mais informações, confira [Requisitos ambientais para Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
-Se tiver uma organização maior, então considere usar o recurso [Localização Preferencia de Dados do Office 365](active-directory-aadconnectsync-feature-preferreddatalocation.md). Ele permite que você defina em qual região do datacenter os recursos do usuário ficarão localizados.
+Se tiver uma organização maior, então considere usar o recurso [Localização Preferencia de Dados do Office 365](active-directory-aadconnectsync-feature-preferreddatalocation.md). Ele permite que você defina em qual região do datacenter estão localizados os recursos do usuário.
 
 ## <a name="staging-server"></a>Servidor de preparo
 ![Servidor de preparo em uma topologia](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

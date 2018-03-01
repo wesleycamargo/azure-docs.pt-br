@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 0efea55d0e1329ddf4ada35aa0dd6164f0951a70
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 527e77d7ab8c67ea538d2452357f31a698b2b6ea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Evite ser cobrado por sua conta gratuita do Azure
 
@@ -28,7 +28,7 @@ A conta gratuita do Azure dá a você US$ 200 em créditos do Azure para gastar 
 Se você ainda tiver crédito do Azure que ainda não tiver expirado, o Azure usará seu crédito para pagar pelo uso além dos serviços e das quantidades gratuitos.
 
 ## <a name="your-credit-ran-out-or-has-expired"></a>Seu crédito esgotou-se ou expirou
-Se o seu crédito tiver se esgotado ou expirado no final de 30 dias, o Azure desabilitará sua assinatura. Para continuar usando os serviços do Azure, você deve atualizar sua assinatura para uma assinatura de pagamento conforme o uso. Para obter mais informações, consulte [Atualizar sua avaliação gratuita ou assinatura do Azure para paga conforme o uso](billing-upgrade-azure-subscription.md). Após a atualização, sua assinatura ainda terá acesso a serviços por 12 meses. Você é cobrado pelo uso além dos serviços e das quantidades gratuitos.
+Se o seu crédito tiver se esgotado ou expirado no final de 30 dias, o Azure desabilitará sua assinatura. Para continuar usando os serviços do Azure, você deve atualizar sua assinatura para uma assinatura de pagamento conforme o uso. Para obter mais informações, consulte [Atualizar sua avaliação gratuita ou assinatura do Azure para paga conforme o uso](billing-upgrade-azure-subscription.md). Após atualizar, sua assinatura ainda terá acesso a serviços gratuitos por 12 meses. Você é cobrado pelo uso além dos serviços e das quantidades gratuitos.
 
 
 Vamos examinar algumas das razões pelas quais você pode incorrer em encargos na sua conta gratuita do Azure.
@@ -48,7 +48,7 @@ Seus serviços e quantidades gratuitos expirarem no final de 12 meses. Você pod
 
 1.  Faça logon no [Portal do Azure](http://portal.azure.com).
 
-2.  Na parte inferior da navegação à esquerda, selecione **Mais serviços**.
+2.  Na área de navegação esquerda, selecione **Todos os serviços**.
 
 3.  Selecione **Assinaturas**.
 

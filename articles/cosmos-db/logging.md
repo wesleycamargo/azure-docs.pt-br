@@ -12,36 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: mimig
-ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Log de diagnósticos do Azure Cosmos DB
 
-Depois de começar a usar um ou mais bancos de dados do Azure Cosmos DB, talvez você deseje monitorar como e quando os bancos de dados são acessados. O log de diagnósticos no Azure Cosmos DB permite que realizar esse monitoramento. Ao habilitar o log de diagnósticos, você pode enviar logs para o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e/ou exportá-los o [Log Analytics](https://azure.microsoft.com/services/log-analytics/) que faz parte do [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Depois de começar a usar um ou mais bancos de dados do Azure Cosmos DB, talvez você deseje monitorar como e quando os bancos de dados são acessados. Este artigo fornece uma visão geral de todos os logs disponíveis na plataforma do Azure e, em seguida, explica como habilitar o log de diagnósticos para fins de monitoramento para enviar logs para o [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), transmiti-los para os [Hubs de Eventos do Azure ](https://azure.microsoft.com/services/event-hubs/) e/ou exportá-los para o [Log Analytics](https://azure.microsoft.com/services/log-analytics/), que faz parte do [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+
+## <a name="logs-available-in-azure"></a>Logs disponíveis no Azure
+
+Antes falarmos do monitoramento da sua conta do Azure Cosmos DB, vamos esclarecer alguns aspectos sobre monitoramento e registro em log. Há diferentes tipos de logs na plataforma do Azure. Há [Logs de Atividade do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Logs de Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventos, monitoramento de pulsação, logs de operações, etc. Há uma grande quantidade de logs. Você pode ver a lista completa de logs em [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) no portal do Azure. 
+
+A imagem a seguir mostra os diferentes tipos de logs do Azure disponíveis.
+
+![Diferentes tipos de logs do Azure](./media/logging/azurelogging.png)
+
+Para nossa discussão, vamos nos concentrar em Atividades do Azure, Diagnóstico do Azure e Métricas. Afinal, qual é a diferença entre esses três logs? 
+
+### <a name="azure-activity-log"></a>Log de Atividades do Azure
+
+O Log de Atividades do Azure é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. O Log de Atividades relata eventos do plano de controle para suas assinaturas na categoria Administrativa. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de gravação (PUT, POST, DELETE) executadas nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. 
+
+O Log de Atividades difere dos Logs de Diagnóstico. Os Logs de Atividade fornecem dados sobre as operações em um recurso externo (o “plano de controle”). No contexto do Microsoft Azure Cosmos DB, algumas das operações do plano de controle incluem criar coleção, listar chaves, excluir chaves, listar banco de dados, etc. Os Logs de Diagnóstico são emitidos por um recurso e fornecem informações sobre a operação do recurso (o “plano de dados”). Alguns dos exemplos de log de diagnóstico do plano de dados são excluir, inserir, operação readfeed, etc.
+
+Os Logs de Atividade (operações do plano de controle) podem ser muito mais ricos, podem incluir o endereço de email completo do chamador, endereço IP do chamador, nome do recurso, nome da operação e TenantId, etc. O Log de Atividades contém várias [categorias](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de dados. Para obter todos os detalhes sobre o esquema dessas categorias, veja o [esquema de eventos de Log de Atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema).  No entanto, Logs de Diagnóstico podem ser restritivos, pois dados de PII geralmente são retirados deles. Portanto, você pode ter o endereço IP do chamador, mas o último octent ser removido.
+
+### <a name="azure-metrics"></a>Métricas do Azure
+
+As [Métricas do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) têm o tipo de dados de telemetria do Azure mais importantes (também chamadas de contadores de desempenho) emitidos pela maioria dos recursos do Azure. As Métricas permitem que você exiba informações sobre a taxa de transferência, armazenamento, consistência, disponibilidade e a latência de seus recursos do Azure Cosmos DB. Para obter mais informações, consulte [Como monitorar e depurar com métricas no Azure Cosmos DB](use-metrics.md).
+
+### <a name="azure-diagnostic-logs"></a>Logs de Diagnóstico do Azure
+
+Os Logs de Diagnóstico do Azure são logs emitidos por um recurso e fornecem dados avançados e frequentes sobre a operação do recurso. O conteúdo desses logs varia de acordo com o tipo de recurso. Os logs de diagnóstico no nível do recurso também diferem dos logs de diagnóstico no nível do sistema operacional convidado. Os logs de diagnóstico do sistema operacional convidado são aqueles coletados por um agente em execução dentro de uma máquina virtual ou outro tipo de recurso com suporte. Os logs de diagnóstico no nível do recurso não exigem um agente e capturam dados específicos ao recurso da própria plataforma do Azure, enquanto os logs de diagnóstico no nível do sistema operacional convidado capturam dados do sistema operacional e de aplicativos em execução em uma máquina virtual.
 
 ![Log de diagnósticos para o Armazenamento, Hubs de Eventos ou Operations Management Suite por meio do Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
-Use este tutorial para começar a usar o log do Azure Cosmos DB por meio do portal do Azure, da CLI ou do PowerShell.
-
-## <a name="what-is-logged"></a>O que é registrado?
+### <a name="what-is-logged-by-azure-diagnostic-logs"></a>O que é registrado por Logs de Diagnóstico do Azure?
 
 * Todas as solicitações de back-end autenticadas (TCP/REST), e todas as APIs, são registradas, o que inclui as solicitações com falha como resultado de permissões de acesso, erros do sistema ou solicitações inválidas. Suporte para solicitações de Graph, Cassandra e API de tabela iniciadas pelo usuário não está disponível no momento.
 * Operações no próprio banco de dados, que inclui operações CRUD em todos os documentos, contêineres e bancos de dados.
 * Operações em chaves de conta, que incluem a criação, modificação ou exclusão dessas chaves.
 * Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador, estão malformadas ou expiradas ou têm um token inválido.
 
-## <a name="prerequisites"></a>pré-requisitos
-Para concluir este tutorial, você deve ter os seguintes recursos:
+<a id="#turn-on"></a>
+## <a name="turn-on-logging-in-the-azure-portal"></a>Ativar o log no portal do Azure
+
+Para habilitar os logs de diagnóstico, você deve ter os seguintes recursos:
 
 * Uma conta existente, banco de dados e contêiner do Azure Cosmos DB. Para obter instruções sobre como criar esses recursos, consulte [Criar uma conta de banco de dados usando o portal do Azure](create-sql-api-dotnet.md#create-a-database-account), [Amostras da CLI](cli-samples.md) ou [Amostras do PowerShell](powershell-samples.md).
 
-<a id="#turn-on"></a>
-## <a name="turn-on-logging-in-the-azure-portal"></a>Ativar o log no portal do Azure
+Para habilitar os loga de diagnóstico no portal do Azure, execute as seguintes etapas:
 
 1. No [portal do Azure](https://portal.azure.com), em sua conta do Azure Cosmos DB, clique em **Logs de diagnóstico** na barra navegação à esquerda e, em seguida, clique **Ativar diagnóstico**.
 
@@ -98,7 +123,7 @@ Você pode combinar esses parâmetros para permitir várias opções de saída.
 
 ## <a name="turn-on-logging-using-powershell"></a>Ativar o log usando o PowerShell
 
-Para ativar o log usando o PowerShell, você precisa do Azure PowerShell, com uma versão mínima de 1.0.1.
+Para ativar os logs de diagnóstico usando o PowerShell, você precisa do Azure PowerShell, com uma versão mínima de 1.0.1.
 
 Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
@@ -315,7 +340,7 @@ Para saber mais sobre os dados em cada blob JSON, consulte [Interpretar seus log
 
 ## <a name="managing-your-logs"></a>Gerenciando os logs
 
-Os logs são disponibilizados em sua conta duas horas após a hora em que a operação do Azure Cosmos DB foi feita. Cabe a você gerenciar os logs em sua conta de armazenamento:
+Os logs de diagnóstico são disponibilizados em sua conta duas horas após a hora em que a operação do Azure Cosmos DB foi feita. Cabe a você gerenciar os logs em sua conta de armazenamento:
 
 * Use os métodos de controle de acesso padrão do Azure para proteger seus logs ao restringir quem pode acessá-los.
 * Exclua os logs que você não deseja manter em sua conta de armazenamento.
@@ -325,7 +350,7 @@ Os logs são disponibilizados em sua conta duas horas após a hora em que a oper
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Exibir logs no Log Analytics
 
-Se você tiver selecionado a opção **Enviar para Log Analytics** ao ativar o registro em log, dados da sua coleção serão encaminhados para o Log Analytics dentro de duas horas. Isso significa que, se você observar o Log Analytics imediatamente depois de ativar o registro em log, não verá todos os dados. Apenas aguarde duas horas e tente novamente. 
+Se você tiver selecionado a opção **Enviar para Log Analytics** ao ativar o registro em log de diagnóstico, dados da sua coleção serão encaminhados para o Log Analytics dentro de duas horas. Isso significa que, se você observar o Log Analytics imediatamente depois de ativar o registro em log, não verá todos os dados. Apenas aguarde duas horas e tente novamente. 
 
 Antes de exibir os logs, verifique e veja se o espaço de trabalho do Log Analytics foi atualizado para usar a nova linguagem de consulta do Log Analytics. Para verificar isso, abra o [Portal do Azure](https://portal.azure.com), clique em **Log Analytics** no lado esquerdo e, em seguida, selecione o nome do espaço de trabalho conforme mostrado na imagem a seguir. A página **Espaço de trabalho do OMS** é exibida conforme mostrado na imagem a seguir.
 

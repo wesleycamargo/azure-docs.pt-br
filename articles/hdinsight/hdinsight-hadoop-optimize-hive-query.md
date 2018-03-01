@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3577b06bfb23457c17099902a7ac9fb8eb6e3087
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
 
@@ -47,7 +47,7 @@ Para obter informações sobre as diferentes máquinas virtuais com suporte no H
 
 O Tez é mais rápido porque:
 
-* **Execute gráfico acíclico dirigido (DAG) como um trabalho único no mecanismo MapReduce**. O DAG requer que cada conjunto de mapeadores seja seguido por um conjunto de redutores. Isso faz com que vários trabalhos do MapReduce sejam gerados para cada consulta do Hive. O Tez não tem essa restrição e pode processar DAG complexo como um único trabalho, minimizando a sobrecarga de inicialização de trabalho.
+* **Execute o DAG (grafo direcionado acíclico) como um trabalho único no mecanismo MapReduce**. O DAG requer que cada conjunto de mapeadores seja seguido por um conjunto de redutores. Isso faz com que vários trabalhos do MapReduce sejam gerados para cada consulta do Hive. O Tez não tem essa restrição e pode processar DAG complexo como um único trabalho, minimizando a sobrecarga de inicialização de trabalho.
 * **Evita gravações desnecessárias**. Devido a vários trabalhos que estão sendo gerados para a mesma consulta do Hive no mecanismo MapReduce, a saída de cada trabalho é gravada no HDFS para dados intermediários. Como o Tez minimiza o número de trabalhos para cada consulta do Hive, ele pode evitar gravação desnecessária.
 * **Minimiza atrasos de inicialização**. O Tez é mais capaz de minimizar o atraso de inicialização, reduzindo o número de mapeadores de que precisa para ser iniciado, além de aumentar a otimização de maneira geral.
 * **Reutiliza contêineres**. Sempre que possível, o Tez é capaz de reutilizar contêineres para garantir que a latência devido à inicialização de contêineres seja reduzida.
@@ -113,7 +113,7 @@ Depois de criar a tabela particionada, você pode criar particionamento estátic
 Para obter mais informações, consulte [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) (Tabelas particionadas).
 
 ## <a name="use-the-orcfile-format"></a>Use o formato ORCFile
-O Hive dá suporte a vários formatos de arquivo. Por exemplo:
+O Hive dá suporte a vários formatos de arquivo. Por exemplo: 
 
 * **Texto**: esse é o formato de arquivo padrão e funciona com a maioria dos cenários
 * **Avro**: funciona bem para cenários de interoperabilidade
@@ -137,7 +137,7 @@ Para habilitar o formato ORC, primeiro você deve criar uma tabela com a cláusu
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-Em seguida, insira dados na tabela ORC a partir da tabela de preparo. Por exemplo:
+Em seguida, insira dados na tabela ORC a partir da tabela de preparo. Por exemplo: 
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 

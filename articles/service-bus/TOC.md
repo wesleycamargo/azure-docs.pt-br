@@ -1,3 +1,4 @@
+# [Documentação do Barramento de Serviço](index.md)
 # [Barramento de Serviço](/azure/service-bus-messaging)
 # [Retransmissão](/azure/service-bus-relay)
 # Recursos

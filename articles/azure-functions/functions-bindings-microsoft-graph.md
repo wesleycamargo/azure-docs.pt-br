@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -49,10 +49,10 @@ Para obter informações sobre como configurar um aplicativo de funções para u
 
 Para instalar uma extensão do portal do Azure, navegue até um modelo ou associação que faça referência a ela. Crie uma nova função e, enquanto estiver na tela de seleção de modelo, escolha o cenário "Microsoft Graph". Selecione um dos modelos desse cenário. Como alternativa, você pode navegar até a guia "Integração" de uma função existente e selecionar uma das associações abordadas neste artigo.
 
-Em ambos os casos, um aviso será exibido especificando a extensão a ser instalada. Clique em **Instalar** para obter a extensão.
+Em ambos os casos, um aviso será exibido especificando a extensão a ser instalada. Clique em **Instalar** para obter a extensão. Cada extensão precisa ser instalada apenas uma vez por aplicativo de funções. 
 
 > [!Note] 
-> Cada extensão precisa ser instalada apenas uma vez por aplicativo de funções. O processo de instalação no portal pode levar até 10 minutos em um plano de consumo.
+> O processo de instalação no portal pode levar até 10 minutos em um plano de consumo.
 
 Se você estiver usando o Visual Studio, poderá obter as extensões instalando estes pacotes do NuGet:
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)

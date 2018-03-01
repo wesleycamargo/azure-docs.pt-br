@@ -66,9 +66,7 @@
     - name: Recursos
       items:
         - name: Tipos de preço
-          href: concepts-service-tiers.md
-        - name: Unidades de computação
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: limites
           href: concepts-limits.md
     - name: Acesso a dados e segurança
@@ -77,6 +75,12 @@
           href: concepts-firewall-rules.md
         - name: Configuração do SSL
           href: concepts-ssl-connection-security.md
+    - name: Continuidade dos negócios
+      items:
+        - name: Visão geral
+          href: concepts-business-continuity.md
+        - name: Backup e restauração
+          href: concepts-backup.md
     - name: Monitoramento
       href: concepts-monitoring.md
     - name: Desenvolvimento
@@ -137,6 +141,12 @@
       items:
         - name: Criar alertas nas métricas
           href: howto-alert-on-metric.md
+    - name: Solucionar problemas
+      items:
+        - name: Solucionar problemas com o desempenho da consulta
+          href: howto-troubleshoot-query-performance.md
+        - name: Como usar exibições no esquema sys
+          href: howto-troubleshoot-sys-schema.md
 - name: Referência
   items:
     - name: CLI do Azure

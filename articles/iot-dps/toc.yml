@@ -7,8 +7,10 @@
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Configurar provisionamento automático
+    - name: Configurar provisionamento automático - Portal
       href: quick-setup-auto-provision.md
+    - name: Configurar provisionamento automático - Modelo
+      href: quick-setup-auto-provision-rm.md
     - name: Criar dispositivo simulado
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Remover provisionamento dos dispositivos
       href: how-to-unprovision-devices.md
+    - name: Executar verificação de posse nos certificados de site x.509
+      href: how-to-verify-certificates.md
     - name: Usar um HSM com SDK
       href: use-hsm-with-sdk.md
     - name: Controlar o acesso ao Serviço de Provisionamento
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Use as ferramentas do SDK para desenvolver
       href: how-to-use-sdk-tools.md
+    - name: Conectar Kit de Desenvolvimento da IoT do MXChip
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Referência
   items:
     - name: REST

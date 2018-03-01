@@ -1,3 +1,5 @@
+# [Documentação do DNS](index.md)
+
 # Visão geral
 
 ## [O que é o DNS do Azure?](dns-overview.md)
@@ -9,7 +11,7 @@
 # Introdução
 
 ## Criar uma zona e registro de DNS
-### [Portal do Azure](dns-getstarted-portal.md)
+### [portal do Azure](dns-getstarted-portal.md)
 ### [PowerShell do Azure](dns-getstarted-powershell.md)
 ### [CLI do Azure](dns-getstarted-cli.md)
 
@@ -21,12 +23,12 @@
 # Como
 
 ## Gerenciar zonas DNS
-### [Portal do Azure](dns-operations-dnszones-portal.md)
+### [portal do Azure](dns-operations-dnszones-portal.md)
 ### [PowerShell do Azure](dns-operations-dnszones.md)
 ### [CLI do Azure](dns-operations-dnszones-cli.md)
 
 ## Gerenciar registros DNS
-### [Portal do Azure](dns-operations-recordsets-portal.md)
+### [portal do Azure](dns-operations-recordsets-portal.md)
 ### [PowerShell do Azure](dns-operations-recordsets.md)
 ### [CLI do Azure](dns-operations-recordsets-cli.md)
 
@@ -56,7 +58,7 @@
 ## [REST](/rest/api/dns/)
 
 # Relacionados
-## [Gateway de Aplicativo](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [Rede Virtual](/azure/virtual-network/)
 ## [Máquina Virtual](/azure/virtual-machines/)
 ## [Balanceador de Carga](/azure/load-balancer/)

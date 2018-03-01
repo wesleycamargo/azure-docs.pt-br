@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 9d9fbefd81fed506bcc025fa0f44315ec831cf0d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Detectar problemas usando regras baseadas em limites
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Editar uma regra existente
 > * Excluir uma regra
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para seguir este tutorial, você precisará de uma instância implantada de solução de monitoramento remoto na sua assinatura do Azure.
 
@@ -66,13 +66,13 @@ Use os seguintes valores para criar a regra:
 
 | Configuração          | Valor                                 |
 | ---------------- | ------------------------------------- |
-| Nome             | Aviso de resfriador                       |
+| NOME             | Aviso de resfriador                       |
 | Fonte           | Grupo de dispositivos dos **Resfriadores**             |
 | Campo de gatilho    | pressure                              |
 | Operador de gatilho | Maior que                          |
 | Valor do gatilho    | 150                                   |
 | Nível de severidade   | Aviso                               |
-| Descrição      | A pressão do resfriador excedeu PSI 150 |
+| DESCRIÇÃO      | A pressão do resfriador excedeu PSI 150 |
 
 Para salvar a nova regra, escolha **Aplicar**.
 

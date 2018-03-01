@@ -1,3 +1,5 @@
+# [Documentação dos Serviços de Mídia](index.md)
+
 # [Visão geral](media-services-overview.md)
 ## [Cenários e disponibilidade](scenarios-and-availability.md)
 ## [Conceitos](media-services-concepts.md)

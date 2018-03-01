@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0e9eba9baeec00f13880ba6b32d87be8e5872bc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: bd2f251e97248497592b40128dcc03db5d6eba7a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usar uma MSI (Identidade de Serviço Gerenciado) da VM do Linux para acessar o Azure Key Vault 
 
@@ -45,7 +45,7 @@ Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilitar o MSI em uma VM existente.
 
-1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+1. Clique no botão **Criar um recurso**, localizado no canto superior esquerdo do Portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Insira as informações da máquina virtual. Para **Tipo de autenticação**, selecione **Chave pública SSH** ou **Senha**. As credenciais criadas permitirão que você faça logon na máquina virtual.
 
@@ -77,7 +77,7 @@ Usando o MSI seu código pode obter tokens de acesso para autenticar para recurs
 
 Primeiro, precisamos criar um Key Vault e conceder acesso de identidade da nossa VM para o Key Vault.   
 
-1. Na parte superior da barra de navegação à esquerda, selecione **+ Novo**, em seguida, **Segurança + Identidade**, em seguida, **Key Vault**.  
+1. Na parte superior da barra de navegação esquerda, selecione**Criar um recurso** > **Segurança + Identidade** > **Key Vault**.  
 2. Forneça um **Nome** para o novo Key Vault. 
 3. Localize o Key Vault no mesmo grupo de recursos e assinatura da VM que você criou anteriormente. 
 4. Selecione **Políticas de acesso** e clique em **Adicionar nova**. 

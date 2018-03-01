@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: Portal do Azure
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ Faça uma lista de valores de comunidade BGP que você deseja usar no filtro de 
 Um filtro de rota pode ter apenas uma regra, que deve ser do tipo 'Permitir'. Essa regra pode ter uma lista de valores de comunidade BGP associados a ela.
 
 ### <a name="1-create-a-route-filter"></a>1. Criar um filtro de rota
-Você pode criar um circuito de rota selecionando a opção de criar um novo recurso. Clique em **Novo** > **Rede** > **RouteFilter**, conforme mostrado na seguinte imagem:
+Você pode criar um circuito de rota selecionando a opção de criar um novo recurso. Clique em **Criar um recurso** > **Rede** > **RouteFilter**, conforme mostrado na imagem a seguir:
 
 ![Criar um filtro de rota](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

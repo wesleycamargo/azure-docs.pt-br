@@ -4,13 +4,13 @@ description: "Fornece uma visão geral dos cálculos de avaliação no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -35,7 +35,7 @@ Para usar a visualização de dependência, você precisa baixar e instalar agen
 
 ## <a name="do-i-need-to-pay-for-it"></a>Eu preciso pagar por ele?
 
-Sim. O espaço de trabalho do Log Analytics é criado por padrão, mas ele não será usado, a menos que você use a visualização de dependência em Migrações para Azure. Se você usa a visualização de dependência, ou usa o espaço de trabalho fora das Migrações para Azure, você será cobrado pelo uso do espaço de trabalho.  [Saiba mais](https://azure.microsoft.com/pricing/details/insight-analytics/) sobre preços de solução do Mapa do Serviço. 
+Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Como faço para gerenciar o espaço de trabalho?
 

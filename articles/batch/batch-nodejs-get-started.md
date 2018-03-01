@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do lote para o Node.js
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 12/18/2017
 >
 >
 
-Aprenda as noções básicas da criação de cliente em lote no Node.js usando [SDK do Node.js do lote do Azure ](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Podemos adotar uma abordagem passo a passo de compressão de um cenário para um aplicativo de lote e, em seguida, configurá-lo usando um cliente do Node.js.  
+Aprenda as noções básicas da criação de cliente em lote no Node.js usando [SDK do Node.js do lote do Azure ](/javascript/api/overview/azure/batch). Podemos adotar uma abordagem passo a passo de compressão de um cenário para um aplicativo de lote e, em seguida, configurá-lo usando um cliente do Node.js.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este artigo pressupõe que você tem um conhecimento prático do Node.js e que esteja familiarizado com o Linux. Ele também pressupõe que você tenha uma configuração de conta do Azure com direitos de acesso para criar serviços de armazenamento e de lote.
 
 Recomendamos a leitura da [Visão geral técnica do lote do Azure](batch-technical-overview.md) antes de percorrer as etapas descritas neste artigo.
@@ -73,7 +73,7 @@ Este comando instala a versão mais recente do SDK do nó de lote do azure.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Etapa 2: criação uma conta de lote do Azure
 
-Você pode criá-lo no [portal do Azure](batch-account-create-portal.md) ou na linha de comando ([Powershell](batch-powershell-cmdlets-get-started.md) /[CLI do Azure](https://docs.microsoft.com/cli/azure/overview)).
+Você pode criá-lo no [portal do Azure](batch-account-create-portal.md) ou na linha de comando ([Powershell](batch-powershell-cmdlets-get-started.md) /[CLI do Azure](/cli/azure/overview)).
 
 A seguir estão os comandos para criar um através da CLI do Azure.
 
@@ -360,5 +360,5 @@ O portal tem exibições detalhadas nas tarefas e nos status do trabalho. Você 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Examine o artigo [Visão geral dos recursos do Lote do Azure](batch-api-basics.md) , que é recomendável se ainda não estiver familiarizado com o serviço.
-- Confira a [referência Node.js em lotes](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) para explorar a API do lote.
+- Confira a [referência Node.js em lotes](/javascript/api/overview/azure/batch) para explorar a API do lote.
 

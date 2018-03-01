@@ -58,9 +58,7 @@
     - name: Recursos
       items:
         - name: Tipos de preço
-          href: concepts-service-tiers.md
-        - name: Unidades de computação
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: limites
           href: concepts-limits.md
     - name: Acesso a dados e segurança
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: Configurar SSL
           href: concepts-ssl-connection-security.md
+    - name: Continuidade dos negócios
+      items:
+        - name: Visão geral
+          href: concepts-business-continuity.md
+        - name: Backup e restauração
+          href: concepts-backup.md
     - name: Monitoramento
       href: concepts-monitoring.md
     - name: Desenvolvimento
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: Guias de instruções
   items:
-    - name: Regras de firewall
+    - name: Criar usuários
+      href: howto-create-users.md
+    - name: Gerenciar o firewall
       items:
         - name: Portal do Azure
           href: howto-manage-firewall-using-portal.md

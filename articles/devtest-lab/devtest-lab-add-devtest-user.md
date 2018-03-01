@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar usuários e proprietários aos Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -64,7 +64,7 @@ Os proprietários e os usuários podem ser adicionados no nível do laboratório
 As etapas a seguir vão orientá-lo durante o processo de adição de um proprietário ou de um usuário a um laboratório nos Azure DevTest Labs:
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **Mais serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+2. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.
 4. Na folha do laboratório, selecione **Configuração**. 
 5. Na folha **Configuração**, selecione **Usuários**.
@@ -118,7 +118,7 @@ Você pode adicionar outros proprietários a um laboratório por meio da folha d
 Para adicionar um proprietário a uma assinatura do Azure, siga estas etapas:
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **Mais Serviços** e selecione **Assinaturas na lista**.
+2. Selecione **Todos os Serviços** e, em seguida, selecione **Assinaturas** na lista.
 3. Selecione a assinatura desejada.
 4. Selecione o ícone **Acesso** . 
    

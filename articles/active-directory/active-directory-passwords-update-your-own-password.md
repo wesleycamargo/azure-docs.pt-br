@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 5c850fe9eaf78ab5ee6a175e5433998e1f15ab2e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Redefinir sua senha corporativa ou de estudante
 
-Caso tenha esquecido sua senha, nunca recebeu outra do suporte da sua empresa, teve sua conta bloqueada ou deseja alterá-la, nós podemos ajudar. Se você sabe sua senha e precisa apenas alterá-la, vá para a seção [Alterar minha senha](#change-my-password).
+Se você tiver esquecido sua senha, nunca tiver recebido outra do suporte da sua empresa, teve sua conta bloqueada ou deseja alterá-la, nós podemos ajudar. Se você sabe sua senha e precisa apenas alterá-la, vá para a seção [Alterar minha senha](#change-my-password).
 
    > [!NOTE]
    > Se estiver tentando voltar para sua conta pessoal, como Xbox, hotmail.com ou outlook.com, tente as sugestões do artigo [Quando você não consegue entrar em sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
@@ -39,19 +39,19 @@ Talvez você não consiga acessar sua conta do Azure Active Directory (Azure AD)
 
 Use as etapas a seguir para acessar o SSPR (autoatendimento de redefinição de senha) e voltar para sua conta.
 
-1. Em qualquer página **Entrar** corporativa ou de estudante, selecione o link **Não consegue acessar sua conta?** e **Conta corporativa ou de estudante** ou vá diretamente para a [página Redefinição de senha](https://passwordreset.microsoftonline.com/).
+1. Em qualquer página **Entrar** de uma conta corporativa ou de estudante, selecione o link **Não consegue acessar sua conta?** e, depois, **Conta corporativa ou de estudante** ou vá diretamente para a página [Redefinição de senha](https://passwordreset.microsoftonline.com/).
 
     ![Não é possível acessar sua conta?][Login]
 
-2. Insira sua **ID de Usuário** corporativa ou de estudante para provar que você não é um robô digitando os caracteres exibidos na tela e, em seguida, selecione **Avançar**.
+2. Insira sua **ID de Usuário** corporativa ou de estudante, prove que você não é um robô digitando os caracteres exibidos na tela e, em seguida, selecione **Avançar**.
 
    > [!NOTE]
-   > Se sua equipe de TI não tiver habilitado essa funcionalidade, um link "Entre em contato com o administrador" será exibido para que sua equipe de TI possa ajudar por email ou por um portal da Web próprio.
+   > Se a sua equipe de TI não tiver habilitado essa funcionalidade, um link "Entre em contato com o administrador" será exibido para que sua equipe de TI possa ajudar por email ou por um portal da Web próprio.
    >
    > Se você precisar desbloquear sua conta, neste momento, selecione a opção **Sei minha senha, mas ainda não consigo entrar.**
    >
 
-3. Dependendo de como a equipe de TI configurou o SSPR, você deverá ver um ou mais dos métodos de autenticação a seguir. Você ou sua equipe de TI deve ter populado algumas dessas informações seguindo as etapas no artigo [Registro de autoatendimento de redefinição de senha](active-directory-passwords-reset-register.md).
+3. Dependendo de como a equipe de TI configurou o SSPR, você deverá ver um ou mais dos métodos de autenticação a seguir. Você ou sua equipe de TI deve ter populado algumas dessas informações seguindo as etapas do artigo [Registro de redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md).
 
    * **Enviar por email para o meu email alternativo**
    * **Enviar mensagem de texto para o meu celular**
@@ -64,14 +64,14 @@ Use as etapas a seguir para acessar o SSPR (autoatendimento de redefinição de 
    ![Verificar os dados de autenticação][Verification]
 
 4. Sua equipe de TI pode precisar de outras verificações e talvez você tenha que repetir a etapa 3 com uma opção diferente.
-5. Na página **Escolher uma nova senha**, insira uma nova senha, confirme-a e selecione **Concluir**. Sua senha corporativa ou de estudante pode ter determinados requisitos que você precisa cumprir. Sugerimos a escolha de uma senha que tenha de 8 a 16 caracteres e inclua caracteres maiúsculos e minúsculos, um número e um caractere especial.
+5. Na página **Escolher uma nova senha**, insira uma nova senha, confirme-a e selecione **Concluir**. Sua senha corporativa ou de estudante pode ter alguns requisitos obrigatórios. Sugerimos a escolha de uma senha que tenha de 8 a 16 caracteres e inclua caracteres maiúsculos e minúsculos, um número e um caractere especial.
 6. Quando a mensagem **Sua senha foi redefinida** for exibida, você poderá entrar com a nova senha.
 
     ![A senha do usuário foi redefinida][Complete]
 
 Agora você deve poder acessar sua conta. Se não for possível acessar a conta, você deverá contatar a equipe de TI da organização para obter mais ajuda.
 
-Você pode receber um email de confirmação que venha de uma conta como "Microsoft em nome da \<sua organização>". Se você receber um email como este e não tiver usado o autoatendimento de redefinição de senha para recuperar o acesso à sua conta, contate a equipe de TI da sua organização.
+Você pode receber um email de confirmação de uma conta como "Microsoft em nome da \<sua organização>". Se você receber um email como este e não tiver usado o autoatendimento de redefinição de senha para recuperar o acesso à sua conta, contate a equipe de TI da sua organização.
 
 ## <a name="change-my-password"></a>Alterar minha senha
 
@@ -101,10 +101,10 @@ Se o administrador tiver habilitado a funcionalidade, você verá um link para *
 
 ![Tela de entrada][LoginScreen]
 
-Selecione o link **Redefinir senha** a fim de abrir a experiência do SSPR na tela de entrada para que você possa redefinir a senha sem precisar entrar para ter acesso à experiência comum baseada na Web.
+Selecione o link **Redefinir senha** para abrir a experiência do SSPR na tela de entrada. Dessa forma, você não precisará entrar para acessar a experiência comum baseada na Web.
 
 1. Confirme a ID de usuário e selecione **Avançar**.
-2. Selecione e confirme um método de contato para a verificação. Sua equipe de TI pode precisar de outras verificações e talvez você tenha que repetir esta etapa com uma opção diferente.
+2. Selecione e confirme um método de contato para a verificação. Talvez sua equipe de TI precise de outras verificações e você tenha que repetir esta etapa com uma opção diferente.
 
    ![Método de contato][ContactMethod]
 
@@ -125,12 +125,12 @@ Agora você deve poder acessar sua conta. Caso contrário, contate a equipe de T
 | Eu vejo um erro quando tento alterar minha senha. | Infelizmente, sua senha contém uma palavra, uma frase ou um padrão que pode ser facilmente adivinhado. Tente novamente com uma senha diferente. | Escolha uma senha que seja mais difícil de ser adivinhada. |
 | Uma página "Contate seu administrador" é exibida após a inserção da minha ID de usuário | Contate o administrador. <br> <br> Detectamos que a senha da sua conta de usuário não é gerenciada pela Microsoft. Portanto, não podemos redefinir sua senha automaticamente. <br> <br> Você precisa contatar sua equipe de TI para receber mais assistência. | Você está vendo esta mensagem porque a equipe de TI gerencia sua senha no seu ambiente local. Não é possível redefinir a senha usando o link "Não é possível acessar sua conta". <br> <br> Para redefinir a senha, contate a equipe de TI diretamente para obter ajuda e informe que deseja redefinir a senha para que ela possa habilitar o recurso para você.|
 | Recebo um erro "Sua conta não está habilitada para redefinição de senha" depois de inserir a ID de usuário | Sua conta não está habilitada para redefinição de senha. <br> <br> A equipe de TI não configurou sua conta para usar esse serviço. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a equipe de TI não habilitou a redefinição de senha para a organização usando o link "Não é possível acessar sua conta" ou não licenciou você para usar o recurso. <br> <br> Para redefinir a senha, selecione o link "Contate um administrador" para enviar um email à equipe de TI da empresa e informe que deseja redefinir a senha para que ela possa habilitar esse recurso para você. |
-| Recebo um erro "Não foi possível verificar sua conta" depois de inserir a ID de usuário | Não foi possível verificar sua conta. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a redefinição de senha está habilitada, mas você não se registrou para usar o serviço. Para se registrar para redefinição de senha, vá para http://aka.ms/ssprsetup depois que você tiver recuperado o acesso à sua conta. <br> <br> A fim de redefinir a senha, selecione o link "Contate um administrador" para enviar um email à equipe de TI da empresa. |
+| Recebo um erro "Não foi possível verificar sua conta" depois de inserir a ID de usuário | Não foi possível verificar sua conta. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a redefinição de senha está habilitada, mas você não se registrou para usar o serviço. Para registra-se para a redefinição de senha, acesse https://aka.ms/ssprsetup depois de recuperar o acesso à sua conta. <br> <br> Para redefinir a senha, selecione o link "Contate um administrador" para enviar um email à equipe de TI da empresa. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como registrar para usar a redefinição de senha de autoatendimento ](active-directory-passwords-reset-register.md)
-* [Página de registro de redefinição de senha](http://aka.ms/ssprsetup)
+* [Página de registro de redefinição de senha](https://aka.ms/ssprsetup)
 * [Portal de redefinição de senha:](https://passwordreset.microsoftonline.com/)
 * [Você não consegue acessar a sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

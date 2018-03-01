@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurar ambiente de área restrita de HDInsight associada ao domínio
 
-Saiba como configurar um cluster do Azure HDInsight com o Azure Active Directory autônomo e [Apache Ranger](http://hortonworks.com/apache/ranger/) para tirar proveito das fortes políticas de autenticação e RBAC (controle de acesso avançado baseado em função). Para obter mais informações, consulte [Introduzir clusters HDInsight ingressados no domínio](apache-domain-joined-introduction.md).
+Saiba como configurar um cluster do Azure HDInsight com o Azure Active Directory autônomo e [Apache Ranger](http://hortonworks.com/apache/ranger/) para tirar proveito das fortes políticas de autenticação e RBAC (controle de acesso avançado baseado em função). Para obter mais informações, consulte [Introduzir clusters HDInsight ingressados no domínio](apache-domain-joined-introduction.md). 
+
+> [!IMPORTANT]
+> Por padrão, essa configuração somente pode ser utilizada com o uso de contas de Armazenamento do Microsoft Azure. Para usar com o Azure Data Lake Store, sincronize o Active Directory para um novo Azure Active Directory.
 
 Sem o cluster do HDInsight associado ao domínio, cada cluster só pode ter uma conta de usuário do Hadoop HTTP e uma conta de usuário SSH.  A autenticação de vários usuários pode ser obtida usando:
 
@@ -40,6 +43,7 @@ Usar um Active Directory autônomo na execução no Azure IaaS é abordado neste
     - Criar cluster HDInsight
 
 > [!IMPORTANT]
+> 
 > O Oozie não está habilitado no HDInsight ingressado no domínio.
 
 ## <a name="prerequisite"></a>Pré-requisito

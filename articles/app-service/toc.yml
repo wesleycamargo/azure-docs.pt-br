@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
+    - name: Modelos do Gerenciador de Recursos
+      href: app-service-rm-template-samples.md
 - name: Conceitos
   items:
     - name: Como funciona o Serviço de Aplicativo
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: Criar ambientes de preparo
           href: web-sites-staged-publishing.md
+        - name: Diretrizes de modelo do Gerenciador de Recursos
+          href: web-sites-rm-template-guidance.md
     - name: Mapear domínio personalizado
       items:
         - name: Comprar domínio

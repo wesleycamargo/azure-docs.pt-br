@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Web em PHP e MySQL no Serviço de Aplicativo do Azure no Linux
 
@@ -258,7 +258,7 @@ Salve as alterações.
 
 ### <a name="configure-ssl-certificate"></a>Configurar o certificado SSL
 
-Por padrão, o Banco de Dados do Azure para MySQL impõe conexões SSL de clientes. Para se conectar ao banco de dados MySQL no Azure, você deve usar o certificado [_.pem_ fornecido pelo Banco de Dados do Azure para MySQL](../../mysql/howto-configure-ssl.md).
+Por padrão, o Banco de Dados do Azure para MySQL impõe conexões SSL de clientes. Para se conectar ao seu banco de dados MySQL no Azure, você deve usar o certificado [_.pem_ fornecido pelo Banco de Dados do Azure para MySQL](../../mysql/howto-configure-ssl.md).
 
 Abra _config/database.php_ e adicione os parâmetros _sslmode_ and _options_ a `connections.mysql`, conforme mostrado no código a seguir.
 
@@ -320,7 +320,7 @@ Nesta etapa, você implanta o aplicativo PHP conectado ao MySQL no Serviço de A
 O aplicativo Laravel é iniciado no diretório _/public_. A imagem do Docker do PHP padrão para o Serviço de Aplicativo usa Apache, e não permite a personalização do `DocumentRoot` para Laravel. No entanto, você pode usar `.htaccess` para reescrever todas as solicitações a fim de apontar para _/public_ em vez do diretório raiz. Na raiz do repositório, já há um `.htaccess` para essa finalidade. Com ele, seu aplicativo Laravel está pronto para ser implantado.
 
 > [!NOTE] 
-> Se você preferir não usar a regeneração de _.htaccess_, implante seu aplicativo Laravel com uma [imagem personalizada do Docker](quickstart-custom-docker-image.md).
+> Se você preferir não usar a regeneração de _.htaccess_, implante seu aplicativo Laravel com uma [imagem personalizada do Docker](quickstart-docker-go.md).
 >
 >
 
