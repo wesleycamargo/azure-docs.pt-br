@@ -163,7 +163,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Configurar Logon Único](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_configure.png) 
 
     >[!NOTE] 
-    >Antes de configurar o logon único no aplicativo Hightail, coloque seu domínio de email na lista branca com a equipe do Hightail para que todos os usuários que usam esse domínio possam utilizar a funcionalidade de Logon Único.
+    >Antes de configurar o logon único no aplicativo Hightail, coloque seu domínio de email na lista de permissões com a equipe do Hightail para que todos os usuários que usam esse domínio possam utilizar a funcionalidade de Logon Único.
 
 
 9. Para configurar o SSO para o aplicativo, você precisa entrar no locatário Hightail como administrador.
