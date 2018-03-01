@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introdução ao Gerenciador de armazenamento (visualização)
 ## <a name="overview"></a>Visão geral
@@ -28,6 +28,16 @@ O Gerenciador de armazenamento do Azure (visualização) é um aplicativo autôn
 
 ## <a name="prerequisites"></a>pré-requisitos
 * [Baixe e instale o Gerenciador de armazenamento (visualização)](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Para distribuições Linux diferentes do Ubuntu 16.04, talvez seja necessário instalar algumas dependências manualmente. Em geral, são necessários os seguintes pacotes:
+> * libgconf-2-4
+> * libsecret
+> * GCC atualizado
+>
+> Dependendo da sua distribuição, talvez seja necessário instalar outros pacotes. O Gerenciador de Armazenamento[Notas de Versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contém etapas específicas para algumas distribuições.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Conectar-se a uma conta de armazenamento ou serviço
 O Gerenciador de armazenamento (visualização) fornece várias maneiras de se conectar às contas de armazenamento. Por exemplo, você pode:

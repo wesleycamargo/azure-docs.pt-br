@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativo Lógico do Azure
 
@@ -29,7 +29,7 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Exibir execuções e disparar o histórico do aplicativo lógico
 
-1. Para encontrar o aplicativo lógico no [portal do Azure](https://portal.azure.com), no menu principal do Azure, escolha **Mais serviços**. Na caixa de pesquisa, encontre “aplicativos lógicos” e escolha **Aplicativos lógicos**.
+1. Para encontrar o aplicativo lógico no [portal do Azure](https://portal.azure.com), no menu principal do Azure, escolha **Todos os serviços**. Na caixa de pesquisa, digite “aplicativos lógicos” e escolha **Aplicativos lógicos**.
 
    ![Encontrar o aplicativo lógico](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -109,7 +109,7 @@ Agora, você pode encontrar eventos e outros dados para eventos de gatilho, even
 
 Para localizar e exibir eventos no aplicativo lógico, como eventos de gatilho, eventos de execução e eventos de ação, siga estas etapas.
 
-1. No [portal do Azure](https://portal.azure.com), escolha **Mais serviços**. Pesquise “log analytics” e, em seguida, escolha **Log Analytics**, conforme mostrado aqui:
+1. No [Portal do Azure](https://portal.azure.com), escolha **Todos os serviços**. Pesquise “log analytics” e, em seguida, escolha **Log Analytics**, conforme mostrado aqui:
 
    ![Escolher “Log Analytics”](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

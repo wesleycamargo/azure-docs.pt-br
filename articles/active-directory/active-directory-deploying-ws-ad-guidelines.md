@@ -155,7 +155,7 @@ Sim, você pode implantar o AD FS do Windows Server em máquinas virtuais do Azu
    
     Para permitir que usuários externos acessem o AD FS a partir da Internet, você precisará implantar nós de Proxy de Aplicativo Web (ou Proxy do AD FS em versões anteriores do Windows Server). Os nós de proxy de Aplicativo Web são diretamente expostos à Internet. Eles não têm que estar ingressados no domínio e só precisam acessar os servidores do AD FS em portas TCP 443 e 80. É altamente recomendável que a comunicação com todos os outros computadores (especialmente controladores de domínio) esteja bloqueada.
    
-    Isso é normalmente obtido no local por meio de uma DMZ. Os firewalls usam um modo de lista branca de operação para restringir o DMZ à rede local (ou seja, somente o tráfego de endereços IP especificados e portas específicas é permitido e todos os outros tráfegos são bloqueados).
+    Isso é normalmente obtido no local por meio de uma DMZ. Os firewalls usam um modo de lista de permissões de operação para restringir o DMZ à rede local (ou seja, somente o tráfego de endereços IP especificados e portas específicas é permitido e todos os outros tráfegos são bloqueados).
 
 O diagrama a seguir mostra uma implantação tradicional do AD FS no local.
 
@@ -166,7 +166,7 @@ No entanto, como o Azure não fornece recurso de firewall completo nativo, outra
 | Opção | Vantagem | Desvantagem |
 | --- | --- | --- |
 | [ACLs da rede do Azure](../virtual-network/virtual-networks-acl.md) |Configuração inicial mais simples e com menor custo |Configuração adicional de ACL de rede necessária se novas VMs são adicionadas à implantação |
-| [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) |Modo de lista branca de operação e não requer configurações de ACL de rede |Aumento de custo e complexidade da configuração inicial |
+| [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) |Modo de lista de permissões de operação e não requer configurações de ACL de rede |Aumento de custo e complexidade da configuração inicial |
 
 As etapas de alto nível para implantar o AD FS neste caso são as seguintes:
 
@@ -203,7 +203,7 @@ Uma desvantagem dessa opção é a necessidade de configurar ACLs de rede para v
 
 ![ADFS no Azure com ACLS de rede.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure.png)
 
-Outra opção é usar o dispositivo [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) para controlar o tráfego entre servidores de proxy do AD FS e servidores do AD FS. Esta opção está em conformidade com as práticas recomendadas para segurança e alta disponibilidade e requer menos administração após a configuração inicial porque o dispositivo Barracuda NG Firewall oferece um modo de lista branca de administração do firewall e pode ser instalado diretamente em uma rede virtual do Azure. Isso elimina a necessidade de configurar ACLs de rede sempre que um novo servidor for adicionado à implantação. Mas essa opção adiciona custo e complexidade à implantação inicial.
+Outra opção é usar o dispositivo [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) para controlar o tráfego entre servidores de proxy do AD FS e servidores do AD FS. Esta opção está em conformidade com as práticas recomendadas para segurança e alta disponibilidade e requer menos administração após a configuração inicial porque o dispositivo Barracuda NG Firewall oferece um modo de lista de permissões de administração do firewall e pode ser instalado diretamente em uma rede virtual do Azure. Isso elimina a necessidade de configurar ACLs de rede sempre que um novo servidor for adicionado à implantação. Mas essa opção adiciona custo e complexidade à implantação inicial.
 
 Nesse caso, duas redes virtuais são implantadas em vez de uma. Vamos chamá-las de VNet1 e VNet2. VNet1 contém os proxies e VNet2 contém os STSs e a conexão de rede para a rede corporativa. VNet1 é, portanto, fisicamente (embora virtualmente) isolada da VNet2 e, por sua vez, da rede corporativa. VNet1 é conectada a VNet2 usando uma tecnologia de túnel especial conhecida como TINA (Transport Independent Network Architecture). O túnel TINA é anexado a cada uma das redes virtuais usando um firewall Barracuda NG: um Barracuda em cada uma das redes virtuais.  Para alta disponibilidade, é recomendável que você implante dois Barracudas em cada rede virtual, sendo um ativo e outro passivo. Eles oferecem recursos de firewall extremamente avançados que nos permitem simular a operação de um DMZ local tradicional no Azure.
 

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Roteiro do SQL Data Warehouse do Azure
 Esta folha de referências fornece dicas úteis e melhores práticas para a compilação de suas soluções do SQL Data Warehouse do Azure. Antes da introdução, saiba mais sobre cada etapa detalhadamente, lendo os [Padrões de Carga de Trabalho do SQL Data Warehouse do Azure e Anti-Padrões](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), que explica o que é SQL Data Warehouse e o que não é.
@@ -121,7 +121,7 @@ Por fim, usar a camada otimizada de computação, cada classe de recursos obter�
 Saiba mais sobre como trabalhar com [classes de recursos e simultaneidade].
 
 ## <a name="lower-your-cost"></a>Reduzir seu custo
-Um recurso importante do SQL Data Warehouse é a capacidade de pausar quando você não está usando-o, o que interrompe a cobrança dos recursos de computação. Outro recurso importante é a capacidade de dimensionar os recursos. A pausa e o dimensionamento podem ser feitos no Portal do Azure ou pelos comandos do PowerShell.
+Um recurso principal do SQL Data Warehouse é a capacidade de [gerenciar recursos de computação](sql-data-warehouse-manage-compute-overview.md). Você pode pausar o Data Warehouse quando você não está usando-o, o que interrompe a cobrança dos recursos de computação. Você pode dimensionar os recursos para atender às suas exigências de desempenho. Para pausar, use o [portal do Azure](pause-and-resume-compute-portal.md) ou [PowerShell](pause-and-resume-compute-powershell.md). Para dimensionar, use o [portal do Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), ou um [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Dimensione automaticamente no momento que desejar com o Azure Functions:
 

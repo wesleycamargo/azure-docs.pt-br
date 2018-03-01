@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
@@ -43,7 +43,7 @@ Em nosso cenário, estamos usando a seguinte configuração:
 - O Azure Load Balancer é usado para expor os dois endereços IP de front-end, um para cada site. Os endereços de front-end são usados para distribuir o tráfego para a respectiva configuração de IP de cada site.
 - O mesmo número da porta é usado para endereços IP de front-end e endereços IP do pool de back-end.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Nosso cenário pressupõe que você tem um grupo de recursos denominado **contosofabrikam** com a seguinte configuração:
 
@@ -89,7 +89,7 @@ Crie seu balanceador de carga para a configuração:
 
 1. Faça logon no Portal do Azure em http://portal.azure.com. Faça logon usando sua conta do Azure.
 
-2. No canto superior esquerdo da tela, clique em **Novo** > **Rede** > **Balanceador de Carga**. Em seguida, selecione **Criar**.
+2. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Balanceador de carga**. Em seguida, selecione **Criar**.
 
 3. Em **Criar balanceador de carga**, digite um nome para o balanceador de carga. Neste cenário, estamos usando o nome **mylb**.
 

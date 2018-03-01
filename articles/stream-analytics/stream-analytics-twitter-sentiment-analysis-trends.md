@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Stream Analytics do Azure
 
@@ -35,7 +35,7 @@ Uma empresa com um site de mídia de notícias está interessada em obter uma va
 
 Para identificar os tópicos em destaque em tempo real no Twitter, a empresa precisa de análise em tempo real sobre o volume de tweets e de sentimento para os tópicos principais. Em outras palavras, eles precisam de um mecanismo de análise para análise de sentimento baseado nesse feed de mídia social.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Neste tutorial, você deve usar um aplicativo cliente que se conecta ao Twitter e procura tweets com determinados hashtags (que podem ser definidos). Para executar o aplicativo e analisar os tweets usando o Azure Streaming Analytics, você deve ter o seguinte:
 
 * Uma assinatura do Azure
@@ -51,7 +51,7 @@ O aplicativo de exemplo gera eventos e empurra eles para um hub de eventos do Az
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Criar um namespace de hub de eventos e um hub de eventos
 Neste procedimento, você primeiro cria um namespace de hub de eventos e, em seguida, adiciona um hub de eventos para esse namespace. Namespaces do hub de evento são usados para agrupar logicamente instâncias de barramento de evento relacionadas. 
 
-1. Registre-se no Portal do Azure e clique em **Novo** > **Internet das Coisas** > **Hub de Evento**. 
+1. Entre no Portal do Azure e clique em **Criar um recurso** > **Internet das Coisas** > **Hub de Eventos**. 
 
 2. Na folha **Criar um namespace**, insira um nome de namespace como `<yourname>-socialtwitter-eh-ns`. Você pode usar qualquer nome para o namespace, mas o nome deve ser válido para uma URL e deve ser exclusivo no Azure. 
     
@@ -200,7 +200,7 @@ O procedimento a seguir documenta as duas abordagens.
 
 Agora que os eventos de Tweets estão sendo transmitidos em tempo real do Twitter, você pode configurar um trabalho de Stream Analytics para analisar esses eventos em tempo real.
 
-1. No portal do Azure, clique em **Novo** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
+1. No portal do Azure, clique em **Criar um recurso** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
 
 2. Selecione o trabalho `socialtwitter-sa-job` e especifique uma assinatura, um grupo de recursos e um local.
 

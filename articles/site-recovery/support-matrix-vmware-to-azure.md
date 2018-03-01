@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88fc17b635cc96defd1b6f766b9b2ac2c63f2fa7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para replicação de VMware e servidor físico no Azure
 
@@ -22,8 +22,8 @@ Este artigo resume os componentes compatíveis e as configurações de recupera�
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-**Cenário** | **Detalhes** 
---- | --- 
+**Cenário** | **Detalhes**
+--- | ---
 **VMs VMware** | Execute a recuperação de desastre de VMs da VMware locais no Azure. É possível implantar este cenário no portal do Azure ou usando o PowerShell.
 **Servidores físicos** | Execute a recuperação de desastre de servidores físicos do Windows/Linux locais no Azure. Implante esse cenário no portal do Azure.
 
@@ -83,90 +83,91 @@ XFSv5 | Os recursos de XFSv5 são compatíveis com sistemas de arquivos XFS, com
 
 ## <a name="network"></a>Rede
 
-**Componente** | **Com suporte** 
---- | --- 
+**Componente** | **Com suporte**
+--- | ---
 Agrupamento NIC da rede do host | Compatível com VMs da VMware <br/><br/>Sem suporte para a replicação de computador físico
-VLAN da rede do host | sim 
-IPv4 da rede do host | sim 
-IPv6 da rede do host | Não  
-Agrupamento NIC da rede do convidado/servidor | Não  
-IPv4 da rede do convidado/servidor | sim 
-IPv6 da rede do convidado/servidor | Não  
-IP estático da rede do convidado/servidor (Windows) | sim 
+VLAN da rede do host | sim
+IPv4 da rede do host | sim
+IPv6 da rede do host | Não 
+Agrupamento NIC da rede do convidado/servidor | Não 
+IPv4 da rede do convidado/servidor | sim
+IPv6 da rede do convidado/servidor | Não 
+IP estático da rede do convidado/servidor (Windows) | sim
 IP estático da rede do convidado/servidor (Linux) | sim <br/><br/>As VMs são configuradas para usar o DHCP no failback  
-Várias NICs da rede do convidado/servidor | sim 
+Várias NICs da rede do convidado/servidor | sim
 
 
 ## <a name="azure-vm-network-after-failover"></a>Rede VM do Azure (após o failover)
 
-**Componente** | **Com suporte** 
---- | --- 
-ExpressRoute | sim 
-ILB | sim 
-ELB | sim 
-Gerenciador de Tráfego | sim 
-NIC múltipla | sim 
-Endereço IP Reservado | sim 
-IPv4 | sim 
-Manter endereço IP de origem | sim 
-Pontos de extremidade de serviço de rede virtual<br/><br/> (Firewalls de armazenamento do Azure e VNETs) | Não  
+**Componente** | **Com suporte**
+--- | ---
+ExpressRoute | sim
+ILB | sim
+ELB | sim
+Gerenciador de Tráfego | sim
+NIC múltipla | sim
+Endereço IP Reservado | sim
+IPv4 | sim
+Manter endereço IP de origem | sim
+Pontos de extremidade de serviço de rede virtual<br/><br/> (Firewalls de armazenamento do Azure e VNETs) | Não 
 
 
 ## <a name="storage"></a>Armazenamento
 
 
-**Componente** | **Com suporte** 
---- | --- 
-NFS do host | Sim para VMware<br/><br/> Não para servidores físicos 
+**Componente** | **Com suporte**
+--- | ---
+NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
 SAN (ISCSI) do host | sim
 MPIO (Múltiplos caminhos) do host | Sim – testado com: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
-VMDK do convidado/servidor | sim 
-EFI/UEFI do convidado/servidor| Parcial (migração para o Azure somente para Windows Server 2012 e posterior). </br></br> ** Consulte a observação ao final da tabela.
-Disco de cluster compartilhado do convidado/servidor | Não  
-Disco criptografado do convidado/servidor | Não  
-NFS do convidado/servidor | Não  
+VMDK do convidado/servidor | sim
+EFI/UEFI do convidado/servidor| Parcial (Somente migração do Azure para o Windows Server 2012 e máquinas virtuais VMware posteriores.) </br></br> ** Consulte a observação ao final da tabela.
+Disco de cluster compartilhado do convidado/servidor | Não 
+Disco criptografado do convidado/servidor | Não 
+NFS do convidado/servidor | Não 
 SMB 3.0 do convidado/servidor | Não 
-RDM do convidado/servidor | sim<br/><br/> N/D para servidores físicos 
-Disco do convidado/servidor > 1 TB | sim<br/><br/>Até 4.095 GB 
+RDM do convidado/servidor | sim<br/><br/> N/D para servidores físicos
+Disco do convidado/servidor > 1 TB | sim<br/><br/>Até 4.095 GB
 Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | sim
-Disco do convidado/servidor com tamanho de setor lógico de 4.000 e físico de 512 bytes | sim 
+Disco do convidado/servidor com tamanho de setor lógico de 4.000 e físico de 512 bytes | sim
 Volume do convidado/servidor com discos distribuídos > 4 TB <br><br/>Gerenciamento de Volume lógico LVM | sim
-Convidado/servidor - espaços de armazenamento | Não  
-Adicionar/remover disco a quente por convidado/servidor | Não  
-Convidado/servidor - excluir disco | sim 
+Convidado/servidor - espaços de armazenamento | Não 
+Adicionar/remover disco a quente por convidado/servidor | Não 
+Convidado/servidor - excluir disco | sim
 Múltiplos caminhos (MPIO) de convidado/servidor | N/D
 
 > [!NOTE]
-> Máquinas virtuais da VMware com inicialização ** UEFI ** ou Servidores físicos com Windows Server 2012 ou posterior podem ser migrados para o Azure. As restrições a seguir se aplicam.
+> Máquinas virtuais da VMware com inicialização ** UEFI ** com Windows Server 2012 ou posterior podem ser migrados para o Azure. As restrições a seguir se aplicam.
 > - Há suporte apenas para a migração para o Azure. O failback não é compatível com o site do VMware local.
 > - O servidor não deve ter mais de 4 partições no disco do sistema operacional.
 > - Exige o Serviço de mobilidade do Azure Site Recovery versão 9.13 ou posterior.
+> - Sem suporte para servidores físicos.
 
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
-**Componente** | **Com suporte** 
---- | --- 
-LRS | sim 
-GRS | sim 
-RA-GRS | sim 
-Armazenamento frio | Não  
-Armazenamento quente| Não  
-Blobs de blocos | Não  
-Criptografia em repouso (SSE)| sim 
-Armazenamento Premium | sim 
-Serviço de importação/exportação | Não  
-Pontos de extremidade de serviço de rede virtual<br/><br/> Firewalls do armazenamento do Azure e VNETs configuradas na conta de armazenamento de cache/armazenamento de destino (usada para armazenar dados de replicação) | Não  
-Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não  
+**Componente** | **Com suporte**
+--- | ---
+LRS | sim
+GRS | sim
+RA-GRS | sim
+Armazenamento frio | Não 
+Armazenamento quente| Não 
+Blobs de blocos | Não 
+Criptografia em repouso (SSE)| sim
+Armazenamento Premium | sim
+Serviço de importação/exportação | Não 
+Pontos de extremidade de serviço de rede virtual<br/><br/> Firewalls do armazenamento do Azure e VNETs configuradas na conta de armazenamento de cache/armazenamento de destino (usada para armazenar dados de replicação) | Não 
+Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não 
 
 
 ## <a name="azure-compute"></a>Computação do Azure
 
-**Recurso** | **Com suporte** 
---- | --- 
-Conjuntos de disponibilidade | sim 
+**Recurso** | **Com suporte**
+--- | ---
+Conjuntos de disponibilidade | sim
 HUB | sim   
-Discos gerenciados | sim 
+Discos gerenciados | sim
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -180,7 +181,7 @@ VMs locais que são replicados para o Azure devem atender aos requisitos de VM d
 **Contagem de discos do sistema operacional** | 1 | A verificação de pré-requisitos falhará se não houver suporte.
 **Contagem de discos de dados** | 64 ou menos se você estiver replicando **VMs do VMware no Azure**; 16 ou menos se você estiver replicando **VMs do Hyper-V no Azure** | A verificação de pré-requisitos falhará se não houver suporte
 **Tamanho do VHD do disco de dados** | Até 4.095 GB | A verificação de pré-requisitos falha quando não há suporte para ela
-**Adaptadores de rede** | Há suporte para vários adaptadores | 
+**Adaptadores de rede** | Há suporte para vários adaptadores |
 **VHD compartilhado** | Sem suporte | A verificação de pré-requisitos falha quando não há suporte para ela
 **Disco FC** | Sem suporte | A verificação de pré-requisitos falha quando não há suporte para ela
 **Formato de disco rígido** | VHD  <br/><br/> VHDX | Apesar de atualmente o VHDX não ter suporte no Azure, a Recuperação de Site converterá automaticamente o VHDX em VHD ao realizar o failover para o Azure. Quando você executa o failback para o local, as máquinas virtuais continuam a usar o formato VHDX.
@@ -190,10 +191,10 @@ VMs locais que são replicados para o Azure devem atender aos requisitos de VM d
 
 ## <a name="vault-tasks"></a>Tarefas do Vault
 
-**Ação** | **Com suporte** 
---- | --- 
-Mover cofre entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não  
-Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não  
+**Ação** | **Com suporte**
+--- | ---
+Mover cofre entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não 
+Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não 
 
 
 ## <a name="mobility-service"></a>Serviço de mobilidade

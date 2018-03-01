@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar do Serviço de Controle de Acesso do Azure
 
@@ -81,7 +81,7 @@ As seções a seguir descrevem as recomendações de alto nível para a migraç�
 
 Cada um dos serviços em nuvem da Microsoft que aceitam tokens emitidos pelo Controle de Acesso agora suportam pelo menos uma forma alternativa de autenticação. O mecanismo de autenticação correto varia para cada serviço. É recomendável que você consulte a documentação específica para cada serviço para obter orientação oficial. Para sua conveniência, cada conjunto de documentação é fornecido aqui:
 
-| O Barramento de | Diretrizes |
+| Serviço | Diretrizes |
 | ------- | -------- |
 | Barramento de Serviço do Azure | [Migrar para Assinaturas de Acesso Compartilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Retransmissão do Barramento de Serviço do Azure | [Migrar para Assinaturas de Acesso Compartilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -134,24 +134,24 @@ Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção p
 | Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
-| Contas corporativas ou de estudante da Microsoft | Suportado | Suportado |
+| Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte |
 | Contas do Windows Server Active Directory e AD FS |- Com suporte por meio de federação com um locatário do Azure AD <br />- Com suporte via federação direta com AD FS | Com suporte apenas por meio de federação com um locatário do Azure AD | 
 | Contas de outros sistemas de gerenciamento de identidade corporativa |- Possível por meio de federação com um locatário do Azure AD <br />- Com suporte via federação direta | Possível por meio de federação com um locatário do Azure AD |
-| Contas da Microsoft para uso pessoal | Suportado | Com suporte por meio do protocolo do OAuth v2.0 do Azure AD, mas não sobre nenhum outro protocolo | 
-| Contas do Facebook, Google, Yahoo | Suportado | Sem nenhum suporte |
+| Contas da Microsoft para uso pessoal | Com suporte | Com suporte por meio do protocolo do OAuth v2.0 do Azure AD, mas não sobre nenhum outro protocolo | 
+| Contas do Facebook, Google, Yahoo | Com suporte | Sem nenhum suporte |
 | **Protocolos e compatibilidade do SDK** | | |
-| WIF | Suportado | Com suporte, mas instruções limitadas estão disponíveis |
-| O certificado do provedor de identidade do Web Services Federation | Suportado | Suportado |
+| WIF | Com suporte | Com suporte, mas instruções limitadas estão disponíveis |
+| O certificado do provedor de identidade do Web Services Federation | Com suporte | Com suporte |
 | OAuth 2.0 | Suporte para Draft 13 | Suporte para RFC 6749, a especificação mais moderna |
-| WS-Trust | Suportado | Sem suporte |
+| WS-Trust | Com suporte | Sem suporte |
 | **Formatos de Token** | | |
-| JWT | Com suporte em versão beta | Suportado |
-| SAML 1.1 | Suportado | Visualização |
-| SAML 2.0 | Suportado | Suportado |
-| SWT | Suportado | Sem suporte |
+| JWT | Com suporte em versão beta | Com suporte |
+| SAML 1.1 | Com suporte | Visualização |
+| SAML 2.0 | Com suporte | Com suporte |
+| SWT | Com suporte | Sem suporte |
 | **Personalizações** | | |
 | Interface de usuário de seleção de conta/descoberta de realm de início personalizável | Código disponível para download que pode ser incorporado a aplicativos | Sem suporte |
-| Carregar certificados de autenticação de tokens personalizados | Suportado | Suportado |
+| Carregar certificados de autenticação de tokens personalizados | Com suporte | Com suporte |
 | Personalizar declarações em gráficos |- Declarações de entrada de passagem de provedores de identidade<br />- Obter token de acesso do provedor de identidade como uma declaração<br />- Emitir declarações de saída com base nos valores de declarações de entrada<br />- Emitir declarações de saída com valores constantes |- Não é possível passar declarações de provedores de identidade federados<br />- Não pode obter um token de acesso do provedor de identidade como uma declaração<br />- Não pode emitir declarações de saída com base nos valores de declarações de entrada<br />- Pode emitir declarações de saída com valores constantes<br />- Pode emitir declarações de saída com base nas propriedades de usuários sincronizadas ao Azure AD |
 | **Automação** | | |
 | Automatizar tarefas de gerenciamento e configuração | Suporte por meio do Serviço de Gerenciamento do Controle de Acesso | Com suporte via Microsoft Graph e Graph API do Azure AD |
@@ -180,7 +180,7 @@ Uma abordagem alternativa é seguir [este código de exemplo](https://github.com
 
 Se você escolher essa abordagem, é preciso entender a [sobreposição de chave de assinatura no Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta abordagem usa a chave de assinatura global do Azure AD para emitir tokens. Por padrão, o WIF não atualiza automaticamente as chaves de assinatura. Quando o Azure AD girar suas chaves de assinatura globais, sua implementação do WIF precisará estar preparada para aceitar as alterações.
 
-Se você pode integrar-se ao Azure AD por meio dos protocolos do OAuth ou OpenID Connect, recomendamos que o faça. Disponibilizamos uma ampla documentação e orientações sobre como integrar o Azure AD ao seu aplicativo Web em nosso [Guia de desenvolvedor do Azure AD](http://aka.ms/aaddev).
+Se você pode integrar-se ao Azure AD por meio dos protocolos do OAuth ou OpenID Connect, recomendamos que o faça. Disponibilizamos uma ampla documentação e orientações sobre como integrar o Azure AD ao seu aplicativo Web em nosso [Guia de desenvolvedor do Azure AD](https://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
@@ -197,24 +197,24 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 | Recurso | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
-| Contas corporativas ou de estudante da Microsoft | Suportado | Com suporte via políticas personalizadas  |
+| Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte via políticas personalizadas  |
 | Contas do Windows Server Active Directory e AD FS | Com suporte via federação direta com AD FS | Com suporte via federação SAML usando políticas personalizadas |
 | Contas de outros sistemas de gerenciamento de identidade corporativa | Com suporte via federação direta via WS-Federation | Com suporte via federação SAML usando políticas personalizadas |
-| Contas da Microsoft para uso pessoal | Suportado | Suportado | 
-| Contas do Facebook, Google, Yahoo | Suportado | Suporte nativo ao Facebook e Google, suporte para Yahoo por meio da federação do OpenID Connect usando políticas personalizadas |
+| Contas da Microsoft para uso pessoal | Com suporte | Com suporte | 
+| Contas do Facebook, Google, Yahoo | Com suporte | Suporte nativo ao Facebook e Google, suporte para Yahoo por meio da federação do OpenID Connect usando políticas personalizadas |
 | **Protocolos e compatibilidade do SDK** | | |
-| Windows Identity Foundation (WIF) | Suportado | Sem suporte |
-| O certificado do provedor de identidade do Web Services Federation | Suportado | Sem suporte |
+| Windows Identity Foundation (WIF) | Com suporte | Sem suporte |
+| O certificado do provedor de identidade do Web Services Federation | Com suporte | Sem suporte |
 | OAuth 2.0 | Suporte para Draft 13 | Suporte para RFC 6749, a especificação mais moderna |
-| WS-Trust | Suportado | Sem suporte |
+| WS-Trust | Com suporte | Sem suporte |
 | **Formatos de Token** | | |
-| JWT | Com suporte em versão beta | Suportado |
-| SAML 1.1 | Suportado | Sem suporte |
-| SAML 2.0 | Suportado | Sem suporte |
-| SWT | Suportado | Sem suporte |
+| JWT | Com suporte em versão beta | Com suporte |
+| SAML 1.1 | Com suporte | Sem suporte |
+| SAML 2.0 | Com suporte | Sem suporte |
+| SWT | Com suporte | Sem suporte |
 | **Personalizações** | | |
 | Interface de usuário de seleção de conta/descoberta de realm de início personalizável | Código disponível para download que pode ser incorporado a aplicativos | Interface do usuário totalmente personalizável via CSS personalizado |
-| Carregar certificados de autenticação de tokens personalizados | Suportado | Chaves de autenticação personalizadas, não certificados, com suporte via políticas personalizadas |
+| Carregar certificados de autenticação de tokens personalizados | Com suporte | Chaves de autenticação personalizadas, não certificados, com suporte via políticas personalizadas |
 | Personalizar declarações em gráficos |- Declarações de entrada de passagem de provedores de identidade<br />- Obter token de acesso do provedor de identidade como uma declaração<br />- Emitir declarações de saída com base nos valores de declarações de entrada<br />- Emitir declarações de saída com valores constantes |- Pode passar por declarações de provedores de identidade; políticas personalizadas necessárias para algumas declarações<br />- Não pode obter um token de acesso do provedor de identidade como uma declaração<br />- Pode emitir declarações de saída com base nos valores de declarações de entrada via políticas personalizadas<br />- Pode emitir declarações de saída com valores constantes via políticas personalizadas |
 | **Automação** | | |
 | Automatizar tarefas de gerenciamento e configuração | Suporte por meio do Serviço de Gerenciamento do Controle de Acesso |- Criação de usuários permitidos por meio da API do Graph do Azure AD<br />- Não pode criar políticas, aplicativos ou locatários B2C programaticamente |
@@ -231,7 +231,7 @@ Se você decidir que o Azure AD B2C é o melhor caminho para seus aplicativos e 
 Em alguns casos, você pode notar que o Azure AD e o Azure AD B2C não são suficientes para substituir o Controle de Acesso nos aplicativos web sem fazer alterações de código principais. Alguns exemplos comuns podem incluir:
 
 - Aplicativos web que usam o WIF ou WS-Federation para entrar com provedores de identidade social, como Google ou Facebook.
-- Aplicativos web que executam a federação direta para um provedor de identidade corporativa por meio do protocolo WS-Federation.
+- Aplicativos Web que executam a federação direta para um provedor de identidade corporativa por meio do protocolo Web Services Federation.
 - Aplicativos web que exigem o token de acesso emitido por um provedor de identidade social (como Google ou Facebook) como uma declaração nos tokens emitidos pelo Controle de Acesso.
 - Aplicativos web com as regras de transformação de token complexas que o Azure AD ou Azure AD B2C não pode reproduzir.
 - Aplicativos web multilocatário que usam o ACS para gerenciar centralmente a federação para muitos provedores de identidade diferentes

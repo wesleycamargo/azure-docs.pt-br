@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial
 
@@ -83,7 +83,7 @@ Há três etapas para definir a aceleração automática de entrada em um aplica
 
 1. Criando uma política HDR para aceleração automática.
 
-2. Localizando o princípio de serviço ao qual anexar a política.
+2. Localizando a entidade de serviço a qual anexar a política.
 
 3. Anexando a política para a entidade de serviço. As políticas podem ter sido criadas em um locatário, mas não terão efeito até serem anexadas a uma entidade. 
 
@@ -135,7 +135,7 @@ Usaremos os cmdlets do PowerShell do Azure AD para percorrer a alguns cenários,
 
 - Listando os aplicativos para os quais uma política é configurada.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas em entidades de serviço do aplicativo no Azure AD.
 
 1.  Para começar, faça o download da visualização do cmdlet do PowerShell do Azure AD mais recente. 
@@ -170,12 +170,12 @@ Get-AzureADPolicy
 ```
 
 
-Para habilitar a aceleração automática depois que tiver uma política HRD, você poderá atribuí-la a vários princípios de serviço do aplicativo.
+Para habilitar a aceleração automática depois que tiver uma política HRD, você poderá atribuí-la a várias entidades de serviço do aplicativo.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Etapa 2: localize a entidade de serviço à qual atribuir a política.  
 Você precisa da **ObjectID** das entidades de serviço às quais deseja atribuir a política. Há várias maneiras de encontrar a **ObjectID** de entidades de serviço.    
 
-Você pode usar o portal ou consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Você também pode ir até a [Ferramenta Explorador do Graph](https://graphexplorer.cloudapp.net/) e entrar na conta do Azure AD para ver todas as entidades de serviço da organização. Como está usando o PowerShell, você pode usar o cmdlet get-AzureADServicePrincipal para listar os princípios de serviço e as IDs.
+Você pode usar o portal ou consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Você também pode ir até a [Ferramenta Explorador do Graph](https://graphexplorer.cloudapp.net/) e entrar na conta do Azure AD para ver todas as entidades de serviço da organização. Como está usando o PowerShell, você pode usar o cmdlet get-AzureADServicePrincipal para listar as entidades de serviço e as IDs.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Etapa 3: Atribuir a política à entidade de serviço  
 Depois que você tiver a **ObjectID** da entidade de serviço do aplicativo para o qual deseja configurar a aceleração automática, execute o comando a seguir. Esse comando associa a política HRD que você criou na etapa 1 à entidade de serviço que você localizou na etapa 2.

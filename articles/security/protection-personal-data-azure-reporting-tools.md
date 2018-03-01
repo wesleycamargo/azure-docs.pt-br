@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentar a proteção de dados pessoais com ferramentas de relatório do Azure
 
@@ -144,7 +144,7 @@ Há várias maneiras de usar os dados no Log de atividades e outros recursos do 
 
 - Consulte os dados usando a API REST do Azure Monitor, comandos da CLI, cmdlets do [PowerShell](https://docs.microsoft.com/powershell/) ou o SDK do .NET.
 
-Para começar a usar o Azure Monitor, selecione **Mais Serviços** no portal do Azure.
+Para começar a usar o Azure Monitor, selecione **Todos os serviços** no portal do Azure.
 
 1. Role para baixo até **Monitor** na seção **Monitoramento e Gerenciamento**.
 

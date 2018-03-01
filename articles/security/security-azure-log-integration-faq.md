@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Perguntas frequentes sobre a Integração de Logs do Azure
-Este artigo responde as perguntas frequentes (FAQ) sobre a Integração de Logs do Azure. 
+
+Este artigo responde as perguntas frequentes (FAQ) sobre a Integração de Logs do Azure.
+
+>[!IMPORTANT]
+>É o método preferencial para integrar os logs do Azure usando o conector do Azure Monitor do seu fornecedor SIEM e seguindo estas [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
 
 A Integração de Logs do Azure é um serviço do sistema operacional Windows que permite integrar logs brutos de recursos do Azure a seus sistemas locais de SIEM (Gerenciamento de Eventos e Informações de Segurança). Essa integração oferece um painel unificado para todos os seus ativos, locais ou na nuvem. Você pode então agregar, correlacionar, analisar e alertar sobre eventos de segurança associados a seus aplicativos.
 
@@ -34,11 +38,11 @@ Sim. Não há nenhuma cobrança pelo software Integração de Log do Azure.
 Atualmente, ela está disponível atualmente no Azure Comercial e o Azure Governamental e não está disponível na China nem na Alemanha.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Como posso ver as contas de armazenamento nas quais a Integração de Logs do Azure está efetuando pull para extrair os logs da VM do Azure?
-Execute o comando **azlog source list**.
+Execute o comando **AzLog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Como saber de qual assinatura os logs de Integração de Logs do Azure são provenientes?
 
-No caso de logs de auditoria que são colocados nos diretórios **AzureResourcemanagerJson**, a ID da assinatura está no nome do arquivo de log. Isso também é verdadeiro para logs na pasta **AzureSecurityCenterJson**. Por exemplo:
+No caso de logs de auditoria que são colocados nos diretórios **AzureResourcemanagerJson**, a ID da assinatura está no nome do arquivo de log. Isso também é verdadeiro para logs na pasta **AzureSecurityCenterJson**. Por exemplo: 
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
@@ -47,7 +51,7 @@ Logs de auditoria do Azure Active Directory incluem a ID do locatário como part
 Os logs de diagnóstico lidos de um hub de eventos não incluem a ID da assinatura como parte do nome. Em vez disso, eles incluem o nome amigável especificado como parte da criação da origem do hub de eventos. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Como atualizo a configuração de proxy?
-Se a configuração de proxy não permitir acesso ao armazenamento do Azure diretamente, abra o arquivo **AZLOG.EXE.CONFIG** em **c:\Arquivos de Programas\Integração de Log do Microsoft Azure**. Atualize o arquivo para incluir a seção **defaultProxy** com o endereço do proxy da sua organização. Depois que a atualização for concluída, pare e inicie o serviço usando os comandos **net stop azlog** e **net start azlog**.
+Se a configuração de proxy não permitir acesso ao armazenamento do Azure diretamente, abra o arquivo **AZLOG.EXE.CONFIG** em **c:\Arquivos de Programas\Integração de Log do Microsoft Azure**. Atualize o arquivo para incluir a seção **defaultProxy** com o endereço do proxy da sua organização. Depois que a atualização for concluída, pare e inicie o serviço usando os comandos **net stop AzLog** e **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ O evento XML tem os seguintes metadados, incluindo a ID da assinatura:
 ![Evento XML][1]
 
 ## <a name="error-messages"></a>Mensagens de erro
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Ao executar o comando **azlog createazureid**, por que obtenho o erro a seguir?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Quando executo o comando ```AzLog createazureid```, por que obtenho o seguinte erro?
 Erro:
 
   *Falha ao criar aplicativo AAD - Locatário 72f988bf-86f1-41af-91ab-2d7cd011db37 - Motivo = 'Proibido' - Mensagem = 'Privilégios insuficientes para concluir a operação.'*

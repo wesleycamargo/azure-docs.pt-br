@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 O **Log de Atividades do Azure** é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Isso inclui um intervalo de dados, de dados operacionais do Azure Resource Manager para atualizações em eventos de Integridade do Serviço. O Log de Atividades era conhecido como "Logs de Auditoria" ou "Logs Operacionais", já que a categoria Administrativa relata eventos de plano de controle de suas assinaturas. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de gravação (PUT, POST, DELETE) executadas nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de Atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo Clássico/"RDFE".
@@ -73,9 +73,9 @@ Veja algumas coisas que você pode fazer com o Log de Atividades:
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consultar o Log de Atividades no Portal do Azure
 No Portal do Azure, você pode exibir seu Log de Atividades em vários locais:
-* A **folha Log de Atividades**, que pode ser acessada pesquisando Log de Atividades em "Mais Serviços" no painel de navegação esquerdo.
-* A **folha Monitor**, que é exibida por padrão no painel de navegação esquerdo. O Log de Atividades é uma seção dessa folha do Azure Monitor.
-* Qualquer **folha de recursos** do recurso, por exemplo, a folha de configuração de uma máquina virtual. O Log de Atividades é uma das seções na maioria das folhas de recursos, e ao clicar nele os eventos relacionados a esse recurso específico são filtrados automaticamente.
+* O **Log de Atividades**, que pode ser acessado pesquisando o Log de Atividades em **Todos os Serviços** no painel de navegação esquerdo.
+* **Monitor**, que é exibido por padrão no painel de navegação esquerdo. O Log de Atividades é uma seção do Azure Monitor.
+* Qualquer **recursos** do recurso, por exemplo, a folha de configuração de uma máquina virtual. O Log de Atividades é uma das seções na maioria das folhas de recursos, e ao clicar nele os eventos relacionados a esse recurso específico são filtrados automaticamente.
 
 No Portal do Azure, você pode filtrar seu Log de Atividades por estes campos:
 * Intervalo de tempo – A hora de início e de término dos eventos.
@@ -113,7 +113,7 @@ Essas configurações podem ser definidas por meio da opção "Exportar" na folh
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurar os perfis de log usando o Portal do Azure
 Você pode transmitir o Log de Atividades para um Hub de Eventos ou armazená-lo em uma Conta de Armazenamento usando a opção "Exportar" no Portal do Azure.
 
-1. Navegue até a folha **Log de Atividades** usando o menu no lado esquerdo do portal.
+1. Navegue até **Log de Atividades** usando o menu no lado esquerdo do portal.
 
     ![Navegue até o Log de Atividades no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Clique no botão **Exportar** na parte superior da folha.

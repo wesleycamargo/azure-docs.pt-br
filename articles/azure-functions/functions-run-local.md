@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar o Azure Functions localmente
 
@@ -231,6 +231,9 @@ Para iniciar o host e configurar a depuração de JavaScript, execute:
 ```
 func host start --debug vscode
 ```
+
+> [!IMPORTANT]
+> Para depurar, há suporte somente para o Node.js 8.x. Não há suporte para Node.js 9.x. 
 
 Em seguida, no Visual Studio Code, na exibição **Depurar**, selecione **Anexar ao Azure Functions**. Você pode anexar os pontos de interrupção, inspecionar variáveis e o código por etapas.
 

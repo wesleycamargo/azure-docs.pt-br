@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurar o Cofre de Chaves do Azure com a rotação de chaves e auditoria de ponta a ponta
 ## <a name="introduction"></a>Introdução
@@ -255,12 +255,12 @@ A próxima etapa é [criar uma fila do Barramento de Serviço do Azure](../servi
 
 1. Crie um namespace do Barramento de Serviço (se você já tiver um que deseja usar para isso, vá para a Etapa 2).
 2. Navegue até o barramento de serviço no portal do Azure e selecione o namespace no qual deseja criar a fila.
-3. Selecione **Novo**, selecione **Barramento de Serviço -> Fila** e insira os detalhes necessários.
+3. Selecione **Criar um recurso**, **Enterprise Integration**, **Barramento de Serviço** e, em seguida, insira os detalhes necessários.
 4. Selecione as informações de conexão do Barramento de Serviço escolhendo o namespace e clicando em **Informações de Conexão**. Você precisará dessas informações para a próxima seção.
 
 Em seguida, [crie uma função do Azure](../azure-functions/functions-create-first-azure-function.md) para sondar os logs do cofre de chaves na conta de armazenamento e obter novos eventos. Essa será uma função disparada em um cronograma.
 
-Para criar uma função do Azure, escolha **Novo > Aplicativo de Função** no portal do Azure. Durante a criação, você pode usar um plano de hospedagem existente ou criar um novo. Você também pode optar pela hospedagem dinâmica. Mais detalhes sobre opções de hospedagem de Função podem ser encontrados em [Como dimensionar as Funções do Azure](../azure-functions/functions-scale.md).
+Para criar uma função do Azure, escolha **Criar um recurso**, pesquise no marketplace por _Aplicativo de funções_ e clique em **Criar**. Durante a criação, você pode usar um plano de hospedagem existente ou criar um novo. Você também pode optar pela hospedagem dinâmica. Mais detalhes sobre opções de hospedagem de Função podem ser encontrados em [Como dimensionar as Funções do Azure](../azure-functions/functions-scale.md).
 
 Quando a função do Azure for criada, navegue até ela, escolha uma função de timer e C\#. Em seguida, clique em **Criar esta função**.
 

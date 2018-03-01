@@ -14,25 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)
 
-Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia), bem como notas de versão para versões anteriores.
+Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Azure 0.9.5 (Versão Prévia), bem como notas de versão para versões anteriores.
 
 O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux.
+
+## <a name="version-095"></a>Versão 0.9.5
+06/02/2018
+
+### <a name="download-azure-storage-explorer-095-preview"></a>Fazer o download do Gerenciador de Armazenamento do Azure 0.9.5 (Versão Prévia)
+- [Gerenciador de Armazenamento do Azure 0.9.5 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Azure 0.9.5 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Azure 0.9.5 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+
+* Suporte para instantâneos de Compartilhamentos de Arquivos:
+    * Crie e gerencie instantâneos para seus Compartilhamentos de Arquivos.
+    * Alterne entre os modos de exibição dos instantâneos de seus compartilhamentos de arquivos enquanto os explora.
+    * Restaure versões anteriores de seus arquivos.
+* Versão prévia do suporte ao Azure Data Lake Store:
+    * Conecte-se aos recursos do ADLS em várias contas.
+    * Conecte-se e compartilhe recursos do ADLS usando URIs do ADL.
+    * Execute operações básicas de arquivo/pasta recursivamente.
+    * Fixe pastas individuais no Acesso Rápido.
+    * Exiba estatísticas de pasta.
+
+### <a name="fixes"></a>Correções
+* Melhorias de desempenho da inicialização.
+* Correções de vários bugs.
+
+### <a name="known-issues"></a>Problemas conhecidos
+* O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* O painel de configurações de conta pode mostrar que você precisa reinserir as credenciais para filtrar as assinaturas.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-094--093"></a>Versão 0.9.4 / 0.9.3
 21/01/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Fazer o download do Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia)
-- [Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Microsoft Azure 0.9.4 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Baixar o Gerenciador de Armazenamento do Azure 0.9.4 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Baixar o Gerenciador de Armazenamento do Azure 0.9.4 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Baixar o Gerenciador de Armazenamento do Azure 0.9.4 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Novo
 * Sua janela existente do Gerenciador de Armazenamento do Azure será reutilizada quando:
@@ -76,15 +130,30 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
     sudo apt-get install libgconf-2-4
     ```
 
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 0.9.2](#version-092)
+* [Versão 0.9.1 / 0.9.0](#version-091)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Versão 0.8.9 / 0.8.8](#version-089--088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-092"></a>Versão 0.9.2
 11/01/2017
-
-### <a name="download-azure-storage-explorer-092-preview"></a>Baixar o Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia)
-* [Fazer o download do Gerenciador de Armazenamento do Microsoft Azure 0.9.2 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Fazer o download do Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Fazer o download do Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-
 
 ### <a name="hotfixes"></a>Hotfixes
 * Alterações de dados inesperadas eram possíveis ao editar valores de Edm.DateTime para entidades de tabela, dependendo do fuso horário local. O editor agora usa uma caixa de texto sem formatação, oferecendo controle preciso e consistente sobre valores Edm.DateTime.
@@ -144,32 +213,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-
-
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 0.9.1 / 0.9.0](#version-091)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Versão 0.8.9 / 0.8.8](#version-089--088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-091--090-preview"></a>Versão 0.9.1 / 0.9.0 (Versão Prévia)
 10/20/2017

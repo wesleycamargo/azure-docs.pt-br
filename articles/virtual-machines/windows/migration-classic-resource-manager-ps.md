@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrar recursos de IaaS do Clássico para o Azure Resource Manager usando o Azure PowerShell
 Estas etapas mostram como usar os comandos do Azure PowerShell para migrar os recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o Modelo de implantação do Azure Resource Manager.
@@ -59,7 +59,7 @@ Para obter instruções de instalação, consulte [Como instalar e configurar o 
 Para executar essa migração, você deve ser adicionado como um coadministrador da assinatura no [portal do Azure](https://portal.azure.com).
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. No menu Hub, selecione **Assinatura**. Caso não visualize essa opção, selecione **Mais serviços**.
+2. No menu Hub, selecione **Assinatura**. Caso não visualize essa opção, selecione **Todos os serviços**.
 3. Localize a entrada de assinatura apropriada, em seguida, examine o campo **MINHA FUNÇÃO**. Para um coadministrador, o valor deve ser _administrador da conta_.
 
 Se você não conseguir adicionar um coadministrador, contate um administrador de serviços ou o coadministrador da assinatura para ser adicionado.   

@@ -23,7 +23,7 @@ ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Como fornecer acesso remoto seguro a aplicativos locais
 
-Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Desejam trabalhar em seus próprios dispositivos, sejam eles laptops, telefones ou tablets. Além disso, eles esperam para poder acessar todos os seus aplicativos, tanto aplicativos SaaS na nuvem como aplicativo corporativos no local. O fornecimento de acesso a aplicativos locais sempre envolveu VPNs (redes virtuais privadas) ou DMZs (zonas desmilitarizadas). Essas soluções são complexas e difíceis de proteger, além de serem caras para configurar e gerenciar.
+Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Desejam trabalhar em seus próprios dispositivos, sejam eles laptops, telefones ou tablets. Além disso, eles esperam para poder acessar todos os seus aplicativos, tanto aplicativos SaaS na nuvem como aplicativo corporativos no local. O fornecimento de acesso a aplicativos locais sempre envolveu VPNs (redes virtuais privadas), redes de perímetro ou proxies reversos locais. Essas soluções são complexas e difíceis de proteger, além de serem caras para configurar e gerenciar.
 
 Há uma opção melhor!
 

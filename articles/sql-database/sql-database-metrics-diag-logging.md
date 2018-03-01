@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico 
 O Banco de Dados SQL do Azure pode emitir métrica e logs de diagnóstico para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
@@ -43,7 +43,7 @@ Métricas e log de diagnóstico não está habilitado por padrão. É possível 
 Quando você habilitar o log de diagnóstico e métricas, você precisa especificar os recursos do Azure, onde os dados selecionados são coletados. As opções disponíveis incluem:
 
 - Log Analytics
-- Hubs de Eventos
+- Hubs de evento
 - Armazenamento 
 
 Você pode provisionar um novo recurso do Azure ou selecionar um recurso existente. Depois de selecionar o recurso de armazenamento, você precisa especificar quais dados coletar. As opções disponíveis incluem:
@@ -180,7 +180,7 @@ Monitorar um fleet de Banco de Dados SQL é simples com Log Analytics. Três eta
 
 ### <a name="create-a-log-analytics-resource"></a>Crie um recurso do Log Analytics
 
-1. No menu à esquerda, clique em **Novo**.
+1. No menu à esquerda, selecione **Criar um recurso**.
 
 2. Clique em **Monitoramento + Gerenciamento**.
 
@@ -271,12 +271,12 @@ Saiba como [baixar métricas e logs de diagnóstico do Armazenamento](../storage
 
 ### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução do Repositório de consultas
 
-|Propriedade|Descrição|
+|Propriedade|DESCRIÇÃO|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|Tipo|Sempre: AzureDiagnostics|
+|type|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics|
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent|
@@ -322,12 +322,12 @@ Saiba mais sobre os [Dados de estatísticas de tempo de execução do Repositór
 
 ### <a name="query-store-wait-statistics"></a>Estatísticas de espera do Repositório de consultas
 
-|Propriedade|Descrição|
+|Propriedade|DESCRIÇÃO|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|Tipo|Sempre: AzureDiagnostics|
+|type|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics|
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent|
@@ -360,12 +360,12 @@ Saiba mais sobre os [Dados de estatísticas de espera no Repositório de Consult
 
 ### <a name="errors-dataset"></a>Conjunto de dados de erros
 
-|Propriedade|Descrição|
+|Propriedade|DESCRIÇÃO|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|Tipo|Sempre: AzureDiagnostics|
+|type|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: Erros|
 |OperationName|Nome da operação. Sempre: ErrorEvent|
@@ -389,12 +389,12 @@ Saiba mais sobre as [Mensagens de erro do SQL Server](https://msdn.microsoft.com
 
 ### <a name="database-wait-statistics-dataset"></a>Conjunto de dados das estatísticas de espera do banco de dados
 
-|Propriedade|Descrição|
+|Propriedade|DESCRIÇÃO|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|Tipo|Sempre: AzureDiagnostics|
+|type|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics|
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent|
@@ -418,12 +418,12 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 ### <a name="time-outs-dataset"></a>Conjunto de dados de tempos limite
 
-|Propriedade|Descrição|
+|Propriedade|DESCRIÇÃO|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|Tipo|Sempre: AzureDiagnostics|
+|type|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: tempos limite|
 |OperationName|Nome da operação. Sempre: TimeoutEvent|
@@ -441,12 +441,12 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 ### <a name="blockings-dataset"></a>Conjunto de dados de boqueios
 
-|Propriedade|Descrição|
+|Propriedade|DESCRIÇÃO|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|Tipo|Sempre: AzureDiagnostics|
+|type|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: blocos|
 |OperationName|Nome da operação. Sempre: BlockEvent|

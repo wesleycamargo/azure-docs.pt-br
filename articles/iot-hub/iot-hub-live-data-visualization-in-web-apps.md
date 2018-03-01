@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizar dados do sensor em tempo real de seu Hub IoT do Azure usando a funcionalidade de aplicativos Web do serviço de aplicativo do Azure
 
@@ -49,7 +49,7 @@ Neste tutorial, você aprenderá como visualizar dados de sensor em tempo real q
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-1. No [Portal do Azure](https://ms.portal.azure.com/), clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Criar um recurso** > **Web + Celular** > **Aplicativo Web**.
 2. Insira um nome de trabalho exclusivo, verifique a assinatura, especifique um grupo de recursos e um local, selecione **Fixar no painel** e, em seguida, clique em **Criar**.
 
    Recomendamos que você selecione o mesmo local do seu grupo de recursos. Isso ajuda a aumentar a velocidade de processamento e reduzir os custos de transferência de dados.

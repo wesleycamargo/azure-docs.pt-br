@@ -1,6 +1,6 @@
 ---
 title: "Integração do Mapa do Serviço com o System Center Operations Manager | Microsoft Docs"
-description: "O Mapa do Serviço é uma solução do Operations Management Suite que descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo aborda o uso do Mapa de Serviço para criar automaticamente diagramas de aplicativos distribuídos no Operations Manager."
+description: "O Mapa do Serviço é uma solução no Azure que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux, e mapeia a comunicação entre os serviços. Este artigo aborda o uso do Mapa de Serviço para criar automaticamente diagramas de aplicativos distribuídos no Operations Manager."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 906a90acb8754ff4b70235256cd184e2611ff5a0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração do Mapa do Serviço com o System Center Operations Manager
   > [!NOTE]
   > Esse recurso está em uma versão prévia.
   > 
   
-O Mapa do Serviço do Operations Management Suite descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. O Mapa do Serviço permite que você exiba seus servidores da maneira desejada, como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra as conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP, sem nenhuma configuração necessária além da instalação de um agente. Para obter mais informações, consulte a [documentação do Mapa do Serviço](operations-management-suite-service-map.md).
+O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. O Mapa do Serviço permite que você exiba seus servidores da maneira desejada, como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra as conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP, sem nenhuma configuração necessária além da instalação de um agente. Para obter mais informações, consulte a [documentação do Mapa do Serviço](operations-management-suite-service-map.md).
 
 Com essa integração entre o Mapa do Serviço e o System Center Operations Manager, você pode criar automaticamente diagramas de aplicativos distribuídos no Operations Manager com base em mapas de dependência dinâmica no Mapa do Serviço.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Um grupo de gerenciamento do Operations Manager (2012 R2 ou posterior) que gerencia um conjunto de servidores.
-* Um espaço de trabalho do Operations Management Suite com a solução Mapa do Serviço habilitada.
+* Um espaço de trabalho do Log Analytics com a solução do Mapa do Serviço habilitada.
 * Um conjunto de servidores (pelo menos um) que está sendo gerenciado pelo Operations Manager e enviando dados para o Mapa do Serviço. Há suporte para servidores Windows e Linux.
-* Uma entidade de serviço com acesso à assinatura do Azure associada ao espaço de trabalho do Operations Management Suite. Para obter mais informações, acesse [Criar uma entidade de serviço](#creating-a-service-principal).
+* Uma entidade de serviço com acesso à assinatura do Azure que está associada ao espaço de trabalho do Log Analytics. Para obter mais informações, acesse [Criar uma entidade de serviço](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Instalar o pacote de gerenciamento do Mapa do Serviço
 A integração entre o Operations Manager e o Mapa do Serviço é habilitada pela importação do pacote de gerenciamento Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Você pode baixar o pacote de gerenciamento no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). O pacote contém os seguintes pacotes de gerenciamento:
@@ -55,7 +55,7 @@ Para configurar a integração do Mapa do Serviço, faça o seguinte:
 
     ![A janela Configuração da Conexão](media/oms-service-map/scom-config-spn.png)
 
-3. Na janela **Seleção de Assinatura**, selecione a assinatura do Azure, o grupo de recursos do Azure (aquele que contém o espaço de trabalho do Operations Management Suite) e o espaço de trabalho do Operations Management Suite e, em seguida, clique em **Avançar**.
+3. Na janela **Seleção de Assinatura**, selecione a assinatura do Azure, o grupo de recursos do Azure (aquele que contém o espaço de trabalho do Log Analytics) e o espaço de trabalho do Log Analytics e, em seguida, clique em **Avançar**.
 
     ![O espaço de trabalho de configuração do Operations Manager](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,22 +73,22 @@ Para configurar a integração do Mapa do Serviço, faça o seguinte:
 
     ![O grupo de configuração do Operations Manager](media/oms-service-map/scom-config-group.png)
 
-6. Opcional: selecione o pool de recursos do Servidor de Gerenciamento para se comunicar com o Operations Management Suite e, em seguida, clique em **Adicionar Espaço de Trabalho**.
+6. Opcional: selecione o pool de recursos do Servidor de Gerenciamento para se comunicar com o Log Analytics e clique em **Adicionar Espaço de Trabalho**.
 
     ![O pool de recursos de configuração do Operations Manager](media/oms-service-map/scom-config-pool.png)
 
-    Pode levar alguns minutos para configurar e registrar o espaço de trabalho do Operations Management Suite. Depois que ele for configurado, o Operations Manager iniciará a primeira sincronização do Mapa do Serviço por meio do Operations Management Suite.
+    Pode levar alguns minutos para configurar e registrar o espaço de trabalho do Log Analytics. Depois que ele for configurado, o Operations Manager iniciará a primeira sincronização do Mapa do Serviço.
 
     ![O pool de recursos de configuração do Operations Manager](media/oms-service-map/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Monitorar o Mapa do Serviço
-Depois que o espaço de trabalho do Operations Management Suite estiver conectado, uma nova pasta, Mapa do Serviço, será exibida no painel **Monitoramento** do console do Operations Manager.
+Depois que o espaço de trabalho do Log Analytics estiver conectado, uma nova pasta, Mapa do Serviço, será exibida no painel **Monitoramento** do console do Operations Manager.
 
 ![O painel Monitoramento do Operations Manager](media/oms-service-map/scom-monitoring.png)
 
 A pasta do Mapa do Serviço tem quatro nós:
-* **Alertas Ativos**: lista todos os alertas ativos sobre a comunicação entre o Operations Manager e o Mapa do Serviço.  Observe que esses alertas não estão que sendo sincronizados para o Operations Manager de alertas do Operations Management Suite. 
+* **Alertas Ativos**: lista todos os alertas ativos sobre a comunicação entre o Operations Manager e o Mapa do Serviço.  Observe que esses alertas não estão que sendo sincronizados para o Operations Manager de alertas do Log Analytics. 
 
 * **Servidores**: lista os servidores monitorados configurados para sincronização por meio do Mapa do Serviço.
 
@@ -103,7 +103,7 @@ A pasta do Mapa do Serviço tem quatro nós:
     ![O diagrama de aplicativo distribuído do Operations Manager](media/oms-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Editar ou excluir o espaço de trabalho
-É possível editar ou excluir o espaço de trabalho configurado por meio do painel **Visão Geral do Mapa do Serviço** (painel **Administração** > **Operations Management Suite** > **Mapa do Serviço**). No momento, é possível configurar apenas um espaço de trabalho do Operations Management Suite.
+É possível editar ou excluir o espaço de trabalho configurado por meio do painel **Visão Geral do Mapa do Serviço** (painel **Administração** > **Operations Management Suite** > **Mapa do Serviço**). Por enquanto, você só pode configurar um espaço de trabalho do Log Analytics.
 
 ![O painel Editar Espaço de Trabalho do Operations Manager](media/oms-service-map/scom-edit-workspace.png)
 
@@ -120,7 +120,7 @@ Uma regra, _Microsoft.SystemCenter.ServiceMapImport.Rule_, é criada para buscar
 ## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos
 
 O design atual apresenta os seguintes problemas e limitações:
-* Você só pode se conectar a um único espaço de trabalho do Operations Management Suite.
+* Você só pode se conectar a um único espaço de trabalho do Log Analytics.
 * Embora você possa adicionar servidores ao Grupo de Servidores do Mapa do Serviço manualmente por meio do painel **Criação**, os mapas desses servidores não são sincronizados imediatamente.  Eles serão sincronizados do mapa de serviço durante o próximo ciclo de sincronização.
 * Se você fizer alterações para os diagramas de aplicativo distribuído criado pelo pacote de gerenciamento, essas alterações provavelmente serão substituídas na próxima sincronização com o mapa de serviço.
 

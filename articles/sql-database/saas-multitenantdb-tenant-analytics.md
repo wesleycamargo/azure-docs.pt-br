@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análise entre locatários usando dados extraídos
 
@@ -68,7 +68,7 @@ Ao entender a consistência com que cada locatário está usando o serviço, voc
 
 ## <a name="setup"></a>Configuração
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-requisitos:
 
@@ -76,7 +76,7 @@ Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-
 - Os scripts SaaS do Wingtip e o [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) do aplicativo são baixadas do GitHub. Não se esqueça de *desbloquear o arquivo zip* antes de extrair seu conteúdo. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 - O Power BI Desktop está instalado. [Baixe o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - O lote de locatários adicionais foi provisionado. Confira o [**Tutorial de provisionamento de locatários**](saas-multitenantdb-provision-and-catalog.md).
-- Uma conta de trabalho e o banco de dados de conta de trabalho foram criados. Veja as etapas apropriadas no [**Tutorial de gerenciamento de esquema**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Um agente de trabalho e o banco de dados do agente de trabalho foram criados. Veja as etapas apropriadas no [**Tutorial de gerenciamento de esquema**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Criar dados para a demonstração
 

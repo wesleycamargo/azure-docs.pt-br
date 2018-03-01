@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Proteger dados pessoais com os recursos de segurança de rede: Gateway de Aplicativo do Azure e Grupos de Segurança de Rede
 
@@ -59,18 +59,9 @@ Crie um gateway de aplicativo com o WAF ou adicione o WAF a um gateway de aplica
 
 Para criar um novo gateway de aplicativo com o WAF habilitado, faça o seguinte:
 
-1. Faça logon no portal do Azure e, no painel **Favoritos** do portal, clique em **Novo**
-
-2. Na folha **Novo**, clique em **Rede**.
-
-3. Clique em **Gateway de Aplicativo**.
-
-4. Navegue para o portal do Azure, **clique em Novo \> Rede \> Gateway de Aplicativo.**
-
-   ![criando gateways de aplicativo](media/protect-netsec/app-gateway-01.png)
-
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
+2. Selecione **Criar um recurso** > **Rede** > **Gateway de Aplicativo**.
 5. Na folha **Informações Básicas** exibida, insira os valores para os seguintes campos: Nome, Camada (Standard ou WAF), Tamanho de SKU (Pequeno, Médio ou Grande), Contagem de instâncias (2 para alta disponibilidade), Assinatura, Grupo de recursos e Local.
-
 6. Na folha **Configurações** exibida em **Rede virtual**, clique em **Escolher uma rede virtual**. Essa etapa abre a folha Escolher rede virtual.
 
 7. Clique em **Criar nova** para abrir a folha **Criar rede virtual**.
@@ -126,7 +117,7 @@ Para obter mais diretrizes de planejamento e implementação dos NSGs e um cená
 
 Para criar regras de entrada em um NSG existente, faça o seguinte:
 
-1. Clique em **Procurar** e, em seguida, em **Grupos de segurança de rede**.
+1. Clique em **Todos os serviços** e, em seguida, em **Grupos de segurança de rede**.
 
 2. Na lista de NSGs, clique em **NSG-FrontEnd** e, em seguida, em **Regras de segurança de entrada.**
 

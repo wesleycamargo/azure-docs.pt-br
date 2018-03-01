@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: ff6c14ced42385d81f3c42b4b4bf1fd06464c0d1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Início Rápido: dimensionar a computação no SQL Data Warehouse do Azure no PowerShell
 
-Dimensionar a computação no SQL Data Warehouse do Azure no PowerShell. Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos. 
+Dimensionar a computação no SQL Data Warehouse do Azure no PowerShell. [Escale horizontalmente a computação](sql-data-warehouse-manage-compute-overview.md) para melhorar o desempenho ou reduza a escala da computação para economizar custos. 
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

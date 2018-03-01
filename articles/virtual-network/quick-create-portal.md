@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 264dc38383b9adad70325f7fb7802b1dcf2da1c0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 61100b9786245204502686a47e5aae2a6d210259
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Criar uma Rede Virtual usando o portal do Azure
 
@@ -102,7 +102,7 @@ Para validar a comunicação com *myVm2*, insira o seguinte comando a partir de 
 mstsc /v:myVm2
 ```
 
-A conexão de área de trabalho remota ocorre com êxito porque ambas as máquinas virtuais possuem endereços IP privados atribuídos da sub-rede *padrão* e porque a área de trabalho remota, por padrão, é aberta pelo firewall do Windows. Você pode se conectar em *myVm2* pelo nome do host porque o Azure fornece automaticamente a resolução de nomes DNS para todos os hosts dentro de uma rede virtual. De um prompt de comando, executar ping *myVm1*, a partir de *myVm2*.
+A conexão de área de trabalho remota ocorre com êxito porque ambas as máquinas virtuais possuem endereços IP privados atribuídos da sub-rede *padrão* e porque a área de trabalho remota, por padrão, é aberta pelo firewall do Windows. Você pode se conectar em *myVm2* pelo nome do host porque o Azure fornece automaticamente a resolução de nomes DNS para todos os hosts dentro de uma rede virtual. De um prompt de comando, execute ping *myVm1* de *myVm2*.
 
 ```
 ping myvm1
