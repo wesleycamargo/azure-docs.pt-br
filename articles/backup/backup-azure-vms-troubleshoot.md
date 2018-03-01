@@ -158,8 +158,8 @@ A necessidade de resolução de endereços de Internet pública foi articulada [
 
 Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure também deve ser fornecido. Para desbloquear o acesso à infraestrutura do Azure, siga uma destas etapas:
 
-1. Realizar a lista branca de intervalos de IP do datacenter do Azure.
-   * Obter a lista de [IPs do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) a colocar na lista branca.
+1. Realizar a lista de permissões de intervalos de IP do datacenter do Azure.
+   * Obter a lista de [IPs do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) a colocar na lista de permissões.
    * Desbloquear os IPs usando o cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) . Execute este cmdlet na VM do Azure em uma janela do PowerShell com privilégios elevados (executar como Administrador).
    * Adicione regras ao NSG (se você tiver uma em vigor) para permitir o acesso aos IPs.
 2. Criar um caminho para a transmissão do tráfego HTTP
