@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -219,7 +219,7 @@ Para obter mais informações, consulte [Menos prompts de entrada: a nova experi
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** Termos de uso  
-**Funcionalidade do produto:** governança
+**Funcionalidade do produto:** governança/conformidade
  
 Uma opção para os administradores exige que seus usuários expandam os termos de uso antes de aceitar os termos.
 
@@ -666,7 +666,7 @@ Para obter mais informações, consulte [Referência de relatórios do MFA no po
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** Termos de uso  
-**Funcionalidade do produto:** governança  
+**Funcionalidade do produto:** governança/conformidade  
 
 
 
@@ -709,7 +709,7 @@ Para obter mais informações, consulte [Privileged Identity Management para rec
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** revisões de acesso  
-**Funcionalidade do produto:** governança  
+**Funcionalidade do produto:** governança/conformidade  
 
 
 

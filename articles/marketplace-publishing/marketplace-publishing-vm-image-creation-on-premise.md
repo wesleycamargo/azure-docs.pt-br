@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desenvolver uma imagem de máquina virtual local para o Azure Marketplace
 É altamente recomendável que você desenvolva discos rígidos virtuais (VHDs) do Azure diretamente na nuvem usando o protocolo RDP. No entanto, se for necessário, é possível baixar um VHD e desenvolvê-lo usando a infraestrutura local.  
@@ -92,7 +92,7 @@ Para criar uma conta de armazenamento, você pode usar o [Portal do Microsoft Az
 
 **Criar uma conta de armazenamento a partir do Portal do Microsoft Azure**
 
-1. Clique em **Novo**.
+1. Clique em **Criar um recurso**.
 2. Selecione **Armazenamento**.
 3. Preencha o nome da conta de armazenamento e selecione um local.
    
@@ -145,7 +145,7 @@ Use o cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) .
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Carregar um VHD usando a ferramenta de linha de comando para Mac e Linux
 Com a [ferramenta de linha de comando do Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), use o seguinte: azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Criar uma imagem de máquina virtual para o Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Configurando o PowerShell do Azure](marketplace-publishing-powershell-setup.md)
 

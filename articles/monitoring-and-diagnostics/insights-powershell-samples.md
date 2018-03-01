@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor
-Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você escale automaticamente os Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web. Ele também permite que você envie notificações de alerta ou ligue para URLs da Web com base nos valores de dados de telemetria configurados.
+Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor.
 
 > [!NOTE]
 > O Azure Monitor é o novo nome do que era chamado "Azure Insights" até 25 de setembro de 2016. No entanto, os namespaces e, portanto, os comandos a seguir, ainda contêm a palavra “insights”.
@@ -147,7 +147,7 @@ A tabela a seguir descreve os parâmetros e valores usados para criar um alerta 
 
 | parâmetro | value |
 | --- | --- |
-| Nome |simpletestdiskwrite |
+| NOME |simpletestdiskwrite |
 | Local desta regra de alerta |Leste dos EUA |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
@@ -199,6 +199,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 Uma lista completa das opções disponíveis para `Get-AzureRmMetricDefinition` está disponível em [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## <a name="create-and-manage-activity-log-alerts"></a>Criar e gerenciar as alerta do Log de Atividades
+Você pode usar o cmdlet `Set-AzureRmActivityLogAlert` para definir um alerta do Log de Atividades. Um alerta de Log de Atividades requer que você primeiro defina as condições como um dicionário de condições e, em seguida, crie um alerta que use essas condições.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+As propriedades de webhook adicionais são opcionais. Você pode obter novamente os conteúdos de um alerta do Log de Atividade usando `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Criar e gerenciar configurações de Autoescala
 Um recurso (um aplicativo Web, VM, serviço de nuvem ou conjunto de dimensionamento de máquinas virtuais) pode ter apenas uma configuração de autoescala definida para ele.

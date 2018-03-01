@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Noções básicas sobre como os módulos do IoT Edge podem ser usados, configurados e reutilizados - versão prévia
 
@@ -28,7 +28,7 @@ O *manifesto de implantação* é um documento JSON que descreve:
 
 Nos tutoriais do Azure IoT Edge, você pode criar um manifesto de implantação por meio de um assistente no portal do Azure IoT Edge. Você também pode aplicar um manifesto de implantação por meio de programação usando REST ou o SDK do serviço Hub IoT. Confira [Implantar e monitorar][lnk-deploy] para saber mais sobre implantações do IoT Edge.
 
-De forma geral, o manifesto de implantação configura as propriedades desejadas dos módulos do IoT Edge implantados em um dispositivo IoT Edge. Dois desses módulos estão sempre presentes: o agente do Edge e o hub do Edge.
+De forma geral, o manifesto de implantação configura as propriedades desejadas de um módulo gêmeo para módulos do IoT Edge implantados em um dispositivo IoT Edge. Dois desses módulos estão sempre presentes: o agente do Edge e o hub do Edge.
 
 O manifesto segue esta estrutura:
 
@@ -113,6 +113,8 @@ Quando as propriedades desejadas são especificadas no manifesto de implantaçã
 
 Se você não especificar as propriedades desejadas de um gêmeo de módulo no manifesto de implantação, o Hub IoT não modifica o gêmeo de módulo de qualquer forma, e você poderá definir as propriedades desejadas programaticamente.
 
+Os mesmos mecanismos que permitem que você modifique dispositivos gêmeos são usados para modificar módulos gêmeos. Consulte o [guia do desenvolvedor do dispositivo gêmeo](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) para obter mais informações.   
+
 ### <a name="deployment-manifest-example"></a>Exemplo de manifesto de implantação
 
 Este é um exemplo de um documento JSON do manifesto de implantação.
@@ -195,24 +197,24 @@ As propriedades desejadas são definidas durante a aplicação de um manifesto d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| schemaVersion | Tem que ser "1.0" | Sim |
-| runtime.type | Tem que ser "docker" | Sim |
-| runtime.settings.minDockerVersion | Definido para a versão mínima do Docker necessária para o manifesto de implantação | Sim |
+| schemaVersion | Tem que ser "1.0" | sim |
+| runtime.type | Tem que ser "docker" | sim |
+| runtime.settings.minDockerVersion | Definido para a versão mínima do Docker necessária para o manifesto de implantação | sim |
 | runtime.settings.loggingOptions | Um JSON em cadeias de caracteres que contém as opções de registro para o contêiner do agente do Edge. [Opções de registro em log do Docker][lnk-docker-logging-options] | Não  |
-| systemModules.edgeAgent.type | Tem que ser "docker" | Sim |
-| systemModules.edgeAgent.settings.image | O URI da imagem do agente do Edge. Atualmente, o agente do Edge não é capaz de se atualizar. | Sim |
+| systemModules.edgeAgent.type | Tem que ser "docker" | sim |
+| systemModules.edgeAgent.settings.image | O URI da imagem do agente do Edge. Atualmente, o agente do Edge não é capaz de se atualizar. | sim |
 | systemModules.edgeAgent.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do agente do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não  |
 | systemModules.edgeAgent.configuration.id | A ID da implantação que implantou este módulo. | Isso é definido pelo Hub IoT quando esse manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
-| systemModules.edgeHub.type | Tem que ser "docker" | Sim |
-| systemModules.edgeHub.status | Deve estar "em execução" | Sim |
-| systemModules.edgeHub.restartPolicy | Deve estar "sempre" | Sim |
-| systemModules.edgeHub.settings.image | O URI da imagem do hub do Edge. | Sim |
+| systemModules.edgeHub.type | Tem que ser "docker" | sim |
+| systemModules.edgeHub.status | Deve estar "em execução" | sim |
+| systemModules.edgeHub.restartPolicy | Deve estar "sempre" | sim |
+| systemModules.edgeHub.settings.image | O URI da imagem do hub do Edge. | sim |
 | systemModules.edgeHub.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do hub do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não  |
 | systemModules.edgeHub.configuration.id | A ID da implantação que implantou este módulo. | Isso é definido pelo Hub IoT quando esse manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
-| modules.{moduleId}.version | Uma cadeia definida pelo usuário que representa a versão desse módulo. | Sim |
-| modules.{moduleId}.type | Tem que ser "docker" | Sim |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Sim |
-| modules.{moduleId}.settings.image | O URI para a imagem do módulo. | Sim |
+| modules.{moduleId}.version | Uma cadeia definida pelo usuário que representa a versão desse módulo. | sim |
+| modules.{moduleId}.type | Tem que ser "docker" | sim |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | sim |
+| modules.{moduleId}.settings.image | O URI para a imagem do módulo. | sim |
 | modules.{moduleId}.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do módulo. [Opções de criação de docker][lnk-docker-create-options] | Não  |
 | modules.{moduleId}.configuration.id | A ID da implantação que implantou este módulo. | Isso é definido pelo Hub IoT quando esse manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 
@@ -242,14 +244,14 @@ A tabela a seguir não inclui as informações que são copiadas das propriedade
 | runtime.platform.architecture | Relatório da arquitetura do CPU do dispositivo |
 | systemModules.edgeAgent.runtimeStatus | O status relatado do agente do Edge: {"running" \| "unhealthy"} |
 | systemModules.edgeAgent.statusDescription | Descrição em texto do status relatado do agente do Edge. |
-| systemModules.edgeHub.runtimeStatus | Status atual do hub do Edge: {"running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
+| systemModules.edgeHub.runtimeStatus | Status atual do hub do Edge: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | systemModules.edgeHub.statusDescription | Texto de descrição do status atual do hub do Edge, se não estiver íntegro. |
 | systemModules.edgeHub.exitCode | Se tiver encerrado, o código de saída relatado pelo contêiner de hub do Edge |
 | systemModules.edgeHub.startTimeUtc | Hora em que o hub do Edge foi iniciado pela última vez |
 | systemModules.edgeHub.lastExitTimeUtc | Hora em que o hub do Edge foi encerrado pela última vez |
 | systemModules.edgeHub.lastRestartTimeUtc | Hora em que o hub do Edge foi reiniciado pela última vez |
 | systemModules.edgeHub.restartCount | Número de vezes que este módulo foi reiniciado como parte da política de reinicialização. |
-| modules.{moduleId}.runtimeStatus | Status atual do módulo: {"running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
+| modules.{moduleId}.runtimeStatus | Status atual do módulo: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | modules.{moduleId}.statusDescription | Texto de descrição do status atual do módulo, se não estiver íntegro. |
 | modules.{moduleId}.exitCode | Se tiver encerrado, o código de saída relatado pelo contêiner do módulo |
 | modules.{moduleId}.startTimeUtc | Hora em que o módulo foi iniciado pela última vez |
@@ -266,9 +268,9 @@ As propriedades desejadas são definidas durante a aplicação de um manifesto d
 
 | Propriedade | DESCRIÇÃO | Necessárias no manifesto de implantação |
 | -------- | ----------- | -------- |
-| schemaVersion | Tem que ser "1.0" | Sim |
+| schemaVersion | Tem que ser "1.0" | sim |
 | routes.{routeName} | Uma cadeia de caracteres que representa uma rota do hub do Edge. | O elemento `routes` pode estar presente mas vazio. |
-| storeAndForwardConfiguration.timeToLiveSecs | O tempo em segundos que o hub do Edge mantém as mensagens no caso de pontos de extremidade de roteamentos se desconectarem, por exemplo: desconectado do Hub IoT ou do módulo local | Sim |
+| storeAndForwardConfiguration.timeToLiveSecs | O tempo em segundos que o hub do Edge mantém as mensagens no caso de pontos de extremidade de roteamentos se desconectarem, por exemplo: desconectado do Hub IoT ou do módulo local | sim |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Propriedades relatadas do gêmeo do hub do Edge
 

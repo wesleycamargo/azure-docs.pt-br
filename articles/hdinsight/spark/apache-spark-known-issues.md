@@ -16,35 +16,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: bb5557eb0672b9ad137bc5817e47bf4f89e1c34d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7faa1fa1537dd71bdf0493d92f26ddda2ae59264
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos do cluster do Apache Spark no HDInsight
 
 Este documento mantém o registro de todos os problemas conhecidos para a visualização pública do Spark no HDInsight.  
 
 ## <a name="livy-leaks-interactive-session"></a>Sessão interativa de vazamentos do Livy
-Quando o Livy é reiniciado com uma sessão interativa (do Ambari ou devido a reinicialização da máquina virtual de nó principal 0) ainda ativa, uma sessão de trabalho interativo irá vazar. Por isso, novos trabalhos podem travar no estado Aceito, não podendo ser iniciados.
+Quando o Livy é reiniciado com uma sessão interativa (do Ambari ou devido a reinicialização da máquina virtual de nó principal 0) ainda ativa, uma sessão de trabalho interativo é vazado. Por isso, novos trabalhos podem travar no estado Aceito, não podendo ser iniciados.
 
 **Atenuação:**
 
 Use o procedimento a seguir para contornar o problema:
 
-1. SSH no nó principal. Para saber mais, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH no nó principal. Para obter informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Execute o seguinte comando para encontrar as IDs de aplicativo dos trabalhos interativos iniciados por Livy. 
    
         yarn application –list
    
-    Os nomes de trabalho padrão serão Livy se os trabalhos tiverem sido iniciados com uma sessão interativa Livy sem nomes explícitos especificados; para a sessão Livy iniciada pelo notebook do Jupyter, o nome do trabalho iniciará com remotesparkmagics_*. 
+    Os nomes de trabalho padrão serão Livy se os trabalhos foram iniciados com uma sessão interativa Livy sem nenhum nome explícito especificado. Para a sessão Livy iniciada por Jupyter Notebook, o nome do trabalho inicia com remotesparkmagics_*. 
 3. Execute o seguinte comando para eliminar esses trabalhos. 
    
         yarn application –kill <Application ID>
 
-A execução de novos trabalhos terá início. 
+A execução de novos trabalhos tem início. 
 
 ## <a name="spark-history-server-not-started"></a>Servidor de histórico Spark não iniciado
 O servidor de histórico Spark não é iniciado automaticamente depois de um cluster ser criado.  
@@ -82,7 +82,7 @@ Você pode encontrar um erro **`Error loading notebook`** ao carregar notebooks 
 
 **Atenuação:**
 
-Se você visualizar esse erro, não significa que seus dados estão corrompidos ou foram perdidos.  Os notebooks ainda estão no disco, em `/var/lib/jupyter`, e você pode usar o SSH no cluster para acessá-los. Para saber mais, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Se você visualizar esse erro, não significa que seus dados estão corrompidos ou foram perdidos.  Os notebooks ainda estão no disco, em `/var/lib/jupyter`, e você pode usar o SSH no cluster para acessá-los. Para obter informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Depois de se conectar ao cluster usando o SSH, é possível copiar os blocos de anotações do cluster para o computador local (usando SCP ou WinSCP) como um backup para impedir a perda de quaisquer dados importantes no notebook. Você pode aplicar SSH no túnel no nó de cabeçalho na porta 8001 para acessar o Jupyter sem passar pelo gateway.  A partir daí, você pode limpar a saída do bloco de anotações e salvá-lo novamente para minimizar o tamanho dele.
 
@@ -99,7 +99,7 @@ A primeira instrução de código no notebook Jupyter usando a mágica do Spark 
 Isso acontece quando a primeira célula de código é executada. Em segundo plano, isso inicia a configuração de sessão e os contextos de Spark, SQL e Hive são definidos. Depois desses contextos são definidos, a primeira instrução é executada e isso dá a impressão de que a instrução levou muito tempo para ser concluída.
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tempo limite do notebook do Jupyter atingido na criação da sessão
-Quando o cluster Spark está sem recursos, os kernels Spark e Pyspark no notebook do Jupyter atingirão o tempo limite ao tentar criar a sessão. 
+Quando o cluster Spark está sem recursos, os kernels Spark e PySpark no notebook do Jupyter atingirão o tempo limite ao tentar criar a sessão. 
 
 **Atenuações:** 
 
@@ -109,14 +109,13 @@ Quando o cluster Spark está sem recursos, os kernels Spark e Pyspark no noteboo
    * Interrompendo outros aplicativos Spark do YARN.
 2. Reinicie o notebook que você está tentando iniciar. Recursos suficientes devem estar disponíveis para você criar uma sessão agora.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos

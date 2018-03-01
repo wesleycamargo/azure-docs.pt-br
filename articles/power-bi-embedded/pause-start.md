@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Pausar e iniciar a capacidade do Power BI Embedded no Portal do Azure
 
@@ -35,9 +35,9 @@ Pausar a capacidade evita que você seja cobrado. Pausar sua capacidade é ótim
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Mais serviços** > **Power BI Embedded** para ver suas capacidades.
+2. Selecione **Todos os serviços** > **Power BI Embedded** para ver suas capacidades.
 
-    ![Mais serviços no Portal do Azure](media/pause-start/azure-portal-more-services.png)
+    ![Todos os serviços no Portal do Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Selecione a capacidade que deseja pausar.
 
@@ -57,9 +57,9 @@ Retome o uso iniciando sua capacidade. Iniciar sua capacidade também retoma a c
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Mais serviços** > **Power BI Embedded** para ver suas capacidades.
+2. Selecione **Todos os serviços** > **Power BI Embedded** para ver suas capacidades.
 
-    ![Mais serviços no Portal do Azure](media/pause-start/azure-portal-more-services.png)
+    ![Todos os serviços no Portal do Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Selecione a capacidade que deseja iniciar.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1b3da4d6e4593f3c71995ef9331fcea2d5b6ec19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdd4b7ddd5ebaf0187ed4943a518a83fc2531da4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
 
@@ -32,7 +32,7 @@ Usando o Observador de Rede, Alertas e Funções de dentro do ecossistema do Azu
 
 ![Cenário][scenario]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * A versão mais recente do [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Uma instância existente do Observador de Rede. Se você ainda não tiver um, [crie uma instância do Observador de Rede](network-watcher-create.md).
@@ -65,7 +65,7 @@ Esse cenário faz o seguinte:
 
 A primeira etapa é criar uma função do Azure para processar o alerta e criar uma captura de pacotes.
 
-1. No [Portal do Azure](https://portal.azure.com), selecione **Novo** > **Computação** > **Aplicativo de Funções**.
+1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Computação** > **Aplicativo de funções**.
 
     ![Criar um aplicativo de funções][1-1]
 

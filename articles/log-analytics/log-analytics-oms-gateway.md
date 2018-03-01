@@ -1,5 +1,5 @@
 ---
-title: Conectar computadores ao OMS usando o Gateway do OMS | Microsoft Docs
+title: Conectar computadores usando o Gateway do OMS | Microsoft Docs
 description: "Conecte seus dispositivos e computadores monitorados pelo Operations Manager ao Gateway do OMS para enviar dados à Automação do Azure e ao serviço do Log Analytics quando eles não tiverem acesso à Internet."
 services: log-analytics
 documentationcenter: 
@@ -12,42 +12,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2018
+ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ada626adc33e2689a3ba807aabb16ba56194243
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Conectar computadores sem acesso à Internet ao OMS usando o Gateway do OMS
-
-Este documento descreve como seus sistemas gerenciados por agentes e computadores monitorados pelo System Center Operations Manager e podem enviar dados ao serviço OMS quando eles não tiverem acesso à Internet. O Gateway do OMS, que é um proxy de encaminhamento de HTTP que dá suporte a túnel HTTP usando o comando HTTP CONNECT, pode coletar dados e enviá-los para o serviço OMS em seu nome.  
+# <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Conectar computadores sem acesso à Internet usando o Gateway do OMS
+Este documento descreve como configurar a comunicação com a Automação do Azure e Log Analytics usando o Gateway do OMS quando os computadores monitorados pelo Operations Manager ou conectados diretamente não tem acesso à Internet.  O Gateway do OMS, que é um proxy de encaminhamento de HTTP que dá suporte a túnel HTTP usando o comando HTTP CONNECT, pode coletar dados e enviá-los para a Automação do Azure ou o Log Analytics em seu nome.  
 
 O Gateway do OMS dá suporte a:
 
 * Runbook Workers Híbridos da Automação do Azure  
 * Computadores Windows com o Microsoft Monitoring Agent conectado diretamente a um espaço de trabalho do Log Analytics
 * Computadores Linux com o agente do OMS para Linux conectado diretamente a um espaço de trabalho do Log Analytics  
-* System Center Operations Manager 2012 SP1 com UR7, Operations Manager 2012 R2 com UR3, Operations Manager 2016 e grupo de gerenciamento do Operations Manager 1801 integrado ao OMS.  
+* System Center Operations Manager 2012 SP1 com UR7, Operations Manager 2012 R2 com UR3, Operations Manager 2016 e grupo de gerenciamento do Operations Manager 1801 integrado ao Log Analytics.  
 
-Se suas políticas de segurança de TI não permitirem que os computadores em sua rede se conectem à Internet, como dispositivos PDV (ponto de venda) ou servidores que dão suporte a serviços de TI, mas você precisar se conectar ao OMS para gerenciá-los e monitorá-los, eles podem ser configurados para se comunicarem diretamente com o Gateway do OMS a fim de receber a configuração e encaminhar os dados em seu nome.  Se esses computadores estão configurados com o agente do OMS para se conectar diretamente a um espaço de trabalho do OMS, todos os computadores se comunicarão com o Gateway do OMS.  O gateway transfere dados dos agentes para o OMS diretamente; ele não analisa os dados em trânsito.
+Se suas políticas de segurança de TI não permitirem que os computadores em sua rede se conectem à Internet, como dispositivos PDV (ponto de venda) ou servidores que dão suporte a serviços de TI, mas você precisar se conectar à Automação do Azure ou Log Analytics para gerenciá-los e monitorá-los, eles podem ser configurados para se comunicarem diretamente com o Gateway do OMS a fim de receber a configuração e encaminhar os dados em seu nome.  Se esses computadores estão configurados com o agente do OMS para se conectar diretamente a um espaço de trabalho do Log Analytics, todos os computadores se comunicarão com o Gateway do OMS.  O gateway transfere dados dos agentes para o serviço diretamente; ele não analisa os dados em trânsito.
 
-Quando um grupo de gerenciamento do Operations Manager é integrado com o OMS, os servidores de gerenciamento podem ser configurados para se conectar ao Gateway do OMS para receber informações de configuração e enviar os dados coletados dependendo da solução habilitada.  Os agentes do Operations Manager enviam alguns dados, como alertas, avaliação de configuração, espaço de instância e dados de capacidade para o servidor de gerenciamento. Outros dados de alto volume, como logs do IIS, desempenho e eventos de segurança, são enviados diretamente ao Gateway do OMS.  Se você tiver um ou mais servidores de gateway do Operations Manager implantados na rede de perímetro ou em outra rede isolada para monitorar os sistemas não confiáveis, ele não poderá se comunicar com um gateway do OMS.  Os servidores do Operations Manager Gateway só podem se reportar a um servidor de gerenciamento.  Quando um grupo de gerenciamento do Operations Manager é configurado para se comunicar com o Gateway do OMS, as informações de configuração de proxy são distribuídas automaticamente a todos os computadores gerenciados por agente configurados para coletar dados para o Log Analytics, mesmo que a configuração esteja vazia.    
+Quando um grupo de gerenciamento do Operations Manager é integrado com o Log Analytics, os servidores de gerenciamento podem ser configurados para se conectar ao Gateway do OMS para receber informações de configuração e enviar os dados coletados dependendo da solução habilitada.  Os agentes do Operations Manager enviam alguns dados, como alertas, avaliação de configuração, espaço de instância e dados de capacidade para o servidor de gerenciamento. Outros dados de alto volume, como logs do IIS, desempenho e eventos de segurança, são enviados diretamente ao Gateway do OMS.  Se você tiver um ou mais servidores de gateway do Operations Manager implantados na rede de perímetro ou em outra rede isolada para monitorar os sistemas não confiáveis, ele não poderá se comunicar com um gateway do OMS.  Os servidores do Operations Manager Gateway só podem se reportar a um servidor de gerenciamento.  Quando um grupo de gerenciamento do Operations Manager é configurado para se comunicar com o Gateway do OMS, as informações de configuração de proxy são distribuídas automaticamente a todos os computadores gerenciados por agente configurados para coletar dados para o Log Analytics, mesmo que a configuração esteja vazia.    
 
-Para fornecer alta disponibilidade a grupos do Operations Management que se comunicam com o OMS pelo gateway ou diretamente conectados, você pode usar balanceamento de carga de rede para redirecionar e distribuir o tráfego em vários servidores de gateway.  Se um servidor de gateway falhar, o tráfego será redirecionado para outro nó disponível.  
+Para fornecer alta disponibilidade a grupos do Operations Management que se comunicam com o Log Analytics pelo gateway ou diretamente conectados, você pode usar balanceamento de carga de rede para redirecionar e distribuir o tráfego em vários servidores de gateway.  Se um servidor de gateway falhar, o tráfego será redirecionado para outro nó disponível.  
 
 É recomendável que você instale o agente do OMS no computador que executa o software do Gateway do OMS para monitorar o Gateway do OMS e analisar os dados de desempenho ou de evento. Além disso, o agente ajuda o Gateway do OMS a identificar os pontos de extremidade de serviço com que precisa se comunicar.
 
 Cada agente deve ter conectividade de rede com seu gateway para que os agentes possam transferir dados automaticamente para dentro e fora do gateway. Não é recomendável instalar o gateway em um controlador de domínio.
 
-O diagrama a seguir mostra o fluxo de dados dos agentes diretos para o OMS usando o servidor de gateway.  Os agentes devem corresponder suas configurações de proxy à mesma porta em que o Gateway do OMS é configurado para se comunicar com o OMS.  
+O diagrama a seguir mostra o fluxo de dados dos agentes diretos para a Automação do Azure e Log Analytics usando o servidor de gateway.  Os agentes devem corresponder suas configurações de proxy à mesma porta em que o Gateway do OMS é configurado para se comunicar com o serviço.  
 
-![diagrama Comunicação do agente direto com o OMS](./media/log-analytics-oms-gateway/oms-omsgateway-agentdirectconnect.png)
+![diagrama comunicação do agente direto com os serviços](./media/log-analytics-oms-gateway/oms-omsgateway-agentdirectconnect.png)
 
-O diagrama a seguir mostra o fluxo de dados de um grupo de gerenciamento do Operations Manager para o OMS.   
+O diagrama a seguir mostra o fluxo de dados de um grupo de gerenciamento do Operations Manager para o Log Analytics.   
 
-![Diagrama Comunicação do Operations Manager com o OMS](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
+![Diagrama Comunicação do Operations Manager com o Log Analytics](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -56,7 +55,7 @@ Ao designar um computador para executar o Gateway do OMS, esse computador deve t
 * Windows 10, Windows 8.1, Windows 7
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .NET Framework 4.5
-* Mínimo de processador de 4 núcleos e 8 GB de memória
+* Mínimo de processador de 4 núcleos e 8 GB de memória 
 
 ### <a name="language-availability"></a>Disponibilidade de idiomas
 
@@ -92,13 +91,11 @@ A tabela a seguir destaca o número de agentes com suporte para se comunicar com
 
 ## <a name="download-the-oms-gateway"></a>Baixar o Gateway do OMS
 
-Há três maneiras de obter a versão mais recente do arquivo de configuração de Gateway do OMS.
+Há duas maneiras de obter a versão mais recente do arquivo de configuração de Gateway do OMS.
 
 1. Baixe do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=54443).
 
-2. Baixe do portal do OMS.  Depois de entrar em seu espaço de trabalho do OMS, navegue até **Configurações** > **Fontes Conectadas** > **Servidores Windows** e clique em **Baixar OMS Gateway**.
-
-3. Baixe no [portal do Azure](https://portal.azure.com).  Depois de entrar:  
+2. Baixe no portal do Azure.  Após entrar no portal do Azure:  
 
    1. Navegue pela lista de serviços e selecione **Log Analytics**.  
    2. Selecione um espaço de trabalho.
@@ -106,13 +103,17 @@ Há três maneiras de obter a versão mais recente do arquivo de configuração 
    4. Em **Escolher uma fonte de dados para conectar ao espaço de trabalho**, clique em **Computadores**.
    5. Na folha **Agente Direto**, clique em **Baixar Gateway do OMS**.<br><br> ![Baixar Gateway do OMS](./media/log-analytics-oms-gateway/download-gateway.png)
 
+ou o 
+
+   1. Na folha do seu espaço de trabalho em **Configurações**, clique em **Configurações avançadas**.
+   2. Navegue até **Fontes conectadas** > **Servidores Windows** e clique em **Baixar Gateway do OMS**.
 
 ## <a name="install-the-oms-gateway"></a>Instalar o Gateway do OMS
 
 Para instalar um gateway, execute as etapas a seguir.  Se você instalou uma versão anterior, chamada *Encaminhador do Log Analytics*, ele será atualizado para esta versão.  
 
 1. Na pasta de destino, clique duas vezes em **OMS Gateway.msi**.
-2. Na página de **Boas-vindas**, clique em **Avançar**.<br><br> ![Assistente de Instalação do Gateway](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br>
+2. Na página de **Boas-vindas**, clique em **Avançar**.<br><br> ![Assistente de Instalação do Gateway](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
 3. Na página **Contrato de Licença**, selecione **Aceito os termos do Contrato de Licença** para aceitar o EULA e clique em **Avançar**.
 4. Na página **Porta e endereço de proxy**:
    1. Digite o número da porta TCP a ser usada para o gateway. A instalação configura uma regra de entrada com esse número de porta no firewall do Windows.  O valor padrão é 8080.
@@ -124,20 +125,20 @@ Para instalar um gateway, execute as etapas a seguir.  Se você instalou uma ver
 7. Na página **Pronto para instalar**, clique em **Instalar**. O Controle de Conta de Usuário pode aparecer solicitando permissão para instalação. Nesse caso, clique em **Sim**.
 8. Depois que Instalação estiver finalizada, clique em **Concluir**. Para verificar se o serviço está em execução, abra o snap-in services.msc e verifique se o **Gateway do OMS** aparece na lista de serviços e seu status é **Em execução**.<br><br> ![Serviços – Gateway do OMS](./media/log-analytics-oms-gateway/gateway-service.png)  
 
-## <a name="configure-network-load-balancing"></a>Configurar o balanceamento de carga de rede
+## <a name="configure-network-load-balancing"></a>Configurar o balanceamento de carga de rede 
 Você pode configurar o gateway para alta disponibilidade com NLB (balanceamento de carga de rede), usando o Microsoft Network NLB ou balanceadores de carga com base em hardware.  O balanceador de carga gerencia o tráfego redirecionando as conexões solicitadas dos servidores de gerenciamento do Operations Manager ou de agentes do OMS entre seus nós. Se um servidor de Gateway falhar, o tráfego será redirecionado para outros nós.
 
 Para saber como projetar e implantar um cluster de balanceamento de carga de rede Windows Server 2016, confira [Balanceamento de carga de rede](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  As etapas a seguir descrevem como configurar uma cluster de balanceamento de carga de rede Microsoft Network.  
 
 1.  Entre no servidor Windows que seja membro do cluster NLB com uma conta administrativa.  
 2.  Abra o Gerenciador de Balanceamento de Carga de Rede no gerenciador de servidores, clique em **Ferramentas**e clique em **Gerenciador de Balanceamento de Carga de Rede**.
-3. Para conectar um servidor do Gateway do OMS ao Microsoft Monitoring Agent instalado, clique com o botão direito no endereço IP do cluster e clique em **Adicionar Host ao Cluster**.<br><br> ![Gerenciador de Balanceamento de Carga de Rede – Adicionar Host ao Cluster](./media/log-analytics-oms-gateway/nlb02.png)<br>
-4. Digite o endereço IP do servidor de gateway que deseja conectar.<br><br> ![Gerenciador de Balanceamento de Carga de Rede – Adicionar Host ao Cluster: Conectar](./media/log-analytics-oms-gateway/nlb03.png)
-
+3. Para conectar um servidor do Gateway do OMS ao Microsoft Monitoring Agent instalado, clique com o botão direito no endereço IP do cluster e clique em **Adicionar Host ao Cluster**.<br><br> ![Gerenciador de Balanceamento de Carga de Rede – Adicionar Host ao Cluster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
+4. Digite o endereço IP do servidor de gateway que deseja conectar.<br><br> ![Gerenciador de Balanceamento de Carga de Rede – Adicionar Host ao Cluster: Conectar](./media/log-analytics-oms-gateway/nlb03.png) 
+    
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Configurar agente do OMS e grupo de gerenciamento do Operations Manager
-A seção a seguir inclui as etapas sobre como configurar agentes do OMS, um grupo de gerenciamento do Operations Manager ou Hybrid Runbook Workers da Automação do Azure conectados diretamente ao Gateway do OMS para se comunicar com o OMS.  
+A seção a seguir inclui as etapas sobre como configurar agentes do OMS, um grupo de gerenciamento do Operations Manager ou Hybrid Runbook Workers da Automação do Azure conectados diretamente ao Gateway do OMS para se comunicar com a Automação do Azure ou o Log Analytics.  
 
-Para entender os requisitos e as etapas de instalação do agente do OMS em computadores com Windows que se conectam diretamente ao OMS, confira [Conectar computadores com Windows ao OMS](log-analytics-windows-agents.md) ou, para computadores com Linux, confira [Conectar computadores com Linux ao OMS](log-analytics-linux-agents.md).
+Para entender os requisitos e as etapas de instalação do agente do OMS em computadores com Windows que se conectam diretamente ao Log Analytics, confira [Conectar computadores com Windows ao Log Analytics](log-analytics-windows-agents.md) ou, para computadores com Linux, confira [Conectar computadores com Linux ao Log Analytics](log-analytics-quick-collect-linux-computer.md).  Para obter informações relacionadas para o Hybrid Runbook Worker de automação, consulte [implantar Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Configurando o agente do OMS e o Operations Manager para usar o Gateway do OMS como um servidor proxy
 
@@ -145,37 +146,51 @@ Para entender os requisitos e as etapas de instalação do agente do OMS em comp
 Confira [Definir as configurações de proxy e firewall com o Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) para obter informações sobre como configurar um agente para um servidor proxy, que nesse caso é o gateway.  Se você implantou vários servidores gateway por trás de um balanceador de carga de rede, a configuração de proxy de agente do OMS é o endereço IP virtual do NLB:<br><br> ![Propriedades do Microsoft Monitoring Agent – Configurações de Proxy](./media/log-analytics-oms-gateway/nlb04.png)
 
 ### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Configurar o Operations Manager - todos os agentes usam o mesmo servidor proxy
-Configure o Operations Manager para adicionar o servidor de gateway.  A configuração do proxy do Operations Manager é aplicada automaticamente a todos os agentes que se reportam ao Operations Manager, mesmo se a configuração está vazia.
+Configure o Operations Manager para adicionar o servidor de gateway.  A configuração do proxy do Operations Manager é aplicada automaticamente a todos os agentes que se reportam ao Operations Manager, mesmo se a configuração está vazia.  
 
 Para usar o Gateway para dar suporte ao Operations Manager, você precisa ter:
 
-* Microsoft Monitoring Agent (versão do agente – **8.0.10900.0** e posterior) instalado no servidor do Gateway e configurado para os espaços de trabalho do OMS com os quais quer se comunicar.
+* Microsoft Monitoring Agent (versão do agente – **8.0.10900.0** ou posterior) instalado no servidor do Gateway e configurado para os espaços de trabalho do Log Analytics com os quais quer se comunicar.
 * O gateway deve ter conectividade com a Internet ou estar conectado a um servidor proxy que tenha.
 
 > [!NOTE]
 > Se você não especificar um valor para o gateway, os valores em branco serão enviados por push a todos os agentes.
+> 
 
+Se esta for a primeira vez em que o grupo de gerenciamento do Operations Manager está sendo registrado com um espaço de trabalho do Log Analytics, a opção para especificar a configuração de proxy para o grupo de gerenciamento não estará disponível no console de operações.  O grupo de gerenciamento deve ser registrado com êxito com o serviço antes que essa opção esteja disponível.  Você precisa atualizar a configuração de proxy do sistema usando Netsh no sistema de seu console de operações de execução para configurar a integração e todos os servidores de gerenciamento no grupo de gerenciamento.  
 
-1. Abra o console do Operations Manager e, em **Operations Management Suite**, clique em **Conexão** e em **Configurar o Servidor Proxy**.<br><br> ![Operations Manager – Configurar o Servidor Proxy](./media/log-analytics-oms-gateway/scom01.png)<br>
-2. Selecione **Use um servidor proxy para acessar o serviço do Operations Management Suite** e digite o endereço IP do servidor do Gateway do OMS ou endereço IP virtual do NLB. Inicie com o prefixo `http://`.<br><br> ![Operations Manager – endereço do servidor proxy](./media/log-analytics-oms-gateway/scom02.png)<br>
-3. Clique em **Concluir**. O servidor do Operations Manager está conectado ao seu espaço de trabalho do OMS.
+1. Abra um prompt de comando com privilégios elevados.
+   a. Vá para **Iniciar** e digite **cmd**.
+   b. Clique com o botão direito do mouse no **prompt de comando** e selecione Executar como administrador**.
+2. Digite o comando a seguir e pressione **Enter**:
+
+    `netsh winhttp set proxy <proxy>:<port>`
+
+Depois de concluir a integração com o Log Analytics, você pode remover a alteração executando `netsh winhttp reset proxy` e, em seguida, use a opção **Configurar servidor de proxy** no console de operações para especificar o servidor de Gateway do OMS. 
+
+1. Abra o console do Operations Manager e, em **Operations Management Suite**, clique em **Conexão** e em **Configurar o Servidor Proxy**.<br><br> ![Operations Manager – Configurar o Servidor Proxy](./media/log-analytics-oms-gateway/scom01.png)<br> 
+2. Selecione **Use um servidor proxy para acessar o serviço do Operations Management Suite** e digite o endereço IP do servidor do Gateway do OMS ou endereço IP virtual do NLB. Inicie com o prefixo `http://`.<br><br> ![Operations Manager – endereço do servidor proxy](./media/log-analytics-oms-gateway/scom02.png)<br> 
+3. Clique em **Concluir**. O grupo de gerenciamento do Operations Manager agora está configurado para se comunicar por meio do servidor de gateway para o serviço de Log Analytics.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Configurar o Operations Manager - agentes específicos usam servidor proxy
-Para ambientes grandes ou complexos, você talvez queira que servidores (ou grupos) específicos usem o servidor de gateway do OMS.  Para esses servidores, você não pode atualizar o agente do Operations Manager diretamente, já que esse valor é substituído pelo valor global do grupo de gerenciamento.  Em vez disso, você precisa substituir a regra usada para enviar esses valores por push.
+Para ambientes grandes ou complexos, você talvez queira que servidores (ou grupos) específicos usem o servidor de gateway do OMS.  Para esses servidores, você não pode atualizar o agente do Operations Manager diretamente, já que esse valor é substituído pelo valor global do grupo de gerenciamento.  Em vez disso, você precisa substituir a regra usada para enviar esses valores por push.  
 
-> [!NOTE]
+> [!NOTE] 
 > Essa mesma técnica de configuração pode ser usada para permitir o uso de vários servidores de gateway do OMS no seu ambiente.  Por exemplo, você pode exigir que os servidores de gateway de OMS sejam especificados com base em cada região.
+>  
 
 1. Abra o console do Operations Manager e selecione o espaço de trabalho **Criação** .  
-2. No espaço de trabalho Criação, selecione **Regras** e clique no botão **Escopo** na barra de ferramentas do Operations Manager. Se esse botão não estiver disponível, verifique se você tem um objeto, não uma pasta, selecionado no painel Monitoramento. A caixa de diálogo **Delimitar Objetos do Pacote de Gerenciamento** exibe uma lista de objetos, grupos ou classes comuns de destino.
+2. No espaço de trabalho Criação, selecione **Regras** e clique no botão **Escopo** na barra de ferramentas do Operations Manager. Se esse botão não estiver disponível, verifique se você tem um objeto, não uma pasta, selecionado no painel Monitoramento. A caixa de diálogo **Delimitar Objetos do Pacote de Gerenciamento** exibe uma lista de objetos, grupos ou classes comuns de destino. 
 3. Digite **Serviço de Integridade** no campo **Procurar** e selecione-o na lista.  Clique em **OK**.  
 4. Pesquise a **Regra de Configuração de Proxy do Advisor** e, na barra de ferramentas do console do Operations, clique em **Substituições** e aponte para **Substituir a regra\Para um objeto da classe específico: Serviço de Integridade** e selecione um objeto específico da lista.  Opcionalmente, você pode criar um grupo personalizado que contém o objeto de serviço de integridade dos servidores ao qual deseja aplicar a substituição e aplicá-la e esse grupo.
-5. Na caixa de diálogo **Propriedades da Substituição**, clique para marcar a coluna **Substituir** ao lado do parâmetro **WebProxyAddress**.  No **Valor de Substituição** , insira a URL do servidor de gateway do OMS garantindo que se inicia com o prefixo `http://`.
-   >[!NOTE]
-   > Você não precisa habilitar a regra que está sendo gerenciado automaticamente com uma substituição contida no pacote de gerenciamento Microsoft System Center Advisor Secure Reference Override direcionado ao grupo do servidor de monitoramento do Microsoft System Center Advisor.
-   >
-6. Selecione um pacote de gerenciamento da lista **Selecionar pacote de gerenciamento de destino** ou crie um novo pacote de gerenciamento sem lacre clicando em **Novo**.
-7. Quando você concluir as alterações, clique em **OK**.
+5. Na caixa de diálogo **Propriedades da Substituição**, clique para marcar a coluna **Substituir** ao lado do parâmetro **WebProxyAddress**.  No **Valor de Substituição** , insira a URL do servidor de gateway do OMS garantindo que se inicia com o prefixo `http://`.  
+
+    >[!NOTE]
+    > Você não precisa habilitar a regra que está sendo gerenciado automaticamente com uma substituição contida no pacote de gerenciamento Microsoft System Center Advisor Secure Reference Override direcionado ao grupo do servidor de monitoramento do Microsoft System Center Advisor.
+    >   
+
+6. Selecione um pacote de gerenciamento da lista **Selecionar pacote de gerenciamento de destino** ou crie um novo pacote de gerenciamento sem lacre clicando em **Novo**. 
+7. Quando você concluir as alterações, clique em **OK**. 
 
 ### <a name="configure-for-automation-hybrid-workers"></a>Configurar para hybrid workers de automação
 Se você tiver Hybrid Runbook Workers de automação no ambiente, as etapas a seguir fornecem soluções alternativas temporárias manuais para configurar o Gateway que dê suporte a eles.
@@ -248,7 +263,7 @@ Se você receber um erro na etapa 3, o módulo não foi importado. O erro pode o
 | `Set-OMSGatewayConfig` |Chave (obrigatória) <br> Valor |Altera a configuração do serviço |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Obtém o endereço do proxy de retransmissão (upstream) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Endereço<br> Nome de Usuário<br> Senha |Define o endereço (e as credenciais) do proxy de retransmissão (upstream) |1. Define um proxy de retransmissão e uma credencial:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Define um proxy de resposta que não precise de autenticação: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Desmarca a configuração do proxy de retransmissão:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
-| `Get-OMSGatewayAllowedHost` | |Obtém o host atualmente permitido (somente o host permitido configurado localmente; isso não inclui hosts permitidos baixados automaticamente) |`Get-OMSGatewayAllowedHost` |
+| `Get-OMSGatewayAllowedHost` | |Obtém o host atualmente permitido (somente o host permitido configurado localmente; isso não inclui hosts permitidos baixados automaticamente) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (obrigatório) |Adiciona o host à lista de permissões |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (obrigatório) |Remove o host da lista de permissões |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
 | `Add-OMSGatewayAllowedClientCertificate` |Assunto (obrigatório) |Adiciona o assunto do certificado do cliente à lista de permissões |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  

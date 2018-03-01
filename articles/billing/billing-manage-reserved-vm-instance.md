@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Gerenciar instâncias de máquina virtual reservadas
 
@@ -28,7 +28,7 @@ Depois de comprar uma instância de VM reservada do Azure, convém aplicar a res
 
 Para atualizar o escopo de uma reserva: 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. Selecione **Mais Serviços** > **Reservas**.
+2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione a reserva.
 4. Selecione **Configurações** > **Configuração**.
 5. Altere o escopo. Se você alterar de compartilhado para escopo único, poderá selecionar apenas as assinaturas em que é o proprietário. Somente as assinaturas no mesmo contexto de cobrança que a reserva podem ser selecionadas. O contexto de cobrança é determinado pela assinatura que você selecionou quando da compra da reserva. O escopo aplica-se somente a assinaturas da oferta Paga Conforme o Uso MS-AZR-0003P e da oferta Enterprise MS-AZR-0017. No que concerne aos contratos Enterprise, as assinaturas de desenvolvimento/de teste não se qualificam para o desconto de reserva.
@@ -69,7 +69,7 @@ Você pode gerenciar o acesso às reservas independentemente das assinaturas que
  
 Para delegar o gerenciamento de acesso de uma reserva: 
 1.  Faça logon no [Portal do Azure](https://portal.azure.com).
-2.  Selecione **Mais serviços** > **Reserva** para listar as reservas às quais você tem acesso.
+2.  Selecione **Todos os serviços** > **Reserva** para listar as reservas às quais você tem acesso.
 3.  Selecione a reserva que deseja delegar acesso a outros usuários.
 4.  Selecione **Controle de acesso (IAM)** no menu.
 5.  Selecione **Adicionar** > **Função** > **Proprietário** (ou uma função diferente se você quiser dar acesso limitado). 
@@ -77,7 +77,7 @@ Para delegar o gerenciamento de acesso de uma reserva:
 7. Selecione o usuário e, em seguida, selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre as instâncias de máquina virtual reservada, consulte os artigos a seguir.
+Para saber mais sobre as Instâncias de Máquina Virtual Reservadas, confira os artigos a seguir.
 
 - [Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Economizar dinheiro de máquinas virtuais com Instâncias de Máquinas Virtuais Reservadas](billing-save-compute-costs-reservations.md)

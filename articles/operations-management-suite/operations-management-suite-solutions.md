@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Trabalhar com soluções de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -36,7 +36,7 @@ Há vários métodos para localizar e instalar as soluções de gerenciamento, c
 Soluções de gerenciamento fornecidos pela Microsoft e parceiros confiáveis podem ser instaladas no Azure Marketplace no portal do Azure.
 
 1. Faça logon no Portal do Azure.
-2. No painel esquerdo, selecione **Mais serviços**.
+2. No painel esquerdo, selecione **Todos os serviços**.
 3. Role para baixo até **soluções** ou digite *soluções* na caixa de diálogo **Filtrar**.
 4. Clique no botão **+ Adicionar**.
 5. Procure soluções nas quais você está interessado ao navegar, clicar no botão **Filtrar** ou digitar na caixa **Pesquisar Tudo**.
@@ -92,7 +92,7 @@ Você pode verificar o vínculo entre um espaço de trabalho do Log Analytics e 
 Use o procedimento a seguir para exibir as soluções de gerenciamento em espaços de trabalho vinculados à sua assinatura do Azure.
 
 1. Faça logon no Portal do Azure.
-2. No painel esquerdo, selecione **Mais serviços**.
+2. No painel esquerdo, selecione **Todos os serviços**.
 3. Role para baixo até **soluções** ou digite *soluções* na caixa de diálogo **Filtrar**.
 4. Soluções instaladas em todos os seus espaços de trabalho serão listadas.
 

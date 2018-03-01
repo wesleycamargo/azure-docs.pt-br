@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Descobrir, identificar e classificar dados pessoais no Microsoft Azure
 
@@ -59,22 +59,22 @@ Isso é particularmente útil se você deseja localizar ou alterar os dados pess
 
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 
-2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
+2. Selecione **Todos os serviços**, insira **Usuários e grupos** na caixa de texto e, em seguida, selecione **Enter**.
 
    ![como fazer para localizar o perfil do usuário e as informações de trabalho](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. Na folha **Usuários e grupos**, selecione **Usuários**.
 
-  ![Abrindo usuários e grupos](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Abrindo usuários e grupos](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. Na folha **Usuários e grupos – Usuários**, selecione um usuário na lista e, em seguida, na folha do usuário selecionado, selecione **Perfil** para exibir as informações de perfil do usuário que podem conter dados pessoais.
 
-  ![selecionar usuário](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![selecionar usuário](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Se precisar adicionar ou alterar informações de perfil do usuário, faça isso e, em seguida, na barra de comandos, selecione **Salvar.**
 6. Na folha do usuário selecionado, selecione **Informações de Trabalho** para exibir informações de trabalho dos usuários que podem conter dados pessoais.
 
- ![exibindo informações de trabalho](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![exibindo informações de trabalho](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Se precisar adicionar ou alterar informações de trabalho dos usuários, faça isso e, em seguida, na barra de comandos, selecione **Salvar.**
 

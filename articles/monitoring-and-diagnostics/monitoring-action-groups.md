@@ -1,8 +1,8 @@
 ---
 title: "Criar e gerenciar grupos de ações no portal do Azure | Microsoft Docs"
 description: "Este artigo mostra como criar e gerenciar grupos de ações no portal do Azure."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: ancav
-ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
 Este artigo mostra como criar e gerenciar grupos de ação no Portal do Azure.
 
-Você pode configurar uma lista de ações com grupos de ações. Então, esses grupos podem ser usados quando você define alertas de log de atividades. Esses grupos podem ser reutilizados por cada alerta do log de atividades que definir, garantindo que as mesmas ações são executadas cada vez que o alerta do log de atividades é disparado.
+Você pode configurar uma lista de ações com grupos de ações. Esses grupos podem ser usados por cada alerta definido, garantindo que as mesmas ações sejam executadas cada vez que o alerta for disparado.
 
 Um grupo de ação pode ter até 10 ações de cada tipo. Cada ação é composta das seguintes propriedades:
 
@@ -56,7 +56,7 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
     a. **Nome**: insira um identificador exclusivo para esta ação.
 
-    b. **Tipo de Ação**: selecione SMS, email, webhook, aplicativo do Azure, ITSM ou runbook de Automação.
+    b. **Tipo de Ação**: selecione Email/SMS/aplicativo do Azure, Webhook, ITSM ou Runbook de Automação.
 
     c. **Detalhes**: de acordo com o tipo de ação, insira um número de telefone, endereço de email, URI de webhook, aplicativo do Azure, conexão de ITSM ou runbook de Automação. Para Ação do ITSM, além disso, especifique **Item de Trabalho** e outros campos necessários para a ferramenta de ITSM.
 

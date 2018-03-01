@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Este artigo, **Etapa 2**, mostra a preparação dos VHDs (discos rígidos virtuais) que você implantará no Azure Marketplace. Seus VHDs são a base de sua SKU. O processo é diferente dependendo se você está fornecendo uma SKU baseada em Linux ou em Windows. Este artigo aborda ambos os cenários. Esse processo pode ser executado em paralelo com [Criação e registro de conta][link-acct-creation].
@@ -127,7 +127,7 @@ Recomendamos fortemente que você desenvolva seu VHD na nuvem usando o protocolo
 
 **Conecte-se via RDP usando o [Portal do Microsoft Azure][link-azure-portal]**
 
-1. Selecione **Procurar** > **VMs**.
+1. Selecione **Todos os serviços** > **VMs**.
 2. A folha Máquinas Virtuais se abrirá. Verifique se a VM com a qual você deseja se conectar está em execução e selecione-a na lista de VMs implantadas.
 3. Uma folha abre descrevendo a VM selecionada. Na parte superior, clique em **Conectar**.
 4. Você será solicitado a inserir o nome de usuário e a senha que especificou durante o provisionamento.
@@ -136,7 +136,7 @@ Recomendamos fortemente que você desenvolva seu VHD na nuvem usando o protocolo
 
 Para baixar um arquivo de área de trabalho remota para um computador local, utilize o cmdlet [Get-AzureRemoteDesktopFile][link-technet-2]. Para usar esse cmdlet, você precisa saber o nome do serviço e o nome da VM. Se você criou a VM no [Portal do Microsoft Azure][link-azure-portal], encontrará essas informações em propriedades da VM:
 
-1. No Portal do Microsoft Azure, selecione **Procurar** > **VMs**.
+1. No Portal do Microsoft Azure, selecione **Todos os serviços** > **VMs**.
 2. A folha Máquinas Virtuais se abrirá. Selecione a VM que você implantou.
 3. Uma folha abre descrevendo a VM selecionada.
 4. Clique em **Propriedades**.
@@ -214,7 +214,6 @@ Para implantar uma VM de uma imagem VM de usuário, você pode usar o [portal do
 
 1. Acesse **Novo** > **Computação** > **Máquina virtual** > **Da galeria**.
 
-    ![desenho][img-manage-vm-new]
 2. Vá para **Minhas Imagens**e selecione a imagem VM por meio da qual implantar uma VM.
 
    1. Preste muita atenção à imagem selecionada, uma vez que a exibição **Minhas imagens** lista imagens do sistema operacional e imagens de VM.

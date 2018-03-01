@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Validar XML com esquemas para o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 
@@ -26,9 +26,9 @@ Esquemas confirmam que os documentos XML recebidos são válidos e têm os dados
 
 ## <a name="add-a-schema"></a>Adicionar um esquema
 
-1. No portal do Azure, clique em **Mais serviços**.
+1. No portal do Azure, clique em **Todos os serviços**.
 
-    ![Portal do Azure, "Mais serviços"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Portal do Azure, "Todos os serviços"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. Insira **integração** na caixa de pesquisa do filtro e selecione **Contas de Integração** na lista de resultados.
 
