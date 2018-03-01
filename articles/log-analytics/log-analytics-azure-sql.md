@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise do Azure SQL (Visualização) no Log Analytics
 
@@ -60,7 +60,7 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 Realize as etapas a seguir para adicionar a solução Análise de SQL do Azure ao seu espaço de trabalho.
 
 1. Adicione a solução de análise do SQL do Azure do [marketplace do Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
-2. No portal do Azure, clique em **Novo** (o símbolo +) e, na lista de recursos, selecione **Monitoramento + Gerenciamento**.  
+2. No Portal do Azure, clique em **Criar um recurso** > **Monitoramento + Gerenciamento**.  
     ![Monitoramento + Gerenciamento](./media/log-analytics-azure-sql/monitoring-management.png)
 3. Na lista **Monitoramento + Gerenciamento**, clique em **Ver todos**.
 4. Na lista **Recomendado**, clique em **Mais** e, na nova lista, localize **Análise de SQL do Azure (versão prévia)** e selecione essa opção.  

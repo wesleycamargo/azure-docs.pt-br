@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorar o Azure Cosmos DB
 Monitore suas contas do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/). Para cada conta do Azure Cosmos DB, um conjunto completo de métricas está disponível para monitorar a taxa de transferência, o armazenamento, a disponibilidade, a latência e a consistência.
@@ -26,7 +26,7 @@ Monitore suas contas do Azure Cosmos DB no [portal do Azure](https://portal.azur
 As métricas podem ser examinadas na página da Conta, na nova página de Métricas ou no Azure Monitor.
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>Visualizar métricas de desempenho na página de Métricas
-1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **Azure Cosmos DB** e, em seguida, clique no nome da conta do Azure Cosmos DB cujas métricas de desempenho você deseja exibir.
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Todos os serviços**, role até **Bancos de Dados**, clique em **Azure Cosmos DB** e, em seguida, clique no nome da conta do Azure Cosmos DB cujas métricas de desempenho você deseja exibir.
 2. Quando a nova página carregar, no menu de recursos, em **Monitoramento**, clique em **Métricas**.
 3. Quando a página de Métricas abrir, selecione a coleção que será analisada no menu suspenso **Coleções**.
 
@@ -42,7 +42,7 @@ As métricas podem ser examinadas na página da Conta, na nova página de Métri
 5. Na lista de **Métricas disponíveis**, selecione as métricas para exibir. Use o botão CTRL para selecionar várias métricas. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>Visualizar métricas de desempenho na página de contas
-1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **Azure Cosmos DB** e, em seguida, clique no nome da conta do Azure Cosmos DB cujas métricas de desempenho você deseja exibir.
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Todos os serviços**, role até **Bancos de Dados**, clique em **Azure Cosmos DB** e, em seguida, clique no nome da conta do Azure Cosmos DB cujas métricas de desempenho você deseja exibir.
 2. A lente de **Monitoramento** exibe os seguintes blocos por padrão:
    
    * Solicitações totais para o dia de hoje.
@@ -53,7 +53,7 @@ As métricas podem ser examinadas na página da Conta, na nova página de Métri
 4. A página **Métrica** mostra detalhes sobre o total de solicitações. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Configurar alertas no Portal
-1. No [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, em **Azure Cosmos DB** e no nome da conta do Azure Cosmos DB para a qual você deseja configurar alertas de métricas de desempenho.
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Todos os serviços**, clique em **Azure Cosmos DB** e, em seguida, no nome da conta do Azure Cosmos DB para a qual você deseja configurar alertas de métricas de desempenho.
 2. No menu de recursos, clique em **Regras de Alerta** para abrir a página Regras de alerta.  
    ![Captura de tela da parte de Regras de alerta selecionada](./media/monitor-accounts/madocdb10.5.png)
 3. Na página **Regras de alerta**, clique em **Adicionar Alerta**.  

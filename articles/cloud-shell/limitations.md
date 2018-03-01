@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações do Azure Cloud Shell
 
@@ -33,7 +33,6 @@ O computador que fornece a sessão do Cloud Shell é temporário e é reciclado 
 * Com o armazenamento montado, apenas as modificações no diretório `clouddrive` persistem. No Bash, seu `$Home` diretório também persiste.
 * Os compartilhamentos de arquivo do Azure só podem ser montados em sua [região atribuída](persisting-shell-storage.md#mount-a-new-clouddrive).
   * No Bash, execute `env` para localizar sua região definida como `ACC_LOCATION`.
-* Os Arquivos do Azure oferece suporte apenas a armazenamento com redundância local e a contas de armazenamento com redundância geográfica.
 
 ### <a name="browser-support"></a>Suporte ao navegador
 
@@ -55,18 +54,11 @@ O Cloud Shell destina-se a casos de uso interativos. Como resultado, quaisquer s
 
 ### <a name="user-permissions"></a>Permissões de usuário
 
-As permissões são definidas como usuários regulares sem acesso sudo. Qualquer instalação fora do seu diretório `$Home` não será persistida.
-
-### <a name="clouddrive-smb-limited-permissions"></a>Permissões limitadas do Clouddrive SMB
-Alguns comandos dentro do diretório `clouddrive`, como `git clone`, não têm as permissões adequadas para ler/gravar certos arquivos. Se você tiver esse problema, tente novamente de seu diretório `$Home` que não tenha limitações de SMB.
+As permissões são definidas como usuários regulares sem acesso sudo. Qualquer instalação fora do seu diretório `$Home` ou `clouddrive` não é persistente.
 
 ### <a name="editing-bashrc"></a>Edição de .bashrc
 
-Tome cuidado ao editar .bashrc, uma vez que isso pode causar erros inesperados no Cloud Shell.
-
-### <a name="bashhistory"></a>.bash_history
-
-Seu histórico de comandos bash pode ser inconsistente devido a interrupções de sessão a ou sessões simultâneas do Cloud Shell.
+Tome cuidado ao editar .bashrc, uma vez que isso pode causar erros inesperados com Bash no Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitações do PowerShell
 

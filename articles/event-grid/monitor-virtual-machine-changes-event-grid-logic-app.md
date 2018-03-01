@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos
 
@@ -51,7 +51,7 @@ Primeiro, crie um aplicativo lógico e adicione um gatilho de Grade de eventos q
 
 1. Entre no [Portal do Azure](https://portal.azure.com). 
 
-2. No canto superior esquerdo do menu principal do Azure, escolha **Novo** > **Integração Empresarial** > **Aplicativo Lógico**.
+2. No canto superior esquerdo do menu principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
 
    ![Criar aplicativo lógico](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 

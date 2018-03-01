@@ -23,28 +23,28 @@ Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não 
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de escrever qualquer código para o seu dispositivo, você precisa provisionar a solução pré-configurada de monitoramento remoto e provisionar um novo dispositivo personalizado nessa solução.
+Antes de gravar qualquer código para o dispositivo, implante a solução pré-configurada de monitoramento remoto e adicione um novo dispositivo físico à solução.
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Provisionar sua solução pré-configurada de monitoramento remoto
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Implantar a solução pré-configurada de monitoramento remoto
 
 O dispositivo **Resfriador** criado neste tutorial envia dados a uma instância da solução de [monitoramento remoto](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) pré-configurada. Se você ainda não tiver provisionado a solução de monitoramento remoto pré-configurada na sua conta do Azure, consulte [Implantar a solução de monitoramento remoto pré-configurada](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-Quando o processo de provisionamento para a solução de monitoramento remoto for concluído, clique em **Iniciar** para abrir o painel da solução em seu navegador.
+Quando o processo de implantação para a solução de monitoramento remoto for concluído, clique em **Inicialização** para abrir o painel da solução em seu navegador.
 
 ![O painel da solução](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Provisionar o dispositivo na solução de monitoramento remoto
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Adicionar o dispositivo à solução de monitoramento remoto
 
 > [!NOTE]
-> Se você já configurou um dispositivo em sua solução, poderá ignorar esta etapa. Ao criar o aplicativo cliente, você precisará da cadeia de conexão de dispositivo que pode ser recuperada pelo Portal do Azure.
+> Se você já adicionou um dispositivo em sua solução, poderá ignorar esta etapa. No entanto, a próxima etapa exige a cadeia de conexão do dispositivo. É possível recuperar a cadeia de conexão de um dispositivo a partir do [Portal do Azure](https://portal.azure.com) ou usando uma ferramente da CLI [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest).
 
-Para um dispositivo conectar-se à solução pré-configurada, ele deve identificar-se no Hub IoT usando credenciais válidas. É possível salvar a cadeia de conexão de dispositivo contendo as credenciais, quando você adiciona o dispositivo à solução. Você incluirá a cadeia de conexão de dispositivo no seu aplicativo cliente, mais adiante neste tutorial.
+Para um dispositivo conectar-se à solução pré-configurada, ele deve identificar-se no Hub IoT usando credenciais válidas. É possível salvar a cadeia de conexão do dispositivo contendo essas credenciais, quando você adiciona o dispositivo à solução. Você incluirá a cadeia de conexão de dispositivo no seu aplicativo cliente, mais adiante neste tutorial.
 
 Para adicionar um dispositivo à sua solução de monitoramento remoto, conclua as seguintes etapas na página **Dispositivos** na solução:
 
 1. Escolha **+ Novo dispositivo** e, em seguida, escolha **Físico** como o **Tipo de dispositivo**:
 
-    ![Provisionar um dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Adicionar um dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Insira **Physical-chiller** como a ID do dispositivo. Escolha as opções **Chave Simétrica** e **Gerar chaves automaticamente**:
 
@@ -54,9 +54,7 @@ Para adicionar um dispositivo à sua solução de monitoramento remoto, conclua 
 
     ![Recuperar credenciais](media/iot-suite-selector-connecting/credentials.png)
 
-Para localizar as credenciais que o dispositivo deverá usar para conectar-se à solução pré-configurada, navegue até o portal do Azure no navegador. Entre em sua assinatura.
-
-Você acabou de provisionar um dispositivo físico na solução de monitoramento remoto pré-configurada. Nas seções a seguir, você implementará o aplicativo cliente que usa as credenciais do dispositivo para conectar-se à solução.
+Você adicionou um dispositivo físico à solução pré-configurada de monitoramento remoto e observou a cadeia de conexão do dispositivo. Nas seções a seguir, você implementará o aplicativo cliente que usa a cadeia de conexão do dispositivo para conectar-se à solução.
 
 O aplicativo cliente implementa o modelo de dispositivo **Resfriador** interno. Um modelo de dispositivo da solução pré-configurada especifica o seguinte sobre o dispositivo:
 

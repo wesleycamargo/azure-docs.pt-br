@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do Serviço de Aplicativo #
 
@@ -48,7 +48,7 @@ Se você não tiver um ASE, crie um seguindo as instruções em [Criar um ambien
 
 Para criar um aplicativo Web em um ASE:
 
-1. Selecione **Novo** > **Web + Móvel** > **Aplicativo Web**.
+1. Selecione  **Criar um recurso** >  **Web + Mobile** > **Aplicativo da Web**.
 
 2. Insira um nome para o aplicativo Web. Se você já selecionou um plano do Serviço de Aplicativo em um ASE, o nome de domínio do aplicativo reflete o nome de domínio do ASE.
 

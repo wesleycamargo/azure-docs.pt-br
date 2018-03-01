@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 16b206b97f71eeffbb4fddb9e447649034998672
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 Este artigo mostra como habilitar o Azure AD DS (Azure Active Directory Domain Services) usando o portal do Azure.
@@ -26,7 +26,7 @@ Este artigo mostra como habilitar o Azure AD DS (Azure Active Directory Domain S
 Para iniciar o assistente **Habilitar Azure AD Domain Services**, conclua as seguintes etapas:
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
-2. No painel esquerdo, clique em **Novo**.
+2. No painel esquerdo, clique em **Criar um recurso**.
 3. Na página **Novo**, digite **Domain Services** na barra de pesquisa.
 
     ![Pesquisa pelo Domain Services](./media/getting-started/search-domain-services.png)

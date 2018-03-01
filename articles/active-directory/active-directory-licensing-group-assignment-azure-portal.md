@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 250e84550fdf3253f28d682e85fe4bf855e40a4d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f24daaf5690eb1d9a0ab3b27a3626d03e6021d99
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças a usuários por meio da associação a grupos no Azure Active Directory
 
@@ -31,42 +31,42 @@ Neste exemplo, o locatário contém um grupo de segurança chamado **Departament
 > [!NOTE]
 > Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para que uma licença possa ser atribuída a um usuário, o administrador precisa especificar a propriedade “Local de uso” para o usuário.
 
-> Para a atribuição de licenças de grupo, qualquer usuário sem um local de uso especificado herdará o local do diretório. Se você tiver usuários em vários locais, é recomendável sempre definir o local de uso como parte de seu fluxo de criação do usuário no Azure AD (por exemplo, por meio da configuração do AAD Connect) – isso garantirá que o resultado da atribuição de licenças sempre seja correto e que os usuários não recebam serviços em locais que não são permitidos.
+> Para a atribuição de licenças de grupo, qualquer usuário sem um local de uso especificado herdará o local do diretório. Se você tiver usuários em vários locais, é recomendável sempre definir o local de uso como parte de seu fluxo de criação do usuário no Microsoft Azure AD (por exemplo, por meio da configuração do AAD Connect) – isso garante que o resultado da atribuição de licenças sempre seja correto e que os usuários não recebam serviços em locais que não são permitidos.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Etapa 1: Atribuir as licenças necessárias
 
 1. Entre no [**portal do Azure**](https://portal.azure.com) com uma conta Administrador. Para gerenciar licenças, a conta precisa ter função de administrador global ou de administrador da conta de usuário.
 
-2. Selecione **Mais serviços** no painel de navegação do lado esquerdo e selecione **Azure Active Directory**. Você pode adicionar essa folha aos Favoritos ou fixá-la no painel do portal.
+2. Selecione **Todos os serviços** no painel de navegação esquerdo e selecione **Azure Active Directory**. Você pode adicionar esse painel aos Favoritos ou fixá-lo no painel do portal.
 
-3. Sobre o **Azure Active Directory** folha, selecione **licenças**. Isso abrirá uma folha no qual você pode ver e gerenciar todos os produtos licenciados no locatário.
+3. No painel **Azure Active Directory**, selecione **Licenças** para abrir um painel onde é possível ver e gerenciar todos os produtos licenciados no locatário.
 
-4. Em **todos os produtos**, selecione o Office 365 Enterprise E3 e o Enterprise Mobility + Security selecionando os nomes de produto. Para iniciar a atribuição, selecione **Atribuir** na parte superior da folha.
+4. Em **todos os produtos**, selecione o Office 365 Enterprise E3 e o Enterprise Mobility + Security selecionando os nomes de produto. Para iniciar a atribuição, selecione **Atribuir** na parte superior do painel.
 
    ![Todos os produtos, atribuir licença](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
 
-5. Na folha **Atribuir licença**, clique em **Usuários e grupos** para abrir a folha de **Usuários e grupos**. Procure o nome do grupo *departamento de RH*, selecione o grupo e, em seguida, certifique-se de confirmar clicando **selecione** na parte inferior da folha.
+5. No painel **Atribuir licença**, clique em **Usuários e grupos** para abrir o painel de **Usuários e grupos**. Pesquise o nome do grupo *Departamento de RH*, selecione o grupo e, em seguida, certifique-se de confirmar clicando em **Selecionar** na parte inferior do painel.
 
    ![Selecione um grupo](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. Na folha **Atribuir licença**, clique em **Opções de atribuição (opcionais)**, que exibe todos os planos de serviço incluídos nos dois produtos que foram selecionados anteriormente. Localize **Yammer Enterprise** e **desative** para desabilitar esse serviço de licença do produto. Confirme clicando em **OK** na parte inferior das **opções de Atribuição**.
+6. No painel **Atribuir licença**, clique em **Opções de atribuição (opcional)**, que exibe todos os planos de serviço incluídos nos dois produtos que foram selecionados anteriormente. Localize **Yammer Enterprise** e **desative** para desabilitar esse serviço de licença do produto. Confirme clicando em **OK** na parte inferior das **opções de Atribuição**.
 
    ![Opções de atribuição](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
-7. Para concluir a atribuição, na folha **Atribuir licença**, clique em **Atribuir** na parte inferior da folha.
+7. Para concluir a atribuição, no painel **Atribuir licença**, clique em **Atribuir** na parte inferior do painel.
 
 8. Uma notificação é exibida no canto superior direito mostrando o status e o resultado do processo. Se a atribuição para o grupo não pode ser concluída (por exemplo, devido a licenças já existentes no grupo), clique na notificação para exibir detalhes da falha.
 
-Agora podemos ter especificado um modelo de licença no grupo de departamento de RH. Um processo em segundo plano no Azure AD foi iniciado para processar todos os membros existentes do grupo. Essa operação inicial pode levar algum tempo, dependendo do tamanho atual do grupo. Na próxima etapa, descreveremos como verificar se o processo foi concluído e como determinar se atenção adicional é necessária para resolver problemas.
+Agora podemos ter especificado um modelo de licença no grupo de departamento de RH. Um processo em segundo plano no Azure AD foi iniciado para processar todos os membros existentes do grupo. Essa operação inicial pode levar algum tempo, dependendo do tamanho atual do grupo. A próxima etapa descreve como verificar se o processo foi concluído e como determinar se atenção adicional é necessária para resolver problemas.
 
 > [!NOTE]
-> A mesma atribuição pode ser iniciada a partir de um local alternativo: **Usuários e grupos** no Azure AD. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos**. Localize o grupo, selecione-o e acesse a guia **Licenças**. O botão **Atribuir** na parte superior da folha abrirá a folha de atribuição de licenças.
+> A mesma atribuição pode ser iniciada a partir de um local alternativo: **Usuários e grupos** no Azure AD. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos**. Localize o grupo, selecione-o e acesse a guia **Licenças**. No botão **Atribuir** na parte superior do painel abre o painel de atribuição da licença.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Etapa 2: Verificar se a atribuição inicial foi concluída
 
 1. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos**. Localize o grupo do **Departamento de RH** cujas licenças foram atribuídas.
 
-2. Sobre o **departamento de RH** folha de grupo, selecione **licenças**. Isso lhe permite confirmar rapidamente se as licenças foram totalmente atribuídas a usuários e se houve erros que exigem atenção. As informações a seguir estão disponíveis:
+2. No painel de grupo **Departamento de RH**, selecione **Licenças**. Isso lhe permite confirmar rapidamente se as licenças foram totalmente atribuídas a usuários e se houve erros que exigem atenção. As informações a seguir estão disponíveis:
 
    - Lista de licenças de produtos que estão atualmente atribuídas ao grupo. Selecione uma entrada para mostrar a serviços específicos que foram habilitada e fazer alterações.
 
@@ -87,12 +87,12 @@ Agora podemos ter especificado um modelo de licença no grupo de departamento de
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Etapa 3: verificar problemas de licença e resolvê-los
 
 1. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos** e localize o grupo do **Departamento de RH** ao qual as licenças foram atribuídas.
-2. Sobre o **departamento de RH** folha de grupo, selecione **licenças**. A notificação sobre a folha mostra que há 10 usuários cujas licenças não puderam ser atribuídas. Clicar nela abre uma lista de todos os usuários com um estado de erro para esse grupo.
+2. No painel de grupo **Departamento de RH**, selecione **Licenças**. A notificação na parte superior do painel mostra que há 10 usuários cujas licenças não podem ser atribuídas. Clicar nela abre uma lista de todos os usuários com um estado de erro para esse grupo.
 3. A coluna **Atribuições com falha** informa que ambas as licenças de produtos não puderam ser atribuídas aos usuários. A coluna **Principal motivo para falha** contém a causa da falha. Nesse caso, **Planos de serviço conflitante**.
 
    ![Atribuições com falha](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
 
-4. Selecione um usuário para abrir a folha **Licenças**. Esta folha mostra todas as licenças que estão atualmente atribuídas ao usuário. Neste exemplo, o usuário tem a licença Office 365 Enterprise E1 herdada do grupo **Usuários do quiosque**. Isso está em conflito com a licença E3 que o sistema tentou aplicar a partir do grupo **Departamento de RH**. Como resultado, nenhuma das licenças do grupo foram atribuídas ao usuário.
+4. Selecione um usuário para abrir o painel **Licenças**. Esse painel mostra todas as licenças que atualmente estão atribuídas ao usuário. Neste exemplo, o usuário tem a licença Office 365 Enterprise E1 herdada do grupo **Usuários do quiosque**. Isso está em conflito com a licença E3 que o sistema tentou aplicar a partir do grupo **Departamento de RH**. Como resultado, nenhuma das licenças do grupo foram atribuídas ao usuário.
 
    ![Exibir as licenças para um usuário](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
 

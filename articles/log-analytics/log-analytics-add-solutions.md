@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68bf84d0f848b60885d3976d3991b606e77ed074
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adicionar soluções de gerenciamento de Log Analytics do Azure a seu espaço de trabalho
 
@@ -46,8 +46,7 @@ Você pode instalar as soluções de gerenciamento do Azure marketplace clicando
 
 ## <a name="add-a-management-solution"></a>Adicionar uma solução de gerenciamento
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com) usando a sua assinatura do Azure.
-2. Na folha **Novo** em **Marketplace**, selecione **Monitoramento + gerenciamento**.
-3. Na folha **Monitoramento + gerenciamento**, clique em **Ver todos**.  
+2. Selecione **Criar um recurso** > **Monitoramento + Gerenciamento** > **Ver todos**.  
     ![Folha Monitoramento + gerenciamento](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. À direita de **Soluções de gerenciamento**, clique em **Mais**.
 5. Na folha **Soluções de Gerenciamento**, selecione uma solução de gerenciamento que você deseja adicionar ao espaço de trabalho.  

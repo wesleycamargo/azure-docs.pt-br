@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurar o Tomcat7 em uma máquina virtual Linux com o Azure
 O Apache Tomcat (ou simplesmente Tomcat, também chamado anteriormente de Jacarta Tomcat) é um servidor Web de software livre e um contêiner de servlet desenvolvidos pela Apache Software Foundation (ASF). O Tomcat implementa o Java Servlet e especificações de JSP (JavaServer Pages) da Sun Microsystems. O Tomcat fornece um ambiente de servidor Web puramente Java HTTP no qual o código Java será executado. Na configuração mais simples, o Tomcat é executado em um único processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador para o Tomcat são processadas como um thread separado do processo do Tomcat.  
@@ -64,7 +64,7 @@ Siga estas etapas para gerar a chave de autenticação SSH.
 6. Clique em **Salvar chave privada** e salve-a em um arquivo chamado privateKey.ppk.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>Etapa 2: Criar a imagem no Portal do Azure
-1. No [Portal](https://portal.azure.com/), clique em **Novo** na barra de tarefas para criar uma imagem. Em seguida, escolha a imagem do Linux conforme suas necessidades. O exemplo a seguir usa a imagem do Ubuntu 14.04.
+1. No [Portal](https://portal.azure.com/), clique em **Criar um recurso** na barra de tarefas para criar uma imagem. Em seguida, escolha a imagem do Linux conforme suas necessidades. O exemplo a seguir usa a imagem do Ubuntu 14.04.
 ![Captura de tela do portal que mostra o botão Novo][3]
 
 2. Para o **Nome do Host**, especifique o nome para a URL que você e os clientes da Internet usarão para acessar esta máquina virtual. Defina a última parte do nome DNS, por exemplo, tomcatdemo. O Azure gerará a URL como tomcatdemo.cloudapp.net.  
@@ -221,7 +221,7 @@ Você pode editar o arquivo de configuração de usuário do Tomcat para configu
 
     sudo vi  /etc/tomcat7/tomcat-users.xml   
 
-Aqui está um exemplo:  
+Veja um exemplo:  
 ![Captura de tela que mostra a saída do comando sudo vi][17]  
 
 > [!NOTE]
@@ -246,7 +246,7 @@ Após conectar, você deverá ver algo semelhante ao seguinte:
 
      Verifique as configurações de ponto de extremidade da porta pública e da porta privada e certifique-se de que a porta privada seja a mesma que a porta de escuta do Tomcat. Consulte a seção “Fase 1: Criar uma imagem” deste artigo para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.  
 
-     Para determinar a porta de escuta do Tomcat, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/tomcat7/server.xml (versão Debian). Por padrão, a porta de escuta do Tomcat é 8080. Aqui está um exemplo:  
+     Para determinar a porta de escuta do Tomcat, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/tomcat7/server.xml (versão Debian). Por padrão, a porta de escuta do Tomcat é 8080. Veja um exemplo:  
 
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
@@ -303,7 +303,7 @@ Isso foi testado no CentOS 6.3.
 
   Use a opção -R para aplicar as permissões para todos os arquivos dentro de um diretório também.  
 
-  Este comando também funciona para diretórios. A opção -R altera as permissões para todos os arquivos e diretórios dentro do diretório. Aqui está um exemplo:  
+  Este comando também funciona para diretórios. A opção -R altera as permissões para todos os arquivos e diretórios dentro do diretório. Veja um exemplo:  
 
      sudo chown -R username:group directory  
 

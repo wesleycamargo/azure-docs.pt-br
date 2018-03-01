@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Guia do usuário de Preparação de Dados 
 A experiência de Preparação de Dados do Azure Machine Learning fornece muitas funções avançadas. Este artigo aborda as partes mais profundos dessa experiência.
@@ -89,7 +89,7 @@ Para criar fork:
 4. Após **Condições**, selecione **Criar Fluxo de Dados Contendo as Linhas Filtradas** para criar fork no conjunto de resultados não exibidos em um novo fluxo de dados.
 
 
-Essa prática geralmente é usada para separar um conjunto de dados que exige preparação adicional. Depois de arrebanhar o conjunto de dados com fork, é comum mesclar os dados com o conjunto de resultados no fluxo de dados original. Para executar uma mesclagem (o inverso de uma operação de criar fork), execute uma das seguintes ações:
+Essa prática geralmente é usada para separar um conjunto de dados que exige preparação adicional. Após preparar o conjunto de dados bifurcados, é comum mesclar os dados com o conjunto de resultados no fluxo de dados original. Para executar uma mesclagem (o inverso de uma operação de criar fork), execute uma das seguintes ações:
 
 - **Acrescentar Linhas**. Mesclar dois ou mais fluxos de dados verticalmente (por linha). 
 - **Acrescentar Colunas**. Mesclar dois ou mais fluxos de dados horizontalmente (por coluna).

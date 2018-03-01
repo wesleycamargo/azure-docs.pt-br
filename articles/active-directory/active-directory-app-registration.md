@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8f5d4ba82fcf3c963373b0e90b707a7d86fc0fea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrar seu aplicativo com o locatário do Azure Active Directory
 
@@ -27,7 +27,7 @@ Você pode usar o portal do Azure para registrar seu aplicativo em seu locatári
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Escolha seu locatário do Azure AD ao selecionar sua conta no canto superior direito da página.
-3. No painel de navegação à esquerda, escolha **Mais Serviços**, clique em **Registros de Aplicativo** e clique em **Adicionar**.
+3. No painel de navegação à esquerda, escolha **Todos os Serviços**, clique em **Registros de Aplicativo** e clique em **Adicionar**.
 4. Siga os avisos e crie um novo aplicativo. Se você desejar exemplos específicos para aplicativos da Web ou aplicativos nativos, confira nossos [inícios rápidos](active-directory-developers-guide.md).
   * Para os Aplicativos Web, forneça a **URL de Entrada**, que é a URL base do seu aplicativo, onde os usuários podem entrar como `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
@@ -40,7 +40,7 @@ Você pode facilmente modificar configurações do aplicativo existentes usando 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Escolha seu locatário do Azure AD ao selecionar sua conta no canto superior direito da página.
-3. No painel de navegação à esquerda, escolha **Mais Serviços**, clique em **Registros do Aplicativo** e escolha o aplicativo na lista.
+3. No painel de navegação esquerdo, escolha **Todos os Serviços**, clique em **Registros de Aplicativo**, e escolha o aplicativos a partir da lista.
 4. Clique em **Configurações** para abrir a página de configurações para o aplicativo.
   * A página **Propriedades** permite que você modifique as informações gerais do aplicativo. Isso inclui o nome do aplicativo, a URL de entrada e a URL de logoff.
   * A página **URLs de Resposta** permite que você adicione uma URL de resposta, que é para onde o Azure AD envia respostas de tokens.
@@ -54,7 +54,7 @@ Você pode usar o editor de manifesto embutido para modificar determinadas propr
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Escolha seu locatário do Azure AD ao selecionar sua conta no canto superior direito da página.
-3. No painel de navegação à esquerda, escolha **Mais Serviços**, clique em **Registros do Aplicativo** e escolha o aplicativo na lista.
+3. No painel de navegação esquerdo, escolha **Todos os Serviços**, clique em **Registros de Aplicativo**, e escolha o aplicativos a partir da lista.
 4. Clique em **Manifesto** na página do aplicativo para abrir o editor de manifesto embutido.
 5. Você pode fazer alterações diretamente no manifesto e salvá-lo quando estiver pronto. Como alternativa, você pode baixar o manifesto para abri-lo em seu editor favorito e carregar o manifesto atualizado.
 

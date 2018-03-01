@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c9e268aad5d3a7dcde9102216e9b3e8abfcca2cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2dca671d4813dac0709dacb17d39cd3af3b3292c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD
 
@@ -27,17 +27,17 @@ Use os recursos a seguir para saber como verificar quais usuários e grupos fora
 
 ## <a name="assign-a-user-directly-as-an-administrator"></a>Atribuir um usuário diretamente como administrador
 
-Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
+Para atribuir um ou mais usuários a um aplicativo diretamente, siga estas etapas:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -45,9 +45,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação esquerdo do aplicativo.
 
-8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
+8.  Abra o painel **Adicionar Atribuição** clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos**.
 
-9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
+9.  Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição**.
 
 10. Digite o **nome completo** ou o **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
@@ -57,7 +57,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 
-14. **Opcional:** clique no seletor **Selecionar Função** na folha **Adicionar Atribuição** para selecionar uma função que será atribuída aos usuários selecionados.
+14. **Opcional:** clique no seletor **Selecionar Função** no painel **Adicionar Atribuição** para selecionar uma função que será atribuída aos usuários selecionados.
 
 15. Clique no botão **Atribuir** para atribuir o aplicativo aos usuários selecionados.
 
@@ -65,17 +65,17 @@ Se o provisionamento estiver configurado e em execução para um aplicativo, nov
 
 ## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Atribuir um grupo diretamente a um aplicativo como administrador
 
-Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abaixo:
+Para atribuir um ou mais usuários diretamente a um aplicativo, siga estas etapas:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -83,9 +83,9 @@ Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abai
 
 7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação esquerdo do aplicativo.
 
-8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
+8.  Abra o painel **Adicionar Atribuição** clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos**.
 
-9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
+9.  Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição**.
 
 10. Digite o **nome completo do grupo** que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
@@ -95,7 +95,7 @@ Para atribuir um ou mais grupos diretamente a um aplicativo, siga as etapas abai
 
 13. Ao concluir a seleção dos grupos, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 
-14. **Opcional:** clique no seletor **Selecionar Função** na folha **Adicionar Atribuição** para selecionar uma função que será atribuída aos grupos selecionados.
+14. **Opcional:** clique no seletor **Selecionar Função** no painel **Adicionar Atribuição** para selecionar uma função que será atribuída aos grupos selecionados.
 
 15. Clique no botão **Atribuir** para atribuir o aplicativo aos grupos selecionados.
 

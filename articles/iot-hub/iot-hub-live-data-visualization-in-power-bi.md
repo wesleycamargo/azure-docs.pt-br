@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensor em tempo real do Hub IoT usando o Power BI
 
@@ -52,7 +52,7 @@ Você aprenderá a visualizar dados do sensor em tempo real que recebe o hub IoT
 
 ### <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
 
-1. No portal do Azure, clique em novo > Internet das coisas > trabalho do Stream Analytics.
+1. No [Portal do Azure](https://portal.azure.com), clique em **Criar um recurso** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
 1. Insira as seguintes informações para o trabalho.
 
    **Nome do trabalho**: o nome do trabalho. O nome deve ser globalmente exclusivo.

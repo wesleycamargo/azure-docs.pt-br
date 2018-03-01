@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 5a4c7d944577685182240a24c522db4542c09fc2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6e44ffc26bbb618e0ff14d412ed77e4827232b42
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Usar o cluster Spark HDInsight para analisar dados no Data Lake Store
 
 Neste tutorial, você usará no notebook Jupyter disponível com os clusters Spark HDInsight para executar um trabalho que lê dados de uma conta do Data Lake Store.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Conta do Azure Data Lake Store. Siga as instruções em [Introdução ao Azure Data Lake Store usando o portal do Azure](../../data-lake-store/data-lake-store-get-started-portal.md).
 

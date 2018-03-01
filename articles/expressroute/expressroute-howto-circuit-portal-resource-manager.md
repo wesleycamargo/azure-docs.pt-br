@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 08582d03428acb860bc304c365ffa6626ba33903
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Em um navegador, acesse o [Portal do Azure](http://portal.azure.com) e entre com
 > 
 > 
 
-1. Você pode criar um circuito do ExpressRoute selecionando a opção de criar um novo recurso. Clique em **Novo** > **Rede** > **ExpressRoute**, conforme mostrado na seguinte imagem:
+1. Você pode criar um circuito do ExpressRoute selecionando a opção de criar um novo recurso. Clique em **Criar um recurso** > **Rede** > **ExpressRoute**, conforme mostrado na imagem a seguir:
 
   ![Criar um circuito do ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. Após clicar em **ExpressRoute**, você verá a página **Criar circuito do ExpressRoute**. Ao preencher os valores nessa página, especifique a camada de SKU (Standard ou Premium) e o modelos de cobrança de medição de dados (Limitado ou Ilimitado) corretos.

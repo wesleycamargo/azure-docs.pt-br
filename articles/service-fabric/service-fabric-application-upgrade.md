@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização de aplicativos do Service Fabric
 Um aplicativo do Azure Service Fabric é uma coleção de serviços. Durante uma atualização, a Malha do Serviço compara o novo [manifesto do aplicativo](service-fabric-application-and-service-manifests.md) com a versão anterior e determina quais serviços as atualizações do aplicativo exigem. O Service Fabric compara os números de versão nos manifestos de serviço com os números de versão na versão anterior. Se um serviço não foi alterado, ele não foi atualizado.
@@ -47,16 +47,16 @@ O modo recomendado de atualização do aplicativo é o modo monitorado, que é o
 O manual não monitorado precisaria de intervenção manual após cada atualização em um domínio de atualização, a fim de disparar a atualização no domínio de atualização seguinte. Nenhuma verificação de integridade do Service Fabric é executada. O administrador executa as verificações de integridade ou de status antes de iniciar a atualização no próximo domínio de atualização.
 
 ## <a name="upgrade-default-services"></a>Fazer upgrade dos serviços padrão
-Os serviços padrão no aplicativo Service Fabric podem ser atualizados durante o processo de upgrade de um aplicativo. Os serviços padrão são definidos no [manifesto do aplicativo](service-fabric-application-and-service-manifests.md). As regras padrão de upgrade dos serviços padrão são:
+Alguns parâmetros de serviço padrão definidos no [manifesto do aplicativo](service-fabric-application-and-service-manifests.md) também podem ser atualizados como parte de uma atualização de aplicativo. Somente os parâmetros de serviço com suporte que estão sendo alterados através do [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) podem ser alterados como parte de uma atualização. O comportamento da alteração de serviços padrão durante a atualização do aplicativo é o conforme a seguir:
 
-1. Os serviços padrão no novo [manifesto do aplicativo](service-fabric-application-and-service-manifests.md) que não existem no cluster são criados.
+1. Os serviços padrão no novo manifesto do aplicativo que ainda não existem no cluster são criados.
+2. Os serviços padrão que existem em ambos os manifestos do aplicativo anteriores e novos são atualizados. Os parâmetros do serviço padrão no novo manifesto do aplicativo substituem os parâmetros do serviço existente. A atualização do aplicativo será revertida automaticamente se a atualização de um serviço padrão falhar.
+3. Os serviços padrão que não existem no novo manifesto do aplicativo serão excluídos, se existirem no cluster. **Observe que excluir um serviço padrão resultará em excluir todo o estado desse serviço e não poderá ser desfeito.**
+
+Quando uma atualização de aplicativo é revertida, os parâmetros de serviço padrão serão revertidos para seus valores anteriores antes que a atualização seja iniciada, mas os serviços excluídos não poderão ser recriados com seu estado antigo.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) precisa ser definido como true para habilitar as regras a seguir. Esse recurso é compatível com a v5.5.
-
-2. Os serviços padrão existentes no [manifesto do aplicativo](service-fabric-application-and-service-manifests.md) anterior e na nova versão são atualizados. As descrições de serviço na nova versão substituem aquelas que já estão no cluster. A atualização do aplicativo é revertida automaticamente na falha de atualização do serviço padrão.
-3. Os serviços padrão no [manifesto do aplicativo](service-fabric-application-and-service-manifests.md) anterior, mas não na nova versão, são excluídos. **Observe que essa exclusão de serviços padrão não pode ser revertida.**
-
-Caso o upgrade de um aplicativo seja revertido, os serviços padrão serão revertidos para o status antes do início do upgrade. Mas os serviços excluídos nunca poderão ser criados.
+> A definição de configuração do cluster [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) deverá ser *true* para habilitar as regras 2) e 3) acima (atualização e exclusão do serviço padrão). Esse recurso tem suporte a partir do Microsoft Service Fabric versão 5.5.
 
 ## <a name="application-upgrade-flowchart"></a>Fluxograma de atualização de aplicativo
 O fluxograma após este parágrafo pode ajudar na compreensão do processo de atualização de um aplicativo do Service Fabric. Mais especificamente, o fluxo descreve como os tempos limite, incluindo *HealthCheckStableDuration*, *HealthCheckRetryTimeout* e *UpgradeHealthCheckInterval*, ajudam a controlar quando a atualização em um domínio de atualização é considerada um êxito ou falha.

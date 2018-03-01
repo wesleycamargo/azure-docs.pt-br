@@ -11,7 +11,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obter a cadeia de conexão no portal do Azure
 Obtenha no [portal do Azure](https://portal.azure.com/) a cadeia de conexão que é necessária para o seu programa cliente interagir com o Banco de Dados SQL do Azure. 
 
-1. Selecione **PROCURAR TODOS OS** > **bancos de dados SQL**.
+1. Selecione **Todos os serviços** > **Bancos de Dados SQL**.
 
 2. Insira o nome do banco de dados na caixa de texto de filtro próximo ao canto superior esquerdo da folha dos **bancos de dados SQL**.
 
@@ -19,7 +19,6 @@ Obtenha no [portal do Azure](https://portal.azure.com/) a cadeia de conexão que
 
 4. Depois que a folha aparecer para o banco de dados, para conveniência visual, selecione os botões de **Minimização** para recolher as folhas que você usou para navegar e filtrar o banco de dados. 
    
-    ![Filtrar para isolar o banco de dados][10-FilterDatabase]
 5. Na folha do banco de dados, selecione **Mostrar cadeias de conexão de banco de dados**.
 
 6. Se você pretende usar a biblioteca de conexão do ADO.NET, copie a cadeia de caracteres rotulada **ADO**. 
@@ -31,7 +30,7 @@ Para obter mais informações, consulte [Cadeias de conexão e arquivos de confi
 
 <!-- Image references. -->
 
-[10-FilterDatabase]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-a.png
+
 
 [20-CopyAdoConnectionString]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-b.png
 

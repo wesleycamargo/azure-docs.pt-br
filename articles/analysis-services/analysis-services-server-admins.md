@@ -13,21 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 6a42baf9fd880264e4130c009f27935a4743de21
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-server-administrators"></a>Gerenciar administradores de servidor
-Os administradores do servidor devem ser um usuário ou grupo válido no Azure AD (Azure Active Directory) para o locatário no qual o servidor reside. Você pode usar os **Administradores do Analysis Services** na folha de controle de seu servidor no portal do Azure ou nas Propriedades do Servidor no SSMS para gerenciar os administradores de servidor. 
+Os administradores do servidor devem ser um usuário ou grupo válido no Azure AD (Azure Active Directory) para o locatário no qual o servidor reside. É possível usar **Administradores do Analysis Services** para seu servidor no Portal do Azure ou Propriedades do Servidor no SSMS para gerenciar os administradores do servidor. 
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Para adicionar administradores do servidor usando o Portal do Azure
-1. Na folha de controle do seu servidor, clique em **os administradores de serviços de análise de**.
-2. Na folha  **\<nomedoservidor >- Administradores de Serviços de Análise**, clique em **Adicionar**.
-3. Na folha **Adicionar Administradores de Servidor**, selecione as contas de usuário do Azure AD ou convide usuários externos por meio de endereço de email.
+1. No portal, para o seu servidor, clique em **Administradores do Analysis Services**.
+2. Em **\<nome do servidor> - Administradores do Analysis Services**, clique em **Adicionar**.
+3. Em **Adicionar Administradores de Servidor**, selecione contas de usuário do seu Azure Active Directory ou convide usuários externos por endereço de email.
 
     ![Administradores de servidor no portal do Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)
 

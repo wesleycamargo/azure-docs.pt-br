@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Definir a produtividade de contêineres do Azure Cosmos DB
 
@@ -49,7 +49,7 @@ A tabela a seguir lista a produtividade disponível para cada contêiner:
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Para definir a taxa de transferência usando o portal do Azure
 
 1. Em uma nova janela, abra o [portal do Azure](https://portal.azure.com).
-2. Na barra esquerda, clique em **Azure Cosmos DB** ou em **Mais Serviços** na parte inferior, role até **Bancos de dados** e, depois, clique em **Azure Cosmos DB**.
+2. Na barra esquerda, clique em **Azure Cosmos DB** ou em **Todos os serviços** na parte inferior, role até **Bancos de Dados** e, em seguida, clique em **Azure Cosmos DB**.
 3. Selecione sua conta do Cosmos DB.
 4. Na nova janela, clique em **Data Explorer** no menu de navegação.
 5. Na nova janela, expanda o banco de dados e o contêiner e, em seguida, clique em **Dimensionamento e Configurações**.

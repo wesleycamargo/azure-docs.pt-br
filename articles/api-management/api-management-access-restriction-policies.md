@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -500,7 +500,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |clock-skew|Período de tempo. Use para especificar a diferença de tempo máxima esperada entre os relógios do sistema do emissor do token e a instância do Gerenciamento de API.|Não |0 segundos|  
 |failed-validation-error-message|Mensagem de erro para retornar no corpo da resposta HTTP se o JWT não passar na validação. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape.|Não |A mensagem de erro padrão depende do problema de validação, por exemplo, "O JWT não está presente."|  
 |failed-validation-httpcode|O código de status HTTP para retornar se o JWT não passar na validação.|Não |401|  
-|header-name|O nome do cabeçalho HTTP contendo o token.|`header-name` ou `query-paremeter-name` deve ser especificado; mas não ambos.|N/D|  
+|header-name|O nome do cabeçalho HTTP contendo o token.|`header-name` ou `query-parameter-name` deve ser especificado; mas não ambos.|N/D|  
 |ID|O atributo `id` no elemento `key` permite que você especifique a cadeia de caracteres cuja correspondência será verificada em relação à declaração `kid` no token (se presente) para descobrir a chave apropriada a ser usada para validação de assinatura.|Não |N/D|  
 |match|O atributo `match` no elemento `claim` especifica se todos os valores de declaração na política devem estar presentes no token para que a validação seja bem-sucedida. Os valores possíveis são:<br /><br /> -                          `all` – todos os valores de declaração na política devem estar presentes no token para que a validação seja bem-sucedida.<br /><br /> -                          `any` – pelo menos um valor de declaração na política deve estar presente no token para que a validação seja bem-sucedida.|Não |tudo|  
 |query-paremeter-name|O nome do parâmetro de consulta que contém o token.|`header-name` ou `query-paremeter-name` deve ser especificado; mas não ambos.|N/D|  
@@ -508,7 +508,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |require-scheme|O nome do esquema do token, por exemplo, "Portador". Quando esse atributo for definido, a política garantirá que o esquema especificado esteja presente no valor do cabeçalho de Autorização.|Não |N/D|
 |require-signed-tokens|Booliano. Especifica se é necessário que um determinado token seja assinado.|Não |verdadeiro|  
 |separador|Cadeia de caracteres. Especifica um separador (por exemplo, ",") a ser usado para extrair um conjunto de valores de uma declaração com valores múltiplos.|Não |N/D| 
-|url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. Para o Azure Active Directory, use a seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|sim|N/D|  
+|url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. A resposta deve ser de acordo com as especificações definidas na URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Para o Azure Active Directory, use a seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|sim|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  

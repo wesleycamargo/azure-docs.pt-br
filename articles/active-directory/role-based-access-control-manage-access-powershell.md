@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: fa364c8f43d38bfa40c2d08cc1fe2d2d46629217
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5e7e01502a173cb93216c77dd43f61094fd88148
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Gerenciar o Controle de Acesso baseado em função com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
-Você pode usar o RBAC (Controle de Acesso Baseado em Função) no portal do Azure e na API de Gerenciamento de Recursos do Azure para gerenciar o acesso à sua assinatura em um nível refinado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
+Com o RBAC (Controle de Acesso Baseado em Função), você define o acesso para usuários, grupos e entidades de serviços, atribuindo funções em um escopo específico. Este artigo descreve como gerenciar o acesso usando o Microsoft Azure PowerShell.
 
 Antes de poder usar o PowerShell para gerenciar o RBAC, você precisa dos seguintes pré-requisitos:
 

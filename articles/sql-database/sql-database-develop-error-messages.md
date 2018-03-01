@@ -1,30 +1,12 @@
----
-title: "Códigos de erro de SQL – erro de conexão de banco de dados | Microsoft Docs"
-description: "Saiba mais sobre os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, como erros comuns de conexão de banco de dados, problemas de cópia de banco de dados e erros gerais. "
-keywords: "código de erro de sql, acessar sql, erro de conexão de banco de dados, códigos de erro de sql"
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ ---
+título: códigos de erro do SQL - erro de conexão de banco de dados | Descrição do Microsoft Docs: "Saiba mais sobre os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, como erros comuns de conexão de banco de dados, problemas de cópia de banco de dados e erros gerais. 'palavras-chave: código de erro do sql, acesso sql, erro de conexão de banco de dados, serviços de códigos de erro do sql: sql-database documentationcenter: '' autor: stevestein manager:jhubbard editor: ''
+
+ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro de SQL em aplicativos cliente do Banco de Dados SQL: erros de conexão de banco de dados e outros problemas
 
-Este artigo lista os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, incluindo erros de conexão de banco de dados, erros transitórios (também chamados de falhas transitórias), erros de governança de recursos, problemas de cópia de banco de dados, pool elástico e outros erros. A maioria das categorias específicas do Banco de Dados SQL do Azure e não se aplicam ao Microsoft SQL Server.
+Este artigo lista os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, incluindo erros de conexão de banco de dados, erros transitórios (também chamados de falhas transitórias), erros de governança de recursos, problemas de cópia de banco de dados, pool elástico e outros erros. A maioria das categorias específicas do Banco de Dados SQL do Azure e não se aplicam ao Microsoft SQL Server. Consulte também [mensagens de erro do sistema](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Erros de conexão de banco de dados, erros transitórios e outros erros temporários
 A tabela a seguir aborda os códigos de erro de SQL para erros de perda de conexão e outros erros transitórios que podem ocorrer quando o aplicativo tenta acessar o Banco de Dados SQL. Para obter tutoriais de introdução sobre como se conectar ao Banco de Dados SQL do Azure, consulte [Conectar-se ao Banco de Dados SQL do Azure](sql-database-libraries.md).
@@ -52,11 +34,11 @@ Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET e
 ### <a name="transient-fault-error-codes"></a>Códigos de erros de falha transitória
 Os seguintes erros são transitórios e devem ser repetidos na lógica do aplicativo: 
 
-| Código do erro | Severidade | Descrição |
+| Código do erro | Severity | DESCRIÇÃO |
 | ---:| ---:|:--- |
 | 4060 |16 |Não é possível abrir o banco de dados "%.&#x2a;ls" solicitado pelo logon. Houve falha no logon. |
 | 40197 |17 |O serviço encontrou um erro ao processar sua solicitação. Tente novamente. Código de erro %d.<br/><br/>Você recebe este erro quando o serviço fica inativo devido a upgrades de software ou hardware, falhas de hardware ou outros problemas de failover. O código de erro (%d) inserido na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou failover que ocorreu. Alguns exemplos de códigos que são inseridos na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>A reconexão ao servidor do Banco de Dados SQL conecta você automaticamente a uma cópia íntegra do banco de dados. Seu aplicativo deve capturar o erro 40197, registrar o código de erro inserido (%d) na mensagem para solução do problema e tentar se reconectar ao Banco de Dados SQL até que os recursos estejam disponíveis e a conexão seja restabelecida. |
-| 40501 |20 |O serviço está ocupado. Repita a solicitação depois de 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>Para obter mais informações, consulte:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md). |
+| 40501 |20 |O serviço está ocupado. Repita a solicitação depois de 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>Para obter mais informações, confira:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md). |
 | 40613 |17 |O banco de dados “%.&#x2a;ls” no servidor “%.&#x2a;ls” não está disponível momento. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da sessão “%.&#x2a;ls”. |
 | 49918 |16 |Não é possível processar a solicitação. Não há recursos suficientes para processar a solicitação.<br/><br/>O serviço está ocupado. Tente fazer novamente a solicitação. |
 | 49919 |16 |Não é possível criar o processo ou atualizar a solicitação. Muitas operações de criação ou atualização em andamento para a assinatura "%ld".<br/><br/>O serviço está ocupado processando várias solicitações de criação ou atualização para a assinatura ou o servidor. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para obter as operações pendentes. Espere até que as solicitações pendentes de criação ou atualização sejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
@@ -66,7 +48,7 @@ Os seguintes erros são transitórios e devem ser repetidos na lógica do aplica
 ## <a name="database-copy-errors"></a>Erros de cópia de banco de dados
 Os erros a seguir podem ser encontrados durante a cópia de um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md).
 
-| Código do erro | Severidade | Descrição |
+| Código do erro | Severity | DESCRIÇÃO |
 | ---:| ---:|:--- |
 | 40635 |16 |O cliente com endereço IP “%.&#x2a;ls” está desabilitado temporariamente. |
 | 40637 |16 |A criação da cópia do banco de dados está desabilitada no momento. |
@@ -83,7 +65,7 @@ Os erros a seguir podem ser encontrados durante a cópia de um banco de dados no
 | 40571 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente mais tarde. |
 
 ## <a name="resource-governance-errors"></a>Erros de governança de recursos
-Os erros a seguir são causados pelo uso excessivo de recursos enquanto você trabalha com o Banco de Dados SQL do Azure. Por exemplo:
+Os erros a seguir são causados pelo uso excessivo de recursos enquanto você trabalha com o Banco de Dados SQL do Azure. Por exemplo: 
 
 * Uma transação está aberta há muito tempo.
 * Uma transação está mantendo bloqueios demais.
@@ -94,7 +76,7 @@ Tópicos relacionados:
 
 * Informações mais detalhadas estão disponíveis aqui: [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
 
-| Código do erro | Severidade | Descrição |
+| Código do erro | Severity | DESCRIÇÃO |
 | ---:| ---:|:--- |
 | 10928 |20 |ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, confira [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>Para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md). |
 | 10929 |20 |ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para saber mais, confira [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>Para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md). |
@@ -141,7 +123,7 @@ Tópicos relacionados:
 ## <a name="general-errors"></a>Erros gerais
 Os erros a seguir não se enquadram em nenhuma categoria anterior.
 
-| Código do erro | Severidade | Descrição |
+| Código do erro | Severity | DESCRIÇÃO |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) não é um nome válido porque contém caracteres inválidos. |
 | 18452 |14 |Falha no logon. O logon é de um domínio não confiável e não pode ser usado com a autenticação do Windows.%.&#x2a;ls (logons do Windows não têm suporte nesta versão do SQL Server.) |

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
 ## <a name="catalog-of-roles"></a>Catálogo de funções
 
-| Função | Descrição | Responsabilidade da PoC (prova de conceito) |
+| Função | DESCRIÇÃO | Responsabilidade da PoC (prova de conceito) |
 | --- | --- | --- |
 | **Arquitetura de Identidade / equipe de desenvolvimento** | Essa equipe geralmente é a que projeta a solução, implementa protótipos, aprovações de unidades e, finalmente, entrega para operações | Ela fornece os ambientes e é quem avalia os diferentes cenários a partir da perspectiva de capacidade de Gerenciamento |
 | **Equipe de Operações de Identidade Local** | Gerencia as diferentes fontes de identidade locais: Florestas do Active Directory, Diretórios LDAP, Sistemas de RH e Provedores de Identidade do WS-Federation . | Fornece acesso aos recursos locais necessários para os cenários PoC.<br/>Devem interferir o mínimo possível|
@@ -391,7 +391,7 @@ Tempo estimado para Conclusão: 15 minutos
 | Navegue até o Portal de Gerenciamento do Azure AD: Redefinição de senha | [Portal de Gerenciamento do Azure AD: Redefinição de senha](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Determina a política de redefinição de senha. Para fins de prova de conceito é possível usar chamada telefônica e perguntas e respostas. É recomendável que o registro seja exigido ao iniciar sessão no painel de acesso |  |
 | Faça logoff e logon como um operador de informações |  |
-| Forneça os dados de redefinição de senha de Autoatendimento, conforme configurado na etapa 2 | http://aka.ms/ssprsetup |
+| Forneça os dados de redefinição de senha de Autoatendimento, conforme configurado na etapa 2 | https://aka.ms/ssprsetup |
 | Feche o navegador |  |
 | Inicie o processo de logon como o operador de informações que você usou na etapa 4 |  |
 | Redefinir a senha | [Atualizar sua própria senha: Redefinir a minha senha](active-directory-passwords-update-your-own-password.md) |
@@ -442,7 +442,7 @@ Tempo estimado para Conclusão: 10 minutos
 | O aplicativo de SaaS foi já configurado |  |
 | Usuários de prova de conceito já estão atribuídos ao aplicativo |  |
 | As credenciais para o usuário de prova de conceito estão disponíveis |  |
-| Usuário de prova de conceito está registrado para MFA. Usando um telefone com bom sinal | http://aka.ms/ssprsetup |
+| Usuário de prova de conceito está registrado para MFA. Usando um telefone com bom sinal | https://aka.ms/ssprsetup |
 | Dispositivo na rede interna. Endereço IP configurado no intervalo de endereços internos | Localize do endereço IP em: https://www.bing.com/search?q=what%27s+my+ip |
 | Dispositivo de rede externa (pode ser um telefone usando redes móveis de operadora) |  |
 
@@ -533,7 +533,7 @@ Tempo estimado para Conclusão: 10 minutos
 | Etapa | Recursos |
 | --- | --- |
 | Faça logon como um administrador global em https://portal.azure.com e abra a folha Identity Protection | https://aka.ms/aadipgetstarted |
-| Habilite uma política de risco de entrada conforme a seguir:<br/>-Atribuído a: usuário de POC<br/>-Condições: Risco de entrada médio ou superior (entrada de local anônimo é considerada como um nível de risco médio)<br/>-Controles: Exigir MFA | [Guia estratégico do Azure Active Directory Identity Protection: Risco de entrada](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| Habilite uma política de risco de entrada conforme a seguir:<br/>-Atribuído a: usuário de POC<br/>-Condições: Risco de entrada médio ou superior (entrada de local anônimo é considerada como um nível de risco médio)<br/>-Controles: Exigir MFA | [Guia estratégico do Azure Active Directory Identity Protection: Risco de entrada](active-directory-identityprotection-playbook.md) |
 | Abra o navegador Tor | [Baixe o Navegador Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Faça login em https://myapps.microsoft.com com a conta de usuário de PoC |  |
 | Observe o desafio MFA | [Experiências de entrada com o Azure AD Identity Protection: Recuperação de entrada de risco](active-directory-identityprotection-flows.md#risky-sign-in-recovery)

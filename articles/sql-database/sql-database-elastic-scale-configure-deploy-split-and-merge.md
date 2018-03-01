@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Implantar um serviço de divisão e mesclagem
 A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados fragmentados. Veja [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -34,13 +34,13 @@ A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados f
 
 Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número de versão. Localize os arquivos do Serviço de divisão e mesclagem no subdiretório **content\splitmerge\service** e os scripts de divisão e mesclagem do PowerShell (e as dlls do cliente necessárias) no subdiretório **content\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [Portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 2. Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. No portal, em **Configurações de Firewall**, verifique se a configuração **Permitir acesso aos Serviços do Azure** foi definida como **Ativada**. Clique no botão “Salvar”.
    
    ![Serviços permitidos][1]
-3. Crie uma conta de Armazenamento do Azure que será usada para a saída de diagnóstico. Vá para o portal do Azure. Na barra de ferramentas à esquerda, clique em **Novo**, **Dados + armazenamento** e em **Armazenamento**.
-4. Crie um Serviço de nuvem do Azure que conterá o seu serviço de Divisão-Mesclagem.  Vá para o portal do Azure. Na barra de ferramentas à esquerda, clique em **Novo**, **Calcular**, **Serviço de Nuvem** e **Criar**. 
+3. Crie uma conta de Armazenamento do Azure que será usada para a saída de diagnóstico. Vá para o portal do Azure. Na barra esquerda, clique em **Criar um recurso**, clique em **Dados + Armazenamento** e, em seguida, em **Armazenamento**.
+4. Crie um Serviço de nuvem do Azure que conterá o seu serviço de Divisão-Mesclagem.  Vá para o portal do Azure. Na barra esquerda, clique em **Criar um recurso** e, em seguida, em **Computação**, **Serviço de Nuvem** e **Criar**. 
 
 ## <a name="configure-your-split-merge-service"></a>Configurar o serviço de divisão e mesclagem
 ### <a name="split-merge-service-configuration"></a>Configuração do serviço de Divisão-Mesclagem
@@ -317,7 +317,7 @@ Um exemplo disso pode ser visto no script SetupSampleSplitMergeEnvironment.ps1.
 
 O serviço de Divisão-Mesclagem não cria para você o banco de dados de destino (ou o esquema para todas as tabelas no banco de dados). Eles devem ser criados previamente antes de enviar uma solicitação ao serviço.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Você pode ver a mensagem abaixo ao executar os scripts do powershell de exemplo:
 
    ```

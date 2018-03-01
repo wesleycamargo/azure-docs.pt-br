@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 30ed7c2f9a65f66d9d45b1bdd5be2957cfe1d08a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação de conta de Automação com contas Executar como 
 Você pode atualizar sua conta de Automação existente no portal do Azure ou usar o PowerShell se:
@@ -40,7 +40,7 @@ O processo cria os seguintes itens na sua conta de Automação.
 * Cria um ativo de certificado de Automação chamado *AzureClassicRunAsCertificate* na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado usada pelo certificado de gerenciamento.
 * Cria um ativo de conexão de Automação chamado *AzureClassicRunAsConnection* na conta de Automação especificada. O ativo de conexão contém o nome da assinatura, subscriptionId e o nome do ativo de certificado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Se você optar por [usar o PowerShell para criar as contas Executar como](#create-run-as-account-using-powershell), esse processo requer:
 
 * O Windows 10 e Windows Server 2016 com módulos do Azure Resource Manager 3.4.1 e posterior. O script do PowerShell não oferece suporte a versões anteriores do Windows.
@@ -49,7 +49,7 @@ Se você optar por [usar o PowerShell para criar as contas Executar como](#creat
 
 Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, que são parâmetros obrigatórios para o script, faça o seguinte:
 
-1. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Automação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Automação**.
+1. No Portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Automação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Automação**.
 2. Na página conta de Automação, selecione sua conta de Automação e, em seguida, em **Configurações de conta** selecione **Propriedades**.  
 3. Observe os valores na página **Propriedades**.<br><br> ![A folha "Propriedades" da conta de Automação](media/automation-create-runas-account/automation-account-properties.png)  
 
@@ -65,7 +65,7 @@ Caso não seja membro da instância do Active Directory da assinatura antes de s
 Nesta seção, execute as seguintes etapas para atualizar sua conta de Automação do Azure no portal do Azure.  Você pode criar as contas Executar Como e Executar Como Clássicas individualmente. Se você não precisa gerenciar recursos clássicos, é possível criar apenas a conta Executar Como do Azure.  
 
 1. Conecte-se no Portal do Azure com uma conta que seja membro da função Administradores da Assinatura e coadministradora da assinatura.
-2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Automação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Automação**.
+2. No Portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Automação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Automação**.
 3. Na página **Contas de Automação**, selecione sua conta de Automação da lista de contas de Automação.
 4. No painel do lado esquerdo, selecione **Contas Executar como** na seção **Configurações de conta**.  
 5. Dependendo da conta de que você precisa, selecione **Conta Executar como do Azure** ou **Conta Executar como Clássica do Azure**.  Após a seleção, o painel **Adicionar Executar como do Azure** ou **Adicionar conta Executar como Clássica do Azure** aparecerá e após a revisão das informações de visão geral, clique em **Criar** para prosseguir com a criação da conta Executar como.  

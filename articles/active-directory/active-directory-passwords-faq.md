@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -40,7 +40,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 * **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
 
-  > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (http://aka.ms/ssprsetup) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (http://myapps.microsoft.com). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
+  > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (http://myapps.microsoft.com). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
   >
   >
 * **P: se habilitar a redefinição de senha para um grupo e, em seguida, optar por habilitá-la para todos, meu usuários deverão se registrar novamente?**

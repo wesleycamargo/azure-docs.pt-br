@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Introdução ao AngularJS do Azure AD
 
@@ -48,7 +48,7 @@ Para permitir que seu aplicativo autentique usuários e obtenha tokens, primeiro
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Se você entrar em vários diretórios, precisará garantir que está exibindo o diretório correto. Para fazer isso, na barra superior, clique em sua conta. Sob o **diretório** lista, escolha o locatário do AD do Azure onde você deseja registrar seu aplicativo.
-3. Clique em **Mais Serviços** no painel esquerdo e selecione **Azure Active Directory**.
+3. Clique em **Todos os serviços** no painel esquerdo e, em seguida, selecione **Azure Active Directory**.
 4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Siga os prompts e crie um novo aplicativo Web e/ou API Web:
   * **Nome** descreve seu aplicativo para os usuários.

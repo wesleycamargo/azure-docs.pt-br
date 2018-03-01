@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Análise de logs para NSGs (grupos de segurança de rede)
 
@@ -46,7 +46,7 @@ O log de diagnóstico deve ser habilitado para *cada* NSG do qual você quer col
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para usar o portal a fim de habilitar o log, entre no [portal](https://portal.azure.com). Clique em **Mais serviços** e digite *grupos de segurança de rede*. Escolha o NSG para o qual quer habilitar o log. Siga as instruções para recursos de não computação no artigo [Habilite os logs de diagnóstico no portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Selecione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** ou ambas as categorias de log.
+Para usar o portal a fim de habilitar o log, entre no [portal](https://portal.azure.com). Clique em **Todos os serviços** e digite *grupos de segurança de rede*. Escolha o NSG para o qual quer habilitar o log. Siga as instruções para recursos de não computação no artigo [Habilite os logs de diagnóstico no portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Selecione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** ou ambas as categorias de log.
 
 ### <a name="powershell"></a>PowerShell
 

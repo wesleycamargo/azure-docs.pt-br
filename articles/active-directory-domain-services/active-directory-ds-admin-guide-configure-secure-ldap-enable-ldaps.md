@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAPS (LDAP Seguro) para um domínio gerenciado do Azure AD Domain Services
 
@@ -113,7 +113,6 @@ A tabela a seguir ilustra um exemplo de NSG que você pode configurar para bloqu
 ## <a name="troubleshooting"></a>solução de problemas
 Se você tiver problemas para se conectar ao domínio gerenciado usando o LDAP seguro, siga as etapas de solução de problemas a seguir:
 * Certifique-se de que a cadeia de emissor do certificado LDAP seguro é confiável no cliente. Você pode optar por adicionar a autoridade de certificação raiz ao repositório de certificados raiz confiável no cliente para estabelecer a confiança.
-* Verifique se o certificado LDAP seguro não é emitido por uma autoridade de certificado intermediária que não é confiável por padrão em um computador do Windows atualizado.
 * Verifique se o cliente LDAP (por exemplo, ldp.exe) se conecta ao ponto de extremidade LDAP seguro usando um nome DNS, não o endereço IP.
 * Verifique se o nome DNS do cliente LDAP conecta-se para resolver o endereço IP público para o LDAP seguro no domínio gerenciado.
 * Verifique se o certificado LDAP seguro para seu domínio gerenciado tem o nome DNS no atributo Entidade ou Nome Alternativo da Entidade.

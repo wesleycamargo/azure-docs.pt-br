@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportar um modelo do Azure Resource Manager a partir dos recursos existentes
 Neste artigo, você aprenderá a exportar um modelo do Resource Manager de recursos existentes em sua assinatura. Você pode usar esse modelo gerado para compreender melhor a sintaxe do modelo.
@@ -33,7 +33,7 @@ Este tópico mostra ambas as abordagens por meio do portal.
 ## <a name="deploy-resources"></a>Implantação de recursos
 Vamos começar a implantação de recursos para o Azure que podem ser usados para exportar como um modelo. Se já tiver um grupo de recursos que deseja exportar como um modelo na sua assinatura, você pode ignorar esta seção. O restante deste artigo pressupõe que você implantou o aplicativo web e a solução de banco de dados SQL mostrados nesta seção. Se você usar uma solução diferente, a sua experiência pode ser um pouco diferente, mas as etapas para exportar um modelo são as mesmas. 
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Novo**.
+1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
    
       ![Selecione Novo](./media/resource-manager-export-template/new.png)
 2. Pesquise **aplicativo Web + SQL** e selecione a partir das opções disponíveis.

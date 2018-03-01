@@ -16,11 +16,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e85300676eeee9259e40faa0e0ede94a36f6167
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d657eda25f3b26cb793a7ba1a4546f98c08b7e65
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Gerenciamento de unidades administrativas no Azure AD – visualização pública
 Este artigo descreve as unidades administrativas – um novo contêiner de recursos do Azure Active Directory que pode ser usado para delegar permissões administrativas e aplicar políticas a subconjuntos de usuários. No Active Directory do Azure, unidades administrativas permitem aos administradores centrais delegar permissões para administradores regionais ou definir a diretiva em um nível granular.
@@ -28,7 +28,7 @@ Este artigo descreve as unidades administrativas – um novo contêiner de recur
 Isso é útil em organizações com divisões independentes, por exemplo, uma grande universidade que é composta de muitas escolas independentes (Faculdade de Administração, Faculdade de Engenharia e assim por diante) que são independentes umas das outras. Essas divisões têm seus próprios administradores de TI que controlam o acesso, gerenciam usuários e definem políticas especificamente para sua divisão. Os administradores centrais desejam poder conceder essas divisões permissões de administradores entre os usuários em suas divisões específicas. Mais especificamente, usando esse exemplo, um administrador central pode, por exemplo, criar uma unidade administrativa de uma faculdade específica (Faculdade de Administração) e preenchê-la com somente os usuários da Faculdade de Negócios. Um administrador central pode incluir a equipe de TI da Faculdade de Negócios em uma função com escopo definido, em outras palavras, concede à equipe de TI da Faculdade de Administração permissões administrativas do Business somente para a unidade administrativa da Faculdade de Administração.
 
 > [!IMPORTANT]
-> Você poderá atribuir funções de administrador com escopo de unidade administrativa somente se você habilitar o Azure Active Directory Premium. Para saber mais, consulte [Introdução ao AD Premium do Azure](active-directory-get-started-premium.md).
+> Para usar as Unidades Administrativas, o administrador no escopo da Unidade Administrativa possui uma licença do Microsoft Azure Active Directory Premium e do Azure Active Directory Basic para todos os usuários da Unidade Administrativa. Para saber mais, consulte [Introdução ao AD Premium do Azure](active-directory-get-started-premium.md).
 >
 
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
-O Gerenciador de Armazenamento do Microsoft Azure (Preview) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux. O aplicativo pode se conectar a contas de Armazenamento hospedadas no Azure, em nuvens independentes e no Azure Stack.
+O Gerenciador de Armazenamento do Microsoft Azure (versão prévia) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Microsoft Azure no Windows, no macOS e no Linux. O aplicativo pode conectar contas de armazenamento hospedadas no Azure, Nuvens Nacionais e no Microsoft Azure Stack.
 
 Este guia resume as soluções de problemas comuns encontrados no Gerenciador de Armazenamento.
 
@@ -59,7 +59,7 @@ Quando o Gerenciador de Armazenamento encontra um dos problemas, ele não conseg
 
 6. Abra o Gerenciador de Armazenamento, clique em **Editar** > **Certificados SSL** > **Importar Certificados** e, depois, use o seletor de arquivo para localizar, selecionar e abrir os arquivos .cer que você criou.
 
-Se você não conseguir encontrar um certificado autoassinado usando as etapas acima, entre em contato conosco por meio da ferramenta de comentários para obter mais ajuda.
+Se você não conseguir encontrar certificados autoassinados usando as etapas anteriores, entre em contato conosco por meio da ferramenta de comentários para obter mais ajuda.
 
 ### <a name="unable-to-retrieve-subscriptions"></a>Não é possível recuperar as assinaturas
 
@@ -73,7 +73,7 @@ Se não for possível recuperar as assinaturas após a entrada bem-sucedida, exe
 
 - Tente remover e readicionar a conta.
 
-- Tente excluir os seguintes arquivos do diretório raiz (ou seja, C:\Usuários\ContosoUser) e, depois, adicione novamente a conta:
+- Tente excluir os seguintes arquivos do diretório raiz (ou seja,C:\Users\ContosoUser) e, em seguida, adicione a conta novamente:
 
     - .adalcache
 
@@ -116,7 +116,7 @@ Se você estiver conseguindo remover uma conta, ou se o link de reautenticação
     - ~/.config/StorageExplorer para Linux
 
 > [!NOTE]
->  Será necessário reinserir todas as suas credenciais se você excluir esses arquivos.
+>  Após excluir os arquivos anteriores, será necessário entrar novamente em suas contas.
 
 ## <a name="proxy-issues"></a>Problemas de proxy
 
@@ -173,13 +173,21 @@ Se você estiver se conectando a um serviço usando uma URL SAS e enfrentando es
 
 - Se a URL SAS tiver base em uma política de acesso, verifique se a política de acesso não foi revogada.
 
-Se você acidentalmente anexar uma URL SAS inválida e não conseguir desanexá-la, siga estas etapas:
+Se você anexou acidentalmente usando uma URL da SAS inválida e não é possível desanexá-la, execute as seguintes etapas:
 1.  Ao executar o Gerenciador de Armazenamento, pressione F12 para abrir a janela de ferramentas para desenvolvedores.
 2.  Clique na guia Aplicativo e clique em Armazenamento Local > file:// na árvore à esquerda.
-3.  Localize a chave associada ao tipo de serviço do URI SAS problemático. Por exemplo, se o URI SAS inválido for para um contêiner de blobs, procure a chave chamada “StorageExplorer_AddStorageServiceSAS_v1_blob”.
+3.  Localize a chave associada ao tipo de serviço do URI SAS problemático. Por exemplo, se o URI da SAS incorreta for para um contêiner de blob, procure a chave nomeada `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.  O valor da chave deve ser uma matriz JSON. Localize o objeto associado ao URI inválido e remova-o.
 5.  Pressione Ctrl+R para recarregar o Gerenciador de Armazenamento.
 
+## <a name="linux-dependencies"></a>Dependências do Linux
+
+Para distribuições Linux diferentes do Ubuntu 16.04, talvez seja necessário instalar algumas dependências manualmente. Em geral, são necessários os seguintes pacotes:
+* libgconf-2-4
+* libsecret
+* GCC atualizado
+
+Dependendo da sua distribuição, talvez seja necessário instalar outros pacotes. O Gerenciador de Armazenamento[Notas de Versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contém etapas específicas para algumas distribuições.
 
 ## <a name="next-steps"></a>Próximas etapas
 

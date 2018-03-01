@@ -2,23 +2,17 @@
 title: "Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs do Azure| Microsoft Docs"
 description: "Use o Portal do Azure para mapear seu próprio nome canônico (CNAME) para o ponto de extremidade do Armazenamento de Blobs em uma conta de Armazenamento do Azure."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs
 
@@ -116,7 +110,7 @@ Execute o seguinte no Portal do Azure para remover a configuração de domínio 
 
 Após a remoção do domínio personalizado, você verá uma notificação no portal informando que sua conta de armazenamento foi atualizada com êxito.
 
-### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+### <a name="azure-cli-20"></a>CLI do Azure 2.0
 
 Use o comando de CLI [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) e especifique uma cadeia de caracteres vazia (`""`) para o valor do argumento `--custom-domain` para remover um registro de domínio personalizado.
 
