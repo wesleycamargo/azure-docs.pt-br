@@ -88,7 +88,7 @@ A execução local pode causar problemas porque, por padrão, a autenticação d
     Substitua as URLs na matriz pelas URLs do serviço, que neste exemplo é `http://localhost:3000` para o serviço local de exemplo do Node.js. Você também pode usar `http://localhost:4400` para o serviço Ripple ou alguma outra URL, dependendo de como seu aplicativo é configurado.
 8. Na parte superior da página, clique em **Leitura/Gravação** e clique em **PUT** para salvar as atualizações.
 
-Você também precisa adicionar as mesmas URLs de loopback às configurações de lista branca do CORS:
+Você também precisa adicionar as mesmas URLs de loopback às configurações de lista de permissões do CORS:
 
 1. Navegue até o [Portal do Azure].
 2. Navegue até o back-end do Aplicativo Móvel.
