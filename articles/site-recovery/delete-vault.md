@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 02/22/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 77bc7e068629c5dbf650b39844912b1b7a6155b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cb5c387319b9659b16f0c98dc38cb79d72987e2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Excluir um cofre do Site Recovery
 Dependências podem impedir a exclusão de um cofre do Azure Site Recovery. As ações necessárias variam de acordo com o cenário do Site Recovery: VMware para o Azure, Hyper-V (com e sem o System Center Virtual Machine Manager) para o Azure e Backup do Azure. Para excluir um cofre usado no Backup do Azure, consulte [Excluir um cofre de Backup no Azure](../backup/backup-azure-delete-vault.md).

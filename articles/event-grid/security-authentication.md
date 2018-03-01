@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -59,6 +59,11 @@ Para provar a propriedade do ponto de extremidade, retorne o código de validaç
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+### <a name="event-delivery-security"></a>Segurança de entrega de evento
+
+É possível proteger o ponto de extremidade do webhook adicionando parâmetros de consulta à URL do webhook ao criar uma Assinatura de Evento. Defina um desses parâmetros de consulta como um segredo, como um [token de acesso](https://en.wikipedia.org/wiki/Access_token) que o webhook poderá utilizar para reconhecer o evento proveniente da Grade de Eventos com permissões válidas. A Grade de Eventos inclui esses parâmetros de consulta em cada entrega de evento para o webhook.
+
+Ao editar a Assinatura de Evento, os parâmetros de consulta não serão exibidos nem retornados, a menos que o parâmetro [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) seja usado na [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) do Azure.
 
 Por fim, é importante observar que a Grade de Eventos do Azure oferece suporte apenas a pontos de extremidade HTTPS do webhook.
 

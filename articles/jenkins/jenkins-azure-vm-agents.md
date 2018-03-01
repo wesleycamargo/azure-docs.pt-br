@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Dimensionar implantações do Jenkins para atender à demanda com agentes de VM do Azure
 
@@ -33,7 +33,7 @@ Neste tutorial, você irá:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma assinatura do Azure
 * Um servidor mestre do Jenkins. Se você não tiver um, exiba o [guia de início rápido](install-jenkins-solution-template.md) para configurar um no Azure.
@@ -91,7 +91,7 @@ Neste tutorial, você irá:
             }
      ```
 
-    A entidade de serviço concluída deve usar o campo `id` em **ID da Assinatura**, o valor `appId` em **ID do Cliente**, `password` em **Segredo do Cliente** e uma URL em **Ponto de Extremidade do Token OAuth 2.0** de `https://login.windows.net/<tenant_value>`. Selecione **Adicionar** para adicionar a entidade de serviço e, em seguida, configure o plug-in para usar a credencial recém-criada.
+    A entidade de serviço concluída deve usar o campo `id` para **ID da Assinatura** , o `appId` valor para **ID do Cliente**, `password` para **Segredo do Cliente** e `tenant` para **ID do Locatário**. Selecione **Adicionar** para adicionar a entidade de serviço e, em seguida, configure o plug-in para usar a credencial recém-criada.
 
     ![Configurar uma entidade de serviço do Azure](./media/jenkins-azure-vm-agents/new-service-principal.png)
 

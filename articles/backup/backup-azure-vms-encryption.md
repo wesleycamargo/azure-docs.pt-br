@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e restauração de máquinas virtuais criptografadas usando o Backup do Azure
 Este artigo descreve as etapas para fazer backup e restaurar VMs (máquinas virtuais) usando o Backup do Azure. Ele também oferece detalhes sobre os cenários com suporte, os pré-requisitos e as etapas de solução de problemas para casos de erro.
@@ -48,7 +48,7 @@ Este artigo descreve as etapas para fazer backup e restaurar VMs (máquinas virt
 Use as etapas a seguir para definir a meta de backup, definir uma política, configurar itens e disparar um backup.
 
 ### <a name="configure-backup"></a>Configurar o backup
-1. Se já tiver um cofre dos Serviços de Recuperação aberto, vá para a próxima etapa. Se não tiver um cofre dos Serviços de Recuperação aberto, mas estiver no portal do Azure, no menu **Hub**, clique em **Procurar**.
+1. Se já tiver um cofre dos Serviços de Recuperação aberto, vá para a próxima etapa. Se você não tiver um cofre de Serviços de Recuperação aberto, mas estiver no Portal do Azure, selecione **Todos os serviços**.
 
    a. Na lista de recursos, digite **Serviços de Recuperação**.
 
@@ -98,7 +98,7 @@ Se você tiver VMs cujo backup já estiver sendo feito em um cofre dos Serviços
 
 ## <a name="provide-permissions-to-backup"></a>Fornecer permissões para o Backup
 Use as etapas a seguir para fornecer as permissões relevantes para o Backup acessar o cofre de chaves e fazer backup de VMs criptografadas.
-1. Selecione **Mais serviços** e pesquise **Cofres de chaves**.
+1. Selecione **Todos os serviços** e pesquise **Cofres de chaves**.
 
     ![Cofres de chaves](./media/backup-azure-vms-encryption/search-key-vault.png)
     

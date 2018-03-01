@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 37f50d962ff73330a23c0f7397b93c84dd2e8181
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usar o MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o Azure Key Vault 
 
@@ -47,7 +47,7 @@ Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 Para este tutorial, vamos criar uma nova VM do Windows. Você também pode habilitar o MSI em uma VM existente.
 
-1.  Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+1.  Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
 3.  Insira as informações da máquina virtual. O **Nome de usuário** e **Senha** criados aqui são as credenciais usadas para fazer logon na máquina virtual.
 4.  Escolha uma **Assinatura** para a máquina virtual na lista suspensa.
@@ -77,7 +77,7 @@ Usando o MSI seu código pode obter tokens de acesso para autenticar para recurs
 
 Primeiro, precisamos criar um Key Vault e conceder acesso de identidade da nossa VM para o Key Vault.   
 
-1. Na parte superior da barra de navegação à esquerda, selecione **+ Novo**, em seguida, **Segurança + Identidade**, em seguida, **Key Vault**.  
+1. Na parte superior da barra de navegação esquerda, selecione**Criar um recurso** > **Segurança + Identidade** > **Key Vault**.  
 2. Forneça um **Nome** para o novo Key Vault. 
 3. Localize o Key Vault no mesmo grupo de recursos e assinatura da VM que você criou anteriormente. 
 4. Selecione **Políticas de acesso** e clique em **Adicionar nova**. 

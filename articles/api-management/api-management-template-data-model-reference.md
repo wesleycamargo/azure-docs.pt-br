@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e303e2744023711a7648f9a6b29709e549d40e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados de modelo do Gerenciamento de API do Azure
 Este tópico descreve as representações de entidade e tipo para itens comuns usados nos modelos de dados para os modelos de portal do desenvolvedor no Gerenciamento de API do Azure.  
@@ -51,7 +51,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 -   [Inscrição do usuário](#UserSignUp)  
   
 ##  <a name="API"></a> API  
- A entidade `API` tem as seguintes propriedades.  
+ A entidade `API` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -65,7 +65,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |subscriptionKeyParameterNames|objeto|Propriedade opcional que pode ser usada para especificar nomes personalizados para parâmetros de consulta e/ou cabeçalho que contêm a chave de assinatura. Quando essa propriedade estiver presente, ela deverá conter pelo menos uma das duas propriedades a seguir.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a> Resumo da API  
- A entidade `API summary` tem as seguintes propriedades.  
+ A entidade `API summary` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -74,7 +74,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Descrição|string|A descrição da API. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
   
 ##  <a name="Application"></a> Aplicativo  
- A entidade `application` tem as seguintes propriedades.  
+ A entidade `application` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -92,7 +92,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |ícone|[Anexo](#Attachment)|O ícone do aplicativo.|  
   
 ##  <a name="Attachment"></a> Anexo  
- A entidade `attachment` tem as seguintes propriedades.  
+ A entidade `attachment` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -119,7 +119,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |parâmetros|Coleção de entidade de [Parâmetro](#Parameter).|Parâmetros que são definidos para essa operação.|  
   
 ##  <a name="Comment"></a> Comentário  
- A entidade `API` tem as seguintes propriedades.  
+ A entidade `API` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -145,7 +145,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Serviços|Coleção de entidades de [API](#API).|As APIs assinadas pelo usuário que arquivou o problema.|  
   
 ##  <a name="Filtering"></a> Filtragem  
- A entidade `filtering` tem as seguintes propriedades.  
+ A entidade `filtering` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -185,7 +185,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |representations|matriz de [Representação](#Representation)|Coleção de representações de resposta da operação.|  
   
 ##  <a name="Operation"></a> Operação  
- A entidade `operation` tem as seguintes propriedades.  
+ A entidade `operation` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -200,7 +200,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |responses|matriz de [Resposta HTTP](#HTTPResponse)|Matriz de entidades de [Resposta HTTP](#HTTPResponse) da operação.|  
   
 ##  <a name="Menu"></a> Menu de operação  
- A entidade `operation menu` tem as seguintes propriedades.  
+ A entidade `operation menu` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -210,7 +210,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |MenuItems|Coleção de entidades de [Item de menu de operação](#MenuItem).|As operações para a API do atual.|  
   
 ##  <a name="MenuItem"></a> Item de menu de operação  
- A entidade `operation menu item` tem as seguintes propriedades.  
+ A entidade `operation menu item` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -219,7 +219,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |HttpMethod|string|O método HTTP da operação.|  
   
 ##  <a name="Paging"></a> Paginação  
- A entidade `paging` tem as seguintes propriedades.  
+ A entidade `paging` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -243,7 +243,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |typeName|string|Tipo de parâmetro.|  
   
 ##  <a name="Product"></a> Produto  
- A entidade `product` tem as seguintes propriedades.  
+ A entidade `product` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -256,7 +256,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |MultipleSubscriptionsCount|número|Número máximo de assinaturas para esse produto que um usuário pode ter ao mesmo tempo.|  
   
 ##  <a name="Provider"></a> Provedor  
- A entidade `provider` tem as seguintes propriedades.  
+ A entidade `provider` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -269,11 +269,11 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
-|contentType|string|Especifica um tipo de conteúdo personalizado ou registrado para essa representação, por exemplo, `application/xml`.|  
+|contentType|string|Especifica um tipo de conteúdo registrado ou personalizado para essa representação, por exemplo, `application/xml`.|  
 |exemplo|string|Um exemplo da representação.|  
   
 ##  <a name="Subscription"></a> Assinatura  
- A entidade `subscription` tem as seguintes propriedades.  
+ A entidade `subscription` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -285,7 +285,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |state|string|O estado da assinatura. Os possíveis estados são:<br /><br /> - `0 - suspended` – a assinatura está bloqueada e o assinante não pode chamar APIs do produto.<br /><br /> - `1 - active` – a assinatura está ativa.<br /><br /> - `2 - expired` – a assinatura atingiu sua data de validade e foi desativada.<br /><br /> - `3 - submitted` – a solicitação de assinatura foi feita pelo desenvolvedor, mas ainda não foi aprovada ou rejeitada.<br /><br /> - `4 - rejected` – a solicitação de assinatura foi negada por um administrador.<br /><br /> - `5 - cancelled` – a assinatura foi cancelada pelo desenvolvedor ou administrador.|  
 |DisplayName|string|Nome de exibição da assinatura.|  
 |CreatedDate|dateTime|A data em que a assinatura foi criada, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
-|CanBeCancelled|booleano|Se a assinatura pode ser cancelada pelo usuário atual.|  
+|CanBeCancelled|booleano|Se a assinatura puder ser cancelada pelo usuário atual.|  
 |IsAwaitingApproval|booleano|Se a assinatura está aguardando aprovação.|  
 |StartDate|dateTime|A data de início da assinatura, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
 |ExpirationDate|dateTime|A data de validade da assinatura, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
@@ -299,7 +299,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |RenewUrl|string|A URL relativa para renovar a assinatura.|  
   
 ##  <a name="SubscriptionSummary"></a> Resumo da assinatura  
- A entidade `subscription summary` tem as seguintes propriedades.  
+ A entidade `subscription summary` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -307,7 +307,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |DisplayName|string|O nome de exibição da assinatura|  
   
 ##  <a name="UserAccountInfo"></a> Informações de conta de usuário  
- A entidade `user account info` tem as seguintes propriedades.  
+ A entidade `user account info` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -320,7 +320,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |IsBasicAccount|booleano|True se essa conta foi registrada usando o email e a senha, false se a conta foi registrada usando um provedor.|  
   
 ##  <a name="UseSignIn"></a> Entrada do usuário  
- A entidade `user sign in` tem as seguintes propriedades.  
+ A entidade `user sign in` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
@@ -338,7 +338,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |UserRegistrationTermsEnabled|booleano|Se os termos estão habilitados.|  
   
 ##  <a name="UserSignUp"></a> Inscrição do usuário  
- A entidade `user sign up` tem as seguintes propriedades.  
+ A entidade `user sign up` tem as seguintes propriedades:  
   
 |Propriedade|type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  

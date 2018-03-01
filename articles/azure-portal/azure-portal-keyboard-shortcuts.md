@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6c37dcbf14ee765aa803f41b91445c8f1cabcfdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Atalhos de teclado no portal do Azure
 Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado.
@@ -28,7 +28,7 @@ Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure
 |Para fazer isto |Pressione |
 | --- | --- |
 |Criar um novo recurso|G+N|
-|Abrir o painel 'Mais serviços'|G+B|
+|Abrir o painel 'Todos os serviços'|G+B|
 |Recursos do Search|G+/| 
 |Procurar itens de menu do recurso|Ctrl+/ |
 |Mover para cima o item do painel esquerdo selecionado |ALT+Shift+Seta para Cima|

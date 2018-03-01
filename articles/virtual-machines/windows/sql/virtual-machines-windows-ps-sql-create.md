@@ -1,10 +1,10 @@
 ---
-title: Como criar VMs do SQL Server com o Azure PowerShell | Microsoft Docs
+title: Guia de aprovisionamento para VMs do SQL Server com o Azure PowerShell| Microsoft Docs
 description: "Fornece etapas e comandos do PowerShell para criar uma VM do Azure com imagens da galeria de máquinas virtuais do SQL Server."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/29/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Como criar máquinas virtuais do SQL Server com o Azure PowerShell
+# <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Como provisionar máquinas virtuais do SQL Server com o Azure PowerShell
 
 Este guia explica as opções para criar VMs do SQL Server do Windows com o Azure PowerShell. Para obter um exemplo do PowerShell do Azure simplificado com mais valores padrão, consulte o [início rápido da VM do SQL do Azure PowerShell](quickstart-sql-vm-create-powershell.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este artigo requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="configure-your-subscription"></a>Configurar sua assinatura
 

@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Capture uma imagem de uma máquina virtual do Windows do Azure criada com o modelo de implantação clássico.
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Capturar uma imagem de uma máquina virtual do Windows do Azure criada com o modelo de implantação clássico
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações de modelo do Resource Manager, consulte [Capturar uma imagem gerenciada de uma VM generalizada no Azure](../capture-image-resource.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -57,7 +57,7 @@ Antes de capturar uma imagem de uma máquina virtual do Azure, é recomendável 
 
    ![Executar o Sysprep](./media/capture-image/SysprepGeneral.png)
 5. O Sysprep desliga a máquina virtual, alterando o status dela no portal do Azure para **Parado**.
-6. No portal do Azure, clique em **Máquinas Virtuais (clássico)** e selecione a máquina virtual que você deseja capturar. O grupo **Imagens de VM (clássico)** é listado em **Computação** ao exibir **Mais serviços**.
+6. No portal do Azure, clique em **Máquinas Virtuais (clássico)** e selecione a máquina virtual que você deseja capturar. O grupo **Imagens de VM (clássico)** é listado em **Computação** ao exibir **Todos os serviços**.
 
 7. Na barra de comandos, clique em **Capturar**.
 
@@ -74,7 +74,7 @@ Antes de capturar uma imagem de uma máquina virtual do Azure, é recomendável 
     ![Captura de imagem bem-sucedida](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer isso, você criará uma máquina virtual selecionando o item de menu **Mais serviços** na parte inferior do menu de serviços e, em seguida, **Imagens de VM (clássico)** no grupo **Computação**. Para obter instruções, consulte [Criar uma máquina virtual de uma imagem](createportal.md).
+A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer isso, você criará uma máquina virtual selecionando o item de menu **Todos os serviços** na parte inferior do menu de serviços e, em seguida, **Imagens de VM (clássico)** no grupo **Computação**. Para obter instruções, consulte [Criar uma máquina virtual de uma imagem](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

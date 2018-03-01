@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/02/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: aa0f5be837daf70c8d9ede38b3fd9b4230f4e1c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6eb51cb8dc8c158f5412334a09493172f2973c74
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introdução ao Controle de Acesso Baseado em Função no Portal do Azure
 As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC (controle de acesso baseado em função) do Azure ajuda a resolver esse problema ao oferecer o gerenciamento de acesso refinado para o Azure.
@@ -58,7 +58,7 @@ O acesso concedido em escopos pai é herdado em escopos filho. Por exemplo:
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>RBAC do Azure versus administrador de assinatura clássico
 [Os administradores de assinatura clássicos e os coadministradores](../billing/billing-add-change-azure-subscription-administrator.md) têm acesso completo à assinatura do Azure. Eles podem gerenciar recursos usando o [Portal do Azure](https://portal.azure.com), as APIs do Azure Resource Manager e as APIs do modelo de implantação clássico. No modelo RBAC, aos administradores clássicos é atribuída a função de proprietário no nível de assinatura.
 
-Somente o Portal do Azure e as novas APIs do Azure Resource Manager dão suporte ao RBAC do Azure. Os usuários e aplicativos aos quais são atribuídas funções RBAC não podem usar as APIS do modelo de implantação clássico do Azure.
+Somente o Portal do Azure e as novas APIs do Azure Resource Manager dão suporte ao RBAC do Azure. Os usuários e aplicativos aos quais são atribuídas funções RBAC não podem usar as APIs do modelo de implantação clássico do Azure.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Autorização para o gerenciamento versus operações de dados
 O RBAC do Azure tem suporte somente para as operações de gerenciamento dos recursos do Azure no Portal do Azure e nas APIs do Azure Resource Manager. Ele não pode autorizar todas as operações no nível de dados para os recursos do Azure. Por exemplo, você pode autorizar alguém para gerenciar Contas de Armazenamento, mas não para blobs ou tabelas em uma Conta de Armazenamento. Da mesma forma, um banco de dados SQL pode ser gerenciado, mas não as tabelas dentro dele.

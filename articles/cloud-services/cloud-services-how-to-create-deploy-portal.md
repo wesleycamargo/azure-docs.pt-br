@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
 O portal do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.
@@ -59,15 +59,15 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 
 ## <a name="create-and-deploy"></a>Criar e implantar
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **Novo > Computação**, role para baixo e clique em **Serviço de Nuvem**.
+2. Clique em **Criar um recurso > Computação**, e, em seguida, role para baixo e clique em **Serviço de Nuvem**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. Na nova folha **Serviço de Nuvem**, insira um valor para o **Nome DNS**.
+3. No novo painel **Serviço de Nuvem**, insira um valor para o **Nome DNS**.
 4. Crie um novo **Grupo de Recursos** ou selecione um existente.
 5. Selecione um **Local**.
-6. Clique em **Pacote**. Isso abrirá a folha **Carregar um pacote** . Preencha os campos obrigatórios. Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
+6. Clique em **Pacote**. Isso abre o painel **Carregar um pacote**. Preencha os campos obrigatórios. Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
 7. Verifique se a opção **Iniciar implantação** está selecionada.
-8. Clique em **OK** que fechará a folha **Carregar um pacote**.
+8. Clique em **OK** que fechará o painel **Carregar um pacote**.
 9. Se você não tiver nenhum certificado para adicionar, clique em **Criar**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/select-package.png)
@@ -75,9 +75,9 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 ## <a name="upload-a-certificate"></a>Carregar um certificado
 Se o pacote de implantação tiver sido [configurado para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), você poderá carregar o certificado agora.
 
-1. Selecione **Certificados** e na folha **Adicionar certificados**, selecione o arquivo .pfx do certificado SSL, em seguida, forneça a **Senha** para o certificado,
-2. Clique em **Anexar certificado**, em seguida, clique em **OK** na folha **Adicionar certificados**.
-3. Clique em **Criar** na folha **Serviço de Nuvem**. Quando a implantação alcançar o status **Pronto** , será possível passar às próximas etapas.
+1. Selecione **Certificados** e no painel **Adicionar certificados**, selecione o arquivo .pfx do certificado SSL e, em seguida, forneça a **Senha** para o certificado,
+2. Clique em **Anexar certificado** e, em seguida, clique em **OK** no painel **Adicionar certificados**.
+3. Clique em **Criar** no painel **Serviço de Nuvem**. Quando a implantação alcançar o status **Pronto** , será possível passar às próximas etapas.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 

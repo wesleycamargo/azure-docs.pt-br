@@ -8,7 +8,7 @@ Essas etapas podem ajudar a resolver diversas falhas de alocação em máquinas 
 * Redimensione a VM para um tamanho de VM diferente.<br>
     Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 * Exclua todas as VMs do serviço de nuvem e recrie-as.<br>
-    Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Excluir**. Em seguida, clique em **Novo** > **Computação** > [imagem de máquina virtual].
+    Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Excluir**. Em seguida, clique em **Criar um recurso** > **Computação** > [imagem da máquina virtual].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Solução de problemas de falhas de alocação comuns no modelo de implantação do Gerenciador de Recursos do Azure
 Essas etapas podem ajudar a resolver diversas falhas de alocação em máquinas virtuais:

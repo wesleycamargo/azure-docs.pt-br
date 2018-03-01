@@ -15,28 +15,28 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciamento de provisionamento de conta de usuário para aplicativos empresariais no Portal do Azure
 Este artigo descreve como usar o [Portal do Azure](https://portal.azure.com) para gerenciar o provisionamento de conta de usuário automático e o desprovisionamento para aplicativos que oferecem suporte a ele, especialmente aqueles que foram adicionados da categoria "em destaque" da [Galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o provisionamento de contas de usuário automático e como ele funciona, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar seus aplicativos no portal
-Todos os aplicativos configurados para logon único em um diretório por um administrador de diretório usando a [galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) podem ser exibidos e gerenciados no [Portal do Azure](https://portal.azure.com). Os aplicativos podem ser encontrados na seção **Mais Serviços** &gt; **Aplicativos Empresariais** do Portal. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização.
+Todos os aplicativos configurados para logon único em um diretório por um administrador de diretório usando a [galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) podem ser exibidos e gerenciados no [Portal do Azure](https://portal.azure.com). Os aplicativos podem ser localizados na seção **Todos os Serviços** &gt; **Aplicativos Empresariais** do Portal. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização.
 
-![Folha de Aplicativos Empresariais][0]
+![Painel Aplicativos Empresariais][0]
 
-Selecionar o link **Todos os aplicativos** à esquerda mostra uma lista de todos os aplicativos que foram configurados, incluindo aplicativos adicionados da galeria. A seleção de um aplicativo carrega a folha de recursos do aplicativo, na qual os relatórios podem ser exibidos para que o aplicativo e várias configurações possam ser gerenciados.
+Selecionar o link **Todos os aplicativos** à esquerda mostra uma lista de todos os aplicativos que foram configurados, incluindo aplicativos adicionados da galeria. Selecionar um aplicativo carrega o painel de recursos para esse aplicativo, onde os relatórios podem ser exibidos para que o aplicativo e uma variedade de configurações possam ser gerenciados.
 
 Configurações de provisionamento de conta de usuário podem ser gerenciadas selecionando **Provisionamento** à esquerda.
 
-![Folha de recursos do aplicativo][1]
+![Painel Recurso de Aplicativo][1]
 
 ## <a name="provisioning-modes"></a>Modos de provisionamento
-A folha **Provisionamento** começa com um menu **Modo**, que mostra quais modos de provisionamento têm suporte para um aplicativo empresarial e permite que eles sejam configurados. As opções disponíveis incluem:
+O painel **Provisionamento** começa com um menu **Modo**, que mostra quais modos de provisionamento têm suporte para um aplicativo empresarial e permite que eles sejam configurados. As opções disponíveis incluem:
 
 * **Automático** - essa opção aparecerá se o Azure AD der suporte ao provisionamento automático baseado em API e/ou ao desprovisionamento de contas de usuário para esse aplicativo. Selecionar esse modo exibe uma interface que orienta os administradores a configurar o Azure AD para conectar-se à API de gerenciamento de usuário do aplicativo, criando mapeamentos de conta e fluxos de trabalho que definem como os dados da conta de usuário devem fluir entre o Azure AD e o aplicativo e gerenciar o serviço de provisionamento do Azure AD.
 * **Manual** - essa opção será mostrada se o Azure AD não der suporte ao provisionamento automático de contas de usuário para esse aplicativo. Essa opção significa que registros de conta de usuário armazenados no aplicativo devem ser gerenciados usando um processo externo, com base nos recursos de gerenciamento e provisionamento do usuário fornecidos pelo aplicativo (o que pode incluir o provisionamento de SAML Just-In-Time).
@@ -54,7 +54,7 @@ Selecionar o botão **Testar Conexão** permite que você teste as credenciais f
 
 Há um conjunto predefinido de mapeamentos entre objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos ou contatos. Selecionar um desses mapeamentos na tabela mostra o editor de mapeamento à direita, no qual eles podem ser visualizados e personalizados.
 
-![Folha de recursos do aplicativo][2]
+![Painel Recurso de Aplicativo][2]
 
 As personalizações com suporte incluem:
 
@@ -81,6 +81,6 @@ São fornecidos links para o **Relatório de atividade de provisionamento**, que
 Esperamos que você goste de sua experiência com o Azure AD. Continue a fazer seus comentários! Poste seus comentários e suas ideias para aprimoramento na seção **Portal de Administração** do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Estamos empolgados para criar algo novo e interessante diariamente e usar suas diretrizes para formar e definir o que devemos criar a seguir.
 
 
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
+[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

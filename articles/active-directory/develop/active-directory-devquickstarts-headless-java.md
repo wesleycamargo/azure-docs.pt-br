@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Usando um aplicativo de linha de comando Java para acessar uma API com o AD do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,7 +46,7 @@ Para habilitar seu aplicativo a autenticar usuários, primeiro você precisará 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique na sua conta e, na lista **Diretório**, escolha o locatário do Active Directory em que você deseja registrar seu aplicativo.
-3. Clique em **Mais Serviços** no painel de navegação à esquerda e escolha **Azure Active Directory**.
+3. Clique em **Todos os serviços** no navegador esquerdo e escolha **Azure Active Directory**.
 4. Clique em **Registros do Aplicativo** e escolha **Adicionar**.
 5. Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.
   * O **nome** do aplicativo descreverá seu aplicativo para os usuários finais

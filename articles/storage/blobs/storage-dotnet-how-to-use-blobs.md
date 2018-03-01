@@ -2,23 +2,17 @@
 title: "Introdução ao Armazenamento de Blobs do Azure (armazenamento de objetos) usando o .NET | Microsoft Docs"
 description: "Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: tamram
-ms.openlocfilehash: 87594d2688e3cd01f5e7db8f5be8ca513969e774
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dff18f41cc7264c523e6ae423a5d86661ab9918
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Introdução ao Armazenamento de Blobs do Azure usando o .NET
 
@@ -26,7 +20,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos/blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objetos.
+O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos/blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto.
 
 ### <a name="about-this-tutorial"></a>Sobre este tutorial
 Este tutorial mostra como gravar código .NET para alguns cenários comuns usando o Armazenamento de Blobs do Azure. Os cenários incluem upload, listagem, download e exclusão de blobs.
@@ -319,7 +313,7 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
 }
 ```
 
-## <a name="writing-to-an-append-blob"></a>Gravar um blob de anexo
+## <a name="writing-to-an-append-blob"></a>Gravar um blob de acréscimo
 Um blob de acréscimo é otimizado para operações de acréscimo, como o registro em log. Como um blob de blocos, um blob de acréscimo é composto por blocos; no entanto, quando você adiciona um novo bloco a um blob de acréscimo, ele sempre é acrescentado ao fim do blob. Não é possível atualizar ou excluir um bloco existente em um blob de acréscimo. As IDs de bloco de um blob de acréscimo não ficam expostas como em um blob de blocos.
 
 Cada bloco em um blob de acréscimo pode ter um tamanho diferente, até no máximo 4 MB, e um blob de acréscimo pode incluir no máximo 50.000 blocos. O tamanho máximo de um blob de acréscimo, portanto, é de pouco mais de 195 GB (4 MB x 50.000 blocos).

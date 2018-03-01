@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: ca4566ced525f0cb732afc15d96d9ef73fd8cff5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Always Encrypted: proteger dados confidenciais no Banco de Dados SQL e armazenar suas chaves de criptografia no Cofre de Chaves do Azure
 
@@ -79,7 +79,7 @@ Você pode criar rapidamente um cofre de chaves executando o script a seguir. Pa
 
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Vá para **Novo** > **Dados + Armazenamento** > **Banco de Dados SQL**.
+2. Vá para **Criar um recurso** > **Bancos de Dados** > **Banco de Dados SQL**.
 3. Crie um banco de dados **Em branco** chamado **Clínica** em um servidor novo ou existente. Para obter diretrizes detalhadas sobre como criar um banco de dados no Portal do Azure, consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md).
    
     ![Criar um banco de dados vazio](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: genemi
-ms.openlocfilehash: 5342b5290fab9826a2b38cd7ada63a6736c77601
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: cbe8a04abbf2dada7cc43e57e823c3a41bf83fe7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão por locatário do banco de dados com o Banco de Dados SQL do Azure
 
@@ -42,7 +42,7 @@ Uma [série de tutoriais relacionados](saas-dbpertenant-wingtip-app-overview.md#
 Quando você usa os tutoriais, pode ver como os diferentes padrões de SaaS são implementados examinando os scripts fornecidos.
 Os scripts demonstram como recursos de Banco de Dados SQL do Microsoft Azure simplificam o desenvolvimento de aplicativos SaaS.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
@@ -50,18 +50,21 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="deploy-the-wingtip-tickets-saas-application"></a>Implantar o aplicativo Wingtip Tickets SaaS
 
-Implante o aplicativo:
+#### <a name="plan-the-names"></a>Planejar os nomes
 
-1. Escolha e lembre-se de valores que serão necessários para os seguintes parâmetros:
+Nas etapas desta seção, você fornece um valor *user* que é usado para garantir que os nomes de recursos fiquem globalmente exclusivos, e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implantação do aplicativo. Para uma pessoa denominada *Aline Faria*, sugerimos:
+- *Usuário:* **af1**  *(Suas iniciais, mais um dígito.) Use um valor diferente (por exemplo, af2) se você implantar o aplicativo novamente.)*
+- *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip-dpt indica que esse é o aplicativo de banco de dados por locatário. A anexação do nome de usuário af1 correlaciona o nome do grupo de recursos com os nomes dos recursos que ele contém.)*
 
-    - **Usuário**: escolha um valor curto, como suas iniciais seguidas por um dígito. Por exemplo: *af1*. O parâmetro Usuário pode conter apenas letras, dígitos e hifens (sem espaços). O primeiro e o último caractere devem ser uma letra ou um dígito. É recomendável que todas as letras estejam em minúsculas.
-    - **Grupo de recursos**: cada vez que implantar o aplicativo Wingtip, você deve escolher um nome exclusivo diferente para o novo grupo de recursos. É recomendável que você acrescente o nome de usuário para um nome de base para o grupo de recursos. Um exemplo de nome de grupo de recursos pode ser *wingtip-af1*. Novamente, é recomendável que todas as letras estejam em minúsculas.
+Escolha seus nomes agora e os escreva. 
 
-2. Abra o modelo de implantação Wingtip Tickets SaaS Database per Tenant no portal do Azure clicando no botão azul **Implantar no Azure**.
+#### <a name="steps"></a>Etapas
+
+1. Abra o modelo de implantação Wingtip Tickets SaaS Database per Tenant no portal do Azure clicando no botão azul **Implantar no Azure**.
 
    <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-3. No modelo, insira os valores dos parâmetros necessários:
+1. No modelo, insira os valores dos parâmetros necessários:
 
     > [!IMPORTANT]
     > Algumas autenticações e firewalls de servidor estão intencionalmente desprotegidos para fins de demonstração. É recomendável que você *crie um novo grupo de recursos*. Não use grupos de recursos, servidores ou pools existentes. Não use esse aplicativo, scripts ou qualquer recurso implantado para produção. Exclua esse grupo de recursos quando tiver terminado com o aplicativo para interromper a cobrança relacionada.
@@ -70,12 +73,12 @@ Implante o aplicativo:
     - **Localização** - selecione uma **Localização** na lista suspensa.
     - **Usuário** – use o valor Nome de usuário que você escolheu anteriormente.
 
-4. Implante o aplicativo.
+1. Implante o aplicativo.
 
     - Clique se você concordar com os termos e condições.
     - Clique em **Comprar**.
 
-5. Monitore o status da implantação clicando em **Notificações**, que é o ícone de sino à direita da caixa de pesquisa. A implantação do aplicativo Wingtip Tickets SaaS leva aproximadamente cinco minutos.
+1. Monitore o status da implantação clicando em **Notificações**, que é o ícone de sino à direita da caixa de pesquisa. A implantação do aplicativo Wingtip Tickets SaaS leva aproximadamente cinco minutos.
 
    ![implantação bem-sucedida](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
@@ -98,10 +101,10 @@ Os scripts estão localizados na pasta *.\\WingtipTicketsSaaS-DbPerTenant-master
 
 ## <a name="update-the-user-configuration-file-for-this-deployment"></a>Atualizar o arquivo de configuração para esta implantação
 
-Antes de executar os scripts, atualize os valores *grupo de recursos* e *usuário* em **UserConfig.psm1**. Defina essas variáveis como os valores definidos durante a implantação.
+Antes de executar os scripts, atualize os valores *grupo de recursos* e *usuário* no arquivo *User Config*. Defina essas variáveis como os valores definidos durante a implantação.
 
-1. No *ISE do PowerShell*, abra ...\\Módulos de Aprendizado\\*UserConfig.psm1* 
-2. Atualize *ResourceGroupName* e *Nomeie* com os valores específicos para sua implantação (somente nas linhas 10 e 11).
+1. No **ISE do PowerShell**, abra ...\\Módulos de Aprendizado\\**UserConfig.psm1** 
+2. Atualize **ResourceGroupName** e **Nomeie** com os valores específicos para sua implantação (somente nas linhas 10 e 11).
 3. Salve as alterações!
 
 Esses valores são referenciados em quase todos os scripts.
@@ -114,7 +117,7 @@ Internamente no aplicativo, cada locatário obtém um banco de dados SQL implant
 
 Uma página central do **Hub de Eventos** fornece uma lista de links para os locatários em sua implantação.
 
-1. Abra o *Hub de Eventos* em seu navegador da Web: http://events.wingtip-dpt.&lt;USUÁRIO&gt;.trafficmanager.net (substitua &lt;USUÁRIO&gt; pelo seu nome de usuário da implantação):
+1. Abra o *Hub de Eventos* no seu navegador da Web: http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net (substitua &lt;usuário&gt; pelo seu nome de usuário da implantação):
 
     ![hub de eventos](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
@@ -124,27 +127,27 @@ Uma página central do **Hub de Eventos** fornece uma lista de links para os loc
 
 #### <a name="azure-traffic-manager"></a>Gerenciador de Tráfego do Azure
 
-O aplicativo Wingtip usa o [*Gerenciador de Tráfego do Azure*](../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de solicitações de entrada. A URL para acessar o hub de eventos para um locatário deve obedecer o formato a seguir:
+O aplicativo Wingtip usa o [*Gerenciador de Tráfego do Azure*](../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de solicitações de entrada. A URL para acessar a página de eventos para um locatário específico usa o formato a seguir:
 
-- http://events.wingtip-dpt.&lt;USUÁRIO&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
 As partes do formato anterior são explicadas na tabela a seguir.
 
-| Parte da URL | Descrição |
-| :------- | :---------- |
-| http://events.wingtip-dpt | As partes de eventos do aplicativo Wingtip.<br /><br />A porção ***-dpt*** distingue a implementação de Wingtip *Database Per Tenant* de outras implementações ligeiramente diferentes. Por exemplo, outros artigos de documentação oferecem Wingtip para *Standalong* (*-sa*), ou para *Banco de dados multilocatário*. |
-| .*&lt;USER&gt;* | *af1* em nosso exemplo. |
+| Parte da URL        | DESCRIÇÃO       |
+| :-------------- | :---------------- |
+| http://events.wingtip-dpt | As partes de eventos do aplicativo Wingtip.<br /><br /> *-dpt* distingue a implementação do *banco de dados por locatário* dos tíquetes Wingtip de outras implementações. Por exemplo, o aplicativo por locatário *autônomo* (*-sa*) ou implementações do *banco de dados multilocatário* (*-mt*). |
+| .*&lt;usuário&gt;* | *af1* em nosso exemplo. |
 | .trafficmanager.net/ | Gerenciador de Tráfego do Azure, URL base. |
-| fabrikamjazzclub | Para o locatário nomeado *Fabrikam Jazz Club*. |
+| fabrikamjazzclub | Identifica o locatário nomeado *Fabrikam Jazz Club*. |
 | &nbsp; | &nbsp; |
 
 1. O nome do locatário é analisado a partir da URL, pelo aplicativo de eventos.
 2. O nome do locatário é usado para criar uma chave.
 3. A chave é usada para acessar o catálogo, para obter o local do banco de dados do locatário.
-    - O catálogo é implementado usando *gerenciamento de mapas de fragmentos*.
-4. O *Hub de eventos* usa metadados estendidos no catálogo para obter uma lista de URLs de evento.
+    - O catálogo é implementado, usando *gerenciamento de mapas de fragmentos*.
+4. O *Hub de Eventos* usa metadados estendidos no catálogo para construir a lista de URLs da página de eventos para cada locatário.
 
-Em um ambiente de produção, normalmente, um registro DNS CNAME é criado para [*apontar um domínio da Internet da empresa*](../traffic-manager/traffic-manager-point-internet-domain.md) para o perfil do gerenciador de tráfego.
+Em um ambiente de produção, normalmente, um registro DNS CNAME é criado para [*apontar um domínio da Internet da empresa*](../traffic-manager/traffic-manager-point-internet-domain.md) para o nome DNS do gerenciador de tráfego.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Iniciar a geração de carga nos bancos de dados de locatário
 
@@ -156,30 +159,18 @@ As intermitências ocorrem em intervalos aleatórios.
 Levará vários minutos para que o padrão de carga surja. Portanto, é melhor permitir que o gerador seja executado por pelo menos três ou quatro minutos antes de monitorar a carga.
 
 1. No *ISE do PowerShell*, abra o script ...\\Módulos de Aprendizado\\Utilitários\\*Demo-LoadGenerator.ps1*.
-2. Pressione **F5** para executar o script e iniciar o gerador de carga. (Deixe os valores de parâmetro padrão por ora.)
+1. Pressione **F5** para executar o script e iniciar o gerador de carga. (Deixe os valores de parâmetro padrão por ora.)
+1. Você será solicitado a fazer logon na sua conta do Azure e, se necessário, selecionar a assinatura que deseja usar.
 
-Não reutilize a mesma instância do ISE do PowerShell para qualquer coisa, a não ser talvez por uma nova execução de *Demo-LoadGenerator.ps1*. Se você precisar executar outros scripts do PowerShell, inicie um ISE do PowerShell.
-
-#### <a name="rerun-with-different-parameters"></a>Executar novamente com parâmetros diferentes
-
-Siga estas etapas se você desejar executar novamente o teste de carga de trabalho com parâmetros diferentes:
-
-1. Pare o *LoadGenerator.ps1*.
-    - Use **Ctrl + C** ou clique no botão **Parar**.
-    - Essa interrupção não interrompe ou afeta todos os trabalhos incompletos em segundo plano que ainda estão em execução.
-
-2. Execute novamente o *Demo-LoadGenerator.ps1*.
-    - Este nova execução primeiro interrompe qualquer um dos trabalhos em segundo plano que podem ainda estar executando o *sp_CpuLoadGenerator*.
-
-Ou você pode encerrar a instância do ISE do PowerShell, que interrompe qualquer trabalho em segundo plano. Em seguida, inicie uma nova instância do ISE do PowerShell e execute novamente o *Demo-LoadGenerator.ps1*.
+O script do gerador de carga inicia uma tarefa em segundo plano para cada banco de dados no catálogo e depois para.  Se você executar novamente o script do gerador de carga, primeiro irá parar todos os trabalhos em segundo plano que estejam em execução, antes de iniciar novos.
 
 #### <a name="monitor-the-background-jobs"></a>Monitorar trabalhos em segundo plano
 
 Se deseja controlar e monitorar os trabalhos em segundo plano, você pode usar os cmdlets a seguir:
 
-- Get-Job
-- Receive-Job
-- Stop-Job
+- `Get-Job`
+- `Receive-Job`
+- `Stop-Job`
 
 #### <a name="demo-loadgeneratorps1-actions"></a>Ações Demo-LoadGenerator.ps1
 
@@ -188,17 +179,19 @@ O *Demo-LoadGenerator.ps1* imita uma carga de trabalho ativa de transações de 
 1. O *Demo-LoadGenerator.ps1* inicia o *LoadGenerator.ps1* em primeiro plano.
     - Ambos os arquivos. ps1 são armazenados nas pastas *Módulos de aprendizado\\Utilitários\\*.
 
-2. O *LoadGenerator.ps1* é executado repetidamente em todos os bancos de dados do locatário que estão registrados no catálogo.
+1. O *LoadGenerator.ps1* é executado repetidamente em todos os bancos de dados do locatário no catálogo.
 
-3. Para cada banco de dados de locatário, o *LoadGenerator.ps1* inicia a execução do procedimento armazenado do Transact-SQL chamado *sp_CpuLoadGenerator*.
-    - As execuções são iniciadas em segundo plano, chamando o cmdlet *Invoke-SqlAzureWithRetry*.
-    - O *sp_CpuLoadGenerator* é executado repetidamente em torno de uma instrução SELECT do SQL para uma duração padrão de 60 segundos. O intervalo de tempo entre problemas do SELECT varia de acordo com os valores do parâmetro.
+1. O *LoadGenerator.ps1* inicia um trabalho em segundo plano do PowerShell para cada banco de dados do locatário: 
+    - Por padrão, as tarefas em segundo plano executam por 120 minutos.
+    - Cada trabalho causa uma carga baseada em CPU em um banco de dados de locatário, executando *sp_CpuLoadGenerator*.  A intensidade e a duração da carga variam de acordo com `$DemoScenario`. 
+    - O *sp_CpuLoadGenerator* é executado repetidamente em torno de uma instrução SQL SELECT que causa uma alta carga de CPU. O intervalo de tempo entre os problemas do SELECT varia de acordo com os valores dos parâmetros para criar uma carga de CPU controlável. Os níveis de carga e os intervalos são randomizados para simular cargas mais realistas.
     - Esse arquivo .sql é armazenado em *WingtipTenantDB\\dbo\\StoredProcedures\\*.
 
-4. Para cada banco de dados de locatário, o *LoadGenerator.ps1* também inicia o cmdlet *Start-Job*.
-    - O *Start-Job* imita uma carga de trabalho de vendas de tíquete.
+1. Se `$OneTime = $false`, o gerador de carga inicia as tarefas em segundo plano e, em seguida, continua a executar, monitorando cada 10 segundos para todos os novos locatários que estão provisionados. Se definir `$OneTime = $true`, o LoadGenerator irá iniciar as tarefas em segundo plano e, em seguida, parar a execução em primeiro plano. Para este tutorial, deixe `$OneTime = $false`.
 
-5. O *LoadGenerator.ps1* continua em execução, monitorando para quaisquer novos locatários que sejam provisionados.
+  Use Ctrl-C ou Stop Operation Ctrl-Break se você quiser parar ou reiniciar o gerador de carga. 
+
+  Se você deixar o gerador de carga em primeiro plano, use outra instância do ISE do PowerShell para executar outros scripts do PowerShell.
 
 &nbsp;
 
@@ -208,7 +201,8 @@ Antes de continuar na próxima seção, deixe o gerador de carga em execução n
 
 A implantação inicial cria três locatários de amostra. Agora você cria outro locatário para ver o impacto no aplicativo implantado. No aplicativo Wingtip, o fluxo de trabalho para provisionar novos locatários é explicado no [Tutorial de provisionar e catalogar](saas-dbpertenant-provision-and-catalog.md). Nesta fase, você cria um novo locatário, o que leva menos de um minuto.
 
-1. No *ISE do PowerShell*, abra ...\\Módulos de Aprendizado\Provisionamento e Catálogo\\*Demo-ProvisionAndCatalog.ps1*.
+1. Abra um novo *ISE do PowerShell*.
+1. Abra ...\\Módulos Learning\Provisão e Catálogo\\*Demo-ProvisionAndCatalog.ps1* .
 2. Pressione **F5** para executar o script. (Deixe os valores padrão por ora.)
 
    > [!NOTE]
@@ -231,7 +225,7 @@ Atualize o *Hub de Eventos* para fazer com que o novo locatário apareça na lis
 Agora que você começou a executar uma carga na coleção de locatários, vamos analisar alguns dos recursos que foram implantados:
 
 1. No [Portal do Azure](http://portal.azure.com), navegue até sua lista de servidores SQL e abra o servidor **catalog-dpt-&lt;USER&gt;**.
-    - O servidor de catálogo contém dois bancos de dados, o **tenantcatalog** e o **basetenantdb** (um banco de dados modelo que é copiado para criar novos locatários).
+    - O servidor de catálogo contém dois bancos de dados, **tenantcatalog** e **basetenantdb** (um banco de dados modelo que é copiado para criar novos locatários).
 
    ![databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
@@ -243,24 +237,24 @@ Agora que você começou a executar uma carga na coleção de locatários, vamos
     - Cada banco de dados de locatário é um banco de dados *elástico padrão* em um pool padrão de 50 eDTU.
     - O banco de dados *Red Maple Racing*, que é o banco de dados de locatário que você provisionou anteriormente.
 
-   ![server](./media/saas-dbpertenant-get-started-deploy/server.png)
+   ![Servidor](./media/saas-dbpertenant-get-started-deploy/server.png)
 
 ## <a name="monitor-the-pool"></a>Monitorar o pool
 
 Depois de *LoadGenerator.ps1* ser executado por vários minutos, dados suficientes devem estar disponíveis para começar a olhar para alguns recursos de monitoramento. Esses recursos são criados em pools e bancos de dados.
 
-Navegue até o servidor **tenants1-dpt-&lt;USER&gt;** e clique em **Pool1** para exibir a utilização de recursos do pool. Nos gráficos a seguir, o gerador de carga foi executado em uma hora.
+Navegue até o servidor **tenants1-dpt-&lt;usuário&gt;** e clique em **Pool1** para exibir a utilização de recursos do pool. Nos gráficos a seguir, o gerador de carga foi executado em uma hora.
 
    ![monitorar pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
 - O primeiro gráfico, rotulado **Utilização de recursos**, mostra a utilização de eDTU do pool.
-- O segundo gráfico mostra a utilização de eDTU dos cinco principais bancos de dados no pool.
+- O segundo gráfico mostra a utilização de eDTU dos cinco bancos de dados mais ativos no pool.
 
-Os dois gráficos ilustram que os pools elásticos e o Banco de Dados SQL são bem adequados para cargas de trabalho de aplicativos SaaS.
+Os dois gráficos ilustram que os pools elásticos e o Banco de Dados SQL são bem adaptados às cargas de trabalho imprevisíveis do aplicativo SaaS.
 Os gráficos mostram que 4 bancos de dados são cada um intermitências para até 40 eDTUs e ainda oferecem suporte confortavelmente a todos os bancos de dados para um pool de 50 eDTU. O pool de 50 eDTU pode dar suporte a cargas de trabalho ainda mais pesadas.
-Se eles foram provisionados como bancos de dados independentes, cada um deles precisa ser um S2 (50 DTU) para dar suporte a intermitências.
+Se eles fossem provisionados como bancos de dados autônomos, cada base de dados precisaria ser um S2 (50 DTU) para suportar as explosões.
 O custo de 4 bancos de dados independentes S2 seria quase 3 vezes o preço do pool.
-Em situações reais, os clientes do Banco de dados SQL estão executando atualmente até 500 bancos de dados em 200 pools de eDTU.
+Em situações reais, os clientes do Banco de Dados SQL executam até 500 bancos de dados em 200 pools de eDTU.
 Para obter mais informações, consulte o [tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais

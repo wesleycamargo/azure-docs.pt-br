@@ -4,7 +4,7 @@ description: "Instruções passo a passo de como criar um ouvinte para um grupo 
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0399f9ef969098216e080140a67f81725b670115
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
 Este artigo explica como criar um balanceador de carga para um grupo de disponibilidade Always On do SQL Server em máquinas virtuais do Azure em execução com o Azure Resource Manager. Um grupo de disponibilidade exige um balanceador de carga quando as instâncias do SQL Server estão em máquinas virtuais do Azure. O balanceador de carga armazena o endereço IP do ouvinte do grupo de disponibilidade. Se um grupo de disponibilidade abranger várias regiões, cada região precisará de um balanceador de carga.
 
 Para concluir essa tarefa, você precisa ter um grupo de disponibilidade do SQL Server implantado em máquinas virtuais do Azure em execução com o Resource Manager . As máquinas virtuais do SQL Server devem pertencer ao mesmo conjunto de disponibilidade. Você pode usar o [modelo da Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para criar automaticamente o grupo de disponibilidade no Resource Manager. Este modelo cria automaticamente um balanceador de carga interno para você. 
 
-Se preferir, você poderá [configurar manualmente um grupo de disponibilidade](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Se preferir, você poderá [configurar manualmente um grupo de disponibilidade](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 Este artigo exige que os grupos de disponibilidade já estejam configurados.  
 
 Os tópicos relacionados incluem:
 
-* [Configurar os grupos de disponibilidade Always On na VM do Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Configurar os grupos de disponibilidade Always On na VM do Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Azure Resource Manager](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 Ao seguir este artigo, você cria e configura um balanceador de carga no Portal do Azure. Após a conclusão desse processo, você configura o cluster para usar o endereço IP do balanceador de carga no ouvinte do grupo de disponibilidade.
@@ -269,6 +269,34 @@ Depois de adicionar um endereço IP para o ouvinte, você poderá configurar o g
 6. [Definir os parâmetros do cluster no PowerShell](#setparam).
 
 Depois de configurar o grupo de disponibilidade para usar o novo endereço IP, configure a conexão para o ouvinte. 
+
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>Adicionar regra de balanceamento de carga para o grupo de disponibilidade distribuído
+
+Se um grupo de disponibilidade participar de um grupo de disponibilidade distribuído, o balanceador de carga precisará de uma regra adicional. Essa regra armazena a porta utilizada pelo ouvinte do grupo de disponibilidade distribuído.
+
+>[!IMPORTANT]
+>Esta etapa será aplicável somente se o grupo de disponibilidade participar de um [ grupo de disponibilidade distribuído](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+
+1. Em cada servidor que participa no grupo de disponibilidade distribuído, crie uma regra de entrada na porta TCP do ouvinte do grupo de disponibilidade distribuído. Em muitos exemplos, a documentação usa 5022. 
+
+1. No Portal do Azure, clique no balanceador de carga, clique em **Regras de balanceamento de carga** e, em seguida, clique em **+Adicionar**. 
+
+1. Crie a regra de balanceamento de carga com as configurações a seguir:
+
+   |Configuração |Valor
+   |:-----|:----
+   |**Nome** |Um nome para identificar a regra de balanceamento de carga para o grupo de disponibilidade distribuído. 
+   |**Endereço IP de front-end** |Use o mesmo endereço IP de front-end como o grupo de disponibilidade.
+   |**Protocolo** |TCP
+   |**Porta** |5022 - A porta para o [ouvinte de ponto de extremidade do grupo de disponibilidade distribuído](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Pode ser qualquer porta disponível.  
+   |**Porta de back-end** | 5022 - Use o mesmo valor da **Porta**.
+   |**Pool de back-end** |O pool que contém as máquinas virtuais com instâncias do SQL Server. 
+   |**Investigação de integridade** |Escolha a investigação que você criou.
+   |**Persistência de sessão** |Nenhum
+   |**Tempo limite de ociosidade (minutos)** |(4) padrão
+   |**IP flutuante (retorno de servidor direto)** | habilitado
+
+Repita essas etapas para o balanceador de carga nos outros grupos de disponibilidade que participam dos grupos de disponibilidade distribuído.
 
 ## <a name="next-steps"></a>Próximas etapas
 

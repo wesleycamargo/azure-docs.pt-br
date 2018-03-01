@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure AD
 
 Se um objeto não está sincronizando com o Azure AD como esperado, isso pode ser devido a vários motivos. Se você recebeu uma mensagem de erro do Azure AD ou está vendo o erro no Azure AD Connect Health, leia [Solucionar problemas de erros de exportação](active-directory-aadconnect-troubleshoot-sync-errors.md). Mas se estiver solucionando um problema em que o objeto não está no Azure AD, este tópico será ideal para você. Ele descreve como encontrar erros na sincronização do Azure AD Connect do componente local.
+
+>[!IMPORTANT]
+>Para a implantação do AAD (Azure Active Directory) Connect com a versão <verison> ou posterior, use a [tarefa de solução de problemas](active-directory-aadconnect-troubleshoot-objectsync.md) no assistente para solucionar problemas de sincronização de objetos. 
 
 Para encontrar os erros, você observará alguns lugares diferentes na seguinte ordem:
 
@@ -36,7 +39,7 @@ Inicie o [Synchronization Service Manager](active-directory-aadconnectsync-servi
 A guia de operações no Synchronization Service Manager é o local em que você deve iniciar a solução de problemas. A guia Operações mostra os resultados das operações mais recentes.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-A metade superior mostra todas as execuções em ordem crônica. Por padrão, as operações de log mantêm informações sobre os últimos sete dias, mas essa configuração pode ser alterada com o [agendador](active-directory-aadconnectsync-feature-scheduler.md). Você deseja procurar qualquer execução que não mostre um status bem-sucedido. É possível alterar a classificação clicando nos cabeçalhos.
+A metade superior mostra todas as execuções em ordem cronológica. Por padrão, as operações de log mantêm informações sobre os últimos sete dias, mas essa configuração pode ser alterada com o [agendador](active-directory-aadconnectsync-feature-scheduler.md). Você deseja procurar qualquer execução que não mostre um status bem-sucedido. É possível alterar a classificação clicando nos cabeçalhos.
 
 A coluna **Status** traz as informações mais importantes e mostra o problema mais grave de uma execução. Aqui está um resumo rápido dos status mais comuns em ordem de prioridade para investigação (em que * indica várias cadeias de caracteres de erro possíveis).
 
@@ -78,7 +81,7 @@ Se você não encontrar o objeto que está procurando, talvez ele tenha sido fil
 
 Outra pesquisa útil é selecionar o Conector do Azure AD, em **Escopo**, selecionar **Importação Pendente** e marcar a caixa de seleção **Adicionar**. Essa pesquisa fornece todos os objetos sincronizados no Azure AD que não podem ser associados a um objeto local.  
 ![Órfão de pesquisa do Espaço Conector](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Esses objetos foram criados por outro mecanismo de sincronização ou por um mecanismo de sincronização com outra configuração de filtragem. Essa exibição é uma lista de objetos **órfãos** que não são mais gerenciados. Examine essa lista e considere a remoção desses objetos usando os cmdlets do [PowerShell do Azure AD](http://aka.ms/aadposh).
+Esses objetos foram criados por outro mecanismo de sincronização ou por um mecanismo de sincronização com outra configuração de filtragem. Essa exibição é uma lista de objetos **órfãos** que não são mais gerenciados. Examine essa lista e considere a remoção desses objetos usando os cmdlets do [PowerShell do Azure AD](https://aka.ms/aadposh).
 
 ### <a name="cs-import"></a>Importação do CS
 Quando você abre um objeto CS, há várias guias na parte superior. A guia **Importação** exibe os dados preparados após uma importação.  

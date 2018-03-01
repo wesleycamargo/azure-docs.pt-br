@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -227,13 +227,22 @@ Em C# e script C#, acesse os dados de blob usando um parâmetro de método, como
 
 Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
 
-Se blobs de texto forem esperados, você poderá associar a um tipo `string`. Isso será recomendado apenas se o tamanho do blob for pequeno, porque o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`.
+Se blobs de texto forem esperados, você poderá associar a um tipo `string`. Isso será recomendado apenas se o tamanho do blob for pequeno, porque o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
 
 Em JavaScript, acesse os dados do blob de entrada usando `context.bindings.<name>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Gatilho - padrões de nome de blob
 
-Você pode especificar um padrão de nome de blob na `path` propriedade em *function.json* ou no `BlobTrigger` construtor de atributo. O nome padrão pode ser uma [expressão de associação ou filtro](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Você pode especificar um padrão de nome de blob na `path` propriedade em *function.json* ou no `BlobTrigger` construtor de atributo. O nome padrão pode ser uma [expressão de associação ou filtro](functions-triggers-bindings.md#binding-expressions-and-patterns). As seções a seguir fornecem exemplos.
+
+### <a name="get-file-name-and-extension"></a>Obtenha o nome de arquivo e extensão
+
+O exemplo a seguir mostra como associar ao nome do arquivo de blob e extensão separadamente:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Se um blob é chamado *original-Blob1.txt* o valor das variáveis `blobname` e `blobextension` no código de função é *original-Blob1* e *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtre por nome de blob
 
@@ -262,15 +271,6 @@ Para procurar as chaves em nomes de arquivos, escape as chaves usando duas chave
 ```
 
 Se o blob é nomeado *{20140101}-soundfile.mp3*, o `name` valor da variável no código da função é *soundfile.mp3*. 
-
-### <a name="get-file-name-and-extension"></a>Obtenha o nome de arquivo e extensão
-
-O exemplo a seguir mostra como associar ao nome do arquivo de blob e extensão separadamente:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Se um blob é chamado *original-Blob1.txt* o valor das variáveis `blobname` e `blobextension` no código de função é *original-Blob1* e *txt*.
 
 ## <a name="trigger---metadata"></a>Gatilho - metadados
 
@@ -309,6 +309,14 @@ Se todas as cinco tentativas falharem, o Azure Functions adiciona uma mensagem p
 * ContainerName
 * BlobName
 * ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
+
+## <a name="trigger---concurrency-and-memory-usage"></a>Gatilho - concorrência e uso de memória
+
+O gatilho de blob usa uma fila internamente, portanto, o número máximo de invocações de função concorrente é controlado pela [configuração de filas em host.json](functions-host-json.md#queues). As configurações padrão limitam a concorrência a 24 invocações. Esse limite aplica-se separadamente a cada função que usa um gatilho de blob.
+
+[O plano de consumo](functions-scale.md#how-the-consumption-plan-works) limita um aplicativo de funções em uma VM (máquina virtual) a 1,5 GB de memória. A memória é usada por cada instância de execução de execução simultânea e pelo próprio tempo de execução de Funções. Se uma função disparada por blob carregar todo o blob na memória, a memória máxima usada por essa função apenas para blobs será tamanho máximo de blob 24 *. Por exemplo, um aplicativo de funções com três funções disparadas por blob e as configurações padrão teriam uma concorrência máxima por VM de 3*24 = 72 invocações de função.
+
+As funções de JavaScript carregam todo o blob na memória, e as funções C# fazem isso se você associar a `string`.
 
 ## <a name="trigger---polling-for-large-containers"></a>Gatilho - Controle de blobs para grandes contêineres
 

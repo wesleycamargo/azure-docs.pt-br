@@ -1,7 +1,7 @@
 ---
 title: Perguntas frequentes sobre o Azure IoT Suite | Microsoft Docs
 description: Perguntas frequentes sobre o IoT Suite
-services: 
+services: iot-suite
 suite: iot-suite
 documentationcenter: 
 author: dominicbetts
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 432b4c080572c72dc131ee198a59c81631495415
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Perguntas frequentes sobre o IoT Suite
 
-Consulte também as [Perguntas frequentes](iot-suite-faq-cf.md) específicas sobre a fábrica conectada.
+Consulte também, as [Perguntas frequentes específicas de alocador conectado ](iot-suite-faq-cf.md) e as [Perguntas frequentes específicas de monitoramento remoto](iot-suite-faq-rm-v2.md) .
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Onde encontrar o código-fonte para as soluções pré-configuradas?
 
@@ -33,17 +33,6 @@ O código-fonte é armazenado nos seguintes repositórios GitHub:
 * [Solução pré-configurada de monitoramento remoto (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Solução pré-configurada de manutenção preditiva](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Solução pré-configurada de fábrica conectada](https://github.com/Azure/azure-iot-connected-factory)
-
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Quanto custa para provisionar a nova solução de monitoramento remoto?
-
-A nova solução pré-configurada oferece duas opções de implantação:
-
-* Uma opção *básica* projetada para desenvolvedores que buscam menor custo de desenvolvimento ou clientes que querem criar uma demonstração ou prova de conceito.
-* Uma opção *padrão* projetada para empresas que desejam implantar uma infraestrutura pronta para produção.
-
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Como garantir que mantenho meus custos durante o desenvolvimento de minha solução?
-
-Além de fornecer duas implantações diferenciadas, a nova solução de monitoramento remoto tem uma configuração para habilitar ou desabilitar todos os dispositivos simulados sob demanda. Desabilitar a simulação reduz os dados ingeridos na solução e, portanto, o custo geral.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>A nova arquitetura de microsserviços está disponível para todas as três soluções pré-configuradas?
 
@@ -57,18 +46,14 @@ Nos últimos dois anos, arquitetura de nuvem evoluiu bastante. Os microsserviço
 
 Sim, o novo monitoramento remoto está disponível nas mesmas regiões geográficas.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Qual é a diferença entre as opções de implantação padrão e básica? Como decidir entre as duas opções de implantação?
-
-Cada opção de implantação responde a diferentes necessidades. A implantação básica foi desenvolvida para iniciar e desenvolver PoC e pilotos pequenos. Ela fornece uma arquitetura simplificada com o mínimo necessário de recursos e um custo mais baixo. A implantação padrão foi projetada para compilar e personalizar uma solução pronta para produção e fornece uma implantação com os elementos necessários para observar isso. Para confiabilidade e escala, os microsserviços de aplicativo são compilados como contêineres do Docker e implantados usando um orquestrador (Kubernetes por padrão). O orquestrador é responsável pela implantação, colocação em escala e gerenciamento do aplicativo. Você deve escolher uma opção com base em suas necessidades atuais. Você pode usar um, o outro ou uma combinação de ambos, dependendo do estágio do projeto.
-
-### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Posso continuar meus investimentos existentes no Azure IoT Suite?
-
-Sim. Qualquer solução que existe atualmente continuará a funcionar na sua assinatura do Azure e o código-fonte permanecerá disponível no GitHub.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Qual é a diferença entre excluir um grupo de recursos no portal do Azure e clicar em excluir em uma solução pré-configurada no site azureiotsuite.com?
 
 * Se você excluir a solução pré-configurada no site [azureiotsuite.com](https://www.azureiotsuite.com/), todos os recursos provisionados na criação da solução pré-configurada serão excluídos. Se você adicionou mais recursos ao grupo de recursos, esses recursos também serão excluídos.
 * Se você excluir o grupo de recursos no [Portal do Azure](https://portal.azure.com), somente os recursos nesse grupo de recursos serão excluídos. Você também precisa excluir o aplicativo do Azure Active Directory associado à solução pré-configurada.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Posso continuar meus investimentos existentes no Azure IoT Suite?
+
+Sim. Qualquer solução que existe atualmente continuará a funcionar na sua assinatura do Azure e o código-fonte permanecerá disponível no GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Hub IoT posso provisionar em uma assinatura?
 
@@ -77,10 +62,6 @@ Por padrão, você pode provisionar [10 Hubs IoT por assinatura](../azure-subscr
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Azure Cosmos DB posso provisionar em uma assinatura?
 
 Cinquenta. Você pode criar um [tíquete de suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar esse limite, mas, por padrão, você poderá apenas provisionar 50 instâncias do Cosmos DB por assinatura.
-
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Como configurar um mapa dinâmico no painel?
-
-Para obter mais informações, consulte [Atualizar chave de mapa para ver dispositivos em um mapa dinâmico](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Quantas APIs do Bing Mapas Gratuitas posso provisionar em uma assinatura?
 
@@ -105,6 +86,7 @@ Veja a postagem no blog de Eric Golpe, [Passo a passo da exclusão de um locatá
 
 Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
 
+* [Explorar os recursos da solução de monitoramento remoto pré-configurada](iot-suite-remote-monitoring-explore.md)
 * [Visão geral da solução pré-configurada de manutenção preditiva](iot-suite-predictive-overview.md)
 * [Visão geral da solução pré-configurada de fábrica conectada](iot-suite-connected-factory-overview.md)
 * [Segurança da IoT desde o início](securing-iot-ground-up.md)

@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ccccdf58fbb84605bc5dff29d870b373134f1f97
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
 > [!IMPORTANT] 
@@ -52,26 +52,26 @@ Este é um exemplo do aplicativo Java que monitora a tarefa de computação inte
 
 ## <a name="to-create-a-virtual-machine"></a>Para criar uma máquina virtual
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
+2. Clique em **Criar um recurso**, em **Computação**, em **Máquina virtual** e, em seguida, em **Da Galeria**.
 3. Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012**.
    Observe que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos legados que ainda não estejam prontos para serem executados no JDK 7.
-4. Clique em **Avançar**.
+4. Clique em **Próximo**.
 5. Na caixa de diálogo **Configuração da máquina virtual** :
    1. Especifique um nome para a máquina virtual.
    2. Especifique o tamanho a ser usado para a máquina virtual.
    3. Digite um nome para o administrador no campo **Nome do Usuário** . Lembre-se do nome e da senha que você digitará a seguir, você irá usá-los ao fazer logon remotamente na máquina virtual.
    4. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**. Esta é a senha da conta do Administrador.
-   5. Clique em **Avançar**.
+   5. Clique em **Próximo**.
 6. Na próxima caixa de diálogo **Configuração da máquina virtual** :
    1. Para **Serviço de Nuvem**, use o padrão **Criar um novo serviço de nuvem**.
    2. O valor de **Nome DNS do Serviço de Nuvem** deve ser exclusivo no cloudapp.net. Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo.
    3. Especifique uma região, um grupo de afinidade ou uma rede virtual. Para o objetivo deste tutorial, especifique uma região, como **Oeste dos Estados Unidos**.
    4. Para **Conta de Armazenamento**, selecione **Usar uma conta de armazenamento gerada automaticamente**.
    5. Para **Conjunto de Disponibilidade**, selecione **(Nenhum)**.
-   6. Clique em **Avançar**.
+   6. Clique em **Próximo**.
 7. Na caixa de diálogo **Configuração da máquina virtual** final:
    1. Aceite as entradas de ponto de extremidade padrão.
-   2. Clique em **Concluído**.
+   2. Clique em **Concluir**.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Para fazer logon remotamente na máquina virtual
 1. Faça logon no [portal do Azure](https://portal.azure.com).

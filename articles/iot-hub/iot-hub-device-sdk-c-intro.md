@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 05a025a02046ff091b4fea75404cb74aad2e07fa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -27,6 +27,10 @@ O **SDK do dispositivo IoT do Azure** é um conjunto de bibliotecas projetadas p
 O SDK do dispositivo IoT do Azure para C foi escrito em ANSI (C99) para maximizar a portabilidade. Esse recurso torna as bibliotecas bastante adequado para a operação em vários dispositivos e plataformas, especialmente quando a minimização do volume de disco e de memória for uma prioridade.
 
 Há uma ampla variedade de plataformas nas quais o SDK foi testado (confira o [Catálogo de dispositivos certificados pelo Azure para IoT](https://catalog.azureiotsuite.com/) para obter detalhes). Embora este artigo inclua explicações de exemplo de código em execução na plataforma Windows, o código descrito neste artigo é idêntico entre as várias plataformas com suporte.
+
+O vídeo a seguir apresenta uma visão geral do SDK do IoT do Azure para C:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 Este artigo apresenta a arquitetura do SDK do dispositivo IoT do Azure para C. Ele demonstra como inicializar a biblioteca de dispositivo, enviar dados para o Hub IoT e receber mensagens dele. As informações neste artigo devem ser suficientes para começar a usar o SDK, mas também há indicações para se saber mais sobre as bibliotecas.
 

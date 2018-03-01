@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos do Azure
 
@@ -30,7 +30,7 @@ O exemplo a seguir mostra as propriedades que são usadas por todos os editores 
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,7 +72,7 @@ Por exemplo, o esquema publicado para um evento de armazenamento de Blob do Azur
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Propriedades do evento
 
 Todos os eventos conterão os mesmos dados de nível superior a seguir:
@@ -86,13 +86,15 @@ Todos os eventos conterão os mesmos dados de nível superior a seguir:
 | ID | string | Identificador exclusivo do evento. |
 | data | objeto | Dados do evento específicos ao provedor de recursos. |
 | dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Evento define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, consulte a origem do evento:
 
 * [Assinaturas do Azure (operações de gerenciamento)](event-schema-subscriptions.md)
 * [Armazenamento de Blobs](event-schema-blob-storage.md)
-* [Hubs de Eventos](event-schema-event-hubs.md)
+* [Hubs de Evento](event-schema-event-hubs.md)
+* [Barramento de Serviço](event-schema-service-bus.md)
+* [Hub IoT](event-schema-iot-hub.md)
 * [Grupos de recursos (operações de gerenciamento)](event-schema-resource-groups.md)
 
 Para tópicos personalizados, o publicador do evento determina o objeto de dados. Os dados de nível superior devem conter os mesmos campos do que os eventos definidos pelo recurso padrão. Ao publicar eventos em tópicos personalizados, você deve considerar a modelagem do assunto dos eventos para auxiliar no roteamento e na filtragem.
