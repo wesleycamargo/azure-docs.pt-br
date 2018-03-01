@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86867a9d6d2c43e6505b1a06672546a017172bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
 
@@ -63,8 +63,8 @@ O diagrama a seguir mostra a arquitetura desse cenário:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Etapa 1: Criar um perfil do Gerenciador de Tráfego
 
-1. No portal do Azure, clique em **Novo** e, em seguida, pesquise o Marketplace para "Perfil do Gerenciador de Tráfego"
-2. Na folha **perfil Criar Gerenciador de Tráfego**, insira as seguintes informações básicas:
+1. No portal do Azure, clique em **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
+2. Insira as seguintes informações básicas:
 
   * **Nome**: forneça ao seu perfil de Gerenciador de Tráfego um nome de prefixo DNS.
   * **Método de roteamento**: selecione a política de método de roteamento de tráfego. Para obter mais informações sobre os métodos, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
@@ -78,7 +78,7 @@ O diagrama a seguir mostra a arquitetura desse cenário:
 
 ### <a name="step-2-create-the-application-gateways"></a>Etapa 2: Criar os Gateways de Aplicativo
 
-1. No portal do Azure, no painel esquerdo, clique em **Novo** > **Rede** > **Gateway de Aplicativo**.
+1. No portal do Azure, no painel esquerdo, clique em **Criar um recurso** > **Rede** > **Gateway de Aplicativo**.
 2. Insira as seguintes informações básicas sobre o gateway de aplicativo:
 
   * **Name**: o nome do gateway de aplicativo.
@@ -100,15 +100,15 @@ Quando você escolhe um pool de back-end, um Gateway de Aplicativo configurado c
 
 1. A partir do grupo de recursos, navegue até a instância do gateway de aplicativo criada na seção anterior.
 2. Em **Configurações**, selecione **Pools de back-end** e, em seguida, selecione **Adicionar** para adicionar as VMs que você desejar associar ao pool de back-end de camada da Web.
-3. Na folha **"Adicionar pool de back-end"**, digite o nome do pool de back-end e todos os endereços IP dos computadores que residem no pool. Nesse cenário, estamos conectando dois pools de servidores de back-end de máquinas virtuais.
+3. Digite o nome do pool de back-end e todos os endereços IP dos computadores que residem no pool. Nesse cenário, estamos conectando dois pools de servidores de back-end de máquinas virtuais.
 
-  ![Folha de "Adicionar pool de back-end" do Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+  !["Adicionar pool de back-end" do Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Em **Configurações** de Gateway de Aplicativo, selecione **Regras** e, em seguida, clique no botão **Com base em caminho** para adicionar uma regra.
 
   ![Botão de "Caminho com base em" de regras de Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. Na folha **"Adicionar regra com base em caminho"**, forneça as seguintes informações para configurar a regra.
+5. Configure a regra fornecendo as informações a seguir.
 
    Configurações básicas:
 
@@ -138,13 +138,13 @@ Nesse cenário, o Gerenciador de Tráfego está conectado a instâncias do gatew
 
   ![Botão “Adicionar” de Pontos de extremidade do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. Na folha **Adicionar ponto de extremidade**, crie um ponto de extremidade, inserindo as seguintes informações:
+3. Crie um ponto de extremidade inserindo as seguintes informações:
 
   * **Tipo**: selecione o tipo de ponto de extremidade para o balanceamento de carga. Nesse cenário, selecione **ponto de extremidade do Azure**, já que estamos nos conectando com as instâncias de gateway de aplicativo que foram configuradas anteriormente.
   * **Nome**: insira o nome do ponto de extremidade.
   * **Tipo de recurso de destino**: selecione o **endereço IP público** e, na configuração do **Recurso de destino**, selecione o IP público do gateway de aplicativo configurado anteriormente.
 
-   ![Folha "Adicionar ponto de extremidade" do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+   ![“Adicionar ponto de extremidade” do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. Agora, você pode testar a instalação, acessando-a com o DNS do seu perfil de Gerenciador de Tráfego (neste exemplo: TrafficManagerScenario.trafficmanager.net). Você pode reenviar solicitações, colocar para cima/baixo servidores Web e VMs que foram criados em regiões diferentes e alterar as configurações do perfil de Gerenciador de Tráfego para testar sua instalação.
 
@@ -156,8 +156,8 @@ Se o cluster de banco de dados de alta disponibilidade estiver usando o AlwaysOn
 
 Para obter mais informações sobre como configurar um balanceador de carga interno, consulte [Criar um balanceador de carga interno no portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. No portal do Azure, no painel esquerdo, clique em **Novo** > **Rede** > **Balanceador de carga**.
-2. Na folha **Criar balanceador de carga**, escolha um nome para o balanceador de carga.
+1. No portal do Azure, no painel esquerdo, clique em **Criar um recurso** > **Rede** > **Balanceador de carga**.
+2. Escolha um nome para o balanceador de carga.
 3. Defina o **Tipo** para **Interno** e escolha a rede virtual e a sub-rede apropriadas para o balanceador de carga residir.
 4. Em **Atribuição de endereço IP**, selecione **Dinâmico** ou **Estático**.
 5. Em **Grupo de recursos**, escolha o grupo de recursos para o balanceador de carga.
@@ -169,18 +169,18 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 1. A partir do grupo de recursos, encontre o balanceador de carga que foi criado nas etapas anteriores.
 2. Em **Configurações**, clique em **Pools de back-end** e clique em **Adicionar** para adicionar um pool de back-end.
 
-  ![Folha de "Adicionar pool de back-end" do balanceador de carga](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+  !["Adicionar pool de back-end" do Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
-3. Na folha **Adicionar pool de back-end**, insira o nome para o pool de back-end.
+3. Digite o nome do pool de back-end.
 4. Adicione máquinas individuais ou uma conjunto de disponibilidade para o pool de back-end.
 
 #### <a name="configure-a-probe"></a>Configurar uma investigação
 
 1. No seu balanceador de carga, abaixo de **Configurações**, selecione **Investigações** e, em seguida, clique em **Adicionar** para adicionar uma investigação.
 
- ![Folha de "Adicionar teste" do balanceador de carga](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+ !["Adicionar teste" do Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
-2. Na folha **Adicionar investigação**, insira o nome para a investigação.
+2. Digite o nome para a investigação.
 3. Selecione o **Protocolo** para a investigação. Para um banco de dados, é ideal utilizar uma investigação TCP em vez de uma investigação HTTP. Para saber mais sobre investigações de balanceador de carga, consulte [Entender investigações do balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Digite a **Porta** do banco de dados a ser utilizada ao acessar a investigação.
 5. Em **Intervalo** , especifique a frequência de investigação do aplicativo.
@@ -190,7 +190,7 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 #### <a name="configure-the-load-balancing-rules"></a>Configuração de regras de balanceamento de carga
 
 1. Em **Configurações** do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
-2. Na folha **Adicionar regra de balanceamento da carga**, insira o **Nome** para a regra de balanceamento de carga.
+2. Insira o **Nome** da regra de balanceamento de carga.
 3. Escolha o **Endereço de IP de front-end do balanceador de carga**, o **Protocolo** e a **Porta**.
 4. Em **Porta de back-end**, especifique a porta a ser usada no pool de back-end.
 5. Selecione o **Pool de back-end** e a **Investigação** criados nas etapas anteriores para aplicar a regra.
@@ -201,7 +201,7 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Etapa 5: Conectar VMs de camada da Web ao balanceador de carga
 
-Agora podemos configurar o endereço IP e a porta de front-end do balanceador de carga dos aplicativos em execução em suas VMs de camada da Web para qualquer conexão de banco de dados. Essa configuração é específica para o aplicativo que é rodado nessas VMs. Para configurar o endereço IP de destino e a porta, consulte a documentação do aplicativo. Para localizar o endereço IP de front-end, navegue até o pool de IP de front-end na folha **Configurações do balanceador de carga** no portal do Azure.
+Agora podemos configurar o endereço IP e a porta de front-end do balanceador de carga dos aplicativos em execução em suas VMs de camada da Web para qualquer conexão de banco de dados. Essa configuração é específica para o aplicativo que é rodado nessas VMs. Para configurar o endereço IP de destino e a porta, consulte a documentação do aplicativo. Para localizar o endereço IP de front-end, navegue até o pool de IP de front-end nas **Configurações do balanceador de carga** no portal do Azure.
 
 ![Painel de navegação de "Pool Frontend IP" do balanceador de carga](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 

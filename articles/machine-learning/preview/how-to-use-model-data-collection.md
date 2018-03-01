@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5e6a79a9b716b6797a1af21f0dcb911219b77207
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Coletar dados de modelo usando a coleta de dados
 
@@ -88,7 +88,7 @@ Para usar a coleta de dados de modelo, faça as seguintes alterações ao seu ar
 Para exibir os dados coletados no armazenamento de blobs:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecionar **Mais Serviços**.
+2. Selecione **Todos os Serviços**.
 3. Na caixa de pesquisa, digite **Contas de armazenamento** e selecione a tecla Enter.
 4. Na folha de pesquisa **Contas de armazenamento**, selecione o recurso **Conta de armazenamento**. Para determinar sua conta de armazenamento, use as seguintes etapas:
 

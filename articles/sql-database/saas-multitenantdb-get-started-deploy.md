@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
 
@@ -59,11 +59,11 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 #### <a name="plan-the-names"></a>Planejar os nomes
 
-Nas etapas desta seção, há dois locais nos quais você precisa inserir nomes para você como um *usuário* e para o seu novo *grupo de recursos*. Para uma pessoa chamada *Ann Finley*, sugerimos os nomes a seguir:
-- *Usuário:* &nbsp; **af1** &nbsp; *(Suas iniciais, mais um dígito.)*
-- *Grupo de recursos:* &nbsp; **wingtip-af1** &nbsp;  *(É recomendável usar tudo em minúsculas. Acrescente um hífen e depois o nome de usuário.)*
+Nas etapas desta seção, você fornece um valor *user* que é usado para garantir que os nomes de recursos fiquem globalmente exclusivos, e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implantação do aplicativo. Para uma pessoa denominada *Aline Faria*, sugerimos:
+- *Usuário:*  **af1** *(Suas iniciais, mais um dígito. Use um valor diferente (por exemplo, af2) se você implantar o aplicativo novamente.)*
+- *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip-dpt indica que esse é o aplicativo de banco de dados por locatário. A anexação do nome de usuário af1 correlaciona o nome do grupo de recursos com os nomes dos recursos que ele contém.)*
 
-Escolha seus nomes agora e os escreva.
+Escolha seus nomes agora e os escreva. 
 
 #### <a name="steps"></a>Etapas
 
@@ -72,7 +72,7 @@ Escolha seus nomes agora e os escreva.
 
     [![Botão para Implantar no Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. Insira os valores de parâmetros necessários para a implantação.
+1. Insira os valores de parâmetros necessários para a implantação.
 
     > [!IMPORTANT]
     > Para essa demonstração, não use nenhum grupo de recursos, servidor ou grupo pré-existente. Em vez disso, escolha **Criar um novo grupo de recursos**. Exclua esse grupo de recursos quando tiver terminado com o aplicativo para interromper a cobrança relacionada.
@@ -82,12 +82,12 @@ Escolha seus nomes agora e os escreva.
         - Selecione uma **Localização** na lista suspensa.
     - Para **Usuário** – é recomendável que você escolha um valor curto de **Usuário**.
 
-3. **Implantar o aplicativo**.
+1. **Implantar o aplicativo**.
 
     - Clique se você concordar com os termos e condições.
     - Clique em **Comprar**.
 
-4. Monitore o status da implantação clicando em **Notificações** (o ícone de sino à direita da caixa de pesquisa). A implantação do aplicativo Wingtip SaaS leva aproximadamente cinco minutos.
+1. Monitore o status da implantação clicando em **Notificações** (o ícone de sino à direita da caixa de pesquisa). A implantação do aplicativo Wingtip SaaS leva aproximadamente cinco minutos.
 
    ![implantação bem-sucedida](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -127,7 +127,7 @@ Cada local obtém um aplicativo Web personalizado para listar seus eventos e ven
 Uma página da Web central do **Hub de Eventos** fornece uma lista de links para os locatários em sua implantação particular. Use as seguintes etapas para vivenciar a página da Web do **Hub de Eventos** e um aplicativo Web individual:
 
 1. Abra o **Hub de eventos** no navegador da web:
-    - http://events.wingtip.&lt;USUÁRIO&gt;.trafficmanager.net &nbsp; *(Substitua &lt;USUÁRIO&gt; pelo valor de usuário da implantação.)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua &lt;user&gt; pelo valor de usuário da implantação.)*
 
     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -139,7 +139,7 @@ Uma página da Web central do **Hub de Eventos** fornece uma lista de links para
 
 Para controlar a distribuição das solicitações de entrada, o aplicativo Wingtip usa o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos de cada locatário inclui o nome do locatário em sua URL. Cada URL também inclui seu valor específico de Usuário. Cada URL obedece o formato mostrado usando as seguintes etapas:
 
-- http://Events.Wingtip. &lt;Usuário&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. O aplicativo de eventos analisa o nome do locatário a partir da URL. O nome do locatário é *fabrikamjazzclub* na URL de exemplo anterior.
 2. O aplicativo faz o hash do nome do locatário para criar uma chave para acessar um catálogo usando o [gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
@@ -213,7 +213,7 @@ Vamos examinar alguns dos recursos que foram implantados:
 
    ![grupo de recursos](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Clique em **catálogo mt&lt;usuário&gt;**  server. O servidor de catálogo contém dois bancos de dados denominados *tenantcatalog* e *basetenantdb*. O *basetenantdb* banco de dados é um modelo vazio. Ele é copiado para criar um novo banco de dados de locatário, se usado para vários locatários ou apenas um locatário.
+2. Clique no servidor **catalog-mt&lt;user&gt;** . O servidor de catálogo contém dois bancos de dados denominados *tenantcatalog* e *basetenantdb*. O *basetenantdb* banco de dados é um modelo vazio. Ele é copiado para criar um novo banco de dados de locatário, se usado para vários locatários ou apenas um locatário.
 
    ![servidor catalog](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -228,13 +228,13 @@ Vamos examinar alguns dos recursos que foram implantados:
 
 Se o gerador de carga estiver sendo executado por vários minutos, haverá telemetria suficiente disponível para examinar os recursos de monitoramento do banco de dados incorporados no portal do Azure.
 
-1. Navegue até o **tenants1 mt&lt;usuário&gt;**  servidor e clique em **tenants1** para exibir a utilização de recursos para o banco de dados que tem quatro locatários nele. Cada locatário está sujeito a uma carga pesada esporádica do gerador de carga:
+1. Navegue até o servidor **tenants1-mt&lt;user&gt;**  e clique em **tenants1** para exibir a utilização de recursos para o banco de dados que tem quatro locatários nele. Cada locatário está sujeito a uma carga pesada esporádica do gerador de carga:
 
    ![Monitor tenants1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
    O gráfico de utilização de DTU bem ilustra como um banco de dados multilocatário pode dar suporte a uma carga de trabalho imprevisível entre vários locatários. Nesse caso, o gerador de carga está aplicando uma carga esporádica de aproximadamente 30 DTUs para cada locatário. Essa carga é igual a 60% da utilização de um banco de dados DTU 50. Picos que excedem 60% são o resultado de carga que está sendo aplicada a mais de um locatário ao mesmo tempo.
 
-2. Navegue até o servidor **tenants1-mt&lt;USER&gt;** e clique no banco de dados **salixsalsa**. Você pode ver a utilização de recursos nesse banco de dados que contém somente um locatário.
+2. Navegue até o servidor **tenants1-mt&lt;user&gt;** e clique no banco de dados **salixsalsa**. Você pode ver a utilização de recursos nesse banco de dados que contém somente um locatário.
 
    ![banco de dados salixsalsa](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 

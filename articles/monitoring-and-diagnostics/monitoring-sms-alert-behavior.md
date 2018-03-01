@@ -1,8 +1,8 @@
 ---
 title: "Comportamento dos alertas por SMS em grupos de ação | Microsoft Docs"
 description: Formato de mensagem SMS e como responder a mensagens SMS para cancelar a assinatura, assinar novamente ou solicitar ajuda.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,63 +12,39 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: ce6908de0f6bcc30d1ee846fe92171a0cb589cbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento dos alertas por SMS em grupos de ação
 ## <a name="overview"></a>Visão geral ##
-Os grupos de ações permitem configurar uma lista de destinatários. Esses grupos podem, então, ser utilizados ao definir alertas de log de atividades, garantindo que um grupo de ação específico seja notificado quando o alerta de log de atividades for disparado. Um dos mecanismos de alerta com suporte é o SMS; os alertas dão suporte à comunicação bidirecional. Um usuário pode responder a um alerta para:
+Os grupos de ações permitem configurar uma lista de ações. Esses grupos são usados ao definir alertas, garantindo que um grupo de ação específico seja notificado quando o alerta for disparado. Uma das ações com suporte é o SMS; as notificações de SMS dão suporte à comunicação bidirecional. Um usuário pode responder a um SMS para:
 
-- **Cancelar a assinatura de alertas:** um usuário pode cancelar a assinatura de todos os alertas por SMS de todos os grupos de ação ou de um grupo de ação individual.  
-- **Assinar os alertas novamente:** um usuário pode assinar novamente todos os alertas por SMS de todos os grupos de ação ou de um grupo de ação individual.  
-- **Solicitar ajuda:** um usuário pode solicitar mais informações sobre o SMS. Ele será redirecionado para este artigo
+- **Cancelar a assinatura de alertas:** um usuário pode cancelar a assinatura de todos os alertas por SMS de todos os grupos de ação ou de um único grupo de ação.
+- **Assinar alertas novamente:** um usuário pode assinar novamente todos os alertas por SMS para todos os grupos de ação ou de um único grupo de ação.  
+- **Solicitar ajuda:** um usuário pode solicitar mais informações sobre o SMS. Ele será redirecionado para este artigo.
 
 Este artigo aborda o comportamento dos alertas por SMS e as ações de resposta que o usuário pode executar de acordo com a localidade do usuário:
 
-## <a name="usacanada-sms-behavior"></a>Comportamento de SMS nos EUA e no Canadá
-### <a name="receiving-an-sms-alert"></a>Recebendo um alerta por SMS
-Um receptor de SMS, configurado como parte de um grupo de ação, receberá um SMS quando um alerta for acionado. O SMS trará as seguintes informações:
+## <a name="receiving-an-sms-alert"></a>Recebendo um alerta por SMS
+Um receptor de SMS configurado como parte de um grupo de ação receberá um SMS quando um alerta for disparado. O SMS contém as seguintes informações:
 * Nome curto do grupo de ação ao qual esse alerta foi enviado
 - Título do alerta
 
-### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Cancelando a assinatura de alertas por SMS de um grupo de ação
-Um usuário pode cancelar a assinatura do SMS para alertas de um grupo de ação respondendo ao código curto 29873 com as palavras-chave: “DISABLE &lt;Nome curto do grupo de ação&gt;”.
-
-Ex.: Um usuário que deseja cancelar a assinatura dos alertas de um grupo de ação com o nome curto “Azure” enviará um SMS para o código curto 29873 que indica “DISABLE Azure”
-
-### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Cancelando a assinatura de alertas por SMS de todos os grupos de ação
-Um usuário pode cancelar a assinatura de todos os alertas por SMS de todos os grupos de ação respondendo ao código curto 29873 com uma das seguintes palavras-chave:
-* STOP
-
-Ex.: Um usuário que deseja cancelar a assinatura de todos os alertas por SMS de todos os grupos de ação enviará um SMS para o código curto 29873 que indica “STOP”
+| REPLY | DESCRIÇÃO |
+| ----- | ----------- |
+| DISABLE <Action Group Short name> | Desabilita o SMS adicional do Grupo de Ação |
+| ENABLE <Action Group Short name> | Habilita novamente o SMS do Grupo de Ação |
+| STOP | Desabilita o SMS adicional de todos os Grupos de Ação |
+| START | Habilita novamente o SMS de TODOS os Grupos de Ação |
+| HELP | Uma resposta é enviada para o usuário com um link para este artigo. |
 
 >[!NOTE]
 >Se um usuário tiver cancelado a assinatura de alertas por SMS, mas, em seguida, ele for adicionado a um novo grupo de ação, ele receberá alertas por SMS para esse novo grupo de ação, mas a assinatura de todos os grupos de ação anteriores permanecerá cancelada.
->
->
-
-### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Assinando novamente alertas por SMS de um grupo de ação
-Um usuário pode assinar o SMS novamente para receber alertas de um grupo de ação respondendo ao código curto 29873 com as palavras-chave: “ENABLE &lt;Nome curto do grupo de ação&gt;”.
-
-Ex.: Um usuário que deseja assinar novamente os alertas de um grupo de ação com o nome curto “Azure” enviará um SMS para o código curto 29873 que indica “ENABLE Azure”
-
-### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Assinando novamente alertas por SMS de todos os grupos de ação
-Um usuário pode assinar todos os SMS novamente para receber alertas de todos os grupos de ação respondendo ao código curto 29873 com uma das seguintes palavras-chave:
-
-* START
-
-Ex.: Um usuário que deseja cancelar a assinatura de todos os alertas por SMS de todos os grupos de ação enviará um SMS para o código curto 29873 que indica “START”
-
-### <a name="requesting-help-via-sms"></a>Solicitando ajuda por SMS
-Um usuário pode solicitar mais informações sobre o SMS que recebeu respondendo ao código curto 29873 com uma das seguintes palavras-chave:
-* HELP
-
-Uma resposta será enviada para o usuário com um link para este artigo.
 
 ## <a name="next-steps"></a>Próximas etapas
 Obtenha uma [visão geral dos alertas do log de atividades](monitoring-overview-alerts.md) e saiba como receber alertas  

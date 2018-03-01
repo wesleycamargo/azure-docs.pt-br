@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Solucionar problemas de rotas usando o Portal do Azure
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Embora o exemplo use somente rotas de sistema, as mesmas etapas podem ser usadas
 Para ver as rotas agregadas aplicadas a uma VM, siga as etapas a seguir:
 
 1. Entre no Portal do Azure em https://portal.azure.com. Sua conta deve ter a operação *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* atribuída a ela para o adaptador de rede. Para saber como atribuir operações a contas, consulte [Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Clique em **Mais serviços** e em **Máquinas virtuais** na lista exibida.
+2. Clique em **Todos os serviços** e em **Máquinas virtuais** na lista exibida.
 3. Selecione uma VM para solucionar problemas na lista, e uma folha da VM com opções é exibida.
 4. Clique em **Diagnosticar e resolver problemas** e selecione um problema comum. Neste exemplo, **Não é possível me conectar à minha VM do Windows** está selecionado.
 
@@ -96,8 +96,8 @@ Para ver mais cenários de solução de problemas para avaliação de rotas e t�
 ### <a name="view-effective-routes-for-a-network-interface"></a>Exibir rotas em vigor para um adaptador de rede
 Se o fluxo do tráfego de rede for afetado para um NIC (adaptador de rede) específico, você poderá ver uma lista completa de rotas em vigor em um NIC diretamente. Para ver as rotas agregadas aplicadas a um NIC, siga as etapas a seguir:
 
-1. Entre no portal do Azure em https://portal.azure.com.
-2. Clique em **Mais serviços** e, em seguida, clique em **Interfaces de rede**
+1. Entre no Portal do Azure em https://portal.azure.com.
+2. Clique em **Todos os serviços** e em **Interfaces de rede**
 3. Procure o nome de um NIC na lista ou selecione-o na lista exibida. Neste exemplo, **VM1-NIC1** foi selecionada.
 4. Selecione **Rotas em vigor** na folha **Interface de rede**, conforme mostrado na imagem a seguir:
 
@@ -116,8 +116,8 @@ Neste exemplo, uma UDR (*UDRoute*) é especificada em uma tabela de rotas (*UDRo
 
 Para ver as rotas agregadas para a uma tabela de rotas, conclua as etapas a seguir:
 
-1. Entre no portal do Azure em https://portal.azure.com.
-2. Clique em **Mais serviços** e, em seguida, clique em **Tabelas de rotas**
+1. Entre no Portal do Azure em https://portal.azure.com.
+2. Clique em **Todos os serviços** e em **Tabelas de rotas**
 3. Pesquise na lista a tabela de rotas para a qual você deseja ver rotas agregadas e selecione-a. Neste exemplo, **UDRouteTable** foi selecionado. Uma folha da tabela de rotas selecionada é exibida, conforme mostrado na imagem a seguir:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)

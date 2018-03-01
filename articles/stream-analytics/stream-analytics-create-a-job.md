@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Como criar um trabalho de processamento de análise de dados para o Stream Analytics
 O recurso de nível superior no Stream Analytics do Azure é um Trabalho do Stream Analytics.  Ele consiste em uma ou mais fontes de dados de entrada, uma consulta que expressa a transformação de dados, e um ou mais destinos de saída nos quais os resultados são gravados. Juntos, eles permitem ao usuário executar processamento de análise de dados para cenários de dados de streaming.
 
 Para começar a usar o Stream Analytics, crie um novo trabalho do Stream Analytics.  Observe que essa ação não terá implicações de cobrança até que o trabalho seja iniciado.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Novo** > **Dados + Análise** > **trabalho do Stream Analytics**.
+1. Entre no [portal do Azure](https://portal.azure.com/).
+2. Selecione **Criar um recurso** > **Dados + Análise** > **Trabalho do Stream Analytics**.
 3. Selecione **Criar**.
    
 3. Especifique as configurações desejadas para o trabalho do Stream Analytics.

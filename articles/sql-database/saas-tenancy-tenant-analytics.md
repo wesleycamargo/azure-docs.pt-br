@@ -1,5 +1,5 @@
 ---
-title: "Executar consultas de análise em relação a bancos de dados | Microsoft Docs"
+title: "Executar análise entre locatários usando dados extraídos | Microsoft Docs"
 description: "Consultas de análise entre locatários usando dados extraídos de vários bancos de dados do Banco de Dados Azure SQL."
 keywords: tutorial do banco de dados SQL
 services: sql-database
@@ -15,19 +15,19 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análise entre locatários usando dados extraídos
 
-Neste tutorial, você percorre um cenário completo de análise. O cenário demonstra como a análise pode habilitar as empresas a tomar decisões inteligentes. Usando dados extraídos de cada banco de dados de locatário, você usa a análise para obter informações sobre o comportamento de locatários, incluindo o uso do aplicativo de exemplo Wingtip Tickets SaaS. Este cenário envolve três etapas: 
+Neste tutorial, você percorre um cenário completo de análise. O cenário demonstra como a análise pode habilitar as empresas a tomar decisões inteligentes. Usando dados extraídos de cada banco de dados de locatário, você usa a análise para obter informações sobre comportamento de locatário e uso do aplicativo. Este cenário envolve três etapas: 
 
-1.  **Extraia dados** de cada banco de dados de locatário em um repositório analítico.
-2.  **Otimize os dados extraídos** para processamento de análise.
-3.  Use ferramentas de **Business Intelligence** para obter percepções úteis, que podem orientar a tomada de decisões. 
+1.  **Extraia dados** de cada banco de dados de locatário e **carregue-os** em um repositório analítico.
+2.  **Transforme os dados extraídos** para processamento de análise.
+3.  Use ferramentas de **business intelligence** para obter percepções úteis, que podem orientar a tomada de decisões. 
 
 Neste tutorial, você aprenderá a:
 
@@ -42,33 +42,32 @@ Neste tutorial, você aprenderá a:
 
 ## <a name="offline-tenant-analytics-pattern"></a>Padrão de análise de locatário offline
 
-Os aplicativos SaaS que você desenvolve têm acesso a uma grande quantidade de dados de locatário armazenados na nuvem. Os dados fornecem uma fonte avançada de informações sobre a operação e o uso do aplicativo e o comportamento dos locatários. Essas percepções podem guiar o desenvolvimento de recursos, aprimoramentos de usabilidade e outros investimentos no aplicativo e na plataforma.
+Aplicativos SaaS multilocatários normalmente têm uma grande quantidade de dados de locatário armazenada na nuvem. Esses dados fornecem uma fonte avançada de informações sobre a operação e o uso do aplicativo e o comportamento dos locatários. Essas percepções podem guiar o desenvolvimento de recursos, aprimoramentos de usabilidade e outros investimentos no aplicativo e na plataforma.
 
-Acessar os dados para todos os locatários é simples quando todos os dados estão em apenas um banco de dados multilocatário. Porém, o acesso é mais complexo quando distribuído em grande escala em milhares de bancos de dados. Uma maneira de controlar a complexidade é extrair os dados para um banco de dados de análise ou um data warehouse. Você consulta então o repositório de análise para coletar informações dos dados de tíquetes de todos os locatários.
+O acesso aos dados para todos os locatários é simples quando todos os dados estão em apenas um banco de dados multilocatário. Porém, o acesso é mais complexo quando distribuído em grande escala em potencialmente milhares de bancos de dados. Uma maneira de controlar a complexidade e minimizar o impacto de consultas de análise em dados transacionais é extrair dados para um banco de dados ou data warehouse de análise projetado para esse fim.
 
-Este tutorial apresenta um cenário completo de análise para este aplicativo SaaS de exemplo. Primeiro, trabalhos elásticos são usados para agendar a extração de dados de cada banco de dados de locatário. Os dados são enviados para um repositório analítico. O repositório de análise pode ser um Banco de Dados SQL ou um SQL Data Warehouse. Para extração de dados em grande escala, o [Azure Data Factory](../data-factory/introduction.md) é recomendado.
+Este tutorial apresenta um cenário completo de análise para o aplicativo SaaS Wingtip Tickets de exemplo. Primeiro, *Trabalhos Elásticos* são usados para extrair dados de cada banco de dados de locatário e carregá-los em tabelas de preparo em um armazenamento de análise. O repositório de análise pode ser um Banco de Dados SQL ou um SQL Data Warehouse. Para extração de dados em grande escala, o [Azure Data Factory](../data-factory/introduction.md) é recomendado.
 
-Em seguida, os dados agregados são fragmentados em um conjunto de tabelas de [esquema em estrela](https://www.wikipedia.org/wiki/Star_schema). As tabelas consistem em uma tabela de fatos central, mais tabelas de dimensões relacionadas:
+Em seguida, os dados agregados são transformados em um conjunto de tabelas de [esquema estrela](https://www.wikipedia.org/wiki/Star_schema). As tabelas consistem em uma tabela de fatos central, mais tabelas de dimensões relacionadas.  Para o Wingtip Tickets:
 
 - A tabela de fatos central no esquema de estrela contém dados de tíquetes.
-- As tabelas de dimensões contêm dados sobre locais, eventos, clientes e datas de compra.
+- As tabelas de dimensões descrevem locais, eventos, clientes e datas de compra.
 
-Juntas, as tabelas central e de dimensão habilitam o processamento analítico eficiente. O esquema em estrela usado neste tutorial é exibido na seguinte imagem:
+Juntas, as tabelas de fato e de dimensão centrais habilitam o processamento analítico eficiente. O esquema em estrela usado neste tutorial é mostrado na seguinte imagem:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Por fim, as tabelas de esquema em estrela são consultadas. Os resultados da consulta são exibidos visualmente para realçar as informações sobre o comportamento de locatário e seu uso do aplicativo. Com esse esquema em estrela, você pode executar consultas que ajudam a descobrir itens como estes:
+Por fim, o armazenamento da análise é consultado usando o **PowerBI** para realçar as informações sobre o comportamento do locatário e seu uso do aplicativo Wingtip Tickets. Execute consultas que:
+ 
+- Mostram a popularidade relativa de cada local
+- Realcem padrões na venda de ingressos para diferentes eventos
+- Mostram o êxito relativo de diferentes locais na venda de seus eventos
 
-- Quem está comprando ingressos e de qual local.
-- Padrões e tendências ocultos nas seguintes áreas:
-    - As vendas de tíquetes.
-    - A popularidade relativa de cada local.
-
-Ao entender a consistência com que cada locatário está usando o serviço, você tem a oportunidade de criar planos de serviço para atender às necessidades deles. Este tutorial fornece exemplos básicos de informações que podem ser obtidas por meio dos dados de locatário.
+A compreensão de como cada locatário está usando o serviço é usada para explorar opções de monetização do serviço e aprimorar o serviço a fim de ajudar os locatários a ser bem-sucedidos. Este tutorial fornece exemplos básicos de tipos de informações que podem ser obtidas por meio dos dados de locatário.
 
 ## <a name="setup"></a>Configuração
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-requisitos:
 
@@ -76,7 +75,7 @@ Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-
 - Os scripts Wingtip Tickets SaaS Database Per Tenant e o [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) do aplicativo são baixadas do GitHub. Veja as instruções de download. Não se esqueça de *desbloquear o arquivo zip* antes de extrair seu conteúdo. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 - O Power BI Desktop está instalado. [Baixe o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - O lote de locatários adicionais foi provisionado. Confira o [**Tutorial de provisionamento de locatários**](saas-dbpertenant-provision-and-catalog.md).
-- Uma conta de trabalho e o banco de dados de conta de trabalho foram criados. Veja as etapas apropriadas no [**Tutorial de gerenciamento de esquema**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Uma conta de trabalho e o banco de dados de conta de trabalho foram criados. Veja as etapas apropriadas no [**Tutorial de gerenciamento de esquema**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Criar dados para a demonstração
 

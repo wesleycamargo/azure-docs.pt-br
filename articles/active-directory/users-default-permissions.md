@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permissões de usuário padrão no Azure Active Directory
 
@@ -59,7 +59,7 @@ Capacidade de registrar (criar) aplicativos | Definir essa opção como Não imp
 Administradores e usuários na função de convidador podem convidar pessoas | Definir essa opção como Não impede que todos os usuários chamem convidados. Consulte Configurando permissões padrão para usuários membro. Para obter mais informações, consulte [Aplicativos, permissões e consentimento no Active Directory do Azure](active-directory-apps-permissions-consent.md).
 Membros podem convidar pessoas | Definir isso como não impede que os usuários convidem convidados. Administradores globais, Administradores de contas de usuário e Convidadores de convidados ainda poderão convidar pessoas. Para obter mais informações, consulte [Aplicativos, permissões e consentimento no Active Directory do Azure](active-directory-apps-permissions-consent.md).
 Restringir o acesso ao portal de administração do Azure AD | Definir essa opção como Não impede que os usuários acessem o portal do Azure Active Directory.
-Capacidade de ler outros usuários | Para obter mais informações, consulte [Aplicativos, permissões e consentimento no Active Directory do Azure](active-directory-apps-permissions-consent.md).
+Capacidade de ler outros usuários | Essa configuração só está disponível no PowerShell. A definição como $false impede que todos os não administradores leiam informações de usuário do diretório. Isso não impede a leitura de informações de usuário em outros serviços da Microsoft, como o Exchange Online. Essa configuração destina-se a circunstâncias especiais e configurar como $false não é recomendado.
 
 ## <a name="object-ownership"></a>Propriedade do objeto
 

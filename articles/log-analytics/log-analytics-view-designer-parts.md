@@ -1,6 +1,6 @@
 ---
-title: "Referência da parte do Criador de Modos de Exibição no Azure Log Analytics | Microsoft Docs"
-description: "O Designer de modos de exibição do Log Analytics permite que você crie modos de exibição personalizados no portal do Azure que contêm diferentes visualizações de dados no seu espaço de trabalho do Log Analytics. Este artigo fornece uma referência de configurações para cada uma das partes de visualização disponíveis para uso em exibições personalizadas."
+title: "Um guia de referência para as partes do Designer de Modos de Exibição no Azure Log Analytics | Microsoft Docs"
+description: "Usando o Designer de Modos de Exibição do Log Analytics você pode criar modos de exibição personalizados no portal do Azure que exibem uma variedade de visualizações de dados no seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,334 +14,336 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 1fdfb237fcea6a10d38f3be8524ea5fbcf1f3728
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6fd19cce955e1f06c9b6f5a9ef5d85d9fd63c1c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="log-analytics-view-designer-visualization-part-reference"></a>Referência da parte de visualização do Designer de modos de exibição do Log Analytics
-O Designer de modos de exibição do Log Analytics permite que você crie modos de exibição personalizados no portal do Azure que contêm diferentes visualizações de dados do seu espaço de trabalho do Log Analytics. Este artigo fornece uma referência de configurações para cada uma das partes de visualização disponíveis para uso em exibições personalizadas.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para partes de visualização do Designer de Modos de Exibição do Log Analytics
+Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados do seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
 
-Outros artigos disponíveis para o Designer de modo de exibição:
+Para obter mais informações sobre o Designer de Modos de Exibição, consulte:
 
-* [Designer de Modos de Exibição](log-analytics-view-designer.md) – visão geral do Designer de Modos de Exibição e procedimentos para criar e editar modos de exibição personalizados.
-* [Referência de bloco](log-analytics-view-designer-tiles.md) – Referência das configurações de cada um dos blocos disponíveis para uso nas exibições personalizadas.
+* [Designer de Modos de Exibição](log-analytics-view-designer.md): fornece uma visão geral do Designer de Modos de Exibição e dos procedimentos para criar e editar exibições personalizadas.
+* [Referência de bloco](log-analytics-view-designer-tiles.md): fornece uma referência das configurações de cada um dos blocos disponíveis nas suas exibições personalizadas.
 
 >[!NOTE]
-> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho serão automaticamente convertidas.
+> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078). Todas as exibições que foram criadas antes de atualizar o espaço de trabalho são automaticamente convertidas.
 
-A tabela a seguir lista os diferentes tipos de blocos disponíveis no Designer de modos de exibição.  As seções a seguir descrevem cada tipo de bloco em detalhes e suas propriedades.
+Os tipos de blocos do Designer de Modos de Exibição disponíveis são descritos na tabela a seguir:
 
 | Tipo de exibição | DESCRIÇÃO |
 |:--- |:--- |
-| [Lista de consultas](#list-of-queries-part) |Exibe uma lista de consultas de pesquisa de log.  O usuário pode clicar em cada consulta para exibir seus resultados. |
-| [Número e lista](#number-amp-list-part) |O cabeçalho tem um número único mostrando a contagem de registros de uma consulta de pesquisa de log.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
-| [Dois números e lista](#two-numbers-amp-list-part) |O cabeçalho tem dois números mostrando a contagem de registros de consultas de pesquisa de log separadas.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
-| [Rosca e lista](#donut-amp-list-part) |O cabeçalho exibe um único número resumido de uma coluna de valor em uma consulta de log.  A rosca exibe graficamente os resultados dos três registros principais. |
-| [Duas linhas do tempo e lista](#two-timelines-amp-list-part) |O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como gráficos de coluna com um balão exibindo um único número resumido de uma coluna de valor em uma consulta de log.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
-| [Informações](#information-part) |O cabeçalho exibe texto estático e um link opcional.  A lista exibe um ou mais itens com texto estático e o título. |
-| [Gráfico de linhas, balão e lista](#line-chart-callout-amp-list-part) |O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
-| [Gráfico de linhas e lista](#line-chart-amp-list-part) |O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Lista de consultas](#list-of-queries-part) |Exibe uma lista de consultas de pesquisa de log. Você pode selecionar cada consulta para exibir seus resultados. |
+| [Número e lista](#number-amp-list-part) |O cabeçalho exibe um número único que mostra uma contagem de registros de uma consulta de pesquisa de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Dois números e lista](#two-numbers-amp-list-part) |O cabeçalho exibe dois números que mostram contagens de registros de consultas de pesquisa de log separadas. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Lista e rosca](#donut-amp-list-part) |O cabeçalho exibe um único número que resume uma coluna de valor em uma consulta de log. A rosca exibe graficamente os resultados dos três registros principais. |
+| [Duas linhas do tempo e lista](#two-timelines-amp-list-part) |O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como gráficos de coluna com um balão mostrando um único número que resume de uma coluna de valor em uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Informações](#information-part) |O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais itens com texto e título estático. |
+| [Gráfico de linhas, balão e lista](#line-chart-callout-amp-list-part) |O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Gráfico de linhas e balão](#line-chart-amp-list-part) |O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
 | [Pilha de parte de gráficos de linha](#stack-of-line-charts-part) |Exibe três gráficos de linhas separados com várias séries de uma consulta de log ao longo do tempo. |
 
+As próximas seções descrevem os tipos de bloco e suas propriedades em detalhes.
+
 ## <a name="list-of-queries-part"></a>Lista da parte de consultas
-Exibe uma lista de consultas de pesquisa de log.  O usuário pode clicar em cada consulta para exibir seus resultados.  O modo de exibição incluirá uma única consulta por padrão e você pode clicar em **+ Consulta** para incluir consultas adicionais.
+A lista de parte de consultas exibe uma lista de consultas de pesquisa de log. Você pode selecionar cada consulta para exibir seus resultados. O modo de exibição inclui uma única consulta por padrão e você pode selecionar **+ Consulta** para incluir consultas adicionais.
 
 ![Lista da exibição de consultas](media/log-analytics-view-designer/view-list-queries.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
 | **Geral** | |
-| Title |Texto a ser exibido na parte superior da exibição. |
-| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Filtros pré-selecionados |Lista delimitada por vírgulas de propriedades para incluir no painel de filtro esquerdo quando o usuário seleciona uma consulta. |
-| Modo de renderização |Exibição inicial que aparece quando a consulta é selecionada.  O usuário pode selecionar qualquer exibição disponível depois de abrir a consulta. |
+| Title |O texto que é exibido na parte superior da exibição. |
+| Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
+| Filtros pré-selecionados |Uma lista delimitada por vírgulas de propriedades para incluir no painel de filtro esquerdo quando você seleciona uma consulta. |
+| Modo de renderização |A exibição inicial que aparece quando a consulta é selecionada. Você pode selecionar qualquer exibição disponível depois de abrir a consulta. |
 | **Consultas** | |
-| Consulta de pesquisa |Consulta a executar. |
-| Nome amigável |Nome descritivo da consulta para exibir para o usuário. |
+| Consulta de pesquisa |A consulta a ser executada. |
+| Nome amigável | O nome descritivo que é exibido. |
 
-## <a name="number--list-part"></a>Parte de número e lista
-O cabeçalho tem um número único mostrando a contagem de registros de uma consulta de pesquisa de log.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
+## <a name="number-and-list-part"></a>Número e parte da lista
+O cabeçalho exibe um número único que mostra uma contagem de registros de uma consulta de pesquisa de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Lista da exibição de consultas](media/log-analytics-view-designer/view-number-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Texto a ser exibido na parte superior da exibição. |
-| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
-| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
-| Usar Ícone |Selecione para que o ícone seja exibido. |
+| Título do Grupo |O texto que é exibido na parte superior da exibição. |
+| Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione este link para exibir o ícone. |
 | **Título** | |
-| Legenda |Texto a ser exibido na parte superior do cabeçalho. |
-| Consultar |Consulta a executar para o cabeçalho.  A contagem do número de registros retornados pela consulta será exibida. |
+| Legenda |O texto que é exibido na parte superior do cabeçalho. |
+| Consultar |A consulta a ser executada para o cabeçalho. A contagem de registros que são retornados pela consulta é exibida. |
 | **Lista** | |
-| Consultar |Consulta a executar para a lista.  As duas primeiras propriedades para os dez primeiros registros nos resultados serão exibidas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o comando Classificar na consulta para classificar os registros na lista.  O usuário pode clicar em Ver tudo para executar a consulta e retornar todos os registros. |
-| Ocultar grafo |Selecione para desabilitar o grafo à direita da coluna numérica. |
-| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras ou minigráficos. |
-| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |A consulta a ser executada para a lista. As duas primeiras propriedades para os dez primeiros registros nos resultados são exibidas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o comando `Sort` na consulta para classificar os registros na lista. Para executar a consulta e retornar todos os registros você pode selecionar **Ver tudo**. |
+| Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Cor |A cor das barras ou minigráficos. |
+| Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Consulta de navegação |A consulta a executar quando você seleciona um item na lista. Para saber mais, veja [Configurações comuns](#navigation-query). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |Texto a ser exibido na parte superior da primeira coluna da lista. |
-| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
+| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
-## <a name="two-numbers--list-part"></a>Parte de dois números e lista
-O cabeçalho tem dois números mostrando a contagem de registros de consultas de pesquisa de log separadas.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
+## <a name="two-numbers-and-list-part"></a>Dois números e parte da lista
+O cabeçalho tem dois números que mostram a contagem de registros de consultas de pesquisa de log separadas. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Exibição de dois números e lista](media/log-analytics-view-designer/view-two-numbers-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Texto a ser exibido na parte superior da exibição. |
-| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
-| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
-| Usar Ícone |Selecione para que o ícone seja exibido. |
+| Título do Grupo |O texto que é exibido na parte superior da exibição. |
+| Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione este link para exibir o ícone. |
 | **Título** | |
-| Legenda |Texto a ser exibido na parte superior do cabeçalho. |
-| Consultar |Consulta a executar para o cabeçalho.  A contagem do número de registros retornados pela consulta será exibida. |
+| Legenda |O texto que é exibido na parte superior do cabeçalho. |
+| Consultar |A consulta a ser executada para o cabeçalho. A contagem de registros que são retornados pela consulta é exibida. |
 | **Lista** | |
-| Consultar |Consulta a executar para a lista.  As duas primeiras propriedades para os dez primeiros registros nos resultados serão exibidas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o comando Classificar na consulta para classificar os registros na lista.  O usuário pode clicar em Ver tudo para executar a consulta e retornar todos os registros. |
-| Ocultar grafo |Selecione para desabilitar o grafo à direita da coluna numérica. |
-| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras ou minigráficos. |
-| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |A consulta a ser executada para a lista. As duas primeiras propriedades para os dez primeiros registros nos resultados são exibidas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o comando `Sort` na consulta para classificar os registros na lista. Para executar a consulta e retornar todos os registros você pode selecionar **Ver tudo**. |
+| Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Cor |A cor das barras ou minigráficos. |
+| Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Consulta de navegação |A consulta a executar quando você seleciona um item na lista. Para saber mais, veja [Configurações comuns](#navigation-query). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |Texto a ser exibido na parte superior da primeira coluna da lista. |
-| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
+| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
-## <a name="donut--list-part"></a>Parte de rosca e lista
-O cabeçalho exibe um único número resumido de uma coluna de valor em uma consulta de log.  A rosca exibe graficamente os resultados dos três registros principais.
+## <a name="donut-and-list-part"></a>Parte da lista e rosca
+O cabeçalho exibe um único número que resume uma coluna de valor em uma consulta de log. A rosca exibe graficamente os resultados dos três registros principais.
 
-![Exibição de rosca e lista](media/log-analytics-view-designer/view-donut-list.png)
+![Exibição da lista e rosca](media/log-analytics-view-designer/view-donut-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Texto a exibir na parte superior do bloco. |
-| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
-| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
-| Usar Ícone |Selecione para que o ícone seja exibido. |
+| Título do Grupo |O texto que é exibido na parte superior do bloco. |
+| Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione este link para exibir o ícone. |
 | **Cabeçalho** | |
-| Title |Texto a ser exibido na parte superior do cabeçalho. |
-| Subtítulo |Texto a ser exibido abaixo do Título na parte superior do cabeçalho. |
+| Title |O texto que é exibido na parte superior do cabeçalho. |
+| Subtítulo |O texto que é exibido sob o título na parte superior do cabeçalho. |
 | **Rosca** | |
-| Consultar |Consulta a executar para a rosca.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico. |
+| Consultar |A consulta a ser executada para a rosca. A primeira propriedade é um valor de texto e a segunda é um valor numérico. |
 | **Rosca** |**> Centro** |
-| Texto |Texto a exibir abaixo do valor dentro da rosca. |
-| Operação |A operação a executar na propriedade de valor a resumir como um único valor.<br><br>– Soma: adicionar os valores de todos os registros.<br>– Porcentagem: porcentagem dos registros retornados pelos valores em **Valores de resultado usados na operação do centro** para o total de registros na consulta. |
-| Valores de resultado usados na operação do centro |Opcionalmente, clique no sinal de adição para adicionar um ou mais valores.  Os resultados da consulta serão limitados aos registros com os valores de propriedade que você especificar.  Se nenhum valor for adicionado, todos os registros serão incluídos na consulta. |
+| Texto |O texto que é exibido sob o valor dentro da rosca. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor.<ul><li>Soma: adiciona os valores de todos os registros.</li><li>Porcentagem: a taxa dos registros retornados pelos valores em **Valores de resultado usados na operação do centro** para o total de registros na consulta.</li></ul> |
+| Valores de resultado usados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados aos registros com os valores de propriedade que você especifica. Se nenhum valor for adicionado, todos os registros serão incluídos na consulta. |
 | **Opções adicionais** |**> Cores** |
-| Cor 1<br>Cor 2<br>Cor 3 |Selecione a cor de cada um dos valores exibidos na rosca. |
-| **Opções adicionais** |**> Mapeamento de Cores Avançado** |
+| Cor 1<br>Cor 2<br>Cor 3 |Selecione a cor de cada um dos valores que são exibidos na rosca. |
+| **Opções adicionais** |**> Mapeamento de cores avançado** |
 | Valor do campo |Digite o nome de um campo para exibi-lo como uma cor diferente se ele estiver incluído na rosca. |
 | Cor |Selecione a cor do campo exclusivo. |
 | **Lista** | |
-| Consultar |Consulta a executar para a lista.  A contagem do número de registros retornados pela consulta será exibida. |
-| Ocultar grafo |Selecione para desabilitar o grafo à direita da coluna numérica. |
-| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras ou minigráficos. |
-| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |A consulta a ser executada para a lista. A contagem de registros que são retornados pela consulta é exibida. |
+| Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Cor |A cor das barras ou minigráficos. |
+| Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Consulta de navegação |A consulta a executar quando você seleciona um item na lista. Para saber mais, veja [Configurações comuns](#navigation-query). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |Texto a ser exibido na parte superior da primeira coluna da lista. |
-| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
+| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
-## <a name="two-timelines--list-part"></a>Parte de duas linhas do tempo e lista
-O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como gráficos de coluna com um balão exibindo um único número resumido de uma coluna de valor em uma consulta de log.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
+## <a name="two-timelines-and-list-part"></a>Duas linhas do tempo e parte da lista
+O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como gráficos de coluna com um balão mostrando um único número que resume de uma coluna de valor em uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
-![Exibição de duas linhas do tempo e lista](media/log-analytics-view-designer/view-two-timelines-list.png)
+![Duas linhas do tempo e exibição da lista](media/log-analytics-view-designer/view-two-timelines-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Texto a exibir na parte superior do bloco. |
-| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
-| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
-| Usar Ícone |Selecione para que o ícone seja exibido. |
+| Título do Grupo |O texto que é exibido na parte superior do bloco. |
+| Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione este link para exibir o ícone. |
 | **Primeiro gráfico<br>Segundo gráfico** | |
-| Legenda |Texto exibido sob o balão para a primeira série. |
-| Cor |Cor a ser usada para as colunas na série. |
-| Consultar |Consulta a executar para a primeira série.  A contagem do número de registros em cada intervalo de tempo será representada pelas colunas do gráfico. |
-| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<br><br>– Soma: soma dos valores de todos os registros.<br>– Média: média do valor de todos os registros.<br>– Última Amostra: o valor do último intervalo incluído no gráfico.<br>– Primeira Amostra: o valor do primeiro intervalo incluído no gráfico.<br>– Contagem: contagem de todos os registros retornados pela consulta. |
+| Legenda |O texto que é exibido sob o balão para a primeira série. |
+| Cor |A cor a ser usada para as colunas na série. |
+| Consultar |A consulta a executar para a primeira série. A contagem de registros em cada intervalo de tempo são representada pelas colunas do gráfico. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<ul><li>Soma: a soma dos valores de todos os registros.</li><li>Média: a média do valor de todos os registros.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Primeira amostra: o valor do primeiro intervalo que é incluído no gráfico.</li><li>Contagem: a contagem de registros que são retornados pela consulta.</li></ul> |
 | **Lista** | |
-| Consultar |Consulta a executar para a lista.  A contagem do número de registros retornados pela consulta será exibida. |
-| Ocultar grafo |Selecione para desabilitar o grafo à direita da coluna numérica. |
-| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras ou minigráficos. |
-| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |A consulta a ser executada para a lista. A contagem de registros que são retornados pela consulta é exibida. |
+| Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Cor |A cor das barras ou minigráficos. |
+| Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Consulta de navegação |A consulta a executar quando você seleciona um item na lista. Para saber mais, veja [Configurações comuns](#navigation-query). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |Texto a ser exibido na parte superior da primeira coluna da lista. |
-| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
+| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
 ## <a name="information-part"></a>Parte de informações
-O cabeçalho exibe texto estático e um link opcional.  A lista exibe um ou mais itens com texto estático e o título.
+O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais itens com texto e título estático.
 
 ![Exibição de informações](media/log-analytics-view-designer/view-information.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Texto a exibir na parte superior do bloco. |
-| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Cor |Cor da tela de fundo do cabeçalho. |
+| Título do Grupo |O texto que é exibido na parte superior do bloco. |
+| Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
+| Cor |A cor da tela de fundo do cabeçalho. |
 | **Cabeçalho** | |
-| Imagem |Arquivo de imagem a ser exibida no cabeçalho. |
-| Rótulo |Texto a ser exibido no cabeçalho. |
+| Imagem |O arquivo de imagem que é exibido no cabeçalho. |
+| Rótulo |O texto que é exibido no cabeçalho. |
 | **Cabeçalho** |**> Link** |
-| Rótulo |Texto do link. |
-| Url |URL do link. |
-| **Itens de Informações** | |
-| Title |Texto a ser exibido para o título de cada item. |
-| Conteúdo |Texto a ser exibido para cada item. |
+| Rótulo |O texto do link. |
+| Url |A URL para o link. |
+| **Itens de informações** | |
+| Title |O texto que é exibido para o título de cada item. |
+| Conteúdo |O texto que é exibido para cada item. |
 
-## <a name="line-chart-callout--list-part"></a>Parte de gráfico de linhas, balão e lista
-O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
+## <a name="line-chart-callout-and-list-part"></a>Gráfico de linhas, balão e parte da lista
+O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
-![Exibição de gráfico de linhas, balão e lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
-
-| Configuração | DESCRIÇÃO |
-|:--- |:--- |
-| **Geral** | |
-| Título do Grupo |Texto a exibir na parte superior do bloco. |
-| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
-| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
-| Usar Ícone |Selecione para que o ícone seja exibido. |
-| **Cabeçalho** | |
-| Title |Texto a ser exibido na parte superior do cabeçalho. |
-| Subtítulo |Texto a ser exibido abaixo do Título na parte superior do cabeçalho. |
-| **Gráfico de Linhas** | |
-| Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
-| **Gráfico de Linhas** |**> Balão** |
-| Título do balão |Texto a ser exibido acima do valor do balão. |
-| Nome da Série |Valor da propriedade para a série a ser usado para o valor do balão.  Se nenhuma série for fornecida, todos os registros da consulta serão usados. |
-| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<br><br>– Média: média do valor de todos os registros.<br>– Contagem: contagem de todos os registros retornados pela consulta.<br>– Última Amostra: o valor do último intervalo incluído no gráfico.<br>– Máx.: o valor máximo dos intervalos incluídos no gráfico.<br>– Mín.: o valor mínimo dos intervalos incluídos no gráfico.<br>– Soma: soma dos valores de todos os registros. |
-| **Gráfico de Linhas** |**> Eixo Y** |
-| Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
-| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O Tipo de Unidade especifica a categoria da unidade e define os valores que estão disponíveis para o Tipo de Unidade Atual.  Se você selecionar um valor em Converter, os valores numéricos serão convertidos do tipo Unidade Atual para o tipo Converter em. |
-| Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
-| **Lista** | |
-| Consultar |Consulta a executar para a lista.  A contagem do número de registros retornados pela consulta será exibida. |
-| Ocultar grafo |Selecione para desabilitar o grafo à direita da coluna numérica. |
-| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras ou minigráficos. |
-| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
-| **Lista** |**> Títulos de coluna** |
-| NOME |Texto a ser exibido na parte superior da primeira coluna da lista. |
-| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
-| **Lista** |**> Limites** |
-| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
-
-## <a name="line-chart--list-part"></a>Parte de gráfico de linhas e lista
-O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo.  A lista exibe os dez primeiros resultados de uma consulta com um grafo indicando o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
-
-![Exibição de gráfico de linhas e lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Gráfico de linhas, balão e exibição da lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Texto a exibir na parte superior do bloco. |
-| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
-| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
-| Usar Ícone |Selecione para que o ícone seja exibido. |
+| Título do Grupo |O texto que é exibido na parte superior do bloco. |
+| Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione este link para exibir o ícone. |
 | **Cabeçalho** | |
-| Title |Texto a ser exibido na parte superior do cabeçalho. |
-| Subtítulo |Texto a ser exibido abaixo do Título na parte superior do cabeçalho. |
-| **Gráfico de Linhas** | |
-| Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
-| **Gráfico de Linhas** |**> Eixo Y** |
-| Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
-| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O Tipo de Unidade especifica a categoria da unidade e define os valores que estão disponíveis para o Tipo de Unidade Atual.  Se você selecionar um valor em Converter, os valores numéricos serão convertidos do tipo Unidade Atual para o tipo Converter em. |
-| Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
+| Title |O texto que é exibido na parte superior do cabeçalho. |
+| Subtítulo |O texto que é exibido sob o título na parte superior do cabeçalho. |
+| **Gráfico de linhas** | |
+| Consultar |A consulta a executar para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo X do gráfico usará esse intervalo de tempo. Se a consulta não inlcui a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
+| **Gráfico de linhas** |**> Balão** |
+| Título do balão |O texto que é exibido acima do valor do balão. |
+| Nome da Série |Valor da propriedade para a série a ser usado para o valor do balão. Se nenhuma série for fornecida, todos os registros da consulta serão usados. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<ul><li>Média: a média do valor de todos os registros.</li><li>Contagem: a contagem de registros que são retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Máx.: o valor máximo dos intervalos que são incluídos no gráfico.</li><li>Min.: o valor mínimo dos intervalos que são incluídos no gráfico.</li><li>Soma: a soma dos valores de todos os registros.</li></ul> |
+| **Gráfico de linhas** |**> Eixo Y** |
+| Usar Escala Logarítmica |Selecione este link para usar uma escala logarítmica para o eixo y. |
+| Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Essas informações são usadas para exibir rótulos do gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *Unidade* especifica a categoria da unidade e define os valores que estão disponíveis para os valores do tipo *Unidade Atual* disponíveis. Se você selecionar um valor em *Converter para*, os valores numéricos serão convertidos do tipo *Unidade Atual* para o tipo *Converter para*. |
+| Rótulo personalizado |O texto que é exibido para o eixo y ao lado do rótulo para o tipo *Unidade*. Se nenhum rótulo for especificado, somente o tipo *Unidade* será exibido. |
 | **Lista** | |
-| Consultar |Consulta a executar para a lista.  A contagem do número de registros retornados pela consulta será exibida. |
-| Ocultar grafo |Selecione para desabilitar o grafo à direita da coluna numérica. |
-| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Cor |Cor das barras ou minigráficos. |
-| Operação |Operação a ser executada para o minigráfico.  Consulte [Configurações Comuns](#sparklines) para obter detalhes. |
-| Separador de Valor e Nome |Delimitador de caractere único se desejar analisar a próxima propriedade em vários valores.  Consulte [Configurações Comuns](#name-value-separator) para obter detalhes. |
-| Consulta de navegação |Consulta a executar quando o usuário seleciona um item na lista.  Consulte [Configurações Comuns](#navigation-query) para obter detalhes. |
+| Consultar |A consulta a ser executada para a lista. A contagem de registros que são retornados pela consulta é exibida. |
+| Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Cor |A cor das barras ou minigráficos. |
+| Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Consulta de navegação |A consulta a executar quando você seleciona um item na lista. Para saber mais, veja [Configurações comuns](#navigation-query). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |Texto a ser exibido na parte superior da primeira coluna da lista. |
-| Valor |Texto a ser exibido na parte superior da segunda coluna da lista. |
+| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
-| Habilitar limites |Selecione para habilitar limites.  Consulte [Configurações Comuns](#thresholds) para obter detalhes. |
+| Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
+
+## <a name="line-chart-and-list-part"></a>Gráfico de linhas e parte da lista
+O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
+
+![Gráfico de linhas e exibição da lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+
+| Configuração | DESCRIÇÃO |
+|:--- |:--- |
+| **Geral** | |
+| Título do Grupo |O texto que é exibido na parte superior do bloco. |
+| Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| Usar Ícone |Selecione este link para exibir o ícone. |
+| **Cabeçalho** | |
+| Title |O texto que é exibido na parte superior do cabeçalho. |
+| Subtítulo |O texto que é exibido sob o título na parte superior do cabeçalho. |
+| **Gráfico de linhas** | |
+| Consultar |A consulta a executar para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo X do gráfico usará esse intervalo de tempo. Se a consulta não inlcui a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
+| **Gráfico de linhas** |**> Eixo Y** |
+| Usar Escala Logarítmica |Selecione este link para usar uma escala logarítmica para o eixo y. |
+| Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Essas informações são usadas para exibir rótulos do gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *Unidade* especifica a categoria da unidade e define os valores que estão disponíveis para os valores do tipo *Unidade Atual* disponíveis. Se você selecionar um valor em *Converter para*, os valores numéricos serão convertidos do tipo *Unidade Atual* para o tipo *Converter para*. |
+| Rótulo personalizado |O texto que é exibido para o eixo y ao lado do rótulo para o tipo *Unidade*. Se nenhum rótulo for especificado, somente o tipo *Unidade* será exibido. |
+| **Lista** | |
+| Consultar |A consulta a ser executada para a lista. A contagem de registros que são retornados pela consulta é exibida. |
+| Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
+| Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Cor |A cor das barras ou minigráficos. |
+| Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
+| Consulta de navegação |A consulta a executar quando você seleciona um item na lista. Para saber mais, veja [Configurações comuns](#navigation-query). |
+| **Lista** |**> Títulos de coluna** |
+| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| Valor |O texto que é exibido na parte superior da segunda coluna. |
+| **Lista** |**> Limites** |
+| Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
 ## <a name="stack-of-line-charts-part"></a>Pilha de parte de gráficos de linha
-Exibe três gráficos de linhas separados com várias séries de uma consulta de log ao longo do tempo.
+A pilha de gráficos de linha exibe três gráficos de linhas separados com várias séries de uma consulta de log ao longo do tempo, conforme mostrado aqui:
 
 ![Pilha de gráficos de linha](media/log-analytics-view-designer/view-stack-line-charts.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
 | **Geral** | |
-| Título do Grupo |Texto a exibir na parte superior do bloco. |
-| Novo Grupo |Selecione para criar um novo grupo na exibição, iniciando na exibição atual. |
-| ícone |Arquivo de imagem para exibir ao lado do resultado no cabeçalho. |
+| Título do Grupo |O texto que é exibido na parte superior do bloco. |
+| Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
 | **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**> Cabeçalho** |
-| Title |Texto a ser exibido na parte superior do gráfico. |
-| Subtítulo |Texto a ser exibido abaixo do Título na parte superior do gráfico. |
-| **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**Gráfico de Linhas** |
-| Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
+| Title |O texto que é exibido na parte superior do gráfico. |
+| Subtítulo |O texto que é exibido sob o título na parte superior do gráfico. |
+| **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**Gráfico de linhas** |
+| Consultar |A consulta a executar para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo X do gráfico usará esse intervalo de tempo. Se a consulta não inlcui a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
 | **Gráfico** |**> Eixo Y** |
-| Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
-| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O Tipo de Unidade especifica a categoria da unidade e define os valores que estão disponíveis para o Tipo de Unidade Atual.  Se você selecionar um valor em Converter, os valores numéricos serão convertidos do tipo Unidade Atual para o tipo Converter em. |
-| Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
+| Usar Escala Logarítmica |Selecione este link para usar uma escala logarítmica para o eixo y. |
+| Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Essas informações são usadas para exibir rótulos do gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *Unidade* especifica a categoria da unidade e define os valores que estão disponíveis para os valores do tipo *Unidade Atual* disponíveis. Se você selecionar um valor em *Converter para*, os valores numéricos serão convertidos do tipo *Unidade Atual* para o tipo *Converter para*. |
+| Rótulo personalizado |O texto que é exibido para o eixo y ao lado do rótulo para o tipo *Unidade*. Se nenhum rótulo for especificado, somente o tipo *Unidade* será exibido. |
 
 ## <a name="common-settings"></a>Configurações comuns
-As seções a seguir descrevem as configurações comuns para várias partes de visualização.
+As seções a seguir descrevem as configurações que são comuns para várias partes de visualização.
 
-### <a name="name-value-separator">Separador de valor e nome</a>
-Delimitador de caractere único se você desejar analisar a propriedade de texto de uma consulta de lista em vários valores.  Se você especificar um delimitador, poderá fornecer nomes para cada campo separado pelo mesmo delimitador na caixa Nome.
+### <a name="name-value-separator"></a>Separador de valor e nome
+O separador de valor e nome é o delimitador de caractere único a ser usado para analisar a propriedade de texto de uma consulta de lista em vários valores. Se você especificar um delimitador, poderá fornecer nomes para cada campo separado pelo mesmo delimitador na caixa **Nome**.
 
-Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*.  Você poderia especificar – para o Separador de Valor e nome e *Cidade–Edifício* para o Nome.  Isso analisaria cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
+Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*. Você poderia especificar um traço (-) para o separador de valor e nome e *City-Building* para o nome. Essa abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
 
-### <a name="navigation-query">Consulta de navegação</a>
-Consulta a executar quando o usuário seleciona um item na lista.  Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.
+### <a name="navigation-query"></a>Consulta de navegação
+A consulta de navegação é a consulta a ser executada quando você seleciona um item na lista. Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.
 
-Por exemplo, se a consulta tiver uma coluna chamada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* seria executado quando o usuário selecionasse um computador.  Se a consulta de navegação fosse do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* seria executada.
+Por exemplo, se a consulta tiver uma coluna denominada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* é executada quando você seleciona um computador. Se a consulta de navegação for do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* é executada.
 
-### <a name="sparklines">Minigráficos</a>
-Um minigráfico é um pequeno gráfico de linha que ilustra o valor de uma entrada na lista ao longo do tempo.  Para partes de visualização com uma lista, é possível selecionar se deseja exibir uma barra horizontal que indica o valor relativo de uma coluna numérica ou de um minigráfico indicando seu valor ao longo do tempo horizontal.
+### <a name="sparklines"></a>Minigráficos
+Um minigráfico é um pequeno gráfico de linha que ilustra o valor de uma entrada na lista ao longo do tempo. Para partes de visualização com uma lista, é possível selecionar se deseja exibir uma barra horizontal que indica o valor relativo de uma coluna numérica ou de um minigráfico que indica seu valor ao longo do tempo horizontal.
 
-A tabela a seguir descreve as configurações de minigráficos.
-
-| Configuração | DESCRIÇÃO |
-|:--- |:--- |
-| Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais. |
-| Operação |Se os minigráficos estiverem habilitados, essa será a operação a ser executada em cada propriedade na lista para calcular os valores do minigráfico.<br><br>– Última Amostra: o último valor da série durante o intervalo.<br>– Máx: o valor máximo da série durante o intervalo.<br>– Mín: o valor mínimo da série durante o intervalo.<br>– Soma: soma dos valores da série durante o intervalo.<br>– Resumo: usa o mesmo comando de medida da consulta no cabeçalho. |
-
-### <a name="thresholds">Limites</a>
-Os limites permitem que você exiba um ícone colorido ao lado de cada item em uma lista, oferecendo a você um indicador visual rápido de itens que excedem um valor específico ou se enquadram em um determinado intervalo.  Por exemplo, será possível exibir um ícone verde para itens com um valor aceitável; amarelo, se o valor estiver dentro de um intervalo que indica um aviso, e vermelho se ele exceder um valor de erro.
-
-Quando você habilitar os limites para uma parte, será necessário especificar um ou mais limites.  Se o valor de um item for maior do que um valor limite e menor do que o próximo valor limite, essa cor será usada.  Se o item for maior do que o maior valor limite, essa cor será definida.   
-
-Cada conjunto de limite tem um limite com um valor de **Padrão**.  Essa será a cor definida se nenhum outro valor for excedido.  É possível adicionar ou remover os limites clicando no botão **+** ou **x**.
-
-A tabela a seguir descreve as configurações de limites.
+A tabela a seguir descreve as configurações de minigráficos:
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
-| Habilitar limites |Selecione para exibir um ícone de cor à esquerda de cada valor que indica sua integridade relativa a limites especificados. |
-| NOME |Nome para identificar o valor limite. |
-| Limite |Valor para o limite.  A cor de integridade para cada item de lista é definida como a cor do maior valor limite excedido pelo valor do item.  Haverá um limite padrão que será a cor se nenhum valor de limite for excedido. |
-| Cor |Cor do valor limite. |
+| Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. |
+| Operação |Se os minigráficos estiverem habilitados, essa será a operação a ser executada em cada propriedade na lista para calcular os valores do minigráfico.<ul><li>Última Amostra: O último valor da série durante o intervalo.</li><li>Máx: O valor máximo da série durante o intervalo.</li><li>Min: O valor mínimo da série durante o intervalo.</li><li>Soma: A soma dos valores da série durante o intervalo.</li><li>Resumo: Usa o mesmo comando `measure` da consulta no cabeçalho.</li></ul> |
+
+### <a name="thresholds"></a>Limites
+Usando limites, você pode exibir um ícone de cor ao lado de cada item em uma lista. Os limites oferecem um indicador visual rápido de itens que excedem um valor específico ou ficam dentro de um intervalo específico. Por exemplo, você pode exibir um ícone verde para itens com um valor aceitável; amarelo, se o valor estiver dentro de um intervalo que indica um aviso, e vermelho se ele exceder um valor de erro.
+
+Quando você habilitar os limites para uma parte, será necessário especificar um ou mais limites. Se o valor de um item for maior do que um valor limite e menor do que o próximo valor limite, a cor para esse valor será usada. Se o item for maior do que o maior valor limite, outra cor será usada. 
+
+Cada conjunto de limite tem um limite com um valor de **Padrão**. Essa é a cor que é definida se nenhum outro valor for excedido. É possível adicionar ou remover os limites selecionando o botão **Adicionar** (+) ou  **Excluir** (x).
+
+A tabela a seguir descreve as configurações de limites:
+
+| Configuração | DESCRIÇÃO |
+|:--- |:--- |
+| Habilitar limites |Clique neste link para exibir um ícone de cor à esquerda de cada valor. O ícone indica a integridade do valor em relação a limites especificados. |
+| NOME |O nome do valor limite. |
+| Limite |O valor para o limite. A cor de integridade para cada item de lista é definida como a cor do maior valor limite que é excedido pelo valor do item. Se nenhum valor limite for excedido, será usada uma cor padrão. |
+| Cor |A cor que indica o valor limite. |
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para dar suporte às consultas partes da visualização.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com Rede Acelerada
 
@@ -48,8 +48,8 @@ Os benefícios da rede acelerada aplicam-se somente à VM em que ela está habil
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 * **Ubuntu 16.04**: 4.11.0-1013 ou versão do kernel superior
 * **SLES SP3**: 4.4.92-6.18 ou versão do kernel superior
-* **RHEL**: 7.4.2017120423 ou versão do kernel superior
-* **CentOS**: 7.4.20171206 ou versão do kernel superior
+* **7.4 RHEL**: 7.4.2017120423 ou versão do kernel superior
+* **CentOS**: 7.4: 7.4.20171206 ou versão do kernel superior
 
 ## <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
 A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 4 ou mais vCPUs. Em instâncias como D/DSv3 ou E/ESv3 que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 8 ou mais vCPUs.  As séries compatíveis são: D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2 e Ms/Mms. 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo autônomo de locatário único que usa o Banco de Dados SQL do Azure
 
@@ -100,9 +100,7 @@ Em um ambiente de produção, normalmente, um registro DNS CNAME é criado para 
 Vamos examinar alguns dos recursos que foram implantados:
 
 1. No [portal do Azure](http://portal.azure.com), procure a lista de grupos de recursos.
-2. Consulte o grupo de recursos **wingtip-sa-catalog-&lt;user&gt;**.
-    - Nesse grupo de recursos, o servidor **catalog-sa-&lt;user&gt;** está implantado. O servidor contém o banco de dados **tenantcatalog**.
-    - Você também deverá ver os três grupos de recursos de locatários.
+2. Você deverá ver os três grupos de recursos de locatários.
 3. Abra o grupo de recursos **wingtip-sa-fabrikam-&lt;user&gt;**, que contém os recursos para a implantação do Fabrikam Jazz Club.  O servidor **fabrikamjazzclub-&lt;user&gt;** contém o banco de dados **fabrikamjazzclub**.
 
 Cada banco de dados de locatários é um banco de dados *autônomo* de 50 DTUs.
@@ -131,6 +129,6 @@ Neste tutorial, você aprendeu:
 > * Sobre os servidores e bancos de dados que constituem o aplicativo.
 > * Como excluir recursos de exemplo para interromper a cobrança relacionada.
 
-Em seguida, tente fazer o [Tutorial para provisionar e catalogar](saas-standaloneapp-provision-and-catalog.md).
+Em seguida, experimente o tutorial [Provisionar e catalogar](saas-standaloneapp-provision-and-catalog.md), no qual você explorará o uso de um catálogo de locatários que permite uma variedade de cenários entre locatários, como gerenciamento de esquema e análise de locatário.
  
 

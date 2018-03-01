@@ -1,27 +1,14 @@
----
-title: "Importar a coleção Postman"
-description: "Este artigo fornece uma definição da coleção Postman para chamadas REST dos Serviços de Mídia do Azure."
-services: media-services
-documentationcenter: 
-author: Juliako
-manager: cfowler
-editor: 
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
----
-# <a name="import-the-postman-collection"></a>Importar a coleção Postman
+ ---
+title: importar a coleção Postman com operações de streaming sob demanda do Azure description: Este artigo fornece uma definição da coleção Postman para chamadas REST dos Serviços de Mídia do Azure.
+serviços: media-services documentationcenter: '' autor: Juliako manager: cfowler editor: ''
 
-Este artigo contém uma definição da coleção **Postman** que contém as solicitações HTTP agrupadas que chamam as APIs REST dos Serviços de Mídia. Essa definição é usada pelo tutorial [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) (Configurar o Postman para chamadas à API REST dos Serviços de Mídia).
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
+
+---
+
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção Postman com operações de streaming sob demanda
+
+Este artigo contém uma definição da coleção **Postman** que contém as solicitações HTTP agrupadas que chamam as APIs REST dos Serviços de Mídia do Azure. Para saber mais sobre como configurar o **Postman** para que possa ser usado para chamar APIs REST dos Serviços de Mídia, consulte o tutorial [Configurar o Postman para chamadas API REST dos Serviços de Mídia](media-rest-apis-with-postman.md).
 
 ```
 {

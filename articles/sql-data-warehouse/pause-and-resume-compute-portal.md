@@ -14,14 +14,14 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/23/2018
 ms.author: barbkess
-ms.openlocfilehash: f8b4e29595c6a71696cf2c4939ad4c6c096a28b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30dede32b35f995f89e2946af34da10353f55212
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: Pausar e retomar computação para um SQL Data Warehouse do Azure no portal do Azure
-Pausa de computação para um Azure SQL Data Warehouse economizar custos. Retomar computação quando você estiver pronto para usar o Data Warehouse.
+Pausa de computação para um Azure SQL Data Warehouse economizar custos. [Retomar computação](sql-data-warehouse-manage-compute-overview.md) quando você estiver pronto para usar o data warehouse.
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -39,7 +39,7 @@ Para economizar custos, é possível pausar e retomar os recursos de computaçã
 Siga estas etapas para pausar um SQL Data Warehouse.
 
 1. Clique em **Bancos de dados SQL** na página esquerda do portal do Azure.
-2. Selecione **mySampleDataWarehouse** da página **bancos de dados SQL**. Isso abre o Data Warehouse. 
+2. Selecione **mySampleDataWarehouse** da página **Bancos de Dados SQL**. Isso abre o Data Warehouse. 
 3. Na página **mySampleDataWarehouse**, observe se **Status** indica **Online**.
 
     ![Computação on-line](media/pause-and-resume-compute-portal/compute-online.png)
@@ -60,7 +60,7 @@ Siga estas etapas para pausar um SQL Data Warehouse.
 Siga estas etapas para retomar um SQL Data Warehouse.
 
 1. Clique em **Bancos de dados SQL** na página esquerda do portal do Azure.
-2. Selecione **mySampleDataWarehouse** da página **bancos de dados SQL**. Isso abre o Data Warehouse. 
+2. Selecione **mySampleDataWarehouse** da página **Bancos de Dados SQL**. Isso abre o Data Warehouse. 
 3. Na página **mySampleDataWarehouse**, observe se **Status** indica **Pausado**.
 
     ![Computação offline](media/pause-and-resume-compute-portal/compute-offline.png)

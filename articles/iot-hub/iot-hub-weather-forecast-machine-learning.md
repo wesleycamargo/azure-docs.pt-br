@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsão do tempo usando os dados do sensor do Hub IoT no Azure Machine Learning
 
@@ -80,7 +80,7 @@ Saiba como usar o Azure Machine Learning para fazer uma previsão do tempo (poss
 
 ### <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
 
-1. No [portal do Azure](https://ms.portal.azure.com/), clique em **Novo** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **Criar um recurso** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
 1. Insira as seguintes informações para o trabalho.
 
    **Nome do trabalho**: o nome do trabalho. O nome deve ser globalmente exclusivo.

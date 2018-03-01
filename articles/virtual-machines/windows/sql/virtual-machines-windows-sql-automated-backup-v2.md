@@ -4,7 +4,7 @@ description: "Explica o recurso de Backup Automatizado para VMs do SQL Server 20
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Backup Automatizado v2 para máquinas virtuais do Azure do SQL Server 2016 (Resource Manager)
 
@@ -31,7 +31,7 @@ O Backup Automatizado v2 configura automaticamente o [Backup Gerenciado no Micro
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para usar o Backup Automatizado v2, examine os seguintes pré-requisitos:
 
 **Sistema operacional**:
@@ -66,27 +66,27 @@ A tabela a seguir descreve as opções que podem ser configuradas para o Backup 
 
 ### <a name="basic-settings"></a>Configurações Básicas
 
-| Configuração | Intervalo (Padrão) | Descrição |
+| Configuração | Intervalo (Padrão) | DESCRIÇÃO |
 | --- | --- | --- |
 | **Backup Automatizado** | Habilitar/desabilitar (Desabilitado) | Habilita ou desabilita o Backup Automatizado de uma VM do Azure que executa o SQL Server 2016 Standard ou Enterprise. |
 | **Período de retenção** | Um a 30 dias (30 dias) | O número de dias para manter os backups. |
 | **Conta de armazenamento** | Conta de Armazenamento do Azure | Uma conta de armazenamento do Azure a ser usada para armazenar arquivos de Backup Automatizado no armazenamento de blobs. Um contêiner é criado neste local para armazenar todos os arquivos de backup. A convenção de nomenclatura do arquivo de backup inclui a data, a hora e o GUID do banco de dados. |
-| **Criptografia** |Habilitar/desabilitar (Desabilitado) | Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup estão localizados na conta de armazenamento especificada no mesmo contêiner **automaticbackup** usando a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanece para restaurar backups anteriores. |
-| **Senha** |Texto da senha | Uma senha para as chaves de criptografia. Isso só é necessário se a criptografia estiver habilitada. Para restaurar um backup criptografado, você deverá ter a senha correta e o certificado relacionado que foi usado no momento em que o backup foi feito. |
+| **Criptografia** |Habilitar/desabilitar (Desabilitado) | Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup ficam na conta de armazenamento especificada. Ela usa o mesmo contêiner **automaticbackup** com a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanece para restaurar backups anteriores. |
+| **Senha** |Texto da senha | Uma senha para as chaves de criptografia. A senha só é necessária quando a criptografia está habilitada. Para restaurar um backup criptografado, você deverá ter a senha correta e o certificado relacionado que foi usado no momento em que o backup foi feito. |
 
 ### <a name="advanced-settings"></a>Configurações avançadas
 
-| Configuração | Intervalo (Padrão) | Descrição |
+| Configuração | Intervalo (Padrão) | DESCRIÇÃO |
 | --- | --- | --- |
-| **Backups de Banco de Dados do Sistema** | Habilitar/desabilitar (Desabilitado) | Quando habilitado, esse recurso também fará backup dos bancos de dados do sistema: Mestre, MSDB e Modelo. Para os bancos de dados Modelo e MSDB, verifique se eles estão no modo de recuperação completa se desejar que os backups de log sejam executados. Os backups de log nunca são feitos para o Mestre. E não é feito nenhum backup para o TempDB. |
-| **Agendamento de Backup** | Manual/Automatizado (Automatizado) | Por padrão, o agendamento de backup será automaticamente determinado com base no crescimento do log. O agendamento de backup manual permite que o usuário especifique a janela de tempo para backups. Nesse caso, os backups ocorrerão apenas na frequência especificada e durante a janela de tempo especificada de um determinado dia. |
-| **Frequência do backup completo** | Diariamente/Semanalmente | Frequência de backups completos. Em ambos os casos, os backups completos serão iniciados durante a próxima janela de tempo agendada. Quando Semanalmente estiver selecionado, os backups poderão abranger vários dias até que todos os bancos de dados tenham o backup realizado com êxito. |
+| **Backups de Banco de Dados do Sistema** | Habilitar/desabilitar (Desabilitado) | Quando habilitado, esse recurso também faz backup dos bancos de dados do sistema: Mestre, MSDB e Modelo. Para os bancos de dados Modelo e MSDB, verifique se eles estão no modo de recuperação completa se desejar que os backups de log sejam executados. Os backups de log nunca são feitos para o Mestre. E não é feito nenhum backup para o TempDB. |
+| **Agendamento de Backup** | Manual/Automatizado (Automatizado) | Por padrão, o agendamento de backup é automaticamente determinado com base no crescimento do log. O agendamento de backup manual permite que o usuário especifique a janela de tempo para backups. Nesse caso, os backups ocorrem apenas na frequência especificada e durante a janela de tempo especificada de determinado dia. |
+| **Frequência do backup completo** | Diariamente/Semanalmente | Frequência de backups completos. Em ambos os casos, os backups completos são iniciados durante a janela de tempo agendada seguinte. Quando Semanalmente estiver selecionado, os backups poderão abranger vários dias até que todos os bancos de dados tenham o backup realizado com êxito. |
 | **Hora de início do backup completo** | 00:00 – 23:00 (01:00) | A hora de início de um determinado dia durante o qual os backups completos podem ocorrer. |
 | **Janela de tempo do backup completo** | 1 – 23 horas (1 hora) | A duração da janela de tempo de um determinado dia durante o qual os backups completos podem ocorrer. |
 | **Frequência de backup do log** | 5 – 60 minutos (60 minutos) | Frequência de backups de log. |
 
 ## <a name="understanding-full-backup-frequency"></a>Noções básicas sobre a frequência do backup completo
-É importante compreender a diferença entre backups completos diários e semanais. Nesse esforço, abordaremos dois cenários de exemplo.
+É importante compreender a diferença entre backups completos diários e semanais. Considere os dois cenários de exemplo a seguir.
 
 ### <a name="scenario-1-weekly-backups"></a>Cenário 1: backups semanais
 Você tem uma VM do SQL Server que contém um número de bancos de dados muito grandes.
@@ -98,13 +98,13 @@ Na segunda-feira, você habilita o Backup Automatizado v2 com as seguintes confi
 - Hora de início do backup completo: **01:00**
 - Janela de tempo do backup completo: **1 hora**
 
-Isso significa que a próxima janela de backup disponível é terça-feira à 1h por 1 hora. Nesse momento, o Backup Automatizado começará a fazer backup de seus bancos de dados um de cada vez. Nesse cenário, os bancos de dados são grandes o suficiente de forma que os backups completos serão concluídos para os primeiros bancos de dados. No entanto, após uma hora nem todos os bancos de dados terão tido o backup realizado.
+Isso significa que a próxima janela de backup disponível é terça-feira à 1h por 1 hora. Nesse momento, o Backup Automatizado começa a fazer backup de seus bancos de dados um de cada vez. Nesse cenário, os bancos de dados são grandes o suficiente de forma que os backups completos são concluídos para os primeiros bancos de dados. No entanto, após uma hora nem todos os bancos de dados terão tido o backup realizado.
 
-Quando isso acontecer, o Backup Automatizado começará a fazer o backup dos bancos de dados restantes no dia seguinte, quarta-feira à 1h por 1 hora. Se nem todos os bancos de dados tiverem tido o backup realizado nesse momento, ele tentará novamente no dia seguinte no mesmo horário. Isso continuará até que todos os bancos de dados tenham tido o backup realizado com êxito.
+Quando isso acontecer, o Backup Automatizado começará a fazer o backup dos bancos de dados restantes no dia seguinte, quarta-feira à 1h por uma hora. Se nem todos os bancos de dados tiverem tido o backup realizado nesse momento, ele tentará novamente no dia seguinte no mesmo horário. Isso continuará até que todos os bancos de dados tenham tido o backup realizado com êxito.
 
-Quando chegar terça-feira novamente, o Backup Automatizado começará a fazer o backup de todos os bancos de dados novamente.
+Quando chegar terça-feira novamente, o Backup Automatizado começará a fazer o backup de todos os bancos de dados mais uma vez.
 
-Este cenário mostra que o Backup Automatizado operará apenas dentro da janela de tempo especificada e cada banco de dados terá o backup feito uma vez por semana. Isso também mostra que é possível que os backups abranjam vários dias no caso de não ser possível concluir todos os backups em um único dia.
+Este cenário mostra que o Backup Automatizado opera apenas dentro da janela de tempo especificada e cada banco de dados tem o backup feito uma vez por semana. Isso também mostra que é possível que os backups abranjam vários dias no caso de não ser possível concluir todos os backups em um único dia.
 
 ### <a name="scenario-2-daily-backups"></a>Cenário 2: backups diários
 Você tem uma VM do SQL Server que contém um número de bancos de dados muito grandes.
@@ -116,9 +116,9 @@ Na segunda-feira, você habilita o Backup Automatizado v2 com as seguintes confi
 - Hora de início do backup completo: 22:00
 - Janela de tempo do backup completo: 6 horas
 
-Isso significa que a próxima janela de backup disponível é segunda-feira às 22h por 6 horas. Nesse momento, o Backup Automatizado começará a fazer backup de seus bancos de dados um de cada vez.
+Isso significa que a próxima janela de backup disponível é segunda-feira às 22h por 6 horas. Nesse momento, o Backup Automatizado começa a fazer backup de seus bancos de dados um de cada vez.
 
-Em seguida, na terça-feira às 22h por 6 horas, os backups completos de todos os bancos de dados serão iniciados novamente.
+Em seguida, na terça-feira às 22h, por seis horas, os backups completos de todos os bancos de dados são iniciados novamente.
 
 > [!IMPORTANT]
 > Ao agendar backups diários, é recomendável que você agende uma janela de tempo ampla para garantir que todos os bancos de dados possam ter o backup realizado dentro desse período. Isso é especialmente importante no caso em que você tem uma grande quantidade de dados para backup.

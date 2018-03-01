@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Gerenciar o custo da retenção de dados no seu espaço de trabalho do Log Analytics
 Quando você se inscreve no Log Analytics, dependendo do plano selecionado, há um limite de quanto tempo os dados gerados pelas suas fontes conectadas são armazenados no espaço de trabalho.  Este artigo destaca as considerações que podem influenciar os custos de reter esses dados por diferentes períodos e como configurar esse limite.   
@@ -44,7 +44,7 @@ Ao usar o plano *Gratuito*, se você excede consistentemente os valores permitid
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados 
 
 1. Faça logon no [Portal do Azure](http://portal.azure.com). 
-2. Clique em **Mais serviços** localizado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+2. Clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 3. No painel de assinaturas do Log Analytics, selecione o espaço de trabalho a ser modificado na lista.
 4. Na página Espaço de trabalho, clique em **Retenção** no painel esquerdo.
 5. No painel de retenção do espaço de trabalho, mova o controle deslizante para aumentar ou diminuir o número de dias de retenção e clique em **Salvar**.  Se você usar a camada *Gratuita*, não será possível modificar o período de retenção de dados, sendo necessário atualizar para a camada paga para controlar essa configuração.<br><br> ![Alterar a configuração de retenção de dados do espaço de trabalho](media/log-analytics-manage-cost/manage-cost-change-retention.png)

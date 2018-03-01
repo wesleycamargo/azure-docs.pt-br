@@ -4,7 +4,7 @@ description: "Este artigo usa recursos criados com o modelo clássico de implant
 services: virtual-machines-windows
 documentationcenter: 
 author: danielsollondon
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d3fdd8865a293c5e2f0df6a97910ac8e2a07d4c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais
 ## <a name="overview"></a>Visão geral
@@ -46,7 +46,7 @@ Para obter informações gerais sobre o SQL Server nas Máquinas Virtuais do Azu
 Existem vários pré-requisitos para o uso do Armazenamento Premium.
 
 ### <a name="machine-size"></a>Tamanho do computador
-Para usar o Armazenamento Premium, você precisará usar máquinas virtuais (VM) da série DS. Se você não usou máquinas da série DS no seu serviço de nuvem antes, exclua a VM existente, mantenha os discos anexados e, em seguida, crie um novo serviço de nuvem antes de recriar a VM conforme o tamanho da função DS *. Para saber mais sobre os tamanhos das Máquinas Virtuais, consulte [Tamanhos da Máquina Virtual e do Serviço de Nuvem do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para usar o Armazenamento Premium, você precisará usar VMs (máquinas virtuais) da série DS. Se você não usou máquinas da série DS no seu serviço de nuvem antes, exclua a VM existente, mantenha os discos anexados e, em seguida, crie um novo serviço de nuvem antes de recriar a VM conforme o tamanho da função DS *. Para saber mais sobre os tamanhos das Máquinas Virtuais, consulte [Tamanhos da Máquina Virtual e do Serviço de Nuvem do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="cloud-services"></a>Serviços de Nuvem
 Você só poderá usar VMs DS* com Armazenamento Premium quando elas forem criadas em um novo serviço de nuvem. Se você estiver usando o SQL Server AlwaysOn no Azure, o Ouvinte AlwaysOn fará referência ao endereço IP do Balanceador de Externo ou Interno de Carga do Azure que estiver associado a um serviço de nuvem. O foco deste artigo é explicar como migrar ao mesmo tempo em que a disponibilidade é mantida nesse cenário.
@@ -61,7 +61,7 @@ Para VMs DS*, você deve configurar a VNET (Rede Virtual) que hospeda suas VMs c
 
 ![RegionalVNET][1]
 
-Você pode gerar um tíquete de suporte da Microsoft para migrar para uma VNET regional, a Microsoft fará uma alteração e, em seguida, para concluir a migração para VNETs regionais, altere a propriedade AffinityGroup na configuração de rede. Primeiro, exporte a Configuração da Rede no PowerShell, em seguida, substitua a propriedade **AffinityGroup** no elemento **VirtualNetworkSite** por uma propriedade **Location**. Especifique `Location = XXXX` onde `XXXX` é uma região do Azure. Em seguida, importe a nova configuração.
+Você pode gerar um tíquete de suporte da Microsoft para migrar para uma VNET regional. A Microsoft fará uma alteração. Para concluir a migração para VNETs regionais, altere a propriedade AffinityGroup na configuração de rede. Primeiro, exporte a Configuração da Rede no PowerShell, em seguida, substitua a propriedade **AffinityGroup** no elemento **VirtualNetworkSite** por uma propriedade **Location**. Especifique `Location = XXXX` onde `XXXX` é uma região do Azure. Em seguida, importe a nova configuração.
 
 Por exemplo, considerando a seguinte configuração de VNET:
 
@@ -86,7 +86,7 @@ Para movê-la para uma VNET regional na Europa Ocidental, altere a configuraçã
     </VirtualNetworkSite>
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
-Você precisará criar uma nova conta de armazenamento que seja configurada para Armazenamento Premium. Observe que o uso do Armazenamento Premium é definido na conta de armazenamento, não em VHDs individuais, no entanto, ao usar uma VM série DS*, você pode anexar VHDs de contas de Armazenamento Padrão e Premium. Você poderá considerar isso se não quiser colocar o VHD do sistema operacional na conta de Armazenamento Premium.
+Você precisa criar uma nova conta de armazenamento que seja configurada para Armazenamento Premium. Observe que o uso do Armazenamento Premium é definido na conta de armazenamento, não em VHDs individuais, no entanto, ao usar uma VM série DS*, você pode anexar VHDs de contas de Armazenamento Padrão e Premium. Você poderá considerar isso se não quiser colocar o VHD do sistema operacional na conta de Armazenamento Premium.
 
 O seguinte comando **New-AzureStorageAccountPowerShell** com o Tipo **"Premium_LRS"** cria uma Conta de Armazenamento Premium:
 
@@ -99,7 +99,7 @@ A principal diferença entre a criação de discos que fazem parte de uma conta 
 Depois que os VHDs forem anexados, a configuração de cache não poderá ser alterada. Você precisaria desanexar e anexar novamente o VHD com uma configuração de cache atualizada.
 
 ### <a name="windows-storage-spaces"></a>Espaços de armazenamento do Windows
-Você pode usar os [Espaços de Armazenamento do Windows](https://technet.microsoft.com/library/hh831739.aspx) como fez com o Armazenamento Padrão anterior; isso permitirá que você migre uma VM que já utiliza os Espaços de Armazenamento. O exemplo no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (etapa 9 em diante) demonstra o código do Powershell para extrair e importar uma VM com vários VHDs anexados.
+Você pode usar os [Espaços de Armazenamento do Windows](https://technet.microsoft.com/library/hh831739.aspx) como fez com o Armazenamento Standard anterior; isso permite que você migre uma VM que já utiliza os Espaços de Armazenamento. O exemplo no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (etapa 9 em diante) demonstra o código do Powershell para extrair e importar uma VM com vários VHDs anexados.
 
 Pools de Armazenamento foram usados com a conta de armazenamento do Azure Padrão para melhorar a taxa de transferência e reduzir a latência. Talvez você ache interessante testar Pools de Armazenamento com o Armazenamento Premium para novas implantações, mas isso agrega uma complexidade adicional com a configuração do armazenamento.
 
@@ -141,11 +141,11 @@ Agora você pode usar essas informações para associar VHDs anexados a discos f
 Após o mapeamento de VHDs para discos físicos nos pools de armazenamento, você poderá desanexá-los e copiá-los em uma conta de Armazenamento Premium e depois anexá-los com a configuração de cache correta. Veja o exemplo no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage), etapas 8 a 12. Essas etapas mostram como extrair uma configuração de disco VHD anexado à VM para um arquivo CSV, copiar os VHDs, alterar as configurações de cache de configuração do disco e finalmente reimplantar a VM como uma VM da série DS com todos os discos anexados.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Largura de banda de armazenamento de VM e taxa de transferência de armazenamento de VHD
-O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima que aceitarão (MB/s). Para obter os números específicos da largura de banda, consulte [Tamanhos da Máquina Virtual e do Serviço de Nuvem do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima a que eles dão suporte (MB/s). Para obter os números específicos da largura de banda, consulte [Tamanhos da Máquina Virtual e do Serviço de Nuvem do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e Tipos de Disco](../premium-storage.md#scalability-and-performance-targets).
 
-Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes que aceitarão para todos os discos anexados. Em cargas elevadas, você poderia saturar a largura de banda máxima de disco disponível para esse tamanho de função de VM. Por exemplo, um Standard_DS14 oferecerá suporte a até 512 MB/s; portanto, com três discos P30 você poderia saturar a largura de banda do disco da VM. Porém, neste exemplo, o limite de taxa de transferência poderia ser excedido dependendo da combinação de E/Ss de leitura e gravação.
+Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes com suporte para todos os discos anexados. Em cargas elevadas, você poderia saturar a largura de banda máxima de disco disponível para esse tamanho de função de VM. Por exemplo, um Standard_DS14 dá suporte a até 512 MB/s e, portanto, com três discos P30 você poderia saturar a largura de banda do disco da VM. Porém, neste exemplo, o limite de taxa de transferência poderia ser excedido dependendo da combinação de E/Ss de leitura e gravação.
 
 ## <a name="new-deployments"></a>Novas implantações
 As próximas duas seções demonstram como você pode implantar VMs do SQL Server no Armazenamento Premium. Como mencionado antes, você não precisa necessariamente colocar o disco do sistema operacional no Armazenamento Premium. Você pode optar por fazer isso caso tenha a intenção de colocar cargas de trabalho intensivas de E/S no VHD do sistema operacional.
@@ -197,7 +197,7 @@ O exemplo a seguir mostra como colocar o VHD do sistema operacional no armazenam
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
 #### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Etapa 5: colocar o VHD do sistema operacional no armazenamento Padrão ou Premium
-    #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
+    #NOTE: Set up subscription and default storage account which is used to place the OS VHD in
 
     #If you want to place the OS VHD Premium Storage Account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $newxiostorageaccountname  
@@ -232,7 +232,7 @@ O exemplo a seguir mostra como colocar o VHD do sistema operacional no armazenam
     $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
     #Add Data and Log Disks to VM Config
-    #Note the size specified ‘-DiskSizeInGB 1023’, this will attach 2 x P30 Premium Storage Disk Type
+    #Note the size specified ‘-DiskSizeInGB 1023’, this attaches 2 x P30 Premium Storage Disk Type
     #Utilising the Premium Storage enabled Storage account
 
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
@@ -251,7 +251,7 @@ O exemplo a seguir mostra como colocar o VHD do sistema operacional no armazenam
 
 
 ### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Criar uma nova VM para usar o Armazenamento Premium com uma imagem personalizada
-Este cenário demonstra onde você tem imagens personalizadas existentes que residem em uma conta de Armazenamento Padrão. Como mencionado, se quiser colocar o VHD do sistema operacional no Armazenamento Premium, você precisará copiar a imagem que existe na conta de Armazenamento Padrão e transferi-la para um Armazenamento Premium antes que possa ser usada. Se você tiver uma imagem local, também poderá usar esse método para copiá-la diretamente para a conta de Armazenamento Premium.
+Este cenário demonstra onde você tem imagens personalizadas existentes que residem em uma conta de Armazenamento Padrão. Como mencionado, se quiser colocar o VHD do sistema operacional no Armazenamento Premium, você precisará copiar a imagem que existe na conta de Armazenamento Standard e transferi-la para um Armazenamento Premium antes que possa ser usada. Se você tiver uma imagem local, também poderá usar esse método para copiá-la diretamente para a conta de Armazenamento Premium.
 
 #### <a name="step-1-create-storage-account"></a>Etapa 1: criar conta de armazenamento
     $mysubscription = "DansSubscription"
@@ -270,7 +270,7 @@ Este cenário demonstra onde você tem imagens personalizadas existentes que res
 
 
 #### <a name="step-3-use-existing-image"></a>Etapa 3: Usar a imagem existente
-Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem de uma máquina existente](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observe que o computador cuja imagem é criada não precisa ser um computador DS\*. Assim que tiver a imagem, as próximas etapas mostrarão como copiá-la para a conta de Armazenamento Premium com o commandlet **Start-AzureStorageBlobCopy** do PowerShell.
+Você pode usar uma imagem existente. Ou você também pode [capturar uma imagem de uma máquina existente](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observe que o computador cuja imagem é criada não precisa ser um computador DS*. Assim que tiver a imagem, as próximas etapas mostrarão como copiá-la para a conta de Armazenamento Premium com o commandlet **Start-AzureStorageBlobCopy** do PowerShell.
 
     #Get storage account keys:
     #Standard Storage account
@@ -316,7 +316,7 @@ Aqui, você está criando a VM com base na sua imagem e anexando dois VHDs de Ar
     $subnet = "Clients"
     $ipaddr = "192.168.0.41"
 
-    #This will need to be a new cloud service
+    #This needs to be a new cloud service
     $destcloudsvc = "danregsvcamsxio2"
 
     #Use to DS Series VM
@@ -342,25 +342,25 @@ Aqui, você está criando a VM com base na sua imagem e anexando dois VHDs de Ar
 
 ## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>Implantações existentes que não usam grupos de disponibilidade AlwaysOn
 > [!NOTE]
-> Para implantações existentes, primeiro consulte a seção [Pré-requisitos](#prerequisites-for-premium-storage) deste tópico.
+> Para implantações existentes, primeiro consulte a seção [Pré-requisitos](#prerequisites-for-premium-storage) deste artigo.
 >
 >
 
 Há considerações diferentes para implantações do SQL Server que não usam grupos de disponibilidade AlwaysOn e aquelas que usam. Se não estiver usando AlwaysOn e tiver um SQL Server autônomo existente, você poderá atualizar para o Armazenamento Premium usando um novo serviço de nuvem e conta de armazenamento. Considere as seguintes opções:
 
-* **Criar uma nova VM do SQL Server**. Você pode criar uma nova VM do SQL Server que usa uma conta de Armazenamento Premium, conforme documentado em Novas implantações. Em seguida, faça uma operação de backup e restauração de seus bancos de dados de configuração e usuário do SQL Server. Será necessário atualizar o aplicativo para referenciar o novo SQL Server se ele estiver sendo acessada interna ou externamente. Você precisa copiar todos os objetos 'fora do banco de dados' como se estivesse fazendo uma migração SxS (Lado a Lado) do SQL Server. Isso inclui objetos como logons, certificados e servidores vinculados.
-* **Migrar uma VM existente do SQL Server**. Isso exigirá colocar a VM do SQL Server offline, depois transferi-la para um novo serviço de nuvem, o que inclui copiar todos os seus VHDs anexados para a conta de Armazenamento Premium. Quando a VM for colocada online, o aplicativo fará referência ao nome de host do servidor como antes. Lembre-se de que o tamanho do disco existente afetará as características de desempenho. Por exemplo, um disco de 400 GB é arredondado para um P20. Se você souber que não vai precisar do desempenho desse disco, poderá recriar a VM coo uma VM da série DS, e anexar VHDs de Armazenamento Premium com a especificação de tamanho/desempenho que quiser. Em seguida, você poderá desanexar e anexar novamente os arquivos de banco de dados SQL.
+* **Criar uma nova VM do SQL Server**. Você pode criar uma nova VM do SQL Server que usa uma conta de Armazenamento Premium, conforme documentado em Novas implantações. Em seguida, faça uma operação de backup e restauração de seus bancos de dados de configuração e usuário do SQL Server. É necessário atualizar o aplicativo para referenciar o novo SQL Server se ele está sendo acessado interna ou externamente. Você precisa copiar todos os objetos 'fora do banco de dados' como se estivesse fazendo uma migração SxS (Lado a Lado) do SQL Server. Isso inclui objetos como logons, certificados e servidores vinculados.
+* **Migrar uma VM existente do SQL Server**. Isso exige colocar a VM do SQL Server offline, depois transferi-la para um novo serviço de nuvem, o que inclui copiar todos os seus VHDs anexados para a conta de Armazenamento Premium. Quando a VM é colocada online, o aplicativo faz referência ao nome de host do servidor como antes. Lembre-se de que o tamanho do disco existente afeta as características de desempenho. Por exemplo, um disco de 400 GB é arredondado para um P20. Se você souber que não vai precisar do desempenho desse disco, poderá recriar a VM coo uma VM da série DS, e anexar VHDs de Armazenamento Premium com a especificação de tamanho/desempenho que quiser. Em seguida, você poderá desanexar e anexar novamente os arquivos de banco de dados SQL.
 
 > [!NOTE]
-> Ao copiar os discos VHD, não se esqueça de considerar o tamanho, pois o tipo de Disco de Armazenamento Premium em que eles vão se enquadrar dependerá do tamanho e isso determina a especificação de desempenho de disco. O Azure arredondará para o tamanho de disco mais próximo, portanto, se você tiver um disco de 400 GB, ele será arredondado para um P20. Dependendo dos requisitos de E/S existentes do VHD do sistema operacional, talvez não seja necessário migrá-lo para uma conta de Armazenamento Premium.
+> Ao copiar os discos VHD, não se esqueça de considerar o tamanho, pois o tipo de Disco de Armazenamento Premium em que eles vão se enquadrar depende do tamanho e isso determina a especificação de desempenho de disco. O Azure arredonda para o tamanho de disco mais próximo e, portanto, se você tiver um disco de 400 GB, ele será arredondado para um P20. Dependendo dos requisitos de E/S existentes do VHD do sistema operacional, talvez não seja necessário migrá-lo para uma conta de Armazenamento Premium.
 >
 >
 
-Se o SQL Server for acessado externamente, o VIP de serviço de nuvem será alterado. Você também terá que atualizar pontos de extremidade, ACLs e configurações de DNS.
+Se o SQL Server for acessado externamente, o VIP de serviço de nuvem será alterado. Você também tem que atualizar pontos de extremidade, ACLs e configurações de DNS.
 
 ## <a name="existing-deployments-that-use-always-on-availability-groups"></a>Implantações existentes que usam grupos de disponibilidade AlwaysOn
 > [!NOTE]
-> Para implantações existentes, primeiro consulte a seção [Pré-requisitos](#prerequisites-for-premium-storage) deste tópico.
+> Para implantações existentes, primeiro consulte a seção [Pré-requisitos](#prerequisites-for-premium-storage) deste artigo.
 >
 >
 
@@ -425,7 +425,7 @@ Você deve provisionar o tempo em que é possível executar o failover manual e 
 ##### <a name="advantages"></a>Vantagens
 * Novos SQL Servers podem ser testados (SQL Server e aplicativo) antes de serem adicionados ao AlwaysOn.
 * Você pode alterar o tamanho da VM e personalizar o armazenamento de acordo com seus requisitos exatos. No entanto, seria vantajoso manter todos os caminhos de arquivo SQL iguais.
-* Você pode controlar quando a transferência dos backups de banco de dados para as réplicas secundárias será iniciado. Isso é diferente de usar o commandlet do Azure **Start-AzureStorageBlobCopy** para copiar VHDs, pois essa é uma cópia assíncrona.
+* Você pode controlar quando a transferência dos backups de banco de dados para as réplicas secundárias é iniciada. Isso é diferente de usar o commandlet do Azure **Start-AzureStorageBlobCopy** para copiar VHDs, pois essa é uma cópia assíncrona.
 
 ##### <a name="disadvantages"></a>Desvantagens
 * Durante o uso de Pools de Armazenamento do Windows, há um tempo de inatividade de cluster na Validação de Cluster Completa para os novos nós adicionais.
@@ -480,8 +480,8 @@ Uma estratégia para tempo de inatividade mínimo é usar uma réplica secundár
 
 ##### <a name="disadvantages"></a>Desvantagens
 * Há uma perda temporária de alta disponibilidade e recuperação de desastre durante a migração.
-* Como essa é uma migração 1:1, você terá que usar um tamanho mínimo de VM que dará suporte a seu número de VHDs, portanto, você não poderá diminuir suas VMs.
-* Este cenário usa o commandlet Azure **Start-AzureStorageBlobCopy** , que é assíncrono. Não há nenhum SLA na conclusão da cópia. O tempo das cópias varia, embora isso dependa da espera na fila, também dependerá da quantidade de dados a ser transferida. O tempo de cópia aumentará se a transferência for para outro data center do Azure que com suporte ao Armazenamento Premium em outra região. Se você tiver apenas dois nós, considere uma possível redução, caso a cópia demore mais do que no teste. Isso pode incluir as ideias a seguir.
+* Como essa é uma migração 1:1, você tem que usar um tamanho mínimo de VM que dá suporte a seu número de VHDs e, portanto, não poderá diminuir suas VMs.
+* Este cenário usa o commandlet Azure **Start-AzureStorageBlobCopy** , que é assíncrono. Não há nenhum SLA na conclusão da cópia. O tempo das cópias varia, pois embora isso dependa da espera na fila, também depende da quantidade de dados a ser transferida. O tempo de cópia aumentará se a transferência for para outro data center do Azure que com suporte ao Armazenamento Premium em outra região. Se você tiver apenas dois nós, considere uma possível redução, caso a cópia demore mais do que no teste. Isso pode incluir as ideias a seguir.
   * Adicione um terceiro nó temporário do SQL Server para alta disponibilidade antes da migração com tempo de inatividade estabelecido.
   * Execute a migração fora da manutenção programada do Azure.
   * Verifique se você configurou corretamente o quorum do cluster.  
@@ -523,8 +523,8 @@ Considere o seguinte exemplo de uma configuração AlwaysOn híbrida:
 
 ##### <a name="disadvantages"></a>Desvantagens
 * Dependendo do acesso de cliente para o SQL Server, poderá haver latência aumentada quando o SQL Server estiver em execução em um controlador de domínio alternativo para o aplicativo.
-* O tempo de cópia de VHDs de armazenamento Premium pode ser longo. Isso poderá afetar sua decisão de manter o nó no grupo de disponibilidade. Considere isso para ocasiões em que a execução de cargas de trabalho com uso intensivo de log durante a migração for necessária, pois o nó primário terá que manter as transações não replicadas em seu log de transações. Portanto, isso pode crescer significativamente.
-* Este cenário usa o commandlet Azure **Start-AzureStorageBlobCopy** , que é assíncrono. Não há nenhum SLA a concluir. O tempo das cópias varia, embora isso dependa da espera na fila, também dependerá da quantidade de dados a ser transferida. Portanto, você tem apenas um nó no segundo data center. Adote medidas de redução, caso a cópia demore mais do que no teste. Isso pode incluir as ideias a seguir.
+* O tempo de cópia de VHDs de armazenamento Premium pode ser longo. Isso poderá afetar sua decisão de manter o nó no grupo de disponibilidade. Considere isso para ocasiões em que a execução de cargas de trabalho com uso intensivo de log durante a migração for necessária, pois o nó primário tem que manter as transações não replicadas em seu log de transações. Portanto, isso pode crescer significativamente.
+* Este cenário usa o commandlet Azure **Start-AzureStorageBlobCopy** , que é assíncrono. Não há nenhum SLA a concluir. O tempo das cópias varia, pois embora isso dependa da espera na fila, também depende da quantidade de dados a ser transferida. Portanto, você tem apenas um nó no segundo data center. Adote medidas de redução, caso a cópia demore mais do que no teste. Essas etapas de mitigação incluem as seguintes ideias:
   * Adicione um segundo nó temporário do SQL para alta disponibilidade antes da migração com tempo de inatividade estabelecido.
   * Execute a migração fora da manutenção programada do Azure.
   * Verifique se você configurou corretamente o quorum do cluster.
@@ -546,7 +546,7 @@ Esse cenário pressupõe que você documentou sua instalação e sabe como o arm
 * Alternar o AFP de volta para SQL1 e SQL2
 
 ## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Apêndice: Migrando um cluster AlwaysOn de vários sites para o Armazenamento Premium
-O restante deste tópico fornece um exemplo detalhado de conversão de um cluster AlwaysOn de vários sites para o Armazenamento Premium. Ele também converte o Ouvinte de usar um ELB (balanceador de carga externo) em um ILB (balanceador de carga interno).
+O restante deste artigo fornece um exemplo detalhado de conversão de um cluster AlwaysOn de vários sites para o Armazenamento Premium. Ele também converte o Ouvinte de usar um ELB (balanceador de carga externo) em um ILB (balanceador de carga interno).
 
 ### <a name="environment"></a>Ambiente
 * Windows 2k12 / SQL 2k12
@@ -556,7 +556,7 @@ O restante deste tópico fornece um exemplo detalhado de conversão de um cluste
 ![Appendix1][11]
 
 ### <a name="vm"></a>VM:
-Neste exemplo, vamos demonstrar a movimentação de um ELB para ILB. O ELB estava disponível antes do ILB, então esse procedimento mostra como alternar para isso durante a migração.
+Neste exemplo, vamos demonstrar a movimentação de um ELB para um ILB. O ELB estava disponível antes do ILB e, portanto, esse procedimento mostra como alternar para o ILB durante a migração.
 
 ![Appendix2][12]
 
@@ -601,7 +601,7 @@ Neste exemplo, vamos demonstrar a movimentação de um ELB para ILB. O ELB estav
     New-AzureService $destcloudsvc -Location $location
 
 #### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Etapa 2: Aumentar as falhas permitidas nos recursos <Optional>
-Em determinados recursos que pertencem ao seu grupo de disponibilidade AlwaysOn há limites no número de falhas que podem ocorrer em um período, em que o serviço de cluster tentará reiniciar o grupo de recursos. É recomendável aumentar isso, durante a execução deste procedimento, pois se não você não executar manualmente o failover e disparar failovers desligando máquinas, poderá chegar perto desse limite.
+Em determinados recursos que pertencem ao seu grupo de disponibilidade AlwaysOn há limites no número de falhas que podem ocorrer em um período, no qual o serviço de cluster tenta reiniciar o grupo de recursos. É recomendável aumentar isso, durante a execução deste procedimento, pois se não você não executar manualmente o failover e disparar failovers desligando máquinas, poderá chegar perto desse limite.
 
 Aconselhamos a dobrar a concessão de falha. Para fazer isso no Gerenciador de Cluster de Failover, acesse as Propriedades do grupo de recursos AlwaysOn:
 
@@ -610,16 +610,16 @@ Aconselhamos a dobrar a concessão de falha. Para fazer isso no Gerenciador de C
 Altere o Máximo de Falhas para 6.
 
 #### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Etapa 3: Adição do recurso de endereço IP ao grupo de clusters <Optional>
-Se você tiver apenas um endereço IP para o grupo de clusters e ele estiver alinhado à sub-rede de nuvem, tome cuidado: se você acidentalmente colocar offline todos os nós de cluster na nuvem nessa rede, o recurso de IP de cluster e o nome de rede do cluster não poderão ficar online. Caso isso ocorra, as atualizações serão impedidas para outros recursos de cluster.
+Se você tiver apenas um endereço IP para o grupo de clusters e ele estiver alinhado à sub-rede de nuvem, tome cuidado: se você acidentalmente colocar offline todos os nós de cluster na nuvem nessa rede, o recurso de IP de cluster e o nome de rede do cluster não poderão ficar online. Nessa situação, ela impede que as atualizações para outros recursos de cluster.
 
 #### <a name="step-4-dns-configuration"></a>Etapa 4: Configuração de DNS
 A implementação de uma transição suave depende de como o DNS está sendo utilizado e atualizado.
-Quando o AlwaysOn está instalado, ele cria um grupo de recursos de cluster do Windows. Se você abrir o Gerenciador de Cluster de Failover, verá que, no mínimo, ele terá três recursos, os dois aos que o documento se refere são:
+Quando o AlwaysOn está instalado, ele cria um grupo de recursos de cluster do Windows. Se você abrir o Gerenciador de Cluster de Failover, verá que, no mínimo, ele tem três recursos; os dois aos que o documento se refere são:
 
-* VNN (Nome da Rede Virtual): este é o nome DNS ao qual o cliente se conecta quando quer se conectar aos SQL Servers via AlwaysOn.
-* Recurso de endereço IP – Este é o endereço IP associado à VNN. Você pode ter mais de um e, em uma configuração de vários sites, terá um endereço IP por site/sub-rede.
+* VNN (Nome da Rede Virtual): o nome DNS ao qual o cliente se conecta quando quer se conectar aos SQL Servers via AlwaysOn.
+* Recurso de endereço IP – o endereço IP associado à VNN. Você pode ter mais de um e, em uma configuração de vários sites, tem um endereço IP por site/sub-rede.
 
-Quando se conectar ao SQL Server, o driver do Cliente do SQL Server recuperará os registros DNS associados ao ouvinte e tentará se conectar a cada endereço IP AlwaysOn associado. Abaixo, discutiremos alguns fatores que podem influenciar isso.
+Ao se conectar ao SQL Server, o driver SQL Server Client recupera os registros DNS associados ao ouvinte e tenta se conectar a cada endereço IP associado ao Always On. Em seguida, discutiremos alguns fatores que podem influenciar a isso.
 
 O número de registros DNS simultâneos associados ao nome do ouvinte depende não só do número de endereços IP associados, mas da configuração ‘RegisterAllIpProviders' no Clustering de Failover para o recurso de VNN AlwaysON.
 
@@ -633,7 +633,7 @@ Se 'RegisterAllIpProviders' for 1:
 
 ![Appendix5][15]
 
-O código a seguir despejará as configurações de VNN e as definirá para você. Observe que, para que a alteração tenha efeito, será necessário colocar a VNN offline e novamente online, colocando offline o ouvinte que esteja causando interrupções de conectividade de cliente.
+O código a seguir descarta as configurações de VNN e as configura para você. Para que a alteração entre em vigor, você precisa colocar o VNN offline e online novamente. Isso coloca o Ouvinte offline, causando interrupção de conectividade do cliente.
 
     ##Always On Listener Name
     $ListenerName = "Mylistener"
@@ -642,9 +642,9 @@ O código a seguir despejará as configurações de VNN e as definirá para voc�
     ##Set RegisterAllProvidersIP
     Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
-Em uma etapa de migração posterior, você precisará atualizar o ouvinte AlwaysOn com um endereço IP atualizado que fará referência a um balanceador de carga. Isso envolverá uma remoção e uma adição do recurso de endereço IP. Após a atualização IP, você precisa garantir que o novo endereço IP tenha sido atualizado na zona DNS e que os clientes estejam atualizando seu cache DNS local.
+Em uma etapa de migração posterior, você precisa atualizar o ouvinte Always On com um endereço IP atualizado que faz referência a um balanceador de carga. Isso envolve uma remoção e uma adição do recurso de endereço IP. Após a atualização IP, você precisa garantir que o novo endereço IP tenha sido atualizado na zona DNS e que os clientes estejam atualizando seu cache DNS local.
 
-Se os clientes residirem em um segmento de rede diferente e referenciarem um servidor DNS diferente, você terá que considerar o que acontece com a transferência de zona DNS durante a migração, pois o tempo de reconexão de aplicativo será restrito por pelo menos o tempo de transferência de zona de quaisquer novos endereços IP para o ouvinte. Se tiver pouco tempo aqui, você deverá discutir e testar forçar uma transferência de zona incremental com as equipes do Windows e definir o registro de host DNS para uma TTL (tempo de vida) menor, para atualização dos clientes. Para obter mais informações, consulte [Transferências de Zona Incrementais](https://technet.microsoft.com/library/cc958973.aspx) e [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Se os clientes residirem em um segmento de rede diferente e referenciarem um servidor DNS diferente, você terá que considerar o que acontece com a transferência de zona DNS durante a migração, pois o tempo de reconexão de aplicativo fica restrito por pelo menos o tempo de transferência de zona de novos endereços IP para o ouvinte. Se tiver pouco tempo aqui, você deverá discutir e testar forçar uma transferência de zona incremental com as equipes do Windows e definir o registro de host DNS para uma TTL (tempo de vida) menor, para atualização dos clientes. Para obter mais informações, consulte [Transferências de Zona Incrementais](https://technet.microsoft.com/library/cc958973.aspx) e [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
 Por padrão, a TTL do registro DNS que está associada ao ouvinte no AlwaysOn no Azure é de 1200 segundos. Talvez você queira reduzi-lo se houver restrições de tempo durante sua migração para assegurar que os clientes atualizem seu DNS com o endereço IP atualizado do ouvinte. Você pode ver e modificar a configuração despejando a configuração de VNN:
 
@@ -656,19 +656,20 @@ Por padrão, a TTL do registro DNS que está associada ao ouvinte no AlwaysOn no
     #Set HostRecordTTL Examples
     Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 120
 
-Observe que, quanto menor for 'HostRecordTTL', ocorrerá uma maior quantidade de tráfego DNS.
+> [!NOTE]
+> Observe que, quanto menor for 'HostRecordTTL', maior será a quantidade de tráfego DNS.
 
 ##### <a name="client-application-settings"></a>Configurações de aplicativo cliente
-Se seu aplicativo cliente do SQL der suporte ao .Net 4.5 SQLClient, você poderá usar a palavra-chave ‘MULTISUBNETFAILOVER=TRUE’. A aplicação dessa opção é recomendável, pois ela permite a conexão mais rápida com o grupo de disponibilidade AlwaysOn do SQL durante o failover. Isso enumera todos os endereços IP associados ao ouvinte AlwaysOn em paralelo e executa uma velocidade de repetição de conexão TCP mais agressiva durante um failover.
+Se seu aplicativo de cliente SQL dá suporte ao .Net 4.5 SQLClient, você pode usar a palavra-chave ' MULTISUBNETFAILOVER = TRUE'. Essa palavra-chave deve ser aplicada porque permite uma conexão mais rápida para o grupo de disponibilidade SQL Always On durante o failover. Isso enumera todos os endereços IP associados ao ouvinte AlwaysOn em paralelo e executa uma velocidade de repetição de conexão TCP mais agressiva durante um failover.
 
-Para saber mais sobre as configurações acima, confira [Palavra-chave MultiSubnetFailover e recursos associados](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte também [Suporte do SqlClient para a Alta Disponibilidade e a Recuperação de Desastre](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
+Para saber mais sobre as configurações anteriores, confira [Palavra-chave MultiSubnetFailover e recursos associados](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte também [Suporte do SqlClient para a Alta Disponibilidade e a Recuperação de Desastre](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
 #### <a name="step-5-cluster-quorum-settings"></a>Etapa 5: Configurações de quórum do cluster
-Como vai retirar pelo menos um SQL Server de cada vez, você deverá modificar a configuração de quorum do cluster. Se estiver usando FSW (File Share Witness) com 2 nós, você deverá definir o quorum para permitir a maioria dos nós e utilizar votação dinâmica e isso tem o objetivo de permitir que um único nó fique de pé.
+Como vai retirar pelo menos um SQL Server de cada vez, você deverá modificar a configuração de quórum de cluster. Se estiver usando FSW (File Share Witness) com dois nós, você deverá definir o quorum para permitir a maioria dos nós e utilizar votação dinâmica, permitindo que um único nó fique de pé.
 
     Set-ClusterQuorum -NodeMajority  
 
-Para saber mais sobre como gerenciar e configurar o quorum de cluster, confira [Configurar e gerenciar o quorum em um cluster de failover do Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
+Para saber mais sobre como gerenciar e configurar o quórum do cluster, confira [Configurar e gerenciar o quorum em um cluster de failover do Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
 
 #### <a name="step-6-extract-existing-endpoints-and-acls"></a>Etapa 6: extrair ACLs e pontos de extremidade existentes
     #GET Endpoint info
@@ -676,7 +677,7 @@ Para saber mais sobre como gerenciar e configurar o quorum de cluster, confira [
     #GET ACL Rules for Each EP, this example is for the Always On Endpoint
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 
-Salve-os em um arquivo de texto.
+Salve esse texto em um arquivo.
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>Etapa 7: alterar parceiros de failover e modos de replicação
 Se tiver mais de dois SQL Servers, você deverá alterar o failover de outra secundário em outro DC ou local para 'Síncrono' e torná-lo um AFP (Parceiro de Failover Automático), de modo a manter a alta disponibilidade durante as alterações. Você pode fazer isso por meio do TSQL ou modificar por SSMS:
@@ -684,7 +685,7 @@ Se tiver mais de dois SQL Servers, você deverá alterar o failover de outra sec
 ![Appendix6][16]
 
 #### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Etapa 8: Remover a VM secundária do serviço de nuvem
-Você deve estar planejando a migração de um nó secundário de nuvem primeiro. Se esse for o primário no momento, você deve iniciar um failover manual.
+Você deve planejar a migração de um nó secundário da nuvem primeiro. Se o nó for atualmente primário, inicie um failover manual.
 
     $vmNameToMigrate="dansqlams2"
 
@@ -891,7 +892,7 @@ Agora, remova o endereço IP do serviço de nuvem antigo.
 Agora você deve verificar os servidores DNS em suas redes cliente do SQL Server e assegurar que o clustering adicionou o registro do host extra ao endereço IP adicionado. Se os servidores DNS não foram atualizados, considere forçar uma transferência de zona DNS e garanta que os clientes nessa sub-rede podem ser resolvidos para os dois endereços IP AlwaysOn. Isso ocorre para que você não precise aguardar a replicação automática de DNS.
 
 #### <a name="step-16-reconfigure-always-on"></a>Etapa 16: Reconfigurar o AlwaysOn
-Neste ponto, você aguarda o secundário para o qual o nó foi migrado ressincronizar-se totalmente com o nó local e mudar para o nó de replicação síncrona e torná-lo o AFP.  
+Aqui, você aguarda o secundário para o qual o nó foi migrado ressincronizar-se totalmente com o nó local e mudar para o nó de replicação síncrona e torná-lo o AFP.  
 
 #### <a name="step-17-migrate-second-node"></a>Etapa 17: Migrar o segundo nó
     $vmNameToMigrate="dansqlams1"
@@ -943,9 +944,9 @@ Neste ponto, você aguarda o secundário para o qual o nó foi migrado ressincro
     Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Etapa 18: Alterar as configurações de caching de disco no arquivo CSV e salvar
-Para volumes de dados, isso deve ser definido como READONLY.
+Para volumes de dados, as configurações de cache devem ser definidas como READONLY.
 
-Para volumes TLOG, isso deve ser definido como NONE.
+Para volumes TLOG, as configurações de cache devem ser definidas como NONE.
 
 ![Appendix11][21]
 
@@ -1073,22 +1074,22 @@ Para obter informações para blobs individuais:
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### <a name="step-23-test-failover"></a>Etapa 23: Failover de teste
-Agora, você deve deixar o nó migrado sincronizar-se ao nó migrado com o nó AlwaysOn local, colocá-lo no modo de replicação síncrona e aguardar sua sincronização. Em seguida, execute o failover do local para o primeiro nó migrado, que é o AFP. Depois que isso funcionar, altere o último nó migrado para o AFP.
+Aguarde até o nó migrado sincronizar com o nó Always On local. Coloque-o no modo de replicação síncrona e aguarde até que ele seja sincronizado. Em seguida, execute o failover do local para o primeiro nó migrado, que é o AFP. Depois que isso funcionar, altere o último nó migrado para o AFP.
 
 Você deve testar failovers entre todos os nós e executar testes de caos para garantir que os failovers funcionem como esperado e de modo oportuno.
 
 #### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Etapa 24: colocar de volta configurações de quorum de cluster / TTL DNS / Failover de impressoras / Configurações de sincronização
 ##### <a name="adding-ip-address-resource-on-same-subnet"></a>Adicionando recurso de endereço IP na mesma sub-rede
-Se você tiver apenas dois SQL Servers e quiser migrá-los para um novo serviço de nuvem, mas quiser mantê-los na mesma sub-rede, poderá evitar colocar o ouvinte offline para excluir o endereço IP AlwaysOn original e adicionar o novo endereço IP. Se você estiver migrando as VMs para outra sub-rede, não será necessário fazer isso, pois haverá uma rede de cluster adicional que fará referência a essa sub-rede.
+Se você tiver apenas dois SQL Servers e quiser migrá-los para um novo serviço de nuvem, mas quiser mantê-los na mesma sub-rede, poderá evitar colocar o ouvinte offline para excluir o endereço IP AlwaysOn original e adicionar o novo endereço IP. Se você está migrando as VMs para outra sub-rede, não é necessário fazer isso, pois há uma rede de cluster adicional que faz referência a essa sub-rede.
 
 Depois que você ativar a réplica secundária migrada e adicionar o novo recurso de endereço IP ao novo serviço de nuvem antes de executar o failover da réplica primária existente, deverá executar essas etapas no Gerenciador de Cluster de Failover:
 
 Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), etapa 14.
 
-1. Para obter o recurso de endereço IP atual, altere o possível proprietário para ‘SQL Server Primário Existente’, no exemplo abaixo, ‘dansqlams4’:
+1. Para obter o recurso de endereço IP atual, altere o possível proprietário para ‘SQL Server Primário Existente’, no exemplo, ‘dansqlams4’:
 
     ![Appendix13][23]
-2. Para obter o novo recurso de endereço IP, altere o possível proprietário para ‘SQL Server secundário migrado’, no exemplo abaixo, ‘dansqlams5’:
+2. Para obter o novo recurso de endereço IP, altere o possível proprietário para ‘SQL Server secundário migrado’, no exemplo, ‘dansqlams5’:
 
     ![Appendix14][24]
 3. Depois que isso for definido, você poderá executar o failover e, quando o último nó for migrado, os Possíveis Proprietários deverão ser editados para que esse nó seja adicionado como um Proprietário Possível:

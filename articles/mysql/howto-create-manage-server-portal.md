@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 6e9c541aac1241b6af0e4a58f5591d46f9a98c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b73fe2214a165d7c02c0a58551d8b84bee39f919
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Criar e gerenciar um servidor de Banco de Dados do Azure para MySQL usando o Portal do Azure
 Este tópico descreve como criar rapidamente um novo servidor de Banco de Dados do Azure para MySQL. Também inclui informações sobre como gerenciar o servidor usando o Portal do Azure. O gerenciamento de servidor inclui a exibição de detalhes do servidor e bancos de dados, redefinição de senha e exclusão do servidor.
@@ -21,10 +21,10 @@ Este tópico descreve como criar rapidamente um novo servidor de Banco de Dados 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 Faça logon no [Portal do Azure](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Criar um servidor de Banco de Dados do Azure para MySQL
+## <a name="create-an-azure-database-for-mysql-server"></a>Criar um Banco de Dados do Azure para o servidor MySQL
 Execute estas etapas para criar um servidor de Banco de Dados do Azure para MySQL chamado "mysqlserver4demo".
 
-1. Clique no botão **Novo** localizado na parte superior esquerda do Portal do Azure.
+1. Clique no botão **Criar um recurso**, localizado no canto superior esquerdo do portal do Azure.
 
 2. Na página Novo, selecione **Banco de Dados** e, em seguida, na página Banco de Dados, selecione **Banco de Dados do Azure para MySQL**.
 

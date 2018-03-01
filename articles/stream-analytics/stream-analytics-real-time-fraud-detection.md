@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introdução ao uso de Stream Analytics do Azure: detecção de fraudes em tempo real
 
@@ -61,7 +61,7 @@ Para analisar um fluxo de dados, faça a *ingestão* no Azure. Uma forma comum d
 ### <a name="create-a-namespace-and-event-hub"></a>Criar um hub de evento e de namespace
 Neste procedimento, você primeiro cria um namespace de hub de eventos e, em seguida, adiciona um hub de eventos para esse namespace. Namespaces do hub de evento são usados para agrupar logicamente instâncias de barramento de evento relacionadas. 
 
-1. Registre-se no Portal do Azure e clique em **Novo** > **Internet das Coisas** > **Hub de Evento**. 
+1. Entre no Portal do Azure e clique em **Criar um recurso** > **Internet das Coisas** > **Hub de Eventos**. 
 
 2. No painel **Criar um namespace**, insira um nome de namespace como `<yourname>-eh-ns-demo`. Você pode usar qualquer nome para o namespace, mas o nome deve ser válido para uma URL e deve ser exclusivo no Azure. 
     
@@ -165,7 +165,7 @@ Agora que você tem um fluxo de eventos de chamada, você pode configurar um tra
 
 ### <a name="create-the-job"></a>Criar o trabalho 
 
-1. No portal do Azure, clique em **Novo** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
+1. No portal do Azure, clique em **Criar um recurso** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
 
 2. Selecione o trabalho `sa_frauddetection_job_demo`, especifique uma assinatura, um grupo de recursos e um local.
 

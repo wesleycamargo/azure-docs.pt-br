@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Criar uma rede virtual usando um modelo do Azure Resource Manager
 
@@ -39,9 +39,9 @@ Este artigo explica como criar uma rede virtual por meio do modelo de implantaç
 - [PowerShell (Clássico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [CLI (Clássica)](virtual-networks-create-vnet-classic-cli.md)
 
-Você aprenderá a baixar e a modificar um modelo ARM existente do GitHub e implantar o modelo do GitHub, PowerShell e da CLI do Azure.
+Saiba como fazer o download e modificar um modelo existente do Azure Resource Manager do GitHub, e implantar o modelo do GitHub, do PowerShell e da CLI do Azure.
 
-Se você estiver simplesmente implantando o modelo ARM diretamente do GitHub, sem nenhuma alteração, vá para [implantar um modelo do github](#deploy-the-arm-template-by-using-click-to-deploy).
+Se você estiver somente implantando o modelo do Azure Resource Manager diretamente do GitHub, sem nenhuma alteração, vá para [implantar um modelo do github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ No GitHub, você pode baixar o modelo existente para criar uma rede virtual e du
 2. Clique em **azuredeploy.json** e em **RAW**.
 3. Salve o arquivo em uma pasta local do computador.
 4. Se você estiver familiarizado com modelos, pule para a etapa 7.
-5. Abra o arquivo que você acabou de salvar e examine o conteúdo em **parameters** na linha 5. Os parâmetros do modelo ARM fornecem um espaço reservado para valores que podem ser preenchidos durante a implantação.
+5. Abra o arquivo que você salvou e examine o conteúdo em **parâmetros** na linha 5. Os parâmetros do modelo do Gerenciador de Recursos do Azure fornecem um espaço reservado para valores que podem ser preenchidos durante a implantação.
    
-   | Parâmetro | Descrição |
+   | Parâmetro | DESCRIÇÃO |
    | --- | --- |
-   | **local** |Região do Azure em que a rede virtual será criada |
+   | **local** |Região do Azure em que a rede virtual é criada |
    | **vnetName** |Nome para a nova rede virtual |
    | **addressPrefix** |Espaço de endereço para a rede virtual, no formato CIDR |
    | **subnet1Name** |Nome da primeira rede virtual |
@@ -118,7 +118,7 @@ Conclua as etapas abaixo para implantar o modelo baixado usando o PowerShell:
     New-AzureRmResourceGroup -Name TestRG -Location centralus
     ```
 
-    O comando cria um grupo de recursos chamado *TestRG* na região *EUA Central* do Azure. Para saber mais sobre grupos de recursos, acesse [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+    O comando cria um grupo de recursos chamado *TestRG* na região *EUA Central* do Azure. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
     Saída esperada:
 
@@ -231,7 +231,7 @@ Você pode reutilizar o carregamento de modelos do Azure Resource Manager predef
    
     ![Enviando bloco de implantação no portal de visualização](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Depois que a implantação for concluída, no portal do Azure, clique em **Mais serviços**, digite *redes virtuais* na caixa de filtro exibida e clique em Redes virtuais para ver a folha Redes virtuais. Na folha, clique em *TestVNet*. Na folha *TestVNet*, clique em **Sub-redes** para ver as sub-redes criadas, conforme mostrado na figura abaixo:
+10. Depois que a implantação for concluída, no portal do Azure clique em **Todos os serviços**, digite *redes virtuais* na caixa de filtro exibida e clique em Redes virtuais para ver a folha Redes virtuais. Na folha, clique em *TestVNet*. Na folha *TestVNet*, clique em **Sub-redes** para ver as sub-redes criadas, conforme mostrado na figura abaixo:
     
      ![Criar rede virtual no portal de visualização](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 

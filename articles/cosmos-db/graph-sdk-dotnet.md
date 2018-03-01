@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>API .NET Graph do Azure Cosmos DB: download e notas de versão
 
@@ -31,6 +31,8 @@ ms.lasthandoff: 12/11/2017
 
 
 ## <a name="release-notes"></a>Notas de versão
+
+É recomendável usar o driver de Gremlin software livre para .NET, Gremlin.Net. Saiba como começar em [Azure Cosmos DB: criar um aplicativo de grafos usando .NET e a API do Graph](create-graph-dotnet.md).
 
 ### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-preview
 

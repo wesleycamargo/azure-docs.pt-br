@@ -1,6 +1,6 @@
 ---
 title: "Conecte uma rede virtual a vários sites usando o Gateway de VPN e o PowerShell: Clássico | Microsoft Docs"
-description: "Este artigo explica passo a passo como conectar múltiplos sites locais a uma rede virtual usando um Gateway de VPN para o modelo de implantação clássica."
+description: "Conecte múltiplos sites locais a uma rede virtual clássica usando um Gateway de VPN."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicione uma conexão Site a Site a uma rede virtual com uma conexão de gateway de VPN existente (clássico)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (clássico)](vpn-gateway-multi-site.md)
 >
 >
@@ -162,7 +162,7 @@ Importe o arquivo de configuração de rede. Ao importar esse arquivo com as alt
 ## <a name="6-download-keys"></a>6. Baixar chaves
 Depois de adicionar os novos túneis, use o cmdlet do PowerShell 'Get-AzureVNetGatewayKey' para obter as chaves pré-compartilhadas IPsec/IKE para cada túnel.
 
-Por exemplo:
+Por exemplo: 
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

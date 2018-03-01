@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Visão geral do monitoramento da rede do Azure
 
@@ -46,7 +46,7 @@ O Observador de Rede tem atualmente os seguintes recursos:
 * **[Solução de problemas do Gateway de Rede Virtual e da Conexão](network-watcher-troubleshoot-manage-rest.md)** - fornece a capacidade de solucionar problemas dos Gateways de Rede Virtual e das Conexões.
 * **[Limites de assinatura da rede](#network-subscription-limits)** - permite exibir o uso de recursos da rede em relação aos limites.
 * **[Configurar o Log de Diagnóstico](#diagnostic-logs)** – fornece um painel único para habilitar ou desabilitar os logs de Diagnóstico para os recursos de rede em um grupo de recursos.
-* **[Conectividade (Versão Prévia)](network-watcher-connectivity-overview.md)** – confirma a possibilidade de estabelecer uma conexão TCP direta de uma máquina virtual com determinado ponto de extremidade.
+* **[Solução de Problemas de Conectividade](network-watcher-connectivity-overview.md)** – confirma a possibilidade de estabelecer uma conexão TCP direta de uma máquina virtual com determinado ponto de extremidade enriquecido com contexto do Azure.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controle de Acesso baseado em Funções (RBAC) no Observador de Rede
 
@@ -104,7 +104,7 @@ O Observador de Rede fornece uma exibição dos logs de diagnóstico. Essa exibi
 
 ![logs][logs]
 
-### <a name="troubleshooting"></a>Solucionar problemas
+### <a name="troubleshooting"></a>solução de problemas
 
 A folha de solução de problemas, uma experiência no portal, é fornecida nos recursos da rede hoje para diagnosticar os problemas comuns associados a um recurso individual. Essa experiência está disponível para os seguintes recursos de rede: ExpressRoute, Gateway de VPN, Gateway de Aplicativo, Logs de Segurança da Rede, Rotas, DNS, Balanceador de Carga e Gerenciador de Tráfego. Para saber mais sobre a solução de problemas no nível do recurso, visite [Diagnosticar e resolver problemas com a Solução de Problemas do Azure](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
 
