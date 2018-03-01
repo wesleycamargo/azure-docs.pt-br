@@ -36,7 +36,7 @@ Normalmente, um hub de eventos emprega um editor por cliente. Todas as mensagens
 
 Cada cliente dos hubs de eventos recebe um token exclusivo que é carregado no cliente. Os tokens são produzidos de modo que cada token exclusivo concede acesso a um editor exclusivo diferente. Um cliente que possui um token só pode enviar para um editor específico, e para nenhum outro. Se vários clientes compartilharem o mesmo token, cada um desses deles compartilhará um editor.
 
-Embora não seja recomendado, é possível equipar os dispositivos com tokens que concedem acesso direto a um hub de eventos. Qualquer dispositivo que contenha esse token pode enviar mensagens diretamente para esse hub de eventos. Esse dispositivo não estará sujeito à limitação. Além disso, o dispositivo não pode ser incluído na lista de bloqueios para ser impedido de enviar para esse hub de eventos.
+Embora não seja recomendado, é possível equipar os dispositivos com tokens que concedem acesso direto a um hub de eventos. Qualquer dispositivo que contenha esse token pode enviar mensagens diretamente para esse hub de eventos. Esse dispositivo não estará sujeito à limitação. Além disso, o dispositivo não pode ser incluído na lista de bloqueados para ser impedido de enviar para esse hub de eventos.
 
 Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os clientes não estão cientes da chave; isso impede que outros clientes criem tokens.
 
