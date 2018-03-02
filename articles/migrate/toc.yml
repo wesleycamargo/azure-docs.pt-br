@@ -10,6 +10,8 @@
       href: tutorial-assessment-vmware.md
 - name: Conceitos
   items:
+    - name: Conceitos do Coletor
+      href: concepts-collector.md
     - name: Cálculos de avaliação
       href: concepts-assessment-calculation.md
     - name: Visualização de dependência

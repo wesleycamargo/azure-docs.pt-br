@@ -2,23 +2,23 @@
 title: Gerenciar aplicativos do Azure Service Fabric usando a CLI do Azure Service Fabric
 description: Saiba como implantar e remover aplicativos de um cluster do Azure Service Fabric usando a CLI do Azure Service Fabric
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
-ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: bikang
+ms.openlocfilehash: 2d330921b66a1c261298601dad46f00f66659037
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Gerenciar um aplicativo do Azure Service Fabric usando a CLI do Azure Service Fabric
 
 Saiba como criar e excluir os aplicativos que estão em execução em um cluster do Azure Service Fabric.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Implantar a CLI do Service Fabric. Em seguida, selecione o cluster do Service Fabric. Para obter mais informações, consulte [Introdução à CLI do Service Fabric](service-fabric-cli.md).
 

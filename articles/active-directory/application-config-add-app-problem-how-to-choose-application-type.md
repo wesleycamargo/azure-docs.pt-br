@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 57dddcc9114aeec1337b5b5ad8cfda3004fb0a76
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4a5ee41349a97493636327e3bda25cbd507867c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Como escolher o tipo de aplicativo a ser usado ao adicionar um aplicativo
 
@@ -37,11 +37,11 @@ O Azure AD oferece suporte a quatro tipos de aplicativos principais que você po
 
 -   **Aplicativos desenvolvidos de forma personalizada** – um aplicativo que sua organização deseja desenvolver na Plataforma de Desenvolvimento de Aplicativos do Azure AD, mas que talvez ainda não exista.
 
--   **Aplicativos inexistentes na Galeria** – traga seus aplicativos! Qualquer link da Web desejado, ou qualquer aplicativo que processa um campo de nome de usuário e senha, dá suporte aos protocolos SAML ou OpenID Connect, ou dá suporte ao SCIM que você deseja integrar para logon único com o Azure AD.
+-   **Aplicativos inexistentes na Galeria** – traga seus aplicativos! Qualquer link da Web desejado, ou qualquer aplicativo que renderiza um campo de nome de usuário e senha, dá suporte aos protocolos SAML ou OpenID Connect ou dá suporte ao SCIM que você deseja integrar para logon único com o Azure Active Directory.
 
-## <a name="features-and-capabilities-supported-by-all-the-above-application-types"></a>Recursos compatíveis com todos os tipos de aplicativo mencionados acima
+## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Recursos e funções com suporte de todos os tipos de aplicativos anteriores
 
-Os recursos a seguir têm suporte de qualquer um dos quatro tipos de aplicativos mencionados acima no Azure AD:
+Os seguintes recursos são suportados por qualquer um dos quatro tipos de aplicativos anteriores no Azure Active Directory:
 
 -   **Início rápido** – familiarize-se rapidamente com um aplicativo executando [etapas simples de implantação](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
@@ -61,13 +61,13 @@ Os recursos a seguir têm suporte de qualquer um dos quatro tipos de aplicativos
 
 ## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Modos de logon único e provisionamento com suporte de tipos específicos de aplicativos
 
-A tabela a seguir descreve os diferente modos de logon único e provisionamento com suporte de cada um dos tipos de aplicativos mencionados acima. Use essa tabela como uma ajuda para entender quais aplicativos você precisa adicionar a fim de dar suporte a um objetivo específico.
+A tabela a seguir descreve os diferentes modos de logon único e de provisionamento com suporte de cada um dos tipos de aplicativos anteriores. Use essa tabela como um auxílio para entender qual aplicativo você precisa adicionar a fim de dar suporte a um objetivo específico.
 
   ![Tabela de tipos de aplicativo](./media/application-tables/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Como escolher um modo de logon único
 
-Os modos de **logon único** com suporte para aplicativos do Azure AD estão listados abaixo.
+A seguir, são apresentados os modos de **logon único** para aplicativos do Microsoft Azure AD.
 
 -   **Logon único do Azure AD desabilitado** – escolha o **modo de logon único** desabilitado do Azure AD se você ainda não estiver pronto para integrar esse aplicativo com logon único ao Azure AD ou se apenas o estiver testando
 
@@ -96,9 +96,9 @@ Os modos de **logon único** com suporte para aplicativos do Azure AD estão lis
    >
    >
 
-## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modos de logon únicos para aplicativos desenvolvidos de forma personalizada
+## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modos de logon único para aplicativos personalizados
 
-Aplicativos desenvolvidos de forma personalizada por meio da experiência [Aplicativo desenvolvido de forma personalizada](#_Custom-Developed_Applications) também dão suporte a modos de logon único adicionais não listados acima. Estão incluídos:
+Aplicativos desenvolvidos de forma personalizada por meio da experiência [Aplicativo desenvolvido de forma personalizada](#_Custom-Developed_Applications) também dão suporte a modos de logon único não listados anteriormente, que incluem:
 
 -   Logon baseado em [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)
 
@@ -112,23 +112,23 @@ Leia o [Guia do Desenvolvedor do Azure Active Directory](https://docs.microsoft.
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Como definir o modo de logon único de um aplicativo
 
-Para definir o modo de **logon único** de um aplicativo, siga as instruções abaixo:
+Para definir o modo de **logon único** de um aplicativo, siga estas instruções:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-  * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>Como escolher um modo de provisionamento
 
@@ -152,19 +152,19 @@ Para definir o modo de **logon único** de um aplicativo, siga as instruções a
 
 Para definir o modo de **provisionando** de um aplicativo, siga as instruções abaixo:
 
-Para definir o modo de **logon único** de um aplicativo, siga as instruções abaixo:
+Para definir o modo de **logon único** de um aplicativo, siga estas instruções:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-  * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6.  Selecione o aplicativo para o qual você deseja configurar o provisionamento.
 

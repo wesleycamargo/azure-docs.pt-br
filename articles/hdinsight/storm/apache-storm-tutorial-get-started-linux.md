@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6abdb15917508152529990c434eb48a9983b9432
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/28/2018
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introdução ao Apache Storm no HDInsight usando os exemplos do storm-starter
 
@@ -31,19 +31,19 @@ O Apache Storm é um sistema de computação escalável, tolerante a falhas, dis
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Familiaridade com o SSH e o SCP**. Para saber mais, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Familiaridade com o SSH e o SCP**. Para obter informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-a-storm-cluster"></a>Criar um cluster Storm
 
 Use as seguintes etapas para criar um cluster Storm no HDInsight:
 
-1. No [portal do Azure](https://portal.azure.com), selecione **+ NOVO**, **Dados + Análise** e **HDInsight**.
+1. No [Portal do Azure](https://portal.azure.com), selecione **+ Criar um recurso**, **Dados + Análise** e selecione **HDInsight**.
 
     ![Criar um cluster HDInsight](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -65,8 +65,6 @@ Use as seguintes etapas para criar um cluster Storm no HDInsight:
     * **Sistema Operacional**: Linux
 
     * **Versão**: Storm 1.1.0 (HDI 3.6)
-
-    * **Camada de Cluster**: Padrão
 
    Por fim, use o botão **Selecionar** para salvar as configurações.
 
@@ -95,7 +93,7 @@ Use as seguintes etapas para criar um cluster Storm no HDInsight:
     > O cliente SSH pode dizer que a autenticidade do host não pode ser estabelecida. Nesse caso, insira `yes` para continuar.
 
     > [!NOTE]
-    > Caso você tenha usado uma senha para proteger sua conta de usuário do SSH, ela será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` para especificar a chave privada correspondente. Por exemplo: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > Caso você tenha usado uma senha para proteger sua conta de usuário do SSH, ela será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` para especificar a chave privada correspondente. Por exemplo, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Para obter informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

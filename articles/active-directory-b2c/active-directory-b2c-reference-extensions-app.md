@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: parja
-ms.openlocfilehash: b28a1bb6287a0e30eda21d9a7c03abbf14b5d8d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 450a7a5051cdbd6a3c8105a06fd3ebae10d5388e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: aplicativo de extensões
 
@@ -31,7 +31,7 @@ Quando um diretório do Azure AD B2C é criado, um aplicativo chamado `b2c-exten
 
 Para verificar se o b2c-extensions-app está presente:
 
-1. No locatário Azure AD B2C, clique em **Mais serviços** no menu de navegação à esquerda.
+1. No locatário Azure AD B2C, clique em **Todos os serviços** no menu de navegação esquerdo.
 1. Procure e abra **Registros de aplicativo**.
 1. Procure um aplicativo que comece com **b2c-extensions-app**
 

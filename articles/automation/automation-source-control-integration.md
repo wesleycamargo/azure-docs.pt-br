@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 A integração de controle de origem permite que você associe runbooks em sua conta de Automação a um repositório de controle de origem do GitHub. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle de origem permite a sincronização de ramificações diferentes no controle de origem para suas contas de desenvolvimento, teste ou produção da Automação, facilitando a promoção do código testado em seu ambiente de desenvolvimento para o ambiente de produção da conta de Automação.
@@ -36,10 +36,9 @@ Há duas etapas simples necessárias para configurar o controle de origem para s
 Se você já tiver uma conta do GitHub e um repositório que deseja vincular à Automação do Azure, entre em sua conta existente e comece da etapa 2 abaixo. Caso contrário, navegue até o [GitHub](https://github.com/), inscreva-se em uma nova conta e [crie um novo repositório](https://help.github.com/articles/create-a-repo/).
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>Etapa 2: Configurar o controle de origem na Automação do Azure
-1. Na página da Conta de Automação do Portal no Azure, clique em **Configurar controle do código-fonte.** 
+1. Na página Conta de Automação no Portal do Azure, em **Configurações de Conta**, clique em **Controle do Código-Fonte.** 
    
-    ![Configurar Controle de Origem](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. A página **Controle do Código-Fonte** será aberta e você poderá configurar os detalhes da conta GitHub. A seguir, a lista de parâmetros a serem configurados:  
+1. A página **Controle do Código-Fonte** será aberta e você poderá configurar os detalhes da conta GitHub. A seguir, a lista de parâmetros a serem configurados:  
    
    | **Parâmetro** | **Descrição** |
    |:--- |:--- |
@@ -66,19 +65,19 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
      
      | **Parâmetro** | **Valor** |
      |:--- |:--- |
-     | Nome |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Tipo |Cadeia de caracteres |
+     | NOME |Microsoft.Azure.Automation.SourceControl.Connection |
+     | type |Cadeia de caracteres |
      | Valor |{"Branch":\<*Nome da sua ramificação*>,"RunbookFolderPath":\<*Caminho da pasta do runbook*>,"ProviderType":\<*tem um valor 1 para o GitHub*>,"Repository":\<*Nome do seu repositório*>,"Username":\<*O nome do seu usuário no GitHub*>} |
 
     * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**contém o valor criptografado seguro do OAuthToken.  
 
     |**Parâmetro**            |**Valor** |
     |:---|:---|
-    | Nome  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | Tipo | Unknown(Encrypted) |
+    | NOME  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+    | type | Unknown(Encrypted) |
     | Valor | <*OAuthToken Criptografado*> |  
 
-    ![Variáveis](media/automation-source-control-integration/automation_04_Variables.png)  
+    ![variáveis](media/automation-source-control-integration/automation_04_Variables.png)  
 
     * **Controle de Origem de Automação** é adicionado como um aplicativo autorizado à sua conta do GitHub. Para exibir o aplicativo: na home page do GitHub, navegue até o seu **perfil** > **Configurações** > **Aplicativos**. Esse aplicativo permite que a Automação do Azure sincronize seu repositório do GitHub para uma conta da Automação.  
 

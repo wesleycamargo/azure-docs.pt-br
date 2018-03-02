@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerenciar o logon único para aplicativos empresariais
 
 Este artigo descreve como usar o [Portal do Azure](https://portal.azure.com) para gerenciar as configurações de logon único para aplicativos corporativos. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização. Este artigo se aplica principalmente aos aplicativos que foram adicionados através da [galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar seus aplicativos no portal
-Todos os aplicativos corporativos que estão configurados para o logon único podem ser exibidos e gerenciados no Portal do Azure. Os aplicativos podem ser encontrados na seção **Mais Serviços** &gt; **Aplicativos Empresariais** do Portal. 
+Todos os aplicativos corporativos que estão configurados para o logon único podem ser exibidos e gerenciados no Portal do Azure. Os aplicativos podem ser localizados na seção **Todos os Serviços** &gt; **Aplicativos Empresariais** do portal. 
 
 ![Folha de Aplicativos Empresariais][1]
 

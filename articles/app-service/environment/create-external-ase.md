@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Como criar um ambiente externo do Serviço de Aplicativo #
 
@@ -59,7 +59,7 @@ O plano do Serviço de Aplicativo é um contêiner de aplicativos. Ao criar um a
 
 Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.
+1. No [Portal do Azure](https://portal.azure.com/), selecione **Criar um recurso** > **Web + Celular** > **aplicativo Web**.
 
     ![Criação de um aplicativo Web][1]
 
@@ -97,7 +97,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 Se você criar um ASE autônomo, ele estará vazio. Um ASE vazio ainda incorrerá em um encargo mensal pela infraestrutura. Siga estas etapas para criar um ASE com um ILB ou para criar um ASE em seu próprio grupo de recursos. Depois de criar o seu ASE, você pode criar aplicativos nele usando o processo normal. Selecione o ASE novo como o local.
 
-1. Pesquise o Azure Marketplace para **ambiente do serviço de aplicativo**, ou selecione **Novo** > **Web móvel** > **Ambiente do Serviço de Aplicativo**. 
+1. Pesquise o Azure Marketplace para **	Ambiente do Serviço de Aplicativo**, ou selecione **Criar um recurso** > **Web Celular** > **Ambiente do Serviço de Aplicativo**. 
 
 2. Insira o nome do seu ASE. O nome inserido é usado nos aplicativos criados no ASE. Se o nome for *mynewdemoase*, o nome do subdomínio será *.mynewdemoase.p.azurewebsites.net*. Se você criar um aplicativo chamado *mytestapp*, ele será endereçável em mytestapp.mynewdemoase.p.azurewebsites.net. Você não pode usar um espaço em branco no nome. Se você usar caracteres maiúsculos, o nome do domínio será a versão totalmente minúscula do nome escolhido. Se você usar um ILB, o nome do ASE não será usado no subdomínio, mas sim declarado explicitamente durante a criação do ASE.
 

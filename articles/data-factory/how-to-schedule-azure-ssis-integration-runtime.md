@@ -3,7 +3,7 @@ title: "Como agendar o tempo de execução de integração do Azure-SSIS | Micro
 description: "Este artigo descreve como agendar o início e a parada de um tempo de execução de integração do Azure-SSIS usando a Automação do Azure e o Data Factory."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Como agendar o início e a parada de um tempo de execução de integração do Azure-SSIS 
 A execução de um IR (tempo de execução de integração) do Azure-SSIS (SQL Server Integration Services) tem uma carga associada a ele. Portanto, convém executar o IR somente quando você precisar executar pacotes SSIS no Azure e parar quando não for mais necessário. Você poderá usar a interface do usuário do Data Factory ou do Azure PowerShell para [iniciar ou parar manualmente um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md)). Este artigo descreve como agendar o início e a parada de um IR (tempo de execução de integração) do Azure-SSIS usando a Automação do Azure e o Azure Data Factory. A seguir, são apresentadas as etapas de alto nível descritas neste artigo:
@@ -44,7 +44,7 @@ Nesta seção, você executa as seguintes etapas:
 ### <a name="create-an-azure-automation-account"></a>Criar uma conta de Automação do Azure
 Se você não possuir uma conta de Automação do Azure, crie uma seguindo as instruções nesta etapa. Para obter as etapas detalhadas, consulte [Criar uma conta de Automação do Azure](../automation/automation-quickstart-create-account.md). Como parte dessa etapa, crie uma conta **Executar como do Azure** (uma entidade de serviço no seu Microsoft Azure Active Directory) e adicione-a à função **Colaborador** da sua assinatura do Azure. Certifique-se de que seja o mesmo da assinatura contendo o data factory que tem o IR do Azure-SSIS. A Automação do Azure usa essa conta para autenticar-se no Azure Resource Manager e operar em seus recursos. 
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas em navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 2. Faça logon no [Portal do Azure](https://portal.azure.com/).    
 3. Selecione **Novo** no menu esquerdo, selecione **Monitoramento + Gerenciamento** e selecione **Automação**. 
 

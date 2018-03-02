@@ -1,3 +1,5 @@
+# [Documentação do Balanceador de Carga](index.md)
+
 # Visão geral
 ## [O que é o Balanceador de carga?](load-balancer-overview.md)
 ## [O que é um Load Balancer Standard?](load-balancer-standard-overview.md)

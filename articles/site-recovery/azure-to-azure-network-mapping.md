@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: d7dd35a8382f4a99ababbe804c5c71b29148c44a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Redes virtuais de mapas em regiões do Azure diferentes
 
@@ -70,7 +70,7 @@ Se o mapeamento de rede já tiver ocorrido, você não poderá alterar a rede vi
 
 
 ## <a name="subnet-selection"></a>Seleção de sub-rede
-A sub-rede da máquina virtual de destino é selecionada de acordo com o nome da sub-rede da máquina virtual de origem. Se houver uma sub-rede com o mesmo nome da máquina virtual de origem disponível na rede de destino, essa sub-rede será escolhida para a máquina virtual de destino. Se não houver nenhuma sub-rede com o mesmo nome na rede de destino, a primeira sub-rede em ordem alfabética será escolhida como a sub-rede de destino. 
+A sub-rede da máquina virtual de destino é selecionada de acordo com o nome da sub-rede da máquina virtual de origem. Se houver uma sub-rede com o mesmo nome da máquina virtual de origem disponível na rede de destino, essa sub-rede será escolhida para a máquina virtual de destino. Se não houver nenhuma sub-rede com o mesmo nome na rede de destino, a primeira sub-rede em ordem alfabética será escolhida como a sub-rede de destino.
 
 Para modificar a sub-rede, vá até as configurações **Computação e Rede** da máquina virtual.
 

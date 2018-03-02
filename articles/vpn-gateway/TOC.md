@@ -1,3 +1,5 @@
+# [Documentação de Gateway de VPN](index.md)
+
 # Visão geral
 ## [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md)
 ## [Perguntas frequentes de gateway de VPN](vpn-gateway-vpn-faq.md)
@@ -96,7 +98,8 @@
 
 # Relacionados
 ## [Rede Virtual](/azure/virtual-network/)
-## [Gateway de Aplicativo](/azure/application-gateway/)
+## [Gateway de Aplicativo
+](/azure/application-gateway/)
 ## [DNS do Azure](/azure/dns/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 ## [Balanceador de Carga](/azure/load-balancer/)

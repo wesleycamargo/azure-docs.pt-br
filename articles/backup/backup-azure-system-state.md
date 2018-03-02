@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 5481e9139f18cb88ce5152776fa18df3f9441c80
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e7dce94e56a8b51dd1c47e306aeb1d11d0dfb45c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Fazer backup de estado do sistema do Windows na implementação do Gerenciador de Recursos
 Este artigo explica como fazer backup do estado do sistema Windows Server para o Azure. É um tutorial que pretende explicar os conceitos básicos.
@@ -33,7 +33,7 @@ Para fazer backup do Estado do Sistema do Windows Server, você precisa criar um
 
 ### <a name="to-create-a-recovery-services-vault"></a>Para criar um cofre de Serviços de Recuperação
 1. Se ainda não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com/) usando a sua assinatura do Azure.
-2. No menu Hub, clique em **Mais serviços** e, na lista de recursos, digite **Serviços de Recuperação** e clique em **Cofres dos Serviços de Recuperação**.
+2. No menu Hub, clique em **Todos os serviços** e na lista de recursos digite **Serviços de Recuperação** e clique em **Cofres dos Serviços de Recuperação**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
@@ -190,7 +190,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
 5. Selecione **Estado do sistema** e, em seguida, clique em **OK**.
 
-6. Clique em **Avançar**.
+6. Clique em **Próximo**.
 
 7. Selecione a frequência de Backup necessária e a política de retenção para os backups de Estado do Sistema nas próximas páginas. 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8540409c6174ad02bd2d9d57c53e0279f49871
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1
 
@@ -34,11 +34,11 @@ Este tutorial mostra como criar aplicativos Web e planos do Serviço de Aplicati
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativo. Se você ainda não tiver feito isso, consulte [Criar um Ambiente de Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Novo > Web + Móvel > Aplicativo Web**. 
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Criar um recurso > Web + Celular > Aplicativo Web**. 
    
     ![][1]
 2. Selecione sua assinatura.  

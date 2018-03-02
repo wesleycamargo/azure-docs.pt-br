@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implantar recursos com modelos do Resource Manager e o portal do Azure
 
@@ -47,7 +47,7 @@ Este tópico mostra como usar o [Portal do Azure](https://portal.azure.com) com 
 
 Após criar um grupo de recursos, você pode implantar recursos nele usando o Marketplace. O Marketplace oferece soluções predefinidas para cenários comuns.
 
-1. Para iniciar uma implantação, selecione **Novo**.
+1. Para iniciar uma implantação, selecione **Criar um recurso**.
 
    ![Novo recurso](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -79,7 +79,7 @@ Após criar um grupo de recursos, você pode implantar recursos nele usando o Ma
 
 Se quiser executar uma implantação, mas não usar nenhum dos modelos no Marketplace, você poderá criar um modelo personalizado que define a infraestrutura para sua solução. Para saber mais sobre a criação de modelos, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. Para implantar um modelo personalizado usando o portal, selecione **Novo** e pesquise pela **Implantação do Modelo** até conseguir selecioná-la nas opções.
+1. Para implantar um modelo personalizado usando o portal, selecione **Criar um recurso** e pesquise por **Implantação de Modelo** até conseguir selecioná-la nas opções.
 
    ![Pesquisar implantação de modelo](./media/resource-group-template-deploy-portal/search-template.png)
 

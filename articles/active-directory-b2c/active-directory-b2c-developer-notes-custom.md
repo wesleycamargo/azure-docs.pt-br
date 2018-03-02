@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de versão para a versão prévia da política personalizada do Azure Active Directory B2C
 O conjunto de recursos de política personalizada agora está disponível para avaliação em versão prévia para todos os clientes do Azure Active Directory B2C(Azure AD B2C). Esse conjunto de recursos se destina a desenvolvedores avançados de identidade para criar as soluções de identidade mais complexas.  
@@ -60,7 +60,7 @@ Para se beneficiar totalmente da versão prévia, sugerimos que os desenvolvedor
 ## <a name="features-by-stage-and-known-issues"></a>Recursos por estágio e problemas conhecidos
 Recursos de Política Personalizada/Estrutura de Experiência de Identidade estão em constante e rápido desenvolvimento.  Esta tabela é um índice de disponibilidade de recursos/componente.
 
-Poste perguntas no Stack Overflow em [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Poste perguntas no Stack Overflow em [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Provedores de Identidade, Tokens, Protocolos

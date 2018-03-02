@@ -1,25 +1,25 @@
 ---
-title: Conceitos de alta disponibilidade no Banco de Dados do Azure para MySQL | Microsoft Docs
+title: Conceitos de alta disponibilidade no Banco de Dados do Azure para MySQL
 description: "Este tópico fornece informações de alta disponibilidade ao usar o Banco de Dados do Azure para MySQL"
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/31/2017
-ms.openlocfilehash: 5b63a1ac666a14354b5b93f22722b624244a7aa2
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.date: 02/28/2018
+ms.openlocfilehash: 58f10f0a0938da5887d44959f65b9016dfa88f2c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceitos de alta disponibilidade no Banco de Dados do Azure para MySQL
 O serviço do Banco de Dados do Azure para MySQL fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.
 
 ## <a name="high-availability"></a>Alta disponibilidade
-O modelo de HA (alta disponibilidade) se baseia em mecanismos internos de failover quando ocorre uma interrupção no nível do nó. Uma interrupção no nível do nó pode ocorrer devido a uma falha de hardware ou como reação a uma implantação de serviço.
+O modelo de alta disponibilidade (HA) se baseia em mecanismos internos de failover quando ocorre uma interrupção no nível do nó. Uma interrupção no nível do nó pode ocorrer devido a uma falha de hardware ou como reação a uma implantação de serviço.
 
 Todas as vezes, as alterações feitas em um servidor de banco de dados do Banco de Dados do Azure para MySQL ocorrem no contexto de uma transação. As alterações são registradas de forma síncrona no armazenamento do Azure quando a transação é confirmada. Em caso de uma interrupção no nível do nó, o servidor de banco de dados cria automaticamente um novo nó e anexa o armazenamento de dados ao novo nó. As conexões ativas são descartadas e nenhuma transação em andamento é confirmada.
 

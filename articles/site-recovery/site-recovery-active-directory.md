@@ -5,57 +5,54 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/13/2018
 ms.author: manayar
-ms.openlocfilehash: 4ff42d5dc18a80e94ff81d3e4d9ed55533ad0e19
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Usar o Azure Site Recovery para proteger o Active Directory e o DNS
-Aplicativos empresariais como o SharePoint, o Dynamics AX e o SAP dependem do Active Directory e de uma infraestrutura de DNS para funcionar corretamente. Ao criar uma solução de recuperação de desastre para aplicativos, para garantir a funcionalidade correta do aplicativo, você normalmente precisa recuperar o Active Directory e o DNS antes de recuperar os outros componentes do aplicativo.
 
-Você usar o Azure Site Recovery para criar um plano totalmente automatizado de recuperação de desastre para o Active Directory. Quando ocorre uma interrupção, você pode iniciar um failover em segundos, de qualquer lugar. Você pode ter o Active Directory em funcionamento em alguns minutos. Se tiver implantado o Active Directory para vários aplicativos no site primário, por exemplo, para o SharePoint e o SAP, você provavelmente desejará o failover do site completo. Você pode fazer failover primeiramente do Active Directory usando o Site Recovery. Em seguida, faça failover dos outros aplicativos usando planos de recuperação específicos do aplicativo.
+Aplicativos empresariais como o SharePoint, o Dynamics AX e o SAP dependem do Active Directory e de uma infraestrutura de DNS para funcionar corretamente. Ao configurar a recuperação de desastre para aplicativos, geralmente é necessário recuperar o Active Directory e o DNS antes de recuperar outros componentes do aplicativo para garantir a funcionalidade correta do aplicativo.
 
-Este artigo explica como criar uma solução de recuperação de desastre para o Active Directory, como fazer failovers usando um plano de recuperação de um clique, além das configurações compatíveis e dos pré-requisitos. Antes de começar, você deve estar familiarizado com o Active Directory e o Azure Site Recovery.
+É possível usar o [Site Recovery](site-recovery-overview.md) para criar um plano de recuperação de desastre para o Active Directory. Quando ocorrer uma interrupção, você poderá iniciar um failover. Você pode ter o Active Directory em funcionamento em alguns minutos. Se tiver implantado o Active Directory para vários aplicativos no site primário, por exemplo, para o SharePoint e o SAP, você provavelmente desejará o failover do site completo. Primeiro, é possível fazer failover do Active Directory usando a Recuperação. Em seguida, faça failover dos outros aplicativos usando planos de recuperação específicos do aplicativo.
+
+Este artigo explica como criar uma solução de recuperação de desastre para o Active Directory. Ele inclui os pré-requisitos e as instruções de failover. Antes de iniciar, é necessários que você esteja familiarizado com o Active Directory e o Azure Site Recovery.
 
 ## <a name="prerequisites"></a>pré-requisitos
-* Um cofre dos Serviços de Recuperação do Microsoft Azure em uma assinatura do Microsoft Azure.
-* Se você estiver replicando para o Azure, [prepare](tutorial-prepare-azure.md) os recursos do Azure. Entre os recursos estão uma do assinatura do Azure, uma instância da Rede Virtual do Microsoft Azure e uma conta de armazenamento.
-* Examine os requisitos de suporte de todos os componentes.
+
+* Se você estiver replicando para o Azure, [prepare os recursos do Azure](tutorial-prepare-azure.md), incluindo uma assinatura, uma Rede Virtual do Microsoft Azure, uma conta de armazenamento e um cofre dos Serviços de Recuperação.
+* Examine os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) de todos os componentes.
 
 ## <a name="replicate-the-domain-controller"></a>Replicar o controlador de domínio
 
-Você precisa configurar a [replicação do Site Recovery](#enable-protection-using-site-recovery) em pelo menos uma máquina virtual que hospede um controlador de domínio ou um DNS. Se tiver [vários controladores de domínio](#environment-with-multiple-domain-controllers) no ambiente, você também deverá configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino. O controlador de domínio adicional pode estar no Azure ou em um datacenter local secundário.
+É necessário configurar a [Replicação do Site Recovery](#enable-protection-using-site-recovery) em pelo menos uma VM hospedando um controlador de domínio ou DNS. Se tiver [vários controladores de domínio](#environment-with-multiple-domain-controllers) no ambiente, você também deverá configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino. O controlador de domínio adicional pode estar no Azure, ou em um datacenter secundário local.
 
-### <a name="single-domain-controller-environments"></a>Ambientes de controlador de domínio único
+### <a name="single-domain-controller"></a>Único controlador de domínio
 Se tiver apenas alguns aplicativos e um controlador de domínio, você provavelmente desejará fazer failover de todo o site junto. Neste caso, é recomendável usar o Site Recovery a fim de replicar o controlador de domínio para o site de destino (no Azure ou em um datacenter local secundário). É possível usar o mesmo controlador de domínio replicado ou a máquina virtual DNS para [failover de teste](#test-failover-considerations).
 
-### <a name="multiple-domain-controllers-environments"></a>Ambientes com vários controladores de domínio
+### <a name="multiple-domain-controllers"></a>Vários controladores de domínio
 Se você tiver muitos aplicativos e mais de um controlador de domínio no ambiente, ou se pretender fazer failover de alguns aplicativos por vez, além de replicar a máquina virtual do controlador de domínio com o Site Recovery, será recomendável configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (no Azure ou em um datacenter local secundário). Para [failover de teste](#test-failover-considerations), você pode usar o controlador de domínio replicado pelo Site Recovery. Para failover, você pode usar o controlador de domínio adicional no site de destino.
 
-## <a name="enable-protection-by-using-site-recovery"></a>Habilitar proteção usando o Site Recovery
+## <a name="enable-protection-with-site-recovery"></a>Habilitar a proteção com o Site Recovery
 
 Você pode usar o Site Recovery para proteger a máquina virtual que hospeda o controlador de domínio ou o DNS.
 
-### <a name="protect-the-virtual-machine"></a>Proteger a máquina virtual
+### <a name="protect-the-vm"></a>Proteger a VM
 O controlador de domínio replicado usando o Site Recovery é usado para [failover de teste](#test-failover-considerations). Verifique se ele atende aos seguintes requisitos:
 
 1. O controlador de domínio é um servidor de catálogo global.
 2. O controlador de domínio deve ser o proprietário da função FSMO para funções necessárias durante um failover de teste. Do contrário, essas funções precisarão ser [dimensionadas](http://aka.ms/ad_seize_fsmo) depois do failover.
 
-### <a name="configure-virtual-machine-network-settings"></a>Definir configurações de rede da máquina virtual
+### <a name="configure-vm-network-settings"></a>Definir configurações de rede de VMs
 Para a máquina virtual que hospeda o controlador de domínio ou o DNS, no Site Recovery, defina configurações de rede nas configurações **Computação e Rede** da máquina virtual replicada. Isso garante que a máquina virtual seja anexada à rede correta após o failover.
 
-## <a name="protect-active-directory-with-active-directory-replication"></a>Proteger o Active Directory com a replicação do Active Directory
+## <a name="protect-active-directory"></a>Proteger o Active Directory
+
 ### <a name="site-to-site-protection"></a>Proteção site a site
 Crie um controlador de domínio no site secundário. Ao promover o servidor para uma função de controlador de domínio, especifique o mesmo nome de domínio que está sendo usado no site primário. Você pode usar o snap-in dos **Sites e Serviços do Active Directory** para definir as configurações no objeto de link de site ao qual os sites serão adicionados. Ao definir as configurações em um link de site, você pode controlar quando a replicação ocorre entre dois ou mais sites e com que frequência isso ocorre. Para saber mais, veja [Agendamento da replicação entre sites](https://technet.microsoft.com/library/cc731862.aspx).
 
@@ -91,7 +88,7 @@ A maioria dos aplicativos exige a presença de um controlador de domínio ou de 
 
 ### <a name="test-failover-to-a-secondary-site"></a>Failover de teste para um site secundário
 
-1. Se você estiver replicando em outro site local e estiver usando DHCP, siga as instruções de modo a [configurar o DNS e o DHCP para failover de teste](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp).
+1. Se você estiver replicando para outro site local e utiliza DHCP, [configure o DNS e DHCP para failover de teste](hyper-v-vmm-test-failover.md#prepare-dhcp).
 2. Execute um failover de teste na máquina virtual do controlador de domínio na rede isolada. Use o ponto de recuperação *consistente com o aplicativo* mais recente disponível da máquina virtual do controlador de domínio para fazer o failover de teste.
 3. Execute um failover de teste para o plano de recuperação que contém máquinas virtuais nas quais o aplicativo é executado.
 4. Quando o teste for concluído, *limpe o failover de teste* na máquina virtual do controlador de domínio. Essa etapa exclui o controlador de domínio que foi criado para o failover de teste.

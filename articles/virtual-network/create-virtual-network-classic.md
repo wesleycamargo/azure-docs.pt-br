@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Criar uma rede virtual (clássica) com várias sub-redes
 
@@ -39,10 +39,10 @@ Você pode criar uma rede virtual (clássica) usando o [portal do Azure](#portal
 ## <a name="portal"></a>Portal
 
 1. Em um navegador da Internet, vá para o [portal do Azure](https://portal.azure.com). Faça logon usando sua [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Clique em **+Novo** no portal.
-3. Digite *Rede virtual* na caixa **Pesquisar no Marketplace** na parte superior da folha **Novo** que aparece.  Clique em **Rede virtual** quando essa opção aparecer entre os resultados da pesquisa.
-4. Selecione **Clássico** na caixa **Selecionar um modelo de implantação** na folha **Rede Virtual** que aparece e clique em **Criar**. 
-5. Insira os seguintes valores na folha **Criar rede virtual (clássica)** e depois clique em **Criar**:
+2. Clique em **Criar um recurso** no portal.
+3. Insira a *Rede virtual* na caixa **Pesquisar no Marketplace** na parte superior do painel **Novo** que é exibido. Clique em **Rede virtual** quando essa opção aparecer entre os resultados da pesquisa.
+4. Selecione **Clássico** na caixa **Selecionar um modelo de implantação** no painel **Rede Virtual** exibido e clique em **Criar**. 
+5. Insira os valores a seguir no painel **Criar rede virtual (clássica)** e, em seguida, clique em **Criar**:
 
     |Configuração|Valor|
     |---|---|
@@ -55,13 +55,13 @@ Você pode criar uma rede virtual (clássica) usando o [portal do Azure](#portal
 
     Se você for novo no Azure, saiba mais sobre [grupos de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [assinaturas](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [locais](https://azure.microsoft.com/regions) (também conhecido como *regiões*).
 4. No portal, você pode criar apenas uma sub-rede quando você criar uma rede virtual. Neste tutorial, você cria uma segunda sub-rede após criar a rede virtual. Posteriormente, você pode criar recursos acessíveis pela Internet na sub-rede **Pública**. Você também pode criar recursos que não são acessíveis pela Internet para na sub-rede **Privada**. Para criar a segunda sub-rede, digite **myVnet** na caixa **Pesquisar recursos** na parte superior da página. Clique em **myVnet** quando ele for exibido nos resultados da pesquisa.
-5. Clique em **Sub-redes** (na seção **CONFIGURAÇÕES**) na folha **Criar rede virtual (clássica)** que aparece.
-6. Clique em **+Adicionar** na folha **myVnet – Sub-redes** que aparece.
-7. Digite **Privada** para **Nome** na folha **Adicionar sub-rede**. Digite **10.0.1.0/24** para **Intervalo de endereços**.  Clique em **OK**.
-8. Na folha **myVnet – Sub-redes**, você pode ver as sub-redes **Pública** e **Privada** que você criou.
+5. Clique em **Sub-redes** (na seção **CONFIGURAÇÕES**) no painel **Criar rede virtual (clássica)** exibido.
+6. Clique em **+Adicionar** no painel **myVnet – Sub-redes** exibido.
+7. Insira **Privada** para **Nome** no painel **Adicionar sub-rede**. Digite **10.0.1.0/24** para **Intervalo de endereços**.  Clique em **OK**.
+8. No painel **myVnet – Sub-redes**, é possível visualizar as sub-redes **Pública** e **Privada** que você criou.
 9. **Opcional**: quando você concluir este tutorial, talvez queira excluir os recursos criados para não incorrer em encargos de uso:
-    - Clique em **Visão geral** na folha **myVnet**.
-    - Clique no ícone **Excluir** na folha **myVnet**.
+    - Clique em **Visão geral** no painel **myVnet**.
+    - Clique no ícone **Excluir** no painel **myVnet**.
     - Para confirmar a exclusão, clique em **Sim** na caixa **Excluir rede virtual**.
 
 ## <a name="azure-cli"></a>CLI do Azure

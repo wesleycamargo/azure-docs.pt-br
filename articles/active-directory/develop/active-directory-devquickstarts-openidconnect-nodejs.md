@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introdução ao aplicativo Web Node.js do Azure AD
 Aqui usaremos o Passport para:
@@ -48,14 +48,14 @@ O aplicativo completo também é fornecido no final deste tutorial.
 
 2. No menu na parte superior da página, selecione sua conta. Sob o **diretório** , escolha onde você deseja registrar seu aplicativo de locatário do Active Directory.
 
-3. Selecione **Mais Serviços** no menu no lado esquerdo da tela e selecione **Azure Active Directory**.
+3. Selecione **Todos os serviços** no menu no lado esquerdo da tela e, em seguida, selecione **Azure Active Directory**.
 
 4. Selecione **Registros do aplicativo**e, em seguida, selecione **Adicionar**.
 
 5. Siga os prompts para criar um **Aplicativo Web** e/ou uma **API Web**.
   * O **nome** do aplicativo descreve o aplicativo aos usuários.
 
-  * A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é `http://localhost:3000/auth/openid/return``.
+  * A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é `http://localhost:3000/auth/openid/return`.
 
 6. Depois de registrar, AD do Azure atribui seu aplicativo uma ID de aplicativo único. Você precisará desse valor nas seções a seguir, então copie-o da página do aplicativo.
 7. Na página **Configurações** -> **Propriedades** do aplicativo, atualize o URI da ID do Aplicativo. O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo. A convenção é usar o formato `https://<tenant-domain>/<app-name>`, por exemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Fazer o download de itens do marketplace do Azure para a pilha do Azure
 
@@ -109,7 +109,7 @@ Da máquina que tenha conectividade com a internet, use as etapas a seguir para 
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importar a imagem e publicá-lo no marketplace de pilha do Azure
 
-1. Depois de baixar o pacote de imagem e galeria, salvá-los e o conteúdo na pasta de ferramentas AzureStack-mestre para uma unidade de disco removível e copiá-lo para o ambiente de pilha do Azure (você pode copiá-lo localmente em qualquer local, como: "C:\MarketplaceImages").   
+1. Depois de baixar o pacote de imagem e galeria, salvá-los e o conteúdo na pasta de ferramentas AzureStack-mestre para uma unidade de disco removível e copiá-lo para o ambiente de pilha do Azure (você pode copiá-lo localmente em qualquer local, como: "C:\MarketplaceImages").     
 
 2. Antes de importar a imagem, você deve conectar-se ao ambiente do operador de pilha do Azure usando as etapas descritas em [configurar o ambiente do PowerShell do operador da pilha do Azure](azure-stack-powershell-configure-admin.md).  
 

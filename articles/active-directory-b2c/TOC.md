@@ -1,3 +1,5 @@
+# [Documentação do Azure AD B2C](index.md)
+
 # [Visão geral](active-directory-b2c-overview.md)
 
 # Introdução

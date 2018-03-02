@@ -1,19 +1,19 @@
 ---
-title: Monitoramento no Banco de Dados do Azure para MySQL | Microsoft Docs
+title: Monitoramento no Banco de Dados do Azure para MySQL
 description: "Este artigo descreve as métricas de monitoramento e alertas para o Banco de Dados do Azure para MySQL, incluindo CPU, limites, armazenamento e estatísticas de conexão."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 9af447d54faa8ee96e4b79beb274b437eea57626
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 7ecfb8151cd81fb588f964fdfa3a74aacab24874
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoramento no Banco de Dados do Azure para MySQL
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MySQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor MySQL. 
@@ -28,7 +28,7 @@ Outras tarefas incluem a configuração de ações automatizadas, execução de 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 
-|Métrica|Nome de exibição da métrica|Unidade|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|DESCRIÇÃO|
 |---|---|---|---|---|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
 |compute_limit|Limite de Unidade de Computação|Contagem|Número máximo de unidades de computação deste servidor|
@@ -41,9 +41,6 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 |active_connections|Total de conexões ativas|Contagem|O número de conexões ativas com o servidor.|
 |connections_failed|Total de conexões com falha|Contagem|O número de conexões com falha com o servidor.|
 
-
-> [!NOTE]
-> A Unidade de computação é composta pela memória e pela CPU. O percentual da Unidade de computação é max(memory%, cpu%). Examine os gráficos de memória e de CPU para identificar qual está contribuindo para as alterações no percentual da Unidade de computação. Para obter mais informações, consulte [unidades de computação](concepts-compute-unit-and-storage.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert-on-metric.md) (Como configurar alertas). 

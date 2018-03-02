@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Criar um dispositivo do IoT Edge que atua como um gateway transparente - visualização
 
@@ -63,7 +63,7 @@ Use os scripts de exemplo do PowerShell e Bash descritos em [Gerenciando uma amo
 
 1. Clone os SDKs do Microsoft Azure IoT e bibliotecas para C do GitHub:
 
-   ```
+   ```cmd/sh
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
    ```
 
@@ -75,7 +75,7 @@ Use os scripts de exemplo do PowerShell e Bash descritos em [Gerenciando uma amo
 
 Crie o novo certificado de dispositivo:
 
-   ```
+   ```bash
    ./certGen.sh create_edge_device_certificate myGateway
    ```
 
@@ -83,14 +83,14 @@ Novos arquivos são criados: .\certs\new-edge-device.* , que contêm a chave pú
  
 No diretório `certs`, execute o seguinte comando para obter a cadeia completa da chave pública de dispositivo:
 
-   ```
+   ```bash
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
 ### <a name="powershell"></a>Powershell
 
 Crie o novo certificado de dispositivo: 
-   ```
+   ```powershell
    New-CACertsEdgeDevice myGateway
    ```
 
@@ -115,7 +115,7 @@ Forneça as informações do dispositivo e o certificado ao tempo de execução 
  
 No Linux, usando a saída do Bash:
 
-   ```
+   ```bash
    sudo iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -126,7 +126,7 @@ No Linux, usando a saída do Bash:
 
 No Windows, usando a saída do PowerShell:
 
-   ```
+   ```powershell
    iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -135,15 +135,11 @@ No Windows, usando a saída do PowerShell:
         --owner-ca-cert-file {full path}/RootCA.pem
    ```
 
-Por padrão, os scripts de exemplo não definem uma senha para a chave privada do dispositivo. Se você definir uma senha, adicione o seguinte parâmetro:
-
-   ```
-   --device-ca-passphrase {passphrase}
-   ```
+Por padrão, os scripts de exemplo não definem uma senha para a chave privada do dispositivo. Se você definir uma senha, adicione o seguinte parâmetro: `--device-ca-passphrase {passphrase}`.
 
 O script solicita a definição de uma senha para o certificado do Agente do Edge. Reinicie o tempo de execução do IoT Edge após esse comando:
 
-   ```
+   ```cmd/sh
    iotedgectl restart
    ```
 
@@ -155,7 +151,7 @@ Primeiro, um aplicativo de dispositivo downstream precisa confiar no certificado
 
 Por exemplo, para aplicativos .NET, você pode adicionar o trecho a seguir para confiar em um certificado no formato PEM armazenado no caminho `certPath`. Dependendo da versão do script usada, o caminho faz referência a um `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) ou a um `RootCA.pem` (Powershell).
 
-   ```
+   ```csharp
    using System.Security.Cryptography.X509Certificates;
    
    ...

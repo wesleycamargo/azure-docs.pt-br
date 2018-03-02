@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo 
 
@@ -65,7 +65,7 @@ A saída deve ser semelhante a esta:
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Usar o Portal do Azure para criar um instantâneo 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Iniciando no canto superior esquerdo, clique em **Novo** e procure **instantâneo**.
+2. Iniciando no canto superior esquerdo, clique em **Criar um recurso** e procure **instantâneo**.
 3. Na folha Instantâneo, clique em **Criar**.
 4. Insira um **Nome** para o instantâneo.
 5. Selecione um [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups) existente ou digite o nome de um novo. 

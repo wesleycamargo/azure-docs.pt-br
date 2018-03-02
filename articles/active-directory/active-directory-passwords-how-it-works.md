@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
 
@@ -78,7 +78,7 @@ Por padrão, somente os atributos de nuvem telefone comercial e telefone celular
 
 Os usuários somente poderão redefinir suas senhas se tiverem dados presentes nos métodos de autenticação habilitados e definidos como obrigatórios pelo administrador.
 
-Se os usuários não quiserem que seu número de telefone celular seja visível no diretório, mas eles ainda querem usá-lo para redefinição de senha, os administradores não devem preenchê-lo no diretório. Os usuários devem então preencher o atributo **Telefone de Autenticação** através do [portal de registro de redefinição de senha](http://aka.ms/ssprsetup). Os administradores poderão ver essas informações no perfil do usuário, mas elas não serão publicadas em nenhum outro lugar.
+Se os usuários não quiserem que seu número de telefone celular seja visível no diretório, mas eles ainda querem usá-lo para redefinição de senha, os administradores não devem preenchê-lo no diretório. Os usuários devem então preencher o atributo **Telefone de Autenticação** através do [portal de registro de redefinição de senha](https://aka.ms/ssprsetup). Os administradores poderão ver essas informações no perfil do usuário, mas elas não serão publicadas em nenhum outro lugar.
 
 ### <a name="the-number-of-authentication-methods-required"></a>Quantidade de necessária de métodos de autenticação
 
@@ -180,7 +180,7 @@ Para habilitar essa opção, um usuário habilitado para redefinição de senha 
 * Aplicativos federados
 * Aplicativos personalizados que usam o Azure Active Directory
 
-Quando a necessidade de registro estiver desabilitada, os usuários ainda poderão registrar manualmente suas informações de contato. Os usuários podem visitar [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) ou selecionar o link **Registrar para redefinição de senha** na guias **Perfil** no Painel de Acesso.
+Quando a necessidade de registro estiver desabilitada, os usuários ainda poderão registrar manualmente suas informações de contato. Os usuários podem visitar [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) ou selecionar o link **Registrar para redefinição de senha** na guia **Perfil** no Painel de Acesso.
 
 > [!NOTE]
 > Os usuários podem ignorar o portal de registro de redefinição de senha selecionando **cancelar** ou fechando a janela. Mas eles são solicitados a registrar cada vez que entrar até que eles concluir seu registro.

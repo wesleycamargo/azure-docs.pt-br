@@ -3,7 +3,7 @@ title: "Provisionar um tempo de execução de integração do SSIS usando o Azur
 description: "Este artigo explica como criar um tempo de execução de integração do Azure SSIS usando o Azure Data Factory."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: hero-article
 ms.date: 01/29/2018
-ms.author: spelluru
-ms.openlocfilehash: 52df89ea8562b343e1bcfb3175016c415e78a1a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: 2e3e1fff385de87e69ea36d8ffec128f662f6e50
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Provisionar um tempo de execução de integração do Azure SSIS usando a interface do usuário do Azure Data Factory
 Este tutorial fornece etapas para o provisionamento para o portal do Azure de um tempo de execução de integração (IR) do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SQL Server Data Tools ou o SQL Server Management Studio para implantar pacotes do SSIS (SQL Server Integration Services) para esse tempo de execução no Azure. Para obter informações conceituais sobre IRs do SSIS do Azure, consulte [visão geral do Integration Runtime do Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -41,11 +41,11 @@ Neste tutorial, você completa as seguintes etapas:
 
 > [!NOTE]
 > - Você pode criar um data factory de versão 2 nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Sudeste Asiático e Europa Ocidental. 
-> - Você pode criar um Azure-SSIS IR nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Norte da Europa, Europa Ocidental e Leste da Austrália. 
+> - Você pode criar um Azure-SSIS IR nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, EUA Central, Europa Setentrional, Europa Ocidental e Leste da Austrália. 
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 2. Entre no [portal do Azure](https://portal.azure.com/).    
 3. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise**e, em seguida, selecione **Data Factory**. 
    

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 26ef6f69ef2f2d50628f4d0b021159526c9a04a7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gerenciar solicitações da lista de correspondência com um aplicativo lógico
 
@@ -55,7 +55,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
 
 ## <a name="create-your-logic-app"></a>Criar seu aplicativo lógico
 
-1. No menu principal do Azure, escolha **Novo** > **Enterprise Integration** > **Aplicativo Lógico**.
+1. No portal principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
 
    ![Criar aplicativo lógico](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 

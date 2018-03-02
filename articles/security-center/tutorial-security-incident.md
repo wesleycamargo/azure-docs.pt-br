@@ -9,17 +9,17 @@ editor:
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: b6adf4bec2d9f92ee3cde9c73a03beb5a58c3f3f
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 2eb6a2ea2cd9aa70c5b4f60ab2786b21d8996c29
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para lhe avisar a existência de atividades mal-intencionadas. Além disso, você pode integrar à Central de Segurança alertas de outros produtos e serviços de segurança, bem como criar alertas personalizados com base em indicadores próprios ou fontes de inteligência. Após a geração de um alerta, é necessária uma ação rápida para investigação e correção da questão. Neste tutorial, você aprenderá a:
@@ -31,7 +31,7 @@ A Central de Segurança analisa continuamente as cargas de trabalho de nuvem hí
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para percorrer os recursos abordados neste tutorial, você deve estar em um tipo de preço da Central de Segurança Padrão. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias. O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.
 
 ## <a name="triage-security-alerts"></a>Classificação de alertas de segurança
@@ -81,7 +81,7 @@ Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de
 1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.
 2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.
 3. Em **COMPONENTES DE POLÍTICA**, selecione **Tipo de preços**.
-4. Selecione **Gratuita** para alterar a assinatura da camada Padrão para a camada Gratuita.
+4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a camada Gratuita.
 5. Selecione **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:

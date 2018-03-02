@@ -1,6 +1,6 @@
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Começando no canto superior esquerdo, clique em **Nova > Computação > Datacenter do Windows Server 2016**.
+2. Iniciando no canto superior esquerdo, clique em **Criar um recurso** > **Computação** > **Windows Server 2016 Datacenter**.
 
     ![Navegar até as imagens de VM do Azure no portal](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
@@ -16,7 +16,7 @@ A folha de Noções básicas solicita informações administrativas da máquina 
 
 2. Insira um **Nome de usuário** e uma **Senha** forte que serão usados para criar uma conta local na VM. A conta local é usada para conectar e gerenciar a VM. Neste exemplo, o nome de usuário é _azureuser_.
 
- A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Veja mais sobre os [requisitos de nome de usuário e senha](../articles/virtual-machines/windows/faq.md).
+ A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Confira mais sobre os [requisitos de nome de usuário e senha](../articles/virtual-machines/windows/faq.md).
 
 3. A **Assinatura** é opcional. Uma configuração comum é "Pré-pago".
 

@@ -1,3 +1,5 @@
+# [Documentação das Máquinas Virtuais](index.md)
+
 # [Máquinas Virtuais do Linux](linux/overview.md)
 # [Máquinas Virtuais do Windows](windows/overview.md)
 # [VMs do Linux usando implantação clássica](linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)

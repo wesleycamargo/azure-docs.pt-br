@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 A auditoria do banco de dados SQL do Azure acompanha eventos do banco de dados e grava-os em um log de auditoria em sua conta de armazenamento do Azure. A auditoria também:
@@ -42,7 +42,8 @@ Você pode configurar a auditoria para diferentes tipos de categorias de evento,
 > [!IMPORTANT]
 > Os logs de auditoria são gravados nos **Blobs Acrescentados** em um armazenamento de Blob do Azure em sua assinatura do Azure.
 >
-> Atualmente, o **armazenamento na VNet** **não tem suporte**.
+> * O **Armazenamento Premium** atualmente **não tem suporte** por Blobs de Acréscimo.
+> * Atualmente, o **armazenamento na VNet** **não tem suporte**.
 
 ## <a id="subheading-8"></a>Definir a política de auditoria no nível do servidor versus no nível do banco de dados
 

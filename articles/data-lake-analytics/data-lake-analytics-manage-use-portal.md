@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -33,7 +33,7 @@ Saiba como gerenciar contas, fontes de dados da conta, usuários e trabalhos do 
 ### <a name="create-an-account"></a>Criar uma conta
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Novo** > **Intelligence + análise** > **Data Lake Analytics**.
+2. Clique em **Criar um recurso** > **Intelligence + analytics** > **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens: 
    1. **Nome**: o nome da conta do Data Lake Analytics.
    2. **Assinatura**: a assinatura do Azure usada para a conta.

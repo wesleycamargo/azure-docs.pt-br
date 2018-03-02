@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo Web lento no Serviço de Aplicativo do Azure
 Este artigo ajuda você a solucionar problemas de desempenho de aplicativo Web lento no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -62,11 +62,11 @@ Algumas das métricas que deseja monitorar para seu aplicativo Web são
 * Tempo médio de resposta
 * Tempo de CPU
 * Conjunto de trabalho de memória
-* Solicitações
+* Requests
 
 ![monitorar o desempenho do aplicativo Web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Para obter mais informações, consulte:
+Para obter mais informações, confira:
 
 * [Monitorar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 * [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -83,18 +83,14 @@ Para configurá-lo, veja [Monitorar aplicativos Web no Serviço de Aplicativo do
 Veja também um vídeo sobre monitoramento de pontos de extremidade em [Mantendo os sites do Azure ativos e monitorando pontos de extremidade - com Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow)
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Monitoramento de desempenho de aplicativos usando extensões
-Você também pode monitorar o desempenho do aplicativo usando *extensões de site*.
+Você também pode monitorar o desempenho do aplicativo usando uma *extensão de site*.
 
 Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de gerenciamento extensível que permite que você use um conjunto poderoso de ferramentas implantados como extensões de site. As extensões incluem: 
 
 - Editores de código-fonte, como o [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Ferramentas de gerenciamento de recursos conectados, tais como um banco de dados MySQL conectado a um aplicativo Web.
 
-O [Azure Application Insights](/services/application-insights/) e o [New Relic](/marketplace/partners/newrelic/newrelic/) são duas das extensões de site para monitoramento de desempenho que estão disponíveis. Para usar o New Relic, instale um agente em tempo de execução. Para usar o Application Insights do Azure, recrie seu código com um SDK. Você também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes.
-
-Para usar o Application Insights, consulte [Monitorar o desempenho em aplicativos Web](../application-insights/app-insights-web-monitor-performance.md).
-
-Consulte [Gerenciamento de desempenho do aplicativo New Relic nos sites do Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -114,7 +110,7 @@ Há várias opções para coletar dados de desempenho do aplicativo de Aplicativ
 ##### <a name="use-application-insights-profiler"></a>Use o Application Insights Profiler
 Você pode habilitar o Application Insights Profiler para iniciar a captura de rastreamentos de desempenho detalhados. Quando é necessário investigar problemas ocorridos no passado, você pode acessar os rastreamentos até cinco dias atrás. Você pode escolher essa opção, contanto que tenha acesso ao recurso do Application Insights do aplicativo Web no Portal do Azure.
 
-O Application Insights Profiler fornece estatísticas em tempo de resposta para cada chamada Web e os rastreamentos que indicam qual linha de código causou as respostas lentas. Às vezes, o aplicativo de Serviço de Aplicativo está lento porque determinados códigos não são gravados de uma maneira mais eficaz. Exemplos incluem um código sequencial que pode ser executado em contenções de bloqueio do banco de dados paralelas e indesejadas. Remover esses afunilamentos no código aumenta o desempenho do aplicativo, mas eles são difíceis de detectar sem configurar logs e rastreamentos elaborados. Os rastreamentos coletados pelo Application Insights Profiler ajudam a identificar as linhas de código que deixam o aplicativo lento e a superar esse desafio para os aplicativos do Serviço de Aplicativo.
+O Application Insights Profiler fornece estatísticas em tempo de resposta para cada chamada Web e os rastreamentos que indicam qual linha de código causou as respostas lentas. Às vezes, o aplicativo de Serviço de Aplicativo está lento porque determinados códigos não são gravados de uma maneira mais eficaz. Exemplos incluem um código sequencial que pode ser executado em contenções de bloqueio do banco de dados paralelas e indesejadas. Remover esses gargalos no código aumenta o desempenho do aplicativo, mas eles são difíceis de detectar sem configurar logs e rastreamentos elaborados. Os rastreamentos coletados pelo Application Insights Profiler ajudam a identificar as linhas de código que deixam o aplicativo lento e a superar esse desafio para os aplicativos do Serviço de Aplicativo.
 
  Para obter mais informações, consulte [Criação de perfil de aplicativos Web do Azure ativos com o Application Insights](../application-insights/app-insights-profiler.md).
 

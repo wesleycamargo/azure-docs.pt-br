@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitore e gerencie os cofres dos serviços de recuperação do Azure e os servidores para os computadores que usam o Windows
 
@@ -32,13 +32,11 @@ Este artigo contém uma visão geral das tarefas de gerenciamento e monitorament
 O painel do cofre dos Serviços de Recuperação mostra os detalhes ou atributos de um cofre dos Serviços de Recuperação.
 
 1. Entre no [Portal do Azure](https://portal.azure.com/) usando sua assinatura do Azure.
-2. No menu Hub, clique em **Mais Serviços**.
-
-    ![Abrir a lista de cofres dos Serviços de Recuperação, etapa 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Clique em **Todos os serviços**. 
 
 3. Convém abrir um cofre dos Serviços de Recuperação. Na caixa de diálogo, comece a digitar **Serviços de Recuperação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Cofres dos Serviços de Recuperação** para exibir a lista de cofres dos Serviços de Recuperação em sua assinatura.
 
-    ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Abrir a lista de cofres dos Serviços de Recuperação, etapa 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     A lista de cofres dos Serviços de Recuperação será aberta.
 
@@ -74,9 +72,9 @@ Na parte superior do Painel:
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Alertas de backups usando o agente de backup do Azure:
 | Nível de alerta | Alertas enviados |
 | --- | --- |
-| Crítico |Falha de backup, falha na recuperação |
-| Aviso |Backup foi concluído com avisos (quando < 100 de arquivos ficam sem backup devido a problemas de corrupção e > 1,000,000 de arquivos têm o backup feito com êxito) |
-| Informativo |Nenhum |
+| Crítico | para falha no Backup, falha de recuperação e Exclusão adiada, ou seja, quando alguém para a proteção com dados de exclusão |
+| Aviso | para Backup concluído com avisos (quando < 100 de arquivos ficam sem backup devido a problemas de corrupção e > 1.000.000 de arquivos têm o backup feito com êxito) |
+| Informativo | atualmente, nenhum alerta informativo está disponível para o Azure Backup Agent |
 
 ## <a name="manage-backup-alerts"></a>Gerenciar alertas de Backup
 Clique no bloco **Alertas de Backup** para abrir o menu **Alertas de Backup** e gerenciar os alertas.

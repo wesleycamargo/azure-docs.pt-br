@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 69e8735417bc006296b8a6e5168d9fbeff052247
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: bc1ea42c9fb81fe1e2a2594fda48500132cbb539
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Consultar mensagens AS2, X12 e EDIFACT no Microsoft OMS (Operations Management Suite)
 
@@ -44,7 +44,7 @@ Este exemplo mostra como você pode encontrar mensagens com base no número de c
 > [!TIP] 
 > Se você souber o nome do espaço de trabalho do OMS, acesse a home page do espaço de trabalho (`https://{your-workspace-name}.portal.mms.microsoft.com`) e comece na etapa 4. Caso contrário, comece na etapa 1.
 
-1. No [portal do Azure](https://portal.azure.com), escolha **Mais serviços**. Pesquise “log analytics” e, em seguida, escolha **Log Analytics**, conforme mostrado aqui:
+1. No [Portal do Azure](https://portal.azure.com), escolha **Todos os serviços**. Pesquise “log analytics” e, em seguida, escolha **Log Analytics**, conforme mostrado aqui:
 
    ![Encontrar o Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 

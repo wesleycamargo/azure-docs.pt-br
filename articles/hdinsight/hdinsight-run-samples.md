@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e4dbf1fa32f916a206e4f8d796218ab809835ad
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a5aabd2d845f4ff10169640d6316c1029105f608
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Executar exemplos do MapReduce do Hadoop no HDInsight baseado em Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -48,9 +48,9 @@ Hoje em dia, muitas pessoas escolhem o Hive e o Pig em vez do MapReduce.  Para o
 
 **Pré-requisitos**:
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **um cluster do HDInsight**. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Criar clusters do Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* **Uma estação de trabalho com o PowerShell do Azure**.
+* **Uma estação de trabalho com o PowerShell do Azure.**
 
     > [!IMPORTANT]
     > O suporte do Azure PowerShell para gerenciar os recursos do HDInsight usando o Gerenciador de Serviços do Azure está **preterido** e será removido em 1º de janeiro de 2017. As etapas neste documento usam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
@@ -519,7 +519,7 @@ implements Mapper<LongWritable, LongWritable, BooleanWritable, LongWritable> {
 //Map method.
 //@param offset samples starting from the (offset+1)th sample.
 //@param size the number of samples for this map
-//@param out output {ture->numInside, false->numOutside}
+//@param out output {true->numInside, false->numOutside}
 //@param reporter
 public void map(LongWritable offset,
 LongWritable size,

@@ -9,17 +9,17 @@ editor:
 ms.assetid: 3263bb3d-befc-428c-9f80-53de65761697
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: 2ea4dc75c6285379d7a7eb3e85d28c89ae520dc8
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 95cc85f0c742d465ab1ed68d6c29b61a6919dd5b
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Início rápido: Conectar soluções de segurança à Central de Segurança
 
@@ -29,7 +29,7 @@ Este guia de início rápido mostra como:
 - Conectar uma solução de segurança à Central de Segurança usando os logs do CEF
 - Validar a conexão com a solução de segurança
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
 
 Para percorrer este guia de início rápido, você deverá estar no tipo de preço Standard da Central de Segurança. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias. O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.
@@ -77,12 +77,12 @@ Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de
 1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.
 2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.
 3. Em **COMPONENTES DE POLÍTICA**, selecione **Tipo de preços**.
-4. Selecione **Gratuita** para alterar a assinatura da camada Padrão para a camada Gratuita.
+4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a camada Gratuita.
 5. Selecione **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
 
-1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.
+1. Retorne ao menu principal da Central de Segurança e selecione **Política de segurança**.
 2. Selecione a assinatura em que você deseja desabilitar o provisionamento automático.
 3. Em **Política de segurança – Coleta de dados**, selecione **Desativar** em **Integração** para desabilitar o provisionamento automático.
 4. Selecione **Salvar**.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações que você pode executar usando o Azure AD (Azure Active Directory) Connect Health.
@@ -42,6 +42,9 @@ Você pode configurar o serviço do Azure AD Connect Health para enviar notifica
 
 ## <a name="delete-a-server-or-service-instance"></a>Excluir uma instância de serviço ou servidor
 
+>[!NOTE] 
+> Uma licença do Microsoft Azure AD Premium é necessária para as etapas de exclusão.
+
 Em alguns casos, você poderá remover um servidor que está sendo monitorado. Aqui está o que você precisa saber para remover um servidor do serviço do Azure AD Connect Health.
 
 Ao excluir um servidor, lembre-se do seguinte:
@@ -51,7 +54,11 @@ Ao excluir um servidor, lembre-se do seguinte:
 * Essa ação não exclui os dados já coletados neste servidor. Esses dados são excluídos de acordo com a política de retenção de dados do Azure.
 * Depois de executar esta ação, se desejar começar a monitorar o mesmo servidor novamente, desinstale e reinstale o Agente de Integridade nesse servidor.
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>Para excluir um servidor do serviço do Azure AD Connect Health
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Excluir um servidor do serviço do Azure AD Connect Health
+
+>[!NOTE] 
+> Uma licença do Microsoft Azure AD Premium é necessária para as etapas de exclusão.
+
 Azure AD Connect Health para Serviços de Federação do Active Directory (AD FS) e Azure AD Connect (sincronização):
 
 1. Abra a folha **Servidor** da folha **Lista de Servidores**, selecionando o nome do servidor a ser removido.
@@ -133,7 +140,7 @@ Agora os usuários e grupos listados têm acesso, de acordo com suas funções a
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Etapa 3: Compartilhe o local da folha com usuários ou grupos
-1. Depois que você atribuir permissões, o usuário poderá acessar o Azure AD Connect Health [aqui](http://aka.ms/aadconnecthealth).
+1. Depois que você atribuir permissões, o usuário poderá acessar o Azure AD Connect Health [aqui](https://aka.ms/aadconnecthealth).
 2. Na folha, o usuário pode fixar a folha ou diferentes partes dela no painel. Basta clicar no ícone **Fixar no painel**.<br>
    ![Captura de tela da folha de fixar do RBAC do Azure AD Connect Health, com o ícone de pino realçado](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 

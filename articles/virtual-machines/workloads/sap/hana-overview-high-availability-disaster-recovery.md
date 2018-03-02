@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 02/01/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d41df9b9d9bd518bb507b0fcde001f35c11e6264
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9ef09e33803a976e05e555ec7ae9eb872d237137
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidade e recuperação de desastre de instâncias grandes do SAP HANA no Azure 
 
@@ -111,7 +111,7 @@ O SAP HANA no Azure (Instâncias Grandes) oferece duas opções de backup e de r
 A infraestrutura de armazenamento subjacente ao SAP HANA no Azure (Instâncias Grandes) dá suporte a instantâneos de armazenamento de volumes. Há suporte para o backup e para a restauração de volumes, com as seguintes considerações:
 
 - Em vez de backups de banco de dados completos, instantâneos de volume de armazenamento são executados com frequência.
-- Ao disparar um instantâneo nos volumes /hana/data, 'hana/log e /hana/shared (inclui /usr/sap), o instantâneo de armazenamento inicia um instantâneo SAP HANA antes de executar o instantâneo de armazenamento. Esse instantâneo SAP HANA é o ponto de instalação para restaurações de log eventual após a recuperação do instantâneo de armazenamento.
+- Ao disparar um instantâneo nos volumes /hana/data e /hana/shared (inclui /usr/sap), o instantâneo de armazenamento inicia um instantâneo SAP HANA antes de executar o instantâneo de armazenamento. Esse instantâneo SAP HANA é o ponto de instalação para restaurações de log eventual após a recuperação do instantâneo de armazenamento.
 - Após o ponto em que o instantâneo de armazenamento é executado com êxito, o instantâneo SAP HANA será excluído.
 - Os backups de log de transações são usados frequentemente e armazenados no volume /hana/logbackups ou no Azure. É possível disparar o volume /hana/logbackups que contém os backups de log de transações para usar um instantâneo separadamente. Nesse caso, não é necessário executar um instantâneo do HANA.
 - Se você precisar restaurar um banco de dados para um determinado ponto no tempo, solicite suporte do Microsoft Azure (para uma interrupção de produção) ou do Gerenciamento de Serviços do SAP HANA no Azure para restaurar para um determinado instantâneo de armazenamento. Um exemplo é uma restauração planejada de um sistema de área restrita para seu estado original.
@@ -149,7 +149,7 @@ As seções a seguir fornecem informações para executar esses instantâneos in
 - Durante maiores reorganizações de tabelas do SAP HANA, deve-se evitar os instantâneos de armazenamento, se possível.
 - Os instantâneos de armazenamento são um pré-requisito para usar os recursos de recuperação de desastre do SAP HANA no Azure (Instâncias Grandes).
 
-### <a name="pre-requisites-for-leveraging-self-service-storage-snapshots"></a>Pré-requisitos para aproveitar os instantâneos de armazenamento de autoatendimento
+### <a name="prerequisites-for-leveraging-self-service-storage-snapshots"></a>Pré-requisitos para aproveitar os instantâneos de armazenamento de autoatendimento
 
 Para garantir que o script do instantâneo seja executado com sucesso, verifique se o Perl está instalado no sistema operacional Linux no servidor do HANA em Instâncias Grandes. O Perl vem pré-instalado em sua unidade do HANA em Instâncias Grandes. Para verificar a versão do Perl, use a linha de comando a seguir:
 
@@ -299,7 +299,7 @@ Ao lidar com scripts de Perl:
 
 A finalidade dos diferentes scripts e arquivos é:
 
-- **azure\_hana\_backup.pl**: agende este script com cron para executar instantâneos de armazenamento nos volumes data/log/shared do HANA, no volume /hana/logbackups ou no sistema operacional.
+- **azure\_hana\_backup.pl**: agende esse script com o cron para executar instantâneos de armazenamento nos dados HANA e volumes compartilhados, volume /hana/logbackups ou SO.
 - **azure\_hana\_replication\_status.pl**: este script oferece os detalhes básicos sobre o status de replicação do local de produção para o local de recuperação de desastre. O script monitora para garantir que a replicação está ocorrendo e mostra o tamanho dos itens que estão sendo replicados. Ele também fornecerá orientação se uma replicação estiver demorando muito ou se o link estiver inativo.
 - **azure\_hana\_snapshot\_details.pl**: este script oferece uma lista de detalhes básicos sobre todos os instantâneos, por volume, que existem em seu ambiente. Esse script pode ser executado no servidor primário ou em uma unidade de servidor no local da recuperação de desastre. O script fornece as informações a seguir divididas por cada volume que contém os instantâneos:
    * Tamanho do total de instantâneos em um volume

@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas com suporte na Central de Segurança do Azure
-O monitoramento e as recomendações de estado de segurança estão disponíveis para VMs (máquinas virtuais) criadas usando os modelos de implantação clássico e do Resource Manager.
+As recomendações e o monitoramento do estado de segurança estão disponíveis para VMs (máquinas virtuais), criadas usando ambos os modelos de implantação do Resource Manager e clássico, e computadores.
 
 > [!NOTE]
 > Saiba mais sobre os [modelos de implantação clássica e do Gerenciador de Recursos](../azure-classic-rm.md) para recursos do Azure.
 >
 >
 
-## <a name="supported-platforms-for-windows-vms"></a>Plataformas com suporte para VMs do Windows
+## <a name="supported-platforms-for-windows-computers-and-vms"></a>Plataformas com suporte para computadores com Windows e VMs
 Sistemas operacionais Windows com suporte:
 
 * Windows Server 2008
@@ -38,7 +38,7 @@ Sistemas operacionais Windows com suporte:
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-vms"></a>Plataformas com suporte para VMs Linux
+## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas com suporte para computadores Linux e VMs
 Sistemas operacionais Linux com suporte:
 
 * Ubuntu versões 12.04, 14.04, 16.04, 16.10

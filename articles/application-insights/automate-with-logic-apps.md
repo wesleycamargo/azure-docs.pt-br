@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 92521bab2082f63fa01e816151e3da9400effe6d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize os processos do Application Insights usando os Aplicativos Lógicos
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como criar um aplicativo lógico que utliza o a
 
 ### <a name="step-1-create-a-logic-app"></a>Etapa 1: criar um aplicativo lógico
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No painel **Novo**, selecione **Web + Móvel** e, em seguida, selecione **Aplicativo Lógico**.
+2. Clique em **Criar um recurso**, selecione **Web + Celular** e, em seguida, selecione **Aplicativos Lógico**.
 
     ![Janela Novo aplicativo lógico](./media/automate-with-logic-apps/logicapp1.png)
 
@@ -131,7 +131,7 @@ Quando o aplicativo lógico for executado, os destinatários especificados na li
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a criação de [Consultas do Analytics](app-insights-analytics-using.md).
+- Saiba mais sobre como criar [consultas do Analytics](app-insights-analytics-using.md).
 - Saiba mais sobre o [Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

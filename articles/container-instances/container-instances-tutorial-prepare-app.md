@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: fc16be80e776d1472be775fa32354ba157d16545
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5012412ec642a04102836274caea253635376efb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Criar contêiner para implantação nas Instâncias de Contêiner do Azure
 
@@ -32,7 +32,7 @@ Nos tutoriais subsequentes, você carregará sua imagem em um Registro de Contê
 
 Este tutorial requer a execução da CLI do Azure versão 2.0.23 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure][azure-cli-install].
 
-Este tutorial assume uma compreensão básica dos conceitos fundamentais do Docker como contêineres, imagens de contêiner e comandos básicos do `docker`. Se necessário, consulte [Introdução ao Docker][docker-get-started] para conhecer os conceitos básicos de contêiner.
+Este tutorial assume uma compreensão básica dos conceitos fundamentais do Docker como contêineres, imagens de contêiner e comandos básicos do `docker`. Se necessário, consulte [Get started with Docker][docker-get-started] (Introdução ao Docker) para conhecer os conceitos básicos de contêiner.
 
 Para concluir este tutorial, você precisa de um ambiente de desenvolvimento do Docker instalado localmente. O Docker fornece pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
@@ -57,7 +57,7 @@ O Dockerfile fornecido no repositório de exemplo mostra como o contêiner é cr
 ```Dockerfile
 FROM node:8.9.3-alpine
 RUN mkdir -p /usr/src/app
-COPY ./app/* /usr/src/app/
+COPY ./app/ /usr/src/app/
 WORKDIR /usr/src/app
 RUN npm install
 CMD node /usr/src/app/index.js

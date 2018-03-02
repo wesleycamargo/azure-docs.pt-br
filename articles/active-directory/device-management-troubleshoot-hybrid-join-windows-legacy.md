@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
@@ -82,6 +82,18 @@ Se o ingresso no Azure AD híbrido não tiver sido bem-sucedido, a caixa de diá
 - Você não está conectado como um usuário de domínio
 
     ![Workplace Join para Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    Há algumas razões diferentes pelas quais isso pode ocorrer:
+    
+    1. Se o usuário conectado não for um usuário de domínio (por exemplo, um usuário local). O ingresso no Azure AD Híbrido em dispositivos de nível inferior tem suporte apenas para usuários do domínio.
+    
+    2. Se, por qualquer motivo, o Autoworkplace.exe não puder autenticar silenciosamente com o Azure Active Directory ou o AD FS. Algumas razões possíveis podem ser problemas de conectividade de rede de saída para URLs do Azure Active Directory (verifique os pré-requisitos) ou se a MFA está habilitada/configurada para o usuário, mas WIAORMUTLIAUTHN não está configurado no servidor de federação (verifique as etapas de configuração). Outra possibilidade é que a página de HRD (descoberta de realm inicial) esteja aguardando interação do usuário, impedindo o Autoworkplace.exe obter silenciosamente 
+    
+    3. Se a organização estiver usando Logon Único Contínuo do Azure Active Directory, as URLs a seguir não estarão presentes nas configurações de intranet do IE do dispositivo:
+    - https://autologon.microsoftazuread-sso.com
+    - https://aadg.windows.net.nsatc.net
+    
+    e a configuração "Permitir atualizações da barra de status via script" deve estar habilitada para a zona da Intranet.
 
 - Você atingiu uma cota
 

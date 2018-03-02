@@ -1,3 +1,5 @@
+- name: Terraform na Documentação do Azure
+  href: index.yml
 - name: Visão geral
   items:
     - name: Sobre o Terraform no Azure

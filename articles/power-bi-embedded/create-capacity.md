@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: 1902e5c18cd7083ceeda79e6b9e779e4baaf175a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Criar uma capacidade do Power BI Embedded no Portal do Azure
 
@@ -41,7 +41,7 @@ Para concluir este início rápido, você precisa de:
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-2. Selecione **+ (Novo)** > **Dados + Análise**.
+2. Selecione **Criar um recurso** > **Dados + Análise**.
 
 3. Na caixa de pesquisa, pesquise *Power BI Embedded*.
 
@@ -51,7 +51,7 @@ Para concluir este início rápido, você precisa de:
 
     ![Campos a serem preenchidos para criar uma nova capacidade](media/create-capacity/azure-portal-create-power-bi-embedded.png)
 
-    |Configuração |Descrição |
+    |Configuração |DESCRIÇÃO |
     |---------|---------|
     |**Nome do recurso**|Um nome para identificar a capacidade. O nome do recurso é exibido no portal de administração do Power BI, além do Portal do Azure.|
     |**Assinatura**|A assinatura na qual você deseja criar a capacidade.|
@@ -62,7 +62,7 @@ Para concluir este início rápido, você precisa de:
 
 6. Selecione **Criar**.
 
-Normalmente, a criação demora menos de um minuto, com frequência, apenas alguns segundos. Se você selecionou **Fixar no painel**, navegue até o painel para ver a nova capacidade. Ou navegue até **Mais serviços** > **Power BI Embedded** para ver se sua capacidade está pronta.
+Normalmente, a criação demora menos de um minuto, com frequência, apenas alguns segundos. Se você selecionou **Fixar no painel**, navegue até o painel para ver a nova capacidade. Ou navegue até **Todos os serviços** > **Power BI Embedded** para ver se sua capacidade está pronta.
 
 ![painel do Portal do Azure com a capacidade do Power BI Embedded](media/create-capacity/azure-portal-dashboard.png)
 

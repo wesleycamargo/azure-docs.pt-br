@@ -6,24 +6,23 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 331dafc9164e315c84036fa0af11820e89066f36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75df4436d5d36878f361e87f34d9bfc8bed1e58f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
-Este artigo contém instruções sobre como usar cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e atualizar grupos. Este conteúdo se aplica apenas a grupos do Office 365. 
+Este artigo contém instruções sobre como usar cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e atualizar grupos. Este conteúdo aplica-se somente aos Grupos do Office 365 (às vezes chamados de grupos unificados). 
 
 > [!IMPORTANT]
 > Algumas configurações exigem uma licença do Azure Active Directory Premium P1. Para obter mais informações, consulte a tabela [Configurações de modelo](#template-settings).
@@ -42,7 +41,7 @@ Se você souber o nome da configuração que deseja recuperar, será possível u
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>Criar configurações no nível do diretório
-Estas etapas criam configurações no nível do diretório, que se aplicam a todos os grupos do Office 365 (Grupos unificados) no diretório.
+Essas etapas criam configurações no nível de diretório, que são aplicáveis a todos os Grupos do Office 365 no diretório.
 
 1. Nos cmdlets DirectorySettings, você precisa especificar a ID de SettingsTemplate que deseja usar. Se você não souber essa ID, esse cmdlet retornará a lista com todos os modelos de configurações:
   
@@ -55,7 +54,7 @@ Estas etapas criam configurações no nível do diretório, que se aplicam a tod
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Office 365 group
   16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
@@ -93,20 +92,19 @@ Aqui estão as configurações definidas no Group.Unified SettingsTemplate. A me
 
 | **Configuração** | **Descrição** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Tipo: booliano<li>Padrão: True |O sinalizador que indica se é permitida a criação de Grupo Unificado no diretório por usuários que não são administradores. Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Padrão: “” |O GUID do grupo de segurança para o qual os membros têm permissão para criar Grupos Unificados, mesmo quando EnableGroupCreation = = false. |
+|  <ul><li>EnableGroupCreation<li>Tipo: booliano<li>Padrão: True |O sinalizador indicando se a criação do Grupo do Office 365 é permitida no diretório pelos usuários não administradores. Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Padrão: “” |GUID do grupo de segurança para o qual os membros podem criar Grupos do Office 365 mesmo quando EnableGroupCreation == falso. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Padrão: “” |Um link para as Diretrizes de Uso do Grupo. |
 |  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Padrão: “” | Uma lista delimitada por vírgulas de descrições de classificação. |
 |  <ul><li>DefaultClassification<li>Tipo: String<li>Padrão: “” | A classificação que deve ser usada como a classificação padrão para um grupo, se nenhuma for especificada.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Padrão: “” | Não use. Não implementado. |
-| <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Padrão: “” | Não use. Não implementado. |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Padrão: “” | Cadeia de caracteres de um comprimento máximo de 64 caracteres que define a convenção de nomenclatura configurada para Grupos do Office 365. Para obter mais informações, consulte [Impor uma política de nome para Grupos do Office 365 (versão prévia)](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Padrão: “” | Cadeia de caracteres de frases separadas por vírgulas que os usuários não serão autorizados a usar em nomes de grupos ou alias. Para obter mais informações, consulte [Impor uma política de nome para Grupos do Office 365 (versão prévia)](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Tipo: booliano<li>Padrão: “False” | Não use
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booliano<li>Padrão: False | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booliano<li>Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo de Grupos Unificados.  Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
+|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booliano<li>Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo dos Grupos do Office 365.  Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Padrão: “” | A url de um link para as diretrizes de uso do convidado. |
 |  <ul><li>AllowToAddGuests<li>Tipo: booliano<li>Padrão: True | Um booliano que indica se há permissão para adicionar convidados a este diretório.|
-|  <ul><li>ClassificationList<li>Tipo: String<li>Padrão: “” |Uma lista delimitada por vírgulas de valores de classificação válidos que podem ser aplicados a Grupos Unificados. |
-
+|  <ul><li>ClassificationList<li>Tipo: String<li>Padrão: “” |Uma lista delimitada por vírgulas de valores de classificação válidos que podem ser aplicados aos Grupos do Office 365. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Ler configurações no nível do diretório
 Estas etapas leem configurações no nível do diretório, que se aplicam a todos os grupos do Office no diretório.
@@ -138,6 +136,7 @@ Estas etapas leem configurações no nível do diretório, que se aplicam a todo
   ClassificationDescriptions
   DefaultClassification
   PrefixSuffixNamingRequirement
+  CustomBlockedWordsList        
   AllowGuestsToBeGroupOwner     False 
   AllowGuestsToAccessGroups     True
   GuestUsageGuidelinesUrl
@@ -157,7 +156,7 @@ Estas etapas leem configurações no nível do diretório, que se aplicam a todo
   Id                                   DisplayName            Description
   --                                   -----------            -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Office 365 group
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
@@ -186,7 +185,7 @@ Estas etapas leem configurações no nível do diretório, que se aplicam a todo
 
 ## <a name="update-settings-at-the-directory-level"></a>Atualizar configurações no nível do diretório
 
-Estas etapas atualizam as configurações no nível do diretório, que se aplicam a todos os grupos Unificados no diretório. Estes exemplos pressupõem que já exista um objeto Configurações em seu diretório.
+Estas etapas atualizam as configurações no nível do diretório, que se aplicam a todos os Grupos do Office 365 no diretório. Estes exemplos pressupõem que já exista um objeto Configurações em seu diretório.
 
 1. Encontre o objeto Configurações existente:
   ```

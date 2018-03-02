@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -92,7 +92,7 @@ Para autenticar com a autenticação integrada, você precisa conceder as permis
 
 Depois de [registrar o aplicativo](#register-your-application-with-an-azure-ad-tenant), siga estas etapas no portal do Azure para conceder a ele o acesso ao serviço do Lote:
 
-1. No painel de navegação esquerdo do portal do Azure, escolha **Mais Serviços** e clique em **Registros de Aplicativo**.
+1. No painel de navegação esquerdo do Portal do Azure, escolha **Todos os serviços**. Clique em **Registros do Aplicativo**.
 2. Pesquise pelo nome do seu aplicativo na lista de registros do aplicativo:
 
     ![Procure o nome do aplicativo](./media/batch-aad-auth/search-app-registration.png)
@@ -124,7 +124,7 @@ Quando o aplicativo é autenticado com uma entidade de serviço, ele envia a ID 
 
 Siga estas etapas no portal do Azure:
 
-1. No painel de navegação esquerdo do portal do Azure, escolha **Mais Serviços** e clique em **Registros de Aplicativo**.
+1. No painel de navegação esquerdo do Portal do Azure, escolha **Todos os serviços**. Clique em **Registros do Aplicativo**.
 2. Pesquise o nome do aplicativo na lista de registros de aplicativo.
 3. Exibição de **configurações** folha. Na seção **Acesso à API**, selecione **Chaves**.
 4. Para criar uma chave, insira uma descrição para a chave. Em seguida, selecione uma duração para a chave de um ou dois anos. 

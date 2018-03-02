@@ -1,3 +1,5 @@
+# [Documentação dos Aplicativos Móveis](index.md)
+
 # Visão geral
 ## [O que são Aplicativos Móveis?](app-service-mobile-value-prop.md)
 ## [Planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

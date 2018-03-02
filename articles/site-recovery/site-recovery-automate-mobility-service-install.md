@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 02/22/2018
 ms.author: krnese
-ms.openlocfilehash: 118a2e775ae3d036f58989d9778104e372e8c701
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: eb837858fe81fa1f2d4966051bd4b7b068defe8b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Implantar o serviço de Mobilidade com o DSC de Automação do Azure para replicação da VM
 No Operations Management Suite, oferecemos uma solução abrangente de backup e recuperação de desastre que pode ser usada como parte de seu plano de continuidade de negócios.
@@ -47,7 +47,7 @@ Este artigo fornece um exemplo de como você pode usar a DSC (Configuração de 
 * o Serviço de Mobilidade e o agente de VM do Azure sejam implantados nos computadores com Windows que você deseja proteger.
 * o Serviço de Mobilidade e o agente de VM do Azure sempre estejam em execução quando o Azure for o destino de replicação.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Um repositório para armazenar a configuração necessária
 * Um repositório para armazenar a senha necessária para se registrar no servidor de gerenciamento
 
@@ -355,7 +355,7 @@ Você pode instanciar seu próprio servidor de recepção do DSC em seu ambiente
 
 Observe que, neste exemplo, há um parâmetro adicional para o nome do computador. Agora, os arquivos remotos estão localizados em um compartilhamento remoto deve ser acessível pelos computadores que você deseja proteger. O final do script coloca a configuração em prática e começa a aplicar a configuração de DSC ao computador de destino.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Certifique-se de que o módulo xPSDesiredStateConfiguration do PowerShell esteja instalado. Para computadores com Windows em que o WMF 5.0 está instalado, você pode instalar o módulo xPSDesiredStateConfiguration executando o seguinte cmdlet nos computadores de destino:
 
 ```powershell

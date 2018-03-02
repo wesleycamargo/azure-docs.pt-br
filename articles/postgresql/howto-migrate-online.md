@@ -1,19 +1,19 @@
 ---
-title: "Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para PostgreSQL | Microsoft Docs"
+title: "Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para PostgreSQL"
 description: "Este artigo descreve como executar uma migração com tempo de inatividade mínimo extraindo um banco de dados PostgreSQL para um arquivo de despejo, restaurando o banco de dados PostgreSQL de um arquivo criado por pg_dump no Banco de Dados do Azure para PostgreSQL e configurando a carga inicial e a sincronização de dados contínua do banco de dados de origem para o banco de dados de destino usando o Attunity Replicate para Microsoft Migrations."
 services: postgresql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: 48cf460405ae3985553f9bff29f4fd7abb008196
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para PostgreSQL
 Migre seu banco de dados PostgreSQL existente para o Banco de Dados do Azure para PostgreSQL usando o Attunity Replicate para Microsoft Migrations. O Attunity Replicate é uma oferta conjunta da Attunity e da Microsoft. Juntamente com o Serviço de Migração de Banco de Dados do Azure, ele é incluído sem custo adicional para os clientes da Microsoft. 
@@ -23,7 +23,7 @@ O Attunity Replicate ajuda a minimizar o tempo de inatividade durante as migraç
 O Attunity Replicate é uma ferramenta de replicação de dados que permite a sincronização de dados entre uma variedade de origens e destinos. Ele propaga o script de criação de esquema e os dados associados a cada tabela de banco de dados. O Attunity Replicate não propaga nenhum outro artefato (como SP, gatilhos, funções e assim por diante) nem converte, por exemplo, o código PL/SQL hospedado nesses artefatos em T-SQL.
 
 > [!NOTE]
-> Embora o Attunity Replicate seja compatível com um amplo conjunto de cenários de migração, ele enfoca o suporte a um subconjunto específico de pares de origem/destino.
+> Embora o Attunity Replicate seja compatível com um amplo conjunto de cenários de migração, ele enfoca o suporte para um subconjunto específico de pares de origem/destino.
 
 Uma visão geral do processo para executar uma migração com tempo de inatividade mínimo inclui:
 

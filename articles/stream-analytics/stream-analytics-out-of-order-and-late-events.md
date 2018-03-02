@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considerações sobre a ordem dos eventos do Azure Stream Analytics
 
@@ -70,6 +70,9 @@ Os eventos que chegam fora de ordem, mas dentro da configuração da janela de t
 * **Removidos**: descartados.
 
 Quando o Stream Analytics reordena eventos recebidos dentro da janela de tolerância para trabalhos fora de ordem, a saída da consulta é atrasada pela janela de tolerância para trabalhos fora de ordem.
+
+### <a name="early-events"></a>Eventos iniciais
+Ao processar por tempo de aplicação, os eventos cujo tempo de aplicação for superior a 5 minutos antes da hora de chegada são descartados ou ajustados de acordo com a opção de configuração selecionada.
 
 ### <a name="example"></a>Exemplo
 

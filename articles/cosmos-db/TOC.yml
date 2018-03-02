@@ -258,6 +258,8 @@
               href: mongodb-robomongo.md
             - name: Usando Mongoose
               href: mongodb-mongoose.md
+            - name: Usando Preferência de Leitura
+              href: mongodb-readpreference.md
             - name: Suporte para recursos do MongoDB
               href: mongodb-feature-support.md
             - name: Série de tutoriais Angular

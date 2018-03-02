@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Configurando o Python com Aplicativos Web do Serviço de Aplicativo do Azure
 Este tutorial descreve as opções para criação e configuração de uma Web Server Gateway Interface (WSGI) básica compatível com aplicativos Python nos [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -36,7 +36,7 @@ O Microsoft Azure Marketplace contém modelos para as estruturas Bottle, Django 
 ## <a name="web-app-creation-on-azure-portal"></a>Criação de aplicativos Web no Portal do Azure
 Este tutorial assume uma assinatura existente do Azure e acesso ao Portal do Azure.
 
-Se não tiver um aplicativo Web já existente, você poderá criar um no [Portal do Azure](https://portal.azure.com).  Clique no botão NOVO no canto superior esquerdo e clique em **Web + Celular** > **aplicativo Web**.
+Se não tiver um aplicativo Web já existente, você poderá criar um no [Portal do Azure](https://portal.azure.com). No canto superior esquerdo, clique em **Criar um recurso** > **Web + Celular** > **aplicativo Web**.
 
 ## <a name="git-publishing"></a>Publicação Git
 Configure a publicação de Git para seu aplicativo Web recém-criado seguindo as instruções em [Implantação de GIT local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md). Este tutorial usa Git para criar, gerenciar e publicar nosso aplicativo Web Python para o Serviço de Aplicativo do Azure.
@@ -353,6 +353,6 @@ Conteúdo de `ptvs_virtualenv_proxy.py`:
 Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python/).
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 

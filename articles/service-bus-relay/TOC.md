@@ -1,3 +1,5 @@
+# [Documentação da Retransmissão do Barramento de Serviço](index.md)
+
 # Visão geral
 ## [O que é Retransmissão?](relay-what-is-it.md)
 ## [Perguntas frequentes](relay-faq.md)

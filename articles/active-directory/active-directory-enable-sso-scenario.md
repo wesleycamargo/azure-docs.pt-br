@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gerenciamento de aplicativos com o Active Directory do Azure
 Além do fluxo de trabalho ou do conteúdo real, as empresas têm dois requisitos básicos para todos os aplicativos:
@@ -78,7 +78,7 @@ Ao usar o AD do Azure para gerenciar aplicativos e habilitar o SSO:
 * A autenticação é feita na conta local (por exemplo, AD) ou do AD do Azure do usuário.
 * A autorização é executada na política de atribuição e de proteção do AD do Azure, garantindo uma experiência do usuário final consistente e permitindo que você adicione atribuição, locais e condições de MFA em qualquer aplicativo, independentemente de seus recursos internos.
 
-É importante entender que a forma como a autorização é imposta no aplicativo de destino varia, dependendo de como o aplicativo foi integrado com o AD do Azure.
+É importante entender que a forma como a autorização é imposta no aplicativo de destino varia, dependendo de como o aplicativo foi integrado com o Azure Active Directory.
 
 * **Aplicativos pré-integrados pelo provedor de serviços** Como o Office 365 e o Azure, estes são aplicativos criados diretamente no AD do Azure e que dependem dele para seus recursos abrangentes de gerenciamento de identidades e de acesso. O acesso a esses aplicativos é habilitado por meio de informações de diretório e emissão de token.
 * **Aplicativos pré-integrados pela Microsoft e aplicativos personalizados** Estes são aplicativos de nuvem independentes que dependem de um diretório interno de aplicativos e que podem funcionar independentemente do AD do Azure. O acesso a esses aplicativos é habilitado por meio da emissão de uma credencial específica de aplicativo mapeada para uma conta de aplicativo. Dependendo dos recursos do aplicativo, a credencial pode ser um token de federação ou o nome de usuário e a senha de uma conta provisionada anteriormente no aplicativo.
@@ -90,13 +90,13 @@ Por exemplo, se um usuário ingressar em sua organização, você precisa criar 
 Nas empresas modernas, os departamentos de TI geralmente não estão cientes de todos os aplicativos de nuvem que são usados. Em conjunto com o Cloud App Discovery, o AD do Azure fornece uma solução para detectar esses aplicativos.
 
 ## <a name="account-management"></a>Gerenciamento de contas
-Tradicionalmente, o gerenciamento de contas nos vários aplicativos é um processo manual realizado pela equipe de TI ou de suporte na organização. O AD do Azure automatizou por completo o gerenciamento de contas em todos os aplicativos integrados do provedor de serviços e os aplicativos pré-integrados pela Microsoft que dão suporte ao provisionamento automatizado de usuários ou JIT do SAML.
+Tradicionalmente, o gerenciamento de contas nos vários aplicativos é um processo manual realizado pela equipe de TI ou de suporte na organização. O Azure Active Directory automatiza totalmente o gerenciamento de contas em todos os aplicativos integrados do provedor de serviços e os aplicativos pré-integrados pela Microsoft com suporte para provisionamento de usuários ou provisionamento Just-In-Time do SAML.
 
 ## <a name="automated-user-provisioning"></a>Provisionamento automatizado de usuários
 Alguns aplicativos fornecem interfaces de automação para a criação e remoção (ou desativação) de contas. Se um provedor oferecer uma interface desse tipo, ele será aproveitado pelo AD do Azure. Isso reduz os custos operacionais, pois as tarefas administrativas ocorrem automaticamente, e melhora a segurança do seu ambiente, já que ela diminui a probabilidade de acesso não autorizado.
 
 ## <a name="access-management"></a>gerenciamento de acesso
-Com o AD do Azure, você pode gerenciar o acesso a aplicativos que usam atribuições individuais ou orientadas por regras. Você também pode delegar o gerenciamento de acesso para as pessoas certas na organização, garantindo a melhor supervisão e reduzindo a carga sobre a assistência técnica.
+Com o Azure Active Directory, é possível gerenciar o acesso a aplicativos usando atribuições individuais ou orientadas por regras. Você também pode delegar o gerenciamento de acesso para as pessoas certas na organização, garantindo a melhor supervisão e reduzindo a carga sobre a assistência técnica.
 
 ## <a name="on-premises-applications"></a>Aplicativos locais
 O proxy de aplicativo interno permite que você publique seus aplicativos locais para seus usuários, resultando em uma experiência de acesso consistente com o aplicativo em nuvem moderno e nos benefícios dos recursos de monitoramento, relatórios e segurança do AD do Azure.

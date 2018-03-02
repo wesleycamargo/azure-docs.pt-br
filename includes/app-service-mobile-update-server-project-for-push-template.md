@@ -1,10 +1,10 @@
-Nesta seção, você aprenderá a atualizar o código em seu projeto de back-end de Aplicativos Móveis para enviar uma notificação por push sempre que um novo item for adicionado. A plataforma é o recurso [modelo](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) dos Hubs de Notificação do Azure, permitindo os envios por push entre plataformas. Os vários clientes são registrados para notificações por push usando modelos, e um único envio por push universal pode chegar a todas as plataformas clientes.
+Nesta seção, você aprenderá a atualizar o código em seu projeto de back-end de Aplicativos Móveis para enviar uma notificação por push sempre que um novo item for adicionado. Esse processo é alimentado pelo recurso [modelo](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) dos Hubs de Notificações do Microsoft Azure, que permite pushes de plataforma cruzada. Os vários clientes são registrados para notificações por push usando modelos, e um único envio por push universal pode chegar a todas as plataformas clientes.
 
 Escolha um dos procedimentos abaixo que corresponda ao seu tipo de projeto de back-end&mdash;, um [back-end .NET](#dotnet) ou um [back-end Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Projeto de back-end do .NET
-1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**. Procure `Microsoft.Azure.NotificationHubs` e então clique em **Instalar**. Isso instala a biblioteca de Hubs de Notificação para enviar notificações do seu back-end.
-2. No projeto do servidor, abra **Controladores** > **TodoItemController.cs** e adicione os seguintes elementos usando instruções:
+1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor. Em seguida, selecione **Gerenciar Pacotes do NuGet**. Pesquise `Microsoft.Azure.NotificationHubs` e, em seguida, selecione **Instalar**. Esse processo instala a biblioteca dos Hubs de Notificação para enviar notificações do back-end.
+2. No projeto do servidor, abra **Controladores** > **TodoItemController.cs**. Em seguida, adicione as seguintes instruções usando:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
@@ -16,7 +16,7 @@ Escolha um dos procedimentos abaixo que corresponda ao seu tipo de projeto de ba
         MobileAppSettingsDictionary settings =
             this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get the Notification Hubs credentials for the Mobile App.
+        // Get the Notification Hubs credentials for the mobile app.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
             .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
@@ -25,8 +25,8 @@ Escolha um dos procedimentos abaixo que corresponda ao seu tipo de projeto de ba
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // Sending the message so that all template registrations that contain "messageParam"
-        // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+        // Send the message so that all template registrations that contain "messageParam"
+        // receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
         Dictionary<string,string> templateParams = new Dictionary<string,string>();
         templateParams["messageParam"] = item.Text + " was added to the list.";
 
@@ -45,7 +45,7 @@ Escolha um dos procedimentos abaixo que corresponda ao seu tipo de projeto de ba
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Isso envia uma notificação de modelo que contém o item.Text quando um novo item todo é inserido.
+    Esse processo envia uma notificação de modelo que contém o item.Texto quando um novo item é inserido.
 4. Republicar o projeto de servidor.
 
 ### <a name="nodejs"></a>Projeto de back-end do Node.js
@@ -60,17 +60,17 @@ Escolha um dos procedimentos abaixo que corresponda ao seu tipo de projeto de ba
 
         table.insert(function (context) {
         // For more information about the Notification Hubs JavaScript SDK,
-        // see http://aka.ms/nodejshubs
+        // see http://aka.ms/nodejshubs.
         logger.info('Running TodoItem.insert');
 
         // Define the template payload.
         var payload = '{"messageParam": "' + context.item.text + '" }';  
 
-        // Execute the insert.  The insert returns the results as a Promise,
+        // Execute the insert. The insert returns the results as a promise.
         // Do the push as a post-execute action within the promise flow.
         return context.execute()
             .then(function (results) {
-                // Only do the push if configured
+                // Only do the push if configured.
                 if (context.push) {
                     // Send a template notification.
                     context.push.send(null, payload, function (error) {
@@ -81,7 +81,7 @@ Escolha um dos procedimentos abaixo que corresponda ao seu tipo de projeto de ba
                         }
                     });
                 }
-                // Don't forget to return the results from the context.execute()
+                // Don't forget to return the results from the context.execute().
                 return results;
             })
             .catch(function (error) {
@@ -91,5 +91,5 @@ Escolha um dos procedimentos abaixo que corresponda ao seu tipo de projeto de ba
 
         module.exports = table;  
 
-    Isso envia uma notificação de modelo que contém o item.Text quando um novo item todo é inserido.
-3. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
+    Esse processo envia uma notificação de modelo que contém o item.text quando um novo item é inserido.
+3. Ao editar o arquivo no computador local, publique o projeto do servidor.

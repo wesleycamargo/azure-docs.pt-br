@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Rastrear operações assíncronas no Azure
 Algumas operações REST do Azure são executadas de forma assíncrona porque a operação não pode ser concluída com rapidez. Este tópico descreve como controlar o status das operações assíncronas por meio de valores retornados na resposta.  
@@ -82,7 +82,7 @@ Somente `status` é retornado para todas as respostas. O objeto de erro é retor
 Operações que criam, atualizam ou excluem (PUT, PATCH, DELETE) um recurso geralmente retornam um valor `provisioningState`. Quando uma operação for concluída, um dos três valores a seguir será retornado: 
 
 * Bem-sucedida
-* Falha
+* Com falha
 * Cancelado
 
 Todos os outros valores indicam que a operação ainda está em execução. O provedor de recursos pode retornar um valor personalizado que indica o estado. Por exemplo, você pode receber **Aceito** quando a solicitação é recebida e está em execução.
@@ -194,5 +194,4 @@ Se a solicitação ainda estiver em execução, você receberá um código de st
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para ver a documentação sobre cada operação REST, consulte [Documentação da API REST](/rest/api/).
-* Para obter informações sobre como gerenciar recursos por meio da API REST do Resource Manager, consulte [Usando a API REST do Resource Manager](resource-manager-rest-api.md).
 * Para obter informações sobre a implantação de modelos por meio da API REST do Resource Manager, consulte [Deploy resources with Resource Manager templates and Resource Manager REST API (Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager)](resource-group-template-deploy-rest.md).

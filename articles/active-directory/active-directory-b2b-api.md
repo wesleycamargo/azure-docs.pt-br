@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalização da colaboração B2B do Azure Active Directory
 
@@ -77,7 +77,7 @@ A API pode ser executada nos seguintes modos de autorização:
 Nesse modo, a pessoa que está usando a API precisa ter as permissões para criar convites de B2B.
 
 ### <a name="app-only-mode"></a>Modo Somente aplicativo
-No contexto somente aplicativo, o aplicativo precisa dos escopos User.ReadWrite.All ou Directory.ReadWrite.All para que o convite tenha êxito.
+No contexto somente aplicativo, o aplicativo precisa do escopo User.Invite.All para que o convite tenha êxito.
 
 Para obter mais informações, consulte: https://graph.microsoft.io/docs/authorization/permission_scopes
 

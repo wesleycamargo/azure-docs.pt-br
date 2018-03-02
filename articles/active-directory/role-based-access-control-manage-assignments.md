@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
-ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7794d25e9111a4c2dbe822f9618d0acdfb69a2d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Exibir as atribuições de acesso para usuários e grupos no Portal do Azure
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Saiba mais sobre como [Usar atribuições de função para gerenciar o acesso ao
 ## <a name="view-access-assignments"></a>Exibir atribuições de acesso
 Para pesquisar as atribuições de acesso para um único usuário ou grupo, comece em Azure Active Directory no [portal do Azure](http://portal.azure.com).
 
-1. Selecione **Azure Active Directory**. Se essa opção não estiver visível na sua lista de navegação, selecione **Mais Serviços** e role para baixo até encontrar **Azure Active Directory**.
+1. Selecione **Azure Active Directory**. Se essa opção não estiver visível na sua lista de navegação, selecione **Todos os Serviços** e role para baixo até localizar o **Azure Active Directory**.
 2. Selecione **Usuários e Grupos** e **Todos os usuários** ou **Todos os grupos**. Para este exemplo, vamos focar em usuários individuais.
     ![Gerenciar usuários e grupos no Azure Active Directory – captura de tela](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. Pesquise o usuário por nome ou nome de usuário.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais de aplicativos lógicos com o gateway de dados local
 
@@ -63,21 +63,19 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
   > [!NOTE]
   > A conta de serviço Windows é diferente da conta usada para conexão a fontes de dados locais e da conta do Azure corporativa ou de estudante usada para entrar em serviços de nuvem.
 
-## <a name="set-up-the-data-gateway-connection"></a>Configurar a conexão do gateway de dados
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Instale o gateway de dados local
+## <a name="install-the-on-premises-data-gateway"></a>Instale o gateway de dados local
 
 Se ainda não tiver feito isso, siga estas [etapas para instalar o gateway de dados local](logic-apps-gateway-install.md). Antes de continuar com as outras etapas, verifique se instalou o gateway de dados em um computador local.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Criar um recurso do Azure para o gateway de dados local
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Criar um recurso do Azure para o gateway de dados local
 
 Depois de instalar o gateway em um computador local, crie o gateway de dados como um recurso no Azure. Essa etapa também associa o recurso de gateway à sua assinatura do Azure.
 
 1. Entre no [portal do Azure](https://portal.azure.com "portal do Azure"). Use o mesmo endereço de email do trabalho ou da escolha do Azure que o utilizado para instalar o gateway.
 
-2. No menu principal do Azure, escolha **Novo** > **Enterprise Integration** > **Gateway de dados local** conforme mostrado aqui:
+2. No menu principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Gateway de dados locais**:
 
    ![Localize “Gateway de dados local”](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -105,7 +103,7 @@ Depois de instalar o gateway em um computador local, crie o gateway de dados com
     Para adicionar o recurso de gateway ao seu painel do Azure, escolha **Fixar no painel**. 
     Quando terminar, escolha **Criar**.
 
-    Por exemplo:
+    Por exemplo: 
 
     ![Fornecer detalhes para criar o gateway de dados local](./media/logic-apps-gateway-connection/createblade.png)
 
@@ -115,7 +113,7 @@ Depois de instalar o gateway em um computador local, crie o gateway de dados com
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Conectar seu aplicativo lógico ao gateway de dados local
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Conectar seu aplicativo lógico ao gateway de dados local
 
 Agora que você criou seu recurso de gateway de dados e associou sua assinatura do Azure ao recurso, crie uma conexão entre seu aplicativo lógico e o gateway de dados.
 
@@ -157,6 +155,7 @@ Depois de criar uma conexão de gateway para seu aplicativo lógico, você talve
    > Se suas atualizações não entrarem em vigor, tente [interromper e reiniciar o serviço Windows do gateway](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Mudar ou excluir o recurso de gateway de dados local
 
 Para criar um recurso de gateway diferente, associar seu gateway a um recurso diferente ou remover o recurso de gateway, exclua o recurso de gateway sem afetar a instalação do gateway. 
@@ -166,6 +165,7 @@ Para criar um recurso de gateway diferente, associar seu gateway a um recurso di
 3. Escolha **Gateway de Dados Local** e, na barra de ferramentas do recurso, escolha **Excluir**.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]

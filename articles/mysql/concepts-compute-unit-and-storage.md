@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: 2c4894ae9a4235f9ced4a8d9b991238543646f53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Explicando Unidades de Computação no Banco de Dados do Azure para MySQL
 Este tópico explica o conceito de Unidades de Computação e o que acontece quando sua carga de trabalho atinge o máximo de Unidades de Computação.
@@ -30,10 +30,10 @@ Se você quiser migrar um servidor MySQL local ou em uma máquina virtual, poder
 
 Se o seu servidor local ou de máquina virtual existente estiver utilizando 4 núcleos (sem contar o hiperthread da CPU), comece configurando 400 Unidades de Computação para o seu Banco de Dados do Azure para o servidor MySQL. É possível aumentar ou diminuir as unidades de computação dinamicamente conforme as suas necessidades de carga de trabalho sem praticamente nenhum tempo de inatividade do aplicativo. 
 
-Monitorar o gráfico de métricas no Portal do Azure ou gravar comandos de CLI do Azure para medir as Unidades de Computação. As métricas relevantes para monitorar são a porcentagem de Unidade de Computação e o limite de Unidade de Computação.
+Monitorar o grafo de métricas no Portal do Azure ou gravar comandos de CLI do Azure para medir as Unidades de Computação. As métricas relevantes para monitorar são a porcentagem de Unidade de Computação e o limite de Unidade de Computação.
 
 >[!IMPORTANT]
-> Se você achar que não está usando a capacidade máxima do IOPS de armazenamento, monitore também a utilização de Unidades de Computação. Aumentar as Unidades de Computação pode permitir maior taxa de transferência de E/S, diminuindo o afunilamento de desempenho em virtude de limites de CPU ou memória.
+> Se você achar que não está usando a capacidade máxima do IOPS de armazenamento, monitore também a utilização de Unidades de Computação. Aumentar as Unidades de Computação pode permitir maior taxa de transferência de E/S, diminuindo o gargalo de desempenho em virtude de limites de CPU ou memória.
 
 ## <a name="what-happens-when-i-hit-my-maximum-compute-units"></a>O que acontece quando eu atinjo o máximo de Unidades de Computação?
 Os níveis de desempenho são calibrados e controlados para fornecer os recursos para executar sua carga de trabalho de banco de dados até os limites máximos para o tipo de preços e o nível de desempenho selecionados. 

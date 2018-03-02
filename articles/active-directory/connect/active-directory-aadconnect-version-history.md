@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -34,6 +34,73 @@ Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar 
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Download | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117490"></a>1.1.749.0
+Status: liberado para selecionar clientes
+
+>[!NOTE]
+>Quando a atualização para essa nova versão for concluída, ela ativará automaticamente uma sincronização completa e importação completa para o conector do Azure Active Directory e uma sincronização completa para o conector AD. Como isso pode demorar algum tempo, dependendo do tamanho do ambiente Azure AD Connect, verifique se as medidas necessárias foram tomadas para dar suporte a isso ou aguarde a atualização até encontrar um momento conveniente para fazer isso.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problemas corrigidos
+* Correção da janela de tempo nas tarefas em segundo plano da página de Filtragem de Partições quando
+* Correção da janela de tempo nas tarefas em segundo plano da página de Filtragem de Partições ao comutar para a próxima página.
+
+* Corrigido um bug que causou violação de Acesso durante a ação personalizada do ConfigDB
+
+* Corrigido um bug para recuperar do tempo limite de conexão do SQL.
+
+* Corrigido um bug onde os certificados com curingas SAN falharam no teste de pré-requisito
+
+* Corrigido um bug que causa falha do miiserver.exe durante uma exportação do conector do Azure Active Directory.
+
+* Corrigido um bug em que a tentativa de senha incorreta foi registrada no DC durante a execução do assistente do Azure AD Connect para alterar a configuração
+
+
+#### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
+
+* Adicionar Configurações de Privacidade para o GDPR (Regulamento Geral de Proteção de Dados).  Para o GDPR, é necessário indicar os tipos de dados do cliente que são compartilhados com a Microsoft (telemetria, saúde, etc.), ter links para documentação online detalhada e fornecer uma maneira para nossos clientes alterarem suas preferências.  Esse check-in adiciona o seguinte:
+
+
+    - Compartilhamento de dados e notificação de privacidade na página dos termos de licença de instalação limpa.
+    - Compartilhamento de dados e notificação de privacidade na página de atualização.
+    - Uma nova tarefa adicional "Configurações de Privacidade", onde o usuário pode alterar suas preferências.
+
+* telemetria de aplicativos - o administrador pode ativar/desativar essa classe de dados, segundo a sua vontade
+
+* Dados de Integridade do Azure Active Directory - o administrador deve visitar o portal de integridade para controlar suas configurações de integridade.
+   Quando a política de atendimento for alterada, os agentes farão a leitura e irão impor a política.
+
+* Adicionadas ações de configuração de write-back de dispositivo e uma barra de progresso para inicialização de página
+
+* Diagnósticos Gerais aprimorados com relatório HTML e coleta de dados completa em um relatório HTML/ZIP-Text
+
+* Aperfeiçoada a confiabilidade da atualização automática e adicionada a telemetria adicional para garantir que a integridade do servidor possa ser determinada
+
+* Restringir permissões disponíveis para contas privilegiadas na conta do AD Connector
+
+  * Para novas instalações, o assistente restringirá as permissões que as contas privilegiadas tenham na conta MSOL, após criar a conta MSOL.
+
+As alterações irão considerar o seguinte:
+1. Instalações expressas
+2. Instalações personalizadas com conta de criação automática
+
+* Alterado o instalador para que ele não exija privilégio de SA na instalação limpa do Azure AD Connect
+
+* Adicionado um novo utilitário para solucionar problemas de sincronização para um objeto específico. Está disponível na opção 'Solucionar problemas de sincronização de objetos' da Tarefa adicional para solucionar problemas do assistente do Azure AD Connect. Atualmente, o utilitário verifica o seguinte:
+
+  * UserPrincipalName incompatível entre o objeto de usuário sincronizado e a conta de usuário no Locatário do Azure Active Directory.
+  * Se o objeto for filtrado da sincronização devido à filtragem de domínio
+  * Se o objeto for filtrado da sincronização devido à filtragem da OU (unidade organizacional)
+
+* Adicionado um novo utilitário para sincronizar o hash de senha atual armazenado no Active Directory local para uma conta de usuário específica.
+
+O utilitário não exige uma alteração de senha. Está disponível na opção 'Solucionar problemas de sincronização de hash de senha' da Tarefa adicional para solucionar problemas do assistente do Azure AD Connect.
+
+
+
+
+
 
 ## <a name="116540"></a>1.1.654.0
 Status: 12 de dezembro de 2017

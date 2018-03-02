@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 0c1b192dc8481448252b6bc2e3801d6a6f3daa0d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7e60e33330357d08d69e3372fd3eea1aadb4a141
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usar o Armazenamento do Azure com clusters HDInsight
 
@@ -39,9 +39,9 @@ O Armazenamento do Azure é uma solução de armazenamento de uso geral que se i
 > | Tipo de conta de armazenamento | Camada de armazenamento | Suporte com o HDInsight |
 > | ------- | ------- | ------- |
 > | Conta de armazenamento de uso geral | Standard | __Sim__ |
-> | &nbsp; | Premium | Não |
-> | Conta de Armazenamento de Blobs | Dinâmica | Não |
-> | &nbsp; | Estática | Não |
+> | &nbsp; | Premium | Não  |
+> | Conta de Armazenamento de Blobs | Dinâmica | Não  |
+> | &nbsp; | Estática | Não  |
 
 Não recomendamos o contêiner de blobs padrão para armazenar dados corporativos. É uma prática recomendada excluir o contêiner de blobs padrão após cada uso para reduzir o custo de armazenamento. Observe que o contêiner padrão contém os logs do aplicativo e do sistema. Certifique-se de recuperar os logs antes de excluir o contêiner.
 
@@ -302,7 +302,7 @@ Ao criar um cluster HDInsight, você especifica a conta de armazenamento do Azur
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a usar o armazenamento do Azure compatível com HDFS com o HDInsight. Isso permite que você crie soluções de aquisição de dados para arquivamento de longo prazo escalonáveis e use o HDInsight para desbloquear as informações nos dados armazenados estruturados e não estruturados.
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
 * [Introdução ao Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)

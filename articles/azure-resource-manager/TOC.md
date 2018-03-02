@@ -1,3 +1,5 @@
+# [Documentação do Azure Resource Manager](index.md)
+
 # Visão geral
 ## [O que é o Resource Manager?](resource-group-overview.md)
 ## [Provedores e tipos de recursos](resource-manager-supported-services.md)
@@ -43,13 +45,11 @@
 ### [PowerShell do Azure](powershell-azure-resource-manager.md)
 ### [CLI do Azure](xplat-cli-azure-resource-manager.md)
 ### [portal do Azure](resource-group-portal.md)
-### [API REST](resource-manager-rest-api.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
 ### [Criar grupos de gerenciamento](management-groups-create.md)
 ### [Gerenciar seus grupos de gerenciamento](management-groups-manage.md)
 ### [Exemplos de governança](resource-manager-subscription-examples.md)
-### [Aplicativos gerenciados](../managed-applications/overview.md)
 
 ## Controlar Acesso
 ### Criar uma entidade de serviço

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -72,22 +72,22 @@ Sim. O Azure reserva alguns endereços IP em cada sub-rede. O primeiro e o últi
 A menor sub-rede à qual oferecemos suporte é de /29 e a maior é de /8 (usando definições da sub-rede CIDR).
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>Posso levar minhas VLANs para o Azure usando redes virtuais?
-Não. As v são sobreposições da Camada 3. O Azure não oferece suporte a nenhuma semântica da Camada 2.
+Nº As v são sobreposições da Camada 3. O Azure não oferece suporte a nenhuma semântica da Camada 2.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>Posso especificar políticas de roteamento personalizadas nas minhas redes virtuais e sub-redes?
 Sim. Você pode usar o UDR (Roteamento Definido pelo Usuário). Para saber mais sobre UDR, visite [Rotas definidas pelo usuário e Encaminhamento IP](virtual-networks-udr-overview.md).
 
 ### <a name="do-vnets-support-multicast-or-broadcast"></a>As redes virtuais oferecem suporte ao multicast ou à difusão?
-Não. Não há suporte para nenhum dos dois.
+Nº Não há suporte para nenhum dos dois.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Quais protocolos posso usar nas redes virtuais?
-Você pode usar protocolos TCP, UDP e ICMP TCP/IP em redes virtuais. Pacotes encapsulados de IP em IP, multicast, difusão e pacotes de Encapsulamento de Roteamento Genérico (GRE) são bloqueados nas redes virtuais. 
+Você pode usar protocolos TCP, UDP e ICMP TCP/IP em redes virtuais. O Unicast tem suporte em VNets, com exceção do Protocolo DHCP via Unicast (porta de origem UDP/68 / porta de destino UDP/67). Pacotes encapsulados de IP em IP, multicast, difusão e pacotes de Encapsulamento de Roteamento Genérico (GRE) são bloqueados nas redes virtuais. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Posso executar ping em meus roteadores padrão em uma rede virtual?
-Não.
+Nº
 
 ### <a name="can-i-use-tracert-to-diagnose-connectivity"></a>Posso usar tracert para diagnosticar a conectividade?
-Não.
+Nº
 
 ### <a name="can-i-add-subnets-after-the-vnet-is-created"></a>Posso adicionar sub-redes depois que a rede virtual é criada?
 Sim. As sub-redes podem ser adicionadas às redes virtuais a qualquer momento, desde que o endereço da sub-rede não faça parte de outra sub-rede na rede virtual.
@@ -102,10 +102,10 @@ Sim. Você pode adicionar, remover e modificar os blocos CIDR usados por uma red
 Sim. Todos os serviços implantados em uma rede virtual podem se conectar à internet. Cada serviço de nuvem implantado no Azure tem um VIP publicamente endereçável atribuído a ele. Você precisará definir pontos de extremidade de entrada para funções de PaaS e pontos de extremidade de máquinas virtuais a fim de habilitar esses serviços para aceitar conexões da internet.
 
 ### <a name="do-vnets-support-ipv6"></a>As redes virtuais oferecem suporte ao IPv6?
-Não. Não é possível usar o IPv6 com redes virtuais neste momento.
+Nº Não é possível usar o IPv6 com redes virtuais neste momento.
 
 ### <a name="can-a-vnet-span-regions"></a>Uma rede virtual pode abranger regiões?
-Não. A rede virtual é limitada a uma única região.
+Nº A rede virtual é limitada a uma única região.
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Posso conectar uma rede virtual a outra rede virtual no Azure?
 Sim. Você pode conectar uma rede virtual a outra usando:
@@ -138,7 +138,7 @@ O DNS fornecido pelo Azure é um serviço DNS multilocatário oferecido pela Mic
 Sim. Você pode definir servidores DNS por serviço de nuvem para substituir as configurações de rede padrão. No entanto, é recomendável usar DNS para toda a rede, tanto quanto possível.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>Posso colocar meu próprio sufixo DNS?
-Não. Você não pode especificar um sufixo DNS personalizado para suas redes virtuais.
+Nº Você não pode especificar um sufixo DNS personalizado para suas redes virtuais.
 
 ## <a name="connecting-virtual-machines"></a>Conexão de máquinas virtuais
 
@@ -150,7 +150,7 @@ Sim. Todas as interfaces de rede (NIC) anexadas a uma VM implantada por meio do 
 * **Público:** opcionalmente atribuído a NICs anexadas a VMs implantadas por meio do modelo de implantação do Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estática ou dinâmica. Todas as instâncias de função de VMs e Serviços de Nuvem implantadas por meio do modelo de implantação clássico existem dentro de um serviço de nuvem, ao qual é atribuído um endereço IP endereço virtual IP (VIP) *dinâmico* e público. Um endereço IP público e *estático*, chamado de [endereço IP Reservado](virtual-networks-reserved-public-ip.md), pode ser atribuído como VIP. Você pode atribuir endereços IP públicos a instâncias de função de VMs ou serviços de nuvem individuais implantados por meio do modelo de implantação clássico. Eles são chamados de [endereços IP públicos em nível de instância (ILPIP)](virtual-networks-instance-level-public-ip.md) e podem ser atribuídos dinamicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Posso reservar um endereço IP privado para uma VM que vou criar mais tarde?
-Não. Não é possível reservar um endereço IP privado. Se um endereço IP privado estiver disponível, ele será atribuído a uma VM ou instância de função pelo servidor DHCP. Essa VM pode ou não ser aquela à qual você deseja que o endereço IP privado seja atribuído. No entanto, você pode alterar o endereço IP privado de uma VM já criada para qualquer endereço IP privado disponível.
+Nº Não é possível reservar um endereço IP privado. Se um endereço IP privado estiver disponível, ele será atribuído a uma VM ou instância de função pelo servidor DHCP. Essa VM pode ou não ser aquela à qual você deseja que o endereço IP privado seja atribuído. No entanto, você pode alterar o endereço IP privado de uma VM já criada para qualquer endereço IP privado disponível.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Os endereços IP privado mudam para VMs em uma rede virtual?
 Isso depende. Endereços IP privados dinâmicos permanecem com uma máquina virtual que ela seja interrompida (desalocada) ou excluída. Endereços IP privados estáticos só são liberados de uma VM quando esta é excluída.
@@ -165,7 +165,7 @@ Nada. Os endereços IP (VIP público, público e privado) permanecem atribuídos
 Sim. Você pode encontrar mais informações no artigo [Como mover uma VM ou instância de função para uma sub-rede diferente](virtual-networks-move-vm-role-to-subnet.md).
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>Posso configurar um endereço MAC estático para minha VM?
-Não. Um endereço MAC não pode ser configurado estaticamente.
+Nº Um endereço MAC não pode ser configurado estaticamente.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-it-has-been-created"></a>O endereço MAC permanecerá o mesmo para minha VM depois de criado?
 Sim, o endereço MAC continua o mesmo para uma VM implantada por meio do Gerenciador de Recursos e dos modelos de implantação clássicos até que esta seja excluída. Anteriormente, o endereço MAC era lançado se a máquina virtual fosse interrompida (desalocada), mas agora o endereço MAC é mantido mesmo quando a VM está no estado desalocado.
@@ -189,7 +189,7 @@ Sim. Você pode implantar instâncias de função de Serviços de Nuvem em redes
 Sim. Você precisa conectar um VMSS a uma rede virtual.
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>Posso mover meus serviços para dentro e fora das redes virtuais?
-Não. Não é possível mover serviços para dentro e fora das redes virtuais. Será preciso excluir e reimplantar o serviço para movê-lo para outra rede virtual.
+Nº Não é possível mover serviços para dentro e fora das redes virtuais. Será preciso excluir e reimplantar o serviço para movê-lo para outra rede virtual.
 
 ## <a name="security"></a>Segurança
 

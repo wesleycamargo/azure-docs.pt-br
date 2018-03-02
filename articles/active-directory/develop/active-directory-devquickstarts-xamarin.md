@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Introdução ao Xamarin do Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -50,7 +50,7 @@ Para habilitar o aplicativo para obter tokens, primeiro será necessário regist
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. Em seguida, na lista **Diretório**, selecione o locatário do Active Directory em que você deseja registrar o aplicativo.
-3. Clique em **Mais Serviços** no painel esquerdo e selecione **Azure Active Directory**.
+3. Clique em **Todos os serviços** no painel esquerdo e, em seguida, selecione **Azure Active Directory**.
 4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Para criar um novo **Aplicativo Cliente Nativo**, siga os prompts.
   * **Nome** descreve o aplicativo para os usuários.

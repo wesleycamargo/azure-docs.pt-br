@@ -1,10 +1,11 @@
-- name: Aplicativos gerenciados do Azure
+- name: Documentação dos Aplicativos Gerenciados do Azure
   href: index.yml
 - name: Visão geral
   items:
     - name: Sobre os aplicativos gerenciados
       href: overview.md
 - name: Guia de início rápido
+  expanded: true
   items:
     - name: Criar aplicativo gerenciado
       href: managed-apps-quickstart-cli.md

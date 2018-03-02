@@ -21,9 +21,7 @@ Você pode usar comandos do Portal do Azure ou do Azure PowerShell para fazer is
 Para usar o portal do Azure:
 
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com).
-2. No menu Hub, clique em **+ Novo** e em **Máquina Virtual**.
-   
-    ![Texto Alt da imagem](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. Clique em **Criar um recurso** > **Computação**.
 3. Selecione a imagem de máquina virtual do Marketplace que você deseja usar. Você pode optar por criar uma máquina virtual Linux ou Windows.
 4. Para a máquina virtual selecionada, verifique se o modelo de implantação está definido como **Clássico** e clique em **Criar**
    
@@ -42,7 +40,7 @@ Para usar comandos do Azure PowerShell para criar uma máquina virtual do Azure 
 No Portal do Azure, é possível adicionar máquinas virtuais clássicas existentes a um conjunto de disponibilidade existente ou criar um novo conjunto para essas máquinas. (Lembre-se de que as máquinas virtuais no mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem). As etapas são praticamente as mesmas. Como o PowerShell do Azure é possível adicionar a máquina virtual a um conjunto de disponibilidade existente.
 
 1. Se ainda não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com).
-2. No menu Hub, clique em **Máquinas Virtuais (clássicas)**.
+2. No menu à esquerda, clique em **Máquinas Virtuais (clássicas)**.
    
     ![Texto Alt da imagem](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. Na lista de máquinas virtuais, selecione o nome das máquinas virtuais que você deseja adicionar ao conjunto.

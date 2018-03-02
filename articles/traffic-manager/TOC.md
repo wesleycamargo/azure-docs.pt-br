@@ -1,3 +1,5 @@
+# [Documentação do Gerenciador de Tráfego](index.md)
+
 # Visão geral
 ## [O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
 ## [Métodos de roteamento](traffic-manager-routing-methods.md)

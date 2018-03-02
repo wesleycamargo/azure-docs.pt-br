@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: Gerenciar as atualizações de sua VM
       href: automation-tutorial-update-management.md
-    - name: Atualização integrada e controle de alterações
+    - name: Atualização integrada e controle de alterações pelo runbook
       href: automation-onboard-solutions.md
     - name: Identificar o software em uma VM
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Como
   items:
+    - name: Integração
+      items:
+        - name: Integrar a partir de uma VM do Azure
+          href: automation-onboard-solutions-from-vm.md
+        - name: Integrar a partir da Conta de automação
+          href: automation-onboard-solutions-from-automation-account.md
     - name: Gerenciamento de atualizações
       items:
-        - name: Visão geral
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Visão geral do Gerenciamento de Atualizações
+          href: automation-update-management.md
         - name: Gerenciar atualizações de várias VMs
           href: manage-update-multi.md
-        - name: Integrar o SCCM com o Gerenciamento de Atualizações do OMS
+        - name: Integrar SCCM com Gerenciamento de Atualizações
           href: oms-solution-updatemgmt-sccmintegration.md
-    - name: Controle de alterações
+    - name: Controle de Alterações
       items:
-        - name: Visão geral
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Controlar alterações em suas VMs
-          href: automation-vm-change-tracking.md
+        - name: Visão geral do Controle de Alterações
+          href: automation-change-tracking.md
     - name: Inventário
       items:
         - name: Gerenciar VM com uma coleção de inventários

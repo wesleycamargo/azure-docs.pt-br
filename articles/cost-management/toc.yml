@@ -17,12 +17,12 @@
   items:
     - name: 1 – Analisar uso e custos
       href: tutorial-review-usage.md
-    - name: 2 – Controlar o acesso aos dados
-      href: tutorial-user-access.md
-    - name: 3 – Previsão de despesas
+    - name: 2 – Prever gastos
       href: tutorial-forecast-spending.md
-    - name: 4 - Gerenciar os custos
+    - name: 3 - Gerenciar custos
       href: tutorial-manage-costs.md
+    - name: 4 - Controlar acesso aos dados
+      href: tutorial-user-access.md
 - name: Conceitos
   items:
     - name: Compreendendo os relatórios de custos

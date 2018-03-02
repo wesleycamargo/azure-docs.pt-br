@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar provisionamento do usuário para um aplicativo de galeria do Azure AD
 
@@ -31,7 +31,7 @@ Provisionamento *manual* significa que as contas de usuário devem ser criadas m
 
 Se Manual é o único modo mostrado para um determinado aplicativo, isso significa que nenhum automático do conector de provisionamento do Azure AD foi criado para o aplicativo ainda. Ou, isso significa que o aplicativo não oferece suporte ao pré-requisito do API de gerenciamento do usuário no qual criar um conector de provisionamento automatizado.
 
-Se você quiser solicitar suporte para o provisionamento automático para um determinado aplicativo, você poderá preencher uma solicitação em <http://aka.ms/aadapprequest>.
+Se você quiser solicitar suporte para provisionamento automático de um determinado aplicativo, você pode preencher uma solicitação usando as [Solicitações de Aplicativos do Azure Active Directory](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Configurar um aplicativo para o provisionamento automático
 

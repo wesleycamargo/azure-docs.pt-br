@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b565ef0f7672d1288e922e28551ad3f6ec5b6cb7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: bf34bc5a65c2beb55c7039868e4d90d83d28de51
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight
 
@@ -28,7 +28,7 @@ A interface do usuário da Web do Ambari para HDInsight contém uma exibição d
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Criar um cluster HDInsight baseado em Linux. Para ver as etapas para criar um cluster, consulte [Introdução ao HDInsight baseado no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Um navegador da Web moderno, com suporte a HTML5.
@@ -52,7 +52,7 @@ A exibição do Tez só conterá dados se um trabalho que usa o mecanismo Tez es
 
 Use as etapas a seguir para executar uma consulta do Hive que usa o Tez:
 
-1. Abra um navegador da Web, navegue para https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do seu cluster HDInsight.
+1. Abra um navegador da Web, navegue para https://CLUSTERNAME.azurehdinsight.net, em que **CLUSTERNAME** é o nome do seu cluster HDInsight.
 
 2. No menu na parte superior da página, escolha o ícone **Exibições**. Esse ícone é semelhante a uma série de quadrados. No menu suspenso que aparece, escolha **Exibição do Hive**.
 

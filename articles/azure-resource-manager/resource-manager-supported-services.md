@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Provedores e tipos de recursos
 
@@ -263,9 +263,9 @@ O registro de um provedor de recursos configura sua assinatura para trabalhar co
 
 Você não poderá cancelar o registro de um provedor de recursos enquanto ainda tiver tipos de recursos desse provedor de recursos em sua assinatura.
 
-Para obter informações para um provedor de recursos específico, selecione **Mais serviços**.
+Para obter informações para um provedor de recursos específico, selecione **Todos os serviços**.
 
-![selecionar mais serviços](./media/resource-manager-supported-services/more-services.png)
+![selecionar Todos os serviços](./media/resource-manager-supported-services/more-services.png)
 
 Pesquise por **Resource Explorer** e selecione-o nas opções disponíveis.
 
