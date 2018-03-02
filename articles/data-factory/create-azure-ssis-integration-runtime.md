@@ -3,7 +3,7 @@ title: "Criar tempo de execução de integração do Azure-SSIS no Azure Data Fa
 description: "Saiba como criar um tempo de execução de integração do Azure-SSIS para poder executar o pacote SSIS na nuvem do Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
+<<<<<<< HEAD
+ms.author: douglasl
+ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 02/28/2018
+=======
 ms.author: spelluru
 ms.openlocfilehash: f3616214dc63716a382b4374ff82bec33e876177
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+>>>>>>> d9518d179b0e57ddfee3f642e460727357c6504c
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um Integration Runtime do Azure-SSIS no Azure Data Factory
 Este artigo fornece etapas para o provisionamento de um tempo de execução de integração do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SSDT (SQL Server Data Tools) ou o SSMS (SQL Server Management Studio) para implantar pacotes do SSIS (SQL Server Integration Services) para esse tempo de execução no Azure.
@@ -62,7 +71,11 @@ Nesta seção, você utiliza o Portal do Azure, especificamente a interface do u
 
 ### <a name="create-a-data-factory"></a>Criar uma data factory
 
+<<<<<<< HEAD
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+=======
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+>>>>>>> d9518d179b0e57ddfee3f642e460727357c6504c
 2. Faça logon no [Portal do Azure](https://portal.azure.com/).    
 3. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
