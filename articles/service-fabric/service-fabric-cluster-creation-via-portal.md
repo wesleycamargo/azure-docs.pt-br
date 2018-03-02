@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ A criação de um cluster de produção para atender às necessidades do aplicat
 ![pesquisa pelo modelo de cluster do Service Fabric no portal do Azure.][SearchforServiceFabricClusterTemplate]
 
 1. Entre no [Portal do Azure][azure-portal].
-2. Clique em **+ Novo** para adicionar um novo modelo de recurso. Procure o modelo Cluster do Service Fabric no **Marketplace** em **Tudo**.
+2. Clique em **Criar um recurso** para adicionar um novo modelo de recurso. Procure o modelo Cluster do Service Fabric no **Marketplace** em **Tudo**.
 3. Selecione **Cluster do Service Fabric** na lista.
 4. Navegue até a folha **Cluster do Service Fabric** e clique em **Criar**,
 5. A folha **Criar cluster do Service Fabric** tem as quatro etapas a seguir:
@@ -134,6 +134,7 @@ Para facilitar a configuração de um cluster de teste seguro para você, oferec
 #####<a name="basic-option"></a>Opção Básica
 Siga as telas para adicionar ou reutilizar um cofre de chaves existente e adicionar um certificado. A adição do certificado é um processo síncrono e, por isso, você terá que aguardar a criação do certificado.
 
+
 Resista à tentação de sair da tela até o processo anterior ser concluído.
 
 ![CreateKeyVault]
@@ -142,7 +143,7 @@ Agora que o certificado está adicionado ao cofre de chaves, você pode ver a te
 
 ![CreateKeyVault2]
 
-Clique nas políticas de acesso avançadas e habilite o acesso às máquinas virtuais para implantação. Também é recomendável habilitar a implantação de modelo.
+Clique nas políticas de acesso avançadas e habilite o acesso às máquinas virtuais para implantação. Também é recomendável habilitar a implantação de modelo. Depois de fazer suas seleções, não se esqueça de clicar no botão **Salvar** e fechar o painel **Políticas de acesso**.
 
 ![CreateKeyVault3]
 

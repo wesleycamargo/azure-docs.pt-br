@@ -3,8 +3,8 @@ title: Migrar um banco de dados do SQL Server para o SQL Server em uma VM | Micr
 description: "Saiba mais sobre como migrar um banco de dados de usuário local para o SQL Server em uma máquina virtual do Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: sabotta
-manager: jhubbard
+author: rothja
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: carlasab
-ms.openlocfilehash: 68767534298783083a441aa295611914d0df9db0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/13/2018
+ms.author: jroth
+ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrar um banco de dados do SQL Server para o SQL Server em uma VM do Azure
 
@@ -35,7 +35,7 @@ Os principais métodos de migração são:
 * Desanexar e copiar os arquivos de log e de dados para o armazenamento de blobs do Azure e, em seguida, anexar ao SQL Server em uma VM do Azure desde a URL
 * Converter a máquina física local em VHD do Hyper-V, carregar no armazenamento de Blob do Azure e, em seguida, implantar como nova máquina virtual usando o VHD carregado
 * Remeter o disco rígido usando o Serviço de Importação/Exportação do Windows
-* Caso você tenha uma implantação local do AlwaysOn, use o [Assistente para Adicionar uma Réplica do Azure](../classic/sql-onprem-availability.md) para criar uma réplica no Azure e executar o failover, apontando os usuários para a instância do banco de dados do Azure
+* Caso você tenha uma implantação local do AlwaysOn, use o [Assistente para Adicionar uma Réplica do Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) para criar uma réplica no Azure e executar o failover, apontando os usuários para a instância do banco de dados do Azure
 * Use a [replicação transacional](https://msdn.microsoft.com/library/ms151176.aspx) do SQL Server para configurar a instância do SQL Server do Azure como um assinante e, em seguida, desabilite a replicação, apontando os usuários para a instância de banco de dados do Azure
 
 > [!TIP]
@@ -60,7 +60,7 @@ A tabela a seguir lista os principais métodos de migração e discute quando o 
 | [Desanexe e copie os arquivos de log e dados para o armazenamento de blob do Azure e anexe à máquina virtual do SQL Server no Azure desde a URL](#detach-and-attach-from-url) |SQL Server 2005 ou posterior |SQL Server 2014 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Use este método quando pretender [armazenar esses arquivos usando o serviço de armazenamento de Blob do Azure](https://msdn.microsoft.com/library/dn385720.aspx) e anexá-los ao SQL Server em execução em uma VM do Azure, especialmente com bancos de dados muito grandes. |
 | [Converta a máquina local em VHDs do Hyper-V, carregue no armazenamento de Blob do Azure e, em seguida, implante uma nova máquina virtual usando o VHD carregado](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 ou posterior |SQL Server 2005 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Use quando estiver [trazendo sua própria licença do SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) ao migrar um banco de dados que você executará em uma versão anterior do SQL Server ou ao migrar bancos de dados do sistema e do usuário como parte da migração de banco de dados dependente de outros bancos de dados do usuário e/ou bancos de dados do sistema. |
 | [Remeter o disco rígido usando o Serviço de Importação/Exportação do Windows](#ship-hard-drive) |SQL Server 2005 ou posterior |SQL Server 2005 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Use o [Serviço de Importação/Exportação do Windows](../../../storage/common/storage-import-export-service.md) quando o método de cópia manual for muito lento, como com bancos de dados muito grandes |
-| [Usar o Assistente para Adicionar uma Réplica do Azure](../classic/sql-onprem-availability.md) |SQL Server 2012 ou posterior |SQL Server 2012 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Minimiza o tempo de inatividade, use quando tiver uma implantação local do AlwaysOn |
+| [Usar o Assistente para Adicionar uma Réplica do Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 ou posterior |SQL Server 2012 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Minimize o tempo de inatividade, use quando tiver uma implantação local do AlwaysOn |
 | [Usar a replicação transacional do SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 ou posterior |SQL Server 2005 ou posterior |[Limite de armazenamento da VM do Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Use quando precisar minimizar o tempo de inatividade e não tiver uma implantação local do AlwaysOn |
 
 ## <a name="backup-and-restore"></a>Backup e restauração

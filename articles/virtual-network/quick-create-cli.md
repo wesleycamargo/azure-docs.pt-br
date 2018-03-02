@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Criar uma rede virtual usando a CLI do Azure
 
@@ -81,7 +81,7 @@ az vm create \
   --no-wait
 ```
 
-O Azure cria automaticamente a máquina virtual na sub-rede *padrão* da rede virtual *myVirtualNetwork* porque a rede virtual existe no grupo de recursos e nenhuma rede ou sub-rede virtual está especificada no comando. O DHCP do Azure é atribuído automaticamente 10.0.0.4 à máquina virtual durante a criação, porque é o primeiro endereço disponível na sub-rede *padrão*. A localização em que uma máquina virtual é criada deve ser a mesma localização na qual a rede virtual existe. Não é necessário que a máquina virtual esteja no mesmo grupo de recursos que a máquina virtual, embora isso seja abordado neste artigo.
+O Azure cria automaticamente a máquina virtual na sub-rede *padrão* da rede virtual *myVirtualNetwork* porque a rede virtual existe no grupo de recursos e nenhuma rede ou sub-rede virtual está especificada no comando. O DHCP do Azure é atribuído automaticamente 10.0.0.4 à máquina virtual durante a criação, porque é o primeiro endereço disponível na sub-rede *padrão*. A localização em que uma máquina virtual é criada deve ser a mesma localização na qual a rede virtual existe. Não é necessário que a máquina virtual esteja no mesmo grupo de recursos que a rede virtual, embora isso seja abordado neste artigo.
 
 Crie uma segunda máquina virtual. Por padrão, o Azure também cria essa máquina virtual na sub-rede *padrão*.
 

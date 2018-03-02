@@ -4,7 +4,7 @@ description: "Este tutorial mostra como criar um grupo de disponibilidade Always
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurar um grupo de disponibilidade AlwaysOn nas máquinas virtuais do Azure automaticamente: Resource Manager
 
@@ -63,8 +63,8 @@ Neste tutorial, use o portal do Azure para:
 O Azure fornece uma imagem da galeria para a solução inteira. Para localizar o modelo:
 
 1. Entre no portal do Azure usando sua conta.
-2. No portal do Azure, clique em **+ Novo** para abrir a folha **Novo**.
-3. Na folha **Novo**, pesquise por **AlwaysOn**.
+2. No portal do Azure, clique em **Criar um recurso** para abrir o painel **Novo**.
+3. Na página **Novo**, pesquise por **AlwaysOn**.
    ![Localizar o modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. Nos resultados da pesquisa, localize **Cluster AlwaysOn do SQL Server**.
    ![Modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)

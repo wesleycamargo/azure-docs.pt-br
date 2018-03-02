@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Como executar um servidor de aplicativos do Java em uma máquina virtual criada com o modelo de implantação clássico
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ A instalação completa resulta na execução do Tomcat em uma máquina virtual.
 
 ## <a name="to-create-a-virtual-machine"></a>Para criar uma máquina virtual
 1. Entre no [Portal do Azure](https://portal.azure.com).  
-2. Clique em **Novo**, em **Computação** e, em seguida, em **Ver todos** nos **Aplicativos em destaque**.
+2. Clique em **Novo**, em **Computação** e em **Ver todos** nos **Aplicativos em destaque**.
 3. Clique em **JDK** e em **JDK 8** no painel **JDK**.  
    Imagens de máquina virtual que dão suporte ao **JDK 6** e ao **JDK 7** estão disponíveis se você tem aplicativos herdados que não estão prontos para serem executados no JDK 8.
 4. No painel do JDK 8, selecione **Clássico** e, em seguida, clique em **Criar**.
@@ -55,7 +55,7 @@ A instalação completa resulta na execução do Tomcat em uma máquina virtual.
    4. Selecione a **Assinatura** apropriada.
    5. Para o **Grupo de recursos**, clique em **Criar novo** e insira o nome de um novo grupo de recursos. Se preferir, clique em **Usar existente** e selecione um dos grupos de recursos disponíveis.
    6. Selecione uma localização em que a máquina virtual reside, como **Centro-Sul dos EUA**.
-6. Clique em **Avançar**.
+6. Clique em **Próximo**.
 7. Na folha **Tamanho da imagem de máquina virtual**, selecione **A1 Padrão** ou outra imagem apropriada.
 8. Clique em **Selecionar**.
 

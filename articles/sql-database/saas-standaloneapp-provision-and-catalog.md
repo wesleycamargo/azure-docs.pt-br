@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: eec7f9262dd8e8cccb5ba68cbe2f12581cd01470
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 
@@ -30,7 +30,7 @@ Este artigo tem duas partes principais:
 * Um tutorial que destaca o código PowerShell de exemplo que realiza provisionamento e catalogação
     * O tutorial usa o aplicativo SaaS de exemplo Wingtip Tickets, adaptado para o aplicativo autônomo por padrão de locatário.
 
-## <a name="application-per-tenant-pattern"></a>Aplicativo por padrão de locatário
+## <a name="standalone-application-per-tenant-pattern"></a>Padrão de aplicativo por locatário autônomo
 O aplicativo autônomo por padrão locatário é um dos vários padrões para aplicativos SaaS multilocatários.  Neste padrão, um aplicativo autônomo é provisionado para cada locatário. O aplicativo compreende componentes de nível de aplicativo e banco de dados SQL.  Cada aplicativo de locatário pode ser implantado na assinatura do fornecedor.  Alternativamente, o Azure oferece um [programa de aplicativos gerenciados](https://docs.microsoft.com/en-us/azure/managed-applications/overview) no qual um aplicativo pode ser implantado na assinatura de um locatário e gerenciado pelo fornecedor em nome do locatário. 
 
    ![padrão de aplicativo por locatário](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -59,7 +59,7 @@ Cada locatário requer um novo grupo de recursos do Azure, que deve ser criado a
 
 Neste tutorial, você aprenderá a:
 * Provisionar um catálogo
-* Registrar os bancos de dados de locatário implantados anteriormente no catálogo
+* Registrar os bancos de dados de locatário de exemplo que você implantou anteriormente no catálogo
 * Provisionar um locatário adicional e registrá-lo no catálogo
 
 Um modelo do Azure Resource Manager é usado para implantar e configurar o aplicativo, criar o banco de dados do locatário e, em seguida, importar um arquivo bacpac para inicializá-lo. A solicitação de importação pode permanecer na fila por vários minutos antes de ser executada.
@@ -148,3 +148,5 @@ Neste tutorial, você aprendeu:
 > * Como implantar o Aplicativo Autônomo SaaS Wingtip Tickets.
 > * Sobre os servidores e bancos de dados que constituem o aplicativo.
 > * Como excluir recursos de exemplo para interromper a cobrança relacionada.
+
+Você pode explorar como o catálogo é usado para dar suporte a vários cenários entre locatários usando a versão do banco de dados por locatário do [aplicativo SaaS Wingtip Tickets](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

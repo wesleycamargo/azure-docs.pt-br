@@ -1,10 +1,10 @@
 ---
 title: "Criar uma conexão entre redes virtuais: clássico: portal do Azure | Microsoft Docs"
-description: Como conectar redes virtuais do Azure entre si usando o PowerShell e o Portal do Azure.
+description: Conecte redes virtuais do Azure entre si usando o PowerShell e o Portal do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Este artigo mostra como criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. As etapas neste artigo se aplicam ao modelo de implantação clássico e o portal do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
+Este artigo ajuda a criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. As etapas neste artigo se aplicam ao modelo de implantação clássico e o portal do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -67,7 +67,7 @@ Para saber mais sobre conexões de Rede Virtual a Rede Virtual, confira as [Cons
 
 ### <a name="before-you-begin"></a>Antes de começar
 
-Antes de iniciar este exercício, baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Service Management (SM). Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview): Podemos usar o portal para a maioria das etapas, mas você deve usar o PowerShell para criar conexões entre as redes virtuais. Você não pode criar as conexões usando o portal do Azure.
+Antes de iniciar este exercício, baixe e instale a versão mais recente dos cmdlets do PowerShell do Azure Service Management (SM). Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Podemos usar o portal para a maioria das etapas, mas você deve usar o PowerShell para criar conexões entre as redes virtuais. Você não pode criar as conexões usando o portal do Azure.
 
 ## <a name="plan"></a>Etapa 1 – Planejar os intervalos de endereços IP
 
@@ -213,7 +213,7 @@ Quando você cria VNets clássicas no portal do Azure, o nome que você vê não
 
 Nas etapas a seguir, você vai se conectar à sua conta do Azure, bem como baixar e exibir o arquivo de configuração de rede para obter os valores que são necessários para as conexões.
 
-1. Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
+1. Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 2. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 

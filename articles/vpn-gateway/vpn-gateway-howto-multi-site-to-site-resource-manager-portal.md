@@ -4,7 +4,7 @@ description: "Adicionar conexões S2S de vários sites a um gateway de VPN que t
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5830b3a4bdcd12c01626d9ff3f814d2e7612eaaa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Adicione uma conexão Site a Site a uma rede virtual com uma conexão de gateway de VPN existente
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (clássico)](vpn-gateway-multi-site.md)
 >
 > 
 
-Este artigo orienta você a usar o Portal do Azure para adicionar conexões Site a Site (S2S) a um gateway de VPN que tenha uma conexão existente. Esse tipo de conexão é frequentemente chamado de configuração de "vários sites". Você pode adicionar uma conexão S2S a uma VNet que já tenha uma conexão S2S, uma conexão ponto a site ou uma conexão de VNet para VNet. Existem algumas limitações ao adicionar conexões. Verifique a seção [Antes de começar](#before) neste artigo, antes de iniciar a configuração. 
+Este artigo ajuda você a usar conexões S2S (Site a Site) a um gateway de VPN que tenha uma conexão existente usando o portal do Azure. Esse tipo de conexão é frequentemente chamado de configuração de "vários sites". Você pode adicionar uma conexão S2S a uma VNet que já tenha uma conexão S2S, uma conexão ponto a site ou uma conexão de VNet para VNet. Existem algumas limitações ao adicionar conexões. Verifique a seção [Antes de começar](#before) neste artigo, antes de iniciar a configuração. 
 
-Este artigo se aplica às VNets criadas usando o modelo de implantação do Gerenciador de Recursos que possui um gateway de VPN RouteBased. Essas etapas não se aplicam a configurações de conexão coexistentes ExpressRoute/Site a Site. Confira [Conexões coexistentes ExpressRoute/S2S](../expressroute/expressroute-howto-coexist-resource-manager.md) para obter informações sobre conexões coexistentes.
+Este artigo se aplica a VNets do Gerenciador de Recursos que têm um gateway de VPN RouteBased. Essas etapas não se aplicam a configurações de conexão coexistentes ExpressRoute/Site a Site. Confira [Conexões coexistentes ExpressRoute/S2S](../expressroute/expressroute-howto-coexist-resource-manager.md) para obter informações sobre conexões coexistentes.
 
 ### <a name="deployment-models-and-methods"></a>Modelos e métodos de implantação
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -53,38 +53,38 @@ Verifique os itens a seguir:
 ## <a name="part1"></a>Parte 1 - Configurar uma conexão
 1. Em um navegador, navegue até o [portal do Azure](http://portal.azure.com) e, se necessário, entre com sua conta do Azure.
 2. Clique em **Todos os recursos** e localize seu **gateway de rede virtual** na lista de recursos e clique nele.
-3. Na folha do **gateway de rede virtual**, clique em **Conexões**.
+3. Na página **Gateway de rede virtual**, clique em **Conexões**.
    
-    ![Folha Conexões](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Folha Conexões")<br>
-4. Na folha **Conexões**, clique em **+Adicionar**.
+    ![Página Conexões](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Página Conexões")<br>
+4. Na página **Conexões**, clique em **+Adicionar**.
    
     ![Adicionar botão de conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Adicionar botão de conexão")<br>
-5. Na folha **Adicionar conexão**, preencha os campos a seguir:
+5. Na página **Adicionar conexão**, preencha os seguintes campos:
    
    * **Nome:** o nome que deseja dar ao site para o qual você está criando a conexão.
    * **Tipo de conexão:** selecione **Site a site (IPsec)**.
      
-     ![Adicionar folha de conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Adicionar folha de conexão")<br>
+     ![Adicionar página de conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Adicionar página de conexão")<br>
 
 ## <a name="part2"></a>Parte 2 - Adicionar um gateway de rede local
-1. Clique em **Gateway de rede Local** ***Escolher um gateway de rede local***. Isso abrirá a folha **Escolher gateway de rede local** .
+1. Clique em **Gateway de rede Local** ***Escolher um gateway de rede local***. Isso abrirá a página **Escolher gateway de rede local**.
    
     ![Escolher gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Escolher gateway de rede local")<br>
-2. Clique em **Criar novo** para abrir a folha **Criar gateway de rede local**.
+2. Clique em **Criar novo** para abrir a página **Criar gateway de rede local**.
    
-    ![Criar folha de gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Criar folha de gateway de rede local")<br>
-3. Na folha **Criar gateway de rede local**, preencha os campos a seguir:
+    ![Criar página de gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Criar gateway de rede local")<br>
+3. Na página **Criar gateway de rede local**, preencha os seguintes campos:
    
    * **Nome:** o nome que você deseja atribuir ao seu recursos de gateway de rede local.
    * **Endereço IP:** o endereço IP público do dispositivo VPN no site ao qual você deseja se conectar.
    * **Espaço de endereço:** o espaço de endereço que você deseja que seja roteado para o novo site de rede local.
-4. Clique em **OK** na folha **Criar gateway de rede local** para salvar as alterações.
+4. Clique em **OK** na página **Criar gateway de rede local** para salvar as alterações.
 
 ## <a name="part3"></a>Parte 3 - Adicionar a chave compartilhada e criar a conexão
-1. Na folha **Adicionar conexão**, adicione a chave compartilhada que você deseja usar para criar a conexão. Você pode obter a chave compartilhada do seu dispositivo VPN, ou fazer uma aqui e, em seguida, configurar seu dispositivo VPN para usar a mesma chave compartilhada. O importante é que as chaves sejam exatamente as mesmas.
+1. Na página **Adicionar conexão**, adicione a chave compartilhada que você deseja usar para criar a conexão. Você pode obter a chave compartilhada do seu dispositivo VPN, ou fazer uma aqui e, em seguida, configurar seu dispositivo VPN para usar a mesma chave compartilhada. O importante é que as chaves sejam exatamente as mesmas.
    
     ![Chave compartilhada](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Chave compartilhada")<br>
-2. Na parte inferior da folha, clique em **OK** para criar a conexão.
+2. Na parte inferior da página, clique em **OK** para criar a conexão.
 
 ## <a name="part4"></a>Parte 4 - Verificar a conexão VPN
 

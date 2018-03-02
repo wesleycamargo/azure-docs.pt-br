@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com Hadoop, Spark, Kafka e mais
 
@@ -127,6 +127,8 @@ Durante a configuração, para o ponto de extremidade de armazenamento padrão, 
 
 ### <a name="optional-metastores"></a>Metastores opcionais
 Você pode criar metastores Hive ou Oozie opcionais. No entanto, nem todos os tipos de cluster dão suporte a metastores e o SQL Data Warehouse do Azure não é compatível com metastores. 
+
+Para obter mais informações, consulte [Usar armazenamentos de metadados externos no Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]
 > Ao criar um metastore personalizado, não use traços, hifens ou espaços no nome do banco de dados. Isso pode fazer com que o processo de criação de cluster falhe.

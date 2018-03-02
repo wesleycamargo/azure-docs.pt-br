@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na Máquina Virtual de Ciência de Dados
 
@@ -47,11 +47,20 @@ A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo par
 ## <a name="rstudio--desktop"></a>Área de trabalho do RStudio 
 |    |           |
 | ------------- | ------------- |
-| O que é?   | IDE do cliente para a linguagem R    |
+| O que é?   | Cliente IDE para R    |
 | Versões do DSVM com suporte      | Windows, Linux      |
 | Usos típicos      |  Desenvolvimento em R     |
 | Como usar/executar?      | Atalho da Área de Trabalho (`C:\Program Files\RStudio\bin\rstudio.exe`) no Windows, Atalho da Área de Trabalho (`/usr/bin/rstudio`) no Linux      |
 | Ferramentas relacionadas ao DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+
+## <a name="rstudio--server"></a>RStudio Server 
+|    |           |
+| ------------- | ------------- |
+| O que é?   | IDE baseado na Web para R    |
+| Versões do DSVM com suporte      | Linux      |
+| Usos típicos      |  Desenvolvimento em R     |
+| Como usar/executar?      | Habilite o serviço com _systemctl enable rstudio-server_ e inicie o serviço com _systemctl start rstudio-server_. Você pode então fazer logon no RStudio Server em http://your-vm-ip:8787.       |
+| Ferramentas relacionadas ao DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 |    |           |

@@ -14,11 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
+<<<<<<< HEAD
 ms.openlocfilehash: b6ab734186f23d51d60e51bd0946329d5209097b
 ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+=======
+ms.openlocfilehash: 1ee472498bdefc4eeb9863670e5480326b5ba6d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 02/22/2018
+>>>>>>> d07939bb7c6a51040b9d25bebee1f932f19680e5
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Proteger uma implantação de aplicativo SAP NetWeaver de várias camadas usando o Site Recovery
 

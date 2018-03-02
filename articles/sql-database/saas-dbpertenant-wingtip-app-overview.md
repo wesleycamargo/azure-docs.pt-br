@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 2871d2b1208013808958e8a5b0c62fce31af86ec
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Introdução a um exemplo de aplicativo SaaS multilocatário do Banco de Dados SQL
+# <a name="introduction-to-a-multi-tenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução a um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
 
-O aplicativo *SaaS Wingtip* é um aplicativo multilocatário de exemplo que demonstra as vantagens exclusivas do Banco de Dados SQL. O aplicativo usa um padrão de aplicativo SaaS de um banco de dados por locatário para atender a vários locatários. O aplicativo foi projetado para demonstrar os recursos do Banco de Dados SQL do Azure que habilitam cenários de SaaS, incluindo vários padrões de design e gerenciamento de SaaS. Para obter rapidamente e executar, o aplicativo Wingtip SaaS é implantado em menos de cinco minutos!
+O aplicativo *SaaS Wingtip* é um exemplo de aplicativo multilocatário. O aplicativo usa o padrão de aplicativo SaaS de um banco de dados por locatário para atender a vários locatários. O aplicativo demonstra recursos do Banco de Dados SQL do Azure que habilitam cenários de SaaS usando vários padrões de design e gerenciamento de SaaS. Para obter rapidamente e executar, o aplicativo Wingtip SaaS é implantado em menos de cinco minutos!
 
-O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
+O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. Antes de começar, confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas a fim de baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="application-architecture"></a>Arquitetura do aplicativo
 
@@ -40,7 +40,7 @@ Ao percorrer os tutoriais e trabalhar com o aplicativo, é importante ter em men
 Depois de implantar o aplicativo, explore a seguinte coleção de tutoriais que aproveitam a implantação inicial. Esses tutoriais exploram padrões comuns de SaaS que aproveitam os recursos internos do banco de dados SQL, SQL Data Warehouse e outros serviços do Azure. Os tutoriais incluem scripts PowerShell, com explicações detalhadas que simplificam bastante a compreensão e a implementação dos mesmos padrões de gerenciamento de SaaS em seus aplicativos.
 
 
-| Tutorial | Descrição |
+| Tutorial | DESCRIÇÃO |
 |:--|:--|
 | [Diretrizes e dicas para o exemplo de aplicativo SaaS de multilocatário do Banco de Dados SQL do Azure](saas-tenancy-wingtip-app-guidance-tips.md) | **COMECE AQUI!** Baixe e execute scripts do PowerShell para preparar as partes do aplicativo. |
 |[Implantar e explorar o aplicativo SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)|  Implantar e explorar o aplicativo SaaS Wingtip à sua assinatura do Azure. |
@@ -48,13 +48,13 @@ Depois de implantar o aplicativo, explore a seguinte coleção de tutoriais que 
 |[Monitorar e gerenciar o desempenho](saas-dbpertenant-performance-monitoring.md)| Saiba como usar os recursos de monitoramento do Banco de Dados SQL e como definir alertas quando os limites de desempenho são excedidos. |
 |[Monitorar com o Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) | Saiba mais sobre como usar [Log Analytics](../log-analytics/log-analytics-overview.md) para monitorar grandes quantidades de recursos, em vários pools. |
 |[Restaurar um único locatário](saas-dbpertenant-restore-single-tenant.md)| Saiba como restaurar um banco de dados de locatário em um ponto anterior no tempo. As etapas para restaurar um banco de dados paralelo, deixando o banco de dados existente do locatário online, também estão incluídas. |
-|[Gerenciar esquemas de locatário](saas-tenancy-schema-management.md)| Saiba como atualizar o esquema e atualizar dados de referência, em todos os locatários Wingtip SaaS. |
-|[Executar análise local](saas-tenancy-adhoc-analytics.md) | Criar um banco de dados de análise ad hoc e executar consultas distribuídas em tempo real em todos os locatários.  |
-|[Executar análise de locatário](saas-tenancy-tenant-analytics.md) | Extrai dados de locatário em um análise banco de dados ou data warehouse para executar consultas analíticas offline. |
+|[Gerenciar o esquema de banco de dados do locatário](saas-tenancy-schema-management.md)| Saiba como atualizar o esquema e atualizar dados de referência, em todos os bancos de dados de locatários. |
+|[Executar consultas distribuídas entre locatários](saas-tenancy-cross-tenant-reporting.md) | Criar um banco de dados de análise ad hoc e executar consultas distribuídas em tempo real em todos os locatários.  |
+|[Executar análise em dados extraídos de locatário](saas-tenancy-tenant-analytics.md) | Extraia dados de locatário em um análise banco de dados ou data warehouse para consultas analíticas offline. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Diretrizes e dicas para o exemplo de aplicativo SaaS de multilocatário do Banco de Dados SQL do Azure](saas-tenancy-wingtip-app-guidance-tips.md)
+- [Diretrizes gerais e dicas ao implementar e usar o exemplo de aplicativo SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Implantar o aplicativo SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)

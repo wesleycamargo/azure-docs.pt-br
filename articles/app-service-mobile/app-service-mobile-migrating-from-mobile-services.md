@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
 Com a [disponibilidade geral do Serviço de Aplicativo do Azure], sites de Serviços Móveis do Azure podem ser migrados facilmente no local para aproveitar todos os recursos do Serviço de Aplicativo do Azure.  Este documento explica o que esperar ao migrar seu site dos Serviços Móveis do Azure para o Serviço de Aplicativo do Azure.
@@ -32,7 +32,7 @@ A migração do Serviço Móvel do Azure torna o serviço móvel um aplicativo d
 A Microsoft está recomendando que você migre o serviço móvel do Azure para aproveitar os recursos do Serviço de Aplicativo do Azure, incluindo:
 
 * Novos recursos de host, incluindo [WebJobs] e [nomes de domínio personalizados].
-* Monitorando e solucionando problemas com o New Relic ou o [Application Insights].
+* Monitorando e solucionando problemas com o [Application Insights].
 * Ferramentas do DevOps internas, incluindo [Slots de preparo], reversão e testes em produção.
 * [Dimensionamento automático], balanceamento de carga e [monitoramento de desempenho].
 
