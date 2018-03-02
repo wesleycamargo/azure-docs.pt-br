@@ -73,7 +73,7 @@ Agora que você adicionou um gatilho, siga estas etapas para adicionar uma açã
    ![Imagem 2 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-2.png)  
    O controle **Obter conteúdo do arquivo** é aberto. **Observação**: será solicitado que você autorize o aplicativo lógico a acessar sua conta no servidor FTP, caso não tenha feito isso anteriormente.  
    ![Imagem 3 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Escolha o controle **Arquivo** (o espaço em branco localizado abaixo de **ARQUIVO***). Aqui, você pode usar qualquer uma das várias propriedades do arquivo novo ou modificado encontrado no servidor FTP.  
+5. Escolha o controle **Arquivo** (o espaço em branco localizado abaixo de **ARQUIVO**\*). Aqui, você pode usar qualquer uma das várias propriedades do arquivo novo ou modificado encontrado no servidor FTP.  
 6. Escolha a opção **Conteúdo do arquivo**.  
    ![Imagem 4 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. O controle é atualizado, indicando que a ação **FTP – Obter conteúdo do arquivo** obterá o *conteúdo do arquivo* novo ou modificado no servidor FTP.      
