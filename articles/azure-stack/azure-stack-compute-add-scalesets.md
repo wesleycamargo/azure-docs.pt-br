@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar conjuntos de escala de máquina virtual na pilha do Azure
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 Conjuntos de escala de máquinas virtuais são um recurso de computação da pilha do Azure. Você pode usá-los para implantar e gerenciar um conjunto de máquinas virtuais idênticas. Com todas as máquinas virtuais configurados da mesma, conjuntos de escala não exigem pré-provisionamento de máquinas virtuais. É mais fácil de criar serviços em grande escala que se destinam a computação intensa, dados grandes e cargas de trabalho em contêineres.
 
-Este tópico o orienta durante o processo de disponibilizar conjuntos de escala na pilha do Azure Marketplace. Depois de concluir este procedimento, seus usuários podem adicionar define a escala de máquina virtual para suas assinaturas.
+Este artigo o orienta durante o processo de disponibilizar conjuntos de escala na pilha do Azure Marketplace. Depois de concluir este procedimento, seus usuários podem adicionar define a escala de máquina virtual para suas assinaturas.
 
 Conjuntos de escala de máquina virtual na pilha do Azure são como conjuntos de escala de máquinas virtuais no Azure. Para obter mais informações, consulte os seguintes vídeos:
 * [Mark Russinovich fala sobre os conjuntos de dimensionamento do Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -81,7 +81,7 @@ Para remover uma máquina virtual dimensionar o conjunto de item da galeria, exe
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> O item da Galeria não pode ser removido imediatamente. Talvez seja necessário atualizar o portal várias vezes antes de ser removido do Marketplace.
+> O item da Galeria não pode ser removido imediatamente. Noturna você precisa atualizar o portal várias vezes antes do item mostra como removida do Marketplace.
 
 
 ## <a name="next-steps"></a>Próximas etapas

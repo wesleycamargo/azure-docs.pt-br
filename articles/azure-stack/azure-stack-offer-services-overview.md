@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 7a0fe4e02cf7a5feee90c3a0bf5596b44d5f9038
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Visão geral da oferta de serviços na pilha do Azure
 
@@ -44,5 +44,5 @@ Quando você estiver planejando suas ofertas, tenha os seguintes pontos em mente
 **Delegado provedores**: você pode conceder a outros usuários a capacidade de criar ofertas em seu ambiente. Por exemplo, se você for um provedor de serviço, você pode [delegar](azure-stack-delegated-provider.md) essa capacidade de seu revendedores. Ou, se você tiver uma organização, você pode delegar a outras divisões/subsidiárias.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre ofertas e assinaturas, cotas e planos](azure-stack-plan-offer-quota-overview.md)
+[Criar uma oferta na pilha do Azure](azure-stack-create-offer.md)
 

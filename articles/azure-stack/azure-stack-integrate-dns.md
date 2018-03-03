@@ -3,17 +3,18 @@ title: "Integração do data center do Azure pilha - DNS"
 description: Saiba como integrar o DNS de pilha do Azure com seu datacenter DNS
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integração do data center do Azure pilha - DNS
 Para poder acessar pontos de extremidade de pilha do Azure (`portal`, `adminportal`, `management`, `adminmanagement`, etc.)  da pilha fora do Azure, você precisa integrar os serviços DNS de pilha do Azure com os servidores DNS que hospedam as zonas DNS que você deseja usar na pilha do Azure.
@@ -125,8 +126,8 @@ Em cenários em que você especificou a zona de DNS de pilha do Azure externos c
 
 Exemplo:
 
-- Nome de domínio DNS corporativo:`contoso.com`
-- Nome de domínio do DNS externo de pilha do Azure:`azurestack.contoso.com`
+- Nome de domínio DNS corporativo: `contoso.com`
+- Nome de domínio do DNS externo de pilha do Azure: `azurestack.contoso.com`
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Delegação de zona DNS externa a pilha do Azure
 

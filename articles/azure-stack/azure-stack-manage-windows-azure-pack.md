@@ -3,8 +3,8 @@ title: "Gerenciar máquinas virtuais de pacote do Windows Azure da pilha do Azur
 description: "Saiba como gerenciar máquinas virtuais do Windows Azure Pack (WAP) do portal do usuário na pilha do Azure."
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Gerenciar máquinas virtuais de pacote do Windows Azure da pilha do Azure
 
@@ -93,7 +93,7 @@ Antes de configurar o conector do Windows Azure Pack, você deve habilitar o mod
 Para habilitar o modo de várias nuvens, você deve executar o script Add-AzurePackConnector.ps1 após a implantação da pilha do Azure. A tabela a seguir descreve os parâmetros do script.
 
 
-|  Parâmetro | Descrição | Exemplo |   
+|  Parâmetro | DESCRIÇÃO | Exemplo |   
 | -------- | ------------- | ------- |  
 | AzurePackClouds | URIs do Windows Azure Pack conectores. Esses URIs deve corresponder aos portais de locatário do Windows Azure Pack. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (Por padrão, o valor da porta é 40005.) |  
 | AzureStackCloudName | Rótulo para representar a nuvem do Azure pilha local.| "AzureStack" |
@@ -128,7 +128,7 @@ Você pode executar o script Add-AzurePackConnector.ps1 imediatamente após a im
     * **AuthenticationIdentityProviderPartner**: contém o par de valor a seguir:
         * Token de autenticação, assinatura de certificado que a API de locatário do Windows Azure Pack precisa confia para aceitar as chamadas da extensão do portal de pilha do Azure.
 
-        * "Território" associado com o certificado de autenticação. Por exemplo: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
+        * "Território" associado com o certificado de autenticação. For example: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
 
 3.  Navegue até a pasta que contém os arquivos de saída (\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput) e copie os arquivos para o computador local. Os arquivos serão semelhante a este: AzurePack-06-27-15-50.txt.
 
@@ -163,7 +163,7 @@ Para esta versão de visualização, use o conector do Windows Azure Pack apenas
     ```
      d. Altere os diretórios para **c:\inetpub** e verificar se os três novos sites estão instalados:
 
-       * Conector de MgmtSvc
+       * MgmtSvc-Connector
 
        * MgmtSvc-ConnectorExtension
 
@@ -179,11 +179,11 @@ Para esta versão de visualização, use o conector do Windows Azure Pack apenas
 
     f. Para concluir a configuração desses três serviços, execute o **WapConnector.ps1 configurar** script para atualizar os parâmetros do arquivo Web. config.
 
-    |  Parâmetro | Descrição | Exemplo |   
+    |  Parâmetro | DESCRIÇÃO | Exemplo |   
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | Portal de locatário do Windows Azure Pack FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | O FQDN de API do Windows Azure Pack locatário. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | O portal do usuário do Azure pilha FQDN. | Portal.local.azurestack.external |
+    | AzureStackPortalFQDN | O portal do usuário do Azure pilha FQDN. | portal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -214,9 +214,9 @@ Para esta versão de visualização, use o conector do Windows Azure Pack apenas
     f.  Repita a etapa 2 em outra máquina virtual executando a API de locatário.
 3. De **apenas um** das VMs de API de locatário, execute o script TrustAzureStack.ps1 configurar para adicionar uma relação de confiança entre a API de locatário e a instância do AD FS na pilha do Azure. Você deve usar uma conta com acesso de sysadmin no banco de dados de Store. Esse script tem os seguintes parâmetros:
 
-    | Parâmetro | Descrição | Exemplo |
+    | Parâmetro | DESCRIÇÃO | Exemplo |
     | --------- | ------------| ------- |
-   | SQL Server | O nome do SQL Server que contém o banco de dados de Store. Esse parâmetro é necessário. | SQL Server | 
+   | SqlServer | O nome do SQL Server que contém o banco de dados de Store. Esse parâmetro é necessário. | SQLServer | 
    | arquivo de dados | O arquivo de saída que foi gerado durante a configuração do modo pilha do Azure multi-nuvem anteriormente. Esse parâmetro é necessário. | AzurePack-06-27-15-50.txt | 
    | PromptForSqlCredential | Indica que o script solicitará que você interativamente para uma credencial de autenticação do SQL usar ao se conectar à instância do SQL Server. A credencial fornecida deve ter permissões suficientes para desinstalar os bancos de dados, esquemas e excluir os logons de usuário. Se nenhum for fornecido, o script supõe que contexto do usuário atual tem acesso. | Nenhum valor é necessário. |
    |  |  |

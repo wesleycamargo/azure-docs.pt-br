@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 287bc04660664facbe99d2cb80ae6c92e41c4111
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegar ofertas no Azure Stack
 
@@ -58,7 +58,7 @@ As seções a seguir descrevem como estabelecer um provedor de delegado, delegar
 
 ## <a name="set-up-roles"></a>Configurar funções
 
-Para ver um provedor de delegado no trabalho, você precisa do Azure adicional contas do AD além de sua conta do operador de pilha do Azure. Se você não os tiver, crie duas contas. As contas podem pertencer a qualquer usuário do AD do Azure. Nós nos referimos a eles como o provedor de delegado e o usuário.
+Para ver um provedor de delegado no trabalho, você precisa do Azure adicional contas do AD além de sua conta do operador de pilha do Azure. Se você não tiver estas duas contas, criá-los. As contas podem pertencer a qualquer usuário do AD do Azure e são referidas como o provedor de delegado e o usuário.
 
 | **Função** | **Direitos organizacionais** |
 | --- | --- |
@@ -71,9 +71,9 @@ Para ver um provedor de delegado no trabalho, você precisa do Azure adicional c
 2. Crie a oferta que permite que os usuários se tornam delegados provedores:
    
    a.  [Criar um plano de](azure-stack-create-plan.md).
-       Esse plano deve incluir somente o serviço de assinaturas. Neste artigo, usamos um plano chamado **PlanForDelegation**.
+       Esse plano deve incluir somente o serviço de assinaturas. Este artigo usa um plano chamado **PlanForDelegation**.
    
-   b.  [Criar uma oferta](azure-stack-create-offer.md) com base nesse plano. Neste artigo, usamos uma oferta chamada **OfferToDP**.
+   b.  [Criar uma oferta](azure-stack-create-offer.md) com base nesse plano. Este artigo usa uma oferta chamada **OfferToDP**.
    
    c.  Após a conclusão da criação da oferta, adicione o provedor delegado como um assinante para esta oferta. Isso é feito selecionando **assinaturas** > **adicionar** > **nova assinatura de locatário**.
    
@@ -86,9 +86,9 @@ Para ver um provedor de delegado no trabalho, você precisa do Azure adicional c
 
 ## <a name="azure-stack-operator-creates-the-delegated-offer"></a>Operador de pilha do Azure cria a oferta delegada
 
-O provedor de delegado agora estabelecida. A próxima etapa é criar o plano e a oferta que você vai delegar e que os clientes usarão. É recomendável definir esta oferta exatamente como deseja que os clientes para vê-lo porque o provedor delegado não será possível alterar os planos e cotas inclui.
+O provedor de delegado agora estabelecida. A próxima etapa é criar o plano e a oferta que você vai delegar e que os clientes usarão. É recomendável definir esta oferta exatamente como deseja que os clientes para vê-lo porque o provedor de delegado não é possível alterar os planos e cotas inclui.
 
-1. Como um operador de pilha do Azure, [criar um plano de](azure-stack-create-plan.md) e [uma oferta](azure-stack-create-offer.md) com base nele. Neste artigo, usamos uma oferta chamada **DelegatedOffer.**
+1. Como um operador de pilha do Azure, [criar um plano de](azure-stack-create-plan.md) e [uma oferta](azure-stack-create-offer.md) com base nele. Este artigo usa uma oferta chamada **DelegatedOffer.**
    
    > [!NOTE]
    > Esta oferta não precisa ser público. Se você escolher, pode tornar público. Na maioria dos casos, no entanto, você precisará apenas provedores delegados para ter acesso a ele. Depois que você delega uma oferta privada, conforme descrito nas etapas a seguir, o provedor de delegado tem acesso a ele.
@@ -104,14 +104,14 @@ O provedor de delegado agora estabelecida. A próxima etapa é criar o plano e a
 
 ## <a name="delegated-provider-customizes-the-offer"></a>Provedor de delegado personaliza a oferta
 
-Entrar no portal do usuário, como o provedor de delegado. Crie uma nova oferta, usando a oferta delegada como um modelo.
+Entrar no portal do usuário, como o provedor de delegado e, em seguida, criar uma nova oferta usando a oferta delegada como um modelo.
 
 1. Selecione **novo** > **locatário oferece + planos** > **oferecem**.
 
     ![Criar uma nova oferta](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Atribua um nome para a oferta. Aqui, escolhemos **ResellerOffer**. Selecione a oferta delegada nos quais baseá-la e, em seguida, selecione **criar**.
+1. Atribua um nome para a oferta. Este artigo usa **ResellerOffer**. Selecione a oferta delegada nos quais baseá-la e, em seguida, selecione **criar**.
    
    ![Atribua um nome](media/azure-stack-delegated-provider/image6.png)
 
@@ -122,7 +122,7 @@ Entrar no portal do usuário, como o provedor de delegado. Crie uma nova oferta,
 
 2. O provedor de delegado expõe essas ofertas por meio de seu próprio portal URL. Essas ofertas estão visíveis apenas através do portal do delegado. Para localizar e alterar esta URL:
    
-    a.  Selecione **procurar** > **mais serviços** >  **assinaturas**. Em seguida, selecione a assinatura do delegado de provedor. Em nosso caso, ele tem **DPSubscription** > **propriedades**.
+    a.  Selecione **procurar** > **mais serviços** > **assinaturas**. Em seguida, selecione a assinatura do delegado de provedor. Por exemplo, **DPSubscription** > **propriedades**.
    
     b.  Copie o portal de URL para um local separado, como o bloco de notas.
    
@@ -134,7 +134,7 @@ Entrar no portal do usuário, como o provedor de delegado. Crie uma nova oferta,
 1. Em uma nova janela do navegador, vá para o portal de delegado URL que você salvou na etapa anterior. Entrar no portal como um usuário. 
    
    >[!NOTE]
-   > Use o portal delegado para esta etapa. O delegado oferece caso contrário, não é visível.
+   >As ofertas de delegado não são visíveis a menos que você usar o portal de delegado. 
 
 2. No painel, selecione **obter uma assinatura**. Você verá que somente as ofertas delegadas que foram criadas pelo provedor de delegados são apresentadas ao usuário:
 
