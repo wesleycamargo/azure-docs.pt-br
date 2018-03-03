@@ -3,21 +3,21 @@ title: "Criar uma entidade de serviço para a pilha do Azure | Microsoft Docs"
 description: "Descreve como criar uma nova entidade de serviço que pode ser usada com o controle de acesso baseado em função no Gerenciador de recursos do Azure para gerenciar o acesso aos recursos."
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
-ms.author: helaw
-ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.date: 02/25/2018
+ms.author: mabrigg
+ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso de aplicativos a pilha do Azure
 
@@ -83,9 +83,9 @@ Requisitos:
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
 
-|Parâmetro|Descrição|Exemplo|
+|Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
-|Nome|Nome da conta SPN|MyAPP|
+|NOME|Nome da conta SPN|MyAPP|
 |ClientCertificates|Matriz de objetos de certificado|X509 certificado|
 |ClientRedirectUris<br>(Opcional)|URI de redirecionamento do aplicativo|         |
 
@@ -111,7 +111,7 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
 
 2. Após a conclusão da automação, ele exibe os detalhes necessários para usar o SPN. 
 
-   Por exemplo:
+   Por exemplo: 
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

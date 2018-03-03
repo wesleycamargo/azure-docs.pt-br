@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo a pilha do Azure
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
@@ -70,7 +70,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image03.png)
 
-7. Insira as informações para o compartilhamento de arquivo e, em seguida, clique em **próximo**. O endereço do compartilhamento de arquivos deve usar o nome totalmente qualificado domínio do servidor de arquivos, por exemplo \\\appservicefileserver.local.cloudapp.azurestack.external\websites ou o endereço IP, por exemplo \\\10.0.0.1\websites.
+7. Insira as informações para o compartilhamento de arquivo e, em seguida, clique em **próximo**. O endereço do compartilhamento de arquivos deve usar o nome totalmente qualificado domínio do seu servidor de arquivos ou o endereço IP. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image05.png)
 
-9. Para cada um dos três caixas de arquivo de certificado, clique em **procurar** e navegue até o arquivo de certificado apropriado. Você deve fornecer a senha para cada certificado. Esses certificados são aqueles que você criou no [etapa de certificados necessários crie](azure-stack-app-service-deploy.md#create-the-required-certificates). Clique em **próximo** depois de inserir todas as informações.
+9. Para cada um dos três caixas de arquivo de certificado, clique em **procurar** e navegue até o arquivo de certificado apropriado. Você pode fornecer a senha para cada certificado. Esses certificados são aqueles que você criou no [etapa de certificados necessários crie](azure-stack-app-service-deploy.md#create-the-required-certificates). Clique em **próximo** depois de inserir todas as informações.
 
     | Box | Exemplo de nome de arquivo de certificado |
     | --- | --- |
@@ -99,7 +99,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Examine as opções de SKU e a instância de função. Os padrões são preenchidos com o número mínimo de instância e o SKU mínimo para cada função em uma implantação de ASDK. Um resumo dos requisitos de memória e vCPU é fornecido para ajudar a planejar a implantação. Depois de fazer suas seleções, clique em **próximo**.
+11. Examine as opções de SKU e a instância de função. Os padrões preencha com o número mínimo de instância e o SKU mínimo para cada função em uma implantação de ASDK. Um resumo dos requisitos de memória e vCPU é fornecido para ajudar a planejar a implantação. Depois de fazer suas seleções, clique em **próximo**.
 
     > [!NOTE]
     > Para implantações de produção, seguindo as orientações em [planejamento de capacidade de funções de servidor do serviço de aplicativo do Azure na pilha do Azure](azure-stack-app-service-capacity-planning.md).

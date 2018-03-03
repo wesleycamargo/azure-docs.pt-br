@@ -3,8 +3,8 @@ title: "Entender os controles de segurança de pilha do Azure | Microsoft Docs"
 description: "Como um administrador de serviço Saiba mais sobre os controles de segurança aplicados a pilha do Azure"
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura de pilha do Azure
 
@@ -31,10 +31,10 @@ Na pilha do Azure, há duas camadas de postura de segurança que coexistem. A pr
 ## <a name="security-approach"></a>Abordagem de segurança
 A pilha do Azure foi projetada com uma postura de segurança para proteger contra ameaças modernas e foi criada para atender aos requisitos de padrões de conformidade principais. Como resultado, a postura de segurança da infraestrutura do Azure pilha baseia-se em duas colunas:
 
- - **Suponha que a violação.** Iniciando na suposição de que o sistema já tiver sido violado, vamos nos concentrar em *detectando e limitar o impacto de violações de* em vez de apenas tentar evitar ataques. 
- - **Protegido por padrão.**  Como a infraestrutura é executado em hardware bem definido e software, nós *habilitar, configurar e validar os recursos de segurança* que normalmente são deixadas para os clientes para implementar.
+ - **Suponha que a violação.** Iniciando na suposição de que o sistema já tiver sido violado, enfocam *detectando e limitar o impacto de violações de* em vez de apenas tentar evitar ataques. 
+ - **Protegido por padrão.**  Como a infraestrutura é executado em hardware bem definido e software, *habilitar, configurar e validar os recursos de segurança* que deixam de clientes para implementar.
 
-Porque a pilha do Azure é entregue como um sistema integrado, a postura de segurança da infraestrutura do Azure pilha é definida pela Microsoft.  Assim como no Azure, locatários serão responsáveis por definir a postura de segurança de suas cargas de trabalho de locatário. Este documento fornece conhecimento básico sobre a postura de segurança da infraestrutura de pilha do Azure.
+Porque a pilha do Azure é entregue como um sistema integrado, a postura de segurança da infraestrutura do Azure pilha é definida pela Microsoft. Assim como no Azure, locatários serão responsáveis por definir a postura de segurança de suas cargas de trabalho de locatário. Este documento fornece conhecimento básico sobre a postura de segurança da infraestrutura de pilha do Azure.
 
 ## <a name="data-at-rest-encryption"></a>Dados em criptografia de rest
 Todos os dados de infraestrutura e locatário de pilha do Azure são criptografados em repouso usando o Bitlocker. Isso protege contra perda física ou roubo de componentes de armazenamento do Azure pilha. 
@@ -54,7 +54,7 @@ Os segredos restantes que não são contas de serviço gerenciado de grupo podem
 ## <a name="code-integrity"></a>Integridade de código
 Pilha do Azure utiliza o Windows Server 2016 mais recentes recursos de segurança. Um deles é o Windows Defender Device Guard, que fornece a lista branca de aplicativos e garante que apenas autorizados a executar o código dentro da infraestrutura de pilha do Azure. 
 
-Código não autorizado está assinado pela Microsoft ou o parceiro OEM e ele está incluído na lista de permitidos software que é especificado em uma política definida pela Microsoft. Em outras palavras, apenas o software que foi aprovado para execução na infraestrutura de pilha do Azure pode ser executado. Qualquer tentativa de executar código não autorizado são bloqueados e uma auditoria é gerada.
+Código não autorizado está assinado pela Microsoft ou o parceiro OEM e ele está incluído na lista de permitidos software que é especificado em uma política definida pela Microsoft. Em outras palavras, apenas o software que foi aprovado para execução na infraestrutura de pilha do Azure pode ser executado. Qualquer tentativa de executar código não autorizado está bloqueada e uma auditoria é gerada.
 
 A política de proteção do dispositivo também impede que os agentes de terceiros ou software em execução na infraestrutura de pilha do Azure.
 
@@ -71,7 +71,7 @@ Administração na pilha do Azure é controlada pelo uso de três pontos de entr
 3. Para operações específicas de baixo nível, por exemplo dados Centro de integração ou oferecer suporte a cenários, pilha do Azure expõe um ponto de extremidade do PowerShell chamado [privilegiada do ponto de extremidade](azure-stack-privileged-endpoint.md). Esse ponto de extremidade expõe apenas um conjunto de lista branca de cmdlets e ele é muito auditado.
 
 ## <a name="network-controls"></a>Controles de rede
-Infraestrutura de pilha do Azure vem com várias camadas de rede List(ACL) de controle de acesso.  As ACLs impedir acesso não autorizado para os componentes da infraestrutura e limitam as comunicações de infraestrutura somente os caminhos que são necessários para seu funcionamento. 
+Infraestrutura de pilha do Azure vem com várias camadas de rede List(ACL) de controle de acesso. As ACLs impedir acesso não autorizado para os componentes da infraestrutura e limitam as comunicações de infraestrutura somente os caminhos que são necessários para seu funcionamento. 
 
 As ACLs de rede são impostas em três camadas:
 1.  Alterna a parte superior do Rack

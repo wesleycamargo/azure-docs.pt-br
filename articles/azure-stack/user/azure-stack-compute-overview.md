@@ -2,16 +2,17 @@
 title: "Introdução às máquinas virtuais de pilha do Azure"
 description: "Saiba mais sobre máquinas virtuais de pilha do Azure"
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introdução às máquinas virtuais de pilha do Azure
 
@@ -22,7 +23,7 @@ Uma pilha de máquina Virtual (VM) do Azure é um tipo de recurso de computaçã
 
 Uma VM de pilha do Azure oferece a flexibilidade da virtualização sem a necessidade de gerenciar clusters individuais ou máquinas. No entanto, você ainda precisa manter a VM executando tarefas, como configurar, corrigir e instalar o software que será executado nela.
 
-Máquinas de virtuais de pilha do Azure pode ser usadas de várias maneiras. Por exemplo:
+Máquinas de virtuais de pilha do Azure pode ser usadas de várias maneiras. Por exemplo: 
 
 * **Desenvolvimento e teste** – VMs de pilha do Azure oferecem uma rápida e a maneira fácil de criar um computador com uma configuração específica necessária para codificar e testar um aplicativo.
 
@@ -65,7 +66,7 @@ A pilha do Azure fornece um marketplace a ser usado com vários tipos de sistema
 A tabela a seguir mostra algumas maneiras que você pode encontrar as informações de uma imagem:
 
 
-|Método|Descrição|
+|Método|DESCRIÇÃO|
 |---------|---------|
 |Portal do Azure de pilha|Os valores são especificados automaticamente quando você seleciona uma imagem a ser usada.|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -87,14 +88,14 @@ Estas tarefas comuns podem ser realizadas usando extensões:
 Os recursos na tabela a seguir são usados para a máquina virtual e precisam existir ou ser criada quando a VM é criada.
 
 
-|Recurso|Obrigatório|Descrição|
+|Recurso|Obrigatório|DESCRIÇÃO|
 |---------|---------|---------|
 |Grupo de recursos|Sim|A VM deve estar contida em um grupo de recursos.|
 |Conta de armazenamento|Sim|A VM precisa da conta de armazenamento para armazenar seus discos rígidos virtuais.|
 |Rede virtual|Sim|A VM deve ser membro de uma rede virtual.|
-|Endereço IP público|Não|A VM pode ter um endereço IP público atribuído a ela para acessá-la remotamente.|
-|Interface de rede|Sim|A VM precisa de interface de rede para se comunicar na rede.|
-|Discos de dados|Não|A VM pode incluir discos de dados para expandir os recursos de armazenamento.|
+|Endereço IP público|Não |A VM pode ter um endereço IP público atribuído a ela para acessá-la remotamente.|
+|interface de rede|Sim|A VM precisa de interface de rede para se comunicar na rede.|
+|Discos de dados|Não |A VM pode incluir discos de dados para expandir os recursos de armazenamento.|
 
 ## <a name="how-do-i-create-my-first-vm"></a>Como criar minha primeira VM?
 
@@ -105,7 +106,7 @@ A tabela a seguir fornece informações para ajudá-lo a iniciar a criação de 
 |Método|Artigo|
 |---------|---------|
 |Portal do Azure de pilha|Criar uma máquina virtual do Windows com o portal de pilha do Azure<br>[Criar uma máquina virtual do Linux usando o portal de pilha do Azure](azure-stack-quick-linux-portal.md)|
-|Modelos|Modelos de início rápido da pilha do Azure estão localizados em:<br> [https://GitHub.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
+|Modelos|Modelos de início rápido da pilha do Azure estão localizados em:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
 |PowerShell|[Criar uma máquina virtual do Windows usando o PowerShell na pilha do Azure](azure-stack-quick-create-vm-windows-powershell.md)<br>[Criar uma máquina virtual Linux usando o PowerShell na pilha do Azure](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[Criar uma máquina virtual do Windows usando a CLI na pilha do Azure](azure-stack-quick-create-vm-windows-cli.md)<br>[Criar uma máquina virtual Linux usando a CLI na pilha do Azure](azure-stack-quick-create-vm-linux-cli.md)|
 
@@ -118,7 +119,7 @@ As VMs podem ser gerenciadas usando um portal baseado em navegador, ferramentas 
 A tabela a seguir mostra algumas das maneiras como você pode obter informações sobre uma máquina virtual.
 
 
-|Método|Descrição|
+|Método|DESCRIÇÃO|
 |---------|---------|
 |Portal do Azure de pilha|No menu hub, clique em máquinas virtuais e, em seguida, selecione a VM na lista. Na página para a máquina virtual, você tem acesso às informações de visão geral, os valores de configuração e métricas de monitoramento.|
 |Azure PowerShell|Gerenciamento de máquinas virtuais é semelhante no Azure e a pilha do Azure. Para obter mais informações sobre como usar o PowerShell, consulte o seguinte tópico do Azure:<br>[Criar e gerenciar máquinas virtuais do Windows com o módulo PowerShell do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
