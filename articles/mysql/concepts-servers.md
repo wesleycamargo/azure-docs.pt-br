@@ -1,19 +1,19 @@
 ---
-title: Conceitos de servidor no Banco de Dados do Azure para MySQL | Microsoft Docs
+title: Conceitos de servidor no Banco de Dados do Azure para MySQL
 description: "Este tópico fornece diretrizes e considerações para trabalhar com o Banco de Dados do Azure para servidores MySQL."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: d3de3fdf28997b63321bf23443472db43ebb5c52
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 0cf35efa7b8b4c6f78a8821c6d10e606813b7848
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceitos de servidor no Banco de Dados do Azure para MySQL
 Este artigo apresenta diretrizes e considerações para trabalhar com o Banco de Dados do Azure para servidores MySQL.
@@ -33,7 +33,7 @@ Um Banco de Dados do Azure para servidor MySQL:
 - Fornece o escopo para políticas de gerenciamento que se aplicam a seus bancos de dados: logons, firewall, usuários, funções, configurações etc.
 - Está disponível em várias versões. Para saber mais, confira [Banco de Dados do Azure com suporte para versões de banco de dados MySQL](./concepts-supported-versions.md).
 
-Dentro de um banco de dados do Azure para o servidor MySQL, você pode criar um ou mais bancos de dados. É possível optar por criar um único banco de dados por servidor para utilizar todos os recursos ou criar vários bancos de dados para compartilhar os recursos. Os preços são estruturados por servidor, com base na configuração do tipo de preço, Unidades de Computação e armazenamento (GB). Para obter mais informações, consulte [Tipos de preço](./concepts-service-tiers.md).
+Dentro de um banco de dados do Azure para o servidor MySQL, você pode criar um ou mais bancos de dados. É possível optar por criar um único banco de dados por servidor para utilizar todos os recursos ou criar vários bancos de dados para compartilhar os recursos. Os preços são estruturados por servidor, com base na configuração do tipo de preço, vCores e armazenamento (GB). Para obter mais informações, consulte [Tipos de preço](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Como faço para me conectar e autenticar em um Banco de Dados do Azure para servidor MySQL?
 

@@ -1,32 +1,32 @@
 ---
-title: Configurar e acessar os logs de servidor do Banco de Dados do Azure para MySQL no Portal do Azure | Microsoft Docs
+title: Configurar e acessar logs do servidor do Banco de Dados do Azure para MySQL no Portal do Azure
 description: Este artigo descreve como configurar e acessar os logs de servidor no Banco de Dados do Azure para MySQL no Portal do Azure.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: 89674c133b458c16fbdacd771be24830624dde7c
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.date: 02/28/2018
+ms.openlocfilehash: b68d92688b18e69f74c0e0a9b2e572795a288579
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e acessar os logs de servidor no Portal do Azure
 
 É possível configurar, listar e baixar os [logs de servidor do Banco de Dados do Azure para MySQL](concepts-server-logs.md) no Portal do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para seguir este guia de instruções, você precisa:
 - [Servidor do Banco de Dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="configure-logging"></a>Configurar o registro em log
 Configure o acesso aos logs de consulta lenta do MySQL. 
 
-1. Entre no [Portal do Azure](http://portal.azure.com/).
+1. Entre no [portal do Azure](http://portal.azure.com/).
 
 2. Selecione seu servidor de Banco de Dados do Azure para MySQL.
 
@@ -35,19 +35,13 @@ Configure o acesso aos logs de consulta lenta do MySQL.
 
 4. Selecione o título **Clique aqui para habilitar os logs e configurar os parâmetros de log** para ver os parâmetros do servidor.
 
-5. Selecione o expansor **Mostrar mais** para ver uma lista estendida de parâmetros disponíveis. 
-
-   Para obter mais informações sobre as definições de parâmetros, consulte a documentação do MySQL em [Logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
-
-   ![Clique em mostrar mais para ver uma lista mais longa](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Altere os parâmetros que você precisa ajustar. Todas as alterações feitas nessa sessão são realçadas em roxo. 
+5. Altere os parâmetros que você precisa ajustar. Todas as alterações feitas nessa sessão são realçadas em roxo. 
 
    Depois que você alterar os parâmetros, clique em **Salvar**. Ou então, você pode **Descartar** suas alterações.
 
    ![Clique em salvar ou descartar](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Retorne para a lista de logs clicando no **botão Fechar** (ícone de X) na página **Parâmetros do servidor**.
+6. Retorne para a lista de logs clicando no **botão Fechar** (ícone de X) na página **Parâmetros do servidor**.
 
 ## <a name="view-list-and-download-logs"></a>Exibir a lista e baixar os logs
 Depois que o registro em log começar, exiba uma lista dos logs disponíveis e baixar os arquivos de log individuais no painel de Logs do servidor. 

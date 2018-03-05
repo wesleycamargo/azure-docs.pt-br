@@ -1,19 +1,19 @@
 ---
-title: Importar e exportar no Banco de Dados do Azure para MySQL | Microsoft Docs
+title: Importar e exportar no Banco de Dados do Azure para MySQL
 description: Este artigo explica formas comuns de importar e exportar bancos de dados no Banco de Dados do Azure para MySQL, usando ferramentas como o MySQL Workbench.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 36ffa7082ce60093cbd90d0c12187e28f517646d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 02/28/2018
+ms.openlocfilehash: f15811cd44e405ee33d9ba3d565c2982e71a80c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar o banco de dados MySQL usando importação e exportação
 Este artigo explica duas abordagens comuns de importação e exportação de dados para um Banco de Dados do Azure para MySQL Server usando o MySQL Workbench. 
@@ -85,7 +85,7 @@ O seguinte exemplo exporta a tabela para um arquivo CSV:
 O seguinte exemplo importa a tabela de um arquivo CSV:
 1. Clique com o botão direito do mouse na tabela do banco de dados a ser importada. 
 2. Procure e selecione o arquivo CSV a ser importado e, em seguida, clique no botão **Avançar**. 
-3. Selecione a tabela de destino (nova ou existente) e marque ou desmarque a caixa de seleção **Truncar tabela antes da importação**. Clique em **Avançar**.
+3. Selecione a tabela de destino (nova ou existente) e marque ou desmarque a caixa de seleção **Truncar tabela antes da importação**. Clique em **Próximo**.
 4. Selecione a codificação e as colunas a serem importadas e, em seguida, clique em **Avançar**. 
 5. Na página **Importar dados**, clique em **Avançar**. O assistente importa os dados de acordo.
 
