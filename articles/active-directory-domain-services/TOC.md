@@ -22,6 +22,7 @@
 ## [Verifique a integridade de um domínio gerenciado](active-directory-ds-check-health.md)
 ## [Usar Serviços de Domínio do Azure AD nas assinaturas do Azure CSP](active-directory-ds-csp.md)
 ## [Habilitar o Azure AD Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Verificar a integridade do seu domínio](active-directory-ds-check-health.md)
 ## Ingressar em um domínio gerenciado
 ### [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [VM do Windows Server a partir do modelo](active-directory-ds-join-windows-vm-template.md)
@@ -32,7 +33,6 @@
 ## Administrar um domínio gerenciado
 ### [Administrar um domínio gerenciado](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrar o DNS em um domínio gerenciado](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Configurar LDAP seguro para um domínio gerenciado
 #### [Tarefa 1: obter um certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tarefa 2: exportar o certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
