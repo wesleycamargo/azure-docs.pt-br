@@ -14,6 +14,7 @@
 # Como
 ## Planejar e projetar
 ### [Considerações sobre o design](virtual-machine-scale-sets-design-overview.md)
+### [Entender as IDs de instância](virtual-machine-scale-sets-instance-ids.md)
 
 ## Criar um modelo
 ### [Saiba mais sobre modelos do conjunto de dimensionamento](virtual-machine-scale-sets-mvss-start.md)

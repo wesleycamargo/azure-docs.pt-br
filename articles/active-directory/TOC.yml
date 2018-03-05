@@ -52,7 +52,15 @@
           href: msi-qs-configure-template-windows-vm.md
         - name: Usando o Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Conceder um acesso VM MSI para o Gerenciador de Recursos
+    - name: Configurar o MSI para VMSS do Azure
+      items:
+        - name: Usando o Portal do Azure
+          href: msi-qs-configure-portal-windows-vmss.md
+        - name: Usando a CLI do Azure
+          href: msi-qs-configure-cli-windows-vmss.md
+        - name: Usar o modelo do Azure Resource Manager
+          href: msi-qs-configure-template-windows-vmss.md
+    - name: Conceder um acesso VM ou VMSS de MSI para o Gerenciador de Recursos
       items:
         - name: Usando o Portal do Azure
           href: msi-howto-assign-access-portal.md
