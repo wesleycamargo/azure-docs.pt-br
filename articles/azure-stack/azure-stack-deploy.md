@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Pré-requisitos de implantação de pilha do Azure
 
 *Aplica-se a: Kit de desenvolvimento de pilha do Azure*
 
-Antes de implantar [Kit de desenvolvimento de pilha do Azure](azure-stack-poc.md), verifique se o computador atende aos seguintes requisitos:
+Antes de implantar o [Kit de desenvolvimento na pilha do Azure (ASDK)](azure-stack-poc.md), certifique-se de que o computador de host do kit de desenvolvimento atende aos requisitos descritos neste artigo.
 
+> [!NOTE]
+> O ASDK deve ser instalado em um computador host físico. Não há suporte para instalar o ASDK em uma VM do Azure.
 
 ## <a name="hardware"></a>Hardware
 | Componente | Mínimo | Recomendadas |
@@ -122,7 +124,6 @@ Verifique se há um servidor DHCP disponível na rede ao qual a NIC se conecta. 
 ### <a name="internet-access"></a>Acesso à Internet
 A pilha do Azure requer acesso à Internet, diretamente ou através de um proxy transparente. A pilha do Azure não oferece suporte à configuração de um proxy da web para habilitar o acesso à Internet. O IP do host e o novo IP atribuído ao MAS-BGPNAT01 (pelo DHCP ou IP estático) devem ser capaz de acessar a Internet. As portas 80 e 443 são usadas em domínios de graph.windows.net e login.microsoftonline.com.
 
-P: é possível executar ASDK em uma VM do Azure? R: não. A partir de hoje, não há oficialmente suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Baixe o pacote de implantação do kit de desenvolvimento do Azure pilha](https://azure.microsoft.com/overview/azure-stack/try/?v=try)

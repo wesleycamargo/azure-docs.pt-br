@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 03/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Datacenter para sistemas de pilha do Azure integrado
 Se você estiver interessado em um sistema de pilha do Azure integrado, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões importantes de infra-estrutura para seu sistema de vários nó de pilha do Azure. Ajuda a entender essas considerações ao trabalhar com o fornecedor do hardware OEM implantação de pilha do Azure para seu datacenter.  
@@ -30,6 +30,15 @@ Se você estiver interessado em um sistema de pilha do Azure integrado, você de
 Para implantar a pilha do Azure, você precisa fornecer informações de planejamento para seu provedor de soluções, antes do início da implantação ajudar o processo de forma rápida e sem problemas. As informações necessárias intervalos em rede, segurança e informações de identidade com muitas decisões importantes que podem exigir conhecimento em muitas áreas diferentes e tomadores de decisão. Portanto, você talvez precise efetuar pull de pessoas de várias equipes em sua organização para garantir que você tenha todas as informações necessárias prontas antes do início da implantação. Ele pode ajudar a se comunicar com o fornecedor do hardware ao coletar essas informações, como talvez tenham conselhos úteis para tomar as decisões.
 
 Durante a pesquisa e coletar as informações necessárias, você precisará fazer algumas alterações de configuração antes da implantação para seu ambiente de rede. Isso pode incluir a reserva de espaços de endereço IP para a solução de pilha do Azure, configurar seus roteadores, comutadores e firewalls para se preparar para a conectividade com as novas opções de solução de pilha do Azure. Certifique-se de ter o especialista de área de assunto embutido até ajudá-lo com seu planejamento.
+
+## <a name="capacity-planning-considerations"></a>Considerações de planejamento de capacidade
+Ao avaliar uma solução de pilha do Azure para aquisição, opções de configuração de hardware devem ser feitas que têm um impacto direto sobre a capacidade geral de sua solução de pilha do Azure. Isso inclui as opções clássicas de CPU, densidade de memória, configuração de armazenamento e escala de solução geral (por exemplo, o número de servidores). Ao contrário de uma solução de virtualização tradicionais, não se aplicam a aritmética simple desses componentes para determinar a capacidade de uso. O primeiro motivo é que a pilha do Azure foi projetada para hospedar os componentes de infraestrutura ou gerenciamento dentro da solução em si. A segunda razão é que algumas da capacidade da solução está reservada para oferecer suporte a resiliência; a atualização de software da solução de forma que minimiza a interrupção de cargas de trabalho de locatário. 
+
+O [planilha do Planejador de capacidade de pilha do Azure](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) ajuda você a otimizar informado decisões em relação ao planejamento de capacidade de duas maneiras: ou o, selecionando uma oferta de hardware e tentando ajustar uma combinação de recursos ou definindo a carga de trabalho do Azure de pilha destina-se a executar para exibir o hardware disponível SKUs que dão suporte a ele. Por fim, a planilha destina-se como um guia para ajudar na tomada de decisões relacionadas à pilha Azure planejamento e configuração. 
+
+A planilha não se destina a servir como um substituto para sua investigação e a análise.  Microsoft faz declarações ou garantias, expressas ou implícitas, as informações fornecidas na planilha.
+
+
 
 ## <a name="management-considerations"></a>Considerações sobre gerenciamento
 A pilha do Azure é um sistema de lacrado, onde a infraestrutura é bloqueada ambos a partir de um permissões e a perspectiva de rede. Listas de controle de acesso de rede (ACLs) são aplicadas para bloquear todo o tráfego de entrada não autorizado e todas as comunicações desnecessárias entre componentes de infraestrutura. Isso torna difícil para usuários não autorizados acessar o sistema.
