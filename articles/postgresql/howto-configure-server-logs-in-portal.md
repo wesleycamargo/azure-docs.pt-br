@@ -1,25 +1,25 @@
 ---
-title: Configurar e acessar os logs de servidor para PostgreSQL no Portal do Azure | Microsoft Docs
+title: Configurar e acessar os logs de servidor para PostgreSQL no Portal do Azure
 description: Este artigo descreve como configurar e acessar os logs de servidor no Banco de Dados do Azure para PostgreSQL no Portal do Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/28/2018
+ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e acessar os logs de servidor no Portal do Azure
 
 É possível configurar, listar e baixar os [logs de servidor do Banco de Dados do Azure para PostgreSQL](concepts-server-logs.md) no Portal do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para seguir este guia de instruções, você precisa:
 - [Servidor do Banco de Dados do Azure para PostgreSQL](quickstart-create-server-database-portal.md)
 
@@ -36,19 +36,13 @@ Configure o acesso aos logs de consulta e de erros.
 
 4. Selecione o título **Clique aqui para habilitar os logs e configurar os parâmetros de log** para ver os parâmetros do servidor.
 
-5. Selecione o expansor **Mostrar mais** para ver uma lista estendida de parâmetros disponíveis. 
-
-   Para obter mais informações sobre as definições de parâmetros, consulte a documentação do PostgreSQL em [Logs e relatórios de erros](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
-
-   ![Lista breve de parâmetros de log. Clique em mostrar mais para ver mais detalhes](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Altere os parâmetros que você precisa ajustar. Todas as alterações feitas nessa sessão são realçadas em roxo.
+5. Altere os parâmetros que você precisa ajustar. Todas as alterações feitas nessa sessão são realçadas em roxo.
 
    Depois que você alterar os parâmetros, clique em **Salvar**. Ou então, você pode **Descartar** suas alterações. 
 
    ![Lista longa de parâmetros com alterações a serem salvas ou descartadas](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Retorne para a lista de logs clicando no **botão Fechar** (ícone de X) na página **Parâmetros do servidor**.
+6. Retorne para a lista de logs clicando no **botão Fechar** (ícone de X) na página **Parâmetros do servidor**.
 
 ## <a name="view-list-and-download-logs"></a>Exibir a lista e baixar os logs
 Depois que o registro em log começar, exiba uma lista dos logs disponíveis e baixar os arquivos de log individuais no painel de Logs do servidor. 

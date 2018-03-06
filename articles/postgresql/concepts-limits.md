@@ -1,66 +1,71 @@
 ---
-title: "Limitações no Banco de Dados do Azure para PostgreSQL | Microsoft Docs"
-description: "Descreve as limitações no Banco de Dados do Azure para PostgreSQL."
+title: "Limitações no Banco de Dados do Azure para PostgreSQL"
+description: "Este artigo descreve limitações no Banco de Dados do Azure para PostgreSQL, como número de opções de mecanismo de armazenamento e conexão."
 services: postgresql
 author: kamathsun
 ms.author: sukamat
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
 ms.topic: article
-ms.date: 12/04/2017
-ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.date: 02/28/2018
+ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
 O Banco de Dados do Azure para o serviço PostgreSQL está em visualização pública. As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
 
-## <a name="service-tier-maximums"></a>Limites máximos da camada de serviço
-O Banco de Dados do Azure para PostgreSQL tem vários níveis de serviço que você pode escolher ao criar um servidor. Para saber mais, confira [Entenda o que está disponível em cada camada de serviço](concepts-service-tiers.md).  
+## <a name="pricing-tier-maximums"></a>Tipos de preço máximos
+O Banco de Dados do Azure para PostgreSQL possui vários tipos de preço que você pode escolher ao criar um servidor. Para obter mais informações, consulte [Tipos de preço no Banco de Dados do Azure para PostgreSQL](concepts-pricing-tiers.md).  
 
-Há um número máximo de conexões, unidades de computação e armazenamento em cada camada de serviço durante a visualização do serviço, da seguinte maneira: 
+Há um número máximo de conexões, unidades de computação e armazenamento em tipo de preço, conforme a seguir: 
 
-| | |
-| :------------------------- | :---------------- |
-| **Conexões máximas**        |                   |
-| 50 unidades de computação básica     | 55 conexões    |
-| 100 unidades de computação básica    | 105 conexões   |
-| 100 unidades de computação standard | 150 conexões   |
-| 200 unidades de computação standard | 250 conexões   |
-| 400 unidades de computação standard | 480 conexões   |
-| 800 unidades de computação standard | 950 conexões   |
-| **Unidades de computação máxima**      |                   |
-| Camada de serviço Básica         | 100 Unidades de computação |
-| Camada de serviço Standard      | 800 Unidades de computação |
-| **Armazenamento Máximo**            |                   |
-| Camada de serviço Básica         | 1 TB              |
-| Camada de serviço Standard      | 1 TB              |
+|Camada de preços| Geração de computação| vCore(s)| Máximo de conexões |
+|---|---|---|---|
+|Basic| Gen 4| 1| 50 |
+|Basic| Gen 4| 2| 100 |
+|Basic| Gen 5| 1| 50 |
+|Basic| Gen 5| 2| 100 |
+|Uso geral| Gen 4| 2| 150|
+|Uso geral| Gen 4| 4| 250|
+|Uso geral| Gen 4| 8| 480|
+|Uso geral| Gen 4| 16| 950|
+|Uso geral| Gen 4| 32| 1500|
+|Uso geral| Gen 5| 2| 150|
+|Uso geral| Gen 5| 4| 250|
+|Uso geral| Gen 5| 8| 480|
+|Uso geral| Gen 5| 16| 950|
+|Uso geral| Gen 5| 32| 1500|
+|Otimizado para memória| Gen 5| 2| 150|
+|Otimizado para memória| Gen 5| 4| 250|
+|Otimizado para memória| Gen 5| 8| 480|
+|Otimizado para memória| Gen 5| 16| 950|
+|Otimizado para memória| Gen 5| 32| 1900|
 
-O sistema do Azure exige cinco conexões para monitorar o Banco de Dados do Azure para o servidor PostgreSQL. Quando um número excessivo de conexões for atingido, você receberá o seguinte erro:
+Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > FATAL: já existem muitos clientes
 
+O sistema do Azure exige cinco conexões para monitorar o Banco de Dados do Azure para o servidor PostgreSQL. 
 
-## <a name="preview-functional-limitations"></a>Limitações funcionais da versão prévia
+## <a name="functional-limitations"></a>Limitações funcionais
 ### <a name="scale-operations"></a>Operações de dimensionamento
-1.  Não há suporte para o dimensionamento dinâmico de servidores por meio de camadas de serviço. Ou seja, alternando entre as camadas de serviço Básico e Standard.
-2.  Não há suporte para o aumento sob demanda dinâmico de armazenamento no servidor criado previamente.
-3.  Não há suporte para diminuir o tamanho de armazenamento do servidor.
+1.  Atualmente, não há suporte para o dimensionamento dos servidores em tipos de preço. Ou seja, alternando entre Básico, Uso Geral e Otimizado para Memória.
+2.  Atualmente, não há suporte para diminuir o tamanho de armazenamento do servidor.
 
 ### <a name="server-version-upgrades"></a>Upgrade da versão do servidor
 - Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal.
 
 ### <a name="subscription-management"></a>Gerenciamento de assinaturas
-- Não há suporte para mover dinamicamente servidores criados previamente entre a assinatura e o grupo de recursos.
+- Atualmente, não há suporte para servidores que deslocam-se dinamicamente em assinaturas e grupos de recursos.
 
-### <a name="point-in-time-restore"></a>Restauração pontual
-1.  Não é permitido restaurar para a camada de serviço diferente e/ou Unidades de computação e Tamanho do armazenamento.
+### <a name="point-in-time-restore-pitr"></a>PITR (Restauração Pontual)
+1.  Ao usar o recurso PITR, o novo servidor é criado com as mesmas configurações nas quais o servidor está baseado.
 2.  Não há suporte para restaurar um servidor eliminado.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Entenda [O que está disponível em cada tipo de preço](concepts-service-tiers.md)
-- Entenda as [Versões de banco de dados PostgreSQL com suporte](concepts-supported-versions.md)
-- Veja [Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure](howto-restore-server-portal.md)
+- Entenda [o que está disponível em cada tipo de preço](concepts-pricing-tiers.md)
+- Saiba mais sobre [Versões de Banco de Dados PostgreSQL com suporte](concepts-supported-versions.md)
+- Revise [como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure](howto-restore-server-portal.md)

@@ -1,24 +1,24 @@
 ---
-title: "Configurar alertas de métricas para o Banco de Dados do Azure para PostgreSQL via Portal do Azure | Microsoft Docs"
+title: "Configurar os parâmetros do servidor no Banco de Dados do Azure para PostgreSQL por meio do Portal do Azure"
 description: "Este artigo descreve como configurar os parâmetros de servidor disponíveis no Banco de Dados do Azure para PostgreSQL usando o portal do Azure."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 9e8262fbfcde2e69a656e356a7ab241f2d5043ad
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 02/28/2018
+ms.openlocfilehash: 6d43cac79c19e117385549b1678a464dc5731bd7
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>Configure parâmetros de servidor no Portal do Azure
 Você pode listar, exibir e atualizar os parâmetros de configuração de um Banco de Dados do Azure para servidor PostgreSQL via portal do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para seguir este guia de instruções, você precisa:
 - [Servidor do Banco de Dados do Azure para PostgreSQL](quickstart-create-server-database-portal.md)
 
