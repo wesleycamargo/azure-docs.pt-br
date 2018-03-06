@@ -1,7 +1,7 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
-O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Basta clicar em **Copiar** para copiar o código, colá-lo no Cloud Shell e depois pressione Enter para executá-lo.  Há algumas maneiras de inicializar o Cloud Shell:
+O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Basta clicar no botão **Copiar** para copiar o código, colá-lo no Cloud Shell e pressionar Enter para executá-lo.  Há algumas maneiras de inicializar o Cloud Shell:
 
 |  |   |
 |-----------------------------------------------|---|

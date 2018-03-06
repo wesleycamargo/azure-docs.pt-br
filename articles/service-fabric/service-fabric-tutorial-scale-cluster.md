@@ -1,6 +1,6 @@
 ---
 title: Proteger um cluster do Azure Service Fabric | Microsoft Docs
-description: Saiba como dimensionar rapidamente um cluster do Service Fabric.
+description: "Neste tutorial, você aprende a dimensionar rapidamente um cluster do Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="scale-a-service-fabric-cluster"></a>Colocar em escala um cluster do Service Fabric
+# <a name="tutorial-scale-a-service-fabric-cluster"></a>Tutorial: dimensionar um cluster do Service Fabric
 
 Este tutorial é parte dois de uma série e mostra como expandir e reduzir o seu cluster existente. Quando tiver terminado, saberá como colocar o cluster em escala e limpar quaisquer recursos restantes.
 

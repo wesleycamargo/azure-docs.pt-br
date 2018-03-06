@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 425e2186d4eba5db358ebb3a014c3563c4443eb5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 56fb52cb2dbca1939aac2eb9dd4971a93bf8c0dc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar um Banco de Dados SQL do Azure no portal do Azure
 
@@ -157,7 +157,7 @@ Agora que você criou um banco de dados de exemplo no Azure, usaremos a ferramen
 
    ![resultados do editor de consultas](./media/sql-database-get-started-portal/query-editor-results.png)
 
-5. Feche a página **Data Explorer** e clique em **OK** para descartar suas edições não salvas.
+5. Feche a página **Editor de consulta** e clique em **OK** para descartar suas edições não salvas.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

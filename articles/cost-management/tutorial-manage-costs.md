@@ -1,22 +1,22 @@
 ---
-title: Gerenciar custos usando o Gerenciamento de Custos do Azure | Microsoft Docs
-description: "Gerencie custos usando a alocação de custos e relatórios de análise e estorno."
+title: 'Tutorial: Gerenciar custos usando o Gerenciamento de Custos do Azure | Microsoft Docs'
+description: "Neste tutorial, você aprende a gerenciar custos usando a alocação de custos e relatórios de análise e estorno."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Gerenciar custos usando o Gerenciamento de Custos do Azure
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Tutorial: Gerenciar custos usando o Gerenciamento de Custos do Azure
 
 Gerencie os custos e produza relatórios de análise no Gerenciamento de Custos do Azure por Cloudyn alocando os custos com base em marcas. O processo de alocação de custos atribui os custos aos recursos de nuvem consumidos. Os custos são totalmente alocados quando todos os seus recursos são categorizados com marcas. Depois que os custos são alocados, você pode fornecer análise ou estorno para seus usuários com painéis e relatórios. Porém, muitos recursos poderão estar desmarcados ou não ser marcáveis quando você começar a usar o Gerenciamento de Custos.
 
@@ -27,6 +27,13 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Use marcas personalizadas para alocar os custos.
 > * Crie relatórios de análise e de estorno.
+
+Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>pré-requisitos
+
+- Você deve ter uma conta do Azure.
+- Você deve ter um registro de avaliação ou uma assinatura paga do Gerenciamento de Custos do Azure.
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Usar marcas personalizadas para alocar os custos
 
@@ -122,7 +129,7 @@ Neste tutorial, você aprendeu como:
 
 
 
-Para saber mais sobre como começar com a Cloudyn e como usar seus recursos, prossiga para a documentação da Cloudyn.
+Avance para o próximo tutorial para saber mais sobre como controlar o acesso a dados.
 
 > [!div class="nextstepaction"]
-> [Documentação da Cloudyn](https://support.cloudyn.com/hc/)
+> [Controlar o acesso a dados](tutorial-user-access.md)

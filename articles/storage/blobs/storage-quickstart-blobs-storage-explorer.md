@@ -1,21 +1,21 @@
 ---
-title: "Guia de início rápido do Azure – Transferir objetos para/do Armazenamento de Blobs do Azure usando o Gerenciador de Armazenamento do Azure | Microsoft Docs"
-description: Aprenda rapidamente a transferir objetos de/para o Armazenamento de Blobs do Azure usando o Gerenciador de Armazenamento do Azure
+title: "Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando o Gerenciador de Armazenamento do Azure | Microsoft Docs"
+description: "Neste guia de início rápido, você pode usar o Gerenciador de Armazenamento do Azure para criar uma conta de armazenamento e um contêiner. Em seguida, use o Gerenciador de Armazenamento do Azure para carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner."
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Transfira objetos de/para o Armazenamento de Blobs do Azure usando o Gerenciador de Armazenamento do Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Início rápido: Carregar, baixar e listar blobs usando o Gerenciador de Armazenamento do Azure
 
 O [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é uma interface de usuário multiplataforma usada para gerenciar o conteúdo de suas contas de armazenamento. Este guia detalha o uso do Gerenciador de Armazenamento do Azure para transferir arquivos entre um disco local e o Armazenamento de Blobs do Azure.
 

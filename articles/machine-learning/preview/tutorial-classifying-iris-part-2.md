@@ -1,23 +1,23 @@
 ---
-title: "Criar um modelo para os serviços do Azure Machine Learning (versão prévia) | Microsoft Docs"
+title: "Criar um tutorial de modelo para os serviços do Azure Machine Learning (versão prévia) | Microsoft Docs"
 description: "Este tutorial completo mostra como usar os serviços do Azure Machine Learning (versão prévia) de ponta a ponta. Essa é a parte dois e aborda a experimentação."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>Parte 2 de Classificação da Íris: Criar um modelo
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Tutorial: Parte 2 de Classificação da Íris – Criar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
 
 Este tutorial é a parte dois de uma série de três partes. Nessa parte do tutorial, você usará os serviços do Azure Machine Learning (versão prévia) para:
@@ -33,6 +33,8 @@ Este tutorial é a parte dois de uma série de três partes. Nessa parte do tuto
 > * Executar scripts em um ambiente do Azure HDInsight na nuvem.
 
 Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. As capturas de tela são específicas do Windows, mas a experiência no macOS é quase idêntica.
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>pré-requisitos
 Concluir a primeira parte desta série de tutoriais. Siga o [tutorial Preparar dados](tutorial-classifying-iris-part-1.md) para criar recursos do Azure Machine Learning e instalar o aplicativo Azure Machine Learning Workbench antes de iniciar as etapas neste tutorial.
@@ -374,6 +376,10 @@ Você também pode executar esse script em um cluster HDInsight Spark. Saiba [co
    >Quando você executar em um cluster HDInsight remoto, você também poderá exibir os detalhes do Outro Negociador de Recursos (YARN) em `https://<cluster_name>.azurehdinsight.net/yarnui` usando a conta de usuário `admin`.
 
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 Nessa segunda parte da série de tutoriais de três partes, você aprendeu a usar os serviços do Azure Machine Learning para:
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ Nessa segunda parte da série de tutoriais de três partes, você aprendeu a usa
 Você está pronto para passar para a terceira parte da série. Agora que você criou o modelo de regressão logística, nós o implantaremos como um serviço Web em tempo real.
 
 > [!div class="nextstepaction"]
-> [Implantar um modelo](tutorial-classifying-iris-part-3.md)
+> [Tutorial 3 - Classificando a Íris: implantar modelos](tutorial-classifying-iris-part-3.md)

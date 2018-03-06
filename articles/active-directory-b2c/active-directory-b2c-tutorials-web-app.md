@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Usar o Azure Active Directory B2C para autenticação de usuário em um aplicativo Web ASP.NET"
-description: "Tutorial sobre como usar o Azure Active Directory B2C para inscrever e conectar usuários em um aplicativo Web ASP.NET."
+description: "Tutorial sobre como usar o Azure Active Directory B2C para fornecer o logon do usuário para um aplicativo Web ASP.NET."
 services: active-directory-b2c
 author: PatAltimore
 ms.author: patricka
@@ -9,11 +9,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: ee006476f9e40e9d1a6e7213cb1881ca46ea75c2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Tutorial: Autenticar usuários com o Azure Active Directory B2C em um aplicativo Web ASP.NET
 
@@ -45,7 +45,7 @@ Entre no [portal do Azure](https://portal.azure.com/) como administrador global 
 
 2. Nas configurações de B2C, clique em **Aplicativos** e em **Adicionar**.
 
-    Para registrar o aplicativo Web de exemplo no locatário, use as configurações a seguir.
+    Para registrar o aplicativo Web de exemplo no locatário, use as seguintes configurações:
 
     ![Adicionar um novo aplicativo](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
@@ -147,9 +147,9 @@ O aplicativo Web ASP.NET de exemplo é um aplicativo de lista de tarefas simples
 
 Há dois projetos na solução de exemplo:
 
-**Aplicativo Web de exemplo (TaskWebApp):** o aplicativo Web para criar e editar uma lista de tarefas. O aplicativo Web usa a política **inscrever-se ou entrar** para inscrever ou fazer logon de usuários com um endereço de email.
+**Aplicativo Web de exemplo (TaskWebApp):** o aplicativo Web para criar e editar uma lista de tarefas. O aplicativo Web usa a política **criar conta ou entrar** para inscrever ou fazer logon de usuários.
 
-**O aplicativo de exemplo de API Web (TaskService):** API Web que dá suporte às funções criar, ler, atualizar e excluir a lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pelo aplicativo Web.
+**O aplicativo de API Web de exemplo (TaskService):** API Web que dá suporte às funções criar, ler, atualizar e excluir a lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pelo aplicativo Web.
 
 Você precisa alterar o aplicativo para usar o registro do aplicativo em seu locatário. Você também precisa configurar as políticas criadas. O aplicativo Web de exemplo define os valores de configuração como configurações de aplicativo no arquivo Web.config. Para alterar as configurações do aplicativo:
 
@@ -178,7 +178,7 @@ No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **
 
 Pressione **F5** para iniciar o aplicativo Web. O navegador padrão inicia no endereço do site local `https://localhost:44316/`. 
 
-O aplicativo de exemplo dá suporte a inscrição, entrada, edição de perfil e redefinição de senha. Abaixo vemos como um usuário se inscreve para usar o aplicativo com um endereço de email. Você pode experimentar os outros cenários por conta própria.
+O aplicativo de exemplo dá suporte a inscrição, entrada, edição de perfil e redefinição de senha. Este tutorial destaca como um usuário se inscreve para usar o aplicativo usando um endereço de email. Você pode explorar os outros cenários por conta própria.
 
 ### <a name="sign-up-using-an-email-address"></a>Criar conta usando um endereço de email
 
@@ -205,4 +205,4 @@ Você pode usar o seu locatário do Azure AD B2C se planeja experimentar outros 
 Neste tutorial, você aprendeu a criar um locatário do Azure AD B2C, a criar políticas e a atualizar o aplicativo Web de exemplo para usar o seu locatário do Azure AD B2C. Continue para o próximo tutorial a fim de aprender a registrar, configurar e chamar uma API Web ASP.NET protegida por seu locatário do Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Usar o Azure Active Directory B2C para proteger uma API Web ASP.NET](active-directory-b2c-tutorials-web-api.md)
+> [Tutorial: Usar o Azure Active Directory B2C para proteger uma API Web ASP.NET](active-directory-b2c-tutorials-web-api.md)

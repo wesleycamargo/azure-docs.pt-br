@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação
 
@@ -239,7 +239,7 @@ Antes de registrar uma VM em um cofre, execute o processo de descoberta para gar
 
     ![Selecionar carga de trabalho](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    A máquina virtual selecionada é validada. Se não encontrar as máquinas virtuais que esperava, verifique se elas existem no mesmo local do Azure que o cofre de Serviços de Recuperação. O local do cofre dos serviços de recuperação é exibido no painel do cofre.
+    A máquina virtual selecionada é validada. Se você não encontrar as máquinas virtuais esperadas, verifique se elas existem no mesmo local do Azure que o cofre dos Serviços de Recuperação e se já não estão sendo protegidas. O local do cofre dos serviços de recuperação é exibido no painel do cofre.
 
 6. Agora que você definiu todas as configurações para o cofre, na folha Backup, clique em **Habilitar Backup** para implantar a política ao cofre e às VMs. A implantação da política de backup não cria o ponto de recuperação inicial para a máquina virtual.
 

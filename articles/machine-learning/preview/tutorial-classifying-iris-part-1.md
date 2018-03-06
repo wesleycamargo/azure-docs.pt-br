@@ -3,57 +3,80 @@ title: "Preparar dados para o tutorial de classificação da Íris nos serviços
 description: "Este tutorial completo mostra como usar os serviços do Azure Machine Learning (versão prévia) de ponta a ponta. Essa é a primeira parte e ela aborda a preparação dos dados."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 09/28/2017
-ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 02/28/2018
+ms.openlocfilehash: 0bef557ee1394e3c786fd2c54e821b5dea28fabf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="classify-iris-part-1-prepare-the-data"></a>Parte 1 de Classificação da Íris: Preparar dados
+# <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Tutorial: Classificar Íris pare 1 - Preparar os dados
+
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
 
 Este tutorial é a parte um de uma série de três partes. Neste tutorial, percorremos as noções básicas dos serviços do Azure Machine Learning (versão prévia). Você aprenderá como:
-> [!div class="checklist"]
-> * Criar um projeto no Azure Machine Learning Workbench.
-> * Criar um pacote de preparação de dados.
-> * Gerar código Python/PySpark para invocar um pacote de preparação de dados.
 
-Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. As capturas de tela são específicas do Windows, mas a experiência no macOS é quase idêntica.
+> [!div class="checklist"]
+> * Criar um projeto no Azure Machine Learning Workbench
+> * Criar um pacote de preparação de dados
+> * Gerar código Python/PySpark para invocar um pacote de preparação de dados
+
+Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. As capturas de tela são específicos do Windows, mas a experiência no macOS é quase idêntica.
 
 ## <a name="prerequisites"></a>pré-requisitos
-- Criar uma conta de Experimentação do Azure Machine Learning.
-- Instalar o Azure Machine Learning Workbench.
 
-Você pode seguir as instruções no artigo [Guia de início rápido para instalação e criação](quickstart-installation.md) para instalar o aplicativo Azure Machine Learning Workbench. A instalação também inclui a ferramenta de linha de comando de plataforma cruzada do Azure ou a CLI do Azure.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-new-project-in-azure-machine-learning-workbench"></a>Criar um novo projeto no Azure Machine Learning Workbench
-1. Abra o aplicativo Azure Machine Learning Workbench e faça logon se necessário. No painel **PROJETOS**, clique no sinal de adição (**+**) para criar um **Novo Projeto**.
+Para concluir este tutorial, você deve ter:
+- Uma conta de Experimentação do Azure Machine Learning
+- O Azure Machine Learning Workbench instalado
+
+Se você ainda não tiver esses, siga as etapas no artigo [Início Rápido: instalar e iniciar](quickstart-installation.md) para configurar essa conta e instalar o aplicativo Azure Machine Learning Workbench. 
+
+## <a name="create-a-new-project-in-workbench"></a>Criar um novo projeto no Workbench
+
+Se você seguiu as etapas no artigo [Início Rápido: instalar e iniciar](quickstart-installation.md), já deve ter este projeto e pode ir para a próxima seção.
+
+1. Abra o aplicativo Azure Machine Learning Workbench e faça logon se necessário. 
+   
+   + No Windows, inicie-o usando o atalho do **Machine Learning Workbench** na área de trabalho. 
+   + No macOS, selecione **Azure ML Workbench** na Launchpad.
+
+1. Selecione o sinal de adição (+) no painel **PROJETOS**, e selecione **Novo Projeto**.  
 
    ![Novo espaço de trabalho](media/tutorial-classifying-iris/new_ws.png)
 
-2. Preencha os detalhes de **Criar Novo Projeto**: 
+1. Preencha os campos de formulário e selecione o botão **Criar** para criar um novo projeto no Workbench.
+
+   Campo|Valor sugerido para o tutorial|DESCRIÇÃO
+   ---|---|---
+   Nome do projeto | myIris |Insira um nome exclusivo que identifique a sua conta. Você pode usar seu próprio nome ou um nome do projeto ou departamental que melhor identifique o experimento. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). 
+   Diretório do projeto | c:\Temp\ | Especifique o diretório no qual o projeto é criado.
+   Descrição do projeto | _deixar em branco_ | Campo opcional útil para descrever os projetos.
+   Visualstudio.com |_deixar em branco_ | Campo opcional. Como opção, um projeto pode ser associado a um repositório Git no Visual Studio Team Services para controle do código-fonte e colaboração. [Saiba como configurar](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Espaço de trabalho | IrisGarden (se houver) | Escolha um espaço de trabalho que você criou para sua conta de Experimentação no portal do Azure. <br/>Se você seguiu o Início Rápido, deve ter um espaço de trabalho com o nome IrisGarden. Caso contrário, selecione aquele criado quando você criou sua conta de Experimentação ou quaisquer outras que deseja usar.
+   Modelo do projeto | Classificando a Íris | Os modelos contêm scripts e dados que você pode usar para explorar o produto. Este modelo contém os scripts e os dados necessários para este início rápido e outros tutoriais neste site de documentação. 
 
    ![Novo Projeto](media/tutorial-classifying-iris/new_project.png)
-
-   - Preencha a caixa **Nome do projeto** com um nome para o projeto. Por exemplo, use o valor **myIris**.
-   - Selecione o **Diretório do projeto** no qual o projeto é criado. Por exemplo, use o valor `C:\Temp\`. 
-   - Insira a **Descrição do projeto**, que é opcional. 
-   - O campo **Repositório Git** também é opcional e pode ser deixado em branco. Você pode fornecer um repositório Git vazio (um repositório sem ramificação mestre) existente no Visual Studio Team Services. Se você usar um repositório Git que já existe, você pode habilitar os cenários de roaming e compartilhamento mais tarde. Para obter mais informações, consulte [Usar o repositório Git](using-git-ml-project.md). 
-   - Selecione um **Espaço de trabalho**, por exemplo, este tutorial usa **IrisGarden**. 
-   - Selecione o modelo **Classificando a Íris** da lista de modelos de projeto. 
-
-3. Selecione o botão **Criar**. O projeto está agora criado e aberto para você.
+ 
+ Um novo projeto é criado e o seu painel é aberto com esse projeto. Neste ponto, você pode explorar a página inicial, as fontes de dados, as anotações e os arquivos de código-fonte do projeto. 
 
 ## <a name="create-a-data-preparation-package"></a>Criar um pacote de preparação de dados
-1. Abra o arquivo **iris.csv** na **Exibição do Arquivo**. O arquivo é uma tabela com 5 colunas e 150 linhas. Ele tem quatro colunas de recurso numéricas e uma coluna de destino da cadeia de caracteres. Ele não tem cabeçalhos de coluna.
+
+Nesta parte do tutorial, você explora os dados e inicia o processo de preparação de dados. Quando você prepara os dados no Azure Machine Learning Workbench, uma representação JSON das transformações que você executa no Workbench é armazenada em um pacote de preparação de dados locais (arquivo *.dprep). Este pacote de preparação de dados é o contêiner primário para o trabalho de preparação de dados no Workbench.
+
+Este pacote de preparação de dados pode ser entregue para a execução de um tempo de execução, como local-C#/CoreCLR, Scala/Spark, ou Scala/HDI. onde o código é gerado para o tempo de execução apropriado para execução. 
+
+1. Selecione o ícone de pasta para abrir a exibição do arquivo e, em seguida, selecione **iris.csv** para abrir esse arquivo.  
+
+   O arquivo é uma tabela com 5 colunas e 150 linhas. Ele tem quatro colunas de recurso numéricas e uma coluna de destino da cadeia de caracteres. Ele não tem cabeçalhos de coluna.
 
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
@@ -97,19 +120,19 @@ Você pode seguir as instruções no artigo [Guia de início rápido para instal
 
    Um novo pacote de preparação de dados chamado **iris-1.dprep** é criado e aberto no editor de preparação de dados.
 
-9. Agora, faremos um pouco de preparação de dados básicos. Renomeie os nomes das colunas. Selecione cada cabeçalho de coluna para tornar o texto do cabeçalho editável. 
+9. Agora, faremos um pouco de preparação de dados básicos. Selecione cada cabeçalho de coluna para tornar o texto do cabeçalho editável e renomeie cada coluna da seguinte maneira: 
 
-   Digite **comprimento da sépala**, **largura da sépala**, **comprimento da pétala**, **largura da pétala**, e **espécies** para o cinco colunas, respectivamente.
+   Digite **Comprimento da sépala**, **Largura da sépala**, **Comprimento da pétala**, **Largura da pétala**, e **Espécies** para as cinco colunas, respectivamente.
 
    ![Renomeie as colunas](media/tutorial-classifying-iris/rename_column.png)
 
 10. Para contar valores distintos, selecione a coluna **Espécies** e clique com o botão direito do mouse para selecioná-la. Selecione **Contagens de valor** no menu suspenso. 
 
+   Essa ação abre o painel **Inspetores** abaixo dos dados. Um histograma com quatro barras é exibido. A coluna de destino possui três valores distintos: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** e um valor **(nulo)**.
+
    ![Selecione Contagens de valor](media/tutorial-classifying-iris/value_count.png)
 
-   Essa ação abre o painel **Inspetores** e exibe um histograma com quatro barras. A coluna de destino possui três valores distintos: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** e um valor **(nulo)**.
-
-11. Para filtrar os valores nulos, selecione a barra do grafo que representa o valor nulo. Há uma linha com um valor **(nulo)**. Para remover essa linha, selecione o sinal de subtração (**-**).
+11. Para filtrar os valores nulos, selecione o rótulo "Nulo" e clique no sinal de subtração (**-**). Em seguida, a linha Nulo fica cinza para indicar que ele foi filtrado. 
 
    ![Histograma de contagem de valor](media/tutorial-classifying-iris/filter_out.png)
 
@@ -121,11 +144,15 @@ Você pode seguir as instruções no artigo [Guia de início rápido para instal
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Gerar código Python/PySpark para invocar um pacote de preparação de dados
 
-1. Clique com o botão direito do mouse no arquivo **iris-1.dprep** para acessar o menu de contexto e escolha **Gerar arquivo de código de acesso a dados**. 
+<!-- The output/results of a Package can be explored in Python or via a Jupyter Notebook. A Package can be executed across multiple runtimes including local Python, Spark (including in Docker), and HDInsight. A Package contains one or more Dataflows that are the steps and transforms applied to the data. A Package may use another Package as a Data Source (referred to as a Reference Data Flow). -->
+
+1. Localize o arquivo **iris-1.dprep** na guia de Preparação de Dados.
+
+1. Clique com o botão direito do mouse no arquivo **iris-1.dprep** e selecione **Gerar Arquivo de Código de Acesso a Dados** no menu de contexto. 
 
    ![Gerar código](media/tutorial-classifying-iris/generate_code.png)
 
-2. Um novo arquivo denominado **iris-1.py** abre com as linhas de código a seguir:
+   Um novo arquivo denominado **iris-1.py** é aberto com as linhas de código a seguir para invocar a lógica que você criou como um pacote de preparação de dados:
 
    ```python
    # Use the Azure Machine Learning data preparation package
@@ -144,17 +171,22 @@ Você pode seguir as instruções no artigo [Guia de início rápido para instal
    df.head(10)
    ```
 
-   Esse trecho de código invoca a lógica que você criou como um pacote de preparação de dados. Dependendo do contexto no qual esse código é executado, `df` representa os vários tipos de quadros de dados. Um [DataFrame Pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) é usado durante o tempo de execução do Python, ou um [DataFrame Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html) é usado quando executado em um contexto Spark. 
+   Dependendo do contexto no qual esse código é executado, `df` representa os vários tipos de quadros de dados. Um [DataFrame Pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) é usado durante o tempo de execução do Python, ou um [DataFrame Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html) é usado quando executado em um contexto Spark. 
+   
+   Para obter mais informações sobre como preparar dados no Azure Machine Learning Workbench, confira o guia de [Introdução à preparação de dados](data-prep-getting-started.md).
 
-   Para obter mais informações sobre como preparar dados no Azure Machine Learning Workbench, consulte o guia de [Introdução à preparação de dados](data-prep-getting-started.md).
+## <a name="clean-up-resources"></a>Limpar recursos
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Nessa primeira parte da série de tutoriais de três partes, você aprendeu a usar o Azure Machine Learning Workbench para:
-> [!div class="checklist"]
-> * Criar um novo projeto. 
-> * Criar um pacote de preparação de dados.
-> * Gerar código Python/PySpark para invocar um pacote de preparação de dados.
 
-Você está pronto para passar para a próxima parte da série, onde você aprende como criar um modelo do Azure Machine Learning:
+Neste tutorial, você usou o Azure Machine Learning Workbench para:
+> [!div class="checklist"]
+> * Criar um novo projeto
+> * Criar um pacote de preparação de dados
+> * Gerar código Python/PySpark para invocar um pacote de preparação de dados
+
+Você está pronto para passar para a próxima parte da série de tutoriais, onde você aprende a criar um modelo do Azure Machine Learning:
 > [!div class="nextstepaction"]
-> [Criar um modelo](tutorial-classifying-iris-part-2.md)
+> [Tutorial 2 - Criar modelos](tutorial-classifying-iris-part-2.md)

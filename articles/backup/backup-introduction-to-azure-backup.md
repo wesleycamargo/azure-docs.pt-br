@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 59beaac1d8619c3f4afa1c75074546a849dfce6b
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: a16db0f23f93083e9a17d2b12f9215a964e07c9a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -56,7 +56,7 @@ Se não tiver certeza de qual componente do Backup do Azure atende às suas nece
 | Agente de Backup do Azure (MARS) |<li>Fazer backup de arquivos e pastas no sistema operacional Windows físico ou virtual (as máquinas virtuais podem ser locais ou estar no Azure)<li>Nenhum servidor de backup separado necessário. |<li>Fazer backup 3 vezes por dia <li>Não reconhece aplicativos; arquivo, pasta e restauração em nível de volume somente, <li>  Não há suporte para Linux. |<li>Arquivos, <li>Pastas, <li>Estado do Sistema |Cofre dos Serviços de Recuperação |
 | System Center DPM |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar cofre dos Serviços de Recuperação<li>Suporte para Linux no Hyper-V e VMs VMware <li>Backup e restauração das VMs VMware usando o DPM 2012 R2 |Não é possível fazer o backup da carga de trabalho do Oracle.|<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre dos Serviços de Recuperação,<li> Disco conectado localmente,<li>  Fita (somente local) |
 | Servidor de Backup do Azure |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar cofre dos Serviços de Recuperação<li>Suporte para Linux no Hyper-V e VMs VMware<li>Fazer backup e restaurar VMs VMware <li>Não exige uma licença do System Center |<li>Não é possível fazer o backup da carga de trabalho do Oracle.<li>Sempre requer assinatura do Azure ao vivo<li>Não há suporte para backup em fita |<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre dos Serviços de Recuperação,<li> Disco conectado localmente |
-| Backup de VM IaaS do Azure |<li>Backups nativos para Windows/Linux<li>Sem necessidade de instalação de agente específico<li>Backup em nível de malha sem a necessidade de uma infraestrutura de backup |<li>Fazer backup de máquinas virtuais uma vez por dia <li>Restaurar máquinas virtuais somente no nível do disco<li>Não pode fazer backup no local |<li>VMs, <li>Todos os discos (usando o PowerShell) |<p>Cofre dos Serviços de Recuperação</p> |
+| Backup de VM IaaS do Azure |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Backups nativos para Windows/Linux<li>Sem necessidade de instalação de agente específico<li>Backup em nível de malha sem a necessidade de uma infraestrutura de backup |<li>Fazer backup de máquinas virtuais uma vez por dia <li>Restaurar máquinas virtuais somente no nível do disco<li>Não pode fazer backup no local |<li>VMs, <li>Todos os discos (usando o PowerShell) |<p>Cofre dos Serviços de Recuperação</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Quais são os cenários de implantação para cada componente?
 | Componente | Pode ser implantado no Azure? | Pode ser implantado localmente? | Armazenamento de destino com suporte |
@@ -104,7 +104,7 @@ Durante o backup de VMs do Armazenamento Premium, o serviço de Backup cria um l
 >
 
 ### <a name="restore-premium-storage-vms"></a>Restaurar VMs de Armazenamento Premium
-As VMs de Armazenamento Premium podem ser restauradas para o Armazenamento Premium ou normal. A restauração de um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Premium é o processo típico de restauração. No entanto, pode ser econômico para restaurar um ponto de recuperação de VM de Armazenamento Premium para o armazenamento padrão. Esse tipo de restauração poderá ser usado se você precisar de um subconjunto de arquivos da VM.
+As VMs de Armazenamento Premium podem ser restauradas para o Armazenamento Premium ou Standard. A restauração de um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Premium é o processo típico de restauração. No entanto, pode ser econômico restaurar um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Standard. Esse tipo de restauração poderá ser usado se você precisar de um subconjunto de arquivos da VM.
 
 ## <a name="using-managed-disk-vms-with-azure-backup"></a>Uso de VMs de disco gerenciado no Backup do Azure
 O Backup do Azure protege VMs de disco gerenciado. Os discos gerenciados liberam você do gerenciamento de contas de armazenamento de máquinas virtuais e simplificam muito o provisionamento de VM.
@@ -121,11 +121,11 @@ As seções a seguir fornecem as tabelas que resumem a disponibilidade ou o supo
 ### <a name="storage"></a>Armazenamento
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Cofre dos Serviços de Recuperação |![sim][green] |![sim][green] |![sim][green] |![sim][green] |
+| Cofre dos Serviços de Recuperação |![sim][green] |![Sim][green] |![Sim][green] |![sim][green] |
 | Armazenamento em disco | |![sim][green] |![sim][green] | |
 | Armazenamento em fita | |![sim][green] | | |
-| Compactação <br/>(no cofre dos Serviços de Recuperação) |![sim][green] |![sim][green] |![sim][green] | |
-| Backup incremental |![sim][green] |![sim][green] |![sim][green] |![sim][green] |
+| Compactação <br/>(no cofre dos Serviços de Recuperação) |![sim][green] |![Sim][green] |![sim][green] | |
+| Backup incremental |![sim][green] |![Sim][green] |![Sim][green] |![sim][green] |
 | Eliminação de duplicação de disco | |![Parcialmente][yellow] |![Parcialmente][yellow] | | |
 
 ![chave de tabela](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -162,8 +162,8 @@ O **Backup Incremental** alcança alta eficiência de armazenamento e de rede ar
 ### <a name="security"></a>Segurança
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Segurança de rede<br/> (para o Azure) |![sim][green] |![sim][green] |![sim][green] |![Parcialmente][yellow] |
-| Segurança de dados<br/> (no Azure) |![sim][green] |![sim][green] |![sim][green] |![Parcialmente][yellow] |
+| Segurança de rede<br/> (para o Azure) |![sim][green] |![Sim][green] |![sim][green] |![Parcialmente][yellow] |
+| Segurança de dados<br/> (no Azure) |![sim][green] |![Sim][green] |![sim][green] |![Parcialmente][yellow] |
 
 ![chave de tabela](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -182,7 +182,7 @@ Fazer backup de VMs do Azure requer a configuração da criptografia *na* máqui
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
 | Compactação de rede <br/>(para **servidor de backup**) | |![sim][green] |![sim][green] | |
-| Compactação de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |![sim][green] |![sim][green] |![sim][green] | |
+| Compactação de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |![sim][green] |![Sim][green] |![sim][green] | |
 | Protocolo de rede <br/>(para **servidor de backup**) | |TCP |TCP | |
 | Protocolo de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |HTTPS |HTTPS |HTTPS |HTTPS |
 

@@ -1,23 +1,21 @@
 ---
-title: "Guia de início rápido do Azure – Transferir objetos para/do Armazenamento de blobs do Azure usando o portal do Azure | Microsoft Docs"
-description: Saiba como usar o portal do Azure para carregar, baixar e listar blobs no Armazenamento de blobs do Azure.
+title: "Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando o portal do Azure | Microsoft Docs"
+description: "Neste guia de início rápido, você pode usar o portal do Azure para criar uma conta de armazenamento e um contêiner. Em seguida, use o portal do Azure para carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner."
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: f647a5b78ee2fa362c4dea6ee9003ac56e0f7f7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b03c3a26a6218bea8317749f43b4f74f6b3b4101
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-portal"></a>Transferir objetos de/para o Armazenamento de blobs do Azure usando o portal do Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Início rápido: Carregar, baixar e listar blobs usando o portal do Azure
 
 Neste guia de início rápido, você aprenderá a usar o [portal do Azure](https://portal.azure.com/) para criar um contêiner no Armazenamento do Azure e a carregar e baixar blobs de blocos nesse contêiner.
 

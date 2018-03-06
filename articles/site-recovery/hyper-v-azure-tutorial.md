@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b946964c162f47a283c37c6eae7e7152e27b6033
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V para o Azure
 
@@ -36,7 +36,7 @@ Antes de começar, é aconselhável [examinar a arquitetura](concepts-hyper-v-to
 ## <a name="select-a-replication-goal"></a>Selecione uma meta de replicação
 
 
-1. Em **Todos os Serviços** > **Cofres dos Serviços de Recuperação**, clique no nome do cofre que preparamos no tutorial anterior, **ContosoVMVault**.
+1. Em **Todos os Serviços** > **Cofres dos Serviços de Recuperação**, selecione o cofre preparado no tutorial anterior, **ContosoVMVault**.
 2. Em **Introdução**, clique em **Site Recovery**. A seguir, clique em **Preparar Infraestrutura**
 3. Em **Objetivo de proteção** > **Onde os seus computadores estão localizados**, selecione **local**.
 4. Em **Para qual deseja replicar os seus computadores**, selecione **Para o Azure**.
@@ -49,10 +49,10 @@ Antes de começar, é aconselhável [examinar a arquitetura](concepts-hyper-v-to
 Para configurar o ambiente de origem, adicione hosts Hyper-V a um site do Hyper-V, baixe e instale o Provedor do Azure Site Recovery e o agente dos Serviços de Recuperação do Azure e registre o site do Hyper-V no cofre. 
 
 1. Em **Preparar a infraestrutura**, clique em **Origem**.
-2. Clique em **+Site Hyper-V** e especifique o nome do site que criamos no tutorial anterior, **ContosoHyperVSite**.
+2. Clique em **+Site Hyper-V** e especifique o nome do site criado no tutorial anterior, **ContosoHyperVSite**.
 3. Clique em **+Servidor Hyper-V**.
 4. Baixe o de arquivo de instalação do Provedor.
-5. Baixe a chave do registro do cofre. Você precisará dela quando executar a instalação do Provedor. A chave é válida por cinco dias após ser gerada.
+5. Baixe a chave do registro do cofre. Você precisa dessa chave para executar a instalação do Provedor. A chave é válida por cinco dias após ser gerada.
 
     ![Baixar Provedor](./media/hyper-v-azure-tutorial/download.png)
     
@@ -68,7 +68,7 @@ Execute o arquivo de instalação do Provedor (AzureSiteRecoveryProvider.exe) em
 5. Em **Configurações de Proxy**, selecione **Conectar diretamente ao Azure Site Recovery sem um proxy**.
 6. Em **Registro**, depois que o servidor foi registrado no cofre, clique em **Concluir**.
 
-Os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido em **Infraestrutura do Site Recovery** > **Hosts Hyper-V**. Isso pode demorar até 30 minutos.
+Os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido em **Infraestrutura do Site Recovery** > **Hosts Hyper-V**. Esse processo pode levar até 30 minutos.
 
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de origem
@@ -83,6 +83,9 @@ A Recuperação de Site verifica se você tem uma ou mais contas de armazenament
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
+
+> [!NOTE]
+> No caso de políticas de replicação Hyper-V para Azure, a opção de frequência de cópia de 15 minutos será desativada em favor das configurações de frequência de cópia de 5 minutos e de 30 segundos. As políticas de replicação que usam uma frequência de cópia de 15 minutos serão automaticamente atualizadas para usar a configuração de frequência de cópia de 5 minutos. As opções de frequência de cópia de 5 minutos e 30 segundos fornece melhor desempenho e melhores objetivos de ponto de recuperação em comparação com uma frequência de cópia de 15 minutos, com impacto mínimo sobre o volume de transferência de dados e o uso de largura de banda.
 
 1. Clique em **Preparar a Infraestrutura** > **Configurações de Replicação** > **+Criar e associar**.
 2. Em **Criar e associar política**, especifique um nome de política, **ContosoReplicationPolicy**.
@@ -102,7 +105,7 @@ A Recuperação de Site verifica se você tem uma ou mais contas de armazenament
 1. Em **Replicar aplicativo**, clique em **Origem**. 
 2. Em **Origem**, selecione o site **ContosoHyperVSite**. Em seguida, clique em **OK**.
 3. Em **Destino**, verifique o Azure como o destino, a assinatura do cofre e o modelo de implantação do **Resource Manager**.
-4. Selecione a conta de armazenamento **contosovmsacct1910171607** que criamos no tutorial anterior para os dados replicados e a rede **ContosoASRnet**, na qual as VMs do Azure serão localizadas após o failover.
+4. Selecione a conta de armazenamento **contosovmsacct1910171607** criada no tutorial anterior para os dados replicados e a rede **ContosoASRnet**, na qual as VMs do Azure serão localizadas após o failover.
 5. Em **Máquinas Virtuais** > **Selecionar**, selecione a VM que deseja replicar. Em seguida, clique em **OK**.
 
  É possível acompanhar o progresso da ação **Habilitar Proteção** em **Trabalhos** > **Trabalhos do Site Recovery**. Após a conclusão do trabalho **Finalizar Proteção**, a replicação inicial é concluída, e a máquina virtual estará pronta para failover.
