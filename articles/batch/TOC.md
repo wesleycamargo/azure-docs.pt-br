@@ -42,12 +42,13 @@
 
 ## Criar e gerenciar pools
 ### [Dimensionar nós de computação automaticamente](batch-automatic-scaling.md)
-### [VMs de computação intensiva](batch-pool-compute-intensive-sizes.md)
+### [Escolha um tamanho de VM para os nós de computação](batch-pool-vm-sizes.md)
 ### [Configurar o acesso a nós de computação](pool-endpoint-configuration.md)
 ### [Criar um pool com uma imagem personalizada](batch-custom-images.md)
 ### [Criar um pool em uma rede virtual](batch-virtual-network.md)
-### [Nós de computação do Linux](batch-linux-nodes.md)
-### [VMs de baixa prioridade](batch-low-pri-vms.md)
+### [Usar VMs de computação intensiva](batch-pool-compute-intensive-sizes.md)
+### [Usar nós de computação do Linux](batch-linux-nodes.md)
+### [Usar VMs de baixa prioridade](batch-low-pri-vms.md)
 
 ## Gerenciar trabalhos e tarefas
 ### [Tarefas de preparação e conclusão de trabalho](batch-job-prep-release.md)

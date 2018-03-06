@@ -113,6 +113,7 @@
 #### [Configurar localizações nomeadas](active-directory-named-locations.md)
 #### [Localizar relatórios de atividades](active-directory-reporting-migration.md)
 #### [Usar o Pacote de Conteúdo do Power BI do Active Directory do Azure](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Remediar usuários sinalizados como em risco](active-directory-report-security-user-at-risk-remediation.md)
 ### Referência
 #### [Retenção](active-directory-reporting-retention.md)
 #### [Latências](active-directory-reporting-latencies-azure-portal.md)
