@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Criar uma função disparada pelo webhook do GitHub
 
@@ -28,7 +28,7 @@ Saiba como criar uma função que é disparada por uma solicitação de webhook 
 
 ![Função disparada pelo webhook do GitHub no Portal do Azure](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Uma conta do GitHub com pelo menos um projeto.
 + Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -77,11 +77,11 @@ Em seguida, você cria o webhook no repositório GitHub.
 
     ![Definir o segredo e a URL do webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
-| Configuração | Valor sugerido | Descrição |
+| Configuração | Valor sugerido | DESCRIÇÃO |
 |---|---|---|
 | **URL do conteúdo** | Valor copiado | Usar o valor retornado por **</> Obter URL de função**. |
-| **Segredo**   | Valor copiado | Use o valor retornado por **</> Obter segredo do GitHub**. |
 | **Tipo de conteúdo** | aplicativo/json | A função espera um conteúdo JSON. |
+| **Segredo**   | Valor copiado | Use o valor retornado por **</> Obter segredo do GitHub**. |
 | Gatilhos de evento | Deixe-me selecionar eventos individuais | Queremos disparar apenas em eventos de comentário do problema.  |
 | | Comentário do problema |  |
 
@@ -107,7 +107,7 @@ Neste momento, o webhook é configurado para disparar sua função quando um nov
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você criou uma função que é executada quando uma solicitação é recebida de um webhook do GitHub.
+Você criou uma função que é disparada quando uma solicitação é recebida de um webhook do GitHub.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

@@ -1,39 +1,39 @@
 ---
-title: 'CLI do Azure: fazer o download de logs de servidor no Banco de Dados do Azure para MySQL'
+title: "Script da CLI do Azure – Baixar logs de servidor no Banco de Dados do Azure para MySQL"
 description: Esse exemplo de script de CLI do Azure mostra como habilitar e fazer o download dos logs do servidor de um Banco de Dados do Azure para servidor MySQL.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/11/2018
-ms.openlocfilehash: b0d34009d189ab136dcb6f28fdccc49b6da9e108
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 02/28/2018
+ms.openlocfilehash: 31dd89f3bf5f43f45979b9a3cc5dda5eea1e352d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Habilitar e fazer o download dos logs de consulta lenta de um Banco de Dados do Azure para servidor MySQL usando a CLI do Azure
 Esse exemplo de script de CLI mostra como habilitar e fazer o download dos logs de consulta lenta de um único Banco de Dados do Azure para servidor MySQL.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este exemplo exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por executar a CLI localmente, este artigo exigirá a CLI do Azure versão 2.0 ou posterior. Verifique a versão executando `az --version`. Confira [Instalar a CLI do Azure 2.0]( /cli/azure/install-azure-cli) para instalar ou atualizar sua versão da CLI do Azure. 
 
 ## <a name="sample-script"></a>Script de exemplo
-Neste script de exemplo, altere as linhas destacadas para personalizar o nome de usuário administrador e a senha. Substitua <log_file_name> nos comandos de monitor az com seu próprio nome de arquivo de log do servidor.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/server-logs/server-logs.sh?highlight=15-16 "Manipulate with server logs.")]
+Neste script de exemplo, edite as linhas destacadas para atualizar o nome de usuário administrador e a senha com os seus próprios. Substitua <log_file_name> nos comandos `az monitor` pelo seu próprio nome de arquivo de log do servidor.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/server-logs/server-logs.sh?highlight=18-19 "Manipulate with server logs.")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
-Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele após executar o exemplo de script. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/server-logs/delete-mysql.sh  "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa os comandos descritos na tabela abaixo:
 
 | **Comando** | **Observações** |
 |---|---|

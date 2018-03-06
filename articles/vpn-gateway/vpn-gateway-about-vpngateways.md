@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 02/16/2018
 ms.author: cherylmc
-ms.openlocfilehash: ebecbfa3279a71cda005f60c32247e9e95dd6646
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="about-vpn-gateway"></a>Sobre o Gateway de VPN
 
@@ -49,6 +49,13 @@ Você pode começar criando e configurando os recursos usando uma ferramenta de 
 
 Quando você configura um gateway de VPN, as etapas efetuadas dependem do modelo de implantação utilizado para criar sua rede virtual. Por exemplo, se tiver criado a rede virtual usando o modelo de implantação clássico, você usará as diretrizes e instruções do modelo de implantação clássico para criar e configurar o gateway de VPN. Para obter mais informações sobre os modelos de implantação, consulte [Noções básicas sobre o Resource Manager e os modelos de implantação clássicos](../azure-resource-manager/resource-manager-deployment-model.md).
 
+### <a name="planningtable"></a>Tabela de planejamento
+
+A tabela a seguir pode ajudá-lo a decidir a melhor opção de conectividade para sua solução.
+
+[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
+
+
 ## <a name="gwsku"></a>SKUs do Gateway
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
@@ -67,7 +74,7 @@ Use os diagramas e as descrições para ajudar a selecionar a topologia de conex
 
 ### <a name="S2S"></a>Site a site
 
-Uma conexão de gateway VPN Site a Site (S2S) é uma conexão por túnel VPN IPsec/IKE (IKEv1 ou IKEv2). Uma conexão S2S exige um dispositivo VPN local com um endereço IP público atribuído a ele e não por uma NAT. As conexões S2S podem ser usadas para configurações entre instalações e híbridas.   
+Uma conexão de gateway VPN Site a Site (S2S) é uma conexão por túnel VPN IPsec/IKE (IKEv1 ou IKEv2). As conexões S2S podem ser usadas para configurações entre instalações e híbridas. Uma conexão S2S exige um dispositivo VPN local com um endereço IP público atribuído a ele e não por uma NAT. Para saber mais sobre como selecionar um dispositivo VPN, confira as [Perguntas Frequentes de Gateway de VPN – dispositivos VPN](/vpn-gateway-vpn-faq.md#s2s).
 
 ![Exemplo de conexão Site a Site do Gateway de VPN do Azure](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

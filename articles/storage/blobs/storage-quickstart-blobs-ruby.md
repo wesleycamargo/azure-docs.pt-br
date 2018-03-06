@@ -1,22 +1,22 @@
 ---
-title: "Guia de início rápido do Azure – Transferir objetos para/do armazenamento de Blobs do Azure usando o Ruby | Microsoft Docs"
-description: Aprenda rapidamente a transferir objetos de/para o Armazenamento de Blobs do Azure usando o Ruby
+title: "Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando Ruby | Microsoft Docs"
+description: "Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para Ruby a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner."
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/18/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 649099f045639c8c506fb4a4be65736626044fe6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando o Ruby
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Início rápido: Carregar, baixar e listar blobs usando Ruby
+
 Neste guia de início rápido, você aprenderá a usar o Ruby para carregar, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. 
 
 ## <a name="prerequisites"></a>pré-requisitos

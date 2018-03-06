@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8e64ab3214633ae2f34234514dca5e7bb7b1896e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implantar um cluster do AKS (Serviço de Contêiner do Azure)
 
@@ -39,6 +39,7 @@ Após o registro, você estará pronto para criar um cluster do Kubernetes com o
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com o comando [az group create][az-group-create]. Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados.
+Ao criar um grupo de recursos, você será solicitado a especificar um local; isso é onde os recursos residirão no Azure. Enquanto o AKS está em versão prévia, apenas algumas opções de local estão disponíveis. Estes são `eastus, westeurope, centralus, canadacentral, canadaeast`.
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
@@ -88,7 +89,7 @@ Para configurar o kubectl e se conectar ao cluster Kubernetes, execute o comando
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para verificar a conexão ao seu cluster, use o comando [kubectl get][kubectl-get] para retornar uma lista de nós do cluster.
+Para verificar a conexão ao seu cluster, use o comando [kubectl get][kubectl-get] para retornar uma lista de nós do cluster. Observe que isso pode levar alguns minutos para aparecer.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -103,9 +104,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Um arquivo de manifesto Kubernetes define um estado desejado para o cluster, incluindo as imagens de contêiner que devem estar em execução. Neste exemplo, um manifesto é usado para criar todos os objetos necessários para executar o aplicativo Azure Vote.
+Um arquivo de manifesto Kubernetes define um estado desejado para o cluster, incluindo as imagens de contêiner que devem estar em execução. Neste exemplo, um manifesto é usado para criar todos os objetos necessários para executar o aplicativo Azure Vote. A imagem fornecida é de um aplicativo de exemplo, mas você pode ler sobre [como criar uma imagem](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) e [como implantar o Registro de Contêiner do Azure](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) para usar os seus.
 
-Crie um arquivo chamado `azure-vote.yaml` e copie-o para o código YAML a seguir. Se você estiver trabalhando no Azure Cloud Shell, esse arquivo poderá ser criado usando o vi ou Nano, como se estivesse trabalhando em um sistema físico ou virtual.
+Crie um arquivo chamado `azure-vote.yaml` e copie-o para o código YAML a seguir. Se você estiver trabalhando no Azure Cloud Shell, esse arquivo poderá ser criado usando o vi ou Nano, como se estivesse trabalhando em um sistema físico ou virtual. Se você estiver trabalhando localmente, poderá usar o Visual Studio Code para criar esse arquivo executando `code azure-vote.yaml`.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -231,7 +232,7 @@ Neste início rápido, você implantou um cluster Kubernetes e um aplicativo de 
 Para saber mais sobre o AKS e percorrer um código completo de exemplo de implantação, prossiga para o tutorial de cluster Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Gerenciar um cluster AKS][aks-tutorial]:
+> [Tutorial do AKS][aks-tutorial]:
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

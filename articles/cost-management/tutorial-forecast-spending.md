@@ -1,27 +1,34 @@
 ---
-title: Prever despesas com o Gerenciamento de Custos do Azure | Microsoft Docs
-description: "Prever despesas usando o histórico de uso e os dados de gastos."
+title: 'Tutorial: Prever despesas com o Gerenciamento de Custos do Azure | Microsoft Docs'
+description: "Neste tutorial, você aprende a prever despesas usando o histórico de uso e dados de gastos."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 03624efc419efe46aef472007b438442ce22eb9c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="forecast-future-spending"></a>Prever despesas futuras
+# <a name="tutorial-forecast-future-spending"></a>Tutorial: Prever despesas futuras
 
 O Gerenciamento de Custos do Azure da Cloudyn ajuda você a prever as despesas futuras usando o histórico de uso e os dados de gastos. Você pode usar os relatórios da Cloudyn para exibir todos os dados de projeção de custos. Os exemplos neste tutorial orientarão na revisão das projeções de custos usando os relatórios. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Prever despesas futuras
+
+Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>pré-requisitos
+
+- Você deve ter uma conta do Azure.
+- Você deve ter um registro de avaliação ou uma assinatura paga do Gerenciamento de Custos do Azure.
 
 ## <a name="forecast-future-spending"></a>Prever despesas futuras
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
-ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Integrar soluções de atualização e controle de alterações à Automação do Azure
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a integrar automaticamente soluções de Atuali
 > * Importar o runbook de integração
 > * Iniciar o runbook
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, os itens a seguir são necessários:
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, os itens a seguir são necessários:
 
 ## <a name="onboard-an-azure-vm"></a>Integrar uma VM do Azure
 
-Para integrar Máquinas Virtuais do Azure automaticamente, uma VM existente deve ser integrada ao controle de alterações ou à solução de gerenciamento de atualizações. Nesta etapa, você integra uma máquina virtual ao gerenciamento de atualizações e ao controle de alterações.
+Há várias maneiras integrar computadores, por exemplo, você pode integrar a solução de uma máquina virtual [a partir da sua conta de Automação do Azure](automation-onboard-solutions-from-vm.md) ou por [runbook](automation-onboard-solutions-from-automation-account.md). Este tutorial percorre a habilitação do Gerenciamento de Atualizações por meio de um runbook. Para integrar Máquinas Virtuais do Azure em larga escala, uma VM existente deverá ser integrada ao controle de alterações ou à solução de gerenciamento de atualizações. Nesta etapa, você integra uma máquina virtual ao gerenciamento de atualizações e ao controle de alterações.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Habilitar Controle de Alterações e Inventário
 

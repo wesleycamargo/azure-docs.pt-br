@@ -1,21 +1,21 @@
 ---
-title: "Início rápido: criar um servidor do Banco de Dados do Azure para MySQL – CLI do Azure | Microsoft Docs"
+title: "Início rápido: criar um Banco de Dados do Azure para servidor MySQL – CLI do Azure"
 description: "Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: aca5d33adda703f3cd50e940ee43bb0624e179a1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a2efce07dac65eb8af59e6bc1bd5a51bfc62d69e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure
 Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure em aproximadamente cinco minutos. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
@@ -40,13 +40,18 @@ O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no loc
 az group create --name myresourcegroup --location westus
 ```
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Criar um servidor de Banco de Dados do Azure para MySQL
+## <a name="add-the-extension"></a>Adicionar a extensão
+Adicione a extensão de gerenciamento atualizada do Banco de Dados do Azure para MySQL usando o seguinte comando:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
+
+## <a name="create-an-azure-database-for-mysql-server"></a>Criar um Banco de Dados do Azure para o servidor MySQL
 Crie um servidor de Banco de Dados do Azure para MySQL com o comando **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)**. Um servidor pode gerenciar vários bancos de dados. Normalmente, um banco de dados separado é usado para cada projeto ou para cada usuário.
 
-O exemplo a seguir cria um servidor de Banco de Dados do Azure para MySQL localizado em `westus` no grupo de recursos `myresourcegroup` com o nome `myserver4demo`. O servidor tem um logon de administrador chamado `myadmin` e a senha `Password01!`. O servidor é criado com o nível de desempenho **Básico** e **50** unidades de computação compartilhadas entre todos os bancos de dados no servidor. Você pode escalar verticalmente a computação e o armazenamento dependendo das necessidades do aplicativo.
-
+O exemplo a seguir cria um servidor no Oeste dos EUA chamado `mydemoserver` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `myadmin`. Este é um servidor **Gen 4** de **Uso geral** com 2 **vCores**. O nome de um servidor é mapeado para o nome DNS e, portanto, deve ser globalmente exclusivo no Azure. Substitua o `<server_admin_password>` com seu próprio valor.
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 
 ## <a name="configure-firewall-rule"></a>Configurar regra de firewall
@@ -55,15 +60,22 @@ Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para
 O exemplo a seguir cria uma regra de firewall para um intervalo de endereços predefinidos, que, neste exemplo, é o intervalo inteiro possível de endereços IP.
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
+Não é seguro permitir todos os endereços IP. Este exemplo é fornecido para manter a simplicidade, mas em um cenário do mundo real, você precisará conhecer os intervalos de endereços IP exatos a serem adicionados aos aplicativos e usuários. 
+
+> [!NOTE]
+> As conexões ao Banco de Dados do Azure para MySQL se comunicam pela porta 3306. Se estiver tentando se conectar em uma rede corporativa, talvez o tráfego de saída pela porta 3306 não seja permitido. Se esse for o caso, você não poderá se conectar ao seu servidor enquanto o departamento de TI não abrir a porta 3306.
+> 
+
+
 ## <a name="configure-ssl-settings"></a>Configurar definições de SSL
 Por padrão, as conexões SSL entre o servidor e os aplicativos cliente são impostas. Essa configuração padrão garante a segurança de dados "em movimento" ao criptografar o fluxo de dados pela Internet. Para facilitar esse início rápido, desabilite as conexões SSL para o servidor. Desabilitar SSL não é recomendável para servidores de produção. Para saber mais, veja [Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL](./howto-configure-ssl.md).
 
 O exemplo a seguir desabilita a imposição de SSL no servidor MySQL.
  
  ```azurecli-interactive
- az mysql server update --resource-group myresourcegroup --name myserver4demo --ssl-enforcement Disabled
+ az mysql server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
  ```
 
 ## <a name="get-the-connection-information"></a>Obter as informações de conexão
@@ -71,31 +83,36 @@ O exemplo a seguir desabilita a imposição de SSL no servidor MySQL.
 Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host.
 
 ```azurecli-interactive
-az mysql server show --resource-group myresourcegroup --name myserver4demo
+az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 O resultado está no formato JSON. Anote o **fullyQualifiedDomainName** e o **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "myserver4demo.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver4demo",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver",
   "location": "westus",
-  "name": "myserver4demo",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "MYSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "storageMb": 2048,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforMySQL/servers",
   "userVisibleState": "Ready",
-  "version": null
+  "version": "5.7"
 }
 ```
 
@@ -106,7 +123,7 @@ Digite os comandos seguintes:
 
 1. Conecte-se ao servidor usando a ferramenta de linha de comando **mysql**:
 ```azurecli-interactive
- mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
+ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 2. Exibir o status do servidor:
@@ -116,7 +133,7 @@ Digite os comandos seguintes:
 Se tudo correr bem, a ferramenta de linha de comando deve gerar o seguinte texto:
 
 ```dos
-C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
+C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -141,7 +158,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             myserver4demo.mysql.database.azure.com via TCP/IP
+Connection:             mydemoserver.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -169,9 +186,9 @@ mysql>
 |---|---|---|
 |   Nome da Conexão | Minha Conexão | Especifique um nome para essa conexão (pode ser qualquer nome) |
 | Método de Conexão | escolha o Padrão (TCP/IP) | Usar o protocolo TCP/IP para se conectar ao Banco de Dados do Azure para MySQL> |
-| Nome do host | myserver4demo.mysql.database.azure.com | O nome do servidor que você anotou anteriormente. |
+| Nome do host | mydemoserver.mysql.database.azure.com | O nome do servidor que você anotou anteriormente. |
 | Porta | 3306 | A porta padrão para o MySQL é usada. |
-| Nome de Usuário | myadmin@myserver4demo | O logon de administrador do servidor que você anotou anteriormente. |
+| Nome de Usuário | myadmin@mydemoserver | O logon de administrador do servidor que você anotou anteriormente. |
 | Senha | **** | Use a senha de conta de administrador que você configurou anteriormente. |
 
 Clique em **Testar Conexão** para testar se todos os parâmetros estiverem configurados corretamente.
@@ -182,6 +199,11 @@ Se não precisar desses recursos para outro início rápido/tutorial, você pode
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
+```
+
+Se você quiser simplesmente excluir o servidor recém-criado, poderá executar o comando [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete).
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

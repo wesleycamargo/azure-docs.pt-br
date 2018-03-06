@@ -5,15 +5,15 @@ services: automation
 keywords: "alteração, controle, automação"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a:
 > * Disparar um evento
 > * Exibir alterações
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
@@ -47,37 +47,19 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 Primeiro, é necessário habilitar o Controle de alterações e Inventário para sua VM neste tutorial. Se você já habilitou outra solução de automação para uma VM, esta etapa não é necessária.
 
 1. No menu à esquerda, selecione **Máquinas virtuais** e selecione uma VM na lista
-1. No menu à esquerda, na seção **Operações**, clique em **Inventário**. A página **Habilitar Controle de alterações e Inventário** é aberta.
+1. No menu à esquerda, na seção **OPERAÇÕES**, clique em **Inventário**. A página **Controle de alterações** será aberta.
 
-É feita uma validação para determinar se o Controle de alterações e Inventário está habilitado para esta VM.
-A validação inclui verificar se há um espaço de trabalho do Log Analytics e uma conta de automação vinculada e se a solução está no espaço de trabalho.
+A tela ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) **Controle de Alterações** é aberta. Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados.
 
 Um espaço de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços como Inventário.
 O espaço de trabalho fornece um único local para examinar e analisar dados de várias fontes.
 
-O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Worker.
+Durante a integração, a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Worker.
 Esse agente é usado para comunicar-se com a VM e obter informações sobre o software instalado.
-O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Runbook Worker da Automação.
-
-Se esses pré-requisitos não forem atendidos, será exibida uma faixa oferecendo a opção para habilitar a solução.
-
-![Faixa de configuração integrada do Controle de alterações e Inventário](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-
-Para habilitar a solução, clique na faixa.
-Se algum dos seguintes pré-requisitos estiver ausente após a validação, ele será adicionado automaticamente:
-
-* Espaço de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Automação](./automation-offering-get-started.md)
-* Uma [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) está habilitada na VM
-
-A tela **Controle de Alterações e Inventário** é aberta. Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados.
-
-![Habilitar janela de solução de controle de alterações](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
 
 A habilitação da solução pode levar até 15 minutos. Durante esse tempo, não feche a janela do navegador.
 Depois que a solução for habilitada, as informações sobre o software instalado e as alterações na VM fluirão para o Log Analytics.
 Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para análise.
-
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Usando o Controle de alterações no Log Analytics
 
@@ -107,40 +89,47 @@ Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Regis
 1. Na guia **Registro do Windows**, selecione **Adicionar**.
     A janela **Adicionar Registro do Windows para Controle de Alterações** se abre.
 
-   ![Adicionar Registro do Controle de Alterações](./media/automation-vm-change-tracking/change-add-registry.png)
+3. Em **Adicionar o Registro do Windows para o Controle de Alterações**, insira as informações para a chave rastrear e clique em **Salvar**
 
-2. Em **Habilitado**, selecione **True**.
-3. Na caixa **Nome do Item**, insira um nome amigável.
-4. (Opcional) Na caixa **Grupo**, digite um nome de grupo.
-5. Na caixa **Chave do Registro do Windows**, insira o nome da chave do registro que você deseja controlar.
-6. Selecione **Salvar**.
+|Propriedade  |DESCRIÇÃO  |
+|---------|---------|
+|habilitado     | Determina se a configuração é aplicada        |
+|Nome do Item     | Nome amigável do arquivo a ser rastreado        |
+|Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
+|Chave de Registro do Windows   | O caminho para verificar o arquivo. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Adicionar um arquivo do Windows
 
 1. Na guia **Arquivos do Windows**, selecione **Adicionar**. A janela **Adicionar Arquivo do Windows para Controle de Alterações** se abre.
 
-   ![Adicionar arquivo do Windows do Controle de Alterações](./media/automation-vm-change-tracking/change-add-win-file.png)
+1. Em **Adicionar o Arquivo do Windows para o Controle de Alterações**, insira as informações para o arquivo ou para o diretório rastrear e clique em **Salvar**
 
-2. Em **Habilitado**, selecione **True**.
-3. Na caixa **Nome do Item**, insira um nome amigável.
-4. (Opcional) Na caixa **Grupo**, digite um nome de grupo.
-5. Na caixa **Inserir Caminho**, insira o caminho completo e o nome do arquivo que você deseja rastrear.
-6. Selecione **Salvar**.
+|Propriedade  |DESCRIÇÃO  |
+|---------|---------|
+|habilitado     | Determina se a configuração é aplicada        |
+|Nome do Item     | Nome amigável do arquivo a ser rastreado        |
+|Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
+|Insira o Caminho     | O caminho para verificar o arquivo. Por exemplo: "c:\temp\myfile.txt"       |
 
 ### <a name="add-a-linux-file"></a>Adicionar um arquivo Linux
 
 1. Na guia **Arquivos Linux**, selecione **Adicionar**. A janela **Adicionar Arquivo Linux para Controle de Alterações** se abre.
 
-   ![Adicionar arquivo do Linux do Controle de Alterações](./media/automation-vm-change-tracking/change-add-linux-file.png)
+1. Em **Adicionar o Arquivo do Linux para o Controle de Alterações**, insira as informações para o arquivo ou para o diretório rastrear e clique em **Salvar**
 
-2. Em **Habilitado**, selecione **True**.
-3. Na caixa **Nome do Item**, insira um nome amigável.
-4. (Opcional) Na caixa **Grupo**, digite um nome de grupo.
-5. Na caixa **Inserir Caminho**, insira o caminho completo e o nome do arquivo que você deseja rastrear.
-6. Na caixa **Tipo de Caminho**, selecione **Arquivo** ou **Diretório**.
-7. Em **Recursão**, selecione **Ativado** para controlar alterações para o caminho especificado e todos os arquivos e caminhos sob ele. Para controlar somente o caminho ou o arquivo selecionado, selecione **Desligado**.
-8. Em **Use o Sudo**, para acompanhar arquivos que precisam do comando `sudo` para serem acessados, selecione **Ativado**. Caso contrário, selecione **Desligado**.
-9. Selecione **Salvar**.
+|Propriedade  |DESCRIÇÃO  |
+|---------|---------|
+|habilitado     | Determina se a configuração é aplicada        |
+|Nome do Item     | Nome amigável do arquivo a ser rastreado        |
+|Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
+|Insira o Caminho     | O caminho para verificar o arquivo. Por exemplo: "/etc/*.conf"       |
+|Tipo de caminho     | Tipo de item a ser rastreado; possíveis valores são: Arquivo e Diretório        |
+|Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
+|Use o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
+|Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do tratamento do conteúdo retornado      |
+
+   > [!NOTE]   
+   > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
 
 ## <a name="enable-activity-log-connection"></a>Habilitar conexão do log de atividades
 
@@ -188,4 +177,4 @@ Neste tutorial, você aprendeu a:
 Passe para a visão geral da solução de Controle de alterações e Inventário para saber mais sobre ela.
 
 > [!div class="nextstepaction"]
-> [Solução de gerenciamento de alterações e inventário](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Solução de gerenciamento de alterações e inventário](automation-change-tracking.md)

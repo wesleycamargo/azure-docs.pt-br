@@ -1,6 +1,6 @@
 ---
-title: Implantar um aplicativo do Azure Service Fabric em um Cluster Party | Microsoft Docs
-description: Saiba como implantar um aplicativo em um Cluster Party.
+title: Implantar um aplicativo do Azure Service Fabric em um cluster | Microsoft Docs
+description: "Neste tutorial, você aprende a implantar um aplicativo em um cluster do Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 35ddf77b1e9a9b355ed2cee4731e3c5d87c4a701
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Implantar um aplicativo em um Cluster Party no Azure
-Este tutorial é a segunda parte de uma série e mostra como implantar um aplicativo do Azure Service Fabric em um Cluster Party no Azure.
+# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implantar um aplicativo em um cluster do Service Fabric no Azure
+Este tutorial é a segunda parte de uma série e mostra como implantar um aplicativo do Azure Service Fabric em um cluster no Azure.
 
 A segunda parte da série de tutoriais, você aprenderá a:
 > [!div class="checklist"]

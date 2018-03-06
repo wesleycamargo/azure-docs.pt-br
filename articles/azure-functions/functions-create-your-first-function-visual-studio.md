@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f908b874a8205c2b8738deeccb3d7dd38b9833fe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Criar sua primeira função usando o Visual Studio
 
@@ -97,7 +97,7 @@ Você deve ter um aplicativo de funções em sua assinatura do Azure antes de pu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você usou o Visual Studio para criar um aplicativo de funções C# com uma função disparada por HTTP simples. 
+Você usou o Visual Studio para criar e publicar um aplicativo de funções C# com uma função disparada por HTTP simples. 
 
 + Para saber como configurar seu projeto para dar suporte a outros tipos de gatilhos e associações, consulte a seção [Configurar o projeto para desenvolvimento local](functions-develop-vs.md#configure-the-project-for-local-development) em [Ferramentas do Azure Functions para Visual Studio](functions-develop-vs.md).
 + Para saber mais sobre o local de teste e a depuração usando as Ferramentas Principais do Azure Functions, confira [Codificar e testar o Azure Functions localmente](functions-run-local.md). 

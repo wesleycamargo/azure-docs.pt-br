@@ -1,6 +1,6 @@
 ---
 title: "Monitoramento e diagnóstico para contêineres do Windows no Azure Service Fabric | Microsoft Docs"
-description: "Configure o monitoramento e o diagnóstico para o contêiner do Windows organizado no Azure Service Fabric."
+description: "Neste tutorial, você configura o monitoramento e o diagnóstico para o contêiner do Windows organizado no Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Monitorar os contêineres do Windows no Service Fabric usando o OMS
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Tutorial: Monitorar os contêineres do Windows no Service Fabric usando o OMS
 
 Essa é a parte três de um tutorial e explica como configurar o OMS para monitorar seus contêineres do Windows organizados no Service Fabric.
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Usar um espaço de trabalho do OMS para exibir e consultar logs dos seus contêineres e nós
 > * Configurar o agente do OMS para selecionar métricas de contêiner e de nó
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de iniciar este tutorial, você deverá:
 - Ter um cluster no Azure ou [criar um com este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [Implantar um aplicativo em contêineres nele](service-fabric-host-app-in-a-container.md)

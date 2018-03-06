@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e688068efb41cdccbeb23de3c8ad7a09021e5b3f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: aa7f2e6f44036738756391ecaa265c57c093c42c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-r-server-on-hdinsight"></a>Introdução ao R Server no HDInsight
 
@@ -61,7 +61,7 @@ Você pode automatizar a criação de R Servers para HDInsight usando modelos do
 4. Selecione **Tipo de cluster** para abrir o painel **Configuração de cluster**. No painel **Configuração de cluster**, selecione as seguintes opções:
 
     * **Tipo de Cluster**: selecione **R Server**.
-    * **Versão**: selecione a versão do R Server a ser instalada no cluster. A versão disponível no momento é **R Server 9.1 (HDI 3.6)**. As notas de versão para as versões disponíveis do R Server podem ser encontradas no [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
+    * **Versão**: selecione a versão do R Server a ser instalada no cluster. A versão disponível no momento é **R Server 9.1 (HDI 3.6)**. As notas de versão para as versões disponíveis do R Server podem ser encontradas em [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91).
     * **Edição de comunidade R Studio para R Server**: esse IDE baseado em navegador é instalado por padrão no nó de borda. Se você preferir não instalá-lo, limpe a caixa de seleção. Caso opte por instalá-lo, a URL para acessar o logon do Servidor do RStudio estará em um painel de aplicativo do portal para o cluster depois de ele ter sido criado.
     * Deixe as outras opções com os valores padrão e use o botão **Selecionar** para salvar o tipo de cluster.
 
@@ -102,7 +102,7 @@ Você pode automatizar a criação de R Servers para HDInsight usando modelos do
 
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-      Ou use o arquivo de chave privada como parte da definição de seu contexto de computação Spark do Hadoop para o R Server no cliente. Para mais informações, consulte [Criar um Contexto de Computação para Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+      Ou use o arquivo de chave privada como parte da definição de seu contexto de computação Spark do Hadoop para o R Server no cliente. Para mais informações, consulte [Criar um Contexto de Computação para Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark).
 
 8. A criação rápida faz sua transição para o painel **Armazenamento**. Lá, você seleciona as configurações de conta de armazenamento a serem usadas para a localização primária do sistema de arquivos HDFS usado pelo cluster. Selecione uma conta nova ou existente do armazenamento do Azure ou uma conta existente de armazenamento do Azure Data Lake Store.
 
@@ -379,7 +379,7 @@ Observe também que os usuários adicionados recentemente não têm privilégios
 
 ## <a name="use-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Use o R Server no HDI a partir de uma instância remota do Microsoft R Server ou Microsoft R Client
 
-É possível configurar o acesso ao contexto de computação Spark HDI Hadoop a partir de uma instância remota do Microsoft R Server ou do Microsoft R Client em execução em um computador ou laptop. Para obter mais informações, consulte a seção “Usando o Microsoft R Server como um cliente Hadoop” em [Criando um contexto de computação para o Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md). Para isso, especifique as seguintes opções ao definir o contexto de computação RxSpark em seu laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript. Aqui está um exemplo:
+É possível configurar o acesso ao contexto de computação Spark HDI Hadoop a partir de uma instância remota do Microsoft R Server ou do Microsoft R Client em execução em um computador ou laptop. Para obter mais informações, consulte a seção “Usando o Microsoft R Server como um cliente Hadoop” em [Criando um contexto de computação para o Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios). Para isso, especifique as seguintes opções ao definir o contexto de computação RxSpark em seu laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript. Aqui está um exemplo:
 
 
     myNameNode <- "default"
@@ -705,7 +705,7 @@ Quando sua modelagem de dados for concluída, você poderá operacionalizar o mo
     rxSparkConnect(reset = TRUE)
 
 
-Nesse estágio, a configuração de operacionalização foi concluída. Agora você pode usar o pacote mrsdeploy no cliente R para se conectar à operacionalização no nó de borda. Você pode iniciar usando seus recursos, como [execução remota](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) e [serviços Web](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Dependendo de se o cluster está configurado em uma rede virtual ou não, talvez você precise configurar o túnel de encaminhamento da porta por meio do logon de SSH.
+Nesse estágio, a configuração de operacionalização foi concluída. Agora você pode usar o pacote mrsdeploy no cliente R para se conectar à operacionalização no nó de borda. Você pode iniciar usando seus recursos, como [execução remota](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) e [serviços Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Dependendo de se o cluster está configurado em uma rede virtual ou não, talvez você precise configurar o túnel de encaminhamento da porta por meio do logon de SSH.
 
 ### <a name="r-server-cluster-on-a-virtual-network"></a>Cluster do R Server em uma rede virtual
 

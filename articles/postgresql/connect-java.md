@@ -1,26 +1,26 @@
 ---
-title: Conectar-se ao Banco de Dados do Azure para PostgreSQL usando Java | Microsoft Docs
+title: Conectar-se ao Banco de Dados do Azure para PostgreSQL usando Java
 description: "Este guia de início rápido fornece um exemplo de código Java que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 0d763d30633e9d808501620c7247ed73567d3f62
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 5c55adec1471b28880f7a24a736cf25df2c8bd3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: usar Java para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para PostgreSQL usando aplicativo Java. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas neste artigo pressupõem que você está familiarizado com o desenvolvimento usando Java e que começou recentemente a trabalhar com o Banco de Dados do Azure para PostgreSQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar Banco de dados - Portal](quickstart-create-server-database-portal.md)
 - [Criar Banco de dados - CLI do Azure](quickstart-create-server-database-azure-cli.md)
@@ -33,11 +33,10 @@ Você também precisará:
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para PostgreSQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você criou, como **mypgserver-20170401**.
-3. Clique no nome do servidor **mypgserver-20170401**.
-4. Selecione a página **Visão geral** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
- ![Banco de Dados do Azure para PostgreSQL – Logon de administrador do servidor](./media/connect-java/1-connection-string.png)
-5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
+2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver**).
+3. Clique no nome do servidor.
+4. No painel **Visão Geral** do servidor, anote o **Nome do servidor** e **Nome de logon do administrador do servidor**. Se você esquecer sua senha, também poderá redefini-la nesse painel.
+ ![Nome do servidor do Banco de Dados do Azure para PostgreSQL](./media/connect-java/1-connection-string.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Conectar-se, criar tabela e inserir dados
 Use o código a seguir para se conectar e carregar os dados no banco de dados usando a função com uma instrução SQL **INSERT**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) e [executeQuery ()](https://jdbc.postgresql.org/documentation/head/query.html) são usados para a conexão com o banco de dados, descartar e criar a tabela. O objeto [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) é usado para criar os comandos insert, com setString() e setInt() para associar os valores de parâmetro. O método [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) executa o comando para cada conjunto de parâmetros. 
@@ -54,9 +53,9 @@ public class CreateTableInsertRows {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -154,9 +153,9 @@ public class ReadTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -240,9 +239,9 @@ public class UpdateTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -320,9 +319,9 @@ public class DeleteTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
