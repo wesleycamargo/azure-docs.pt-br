@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativo Lógico do Azure
 
@@ -131,7 +131,7 @@ Para localizar e exibir eventos no aplicativo lógico, como eventos de gatilho, 
 
 5. Na caixa de pesquisa, especifique um campo que você deseja encontrar e, em seguida, pressione **Enter**. Quando você começa a digitar, o OMS mostra as possíveis correspondências e operações que podem ser usadas. 
 
-   Por exemplo, para encontrar os 10 primeiros eventos que ocorreram, insira e selecione esta consulta de pesquisa: **Category=WorkflowRuntime |top 10**
+   Por exemplo, para localizar os 10 principais eventos que ocorreram, insira e selecione essa consulta de pesquisa: **search Category == "WorkflowRuntime" | limit 10**
 
    ![Inserir a cadeia de pesquisa](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

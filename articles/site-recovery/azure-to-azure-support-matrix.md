@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure
 
@@ -153,8 +153,8 @@ Disco temporário | Sempre excluído da replicação | O disco temporário sempr
 Taxa de alteração de dados no disco | Máximo de 10 MBps por disco para armazenamento Premium e 2 MBps por disco para armazenamento Standard | Se a taxa média de alteração de dados no disco for superior a 10 MBps (para Premium) e 2 MBps (para Standard) continuamente, a replicação não será alcançada. No entanto, se for um modo de intermitência de dados ocasional e a taxa de alteração de dados for superior a 10 MBps (para Premium) e 2 MBps (para Standard) por algum tempo e cair, a replicação será alcançada. Nesse caso, talvez você veja os pontos de recuperação um pouco atrasados.
 Discos em contas de armazenamento Standard | Com suporte |
 Discos em contas de armazenamento Premium | Com suporte | Se uma VM tiver discos distribuídos em contas de armazenamento Standard e Premium, você poderá selecionar uma conta de armazenamento de destino diferente para cada disco, a fim de garantir que você tem a mesma configuração de armazenamento na região de destino
-Managed Disks Standard | Sem suporte |  
-Managed Disks Premium | Sem suporte |
+Managed Disks Standard | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. Atualmente não há suporte para nuvens governamentais.  |  
+Managed Disks Premium | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. Atualmente não há suporte para nuvens governamentais. |
 Espaços de armazenamento | Com suporte |         
 Criptografia em repouso (SSE) | Com suporte | Para contas de armazenamento de cache e de destino, você pode selecionar uma conta de armazenamento habilitada para SSE.     
 ADE (Azure Disk Encryption) | Sem suporte |

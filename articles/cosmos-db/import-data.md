@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: ferramenta de migração de dados
 
@@ -61,7 +61,7 @@ A ferramenta de Migração de Dados é uma solução de software livre que impor
 Embora a ferramenta de importação inclua uma interface gráfica do usuário (dtui.exe), ela também pode ser controlada pela linha de comando (dt.exe). Na verdade, há uma opção de extrair o comando associado depois de configurar uma importação por meio da interface do usuário. Dados de origem em tabela (por exemplo, arquivos do SQL Server ou CSV) podem ser transformados, de forma que relações hierárquicas (subdocumentos) podem ser criadas durante a importação. Continue lendo para saber mais sobre as opções de origem, linhas de comando de exemplo para importar de cada origem, opções de destino e resultados de importação de visualização.
 
 ## <a id="Install"></a>Instalação
-O código-fonte da ferramenta de migração está disponível no GitHub [nesse repositório](https://github.com/azure/azure-documentdb-datamigrationtool) e há uma versão compilada no [Centro de Download da Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Você pode compilar a solução ou simplesmente baixar e extrair a versão compilada em um diretório de sua escolha. Em seguida, execute um:
+O código-fonte da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Você pode baixar e compilar a solução localmente e, em seguida, executar:
 
 * **Dtui.exe**: Versão da interface gráfica da ferramenta
 * **Dt.exe**: Versão de linha de comando da ferramenta

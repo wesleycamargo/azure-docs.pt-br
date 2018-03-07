@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1a57d26e0f1188a2dea29beba52fde090aa82ca8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Associações do Azure Cosmos DB para Azure Functions
 
@@ -127,7 +127,7 @@ Aqui está o código JavaScript:
 
 ## <a name="trigger---attributes"></a>Gatilho – atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [GatilhoCosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs), que é definido no pacote do NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [GatilhoCosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs), que é definido no pacote do NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
 O construtor do atributo toma o nome do banco de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [Gatilho – configurações](#trigger---configuration). Aqui está um exemplo de atributo `CosmosDBTrigger` em uma assinatura de método:
 
@@ -207,7 +207,7 @@ Primeiro, os valores `Id` e `Maker` de uma instância `CarReview` são passados 
             [FunctionName("SingleEntry")]
             public static void Run(
                 [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
-                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                [CosmosDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
                 TraceWriter log)
             {
                 log.Info( $"Selected Review - {document?.Review}"); 
@@ -363,7 +363,7 @@ O exemplo a seguir mostra uma [função C# pré-compilada](functions-dotnet-clas
     [FunctionName("CosmosDBSample")]
     public static HttpResponseMessage Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
-        [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
+        [CosmosDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
     {
         return req.CreateResponse(HttpStatusCode.OK, documents);
     }
@@ -445,13 +445,13 @@ Aqui está o código JavaScript:
 
 ## <a name="input---attributes"></a>Entrada – atributos
 
-Em [bibliotecas de classe C#](functions-dotnet-class-library.md), use o atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs), que é definido no pacote do NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs), que é definido no pacote do NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
 O construtor do atributo toma o nome do banco de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [a seção de configuração a seguir](#input---configuration). 
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `CosmosDB` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -500,7 +500,7 @@ O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) q
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         document = new { Text = myQueueItem, id = Guid.NewGuid() };
     }
@@ -705,15 +705,15 @@ Aqui está o código JavaScript:
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-Em [bibliotecas de classe C#](functions-dotnet-class-library.md), use o atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs), que é definido no pacote do NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs), que é definido no pacote do NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
-O construtor do atributo toma o nome do banco de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [Saída – configurações](#output---configuration). Aqui está um exemplo de atributo `DocumentDB` em uma assinatura de método:
+O construtor do atributo toma o nome do banco de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [Saída – configurações](#output---configuration). Aqui está um exemplo de atributo `CosmosDB` em uma assinatura de método:
 
 ```csharp
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }
@@ -723,7 +723,7 @@ Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-ex
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `CosmosDB` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -750,7 +750,7 @@ Por padrão, quando você grava no parâmetro de saída em sua função, um docu
 
 | Associação | Referência |
 |---|---|
-| DocumentDB | [Códigos de erro do DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
+| CosmosDB | [Códigos de erro CosmosDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

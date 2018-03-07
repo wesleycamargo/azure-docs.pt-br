@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens EDIFACT para integração de empresas com aplicativos lógicos
 
@@ -32,65 +32,63 @@ Antes de trocar mensagens EDIFACT para aplicativos lógicos do Azure, você deve
 
 Veja os itens necessários:
 
-* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) que já esteja definida e associada à sua assinatura do Azure  
+* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já esteja definida e associada à sua assinatura do Azure  
 * Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
 
 > [!NOTE]
 > Ao criar um contrato, o conteúdo das mensagens trocadas com o parceiro devem corresponder ao tipo de contrato.
 
-Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) e [adicionar os parceiros](logic-apps-enterprise-integration-partners.md), você poderá criar um contrato EDIFACT executando as seguintes etapas:
+Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [adicionar os parceiros](logic-apps-enterprise-integration-partners.md), você poderá criar um contrato EDIFACT executando as seguintes etapas:
 
 ## <a name="create-an-edifact-agreement"></a>Criar um contrato EDIFACT 
 
-1.  Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **Todos os serviços**.
+1. Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). 
 
-    > [!TIP]
-    > Se você não encontrar a opção **Todos os serviços**, talvez seja necessário expandir o menu primeiro. Na parte superior do menu recolhido, selecione **Mostrar menu**.
+2. No menu principal do Azure, selecione **Todos os serviços**. Insira “integração” na caixa de pesquisa e, em seguida, selecione **Contas de Integração**.
 
-    ![No menu à esquerda, selecione “Todos os serviços”](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![Localizar sua conta de integração](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. Na caixa de pesquisa, digite "Integração" como filtro. Na lista de resultados, selecione **Contas de Integração**.
+   > [!TIP]
+   > Se **Todos os serviços** não aparecer, talvez seja necessário expandir o menu primeiro. Na parte superior do menu recolhido, selecione **Mostrar rótulos de texto**.
 
-    ![Filtre por "integração", selecione "Contas de Integração"](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. Em **Contas de Integração**, selecione a conta de integração onde você deseja criar o contrato.
 
-3. Quando a folha **Contas de integração** abrir, selecione a conta de integração onde você deseja criar o contrato.
-Caso não encontre nenhuma conta de integração, [crie uma primeiro](../logic-apps/logic-apps-enterprise-integration-accounts.md "O que é uma conta de integração?").  
+   ![Selecione a conta de integração onde deseja criar o contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![Selecione a conta de integração onde deseja criar o contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. Escolha **Contratos**. Se não tiver um bloco de Contratos, primeiro adicione o bloco.   
 
-4. Escolha o bloco **Contratos**. Se não tiver um bloco de Contratos, primeiro adicione o bloco.   
+   ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. Na página Contratos, escolha **Adicionar**.
 
-5. Quando a folha "Contratos" abrir, selecione **Adicionar**.
-
-    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. Em **Adicionar**, insira um **Nome** para o seu contrato. No **Tipo de contrato**, selecione **EDIFACT**. Selecione o **Parceiro Host**, a **Identidade do Host**, o **Parceiro Convidado** e a **Identidade do Convidado** para o contrato.
 
-    ![Fornecer detalhes de contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![Fornecer detalhes de contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | Propriedade | DESCRIÇÃO |
-    | --- | --- |
-    | NOME |Nome do contrato |
-    | Tipo de contrato | Deve ser EDIFACT |
-    | Parceiro de Host |Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato. |
-    | Identidade do Host |Um identificador para o parceiro host |
-    | Parceiro Convidado |Um contrato precisa dos parceiros host e convidado. O parceiro convidado representa a organização que está fazendo negócios com o parceiro host. |
-    | Identidade do Convidado |Um identificador para o parceiro convidado |
-    | Configurações de Recebimento |Essas propriedades se aplicam a todas as mensagens recebidas por um contrato. |
-    | Configurações de Envio |Essas propriedades se aplicam a todas as mensagens enviadas por um contrato. |
+   | Propriedade | DESCRIÇÃO |
+   | --- | --- |
+   | NOME |Nome do contrato |
+   | Tipo de contrato | Deve ser EDIFACT |
+   | Parceiro de Host |Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato. |
+   | Identidade do Host |Um identificador para o parceiro host |
+   | Parceiro Convidado |Um contrato precisa dos parceiros host e convidado. O parceiro convidado representa a organização que está fazendo negócios com o parceiro host. |
+   | Identidade do Convidado |Um identificador para o parceiro convidado |
+   | Configurações de Recebimento |Essas propriedades se aplicam a todas as mensagens recebidas por um contrato. |
+   | Configurações de Envio |Essas propriedades se aplicam a todas as mensagens enviadas por um contrato. |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configurar como seu contrato lida com mensagens recebidas
 
 Depois de configurar as propriedades do contrato, você pode configurar como este contrato identifica e manipula mensagens de entrada recebidas do seu parceiro por meio deste contrato.
 
-1.  Em **Adicionar**, selecione **Configurações de Recebimento**.
+1. Em **Adicionar**, selecione **Configurações de Recebimento**.
 Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você. Para obter as descrições da propriedade, confira as tabelas nesta seção.
 
-    As **configurações de recebimento** são organizadas nas seguintes seções: Identificadores, Confirmação, Esquemas, Envelopes, Números de controle, Validação e Configurações internas.
+   As **configurações de recebimento** são organizadas nas seguintes seções: Identificadores, Confirmação, Esquemas, Envelopes, Números de controle, Validação e Configurações internas.
 
-    ![Configure "Configurações de recebimento"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   ![Configure "Configurações de recebimento"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. Após terminar, salve suas configurações, escolhendo **OK**.
 
@@ -211,7 +209,7 @@ Além do conjunto de caracteres, você pode inserir um conjunto diferente de del
 | Propriedade | DESCRIÇÃO |
 | --- | --- |
 | UNB1.1 (Identificador do Sistema) |Selecione o conjunto de caracteres EDIFACT a ser aplicado no intercâmbio de saída. |
-| Esquema |Selecione um esquema na lista suspensa. Depois de concluir cada linha, uma nova linha é adicionada automaticamente. Para o esquema selecionado, selecione o conjunto de separadores que deseja usar, com base nas seguintes descrições do separador. |
+| Esquema |Selecione um esquema na lista suspensa. Depois de concluir cada linha, uma nova linha é adicionada automaticamente. Para o esquema selecionado, selecione o conjunto de separadores que deseja usar, com base nas descrições do separador abaixo. |
 | Tipo de entrada |Selecione um tipo de entrada na lista suspensa. |
 | Separador de componente |Insira um único caractere para separar os elementos de dados compostos. |
 | Separador de elemento de dados |Insira um único caractere para separar os elementos de dados simples dentro dos elementos de dados compostos. |
@@ -240,13 +238,13 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 ## <a name="find-your-created-agreement"></a>Como localizar seu contrato criado
 
-1.  Depois que você terminar de definir todas as suas propriedades de contrato, na folha **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a folha da conta de integração.
+1.  Depois que você terminar de definir todas as suas propriedades de contrato, na página **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a conta de integração.
 
     Agora seu contrato recém-adicionado é exibido na lista **Contratos**.
 
-2.  Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
+2.  Você também pode visualizar seus contratos na visão geral de conta de integração. No menu de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
 
-    ![Escolha o bloco de "Contratos" para exibir todos os contratos](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>Exibir o arquivo do Swagger
 Para exibir os detalhes de Swagger para o conector do EDIFACT, consulte [EDIFACT](/connectors/edifact/).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 103e4ca5ffd6c9dfe5043af9d8f75763705eb939
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos
 
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-O exemplo fica suspenso por 20 segundos para dar tempo para a nova entidade de serviço propagar-se pelo Azure Active Directory. Se o script não aguardar tempo suficiente, você verá um erro informando: "A entidade {ID} não existe no diretório{DIR-ID}."
+O exemplo fica suspenso por 20 segundos para dar tempo para a nova entidade de serviço propagar-se pelo Azure Active Directory. Se o script não aguardar tempo suficiente, você verá um erro informando: "A entidade {ID} não existe no diretório {DIR-ID}."
 
 O script a seguir permite que você especifique um escopo diferente da assinatura padrão e tenta realizar a atribuição de função novamente no caso de erro:
 
@@ -403,7 +403,7 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 > O token de acesso expira, portanto, usar um perfil salvo funcionará somente se o token for válido.
 >  
 
-Como alternativa, você pode invocar operações REST do PowerShell para fazer logon. Na resposta de autenticação, você pode recuperar o token de acesso para uso com outras operações. Para obter um exemplo de como recuperar o token de acesso invocando operações REST, consulte [Gerar um token de acesso](resource-manager-rest-api.md#generating-an-access-token).
+Como alternativa, você pode invocar operações REST do PowerShell para fazer logon. Na resposta de autenticação, você pode recuperar o token de acesso para uso com outras operações. Para obter um exemplo de como recuperar o token de acesso invocando operações REST, consulte [Criar a solicitação](/rest/api/#create-the-request).
 
 ## <a name="debug"></a>Depurar
 

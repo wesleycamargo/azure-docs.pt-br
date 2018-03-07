@@ -13,37 +13,35 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/21/2018
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: 2149330eb711fea76a144f5ec748ae6760c7746a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5c847f5cd02503b708db8a0a0211b5d403df0943
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conectar-se ao Azure Analysis Services
 
 Bibliotecas de cliente são necessárias para que ferramentas e aplicativos cliente se conectem aos servidores do Analysis Services. 
 
-## <a name="download-the-latest-client-libraries"></a>Baixar as bibliotecas de cliente mais recentes  
+## <a name="download-the-latest-client-libraries-windows-installer"></a>Baixar as bibliotecas de clientes mais recentes (Windows Installer)  
 
-|Baixar  |Versão  | 
+|Baixar  |Versão do produto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.300.129.01      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    115.0.300.129.01      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
 
-## <a name="amo-and-adomd-on-nuget"></a>AMO e ADOMD no NuGet
+## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacotes do NuGet)
 
-O AMO (Objetos de Gerenciamento de Serviços de Análise) e as bibliotecas de cliente ADOMD estão disponíveis como pacotes instaláveis a partir do [NuGet.org](https://www.nuget.org/). 
+O AMO (Objetos de Gerenciamento de Serviços de Análise) e as bibliotecas de cliente ADOMD estão disponíveis como pacotes instaláveis a partir do [NuGet.org](https://www.nuget.org/). É recomendável migrar para referências de NuGet em vez de usar o Windows Installer. 
 
-|Pacote  |Versão  | 
+|Pacote  | Versão do produto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
-
-É recomendável migrar para referências de NuGet em vez de usar o instalador MSI. 
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
 
 Os assemblies de pacotes NuGet AssemblyVersion seguem a versão semântica: MAJOR.MINOR.PATCH. As referências de NuGet carregam a versão esperada, mesmo que haja uma versão diferente no GAC (resultante da instalação do MSI). PATCH é incrementado para cada versão. As versões AMO e ADOMD são mantidas em sincronia.
 
@@ -67,9 +65,7 @@ As bibliotecas de cliente para conexões de cliente são diferentes dos provedor
 
 ### <a name="amo"></a>AMO  
 
- O AMO é uma biblioteca de clientes gerenciada usada para administração de servidor e definição de dados. Ele é instalado e usado por aplicativos clientes e ferramentas. Por exemplo, o SSMS (SQL Server Management Studio) usa o AMO para se conectar ao Analysis Services.  
-  
- Uma conexão usando o AMO geralmente é mínima, consistindo em `“data source=\<servername>”`. Depois que uma conexão é estabelecida, você usa a API para trabalhar com coleções de banco de dados e grandes objetos. Tanto o SSDT quanto o SSMS usam o AMO para se conectar a uma instância do Analysis Services.  
+ O AMO é uma biblioteca de clientes gerenciada usada para administração de servidor e definição de dados. Ele é instalado e usado por aplicativos clientes e ferramentas. Por exemplo, o SSMS (SQL Server Management Studio) usa o AMO para se conectar ao Analysis Services. Uma conexão usando o AMO geralmente é mínima, consistindo em `“data source=\<servername>”`. Depois que uma conexão é estabelecida, você usa a API para trabalhar com coleções de banco de dados e grandes objetos. Tanto o SSDT quanto o SSMS usam o AMO para se conectar a uma instância do Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD
@@ -83,21 +79,21 @@ As bibliotecas de cliente para conexões de cliente são diferentes dos provedor
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
-1.  Vá para `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140`. Se você tiver mais de uma pasta, escolha o número mais alto.
+1.  Vá para ' C:\Program Files\Microsoft Analysis Services\AS OLEDB\. Se você tiver mais de uma pasta, escolha o número mais alto.
   
-2.  Clique com botão direito do mouse em **msolap.dll** > **Propriedades** > **Detalhes**. Se a dll estiver nomeada como msolap140.dll, isso significa que ela é mais antiga que a última versão e, portanto, deverá ser atualizada.
+2.  Clique com botão direito do mouse em **msolap.dll** > **Propriedades** > **Detalhes**. Se o nome do arquivo for msolap140.dll, é mais antigo que a versão mais recente e deverá ser atualizado.
     
     ![Detalhes da biblioteca de clientes](media/analysis-services-data-providers/aas-msolap-details.png)
     
   
 ### <a name="amo"></a>AMO
 
-1. Vá para `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\v4.0_14.0.0.0__89845dcd8080cc91`.
+1. Vá para `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. Se você tiver mais de uma pasta, escolha o número mais alto.
 2. Clique com botão direito do mouse em **AnalysisServices** > **Propriedades** > **Detalhes**.  
 
 ### <a name="adomd"></a>ADOMD
 
-1. Vá para `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\v4.0_14.0.0.0__89845dcd8080cc91`.
+1. Vá para `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`. Se você tiver mais de uma pasta, escolha o número mais alto.
 2. Clique com botão direito do mouse em **Microsoft.AnalysisServices.AdomdClient** > **Propriedades** > **Detalhes**.  
 
 

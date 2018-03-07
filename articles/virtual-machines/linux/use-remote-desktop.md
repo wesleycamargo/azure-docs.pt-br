@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1aa75b87b01417b8864632b7a09539bd6be05d0b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar a Área de Trabalho Remota para conectar-se uma VM do Linux no Azure
 As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([xfce](https://www.xfce.org)) e área de trabalho remota ([xrdp](http://www.xrdp.org)) para sua VM do Linux usando o modelo de implantação do Resource Manager.
 
 
 ## <a name="prerequisites"></a>pré-requisitos
-Este artigo exige uma VM do Linux no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
+Este artigo requer uma VM do Ubuntu 16.04 LTS existente no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
 
 - A [CLI 2.0 do Azure](quick-create-cli.md)
 - O [Portal do Azure](quick-create-portal.md)
@@ -34,7 +34,7 @@ Este artigo exige uma VM do Linux no Azure. Se você precisar criar uma VM, use 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalar um ambiente de área de trabalho em sua VM do Linux
 A maioria das VMs do Linux no Azure não tem um ambiente de área de trabalho instalado por padrão. As VMs do Linux são gerenciadas normalmente usando conexões SSH, em vez de um ambiente de área de trabalho. Há vários ambientes de área de trabalho no Linux para sua escolha. Dependendo de sua escolha de ambiente de área de trabalho, ele pode consumir de um a 2 GB de espaço em disco e demorar de cinco a 10 minutos para instalar e configurar todos os pacotes necessários.
 
-O exemplo a seguir instala o ambiente de área de trabalho leve [xfce4](https://www.xfce.org/) em uma VM do Ubuntu. Os comandos para outras distribuições variam um pouco (use `yum` para instalar no Red Hat Enterprise Linux e configurar as regras `selinux` apropriadas ou use `zypper` para instalar no SUSE, por exemplo).
+O exemplo a seguir instala o ambiente de área de trabalho leve [xfce4](https://www.xfce.org/) em uma VM do Ubuntu 16.04 LTS. Os comandos para outras distribuições variam um pouco (use `yum` para instalar no Red Hat Enterprise Linux e configurar as regras `selinux` apropriadas ou use `zypper` para instalar no SUSE, por exemplo).
 
 Primeiro, SSH para sua VM. O seguinte exemplo conecta-se à VM chamada *myvm.westus.cloudapp.azure.com* com o nome de usuário *azureuser*:
 

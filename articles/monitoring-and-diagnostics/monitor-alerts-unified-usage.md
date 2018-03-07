@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Criar, exibir e gerenciar alertas usando o Azure Monitor – Alertas (versão prévia)
 
@@ -28,7 +28,7 @@ Este artigo mostra como configurar alertas com a nova interface de Alertas (vers
 - Critério: condição ou lógica específica que quando aparecer no sinal, deverá disparar uma ação
 - Ação: chamada específica enviada a um destinatário de uma notificação – email, SMS, webhook etc.
 
-O recurso Alertas (versão prévia) usa o termo **Alertas de Log** para descrever alertas em que o sinal é baseado em consulta personalizada no [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md). A capacidade de alerta de métrica chamada [Alertas de Métrica Quase em Tempo Real](monitoring-near-real-time-metric-alerts.md) na experiência de alertas existente é chamada de **Alertas de Métrica** em Alertas (versão prévia). Em *Alertas de Métrica*, alguns tipos de recursos fornecem [métricas multidimensionais](monitoring-metric-charts.md) para recursos do Azure específicos e, portanto, é possível fazer com que os alertas para esses recursos sejam mais específicos usando filtros adicionais em dimensões. Esses alertas são chamados de **Alertas de Métrica Multidimensional**.
+O recurso Alerta (versão prévia) usa o termo **Alertas de Log** para descrever alertas em que o sinal é baseado em consulta personalizada no [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Azure Application Insights](../application-insights/app-insights-analytics.md). A capacidade de alerta de métrica chamada [Alertas de Métrica Quase em Tempo Real](monitoring-near-real-time-metric-alerts.md) na experiência de alertas existente é chamada de **Alertas de Métrica** em Alertas (versão prévia). Em *Alertas de Métrica*, alguns tipos de recursos fornecem [métricas multidimensionais](monitoring-metric-charts.md) para recursos do Azure específicos e, portanto, é possível fazer com que os alertas para esses recursos sejam mais específicos usando filtros adicionais em dimensões. Esses alertas são chamados de **Alertas de Métrica Multidimensional**.
 O recurso Alertas do Azure (versão prévia) também fornece uma exibição unificada para todas as suas regras de alerta e a capacidade de gerenciá-las em um único lugar, incluindo a exibição de todos os alertas não resolvidos. Saiba mais sobre a funcionalidade em [Alertas do Azure (versão prévia) – visão geral](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
@@ -81,16 +81,13 @@ A seguir há um guia passo a passo detalhado para usar os Alertas do Azure (vers
 
     ![Configurar lógica de sinal para métrica multidimensional](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Alertas de Log*: verifique se **Tipo de Recurso** é uma origem de análise como *Log Analytics*/*Application Insights*e, em seguida, quando o recurso **adequado** for escolhido, clique em *Pronto*. Em seguida, use o botão **Adicionar critérios** para exibir uma lista de opções de sinais disponíveis para o recurso e na opção **Pesquisa de logs personalizada**para o serviço de monitoramento de log escolhido como *Log Analytics*/*Application Insights*.
+8. *Alertas de Log*: verifique se **Tipo de Recurso** é uma origem de análise como *Log Analytics* ou *Application Insights*, em seguida, quando o **recurso** adequado for escolhido, clique em *Pronto*. Em seguida, use o botão **Adicionar critérios** para exibir uma lista de opções de sinais disponíveis para o recurso e na opção **Pesquisa de logs personalizada**para o serviço de monitoramento de log escolhido como *Log Analytics* ou *Application Insights*.
 
    ![Selecione um recurso – pesquisa de logs personalizada](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **Visualização de alertas** mostra as pesquisas de log salvas como tipo de sinal - Log (Consulta Salva), quando o recurso escolhido é o Log Analytics.
-   Para que você possa aperfeiçoar sua consulta no Analytics e salvá-la para uso futuro - mais detalhes disponíveis em [usando a pesquisa no Log Analytics](../log-analytics/log-analytics-log-searches.md). Em seguida, é possível criar regras de alerta com base nessas consultas diretamente, conforme mostrado no exemplo seguinte com as pesquisas salvas:
-
-   ![Selecione um recurso – pesquisa de logs personalizada](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Listas de Alertas (versão prévia) pode importar uma consulta de análise como tipo de sinal - **Log (Consulta Salva)**, como mostrado na ilustração acima. Dessa forma, os usuários podem aperfeiçoar sua consulta no Analytics e, em seguida, salvá-la para uso futuro em alertas - mais detalhes sobre o uso de consulta salvas disponível em [usando a pesquisa de log no Log Analytics](../log-analytics/log-analytics-log-searches.md) ou [consulta compartilhada na análise do Application Insights](../log-analytics/log-analytics-overview.md). 
 
 9.  *Alertas de Log*: depois de selecionado, a consulta de alerta poderá ser declarada no campo **Consulta de Pesquisa**. Se a sintaxe de consulta estiver incorreta, o campo exibirá o erro em vermelho. Se a sintaxe de consulta estiver correta – para referência, os dados históricos da consulta indicada serão mostrados como um gráfico com a opção de ajustar a janela de tempo das últimas seis horas até a última semana.
 
@@ -125,7 +122,7 @@ Para **Alertas de Log**, os alertas podem ser baseados em:
     Para **Alertas de Log**, algumas funcionalidades adicionais estão disponíveis para substituir as ações padrão:
 
     - **Notificação por Email**: substitui o assunto do email enviado pelo Grupo de Ação. Não é possível modificar o corpo do email.
-    - **Incluir conteúdo JSON personalizado**: substitui o webhook JSON usado pelos Grupos de Ação e substitui o conteúdo padrão por um conteúdo personalizado. Para obter mais detalhes sobre formatos de webhook, consulte [ação de webhook para alertas de Log](monitor-alerts-unified-log-webhook.md)
+    - **Incluir conteúdo JSON personalizado**: substitui o webhook JSON usado pelos Grupos de Ação e substitui o conteúdo padrão por um conteúdo personalizado. Para obter mais informações sobre formatos de webhook, consulte [ação de webhook para alertas de Log](monitor-alerts-unified-log-webhook.md)
 
         ![Substituições de ação para alertas de Log](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

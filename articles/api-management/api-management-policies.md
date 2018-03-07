@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d0d10096c004b50688ad5e6550bf248ceb5ef878
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policies"></a>Políticas de Gerenciamento de API
 Esta seção fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](api-management-howto-policies.md).  
@@ -72,13 +72,9 @@ Esta seção fornece uma referência para as políticas de Gerenciamento de API 
     -   [Definir cabeçalho HTTP](api-management-transformation-policies.md#SetHTTPheader) - Atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.  
     -   [Definir parâmetro de cadeia de consulta](api-management-transformation-policies.md#SetQueryStringParameter) - Adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação.  
     -   [Reescrever URL](api-management-transformation-policies.md#RewriteURL) - Converte a URL de uma solicitação de sua forma pública em sua forma esperada pelo serviço Web.  
-    -   [Transformar XML usando um XSLT](api-management-transformation-policies.md#XSLTransform) – aplica uma transformação XSL para XML no corpo da solicitação ou resposta.  
+    -   [Transformar XML usando um XSLT](api-management-transformation-policies.md#XSLTransform): aplica uma transformação XSL para XML no corpo da solicitação ou da resposta.  
 
-## <a name="video"></a>Vídeo
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre como trabalhar com políticas, consulte:

@@ -11,13 +11,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Exportar modelos do Azure Resource Manager com a CLI do Azure
 
@@ -25,10 +25,10 @@ O Gerenciador de Recursos permite que você exporte um modelo do Gerenciador de 
 
 É importante observar que há duas maneiras diferentes de exportar um modelo:
 
-* Você pode exportar o modelo real que usou para uma implantação. O modelo exportado inclui todas as variáveis e parâmetros exatamente como apareceram no modelo original. Essa abordagem é útil quando você precisa recuperar um modelo.
-* Você pode exportar um modelo que representa o estado atual do grupo de recursos. O modelo exportado não é baseado em nenhum modelo que você usou para a implantação. Ao contrário, ele cria um modelo que é um instantâneo do grupo de recursos. O modelo exportado tem muitos valores embutidos e provavelmente menos parâmetros do que você normalmente definiria. Essa abordagem é útil quando você modificou o grupo de recursos. Agora, você precisa capturar o grupo de recursos como um modelo.
+* Você pode exportar o **modelo atual usado para uma implantação**. O modelo exportado inclui todas as variáveis e parâmetros exatamente como apareceram no modelo original. Essa abordagem é útil quando você precisa recuperar um modelo.
+* Você pode exportar um **modelo gerado que representa o estado atual do grupo de recursos**. O modelo exportado não é baseado em nenhum modelo que você usou para a implantação. Ao contrário, ele cria um modelo que é um “instantâneo” ou “backup” do grupo de recursos. O modelo exportado tem muitos valores embutidos e provavelmente menos parâmetros do que você normalmente definiria. Use esta opção para reimplantar recursos no mesmo grupo de recursos. Para usar este modelo para outro grupo de recursos, você pode ter significativamente modificá-lo.
 
-Este tópico mostra as duas abordagens.
+Este artigo mostra as duas abordagens.
 
 ## <a name="deploy-a-solution"></a>Implantar uma solução
 
@@ -55,13 +55,13 @@ Retorna o modelo. Copie o JSON e salve como um arquivo. Observe que é o modelo 
 
 ## <a name="export-resource-group-as-template"></a>Exportar grupo de recursos como modelo
 
-Em vez de recuperar um modelo do histórico de implantações, você pode recuperar um modelo que representa o estado atual de um grupo de recursos usando o comando [az group export](/cli/azure/group#az_group_export). Use esse comando quando você fez muitas alterações no seu grupo de recursos e nenhum modelo existente representa todas as alterações.
+Em vez de recuperar um modelo do histórico de implantações, você pode recuperar um modelo que representa o estado atual de um grupo de recursos usando o comando [az group export](/cli/azure/group#az_group_export). Use esse comando quando você fez muitas alterações no seu grupo de recursos e nenhum modelo existente representa todas as alterações. Ele destina-se ser um instantâneo do grupo de recursos, que você pode usar para reimplantar no mesmo grupo de recursos. Para usar o modelo exportado para outras soluções, você deve modificá-lo significativamente.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Retorna o modelo. Copie o JSON e salve como um arquivo. Observe que ele é diferente do modelo no GitHub. Ele tem parâmetros diferentes e nenhuma variável. O SKU e o local de armazenamento são embutidos em código para valores. O exemplo abaixo mostra o modelo exportado, mas seu modelo tem um nome de parâmetro ligeiramente diferente:
+Retorna o modelo. Copie o JSON e salve como um arquivo. Observe que ele é diferente do modelo no GitHub. O modelo tem parâmetros diferentes e nenhuma variável. O SKU e o local de armazenamento são embutidos em código para valores. O exemplo abaixo mostra o modelo exportado, mas seu modelo tem um nome de parâmetro ligeiramente diferente:
 
 ```json
 {

@@ -17,11 +17,11 @@ ms.workload: On Demand
 ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Use pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure
 
@@ -127,6 +127,8 @@ Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rb
 ## <a name="limitations"></a>Limitações
 
 Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as seguintes limitações:
+
+- Um aplicativo Web pode ser mapeado para um IP privado em uma sub-rede/rede virtual. Mesmo se os pontos de extremidade de serviço são ativados por meio da rede virtual/sub-rede determinada, as conexões do aplicativo Web para o servidor terão uma fonte IP pública Azure, não uma fonte de sub-rede/rede virtual. Para habilitar a conectividade de um aplicativo Web para um servidor que tem regras de firewall de rede virtual, você deve **Permitir todos os serviços do Azure** no servidor.
 
 - No firewall do Banco de Dados SQL, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados SQL.
 

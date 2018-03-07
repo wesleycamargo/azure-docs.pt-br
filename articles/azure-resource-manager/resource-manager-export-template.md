@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7ac553a3608df41548f845e27c545ff63886e37c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportar um modelo do Azure Resource Manager a partir dos recursos existentes
 Neste artigo, você aprenderá a exportar um modelo do Resource Manager de recursos existentes em sua assinatura. Você pode usar esse modelo gerado para compreender melhor a sintaxe do modelo.
@@ -26,40 +26,40 @@ Neste artigo, você aprenderá a exportar um modelo do Resource Manager de recur
 Há duas maneiras de exportar um modelo:
 
 * Você pode exportar o **modelo atual usado para a implantação**. O modelo exportado inclui todas as variáveis e parâmetros exatamente como apareceram no modelo original. Essa abordagem é útil quando você implantou recursos por meio do portal e quer ver o modelo para criar tais recursos. Este modelo é facilmente utilizável. 
-* Você pode exportar um **modelo gerado que representa o estado atual do grupo de recursos**. O modelo exportado não é baseado em nenhum modelo que você usou para a implantação. Ao contrário, ele cria um modelo que é um instantâneo do grupo de recursos. O modelo exportado tem muitos valores embutidos e provavelmente menos parâmetros do que você normalmente definiria. Essa abordagem é útil quando você modificou o grupo de recursos depois da implantação. Este modelo geralmente requer modificações antes de ser usado.
+* Você pode exportar um **modelo gerado que representa o estado atual do grupo de recursos**. O modelo exportado não é baseado em nenhum modelo que você usou para a implantação. Ao contrário, ele cria um modelo que é um “instantâneo” ou “backup” do grupo de recursos. O modelo exportado tem muitos valores embutidos e provavelmente menos parâmetros do que você normalmente definiria. Use esta opção para reimplantar recursos no mesmo grupo de recursos. Para usar este modelo para outro grupo de recursos, talvez seja necessário modificá-lo significativamente.
 
-Este tópico mostra ambas as abordagens por meio do portal.
+Este artigo mostra as duas abordagens através do portal.
 
 ## <a name="deploy-resources"></a>Implantação de recursos
-Vamos começar a implantação de recursos para o Azure que podem ser usados para exportar como um modelo. Se já tiver um grupo de recursos que deseja exportar como um modelo na sua assinatura, você pode ignorar esta seção. O restante deste artigo pressupõe que você implantou o aplicativo web e a solução de banco de dados SQL mostrados nesta seção. Se você usar uma solução diferente, a sua experiência pode ser um pouco diferente, mas as etapas para exportar um modelo são as mesmas. 
+Vamos começar a implantação de recursos para o Azure que podem ser usados para exportar como um modelo. Se já tiver um grupo de recursos que deseja exportar como um modelo na sua assinatura, você pode ignorar esta seção. O restante deste artigo pressupõe que você implantou o aplicativo Web e a solução de banco de dados SQL mostrados nesta seção. Se você usar uma solução diferente, a sua experiência pode ser um pouco diferente, mas as etapas para exportar um modelo são as mesmas. 
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
    
-      ![Selecione Novo](./media/resource-manager-export-template/new.png)
+      ![Selecione novo](./media/resource-manager-export-template/new.png)
 2. Pesquise **aplicativo Web + SQL** e selecione a partir das opções disponíveis.
    
       ![Pesquise aplicativo Web e SQL](./media/resource-manager-export-template/webapp-sql.png)
 
 3. Selecione **Criar**.
 
-      ![Selecione Criar](./media/resource-manager-export-template/create.png)
+      ![Selecione criar](./media/resource-manager-export-template/create.png)
 
 4. Forneça os valores necessários para o aplicativo Web e o banco de dados SQL. Selecione **Criar**.
 
-      ![Forneça a web e o valor SQL](./media/resource-manager-export-template/provide-web-values.png)
+      ![Forneça valor SQL e Web](./media/resource-manager-export-template/provide-web-values.png)
 
 A implantação pode demorar um pouco. Quando a implantação terminar, a sua assinatura conterá a solução.
 
 ## <a name="view-template-from-deployment-history"></a>Visualização de modelo do histórico de implantações
-1. Vá para a folha do grupo de recursos do novo grupo de recursos. Observe que a folha mostra o resultado da última implantação. Selecione este link.
+1. Vá para o grupo de recursos do novo grupo de recursos. Observe que o portal mostra o resultado da última implantação. Selecione este link.
    
-      ![folha do grupo de recursos](./media/resource-manager-export-template/select-deployment.png)
-2. Você vê um histórico das implantações do grupo. No seu caso, a folha provavelmente lista apenas uma implantação. Selecione essa implantação.
+      ![Grupo de recursos](./media/resource-manager-export-template/select-deployment.png)
+2. Você vê um histórico das implantações do grupo. No seu caso, o portal provavelmente lista apenas uma implantação. Selecione essa implantação.
    
-     ![última implantação](./media/resource-manager-export-template/select-history.png)
-3. A folha exibe um resumo da implantação. O resumo inclui o status da implantação, suas operações e os valores que você forneceu para os parâmetros. Para ver o modelo usado para a implantação, selecione **Exibir modelo**.
+     ![Última implantação](./media/resource-manager-export-template/select-history.png)
+3. O portal exibe um resumo da implantação. O resumo inclui o status da implantação, suas operações e os valores que você forneceu para os parâmetros. Para ver o modelo usado para a implantação, selecione **Exibir modelo**.
    
-     ![exibir resumo da implantação](./media/resource-manager-export-template/view-template.png)
+     ![Exibir resumo da implantação](./media/resource-manager-export-template/view-template.png)
 4. O Resource Manager recupera os seguintes sete arquivos para você:
    
    1. **Modelo** - O modelo que define a infraestrutura de sua solução. Quando você criou a conta de armazenamento por meio do portal, o Gerenciador de Recursos usou um modelo para implantá-la e salvou esse modelo para uma futura referência.
@@ -70,14 +70,14 @@ A implantação pode demorar um pouco. Quando a implantação terminar, a sua as
    5. **.NET** - Uma classe .NET que você pode usar para implantar o modelo.
    6. **Ruby** - uma classe Ruby que você pode usar para implantar o modelo.
       
-      Os arquivos estão disponíveis por meio de links na folha. Por padrão, a folha exibe o modelo.
+      Por padrão, o portal exibe o modelo.
       
        ![Exibir modelo](./media/resource-manager-export-template/see-template.png)
       
 Este modelo é o modelo atual usado para criar seu aplicativo Web e o banco de dados SQL. Observe que ele contém parâmetros que permitem que você forneça valores diferentes durante a implantação. Para saber mais sobre a estrutura de um modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 
 ## <a name="export-the-template-from-resource-group"></a>Exportar o modelo do grupo de recursos
-Se você alterou ou adicionou recursos manualmente em diversas implantações, a recuperação de um modelo do histórico de implantações não reflete o estado atual do grupo de recursos. Esta seção mostra como exportar um modelo que reflete o estado atual do grupo de recursos. 
+Se você alterou ou adicionou recursos manualmente em diversas implantações, a recuperação de um modelo do histórico de implantações não reflete o estado atual do grupo de recursos. Esta seção mostra como exportar um modelo que reflete o estado atual do grupo de recursos. Ele destina-se ser um instantâneo do grupo de recursos, que você pode usar para reimplantar no mesmo grupo de recursos. Para usar o modelo exportado para outras soluções, você deve modificá-lo significativamente.
 
 > [!NOTE]
 > Você não pode exportar um modelo para um grupo de recursos que tenha mais de 200 recursos.
@@ -86,7 +86,7 @@ Se você alterou ou adicionou recursos manualmente em diversas implantações, a
 
 1. Para exibir o modelo de um grupo de recursos, selecione **Script de automação**.
    
-      ![exportar grupo de recursos](./media/resource-manager-export-template/select-automation.png)
+      ![Exportar grupo de recursos](./media/resource-manager-export-template/select-automation.png)
    
      O Resource Manager avalia os recursos no grupo de recursos e gera um modelo para esses recursos. Nem todos os tipos de recursos suportam a função para exportar o modelo. Talvez apareça um erro indicando que há um erro com a exportação. Você aprende a lidar com esses problemas na seção [Corrigir os problemas da exportação](#fix-export-issues) .
 2. Os seis arquivos que você pode usar para reimplantar a solução ficarão visíveis novamente. No entanto, neste momento, o modelo é um pouco diferente. Observe que o modelo gerado contém menos parâmetros que o modelo da seção anterior. Além disso, neste modelo, muitos dos valores (como o local e valores SKU) são embutidos em código em vez de aceitar um valor de parâmetro. Antes de reutilizar esse modelo, talvez seja interessante editar o modelo para fazer melhor uso dos parâmetros. 
@@ -95,31 +95,31 @@ Se você alterou ou adicionou recursos manualmente em diversas implantações, a
    
      Se você estiver familiarizado com o uso de um editor de JSON como o [VS Code](https://code.visualstudio.com/) ou o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), talvez você prefira baixar o modelo localmente e usar o editor. Para trabalhar localmente, selecione **Baixar**.
    
-      ![baixar modelo](./media/resource-manager-export-template/download-template.png)
+      ![Baixar o modelo](./media/resource-manager-export-template/download-template.png)
    
-     Se você não estiver confortável com um editor de JSON, talvez prefira a edição do modelo por meio do portal. O restante deste tópico pressupõe que você tenha salvo o modelo para sua biblioteca no portal. No entanto, você fará as mesmas alterações de sintaxe para o modelo se trabalhar localmente com um editor de JSON ou por meio do portal. Para trabalhar no portal, selecione **Adicionar à biblioteca**.
+     Se você não configurou com um editor JSON, talvez prefira editar o modelo através do portal. O restante deste artigo pressupõe que você salvou o modelo em sua biblioteca no portal. No entanto, você fará as mesmas alterações de sintaxe para o modelo se trabalhar localmente com um editor de JSON ou por meio do portal. Para trabalhar no portal, selecione **Adicionar à biblioteca**.
    
-      ![adicionar à biblioteca](./media/resource-manager-export-template/add-to-library.png)
+      ![Adicionar à biblioteca](./media/resource-manager-export-template/add-to-library.png)
    
-     Ao adicionar um modelo à biblioteca, atribua um nome e uma descrição ao modelo. Em seguida, selecione **Salvar**.
+     Ao adicionar um modelo à biblioteca, você fornece ao modelo um nome e uma descrição. Em seguida, selecione **Salvar**.
    
-     ![definir valores de modelo](./media/resource-manager-export-template/save-library-template.png)
+     ![Definir valores de modelo](./media/resource-manager-export-template/save-library-template.png)
 4. Para exibir um modelo salvo na biblioteca, selecione **Mais serviços**, digite **Modelos** para filtrar os resultados, selecione **Modelos**.
    
-      ![localizar modelos](./media/resource-manager-export-template/find-templates.png)
+      ![Localizar modelos](./media/resource-manager-export-template/find-templates.png)
 5. Selecione o modelo com o nome que você salvou.
    
-      ![selecionar modelo](./media/resource-manager-export-template/select-saved-template.png)
+      ![Selecionar modelo](./media/resource-manager-export-template/select-saved-template.png)
 
 ## <a name="customize-the-template"></a>Personalizar o modelo
 O modelo exportado funciona bem se você deseja criar o mesmo aplicativo Web e banco de dados SQL para cada implantação. No entanto, o Resource Manager fornece opções para que você possa implantar modelos com muito mais flexibilidade. Este artigo mostra como adicionar parâmetros para o nome e a senha do administrador de banco de dados. Você pode usar essa mesma abordagem para adicionar mais flexibilidade a outros valores no modelo.
 
 1. Para personalizar o modelo, selecione **Editar**.
    
-     ![mostrar modelo](./media/resource-manager-export-template/select-edit.png)
+     ![Mostrar modelo](./media/resource-manager-export-template/select-edit.png)
 2. Selecione o modelo.
    
-     ![editar modelo](./media/resource-manager-export-template/select-added-template.png)
+     ![Editar modelo](./media/resource-manager-export-template/select-added-template.png)
 3. Para passar os valores que você talvez queira especificar durante a implantação, adicione os dois parâmetros a seguir na seção **parâmetros** no modelo:
 
    ```json
@@ -154,10 +154,10 @@ O modelo exportado funciona bem se você deseja criar o mesmo aplicativo Web e b
 6. Selecione **OK** quando terminar a edição do modelo.
 7. Selecione **Salvar** para salvar as alterações no modelo.
    
-     ![salvar modelo](./media/resource-manager-export-template/save-template.png)
+     ![Salvar modelo](./media/resource-manager-export-template/save-template.png)
 8. Para reimplantar o modelo atualizado, selecione **Implantar**.
    
-     ![implantar modelo](./media/resource-manager-export-template/redeploy-template.png)
+     ![Implantar modelo](./media/resource-manager-export-template/redeploy-template.png)
 9. Forneça os valores de parâmetros e selecione um novo grupo de recursos para o qual os recursos serão implantados.
 
 
@@ -170,9 +170,8 @@ Nem todos os tipos de recursos suportam a função para exportar o modelo. Para 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Você aprendeu a exportar um modelo a partir dos recursos criados no portal.
 
 * Você pode implantar um modelo por meio do [PowerShell](resource-group-template-deploy.md), da [CLI do Azure](resource-group-template-deploy-cli.md) ou da [API REST](resource-group-template-deploy-rest.md).
-* Para ver como exportar um modelo por meio do PowerShell, consulte [Usando o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
-* Para ver como exportar um modelo por meio da CLI do Azure, consulte [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* Para saber como exportar um modelo através do PowerShell, consulte [Exportar modelos do Azure Resource Manager com PowerShell](resource-manager-export-template-powershell.md).
+* Para saber como exportar um modelo através da CLI do Azure, consulte [Exportar modelos do Azure Resource Manager com a CLI do Azure](resource-manager-export-template-cli.md).
 

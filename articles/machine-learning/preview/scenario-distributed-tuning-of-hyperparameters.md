@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ajuste distribuído de hiperparâmetros usando o Azure Machine Learning Workbench
 
@@ -39,19 +39,14 @@ A pesquisa de grade usando validação cruzada pode ser demorada. Se um algoritm
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguindo o [Guia de início rápido de instalação e de criação](./quickstart-installation.md) para instalar o Workbench e criar contas.
 * Este cenário pressupõe que você está executando o Azure ML Workbench no Windows 10 e no MacOS com o mecanismo do Docker instalado localmente. 
 * Para executar o cenário com um contêiner remoto do Docker, provisione a DSVM (Máquina Virtual de Ciência de Dados) do Ubuntu seguindo as [instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 28 Gb de memória. As instâncias D4 de máquinas virtuais têm essa capacidade. 
-* Para executar esse cenário com um cluster Spark, forneça o Cluster HDInsight do Azure seguindo essas [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-Recomendamos ter um cluster com pelo menos:
-    - seis nós de trabalho
+* Para executar esse cenário com um cluster Spark, forneça o Cluster HDInsight do Spark seguindo essas [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). É recomendável ter um cluster com a seguinte configuração em ambos os nós de trabalho e cabeçalho:
+    - quatro nós de trabalho
     - oito núcleos
-    - 28 GB de memória em ambos os nós de trabalho e cabeçalho. As instâncias D4 de máquinas virtuais têm essa capacidade.       
-    - Recomendamos alterar os seguintes parâmetros para maximizar o desempenho do cluster:
-        - spark.executor.instances
-        - spark.executor.cores
-        - spark.executor.memory 
+    - 28 Gb de memória  
+      
+  As instâncias D4 de máquinas virtuais têm essa capacidade. 
 
-Você pode seguir essas [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições na seção "padrões personalizados de Spark".
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Solução de problemas**: sua assinatura do Azure pode ter uma cota no número de núcleos que podem ser usados. O Portal do Azure não permite a criação de cluster com o número total de núcleos que excedem a cota. Para localizar cota, acesse o Portal do Azure na seção Assinaturas, clique na assinatura usada para implantar um cluster e, em seguida, clique em **Uso+cotas**. Geralmente as cotas são definidas por região do Azure e é possível optar por implantar o cluster Spark em uma região em que você tenha núcleos livres suficientes. 
 
 * Crie uma conta de armazenamento do Azure usada para armazenar o conjunto de dados. Siga as [instruções](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para criar uma conta de armazenamento.
 
@@ -118,7 +113,7 @@ com endereço IP, nome de usuário e senha no DSVM. O endereço IP do DSVM pode 
 
 Para configurar o ambiente do Spark, execute na CLI
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 com o nome do cluster, o nome de usuário e a senha SSH do cluster. O valor padrão do nome de usuário SSH é `sshuser`, a menos que você o tenha alterado durante o provisionamento do cluster. O nome do cluster pode ser encontrado na seção Propriedades da sua página de cluster no Portal do Azure:
 
@@ -126,14 +121,20 @@ com o nome do cluster, o nome de usuário e a senha SSH do cluster. O valor padr
 
 Usamos o pacote spark-sklearn para ter o Spark como um ambiente de execução para ajuste distribuído de hiperparâmetros. Modificamos arquivo spark_dependencies.yml para instalar este pacote quando o ambiente de execução do Spark é usado:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ janela da CLI.
 Como o ambiente local é muito pequeno para calcular todos os conjuntos de recursos, mudamos para o DSVM remoto que tem memória maior. A execução dentro do DSVM é feita dentro do contêiner do Docker gerenciado pelo AML Workbench. Usando este DSVM, é possível calcular todos os recursos e treinar modelos e ajustar parâmetros (consulte a próxima seção). arquivo singleVM.py tem a computação de recursos e código de modelagem completos. Na próxima seção, mostraremos como executar singleVM.py no DSVM remoto. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Ajustando hiperparâmetros usando o DSVM remoto
-Usamos a implementação [xgboost](https://anaconda.org/conda-forge/xgboost) [1] do aumento da árvore de gradiente. Usamos o pacote [scikit-learn](http://scikit-learn.org/) para ajustar os hiperparâmetros de xgboost. Embora o xgboost não faça parte do pacote scikit-learn, ele implementa a API do scikit-learn e, portanto, pode ser usado juntamente com as funções de ajuste de parâmetro do scikit-learn. 
+Usamos a implementação [xgboost](https://anaconda.org/conda-forge/xgboost) [1] do aumento da árvore de gradiente. Também é usado o pacote [scikit-learn](http://scikit-learn.org/) pacote para sintonizar hiperparâmetros de xgboost. Embora o xgboost não faça parte do pacote scikit-learn, ele implementa a API do scikit-learn e, portanto, pode ser usado juntamente com as funções de ajuste de parâmetro do scikit-learn. 
 
-O xgboost tem oito hiperparâmetros:
+Xgboost tem oito hiperparâmetros, descritos [aqui](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,14 +211,13 @@ O xgboost tem oito hiperparâmetros:
 * learning_rate
 * colsample\_by_level
 * subsample
-* descrição do objetivo A desses hiperparâmetros pode ser localizado em
-- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* objetivo  
+ 
 Inicialmente, utilizamos DSVM remoto e sintonizamos hiperparâmetros de uma pequena grade de valores candidatos:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-Essa grade tem quatro combinações de valores de hiperparâmetros. Usamos a validação cruzada de 5 partições, resultando em 4x5=20 execuções do xgboost. Para medir o desempenho dos modelos, usamos a métrica de perda de log negativa. O código a seguir localiza os valores de hiperparâmetros na grade que maximizam a perda de log negativa de validação cruzada. O código também usa esses valores para treinar o modelo definitivo no conjunto completo de treinamento:
+Essa grade tem quatro combinações de valores de hiperparâmetros. Usamos a validação cruzada de 5 partições, resultando em 4x5 = 20 execuções de xgboost. Para medir o desempenho dos modelos, usamos a métrica de perda de log negativa. O código a seguir localiza os valores de hiperparâmetros na grade que maximizam a perda de log negativa de validação cruzada. O código também usa esses valores para treinar o modelo definitivo no conjunto completo de treinamento:
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ Usamos o cluster Spark para aumentar o ajuste de hiperparâmetros e usar uma gra
 
 Essa grade tem 16 combinações de valores de hiperparâmetros. Como usamos a validação cruzada de 5 partições, executamos o xgboost 16x5=80 vezes.
 
-O pacote scikit-learn não tem um suporte nativo de ajuste de hiperparâmetros usando o cluster Spark. Felizmente, o pacote [sklearn spark](https://spark-packages.org/package/databricks/spark-sklearn) dos Databricks preenche esta lacuna. Este pacote fornece a função GridSearchCV que tem quase a mesma API que a função GridSearchCV no scikit-learn. Para usar o spark-sklearn e ajustar os hiperparâmetros usando o Spark, é necessário se conectar para criar o contexto do Spark
+O pacote scikit-learn não tem um suporte nativo de ajuste de hiperparâmetros usando o cluster Spark. Felizmente, o pacote [sklearn spark](https://spark-packages.org/package/databricks/spark-sklearn) dos Databricks preenche esta lacuna. Este pacote fornece a função GridSearchCV que tem quase a mesma API que a função GridSearchCV no scikit-learn. Para usar o spark-sklearn e ajustar os hiperparâmetros usando o Spark, é necessário criar um contexto do Spark
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

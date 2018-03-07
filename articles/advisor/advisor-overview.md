@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -52,7 +52,7 @@ Você pode clicar em uma categoria para exibir a lista de recomendações nessa 
 
 Clique na ação recomendada para implementá-la.  Será aberta uma interface simples que permite que você implemente a recomendação ou fornece documentação que ajuda você com a implementação.  Quando você implementa uma recomendação, pode demorar até um dia para que o Assistente reconheça isso.
 
-Se você não pretender tomar uma ação imediata quanto a uma recomendação, será possível adiá-la por um período especificado ou ignorá-la.  Se você não deseja receber as recomendações para uma assinatura ou grupo de recursos específico, você poderá configurar o Assistente para gerar apenas recomendações para grupos de recursos e assinaturas especificados.
+Se você não pretende tomar uma ação imediata em uma recomendação, você pode adiá-la por um período de tempo especificado ou ignorá-la.  Se você não deseja receber as recomendações para uma assinatura ou grupo de recursos específico, você poderá configurar o Assistente para gerar apenas recomendações para grupos de recursos e assinaturas especificados.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -69,9 +69,9 @@ Para obter as recomendações do Assistente para uma assinatura, você deve prim
 
 O Assistente fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, gateways de aplicativo, Serviços de Aplicativos, SQL Servers, bancos de dados SQL e para o Cache Redis.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Posso adiar ou descartar uma recomendação?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Posso adiar ou ignorar uma recomendação?
 
-Para adiar ou ignorar uma recomendação, clique no link **Adiar**. Você pode especificar uma hora de adiamento ou selecionar **Nunca** para descartar a recomendação.
+Para adiar ou ignorar uma recomendação, clique no link **Adiar**. Você pode especificar um período de adiamento ou selecione **Nunca** para ignorar a recomendação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

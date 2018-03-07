@@ -3,7 +3,7 @@ title: Eventos agendados para VMs do Linux no Azure | Microsoft Docs
 description: "Agendar eventos usando o Serviço de Metadados do Azure para nas máquinas virtuais do Linux."
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
-author: zivraf
+author: ericrad
 manager: timlt
 editor: 
 tags: 
@@ -13,23 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
-ms.author: zivr
-ms.openlocfilehash: ae9955253647f3277729e7905baf7bb07645de42
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.date: 02/22/2018
+ms.author: ericrad
+ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados (versão prévia) para VMs do Linux
+# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Linux
 
-> [!NOTE] 
-> As visualizações são disponibilizadas a você se concordar com os termos de uso. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
-Os eventos agendados são um subserviço do Serviço de Metadados do Azure que dá ao aplicativo tempo para se preparar para a manutenção de VMs (máquinas virtuais). Ele fornece informações sobre eventos de manutenção futuros (por exemplo, reinicializar) para que seu aplicativo possa se preparar e limitar a interrupção. Ele está disponível para todos os tipos de Máquinas Virtuais do Azure, incluindo PaaS e IaaS no Windows e no Linux. 
+Os eventos agendados são um serviço de metadados do Azure que dá ao aplicativo tempo para se preparar para a manutenção de máquinas virtuais (VM). Ele fornece informações sobre eventos de manutenção futuros (por exemplo, reinicializar) para que seu aplicativo possa se preparar e limitar a interrupção. Ele está disponível para todos os tipos de Máquinas Virtuais do Azure, incluindo PaaS e IaaS no Windows e no Linux. 
 
 Para saber mais sobre os eventos agendados no Windows, veja [Eventos Agendados para VMs do Windows](../windows/scheduled-events.md).
+
+> [!Note] 
+> Eventos Agendados estão disponível geralmente em todas as regiões do Azure. Consulte [Disponibilidade de Versão e Região](#version-and-region-availability) para obter informações sobre a versão mais recente.
 
 ## <a name="why-use-scheduled-events"></a>Por que usar Eventos Agendados?
 
@@ -62,47 +61,39 @@ Os eventos agendados são entregues a:
 
 Como resultado, verifique o campo `Resources` no evento para identificar quais VMs são afetadas.
 
-### <a name="discover-the-endpoint"></a>Descobrir o ponto de extremidade
-Para VMs habilitadas para redes virtuais, o ponto de extremidade completo para a versão mais recente dos eventos agendados é: 
+### <a name="endpoint-discovery"></a>Descoberta do ponto de extremidade
+Para VMs habilitadas para VNET, o serviço de metadados está disponível de um IP não roteável estático, `169.254.169.254`. O ponto de extremidade completo para a versão mais recente dos eventos agendados é: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-No caso em que uma VM é criada em uma rede virtual, o serviço de metadados está disponível por meio de um IP não roteável estático, `169.254.169.254`.
-Se a VM não for criada em uma rede virtual, os casos padrão para serviços de nuvem e VMs clássicas, uma lógica adicional será necessária para descobrir o endereço IP a ser utilizado. Consulte esse exemplo para saber como [descobrir o ponto de extremidade do host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Se a VM não for criada em uma Rede Virtual, os casos padrão para serviços de nuvem e VMs clássicas, uma lógica adicional será necessária para descobrir o endereço IP a ser utilizado. Consulte esse exemplo para saber como [descobrir o ponto de extremidade do host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
-### <a name="versioning"></a>Controle de versão 
-O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias e a versão atual é `2017-08-01`.
+### <a name="version-and-region-availability"></a>Disponibilidade de Versão e Região
+O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias; a versão atual é `2017-08-01`.
 
-| Versão | Notas de versão | 
-| - | - | 
-| 2017-08-01 | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de Iaas<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
-| 2017-03-01 | <li>Versão prévia pública
+| Versão | Tipo de Versão | Regiões | Notas de versão | 
+| - | - | - | - | 
+| 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de Iaas<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
+| 2017-03-01 | Visualização | Todos | <li>Versão inicial
 
 
 > [!NOTE] 
 > Versões prévias anteriores de Eventos Agendados compatíveis {mais recentes} como a api-version. Esse formato não é mais suportado e será substituído no futuro.
 
-### <a name="use-headers"></a>Usar cabeçalhos
-Ao consultar o Serviço de Metadados você deverá fornecer o cabeçalho `Metadata:true` para garantir que a solicitação não foi redirecionada de forma involuntária. O cabeçalho `Metadata:true` é necessário para todas as solicitações de eventos programados. A não inclusão do cabeçalho na solicitação resulta em uma resposta de "Solicitação Incorreta" do Serviço de Metadados.
+### <a name="enabling-and-disabling-scheduled-events"></a>Habilitar e Desabilitar Eventos Agendados
+Eventos Agendados são habilitados para o serviço na primeira vez em que você faz uma solicitação para eventos. Você deve esperar um atraso na resposta em sua primeira chamada de até dois minutos.
 
-### <a name="enable-scheduled-events"></a>Habilitar eventos agendados
-Na primeira vez em que fizer uma solicitação de eventos programados, o Azure habilitará implicitamente o recurso em sua VM. Como resultado, espere um atraso na resposta em sua primeira chamada de até dois minutos.
-
-> [!NOTE]
-> Os Eventos Agendados serão desabilitados automaticamente para seu serviço se ele não chamar o ponto de extremidade por um dia. Após os Eventos Agendados serem desabilitados para o serviço, nenhum evento é criado para a manutenção iniciada pelo usuário.
+Eventos Agendados são desabilitados para o serviço se ele não fizer uma solicitação por 24 horas.
 
 ### <a name="user-initiated-maintenance"></a>Manutenção iniciada pelo usuário
 A manutenção de VMs iniciada pelo usuário pelo Portal do Azure, API, CLI ou PowerShell resulta em um evento agendado. Você pode então testar a lógica de preparação de manutenção em seu aplicativo e permite que seu aplicativo se prepare para manutenção iniciada pelo usuário.
 
 Se você reinicia uma VM, um evento com o tipo `Reboot` é agendado. Se você reimplanta uma VM, um evento com o tipo `Redeploy` é agendado.
 
-> [!NOTE] 
-> No momento, no máximo 100 operações de manutenção iniciadas pelo usuário podem ser agendadas simultaneamente.
-
-> [!NOTE] 
-> Atualmente, a manutenção iniciada pelo usuário que resulta em eventos agendados não é configurável. A capacidade de configuração está prevista para uma versão futura.
-
 ## <a name="use-the-api"></a>Usar a API
+
+### <a name="headers"></a>Cabeçalhos
+Ao consultar o Serviço de Metadados você deverá fornecer o cabeçalho `Metadata:true` para garantir que a solicitação não foi redirecionada de forma involuntária. O cabeçalho `Metadata:true` é necessário para todas as solicitações de eventos programados. A não inclusão do cabeçalho na solicitação resulta em uma resposta de "Solicitação Incorreta" do Serviço de Metadados.
 
 ### <a name="query-for-events"></a>Consulta de eventos
 Você pode consultar Eventos Agendados realizando a chamada a seguir:
@@ -218,6 +209,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>Próximas etapas 
+- Inspecione [Eventos Agendados no Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) para ver uma demonstração. 
 - Examine os Exemplos de código de Eventos Agendados no [Repositório GitHub de Eventos Agendados de Metadados de Instância do Azure](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Leia mais sobre as APIs disponíveis no [Serviço de Metadados de Instância](instance-metadata-service.md).
 - Saiba mais sobre a [manutenção planejada para máquinas virtuais do Linux no Azure ](planned-maintenance.md).

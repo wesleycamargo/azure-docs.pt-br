@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione os links inseridos no código para aplicativos publicados com o Proxy de Aplicativo do Azure AD
 
@@ -27,7 +27,7 @@ O Proxy de Aplicativo do Azure AD disponibiliza seus aplicativos locais para usu
 
 A melhor maneira de garantir que os links funcionem corretamente dentro e fora de sua rede corporativa é configurar as URLs externas de seus aplicativos para que sejam as mesmas que as URLs internas. Use [domínios personalizados](active-directory-application-proxy-custom-domains.md) para configurar suas URLs externas para que tenham o nome de domínio corporativo em vez do domínio padrão do proxy de aplicativo.
 
-Se não é possível usar domínios personalizados em seu locatário, o recurso de conversão de link do Proxy de Aplicativo mantém seus links funcionando, independentemente de onde os usuários estão. Quando você tem aplicativos que apontam diretamente para portas ou pontos de extremidade internos, pode mapear essas URLs internas para as URLs de Proxy de Aplicativo externas publicadas. Quando a conversão de link está habilitada, o Proxy de Aplicativo pesquisa em HTML, CSS e seleciona marcas de JavaScript para os links internos publicados. Então, o serviço do Proxy de Aplicativo as converte para que os usuários obtenham uma experiência sem interrupções.
+Se não é possível usar domínios personalizados em seu locatário, o recurso de conversão de link do Proxy de Aplicativo mantém seus links funcionando, independentemente de onde os usuários estão. Quando você tem aplicativos que apontam diretamente para portas ou pontos de extremidade internos, pode mapear essas URLs internas para as URLs de Proxy de Aplicativo externas publicadas. Quando a translação de link está habilitada e o Proxy de Aplicativo pesquisa o HTML e o CSS para links internos publicos, o serviço de Proxy de Aplicativo converte-os para que seus usuários obtenham uma experiência ininterrupta.
 
 >[!NOTE]
 >O recurso de conversão de link é para locatários que, por qualquer motivo, não podem usar domínios personalizados para ter as mesmas URLs internas e externas para seus aplicativos. Antes de habilitar esse recurso, verifique se [domínios personalizados no Proxy de Aplicativo do Azure AD](active-directory-application-proxy-custom-domains.md) podem funcionar para você.
@@ -64,7 +64,7 @@ Quando você habilita a translação de link para o aplicativo Benefícios, os l
 Para melhorar o desempenho e a segurança, alguns links não são convertidos:
 
 - Links que não estão dentro de marcas de código. 
-- Links que não estão em HTML, CSS ou JavaScript. 
+- Links que não estão em HTML ou CSS. 
 - Links internos abertos de outros programas. Links enviados por email, mensagem instantânea ou incluídos em outros documentos não serão convertidos. Os usuários precisam saber ir para a URL externa.
 
 Se você precisar dar suporte a um desses dois cenários, use as mesmas URLs internas e externas em vez da conversão de link.  
@@ -84,7 +84,7 @@ Agora, quando os usuários acessarem esse aplicativo, o proxy examinará automat
 
 ## <a name="send-feedback"></a>Enviar comentários
 
-Queremos sua ajuda para fazer esse recurso funcionar para todos os seus aplicativos. Pesquisamos mais de 30 marcas em HTML e CSS e estamos considerando para quais casos do JavaScript dar suporte. Se você tiver um exemplo de links gerados que não estão sendo convertidos, envie um trecho de código para [Comentários de Proxy de Aplicativo](mailto:aadapfeedback@microsoft.com). 
+Queremos sua ajuda para fazer esse recurso funcionar para todos os seus aplicativos. Podemos pesquisar mais de 30 marcas em HTML e CSS. Se você tiver um exemplo de links gerados que não estão sendo convertidos, envie um trecho de código para [Comentários de Proxy de Aplicativo](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Usar domínios personalizados com o Proxy de Aplicativo do Azure AD](active-directory-application-proxy-custom-domains.md) para ter a mesma URL interna e externa

@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3a4c7a308bdf7132cebffc13a5e7214ec73eaf2
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-is"></a>sfctl is
 Consultar e enviar comandos para o serviço de infraestrutura.
@@ -34,14 +34,14 @@ Consultar e enviar comandos para o serviço de infraestrutura.
 ## <a name="sfctl-is-command"></a>comando sfctl is
 Invoca um comando administrativo na instância do serviço de infraestrutura especificada.
 
-Para clusters que têm uma ou mais instâncias do serviço de infraestrutura configurado, essa API fornece uma maneira para enviar comandos de infraestrutura específicos para uma determinada instância do serviço de infraestrutura. Comandos disponíveis e seus formatos de resposta correspondentes variam de acordo com a infraestrutura na qual o cluster está em execução. Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código. .
+Para clusters que têm uma ou mais instâncias do serviço de infraestrutura configurado, essa API fornece uma maneira para enviar comandos de infraestrutura específicos para uma determinada instância do serviço de infraestrutura. Comandos disponíveis e seus formatos de resposta correspondentes variam de acordo com a infraestrutura na qual o cluster está em execução. Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código. 
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --comando [obrigatório]| O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura.  Padrão: comando is.|
-| --id do serviço     | A identidade do serviço de infraestrutura. É o nome completo do serviço de infraestrutura sem o esquema de URI "fabric:". Esse parâmetro é necessário somente para clusters que têm mais de uma instância do serviço de infraestrutura em execução.|
+| --comando [obrigatório]| O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
+| --id do serviço     | A identidade do serviço de infraestrutura. A ID é o nome completo do serviço de infraestrutura sem o esquema de URI "fabric:". Esse parâmetro é necessário somente para clusters que têm mais de uma instância do serviço de infraestrutura em execução.|
 | --timeout -t     | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -63,8 +63,8 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --comando [obrigatório]| O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura.  Padrão: consulta is.|
-| --id do serviço     | A identidade do serviço de infraestrutura. É o nome completo do serviço de infraestrutura sem o esquema de URI "fabric:". Esse parâmetro é necessário somente para clusters que têm mais de uma instância do serviço de infraestrutura em execução.|
+| --comando [obrigatório]| O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura.|
+| --id do serviço     | A identidade do serviço de infraestrutura. A ID é o nome completo do serviço de infraestrutura sem o esquema de URI "fabric:". Esse parâmetro é necessário somente para clusters que têm mais de uma instância do serviço de infraestrutura em execução.|
 | --timeout -t     | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais

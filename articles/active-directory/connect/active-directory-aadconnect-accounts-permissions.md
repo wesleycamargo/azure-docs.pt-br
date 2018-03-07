@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 O assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
@@ -35,7 +35,7 @@ Se você não leu a documentação em [Integrando suas identidades locais com o 
 |Baixar o Azure AD Connect | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalar usando as Configurações expressas | [Instalação expressa do Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
 |Instalar usando Configurações personalizadas | [Instalação personalizada do Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
-|Atualização do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 |Após a instalação | [Verifique a instalação e atribua licenças ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>Instalação das configurações expressas
@@ -90,7 +90,7 @@ As permissões de que você precisa dependem dos recursos opcionais que habilita
 | Sincronização de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
 | Implantação híbrida do Exchange |Permissões de gravação para os atributos documentados em [Write-back híbrido do Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
 | Pasta pública do Exchange Mail |Permissões de leitura para os atributos documentados na [Pasta pública do Exchange Mail](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| Write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../active-directory-passwords-writeback.md) para usuários. |
+| write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../active-directory-passwords-writeback.md) para usuários. |
 | Write-back de dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [Write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md). |
 | Write-back de grupo |Ler, criar, atualizar e excluir objetos de grupo para **grupos do Office 365** sincronizados.  Para saber mais, confira [Write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
@@ -98,10 +98,10 @@ As permissões de que você precisa dependem dos recursos opcionais que habilita
 Ao atualizar de uma versão do Azure AD Connect para uma nova versão, você precisa das seguintes permissões:
 
 >[!IMPORTANT]
->Começando com o build 1.1.484, o Azure AD Connect introduziu um bug de regressão que requer permissões de sysadmin para atualizar o banco de dados SQL.  Esse bug ainda está presente no build mais recente, 1.1.614.  Se você estiver atualizando para esse build, precisará de permissões de sysadmin.  Permissões de DBO não são suficientes.  Se você tentar atualizar a conexão do Azure AD sem ter permissões de sysadmin, a atualização falhará e o Azure AD Connect deixará de funcionar corretamente depois.  A Microsoft está ciente desse problema e está trabalhando para corrigi-lo.
+>Começando com o build 1.1.484, o Azure AD Connect introduziu um bug de regressão que requer permissões de sysadmin para atualizar o banco de dados SQL.  Esse bug foi corrigido no build 1.1.647.  Se você estiver atualizando para esse build, precisará de permissões de sysadmin.  Permissões de DBO não são suficientes.  Se você tentar atualizar a conexão do Azure AD sem ter permissões de sysadmin, a atualização falhará e o Azure AD Connect deixará de funcionar corretamente depois.  A Microsoft está ciente desse problema e está trabalhando para corrigi-lo.
 
 
-| Principal | Permissões necessárias | Usadas para |
+| Principal | Permissões necessárias | Usado para |
 | --- | --- | --- |
 | Usuário que está executando o assistente de instalação |Administrador do servidor local |Binários de atualização. |
 | Usuário que está executando o assistente de instalação |Membro do ADSyncAdmins |Fazer alterações em Regras de Sincronização e outras configurações. |
@@ -118,7 +118,7 @@ Se você usar configurações personalizadas, você será responsável por criar
 ### <a name="azure-ad-connect-sync-service-account"></a>Conta de serviço de sincronização do Azure AD Connect
 O serviço de sincronização pode ser executado em contas diferentes. Ele pode ser executado em uma VSA (**conta de serviço virtual**), uma gMSA/sMSA (**conta de serviço gerenciado de grupo**) ou então uma conta de usuário regular. As opções com suporte foram alteradas com a versão de abril de 2017 do Connect ao fazer uma nova instalação. Se você atualizar de uma versão anterior do Azure AD Connect, essas opções adicionais não estarão disponíveis.
 
-| Tipo de conta | Opção de instalação | Descrição |
+| Tipo de conta | Opção de instalação | DESCRIÇÃO |
 | --- | --- | --- |
 | [Conta de Serviço Virtual](#virtual-service-account) | Expressa e personalizada, abril de 2017 e posterior | Essa é a opção usada para todas as instalações expressas, exceto para instalações em um controlador de domínio. Ela é a opção padrão para instalações personalizadas, a menos que outra opção seja usada. |
 | [Conta de Serviço Gerenciado de Grupo](#group-managed-service-account) | Personalizada, abril de 2017 e posterior | Se você usa um SQL Server remoto, é recomendável usar uma conta de serviço gerenciado de grupo. |

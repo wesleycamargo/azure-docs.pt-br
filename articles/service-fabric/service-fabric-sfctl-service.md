@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-service"></a>Serviço sfctl
 Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviço.
@@ -34,6 +34,7 @@ Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviç
 |    deployed-type  | Obtém as informações sobre um tipo de serviço especificado do aplicativo implantado em um nó em um cluster do Service Fabric.|
 |    deployed-type-list| Obtém a lista que contém as informações sobre os tipos de serviço dos aplicativos implantados em um nó em um cluster do Service Fabric.|
 |    Descrição    | Obtém a descrição de um serviço do Service Fabric existente.|
+|get-container-logs| Obtém os logs de contêiner para um contêiner implantado em um nó do Service Fabric.|
 |    integridade         | Obtém a integridade do serviço do Service Fabric especificado.|
 |    informações           | Obtém as informações sobre o serviço específico que pertence a um aplicativo do Service Fabric.|
 |    list           | Obtém as informações sobre todos os serviços pertencentes ao aplicativo especificado pela ID do aplicativo.|
@@ -56,7 +57,7 @@ Cria o serviço do Service Fabric especificado a partir da descrição.
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --app-id       [Obrigatório]| A identidade do aplicativo pai. Normalmente, é a ID completa do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric://meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
+| --app-id       [Obrigatório]| A identidade do aplicativo pai. Normalmente, é a ID completa do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric:/meuaplicativo/aplicativo1", a         identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1"           nas versões anteriores.|
 | --name         [Obrigatório]| Nome do serviço. Deve ser um filho da ID do aplicativo.           Este é o nome completo, incluindo o URI `fabric:`. Por exemplo, o serviço `fabric:/A/B` é um filho do aplicativo `fabric:/A`.|
 | --service-type [Obrigatório]| O nome do tipo de serviço.|
 | --activation-mode     | O modo de ativação para o pacote de serviço.|
@@ -104,7 +105,7 @@ Exclui um serviço existente do Service Fabric. Um serviço deve ser criado ante
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for "fabric://meuaplicativo/aplicativo1/svc1, a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões anteriores.|
+| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo,                             se o nome do serviço for "fabric:/meuaplicativo/aplicativo1/svc1", a identidade do serviço                              será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões                              anteriores.|
 | --force-remove      | Força a remoção de um aplicativo ou serviço do Service Fabric sem passar pela sequência de desligamento normal. Esse parâmetro pode ser usado para forçar a exclusão de um aplicativo ou serviço para o qual a exclusão está atingindo o tempo limite devido a problemas no código do serviço que impedem o fechamento normal das réplicas.|
 | --timeout -t        | Tempo limite do servidor em segundos.  Padrão: 60.|
 
@@ -127,7 +128,7 @@ Obtém a descrição de um serviço do Service Fabric existente. É necessário 
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for "fabric://meuaplicativo/aplicativo1/svc1", a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões anteriores.|
+| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo,                             se o nome do serviço for "fabric:/meuaplicativo/aplicativo1/svc1", a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões                            anteriores.|
 | --timeout -t        | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -143,13 +144,13 @@ Obtém a descrição de um serviço do Service Fabric existente. É necessário 
 ## <a name="sfctl-service-health"></a>sfctl service health
 Obtém a integridade do serviço do Service Fabric especificado.
 
-Obtém as informações de integridade do serviço especificado. Use EventsHealthStateFilter para filtrar o conjunto de eventos de integridade relatados no serviço de acordo com o estado de integridade. Use PartitionsHealthStateFilter para filtrar o conjunto de partições retornado. Se você especificar um serviço que não existe no repositório de integridade, esse cmdlet retornará um erro. .
+Obtém as informações de integridade do serviço especificado. Use EventsHealthStateFilter para filtrar o conjunto de eventos de integridade relatados no serviço de acordo com o estado de integridade. Use PartitionsHealthStateFilter para filtrar o conjunto de partições retornado. Se você especificar um serviço que não existe no repositório de integridade, esse cmdlet retornará um erro.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id          [Obrigatório]| A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for "fabric://meuaplicativo/aplicativo1/svc1", a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões anteriores.|
+| --service-id          [Obrigatório]| A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for "fabric:/meuaplicativo/aplicativo1/svc1", a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões anteriores.|
 | --events-health-state-filter | Permite filtrar o conjunto de objetos HealthEvent retornado com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor de HealthState de OK (2) e de Aviso (4) retornarão. -Default- Valor padrão. Corresponde a qualquer HealthState. O valor é zero. -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1. -Ok- Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4. -Error- Filtro que corresponde à entrada com o valor de HealthState Error. O valor é 8. -All- Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
 |--exclude-health-statistics     | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas nos estados de integridade OK, Warning e Error.|
 | --partitions-health-state-filter| Permite a filtragem dos objetos de estado de integridade das partições retornados no resultado da consulta de integridade de serviço, com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente as partições que correspondem ao filtro são retornadas. Todas as partições são usadas para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for "6", o estado de integridade das partições com um valor de HealthState OK (2) e Warning (4) retornará. -Default- Valor padrão. Corresponde a qualquer HealthState.                  O valor é zero. -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em uma determinado conjunto de estados. O valor é 1. -Ok- Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4. -Error- Filtro que corresponde à entrada com o valor de HealthState Error. O valor é 8. -All- Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
@@ -174,8 +175,8 @@ Retorna as informações sobre o serviço especificado que pertencem a um aplica
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --application-id [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric://meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
-| --service-id          [Obrigatório]| A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for fabric://meuaplicativo/aplicativo1/svc1, a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões anteriores.|
+| --application-id [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for                                 "fabric:/meuaplicativo/aplicativo1", a identidade do aplicativo será                                 "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
+| --service-id          [Obrigatório]| A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por                                 exemplo, se o nome do serviço for "fabric:/meuaplicativo/aplicativo1/svc1", a                                 identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e                                 "meuaplicativo/aplicativo1/svc1" em versões anteriores.|
 | --timeout -t            | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -197,7 +198,7 @@ Retorna as informações sobre todos os serviços pertencentes ao aplicativo esp
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --application-id [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric://meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
+| --application-id [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for                                 "fabric:/meuaplicativo/aplicativo1", a identidade do aplicativo será                                 "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
 | --continuation-token    | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluído na resposta da API, quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificados em URL.|
 | --service-type-name     | O nome de tipo de serviço usado para filtrar os serviços para consulta.|
 | --timeout -t            | Tempo limite do servidor em segundos.  Padrão: 60.|
@@ -245,7 +246,7 @@ Indica ao cluster do Service Fabric que ele deve tentar recuperar o serviço esp
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for fabric://meuaplicativo/aplicativo1/svc1, a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões anteriores.|
+| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo,                              se o nome do serviço for "fabric:/meuaplicativo/aplicativo1/svc1", a identidade do serviço                              será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões                             anteriores.|
 | --timeout -t        | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -267,7 +268,7 @@ Resolve uma partição de serviço do Service Fabric, para obter os pontos de ex
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for "fabric://meuaplicativo/aplicativo1/svc1", a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões anteriores.|
+| --service-id [Obrigatório]| A identidade do serviço. Normalmente é o nome completo do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo,                             se o nome do serviço for "fabric:/meuaplicativo/aplicativo1/svc1", a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões                            anteriores.|
 | --partition-key-type| Tipo de chave para a partição. Esse parâmetro é necessário se o esquema de partição para o serviço for Int64Range ou Nomeado. Os valores possíveis são os seguintes. -None (1) - Indica que o parâmetro PartitionKeyValue não foi especificado. Isso é válido para as partições com o esquema de particionamento como Singleton. Esse é o valor padrão. O valor é 1. -Int64Range (2)- Indica que o parâmetro PartitionKeyValue é uma chave de partição int64. Isso é válido para as partições com o esquema de particionamento como Int64Range. O valor é 2. -Named (3) - Indica que o parâmetro PartitionKeyValue é um nome da partição. Isso é válido para as partições com o esquema de particionamento como Named. O valor é 3.|
 | --partition-key-value  | Chave de partição. Isso é necessário se o esquema de partição para o serviço for Int64Range ou Named.|
 | --previous-rsp-version | O valor no campo Versão da resposta recebida anteriormente. Isso será necessário se o usuário souber que o resultado obtido anteriormente está obsoleto.|
@@ -290,7 +291,7 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id          [Obrigatório]| Serviço de destino para a atualização. Normalmente, é a ID completa do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do serviço for fabric://meuaplicativo/aplicativo1/svc1, a identidade do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em versões anteriores.|
+| --service-id          [Obrigatório]| Serviço de destino para a atualização. Normalmente, é a ID completa do serviço sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo,                               se o nome do serviço for "fabric:/meuaplicativo/aplicativo1/svc1", a identidade                               do serviço será "meuaplicativo~aplicativo1~svc1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1/svc1" em                               versões anteriores.|
 | --constraints         | As restrições de posicionamento como uma cadeia de caracteres. As restrições de posicionamento são expressões boolianas nas propriedades de nó, e permitem restringir um serviço a nós específicos com base nos requisitos do serviço. Por exemplo, para posicionar um serviço em nós nos quais NodeType é azul, especifique o seguinte: "NodeColor == blue".|
 | --correlated-service  | Nome do serviço de destino com o qual correlacionar.|
 | --correlation         | Correlaciona o serviço com um serviço existente usando uma afinidade de alinhamento.|

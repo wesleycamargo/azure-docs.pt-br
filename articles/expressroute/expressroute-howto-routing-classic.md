@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute (clássico)
 > [!div class="op_single_selector"]
@@ -78,10 +78,10 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 ### <a name="to-create-azure-private-peering"></a>Criar um emparelhamento privado do Azure
 1. **Importe o módulo do PowerShell para o ExpressRoute.**
    
-    Para começar a usar os cmdlets do ExpressRoute, é necessário importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. Execute os seguintes comandos para importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell.  
+    Para começar a usar os cmdlets do ExpressRoute, é necessário importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. Execute os seguintes comandos para importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. A versão pode variar.    
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Criar um circuito do ExpressRoute.**
    
     Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo. 
@@ -168,10 +168,10 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 ### <a name="to-create-azure-public-peering"></a>Criar o emparelhamento público do Azure
 1. **Importe o módulo do PowerShell para o ExpressRoute.**
    
-    Para começar a usar os cmdlets do ExpressRoute, é necessário importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. Execute os seguintes comandos para importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. 
+    Para começar a usar os cmdlets do ExpressRoute, é necessário importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. Execute os seguintes comandos para importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. A versão pode variar.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Criar um circuito do ExpressRoute**
    
     Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento público do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
@@ -254,10 +254,10 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 ### <a name="to-create-microsoft-peering"></a>Criar emparelhamento da Microsoft
 1. **Importe o módulo do PowerShell para o ExpressRoute.**
    
-    Para começar a usar os cmdlets do ExpressRoute, é necessário importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. Execute os seguintes comandos para importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell.  
+    Para começar a usar os cmdlets do ExpressRoute, é necessário importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. Execute os seguintes comandos para importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. A versão pode variar.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Criar um circuito do ExpressRoute**
    
     Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.

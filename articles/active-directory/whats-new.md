@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -41,6 +41,256 @@ O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os
 Esta página é atualizada mensalmente; portanto, visite-a regularmente.
 
 
+
+## <a name="february-2018"></a>Fevereiro de 2018
+ 
+
+### <a name="improved-navigation-for-managing-users-and-groups"></a>Navegação aprimorada para gerenciar usuários e grupos
+
+**Tipo:** plano de alteração  
+**Categoria de serviço:** gerenciamento de diretório  
+**Funcionalidade do produto:** diretório
+ 
+
+A experiência de navegação para gerenciar usuários e grupos foi simplificada. Agora, é possível navegar da visão geral do diretório diretamente para a lista de todos os usuários, com acesso mais fácil à lista dos usuários excluídos. Adicionalmente, você também pode navegar da visão geral do diretório diretamente para a lista de todos os grupos, com acesso mais fácil às configurações de gerenciamento de grupo. Além disso, a partir da página de visão geral do diretório, é possível procurar um usuário, grupo, aplicativo empresarial ou registro do aplicativo.
+ 
+
+---
+
+
+### <a name="availability-of-sign-ins-and-audit-reports-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>Disponibilidade de inscrições e relatórios de auditoria no Microsoft Azure operado pela 21Vianet (parceiro 21Vianet do Azure na China)
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** nuvens soberanas  
+**Funcionalidade do produto:** monitoramento e relatórios
+ 
+
+Relatórios de log de atividades do Azure Active Directory já estão disponíveis no Microsoft Azure operado pelas instâncias 21Vianet (parceiro 21Vianet do Azure na China). Os logs a seguir estão incluídos:
+
+- **Logs de atividades de entradas** - Inclui todos os logs de entradas associados ao locatário.
+
+- **Logs de auditoria de senha de autoatendimento** - Inclui todos os logs de auditoria SSPR.
+
+- **Logs de auditoria de gerenciamento de diretório** - Inclui todos os logs de auditoria relacionados ao gerenciamento de diretório, como gerenciamento de usuários, gerenciamento de aplicativos e outros.
+
+Com esses logs, é possível obter informações sobre como o ambiente está funcionando. Os dados fornecidos permitem a você:
+
+- Determinar como os aplicativos e serviços serão utilizados pelos usuários.
+
+- Solucionar problemas que impedem a conclusão dos trabalhos pelos usuários.
+
+Para obter mais informações sobre como usar esses relatórios, consulte [Relatórios do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
+ 
+
+---
+
+
+### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>Usar a função "Leitor do Relatório" (função não administrador) para exibir relatórios de atividades do Azure Active Directory
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** relatórios  
+**Funcionalidade do produto:** monitoramento e relatórios
+ 
+
+Como parte dos comentários dos clientes para permitir que funções não administrativas tenham acesso aos logs de atividades do Azure Active Directory, habilitamos a capacidade dos usuários na função "Leitor do Relatório" para acessar a atividade de Auditoria e Entradas no Portal do Azure, assim como usar nossas APIs do Graph. 
+
+Para obter mais informações sobre como usar esses relatórios, consulte [Relatórios do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
+
+---
+ 
+
+
+### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>Declaração EmployeeID disponível como atributo de usuário e identificador de usuário
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** aplicativos empresariais  
+**Funcionalidade do produto:** SSO
+ 
+
+É possível configurar **EmployeeID** como o identificador de usuário e atributo de usuário para usuários membros e usuários B2B em aplicativos de logon com base em SAML da interface do usuário do aplicativo Enterprise.
+
+Para obter mais informações, consulte [Personalizando declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+ 
+
+---
+
+
+### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Gerenciamento de aplicativo simplificado usando caracteres curingas no Proxy de Aplicativo do AD
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** proxy de aplicativo  
+**Funcionalidade do produto:** autenticação de usuário
+ 
+
+Para tornar a implantação de aplicativo mais fácil e reduzir a sobrecarga administrativa, agora podemos dar suporte à capacidade de publicar aplicativos usando caracteres curingas. Para publicar um aplicativo curinga, você pode seguir o fluxo de publicação de aplicativo padrão, mas usar um caractere curinga nas URLs internas e externas.
+
+Para obter mais informações, consulte [Aplicativos curinga no proxy de aplicativo do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+
+ 
+
+---
+ 
+### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>Novos cmdlets para dar suporte à configuração do Proxy de Aplicativo
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** proxy de aplicativo  
+**Funcionalidade do produto:** plataforma
+ 
+
+A versão mais recente do módulo PowerShell do Azure Active Directory (versão prévia) contém novos cmdlets que permitem aos clientes configurar aplicativos do Proxy de Aplicativo usando o PowerShell.
+
+Os novos cmdlets são: 
+
+- Get-AzureADApplicationProxyApplication
+- Get-AzureADApplicationProxyApplicationConnectorGroup
+- Get-AzureADApplicationProxyConnector
+- Get-AzureADApplicationProxyConnectorGroup
+- Get-AzureADApplicationProxyConnectorGroupMembers
+- Get-AzureADApplicationProxyConnectorMemberOf
+- New-AzureADApplicationProxyApplication
+- New-AzureADApplicationProxyConnectorGroup
+- Remove-AzureADApplicationProxyApplication
+- Remove-AzureADApplicationProxyApplicationConnectorGroup
+- Remove-AzureADApplicationProxyConnectorGroup
+- Set-AzureADApplicationProxyApplication
+- Set-AzureADApplicationProxyApplicationConnectorGroup
+- Set-AzureADApplicationProxyApplicationCustomDomainCertificate
+- Set-AzureADApplicationProxyApplicationSingleSignOn
+- Set-AzureADApplicationProxyConnector
+- Set-AzureADApplicationProxyConnectorGroup
+
+
+ 
+
+---
+ 
+
+### <a name="new-cmdlets-to-support-configuration-of-groups"></a>Novos cmdlets para dar suporte à configuração de grupos
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** proxy de aplicativo  
+**Funcionalidade do produto:** plataforma
+ 
+
+A versão mais recente do módulo AzureAD PowerShell contém cmdlets para gerenciar grupos no Azure Active Directory. Esses cmdlets já estavam disponíveis no módulo AzureADPreview e agora adicionados ao módulo AzureAD
+
+Os cmdlets de Grupo agora liberados para disponibilidade geral são: 
+
+- Get-AzureADMSGroup
+- New-AzureADMSGroup
+- Remove-AzureADMSGroup
+- Set-AzureADMSGroup
+- Get-AzureADMSGroupLifecyclePolicy
+- New-AzureADMSGroupLifecyclePolicy
+- Remove-AzureADMSGroupLifecyclePolicy
+- Add-AzureADMSLifecyclePolicyGroup
+- Remove-AzureADMSLifecyclePolicyGroup
+- Reset-AzureADMSLifeCycleGroup   
+- Get-AzureADMSLifecyclePolicyGroup
+ 
+
+---
+ 
+### <a name="a-new-release-of-azure-ad-connect-is-available"></a>Uma nova versão do Azure AD Connect está disponível
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** AD Sync  
+**Funcionalidade do produto:** plataforma
+ 
+
+O Azure AD Connect é a ferramenta preferencial para sincronizar dados entre o Azure Active Directory e nas fontes de dados locais, incluindo Windows Server Active Directory e LDAP.
+
+**Importante**
+ 
+Essa compilação apresenta alterações de regras de sincronização e esquema. O Serviço de Sincronização do Azure AD Connect dispara as etapas de Importação Completa e Sincronização Completa após uma atualização. Para obter informações sobre como alterar esse comportamento, consulte [Como adiar a sincronização completa após a atualização](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
+
+Essa versão contém as alterações e atualizações a seguir:
+
+**Problemas corrigidos**
+
+- Correção da janela de tempo nas tarefas em segundo plano da página de Filtragem de Partições ao comutar para a próxima página.
+- Corrigido um bug que causou violação de Acesso durante a ação personalizada do ConfigDB.
+- Corrigido um bug para recuperar do tempo limite de conexão do SQL.
+- Corrigido um bug onde os certificados com curingas SAN falharam no teste de pré-requisito.
+- Corrigido um bug que causa falha do miiserver.exe durante uma exportação do conector do AAD.
+- Corrigido um bug em que a tentativa de senha incorreta foi registrada no DC durante a execução do assistente de conexão do AAD para alterar a configuração
+
+**Novos recursos e aprimoramentos**
+
+- Para o GDPR, é necessário indicar os tipos de dados do cliente que são compartilhados com a Microsoft (telemetria, integridade e etc.), conter links para a documentação detalhada online e fornecer uma maneira para alterar as preferências.  Esse check-in adiciona o seguinte:
+    - Compartilhamento de dados e notificação de privacidade na página dos termos de licença de instalação limpa.
+
+    - Compartilhamento de dados e notificação de privacidade na página de atualização.
+
+    - Uma tarefa adicional de **Configurações de Privacidade** onde o usuário pode alterar as preferências.
+ 
+- Telemetria de aplicativos - Os administradores podem ativar/desativar essa classe de dados.
+
+- Dados de Integridade do Azure Active Directory - Os administradores devem visitar o portal de integridade para controlar as configurações de integridade. Quando a política de atendimento for alterada, os agentes farão a leitura e irão impor a política.
+
+- Adicionadas ações de configuração de write-back de dispositivo e uma barra de progresso para inicialização de página.
+
+- Diagnósticos gerais aprimorados com relatório HTML e coleta de dados completa em um relatório HTML/ZIP-Text.
+
+- Aperfeiçoada confiabilidade da atualização automática e adicionada a telemetria adicional para garantir que a integridade do servidor possa ser determinada.
+
+- Restringir permissões disponíveis para contas privilegiadas na conta do AD Connector. Para novas instalações, o assistente restringe as permissões que as contas privilegiadas tenham na conta MSOL, após criar a conta MSOL. As alterações afetam instalações expressas e instalações personalizadas com a conta de Criação Automática.
+
+- Alterado o instalador para não exigir privilégio de SA na instalação limpa do AADConnect.
+
+- Novo utilitário para solucionar problemas de sincronização para um objeto específico. Atualmente, o utilitário verifica o seguinte:
+
+    - UserPrincipalName incompatível entre o objeto de usuário sincronizado e a conta de usuário no Locatário do Azure Active Directory.
+  
+    - Se o objeto for filtrado da sincronização devido à filtragem de domínio
+  
+    - Se o objeto for filtrado da sincronização devido à filtragem da OU (unidade organizacional)
+
+- Novo utilitário para sincronizar o hash de senha atual armazenado no Active Directory local para uma conta de usuário específica. O utilitário não exige uma alteração de senha. 
+ 
+
+---
+ 
+
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Aplicativos com suporte a políticas de Proteção de Aplicativo do Intune adicionadas para uso com o acesso condicional baseado em aplicativo do Azure Active Directory
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** acesso condicional  
+**Funcionalidade do produto:** segurança e proteção da identidade
+ 
+
+Adicionamos mais aplicativos com suporte para acesso condicional baseado em aplicativo. Agora, é possível acessar o Office 365 e outros aplicativos de nuvem conectados ao Azure Active Directory usando esses aplicativos clientes aprovados.
+
+Os aplicativos a seguir serão adicionados até o final de fevereiro 
+
+- Microsoft PowerBI
+
+- Microsoft Launcher
+
+- Microsoft Invoicing
+
+Para obter mais informações, consulte:
+
+- [Requisito de aplicativo cliente aprovado](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Acesso condicional com base no aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+ 
+
+---
+ 
+
+### <a name="terms-of-use-update-to-mobile-experience"></a>Termos de Uso atualizados para experiência móvel 
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** Termos de Uso  
+**Funcionalidade do produto:** governança
+ 
+
+Quando os termos de uso são exibidos, você pode clicar em **Tendo problemas com o modo de exibição? Clique aqui**. Clicar nesse link, abre os termos de uso nativamente no seu dispositivo. Independentemente do tamanho da fonte no documento ou do tamanho da tela do dispositivo, é possível ampliar e ler o documento, conforme necessário. 
+ 
+
+---
+ 
 ## <a name="january-2018"></a>Janeiro de 2018
  
 
@@ -151,7 +401,7 @@ Com a disponibilidade geral do novo Azure Active Directory, um console de Admini
 
 Como parte da transição para o novo console de administrador, disponibilizamos duas novas APIs para recuperar os Logs de Atividades do Azure AD. O novo conjunto de APIs fornecem funcionalidades de filtragem e classificação mais sofisticadas, bem como atividades mais avançadas de auditoria e de entrada. Os dados disponíveis anteriormente por meio de relatórios de segurança agora podem ser acessados por meio da API de eventos de risco do Identity Protection do Microsoft Graph.
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 - [Introdução à API de relatórios do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
@@ -362,7 +612,7 @@ Os aplicativos a seguir foram planejados para serem adicionados à lista de [apl
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 - [Requisito de aplicativo cliente aprovado](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Acesso condicional com base no aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
@@ -492,7 +742,7 @@ Agora você pode incluir (ou excluir) o macOS como uma condição de plataforma 
 - **Garantir que os dispositivos macOS seguem as políticas de conformidade de sua organização definidas no Intune.** No Intune no portal do Azure, agora você pode configurar políticas de conformidade para dispositivos macOS. 
 - **Restringir o acesso a aplicativos no Azure AD apenas a dispositivos macOS em conformidade.** A criação de política de acesso condicional traz o macOS como uma opção de plataforma de dispositivo separada. Agora, você pode criar políticas de acesso condicional específicas ao macOS para o conjunto de aplicativos direcionados no Azure.
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 - [Criar uma política de conformidade do dispositivo para dispositivos macOS com o Intune](https://aka.ms/macoscompliancepolicy)
 - [Acesso condicional no Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
@@ -561,7 +811,7 @@ Os seguintes aplicativos foram adicionados à lista de [aplicativos cliente apro
 - Proteção de Informações do Azure 
 
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 - [Requisito de aplicativo cliente aprovado](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Acesso condicional com base no aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)

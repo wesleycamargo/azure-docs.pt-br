@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 86ddb91ae16da797e32c6e1a8a8b2cd8fca989a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único federado para um aplicativo na Galeria do Azure AD
 
@@ -61,7 +61,7 @@ Para saber os padrões pré-configurado para o aplicativo:
 
 10. Há três maneiras de conhecer os padrões com suporte para o aplicativo:
 
-   * Na caixa de texto, são visíveis os padrões com suporte, como um espaço reservado *Examplo:* <https://contoso.com>.
+   * Na caixa de texto, são visíveis os padrões com suporte, como um espaço reservado *Exemplo:* <https://contoso.com>.
 
    * Se não houver suporte para o padrão, você verá um ponto de exclamação vermelho quando tentar inserir o valor na caixa de texto. Se você passar o mouse sobre o ponto de exclamação vermelho, verá os padrões com suporte.
 
@@ -71,7 +71,7 @@ Se os valores não coincidirem com os padrões pré-configurados no Azure AD. Vo
 
 -   Trabalhar com o fornecedor do aplicativo para obter valores que correspondam ao padrão pré-configurado no Azure AD
 
--   Ou, contatar a equipe do Azure AD em <aadapprequest@microsoft.com> ou deixar um comentário no tutorial para solicitar a atualização dos padrões com suporte para o aplicativo
+-   Ou, contatar a equipe do Azure Active Directory em <aadapprequest@microsoft.com> ou deixar um comentário no tutorial para solicitar a atualização dos padrões com suporte para o aplicativo
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde é possível configurar o formato EntityID (Identificador de Usuário)
 
@@ -81,7 +81,7 @@ O Azure AD seleciona o formato para o atributo NameID (Identificador de Usuário
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Não é possível encontrar os metadados do Azure AD para concluir a configuração com o aplicativo
 
-Para baixar o certificado ou metadados do aplicativo Azure AD, siga estas etapas:
+Para baixar o certificado ou metadados do aplicativo Azure Active Directory, siga estas etapas:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: integração do Azure Active Directory com o Rollbar
 
@@ -32,7 +32,7 @@ A integração do Rollbar ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o Rollbar, você precisará dos seguintes itens:
 
@@ -149,11 +149,14 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     c. Clique em **Salvar**.
 
-11. Depois de clicar no botão Salvar, a tela ficará assim. Execute as seguintes etapas nesta seção:
+11. Depois de clicar no botão Salvar, a tela ficará assim:
     
     ![Configuração](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Para concluir a etapa a seguir, você deve primeiro se adicionar como um usuário ao aplicativo Rollbar no Azure.
+    a. Se deseja exigir que todos os usuários sejam autenticados por meio do Azure, clique em **Fazer logon por meio de seu provedor de identidade** para autenticar novamente por meio do Azure.  
 
-    a. Marque a caixa de seleção **Requerer logon por meio do Provedor de Identidade do SAML**.
+    b.  Quando você retornar à tela, selecione a caixa de seleção **Exigir logon por meio do Provedor de Identidade do SAML**.
 
     b. Clique em **Salvar**.
 

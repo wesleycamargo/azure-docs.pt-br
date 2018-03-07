@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a3b83f0a5ed9638f3e9277d4a467b478961d3fc3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a3143703a946cadccf14d1675399c0848835d97c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Problemas ao configurar e provisionar usuários para um aplicativo
 
@@ -31,5 +31,6 @@ ms.lasthandoff: 12/11/2017
   Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
   * [Não sei como configurar o provisionamento de usuário para um aplicativo da Galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Eu encontrei um problema ao configurar o provisionamento de usuário para um aplicativo da Galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-storage-limit/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Eu configurei o provisionamento para o meu aplicativo da Galeria do Azure AD, mas nenhum usuário está sendo provisionado](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [O provisionamento para o meu aplicativo da Galeria do Azure AD está funcionando, mas o conjunto incorreto de usuários está sendo provisionado](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)

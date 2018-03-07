@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 87513ef82b5f754669a3a21dd736ecab6fb26fba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conectar computadores Windows ao serviço do Log Analytics no Azure
 
@@ -26,28 +26,28 @@ Para monitorar e gerenciar máquinas virtuais ou computadores físicos em seu da
 
 Em um computador Windows monitorado, o agente está listado como o serviço do Microsoft Monitoring Agent. O serviço do Microsoft Monitoring Agent coleta eventos de arquivos de log e log de eventos do Windows, dados de desempenho e outra telemetria. Mesmo quando o agente está impossibilitado de se comunicar com o serviço do Log Analytics ao qual ele relata, o agente continua em execução e coloca em fila os dados coletados no disco do computador monitorado. Quando a conexão é restaurada, o serviço do Microsoft Monitoring Agent envia os dados coletados para o serviço.
 
-O agente pode ser instalado usando um dos seguintes métodos. A maioria das instalações usa uma combinação desses métodos para instalar diferentes conjuntos de computadores, conforme apropriado.
+O agente pode ser instalado usando um dos seguintes métodos. A maioria das instalações usa uma combinação desses métodos para instalar diferentes conjuntos de computadores, conforme apropriado.  Detalhes sobre como usar cada método são fornecidos posteriormente neste artigo.
 
 * Instalação manual. O programa de configuração é executado manualmente no computador usando o assistente de configuração, a partir da linha de comando ou implantado, usando uma ferramenta de distribuição de software existente.
 * DSC (Desired State Configuration) na Automação do Azure. Usar o DSC na Automação do Azure com um script para computadores Windows já implantado em seu ambiente.  
 * Script do PowerShell.
 * Modelo do Resource Manager para máquinas virtuais executando o Windows local no Azure Stack.  
 
-Para entender os requisitos de sistema e de rede para implantar o Agente do Windows, examine [Coletar dados de seu ambiente com o Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
+Para entender os requisitos de sistema e de rede para implantar o agente do Windows, examine os [Pré-requisitos para computadores Windows](log-analytics-concept-hybrid.md#prerequisites).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter a ID e a chave do espaço de trabalho
-Antes de instalar o Microsoft Monitoring Agent para Windows, você precisa da ID e da chave do seu espaço de trabalho do Log Analytics.  Essas informações serão necessárias durante a configuração de cada método de instalação para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com o Log Analytics.  
+Antes de instalar o Microsoft Monitoring Agent para Windows, você precisa da ID e da chave do seu espaço de trabalho do Log Analytics.  Essas informações serão necessárias durante a configuração de cada método de instalação para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com o Log Analytics no Azure comercial e na nuvem do governo dos EUA.  
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que pretende configurar o agente a qual relatar.
 3. Selecione **Configurações avançadas**.<br><br> ![Configurações avançadas do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Fontes Conectadas** e depois **Servidores Windows**.   
-5. O valor à direita da **ID do Espaço de Trabalho** e **Chave Primária**. Copie e cole os dois em seu editor favorito.   
+5. Copie e cole em seu editor favorito, a **ID do espaço de trabalho** e a **chave primária**.    
    
-## <a name="install-the-agent-using-setup"></a>Instalar o agente usando a instalação
-As etapas a seguir instalam e configuram o agente para o Log Analytics do Azure e a nuvem do Azure Government usando a instalação para o Microsoft Monitoring Agent em seu computador.  O programa de instalação para o agente está contido no arquivo baixado e deve ser extraído para 
+## <a name="install-the-agent-using-setup-wizard"></a>Instalar o agente usando o assistente de instalação
+As etapas a seguir instalam e configuram o agente para o Log Analytics do Azure e a nuvem do Azure Government usando o assistente de instalação para o Microsoft Monitoring Agent em seu computador.  
 
-1. Na página **Servidores Windows**, selecione a versão apropriada de **Baixar Agente do Windows** a ser baixada com base na arquitetura do processador do sistema operacional Windows.
+1. No seu espaço de trabalho do Log Analytics, na página **Servidores Windows** que você navegou anteriormente, selecione a versão apropriada de **Baixar Agente do Windows** a ser baixada com base na arquitetura do processador do sistema operacional Windows.   
 2. Execute a Instalação para instalar o agente no seu computador.
 2. Na página de **Boas-vindas**, clique em **Avançar**.
 3. Na página **Termos de Licença**, leia a licença e clique em **Aceito**.
@@ -63,7 +63,7 @@ As etapas a seguir instalam e configuram o agente para o Log Analytics do Azure 
 Após concluir, o **Microsoft Monitoring Agent** aparecerá no **Painel de Controle**. Para confirmar que está relatando ao Log Analytics, revise [Verificar a conectividade do agente com Log Analytics](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Instalar o agente usando a linha de comando
-O arquivo baixado para o agente é um pacote de instalação autossuficiente criado com o IExpress.  O programa de instalação para o agente e os arquivos de suporte estão contidos no pacote e precisam ser extraídos para instalar corretamente usando a linha de comando mostrada nos exemplos a seguir.  Este método é compatível com a configuração do agente para relatar à nuvem do Governo dos EUA e comercial do Azure.  
+O arquivo baixado para o agente é um pacote de instalação autossuficiente criado com o IExpress.  O programa de instalação para o agente e os arquivos de suporte estão contidos no pacote e precisam ser extraídos para instalar corretamente usando a linha de comando mostrada nos exemplos a seguir.    
 
 >[!NOTE]
 >Se você quiser atualizar um agente, precisará usar a API de script do Log Analytics. Consulte o tópico [Gerenciar e manter o agente de Log Analytics para o Windows e Linux](log-analytics-agent-manage.md), para obter mais informações.
@@ -84,13 +84,13 @@ A tabela a seguir destaca os parâmetros específicos do Log Analytics com supor
 2. Para instalar silenciosamente o agente e configurá-lo para relatar a um espaço de trabalho na nuvem comercial do Azure, da pasta que extraiu os arquivos de configuração para inserir: 
    
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
    ou para configurar o agente para relatar a nuvem do Governo dos EUA do Azure, inserir: 
 
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Instalar o agente usando o DSC na Automação do Azure
@@ -122,6 +122,7 @@ Para recuperar o código do produto do pacote do instalador do agente diretament
         $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
         Import-DscResource -ModuleName xPSDesiredStateConfiguration
+        Import-DscResource –ModuleName PSDesiredStateConfiguration
 
         Node OMSnode {
             Service OIService
@@ -141,7 +142,7 @@ Para recuperar o código do produto do pacote do instalador do agente diretament
                 Path  = $OIPackageLocalPath
                 Name = "Microsoft Monitoring Agent"
                 ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
-                Arguments = '/C:Deploy"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
+                Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
                 DependsOn = "[xRemoteFile]OIPackage"
             }
         }
