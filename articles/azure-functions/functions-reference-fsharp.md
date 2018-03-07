@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -35,7 +35,7 @@ Um arquivo `.fsx` é um script de F#. Ele pode ser considerado um projeto em F# 
 Quando você usa um `.fsx` para um Azure Function, os assemblies normalmente exibidos são incluídos automaticamente, permitindo que você se concentre na função em vez do código "clichê".
 
 ## <a name="binding-to-arguments"></a>Binding para argumentos
-Cada associação oferece suporte a um conjunto de argumentos, conforme detalhado na [Referências de gatilhos e de associações do Azure Functions para desenvolvedores](functions-triggers-bindings.md). Por exemplo, uma das associações de argumento com suporte de um gatilho de blob é um POCO, que pode ser expresso usando um registro em F#. Por exemplo:
+Cada associação oferece suporte a um conjunto de argumentos, conforme detalhado na [Referências de gatilhos e de associações do Azure Functions para desenvolvedores](functions-triggers-bindings.md). Por exemplo, uma das associações de argumento com suporte de um gatilho de blob é um POCO, que pode ser expresso usando um registro em F#. Por exemplo: 
 
 ```fsharp
 type Item = { Id: string }
@@ -49,7 +49,7 @@ O Azure Function em F# usará um ou mais argumentos. Quando falamos sobre os arg
 
 No exemplo acima, `blob` é um argumento de entrada e `output` é um argumento de saída. Observe que utilizamos `byref<>` para `output` (não é necessário adicionar a anotação `[<Out>]`). O uso de um tipo `byref<>` permite que sua função altere o registro ou o objeto ao qual o argumento se refere.
 
-Quando um registro em F# é usado como um tipo de entrada, a definição de registro deve ser marcada com `[<CLIMutable>]` para permitir que a estrutura do Azure Functions defina os campos adequadamente antes de passar o registro para a função. Nos bastidores, `[<CLIMutable>]` gera setters para as propriedades de registro. Por exemplo:
+Quando um registro em F# é usado como um tipo de entrada, a definição de registro deve ser marcada com `[<CLIMutable>]` para permitir que a estrutura do Azure Functions defina os campos adequadamente antes de passar o registro para a função. Nos bastidores, `[<CLIMutable>]` gera setters para as propriedades de registro. Por exemplo: 
 
 ```fsharp
 [<CLIMutable>]
@@ -61,7 +61,7 @@ let Run(req: TestObject, log: TraceWriter) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-Uma classe de F# também pode ser usada para ambos os argumentos. Para uma classe, as propriedades geralmente exigirão getters e setters. Por exemplo:
+Uma classe de F# também pode ser usada para ambos os argumentos. Para uma classe, as propriedades geralmente exigirão getters e setters. Por exemplo: 
 
 ```fsharp
 type Item() =
@@ -74,7 +74,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Registro em log
-Para registrar a saída em seus [logs de streaming](../app-service/web-sites-enable-diagnostic-log.md) em F#, sua função deve usar um argumento do tipo `TraceWriter`. Para manter a consistência, recomendamos que esse argumento seja denominado `log`. Por exemplo:
+Para registrar a saída em seus [logs de streaming](../app-service/web-sites-enable-diagnostic-log.md) em F#, sua função deve usar um argumento do tipo `TraceWriter`. Para manter a consistência, recomendamos que esse argumento seja denominado `log`. Por exemplo: 
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -164,7 +164,7 @@ Além disso, os seguintes assemblies têm regras de maiúsculas e minúsculas es
 Se precisar fazer referência a um assembly particular, carregue o arquivo do assembly em uma pasta `bin` relativa à sua função e faça referência a ela usando o nome do arquivo (por exemplo, `#r "MyAssembly.dll"`). Para obter informações sobre como carregar arquivos na pasta da função, consulte a seção a seguir sobre gerenciamento de pacotes.
 
 ## <a name="editor-prelude"></a>Prelúdio do editor
-Um editor que oferece suporte aos Serviços de compilador em F# não estará ciente dos namespaces e assemblies que o Azure Functions inclui automaticamente. Dessa forma, pode ser útil incluir um prelúdio que ajuda o editor a encontrar os assemblies que você está usando e a abrir explicitamente os namespaces. Por exemplo:
+Um editor que oferece suporte aos Serviços de compilador em F# não estará ciente dos namespaces e assemblies que o Azure Functions inclui automaticamente. Dessa forma, pode ser útil incluir um prelúdio que ajuda o editor a encontrar os assemblies que você está usando e a abrir explicitamente os namespaces. Por exemplo: 
 
 ```fsharp
 #if !COMPILED
@@ -172,7 +172,7 @@ Um editor que oferece suporte aos Serviços de compilador em F# não estará cie
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -238,7 +238,7 @@ let Run(timer: TimerInfo, log: TraceWriter) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Reutilizar o código .fsx
-Você pode usar código de outros arquivos `.fsx` usando uma diretiva `#load`. Por exemplo:
+Você pode usar código de outros arquivos `.fsx` usando uma diretiva `#load`. Por exemplo: 
 
 `run.fsx`
 
@@ -270,7 +270,7 @@ Para saber mais, consulte os recursos a seguir:
 * [Guia de F#](/dotnet/articles/fsharp/index)
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
+* [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
 * [Teste do Azure Functions](functions-test-a-function.md)
 * [Dimensionamento do Azure Functions](functions-scale.md)
 

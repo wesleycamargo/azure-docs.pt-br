@@ -1,6 +1,6 @@
 ---
 title: "Como migrar de forma segura usuários entre licenças de produto usando o licenciamento baseado em grupo no Microsoft Azure Active Directory | Microsoft Docs"
-description: "Descreve o processo recomendado para a migração de usuários entre diferentes licenças de produto (por exemplo, Office 365 E1 e E3) usando o licenciamento baseado em grupo"
+description: "Descreve o processo recomendado para a migrar usuários entre diferentes licenças de produto (Office 365 Enterprise E1 e E3) usando o licenciamento baseado em grupo"
 services: active-directory
 keywords: Licenciamento do AD do Azure
 documentationcenter: 
@@ -15,72 +15,89 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/07/2018
 ms.author: piotrci
-ms.openlocfilehash: 97654673b395fd5b8cb41afdcdeaa21aba44f61d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb27b3fb739bbcea56026733b41e6cadf21b8953
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="how-to-safely-migrate-users-between-product-licenses-using-group-based-licensing"></a>Como migrar de forma segura usuários entre licenças de produto usando o licenciamento baseado em grupo
+# <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Como migrar de forma segura usuários entre licenças de produto usando o licenciamento baseado em grupo
 
 Este artigo descreve o método recomendado para mover usuários entre as licenças de produto ao usar o licenciamento baseado em grupo. A meta dessa abordagem é garantir que não ocorra perda de dados ou serviço durante a migração: os usuários devem alternar diretamente entre os produtos. Duas variantes do processo de migração são cobertas:
 
--   Simples: entre licenças de produto que não incluam planos de serviço conflitantes, por exemplo: *Office 365 Enterprise E3* e *Office 365 Enterprise E5*
+-   Migração simples entre licenças de produto que não incluam planos de serviço conflitantes, como migrar entre o Office 365 Enterprise E3 e Office 365 Enterprise E5.
 
--   Mais complexo: entre produtos que incluam alguns planos de serviço conflitantes, por exemplo: *Office 365 Enterprise E1* e *Office 365 Enterprise E3*. Mais informações sobre conflitos estão disponíveis [aqui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) e [aqui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+-   Migração mais complexa entre produtos que não incluam alguns planos de serviço conflitantes, como migrar entre o Office 365 Enterprise E1 e Office 365 Enterprise E3. Para obter mais informações sobre conflitos, consulte [Planos de serviço conflitante](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) e [Planos de serviço que não podem ser atribuídos ao mesmo tempo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
-Este artigo inclui um código PowerShell de exemplo que pode ser usado para executar as etapas de migração e verificação. É especialmente útil para operações em grande escala, em que não é possível executar as etapas manualmente.
+Este artigo inclui um código PowerShell de exemplo que pode ser usado para executar as etapas de migração e verificação. O código é especialmente útil para operações em grande escala, em que não é possível executar as etapas manualmente.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Antes de executar o processo de migração, é importante verificar se as seguintes pressuposições são verdadeiras para todos os usuários sendo migrados. Caso contrário, a migração poderá falhar para alguns usuários e, como resultado, poderão perder acesso aos dados e serviços:
+Antes de começar a migração, é importante verificar que algumas suposições são verdadeiras para todos os usuários a serem migrados. Se as suposições não forem verdadeiras para todos os usuários, a migração poderá falhar para alguns. Como resultado, alguns dos usuários poderão perder o acesso a serviços ou dados. As seguintes suposições devem ser verificadas:
 
--   Os usuários têm a *licença de origem* atribuída usando o licenciamento baseado em grupo. As licenças para o produto mover são herdadas de um único grupo de origem e não são atribuídas diretamente. Nota: se as licenças também forem atribuídas diretamente, elas poderão impedir o aplicativo da *licença de origem*. Saiba mais sobre atribuição de licença de grupo e direta [aqui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Talvez você queira usar um script do PowerShell como [este](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) para verificar se os usuários possuem licenças diretas.
+-   Os usuários têm a *licença de origem* que é atribuída usando o licenciamento baseado em grupo. As licenças para o produto mover são herdadas de um único grupo de origem e não são atribuídas diretamente.
 
--   É necessário ter licenças suficientes disponíveis para o produto de destino. Caso contrário, alguns usuários talvez não obtenham a *licença de destino*. É possível verificar o número de licenças disponíveis [aqui](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
+    >[!NOTE]
+    >Se as licenças também forem atribuídas diretamente, elas poderão impedir o aplicativo da *licença de origem*. Saiba mais sobre [atribuição de licença de grupo e direta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Talvez você queira usar um [script do PowerShell](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) para verificar se os usuários possuem licenças diretas.
 
--   Os usuários não possuem outras licenças de produtos atribuídas que possam entrar em conflito com a *licença de destino* ou impedir que a *licença de origem* seja removida (por exemplo, produtos complementares como o Workplace Analytics ou o Project Online que têm uma dependência de outros produtos).
+-   É necessário ter licenças suficientes disponíveis para o produto de destino. Se você não tiver licenças suficientes, alguns usuários podem não obter a *licença de destino*. É possível [verificar o número de licenças disponíveis](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
--   Entenda como os grupos são gerenciados em seu ambiente. Por exemplo, se você gerenciar grupos locais e sincronizá-los no Microsoft Azure Active Directory usando o AAD Connect, será necessário adicionar/remover usuários usando o sistema local e levará algum tempo para que as alterações sejam sincronizadas no AAD e recebidas pelo licenciamento baseado em grupo. Se estiver usando associações de grupos dinâmicos do Microsoft Azure AD, será necessário adicionar/remover usuários modificando os respectivos atributos. No entanto, o processo de migração geral permanecerá o mesmo, a única diferença é como os usuários são adicionados/removidos de grupos.
+-   Os usuários não têm outras licenças de produto atribuídos podem entrar em conflito com a *licença de destino* ou impedir a remoção da *licença de origem*. Por exemplo, uma licença de um produto de complemento, como Workplace Analytics ou Project Online, que tem uma dependência em outros produtos.
 
-## <a name="migrating-users-between-products-without-conflicting-service-plans"></a>Migrar usuários entre produtos sem planos de serviço conflitantes
-A meta é usar o licenciamento baseado em grupo para alterar licenças de usuário da *Licença de origem* (neste exemplo: *Office 365 Enterprise E3*) para a *licença de destino* (neste exemplo: *Office 365 Enterprise E5*). Os dois produtos não possuem planos de serviço conflitantes para que possam ser totalmente atribuídos ao mesmo tempo, sem conflito. Em nenhum momento durante a migração os usuários deverão perder o acesso aos dados ou serviços. Além disso, a migração é realizada em pequenos "lotes" e, portanto, há uma possibilidade de validar o resultado de cada lote e minimizar o escopo de quaisquer problemas que possam ocorrer durante o processo. Em geral, o processo é o seguinte:
-1.  Os usuários são membros do grupo de origem e herdam a *licença de origem* desse grupo.
+-   Entenda como os grupos são gerenciados em seu ambiente. Por exemplo, se você gerenciar grupos locais e sincronizá-los para o Azure Active Directory (Azure AD) por meio do Azure AD Connect, você adiciona ou remove usuários usando seu sistema local. Pode demorar para que as alterações sincronizem no Azure AD e sejam captadas pelo licenciamento baseado em grupo. Se estiver usando associações de grupos dinâmicos do Microsoft Azure AD, é necessário adicionar/remover usuários modificando os respectivos atributos. No entanto, o processo de migração geral permanece o mesmo. A única diferença é como você adiciona ou remove usuários para associação de grupo.
+
+## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>Migrar usuários entre produtos que não têm planos de serviço conflitantes
+A meta de migração é usar o licenciamento baseado em grupo para alterar licenças de usuário de uma *licença de origem* (neste exemplo: Office 365 Enterprise E3) para uma *licença de destino* (neste exemplo: Office 365 Enterprise E5). Os dois produtos neste cenário não possuem planos de serviço conflitantes para que possam ser totalmente atribuídos ao mesmo tempo, sem conflito. Em nenhum momento durante a migração os usuários deverão perder o acesso aos dados ou serviços. A migração é executada em pequenos "lotes". Você pode validar o resultado para cada lote e minimizar o escopo de quaisquer problemas que podem ocorrer durante o processo. Em geral, o processo é o seguinte:
+
+1.  Os usuários são membros de um grupo de origem e herdam a *licença de origem* desse grupo.
+
 2.  Criar um grupo de destino com a *licença de destino*, mas sem nenhum membro.
-3.  Adicione um lote de usuários ao grupo de destino. Isso fará com que o GBL (licenciamento baseado em grupo) receba a alteração e atribua a *licença de destino*. Observe que isso pode levar algum tempo, dependendo do tamanho do lote e outras atividades no locatário.
-4.  Verifique se o lote de usuários foi completamente processado pelo GBL e se cada usuário realmente tem a *licença de destino* atribuída. Verifique se os usuários não foram concluídos em um estado de erro, como conflitos com outros produtos ou falta de licenças suficientes. Mais informações sobre erros estão disponíveis [aqui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
-5.  Neste ponto, os usuários têm as *licenças de origem* e destino atribuídas.
-6.  Remova o mesmo lote de usuário do grupo de origem. O GBL responderá à alteração e as *licenças de origem* serão removidas dos usuários.
+
+3.  Adicione um lote de usuários ao grupo de destino. Licenciamento baseado em grupo pega a alteração e atribui o *licença de destino*. O processo pode levar um longo período de tempo, dependendo do tamanho do lote e outras atividades no locatário.
+
+4.  Verifique se o lote de usuários está totalmente processado pelo licenciamento baseado em grupo. Confirme se cada usuário tem a *licença de destino* atribuída. Verifique se os usuários não terminaram em um estado de erro, como conflitos com outros produtos ou falta de licenças suficientes. Para obter mais informações sobre erros, consulte [solução de problemas do grupo de licenciamento do Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+
+5.  Neste ponto, os usuários têm a *licença de origem* e a *licença de destino* atribuídas.
+
+6.  Remova o mesmo lote de usuário do grupo de origem. Licenciamento baseado em grupo responde à alteração e as *licenças de origem* são removidas dos usuários.
+
 7.  Repita o processo para lotes subsequentes de usuários.
 
-### <a name="migrating-a-single-user-using-azure-portal"></a>Migrar um usuário único, utilizando o Portal do Azure
-Esse é um passo a passo simples para um usuário único que está sendo migrado.
+### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrar um único usuário usando o portal do Azure
+Esse é um passo a passo simples sobre como migrar um usuário único.
 
-- **Etapa 1:** o usuário tem a *licença de origem* herdada de um grupo e nenhuma atribuição direta para a licença.
-![Usuário com licença de origem herdada do grupo](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseInherited.png)
+**ETAPA 1**: O usuário tem uma *licença de origem* que é herdada do grupo. Não há nenhuma atribuição direta para a licença:
 
-- **Etapa 2:** o usuário foi adicionado ao grupo de destino e o GBL processou a alteração. O usuário agora tem as licenças de *origem* e *destino* herdadas de ambos os grupos.
-![Usuário com licença de origem e destino herdada dos grupos](media/active-directory-licensing-group-product-migration/UserWithBothSourceAndTargetLicense.png)
+![Usuário com uma licença de origem herdada do grupo](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseInherited.png)
 
-- **Etapa 3:** o usuário foi removido do grupo de origem e o GBL processou a alteração. O usuário agora tem apenas a *licença de destino*
-![Usuário com licença de destino herdada do grupo](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssigned.png)
+**ETAPA 2**: O usuário é adicionado ao grupo de destino e o licenciamento baseado em grupo processa a alteração. Agora, o usuário tem a *licença de origem* e a *licença de destino* que são herdadas de grupos:
 
-### <a name="automating-migration-using-powershell"></a>Automatizar a migração usando o PowerShell
+![Usuário com uma licença de origem e licença de destino herdada dos grupos](media/active-directory-licensing-group-product-migration/UserWithBothSourceAndTargetLicense.png)
+
+**ETAPA 3**: O usuário é removido do grupo de origem e o licenciamento baseado em grupo processa a alteração. O usuário agora tem apenas a *licença de destino*:
+
+![Usuário com uma licença de destino herdada do grupo](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssigned.png)
+
+### <a name="automate-migration-by-using-azure-powershell"></a>Automatizar a migração usando o Azure PowerShell
+O trecho a seguir mostra como automatizar o processo de migração para uma operação em larga escala.
+
 > [!NOTE]
-> Esse código de exemplo usa as funções do PowerShell incluídas na [última seção](#powershell-automation-of-migration-and-verification-steps) deste documento.
+> O código de exemplo usa as funções do PowerShell que estão incluídas na [última seção](#powershell-automation-of-migration-and-verification-steps) deste artigo.
 
-Esse trecho de código mostra como o processo de migração pode ser automatizado em grande escala.
 ```
-#A batch of users that we want to migrate in this iteration. This can be an array of User Principal Names (string) or ObjectIds (Guid)
-#Note: this could be loaded from a text file that represents a larger batch of users we want to migrate
+# A batch of users that we want to migrate in this iteration.
+# The batch can be specified as an array of User Principal Names (string) or ObjectIds (Guid).
+# Note: The batch can be loaded from a text file that represents a larger batch of users that we want to migrate.
 [string[]]$usersToMigrate = 'MigrationUser@tailspinonline.com','MigrationUser2@tailspinonline.com'
 
-###############NON-CONFLICTING LICENSES SCENARIO################
-#The group and license that we are moving from
+############### NON-CONFLICTING LICENSES SCENARIO ################
+
+# The source group and source license to remove the user from.
 $sourceGroupId = [Guid]'b82c04f0-ce30-4ff1-bac7-735d92d83036'
-$sourceSkuId = 'TailspinOnline:ENTERPRISEPACK'      #<- this is the O365 E3 product
-#The group and license that we are moving to
+$sourceSkuId = 'TailspinOnline:ENTERPRISEPACK'      # <-- This is the Office 365 Enterprise E3 product.
+
+# The target group and target license to assign to the user.
 $targetGroupId = [Guid]'bcf279d1-5ad5-46a5-b469-4b8a552aa2fe'
-$targetSkuId = 'TailspinOnline:ENTERPRISEPREMIUM'   #<- this is the O365 E5 product
+$targetSkuId = 'TailspinOnline:ENTERPRISEPREMIUM'   # <-- This is the Office 365 Enterprise E5 product.
 
 if(-Not (VerifyAssumptions $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId))
 {
@@ -90,20 +107,25 @@ if(-Not (VerifyAssumptions $usersToMigrate $sourceGroupId $sourceSkuId $targetGr
 Write-Host "STEP 1: Adding users to the target group $targetGroupId. This will assign the target license $targetSkuId to all users"
 AddUsersToGroup $usersToMigrate $targetGroupId
 
-#Verify that the target license shows up in conflict state for each user on the list. This step will run in a loop, forever, until all users are in the expected state.
-#Since GBL may take some time to reflect the changes on users, this loop should terminate after some time dependent on the size of the user collection.
-#Note: If the loop has not terminated for a long time, stop the script and inspect the users reported as not yet in the expected state and verify that they are not blocked for some other reason.
+# Verify that the target license shows up in the conflict state for each user on the list.
+# This step runs in a loop, forever, until all of the users are in the expected state.
+# Group-based licensing (GBL) can take some time to reflect the changes on users.
+# As a result, the loop should terminate after a period of time that's dependent on the size of the user collection.
+# Note: If the loop hasn't terminated after a long period of time, stop the script.
+#       Inspect the users that are reported as not yet in the expected state.
+#       Verify that the users are not blocked for some other reason.
 ExecuteVerificationLoop ${function:VerifySourceandTargetLicensePresent} 'STEP 2: Checking if all users still have the source license and now also have the target license from target group' $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId
 
-#Now it is safe to remove the users from the source group
+# Now it's safe to remove the users from the source group.
 Write-Host "STEP 3: Removing users from the source group $sourceGroupId. This will remove the source license $sourceSkuId."
 RemoveUsersFromGroup $usersToMigrate $sourceGroupId
 
-#Verify that target license is now active on each user and the source license has been removed.
+# Verify that the target license is now active on each user and the source license is removed.
 ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAssignedFromGroup} 'STEP 4: Checking if all users have source license removed and target license assigned from target group' $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId
 ```
 
-Exemplo de saída (migração de 2 usuários):
+**Saída de exemplo (migração de dois usuários)**
+
 ```
 Verifying initial assumptions:
 Enough TailspinOnline:ENTERPRISEPREMIUM licenses available (13) for users: 2.
@@ -152,51 +174,68 @@ Total users checked: 2. In expected state: 2. Not yet: 0
 Check passed for all users. Exiting check loop.
 ```
 
-## <a name="migrating-users-between-products-with-conflicting-service-plans"></a>Migrando usuários entre produtos com planos de serviço conflitantes
-A meta é usar o licenciamento baseado em grupo para alterar licenças de usuário da *Licença de origem* (neste exemplo: *Office 365 Enterprise E1*) para a *licença de destino* (neste exemplo: *Office 365 Enterprise E3*). Os dois produtos contêm planos de serviço conflitantes (leia mais sobre os conflitos [aqui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)), desse modo, teremos que contornar essa situação para migrar os usuários diretamente. Em nenhum momento durante a migração os usuários deverão perder o acesso aos dados ou serviços. Além disso, a migração é realizada em pequenos "lotes" e, portanto, há uma possibilidade de validar o resultado de cada lote e minimizar o escopo de quaisquer problemas que possam ocorrer durante o processo. Em geral, o processo é o seguinte:
-1.  Os usuários são membros do grupo de origem e herdam a *licença de origem* desse grupo.
+## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migrar usuários entre produtos que têm planos de serviço conflitantes
+A meta de migração é usar o licenciamento baseado em grupo para alterar licenças de usuário de uma *licença de origem* (neste exemplo: Office 365 Enterprise E1) para uma *licença de destino* (neste exemplo: Office 365 Enterprise E3). Os dois produtos neste cenário contêm planos de serviço conflitantes, desse modo, você precisará solucionar o conflito para migrar os usuários diretamente. Para obter mais informações sobre esses conflitos, consulte [solução de problemas do grupo de licenciamento do Active Directory: planos de serviço conflitantes](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Em nenhum momento durante a migração os usuários deverão perder o acesso aos dados ou serviços. A migração é executada em pequenos "lotes". Você pode validar o resultado para cada lote e minimizar o escopo de quaisquer problemas que podem ocorrer durante o processo. Em geral, o processo é o seguinte:
+
+1.  Os usuários são membros de um grupo de origem e herdam a *licença de origem* desse grupo.
+
 2.  Criar um grupo de destino com a *licença de destino*, mas sem nenhum membro.
-3.  Adicione um lote de usuários ao grupo de destino. Isso fará com que o GBL (licenciamento baseado em grupo) receba a alteração e tente atribuir a *licença de destino*. A atribuição falhará devido a conflitos entre serviços nos dois produtos e, em vez disso, o GBL registrará um erro em cada usuário.
-Observe que isso pode levar algum tempo, dependendo do tamanho do lote e outras atividades no locatário.
-4.  Verifique se o lote de usuários foi totalmente processado pelo GBL e se cada usuário tem o erro de conflito registrado. Verifique se alguns usuários não concluíram em um estado de erro inesperado. Mais informações sobre erros estão disponíveis [aqui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
-5.  Neste ponto, os usuários ainda têm a *licença de origem* e um erro de conflito para a *licença de destino* – porém, eles não têm a *licença de destino* realmente atribuída.
-6.  Remova o mesmo lote de usuário do grupo de origem. O GBL responderá à alteração e a *licença de origem* será removida de cada usuário e, ao mesmo tempo, o erro de conflito também será removido (assumindo que nenhuma outra licença do produto está contribuindo para o erro) e as *licenças de destinos* serão atribuídas. Isso garante a perda de dados ou serviços durante a transição.
+
+3.  Adicione um lote de usuários ao grupo de destino. Licenciamento baseado em grupo recebe a alteração e tenta atribuir a *licença de destino*. A atribuição falha devido a conflitos entre os serviços em dois produtos. O licenciamento baseado em grupo registra a falha como um erro para cada usuário. O processo pode levar um longo período de tempo, dependendo do tamanho do lote e outras atividades no locatário.
+
+4.  Verifique se o lote de usuários está totalmente processado pelo licenciamento baseado em grupo. Confirme se cada usuário tem o erro de conflito registrado. Verifique se alguns usuários não terminaram em um estado de erro inesperado. Para obter mais informações sobre erros, consulte [solução de problemas do grupo de licenciamento do Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+
+5.  Neste ponto, os usuários ainda têm a *licença de origem* e um erro de conflito para a *licença de destino*. Os usuários ainda não tem a *licença de destino* atribuída.
+
+6.  Remova o mesmo lote de usuário do grupo de origem. Licenciamento baseado em grupo responde à alteração e a *licença de origem* é removida de cada usuário. O erro de conflito é removido ao mesmo tempo (quando nenhuma outra licença de produto contribui para o erro) e a *licença de destino* é atribuída. Esse processo garante que não há perda de dados ou serviços durante a transição.
+
 7.  Repita o processo para lotes subsequentes de usuários.
 
-### <a name="migrating-a-single-user-using-azure-portal"></a>Migrar um usuário único, utilizando o Portal do Azure
-Esse é um passo a passo simples para um usuário único que está sendo migrado.
+### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrar um único usuário usando o portal do Azure
+Esse é um passo a passo simples sobre como migrar um usuário único.
 
-- **Etapa 1:** o usuário tem a *licença de origem* herdada de um grupo e nenhuma atribuição direta para a licença.
-![Usuário com licença de origem herdada do grupo](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseInheritedConflictScenario.png)
+**ETAPA 1**: O usuário tem uma *licença de origem* que é herdada do grupo. Não há nenhuma atribuição direta para a licença:
 
-- **Etapa 2:** usuário foi adicionado ao grupo de destino e o GBL processou a alteração. O usuário ainda tem a *licença de origem* e agora têm a *licença de destino* em estado de erro devido a conflito.
-![Usuário com licença de origem herdada do grupo e licença de destino em estado de erro](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseAndTargetLicenseInConflict.png)
+![Usuário com uma licença de origem herdada do grupo](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseInheritedConflictScenario.png)
 
-- **Etapa 3:** o usuário foi removido do grupo de origem e o GBL processou a alteração. A *licença de destino* já foi aplicada ao usuário ![Usuário com licença de destino herdada do grupo](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssignedConflictScenario.png)
+**ETAPA 2**: O usuário é adicionado ao grupo de destino e o licenciamento baseado em grupo processa a alteração. Porque o usuário ainda tem a *licença de origem*, a *licença de destino* está em um estado de erro devido a conflito:
 
-### <a name="automating-migration-using-powershell"></a>Automatizar a migração usando o PowerShell
+![Usuário com uma licença de origem herdada do grupo e licença de destino em um estado de erro](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseAndTargetLicenseInConflict.png)
+
+**ETAPA 3**: O usuário é removido do grupo de origem e o licenciamento baseado em grupo processa a alteração. A *licença de destino* é aplicada ao usuário:
+
+![Usuário com uma licença de destino herdada do grupo](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssignedConflictScenario.png)
+
+
+### <a name="automate-migration-by-using-azure-powershell"></a>Automatizar a migração usando o Azure PowerShell
+O trecho a seguir mostra como automatizar o processo de migração para uma operação em larga escala.
+
 > [!NOTE]
-> Esse código de exemplo usa as funções do PowerShell incluídas na [última seção](#powershell-automation-of-migration-and-verification-steps) deste documento.
+> O código de exemplo usa as funções do PowerShell que estão incluídas na [última seção](#powershell-automation-of-migration-and-verification-steps) deste artigo.
 
-Esse trecho de código mostra como o processo de migração pode ser automatizado em grande escala.
 ```
-#A batch of users that we want to migrate in this iteration. This can be an array of User Principal Names (string) or ObjectIds (Guid)
-#Note: this could be loaded from a text file that represents a larger batch of users we want to migrate
+# A batch of users that we want to migrate in this iteration.
+# The batch can be specified as an array of User Principal Names (string) or ObjectIds (Guid).
+# Note: The batch can be loaded from a text file that represents a larger batch of users that we want to migrate.
 [string[]]$usersToMigrate = 'MigrationUser@tailspinonline.com', 'MigrationUser2@tailspinonline.com'
 
-###############CONFLICTING LICENSES SCENARIO################
-#The group and license that we are moving from
-$sourceGroupId = [Guid]'b82c04f0-ce30-4ff1-bac7-735d92d83036'
-$sourceSkuId = 'TailspinOnline:STANDARDPACK'             #<- this is the O365 E1 product
-#The group and license that we are moving to
-$targetGroupId = [Guid]'bcf279d1-5ad5-46a5-b469-4b8a552aa2fe'
-$targetSkuId = 'TailspinOnline:ENTERPRISEPACK'           #<- this is the O365 E3 product
+############### CONFLICTING LICENSES SCENARIO ################
 
-#Assumptions before migration:
-#1. Users are already in the source group and they have the source license assigned from that group
-#2. Users do not have the same source license assigned from another group at the same time and they do not have the source license assigned directly
-#This is important - if not true, removing users from the source group in Step 3 is not going to result in the target license getting applied correctly
-#3. There are enough available licenses for the target license to assign to the users we are migrating.
+# The source group and source license to remove the user from.
+$sourceGroupId = [Guid]'b82c04f0-ce30-4ff1-bac7-735d92d83036'
+$sourceSkuId = 'TailspinOnline:STANDARDPACK'             # <-- This is the Office 365 Enterprise E1 product.
+
+# The target group and target license to assign to the user.
+$targetGroupId = [Guid]'bcf279d1-5ad5-46a5-b469-4b8a552aa2fe'
+$targetSkuId = 'TailspinOnline:ENTERPRISEPACK'           # <-- This is the Office 365 Enterprise E3 product.
+
+# Assumptions before migration:
+# 1. Users are already in the source group and they have the source license assigned from that group.
+# 2. Users don't have the same source license assigned from another group at the same time,
+#    and they don't have the source license assigned directly.
+#    IMPORTANT: If Assumption 2 isn't true, removing users from the source group in STEP 3
+#               won't result in the target license being correctly applied.
+# 3. There are enough available licenses to assign a target license to all of the users that are being migrated.
 if(-Not (VerifyAssumptions $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId))
 {
     throw "Some users did not pass validation checks. See the output for details. Aborting migration process."
@@ -205,20 +244,25 @@ if(-Not (VerifyAssumptions $usersToMigrate $sourceGroupId $sourceSkuId $targetGr
 Write-Host "STEP 1: Adding users to the target group $targetGroupId. This will put target license $targetSkuId in conflict state with the source license $sourceSkuId"
 AddUsersToGroup $usersToMigrate $targetGroupId
 
-#Verify that the target license shows up in conflict state for each user on the list. This step will run in a loop, forever, until all users are in the expected state.
-#Since GBL may take some time to reflect the changes on users, this loop should terminate after some time dependent on the size of the user collection.
-#Note: If the loop has not terminated for a long time, stop the script and inspect the users reported as not yet in the expected state and verify that they are not blocked for some other reason.
+# Verify that the target license shows up in the conflict state for each user on the list.
+# This step runs in a loop, forever, until all of the users are in the expected state.
+# Group-based licensing (GBL) can take some time to reflect the changes on users.
+# As a result, the loop should terminate after a period of time that's dependent on the size of the user collection.
+# Note: If the loop hasn't terminated after a long period of time, stop the script.
+#       Inspect the users that are reported as not yet in the expected state.
+#       Verify that the users are not blocked for some other reason.
 ExecuteVerificationLoop ${function:VerifySourceLicensePresentAndTargetLicenseInConflictState} 'STEP 2: Checking if all users still have the source license and are in conflict state for license from target group' $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId
 
-#Now it is safe to remove the users from the source group
+# Now it's safe to remove the users from the source group.
 Write-Host "STEP 3: Removing users from the source group $sourceGroupId. This will remove the source license $sourceSkuId and remove the conflict on target license $targetSkuId which will become assigned."
 RemoveUsersFromGroup $usersToMigrate $sourceGroupId
 
-#Verify that target license is now active on each user and the source license has been removed.
+# Verify that the target license is now active on each user and the source license is removed.
 ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAssignedFromGroup} 'STEP 4: Checking if all users have source license removed and target license assigned from target group' $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId
 ```
 
-Exemplo de saída (migração de 2 usuários):
+**Saída de exemplo (migração de dois usuários)**
+
 ```
 Verifying initial assumptions:
 Enough TailspinOnline:ENTERPRISEPACK licenses available (61) for users: 2.
@@ -266,17 +310,20 @@ Total users checked: 2. In expected state: 2. Not yet: 0
 Check passed for all users. Exiting check loop.
 ```
 
-## <a name="powershell-automation-of-migration-and-verification-steps"></a>Automação do PowerShell das etapas de migração e verificação
-Esta seção contém o código PowerShell necessário para executar os scripts utilizados anteriormente no artigo.
+<h2 id="powershell-automation-of-migration-and-verification-steps">Execute o código do PowerShell para automatizar e verificar a migração</h2>
+
+Esta seção contém o código do PowerShell que é necessário para executar os scripts que são descritos neste artigo.
 
 >[!WARNING]
->Este código é fornecido como um exemplo para fins de demonstração. Se você pretende utilizá-lo em seu ambiente, primeiro considere testá-lo em uma escala pequena ou em um locatário de teste separado. Talvez seja necessário ajustar o código para atender às necessidades específicas do ambiente.
+>Este código é fornecido como um exemplo para fins de demonstração. Se você pretende utilizá-lo em seu ambiente, primeiro considere testar o código em uma escala pequena ou em um locatário de teste separado. Talvez seja necessário ajustar o código para atender às necessidades específicas do seu ambiente.
 
-Para executar o código, será necessário usar as [bibliotecas do PowerShell v1.0 do Microsoft Azure AD](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0] for instructions). Primeiro execute o *connect-msolservice* para entrar no locatário, antes de executar o script.
+Para executar o código, use as instruções nas [bibliotecas do Azure AD PowerShell v1.0](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Antes de você executar o script, execute o cmdlet `connect-msolservice` para entrar no locatário.
+
 ```
-#BEGIN: Helper functions used in the script
+# BEGIN: Helper functions that are used in the scripts.
 
-#Retrieves user object based on ObjectId or UserPrincipalName
+# GetUserObject function
+# Retrieve a user object based on the ObjectId or UserPrincipalName.
 function GetUserObject
 {
     [OutputType([Microsoft.Online.Administration.User])]
@@ -298,7 +345,9 @@ function GetUserObject
     }
 }
 
-#Gets a Guid objectId for a user, even if a UserPrincipal string was passed in. Guid ids are needed for group membership manipulation, where UPNs cannot be used
+# GetGuidUserId function
+# Get a Guid objectId for a user, even when a UserPrincipal string is passed in.
+# Guid ids are needed for group membership manipulation, where UPNs cannot be used.
 function GetGuidUserId
 {
     [OutputType([Guid])]
@@ -320,7 +369,9 @@ function GetGuidUserId
     }
 }
 
-#Adds a collection of users to a group. Note: this fails if a user is already a member of the group
+# AddUsersToGroup function
+# Add a collection of users to a group.
+# Note: This function fails if a user is already a member of the specified group.
 function AddUsersToGroup
 {
     Param([object[]]$userIds, [Guid]$groupId)
@@ -333,7 +384,9 @@ function AddUsersToGroup
     }
 }
 
-#Removes a collection of users from a group. Note: this fails if a user is not a member of the group
+# RemoveUsersFromGroup function
+# Remove a collection of users from a group.
+# Note: This function fails if a user is not a member of the specified group.
 function RemoveUsersFromGroup
 {
     Param([object[]]$userIds, [Guid]$groupId)
@@ -346,13 +399,15 @@ function RemoveUsersFromGroup
     }
 }
 
-#Returns the license object corresponding to the skuId. Returns NULL if not found
+# GetUserLicense function
+# Return the license object that corresponds to the skuId.
+# Return NULL if no object is found.
 function GetUserLicense
 {
     [OutputType([Microsoft.Online.Administration.UserLicense])]
     Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
 
-    #we look for the specific license SKU in all licenses assigned to the user
+    # Look for the specific license SKU in all of the licenses that are assigned to the user.
     foreach($license in $user.Licenses)
     {
         if ($license.AccountSkuId -ieq $skuId)
@@ -363,7 +418,9 @@ function GetUserLicense
     return $null
 }
 
-#Checks if the specific SKU license is assigned to the user, regardless of how it may be assigned (directly or via GBL)
+# IsLicenseAssignedToUser function
+# Check if the specific SKU license is assigned to the user,
+#    regardless of how the license is assigned (directly or via GBL).
 function IsLicenseAssignedToUser
 {
     [OutputType([bool])]
@@ -374,6 +431,7 @@ function IsLicenseAssignedToUser
     return ($license -ne $null)
 }
 
+# GetObjectIdsAssigningLicense function
 function GetObjectIdsAssigningLicense
 {
     [OutputType([Guid[]])]
@@ -388,8 +446,10 @@ function GetObjectIdsAssigningLicense
     return [Array]::CreateInstance([Guid],0)
 }
 
-#Returns TRUE if the user is inheriting the license from the specific group.
-#Note: this returns true only if the license is successfully assigned from the group. If the license is in error state, this return false
+# UserHasLicenseAssignedFromThisGroup function
+# Return TRUE if the user inherits the license from the specific group.
+# Note: This function returns true only if the license is successfully assigned from the group.
+#       If the license is in an error state, the function return false.
 function UserHasLicenseAssignedFromThisGroup
 {
     [OutputType([bool])]
@@ -397,12 +457,12 @@ function UserHasLicenseAssignedFromThisGroup
 
     [Guid[]]$objectsAssigningLicense = GetObjectIdsAssigningLicense $user $skuId
 
-    #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-    #This could be a group object or a user object (contrary to what the name suggests)
+    # GroupsAssigningLicense contains a collection of object IDs for assigning the license.
+    # This could be a group object or a user object (contrary to what the name suggests).
     foreach ($assignmentSource in $objectsAssigningLicense)
     {
-        #If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
-        #Note: the license may also be assigned directly in addition to being inherited
+        # If the collection contains at least one ID that doesn't match the user ID, the license is inherited from a group.
+        # Note: The license might also be assigned directly, in addition to being inherited.
         if ($assignmentSource -ieq $groupId)
         {
             return $true
@@ -411,7 +471,8 @@ function UserHasLicenseAssignedFromThisGroup
     return $false
 }
 
-#Returns error objects for a specific license
+# GetErrorsForLicense function
+# Return error objects for a specific license.
 function GetErrorsForLicense
 {
     [OutputType([Microsoft.Online.Administration.IndirectLicenseError[]])]
@@ -427,14 +488,17 @@ function GetErrorsForLicense
 
     return $errorObjects
 }
-#Returns an error label associated with a specific license inherited from a specific group. return $null if there is no error
+
+# GetErrorForLicenseFromGroup function
+# Return an error label that's associated with a specific license that's inherited from a specific group.
+# Return $null if there's no error.
 function GetErrorForLicenseFromGroup
 {
     [OutputType([string])]
     Param([Microsoft.Online.Administration.User]$user,  [Guid]$groupId, [string]$skuId)
 
 
-    #There are some errors. Check if any of them is associated with the group
+    # There are some errors. Check if any of the errors are associated with the group.
     foreach($licenseError in GetErrorsForLicense $user $skuId)
     {
         if($licenseError.ReferencedObjectId -eq $groupId)
@@ -445,21 +509,22 @@ function GetErrorForLicenseFromGroup
     return $null
 }
 
-#Checks if the license is in an expected state for a given group.
-#If expectedError is set to a value, this looks if the license is in that specific error state from the group
-#If expectedError is NULL, this checks if the license is successfully assigned from the group
+# IsExpectedLicenseStateForGroup function
+# Check if the license is in an expected state for a given group.
+# If expectedError is set to a value, the function checks if the license is in the specific error state for the group.
+# If expectedError is NULL, the function checks if the license is successfully assigned from the group.
 function IsExpectedLicenseStateForGroup
 {
     [OutputType([bool])]
     Param([Microsoft.Online.Administration.User]$user,  [Guid]$groupId, [string]$skuId, [string]$expectedError)
 
-    #we expect the license to be fully assigned from the group and not in error state
+    # The license is expected to be fully assigned from the group and not in an error state.
     if([string]::IsNullOrEmpty($expectedError))
     {
-        #check if the assigned license is inherted from the expected group, without an error on it
+        # Check if the assigned license is inherted from the expected group and without an error on it.
         return (UserHasLicenseAssignedFromThisGroup $user $skuId $groupId)
     }
-    #we expect the license to be in the specific error state on the specific group
+    # The license is expected to be in the specific error state on the specific group.
     else
     {
         $error = GetErrorForLicenseFromGroup $user $groupId $skuId
@@ -467,47 +532,55 @@ function IsExpectedLicenseStateForGroup
     }
 }
 
-#Detects if the licenses are in the specific state where the source license is still assigned, but the target license is in conflict state
-#Note: if the source license is not present, this throws an exception to abort the script, because that state may signify something went wrong with the migration steps and user lost access to services
+# VerifySourceLicensePresentAndTargetLicenseInConflictState function
+# Detect if the licenses are in a specific state where the source license is assigned, but the target license is in a conflict state.
+# Note: If the source license is gone, the function throws an exception to abort the script.
+#       The conflict state can signify that something went wrong with the migration steps and the user lost access to services.
 function VerifySourceLicensePresentAndTargetLicenseInConflictState
 {
     [OutputType([bool])]
     Param([Microsoft.Online.Administration.User]$user,  [Guid]$sourceGroupId, [string]$sourceSkuId, [Guid]$targetGroupId, [string]$targetSkuId)
 
-    #check user still has source license - if not, abort because something is seriously wrong
+    # Check if the user still has the source license. If not, abort the script because something is seriously wrong.
     if(-Not (UserHasLicenseAssignedFromThisGroup $user $sourceSkuId $sourceGroupId))
     {
         throw "User $($user.UserPrincipalName) ($($user.ObjectId)) does not have the expected license $sourceSkuId from source group $sourceGroupId, which may result in loss of access and data. This is unexpected and should be investigated. Aborting execution."
     }
-    #check if the target license is in conflict, as expected
+    # Check if the target license is in conflict, as expected.
     $conflictError = 'MutuallyExclusiveViolation'
     return (IsExpectedLicenseStateForGroup $user $targetGroupId $targetSkuId $conflictError)
 }
 
-#Detects if the licenses are in the specific state where the source license is no longer present, but the target license is correctly assigned
-#Note: if the source license is gone, but target license is not present, this throws an exception to abort the script, because something went wrong and the user may have lost access to services
+# VerifySourceLicenseRemovedAndTargetLicenseAssignedFromGroup function
+# Detect if the licenses are in a specific state where the source license isn't present,
+#    but the target license is correctly assigned.
+# Note: If the source license is gone and the target license isn't present,
+#       the function throws an exception to abort the script.
+#       Something went wrong and the user may have lost access to services.
 function VerifySourceLicenseRemovedAndTargetLicenseAssignedFromGroup
 {
     [OutputType([bool])]
     Param([Microsoft.Online.Administration.User]$user,  [Guid]$sourceGroupId, [string]$sourceSkuId, [Guid]$targetGroupId, [string]$targetSkuId)
 
-    #check if user has the source license completely removed, which is a prerequisite to the target license eventually kicking in
+    # Check if user has the source license completely removed, which is a prerequisite to the target license eventually kicking in.
     if(IsLicenseAssignedToUser $user $sourceSkuId)
     {
         return $false
     }
 
-    #check user has the target license at all - if not, abort because something is seriously wrong
+    # Check if the user has the target license at all. If not, abort the script because something is seriously wrong.
     if(-Not (IsLicenseAssignedToUser $user $targetSkuId))
     {
         throw "User $($user.UserPrincipalName) ($($user.ObjectId)) does not have the expected license $targetSkuId assigned, which may result in loss of access and data. This is unexpected and should be investigated. Aborting execution."
     }
-    #check if the target license is assigned from the expected target group, and not in error state anymore
+    # Check if the target license is assigned from the expected target group, and no longer in an error state.
     return (IsExpectedLicenseStateForGroup $user $targetGroupId $targetSkuId $null)
 }
 
-#Detects if the licenses are in the specific state where the source license is still assigned and the target license is assigned as well
-#Note: if the source license is not present, this throws an exception to abort the script, because that state may signify something went wrong with the migration steps and user lost access to services
+# VerifySourceandTargetLicensePresent function
+# Detect if the licenses are in the specific state where the source license is assigned and the target license is also assigned.
+# Note: If the source license is gone, the function throws an exception to abort the script.
+#       This state can signify that something went wrong with the migration steps and the user lost access to services.
 function VerifySourceandTargetLicensePresent
 {
     [OutputType([bool])]
@@ -522,23 +595,25 @@ function VerifySourceandTargetLicensePresent
     return (UserHasLicenseAssignedFromThisGroup $user $targetSkuId $targetGroupId)
 }
 
-
-#Verifies basic assumptions that should be true for a user before we execute the migration process.
-#Returns TRUE if all assumptions are true. Prints details
+# VerifyAssumptionsForUser function
+# Verify basic assumptions that should be true for a user before we execute the migration process.
+# The function prints details about the verification steps.
+# Return TRUE if all of the assumptions are true.
 function VerifyAssumptionsForUser
 {
     [OutputType([bool])]
     Param([Microsoft.Online.Administration.User]$user,  [Guid]$sourceGroupId, [string]$sourceSkuId, [Guid]$targetGroupId, [string]$targetSkuId)
 
     $userName = $user.UserPrincipalName
-    #1. User has the source license assigned from the source group.
+    # 1. The user has the source license assigned from the source group.
     if(-Not (UserHasLicenseAssignedFromThisGroup $user $sourceSkuId $sourceGroupId))
     {
         Write-Host "$userName does not have source license $sourceSkuId assigned from source group $sourceGroupId."
         return $false
     }
 
-    #2. User does not have the same source license assigned from another group at the same time and they do not have the source license assigned directly
+    # 2. The user does't have the same source license assigned from another group at the same time,
+    #    and the user doesn't have the source license assigned directly.
     [Guid[]]$otherObjectsAssigningLicense = GetObjectIdsAssigningLicense $user $sourceSkuId | Where {$_ -ne $sourceGroupId}
     foreach($otherObject in $otherObjectsAssigningLicense)
     {
@@ -556,14 +631,14 @@ function VerifyAssumptionsForUser
         return $false
     }
 
-    #3. User does not have the target license assigned
+    # 3. The user doesn't have the target license assigned.
     if(IsLicenseAssignedToUser $user $targetSkuId)
     {
         Write-Host "$userName already has target license assigned."
         return $false
     }
 
-    #4. User does not have the target license in error state from some groups
+    # 4. The user doesn't have the target license in an error state from some groups.
     [Microsoft.Online.Administration.IndirectLicenseError[]]$licenseErrors = GetErrorsForLicense $user $targetSkuId
     foreach($licenseError in $licenseErrors)
     {
@@ -578,7 +653,8 @@ function VerifyAssumptionsForUser
     return $true
 }
 
-#Checks if all users to be migrated are in correct state
+# VerifyAssumptions function
+# Check if all of the users to be migrated are in a correct state.
 function VerifyAssumptions
 {
     [OutputType([bool])]
@@ -586,7 +662,7 @@ function VerifyAssumptions
 
     Write-Host "Verifying initial assumptions:"
 
-    #Check if there are enough target licenses for all users
+    # Check if there are enough target licenses for all of the users.
     $skuState = Get-MsolAccountSku | Where {$_.AccountSkuId -ieq $targetSkuId}
 
     if($skuState -eq $null)
@@ -607,7 +683,7 @@ function VerifyAssumptions
         Write-Host "Enough $targetSkuId licenses available ($availableLicenses) for users: $($userIds.Count)."
     }
 
-    #Check if each user to be migrated is in expected state
+    # Check if each user to be migrated is in an expected state.
     $usersOK = 0
     $usersNotOK = 0
     foreach($userId in $userIds)
@@ -631,14 +707,20 @@ function VerifyAssumptions
     return $true
 }
 
-#Helper function: it executes one of the verification functions (passed in as a delegate using $checkFunction) for each user, keeps track of how many users passed/failed verification
-#and repeats the loop until all users have passed the check. The loop may never terminate if some users never reach the expected state, which should be investigated.
-#Note: if the verification function fails with an exception (e.g. because it detected unexpected user state) this loop will terminate and investigation into user state is needed
+# ExecuteVerificationLoop function
+# Execute a verification function (passed in as a delegate by using $checkFunction) for each user.
+# The function tracks how many users passed/failed verification.
+# The function repeats the verification loop until all of the users have passed the check.
+#   The loop may never terminate if some users never reach the expected state.
+#   If the loop doesn't terminate, you should investigate to determine the cause.
+# Note: If the verification function fails with an exception,
+#       such as the function detects an unexpected user state,
+#       the loop terminates and investigation into the user state is needed.
 function ExecuteVerificationLoop
 {
     Param([System.Management.Automation.ScriptBlock]$checkFunction, [string]$consoleMessage, [object[]]$userIds,  [Guid]$sourceGroupId, [string]$sourceSkuId, [Guid]$targetGroupId, [string]$targetSkuId)
 
-    #how long to wait until the loop is retried
+    # How long to wait until the loop is retried.
     $sleepIntervalSeconds = 60
     $retryIteration = 1
 
@@ -677,32 +759,37 @@ function ExecuteVerificationLoop
         Start-Sleep -Seconds $sleepIntervalSeconds
     }
 }
-#END: Helper functions used in the script
+# END: Helper functions that are used in the script.
 
-#BEGIN: Execute script
+# BEGIN: Execute the script.
 
-#enable strict mode
+# Enable strict execution mode.
 Set-StrictMode -Version latest
-#stop on first exception thrown
+# Stop the script when the first exception is thrown.
 $ErrorActionPreference = "Stop"
 
-#A batch of users that we want to migrate in this iteration. This can be an array of User Principal Names (string) or ObjectIds (Guid)
-#Note: this could be loaded from a text file that represents a larger batch of users we want to migrate
+# A batch of users that we want to migrate in this iteration.
+# The batch can be specified as an array of User Principal Names (string) or ObjectIds (Guid).
+# Note: The batch can be loaded from a text file that represents a larger batch of users that we want to migrate.
 [string[]]$usersToMigrate = 'MigrationUser@tailspinonline.com', 'MigrationUser2@tailspinonline.com'
 
-###############CONFLICTING LICENSES SCENARIO################
-#The group and license that we are moving from
-$sourceGroupId = [Guid]'b82c04f0-ce30-4ff1-bac7-735d92d83036'
-$sourceSkuId = 'TailspinOnline:STANDARDPACK'             #<- this is the O365 E1 product
-#The group and license that we are moving to
-$targetGroupId = [Guid]'bcf279d1-5ad5-46a5-b469-4b8a552aa2fe'
-$targetSkuId = 'TailspinOnline:ENTERPRISEPACK'           #<- this is the O365 E3 product
+############### CONFLICTING LICENSES SCENARIO ################
 
-#Assumptions before migration:
-#1. Users are already in the source group and they have the source license assigned from that group
-#2. Users do not have the same source license assigned from another group at the same time and they do not have the source license assigned directly
-#This is important - if not true, removing users from the source group in Step 3 is not going to result in the target license getting applied correctly
-#3. There are enough available licenses for the target license to assign to the users we are migrating.
+# The source group and source license to remove the user from.
+$sourceGroupId = [Guid]'b82c04f0-ce30-4ff1-bac7-735d92d83036'
+$sourceSkuId = 'TailspinOnline:STANDARDPACK'             # <-- This is the Office 365 Enterprise E1 product.
+
+# The target group and target license to assign to the user.
+$targetGroupId = [Guid]'bcf279d1-5ad5-46a5-b469-4b8a552aa2fe'
+$targetSkuId = 'TailspinOnline:ENTERPRISEPACK'           # <-- This is the Office 365 Enterprise E3 product.
+
+# Assumptions before migration:
+# 1. Users are already in the source group and they have the source license assigned from that group.
+# 2. Users don't have the same source license assigned from another group at the same time,
+#    and they don't have the source license assigned directly.
+#    IMPORTANT: If Assumption 2 isn't true, removing users from the source group in STEP 3
+#               won't result in the target license being correctly applied.
+# 3. There are enough available licenses to assign a target license to all of the users that are being migrated.
 if(-Not (VerifyAssumptions $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId))
 {
     throw "Some users did not pass validation checks. See the output for details. Aborting migration process."
@@ -711,25 +798,29 @@ if(-Not (VerifyAssumptions $usersToMigrate $sourceGroupId $sourceSkuId $targetGr
 Write-Host "STEP 1: Adding users to the target group $targetGroupId. This will put target license $targetSkuId in conflict state with the source license $sourceSkuId"
 AddUsersToGroup $usersToMigrate $targetGroupId
 
-#Verify that the target license shows up in conflict state for each user on the list. This step will run in a loop, forever, until all users are in the expected state.
-#Since GBL may take some time to reflect the changes on users, this loop should terminate after some time dependent on the size of the user collection.
-#Note: If the loop has not terminated for a long time, stop the script and inspect the users reported as not yet in the expected state and verify that they are not blocked for some other reason.
+# Verify that the target license shows up in the conflict state for each user on the list.
+# This step runs in a loop, forever, until all of the users are in the expected state.
+# Group-based licensing (GBL) can take some time to reflect the changes on users.
+# As a result, the loop should terminate after a period of time that's dependent on the size of the user collection.
+# Note: If the loop hasn't terminated after a long period of time, stop the script.
+#       Inspect the users that are reported as not yet in the expected state.
+#       Verify that the users are not blocked for some other reason.
 ExecuteVerificationLoop ${function:VerifySourceLicensePresentAndTargetLicenseInConflictState} 'STEP 2: Checking if all users still have the source license and are in conflict state for license from target group' $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId
 
-#Now it is safe to remove the users from the source group
+# Now it's safe to remove the users from the source group.
 Write-Host "STEP 3: Removing users from the source group $sourceGroupId. This will remove the source license $sourceSkuId and remove the conflict on target license $targetSkuId which will become assigned."
 RemoveUsersFromGroup $usersToMigrate $sourceGroupId
 
-#Verify that target license is now active on each user and the source license has been removed.
+# Verify that target license is now active on each user and the source license is removed.
 ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAssignedFromGroup} 'STEP 4: Checking if all users have source license removed and target license assigned from target group' $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId
 
-#END: Execute script
+# END: Execute the script.
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre outros cenários de gerenciamento de licença por meio de grupos, leia
+Saiba mais sobre outros cenários de gerenciamento de licenças por meio de grupos nos seguintes artigos:
 
-* [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Exemplos do PowerShell para licenciamento baseado em grupo no Azure AD](active-directory-licensing-ps-examples.md)
+* [Identificar e resolver problemas de licenças para um grupo no Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
+* [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](active-directory-licensing-ps-examples.md)
 * [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](active-directory-licensing-group-advanced.md)

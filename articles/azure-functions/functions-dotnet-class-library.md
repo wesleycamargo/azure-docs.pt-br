@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -84,6 +84,31 @@ public static class SimpleExampleWithOutput
 }
 ```
 
+### <a name="order-of-parameters"></a>Ordem de parâmetros
+
+Não importa a ordem dos parâmetros na assinatura de função. Por exemplo, você pode inserir os parâmetros de gatilho antes ou depois de outras associações e inserir o parâmetro do agente antes ou depois dos parâmetros de gatilho ou associação.
+
+### <a name="binding-expressions"></a>Expressões de associação
+
+Você pode usar expressões de associação nos parâmetros do construtor de atributo e nos parâmetros de função. Por exemplo, o código a seguir obtém o nome da fila para monitorar a partir de uma configuração de aplicativo, e ele obtém a hora de criação da mensagem da fila no parâmetro `insertionTime`.
+
+```csharp
+public static class BindingExpressionsExample
+{
+    [FunctionName("LogQueueMessage")]
+    public static void Run(
+        [QueueTrigger("%queueappsetting%")] string myQueueItem,
+        DateTimeOffset insertionTime,
+        TraceWriter log)
+    {
+        log.Info($"Message content: {myQueueItem}");
+        log.Info($"Created at: {insertionTime}");
+    }
+}
+```
+
+Para obter mais informações, consulte **Padrões e expressões de associação** em [Gatilhos e associações](functions-triggers-bindings.md#binding-expressions-and-patterns).
+
 ### <a name="conversion-to-functionjson"></a>Conversão para function.json
 
 O processo de compilação cria um arquivo *function.json* em uma pasta de função na pasta de compilação. Conforme observado anteriormente, esse arquivo não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. 
@@ -119,22 +144,7 @@ Cada associação tem seus próprios tipos com suporte. Por exemplo, um atributo
 
 ## <a name="binding-to-method-return-value"></a>Associando ao valor de retorno do método
 
-É possível usar um valor retornado de método em uma associação de saída, conforme mostrado no exemplo a seguir:
-
-```csharp
-public static class ReturnValueOutputBinding
-{
-    [FunctionName("CopyQueueMessageUsingReturnValue")]
-    [return: Queue("myqueue-items-destination")]
-    public static string Run(
-        [QueueTrigger("myqueue-items-source-2")] string myQueueItem,
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-        return myQueueItem;
-    }
-}
-```
+Você pode usar um valor de retorno do método para uma associação de saída, aplicando o atributo ao valor de retorno do método. Para obter exemplos, consulte [Gatilhos e associações](functions-triggers-bindings.md#using-the-function-return-value).
 
 ## <a name="writing-multiple-output-values"></a>Gravando vários valores de saída
 
@@ -202,18 +212,28 @@ public static class AsyncExample
 
 ## <a name="cancellation-tokens"></a>Tokens de cancelamento
 
-Algumas operações exigem um desligamento normal. Embora seja sempre melhor escrever um código que possa lidar com falhas, nos casos em que você desejar lidar com solicitações de desligamento, defina um argumento de tipo [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx).  Um `CancellationToken` é fornecido para sinalizar que um desligamento de host é disparado.
+Uma função pode aceitar um parâmetro [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) que permite ao sistema operacional notificar seu código quando a função está prestes a ser encerrada. Você pode usar essa notificação para certificar-se de que a função não finalize inesperadamente de uma maneira que os dados fiquem em um estado inconsistente.
+
+O exemplo a seguir mostra como verificar o encerramento da função iminente.
 
 ```csharp
 public static class CancellationTokenExample
 {
-    [FunctionName("BlobCopy")]
-    public static async Task RunAsync(
-        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
-        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+    public static void Run(
+        [QueueTrigger("inputqueue")] string inputText,
+        TextWriter logger,
         CancellationToken token)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        for (int i = 0; i < 100; i++)
+        {
+            if (token.IsCancellationRequested)
+            {
+                logger.WriteLine("Function was cancelled at iteration {0}", i);
+                break;
+            }
+            Thread.Sleep(5000);
+            logger.WriteLine("Normal processing for queue message={0}", inputText);
+        }
     }
 }
 ```

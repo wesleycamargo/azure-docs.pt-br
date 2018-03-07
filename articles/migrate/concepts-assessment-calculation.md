@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/02/2017
 ms.author: raynew
-ms.openlocfilehash: db09ff30ff9f3852e84162b8400572e76515230f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b264e2ceac4e76faa37d21972b94cfe323aa3ce5
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -109,11 +109,11 @@ Se o critério de dimensionamento é  *dimensionamento como local*, as Migraçõ
  
 ### <a name="confidence-rating"></a>Classificação de confiança
 
-Cada avaliação das Migrações para Azure está associada a uma classificação de confiança que varia de 1 a 5 estrelas (1 estrela sendo a mais baixa e 5 estrelas sendo a mais alta). A classificação de confiança é atribuída a uma avaliação com base na disponibilidade de pontos de dados necessários para calcular a avaliação. Isso ajuda a estimar a confiabilidade das recomendações de tamanho fornecidas pelas Migrações para Azure. 
+Cada avaliação das Migrações para Azure está associada a uma classificação de confiança que varia de 1 a 5 estrelas (1 estrela sendo a mais baixa e 5 estrelas sendo a mais alta). A classificação de confiança é atribuída a uma avaliação com base na disponibilidade de pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a estimar a confiabilidade das recomendações de tamanho fornecidas pelas Migrações para Azure. 
 
-A classificação de confiança é útil quando você estiver fazendo *dimensionamento com base no desempenho*, uma vez que nem todos os pontos de dados podem estar disponíveis. Para *dimensionamento como local*, a classificação de confiança é sempre de 5 estrelas, uma vez que as Migrações para Azure têm todos os dados necessários para dimensionar a VM. 
+A classificação de confiança é útil ao fazer o *dimensionamento baseado em desempenho*, uma vez que as Migrações para Azure podem não ter pontos de dados suficientes para fazer o dimensionamento baseado na utilização. Para *como dimensionamento local*, a classificação de confiança é sempre de 5 estrelas, uma vez que as Migrações para Azure têm todos os pontos de dados necessários para dimensionar a VM. 
 
-Para o dimensionamento com base no desempenho, as Migrações para Azure precisam de dados de utilização da CPU e memória. Para cada disco anexado à VM, é necessário ter a IOPS de leitura/gravação e a taxa de transferência para fazer o dimensionamento com base no desempenho. Da mesma forma, para cada adaptador de rede conectado à VM, as Migrações para Azure precisam da rede de entrada/saída para fazer o dimensionamento com base no desempenho. Se qualquer um dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelas Migrações para Azure pode não ser confiável. Dependendo do percentual dos pontos de dados disponíveis, é fornecida a classificação de confiança para a avaliação:
+Para o dimensionamento baseado em desempenho da VM, as Migrações para Azure precisam dos dados de utilização da CPU e da memória. Além disso, para cada disco anexado à VM, é necessário ter a IOPS de leitura/gravação e a taxa de transferência. Da mesma forma, para cada adaptador de rede conectado à VM, as Migrações para Azure precisam da rede de entrada/saída para fazer o dimensionamento com base no desempenho. Se qualquer um dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelas Migrações para Azure pode não ser confiável. Dependendo do percentual dos pontos de dados disponíveis, é fornecida a classificação de confiança para a avaliação:
 
    **Disponibilidade dos pontos de dados** | **Classificação de confiança**
    --- | ---
@@ -124,13 +124,13 @@ Para o dimensionamento com base no desempenho, as Migrações para Azure precisa
    81%-100% | 5 estrelas
 
 Uma avaliação pode não ter todos os pontos de dados disponíveis devido a um dos seguintes motivos:
-- A configuração de estatísticas no vCenter Server não está definida para o nível 3, e a avaliação tem o dimensionamento com base no desempenho como o critério de dimensionamento. Se a configuração de estatísticas no vCenter Server for menor que o nível 3, os dados de desempenho de disco e de rede não são coletados do vCenter Server. Nesse caso, a recomendação fornecida pelas Migrações para Azure para o disco e a rede tem como base somente o que foi alocado no local. Para o armazenamento, as Migrações para Azure recomendam discos padrão, pois não há como identificar se o disco tem IOPS/taxa de transferência altas e necessita de discos premium.
-- A configuração de estatísticas no vCenter Server foi definida para o nível 3 para uma duração curta, antes de iniciar a descoberta. Por exemplo, se você alterar o nível de configuração de estatísticas para 3 hoje e iniciar a descoberta usando o dispositivo de coletor amanhã (após 24 horas), se estiver criando uma avaliação de um dia, você tem todos os pontos de dados. Mas se você estiver alterando a duração de desempenho nas propriedades de avaliação para um mês, a classificação de confiança diminui uma vez que o disco e os dados de desempenho de rede do último mês não estão disponíveis. Se você desejar considerar os dados de desempenho do último mês, é recomendável manter a configuração de estatísticas do vCenter Server no nível 3 por um mês antes de iniciar a descoberta. 
+- A configuração de estatísticas no vCenter Server não está definida para o nível 3, e a avaliação tem o dimensionamento com base no desempenho como o critério de dimensionamento. Se a configuração de estatísticas no vCenter Server for menor que o nível 3, os dados de desempenho de disco e de rede não são coletados do vCenter Server. Nesse caso, a recomendação fornecida pelas Migrações para Azure para o disco e a rede não é baseada na utilização. Para o armazenamento, as Migrações para Azure recomendam discos padrão, uma vez que, se não considerar a IOPS/taxa de transferência do disco, as Migrações para Azure não podem identificar se o disco precisará de um disco premium no Azure.
+- A configuração de estatísticas no vCenter Server foi definida para o nível 3 para uma duração curta, antes de iniciar a descoberta. Por exemplo, vamos pensar em um cenário em que você altera o nível de configuração de estatísticas para 3 hoje e inicia a descoberta usando o dispositivo de coletor amanhã (após 24 horas). Se estiver criando uma avaliação de um dia, você terá todos os pontos de dados, e a classificação de confiança da avaliação seria de 5 estrelas. Mas se estiver alterando a duração de desempenho nas propriedades de avaliação para um mês, a classificação de confiança diminuirá, visto que os dados de desempenho do disco e da rede do último mês não estariam disponíveis. Se você desejar considerar os dados de desempenho do último mês, é recomendável manter a configuração de estatísticas do vCenter Server no nível 3 por um mês antes de iniciar a descoberta. 
 - Algumas VMs foram desativadas durante o período para o qual a avaliação é calculada. Se todas as VMs foram desligadas por algum tempo, o vCenter Server não terá os dados de desempenho para aquele período. 
 - Algumas VMs foram criadas durante o período para o qual a avaliação é calculada. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesses casos, o histórico de desempenho das novas VMs não estará lá durante todo o período.
 
 > [!NOTE]
-> Se a classificação de confiança de qualquer avaliação estiver abaixo de 3 estrelas, é recomendável alterar o nível de configurações de estatísticas do vCenter Server para 3, aguardar o tempo da duração que deseja avaliar (1 dia/1 semana/1 mês) e, em seguida, realizar a descoberta e a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho pode não ser confiável, e é recomendável alternar para *dimensionamento como local* alterando as propriedades de avaliação.
+> Se a classificação de confiança de qualquer avaliação estiver abaixo de 4 estrelas, é recomendável alterar o nível de configurações de estatísticas do vCenter Server para 3, aguardar o tempo da duração que deseja avaliar (1 dia/1 semana/1 mês) e, em seguida, realizar a descoberta e a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho pode não ser confiável, e é recomendável alternar para *dimensionamento como local* alterando as propriedades de avaliação.
 
 ## <a name="monthly-cost-estimation"></a>Estimativa de custo mensal
 

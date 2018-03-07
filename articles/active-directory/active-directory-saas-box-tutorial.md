@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Tutorial: Integração do Active Directory do Azure ao Box
 
@@ -32,7 +32,7 @@ A integração do Box ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Box, você precisará dos seguintes itens:
 
@@ -114,7 +114,6 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
      
     > [!NOTE] 
     > Esse valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) para obter esse valor. 
-
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![O link de download do Certificado](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
@@ -123,7 +122,10 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. Para que o SSO seja configurado para o aplicativo, entre em contato com a [equipe de suporte ao cliente do Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) e forneça o arquivo XML baixado.
+6. Para configurar o SSO para o aplicativo, execute as etapas em [Configurar seu próprio SSO](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown)
+
+> [!NOTE] 
+> Se não for possível habilitar as configurações de Logon Único para a conta do Box, talvez seja necessário entrar em contato com a [equipe de suporte do Cliente Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) e forneça-lhes o arquivo XML baixado.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2018
 ms.author: billmath
-ms.openlocfilehash: b9a0b9027bbead00300040186e453933b3a7f46b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect-health"></a>Conformidade GDPR e Azure AD Connect Health 
 
@@ -35,6 +35,8 @@ O Azure AD Connect Health se encaixa na categoria **processador de dados** da cl
 
 ## <a name="data-retention-policy"></a>Política de retenção de dados
 O Azure AD Connect Health não gera relatórios, realiza análise nem fornece informações com mais de 30 dias. Portanto, o Azure AD Connect Health não armazena, processa ou retém quaisquer dados com mais de 30 dias. Este design está em conformidade com os regulamentos do GDPR, com os regulamentos de conformidade de privacidade da Microsoft e com as políticas de retenção de dados do Azure Active Directory. 
+
+Servidores com alertas **Os dados do serviço de integridade não estão atualizados** de **erro** ativo por mais de 30 dias consecutivos sugerem que nenhum dado atingiu o Connect Health durante esse intervalo de tempo. Esses servidores serão desabilitados e não exibidos no Portal do Connect Health. Para habilitar novamente os servidores, será necessário desinstalar e [reinstalar o agente de integridade](active-directory-aadconnect-health-agent-install.md). Observe que isso não se aplica a **avisos** com o mesmo tipo de alerta. Os avisos indicam que faltam dados parciais do servidor do qual você é alertado. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Desabilitar a coleta e monitoramento de dados no Azure AD Connect Health
 O Azure AD Connect Health habilita interromper a coleta de dados para cada servidor monitorado individual ou para uma instância de um serviço monitorado. Por exemplo, é possível parar a coleta de dados de servidores individuais AD FS (Serviços de Federação do Active Directory) que são monitorados usando o Azure AD Connect Health. Você também pode parar a coleta de dados de toda a instância do AD FS que está sendo monitorada usando o Azure AD Connect Health. Ao optar por fazer isso, os servidores correspondentes serão excluídos do Portal do Azure AD Connect Health após parar a coleta de dados. 
@@ -53,7 +55,7 @@ Se você parar a coleta e monitoramento de dados de um servidor monitorado indiv
 - Todos os dados pertencentes à instância do serviço monitorado são excluídos de acordo com a Política de Retenção de Dados do Microsoft Azure.
 
 ### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Desabilitar a coleta de dados e o monitoramento de um servidor monitorado
-Consulte [Como remover um servidor do Azure AD Connect Health](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
+Consulte [Como remover um servidor do Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Desabilitar a coleta e o monitoramento de dados para uma instância de um serviço monitorado
 Consulte [Como remover uma instância de serviço do Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).

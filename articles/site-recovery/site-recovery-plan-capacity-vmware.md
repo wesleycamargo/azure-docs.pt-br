@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planejar capacidade e dimensionamento para replicação VMware com o Azure Site Recovery
 
@@ -85,7 +85,7 @@ Depois de usar [a ferramenta Planejador de Implantação](site-recovery-deployme
 2. No snap-in, clique em **Alterar Propriedades**.
 
     ![Captura de tela da opção de snap-in do MMC do Backup do Azure para alterar propriedades](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. Na guia **Limitação**, selecione **Habilitar limitação de uso da largura de banda de Internet para operações de backup**. Defina os limites para horas de trabalho e folga. Os intervalos válidos são de 512 Kbps a 102 Mbps por segundo.
+3. Na guia **Limitação**, selecione **Habilitar limitação de uso da largura de banda de Internet para operações de backup**. Defina os limites para horas de trabalho e folga. Os intervalos válidos são de 512 Kbps a 1023 Mbps por segundo.
 
     ![Captura de tela da caixa de diálogo Propriedades de Backup do Azure](./media/site-recovery-vmware-to-azure/throttle2.png)
 

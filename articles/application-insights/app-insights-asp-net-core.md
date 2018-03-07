@@ -11,55 +11,208 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 74f99dd6f31ecff7c838d8f710a7fe4279ce0ea9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e9fb3e68db66449d9ca3b43e6974910cb9477e62
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
-O [Application Insights](app-insights-overview.md) permite que você monitore seu aplicativo Web quanto à disponibilidade, desempenho e uso. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
 
-![Exemplo](./media/app-insights-asp-net-core/sample.png)
+Azure Application Insights fornece monitoramento detalhado do seu aplicativo web até o nível de código. Você pode monitorar facilmente o aplicativo web quanto à sua disponibilidade, desempenho e uso. Você também pode identificar e diagnosticar erros rapidamente em seu aplicativo sem esperar que um usuário os relate.
 
-Precisa de uma assinatura do [Microsoft Azure](http://azure.com). Entre com uma conta da Microsoft, que você pode ter para o Windows, XBox Live ou outros serviços de nuvem da Microsoft. Sua equipe pode ter uma assinatura organizacional do Azure: peça ao proprietário que adicione você a ela usando sua conta da Microsoft.
+Este artigo o orienta pelo processo de criação de um exemplo do aplicativo ASP.NET Core [Razor Pages](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) no Visual Studio e como iniciar o monitoramento com o Azure Application Insights.
 
-## <a name="getting-started"></a>Introdução
+## <a name="prerequisites"></a>pré-requisitos
 
-* No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto e selecione **Configurar Application Insights** ou **Adicionar > Application Insights**. [Saiba mais](app-insights-asp-net.md).
-* Se esses comandos de menu não forem exibidos, siga o [manual Guia de Introdução](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started). Talvez seja necessário fazer isso se o projeto foi criado com uma versão do Visual Studio anterior a 2017.
+- SDK do NET Core 2.0.0 ou posterior.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) versão 15.3 ou posterior com a carga de trabalho ASP.NET e desenvolvimento web.
 
-## <a name="using-application-insights"></a>Usando o Application Insights
-Entre no [portal do Microsoft Azure](https://portal.azure.com), selecione **Todos os Recursos** ou **Application Insights** e, em seguida, selecione o recurso criado para monitorar o aplicativo.
+## <a name="create-an-aspnet-core-project-in-visual-studio"></a>Criar um projeto ASP.NET Core no Visual Studio
 
-Em uma janela separada do navegador, use seu aplicativo por algum tempo. Você verá os dados exibidos nos gráficos do Application Insights. (Talvez você precise clicar em Atualizar.) Haverá uma pequena quantidade de dados enquanto você estiver desenvolvendo, mas estes gráficos realmente ganharão vida quando você publicar seu aplicativo e tiver muitos usuários. 
+1. Clique com botão direito e inicie **Visual Studio 2017** como administrador.
+2. Selecione **Arquivo** > **Novo** > **Projeto** (Ctrl-Shift-N).
 
-A página de visão geral mostra gráficos de desempenho chave: tempo de resposta do servidor, tempo de carregamento de página e contagens de solicitações com falha. Clique em qualquer gráfico para ver mais gráficos e dados.
+   ![Captura de tela do Menu Arquivo Novo Projeto no Visual Studio](./media/app-insights-asp-net-core/0001-file-new-project.png)
 
-As exibições no portal se enquadram em três categorias principais:
+3. Expanda **Visual C#** > Selecione **.NET Core** > **Aplicativo Web do ASP.NET Core**. Insira um **Nome** > **Nome da solução** > Verificar **Criar novo repositório do Git**.
 
-* O [Metrics Explorer](app-insights-metrics-explorer.md) mostra gráficos e tabelas de métricas e contagens, como tempos de resposta, taxas de falha ou métricas que você cria com a [API](app-insights-api-custom-events-metrics.md). Filtre e segmente os dados por valores de propriedade para obter uma compreensão melhor do seu aplicativo e seus usuários.
-* O [Search Explorer](app-insights-diagnostic-search.md) lista eventos individuais, como solicitações específicas, exceções, rastreamentos de log ou eventos que você criou com a [API](app-insights-api-custom-events-metrics.md). Filtre e pesquise nos eventos e navegue entre os eventos relacionados para investigar problemas.
-* [Análise](app-insights-analytics.md) permite que você execute consultas SQL em sua telemetria e é uma poderosa ferramenta de análise e de diagnóstico.
+   ![Captura de tela do Assistente Arquivo Novo Projeto no Visual Studio](./media/app-insights-asp-net-core/0002-new-project-web-application.png)
 
-## <a name="alerts"></a>Alertas
-* Você obtém automaticamente [alertas proativos de diagnóstico](app-insights-proactive-diagnostics.md) que informam sobre alterações anômalas em taxas de falha e outras métricas.
-* Configure [testes de disponibilidade](app-insights-monitor-web-app-availability.md) para testar seu site continuamente em locais em todo o mundo e receber emails assim que qualquer teste falhar.
-* Configure [alertas de métrica](app-insights-monitor-web-app-availability.md) para saber se métricas, como tempos de resposta ou taxas de exceção, saem dos limites aceitáveis.
+4. Selecione **.Net Core** > **Core ASP.NET 2.0** **Aplicativo Web** > **OK**.
+
+    ![Captura de tela do Menu de Seleção Arquivo Novo Projeto no Visual Studio](./media/app-insights-asp-net-core/0003-dot-net-core.png)
+
+## <a name="add-application-insights-telemetry"></a>Adicionar Application Insights Telemetry
+
+1. Selecione **Projeto** > **Adicionar Application Insights Telemetry...** (Alternativamente clique **Serviços Conectados** > Adicionar Serviço Conectado.)
+
+    ![Captura de tela do Menu de Seleção Arquivo Novo Projeto no Visual Studio](./media/app-insights-asp-net-core/0004-add-application-insights-telemetry.png)
+
+2. Selecione **Iniciar Gratuitamente**.
+
+    ![Captura de tela do Menu de Seleção Arquivo Novo Projeto no Visual Studio](./media/app-insights-asp-net-core/0005-start-free.png)
+
+3. Selecione uma opção apropriada **Assinatura** > **Recurso** > e se deseja ou não permitir a coleta de mais de 1 GB por mês > **Registrar**.
+
+    ![Captura de tela do Menu de Seleção Arquivo Novo Projeto no Visual Studio](./media/app-insights-asp-net-core/0006-register.png)
+
+## <a name="changes-made-to-your-project"></a>Alterações feitas ao seu projeto
+
+O Application Insights possui sobrecarga muito baixa. Para examinar as modificações feitas em seu projeto, adicionando a telemetria do Application Insights:
+
+Selecione **Exibir** > **Team Explorer** (Ctrl +\, Ctrl + M) > **Projeto** > **Alterações**
+
+- Total de quatro alterações:
+
+  ![Captura de tela de arquivos alterados, adicionando o Application Insights](./media/app-insights-asp-net-core/0007-changes.png)
+
+- Um novo arquivo é criado:
+
+   **ConnectedService.json**
+
+  ![Captura de tela de arquivos alterados, adicionando o Application Insights](./media/app-insights-asp-net-core/0008-connectedservice-json.png)
+
+- Três arquivos são modificados:
+
+  **appsettings.json**
+
+   ![Captura de tela de arquivos alterados, adicionando o Application Insights](./media/app-insights-asp-net-core/0009-appsettings-json.png)
+
+  **ContosoDotNetCore.csproj**
+
+   ![Captura de tela de arquivos alterados, adicionando o Application Insights](./media/app-insights-asp-net-core/0010-contoso-netcore-csproj.png)
+
+   **Program.cs**
+
+   ![Captura de tela de arquivos alterados, adicionando o Application Insights](./media/app-insights-asp-net-core/0011-program-cs.png)
+
+## <a name="synthetic-transactions-with-powershell"></a>Transações sintéticas com o PowerShell
+
+Iniciar seu aplicativo e, em seguida, clicar em links manualmente podem ser usados para gerar tráfego de teste. No entanto, geralmente é útil criar uma transação sintética simple no PowerShell.
+
+1. Executar seu aplicativo clicando em IIS Express ![Captura de tela do ícone IIS Express do Visual Studio](./media/app-insights-asp-net-core/0012-iis-express.png)
+
+2. Copie a URL da barra de endereços do navegador. Ele está no formato http://localhost:{número da porta aleatória}
+
+   ![Captura de tela da barra de endereço da URL do navegador](./media/app-insights-asp-net-core/0013-copy-url.png)
+
+3. Execute o seguinte loop de PowerShell para criar 100 transações sintéticas no seu aplicativo de teste. Modifique o número de porta após **localhost:** para corresponder a url que você copiou na etapa anterior.
+
+   ```PS
+   for ($i = 0 ; $i -lt 100; $i++)
+   {
+    Invoke-WebRequest -uri http://localhost:50984/
+   }
+   ```
+
+## <a name="open-application-insights-portal"></a>Abrir o Portal do Application Insights
+
+Após executar o PowerShell a partir da seção anterior, inicie o Application Insights para exibir as transações e confirmar que os dados estão sendo coletados. 
+
+No menu do Visual Studio, selecione **Projeto** > **Application Insights** > **abrir Portal do Application Insights**
+
+   ![Captura de tela da Visão geral do Application Insights](./media/app-insights-asp-net-core/0014-portal-01.png)
+
+> [!NOTE]
+> A captura de tela de exemplo acima **Live Stream**, **Tempo de carregamento da exibição de página**, e **Solicitações com falha** atualmente não são coletados. A próxima seção acompanhará a adição de cada uma delas. Se você já estiver coletando **Live Stream**, e **Tempo de carregamento da exibição de página**, siga as etapas de apenas **Solicitações com falha**.
+
+## <a name="collect-failed-requests-live-stream--page-view-load-time"></a>Coletar Solicitações com falha, Live Stream e o Tempo de carregamento da exibição de página
+
+### <a name="failed-requests"></a>Solicitações com falha
+
+Tecnicamente **Solicitações com falha** estão sendo coletadas, mas não ocorreu nenhuma ainda. Para acelerar o processo ao longo de uma exceção personalizada pode ser adicionado ao projeto existente para simular uma exceção do mundo real. Se seu aplicativo ainda está em execução no Visual Studio antes de continuar **Interrompa a depuração** (Shift + F5)
+
+1. No **Gerenciador de Soluções** > expanda **Páginas** > **About.cshtml** > Abrir **About.cshtml.cs**.
+
+   ![Captura de tela do Gerenciador de Soluções do Visual Studio](./media/app-insights-asp-net-core/0015-solution-explorer-about.png)
+
+2. Adicionar uma Exceção em ``Message=`` > salvar a alteração no arquivo.
+
+   ```C#
+   throw new Exception("Test Exception");
+   ```
+
+   ![Captura de tela do código de exceção](./media/app-insights-asp-net-core/000016-exception.png)
+
+### <a name="live-stream"></a>Live Stream
+
+Para acessar a funcionalidade Live Stream do Application Insights com atualização do ASP.NET Core para os pacotes NuGet do **Microsoft.ApplicationInsights.AspNetCore 2.2.0**.
+
+No Visual Studio, selecione **Projeto** > **Gerenciar pacotes NuGet** > **Microsoft.ApplicationInsights.AspNetCore** > Versão **2.2.0** > **Atualização**.
+
+  ![Captura de tela do Gerenciador de Pacotes NuGet](./media/app-insights-asp-net-core/0017-update-nuget.png)
+
+Vários prompts de confirmação ocorrerão, leia e aceite se concordar com as alterações.
+
+### <a name="page-view-load-time"></a>Tempo de Carregamento de Exibição de Página
+
+1. No Visual Studio, navegue até **Gerenciador de Soluções** > **Páginas** > dois arquivos precisam ser modificados: **_Layout.cshtml**, e **_ ViewImports.cshtml**
+
+2. Em **_ViewImports.cshtml**, adicionar:
+
+   ```C#
+   @using Microsoft.ApplicationInsights.AspNetCore
+   @inject JavaScriptSnippet snippet
+   ```
+     ![Captura de tela de alteração de código _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
+
+3. Em **Layout.cshtml** adicione a linha abaixo antes da marca ``</head>``, mas antes de quaisquer outros scripts.
+
+    ```C#
+    @Html.Raw(snippet.FullScript)
+    ```
+    ![Captura de tela de alteração de código layout.cshtml](./media/app-insights-asp-net-core/0018-layout-cshtml.png)
+
+### <a name="test-failed-requests-page-view-load-time-live-stream"></a>Testar Solicitações com falha, Live Stream e o Tempo de carregamento da exibição de página
+
+Agora que você concluiu as etapas anteriores, você pode testar e confirmar se tudo está funcionando.
+
+1. Executar seu aplicativo clicando em IIS Express ![Captura de tela do ícone IIS Express do Visual Studio](./media/app-insights-asp-net-core/0012-iis-express.png)
+
+2. Navegue até a página **Sobre** para disparar a exceção de teste. (Se você estiver executando no modo de depuração, você precisará clicar em **Continuar** no Visual Studio antes da exceção ser separada por Application Insights.)
+
+3. Executar novamente o script de transação do PowerShell simulado anterior (talvez seja necessário ajustar o número da porta no script.)
+
+4. Se a visão geral do Application Insights não ainda estiver aberta, no menu do Visual Studio selecione **Projeto** > **Application Insights** > **Abrir o Portal do Application Insights**. 
+
+   > [!TIP]
+   > Se você não estiver vendo seu novo tráfego ainda, verifique o **Intervalo de tempo** e clique em **Atualizar**.
+
+   ![Captura de tela da janela de Visão geral](./media/app-insights-asp-net-core/0019-overview-updated.png)
+
+5. Selecionar Live Stream
+
+   ![Captura de tela de Live Metrics Stream](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
+
+   (Se seu script do PowerShell está em execução ainda, você deverá ver as métricas em tempo real, se interrompeu, execute o script novamente com o Live Stream aberto.)
+
+## <a name="app-insights-sdk-comparison"></a>Comparação SDK do App Insights
+
+O grupo do produto do Application Insights vem trabalhando duro para alcançar a paridade de recursos mais próxima possível entre o [SDK do .NET Framework completo](https://github.com/Microsoft/ApplicationInsights-dotnet) e o SDK do .Net Core. A versão 2.2.0 do [SDK do ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore) para o Application Insights cobriu amplamente a lacuna de recursos.
+
+Para saber mais sobre as diferenças e as compensações entre [.NET e .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+
+   | Comparação SDK | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
+  |:-- | :-------------: |:------------------------:|:----------------------:|
+   | **Live Metrics**      | **+** |**-** | **+** |
+   | **Canal de Telemetria do Servidor** | **+** |**-** | **+**|
+   |**Amostragem Adaptável**| **+** | **-** | **+**|
+   | **Chamadas de Dependência SQL**     | **+** |**-** | **+**|
+   | **Contadores de Desempenho*** | **+** | **-**| **-**|
+
+_Contadores de Desempenho_ neste contexto refere-se a [contadores de desempenho do servidor](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) como processador, memória e utilização de disco.
+
+## <a name="open-source-sdk"></a>SDK do código-fonte aberto
+[Ler e contribuir para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
-## <a name="open-source"></a>Código-fonte aberto
-[Ler e contribuir para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
-
-
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicione telemetria às suas páginas da Web](app-insights-javascript.md) para monitorar o uso e o desempenho de páginas.
-* [Monitore dependências](app-insights-asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão causando lentidão.
+* [Explorar os Fluxos dos Usuários](app-insights-usage-flows.md) para entender como os usuários navegam por meio de seu aplicativo.
 * [Use a API](app-insights-api-custom-events-metrics.md) para enviar seus próprios eventos e métricas para uma exibição mais detalhada do desempenho e do uso do aplicativo.
-* [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) verificam seu aplicativo constantemente em todo o mundo. 
-
+* [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) verificam seu aplicativo constantemente em todo o mundo.

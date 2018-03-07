@@ -1,25 +1,24 @@
 ---
-title: "Sobre o mapeamento de rede para replicação de VMs do Hyper-V em nuvens de VMM com o Site Recovery | Microsoft Docs"
+title: "Sobre o mapeamento de plano de rede para replicação de Hyper-V VM (com VMM) para o Azure com Site Recovery | Microsoft Docs"
 description: "Descreve como preparar o mapeamento de rede para replicação de VMs do Hyper-V gerenciadas em nuvens de VMM com o Azure Site Recovery."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>Sobre o mapeamento de rede para VM do Hyper-V com replicação de VMM 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Preparar o mapeamento da rede para a replicação de VM do Hyper-V para o Azure
 
 
-Este artigo ajuda você a entender e planejar o mapeamento de rede durante a replicação de máquinas virtuais do Hyper-V nas nuvens de System Center Virtual Machine Manager (VMM) usando o [serviço de recuperação de site do Azure](site-recovery-overview.md).
+Este artigo ajuda você a entender e reparar o mapeamento de rede quando você replicar máquinas virtuais do Hyper-V nas nuvens de System Center Virtual Machine Manager (VMM) para o Azure, ou um site secundário, usando o [serviço de recuperação de site do Azure](site-recovery-overview.md).
 
-Mapeamento de rede é usado ao replicar máquinas virtuais do Hyper-V gerenciadas em uma nuvem de VMM para uma nuvem de VMM ou para o Azure.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Preparar o mapeamento de rede para replicação do Azure
 
@@ -123,4 +122,5 @@ O mapeamento de rede da VMNetwork1-Chicago é alterado. | A VM-1 será conectada
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre](hyper-v-vmm-networking.md) o endereçamento IP após fal-over para um site de VMM secundário.
+- [Saiba mais sobre](hyper-v-vmm-networking.md) o endereçamento IP após fal-over para um site de VMM secundário.
+- [Saiba mais](concepts-on-premises-to-azure-networking.md) sobre o endereçamento IP após o failover para o Azure.

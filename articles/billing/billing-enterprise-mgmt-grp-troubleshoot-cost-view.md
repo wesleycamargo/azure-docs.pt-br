@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Solucionar problemas de exibições de custo empresarial 
 
 Nas inscrições empresariais, há várias configurações que podem fazer com que os usuários do registro não consigam exibir os custos.  Essas configurações são gerenciadas pelo administrador de registro ou pelo parceiro, se o registro não foi adquirido diretamente da Microsoft.  Este artigo ajuda você a entender quais são as configurações e como elas afetam o registro. Essas configurações são independentes das [Funções de RBAC do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
-> [!Note]
-> Esse recurso está atualmente em uma versão prévia particular. [Inscreva-se aqui](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) para ingressar seu registro na versão prévia.     
 
 ## <a name="enabling-access-to-costs"></a>Habilitando o acesso aos custos
 
@@ -47,4 +45,3 @@ Se você estiver recebendo uma mensagem de erro "Este ativo está indisponível"
 
 Entre em contato com o administrador da assinatura ou dos grupos de gerenciamento para obter acesso.  
 * Para assinaturas, consulte o documento [RBAC (Controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) para obter ajuda sobre qual função é necessária.
-* Para os grupos de gerenciamento, o acesso RBAC não está disponível e estará disponível em breve. Entre em contato com o administrador do portal empresarial para ter o acesso atribuído.   

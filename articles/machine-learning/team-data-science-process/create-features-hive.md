@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar recursos para os dados em um cluster Hadoop usando as consultas do Hive
 Este documento mostra como criar recursos para os dados armazenados em um cluster Hadoop do Azure HDInsight usando consultas do Hive. Essas consultas de Hive usam UDFs (funções definidas pelo usuário) de Hive incorporadas, Os scripts para eles são fornecidos.
@@ -31,7 +31,7 @@ Alguns exemplos de consultas apresentados são específicos para cenários de [D
 
 Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este artigo supõe que você:
 
 * Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -93,14 +93,14 @@ O Hive vem com um conjunto de UDFs para processar campos datetime. No Hive, o fo
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Essa consulta de Hive pressupõe que o *&#60;campo datetime>* esteja no formato datetime padrão.
+Esta consulta de Hive pressupõe que *<datetime field>* está no formato de data/hora padrão.
 
 Se um campo datetime não estiver no formato padrão, é necessário primeiro converter o campo datetime em carimbo de data/hora de Unix e, em seguida, converter o carimbo de data/hora do Unix em uma cadeia de caracteres datetime no formato padrão. Quando o datetime estiver no formato padrão, os usuários poderão aplicar UDFs datetime incorporadas para extrair recursos.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Nesta consulta, se o *&#60;campo datetime>* tiver o padrão *03/26/2015 12:04:39*, o *'&#60;padrão do campo datetime >'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os usuários podem executar
+Nessa consulta, se *<datetime field>* tiver o padrão como *26/03/2015 12:04:39*, o *<pattern of the datetime field>'* deverão ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os usuários podem executar
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -143,7 +143,7 @@ Uma lista completa de UDFs internas do Hive pode ser encontrada na seção **Fun
 ## <a name="tuning"></a> Tópicos avançados: ajustar parâmetros de Hive para melhorar a velocidade de consulta
 As configurações de parâmetro padrão do cluster de Hive talvez não sejam adequadas para as consultas de Hive e os dados que as consultas estão processando. Esta seção aborda alguns parâmetros que os usuários podem ajustar para melhorar o desempenho das consultas de Hive. Os usuários precisam adicionar as consultas de ajuste de parâmetro antes das consultas de processamento de dados.
 
-1. **Espaço de heap de Java**: para consultas que envolvem o ingresso de grandes conjuntos de dados ou o processamento de registros longos, um dos erros comuns é **ficar sem espaço de heap**. Este erro pode ser evitado configurando os parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para os valores desejados. Aqui está um exemplo:
+1. **Espaço de heap de Java**: para consultas que envolvem o ingresso de grandes conjuntos de dados ou o processamento de registros longos, um dos erros comuns é **ficar sem espaço de heap**. Este erro pode ser evitado configurando os parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para os valores desejados. Veja um exemplo:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;

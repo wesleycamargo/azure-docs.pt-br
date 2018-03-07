@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -151,7 +151,7 @@ O Azure fornece várias maneiras de utilizar contêineres em seus aplicativos.
 
     >**Quando utilizar**: ao implantar um aplicativo Web no Linux para uma imagem de Docker.
 
-    >**Introdução**: [Utilizar uma imagem de Docker personalizada para Serviço de Aplicativo no Linux](../../app-service/containers/quickstart-custom-docker-image.md).
+    >**Introdução**: [Utilizar uma imagem de Docker personalizada para Serviço de Aplicativo no Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### <a name="authentication"></a>Autenticação
 
@@ -222,7 +222,7 @@ O Azure fornece duas maneiras de gerenciar seus aplicativos e serviços a partir
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-O portal do Azure é um aplicativo baseado na Web que você pode utilizar para criar, gerenciar e remover recursos e serviços do Azure. O Portal do Azure está localizado em <https://portal.azure.com>. Inclui um painel personalizável, ferramentas para gerenciar recursos do Azure e acesso às configurações de assinatura e informações de cobrança. Para obter mais informações, consulte a [Visão geral do portal do Azure](../../azure-portal-overview.md).
+O portal do Azure é um aplicativo baseado na Web que você pode utilizar para criar, gerenciar e remover recursos e serviços do Azure. O portal do Azure está localizado em <https://portal.azure.com>. Inclui um painel personalizável, ferramentas para gerenciar recursos do Azure e acesso às configurações de assinatura e informações de cobrança. Para obter mais informações, consulte a [Visão geral do portal do Azure](../../azure-portal-overview.md).
 
 ### <a name="rest-apis"></a>APIs REST
 

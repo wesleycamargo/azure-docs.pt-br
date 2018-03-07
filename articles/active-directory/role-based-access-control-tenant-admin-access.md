@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
-ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevar o acesso como um administrador de locatários com Controle de Acesso Baseado em Função
 
-O Controle de Acesso Baseado em Função ajuda os administradores de locatários a obter elevações temporárias no acesso para que eles possam conceder permissões mais elevadas que o normal. Um administrador de locatários pode elevar a si mesmo para a função de Administrador de Acesso do Usuário quando necessário. Essa função fornece ao administrador de locatários permissões para conceder a si mesmo ou a outras funções no escopo "/".
+O Controle de Acesso Baseado em Função ajuda os administradores de locatários a obter elevações temporárias no acesso para que eles possam conceder permissões mais elevadas que o normal. Os administradores de locatários podem elevar a si mesmos para a função de Administrador de Acesso do Usuário quando necessário. Essa função fornece aos administradores de locatários permissões para conceder a si mesmos ou a outras funções no escopo "/".
 
 Esse recurso é importante porque permite que o administrador de locatários veja todas as assinaturas que existem em uma organização. Isso também permite aos aplicativos de automação (como faturamento e auditoria) acessar todas as assinaturas e fornecer uma exibição precisa do estado da organização em termos de gerenciamento de ativos ou cobrança.  
 
@@ -32,7 +32,7 @@ Esse recurso é importante porque permite que o administrador de locatários vej
 
 2. Escolha **Propriedades** no menu à esquerda do Azure AD.
 
-3. Na folha **Propriedades**, localize **Administrador global pode gerenciar assinaturas do Azure**, escolha **Sim** e, em seguida, **Salvar**.
+3. Localize **Administrador global pode gerenciar assinaturas do Azure**, escolha **Sim** e **Salve**.
     > [!IMPORTANT] 
     > Quando você escolhe **Sim**, a função **Administrador de Acesso do Usuário** na Raiz "/" (Escopo Raiz) é atribuída ao usuário com o qual você está conectado no momento no Portal. **Isso permite que o usuário veja todas as outras assinaturas do Azure.**
     
@@ -42,29 +42,31 @@ Esse recurso é importante porque permite que o administrador de locatários vej
 > [!TIP] 
 > A impressão é que essa é uma Propriedade Global para o Azure Active Directory, no entanto, ela funciona por usuário para o usuário conectado no momento. Quando você tiver direitos de Administrador Global no Azure Active Directory, poderá invocar o recurso elevateAccess para o usuário com o qual você está conectado no momento no Centro de Administração do Azure Active Directory.
 
-![Centro de administração do Azure AD – Propriedades – Globaladmin pode gerenciar a Assinatura do Azure – captura de tela](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+![Centro de Administração do Microsoft Azure AD - Propriedades - Administrador global pode gerenciar a Assinatura do Azure - captura de tela](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
 ## <a name="view-role-assignments-at-the--scope-using-powershell"></a>Visualize a atribuição de função no escopo "/" usando o PowerShell
 Para visualizar a atribuição do **Administrador de acesso do usuário** no  **/**  escopo, use o `Get-AzureRmRoleAssignment` cmdlet do PowerShell.
     
-```
+```powershell
 Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
 ```
 
 **Saída de exemplo**:
-
+```
 RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
-Escopo              : /    
-DisplayName        : nome de usuário    
+Scope              : /    
+DisplayName        : username    
 SignInName         : username@somedomain.com    
-RoleDefinitionName : Administrador de acesso do usuário    
+RoleDefinitionName : User Access Administrator    
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
-ObjectType         : Usuário    
+ObjectType         : User    
+```
 
 ## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>Exclua a atribuição de função no escopo "/" usando o Powershell:
 Você pode excluir a atribuição usando o seguinte cmdlet do PowerShell:
-```
+
+```powershell
 Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
 ```
 
@@ -80,15 +82,16 @@ O processo básico funciona com as seguintes etapas:
 
 2. Crie uma [atribuição de função](/rest/api/authorization/roleassignments) para atribuir qualquer função em qualquer escopo. O exemplo a seguir mostra as propriedades para atribuir a função Leitor no escopo "/":
 
-    ```
-    { "properties":{
-    "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
-    "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
-    "scope": "/"
-    },
-    "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
-    "type": "Microsoft.Authorization/roleAssignments",
-    "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
+    ```json
+    { 
+      "properties": {
+        "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
+        "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
+        "scope": "/"
+      },
+      "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
     }
     ```
 
@@ -102,55 +105,90 @@ O processo básico funciona com as seguintes etapas:
 Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo, de modo que para revogar esses privilégios é preciso excluir a atribuição.
 
 1.  Chame GET roleDefinitions, em que roleName = Administrador de Acesso do Usuário, para determinar o GUID do nome da função de Administrador de Acesso do Usuário.
-    1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
+    ```
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator
+    ```
 
-        ```
-        {"value":[{"properties":{
-        "roleName":"User Access Administrator",
-        "type":"BuiltInRole",
-        "description":"Lets you manage user access to Azure resources.",
-        "assignableScopes":["/"],
-        "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
-        "createdOn":"0001-01-01T08:00:00.0000000Z",
-        "updatedOn":"2016-05-31T23:14:04.6964687Z",
-        "createdBy":null,
-        "updatedBy":null},
-        "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-        "type":"Microsoft.Authorization/roleDefinitions",
-        "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
-        "nextLink":null}
-        ```
+    ```json
+    {
+      "value": [
+        {
+          "properties": {
+        "roleName": "User Access Administrator",
+        "type": "BuiltInRole",
+        "description": "Lets you manage user access to Azure resources.",
+        "assignableScopes": [
+          "/"
+        ],
+        "permissions": [
+          {
+            "actions": [
+              "*/read",
+              "Microsoft.Authorization/*",
+              "Microsoft.Support/*"
+            ],
+            "notActions": []
+          }
+        ],
+        "createdOn": "0001-01-01T08:00:00.0000000Z",
+        "updatedOn": "2016-05-31T23:14:04.6964687Z",
+        "createdBy": null,
+        "updatedBy": null
+          },
+          "id": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "name": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"
+        }
+      ],
+      "nextLink": null
+    }
+    ```
 
-        Salve o GUID do parâmetro *name*, neste caso **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+    Salve o GUID do parâmetro *name*, neste caso **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. Você também precisa listar a atribuição de função de administrador de locatário no escopo de locatário. Liste todas as atribuições no escopo de locatário para a PrincipalId do TenantAdmin que fez a chamada de elevação de acesso. Isso listará todas as atribuições no locatário para a ObjectID. 
-    1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
+2. Você também precisa listar a atribuição de função de administrador de locatário no escopo de locatário. Liste todas as atribuições no escopo de locatário para a PrincipalId do TenantAdmin que fez a chamada de elevação de acesso. Isso listará todas as atribuições no locatário para a ObjectID.
+
+    ```
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
+    ```
     
-        >[!NOTE] 
-        >Um administrador de locatário não deve ter muitas atribuições. Se a consulta anterior retorna atribuições demais, você também pode consultar por todas as atribuições apenas no nível de escopo de locatário e, em seguida, filtrar os resultados: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+    >[!NOTE] 
+    >Um administrador de locatário não deve ter muitas atribuições. Se a consulta anterior retornar atribuições demais, você também poderá consultar por todas as atribuições apenas no nível de escopo de locatário e, em seguida, filtrar os resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    
         
-    2. As chamadas anteriores retornam uma lista de atribuições de função. Localize a atribuição de função em que o escopo é "/" e a RoleDefinitionId termina com o GUID de nome da função encontrado na etapa 1 e a PrincipalId corresponde à ObjectId do administrador de locatário. A atribuição de função deve ter esta aparência:
+    2. As chamadas anteriores retornam uma lista de atribuições de função. Localize a atribuição de função em que o escopo é "/" e a RoleDefinitionId termina com o GUID de nome da função encontrado na etapa 1 e a PrincipalId corresponde à ObjectId do administrador de locatário. 
+    
+    Atribuição de função de amostra:
 
-        ```
-        {"value":[{"properties":{
-        "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-        "principalId":"{objectID}",
-        "scope":"/",
-        "createdOn":"2016-08-17T19:21:16.3422480Z",
-        "updatedOn":"2016-08-17T19:21:16.3422480Z",
-        "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
-        "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
-        "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-        "type":"Microsoft.Authorization/roleAssignments",
-        "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
-        "nextLink":null}
+        ```json
+        {
+          "value": [
+            {
+              "properties": {
+                "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+                "principalId": "{objectID}",
+                "scope": "/",
+                "createdOn": "2016-08-17T19:21:16.3422480Z",
+                "updatedOn": "2016-08-17T19:21:16.3422480Z",
+                "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
+                "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
+              },
+              "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+              "type": "Microsoft.Authorization/roleAssignments",
+              "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
+            }
+          ],
+          "nextLink": null
+        }
         ```
         
-        Novamente, salve o GUID do parâmetro *name* parâmetro, neste caso **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    Novamente, salve o GUID do parâmetro *name* parâmetro, neste caso **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
 
     3. Por fim, use a **ID de RoleAssignment** realçada para excluir a atribuição adicionada por Elevate Access:
 
-        DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+    ```
+    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

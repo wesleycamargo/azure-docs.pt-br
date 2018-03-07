@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: aelnably;msangapu
+ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implantação contínua com o Aplicativo Web para Contêineres
 
@@ -34,14 +34,14 @@ Entre no [Portal do Azure](https://portal.azure.com)
 Você pode habilitar o recurso de implantação contínua usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e executando o seguinte comando
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 No  **[portal do Azure](https://portal.azure.com/)**, clique a opção **Serviço de Aplicativo** à esquerda da página.
 
 Clique no nome do aplicativo para o qual você deseja configurar a implantação contínua do Hub do Docker.
 
-Nas **Configurações do aplicativo**, adicione uma configuração de aplicativo chamada `DOCKER_ENABLE_CI` com o valor `true`.
+No **Contêiner do Docker**, selecione 'On' e, em seguida, pressione Save para habilitar a implantação contínua.
 
 ![inserir imagem da configuração de aplicativo](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -50,7 +50,7 @@ Nas **Configurações do aplicativo**, adicione uma configuração de aplicativo
 Você pode obter a URL do Webhook usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e executando o seguinte comando
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 Para a URL do Webhook, você precisa ter o seguinte ponto de extremidade: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
@@ -89,6 +89,6 @@ Quando a imagem é atualizada, o aplicativo Web é atualizado automaticamente co
 * [Registro de Contêiner do Azure](https://azure.microsoft.com/services/container-registry/)
 * [Usando o .NET Core no Serviço de Aplicativo do Azure no Linux](quickstart-dotnetcore.md)
 * [Usando o Ruby no Serviço de Aplicativo do Azure no Linux](quickstart-ruby.md)
-* [Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres](quickstart-custom-docker-image.md)
+* [Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres](quickstart-docker-go.md)
 * [Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure](./app-service-linux-faq.md)
 * [Gerenciar aplicativo Web para Contêineres usando a CLI do Azure 2.0](./app-service-linux-cli.md)

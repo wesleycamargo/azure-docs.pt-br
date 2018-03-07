@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/21/2018
 ms.author: danlep
-ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote
 
@@ -33,9 +33,11 @@ Este artigo fornece diretrizes e exemplos para usar alguns dos tamanhos especial
 
 ## <a name="subscription-and-account-limits"></a>Limites de assinatura e de conta
 
-* **Cotas** – a [cota de núcleos dedicados por conta do Lote](batch-quota-limit.md#resource-quotas) pode limitar o número ou tipo de nós que você pode adicionar a um pool de Lote. É mais provável que você atinja uma cota ao escolher tamanhos de VM compatíveis com RDMA, habilitados para GPU ou outros tamanhos de VM com vários núcleos. Por padrão, essa cota é de 20 núcleos. Uma cota separada se aplica a [VMs de baixa prioridade](batch-low-pri-vms.md), se você as usa. 
+* **Cotas e limite** - A [cota de núcleos dedicados por conta do Lote](batch-quota-limit.md#resource-quotas) pode limitar o número ou tipo de nós que você pode adicionar a um pool de Lote. É mais provável que você atinja uma cota ao escolher tamanhos de VM compatíveis com RDMA, habilitados para GPU ou outros tamanhos de VM com vários núcleos. Uma cota separada se aplica a [VMs de baixa prioridade](batch-low-pri-vms.md), se você as usa. 
 
-Se você precisa solicitar um aumento de cota, abra uma [solicitação de suporte ao cliente online](../azure-supportability/how-to-create-azure-support-request.md) gratuitamente.
+  Além disso, o uso de determinadas famílias de VM em sua conta de Lotes, como NCv2 e ND, é restrito por causa da capacidade limitada. O uso dessas famílias só está disponível na solicitação de um aumento da cota a partir do padrão de 0 núcleo.  
+
+  Se você precisa solicitar um aumento de cota, abra uma [solicitação de suporte ao cliente online](../azure-supportability/how-to-create-azure-support-request.md) gratuitamente.
 
 * **Disponibilidade de região** – as VMs de computação intensiva podem não estar disponíveis nas regiões em que você cria suas contas do Lote. Para verificar se um tamanho está disponível, consulte [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
@@ -50,10 +52,10 @@ Os recursos de RDMA e GPU dos tamanhos de computação intensiva têm suporte so
 | Tamanho | Recurso | Sistemas operacionais | Software necessário | Configurações do pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC ou<br/>HPC baseado em CentOS<br/>(Azure Marketplace) | Intel MPI 5 | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
-| [Séries NC, NCv2, ND*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varia de acordo com a série) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>CentOS 7.3<br/>(Azure Marketplace) | Drivers NVIDIA CUDA Toolkit 9.1 | N/D | 
-| [Série NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>CentOS 7.3<br/>(Azure Marketplace) | Drivers NVIDIA GRID 4.3 | N/D |
+| [Séries NC, NCv2, ND*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varia de acordo com a série) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou 7.4 ou<br/>CentOS 7.3 ou 7.4<br/>(Azure Marketplace) | Drivers NVIDIA CUDA Toolkit | N/D | 
+| [Série NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>CentOS 7.3<br/>(Azure Marketplace) | Drivers NVIDIA GRID | N/D |
 
-*A conectividade RDMA em VMs NC24r, NC24r_v2 e ND24r é compatível com o Ubuntu 16.04 LTS ou o HPC 7.3 baseado em CentOS (do Microsoft Azure Marketplace) com Intel MPI.
+*A conectividade RDMA em VMs NC24r, NC24rs_v2 e ND24r é compatível com o Ubuntu 16.04 LTS (do Microsoft Azure Marketplace) com Intel MPI.
 
 
 
@@ -61,11 +63,11 @@ Os recursos de RDMA e GPU dos tamanhos de computação intensiva têm suporte so
 
 | Tamanho | Recurso | Sistemas operacionais | Software necessário | Configurações do pool |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 ou<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Extensão de VM do Azure HpcVMDrivers | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
-| [Séries NC, NCv2, ND*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia de acordo com a série) | Windows Server 2016 ou <br/>Windows Server 2012 R2 (Azure Marketplace) | Drivers NVIDIA Tesla ou drivers CUDA Toolkit 9.1| N/D | 
-| [Série NV](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 ou<br/>Windows Server 2012 R2 (Azure Marketplace) | Drivers NVIDIA GRID 4.3 | N/D |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2 ou<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Extensão de VM do Azure HpcVMDrivers | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
+| [Séries NC, NCv2, ND*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia de acordo com a série) | Windows Server 2016 ou <br/>2012 R2 (Azure Marketplace) | Drivers NVIDIA Tesla ou drivers CUDA Toolkit| N/D | 
+| [Série NV](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 ou<br/>2012 R2 (Azure Marketplace) | Drivers NVIDIA GRID | N/D |
 
-*A conectividade RDMA em VMs NC24r, NC24r_v2 e ND24r é compatível com o Windows Server 2012 R2 (do Microsoft Azure Marketplace) com a extensão HpcVMDrivers e Microsoft MPI ou Intel MPI.
+*A conectividade RDMA em VMs NC24r, NC24rs_v2 e ND24rs é compatível com o Windows Server 2016 ou o Windows Server 2012 R2 (do Microsoft Azure Marketplace) com a extensão HpcVMDrivers e Microsoft MPI ou Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Pools do Windows – configuração de serviços de nuvem
 
@@ -75,7 +77,7 @@ Os recursos de RDMA e GPU dos tamanhos de computação intensiva têm suporte so
 
 | Tamanho | Recurso | Sistemas operacionais | Software necessário | Configurações do pool |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012 ou<br/>Windows Server 2008 R2 (família do SO convidado) | Microsoft MPI 2012 R2 ou posterior, ou<br/>Intel MPI 5<br/><br/>Extensão de VM do Azure HpcVMDrivers | Habilitar a comunicação entre nós,<br/> desabilitar a execução de tarefas simultâneas |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 ou<br/>2008 R2 (família do SO convidado) | Microsoft MPI 2012 R2 ou posterior, ou<br/>Intel MPI 5<br/><br/>Extensão de VM do Azure HpcVMDrivers | Habilitar a comunicação entre nós,<br/> desabilitar a execução de tarefas simultâneas |
 
 
 
