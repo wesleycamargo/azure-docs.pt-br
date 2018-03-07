@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
@@ -76,14 +76,13 @@ Enviar uma mensagem para uma retransmissão do Barramento de Serviço é tratado
 As retransmissões abertas usando a associação do WCF **netTCPRelay** tratam as mensagens não como mensagens individuais, mas como um fluxo de dados que flui pelo sistema. Ao usar essa associação, somente o remetente e o ouvinte têm visibilidade do enquadramento das mensagens individuais enviadas e recebidas. Para retransmissões que usam a associação **netTCPRelay**, todos os dados são tratados como um fluxo para o cálculo das mensagens cobráveis. Nesse caso, o Barramento de Serviço calcula a quantidade total de dados enviados ou recebidos por meio de cada retransmissão individual por 5 minutos. Em seguida, ele divide essa quantidade total de dados por 64 KB para determinar o número de mensagens faturáveis para a retransmissão durante o período.
 
 ## <a name="quotas"></a>Cotas
-| Nome da cota | Escopo | type | Comportamento quando excedido | Valor |
-| --- | --- | --- | --- | --- |
-| Ouvintes simultâneos em uma retransmissão |Entidade |estático |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
-| Ouvintes simultâneos da retransmissão |Todo o sistema |estático |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |2.000 |
-| Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Todo o sistema |estático |- |5.000 |
-| Pontos de extremidade de retransmissão por namespace de serviço |Todo o sistema |estático |- |10.000 |
-| Tamanho de mensagem para retransmissões [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) e [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Todo o sistema |estático |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |64 KB |
-| Tamanho de mensagem para retransmissões [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Todo o sistema |estático |- |Ilimitado |
+| Nome da cota | Escopo |  Observações | Valor |
+| --- | --- | --- | --- |
+| Ouvintes simultâneos em uma retransmissão |Entidade |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
+| Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Namespace |- |5.000 |
+| Pontos de extremidade de retransmissão por namespace de serviço |Namespace |- |10.000 |
+| Tamanho de mensagem para retransmissões [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) e [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Namespace |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |64 KB |
+| Tamanho de mensagem para retransmissões [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Namespace |Não há limite no tamanho da mensagem. |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>A retransmissão tem alguma cota de uso?
 Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregada que é calculada para todas as assinaturas de um cliente. Sabemos que, às vezes, suas necessidades podem exceder esses limites. Você pode contatar o atendimento ao cliente a qualquer momento para que possamos compreender suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, as cotas totais de uso são:

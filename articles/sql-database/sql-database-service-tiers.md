@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: carlrab
-ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são as camadas de serviço do Banco de Dados SQL do Azure?
 
@@ -35,8 +35,8 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 |SLA de tempo de atividade|99,99%|99,99%|99,99%|N/d enquanto estiver em versão prévia|
 |Retenção de backup|7 dias|35 dias|35 dias|
 |CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|
-|Taxa de transferência de E/S|Baixo  | Média | Ordem de magnitude maior do que o Standard|
-|Latência de E/S|Maior do que o Premium|Maior do que o Premium|Menor do que o Básico e Standard|
+|Taxa de transferência de E/S (aproximada) |2.5 IOPS por DTU  | 2.5 IOPS por DTU | 48 IOPS por DTU|
+|Latência de E/S (aproximada)|5 ms (leitura), 10 ms (gravação)|5 ms (leitura), 10 ms (gravação)|2 ms (leitura/gravação)|
 |Indexação de ColumnStore e OLTP in-memory|N/D|N/D|Com suporte|
 |||||
 

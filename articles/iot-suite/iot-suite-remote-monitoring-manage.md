@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Gerenciar e configurar dispositivos
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 > * Chamar os métodos de dispositivo por meio da solução.
 > * Reconfigurar um dispositivo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para seguir este tutorial, você precisará de uma instância implantada de solução de monitoramento remoto na sua assinatura do Azure.
 
@@ -42,11 +42,11 @@ Se você ainda não implantou a solução de monitoramento remoto, conclua o tut
 
 ## <a name="add-a-simulated-device"></a>Adicionar um dispositivo simulado
 
-Navegue até a página **Dispositivos** na solução e, em seguida, selecione **Novo dispositivo**. No painel **Novo dispositivo**, escolha **Simulado**:
+Navegue até a página **Dispositivos** na solução e, em seguida, selecione **+ Novo dispositivo**. No painel **Novo dispositivo**, escolha **Simulado**:
 
 ![Provisionar um dispositivo simulado](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Deixe o número de dispositivos a serem provisionados definido como **1**. Escolha **Mecanismo Defeituoso** como o **Modelo de dispositivo** e, em seguida, escolha **Aplicar** para criar o dispositivo simulado:
+Deixe o número de dispositivos a serem provisionados definido como **1**. Escolha o modelo de dispositivo **Mecanismo Defeituoso** e **Aplicar** para criar o dispositivo simulado:
 
 ![Provisionar um dispositivo de mecanismo simulado](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 

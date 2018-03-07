@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertas de log no Azure Monitor - Alertas (visualização)
 Este artigo fornece detalhes de como regras de alerta nas consultas de análise funcionam nos Alertas do Azure (visualização) e descreve as diferenças entre os diversos tipos de regras de alerta de log.
@@ -27,11 +27,20 @@ No momento, Alertas do Azure (Visualização) dá suporte a alertas de log em co
 
 > [!WARNING]
 
-> Alertas de log atualmente no Alertas do Azure (Visualização) não dão suporte às consultas entre espaço de trabalho ou entre aplicativos.
+> Atualmente, o alerta de log no Alertas do Azure (Visualização) não dá suporte às consultas entre espaço de trabalho ou entre aplicativos.
+
+Além disso, os usuários podem aperfeiçoar suas consultas na plataforma Analytics de sua escolha no Azure e, em seguida, *importá-las para uso em alertas (visualização), salvando a consulta*. Etapas a serem executadas:
+- Para o Application Insights: vá para o portal do Analytics, valide a consulta e seus resultados. Em seguida, salve com um nome exclusivo para no *Consultas compartilhadas*.
+- Para o Log Analytics: vá para o Log Search, valide a consulta e seus resultados. Em seguida, salve com um nome exclusivo em qualquer categoria.
+
+Ao [criar um alerta de log no Alertas (visualização)](monitor-alerts-unified-usage.md), você vê a consulta salva listada como tipo de sinal **Log (consulta salva)**; conforme ilustrado no exemplo abaixo: ![Consulta Salva, importado para Alertas](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+
+> [!NOTE]
+> Usar o **Log (consulta salva)** resulta em uma importação para Alertas. Portanto, qualquer alteração feita no Analytics não será refletiva em regras de alerta salvas e vice-versa.
 
 ## <a name="log-alert-rules"></a>Regras de alerta de log
 
-Os alertas são criados por Alertas do Azure (visualização) que executam consultas de log automaticamente em intervalos regulares.  Se os resultados da consulta de log corresponderem a critérios específicos, um registro de alerta será criado. A regra poderá, em seguida, executar automaticamente uma ou mais ações para notificá-lo proativamente do alerta ou invocar outro processo como a execução de runbooks, usando [Grupos de ação](monitoring-action-groups.md).  Diferentes tipos de regras de alerta usam lógicas diferentes para realizar essa análise.
+Os alertas são criados por Alertas do Azure (visualização) que executam consultas de log automaticamente em intervalos regulares.  Se os resultados da consulta de log corresponderem a critérios específicos, um registro de alerta será criado. A regra poderá, em seguida, executar automaticamente uma ou mais ações para notificá-lo proativamente do alerta ou invocar outro processo como enviar dados para aplicação externa usando [json baseado em webhook](monitor-alerts-unified-log-webhook.md), usando [Grupos de ação](monitoring-action-groups.md). Diferentes tipos de regras de alerta usam lógicas diferentes para realizar essa análise.
 
 Regras de Alerta são definidas pelos detalhes a seguir:
 
@@ -47,24 +56,26 @@ Cada regra de alerta no Log Analytics é de um entre dois tipos.  Cada um desses
 
 As diferenças entre tipos de regra de alerta são conforme descrito a seguir.
 
-- A regra de alerta **Número de resultados** sempre criará um único tempo de alerta, enquanto a regra de alerta **Medição métrica** criará um alerta para cada objeto que exceder o limite.
+- **A regra de alerta número de resultados sempre cria um único tempo de alerta, enquanto a regra de alerta **Medição métrica** cria um alerta para cada objeto que exceder o limite.
 - Regras de alerta de **Número de resultados** criarão um alerta quando o limite for excedido uma única vez. Regras de alerta de **Medição métrica** podem criar um alerta quando o limite é excedido um determinado número de vezes em um intervalo de tempo específico.
 
 ## <a name="number-of-results-alert-rules"></a>Regras de alerta de Número de resultados
-Regras de alerta de **Número de resultados** criam um único alerta quando o número de registros retornados pela consulta de pesquisa excede o limite especificado.
+Regras de alerta de **Número de resultados** criam um único alerta quando o número de registros retornados pela consulta de pesquisa excede o limite especificado. Esse tipo de regra de alerta é ideal para trabalhar com eventos como logs de eventos do Windows, Syslog, WebApp Response e Logs Personalizados.  Pode ser útil criar um alerta quando um evento de erro específico é criado ou quando vários eventos de erros são criados dentro de uma janela de tempo específica.
 
-**Threshold**: O limite para uma regra de alerta de **Número de resultados** é maior ou menor que um valor específico.  Se o número de registros retornados pela pesquisa de logs corresponderem a esses critérios, um alerta será criado.
+**Threshold**: O limite para uma **Regra de alerta de número de resultados é maior ou menor que um valor específico.  Se o número de registros retornados pela pesquisa de logs corresponderem a esses critérios, um alerta será criado.
 
-### <a name="scenarios"></a>Cenários
-
-#### <a name="events"></a>Eventos
-Esse tipo de regra de alerta é ideal para trabalhar com eventos como logs de eventos do Windows, Syslog e logs Personalizados.  Pode ser útil criar um alerta quando um evento de erro específico é criado ou quando vários eventos de erros são criados dentro de uma janela de tempo específica.
-
-Para alertar quanto a um único evento, defina o número de resultados para maior que 0 e tanto a frequência quanto a janela de tempo para cinco minutos.  Isso executa a consulta a cada cinco minutos e verifica a ocorrência de um único evento que foi criado desde a última vez em que a consulta foi executada.  Uma frequência maior pode atrasar o tempo entre o evento que está sendo coletado e o alerta criado.
-
-Alguns aplicativos podem registrar um erro ocasional que não necessariamente gerará um alerta.  Por exemplo, o aplicativo pode repetir o processo que criou o evento de erro e depois ter êxito na próxima vez.  Nesse caso, não convém criar o alerta, a menos que vários eventos sejam criados dentro de uma janela de tempo específica.  
+Para alertar sobre um único evento, defina o número de resultados para maior que 0 e verifique a ocorrência de um único evento que foi criado desde a última vez em que a consulta foi executada. Alguns aplicativos podem registrar um erro ocasional que não necessariamente gerará um alerta.  Por exemplo, o aplicativo pode repetir o processo que criou o evento de erro e depois ter êxito na próxima vez.  Nesse caso, não convém criar o alerta, a menos que vários eventos sejam criados dentro de uma janela de tempo específica.  
 
 Em alguns casos, pode ser útil criar um alerta na ausência de um evento.  Por exemplo, um processo pode registrar eventos regulares para indicar que ele está funcionando corretamente.  Se ele não registrar um desses eventos dentro de uma janela de tempo específica, um alerta deverá ser criado.  Nesse caso você definiria o limite como **menos de 1**.
+
+### <a name="example"></a>Exemplo
+Considere um cenário onde você deseja saber quando seu aplicativo baseado na web fornece uma resposta para os usuários com o código de 500 (ou seja) erro interno do servidor. Você criaria uma regra de alerta com os detalhes a seguir:  
+**Consulta:** solicitações | onde resultCode = = "500"<br>
+**Janela de tempo:** 30 minutos<br>
+**Frequência de alerta:** cinco minutos<br>
+**Valor de limite:** maior que 0<br>
+
+Alerta deve executar a consulta a cada 5 minutos, com 30 minutos de dados - procurar qualquer registro onde o código de resultado foi 500. Se for encontrado um registro existente, ele aciona o alerta e o gatilho de ação configurada.
 
 ## <a name="metric-measurement-alert-rules"></a>Regras de alerta com medição métrica
 
@@ -74,7 +85,7 @@ Regras de alerta de **Medição métrica** criam um alerta para cada objeto em u
 
 > [!NOTE]
 
-> Função de agregação na consulta deve ser chamada/nomeada: AggregatedValue e fornecer um valor numérico.
+> Função de agregação na consulta deve ser chamada/nomeada: AggregatedValue e fornecer um valor numérico. 
 
 
 **Campo de grupo**: Um registro com um valor agregado será criado para cada instância do campo e um alerta pode ser gerado para cada um deles.  Por exemplo, se você quisesse gerar um alerta para cada computador, usaria **by Computer**   
@@ -84,6 +95,8 @@ Regras de alerta de **Medição métrica** criam um alerta para cada objeto em u
 > Para regras de alerta de medição métrica baseadas no Application Insights, você pode especificar o campo para agrupamento dos dados. Para fazer isso, use a opção **Agregação** na definição da regra.   
 
 **Intervalo**: Define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se você especificasse **cinco minutos**, um registro seria criado para cada instância do campo de grupo agregada em intervalos de 5 minutos durante a janela de tempo especificada para o alerta.
+> [!NOTE]
+> Função bin deve ser usada na consulta. Também se os intervalos de tempo diferentes são produzidos para janela de tempo pelo uso da função Bin - Alerta, em vez disso use a função bin_at para garantir que há um ponto fixo
 
 **Limite**: O limite para regras de alerta de Medição métrica é definido por um valor de agregação e algumas violações.  Se qualquer ponto de dados na pesquisa de logs exceder esse valor, ele será considerado uma violação.  Se o número de violações de qualquer objeto nos resultados exceder o valor especificado, um alerta será criado para esse objeto.
 
@@ -104,6 +117,8 @@ Neste exemplo, alertas separados seriam criados para srv02 e srv03, já que eles
 
 
 ## <a name="next-steps"></a>Próximas etapas
+* Entender [Ações de Webhook para alertas de log](monitor-alerts-unified-log-webhook.md)
 * [Obtenha uma visão geral dos Alertas do Azure (visualização)](monitoring-overview-unified-alerts.md)
 * Saiba mais sobre [Como usar os alertas do Azure (visualização)](monitor-alerts-unified-usage.md)
+* Saiba mais sobre o [Application Insights](../application-insights/app-insights-analytics.md)
 * Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md).    

@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d4f5123ff47bbe1e4d88acdaef004dcecd2f3512
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiar dados para ou do Azure Data Lake Store usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,6 +37,9 @@ Especificamente, este conector do Azure Data Lake Store dá suporte à:
 - Copiar arquivos usando **entidade de serviço** ou autenticação de **identidade de serviço gerenciada** (MSI).
 - Cópia de arquivos no estado em que se encontram ou análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
+> [!IMPORTANT]
+> Se você copiar dados usando o Integration Runtime Auto-hospedado, configure o firewall corporativo para permitir o tráfego de saída para `<ADLS account name>.azuredatalakestore.net` e `login.microsoftonline.com/<tenant>/oauth2/token` na porta 443. O último é o Serviço de Segurança de Token do Azure (STS) com o qual o IR precisa se comunicar para obter o token de acesso.
+
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -51,7 +54,6 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Data Lake S
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como **AzureDataLakeStore**. | sim |
 | dataLakeStoreUri | Informações sobre a conta do Azure Data Lake Store. Essas informações usam um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | sim |
-| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | sim |
 | subscriptionId | ID de assinatura do Azure à qual a conta do Data Lake Store pertence. | Obrigatório para coletor |
 | resourceGroupName | Nome do grupo de recursos do Azure ao qual a conta do Data Lake Store pertence. | Obrigatório para coletor |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
@@ -80,6 +82,7 @@ Há suporte para as seguintes propriedades:
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
+| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | sim |
 
 **Exemplo:**
 
@@ -132,7 +135,6 @@ No Azure Data Factory, você não precisa especificar nenhuma propriedade além 
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<subscription of ADLS>",
             "resourceGroupName": "<resource group of ADLS>"
         },

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre o uso do HDInsight no Linux
 
@@ -29,13 +29,13 @@ Clusters do Azure HDInsight fornecem Hadoop em um ambiente Linux familiar, em ex
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Muitas das etapas neste documento usam os seguintes utilitários, que talvez precisem ser instalados em seu sistema.
 
 * [cURL](https://curl.haxx.se/) - usado para se comunicar com serviços baseados na Web
 * [jq](https://stedolan.github.io/jq/) - usado para analisar documentos JSON
-* [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (visualização) – usada para gerenciar os serviços do Azure remotamente
+* [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) – usada para gerenciar remotamente os serviços do Azure
 
 ## <a name="users"></a>Usuários
 

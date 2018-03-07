@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Usar o Visual Studio Code para depurar um módulo C# com o Azure IoT Edge
 Este artigo fornece instruções detalhadas de como usar o [Visual Studio Code](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para depurar seus módulos do Azure IoT Edge.
@@ -47,7 +47,7 @@ Depois de concluir o tutorial anterior, os seguintes itens deverão estar estão
 
 2. Em `launch.json`, navegue até a seção **Depurar módulo personalizado IoT Edge (.NET Core)**. Em **pipeArgs**, preencha o `<container_name>`. Ele deve ser `filtermodule` neste tutorial.
 
-    ![Captura de tela da janela de depuração do VS Code](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Captura de tela do VS Code launch.json](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. Navegue até **Program.cs**. Adicione um ponto de interrupção no `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Pressione **F5** novamente e selecione o processo ao qual ele deverá ser anexado. Neste tutorial, o nome do processo deve ser `FilterModule.dll`.

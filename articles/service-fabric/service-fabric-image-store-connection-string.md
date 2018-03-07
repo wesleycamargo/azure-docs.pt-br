@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/10/2018
+ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4b64331a4f25ce0cc01b2ee9f32633ab035e3131
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3c34a3851dbb5c5258b3dc0cf35a510f62cbe14e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Noções básicas sobre a configuração ImageStoreConnectionString
 
@@ -42,7 +42,9 @@ O tipo de provedor usado na produção é o serviço de armazenamento de imagem,
 
 O armazenamento de imagens em um serviço de sistema dentro do próprio cluster de hospedagem elimina as dependências externas para o repositório de pacotes e nos dá mais controle sobre a localidade de armazenamento. As melhorias futuras no armazenamento de imagens do têm probabilidade do provedor de armazenamento de imagens de destino, primeiro, se não exclusivamente. A cadeia de conexão para o provedor de serviço de armazenamento de imagem não tem nenhuma informação exclusiva desde que o cliente já está conectado ao cluster de destino. O cliente só precisa saber que protocolos direcionando o serviço do sistema devem ser usados.
 
-O provedor do sistema de arquivos é usado em vez do serviço de armazenamento de imagem para clusters de uma caixa locais durante o desenvolvimento para inicializar o cluster ligeiramente mais rápido. A diferença é normalmente pequena, mas é uma otimização útil para a maioria das pessoas durante o desenvolvimento. É possível implantar um cluster local de uma caixa com os outros provedor tipos de armazenamento, bem, mas geralmente não há nenhum motivo para fazer isso, já que o fluxo de trabalho de desenvolvimento/teste permanece o mesmo, independentemente do provedor. Diferente para esse fim, os provedores de sistema de arquivos e armazenamento do Azure só existem para dar suporte.
+O provedor do sistema de arquivos é usado em vez do serviço de armazenamento de imagem para clusters de uma caixa locais durante o desenvolvimento para inicializar o cluster ligeiramente mais rápido. A diferença é normalmente pequena, mas é uma otimização útil para a maioria das pessoas durante o desenvolvimento. É possível implantar um cluster local de uma caixa com os outros provedor tipos de armazenamento, bem, mas geralmente não há nenhum motivo para fazer isso, já que o fluxo de trabalho de desenvolvimento/teste permanece o mesmo, independentemente do provedor. O provedor de Armazenamento do Microsoft Azure existe somente para suporte herdado de clusters antigos implantados antes que o provedor de Serviço de Repositório de Imagens foi introduzido.
+
+Além disso, nem o provedor do Sistema de Arquivos nem o provedor de Armazenamento do Microsoft Azure devem ser usados como um método para compartilhar um Repositório de Imagens entre vários clusters - isso resultará em corrupção de dados de configuração de cluster, pois cada cluster pode gravar dados conflitantes no Repositório de Imagens. Para compartilhar pacotes de aplicativos provisionados entre vários clusters, use os arquivos [sfpkg][12], que podem ser carregados em qualquer repositório externo com um URI de download.
 
 Então embora ImageStoreConnectionString é configurável, você geralmente apenas usar a configuração padrão. Ao publicar no Azure por meio do Visual Studio, o parâmetro será definido automaticamente para você de forma adequada. Para implantação programática em clusters hospedados no Azure, a cadeia de conexão sempre será "fabric: ImageStore". Entretanto, em caso de dúvida, seu valor pode ser verificado sempre por meio da recuperação do manifesto do cluster pelo [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Os clusters de teste e de produção locais sempre deverão estar configurados para usar o provedor do Serviço de repositório de imagens também.
 
@@ -55,4 +57,4 @@ Então embora ImageStoreConnectionString é configurável, você geralmente apen
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-
+[12]: service-fabric-package-apps.md#create-an-sfpkg

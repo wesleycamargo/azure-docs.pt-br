@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 02/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5e041de12105770a16e43b5ff4f918a1eba92b2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 410fe05e0a545905024f223e6f7297066b326d14
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Gerar e exportar certificados para conexões Ponto a Site utilizando o PowerShell no Windows 10 ou no Windows Server 2016
 
@@ -34,12 +34,11 @@ Conexões ponto a site usam certificados para se autenticar. Este artigo mostra 
 > 
 > 
 
-
 Execute as etapas deste artigo em um computador que executa o Windows 10 ou no Windows Server 2016. Os cmdlets do PowerShell que você utiliza para gerar certificados são parte do sistema operacional e não funcionam em outras versões do Windows. O computador Windows 10 ou Windows Server 2016 é necessário apenas para gerar os certificados. Depois que os certificados forem gerados, você poderá carregá-los ou instalá-los em qualquer sistema operacional cliente com suporte. 
 
 Se você não tiver acesso a um computador com Windows 10 ou Windows Server 2016 poderá utilizar o [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) para gerar certificados. Os certificados que você gerar utilizando qualquer um dos métodos podem ser instalados em qualquer sistema operacional cliente [com suporte](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
-## <a name="rootcert"></a>Criar um certificado raiz autoassinado
+## <a name="rootcert"></a>1. Criar um certificado raiz autoassinado
 
 Utilize o cmdlet New-SelfSignedCertificate para criar um certificado raiz autoassinado. Para obter informações adicionais sobre os parâmetros, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
@@ -53,17 +52,7 @@ Utilize o cmdlet New-SelfSignedCertificate para criar um certificado raiz autoas
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-### <a name="cer"></a>Exportar a chave pública (.cer)
-
-[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
-
-O arquivo exported.cer deve ser carregado no Azure. Para obter instruções, consulte [Configurar uma conexão ponto a site](vpn-gateway-howto-point-to-site-rm-ps.md#upload). Para adicionar um certificado raiz confiável adicional, [esta seção](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert) do artigo.
-
-### <a name="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional"></a>Exportar o certificado raiz autoassinado e a chave pública para armazená-lo (opcional)
-
-Convém exportar o certificado raiz autoassinado e armazená-lo com segurança. Se precisar, você pode instalá-lo depois em outro computador e gerar mais certificados de cliente, ou exportar outro arquivo .cer. Para exportar o certificado raiz autoassinado como um .pfx, selecione o certificado raiz e use as mesmas etapas, conforme descrito em [Exportar um certificado do cliente](#clientexport) para exportar.
-
-## <a name="clientcert"></a>Gerar um certificado do cliente
+## <a name="clientcert"></a>2. Gerar um certificado de cliente
 
 Cada computador cliente que se conecta a uma rede virtual usando ponto a site deve ter um certificado do cliente instalado. Você gera um certificado do cliente com base no certificado raiz autoassinado e, em seguida, a exporta e instala o certificado do cliente. Se o certificado do cliente não estiver instalado, a autenticação falhará. 
 
@@ -78,7 +67,7 @@ Este exemplo usa a variável '$cert' declarada da seção anterior. Se você fec
 Modifique e execute o exemplo para gerar um certificado do cliente. Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado do cliente chamado 'P2SChildCert'.  Se você deseja nomear o certificado filho diferentemente, modifique o valor de CN. Não altere a TextExtension ao executar esse exemplo. O certificado do cliente que você gera é instalado automaticamente em 'Certificates - Current User\Personal\Certificates' em seu computador.
 
 ```powershell
-New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
 -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
 -HashAlgorithm sha256 -KeyLength 2048 `
 -CertStoreLocation "Cert:\CurrentUser\My" `
@@ -116,26 +105,37 @@ Se você estiver criando certificados do cliente adicionais ou não estiver usan
 4.  Modifique e execute o exemplo para gerar um certificado do cliente. Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado do cliente chamado 'P2SChildCert'. Se você deseja nomear o certificado filho diferentemente, modifique o valor de CN. Não altere a TextExtension ao executar esse exemplo. O certificado do cliente que você gera é instalado automaticamente em 'Certificates - Current User\Personal\Certificates' em seu computador.
 
   ```powershell
-  New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+  New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
   -HashAlgorithm sha256 -KeyLength 2048 `
   -CertStoreLocation "Cert:\CurrentUser\My" `
   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
   ```
 
-## <a name="clientexport"></a>Exportar um certificado do cliente   
+## <a name="cer"></a>3. Exportar a chave pública de certificado raiz (.cer)
+
+[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
+
+
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportar o certificado raiz autoassinado e a chave privada para armazená-lo (opcional)
+
+Convém exportar o certificado raiz autoassinado e armazená-lo com segurança como backup. Se necessário, é possível instalá-lo em outro computador e gerar mais certificados do cliente. Para exportar o certificado raiz autoassinado como um .pfx, selecione o certificado raiz e use as mesmas etapas, conforme descrito em [Exportar um certificado do cliente](#clientexport) para exportar.
+
+## <a name="clientexport"></a>4. Exportar o certificado do cliente
 
 [!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
 
-## <a name="install"></a>Instalar um certificado do cliente exportado
+
+## <a name="install"></a>5. Instalar um certificado do cliente exportado
+
+Cada cliente que conecta-se à VNet através de uma conexão P2S requer um certificado do cliente para ser instalado localmente.
 
 Para instalar um certificado de cliente, confira [Instalar um certificado de cliente para conexões Ponto a Site](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="install"></a>6. Continuar com as etapas de configuração P2S
 
 Continue com a configuração de Ponto a Site.
 
 * Para conferir as etapas do modelo de implantação do **Gerenciador de Recursos**, confira [Configurar P2S usando a autenticação de certificado nativa do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Para as etapas do modelo de implantação **clássico**, veja [Configurar uma conexão VPN Ponto a Site para uma VNet (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
-
-Para obter informações sobre solução de problemas de P2S, consulte [Solução de problemas de conexões de ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+* Para obter informações sobre solução de problemas de P2S, consulte [Solução de problemas de conexões de ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

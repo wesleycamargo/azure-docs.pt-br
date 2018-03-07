@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
@@ -27,7 +27,7 @@ Este artigo supõe familiaridade com conceitos de contêiner do Docker e como cr
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* Versões do SDK: os SDKs do Lote dão suporte a imagens de contêiner nas seguintes versões:
+* Versões do SDK: os SDKs do Lote dão suporte a imagens de contêiner das seguintes versões:
     * API REST do Lote versão 2017-09-01.6.0
     * SDK do .NET para o Lote versão 8.0.0
     * SDK do Python para o Lote versão 4.0
@@ -87,7 +87,7 @@ No código do aplicativo, forneça uma referência para a imagem de VM para ser 
 
     Para obter essa ID da imagem do portal do Azure, abra **Todos os recursos**, selecione a imagem personalizada e a seção **Visão geral** da folha da imagem e copie o caminho na **ID de recurso**.
 
-* Se você estiver usando uma imagem do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based), forneça um grupo de parâmetros que descrevem a imagem: o tipo de oferta, o publisher, a SKU e a versão da imagem, conforme indicado na [Lista de imagens de máquinas virtuais](batch-linux-nodes.md#list-of-virtual-machine-images):
+* Se estiver usando uma imagem do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based), forneça um grupo de parâmetros que descrevem a imagem: editor, tipo de oferta, SKU e a versão da imagem, conforme listado em [Lista de imagens de máquina virtual](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).
+* Consulte também o kit de ferramentas [Batch Shipyard](https://github.com/Azure/batch-shipyard) para facilitar a implantação de cargas de trabalho do contêiner no Lote do Azure através de [receitas Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * Para saber mais sobre como instalar e usar o Docker CE no Linux, confira a documentação do [Docker](https://docs.docker.com/engine/installation/).
 

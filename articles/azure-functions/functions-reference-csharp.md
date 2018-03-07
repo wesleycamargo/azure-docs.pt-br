@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5e94ba1a45bccefedfa0017ad0123942e66f70bb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 683ef1ebffaec74df95b454d717857d55b8026dd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do desenvolvedor de scripts C# (.csx) do Azure Functions
 
@@ -199,24 +199,7 @@ A diretiva `#load` só funciona com arquivos *.csx*, não com arquivos *.cs*.
 
 ## <a name="binding-to-method-return-value"></a>Associando ao valor de retorno do método
 
-Use um valor retornado de um método em uma associação de saída, usando o nome `$return` em *function.json*:
-
-```json
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "$return",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnectionString",
-}
-```
-
-```csharp
-public static string Run(string input, TraceWriter log)
-{
-    return input;
-}
-```
+Use um valor retornado de um método em uma associação de saída, usando o nome `$return` em *function.json*. Para obter exemplos, consulte [Gatilhos e associações](functions-triggers-bindings.md#using-the-function-return-value).
 
 ## <a name="writing-multiple-output-values"></a>Gravando vários valores de saída
 
@@ -264,17 +247,31 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>Tokens de cancelamento
 
-Algumas operações exigem um desligamento normal. Embora seja sempre melhor escrever um código que possa lidar com falhas, nos casos em que você desejar lidar com solicitações de desligamento, defina um argumento de tipo [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx).  Um `CancellationToken` é fornecido para sinalizar que um desligamento de host é disparado.
+Uma função pode aceitar um parâmetro [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) que permite ao sistema operacional notificar seu código quando a função está prestes a ser encerrada. Você pode usar essa notificação para certificar-se de que a função não finalize inesperadamente de uma maneira que os dados fiquem em um estado inconsistente.
+
+O exemplo a seguir mostra como verificar o encerramento da função iminente.
 
 ```csharp
-public async static Task ProcessQueueMessageAsyncCancellationToken(
-    string blobName,
-    Stream blobInput,
-    Stream blobOutput,
+using System;
+using System.IO;
+using System.Threading;
+
+public static void Run(
+    string inputText,
+    TextWriter logger,
     CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        if (token.IsCancellationRequested)
+        {
+            logger.WriteLine("Function was cancelled at iteration {0}", i);
+            break;
+        }
+        Thread.Sleep(5000);
+        logger.WriteLine("Normal processing for queue message={0}", inputText);
     }
+}
 ```
 
 ## <a name="importing-namespaces"></a>Importando namespaces

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>Classes de recursos para gerenciamento de carga de trabalho
 Diretrizes para usar classes de recursos para gerenciar a quantidade de consultas simultâneas e computar recursos para consultas no SQL Data Warehouse do Azure.
@@ -84,6 +84,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 ```
 
 A classe de recurso do administrador de serviços é fixa e não pode ser alterada.  O administrador de serviços é o usuário criado durante o processo de provisionamento.
+
+> [!NOTE]
+> Usuários ou grupos definidos como administrador do Active Directory também são administradores de serviços.
+>
+>
 
 ### <a name="default-resource-class"></a>Classe de recurso padrão
 Por padrão, cada usuário é um membro da pequena classe de recursos, **smallrc**. 

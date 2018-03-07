@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 091e7e6cabf325cdd9d4289e7d22e71c583d91db
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: dd8203763eb6abd19e2b3483636dc4d80f7effdf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Criar uma rede virtual usando o PowerShell
 
-Neste artigo, você aprenderá como criar uma rede virtual. Após criar uma rede virtual, você implantará duas máquinas virtuais na rede virtual e se comunicarão em modo privado.
+Neste artigo, você aprenderá como criar uma rede virtual. Após criar uma rede virtual, você implantará duas máquinas virtuais na rede virtual para testar a comunicação de rede privada entre elas.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.1.1 ou posterior. Para localizar a versão instalada, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do AzureRM PowerShell versão 5.1.1 ou posterior. Para localizar a versão instalada, execute ` Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -71,9 +71,11 @@ Grave a configuração da sub-rede na rede virtual com [Set-AzureRmVirtualNetwor
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="create-virtual-machines"></a>Criar máquinas virtuais
+## <a name="test-network-communication"></a>Testar comunicação de rede
 
-Uma rede virtual permite que vários tipos de recursos do Azure comuniquem-se em modo privado. Um tipo de recurso que pode ser implantado em uma rede virtual é uma máquina virtual. Crie duas máquinas virtuais na rede virtual para que você possa validar e entender como a comunicação entre máquinas virtuais em uma rede virtual funciona em uma etapa posterior.
+Uma rede virtual permite que vários tipos de recursos do Azure comuniquem-se em modo privado. Um tipo de recurso que pode ser implantado em uma rede virtual é uma máquina virtual. Crie duas máquinas virtuais na rede virtual para que você possa validar comunicação privada entre elas em uma etapa posterior.
+
+### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
 Crie uma máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Ao executar esta etapa, credenciais serão solicitadas de você. Os valores que você insere são configurados como o nome de usuário e senha para a máquina virtual. A localização em que uma máquina virtual é criada deve ser a mesma localização na qual a rede virtual existe. Não é necessário que a máquina virtual esteja no mesmo grupo de recursos que a máquina virtual, embora isso seja abordado neste artigo. O parâmetro `-AsJob` permite que o comando seja executado em plano de fundo para que você possa continuar com a próxima tarefa.
 
@@ -108,7 +110,7 @@ New-AzureRmVm `
 ```
 A criação da máquina virtual demora alguns minutos. Após a criação, o Azure retorna o resultado sobre a máquina virtual criada. Embora não apareça na saída retornada, o Azure atribuiu *10.0.0.5* para a máquina virtual *myVm2* porque era o próximo endereço disponível na sub-rede.
 
-## <a name="connect-to-a-virtual-machine"></a>Conectar-se a uma máquina virtual
+### <a name="connect-to-a-virtual-machine"></a>Conectar-se a uma máquina virtual
 
 Utilize o comando [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para retornar o endereço IP público de uma máquina virtual. O Azure atribui, por padrão, um endereço IP roteável de internet público para cada máquina virtual. O endereço IP público é atribuído à máquina virtual a partir de um [pool de endereços atribuídos a cada região do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Enquanto o Azure sabe qual endereço IP público é atribuído a uma máquina virtual, o sistema operacional executado em uma máquina virtual não reconhece nenhum endereço IP público atribuído a ele. O exemplo a seguir retorna o endereço IP público da máquina virtual *myVm1*:
 
@@ -124,7 +126,7 @@ mstsc /v:<publicIpAddress>
 
 Um arquivo .rdp (protocolo RDP) é criado, baixado para seu computador e aberto. Insira o nome de usuário e a senha que você especificou ao criar a máquina virtual e, em seguida, clique em **OK**. Você pode receber um aviso do certificado durante o processo de logon. Clique em **Sim** ou em **Continuar** para prosseguir com o processo de conexão.
 
-## <a name="validate-communication"></a>Validar a comunicação
+### <a name="validate-communication"></a>Validar a comunicação
 
 A tentativa de executar ping de uma máquina virtual do Windows falha porque, por padrão, executar ping não é permitido por meio do firewall do Windows. Para permitir executar ping na *myVm1*, insira o seguinte comando a partir de um prompt de comando:
 
@@ -138,7 +140,7 @@ Para validar a comunicação com *myVm2*, insira o seguinte comando a partir de 
 mstsc /v:myVm2
 ```
 
-A conexão de área de trabalho remota ocorre com êxito porque ambas as máquinas virtuais possuem endereços IP privados atribuídos da sub-rede *padrão* e porque a área de trabalho remota, por padrão, é aberta pelo firewall do Windows. Você pode se conectar em *myVm2* pelo nome do host porque o Azure fornece automaticamente a resolução de nomes DNS para todos os hosts dentro de uma rede virtual. Em um prompt de comando, execute ping *myVm1*, a partir *myVm2*.
+A conexão de área de trabalho remota ocorre com êxito porque ambas as máquinas virtuais possuem endereços IP privados atribuídos da sub-rede *padrão* e porque a área de trabalho remota, por padrão, é aberta pelo firewall do Windows. Você pode se conectar em *myVm2* pelo nome do host porque o Azure fornece automaticamente a resolução de nomes DNS para todos os hosts dentro de uma rede virtual. De um prompt de comando, executar ping *myVm1*, a partir de *myVm2*.
 
 ```
 ping myvm1
@@ -150,11 +152,13 @@ O ping é executado com êxito porque você permitiu através do firewall do Win
 ping bing.com
 ```
 
-Você recebe quatro respostas do bing.com. Por padrão, qualquer máquina virtual em uma rede virtual pode se comunicar com a Internet.
+Você recebe quatro respostas do bing.com. Por padrão, qualquer máquina virtual em uma rede virtual pode comunicar-se com a Internet.
+
+Saia da sessão de área de trabalho remota. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que contém. Saia da sessão da área de trabalho remota e, em seguida, execute o seguinte comando do seu computador para excluir o grupo de recursos:
+Quando não for mais necessário, você pode usar o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que contém:
 
 ```azurepowershell-interactive 
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -162,8 +166,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você implantou uma rede virtual padrão com uma sub-rede e duas máquinas virtuais. Para saber como criar uma rede virtual personalizada com várias sub-redes e executar tarefas básicas de gerenciamento de rede virtual, continue no tutorial para criar uma rede virtual personalizada e gerenciá-la.
-
+Neste artigo, você implantou uma rede virtual padrão com uma sub-rede. Para saber como criar uma rede virtual personalizada com várias sub-redes, continue no tutorial para criar uma rede virtual personalizada.
 
 > [!div class="nextstepaction"]
-> [Criar uma rede virtual personalizada e gerenciá-la](virtual-networks-create-vnet-arm-pportal.md#powershell)
+> [Crie uma rede virtual personalizada](virtual-networks-create-vnet-arm-pportal.md#powershell)

@@ -35,7 +35,7 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
 * **Discos de Armazenamento Premium**
 
-    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS, Ls e Fs. Você tem sete opções de tamanho de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Tamanhos de disco P4 e P6 no momento têm suporte somente para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
+    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS, Ls, Fs e Esv3. Você tem sete opções de tamanho de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Tamanhos de disco P4 e P6 no momento têm suporte somente para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de página Premium**
 

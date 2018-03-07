@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 48ec84cd01126f431f22457a4ace451e4d9bce42
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
@@ -86,8 +86,8 @@ Cada conta de usuário que precisa entrar no Azure AD deve ter um valor de atrib
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
 | Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Caracteres não permitidos |<ul> <li>Qualquer caractere de '@' que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto '.' imediatamente antes do símbolo '@'</li></ul> |
-| Restrições de comprimento |<ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>Pode haver até 64 caracteres antes do símbolo de "@"</li><li>Pode haver até 48 caracteres após o símbolo de "@"</li></ul> |
+| Caracteres não permitidos |<ul> <li>Qualquer caractere "\@\" que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto "." imediatamente antes do símbolo "\@\"</li></ul> |
+| Restrições de comprimento |<ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>Pode haver até 64 caracteres antes do símbolo de "\@\"</li><li>Pode haver até 48 caracteres após o símbolo de "\@\"</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de senha que se aplicam somente a contas de usuário na nuvem
 
@@ -96,7 +96,7 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 | Propriedade | Requisitos |
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Caracteres não permitidos |<ul><li>Caracteres Unicode.</li><li>Espaços.</li><li> Somente senhas fortes: não podem conter um caractere de ponto “.” imediatamente antes do símbolo “@”.</li></ul> |
+| Caracteres não permitidos |<ul><li>Caracteres Unicode.</li><li>Espaços.</li><li> Somente senhas fortes: não podem conter um caractere de ponto "." imediatamente antes do símbolo "\@\".</li></ul> |
 | Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 caracteres.</li><li>Somente senhas fortes: requer três de quatro dos seguintes itens:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (veja as restrições de senha acima).</li></ul></li></ul> |
 | Tempo de expiração da senha |<ul><li>Valor padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do Módulo do Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de senha |<ul><li>Valor padrão: **14** dias (antes do vencimento de senha).</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy`.</li></ul> |

@@ -1,9 +1,9 @@
 ---
-title: "Unir o tempo de execução de integração do Azure-SSIS a uma VNET | Microsoft Docs"
+title: "Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual | Microsoft Docs"
 description: "Saiba como unir o tempo de execução de integração do Azure-SSIS a uma rede virtual do Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,154 +12,168 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
-Una o tempo de execução de integração (IR) do Azure-SSIS a uma rede virtual (VNet) do Azure nos cenários a seguir: 
+Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual do Azure nos cenários a seguir: 
 
-- Você hospeda o banco de dados de Catálogo do SSIS em uma instância gerenciada do SQL Server (versão prévia privada) que faz parte de uma VNet.
+- Você está hospedando o banco de dados do catálogo SSIS (SQL Server Integration Services) na Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia) em uma rede virtual.
 - Você deseja se conectar a armazenamentos de dados locais de pacotes SSIS em execução em um tempo de execução de integração do Azure-SSIS.
 
- O Azure Data Factory versão 2 (versão prévia) permite que você una o tempo de execução de integração do Azure-SSIS a uma VNET do Azure Resource Manager ou clássica. 
+ O Azure Data Factory versão 2 (versão prévia) permite unir o tempo de execução de integração do Azure-SSIS a uma rede virtual criada através do modelo de implantação clássico ou modelo de implantação do Azure Resource Manager. 
 
- > [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory versão 1](v1/data-factory-introduction.md).
+> [!NOTE]
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço do Data Factory, que está em GA (disponibilidade geral), consulte a [documentação do Data Factory versão 1](v1/data-factory-introduction.md).
 
-## <a name="access-on-premises-data-stores"></a>Acessar armazenamentos de dados locais
-Se os pacotes do SSIS acessam apenas armazenamentos de dados de nuvem pública, você não precisa unir o IR do Azure-SSIS a uma rede virtual. Se os pacotes do SSIS acessam armazenamentos de dados locais, você deve unir o IR do Azure-SSIS a uma VNet que esteja conectada à rede local. 
+## <a name="access-to-on-premises-data-stores"></a>Acessar armazenamentos de dados locais
+Se os pacotes SSIS acessam apenas os armazenamentos de dados de nuvem pública, não é necessário unir o IR do Azure-SSIS em uma rede virtual. Se os pacotes SSIS acessarem armazenamentos de dados locais, será necessário unir o IR do Azure-SSIS a uma rede virtual conectada à rede local. 
 
-Se o catálogo do SSIS estiver hospedado em um banco de dados SQL do Azure que não esteja na VNet, você precisará abrir as portas apropriadas. 
+Se o catálogo do SSIS estiver hospedado em uma instância do Banco de Dados SQL do Azure que não está na rede virtual, será necessário abrir portas apropriadas. 
 
-Se o Catálogo do SSIS estiver hospedado na Instância Gerenciada (MI) em uma VNet, você poderá unir o Azure-SSIS IR à mesma VNet (ou) uma VNet diferente que possua uma conexão VNet-to-VNet com a que tem a Instância Gerenciada do Azure SQL. A VNet pode ser uma VNet clássica ou uma VNet de Gerenciamento de Recursos do Azure. Se você estiver planejando unir a IR IV Azure SSIS na **mesma VNet** que tenha a SQL MI, certifique-se de que a IR Azure-SSIS do Azure está em uma **sub-rede diferente** do que tem a SQL MI.   
+Se o catálogo do SSIS estiver hospedado na Instância Gerenciada do Banco de Dados SQL em uma rede virtual, será possível unir um IR do Azure-SSIS para:
+
+- A mesma rede virtual.
+- Uma rede virtual diferente que tenha uma conexão de rede a rede com aquela que tenha Instância Gerenciada do Banco de Dados SQL. 
+
+A rede virtual pode ser implantada através do modelo de implantação clássico ou do modelo de implantação do Azure Resource Manager. Se você pretende unir o IR do Azure-SSIS na *mesma rede virtual* que tem a Instância Gerenciada do Banco de Dados SQL, verifique se o IR do Azure-SSIS está em uma *sub-rede diferente* daquela que tem a Instância Gerenciada do Banco de Dados SQL.   
 
 As seções a seguir apresentam mais detalhes.
 
 Alguns pontos importantes a serem considerados: 
 
-- Se não houver uma VNet existente conectada à sua rede local, primeiro crie uma [VNET do Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) ou uma [VNet clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para o tempo de execução de integração do Azure-SSIS a unir. Em seguida, configure uma [conexão de gateway VPN site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[conexão de ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) dessa VNet à sua rede local.
-- Se já houver um Azure Resource Manager ou uma VNet clássica conectada à sua rede local no mesmo local que o IR do Azure-SSIS, você poderá unir o IR à VNet.
-- Se já houver uma VNet clássica conectada à sua rede local em um local diferente do IR do Azure-SSIS, você primeiro tem que criar uma [VNet clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão entre [VNets clássicas](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md). Ou você poderá criar uma [VNET do Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para o tempo de execução de integração do Azure-SSIS a unir. Em seguida, configure uma conexão entre [VNET clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
-- Se houver uma VNET do Azure Resource Manager existente conectada à sua rede local em um local diferente do seu IR do Azure-SSIS, você poderá primeiro criar uma [VNET do Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão de VNET do Azure Resource Manager para o Azure Resource Manager. Ou você pode criar uma [VNet clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão entre [VNet clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+- Se não houver uma rede virtual conectada existente à sua rede local, primeiro crie uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) ou uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para o tempo de execução de integração do Azure-SSIS a unir. Em seguida, configure uma [conexão de gateway de VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) site a site ou conexão [ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) dessa rede virtual à sua rede local.
+- Se houver um Azure Resource Manager existente ou uma rede virtual clássica conectada à sua rede local no mesmo local do IR do Azure-SSIS, será possível unir o IR nessa rede virtual.
+- Se houver uma rede virtual clássica existente conectada à rede local em um local diferente do IR do Azure-SSIS, será possível primeiro criar uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para o IR do Azure-SSIS a unir. Em seguida, configure uma conexão entre [redes virtuais clássicas](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md). Ou você poderá criar uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para o tempo de execução de integração do Azure-SSIS a unir. Em seguida, configure uma conexão entre [rede virtual clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+- Se houver uma rede virtual do Azure Resource Manager existente conectada à sua rede local em um local diferente do IR do Azure-SSIS, você poderá primeiro criar uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão de rede virtual do Azure Resource Manager para o Azure Resource Manager. Ou você pode criar uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão entre [rede virtual clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## <a name="domain-name-services-server"></a>Servidor de Serviços de Nome de Domínio 
-Se você precisar usar seu próprio servidor de Serviços de Nome de Domínio (DNS) em uma VNet ingressada por seu tempo de execução de integração do Azure-SSIS, siga a diretriz para [certificar-se de que os nós de seu tempo de execução de integração do Azure-SSIS na VNet possam resolver pontos de extremidade do Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Se você precisar usar seu próprio servidor DNS (Serviços de Nomes de Domínio) em uma rede virtual ingressada por seu tempo de execução de integração do Azure-SSIS, siga a diretriz para [certificar-se de que os nós de seu tempo de execução de integração do Azure-SSIS na rede virtual possam resolver pontos de extremidade do Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
-## <a name="network-security-group"></a>Grupo de Segurança de Rede
-Se você precisar implementar o Grupo de Segurança de Rede (NSG) em uma VNet unida por seu tempo de execução de integração do Azure-SSIS, permita o tráfego de entrada/saída pelas seguintes portas:
+## <a name="network-security-group"></a>Grupo de segurança de rede
+Se você precisar implementar o NSG (Grupo de Segurança de Rede) em uma rede virtual ingressada por seu tempo de execução de integração do Azure-SSIS, permita o tráfego de entrada/saída pelas portas a seguir:
 
-| Portas | Direção | Protocolo de Transporte | Finalidade | Origem da entrada/destino da saída |
+| Portas | Direção | Protocolo de transporte | Finalidade | Origem da entrada/destino da saída |
 | ---- | --------- | ------------------ | ------- | ----------------------------------- |
-| 10100, 20100, 30100 (se você unir o IR em uma VNet clássica)<br/><br/>29876, 29877 (se você unir o IR na VNet do Azure Resource Manager) | Entrada | TCP | Os serviços do Azure usam essas portas para se comunicar com os nós de seu tempo de execução de integração do Azure-SSIS na VNet. | Internet | 
-| 443 | Saída | TCP | Os nós de seu tempo de execução de integração do Azure-SSIS na VNet usam essa porta para acessar os serviços do Azure como, por exemplo, o Armazenamento do Microsoft Azure, Hub de eventos, etc. | INTERNET | 
-| 1433<br/>11000-11999<br/>14000-14999  | Saída | TCP | Os nós de seu tempo de execução de integração do Azure-SSIS na VNet usam essas portas para acessar o SSISDB hospedado pelo servidor de banco de dados SQL do Azure (não aplicável ao SSISDB hospedado pela instância gerenciada do SQL do Azure). | Internet | 
+| 10100, 20100, 30100 (se você unir o IR a uma rede virtual clássica)<br/><br/>29876, 29877 (se você unir o IR a uma rede virtual do Azure Resource Manager) | Entrada | TCP | Os serviços do Azure usam essas portas para comunicarem-se com os nós de seu tempo de execução de integração do Azure-SSIS na rede virtual. | Internet | 
+| 443 | Saída | TCP | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essa porta para acessar os serviços do Azure, como o Armazenamento do Microsoft Azure e Hubs de Eventos do Azure. | Internet | 
+| 1433<br/>11000-11999<br/>14000-14999  | Saída | TCP | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essas portas para acessar o SSISDB hospedado pelo 	servidor do Banco de Dados SQL do Microsoft Azure (essa finalidade não é aplicável ao SSISDB hospedado pela Instância Gerenciada do Banco de Dados SQL.) | Internet | 
 
 ## <a name="azure-portal-data-factory-ui"></a>Portal do Azure (Interface do usuário do Data Factory)
-Esta seção mostra como unir um tempo de execução do SSIS do Azure existente a uma VNet (Classic ou Azure Resource Manager) usando o portal do Azure e a interface do usuário do Data Factory. Primeiro, você precisa configurar a VNet corretamente antes de unir sua IR do SSIS do Azure à VNet. Passe por uma das duas próximas seções com base no tipo de sua VNet (Classic ou Azure Resource Manager). Em seguida, continue na terceira seção para unir seu IR do SSIS do Azure à VNet. 
+Esta seção mostra como unir um tempo de execução do Azure-SSIS existente a uma rede virtual (clássica ou do Azure Resource Manager) usando o Portal do Azure e a interface do usuário do Data Factory. Primeiro, é necessário configurar a rede virtual corretamente antes de unir o IR do Azure-SSIS a ela. Percorra uma das próximas duas seções com base no tipo de sua rede virtual (clássica ou Azure Resource Manager). Em seguida, continue na terceira seção para unir o IR do Azure-SSIS à rede virtual. 
 
-### <a name="use-portal-to-configure-a-classic-vnet"></a>Usar o portal para configurar uma VNet Clássica
-Primeiro você precisa configurar a VNet antes de adicionar um IR do Azure-SSIS à VNet.
+### <a name="use-the-portal-to-configure-a-classic-virtual-network"></a>Usar o portal para configurar uma rede virtual clássica
+Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azure-SSIS a ela.
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas em navegadores da Web Microsoft Edge e Google Chrome.
-2. Faça logon no [portal do Azure](https://portal.azure.com).
-3. Clique em **Mais serviços**. Filtre e selecione **Redes virtuais (clássicas)**.
-4. Filtre e selecione a sua **rede virtual** na lista. 
-5. Na página Rede virtual (clássica), selecione **Propriedades**. 
+1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, a interface do usuário do Data Factory tem suporte apenas nesses navegadores da Web.
+2. Entre no [Portal do Azure](https://portal.azure.com).
+3. Escolha **Mais serviços**. Filtre e selecione **Redes virtuais (clássicas)**.
+4. Filtre e selecione sua rede virtual na lista. 
+5. Na página **Rede virtual (clássica)**, selecione **Propriedades**. 
 
-    ![ID de recurso da rede virtual clássica](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
-5. Clique no botão de copiar para que a **ID DE RECURSO** copie a ID de recurso da rede clássica para a área de transferência. Salve a ID da área de transferência no OneNote ou em um arquivo.
-6. Clique em **Sub-redes** no menu à esquerda e certifique-se de que o número de **endereços disponíveis** seja maior do que os nós em seu tempo de execução de integração do Azure-SSIS.
+    ![ID do recurso de rede virtual clássica](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
+5. Selecione o botão de cópia para que **ID DO RECURSO** copie a ID do recurso da rede clássica para a área de transferência. Salve a ID da área de transferência no OneNote ou em um arquivo.
+6. Selecione **Sub-redes** no menu esquerdo. Certifique-se de que o número de **endereços disponíveis** seja maior do que os nós no tempo de execução de integração do Azure-SSIS.
 
-    ![Número de endereços disponíveis na VNet](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
-7. Una o **MicrosoftAzureBatch** à função **Colaborador de Máquina Virtual Clássica** da VNet. 
-    1. Clique em Controle de acesso (IAM) no menu à esquerda e, em seguida, clique em **Adicionar** na barra de ferramentas.
+    ![Número de endereços disponíveis na rede virtual](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
+7. Una **MicrosoftAzureBatch** à função **Colaborador da Máquina Virtual Clássica** para a rede virtual.
+
+    a. Selecione **IAM (Controle de acesso)** no menu esquerdo e selecione **Adicionar** na barra de ferramentas. 
+       !["Controle de Acesso" e botões "Adicionar"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
+
+    b. Na página **Adicionar permissões**, selecione **Colaborador da Máquina Virtual Clássica** para **Função**. Cole **ddbf3205-c6bd-46ae-8127-60eb93363864** na caixa **Selecionar** e, em seguida, selecione **Lote do Microsoft Azure** da lista de resultados de pesquisa.   
+       ![Resultados da pesquisa na página "Adicionar permissões"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+    c. Selecione **Salvar** para salvar as configurações e fechar a página.  
+       ![Salvar configurações de acesso](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
+
+    d. Confirme se você visualiza o **Lote do Microsoft Azure** na lista de colaboradores.  
+       ![Confirmar acesso ao Lote do Azure](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
+
+5. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure.
+
+   a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo.
+
+   b. Selecione sua assinatura.
+
+   c. Selecione **Provedores de recurso** à esquerda e confirme se **Microsoft.Batch** é um provedor registrado.     
+      ![Confirmação do status "Registrado"](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+
+   Se você não visualizar **Microsoft.Batch** na lista, para registrá-lo [crie uma conta do Lote do Azure vazia](../batch/batch-account-create-portal.md) na sua assinatura. Você pode excluí-lo depois. 
+
+### <a name="use-the-portal-to-configure-an-azure-resource-manager-virtual-network"></a>Usar o portal para configurar uma rede virtual do Azure Resource Manager
+Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azure-SSIS a ela.
+
+1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, a interface do usuário do Data Factory tem suporte apenas nesses navegadores da Web.
+2. Entre no [Portal do Azure](https://portal.azure.com).
+3. Escolha **Mais serviços**. Filtre e selecione **Redes virtuais**.
+4. Filtre e selecione sua rede virtual na lista. 
+5. Na página **Rede virtual**, selecione **Propriedades**. 
+6. Selecione o botão de cópia para que a **ID DO RECURSO** copie a ID do recurso da rede virtual para a área de transferência. Salve a ID da área de transferência no OneNote ou em um arquivo.
+7. Selecione **Sub-redes** no menu esquerdo. Certifique-se de que o número de **endereços disponíveis** seja maior do que os nós no tempo de execução de integração do Azure-SSIS.
+8. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure.
+
+   a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo.
+
+   b. Selecione sua assinatura. 
+   
+   c. Selecione **Provedores de recurso** à esquerda e confirme se **Microsoft.Batch** é um provedor registrado.     
+      ![Confirmação do status "Registrado"](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+
+   Se você não visualizar **Microsoft.Batch** na lista, para registrá-lo [crie uma conta do Lote do Azure vazia](../batch/batch-account-create-portal.md) na sua assinatura. Você pode excluí-lo depois.
+
+### <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>Unir o IR do Azure-SSIS a uma rede virtual
+
+
+1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, a interface do usuário do Data Factory tem suporte apenas nesses navegadores da Web.
+2. No [portal do Azure](https://portal.azure.com), selecione **Data factories** no menu à esquerda. Se não visualizar **Fábricas de dados** no menu, selecione **Mais serviços** e, em seguida, selecione **Fábricas de dados** na seção **INTELIGÊNCIA + ANÁLISE**. 
     
-        ![Controle de acesso -> Adicionar](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png) 
-    2. Na página **Adicionar permissões**, selecione **Colaborador de Máquina Virtual Clássica** como **Função**. Copiar/colar **ddbf3205-c6bd-46ae-8127-60eb93363864** na caixa de texto **Selecione** e, em seguida, selecione **lote do Microsoft Azure** da lista de resultados da pesquisa. 
-    
-        ![Adicionar permissões - pesquisa](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
-    3. Clique em Salvar para salvar as configurações e para fechar a página.
-    
-        ![Salvar as configurações de acesso](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
-    4. Confirme que você está vendo **MicrosoftAzureBatch** na lista de colaboradores.
-    
-        ![Confirmar o acesso do AzureBatch](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
-5. Verifique se o provedor do lote do Azure está registrado na assinatura do Azure que tem a VNet ou registre o provedor de lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure.
-    1. No portal do Azure, clique em **Assinaturas** no menu à esquerda. 
-    2. Selecione sua **assinatura**. 
-    3. Clique em **Provedores de recursos** à esquerda e confirme se `Microsoft.Batch` é um provedor registrado. 
-    
-        ![confirmation-batch-registered](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+   ![Lista de fábricas de dados](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
+2. Selecione o data factory com o tempo de execução de integração do Azure-SSIS na lista. Você verá a home page do seu data factory. Selecione o bloco **Criar & Implantar**. Você visualiza a interface do usuário do Data Factory em uma guia separada. 
 
-    Se você não vir `Microsoft.Batch` na lista, [crie uma conta vazia de lote do Azure](../batch/batch-account-create-portal.md) em sua assinatura para registrá-lo. Você pode excluí-lo depois. 
-
-### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Usar o portal para configurar uma VNet do Azure Resource Manager
-Primeiro você precisa configurar a VNet antes de adicionar um IR do Azure-SSIS à VNet.
-
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas em navegadores da Web Microsoft Edge e Google Chrome.
-2. Faça logon no [portal do Azure](https://portal.azure.com).
-3. Clique em **Mais serviços**. Filtre e selecione **Redes virtuais**.
-4. Filtre e selecione a sua **rede virtual** na lista. 
-5. Na página Rede virtual, selecione **Propriedades**. 
-6. Clique no botão Copiar para que a **ID DO RECURSO** copie a ID do recurso da rede virtual para a área de transferência. Salve a ID da área de transferência no OneNote ou em um arquivo.
-7. Clique em **Sub-redes** no menu à esquerda e certifique-se de que o número de **endereços disponíveis** seja maior do que os nós em seu tempo de execução de integração do Azure-SSIS.
-8. Verifique se o provedor do lote do Azure está registrado na assinatura do Azure que tem a VNet ou registre o provedor de lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure.
-    1. No portal do Azure, clique em **Assinaturas** no menu à esquerda. 
-    2. Selecione sua **assinatura**. 
-    3. Clique em **Provedores de recursos** à esquerda e confirme se `Microsoft.Batch` é um provedor registrado. 
-    
-        ![confirmation-batch-registered](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
-
-    Se você não vir `Microsoft.Batch` na lista, [crie uma conta vazia de lote do Azure](../batch/batch-account-create-portal.md) em sua assinatura para registrá-lo. Você pode excluí-lo depois.
-
-### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>Unir o IR do Azure-SSIS a uma VNet
-
-
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas em navegadores da Web Microsoft Edge e Google Chrome.
-2. No [portal do Azure](https://portal.azure.com), selecione **Data factories** no menu à esquerda. Se não vir **Data factories** no menu, selecione **Mais serviços**, selecione **Data factories** na seção **INTELIGÊNCIA + ANÁLISE**. 
-    
-    ![Lista de Data factories](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
-2. Selecione seu data factory com o tempo de execução de integração do SSIS do Azure na lista. Você verá a home page do seu data factory. Selecione o bloco **Criar & Implantar**. Você verá a interface do usuário (IU) do Azure Data Factory em uma guia separada. 
-
-    ![Página inicial da data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
+   ![Página inicial da data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 3. Na interface de usuário do Data Factory, alterne para a guia **Editar**, selecione **Conexões** e alterne para a guia **Tempos de execução de integração**. 
 
-    ![Guia Tempos de execução de integração](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
-4. Se estiver executando o IR do SSIS do Azure, na lista de tempo de execução de integração, selecione o botão **Parar** na coluna **Ações** para o IR do SSIS do Azure. Você não pode editar um IR até que ela tenha sido interrompida. 
+   ![Guia "tempos de execução de integração"](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
+4. Se estiver executando o IR do Azure-SSIS, na lista de tempo de execução de integração, selecione o botão **Parar** na coluna **Ações** para o IR do Azure-SSIS. Você não pode editar um IR até que ela tenha sido interrompida. 
 
-    ![Parar o IR](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
-1. Na lista do tempo de execução de integração, selecione o botão **Editar** na coluna **Ações** para o IR do SSIS do Azure.
+   ![Parar o IR](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
+1. Na lista do tempo de execução de integração, selecione o botão **Editar** na coluna **Ações** para o IR do Azure-SSIS.
 
-    ![Editar o Integration Runtime](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
+   ![Editar o tempo de execução de integração](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
 5. Na página **Configurações Gerais** da janela **Instalação do Integration Runtime**, siga selecione **Avançar**. 
 
-    ![Instalação do IR – configurações gerais](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
-6. Na página **Configurações do SQL**, insira a **senha** do administrador e selecione **Avançar**.
+   ![Configurações gerais para configuração do IR](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
+6. Na página **Configurações do SQL**, insira a senha do administrador e selecione **Avançar**.
 
-    ![Instalação do IR – configurações do SQL](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
+   ![Configurações do SQL Server para configuração do IR](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
 7. Na página **Configurações Avançadas**, faça as ações a seguir: 
 
-    1. Marque a caixa de seleção para **Selecionar uma VNet para o Integration Runtime do SSIS do Azure para unir e permitir que serviços do Azure configurem permissões/configurações da VNet**. 
-    2. Para **Tipo**, especifique se a VNet é uma VNet clássica ou uma VNet do Azure Resource Manager. 
-    3. Para **Nome da VNet**, selecione sua VNet.
-    4. Para **Nome da Sub-rede**, selecione a sub-rede na VNet. 
-    5. Selecione **Atualização**. 
+   a. Selecione a caixa de seleção para **Selecionar uma VNet para o Tempo de Execução de Integração do Azure-SSIS unir e permitir que os serviços do Azure configurem as permissões/configurações da VNet**.
 
-        ![Instalação do IR – Configurações avançadas](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
-8. Agora, você pode iniciar o IR usando o botão **Iniciar** na coluna **Ações** para seu IR do SSIS do Azure. Leva aproximadamente 20 minutos para iniciar um IR do SSIS do Azure. 
+   b. Para **Tipo**, especifique se a rede virtual é uma rede virtual clássica ou uma rede virtual do Azure Resource Manager. 
+
+   c. Para **Nome da VNET**, selecione a rede virtual.
+
+   d. Para **Nome da Sub-rede**, selecione a sub-rede na rede virtual.
+
+   e. Selecione **Atualização**. 
+
+   ![Configurações avançadas para configuração do IR](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
+8. Agora, você pode iniciar o IR usando o botão **Iniciar** na coluna **Ações** para o IR do Azure-SSIS. Demora aproximadamente 20 minutos para iniciar um IR do Azure-SSIS. 
 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-### <a name="configure-vnet"></a>Configurar VNet
-Primeiro você precisa configurar a VNet antes de adicionar um IR do Azure-SSIS à VNet. Adicione o script a seguir para configurar automaticamente as permissões/configurações de VNet para que seu Integration Runtime do Azure-SSIS se una à VNet.
+### <a name="configure-a-virtual-network"></a>Configurar uma rede virtual
+Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azure-SSIS a ela. Para configurar automaticamente as permissões/configurações da rede virtual para o tempo de execução de integração do Azure-SSIS unir a rede virtual, adicione o script a seguir:
 
 ```powershell
-# Register to Azure Batch resource provider
+# Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
@@ -170,20 +184,20 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
-        # Assign VM contributor role to Microsoft.Batch
+        # Assign the VM contributor role to Microsoft.Batch
         New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
 
-### <a name="create-an-azure-ssis-ir-and-join-it-to-a-vnet"></a>Crie um IR do Azure-SSIS e adicione-o a uma VNet
-Você pode criar um IR do Azure-SSIS e adicioná-lo à VNet ao mesmo tempo. Para o script completo e instruções para criar um IR do Azure-SSIS e adicioná-lo a uma VNet ao mesmo tempo, consulte [Criar IR do Azure-SSIS](create-azure-ssis-integration-runtime.md#azure-powershell).
+### <a name="create-an-azure-ssis-ir-and-join-it-to-a-virtual-network"></a>Criar um IR do Azure-SSIS e uni-lo a uma rede virtual
+Você pode criar um IR do Azure-SSIS e uni-lo a uma rede virtual ao mesmo tempo. Para obter as instruções e o script completo, consulte [Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md#azure-powershell).
 
-### <a name="join-an-existing-azure-ssis-ir-to-a-vnet"></a>Adicionar um IR do Azure-SSIS a uma VNet
-O script no artigo [Criar Integration Runtime do Azure-SSIS](create-azure-ssis-integration-runtime.md) mostra como criar um IR do Azure-SSIS e adicioná-lo a uma VNet no mesmo script. Se você tiver um Azure-SSIS existente, execute as seguintes etapas para adicioná-lo para a VNet. 
+### <a name="join-an-existing-azure-ssis-ir-to-a-virtual-network"></a>Unir um IR do Azure-SSIS existente a uma rede virtual
+O script no artigo [Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md) mostra como criar um IR do Azure-SSIS e uni-lo a uma rede virtual no mesmo script. Se você tiver um IR do Azure-SSIS existente, execute as seguintes etapas para uni-lo à rede virtual: 
 
 1. Interrompa o IR do Azure-SSIS.
-2. Configure o IR do Azure-SSIS para adicionar à VNet. 
+2. Configure o IR do Azure-SSIS para unir à rede virtual. 
 3. Inicie o IR do Azure-SSIS. 
 
 ### <a name="define-the-variables"></a>Defina as variáveis
@@ -192,14 +206,14 @@ O script no artigo [Criar Integration Runtime do Azure-SSIS](create-azure-ssis-i
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
-# Specify information about your classic or Azure Resource Manager virtual network (VNet).
-$VnetId = "<Name of your Azure virtual netowrk>"
-$SubnetName = "<Name of the subnet in VNet>"
+## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (private preview) 
+# Specify information about your classic or Azure Resource Manager virtual network.
+$VnetId = "<Name of your Azure virtual network>"
+$SubnetName = "<Name of the subnet in the virtual network>"
 ```
 
 ### <a name="stop-the-azure-ssis-ir"></a>Interrompa o IR do Azure-SSIS
-Interrompa o Integration Runtime do Azure SSIS antes de associá-lo a uma VNet. Este comando libera todos os seus nós e interrompe a cobrança.
+Pare o tempo de execução de integração do Azure-SSIS antes de uni-lo a uma rede virtual. Esse comando libera todos os nós e para a cobrança:
 
 ```powershell
 Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -207,7 +221,7 @@ Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNam
                                              -Name $AzureSSISName `
                                              -Force 
 ```
-### <a name="configure-vnet-settings-for-the-azure-ssis-ir-to-join"></a>Defina configurações de VNet para que o IR do Azure-SSIS IR seja associado
+### <a name="configure-virtual-network-settings-for-the-azure-ssis-ir-to-join"></a>Configurar as configurações de rede virtual para o IR do Azure-SSIS a unir
 Registre o provedor de recursos do lote do Azure:
 
 ```powershell
@@ -228,7 +242,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 ```
 
 ### <a name="configure-the-azure-ssis-ir"></a>Configure o IR do Azure-SSIS
-Execute o comando Set-AzureRmDataFactoryV2IntegrationRuntime para configurar o Integration Runtime do Azure-SSIS para associar à VNet: 
+Para configurar o tempo de execução de integração do Azure-SSIS para unir à rede virtual, execute o comando `Set-AzureRmDataFactoryV2IntegrationRuntime`: 
 
 ```powershell
 Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupName `
@@ -240,7 +254,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 ```
 
 ### <a name="start-the-azure-ssis-ir"></a>Inicie o IR do Azure-SSIS
-Execute o comando a seguir para iniciar o Integration Runtime do Azure-SSIS: 
+Para iniciar o tempo de execução de integração do Azure-SSIS, execute o comando a seguir: 
 
 ```powershell
 Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -249,13 +263,13 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
                                              -Force
 
 ```
-Esse comando o levará de **20 a 30 minutos** para concluir.
+Esse comando demora de 20 a 30 minutos para concluir.
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira estes tópicos para obter mais informações sobre o tempo de execução do Azure-SSIS: 
+Para obter mais informações sobre o tempo de execução do Azure-SSIS, consulte os tópicos a seguir: 
 
 - [Tempo de execução de integração do Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais sobre tempos de execução de integração em geral, incluindo o IR do Azure-SSIS. 
-- [Tutorial: implantar pacotes do SSIS para o Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um IR do Azure-SSIS e usa um banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
-- [Como: Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do SQL do Azure (visualização particular) e unir o IR para uma VNet. 
+- [Tutorial: implantar pacotes do SSIS para o Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um IR do Azure-SSIS. Ele usa um Banco de Dados SQL do Microsoft Azure para hospedar o catálogo do SSIS. 
+- [Criar um Integration Runtime do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia privada) e unir o IR a uma rede virtual. 
 - [Monitore um IR do Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como recuperar informações sobre um IR do Azure-SSIS e descrições de status nas informações retornadas. 
-- [Gerencie um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md). Este artigo mostra como parar, iniciar ou remover um IR do Azure-SSIS. Ele também mostra como expandir o IR do Azure-SSIS adicionando mais nós ao IR. 
+- [Gerencie um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md). Este artigo mostra como parar, iniciar ou remover um IR do Azure-SSIS. Adicionalmente, mostra como escalar horizontalmente o IR do Azure-SSIS adicionando nós. 

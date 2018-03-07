@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87c4573ce3b688cdc63b3a342bbc0bebb416ad36
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8d6472345d84540cbe0b70240546b465e91155c
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -337,13 +337,13 @@ No decorrer do documento, usamos os termos a seguir:
 Alguma documentação da Microsoft descreve cenários entre instalações de modo um pouco diferente, especialmente para configurações de HA do DBMS. No caso de documentos relacionados ao SAP, o cenário entre locais se resume a ter uma conectividade de site a site ou privada (ExpressRoute) e ao fato de que a estrutura da SAP é distribuída entre os locais e o Azure.
 
 ### <a name="resources"></a>Recursos
-Os seguintes guias estão disponíveis para o tópico das implantações da SAP no Azure:
+Os guias a seguir estão disponíveis para implantações da SAP no Azure:
 
 * [Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver][planning-guide]
 * [Implantação de Máquinas Virtuais do Azure para SAP NetWeaver][deployment-guide]
 * [Implantação do DBMS de Máquinas Virtuais do Azure para SAP NetWeaver][dbms-guide]
 
-As seguintes Notas do SAP estão relacionadas com o tópico do SAP no Azure:
+As Notas de SAP a seguir estão relacionadas ao SAP no Azure:
 
 | Número da observação | Title |
 | --- | --- |
@@ -369,7 +369,7 @@ Leia também a [Wiki de SCN](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLin
 Você deve ter um conhecimento prático sobre a arquitetura do Microsoft Azure e como as Máquinas Virtuais do Microsoft Azure são implantadas e operadas. Você pode encontrar mais informações em <https://azure.microsoft.com/documentation/>
 
 > [!NOTE]
-> **Não** estamos discutindo as ofertas de PaaS (Plataforma como Serviço) do Microsoft Azure da plataforma Microsoft Azure. Este artigo é sobre a execução de um DBMS (sistema de gerenciamento de banco de dados) em Máquinas Virtuais do Microsoft Azure (IaaS) exatamente como você executaria o DBMS em seus ambientes locais. As funcionalidades e recursos do banco de dados entre essas duas ofertas são muito diferentes e não devem ser misturados uns com os outros. Confira também: <https://azure.microsoft.com/services/sql-database/>
+> **Não** estamos discutindo as ofertas de PaaS (Plataforma como Serviço) do Microsoft Azure da plataforma Microsoft Azure. Este artigo é sobre a execução de um DBMS (sistema de gerenciamento de banco de dados) em Máquinas Virtuais do Microsoft Azure (IaaS) e como você executaria o DBMS em seus ambientes locais. As funcionalidades e recursos do banco de dados entre essas duas ofertas são muito diferentes e não devem ser misturados uns com os outros. Consulte também: <https://azure.microsoft.com/services/sql-database/>
 > 
 > 
 
@@ -387,7 +387,7 @@ Em geral, as áreas gerais de diferença discutidas neste documento são:
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estrutura de uma implantação do RDBMS
 Para seguir este capítulo, é necessário compreender o que foi apresentado [neste][deployment-guide-3] capítulo do [Guia de Implantação][deployment-guide]. O conhecimento sobre as diferentes séries de VM e suas diferenças e as diferenças do Armazenamento Premium e Standard do Azure deve ser compreendido e conhecido antes de ler este capítulo.
 
-Até março de 2015, os discos contendo um sistema operacional eram limitados a um tamanho de 127 GB. Essa limitação foi removida em março de 2015 (para obter informações, confira <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). A partir de então, discos contendo o sistema operacional podem ter o mesmo tamanho de qualquer outro disco. No entanto, ainda preferimos uma estrutura de implantação na qual o sistema operacional, o DBMS e eventuais binários SAP são separados dos arquivos de banco de dados. Portanto, esperamos que os sistemas SAP em execução em Máquinas Virtuais do Azure tenham a VM base (ou disco) instalada com o sistema operacional, os executáveis do sistema de gerenciamento de banco de dados e os executáveis SAP. Os arquivos de dados e de log do DBMS são armazenados no Armazenamento do Azure (Armazenamento Standard ou Premium) em discos separados e anexados como discos lógicos à VM da imagem do sistema operacional do Azure original. 
+Até março de 2015, os discos contendo um sistema operacional eram limitados a um tamanho de 127 GB. Esta limitação foi retirada em março de 2015 (para obter mais informações <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). A partir de então, discos contendo o sistema operacional podem ter o mesmo tamanho de qualquer outro disco. No entanto, ainda preferimos uma estrutura de implantação na qual o sistema operacional, o DBMS e eventuais binários SAP são separados dos arquivos de banco de dados. Portanto, esperamos que os sistemas SAP em execução em Máquinas Virtuais do Azure tenham a VM base (ou disco) instalada com o sistema operacional, os executáveis do sistema de gerenciamento de banco de dados e os executáveis SAP. Os arquivos de dados e de log do DBMS são armazenados no Armazenamento do Azure (Armazenamento Standard ou Premium) em discos separados e anexados como discos lógicos à VM da imagem do sistema operacional do Azure original. 
 
 Dependendo do aproveitamento do Armazenamento Premium ou Standard do Azure (por exemplo, usando VMs da série GS ou DS), há outras cotas no Azure que estão documentadas [aqui(Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows]. Ao planejar seu layout de disco, você precisa encontrar o melhor equilíbrio das cotas para os seguintes itens:
 
@@ -448,7 +448,7 @@ A recomendação para o Armazenamento Premium do Azure é aproveitar o **Cache d
 ### <a name="c8e566f9-21b7-4457-9f7f-126036971a91"></a>RAID de software
 Como já foi dito acima, você precisará equilibrar o número de IOPS necessários para os arquivos de banco de dados entre o número de discos que pode configurar e o máximo de IOPS que uma VM do Azure fornecerá por tipo de disco de Armazenamento Premium ou disco. A maneira mais fácil de lidar com a carga de IOPS em discos é criar um RAID de software nos diferentes discos. Em seguida, colocar um número de arquivos de dados do SAP DBMS no LUNS retirado do RAID de software. Dependendo dos requisitos, talvez você queira considerar o uso do Armazenamento Premium também, já que dois dos três discos diferentes do Armazenamento Premium fornecem uma cota IOPS maior que os discos baseados no Armazenamento Standard. Além da latência de E/S significativamente melhor fornecida pelo Armazenamento Premium do Azure. 
 
-O mesmo se aplica ao log de transações dos diferentes sistemas DBMS. Com muitos deles apenas adicionando mais arquivos Tlog não ajuda, uma vez que os sistemas DBMS gravam em um dos arquivos de cada vez. Se forem necessárias taxas de IOPS mais altas do que um único disco baseado no Armazenamento Standard pode oferecer, você poderá distribuir entre vários discos de Armazenamento Standard ou poderá usar um tipo de disco de Armazenamento Premium maior que, além de taxas de IOPS mais altas, também ofereça latência menor de fatores para as E/Ss de gravação no log de transações.
+O mesmo se aplica ao log de transações dos diferentes sistemas DBMS. Com muitos deles, adicionar mais arquivos Tlog não ajuda, já que os sistemas DBMS gravam em um dos arquivos de cada vez. Se forem necessárias taxas de IOPS mais altas do que um único disco baseado no Armazenamento Standard pode oferecer, você poderá distribuir entre vários discos de Armazenamento Standard ou poderá usar um tipo de disco de Armazenamento Premium maior que, além de taxas de IOPS mais altas, também ofereça latência menor de fatores para as E/Ss de gravação no log de transações.
 
 As situações ocorridas em implantações do Azure que seriam beneficiadas pelo uso de um RAID de software são:
 
@@ -459,7 +459,7 @@ As situações ocorridas em implantações do Azure que seriam beneficiadas pelo
 - - -
 > ![Windows][Logo_Windows] Windows
 > 
-> É recomendável usar Espaços de Armazenamento do Windows se a execução for feita em Windows Server 2012 ou superior. É mais eficiente do que a Divisão do Windows de versões anteriores do Windows. Esteja ciente de que você pode precisar criar os Pools de Armazenamento do Windows e os Espaços de Armazenamento por comandos do PowerShell ao usar o Windows Server 2012 como sistema operacional. Os comandos do PowerShell podem ser encontrados aqui <https://technet.microsoft.com/library/jj851254.aspx>
+> É recomendável usar Espaços de Armazenamento do Windows se a execução for feita em Windows Server 2012 ou superior. É mais eficiente do que a Divisão do Windows de versões anteriores do Windows. Esteja ciente de que você pode precisar criar os Pools de Armazenamento do Windows e os Espaços de Armazenamento por comandos do PowerShell ao usar o Windows Server 2012 como sistema operacional. Os comandos do PowerShell podem ser localizados aqui <https://technet.microsoft.com/library/jj851254.aspx>
 > 
 > ![Linux][Logo_Linux] Linux
 > 
@@ -496,7 +496,7 @@ Mais informações podem ser encontradas [aqui][storage-redundancy].
 > [!NOTE]
 > Para implantações de DBMS, o uso do Armazenamento de Redundância Geográfica não é recomendado
 > 
-> A replicação geográfica do Armazenamento do Azure é assíncrona. A replicação de discos individuais montados em uma única VM não é sincronizada na etapa de bloqueio. Portanto, não é adequado replicar arquivos do DBMS que são distribuídos em diferentes discos ou implantados em um RAID de software com base em vários discos. O software DBMS requer que o armazenamento em disco persistente seja sincronizado com precisão em LUNs diferentes e discos subjacentes/eixo. O software DBMS usa vários mecanismos para sequenciar atividades de gravação de E/S e um DBMS relatará que o armazenamento de disco alvo da replicação está corrompido se variarem sequer por alguns milissegundos. Portanto, se você realmente quiser uma configuração de banco de dados com um banco de dados estendido por vários discos com replicação geográfica, tal replicação precisará ser executada com meios e funcionalidade de banco de dados. Não se deve confiar na replicação geográfica do Armazenamento do Azure para realizar esse trabalho. 
+> A replicação geográfica do Armazenamento do Azure é assíncrona. A replicação de discos individuais montados em uma única VM não é sincronizada na etapa de bloqueio. Portanto, não é adequado replicar arquivos do DBMS que são distribuídos em diferentes discos ou implantados em um RAID de software com base em vários discos. O software DBMS requer que o armazenamento em disco persistente seja sincronizado com precisão em LUNs diferentes e discos subjacentes/eixo. O software DBMS usa vários mecanismos para sequenciar atividades de gravação de E/S e um DBMS relatará que o armazenamento de disco alvo da replicação está corrompido se variarem sequer por alguns milissegundos. Portanto, se você quiser uma configuração de banco de dados com um banco de dados estendido por vários discos com replicação geográfica, tal replicação precisará ser executada com meios e funcionalidade de banco de dados. Não se deve confiar na replicação geográfica do Armazenamento do Azure para realizar esse trabalho. 
 > 
 > O problema é mais simples de ser explicado com um sistema de exemplo. Vamos supor que você tenha um sistema SAP carregado no Azure com oito discos contendo arquivos de dados do DBMS, mais um disco contendo o arquivo de log de transações. Cada um desses nove discos tem dados gravados neles em um método consistente de acordo com o DBMS, quer os dados estejam sendo gravados em arquivos de log de transações ou de dados.
 > 
@@ -521,7 +521,7 @@ Com base em implantações de clientes e testes, em torno de 30 a 40 VHDs conten
 
 Como com dispositivos locais SAN, o compartilhamento requer algum monitoramento para, eventualmente, detectar gargalos em uma Conta de Armazenamento do Azure. A extensão de monitoramento do Azure para SAP e o portal do Azure são ferramentas que podem ser usadas para detectar Contas de Armazenamento do Azure ocupadas que podem estar gerando um desempenho de E/S abaixo do ideal.  Se essa situação for detectada, será recomendável mover as VMs ocupadas para outra Conta de Armazenamento do Azure. Consulte o [Guia de Implantação][deployment-guide] para obter detalhes sobre como ativar as funcionalidades de monitoramento de host do SAP.
 
-Outro artigo que resume as práticas recomendadas em relação ao Armazenamento Standard e às Contas de Armazenamento Standard do Azure pode ser encontrado aqui <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
+Outro artigo que resume as melhores práticas para Armazenamento Standard do Azure e Contas de Armazenamento Standard do Azure pode ser encontrado aqui <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
 
 #### <a name="f42c6cb5-d563-484d-9667-b07ae51bce29"></a>Managed Disks
 Managed Disks são um novo tipo de recurso no Azure Resource Manager que pode ser usado em vez de VHDs armazenados em Contas de Armazenamento do Azure. Managed Disks alinham-se automaticamente ao Conjunto de Disponibilidade da máquina virtual à qual eles estão conectados e, portanto, aumentam a disponibilidade da sua máquina virtual e dos serviços que estão em execução na máquina virtual. Para saber mais, leia o [artigo de visão geral](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -531,9 +531,9 @@ A SAP atualmente dá suporte apenas a Managed Disks Premium. Leia a Nota SAP [19
 #### <a name="moving-deployed-dbms-vms-from-azure-standard-storage-to-azure-premium-storage"></a>Movendo VMs DBMS implantadas do Armazenamento Standard do Azure para o Armazenamento Premium do Azure
 Podemos encontrar alguns cenários em que você como cliente deseja mover uma VM implantada do Armazenamento Standard do Azure para o Armazenamento Premium do Azure. Se os discos forem armazenados em contas de armazenamento do Azure, isso não será possível sem mover os dados fisicamente. Há várias maneiras atingir o objetivo:
 
-* Você pode simplesmente copiar todos os VHDs, VHD base, bem como VHDs de dados em uma nova Conta de Armazenamento Premium do Azure. Com frequência, você escolhe o número de VHDs no Armazenamento Standard do Azure não porque precisa do volume de dados. Mas precisava daquela quantidade de VHDs por causa do IOPS. Agora que você passou para o Armazenamento Premium do Azure, pode usar muito menos VHDs para obter a mesma taxa de transferência de IOPS. Devido ao fato de que no Armazenamento Standard do Azure você paga pelos dados usados e não pelo tamanho do disco nominal, o número de VHDs realmente não importava em termos de custos. No entanto, com o Armazenamento Premium do Azure, você pagaria pelo tamanho do disco nominal. Portanto, a maioria dos clientes tenta manter o número de VHDs do Azure no Armazenamento Premium no número necessário para alcançar a taxa de transferência de IOPS necessária. Dessa forma, a maioria dos clientes decide contra a forma de uma cópia simples de 1:1.
+* Você pode copiar todos os VHDs, VHD base, bem como VHDs de dados em uma nova Conta de Armazenamento Premium do Azure. Com frequência, você escolhe o número de VHDs no Armazenamento Standard do Azure não porque precisa do volume de dados. Mas precisava daquela quantidade de VHDs por causa do IOPS. Agora que você passou para o Armazenamento Premium do Azure, pode usar muito menos VHDs para obter a mesma taxa de transferência de IOPS. Devido ao fato de que no Armazenamento Standard do Azure você paga pelos dados usados e não pelo tamanho do disco nominal, o número de VHDs não importava em termos de custos. No entanto, com o Armazenamento Premium do Azure, você pagaria pelo tamanho do disco nominal. Portanto, a maioria dos clientes tenta manter o número de VHDs do Azure no Armazenamento Premium no número necessário para alcançar a taxa de transferência de IOPS necessária. Dessa forma, a maioria dos clientes decide contra a forma de uma cópia simples de 1:1.
 * Se ainda não estiver montado, você montará um único VHD que pode conter um backup de banco de dados do seu banco de dados SAP. Depois do backup, você desmonta todos os VHDs, incluindo o VHD que contém o backup e copia o VHD base e o VHD com o backup em uma Conta de Armazenamento Premium do Azure. Em seguida, você deve implantar a VM com base no VHD base e montar o VHD com o backup. Agora você cria discos de Armazenamento Premium vazios adicionais para a VM que são usados como o local da restauração do banco de dados. Isso pressupõe que o DBMS permite alterar os caminhos para os arquivos de log e de dados como parte do processo de restauração.
-* Outra possibilidade é uma variação do processo anterior, em que você simplesmente copia o VHD de backup no Armazenamento Premium do Azure e o anexa em uma VM que recentemente implantou e instalou.
+* Outra possibilidade é uma variação do processo anterior, em que você copia o VHD de backup no Armazenamento Premium do Azure e o anexa em uma VM que recentemente implantou e instalou.
 * A quarta possibilidade você escolhe quando precisa alterar o número de arquivos de dados do seu banco de dados. Nesse caso, você executaria uma cópia homogênea do sistema SAP usando a exportação/importação. Coloque os arquivos da exportação em um VHD que é copiado para uma Conta de Armazenamento Premium do Azure e anexe-o a uma VM usada para executar os processos de importação. Os clientes usam essa possibilidade principalmente quando desejam diminuir o número de arquivos de dados.
 
 Se você usar Managed Disks, poderá migrar para o Armazenamento Premium:
@@ -573,10 +573,10 @@ Eles precisam ser configurados por finalidade ao distribuir VMs, como visto aqui
 
 Se quisermos criar configurações de alta disponibilidade de implantações de DBMS (independentemente da funcionalidade de HA do DBMS utilizada), as VMs de DBMS precisarão:
 
-* Adicione as VMs à mesma Rede Virtual do Azure (<https://azure.microsoft.com/documentation/services/virtual-network/>)
+* Adicionar VMs à mesma Rede Virtual do Azure (<https://azure.microsoft.com/documentation/services/virtual-network/>)
 * As VMs da configuração de HA também devem estar na mesma sub-rede. A resolução de nomes entre as diferentes sub-redes não é possível em implantações Somente em Nuvem, apenas a resolução de IP funciona. Usando a conectividade de ExpressRoute ou site a site para implantações Entre Instalações, uma rede com pelo menos uma sub-rede já está estabelecida. A resolução de nomes é feita de acordo com a infraestrutura de rede e as políticas do AD locais. 
 
-[comment]: <> (Teste TODO MSSedusch se ainda for verdadeiro no ARM)
+
 
 #### <a name="ip-addresses"></a>Endereços IP
 É altamente recomendável definir as VMs para configurações de HA de forma resiliente. Confiar em endereços IP para endereçar os parceiros de HA na configuração de HA não é confiável no Azure a menos que sejam usados endereços IP estáticos. Há dois conceitos de "Desligamento" no Azure:
@@ -604,11 +604,11 @@ Para obter detalhes sobre a implantação de componentes que fornecem dados de h
 Começando com o Microsoft Azure, você pode facilmente migrar seus aplicativos existentes do SQL Server criados na plataforma Windows Server para máquinas virtuais do Azure. O SQL Server em uma Máquina Virtual permite reduzir o custo total de propriedade de implantação, gerenciamento e manutenção de aplicativos de amplitude empresarial migrando facilmente esses aplicativos para o Microsoft Azure. Com o SQL Server em uma máquina virtual do Azure, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração que estão disponíveis localmente. 
 
 > [!IMPORTANT]
-> Não estamos discutindo o Banco de Dados SQL do Microsoft Azure, que é uma oferta de Plataforma como Serviço da Plataforma Microsoft Azure. A discussão neste artigo é sobre a execução do produto SQL Server como é conhecido para implantações locais nas máquinas virtuais do Azure, aproveitando a funcionalidade de Infraestrutura como Serviço do Azure. As funcionalidades e recursos do banco de dados entre essas duas ofertas são muito diferentes e não devem ser misturados entre si. Confira também: <https://azure.microsoft.com/services/sql-database/>
+> Não estamos discutindo o Banco de Dados SQL do Microsoft Azure, que é uma oferta de Plataforma como Serviço da Plataforma Microsoft Azure. A discussão neste artigo é sobre a execução do produto SQL Server como é conhecido para implantações locais nas máquinas virtuais do Azure, aproveitando a funcionalidade de Infraestrutura como Serviço do Azure. As funcionalidades e recursos do banco de dados entre essas duas ofertas são muito diferentes e não devem ser misturados entre si. Consulte também: <https://azure.microsoft.com/services/sql-database/>
 > 
 > 
 
-É altamente recomendável examinar [esta][virtual-machines-sql-server-infrastructure-services] documentação antes de continuar.
+É recomendável examinar [esta][virtual-machines-sql-server-infrastructure-services] documentação antes de continuar.
 
 Nas seções a seguir, trechos de partes da documentação no link acima são agregados e mencionados. Informações especificas do SAP também são mencionadas e alguns conceitos são descritos mais detalhadamente. No entanto, é altamente recomendável percorrer a documentação acima primeiro antes de ler a documentação específica do SQL Server.
 
@@ -616,7 +616,7 @@ Há algumas informações específicas do SQL Server no IaaS que você deve conh
 
 * **SLA da Máquina Virtual**: há um SLA para Máquinas Virtuais em execução no Azure, que pode ser encontrado aqui: <https://azure.microsoft.com/support/legal/sla/>  
 * **Suporte de versão do SQL**: para clientes SAP, damos suporte para SQL Server 2008 R2 e superior na máquina virtual do Microsoft Azure. Não há suporte para edições anteriores. Examine esta [Instrução de suporte](https://support.microsoft.com/kb/956893) geral para obter mais detalhes. Observe que, em geral, o SQL Server 2008 também tem suporte da Microsoft. No entanto, devido à funcionalidade significativa para SAP que foi introduzida com o SQL Server 2008 R2, o SQL Server 2008 R2 é a versão mínima para SAP. Tenha em mente que o SQL Server 2012 e 2014 foram estendidos com uma maior integração com o cenário de IaaS (como a realização do backup diretamente no Armazenamento do Azure). Portanto, nós restringimos este documento para SQL Server 2012 e 2014 com seu nível de patch mais recente para o Azure.
-* **Suporte ao recurso de SQL**: a maioria dos recursos do SQL Server tem suporte em Máquinas Virtuais do Microsoft Azure com algumas exceções. **Não há suporte para o clustering de failover do SQL Server usando discos compartilhados**.  Tecnologias distribuídas, como o espelhamento de banco de dados, grupos de disponibilidade AlwaysOn, replicação, envio de logs e Service Broker, têm suporte dentro de uma única região do Azure. O AlwaysOn do SQL Server também tem suporte entre diferentes regiões do Azure, conforme documentado aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Examine esta [Instrução de suporte](https://support.microsoft.com/kb/956893) para obter mais detalhes. Um exemplo de como implantar uma configuração AlwaysOn é mostrado [neste][virtual-machines-workload-template-sql-alwayson] artigo. Além disso, confira as práticas recomendadas documentadas [aqui][virtual-machines-sql-server-infrastructure-services] 
+* **Suporte ao recurso de SQL**: a maioria dos recursos do SQL Server tem suporte em Máquinas Virtuais do Microsoft Azure com algumas exceções. **Não há suporte para o clustering de failover do SQL Server usando discos compartilhados**.  Tecnologias distribuídas, como o espelhamento de banco de dados, grupos de disponibilidade AlwaysOn, replicação, envio de logs e Service Broker, têm suporte dentro de uma única região do Azure. O SQL Server AlwaysOn também tem suporte entre diferentes regiões do Azure, conforme documentado aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Examine esta [Instrução de suporte](https://support.microsoft.com/kb/956893) para obter mais detalhes. Um exemplo de como implantar uma configuração AlwaysOn é mostrado [neste][virtual-machines-workload-template-sql-alwayson] artigo. Além disso, confira as práticas recomendadas documentadas [aqui][virtual-machines-sql-server-infrastructure-services] 
 * **Desempenho do SQL**: temos certeza de que as Máquinas Virtuais hospedadas do Microsoft Azure têm um ótimo desempenho em comparação com outras ofertas de virtualização de nuvem pública, mas os resultados individuais podem variar. Confira [este][virtual-machines-sql-server-performance-best-practices] artigo.
 * **Uso de imagens do Azure Marketplace**: a maneira mais rápida de implantar uma nova VM do Microsoft Azure é usar uma imagem do Azure Marketplace. Há imagens no Azure Marketplace que contêm o SQL Server. As imagens em que o SQL Server já está instalado não podem ser usadas imediatamente para aplicativos SAP NetWeaver. O motivo é que o agrupamento do SQL Server padrão é instalado dentro dessas imagens e não o agrupamento exigido pelos sistemas SAP NetWeaver. Para usar essas imagens, verifique as etapas documentadas no capítulo [Como usar uma imagem do SQL Server fora do Microsoft Azure Marketplace][dbms-guide-5.6]. 
 * Consulte os [Detalhes de preço](https://azure.microsoft.com/pricing/) para obter mais informações. O [Guia de licenciamento do SQL Server 2012](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) e o [Guia de licenciamento do SQL Server 2014](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf) também são recursos importantes.
@@ -641,10 +641,10 @@ Lembre-se de que a unidade D:\ tem diferentes tamanhos dependendo do tipo de VM.
 #### <a name="formatting-the-disks"></a>Formatação dos discos
 Para o SQL Server, o tamanho do bloco NTFS para discos contendo arquivos de log e de dados do SQL Server deve ser de 64K. Não é necessário formatar a unidade D:\. Essa unidade vem pré-formatada.
 
-Para se certificar de que a restauração ou a criação de bancos de dados não está inicializando os arquivos de dados zerando o conteúdo dos arquivos, é necessário se assegurar de que o contexto de usuário em que o serviço do SQL Server está em execução tem uma determinada permissão. Normalmente, os usuários do grupo Administrador do Windows têm essas permissões. Se o serviço do SQL Server for executado no contexto do usuário que não é Administrador do Windows, você precisará atribuir ao usuário o direito **Executar tarefas de manutenção de volume**.  Confira os detalhes neste artigo da Base de Dados de Conhecimento Microsoft: <https://support.microsoft.com/kb/2574695>
+Para se certificar de que a restauração ou a criação de bancos de dados não está inicializando os arquivos de dados zerando o conteúdo dos arquivos, é necessário se assegurar de que o contexto de usuário em que o serviço do SQL Server está em execução tem uma determinada permissão. Normalmente, os usuários do grupo Administrador do Windows têm essas permissões. Se o serviço do SQL Server for executado no contexto do usuário que não é Administrador do Windows, você precisará atribuir ao usuário o direito **Executar tarefas de manutenção de volume**.  Confira os detalhes neste artigo da Base de Dados de Conhecimento da Microsoft: <https://support.microsoft.com/kb/2574695>
 
 #### <a name="impact-of-database-compression"></a>Impacto da compactação do banco de dados
-Em configurações em que a largura de banda de E/S pode se tornar um fator limitante, todas as medidas que reduzem IOPS podem ajudar a ampliar a carga de trabalho que pode ser executada em um cenário de IaaS como o Azure. Portanto, caso você ainda não tenha feito isso, a SAP e Microsoft recomendam fortemente aplicar a compactação de PÁGINA do SQL Server antes de carregar um banco de dados SAP existentes para o Azure.
+Em configurações em que a largura de banda de E/S pode se tornar um fator limitante, todas as medidas que reduzem IOPS podem ajudar a ampliar a carga de trabalho que pode ser executada em um cenário de IaaS como o Azure. Portanto, caso você ainda não tenha feito isso, a SAP e Microsoft recomendam aplicar a compactação de PÁGINA do SQL Server antes de carregar um banco de dados SAP existentes para o Azure.
 
 A recomendação para executar a compactação do banco de dados antes de carregar no Azure é fornecida por duas razões:
 
@@ -652,7 +652,7 @@ A recomendação para executar a compactação do banco de dados antes de carreg
 * A duração da execução de compactação é menor, presumindo-se que seja possível usar um hardware mais poderoso com mais CPUs ou maior largura de banda de E/S ou menor latência de E/S local.
 * Tamanhos menores de banco de dados podem levar a menos custos de alocação de disco
 
-A compactação de banco de dados funciona bem nas máquinas virtuais do Azure como o faz localmente. Para obter mais detalhes sobre como compactar um banco de dados SQL Server para SAP existente, acesse: <https://blogs.msdn.com/b/saponsqlserver/archive/2010/10/08/compressing-an-sap-database-using-report-msscompress.aspx>
+A compactação de banco de dados funciona bem nas máquinas virtuais do Azure como o faz localmente. Para obter mais detalhes sobre como compactar um banco de dados do Microsoft SQL Server existente do SAP, consulte: <https://blogs.msdn.com/b/saponsqlserver/archive/2010/10/08/compressing-an-sap-database-using-report-msscompress.aspx>
 
 ### <a name="sql-server-2014---storing-database-files-directly-on-azure-blob-storage"></a>SQL Server 2014 – armazenando arquivos do banco de dados arquivos diretamente no Armazenamento de Blobs do Azure
 O SQL Server 2014 abre a possibilidade para armazenar arquivos de banco de dados diretamente no Armazenamento de Blobs do Azure sem o ‘wrapper’ de um VHD em torno deles. Especialmente com o uso do Armazenamento do Azure Standard ou tipos de VM menores, isso possibilita cenários em que você pode superar os limites de IOPS que seriam impostos por um número limitado de discos que podem ser montados a alguns tipos de VM menores. Isso funciona para bancos de dados de usuário, no entanto, não para bancos de dados de sistema do SQL Server. Ele também funciona para arquivos de log e dados do SQL Server. Se desejar implantar um banco de dados do SQL Server SAP dessa forma, em vez de aplicar 'wrappers' nele nos VHDs, tenha o seguinte em mente:
@@ -662,7 +662,7 @@ O SQL Server 2014 abre a possibilidade para armazenar arquivos de banco de dados
 
 [comment]: <> (MSSedusch TODO Porém, isso usará largura de banda de rede e não largura de banda de armazenamento, não é?)
 
-Os detalhes sobre esse tipo de implantação estão listados aqui: <https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure>
+Detalhes sobre esse tipo de implantação estão listados aqui: <https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure>
 
 Para armazenar arquivos de dados do SQL Server diretamente no Armazenamento Premium do Azure, você precisa ter uma versão mínima de patch do SQL Server 2014, que está documentada aqui: <https://support.microsoft.com/kb/3063054>. O armazenamento de arquivos de dados do SQL Server no Armazenamento Standard do Azure funciona com a versão lançada do SQL Server 2014. No entanto, os mesmos patches contêm outra série de correções, que tornam mais confiável o uso direto do Armazenamento de Blobs do Azure para arquivos de dados do SQL Server e backups. Portanto, é recomendável usar esses patches em geral.
 
@@ -684,9 +684,9 @@ Essa funcionalidade permite que você faça o backup diretamente no Armazenament
 
  ![Usando o backup do SQL Server 2012 para o Microsoft Azure Storage BLOB][dbms-guide-figure-400]
 
-A vantagem nesse caso é que não é necessário gastar discos para armazenar backups do SQL Server. Então você tem menos discos alocados e a largura de banda total de IOPS do disco pode ser usada para arquivos de log e de dados. Observe que o tamanho máximo de um backup é limitado a um máximo de 1 TB, conforme documentado na seção **Limitações** deste artigo: <https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#limitations>. Se o tamanho do backup, apesar do uso da compactação de backup do SQL Server, exceder 1 TB, a funcionalidade descrita no capítulo [SQL Server 2012 SP1 CU3 e versões anteriores][dbms-guide-5.5.2] neste documento deverá ser usada.
+A vantagem nesse caso é que não é necessário gastar discos para armazenar backups do SQL Server. Então você tem menos discos alocados e a largura de banda total de IOPS do disco pode ser usada para arquivos de log e de dados. Observe que o tamanho máximo de um backup é limitado ao máximo de 1 TB, conforme documentado na seção **Limitações** neste artigo: <https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#limitations>. Se o tamanho do backup, apesar do uso da compactação de backup do SQL Server, exceder 1 TB, a funcionalidade descrita no capítulo [SQL Server 2012 SP1 CU3 e versões anteriores][dbms-guide-5.5.2] neste documento deverá ser usada.
 
-A [documentação relacionada](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure) descrevendo a restauração de bancos de dados de backups no Armazenamento de Blobs do Azure recomenda não realizar a restauração diretamente do Armazenamento de Blobs do Azure se o backup for >25 GB. A recomendação neste artigo é baseada simplesmente em considerações de desempenho e não devido a restrições funcionais. Portanto, diferentes condições podem se aplicar caso a caso.
+A [documentação relacionada](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure) descrevendo a restauração de bancos de dados de backups no Armazenamento de Blobs do Azure recomenda não realizar a restauração diretamente do Armazenamento de Blobs do Azure se o backup for >25 GB. A recomendação neste artigo é baseada em considerações de desempenho e não devido a restrições funcionais. Portanto, diferentes condições podem se aplicar caso a caso.
 
 A documentação sobre como esse tipo de backup é configurado e utilizado pode ser encontrada [neste](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016) tutorial
 
@@ -707,11 +707,11 @@ A primeira etapa que você deve executar para realizar um backup diretamente no 
 
 Baixe o arquivo de instalação x64 e a documentação. O arquivo instala um programa chamado: **Backup do Microsoft SQL Server para a Ferramenta do Microsoft Azure**. Leia a documentação do produto completamente.  A ferramenta basicamente funciona da seguinte maneira:
 
-* No lado do SQL Server, um local de disco para o backup do SQL Server é definido (não use a unidade D:\ para isso).
+* Do lado do SQL Server, um local do disco para o backup do SQL Server é definido (não use a unidade D:\ como local).
 * A ferramenta permite que você defina regras que podem ser usadas para direcionar diferentes tipos de backups para diferentes contêineres de Armazenamento do Azure.
 * Depois que as regras estão em vigor, a ferramenta redireciona o fluxo de gravação do backup para um dos VHDs/discos para o local de Armazenamento do Azure definido anteriormente.
 * A ferramenta deixa um pequeno arquivo stub de alguns KB de tamanho no VHD/disco definido para o backup do SQL Server. **Esse arquivo deve ser deixado no local de armazenamento, já que é necessário para restaurar novamente do armazenamento do Azure.**
-  * Se você tiver perdido o arquivo stub (por exemplo, devido à perda da mídia de armazenamento que continha o arquivo stub) e tiver escolhido a opção de backup em uma conta de Armazenamento do Microsoft Azure, poderá recuperar o arquivo stub por meio do Armazenamento do Microsoft Azure baixando-o do contêiner de armazenamento no qual ele foi colocado. Em seguida, você deverá colocar o arquivo stub em uma pasta no computador local em que a ferramenta está configurada para detectar e carregar no mesmo contêiner com a mesma senha de criptografia se a criptografia tiver sido usada com a regra original. 
+  * Se você tiver perdido o arquivo stub (por exemplo, devido à perda da mídia de armazenamento que continha o arquivo stub) e tiver escolhido a opção de backup em uma conta de Armazenamento do Microsoft Azure, poderá recuperar o arquivo stub por meio do Armazenamento do Microsoft Azure baixando-o do contêiner de armazenamento no qual ele foi colocado. Coloque o arquivo Stub em uma pasta no computador local em que a ferramenta está configurada para detectar e carregar no mesmo contêiner com a mesma senha de criptografia se a criptografia tiver sido usada com a regra original. 
 
 Isso significa que o esquema conforme descrito acima para versões mais recentes do SQL Server pode ser colocado em vigor também para versões do SQL Server que não permitem endereçar diretamente um local de armazenamento do Azure.
 
@@ -725,7 +725,7 @@ Uma segunda possibilidade é usar uma VM grande que possa ter muitos discos anex
 Algumas práticas recomendadas também foram documentadas [aqui](https://blogs.msdn.com/b/sqlcat/archive/2015/02/26/large-sql-server-database-backup-on-an-azure-vm-and-archiving.aspx) . 
 
 #### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para backups/restaurações
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa em VMs com apenas até oito threads de CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compressão de backup pode desempenhar um papel significativo nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor for o número de discos usados para armazenar os arquivos de dados, menor será a taxa de transferência geral na leitura.
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup.
@@ -734,9 +734,9 @@ Como em implantações bare-metal, o desempenho de backup/restauração depende 
 
 Ao usar um blob de Armazenamento do Microsoft Azure como o destino de backup em versões mais recentes, você está restrito a designar apenas uma URL de destino para cada backup específico.
 
-Mas, ao usar o “Backup do Microsoft SQL Server para Ferramenta do Microsoft Azure” em versões mais antigas, você pode definir mais de um destino de arquivo. Com mais de um destino, o backup pode ser dimensionado e a taxa de transferência do backup pode ser maior. Isso resultaria, então, em vários arquivos também na conta de armazenamento do Azure. Em nossos testes, usando vários destinos de arquivo, é possível atingir definitivamente a taxa de transferência que poderia ser atingida com as extensões de backup implementadas por meio do SQL Server 2012 SP1 CU4. Você também não é bloqueado pelo limite de 1 TB como no backup nativo no Azure.
+Mas, ao usar o “Backup do Microsoft SQL Server para Ferramenta do Microsoft Azure” em versões mais antigas, você pode definir mais de um destino de arquivo. Com mais de um destino, o backup pode ser dimensionado e a taxa de transferência do backup pode ser maior. Isso resultaria, então, em vários arquivos também na conta de armazenamento do Azure. No teste, usando vários destinos de arquivo, é possível atingir definitivamente a taxa de transferência que poderia ser atingida com as extensões de backup implementadas por meio do SQL Server 2012 SP1 CU4. Você também não é bloqueado pelo limite de 1 TB como no backup nativo no Azure.
 
-No entanto, tenha em mente que a taxa de transferência também é depende do local da conta de armazenamento do Azure usada para o backup. Uma ideia pode ser localizar a conta de armazenamento em uma região diferente daquela em que as VMs estão em execução. Por exemplo, você executaria a configuração da VM no Oeste da Europa, mas colocaria a Conta de Armazenamento que usa para fazer backup no Norte da Europa. Isso certamente tem impacto sobre a taxa de transferência de backup e é improvável que gere uma taxa de transferência de 150 MB/s, como parece ser possível em casos em que o armazenamento de destino e as VMs estão em execução no mesmo datacenter regional.
+No entanto, tenha em mente que a taxa de transferência também é depende do local da conta de armazenamento do Azure usada para o backup. Uma ideia pode ser localizar a conta de armazenamento em uma região diferente daquela em que as VMs estão em execução. Por exemplo, você executaria a configuração da VM no Oeste da Europa, mas colocaria a Conta de Armazenamento que usa para fazer backup no Europa Setentrional. Isso certamente tem impacto sobre a taxa de transferência de backup e é improvável que gere uma taxa de transferência de 150 MB/s, como parece ser possível em casos em que o armazenamento de destino e as VMs estão em execução no mesmo datacenter regional.
 
 #### <a name="managing-backup-blobs"></a>Gerenciando BLOBs de Backup
 Há um requisito para gerenciar os backups por conta própria. Como a expectativa é que muitos blobs sejam criados pela execução de backups de log de transações frequentes, a administração desses blobs poderá facilmente sobrecarregar o portal do Azure. Portanto, é recomendável utilizar um gerenciador de armazenamento do Azure. Existem vários bons disponíveis que podem ajudar a gerenciar uma conta de armazenamento do Azure
@@ -750,7 +750,7 @@ Para uma discussão mais completa sobre backup e SAP no Azure, consulte o [Guia 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Como usar imagens do SQL Server do Microsoft Azure Marketplace
 A Microsoft oferece VMs no Azure Marketplace que já contêm versões do SQL Server. Para os clientes SAP que necessitam de licenças para o SQL Server e Windows, essa pode ser uma oportunidade para cobrir basicamente a necessidade de licenças gerando VMs com o SQL Server já instalado. Para usar essas imagens para SAP, as considerações a seguir precisam ser feitas:
 
-* As versões do SQL Server que não são de avaliação acarretam em custos mais elevados do que uma VM ‘Somente Windows’ implantada do Azure Marketplace. Confira estes artigos para comparar preços: <https://azure.microsoft.com/pricing/details/virtual-machines/windows/> e <https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/>. 
+* As versões do SQL Server que não são de avaliação acarretam em custos mais elevados do que uma VM ‘Somente Windows’ implantada do Azure Marketplace. Consulte estes artigos para comparar os preços: <https://azure.microsoft.com/pricing/details/virtual-machines/windows/> e <https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/>. 
 * Você pode usar apenas versões do SQL Server que têm suporte da SAP, como o SQL Server 2012.
 * O agrupamento da instância do SQL Server que é instalado nas VMs oferecidas no Azure Marketplace não é o agrupamento que o SAP NetWeaver requer que a instância do SQL Server execute. No entanto, você pode alterar o agrupamento com as instruções na seção a seguir.
 
@@ -782,23 +782,23 @@ Um dos métodos de HA (alta disponibilidade) é o envio de logs do SQL Server. S
 
 <https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server>
 
-Para realmente atingir a alta disponibilidade, é necessário implantar VMs que estejam dentro de tal configuração de Envio de Logs para que fiquem dentro do mesmo Conjunto de Disponibilidade do Azure.
+Para atingir a alta disponibilidade, é necessário implantar VMs que estejam dentro de tal configuração de Envio de Logs para que fiquem dentro do mesmo Conjunto de Disponibilidade do Azure.
 
 #### <a name="database-mirroring"></a>Espelhamento de banco de dados
 O espelhamento de banco de dados conforme o que tem suporte pelo SAP (consulte a Nota SAP [965908]) se baseia na definição de um parceiro de failover na cadeia de conexão SAP. Para os casos entre instalações, presumimos que as duas VMs estão no mesmo domínio e que o contexto de usuário sob o qual as duas instâncias do SQL Server estão sendo executadas é o usuário de domínio e tem privilégios suficientes nas duas instâncias do SQL Server envolvidas. Portanto, a configuração do espelhamento de banco de dados no Azure não difere entre uma configuração/instalação local típica.
 
 A partir de implantações somente em nuvem, o método mais fácil é ter outra configuração de domínio no Azure para que essas VMs de DBMS (e VMs do SAP idealmente dedicadas) dentro de um domínio.
 
-Se um domínio não for possível, também poderemos usar certificados para os pontos de extremidade de espelhamento de banco de dados, conforme descrito aqui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+Se um domínio não for possível, também será possível usar certificados para pontos de extremidade de espelhamento de banco de dados, conforme descrito aqui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 
 Um tutorial para configurar o Espelhamento de Banco de Dados no Azure pode ser encontrado aqui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
 #### <a name="sql-server-always-on"></a>SQL Server Always On
-Uma vez que Always On tem suporte para SAP local (consulte a Nota SAP [1772688]), ele tem suporte para ser usado em combinação com o SAP no Azure. O fato de que você não pode criar discos compartilhados no Azure não significa que não seja possível criar uma configuração de WSFC (Cluster de Failover do Windows Server) do Always On entre diferentes VMs. Isso significa apenas que você não tem a possibilidade de usar um disco compartilhado como um quórum na configuração do cluster. Portanto, você pode criar uma configuração de WSFC do Always On no Azure e simplesmente não selecionar o tipo de quórum que usa o disco compartilhado. O ambiente do Azure em que essa VMs são implantadas deve resolver as VMs por nome e as VMs devem estar no mesmo domínio. Isso é verdadeiro para implantações somente do Azure e entre instalações. Há algumas considerações especiais para implantar o ouvinte de grupo de disponibilidade do SQL Server (não deve ser confundido com o conjunto de disponibilidade do Azure) uma vez que o Azure neste momento não permite simplesmente criar um objeto AD/DNS como é possível localmente. Portanto, algumas etapas de instalação diferentes são necessárias para superar o comportamento específico do Azure.
+Uma vez que Always On tem suporte para SAP local (consulte a Nota SAP [1772688]), ele tem suporte para ser usado em combinação com o SAP no Azure. O fato de que você não pode criar discos compartilhados no Azure não significa que não seja possível criar uma configuração de WSFC (Cluster de Failover do Windows Server) do Always On entre diferentes VMs. Isso significa apenas que você não tem a possibilidade de usar um disco compartilhado como um quórum na configuração do cluster. Portanto, você pode compilar uma configuração de WSFC do Always On no Azure e não selecionar o tipo de quórum que usa o disco compartilhado. O ambiente do Azure em que essa VMs são implantadas deve resolver as VMs por nome e as VMs devem estar no mesmo domínio. Isso é verdadeiro para implantações somente do Azure e entre instalações. Há algumas considerações especiais para implantar o ouvinte de grupo de disponibilidade do SQL Server (não deve ser confundido com o conjunto de disponibilidade do Azure) uma vez que o Azure neste momento não permite criar um objeto AD/DNS como é possível localmente. Portanto, algumas etapas de instalação diferentes são necessárias para superar o comportamento específico do Azure.
 
 Algumas considerações sobre o uso de um ouvinte de grupo de disponibilidade são:
 
-* O uso de um ouvinte de grupo de disponibilidade é possível apenas com o Windows Server 2012 ou superior como o SO convidado da VM. Para o Windows Server 2012, você precisa se certificar de que o patch foi aplicado: <https://support.microsoft.com/kb/2854082> 
+* O uso de um ouvinte de grupo de disponibilidade é possível apenas com o Windows Server 2012 ou superior como o SO convidado da VM. Para o Windows Server 2012, é necessário certificar-se de que este patch foi aplicado: <https://support.microsoft.com/kb/2854082> 
 * Para o Windows Server 2008 R2, esse patch não existe e Always On precisaria ser usado da mesma maneira que o espelhamento de banco de dados especificando um parceiro de failover na cadeia de conexões (feito por meio do parâmetro default.pfl do SAP dbs/mss/server – consulte a Nota SAP [965908]).
 * Ao usar um ouvinte de grupo de disponibilidade, as VMs de banco de dados precisam estar conectadas a um balanceador de carga dedicado. A resolução de nomes em implantações Somente em Nuvem exigiria que todas as VMs do sistema SAP (servidores de aplicativo, servidor DBMS e servidor (A)SCS) estivessem na mesma rede virtual ou exigiria a manutenção do arquivo etc\host da camada de aplicativo SAP para resolver os nomes das VMs do SQL Server. Para evitar que o Azure atribua novos endereços IP em casos em que ambas as VMs sejam desligadas incidentalmente, deve-se atribuir endereços IP estáticos aos adaptadores de rede das VMs na configuração Always On (a definição de um endereço IP estático é descrita [neste][virtual-networks-reserved-private-ip] artigo)
 
@@ -843,7 +843,7 @@ Você precisa equilibrar a configuração mais complexa do Always On em compara
 Há muitas recomendações neste guia e recomendamos que você o leia mais de uma vez antes de planejar sua implantação do Azure. Em geral, no entanto, não se esqueça de seguir os dez principais pontos específicos do DBMS no Azure gerais:
 
 [comment]: <> (Taxa de transferência superior a 2.3 do que o que? De um VHD?)
-1. Use a versão mais recente do DBMS, como SQL Server 2014, que tem mais vantagens no Azure. Para o SQL Server, é o SQL Server 2012 SP1 CU4, que inclui o recurso de backup no armazenamento do Azure. No entanto, em conjunto com o SAP, recomendamos pelo menos o SQL Server 2014 SP1 CU1 ou o SQL Server 2012 SP2 e o CU mais recente.
+1. Use a versão mais recente do DBMS, como SQL Server 2014, que tem mais vantagens no Azure. Para o SQL Server, é o SQL Server 2012 SP1 CU4, que inclui o recurso de backup no armazenamento do Azure. No entanto, em conjunto com o SAP, é recomendável usar pelo menos o SQL Server 2014 SP1 CU1 ou o SQL Server 2012 SP2 e o CU mais recente.
 2. Planeje cuidadosamente sua estrutura de sistema da SAP no Azure para balancear o layout do arquivo de dados e as restrições do Azure:
    * Não tenha discos demais, mas tenha espaço suficiente para garantir que você possa atingir seu IOPS necessário.
    * Se você não usar Managed Disks, lembre-se de que IOPS também estão limitados pela Conta de Armazenamento do Azure e que as Contas de Armazenamento são limitadas em cada assinatura do Azure ([mais detalhes][azure-subscription-service-limits]). 
@@ -853,16 +853,16 @@ Há muitas recomendações neste guia e recomendamos que você o leia mais de um
 5. Não use contas de armazenamento com replicação de área geográfica do Azure.  Use Localmente Redundante para cargas de trabalho do DBMS.
 6. Use a solução de HA/DR do seu fornecedor do DBMS para replicar dados do banco de dados.
 7. Sempre use a resolução de nome, não confie em endereços IP.
-8. Use a maior compactação de banco de dados possível. Para o SQL Server, essa é a compactação de página.
+8. Use a maior compactação de banco de dados possível. Qual é a compactação de página para SQL Server.
 9. Tenha cuidado ao usar imagens do SQL Server do Azure Marketplace. Se você usar o SQL Server um, deverá alterar o agrupamento de instância antes de instalar qualquer sistema SAP NetWeaver nele.
 10. Instale e configure o Monitoramento de Host do SAP para Azure, conforme descrito no [Guia de Implantação][deployment-guide].
 
 ## <a name="specifics-to-sap-ase-on-windows"></a>Informações específicas para o SAP ASE no Windows
 Começando com o Microsoft Azure, você pode facilmente migrar seus aplicativos SAP ASE existentes para máquinas virtuais do Azure. O SAP ASE em uma Máquina Virtual permite reduzir o custo total de propriedade de implantação, gerenciamento e manutenção de aplicativos de amplitude empresarial migrando facilmente esses aplicativos para o Microsoft Azure. Com o SAP ASE em uma máquina virtual do Azure, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração que estão disponíveis localmente.
 
-Há um SLA para Máquinas Virtuais do Azure, que pode ser encontrado aqui: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
+Há um SLA para Máquinas Virtuais do Azure que pode ser encontrado aqui: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
 
-Temos certeza de que as máquinas virtuais hospedadas do Microsoft Azure têm um ótimo desempenho em comparação a outras ofertas de virtualização de nuvem pública, mas os resultados individuais podem variar. Os números de SAPS do dimensionamento do SAP dos diferentes SKUs de VM certificados do SAP são fornecidos em uma Nota SAP [1928533] separada.
+Temos certeza de que as máquinas virtuais hospedadas do Microsoft Azure desempenham bem em comparação a outras ofertas de virtualização de nuvem pública, mas os resultados individuais podem variar. Os números de SAPS do dimensionamento do SAP dos diferentes SKUs de VM certificados do SAP são fornecidos em uma Nota SAP [1928533] separada.
 
 As instruções e recomendações sobre o uso do armazenamento do Azure, implantação de VMs SAP ou monitoramento do SAP se aplicam às implantações do SAP ASE em conjunto com aplicativos SAP conforme indicado em todos os quatro primeiros capítulos deste documento.
 
@@ -878,7 +878,7 @@ Informações gerais sobre como executar o SAP Business Suite em SAP ASE podem s
 
 ### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>Diretrizes de configuração do SAP ASE para instalações do SAP ASE relacionadas ao SAP em VMs do Azure
 #### <a name="structure-of-the-sap-ase-deployment"></a>Estrutura da implantação do SAP ASE
-De acordo com a descrição geral, os executáveis do SAP ASE devem estar localizados ou instalados na unidade do sistema do disco do SO da VM (unidade C:\). Normalmente, a maioria dos bancos de dados de ferramentas e sistema do SAP ASE não é realmente utilizada de forma concreta pela carga de trabalho do SAP NetWeaver. Portanto, os bancos de dados de ferramentas e sistema (mestre, modelo, saptools, sybmgmtdb, sybsystemdb) podem permanecer na unidade C:\ também. 
+De acordo com a descrição geral, os executáveis do SAP ASE devem estar localizados ou instalados na unidade do sistema do disco do SO da VM (unidade C:\). Normalmente, a maioria dos bancos de dados de ferramentas e sistema do SAP ASE não é utilizada de forma concreta pela carga de trabalho do SAP NetWeaver. Portanto, os bancos de dados de ferramentas e sistema (mestre, modelo, saptools, sybmgmtdb, sybsystemdb) podem permanecer na unidade C:\ também. 
 
 Uma exceção pode ser o banco de dados temporário contendo todas as tabelas de trabalho e tabelas temporárias criadas pelo SAP ASE, que, no caso de algumas cargas de trabalho do SAP ERP e todas as do BW, pode exigir um volume de dados ou um volume de operações de E/S maior, que pode não caber no disco do SO da VM original (unidade c:\).
 
@@ -900,7 +900,7 @@ Essa configuração permite que o tempdb consuma mais espaço do que a unidade d
 Nunca coloque nenhum dispositivo do SAP ASE na unidade D:\ da VM. Isso também se aplica ao tempdb, mesmo que os objetos mantidos no tempdb sejam apenas temporários.
 
 #### <a name="impact-of-database-compression"></a>Impacto da compactação do banco de dados
-Em configurações em que a largura de banda de E/S pode se tornar um fator limitante, todas as medidas que reduzem IOPS podem ajudar a ampliar a carga de trabalho que pode ser executada em um cenário de IaaS como o Azure. Portanto, é altamente recomendável para se certificar de que a compactação do SAP ASE seja usada antes de carregar um banco de dados SAP existente no Azure.
+Em configurações em que a largura de banda de E/S pode se tornar um fator limitante, todas as medidas que reduzem IOPS podem ajudar a ampliar a carga de trabalho que pode ser executada em um cenário de IaaS como o Azure. Portanto, é recomendável certificar-se de que a compactação do SAP ASE seja usada antes de carregar um banco de dados SAP existente no Azure.
 
 A recomendação de executar a compactação antes de carregar no Azure, se ainda não estiver implementada, é indicada por vários motivos:
 
@@ -921,7 +921,7 @@ Como com sistemas locais, são necessárias várias etapas para habilitar toda a
 > 
 > 
 
-e os links gerados no DBACockpit da transação serão semelhantes a este:
+e os links gerados no DBACockpit da transação são semelhantes a este:
 
 > https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
@@ -970,7 +970,7 @@ Mais informações sobre o DBA Cockpit para SAP ASE podem ser encontradas nas se
 * [1956005]
 
 #### <a name="backuprecovery-considerations-for-sap-ase"></a>Considerações sobre backup/recuperação para o SAP ASE
-Ao implantar o SAP ASE no Azure, sua metodologia de backup deve ser examinada. Mesmo se o sistema não for um sistema produtivo, o banco de dados SAP hospedado pelo SAP ASE deverá ser submetido a backup periodicamente. Como o armazenamento do Azure mantém três imagens, um backup agora é menos importante no que diz respeito à compensação de uma falha de armazenamento. A razão principal para manter um plano de backup e restauração adequado é mais que você pode compensar erros lógicos/manuais fornecendo funcionalidades de recuperação pontual. Portanto, o objetivo é usar backups para restaurar o banco de dados para um determinado momento ou usar os backups no Azure para propagar outro sistema copiando o banco de dados existente. Por exemplo, você pode transferir de uma configuração do SAP de duas camadas para uma configuração de sistema de três camadas do mesmo sistema restaurando um backup.
+Ao implantar o SAP ASE no Azure, a metodologia de backup deve ser revisada. Mesmo se o sistema não for um sistema produtivo, o banco de dados SAP hospedado pelo SAP ASE deverá ser submetido a backup periodicamente. Como o armazenamento do Azure mantém três imagens, um backup agora é menos importante no que diz respeito à compensação de uma falha de armazenamento. A razão principal para manter um plano de backup e restauração adequado é mais que você pode compensar erros lógicos/manuais fornecendo funcionalidades de recuperação pontual. Portanto, o objetivo é usar backups para restaurar o banco de dados para um determinado momento ou usar os backups no Azure para propagar outro sistema copiando o banco de dados existente. Por exemplo, você pode transferir de uma configuração do SAP de duas camadas para uma configuração de sistema de três camadas do mesmo sistema restaurando um backup.
 
 A realização do backup e a recuperação de um banco de dados no Azure funcionam da mesma maneira que localmente. Consulte as observações do SAP:
 
@@ -984,7 +984,7 @@ Além da compactação do LOB e dados, o SAP ASE também oferece a compactação
 Não use a unidade D:\ como destino de despejo de log ou banco de dados.
 
 #### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para backups/restaurações
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa em VMs com apenas até oito threads de CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compressão de backup pode desempenhar um papel significativo nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup
@@ -1003,14 +1003,14 @@ Com o SRS (Servidor de Replicação SAP Sybase), o SAP ASE fornece uma solução
 
 A instalação e operação do SRS funcionam tão bem funcionalmente em uma VM hospedada nos Serviços de Máquina Virtual do Azure como localmente.
 
-O ASE HADR por meio do servidor de replicação do SAP é planejado com uma versão futura. Ele será testado com e liberado para plataformas Microsoft Azure assim que estiver disponível.
+O SAP ASE HADR não requer um Balanceador de Carga Interno do Azure e não possui dependências no cluster de nível de SO e funciona em VMs do Linux e Microsoft Azure. Para obter detalhes sobre o SAP ASE HADR leia o [Guia do usuário SAP ASE HADR](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.3/en-US/a6645e28bc2b1014b54b8815a64b87ba.html).
 
 ## <a name="specifics-to-sap-ase-on-linux"></a>Informações específicas para o SAP ASE no Linux
 Começando com o Microsoft Azure, você pode facilmente migrar seus aplicativos SAP ASE existentes para máquinas virtuais do Azure. O SAP ASE em uma Máquina Virtual permite reduzir o custo total de propriedade de implantação, gerenciamento e manutenção de aplicativos de amplitude empresarial migrando facilmente esses aplicativos para o Microsoft Azure. Com o SAP ASE em uma máquina virtual do Azure, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração que estão disponíveis localmente.
 
 Para implantar VMs do Azure, é importante conhecer os SLAs oficiais, que podem ser encontrados aqui: <https://azure.microsoft.com/support/legal/sla>
 
-As informações de dimensionamento do SAP e uma lista dos SKUs de VM certificados do SAP são fornecidas na Nota SAP [1928533]. Documentos adicionais sobre dimensionamento de SAP para máquinas virtuais do Azure podem ser encontrados aqui <http://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> e aqui <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+As informações de dimensionamento do SAP e uma lista dos SKUs de VM certificados do SAP são fornecidas na Nota SAP [1928533]. Documentos de dimensionamento SAP adicionais para Máquinas Virtuais do Azure podem ser encontrados aqui <http://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> e aqui <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 As instruções e recomendações sobre o uso do armazenamento do Azure, implantação de VMs SAP ou monitoramento do SAP se aplicam às implantações do SAP ASE em conjunto com aplicativos SAP conforme indicado em todos os quatro primeiros capítulos deste documento.
 
@@ -1031,7 +1031,7 @@ Informações gerais sobre como executar o SAP Business Suite em SAP ASE podem s
 
 ### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>Diretrizes de configuração do SAP ASE para instalações do SAP ASE relacionadas ao SAP em VMs do Azure
 #### <a name="structure-of-the-sap-ase-deployment"></a>Estrutura da implantação do SAP ASE
-De acordo com a descrição geral, os executáveis do SAP ASE devem ser localizados ou instalados no sistema de arquivos raiz da VM (/sybase ). Normalmente, a maioria dos bancos de dados de ferramentas e sistema do SAP ASE não é realmente utilizada de forma concreta pela carga de trabalho do SAP NetWeaver. Portanto, os bancos de dados de ferramentas e sistema (mestre, modelo, saptools, sybmgmtdb, sybsystemdb) podem permanecer no sistema de arquivos raiz também. 
+De acordo com a descrição geral, os executáveis do SAP ASE devem ser localizados ou instalados no sistema de arquivos raiz da VM (/sybase ). Normalmente, a maioria dos bancos de dados de ferramentas e sistema do SAP ASE não é utilizada de forma concreta pela carga de trabalho do SAP NetWeaver. Portanto, os bancos de dados de ferramentas e sistema (mestre, modelo, saptools, sybmgmtdb, sybsystemdb) podem permanecer no sistema de arquivos raiz também. 
 
 Uma exceção pode ser o banco de dados temporário que contém todas as tabelas de trabalho e tabelas temporárias criadas pelo SAP ASE que, no caso de algumas cargas de trabalho do SAP ERP e todas do BW, pode exigir um volume de dados ou um volume de operações de E/S maior, que pode não caber no disco do SO da VM original.
 
@@ -1053,7 +1053,7 @@ Essa configuração permite que o tempdb consuma mais espaço do que a unidade d
 Nunca coloque qualquer diretório do SAP ASE em /mnt ou /mnt/resource da VM. Isso também se aplica ao tempdb, mesmo que os objetos mantidos no tempdb sejam apenas temporários, pois /mnt ou /mnt/resource é um espaço temporário da VM do Azure padrão, que não é persistente. Mais detalhes sobre o espaço temporário da VM do Azure podem ser encontrados [neste artigo][virtual-machines-linux-how-to-attach-disk]
 
 #### <a name="impact-of-database-compression"></a>Impacto da compactação do banco de dados
-Em configurações em que a largura de banda de E/S pode se tornar um fator limitante, todas as medidas que reduzem IOPS podem ajudar a ampliar a carga de trabalho que pode ser executada em um cenário de IaaS como o Azure. Portanto, é altamente recomendável para se certificar de que a compactação do SAP ASE seja usada antes de carregar um banco de dados SAP existente no Azure.
+Em configurações em que a largura de banda de E/S pode se tornar um fator limitante, todas as medidas que reduzem IOPS podem ajudar a ampliar a carga de trabalho que pode ser executada em um cenário de IaaS como o Azure. Portanto, é recomendável certificar-se de que a compactação do SAP ASE seja usada antes de carregar um banco de dados SAP existente no Azure.
 
 A recomendação de executar a compactação antes de carregar no Azure, se ainda não estiver implementada, é indicada por vários motivos:
 
@@ -1137,7 +1137,7 @@ Além da compactação do LOB e dados, o SAP ASE também oferece a compactação
 Não use o espaço temporário da VM do Azure /mnt ou /mnt/resource como o destino do despejo de log ou banco de dados.
 
 #### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para backups/restaurações
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa em VMs com apenas até oito threads de CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compressão de backup pode desempenhar um papel significativo nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup
@@ -1159,18 +1159,18 @@ A instalação e operação do SRS funcionam tão bem funcionalmente em uma VM h
 O ASE HADR por meio do servidor de replicação do SAP NÃO tem suporte neste momento. Ele pode ser testado com e liberado para plataformas Microsoft Azure no futuro.
 
 ## <a name="specifics-to-oracle-database-on-windows"></a>Informações específicas do Banco de Dados Oracle no Windows
-O software Oracle tem suporte pela Oracle para ser executado no Microsoft Windows Hyper-V e no Azure. Para obter detalhes sobre o suporte geral do Microsoft Hyper-V e Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+O software Oracle tem suporte pela Oracle para ser executado no Microsoft Windows Hyper-V e no Azure. Para obter detalhes sobre o suporte geral do Windows Hyper-V e Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
 
 Após o suporte geral, o cenário específico de aplicativos SAP que utilizam os Bancos de Dados Oracle também tem suporte. Os detalhes são indicados nesta parte do documento.
 
 ### <a name="oracle-version-support"></a>Suporte de versão do Oracle
 As versões do Oracle e as versões de SO correspondentes que têm suporte para execução do SAP no Oracle nas Máquinas Virtuais do Azure podem ser encontrados na Nota SAP [2039619].
 
-Informações gerais sobre como executar o SAP Business Suite em Oracle podem ser encontradas em 1DX: <https://www.sap.com/community/topic/oracle.html>
+Informações gerais sobre como executar o SAP Business Suite no Oracle podem ser encontradas em 1DX: <https://www.sap.com/community/topic/oracle.html>
 
 ### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do Oracle para instalações do SAP em VMs do Azure
 #### <a name="storage-configuration"></a>Configuração de armazenamento
-Há suporte a apenas uma única instância do Oracle usando discos formatados em NTFS. Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS com base em VHDs ou Managed Disks. Esses discos são montados na VM do Azure e são baseados no Armazenamento de BLOBs da Página do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou em Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos como serviços de arquivo do Azure:
+Há suporte a apenas uma única instância do Oracle usando discos formatados em NTFS. Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS com base em VHDs ou Managed Disks. Esses discos são montados na VM do Azure e são baseados no Armazenamento de Blobs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos como serviços de arquivo do Azure:
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
@@ -1185,7 +1185,7 @@ Para identificar os tipos de VM do Azure com suporte, consulte a Nota SAP [19285
 
 Desde que a cota de IOPS por disco atual atenda aos requisitos, é possível armazenar todos os arquivos de BD em um único disco montado. 
 
-Se mais IOPS forem necessários, é altamente recomendável usar Pools de Armazenamento do Windows (disponíveis apenas no Windows Server 2012 e superior) ou divisão do Windows para o Windows 2008 R2 para criar um grande dispositivo lógico em vários discos montados (consulte também o capítulo [RAID de software][dbms-guide-2.2] deste documento). Essa abordagem minimiza a sobrecarga administrativa para gerenciar o espaço em disco e evita o esforço para distribuir manualmente os arquivos entre vários discos montados.
+Se mais IOPS forem necessários, é recomendável usar Pools de Armazenamento do Windows (disponíveis apenas no Windows Server 2012 e superior) ou divisão do Windows para o Windows 2008 R2 para criar um grande dispositivo lógico em vários discos montados (consulte também o capítulo [RAID de software][dbms-guide-2.2] deste documento). Essa abordagem minimiza a sobrecarga administrativa para gerenciar o espaço em disco e evita o esforço para distribuir manualmente os arquivos entre vários discos montados.
 
 #### <a name="backup--restore"></a>Backup/restauração
 Para a funcionalidade de backup/restauração, o SAP BR*Tools para Oracle tem suporte da mesma maneira que o Hyper-V e sistemas operacionais Windows Server standard. O RMAN (Gerenciador de Recuperação) da Oracle também tem suporte para backups em disco e restaurações do disco.
@@ -1194,21 +1194,21 @@ Para a funcionalidade de backup/restauração, o SAP BR*Tools para Oracle tem su
 O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. É possível encontrar detalhes [nesta][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
 
 #### <a name="other"></a>Outros
-Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.
+Todas as outras áreas gerais, como o monitoramento do SAP ou Conjuntos de Disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Especificidades do Oracle Database no Oracle Linux
-O software Oracle tem suporte pela Oracle para ser executado no Microsoft Windows Hyper-V e no Azure. Para obter detalhes sobre o suporte geral do Microsoft Hyper-V e Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+O software Oracle tem suporte pela Oracle para ser executado no Microsoft Windows Hyper-V e no Azure. Para obter detalhes sobre o suporte geral do Windows Hyper-V e Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
 
 Após o suporte geral, o cenário específico de aplicativos SAP que utilizam os Bancos de Dados Oracle também tem suporte. Os detalhes são indicados nesta parte do documento.
 
 ### <a name="oracle-version-support"></a>Suporte de versão do Oracle
 As versões do Oracle e as versões de SO correspondentes que têm suporte para execução do SAP no Oracle nas Máquinas Virtuais do Azure podem ser encontrados na Nota SAP [2039619].
 
-Informações gerais sobre como executar o SAP Business Suite em Oracle podem ser encontradas em 1DX: <https://www.sap.com/community/topic/oracle.html>
+Informações gerais sobre como executar o SAP Business Suite no Oracle podem ser encontradas em 1DX: <https://www.sap.com/community/topic/oracle.html>
 
 ### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do Oracle para instalações do SAP em VMs do Azure
 #### <a name="storage-configuration"></a>Configuração de armazenamento
-Há suporte para uma única instância do Oracle usando discos formatados em ext3, ext4 e xfs. Todos os arquivos de banco de dados devem ser armazenados no sistemas de arquivos baseados em VHDs ou Managed Disks. Esses discos são montados na VM do Azure e são baseados no Armazenamento de BLOBs da Página do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou em Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos como serviços de arquivo do Azure:
+Há suporte para uma única instância do Oracle usando discos formatados em ext3, ext4 e xfs. Todos os arquivos de banco de dados devem ser armazenados no sistemas de arquivos baseados em VHDs ou Managed Disks. Esses discos são montados na VM do Azure e são baseados no Armazenamento de Blobs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos como serviços de arquivo do Azure:
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
@@ -1223,7 +1223,7 @@ Para identificar os tipos de VM do Azure com suporte, consulte a Nota SAP [19285
 
 Desde que a cota de IOPS por disco atual atenda aos requisitos, é possível armazenar todos os arquivos de BD em um único disco montado. 
 
-Se mais IOPS forem necessários, é altamente recomendável usar LVM (Gerenciador de Volume lógico) ou MDADM para criar um grande volume lógico usando vários discos montados. Veja também o capítulo [RAID de Software][dbms-guide-2.2] deste documento. Essa abordagem minimiza a sobrecarga administrativa para gerenciar o espaço em disco e evita o esforço para distribuir manualmente os arquivos entre vários discos montados.
+Se mais IOPS forem necessários, é recomendável usar LVM (Gerenciador de Volume lógico) ou MDADM para criar um grande volume lógico usando vários discos montados. Veja também o capítulo [RAID de Software][dbms-guide-2.2] deste documento. Essa abordagem minimiza a sobrecarga administrativa para gerenciar o espaço em disco e evita o esforço para distribuir manualmente os arquivos entre vários discos montados.
 
 #### <a name="backup--restore"></a>Backup/restauração
 Para funcionalidade de backup/restauração, há suporte para SAP BR*Tools para Oracle da mesma maneira que em Hyper-V e bare-metal. O RMAN (Gerenciador de Recuperação) da Oracle também tem suporte para backups em disco e restaurações do disco.
@@ -1232,7 +1232,7 @@ Para funcionalidade de backup/restauração, há suporte para SAP BR*Tools para 
 O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. É possível encontrar detalhes [nesta][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
 
 #### <a name="other"></a>Outros
-Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.
+Todas as outras áreas gerais, como o monitoramento do SAP ou Conjuntos de Disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.
 
 ## <a name="specifics-for-the-sap-maxdb-database-on-windows"></a>Informações específicas para o banco de dados SAP MaxDB no Windows
 ### <a name="sap-maxdb-version-support"></a>Suporte de versão do SAP MaxDB
@@ -1265,7 +1265,7 @@ Em resumo, você precisa:
 * Separe o caminho de E/S para volumes de dados (ou seja, arquivos) do SAP MaxDB do caminho de E/S para volumes de log (ou seja, arquivos). Isso significa que os volumes de dados (ou seja, arquivos) do SAP MaxDB precisam ser instalado em uma unidade lógica e os volumes de log (ou seja, arquivos) do SAP MaxDB precisam ser instalado em outra unidade lógica.
 * Defina o tipo de cache adequado para cada disco, dependendo de se você o usa para volumes de log ou de dados do SAP MaxDB (ou seja, arquivos) e se você usa o Armazenamento Standard ou Premium do Azure, conforme descrito no capítulo [Cache para VMs e discos de dados][dbms-guide-2.1].
 * Desde que a cota de IOPS por disco atenda aos requisitos, é possível armazenar todos os volumes de dados em um único disco montado e também armazenar todos os volumes de log do banco de dados em outro disco único montado.
-* Se mais IOPS e/ou espaço forem necessários, é altamente recomendável usar pools de armazenamento do Microsoft Windows (disponíveis apenas no Microsoft Windows Server 2012 e superior) ou distribuição do Microsoft Windows para o Microsoft Windows 2008 R2 para criar um grande dispositivo lógico em vários discos montados. Veja também o capítulo [RAID de Software][dbms-guide-2.2] deste documento. Essa abordagem simplifica a sobrecarga administrativa para gerenciar o espaço em disco e evita o esforço de distribuir manualmente os arquivos entre vários discos montados.
+* Se mais IOPS e/ou espaço forem necessários, é recomendável usar pools de armazenamento do Microsoft Windows (disponíveis apenas no Microsoft Windows Server 2012 e superior) ou distribuição do Microsoft Windows para o Microsoft Windows 2008 R2 para criar um grande dispositivo lógico em vários discos montados. Veja também o capítulo [RAID de Software][dbms-guide-2.2] deste documento. Essa abordagem simplifica a sobrecarga administrativa para gerenciar o espaço em disco e evita o esforço de distribuir manualmente os arquivos entre vários discos montados.
 * Para os requisitos de IOPS mais altos, você pode usar o Armazenamento Premium do Azure, que está disponível nas VMs das séries DS e GS.
 
 ![Configuração de referência da VM IaaS do Azure para DBMS do SAP MaxDB][dbms-guide-figure-600]
@@ -1294,7 +1294,7 @@ Para aumentar o número de destinos nos quais gravar, existem duas opções que 
 A divisão de um volume em vários discos montados foi discutida anteriormente no capítulo [RAID de software][dbms-guide-2.2] deste documento. 
 
 #### <a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Outros
-Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, também se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o banco de dados SAP MaxDB.
+Todas as outras áreas gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, também se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o banco de dados SAP MaxDB.
 Outras configurações específicas do SAP MaxDB são transparentes para VMs do Azure e são descritas em diferentes documentos listados na Nota SAP [767598] e nestas Notas SAP:
 
 * [826037] 
@@ -1335,7 +1335,7 @@ Como o SAP liveCache usa intensivamente a potência computacional, para o uso pr
 O backup e a restauração, incluindo considerações de desempenho, já estão descritos nos capítulos relevantes do SAP MaxDB, [Backup e restauração][dbms-guide-8.4.2] e [Considerações de desempenho para backup e restauração][dbms-guide-8.4.3]. 
 
 #### <a name="other"></a>Outros
-Todos os outros tópicos gerais já estão descritos [neste][dbms-guide-8.4.4] capítulo relevante sobre o SAP MaxDB. 
+Todas as outras áreas gerais já estão descritas [neste][dbms-guide-8.4.4] capítulo relevante sobre o SAP MaxDB. 
 
 ## <a name="specifics-for-the-sap-content-server-on-windows"></a>Informações específicas para o SAP Content Server no Windows
 O SAP Content Server é um componente baseado em servidor separado para armazenar conteúdos como documentos eletrônicos em diferentes formatos. O SAP Content Server é fornecido pelo desenvolvimento de tecnologia e deve ser usada entre aplicativos para todos os aplicativos SAP. Ele é instalado em um sistema separado. O conteúdo normal é o material de treinamento e a documentação do Depósito de Dados de Conhecimento ou desenhos técnicos provenientes do Sistema de Gerenciamento de Documentos do mySAP PLM. 
@@ -1407,7 +1407,7 @@ Para obter informações sobre os tipos de VM do Azure e produtos SAP com suport
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do IBM DB2 para Linux, UNIX e Windows para instalações do SAP em VMs do Azure
 #### <a name="storage-configuration"></a>Configuração de armazenamento
-Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS com base em discos anexados diretamente. Esses discos são montados na VM do Azure e são baseados no Armazenamento de BLOBs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou em Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos, como os seguintes serviços de arquivo do Azure **NÃO** tem suporte para arquivos de banco de dados: 
+Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS com base em discos anexados diretamente. Esses discos são montados na VM do Azure e são baseados no Armazenamento de Blobs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos, como os seguintes serviços de arquivo do Azure **NÃO** tem suporte para arquivos de banco de dados: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
@@ -1428,7 +1428,7 @@ A funcionalidade de backup/restauração para o IBM DB2 para LUW tem suporte da 
 
 Você deve se certificar de que tenha uma estratégia de backup do banco de dados válida em vigor. 
 
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa em VMs com apenas até oito threads de CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compressão de backup pode desempenhar um papel significativo nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup
@@ -1447,7 +1447,7 @@ Há suporte para HADR (alta disponibilidade e recuperação de desastre) do DB2.
 Não use a replicação geográfica para as contas de armazenamento que armazenam os discos de banco de dados. Para obter mais informações, confira o capítulo [Armazenamento do Microsoft Azure][dbms-guide-2.3] e o capítulo [Alta disponibilidade e recuperação de desastre com VMs do Azure][dbms-guide-3].
 
 #### <a name="other"></a>Outros
-Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o IBM DB2 para LUW. 
+Todas as outras áreas gerais, como o monitoramento do SAP ou Conjuntos de Disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o IBM DB2 para LUW. 
 
 Veja também o capítulo [Resumo geral do SQL Server para SAP no Azure][dbms-guide-5.8].
 
@@ -1463,7 +1463,7 @@ Para obter informações sobre os tipos de VM do Azure e produtos SAP com suport
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do IBM DB2 para Linux, UNIX e Windows para instalações do SAP em VMs do Azure
 #### <a name="storage-configuration"></a>Configuração de armazenamento
-Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos com base em discos de conexão direta. Esses discos são montados na VM do Azure e são baseados no Armazenamento de BLOBs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou em Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos, como os seguintes serviços de arquivo do Azure **NÃO** tem suporte para arquivos de banco de dados:
+Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos com base em discos de conexão direta. Esses discos são montados na VM do Azure e são baseados no Armazenamento de Blobs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos, como os seguintes serviços de arquivo do Azure **NÃO** tem suporte para arquivos de banco de dados:
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
@@ -1484,7 +1484,7 @@ A funcionalidade de backup/restauração para o IBM DB2 para LUW tem suporte da 
 
 Você deve se certificar de que tenha uma estratégia de backup do banco de dados válida em vigor.
 
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa em VMs com apenas até oito threads de CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup

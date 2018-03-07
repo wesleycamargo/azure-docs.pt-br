@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Solucionar e corrigir problemas de dispositivo
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Usar a página **Manutenção** para investigar o alarme
 > * Chamar um método de dispositivo para corrigir o problema
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para seguir este tutorial, você precisará de uma instância implantada de solução de monitoramento remoto na sua assinatura do Azure.
 
@@ -58,6 +58,8 @@ Para reconhecer o alarme, selecione as **Ocorrências do alarme** e escolha **Re
 
 ![Reconhecer os alarmes](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+Quando você confirma o alarme, o status da ocorrência altera para **Confirmado**.
+
 Na lista, é possível ver o dispositivo **Protótipo** responsável por disparar o alarme de temperatura:
 
 ![Lista dos dispositivos que estão causando o alarme](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -84,7 +86,7 @@ Para exibir os detalhes de um trabalho ou de uma chamada de método específicos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial mostramos como:
+Neste tutorial, você aprendeu como:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

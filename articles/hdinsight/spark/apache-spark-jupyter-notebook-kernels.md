@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de anotações do Jupyter em clusters do Spark no Azure HDInsight 
 
@@ -33,7 +33,7 @@ Os clusters do HDInsight Spark fornecem kernels que você pode usar com o bloco 
 
 Neste artigo, você aprenderá como usar esses kernels e os benefícios de usá-los.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -80,7 +80,7 @@ Estes são alguns dos benefícios de usar os novos kernels com o bloco de anota�
    
     A tabela a seguir lista as diferentes palavras mágicas disponíveis por meio dos kernels.
 
-   | Mágica | Exemplo | Descrição |
+   | Mágica | Exemplo | DESCRIÇÃO |
    | --- | --- | --- |
    | ajuda |`%%help` |Gera uma tabela de todos os comandos mágicos disponíveis com exemplo e descrição |
    | informações |`%%info` |Envia informações de sessão para o ponto de extremidade Livy atual |
@@ -88,7 +88,7 @@ Estes são alguns dos benefícios de usar os novos kernels com o bloco de anota�
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive no dqlContext. Se o parâmetro `-o` for passado, o resultado da consulta será persistido no contexto %%local do Python como um dataframe do [Pandas](http://pandas.pydata.org/) . |
    | local |`%%local`<br>`a=1` |Todo o código nas linhas subsequentes é executado localmente. O código deve ser um código Python2 válido, independentemente do kernel que você está usando. Portanto, mesmo se você selecionou os kernels **PySpark3** ou **Spark** ao criar o notebook, se você usar a palavra mágica `%%local` em uma célula, essa célula só poderá ter um código Python2 válido... |
    | logs |`%%logs` |Gera os logs da sessão atual do Livy. |
-   | excluir |`%%delete -f -s <session number>` |Exclui uma sessão específica do ponto de extremidade atual do Livy. Observe que você não pode excluir a sessão iniciada para o próprio kernel. |
+   | excluir |`%%delete -f -s <session number>` |Exclui uma sessão específica do ponto de extremidade atual do Livy. Você não pode excluir a sessão iniciada para o próprio kernel. |
    | limpeza |`%%cleanup -f` |Exclui todas as sessões do ponto de extremidade atual do Livy, incluindo a sessão deste notebook. O sinalizador de força -f é obrigatório. |
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Estes são alguns dos benefícios de usar os novos kernels com o bloco de anota�
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parâmetros compatíveis com a mágica de %%sql
 A palavra mágica `%%sql` é compatível com diversos parâmetros que podem ser usados para controlar o tipo de saída que você recebe ao executar consultas. A tabela a seguir lista as saídas.
 
-| Parâmetro | Exemplo | Descrição |
+| Parâmetro | Exemplo | DESCRIÇÃO |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Use esse parâmetro para manter o resultado da consulta, no contexto Python %%local, como um dataframe [Pandas](http://pandas.pydata.org/) . O nome da variável dataframe é o nome da variável que você especificar. |
 | -q |`-q` |Use esta opção para desativar visualizações da célula. Se não desejar visualizar o conteúdo de uma célula automaticamente, mas apenas capturá-la como um dataframe, use `-q -o <VARIABLE>`. Se desejar desativar as visualizações sem capturar os resultados (por exemplo, para executar uma consulta SQL, como uma instrução `CREATE TABLE`), use `-q` sem especificar um argumento `-o`. |
@@ -135,7 +135,11 @@ Você pode abrir o notebook **00 - [READ ME FIRST] Spark Magic Kernel Features**
 
 ## <a name="where-are-the-notebooks-stored"></a>Onde os blocos de anotações são armazenados?
 
-Os notebooks Jupyter são salvos na conta de armazenamento associada ao cluster na pasta **/HdiNotebooks** .  Os notebooks, arquivos de texto e pastas que você cria no Jupyter podem ser acessados na conta de armazenamento.  Por exemplo, se você usar o Jupyter para criar uma pasta **myfolder** e um notebook **myfolder/mynotebook.ipynb**, poderá acessar esse notebook em `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro da conta de armazenamento.  O inverso também é possível, ou seja, se você carregar um notebook diretamente em sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, ele também ficará visível no Jupyter.  Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
+Se o cluster usa o armazenamento do Azure como a conta de armazenamento padrão, os blocos de anotações do Jupyter são salvos para a conta de armazenamento na pasta **/HdiNotebooks**.  Os notebooks, arquivos de texto e pastas que você cria no Jupyter podem ser acessados na conta de armazenamento.  Por exemplo, se você usar o Jupyter para criar uma pasta **myfolder** e um notebook **myfolder/mynotebook.ipynb**, poderá acessar esse notebook em `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro da conta de armazenamento.  O inverso também é possível, ou seja, se você carregar um notebook diretamente em sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, ele também ficará visível no Jupyter.  Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
+
+> [!NOTE]
+> Clusters de HDInsight com Azure Data Lake Store como o armazenamento padrão não armazenam os blocos de anotações em armazenamento associado.
+>
 
 A forma como os blocos de anotações são salvos na conta de armazenamento é compatível com HDFS. Portanto, se você se conectar por SSH ao cluster, poderá usar comandos de gerenciamento de arquivos, como mostra o trecho a seguir:
 
@@ -143,8 +147,7 @@ A forma como os blocos de anotações são salvos na conta de armazenamento é c
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-Caso haja problemas para acessar a conta de armazenamento do cluster, os notebooks também são salvos no `/var/lib/jupyter`do nó principal.
+Independentemente se o cluster usa o armazenamento do Azure ou o Azure Data Lake Store como a conta de armazenamento padrão, os blocos de anotações também são salvos em um nó principal do cluster em `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Navegador com suporte
 
@@ -160,7 +163,6 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos

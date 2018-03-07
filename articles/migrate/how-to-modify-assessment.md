@@ -4,13 +4,13 @@ description: "Descreve como configurar e executar uma avaliação de migração 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 02/26/2018
 ms.author: raynew
-ms.openlocfilehash: 8babdbc30e062c7b289e90a674cec3222943e48d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: efb4ad59d25a0c1209e4f0f6cd406c2f0d48159c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 
@@ -24,7 +24,7 @@ As [Migrações para Azure](migrate-overview.md) criam avaliações com configur
 
     **Configuração** | **Detalhes** | **Padrão**
     --- | --- | ---
-    **Local de destino** | O local do Azure para o qual você deseja migrar. |  Oeste dos EUA 2 é o local padrão.
+    **Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/> O Migrações para Azure atualmente dá suporte a 30 regiões, incluindo Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, Índia Central, Centro dos EUA, Leste da China, Norte da China, Ásia Oriental, Leste dos EUA, Alemanha Central, Nordeste da Alemanha, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia do Sul, Centro Sul, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, Centro-Oeste dos EUA, Europa Ocidental, Oeste da Índia, Oeste dos EUA e Oeste dos EUA 2. |  Oeste dos EUA 2 é o local padrão.
     **Redundância de armazenamento** | O tipo de redundância de armazenamento que as VMs do Azure usarão após a migração. | O [armazenamento com redundância local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) é o valor padrão. As Migrações para Azure só oferecem suporte a avaliações com base em discos gerenciados, e discos gerenciados só oferecem suporte ao LRS, portanto a propriedade atualmente só tem a opção de LRS. 
     **Critério de dimensionamento** | O critério a ser usado pelas Migrações para Azure para redimensionar VMs para o Azure. Você pode fazer dimensionamento *com base no desempenho* ou dimensionar as VMs *como locais*, sem considerar o histórico de desempenho. | O dimensionamento com base no desempenho é a opção padrão.
     **Histórico de desempenho** | A duração a considerar para avaliar o desempenho das VMs. Essa propriedade só é aplicável quando o critério de dimensionamento é *dimensionamento com base no desempenho*. | O padrão é um dia.

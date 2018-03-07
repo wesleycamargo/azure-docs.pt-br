@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 6c92acee9d7609f4fedcddd40563b1a55fa08fac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be23d919b0c96d6c9b96ee328d1b18ad978a9dcc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Encadeando entidades do Barramento de Serviço com o encaminhamento automático
 
 O recurso *encaminhamento automático* do Barramento de Serviço permite encadear uma fila ou assinatura a outra fila ou outro tópico que faz parte do mesmo namespace. Quando o encaminhamento automático está habilitado, o Barramento de Serviço remove automaticamente as mensagens colocadas na primeira fila ou assinatura (origem) e as coloca na segunda fila ou no segundo tópico (destino). Observe que ainda é possível enviar uma mensagem diretamente para a entidade de destino. Além disso, não é possível encadear uma subfila, por exemplo, uma fila de mensagens mortas, em outra fila ou outro tópico.
 
 ## <a name="using-auto-forwarding"></a>Usando o encaminhamento automático
-Você pode habilitar o encaminhamento automático configurando as propriedades [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] nos objetos [QueueDescription][QueueDescription] ou [SubscriptionDescription][SubscriptionDescription] para a origem, como no exemplo a seguir.
+
+Você pode habilitar o encaminhamento automático configurando as propriedades [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] nos objetos [QueueDescription][QueueDescription] ou [SubscriptionDescription][SubscriptionDescription] para a origem, como no exemplo a seguir:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -35,7 +36,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 A entidade de destino deverá existir no momento da criação da entidade de origem. Se a entidade de destino não existir, o Barramento de Serviço retornará uma exceção quando receber uma solicitação para criar a entidade de origem.
 
-Você pode usar o encaminhamento automático para escalar horizontalmente um tópico individual. O Barramento de Serviço limita a [quantidade de assinaturas em determinado tópico](service-bus-quotas.md) em 2.000. Você pode acomodar outras assinaturas criando tópicos de segundo nível. Observe que, mesmo se o número de assinaturas que você tem não estiver limitado pelo Barramento de Serviço, a adição de um segundo nível de tópicos poderá melhorar a taxa de transferência geral do tópico.
+Você pode usar o encaminhamento automático para escalar horizontalmente um tópico individual. O Barramento de Serviço limita a [quantidade de assinaturas em determinado tópico](service-bus-quotas.md) em 2.000. Você pode acomodar outras assinaturas criando tópicos de segundo nível. Mesmo se o número de assinaturas que você tem não estiver limitado pelo Barramento de Serviço, a adição de um segundo nível de tópicos poderá melhorar a taxa de transferência geral do tópico.
 
 ![Cenário de encaminhamento automático][0]
 
@@ -47,7 +48,7 @@ Se Brenda entrar de férias, sua fila pessoal, em vez do tópico ERP, ficará ch
 
 ## <a name="auto-forwarding-considerations"></a>Considerações sobre o encaminhamento automático
 
-Se a entidade de destino tiver acumulado mensagens demais e exceder a cota, ou se a entidade de destino estiver desabilitada, a entidade de origem adicionará as mensagens à sua [fila de mensagens mortas](service-bus-dead-letter-queues.md) até que haja espaço no destino (ou a entidade seja habilitada novamente). Essas mensagens continuarão ativas na fila de mensagens mortas, portanto, você deve receber e processá-las explicitamente a partir da fila de mensagens mortas.
+Se a entidade de destino tiver acumulado mensagens demais e exceder a cota, ou se a entidade de destino estiver desabilitada, a entidade de origem adicionará as mensagens à sua [fila de mensagens mortas](service-bus-dead-letter-queues.md) até que haja espaço no destino (ou a entidade seja habilitada novamente). Essas mensagens continuam ativas na fila de mensagens mortas, portanto, você deve receber e processá-las explicitamente a partir da fila de mensagens mortas.
 
 Ao encadear tópicos individuais a fim de obter um tópico composto com diversas assinaturas, recomendamos que você tenha uma quantidade moderada de assinaturas no tópico de primeiro nível e diversas assinaturas nos tópicos de segundo nível. Por exemplo, um tópico de primeiro nível com 20 assinaturas, cada uma delas encadeada com um tópico de segundo nível com 200 assinaturas, permite uma taxa de transferência superior do que um tópico de primeiro nível com 200 assinaturas, cada uma delas encadeada com um tópico de segundo nível com 20 assinaturas.
 

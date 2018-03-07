@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -187,6 +187,7 @@ Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia 
 |:--- |:--- |:--- |
 | Tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceSource**. | sim |
 | query |Utiliza a consulta personalizada para ler os dados. Você pode usar uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Um exemplo é `select * from MyTable__c`. | Não (se "tableName" no conjunto de dados for especificado) |
+| readBehavior | Indica se deve consultar os registros existentes, ou consultar todos os registros, incluindo o que foi excluído. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **query** (padrão), **queryAll**.  | Não  |
 
 > [!IMPORTANT]
 > A parte "__c" do **Nome da API** é necessária para qualquer objeto personalizado.

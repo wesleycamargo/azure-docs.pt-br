@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -150,8 +150,8 @@ A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do 
 | `*.servicebus.windows.net`    | 443, 80        | Necessárias para que o tempo de execução de integração auto-hospedado se conecte aos serviços de movimentação de dados no Data Factory |
 | `*.core.windows.net`          | 443            | Usada pelo tempo de execução de integração auto-hospedado para se conectar à Conta de Armazenamento do Azure ao usar o recurso [cópia em etapas](copy-activity-performance.md#staged-copy). |
 | `*.frontend.clouddatahub.net` | 443            | Necessárias para que o tempo de execução de integração auto-hospedado se conecte ao serviço do Azure Data Factory. |
-| `*.database.windows.net`      | 1433           | (OPCIONAL) Necessária quando o destino é o Banco de Dados SQL do Azure/SQL Data Warehouse do Azure. Use o recurso de cópia em etapas para copiar dados para o Banco de Dados SQL do Azure/SQL Data Warehouse do Azure sem abrir a porta 1433. |
-| `*.azuredatalakestore.net`    | 443            | (OPCIONAL) Necessária quando o destino é o Azure Data Lake Store |
+| `*.database.windows.net`      | 1433           | (OPCIONAL) Necessária ao copiar de/para o Banco de Dados SQL do Azure/SQL Data Warehouse do Azure. Use o recurso de cópia em etapas para copiar dados para o Banco de Dados SQL do Azure/SQL Data Warehouse do Azure sem abrir a porta 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (OPCIONAL) Necessária ao copiar de/para o Azure Data Lake Store |
 
 > [!NOTE] 
 > Talvez você precise gerenciar as portas e os domínios na lista de permissões no nível do firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e o Azure Data Lake Store como exemplos.   

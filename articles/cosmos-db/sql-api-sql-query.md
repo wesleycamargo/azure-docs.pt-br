@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para o Azure Cosmos DB
 
@@ -937,7 +937,7 @@ A tabela a seguir mostra a lista de funções de agregação com suporte na API 
 Agregações também podem ser executadas em relação aos resultados de uma iteração de matriz. Para obter mais informações, consulte [Iteração de matriz em consultas](#Iteration).
 
 > [!NOTE]
-> Ao usar o Gerenciador de Consultas do portal do Azure, observe que as consultas de agregação podem retornar resultados parcialmente agregados em uma página de consulta. Os SDKs produzem um único valor cumulativo em todas as páginas. 
+> Ao usar o Data Explorer do portal do Azure, observe que as consultas de agregação podem retornar resultados parcialmente agregados em uma página de consulta. Os SDKs produzem um único valor cumulativo em todas as páginas. 
 > 
 > Para executar consultas de agregação usando o código, você precisa do .NET SDK 1.12.0, .NET Core SDK 1.1.0 ou Java SDK 1.9.5 ou posterior.    
 >

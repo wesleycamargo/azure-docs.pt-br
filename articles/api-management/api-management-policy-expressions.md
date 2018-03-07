@@ -14,26 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
-A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.  
-  
-> [!TIP]
->  Para obter mais informações sobre expressões de política, consulte o vídeo [Policy Expressions](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) (Expressões de política).  
->   
->  Para demonstrações da configuração de políticas usando expressões de política, consulte [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Abordagem da Nuvem Episódio 177: Mais Recursos de Gerenciamento de API com Vlad Vinogradsky). Este vídeo contém as seguintes demonstrações de expressão de política:  
->   
->  -   10:30 - Veja como fornecer informações de contexto para o serviço de back-end. Use as políticas [Definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) e [Definir cabeçalho HTTP](api-management-transformation-policies.md#SetHTTPheader) para fornecer essas informações. Em 12:10 há uma demonstração de chamada de uma operação no portal do desenvolvedor na qual você poderá ver essas políticas em ação.  
-> -   13:50 – veja como usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar o acesso a operações baseadas em declarações de token. Avance para as 15:00 para ver como as políticas são configuradas no editor de política. Em 18:50, veja uma demonstração de como chamar uma operação do portal do desenvolvedor com e sem o token de autorização necessário.  
-> -   21:00 – Use um rastreamento de [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) para ver como as políticas são avaliadas e os resultados destas avaliações.  
-> -   25:25 - Veja como usar expressões com as políticas [Obter do cache](api-management-caching-policies.md#GetFromCache) e [Armazenar em cache](api-management-caching-policies.md#StoreToCache) para configurar o cache de resposta de gerenciamento de API. Defina uma duração que coincida com o cache de resposta do serviço de back-end conforme especificado pela diretiva `Cache-Control` do serviço de backup.  
-> -   34:30 - Veja como realizar a filtragem de conteúdo. Remova os elementos de dados da resposta recebida do back-end usando as políticas [Controlar fluxo](api-management-advanced-policies.md#choose) e [Definir corpo](api-management-transformation-policies.md#SetBody). Inicie em 31:50 para uma visão geral da [API da Previsão de Céu Escuro](https://developer.forecast.io/) usada para esta demonstração.  
-> -   Para baixar as instruções de política usadas neste vídeo, consulte o repositório GitHub [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
+Este artigo descreve a sintaxe das expressões de política C# 6.0. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.  
+
+Para mais informações:
+
+- Veja como fornecer informações de contexto ao serviço de back-end. Use as políticas [Definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) e [Definir cabeçalho HTTP](api-management-transformation-policies.md#SetHTTPheader) para fornecer essas informações.
+- Como usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar o acesso a operações baseadas em declarações de token.   
+- Como usar um rastreamento de [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) para ver como as políticas são avaliadas e os resultados das avaliações.  
+- Como usar expressões com as políticas [Obter do cache](api-management-caching-policies.md#GetFromCache) e [Armazenar em cache](api-management-caching-policies.md#StoreToCache) para configurar o cache de resposta de Gerenciamento de API. Defina uma duração que coincida com o cache de resposta do serviço de back-end conforme especificado pela diretiva `Cache-Control` do serviço de backup.  
+- Veja como realizar a filtragem de conteúdo. Remova os elementos de dados da resposta recebida do back-end usando as políticas [Controlar fluxo](api-management-advanced-policies.md#choose) e [Definir corpo](api-management-transformation-policies.md#SetBody). 
+- Para baixar as instruções de política, consulte o repositório GitHub [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
   
   
 ##  <a name="Syntax"></a> Sintaxe  
@@ -206,10 +203,7 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input – cyphertext a ser descriptografado<br /><br />alg – algoritmo de criptografia<br /><br />Retorna o texto sem formatação.|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input – input – cyphertext a ser descriptografado<br /><br />alg – algoritmo de criptografia<br /><br />key – chave de criptografia<br /><br />iv – vetor de inicialização<br /><br />Retorna o texto sem formatação.|
 
-## <a name="video"></a>Vídeo
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
->
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como trabalhar com políticas, consulte:

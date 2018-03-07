@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos do PowerShell para licenciamento baseado em grupo no Azure AD
 
@@ -27,6 +27,9 @@ Toda a funcionalidade de licenciamento baseado em grupo está disponível por me
 
 > [!NOTE]
 > Antes de começar a executar os cmdlets, certifique-se de se conectar ao seu locatário primeiro, executando o cmdlet `Connect-MsolService`.
+
+>[!WARNING]
+>Este código é fornecido como um exemplo para fins de demonstração. Se você pretende utilizá-lo em seu ambiente, primeiro considere testá-lo em uma escala pequena ou em um locatário de teste separado. Talvez seja necessário ajustar o código para atender às necessidades específicas do ambiente.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Exibir as licenças de produto atribuídas a um grupo
 O cmdlet [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) pode ser usado para recuperar o objeto de grupo e verificar a propriedade *Licenças*: ele lista todas as licenças de produto atualmente atribuídas ao grupo.
@@ -70,7 +73,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ```
 
 ## <a name="get-statistics-for-groups-with-licenses"></a>Obter estatísticas para grupos com licenças
-É possível relatar as estatísticas básicas para grupos com licenças. No exemplo abaixo, listamos a contagem total de usuários, a contagem de usuários com licenças já atribuídas pelo grupo e a contagem de usuários aos quais as licenças não puderam ser atribuídas pelo grupo.
+É possível relatar as estatísticas básicas para grupos com licenças. No exemplo abaixo, o script lista a contagem total de usuários, a contagem de usuários com licenças já atribuídas pelo grupo e a contagem de usuários aos quais as licenças não puderam ser atribuídas pelo grupo.
 
 ```
 #get all groups with licenses
@@ -141,7 +144,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Obter todos os usuários com erros de licença em um grupo
 
-Dado um grupo que contém alguns erros relacionados a licença, agora é possível listar todos os usuários afetados por esses erros. Um usuário pode ter erros de outros grupos também. No entanto, neste exemplo, limitamos os resultados apenas a erros relevantes para o grupo em questão marcando a propriedade **ReferencedObjectId** de cada entrada **IndirectLicenseError** do usuário.
+Dado um grupo que contém alguns erros de licença, agora é possível listar todos os usuários afetados por esses erros. Um usuário pode ter erros de outros grupos também. No entanto, neste exemplo, limitamos os resultados apenas a erros relevantes para o grupo em questão marcando a propriedade **ReferencedObjectId** de cada entrada **IndirectLicenseError** do usuário.
 
 ```
 #a sample group with errors
@@ -167,10 +170,10 @@ ObjectId                             DisplayName      License Error
 ```
 ## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Obter todos os usuários com erros de licença em todo o locatário
 
-Para listar todos os usuários que têm erros de licença de um ou mais grupos, o script a seguir pode ser usado. Esse script listará uma linha por usuário, por erro de licença que permite identificar claramente a origem de cada erro.
+O script a seguir pode ser usado para obter todos os usuários que têm erros de licença de um ou mais grupos. O script imprime uma linha por usuário, por erro de licença que permite identificar claramente a origem de cada erro.
 
 > [!NOTE]
-> Esse script enumerará todos os usuários no locatário, que pode não ser ideal para grandes locatários.
+> Esse script enumera todos os usuários no locatário, que pode não ser ideal para grandes locatários.
 
 ```
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -302,7 +305,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Remover licenças diretas para usuários com licenças de grupo
 A finalidade deste script é remover licenças diretas desnecessárias de usuários que já herdam a mesma licença de um grupo; por exemplo, como parte de uma [transição para o licenciamento baseado em grupo](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> É importante validar primeiro que as licenças diretas a serem removidas não habilitem mais funcionalidades de serviço que as licenças herdadas. Caso contrário, remover a licença direta pode desabilitar o acesso aos serviços e a dados de usuários. No momento, não é possível verificar por meio do PowerShell quais serviços são habilitados por meio de licenças herdadas versus diretas. No script, especificaremos o nível mínimo de serviços que sabemos que estão sendo herdados de grupos e faremos uma verificação com relação a isso.
+> É importante validar primeiro que as licenças diretas a serem removidas não habilitem mais funcionalidades de serviço que as licenças herdadas. Caso contrário, remover a licença direta pode desabilitar o acesso aos serviços e a dados de usuários. No momento, não é possível verificar por meio do PowerShell quais serviços são habilitados por meio de licenças herdadas versus diretas. No script, especificamos o nível mínimo de serviços que sabemos que estão sendo herdados de grupos e verificamos isso para garantir que os usuários não percam inesperadamente o acesso aos serviços.
 
 ```
 #BEGIN: Helper functions used by the script
@@ -382,7 +385,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation" -and $_.ServicePlan.TargetClass -ieq "User"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -476,7 +479,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o conjunto de recursos para gerenciamento de licenças por meio de grupos, confira:
+Para saber mais sobre o conjunto de recursos de gerenciamento de licenças por meio de grupos, consulte os artigos a seguir:
 
 * [O que é o licenciamento baseado em grupo no Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Atribuição de licenças a um grupo no Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)

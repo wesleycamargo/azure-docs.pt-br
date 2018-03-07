@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -144,7 +144,9 @@ Nessa topologia, um servidor do Azure AD Connect sync está conectado a cada loc
 
 Um domínio DNS só pode ser registrado em um único locatário do Azure AD. Os UPNs dos usuários na instância local do Active Directory devem usar também os namespaces separados. Por exemplo, na figura acima, três sufixos de UPN separado são registrados na instância local do Active Directory: contoso.com, fabrikam.com e wingtiptoys.com. Os usuários em cada domínio local do Active Directory usam um namespace diferente.
 
-Não há GALSync entre as instâncias de locatário do Azure AD. O catálogo de endereços no Exchange Online e no Skype for Business apenas mostra usuários no mesmo locatário.
+>[!NOTE]
+>A GalSync (Sincronização de Lista de Endereços Global) não é feita automaticamente nesta topologia e requer uma implementação MIM personalizada adicional para garantir que cada locatário tenha uma GAL (Lista de Endereços Global) completa no Exchange Online e Skype for Business Online.
+
 
 Essa topologia tem as seguintes restrições aos cenários que, caso contrário, têm suporte:
 
