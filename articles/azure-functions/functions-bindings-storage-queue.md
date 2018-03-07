@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -234,16 +234,16 @@ Em JavaScript, use `context.bindings.<name>` para acessar o conteúdo de item de
 
 ## <a name="trigger---message-metadata"></a>Gatilho - metadados da mensagem
 
-O gatilho de fila fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Os valores têm a mesma semântica que [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+O gatilho de fila fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Os valores têm a mesma semântica que [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Propriedade|type|DESCRIÇÃO|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se o conteúdo de mensagem de fila como uma cadeia de caracteres `QueueTrigger` tem o mesmo valor da variável nomeada pela `name` propriedade em *function.json*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|
-|`ExpirationTime`|`DateTimeOffset?`|A hora em que a mensagem expira.|
+|`ExpirationTime`|`DateTimeOffset`|A hora em que a mensagem expira.|
 |`Id`|`string`|ID da mensagem da fila.|
-|`InsertionTime`|`DateTimeOffset?`|A hora em que a mensagem foi adicionada à fila.|
-|`NextVisibleTime`|`DateTimeOffset?`|A hora em que a mensagem estará visível.|
+|`InsertionTime`|`DateTimeOffset`|A hora em que a mensagem foi adicionada à fila.|
+|`NextVisibleTime`|`DateTimeOffset`|A hora em que a mensagem estará visível.|
 |`PopReceipt`|`string`|Recebimento pop da mensagem.|
 
 ## <a name="trigger---poison-messages"></a>Gatilho - mensagens suspeitas
@@ -251,6 +251,18 @@ O gatilho de fila fornece várias propriedades de metadados. Essas propriedades 
 Quando uma função do gatilho de fila falhar, o Azure Functions repetirá essa função até cinco vezes para uma determinada mensagem da fila, incluindo a primeira tentativa. Se todas as cinco tentativas falharem, o tempo de execução das funções adicionará uma mensagem em uma fila chamada *&lt;originalqueuename>-poison*. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária.
 
 Para tratar mensagens suspeitas manualmente, verifique o [dequeueCount](#trigger---message-metadata) da mensagem de fila.
+
+## <a name="trigger---polling-algorithm"></a>Gatilho - algoritmo de sondagem
+
+O gatilho de fila implementa um algoritmo exponencial aleatório de retirada para reduzir o efeito de sondagem de fila ociosa nos custos das transações de armazenamento.  Quando uma mensagem for encontrada, o tempo de execução aguarda dois segundos e, em seguida, verifica outra mensagem; quando nenhuma mensagem for encontrada, ele aguarda cerca de quatro segundos antes de tentar novamente. Após subsequentes tentativas falhas para obter uma mensagem da fila, o tempo de espera continua a aumentar até atingir o tempo de espera máximo, cujo padrão é um minuto. O tempo de espera máximo é configurável por meio da propriedade `maxPollingInterval` no [arquivo host.json](functions-host-json.md#queues).
+
+## <a name="trigger---concurrency"></a>Gatilho - simultaneidade
+
+Quando há várias mensagens de fila aguardando, o gatilho de fila recupera um lote de mensagens e invoca as instâncias de função ao mesmo tempo para processá-las. Por padrão, o tamanho do lote é 16. Quando o número que está sendo processado chega até 8, o tempo de execução obtém outro lote e começa a processar as mensagens. Portanto, o número máximo de mensagens simultâneas que estão sendo processadas por função em uma máquina virtual (VM) é 24. Esse limite se aplica separadamente a cada função acionada por fila em cada VM. Se aplicativo de função for escalado horizontalmente para várias VMs, cada VM aguardará gatilhos e tentará executar funções. Por exemplo, se um aplicativo de função for escalado horizontalmente para 3 VMs, o número de máximo padrão de instâncias simultâneas de uma função acionada por fila será 72.
+
+O tamanho do lote e o limite para obtenção de um novo lote são configuráveis no [arquivo host.json](functions-host-json.md#queues). Se quiser minimizar a execução paralela para funções acionadas por fila em um aplicativo de função, você poder definir o tamanho do lote para 1. Essa configuração elimina a simultaneidade, desde que seu aplicativo de função seja executado em uma única máquina virtual (VM). 
+
+O gatilho de fila impede automaticamente que uma função processe uma mensagem da fila várias vezes; as funções não precisam ser escritas para ser idempotentes.
 
 ## <a name="trigger---hostjson-properties"></a>Gatilho - propriedades de host.json
 

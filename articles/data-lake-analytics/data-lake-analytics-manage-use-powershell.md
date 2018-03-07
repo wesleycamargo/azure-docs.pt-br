@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Saiba como gerenciar contas, fontes de dados, usuários, trabalhos e itens de catálogo do Azure Data Lake Analytics usando o Azure PowerShell. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Ao criar uma conta do Data Lake Analytics, você precisa conhecer as seguintes informações:
 
@@ -99,13 +99,13 @@ Obtenha detalhes sobre uma conta.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Verifique a existência de uma conta específica do Data Lake Analytics. O cmdlet retorna `True` ou `False`.
+Verifique a existência de uma conta específica do Data Lake Analytics. O cmdlet retorna `$true` ou `$false`.
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-Verifique a existência de uma conta específica do Data Lake Store. O cmdlet retorna `True` ou `False`.
+Verifique a existência de uma conta específica do Data Lake Store. O cmdlet retorna `$true` ou `$false`.
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -154,8 +154,6 @@ Remova uma regra de firewall.
 ```powershell
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
-
-
 
 Permita endereços IP do Azure.
 
@@ -239,7 +237,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### <a name="submit-a-file-as-a-u-sql-script"></a>Enviar um arquivo como um script U-SQL
 
 ```powershell
@@ -258,15 +255,13 @@ A saída inclui os trabalhos em execução no momento e os trabalhos que foram c
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-the-top-n-jobs"></a>Listar os melhores trabalhos N
 
-### <a name="list-a-specific-number-of-jobs"></a>Listar um número específico de trabalhos
-
-Por padrão, a lista de trabalhos é classificada na hora do envio. Portanto, os trabalhos enviados mais recentemente aparecem primeiro. Por padrão, a conta do ADLA recorda os trabalhos por 180 dias, mas o cmdlet Ge-AdlJob retorna apenas os primeiros 500. Use o parâmetro -Top para listar um número específico de trabalhos.
+Por padrão, a lista de trabalhos é classificada na hora do envio. Portanto, os trabalhos enviados mais recentemente aparecem primeiro. Por padrão, a conta do ADLA recorda trabalhos por 180 dias, mas o cmdlet Get-AdlJob por padrão retorna apenas os 500 primeiros. Use o parâmetro -Top para listar um número específico de trabalhos.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>Listar trabalhos com base no valor da propriedade do trabalho
 
@@ -298,7 +293,7 @@ Utilize o parâmetro `-Result` para detectar se os trabalhos finalizados foram c
 * Cancelado
 * Com falha
 * Nenhum
-* Bem-sucedido
+* Bem-sucedida
 
 ``` powershell
 # List Successful jobs.
@@ -307,7 +302,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 # List Failed jobs.
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
-
 
 O parâmetro `-Submitter` ajuda a identificar quem enviou um trabalho.
 
@@ -338,7 +332,6 @@ Utilize o cmdlet `Get-AdlJobPipeline` para consultar as informações de pipelin
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 

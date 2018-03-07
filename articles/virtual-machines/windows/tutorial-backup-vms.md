@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 9638c7148d4347bb9cbc9e48022037ee6cb983d7
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Fazer backup de máquinas virtuais do Windows no Azure
 
@@ -46,7 +46,7 @@ Quando a transferência de dados é concluída, o instantâneo é removido e um 
 ## <a name="create-a-backup"></a>Criar um backup
 Crie um backup diário agendado simples em um Cofre de Serviços de Recuperação. 
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu à esquerda, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual fazer backup.
 4. Na folha da VM, na seção **Configurações**, clique em **Backup**. A folha **Habilitar backup** é aberta.
@@ -104,7 +104,7 @@ Neste tutorial, você aprendeu como:
 Avance para o próximo tutorial para saber mais sobre o monitoramento de máquinas virtuais.
 
 > [!div class="nextstepaction"]
-> [Monitorar máquinas virtuais](tutorial-monitoring.md)
+> [Controlar máquinas virtuais](tutorial-govern-resources.md)
 
 
 

@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -39,9 +39,10 @@ Se você planeja executar cargas de trabalho de produção em Lote, talvez seja 
 ## <a name="resource-quotas"></a>Cotas de recursos
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="quotas-in-user-subscription-mode"></a>Cotas no modo de assinatura de usuário
 
-Se você usou uma versão anterior da API do Lote para criar uma conta de Lote com modo de alocação de pool definido como **assinatura de usuário**, as cotas são aplicadas de forma diferente. Nesse modo, o qual não é mais recomendado, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. A cota de núcleos de lote do Azure não se aplica a uma conta criada nesse modo. Em vez disso, as cotas em sua assinatura para regionais núcleos de computação e outros recursos são aplicados. Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
+### <a name="cores-quotas-in-user-subscription-mode"></a>Cotas de núcleo no modo de assinatura de usuário
+
+Se você tiver criado uma conta de Lote com modo de alocação de pool definido como **assinatura de usuário**, as cotas serão aplicadas de forma diferente. Nesse modo, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As cotas de núcleos de Lote do Azure não se aplicam a uma conta criada nesse modo. Em vez disso, as cotas em sua assinatura para regionais núcleos de computação e outros recursos são aplicados. Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Outros limites
 | **Recurso** | **Limite máximo** |

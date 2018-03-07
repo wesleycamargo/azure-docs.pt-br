@@ -4,13 +4,13 @@ description: "Fornece uma visão geral dos problemas conhecidos no serviço de M
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -31,7 +31,7 @@ Se você estiver usando qualquer proxy firewall baseado em URL para controlar a 
 
 **O coletor não consegue se conectar ao projeto usando a ID e a chave do projeto copiados do portal.**
 
-Confira se você copiou e colou as informações corretas. Para solucionar o problema, instale o Microsoft Monitoring Agent (MMA) da seguinte maneira:
+Confira se você copiou e colou as informações corretas. Para solucionar o problema, instale o Microsoft Monitoring Agent (MMA) e verifique se o MMA pode se conectar ao projeto da seguinte maneira:
 
 1. Na VM do coletor, baixe o [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
 2. Para iniciar a instalação, clique duas vezes no arquivo baixado.
@@ -69,9 +69,9 @@ Para habilitar a coleta de dados de desempenho de disco e rede, altere o nível 
 
 **Problema** | **Correção**
 --- | ---
-Tipo de inicialização sem suporte | Altere para BIOS antes de executar uma migração.
+Tipo de inicialização sem suporte | O Azure não oferece suporte a VMs com o tipo de inicialização EFI. É recomendável converter o tipo de inicialização em BIOS antes de executar uma migração. <br/><br/>Você pode usar o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) para fazer a migração de tais VMs conforme ele converter o tipo de inicialização da VM em BIOS durante a migração.
 A contagem de disco excede o limite | Remova os discos não utilizados do computador antes da migração.
-O tamanho do disco excede o limite | Reduza discos para menos de 4 TB antes da migração. 
+O tamanho do disco excede o limite | O Azure oferece suporte a discos com tamanho de até 4 TB. Reduza discos para menos de 4 TB antes da migração. 
 O disco não está disponível no local especificado | Verifique se o disco está em seu local de destino antes de migrar.
 O disco não está disponível para a redundância especificada | O disco deve usar o tipo de armazenamento de redundância definido nas configurações de avaliação (LRS por padrão).
 Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo. 
@@ -83,12 +83,15 @@ Não foi possível determinar a adequação de um ou mais discos devido a um err
 Não foi possível determinar a adequação de um ou mais adaptadores de rede devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
 A VM não foi encontrada para o desempenho de armazenamento necessário. | O desempenho do armazenamento (IOPS/taxa de transferência) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
 A VM não foi encontrada para o desempenho de rede necessário. | O desempenho de rede (entrada/saída) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de rede para a máquina. 
-A VM não foi encontrada para a camada de preços especificada. | Verifique as configurações do tipo de preço. 
+A VM não foi encontrada no tipo de preço especificado. | Se o tipo de preço for definido como Padrão, considere a possibilidade de redução do tamanho da VM antes de migrar para o Azure. Se a camada de dimensionamento for Básico, considere a alteração do tipo de preço da avaliação para Padrão. 
 A VM não foi encontrada no local especificado. | Use um local de destino diferente antes da migração.
-Problemas de suporte do SO Linux | Verifique se você está executando em 64 bits com este [sistemas operacionais](../virtual-machines/linux/endorsed-distros.md) com suporte.
-Problemas de suporte do SO Windows | Verifique se você está executando um sistema operacional com suporte. [Saiba mais](concepts-assessment-calculation.md#azure-suitability-analysis)
-Sistema operacional desconhecido. | Verifique se o sistema operacional especificado no vCenter está correto e repita o processo de descoberta.
-Exige uma assinatura do Visual Studio. | Os sistemas operacionais do cliente Windows têm suporte apenas nas assinaturas do Visual Studio (MSDN).
+Sistema operacional desconhecido | O sistema operacional da VM foi especificado como 'Outro' no vCenter Server. Por esse motivo, o Migrações para Azure não consegue identificar a prontidão do Azure da VM. Certifique-se de que o sistema operacional em execução na máquina seja [compatível](https://aka.ms/azureoslist) com o Azure antes de migrar a máquina.
+SO Windows com suporte condicional | O sistema operacional atingiu o fim da data de suporte e precisa de um Contrato de Suporte Personalizado (CSA) para [suporte no Azure](https://aka.ms/WSosstatement), considere o upgrade do sistema operacional antes de migrar para o Azure.
+SO Windows sem suporte | O Azure suporta apenas as [versões de SO Windows selecionadas](https://aka.ms/WSosstatement), considere atualizar o sistema operacional do computador antes de migrar para o Azure. 
+SO Linux condicionalmente endossado | O Azure endossa apenas as [versões de SO Linux selecionadas](../virtual-machines/linux/endorsed-distros.md), considere atualizar o sistema operacional do computador antes de migrar para o Azure.
+SO Linux não endossado | O computador pode ser inicializado no Azure, mas nenhum suporte de sistema operacional é fornecido pelo Azure, considere atualizar o sistema operacional para uma [versão do Linux endossada](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure
+Número de bit do sistema operacional sem suporte | VMs com sistemas operacionais de 32 bits podem ser inicializadas no Azure, mas é recomendável atualizar o sistema operacional da VM de 32 bits para 64 bits antes de migrar para o Azure.
+Exige uma assinatura do Visual Studio. | Os computadores têm um sistema operacional cliente Windows em execução com suporte apenas na assinatura do Visual Studio.
 
 
 ## <a name="collect-logs"></a>Coletar logs

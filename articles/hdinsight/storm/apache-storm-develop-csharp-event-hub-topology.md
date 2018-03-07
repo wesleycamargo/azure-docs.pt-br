@@ -8,18 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (C#)
 
@@ -36,9 +37,6 @@ As etapas neste documento usam SCP.NET, um pacote NuGet que facilita a criação
 > Embora as etapas neste documento dependam de um ambiente de desenvolvimento do Windows com Visual Studio, o projeto compilado pode ser enviado a um cluster Storm no HDInsight que usa Linux. Somente os clusters baseados em Linux criados depois de 28 de outubro de 2016 são compatíveis com as topologias do SCP.NET.
 
 O HDInsight 3.4 e superior usam o Mono para executar topologias C#. O exemplo usado neste documento funciona com HDInsight 3.6. Se você planeja criar suas próprias soluções do .NET para HDInsight, verifique o documento [Compatibilidade do Mono](http://www.mono-project.com/docs/about-mono/compatibility/) em busca de possíveis incompatibilidades.
-
-> [!WARNING]
-> Se você encontrar problemas ao compilar projetos que usam o SCP.NET versão 1.0.0.x, entre em contato com o suporte da Microsoft para obter assistência.
 
 ### <a name="cluster-versioning"></a>Controle de versão do cluster
 
@@ -114,7 +112,7 @@ topologyBuilder.SetJavaBolt(
 
 Você pode baixar uma versão completa do projeto criado neste tutorial do [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). No entanto, você ainda precisa fornecer definições de configuração seguindo as etapas neste tutorial.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 * Um [Apache Storm no cluster HDInsight versão 3.5 ou 3.6](apache-storm-tutorial-get-started-linux.md).
 
@@ -142,9 +140,9 @@ Crie um diretório chamado `eventhubspout` e salve o arquivo no diretório.
 
 Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na seção “Criar um hub de eventos” de [Introdução a Hubs de Eventos](../../event-hubs/event-hubs-create.md).
 
-1. Depois de criar o hub de eventos, exiba a folha **EventHub** no Portal do Azure e selecione **Políticas de acesso compartilhado**. Selecione **+ Adicionar** para adicionar as políticas a seguir:
+1. Depois de criar o hub de eventos, exiba as configurações de **EventHub** no Portal do Azure e selecione **Políticas de acesso compartilhado**. Selecione **+ Adicionar** para adicionar as políticas a seguir:
 
-   | Nome | Permissões |
+   | NOME | Permissões |
    | --- | --- |
    | gravador |Enviar |
    | leitor |Escutar |

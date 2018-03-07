@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o controle de acesso baseado em função do Azure
 O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar as definições de funções internas. No entanto, você pode criar [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md) para atender às necessidades específicas de sua organização.
@@ -51,6 +51,7 @@ Este artigo aborda apenas as diferentes funções que existem atualmente. Quando
 | [Colaborador do BizTalk](#biztalk-contributor) |Pode gerenciar os serviços BizTalk |
 | [Colaborador do DB MySQL ClearDB](#cleardb-mysql-db-contributor) |Pode gerenciar bancos de dados MySQL ClearDB |
 | [Colaborador](#contributor) |Pode gerenciar tudo, exceto o acesso. |
+| [Função de leitor de conta do Cosmos DB](#cosmos-db-account-reader-role) |Pode ler dados de contas do Azure Cosmos DB |
 | [Colaborador da fábrica de dados](#data-factory-contributor) |Pode criar e gerenciar data factories e recursos filho dentro deles. |
 | [Usuário do DevTest Labs](#devtest-labs-user) |Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las. |
 | [Colaborador de zona DNS](#dns-zone-contributor) |Pode gerenciar zonas e registros DNS |
@@ -311,6 +312,19 @@ Pode gerenciar tudo, exceto o acesso.
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Não é possível excluir funções e atribuições de função |
 | Microsoft.Authorization/*/Write |Não é possível criar funções e atribuições de função |
+
+### <a name="cosmos-db-account-reader-role"></a>Função de leitor de conta do Cosmos DB
+Pode ler dados de contas do Azure Cosmos DB. Consulte [Colaborador de conta do DocumentDB](#documentdb-account-contributor) para gerenciar contas do Azure Cosmos DB.
+
+| **Ações** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Funções de leitor e atribuições de função, pode ler permissões concedidas a cada usuário|
+|Microsoft.DocumentDB/*/read|Ler qualquer coleção|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Ler o painel de chaves somente leitura|
+|Microsoft.Insights/Metrics/read|Ler as métricas da conta|
+|Microsoft.Insights/MetricDefinitions/read|Ler as definições de métrica|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Ler grupos de recursos|
+|Microsoft.Support/*|Criar e gerenciar tíquetes de suporte|
 
 ### <a name="data-factory-contributor"></a>Colaborador da fábrica de dados
 Criar e gerenciar data factories e recursos filho dentro deles.

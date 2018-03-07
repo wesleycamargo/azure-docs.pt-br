@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 760a6a30513308aa59c5e253e3b91e28cf9e3241
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Use a extensão de IoT da CLI do Azure 2.0 para gerenciamento de dispositivo Hub IoT do Azure
 
@@ -66,21 +66,21 @@ Execute a CLI do Azure 2.0 e a extensão do IoT para a CLI do Azure 2.0 com vár
 - Instalar a extensão de IoT. A maneira mais simples é executar `az extension add --name azure-cli-iot-ext`. [O Leiame da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) descreve várias maneiras de instalar a extensão.
 
 
-## <a name="login-to-your-azure-account"></a>Faça logon em sua conta do Azure
+## <a name="log-in-to-your-azure-account"></a>Fazer logon na sua conta do Azure
 
-Faça logon na sua conta do Azure executando o comando a seguir:
+Faça logon na conta do Azure executando o comando a seguir:
 
 ```bash
 az login
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-direct-methods"></a>Use a extensão de IoT da CLI do Azure 2.0 com métodos diretos
+## <a name="direct-methods"></a>Métodos diretos
 
 ```bash
 az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-desired-properties"></a>Use a extensão de IoT da CLI do Azure 2.0 com propriedades desejadas duplas
+## <a name="device-twin-desired-properties"></a>Propriedades desejadas do dispositivo gêmeo
 
 Defina um intervalo de propriedade desejado = 3000 executando o seguinte comando:
 
@@ -90,7 +90,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Essa propriedade pode ser lido do seu dispositivo.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-reported-properties"></a>Use a extensão de IoT da CLI do Azure 2.0 com propriedades reportadas duplas
+## <a name="device-twin-reported-properties"></a>Propriedades relatadas do dispositivo gêmeo
 
 Obtenha as propriedades relatadas do dispositivo executando o seguinte comando:
 
@@ -100,7 +100,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Uma das propriedades é $metadata.$lastUpdated, que mostra a última vez que esse dispositivo enviou ou recebeu uma mensagem.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-tags"></a>Use a extensão de IoT da CLI do Azure 2.0 com marcas duplas
+## <a name="device-twin-tags"></a>Marcas do dispositivo gêmeo
 
 Exiba as marcações e as propriedades do dispositivo executando o seguinte comando:
 
@@ -114,7 +114,7 @@ Adicione uma função de campo = temperature&humidity ao dispositivo executando 
 az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-device-twins-queries"></a>Use a extensão de IoT para a CLI do Azure 2.0 com consultas duplas de dispositivos
+## <a name="device-twin-queries"></a>Consultas de dispositivo gêmeo
 
 Consulte dispositivos com uma marcação de função = 'temperature&humidity' executando o seguinte comando:
 

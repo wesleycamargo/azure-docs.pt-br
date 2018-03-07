@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Reagir aos eventos do Hub IoT usando a Grade de Eventos para acionar ações - versão prévia
 
@@ -28,14 +28,7 @@ O Hub IoT do Azure integra-se com a Grade de Eventos do Azure para que você pos
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A integração da Grade de Eventos está em versão prévia pública, então está disponível em um número limitado de regiões. A integração funciona para os hubs IoT localizados nas seguintes regiões:
-
-* Centro dos EUA
-* Leste dos EUA
-* Leste dos EUA 2
-* Centro-Oeste dos EUA
-* Oeste dos EUA
-* Oeste dos EUA 2
+A integração da Grade de Eventos está disponível para os hubs IoT localizados nas regiões onde há suporte para a Grade de Eventos. Para obter a lista mais recente de regiões, consulte [Uma introdução à Grade de Eventos do Azure][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Tipos de evento
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure
 O Gerenciamento de API fornece a capacidade para garantir acesso ao serviço back-end de uma API usando certificados do cliente. Este guia mostra como gerenciar certificados no Portal do editor de API e como configurar uma API para usar um certificado para acessar seu serviço back-end.
@@ -114,13 +114,6 @@ Se você estiver usando certificados autoassinados, precisará desabilitar a val
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
-
-## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre outras maneiras de proteger seu serviço de back-end, como HTTP básica ou autenticação secreta compartilhada, consulte o vídeo a seguir.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 57ee7770193641d0e13da2c7f8aaa6cfc6aefe73
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Tutorial: integração do Azure Active Directory ao Hosted Graphite
 
@@ -31,7 +31,7 @@ A integração do Hosted Graphite ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Hosted Graphite, você precisa dos seguintes itens:
 
@@ -63,11 +63,11 @@ Para configurar a integração do Hosted Graphite ao Azure AD, você precisa adi
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Hosted Graphite**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do Hosted Graphite ao Azure AD, você precisa adi
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Hosted Graphite com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Hosted Graphite é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Hosted Graphite.
@@ -86,11 +86,11 @@ No Hosted Graphite, atribua o valor do **nome de usuário** no Azure AD como o v
 
 Para configurar e testar o logon único do Azure AD com o Hosted Graphite, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste no Hosted Graphite](#creating-a-hosted-graphite-test-user)**: para ter um equivalente de Brenda Fernandes no Hosted Graphite que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 1. No portal do Azure, na página de integração de aplicativos do **Hosted Graphite**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_samlbase.png)
 
 3. Na seção **Domínio e URLs do Hosted Graphite**, se você quiser configurar o aplicativo em **Modo iniciado pelo IDP**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.hostedgraphite.com/metadata/<user id>`
 
@@ -116,7 +116,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 4. Na seção **Domínio e URLs do Hosted Graphite**, se você quiser configurar o aplicativo em **Modo iniciado pelo SP**, execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_10.png)
+    ![Configurar o logon único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_10.png)
   
     a. Clique na opção **Mostrar URL configurações avançadas**
 
@@ -132,11 +132,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_400.png)
 
 7. Na seção **Configuração do Hosted Graphite**, clique em **Configurar Hosted Graphite** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único do SAML** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_configure.png) 
 
 8. Faça logon no seu locatário do Hosted Graphite como administrador.
 
@@ -221,7 +221,7 @@ Nesta seção, você habilita Brenda Fernandes a usar o logon único do Azure co
 
 2. Na lista de aplicativos, selecione **Hosted Graphite**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 

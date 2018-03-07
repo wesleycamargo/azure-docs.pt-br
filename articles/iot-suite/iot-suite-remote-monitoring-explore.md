@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorar os recursos da solução de monitoramento remoto pré-configurada
 
@@ -31,6 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Responder a um alarme
 > * Atualizar o firmware em seus dispositivos
 > * Organizar seus ativos
+> * Parar e iniciar os dispositivos simulados
 
 O vídeo a seguir mostra um passo a passo da solução de monitoramento remoto:
 
@@ -113,7 +114,7 @@ Na página **Manutenção**, você pode exibir os detalhes da regra que disparou
 
     ![A página manutenção mostra a lista de alarmes que foram disparados](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. O primeiro alarme na lista é o mais recente. Clique no alarme **Pressão do Resfriador** para exibir os dispositivos associados e a telemetria. A telemetria mostra um pico de pressão para o Resfriador:
+1. O primeiro alarme na lista é o mais recente. Clique no alarme **Pressão do Resfriador Muito Alta** para exibir os dispositivos associados e a telemetria. A telemetria mostra os picos de pressão para o resfriador:
 
     ![A página de manutenção mostra a telemetria para o alarme selecionado](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -158,12 +159,12 @@ Para executar as tarefas de gerenciamento de dispositivo necessárias, use a pá
 
     ![Selecionar um dispositivo na página de dispositivos](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Clique no botão **Agendar** e, em seguida, escolha **Atualização de firmware**. Insira valores para **Nome do trabalho** e **URI do firmware**. Escolha **Aplicar** para agendar o trabalho para ser executado agora:
+1. Clique no botão **Agendar** e, em seguida, escolha **Atualização de firmware**. Insira valores para **Nome do trabalho**, **Versão do Firmware**, e **URI do firmware**. Escolha **Aplicar** para agendar o trabalho para ser executado agora:
 
     ![Agendar atualização de firmware no dispositivo](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Com os dispositivos simulados, você pode usar qualquer URL que desejar como o valor do **URI do firmware**. Os dispositivos simulados não acessam a URL.
+    > Com os dispositivos simulados, você pode usar qualquer URL que desejar como o valor do **URI do firmware** e qualquer valor que desejar para a **Versão do Firmware**. Os dispositivos simulados não acessam a URL.
 
 1. Observe quantos dispositivos o trabalho afeta e escolha **Aplicar**:
 
@@ -230,6 +231,16 @@ Você pode usar os valores da marca para criar filtros.
 
 Agora, o operador da Contoso pode consultar dispositivos de acordo com a equipe operacional sem precisar alterar nada nos dispositivos.
 
+## <a name="stop-simulated-devices"></a>Interromper os dispositivos simulados
+
+Você pode usar o menu de configurações para interromper os dispositivos simulados. Isso ajuda a reduzir os custos de testar e explorar a solução. Para iniciar ou interromper os dispositivos simulados:
+
+1. Escolha o ícone **Configurações**.
+
+1. Em seguida, ative ou desative **Executando**:
+
+    ![Menu Configurações](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
@@ -239,6 +250,7 @@ Neste tutorial, você aprendeu a:
 > * Responder a um alarme
 > * Atualizar o firmware em seus dispositivos
 > * Organizar seus ativos
+> * Parar e iniciar os dispositivos simulados
 
 Agora que você já explorou a solução de monitoramento remoto, as próximas etapas sugeridas são saber mais sobre os recursos avançados da solução de monitoramento remoto:
 

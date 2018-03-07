@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight
 
@@ -31,7 +31,7 @@ Neste documento, conheça as noções básicas de gerenciamento e monitoramento 
 > Para obter informações sobre as topologias de implantação e monitoramento em HDInsight baseado em Windows, consulte [Implantar e gerenciar topologias do Apache Storm no HDInsight baseado em Windows](apache-storm-deploy-monitor-topology.md)
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Storm baseado em Linux no cluster HDInsight**: consulte [Introdução com o Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md) para etapas para criar um cluster
 
@@ -226,7 +226,7 @@ Você pode encontrar o FQDN (Nome de Domínio Totalmente Qualificado) para o nó
 
 * **De uma sessão SSH**: use o comando `headnode -f` de uma sessão SSH para o cluster.
 * **Do Ambari Web**: selecione **Serviços** na parte superior da página, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que hospeda a interface do usuário do Storm e a API REST são exibidos na parte superior da página.
-* **Da API REST do Ambari**: use o comando `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar informações sobre o nó no qual a interface do usuário do Storm e a API REST estão sendo executados. Substitua **SENHA** pela senha do administrador do cluster. Substitua **CLUSTERNAME** pelo nome do cluster. Na resposta, a entrada "host_name" contém o FQDN do nó.
+* **Da API REST do Ambari**: use o comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar informações sobre o nó no qual a interface do usuário do Storm e a API REST estão sendo executados. Substitua **CLUSTERNAME** pelo nome do cluster. Quando solicitado, insira a senha para a conta de logon (administrador). Na resposta, a entrada "host_name" contém o FQDN do nó.
 
 ### <a name="authentication"></a>Autenticação
 

@@ -9,14 +9,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 7210a6d754f2c13c915955f2b401d19f3a55649e
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Instalar o Serviço de Mobilidade (VMware ou físico no Azure)
-O Serviço de Mobilidade do Azure Site Recovery captura gravações de dados em um computador e, em seguida, encaminha-os para o servidor em processo. Implante o Serviço de Mobilidade em cada computador (VM VMware ou servidor físico) que você deseja replicar para o Azure. É possível implantar o Serviço de Mobilidade nos servidores que você deseja proteger usando os seguintes métodos:
+O Serviço de Mobilidade do Azure Site Recovery captura gravações de dados em um computador e, em seguida, encaminha-as para o servidor de processo. Implante o Serviço de Mobilidade em cada computador (VM VMware ou servidor físico) que você deseja replicar para o Azure. É possível implantar o Serviço de Mobilidade nos servidores que você deseja proteger usando os seguintes métodos:
 
 
 * [Instalar o Serviço de Mobilidade usando as ferramentas de implantação de software, como o System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
@@ -27,12 +27,12 @@ O Serviço de Mobilidade do Azure Site Recovery captura gravações de dados em 
 
 
 >[!IMPORTANT]
-> A partir da versão 9.7.0.0, em VMs (máquinas virtuais) Windows, o instalador do Serviço de Mobilidade também instala o último [agente de VM do Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
+> A partir da versão 9.7.0.0, em VMs Windows, o instalador do Serviço de Mobilidade também instala o [Agente de VM do Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) mais recente disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
 
 ## <a name="prerequisites"></a>pré-requisitos
 Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidade manualmente no servidor:
-1. Entre no servidor de configuração e, em seguida, abra uma janela de Prompt de Comando como administrador.
-2. Altere o diretório para a pasta bin e, em seguida, crie um arquivo de senha:
+1. Entre no servidor de configuração e, em seguida, abra uma janela do prompt de comando como administrador.
+2. Altere o diretório para a pasta bin e, em seguida, crie um arquivo de frase secreta.
 
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
@@ -60,7 +60,7 @@ Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidad
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Instalar o Serviço de Mobilidade manualmente usando a GUI
 
 >[!IMPORTANT]
-> Se você estiver usando um **Servidor de Configuração** para replicar **as máquinas virtuais Azure IaaS** a partir de uma Subscrição/Região da Azure para outra, **use o método de instalação baseado na linha de comando**
+> Se você usar um servidor de configuração para replicar as máquinas virtuais a partir de uma assinatura/região do Azure para outra, use o método de instalação baseado na linha de comando.
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
@@ -74,7 +74,7 @@ Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidad
 
 
 ## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Instalar o Serviço de Mobilidade usando a instalação por push por meio do Azure Site Recovery
-Para fazer uma instalação por push do Serviço de Mobilidade usando o Site Recovery, todos os computadores de destino devem atender aos pré-requisitos a seguir:
+Você pode fazer uma instalação por push do Serviço de Mobilidade usando o Site Recovery. Todos os computadores de destino devem atender aos seguintes pré-requisitos.
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -82,25 +82,26 @@ Para fazer uma instalação por push do Serviço de Mobilidade usando o Site Rec
 
 
 > [!NOTE]
-Depois de instalar o Serviço de Mobilidade, no portal do Azure, selecione o botão **+Replicar** para começar a proteger essas VMs.
+Após a instalação do Serviço de Mobilidade, no portal do Azure, selecione **+ Replicar** para começar a proteger essas VMs.
 
 ## <a name="update-mobility-service"></a>Atualizar serviço de mobilidade
 
 > [!WARNING]
-> Certifique-se de que o Servidor de Configuração, os Servidores de Processo de Expansão e quaisquer servidores de destino que não sejam parte da sua implantação sejam atualizados antes de você começar a atualizar o Serviço de Mobilidade nos servidores protegidos.
+> Certifique-se de que o servidor de configuração, os servidores de processo de expansão e quaisquer servidores de destino que não façam parte da sua implantação sejam atualizados antes de você começar a atualizar o Serviço de Mobilidade nos servidores protegidos.
 
-1. No portal do Azure, navegue para <Your Vault> -> modo de exibição de itens replicados.
-2. Se o **servidor de configuração** já tiver sido atualizado para a versão mais recente, você verá uma notificação que mostra que uma *atualização do agente de replicação do novo Site recovery está disponível. Clique para instalar*
+1. No portal do Azure, navegue até o *nome do seu cofre* > **Modo de exibição Itens replicados**.
+2. Se o servidor de configuração já tiver sido atualizado para a versão mais recente, você verá uma notificação que mostra "Nova atualização do agente de replicação de recuperação do site está disponível. Clique para instalar."
 
-     ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
-3. Clique na notificação para abrir a página de seleção da máquina virtual.
-4. Selecione as máquinas virtuais que você desejar para fazer o upgrade do serviço de mobilidade e clique no botão OK.
+     ![Janela Itens replicados](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
+3. Clique na notificação para abrir a página de seleção de máquina virtual.
+4. Selecione as máquinas virtuais nas quais deseja atualizar o serviço de mobilidade e selecione **OK**.
 
-     ![ReplicatedItemsVMList](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
-5. Isso inicia o trabalho de serviço de mobilidade de atualização para cada uma das máquinas virtuais selecionadas.
+     ![Lista de VMs de itens replicados](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
+
+O trabalho Atualizar o Serviço de Mobilidade é iniciado para cada uma das máquinas virtuais selecionadas.
 
 > [!NOTE]
-> [Leia mais](site-recovery-vmware-to-azure-manage-configuration-server.md) sobre como atualizar a senha para a conta usada para instalar o serviço de mobilidade
+> [Leia mais](site-recovery-vmware-to-azure-manage-configuration-server.md) sobre como atualizar a senha para a conta usada para instalar o Serviço de Mobilidade.
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Desinstalar o Serviço de Mobilidade de um computador Windows Server
 Use um dos métodos a seguir para desinstalar o Serviço de Mobilidade em um computador Windows Server.
@@ -110,18 +111,18 @@ Use um dos métodos a seguir para desinstalar o Serviço de Mobilidade em um com
 2. Selecione **Serviço de Mobilidade do Microsoft Azure Site Recovery/servidor de Destino Mestre** e, em seguida, **Desinstalar**.
 
 ### <a name="uninstall-at-a-command-prompt"></a>Desinstalar em um prompt de comando
-1. Abra uma janela de Prompt de comando como administrador.
+1. Abra uma janela de prompt de comando como administrador.
 2. Para desinstalar o Serviço de Mobilidade, execute o seguinte comando:
 
-```
-MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-```
+    ```
+    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+    ```
 
 ## <a name="uninstall-mobility-service-on-a-linux-computer"></a>Desinstalar o Serviço de Mobilidade de um computador Linux
 1. No servidor Linux, entre como um usuário **raiz**.
 2. Em um terminal, acesse /user/local/ASR.
 3. Para desinstalar o Serviço de Mobilidade, execute o seguinte comando:
 
-```
-uninstall.sh -Y
-```
+    ```
+    uninstall.sh -Y
+    ```
