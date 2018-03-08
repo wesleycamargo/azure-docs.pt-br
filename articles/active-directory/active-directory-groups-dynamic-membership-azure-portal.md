@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributo para associação dinâmica de grupo no Azure Active Directory
 No Azure AD (Azure Active Directory), você pode criar regras avançadas para habilitar associações dinâmicas baseadas em atributos complexas para grupos. Este artigo detalha os atributos e a sintaxe para criar regras de associação dinâmica para usuários ou dispositivos.
@@ -88,7 +88,7 @@ A tabela a seguir lista todos os operadores de regra de expressão com suporte e
 | Contém: |-contains |
 | Não corresponde |-notMatch |
 | Corresponde |-match |
-| Nesse | -in |
+| No | -in |
 | Não está em | -notIn |
 
 ## <a name="operator-precedence"></a>Precedência do operador
@@ -102,7 +102,7 @@ Todos os operadores estão listados segundo sua precedência, de baixa para alta
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
 Todos os operadores podem ser usados com ou sem o prefixo de hífen. Parênteses são necessários somente quando a precedência não atender às suas necessidades.
-Por exemplo:
+Por exemplo: 
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
@@ -137,7 +137,7 @@ Operadores permitidos
 * -eq
 * -ne
 
-| Propriedades | Valores permitidos | Uso |
+| propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | accountEnabled |verdadeiro, falso |user.accountEnabled -eq true |
 | dirSyncEnabled |verdadeiro, falso |user.dirSyncEnabled -eq true |
@@ -156,7 +156,7 @@ Operadores permitidos
 * -in
 * -notIn
 
-| Propriedades | Valores permitidos | Uso |
+| propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | city |Qualquer valor de cadeia de caracteres ou *null* |(user.city -eq "valor") |
 | country |Qualquer valor de cadeia de caracteres ou *null* |(user.country -eq "valor") |
@@ -191,7 +191,7 @@ Operadores permitidos
 * -contains
 * -notContains
 
-| Propriedades | Valores permitidos | Uso |
+| propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Um valor de cadeia de caracteres. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP:alias@domainsmtp:alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -202,11 +202,11 @@ Operadores permitidos
 * -any (satisfeita quando pelo menos um item na coleção corresponde à condição)
 * -all (satisfeita quando todos os itens na coleção correspondem à condição)
 
-| Propriedades | Valores | Uso |
+| propriedades | Valores | Uso |
 | --- | --- | --- |
 | assignedPlans |Cada objeto na coleção expõe as seguintes propriedades de cadeia de caracteres: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
-As propriedades de vários valores são coleções de objetos do mesmo tipo. Você pode usar os operadores -any e -all para aplicar uma condição a um ou todos os itens na coleção, respectivamente. Por exemplo:
+As propriedades de vários valores são coleções de objetos do mesmo tipo. Você pode usar os operadores -any e -all para aplicar uma condição a um ou todos os itens na coleção, respectivamente. Por exemplo: 
 
 assignedPlans é uma propriedade de valores múltiplos que lista todos os planos de serviço atribuídos ao usuário. A expressão abaixo selecionará os usuários que tenham o plano do serviço Exchange Online (Plano 2) e que também estejam no estado Habilitado:
 

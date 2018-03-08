@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações do Azure Cloud Shell
 
@@ -54,11 +54,11 @@ O Cloud Shell destina-se a casos de uso interativos. Como resultado, quaisquer s
 
 ### <a name="user-permissions"></a>Permissões de usuário
 
-As permissões são definidas como usuários regulares sem acesso sudo. Qualquer instalação fora do seu diretório `$Home` ou `clouddrive` não é persistente.
+As permissões são definidas como usuários regulares sem acesso sudo. Qualquer instalação fora do seu diretório `$Home` não será persistida.
 
 ### <a name="editing-bashrc"></a>Edição de .bashrc
 
-Tome cuidado ao editar .bashrc, uma vez que isso pode causar erros inesperados com Bash no Cloud Shell.
+Tome cuidado ao editar .bashrc, uma vez que isso pode causar erros inesperados no Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitações do PowerShell
 
@@ -68,7 +68,7 @@ O PowerShell no Azure Cloud Shell (Versão prévia) pode levar até 60 segundos 
 
 ### <a name="no-home-directory-persistence"></a>Sem persistência do diretório $Home
 
-Os dados gravados `$Home` por qualquer aplicativo (como git, vim e outros) não persistem entre as sessões do PowerShell. Para obter uma solução, [veja aqui](troubleshooting.md#powershell-resolutions).
+Os dados gravados `$Home` por qualquer aplicativo (como git, vim e outros) não persistem entre as sessões do PowerShell. Para obter uma solução, [veja aqui](troubleshooting.md#powershell-troubleshooting).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Local padrão do arquivo quando criado da unidade do Azure:
 

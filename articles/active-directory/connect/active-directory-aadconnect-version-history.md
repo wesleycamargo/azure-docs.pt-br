@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
-Este artigo foi projetado para ajudar você a controlar as versões que foram lançadas e para saber se você precisa atualizar para a versão mais recente ou não.
+
+Este artigo foi projetado para ajudá-lo a controlar as versões que foram lançadas e compreender se você precisa atualizar para a versão mais recente ou não.
 
 Esta é uma lista de tópicos relacionados:
 
@@ -36,14 +37,12 @@ Permissões necessárias | Para obter permissões necessárias para aplicar uma 
 Download | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117490"></a>1.1.749.0
-Status: liberado para selecionar clientes
-
+Status: liberado para selecionar clientes. Esta versão está atualmente distribuída para uma seção pequena e aleatória de locatários do AADConnect que habilitaram a atualização automática. Vamos expandir esse grupo de locatários nas próximas semanas até que 100% dos nossos clientes de atualização automática tenham recebido esta versão. Depois disso, iremos publicar a compilação para download geral no link de download acima - atualmente planejado para meados de março de 2018.
 >[!NOTE]
 >Quando a atualização para essa nova versão for concluída, ela ativará automaticamente uma sincronização completa e importação completa para o conector do Azure Active Directory e uma sincronização completa para o conector AD. Como isso pode demorar algum tempo, dependendo do tamanho do ambiente Azure AD Connect, verifique se as medidas necessárias foram tomadas para dar suporte a isso ou aguarde a atualização até encontrar um momento conveniente para fazer isso.
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Problemas corrigidos
-* Correção da janela de tempo nas tarefas em segundo plano da página de Filtragem de Partições quando
 * Correção da janela de tempo nas tarefas em segundo plano da página de Filtragem de Partições ao comutar para a próxima página.
 
 * Corrigido um bug que causou violação de Acesso durante a ação personalizada do ConfigDB
@@ -59,7 +58,7 @@ Status: liberado para selecionar clientes
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-* Adicionar Configurações de Privacidade para o GDPR (Regulamento Geral de Proteção de Dados).  Para o GDPR, é necessário indicar os tipos de dados do cliente que são compartilhados com a Microsoft (telemetria, saúde, etc.), ter links para documentação online detalhada e fornecer uma maneira para nossos clientes alterarem suas preferências.  Esse check-in adiciona o seguinte:
+* Adicionar Configurações de Privacidade para o GDPR (Regulamento Geral sobre a Proteção de Dados).  Para o GDPR, é necessário indicar os tipos de dados do cliente que são compartilhados com a Microsoft (telemetria, saúde, etc.), ter links para documentação online detalhada e fornecer uma maneira para nossos clientes alterarem suas preferências.  Esse check-in adiciona o seguinte:
 
 
     - Compartilhamento de dados e notificação de privacidade na página dos termos de licença de instalação limpa.

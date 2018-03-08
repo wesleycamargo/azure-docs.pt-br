@@ -9,22 +9,22 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 304d22c14f6877138213db14333773f1e293c57a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1130ce3231b9e96a03d3e8dc5f75721dd0415928
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedar um aplicativo Node.js no Azure Service Fabric
 
 Este guia de início rápido ajuda a implantar um aplicativo existente (Node.js neste exemplo) em um cluster do Service Fabric em execução no Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, verifique se você [configurou o ambiente de desenvolvimento](service-fabric-get-started.md). O que inclui instalar o SDK do Service Fabric e o Visual Studio 2015 ou 2017.
 
@@ -38,7 +38,7 @@ Inicie o Visual Studio como um **administrador**.
 
 Criar um projeto com `CTRL`+`SHIFT`+`N`
 
-No diálogo **Novo Projeto**, escolha **Cloud > Aplicativo do Service Fabric**.
+Na caixa de diálogo **Novo Projeto**, escolha **Nuvem > Aplicativo do Service Fabric**.
 
 Nomeie o aplicativo **MyGuestApp** e pressione **OK**.
 
@@ -125,7 +125,7 @@ Depois que o serviço foi publicado, teste-o em um navegador da Web.
 
 Primeiro, abra o portal do Azure e localize seu serviço Service Fabric.
 
-Verifique a folha de visão geral do endereço do serviço. Use o nome de domínio da propriedade _Ponto de extremidade de conexão de cliente_. Por exemplo: `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Verifique a folha de visão geral do endereço do serviço. Use o nome de domínio da propriedade _Ponto de extremidade de conexão de cliente_. Por exemplo, `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
 ![Folha de visão geral do Service Fabric no portal do Azure][overview]
 

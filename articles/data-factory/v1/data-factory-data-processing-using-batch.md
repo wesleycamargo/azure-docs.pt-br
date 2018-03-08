@@ -3,7 +3,7 @@ title: Processar conjuntos de dados em larga escala usando o Data Factory e o Lo
 description: Descreve como processar volumes grandes de dados em um pipeline do Azure Data Factory usando a capacidade de processamento paralelo do Lote do Azure.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -556,9 +556,9 @@ Os serviços vinculados vinculam armazenamentos de dados ou serviços de computa
 
    ![Novo armazenamento de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Substitua **nome da conta** pelo nome de sua conta de armazenamento. Substitua **chave de conta** pela chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua **chave de conta** pela chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Selecione **Implantar** na barra de comandos para implantar o serviço vinculado.
+4. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
    ![Implantar](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -593,12 +593,12 @@ Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usad
    
    e. Especifique **StorageLinkedService** for the **linkedServiceName** . Você criou esse serviço vinculado na etapa anterior. Esse armazenamento é usado como uma área de preparação para arquivos e logs.
 
-3. Selecione **Implantar** na barra de comandos para implantar o serviço vinculado.
+3. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
 #### <a name="step-3-create-datasets"></a>Etapa 3: Criar conjuntos de dados
 Nesta etapa, você cria conjuntos de dados para representar a entrada e saída de dados.
 
-#### <a name="create-the-input-dataset"></a>Criar o conjunto de dados de entrada
+#### <a name="create-the-input-dataset"></a>Como criar o conjunto de dados de entrada
 1. No Editor do Data Factory, selecione o botão **Novo conjunto de dados** na barra de ferramentas. Selecione **Armazenamento de blobs do Azure** na lista suspensa.
 
 2. Substitua o script JSON no painel direito pelo seguinte trecho de código JSON:
@@ -803,7 +803,7 @@ Nesta etapa, você cria um pipeline com uma atividade, a atividade personalizada
     - A propriedade **isPaused** está definida como falso por padrão. O pipeline é executado imediatamente neste exemplo porque a fatias começam no passado. Defina essa propriedade como **true** para pausar o pipeline e defina-a novamente como **false** para reiniciá-lo.
     -   As horas de **início** e de **término** são separadas por cinco horas. As fatias são produzidas por hora; portanto, cinco fatias são produzidas pelo pipeline.
 
-3. Selecione **Implantar** na barra de comandos para implantar o pipeline.
+3. Clique em **Implantar** na barra de comandos para implantar o pipeline.
 
 #### <a name="step-5-test-the-pipeline"></a>Etapa 5: testar o pipeline
 Nesta etapa, você testa o pipeline soltando arquivos nas pastas de entrada. Comece testando o pipeline com um arquivo para cada pasta de entrada.

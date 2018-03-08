@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 54b9c38d1122d898dd584a189b9ea2e3405dc6f5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 91461af20cdb189ab23671fee0f3dea182ec0bb1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usar a criptografia comum dinâmica PlayReady e/ou Widevine
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="overview"></a>Visão geral
 
- Você pode usar os Serviços de Mídia para fornecer fluxos MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com o [DRM do PlayReady](https://www.microsoft.com/playready/overview/). Também pode fornecer fluxos DASH criptografados com licenças DRM do Widevine. O PlayReady e o Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC). Você pode usar o [SDK do .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration ao uso do Widevine.
+ Você pode usar os Serviços de Mídia para fornecer fluxos MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com o [DRM do PlayReady](https://www.microsoft.com/playready/overview/). Também pode fornecer fluxos DASH criptografados com licenças DRM do Widevine. O PlayReady e o Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC). Você pode usar o [SDK do .NET dos Serviços de Mídia](https://www.nuget.org/packages/windowsazure.mediaservices/) (começando da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration ao uso do Widevine.
 
 Os Serviços de Mídia fornecem um serviço para entregar licenças DRM do PlayReady e do Widevine. Os Serviços de Mídia também fornecem APIs que você pode usar para configurar os direitos e restrições que você deseja que sejam impostos pelo tempo de execução do DRM do PlayReady ou do Widevine quando um usuário reproduz conteúdo protegido. Quando um usuário solicitar conteúdo protegido por DRM, o player de mídia solicitará uma licença do serviço de licença dos Serviços de Mídia. Se o player de mídia estiver autorizado, o serviço de licença dos Serviços de Mídia emitirá uma licença para o player. Uma licença do PlayReady ou do Widevine contém a chave de descriptografia que pode ser usada pelo player cliente para descriptografar e transmitir o conteúdo.
 
@@ -106,7 +106,7 @@ Para obter instruções sobre como codificar, veja [Codificar um ativo usando o 
 ## <a id="create_contentkey"></a>Criar uma chave de conteúdo e associá-la ao ativo codificado
 Nos Serviços de Mídia, a chave de conteúdo contém a chave com a qual você deseja criptografar um ativo.
 
-Para saber mais, confira [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md).
+Para saber mais, consute [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md).
 
 ## <a id="configure_key_auth_policy"></a>Configurar a política de autorização da chave de conteúdo
 Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. Você deve configurar a política de autorização da chave de conteúdo. O cliente (player) deve estar em conformidade com a política antes de a chave ser entregue ao cliente. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token.
@@ -123,7 +123,7 @@ Configure a política de entrega para seu ativo. Algumas coisas incluídas na co
 Para obter mais informações, veja [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 
 ## <a id="create_locator"></a>Criar um localizador de streaming OnDemand para obter uma URL de streaming
-Você precisa fornecer ao seu usuário a URL de streaming para smooth streaming, DASH ou HLS.
+Você precisa fornecer ao seu usuário a URL de streaming para Smooth Streaming, DASH ou HLS.
 
 > [!NOTE]
 > Se você adicionar ou atualizar a política de entrega do ativo, deverá excluir um localizador existente e criar um novo localizador.
@@ -135,6 +135,7 @@ Para obter instruções sobre como publicar um ativo e criar uma URL de streamin
 ## <a name="get-a-test-token"></a>Obter um token de teste
 Obtenha um token de teste com base na restrição de token que foi usada para a política de autorização da chave.
 
+```csharp
     // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -145,7 +146,7 @@ Obtenha um token de teste com base na restrição de token que foi usada para a 
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-
+```
 
 Pode usar o [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para testar seu fluxo.
 
@@ -155,8 +156,10 @@ Pode usar o [Azure Media Services Player](http://amsplayer.azurewebsites.net/azu
 
 2. Adicione os seguintes elementos para **appSettings** definidos no seu arquivo app.config:
 
+```xml
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
+```
 
 ## <a name="example"></a>Exemplo
 
@@ -171,7 +174,7 @@ Para obter mais informações, veja [Gerenciar ativos e entidades relacionadas a
 
 Certifique-se de atualizar as variáveis para que indiquem as pastas onde estão localizados os arquivos de entrada.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

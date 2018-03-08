@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02bbeafd9cd8ca93f22cf9e1a2c107e01c082ba3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET
 
@@ -34,6 +34,7 @@ As predefinições JSON e XML a seguir podem ser usadas para produzir um único 
 
 ### <a name="json-preset"></a>Predefinição JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -58,9 +59,11 @@ As predefinições JSON e XML a seguir podem ser usadas para produzir um único 
         }
       ]
     }
+```
     
 ### <a name="xml-preset"></a>Predefinição XML
 
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -79,6 +82,7 @@ As predefinições JSON e XML a seguir podem ser usadas para produzir um único 
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-series-of-jpeg-images-preset"></a>Exemplo de uma predefinição de uma “série de imagens JPEG”
 
@@ -86,6 +90,7 @@ As predefinições JSON e XML a seguir podem ser usadas para produzir um conjunt
 
 ### <a name="json-preset"></a>Predefinição JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -113,9 +118,11 @@ As predefinições JSON e XML a seguir podem ser usadas para produzir um conjunt
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Predefinição XML
     
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -135,6 +142,7 @@ As predefinições JSON e XML a seguir podem ser usadas para produzir um conjunt
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Exemplo de uma predefinição de “uma imagem em um carimbo de data/hora específico”
 
@@ -142,6 +150,7 @@ A predefinição JSON e XML a seguir pode ser usada para produzir uma única ima
 
 ### <a name="json-preset"></a>Predefinição JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -169,9 +178,10 @@ A predefinição JSON e XML a seguir pode ser usada para produzir uma única ima
         }
       ]
     }
-    
+```
+
 ### <a name="xml-preset"></a>Predefinição XML
-    
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -191,7 +201,8 @@ A predefinição JSON e XML a seguir pode ser usada para produzir uma única ima
         </Output>
       </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Exemplo de uma predefinição de "miniaturas em diferentes resoluções"
 
 A predefinição a seguir pode ser usada para gerar miniaturas com resoluções diferentes em uma tarefa. No exemplo, nas posições 5%, 15%, ..., 95% da linha do tempo de entrada, o codificador gera duas imagens – uma em 100% da resolução do vídeo de entrada e outra em 50%.
@@ -200,6 +211,7 @@ Observe o uso da macro {Resolution} no FileName. Isso faz com que o codificador 
 
 ### <a name="json-preset"></a>Predefinição JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -234,9 +246,10 @@ Observe o uso da macro {Resolution} no FileName. Isso faz com que o codificador 
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Predefinição XML
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
@@ -261,7 +274,8 @@ Observe o uso da macro {Resolution} no FileName. Isso faz com que o codificador 
       </Output>
     </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Exemplo de como gerar uma miniatura durante a codificação
 
 Embora todos os exemplos acima tenham discutido como enviar uma tarefa de codificação que produz apenas imagens, também é possível combinar a codificação de vídeo ou áudio com a geração de miniaturas. As predefinições JSON e XML a seguir fazem com que o **Media Encoder Standard** gere uma miniatura durante a codificação.
@@ -269,6 +283,7 @@ Embora todos os exemplos acima tenham discutido como enviar uma tarefa de codifi
 ### <a id="json"></a>Predefinição JSON
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -328,10 +343,12 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
         }
       ]
     }
+```
 
 ### <a id="xml"></a>Predefinição XML
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
-    
+
+```csharp
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -381,13 +398,14 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
         </Output>
       </Outputs>
     </Preset>   
+```
 
 ## <a id="code_sample"></a>Codificar vídeos e gerar miniaturas com o .NET
 
 O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:
 
 * Crie um trabalho de codificação.
-* Obtenha uma referência para o Media Encoder Standard.
+* Obtenha uma referência para o Codificador de Mídia Padrão.
 * Carregue a predefinição [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contém a codificação predefinida, assim como as informações necessárias para gerar miniaturas. Você pode salvar esse [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) em um arquivo e usar o código a seguir para carregar o arquivo.
   
         // Load the XML (or JSON) from the local file.
@@ -400,7 +418,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 Consulte o artigo [Desenvolvimento de Serviços de Mídia com .NET](media-services-dotnet-how-to-use.md) para obter instruções sobre como configurar seu ambiente de desenvolvimento.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -552,6 +570,6 @@ Você pode verificar o [andamento do trabalho](media-services-check-job-progress
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 

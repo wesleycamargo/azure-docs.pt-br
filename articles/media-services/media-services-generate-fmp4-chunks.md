@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7273e51342f4e9fc68a8b3d3b145d119b4eab122
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f497954f82e209c1547fca0943169d53f4ab517a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Criar uma tarefa de codificação que gere parte fMP4
 
@@ -25,10 +25,11 @@ ms.lasthandoff: 12/11/2017
 
 Este artigo mostra como criar uma tarefa de codificação que gere partes fMP4 (MP4 fragmentado) em vez de arquivos ISO MP4. Para gerar partes fMP4, use o **Media Encoder Standard** ou o codificador **Fluxo de Trabalho Premium de Codificação de Mídia** para criar uma tarefa de codificação e também especificar a opção **AssetFormatOption.AdaptiveStreaming**, conforme mostrado neste trecho de código:  
     
+```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
             options: AssetCreationOptions.None, 
             formatOption: AssetFormatOption.AdaptiveStreaming);
-
+```
 
 ## <a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
 
@@ -47,7 +48,7 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -174,6 +175,6 @@ namespace AdaptiveStreaming
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 

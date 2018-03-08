@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar o Azure Functions localmente
 
@@ -35,14 +35,6 @@ As [Ferramentas básicas do Azure Functions] são uma versão local do tempo de 
 
 >[!NOTE]  
 > Antes de instalar uma das versões, você deve [instalar o NodeJS](https://docs.npmjs.com/getting-started/installing-node), que inclui npm. Para a versão 2.x das ferramentas, somente Node.js 8.5 e versões posteriores têm suporte. 
-
-### <a name="version-1x-runtime"></a>Tempo de execução versão 1.x
-
-A versão original das ferramentas usa o tempo de execução 1.x das funções. Essa versão usa o .NET Framework e só tem suporte em computadores Windows. Use o seguinte comando para instalar as ferramentas versão 1.x:
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>Tempo de execução versão 2.x
 
@@ -69,6 +61,14 @@ Ao instalar no macOS e no Linux, talvez seja necessário incluir o sinalizador `
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>Tempo de execução versão 1.x
+
+A versão original das ferramentas usa o tempo de execução 1.x das funções. Essa versão usa o .NET Framework e só tem suporte em computadores Windows. Use o seguinte comando para instalar as ferramentas versão 1.x:
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>Executar as ferramentas básicas do Azure Functions
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Para criar o projeto sem um repositório Git local, use a opção `--no-source-control [-n]`.
+
+## <a name="register-extensions"></a>Extensões de registro
+
+Na versão 2.x do tempo de execução do Azure Functions, você deve registrar explicitamente a [extensões de associação](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) usadas em seu aplicativo de funções. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Para obter mais informações, consulte [Gatilhos e conceitos de associações do Azure Functions](functions-triggers-bindings.md#register-binding-extensions).
 
 ## <a name="local-settings-file"></a>Arquivo de configurações local
 
@@ -311,6 +319,10 @@ Por exemplo, para chamar uma função ativada por HTTP e passar o corpo do conte
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>Exibir arquivos de log localmente
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publicar no Azure
 
