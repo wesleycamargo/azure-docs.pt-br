@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 979c88b72aba6e054bc507e22f48cae1441957cb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Para criar o localizador de streaming sob demanda e obter URLs, você precisa fa
 ### <a name="use-media-services-net-sdk"></a>Usar o SDK do .NET dos Serviços de Mídia
 Criar URLs de streaming 
 
+```csharp
     private static void BuildStreamingURLs(IAsset asset)
     {
 
@@ -93,6 +94,7 @@ Criar URLs de streaming
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
+```
 
 As saídas:
 
@@ -111,6 +113,7 @@ As saídas:
 
 Crie URLs de download progressivo 
 
+```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
         // Create a 30-day readonly access policy. 
@@ -138,7 +141,7 @@ Crie URLs de download progressivo
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
-
+```
 As saídas:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +153,7 @@ As saídas:
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Usam o SDK do .NET dos Serviços de Mídia
 O código a seguir chama métodos de extensões do SDK do .NET que criam um localizador e geram o Smooth Streaming, HLS e URLs do MPEG-DASH para streaming adaptável.
-
+```csharp
     // Create a loctor.
     _context.Locators.Create(
         LocatorType.OnDemandOrigin,
@@ -166,7 +169,7 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
     Console.WriteLine(smoothStreamingUri);
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
-
+```
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

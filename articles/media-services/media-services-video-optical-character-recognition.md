@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usar a Análise de Mídia do Azure para converter o conteúdo de texto em arquivos de vídeo em texto digital
 ## <a name="overview"></a>Visão geral
@@ -41,16 +41,17 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de M�
 >
 
 ### <a name="attribute-descriptions"></a>Descrições de atributos
-| Nome do atributo | Descrição |
+| Nome do atributo | DESCRIÇÃO |
 | --- | --- |
 |AdvancedOutput| Se você definir AdvancedOutput como true, a saída JSON conterá dados posicionais para cada palavra (além de frases e regiões). Se você não quiser ver esses detalhes, defina o sinalizador como false. O valor padrão é falso. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| idioma |(opcional) descreve o idioma do texto a ser procurado. Um dos seguintes: AutoDetect (padrão), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
+| Linguagem |(opcional) descreve o idioma do texto a ser procurado. Um dos seguintes: AutoDetect (padrão), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
 | TextOrientation |(opcional) descreve a orientação do texto a ser procurado.  "Left" significa que a parte superior de todas as letras apontam para a esquerda.  O texto padrão (como aquele que pode ser encontrado em um livro), tem a orientação “Up”.  Um dos seguintes: AutoDetect (padrão), Up, Right, Down, Left. |
 | TimeInterval |(opcional) descreve a taxa de amostragem.  O padrão é a cada 1/2 segundo.<br/>Formato JSON – HH:mm:ss.SSS (padrão 00:00:00.500)<br/>Formato XML: duração primitiva do W3C XSD (padrão PT0.5) |
 | DetectRegions |(opcional) Uma matriz de objetos DetectRegion especificando regiões dentro do quadro de vídeo para detectar o texto.<br/>Um objeto DetectRegion é composto pelos quatro seguintes valores inteiros:<br/>Left: pixels a partir da margem esquerda<br/>Top: pixels a partir da margem superior<br/>Width: altura da região em pixels<br/>Height: altura da região em pixels |
 
 #### <a name="json-preset-example"></a>Exemplo de predefinição JSON
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de M�
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>Exemplo de predefinição XML
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de M�
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>Arquivos de saída de OCR
 A saída do processador de mídia de OCR é um arquivo JSON.
@@ -97,7 +102,7 @@ A saída de OCR de vídeo fornece dados segmentados por tempo sobre os caractere
 
 A saída contém os seguintes atributos:
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | --- | --- |
 | Escala de tempo |"Tiques" por segundo do vídeo |
 | Deslocamento |diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, sempre será 0. |
@@ -113,11 +118,12 @@ A saída contém os seguintes atributos:
 | Linguagem |idioma do texto detectado dentro de uma região |
 | orientation |orientação do texto detectado dentro de uma região |
 | lines |matriz de linhas de texto detectadas em uma região |
-| texto |o texto real |
+| text |o texto real |
 
 ### <a name="json-output-example"></a>Exemplo de saída JSON
 O exemplo de saída a seguir contém as informações gerais de vídeo e vários fragmentos de vídeo. Em cada fragmento de vídeo, ele contém todas as regiões que são detectadas pelo MP de OCR com o idioma e sua orientação de texto. A região também contém todas as linhas de palavras nessa região com texto da linha, posição da linha e todas as informações de palavra (conteúdo, posição e confiança da palavra) nesta linha. A seguir está um exemplo e coloquei alguns comentários embutidos.
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,6 +176,7 @@ O exemplo de saída a seguir contém as informações gerais de vídeo e vários
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>Código de exemplo do .NET
 
@@ -185,7 +192,7 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

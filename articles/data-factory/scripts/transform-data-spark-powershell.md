@@ -2,7 +2,7 @@
 title: "Dados de transformação de script do PowerShell na nuvem usando o Data Factory | Microsoft Docs"
 description: Este script do PowerShell transforma os dados na nuvem executando o programa Spark em um cluster do Azure HDInsight Spark.
 services: data-factory
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: spelluru
-ms.openlocfilehash: 195b7276346827479fbbe10dfaaaa9ed1d754967
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.author: shlo
+ms.openlocfilehash: f83d9d2e862f909d6eaa0c02ecac745909aab83a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script do PowerShell – transformar dados na nuvem usando o Azure Data Factory
 
@@ -24,7 +24,7 @@ Este script do PowerShell de exemplo cria um pipeline que transforma os dados na
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * **Conta de Armazenamento do Azure**. Crie um script Python e um arquivo de entrada e carregue-os no Armazenamento do Azure. A saída do programa Spark é armazenada nessa conta de armazenamento. O cluster do Spark sob demanda usa a mesma conta de armazenamento que o respectivo armazenamento primário.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Carregar o script Python em sua conta de Armazenamento de Blobs
@@ -88,7 +88,7 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 Este script usa os seguintes comandos:
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2) | Criar uma fábrica de dados. |

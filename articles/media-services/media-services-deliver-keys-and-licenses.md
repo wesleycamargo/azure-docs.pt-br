@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 4032b0f2f72d6c45b9f2233ac0c315bc0db60ed8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usar os Serviços de Mídia do Azure para fornecer licenças DRM ou chaves AES
 Os Serviços de Mídia do Azure permitem criar, codificar, adicionar proteção de conteúdo e transmitir seu conteúdo. Para obter mais informações, consulte [Usar criptografia comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md). Alguns clientes desejam usar os Serviços de Mídia somente para fornecer licenças e/ou as chaves e codificar, criptografar e transmitir usando seus servidores locais. Este artigo descreve como você pode usar os Serviços de Mídia para fornecer licenças PlayReady e/ou Widevine, mas fazer o restante com seus servidores locais. 
@@ -48,7 +48,7 @@ Para baixar o exemplo descrito neste artigo, consulte [Usar os Serviços de Míd
 ## <a name="net-code-example"></a>Exemplo de código do .NET
 O exemplo de código a seguir mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença PlayReady ou Widevine. Para configurar seu servidor local, você precisa de uma chave de conteúdo, a chave de ID e a URL de aquisição de licença. Após configurar seu servidor local, você poderá transmitir do seu próprio servidor de streaming. Como o stream criptografado aponta para um servidor de licença dos Serviços de Mídia, seu player solicita uma licença dos Serviços de Mídia. Se você escolher a autenticação de token, o servidor de licença dos Serviços de Mídia valida o token enviado por meio de HTTPS. Se o token for válido, o servidor de licença fornece a licença para o player. O exemplo de código a seguir mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença PlayReady ou Widevine. Se você deseja entregar chaves AES-128, é necessário criar uma chave de conteúdo de envelope e obter uma URL de aquisição de chave. Para obter mais informações, consulte [Usar a criptografia dinâmica AES-128 e o serviço de entrega de chave ](media-services-protect-with-aes128.md).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

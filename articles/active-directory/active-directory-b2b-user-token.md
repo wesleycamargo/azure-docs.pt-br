@@ -3,7 +3,7 @@ title: "Noções básicas sobre tokens de usuário na colaboração B2B do Azure
 description: "Referência ao token de usuário para colaboração B2B do Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
-ms.author: sasubram
-ms.openlocfilehash: 7d19a6ff42ec905d68133e9940366f173140f916
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 6afa7d01282d6c35b042ad69fcdcb5714c92de10
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Noções básicas sobre tokens de usuário na colaboração B2B do Azure AD
 
@@ -47,6 +48,6 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Grupos dinâmicos e colaboração B2B](active-directory-b2b-dynamic-groups.md)
 * [Código de colaboração B2B e exemplos do PowerShell](active-directory-b2b-code-samples.md)
 * [Configurar aplicativos SaaS para colaboração B2B](active-directory-b2b-configure-saas-apps.md)
-* [Mapeamento de declarações do usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
+* [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)

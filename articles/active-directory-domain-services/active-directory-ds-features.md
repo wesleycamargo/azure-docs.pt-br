@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 ms.openlocfilehash: af0670a44937bb14df9afc206ea4601c0b9289a2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>Recursos
@@ -27,7 +27,7 @@ Os seguintes recursos estão disponíveis nos domínios gerenciados dos Serviço
 * **Experiência de implantação simples:** com apenas alguns cliques você pode habilitar os Serviços de Domínio do AD do Azure para seu locatário do AD do Azure. Independentemente de seu locatário do AD do Azure ser um locatário de nuvem ou sincronizado com o diretório local, seu domínio gerenciado pode ser provisionado rapidamente.
 * **Suporte para ingresso no domínio:** você pode facilmente ingressar computadores no domínio na rede virtual do Azure em que seu domínio gerenciado está disponível. A experiência de ingresso em sistemas operacionais cliente e servidor do Windows funciona perfeitamente nos domínios atendidos pelos Serviços de Domínio do Azure AD. Você também pode usar as ferramentas do ingresso no domínio automatizado com relação a esses domínios.
 * **Uma instância de domínio por diretório do AD do Azure:** você pode criar um único domínio do Active Directory para cada diretório do AD do Azure.
-* **Criar domínios com nomes personalizados:** você pode criar domínios com nomes personalizados (por exemplo, 'contoso100.com') usando os Azure AD Domain Services. Você pode usar qualquer nome de domínio verificado ou não. Opcionalmente, você também pode criar um domínio com o sufixo de domínio interno (ou seja, * .onmicrosoft.com) oferecido pelo seu diretório do Azure AD.
+* **Criar domínios com nomes personalizados:** você pode criar domínios com nomes personalizados (por exemplo, 'contoso100.com') usando os Azure AD Domain Services. Você pode usar qualquer nome de domínio verificado ou não. Opcionalmente, você também pode criar um domínio com o sufixo de domínio interno (ou seja, *.onmicrosoft.com) oferecido pelo seu diretório do Azure AD.
 * **Integrado ao AD do Azure:** não é necessário configurar nem gerenciar a replicação para os Serviços de Domínio do AD do Azure. As contas de usuário, as associações de grupo e as credenciais de usuário (senhas) do seu diretório do Azure AD estão automaticamente disponíveis nos Azure AD Domain Services. Os novos usuários, os grupos ou as alterações a atributos em seu locatário do Azure AD ou em seu diretório local são automaticamente sincronizados com os Azure AD Domain Services.
 * **Autenticação NTLM e Kerberos:** com suporte para autenticação NTLM e Kerberos, você pode implantar aplicativos que dependem da autenticação Integrada do Windows.
 * **Usar suas credenciais corporativas/senhas:** senhas de usuários em seu locatário do AD do Azure funcionam com os Serviços de Domínio do AD do Azure. Os usuários podem usar as credenciais corporativas para ingressar em computadores no domínio, fazer logon interativamente ou pela área de trabalho remota e autenticar em relação ao domínio gerenciado.

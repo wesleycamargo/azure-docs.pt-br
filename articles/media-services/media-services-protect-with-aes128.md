@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 013c14c00096c9958a732d1f0eaacc9248f57da9
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 2d1a635c1e2bde140df19f8c26f6ae5a6978eff5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Use a criptografia dinâmica AES-128 e o serviço de distrbuição de chaves
 > [!div class="op_single_selector"]
@@ -126,6 +126,7 @@ Para obter instruções sobre como publicar um ativo e criar uma URL de streamin
 ## <a name="get-a-test-token"></a>Obter um token de teste
 Obtenha um token de teste com base na restrição de token que foi usada para a política de autorização da chave.
 
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate = 
@@ -136,6 +137,7 @@ Obtenha um token de teste com base na restrição de token que foi usada para a 
     //so you have to add it in front of the token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+```
 
 Pode usar o [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para testar seu fluxo.
 
@@ -145,6 +147,7 @@ Na etapa anterior, você construiu a URL que aponta para um arquivo de manifesto
 ### <a name="manifest-files"></a>Arquivos de manifesto
 O cliente precisa extrair o valor da URL (que também contém a ID da chave de conteúdo [kid]) do arquivo de manifesto. O cliente então tenta obter a chave de criptografia por meio do serviço de distribuição de chaves. O cliente também precisa extrair o valor do IV e usá-lo para descriptografar o fluxo. O trecho de código a seguir mostra o elemento <Protection> do manifesto Smooth Streaming:
 
+```xml
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
         <ContentProtection xmlns:sea="urn:mpeg:dash:schema:sea:2012" schemeIdUri="urn:mpeg:dash:sea:2012">
@@ -156,6 +159,7 @@ O cliente precisa extrair o valor da URL (que também contém a ID da chave de c
         </ContentProtection>
       </ProtectionHeader>
     </Protection>
+```
 
 No caso de HLS, o manifesto raiz é dividido em arquivos de segmento. 
 
@@ -191,6 +195,7 @@ Se você abrir um dos arquivos de segmento em um editor de texto (por exemplo, h
 
 O código a seguir mostra como enviar uma solicitação ao serviço de distribuição de chaves dos Serviços de Mídia usando um URI de distribuição de chaves (que foi extraído do manifesto) e um token. (Este artigo não explica como obter SWTs de um STS).
 
+```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(keyDeliveryUri);
@@ -230,6 +235,7 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
         Array.Copy(buffer, key, length);
         return key;
     }
+```
 
 ## <a name="protect-your-content-with-aes-128-by-using-net"></a>Proteger o conteúdo com o AES-128 usando o .NET
 
@@ -239,8 +245,10 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
 
 2. Adicione os seguintes elementos para appSettings, conforme definidos no seu arquivo app.config:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ### <a id="example"></a>Exemplo
 
@@ -251,7 +259,9 @@ Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seçã
 
 Certifique-se de atualizar as variáveis para que indiquem as pastas onde estão localizados os arquivos de entrada.
 
+```csharp
     [!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
+```
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

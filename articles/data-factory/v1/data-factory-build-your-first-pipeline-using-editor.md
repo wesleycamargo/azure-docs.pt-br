@@ -3,9 +3,9 @@ title: Criar seu primeiro data factory (portal do Azure) | Microsoft Docs
 description: Neste tutorial, crie um pipeline de exemplo do Azure Data Factory usando o Data Factory Editor no portal do Azure.
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995abf497e7267434b5e87132d30183e3c293af3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: como compilar seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -97,7 +97,7 @@ Antes de criar um pipeline no data factory, primeiro você precisará criar algu
 Nesta etapa, você vinculará sua conta de armazenamento do Azure e um cluster do HDInsight sob demanda ao data factory. A conta de armazenamento manterá os dados de entrada e de saída para o pipeline neste exemplo. O serviço vinculado do HDInsight é usado para executar um script do Hive especificado na atividade do pipeline neste exemplo. Identifique quais [serviços de computação](data-factory-data-movement-activities.md)/[ de armazenamento de dados](data-factory-compute-linked-services.md) são usados no cenário. Em seguida, vincule esses serviços ao data factory criando serviços vinculados.  
 
 ### <a name="create-a-storage-linked-service"></a>Criar um serviço vinculado do Armazenamento
-Nesta etapa, você vincula a conta de armazenamento ao seu data factory. Neste tutorial, use a mesma conta de armazenamento para armazenar dados de entrada/saída e o arquivo de script do HQL.
+Nesta etapa, você vincula sua conta de armazenamento ao data factory. Neste tutorial, use a mesma conta de armazenamento para armazenar dados de entrada/saída e o arquivo de script do HQL.
 
 1. Clique na folha **Data factory** para **GetStartedDF**, escolha **Criar e implantar**. Você vê o Data Factory Editor.
 

@@ -3,9 +3,9 @@ title: Invocar programas Spark do Azure Data Factory | Microsoft Docs
 description: Saiba como invocar programas Spark em um Azure Data Factory usando a atividade MapReduce.
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/23/2018
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Azure Data Factory, que está em disponibilidade geral. Se você usar a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Transformar dados usando a atividade do Apache Spark no Data Factory versão 2](../transform-data-using-spark.md).
+> Este artigo se aplica à versão 1 do Azure Data Factory, que geralmente está disponível. Se você usar a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Transformar dados usando a atividade do Apache Spark no Data Factory versão 2](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introdução
 A atividade do Spark é uma das [atividades de transformação de dados](data-factory-data-transformation-activities.md) compatíveis com o Data Factory. Essa atividade executa o programa do Spark especificado no cluster Spark no Azure HDInsight. 
@@ -84,7 +84,7 @@ Para criar um data factory, siga estas etapas:
 7. Selecione **Criar**.
 
    > [!IMPORTANT]
-   > Para criar instâncias do Data Factory, você precisa ser membro da função [Colaborador do Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível da assinatura e/ou do grupo de recursos.
+   > Para criar instâncias do Data Factory, você deve ser um membro da função [Colaborador do Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
 
 8. Você vê o data factory sendo criado no painel do portal do Azure.
 
@@ -100,7 +100,7 @@ Nesta etapa, você vincula sua conta de armazenamento ao data factory. Um conjun
 
 1. Na folha **Data factory**, selecione **Criar e implantar**. O Editor do Data Factory é exibido.
 
-2. Selecione **Novo armazenamento de dados** e escolha **Armazenamento do Azure**.
+2. Clique em **Novo armazenamento de dados** e escolha **Armazenamento do Azure**.
 
    ![Novo armazenamento de dados](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
@@ -110,7 +110,7 @@ Nesta etapa, você vincula sua conta de armazenamento ao data factory. Um conjun
 
 4. Substitua **nome da conta** e **chave de conta** pelo nome e pela chave de acesso de sua conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, veja como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Para implantar o serviço vinculado, selecione **Implantar** na barra de comandos. Depois que o serviço vinculado for implantado com êxito, a janela Rascunho-1 desaparecerá. **AzureStorageLinkedService** é exibido no modo de exibição de árvore à esquerda.
+5. Para implantar o serviço vinculado, selecione **Implantar** na barra de comandos. Depois que o serviço vinculado for implantado com êxito, a janela Rascunho-1 desaparecerá. Você verá **AzureStorageLinkedService** no modo de exibição de árvore à esquerda.
 
 #### <a name="create-an-hdinsight-linked-service"></a>Criar um serviço vinculado do HDInsight
 Nesta etapa, você cria um serviço vinculado do HDInsight para vincular o cluster HDInsight Spark ao data factory. O cluster do HDInsight é usado para executar o programa especificado do Spark na atividade do Spark neste exemplo. 
@@ -155,7 +155,7 @@ Nesta etapa, você cria um serviço vinculado do HDInsight para vincular o clust
 ### <a name="create-the-output-dataset"></a>Criar o conjunto de dados de saída
 O conjunto de dados de saída é o que aciona o agendamento (por hora, diariamente). Portanto, é necessário especificar um conjunto de dados de saída para a atividade do Spark no pipeline, embora a atividade não produza nenhuma saída. Especificar um conjunto de dados de entrada para a atividade é opcional.
 
-1. No Editor do Data Factory, selecione **Mais** > **Novo conjunto de dados** > **Armazenamento de blobs do Azure**.
+1. No Data Factory Editor, selecione **Mais** > **Novo conjunto de dados** > **Armazenamento de Blobs do Azure**.
 
 2. Copie e cole o trecho a seguir na janela de Rascunho-1. O trecho JSON define um conjunto de dados chamado **OutputDataset**. Além disso, você especifica que os resultados estão armazenados no contêiner de blobs denominado **adfspark** e na pasta denominada **pyFiles/output**. Conforme mencionado anteriormente, esse conjunto de dados é fictício. O programa do Spark neste exemplo não produz nenhuma saída. A seção **availability** especifica que o conjunto de dados de saída é produzido diariamente. 
 
@@ -184,9 +184,9 @@ O conjunto de dados de saída é o que aciona o agendamento (por hora, diariamen
 
 
 ### <a name="create-a-pipeline"></a>Criar uma pipeline
-Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, o conjunto de dados de saída é o que aciona o agendamento. Portanto, é necessário criar um conjunto de dados de saída mesmo que a atividade não produza nenhuma saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. Portanto, nenhum conjunto de dados de entrada é especificado neste exemplo.
+Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, o conjunto de dados de saída é o que aciona a agenda. Assim, você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. Portanto, nenhum conjunto de dados de entrada é especificado neste exemplo.
 
-1. No Editor do Data Factory, selecione **Mais** > **Novo pipeline**.
+1. No Data Factory Editor, selecione **Mais** > **Novo pipeline**.
 
 2. Substitua o script na janela de Rascunho-1 pelo seguinte script:
 

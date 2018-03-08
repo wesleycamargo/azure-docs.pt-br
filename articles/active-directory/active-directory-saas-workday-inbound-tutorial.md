@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -484,7 +484,7 @@ As seções a seguir descrevem a configuração de uma conexão entre o Workday 
 
 **Para configurar o provisionamento do Workday to Azure Active Directory para usuários somente na nuvem:**
 
-1.  Acesse <https://portal.azure.com>.
+1.  Vá para <https://portal.azure.com>.
 
 2.  Na barra de navegação esquerda, selecione **Azure Active Directory**
 
