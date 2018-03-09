@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: cc9a61314de7e10afe370c3b1307d03544a379d5
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b7010c2e8d5ca479411d101ce237709ad26d7bcc
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solucionar problemas de configuração de rede inválida para o domínio gerenciado
 Este artigo ajuda você a solucionar problemas e resolver erros de configuração relacionados à rede que resultam na seguinte mensagem de alerta:
@@ -56,7 +56,7 @@ Este NSG está configurado para permitir o tráfego de entrada para as portas ne
 > É recomendável usar a versão mais recente do módulo do Azure PowerShell. Se você já tiver uma versão mais antiga do módulo do Azure PowerShell instalado, atualize para a versão mais recente.
 >
 
-Use as etapas a seguir para criar um novo NSG usando o PowerShell. 
+Use as etapas a seguir para criar um novo NSG usando o PowerShell.
 1. Acesse a sua assinatura do Azure.
 
   ```PowerShell
@@ -68,33 +68,34 @@ Use as etapas a seguir para criar um novo NSG usando o PowerShell.
 
   ```PowerShell
   # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
-  $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD `
-  -Description "Allow synchronization with Azure AD" `
+  $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD -Description "Allow synchronization with Azure AD" `
   -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
   -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 443
 
   # Allow management of your domain over port 5986 (PowerShell Remoting)
-  $PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting `
-  -Description "Allow management of domain through port 5986" `
+  $PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting -Description "Allow management of domain through port 5986" `
   -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
-  -SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, `
-  13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, `
-  52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, `
-  52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 `
-  -SourcePortRange * -DestinationAddressPrefix * `
+  -SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 5986
 
+  #The following two rules are optional and needed only in certain situations.
+
   # Allow management of your domain over port 3389 (remote desktop).
-  $RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD `
-  -Description "Allow management of domain through port 3389" `
+  $RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD -Description "Allow management of domain through port 3389" `
   -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
-  -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -SourceAddressPrefix 207.68.190.32/27, 13.106.78.32/27, 10.254.32.0/20, 10.97.136.0/22, 13.106.174.32/27, 13.106.4.96/27 -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 3389
 
-  # Create the NSG with the 3 rules above
-  $Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Location $Location `
-  -Name "AAD-DomainServices-NSG" -SecurityRules $SyncRule,$PSRemotingRule,$RemoteDesktopRule
+  # Secure LDAP rule, it is recommended to change the source address prefix to include only the IP addresses
+  $SecureLDAPRule = New-AzureRmNetworkSecurityRuleConfig -Name SecureLDAP -Description "Allow access through secure LDAP port" `
+  -Access Allow -Protocol Tcp -Direction Inbound -Priority 104 `
+  -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 636
+
+  # Create the NSG with the rules above (if you need the remote desktop rule and secure ldap rule, add it below)
+  $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
+  -Name "AADDomainServices-NSG" -SecurityRules $SyncRule, $PSRemotingRule
   ```
 
 3. Por fim, associe o NSG à rede virtual e à sub-rede de sua escolha.
@@ -125,33 +126,34 @@ $SubnetName = "exampleSubnet"
 Login-AzureRmAccount
 
 # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
-$SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD `
--Description "Allow synchronization with Azure AD" `
+$SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD -Description "Allow synchronization with Azure AD" `
 -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 443
 
 # Allow management of your domain over port 5986 (PowerShell Remoting)
-$PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting `
--Description "Allow management of domain through port 5986" `
+$PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting -Description "Allow management of domain through port 5986" `
 -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
--SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, `
-13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, `
-52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, `
-52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 `
--SourcePortRange * -DestinationAddressPrefix * `
+-SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 5986
 
+#The following two rules are optional and needed only in certain situations.
+
 # Allow management of your domain over port 3389 (remote desktop).
-$RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD `
--Description "Allow management of domain through port 3389" `
+$RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD -Description "Allow management of domain through port 3389" `
 -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
--SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-SourceAddressPrefix 207.68.190.32/27, 13.106.78.32/27, 10.254.32.0/20, 10.97.136.0/22, 13.106.174.32/27, 13.106.4.96/27 -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 3389
 
-# Create the NSG with the 3 rules above
-$Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Location $Location `
--Name "AAD-DomainServices-NSG" -SecurityRules $SyncRule,$PSRemotingRule,$RemoteDesktopRule
+# Secure LDAP rule, it is recommended to change the source address prefix to include only the IP addresses
+$SecureLDAPRule = New-AzureRmNetworkSecurityRuleConfig -Name SecureLDAP -Description "Allow access through secure LDAP port" `
+-Access Allow -Protocol Tcp -Direction Inbound -Priority 104 `
+-SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 636
+
+# Create the NSG with the rules above (if you need the remote desktop rule and secure ldap rule, add it below)
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
+-Name "AADDomainServices-NSG" -SecurityRules $SyncRule, $PSRemotingRule
 
 # Find vnet and subnet
 $Vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroup -Name $VnetName
@@ -162,9 +164,6 @@ $Subnet.NetworkSecurityGroup = $Nsg
 Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
 ```
 
-> [!NOTE]
-> Esse NSG padrão não bloqueia o acesso à porta usada para o LDAP Seguro. Para bloquear o acesso LDAP Seguro através da Internet, veja [este artigo](active-directory-ds-troubleshoot-ldaps.md).
->
 
 ## <a name="need-help"></a>Precisa de ajuda?
 Entre em contato com a equipe de produto do Azure Active Directory Domain Services para [compartilhar comentários ou obter suporte](active-directory-ds-contact-us.md).

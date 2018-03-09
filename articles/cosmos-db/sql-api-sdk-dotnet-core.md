@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8604863b9394c5af9494c47f821601441ecee308
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/13/2018
 > * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -59,7 +60,11 @@ O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais
 > [!NOTE] 
 > O SDK do .NET Core do Azure Cosmos DB não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Correção do bug que é acessado em determinadas condições de corrida, que resulta em erros intermitentes "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" ao usar o nível de consistência de sessão.
+
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
 * Regressão fixa em que FeedOptions.MaxItemCount = -1 gerou uma System.ArithmeticException: o tamanho da página é negativo.
 * Uma nova função ToString() foi adicionada a QueryMetrics.
@@ -165,6 +170,7 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.8.2](#1.8.2) |21 de fevereiro de 2018 |--- |
 | [1.8.1](#1.8.1) |5 de fevereiro de 2018 |--- |
 | [1.7.1](#1.7.1) |16 de novembro de 2017 |--- |
 | [1.7.0](#1.7.0) |10 de novembro, 2017 |--- |

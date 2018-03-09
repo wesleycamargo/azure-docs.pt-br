@@ -4,20 +4,21 @@ description: "Saiba como você pode implantar o provedor de recursos MySQL e for
 services: azure-stack
 documentationCenter: 
 author: mattbriggs
-manager: bradleyb
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.reviewer: jeffgo
+ms.openlocfilehash: 067e478548ba840ece14737cdf3e6d5d4da28be0
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados MySQL na pilha do Microsoft Azure
 
@@ -45,7 +46,7 @@ Esta versão não cria mais instâncias do MySQL. Isso significa que você preci
 - Baixe e implante um servidor MySQL no Azure Marketplace.
 
 > [!NOTE]
-> Servidores que estão instalados em uma implementação de pilha do Azure com vários nó de hospedagem deve ser criado de uma assinatura de locatário. Eles não não possível criar a assinatura do provedor padrão. Eles devem ser criados no portal de locatário ou uma sessão do PowerShell com uma entrada apropriada. Todos os servidores de hospedagem são passíveis de cobrança VMs e devem ter as licenças apropriadas. O administrador de serviço pode ser o proprietário da assinatura de locatário.
+> Servidores que estão instalados na pilha do Azure de hospedagem sistemas integrados devem ser criados de uma assinatura de locatário. Eles não não possível criar a assinatura do provedor padrão. Eles devem ser criados no portal de locatário ou uma sessão do PowerShell com uma entrada apropriada. Todos os servidores de hospedagem são passíveis de cobrança VMs e devem ter as licenças apropriadas. O administrador de serviço pode ser o proprietário da assinatura de locatário.
 
 ### <a name="required-privileges"></a>Privilégios necessários
 A conta do sistema deve ter os seguintes privilégios:
@@ -55,7 +56,7 @@ A conta do sistema deve ter os seguintes privilégios:
 
 ## <a name="deploy-the-resource-provider"></a>Implantar o provedor de recursos
 
-1. Se você ainda não tiver feito isso, registre o kit de desenvolvimento e baixar a imagem do Datacenter do Windows Server 2016 Core pode ser baixada por meio do gerenciamento do Marketplace. Você deve usar uma imagem do Windows Server 2016 Core. Você também pode usar um script para criar um [imagem do Windows Server 2016](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Certifique-se de selecionar a opção de núcleo.) O tempo de execução do .NET 3.5 não é mais necessário.
+1. Se você ainda não tiver feito isso, registre o kit de desenvolvimento e baixar a imagem do Datacenter do Windows Server 2016 Core pode ser baixada por meio do gerenciamento do Marketplace. Você deve usar uma imagem do Windows Server 2016 Core. Você também pode usar um script para criar um [imagem do Windows Server 2016](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Certifique-se de selecionar a opção de núcleo.)
 
 
 2. Entrar para um host que possa acessar o ponto de extremidade privilegiado VM.
@@ -64,19 +65,20 @@ A conta do sistema deve ter os seguintes privilégios:
     - Em sistemas com vários nós, o host deve ser um sistema que pode acessar o ponto de extremidade com privilégios.
     
     >[!NOTE]
-    > O sistema no qual o script está sendo executado *deve* ser um sistema Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET instalada. A instalação falhará caso contrário. O host do SDK do Azure com esse critério.
+    > O sistema no qual o script está sendo executado *deve* ser um sistema Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET instalada. A instalação falhará caso contrário. O host do SDK do Azure pilha atende a esse critério.
     
 
 3. Baixe o provedor de recursos MySQL binário. Em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário.
 
     >[!NOTE] 
-    > Corresponde a compilação do provedor de recursos para as compilações de pilha do Azure. Certifique-se de baixar o binário correto para a versão da pilha do Azure que está em execução.
+    > O provedor de recursos possui uma pilha de Azure de correspondente mínima de compilação. Certifique-se de baixar o binário correto para a versão da pilha do Azure que está em execução.
 
     | Compilação de pilha do Azure | Instalador do MySQL RP |
     | --- | --- |
-    | 1.0.180102.3 ou 1.0.180106.1 (com vários nós) | [RP MySQL versão 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
-    | 1.0.171122.1 | [RP MySQL versão 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
-    | 1.0.171028.1 | [RP MySQL versão 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
+    | 1802: 1.0.180302.1 | [RP MySQL versão 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
+    | 1712: 1.0.180102.3 ou 1.0.180106.1 (com vários nós) | [RP MySQL versão 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1711: 1.0.171122.1 | [RP MySQL versão 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
+    | 1710: 1.0.171028.1 | [RP MySQL versão 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
 4.  O certificado de raiz de pilha do Azure é recuperado do ponto de extremidade com privilégios. Para o SDK do Azure, um certificado autoassinado é criado como parte desse processo. Para vários nós, você deve fornecer um certificado apropriado.
 
@@ -121,11 +123,11 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure SDK, the default is AzureStack, and the default prefix is AzS.
-# For integrated systems, the domain and the prefix are the same.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
-$prefix = "AzS"
-$privilegedEndpoint = "$prefix-ERCS01"
+
+# For integrated systems, use the IP address of one of the ERCS virtual machines
+$privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\MYSQLRP'
@@ -135,7 +137,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the new resource provider VM.
+# Set the credentials for the new resource provider VM local administrator account
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
@@ -176,14 +178,6 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **Desinstalar** | Remove o provedor de recursos e todos os respectivos recursos (consulte as observações a seguir). | Não  |
 | **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
 | **AcceptLicense** | Ignora o prompt para aceitar a licença GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
-
-
-
-Dependendo as velocidades de download e o desempenho do sistema, instalação pode levar apenas como 20 minutos ou longa como várias horas. Se o **MySQLAdapter** folha não estiver disponível, o portal de administração de atualização.
-
-> [!NOTE]
-> Se a instalação demora mais de 90 minutos, ele poderá falhar. Se isso acontecer, você verá uma mensagem de falha na tela e no arquivo de log. A implantação é repetida da etapa com falha. Sistemas que não atendem às especificações recomendadas de memória e núcleo não podem ser capazes de implantar o MySQL RP.
-
 
 
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Verifique se a implantação usando o portal de pilha do Azure
@@ -272,14 +266,14 @@ Você pode modificar a senha primeiro alterá-la na instância do servidor MySQL
 ![Atualize a senha de administrador](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
 ## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Atualizar o adaptador de provedor de recursos do MySQL (com vários nós apenas, compilações 1710 e posteriores)
-Sempre que a compilação de pilha do Azure é atualizada, um novo adaptador de provedor de recursos do MySQL é liberado. O adaptador existente pode continuar a trabalhar. No entanto, é recomendável atualizar para a versão mais recente assim que possível após a pilha do Azure é atualizada. 
+Um novo adaptador de provedor de recursos do SQL pode ser liberado quando as compilações de pilha do Azure são atualizadas. Enquanto o adaptador existente continuará a funcionar, é recomendável atualizar para a versão mais recente assim que possível. 
 
 O processo de atualização é semelhante ao processo de instalação descrito anteriormente. Você pode criar uma nova VM com o código mais recente do provedor de recursos. Então você migra as configurações para essa nova instância, incluindo o banco de dados e informações do servidor de hospedagem. Também é possível migrar o registro DNS necessário.
 
 Use o script de UpdateMySQLProvider.ps1 com os mesmos argumentos que foram descritos anteriormente. Forneça o certificado aqui também.
 
 > [!NOTE]
-> Somente há suporte para atualização em sistemas com vários nós.
+> O processo de atualização só se aplica a sistemas integrados.
 
 ```
 # Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules.
@@ -287,14 +281,14 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure SDK, the default is AzureStack and the default prefix is AzS.
-# For integrated systems, the domain and the prefix are the same.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
-$prefix = "AzS"
-$privilegedEndpoint = "$prefix-ERCS01"
+
+# For integrated systems, use the IP address of one of the ERCS virtual machines
+$privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
-$tempDir = 'C:\TEMP\SQLRP'
+$tempDir = 'C:\TEMP\MYSQLRP'
 
 # The service admin account (can be Azure Active Directory or Active Directory Federation Services).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
@@ -339,6 +333,107 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **Desinstalar** | Remova o provedor de recursos e todos os respectivos recursos (consulte as observações a seguir). | Não  |
 | **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
 | **AcceptLicense** | Ignora o prompt para aceitar a licença GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
+
+
+## <a name="collect-diagnostic-logs"></a>Coletar logs de diagnóstico
+O provedor de recursos do MySQL é um bloqueado para a máquina virtual. Se for necessário coletar logs da máquina virtual, um ponto de extremidade do PowerShell administração JEA (Just Enough) _DBAdapterDiagnostics_ é fornecido para essa finalidade. Há dois comandos a esse ponto de extremidade:
+
+* Get-AzsDBAdapterLog - prepara um pacote zip que contém os logs de diagnóstico do RP e o coloca na unidade de usuário de sessão. O comando pode ser chamado sem parâmetros e coletará as últimas quatro horas de logs.
+* Remove-AzsDBAdapterLog - limpa os pacotes existentes do log no provedor de recursos do VM
+
+Uma conta de usuário chamado _dbadapterdiag_ é criada durante a implantação de RP ou atualização para se conectar ao ponto de extremidade de diagnóstico para a extração de logs do RP. A senha dessa conta é o mesmo que a senha fornecida para a conta de administrador local durante a implantação/atualização.
+
+Para usar esses comandos, você precisa criar uma sessão remota do PowerShell para a máquina de virtual do provedor de recursos e invocar o comando. Opcionalmente, você pode fornecer parâmetros FromDate e ToDate. Se você não especificar um ou ambos, a FromDate será quatro horas antes da hora atual e o ToDate será a hora atual.
+
+Esse script de exemplo demonstra o uso desses comandos:
+
+```
+# Create a new diagnostics endpoint session.
+$databaseRPMachineIP = '<RP VM IP>'
+$diagnosticsUserName = 'dbadapterdiag'
+$diagnosticsUserPassword = '<see above>'
+
+$diagCreds = New-Object System.Management.Automation.PSCredential `
+        ($diagnosticsUserName, $diagnosticsUserPassword)
+$session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
+        -ConfigurationName DBAdapterDiagnostics
+
+# Sample captures logs from the previous one hour
+$fromDate = (Get-Date).AddHours(-1)
+$dateNow = Get-Date
+$sb = {param($d1,$d2) Get-AzSDBAdapterLog -FromDate $d1 -ToDate $d2}
+$logs = Invoke-Command -Session $session -ScriptBlock $sb -ArgumentList $fromDate,$dateNow
+
+# Copy the logs
+$sourcePath = "User:\{0}" -f $logs
+$destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
+Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
+
+# Cleanup logs
+$cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLog }
+# Close the session
+$session | Remove-PSSession
+```
+
+## <a name="maintenance-operations-integrated-systems"></a>Operações de manutenção (sistemas integrados)
+O provedor de recursos do MySQL é um bloqueado para a máquina virtual. Atualização de segurança da máquina do recurso provedor virtual pode ser feito por meio do ponto de extremidade do PowerShell administração JEA (Just Enough) _DBAdapterMaintenance_.
+
+Um script é fornecido com o pacote de instalação do RP para facilitar a essas operações.
+
+
+### <a name="update-the-virtual-machine-operating-system"></a>Atualizar o sistema operacional da máquina virtual
+Há várias maneiras de atualizar a VM do Windows Server:
+* Instalar o pacote de provedor de recursos mais recente usando uma imagem do Windows Server 2016 Core corrigida no momento
+* Instalar um pacote do Windows Update durante a instalação ou atualização do RP
+
+
+### <a name="update-the-virtual-machine-windows-defender-definitions"></a>Atualize as definições do Windows Defender de máquina virtual
+
+Siga estas etapas para atualizar as definições de Defender:
+
+1. Atualizar as definições do Windows Defender a partir de download [definição do Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)
+
+    Nessa página, em "Baixar e instalar manualmente as definições de" download "antivírus do Windows Defender para Windows 10 e o arquivo de 64 bits do Windows 8.1". 
+    
+    Link direto: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+
+2. Criar uma sessão do PowerShell para o ponto de extremidade da máquina do MySQL RP adaptador virtual manutenção
+3. Copie o arquivo de atualização de definições para a máquina de adaptador de banco de dados usando a sessão de ponto de extremidade de manutenção
+4. O PowerShell de manutenção de sessão invocar o _DBAdapterWindowsDefenderDefinitions atualização_ comando
+5. Após a instalação, é recomendável remover o arquivo de atualização de definições usadas. Ele pode ser removido na sessão de manutenção usando o _ItemOnUserDrive remover)_ comando.
+
+
+Aqui está um exemplo de script para atualizar as definições de Defender (substitua o endereço ou nome da máquina virtual com o valor real):
+
+```
+# Set credentials for the diagnostic user
+$diagPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$diagCreds = New-Object System.Management.Automation.PSCredential `
+    ("dbadapterdiag", $vmLocalAdminPass)$diagCreds = Get-Credential
+
+# Public IP Address of the DB adapter machine
+$databaseRPMachine  = "XX.XX.XX.XX"
+$localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
+ 
+# Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
+Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64 `
+    -Outfile $localPathToDefenderUpdate 
+
+# Create session to the maintenance endpoint
+$session = New-PSSession -ComputerName $databaseRPMachine `
+    -Credential $diagCreds -ConfigurationName DBAdapterMaintenance
+# Copy defender update file to the db adapter machine
+Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
+     -Destination "User:\mpam-fe.exe"
+# Install the update file
+Invoke-Command -Session $session -ScriptBlock `
+    {Update-AzSDBAdapterWindowsDefenderDefinitions -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
+# Cleanup the definitions package file and session
+Invoke-Command -Session $session -ScriptBlock `
+    {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
+$session | Remove-PSSession
+```
+
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Remova o adaptador de provedor de recursos MySQL
 
