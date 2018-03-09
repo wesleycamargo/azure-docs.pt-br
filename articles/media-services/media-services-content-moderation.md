@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico
 
@@ -90,6 +90,7 @@ O exemplo de código .NET a seguir usa o SDK dos Serviços de mídia .NET para e
 Confira o [Guia de início rápido do Content Moderator para vídeos](../cognitive-services/Content-Moderator/video-moderation-api.md) para ver o código-fonte completo e o projeto do Visual Studio.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ Confira o [Guia de início rápido do Content Moderator para vídeos](../cogniti
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-Confira o [Guia de início rápido do Content Moderator para vídeos](../cognitive-services/Content-Moderator/video-moderation-api.md) para ver o código-fonte completo e o projeto do Visual Studio.
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>Saída em JSON
+### JSON output
 
-O exemplo de saída JSON do Content Moderator a seguir foi truncado.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> Local de um quadro-chave em segundos = carimbo de hora/escala de tempo
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,7 +214,7 @@ O exemplo de saída JSON do Content Moderator a seguir foi truncado.
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2d110705a86fa8bc05859bd8bfde34b0b5b11575
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbb6fc15663570d9b9470fc7d4de3c8eb30de9d9
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init para máquinas virtuais no Azure
 Este artigo mostra que o suporte que existe para a [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual VM ou conjunto de dimensionamento de máquinas virtuais (VMSS) no momento do provisionamento no Azure. Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure.  
@@ -39,7 +39,7 @@ A inicialização de nuvem também funciona em distribuições. Por exemplo, voc
 |OpenLogic |CentOS |7-CI |mais recente |preview |
 |RedHat |RHEL |7-RAW-CI |mais recente |preview |
 
-Durante a visualização, o Azure Stack não dará suporte ao provisionamento do RHEL 7.4 e do CentOS 7.4 usando cloud-init.
+Atualmente, o Azure Stack não dá suporte para provisionamento de RHEL 7.4 e CentOS 7.4 usando o cloud-init.
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Qual é a diferença entre cloud-init e o Agente do Linux (WALA)?
 WALA é um agente específico da plataforma do Azure usado para provisionar e configurar VMs e lidar com extensões do Azure. Estamos aprimorando a tarefa de configuração de VMs para usar cloud-init em vez do agente do Linux, para permitir que os clientes existentes de cloud-init usem seus scripts atuais de cloud-init.  Se você tiver investimentos existentes em scripts de cloud-init para configurar os sistemas Linux, não há **nenhuma configuração adicional necessária** para habilitá-los. 
@@ -64,7 +64,7 @@ A próxima etapa é criar um arquivo no shell atual, chamado *cloud-init.txt*, e
 #cloud-config
 package_upgrade: true
 packages:
-  -httpd
+  - httpd
 ```
 Pressione `ctrl-X` para sair do arquivo, digite `y` para salvar o arquivo e pressione `enter` para confirmar o nome do arquivo na saída.
 

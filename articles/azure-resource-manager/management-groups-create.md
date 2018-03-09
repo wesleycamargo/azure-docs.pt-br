@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 7c5aeca5afe8921ab39040e9afc2921b1711c447
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ae91ad29b867ad4ab00831ee40102bcec2fc890c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gerenciamento para o gerenciamento e a organização de recursos
 Grupos de gerenciamento são contêineres que o ajudarão a gerenciar o acesso, a política e a conformidade entre várias assinaturas. Criar esses contêineres para criar uma hierarquia eficaz e eficiente que pode ser usada com o [Azure Policy](../azure-policy/azure-policy-introduction.md) e os [Controles de Acesso Baseados em Função do Azure](../active-directory/role-based-access-control-what-is.md). Para obter mais informações sobre grupos de gerenciamento, consulte [Organizar seus recursos com grupos de gerenciamento do Azure](management-groups-overview.md). 
@@ -47,14 +47,14 @@ Você pode criar o grupo de gerenciamento usando o portal, o PowerShell ou a CLI
 No PowerShell, você usa os cmdlets Add-AzureRmManagementGroups.   
 
 ```azurepowershell-interactive
-C:\> Add-AzureRmManagementGroup -GroupName Contoso 
+C:\> New-AzureRmManagementGroup -GroupName Contoso 
 ```
 **GroupName** é um identificador exclusivo que está sendo criado. Essa ID é usada por outros comandos para fazer referência a esse grupo e não poderá ser alterada posteriormente.
 
 Se quiser que o grupo de gerenciamento mostre um nome diferente dentro do portal do Azure, você deverá adicionar o parâmetro **DisplayName** com a cadeia de caracteres. Por exemplo, se quisesse criar um grupo de gerenciamento com o GroupName de Contoso e o nome de exibição de "Contoso Group", você usaria o seguinte cmdlet: 
 
 ```azurepowershell-interactive
-C:\> Add-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
+C:\> New-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
 ``` 
 Use o parâmetro **ParentId** para criar esse grupo de gerenciamento sob um gerenciamento diferente.  
 

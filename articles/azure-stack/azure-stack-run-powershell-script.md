@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 6a5912117a475c7af028f01ea47a7042677992ca
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Implantar o Kit de desenvolvimento de pilha do Azure
 
@@ -70,6 +70,7 @@ Antes de instalar o ASDK no computador host, o ambiente de ASDK deve ser prepara
 3. Execute o script a seguir para baixar o arquivo de instalador do kit de desenvolvimento (asdk installer.ps1) da [repositório de ferramentas do Azure pilha GitHub](https://github.com/Azure/AzureStack-Tools) para o **C:\AzureStack_Installer** pasta no seu computador de host do kit de desenvolvimento:
 
   ```powershell
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   # Variables
   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
   $LocalPath = 'C:\AzureStack_Installer'
@@ -90,7 +91,7 @@ Antes de instalar o ASDK no computador host, o ambiente de ASDK deve ser prepara
     - **ComputerName**: essa opção define o nome do host do kit de desenvolvimento. O nome deve estar em conformidade com os requisitos de FQDN e deve ser de 15 caracteres ou menos. O padrão é um nome aleatório gerado pelo Windows.
     - **Fuso horário**: define o fuso horário para o host do kit de desenvolvimento. O padrão é (UTC-8:00) hora do Pacífico (EUA e Canadá).
     - **Configuração de IP estático**: define sua implantação usar um endereço IP estático. Caso contrário, quando o instalador é reinicializado no cloudbuilder.vhx, as interfaces de rede são configuradas com DHCP.
-11. Clique em **Avançar**.
+11. Clique em **Próximo**.
 12. Se você escolher uma configuração de IP estático na etapa anterior, agora você deve:
     - Selecione um adaptador de rede. Verifique se você pode se conectar ao adaptador antes de clicar em **próximo**.
     - Verifique se o **endereço IP**, **Gateway**, e **DNS** valores estão corretos e, em seguida, clique em **próximo**.
@@ -119,7 +120,7 @@ Depois de preparar o computador de host ASDK, o ASDK pode ser implantado na imag
   > [!TIP]
   > Para localizar um servidor de horário de endereço IP, visite [pool.ntp.org](http:\\pool.ntp.org) ou executar ping time.windows.com. 
   
-8. Clique em **Avançar**. 
+8. Clique em **Próximo**. 
 9. Sobre o **verificando as propriedades de placa de interface de rede** página, você verá uma barra de progresso. 
     - Se ele for **não é possível baixar uma atualização**, siga as instruções na página.
     - Quando diz **concluído**, clique em **próximo**.
@@ -216,7 +217,7 @@ Se seu ambiente **não** ter o DHCP habilitado, você deve incluir os seguintes 
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Parâmetros opcionais ASDK InstallAzureStackPOC.ps1
-|Parâmetro|Obrigatório/Opcional|Descrição|
+|Parâmetro|Obrigatório/Opcional|DESCRIÇÃO|
 |-----|-----|-----|
 |AdminPassword|Obrigatório|Define a conta de administrador local e todas as outras contas de usuário em todas as máquinas virtuais criadas como parte da implantação do kit de desenvolvimento. Esta senha deve corresponder a senha de administrador local atual no host.|
 |InfraAzureDirectoryTenantName|Obrigatório|Define o diretório do locatário. Use esse parâmetro para especificar um diretório específico em que a conta do AAD tem permissões para gerenciar vários diretórios. Nome de um locatário de diretório do AAD no formato completo. c o m ou do AD do Azure verificar o nome de domínio personalizado.|
@@ -226,8 +227,8 @@ Se seu ambiente **não** ter o DHCP habilitado, você deve incluir os seguintes 
 |DNSForwarder|Opcional|Um servidor DNS é criado como parte da implantação da pilha do Azure. Para permitir que os computadores dentro da solução para resolver nomes fora o carimbo, forneça o servidor DNS de infraestrutura existente. O servidor DNS no carimbo encaminha solicitações de resolução de nome desconhecido para o servidor.|
 |NatIPv4Address|Necessário para suporte de NAT DHCP|Define um endereço IP estático para MAS BGPNAT01. Use esse parâmetro apenas se o DHCP não puder atribuir um endereço IP válido para acessar a Internet.|
 |NatIPv4Subnet|Necessário para suporte de NAT DHCP|Prefixo de sub-rede IP usado para DHCP sobre suporte NAT. Use esse parâmetro apenas se o DHCP não puder atribuir um endereço IP válido para acessar a Internet.|
-|PublicVlanId|Opcional|Define a ID de VLAN. Somente use esse parâmetro se o host e BGPNAT01 MAS deverá configurar o ID de VLAN para acessar a rede física (e Internet). Por exemplo,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Execute novamente|Opcional|Use este sinalizador para executar novamente a implantação. Todas as entradas anteriores é usada. Inserir novamente dados previamente fornecidos não são suportados porque vários valores exclusivos são gerados e usados para implantação.|
+|PublicVlanId|Opcional|Define a ID de VLAN. Somente use esse parâmetro se o host e BGPNAT01 MAS deverá configurar o ID de VLAN para acessar a rede física (e Internet). For example, .\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
+|Executar novamente|Opcional|Use este sinalizador para executar novamente a implantação. Todas as entradas anteriores é usada. Inserir novamente dados previamente fornecidos não são suportados porque vários valores exclusivos são gerados e usados para implantação.|
 
 ## <a name="activate-the-administrator-and-tenant-portals"></a>Ativar os portais de administrador e locatário
 Depois de implantações que usam o AD do Azure, você deve ativar ambos os portais de administrador e locatário pilha do Azure. Essa ativação consente fornecendo o portal de pilha do Azure e o Azure Resource Manager as permissões corretas (listadas na página de consentimento) para todos os usuários do diretório.

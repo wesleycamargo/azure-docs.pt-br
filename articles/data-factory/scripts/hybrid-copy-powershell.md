@@ -2,7 +2,7 @@
 title: 'Script do PowerShell: copiar os dados do local para o Azure usando o Data Factory | Microsoft Docs'
 description: O script do PowerShell copia dados de um banco de dados do SQL Server local para outro no Armazenamento de Blobs do Azure.
 services: data-factory
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: spelluru
-ms.openlocfilehash: 7f062a58482ad72e3dd3844431205502b4c44786
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.author: jingwang
+ms.openlocfilehash: bf84603c587b7bee5d0f69355ff9c1375ed7e60c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Usar o PowerShell para criar um pipeline do data factory para copiar dados do local para o Azure
 
@@ -24,7 +24,7 @@ Este script de exemplo do PowerShell cria um pipeline no Azure Data Factory que 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - **SQL Server**. Um banco de dados do SQL Server local é usado como um armazenamento de dados de **origem** neste exemplo.
 - **Conta de Armazenamento do Azure**. O Armazenamento de Blobs do Azure é usado como um armazenamento de dados de **destino/coletor** neste exemplo. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar um.
@@ -76,7 +76,7 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 Este script usa os seguintes comandos: 
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Criar uma fábrica de dados. |

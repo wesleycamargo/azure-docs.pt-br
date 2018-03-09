@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para a pilha do Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/12/2018
  
 Você pode validar o status da pilha do Azure. Quando você tiver um problema, entre em contato com o serviços de atendimento ao cliente Microsoft. Suporte solicita a execução de teste AzureStack de seu nó de gerenciamento. O teste de validação isola a falha. Suporte pode, em seguida, analise os logs detalhados, enfocam a área onde ocorreu o erro e trabalhar com você na resolução do problema.
 
-## <a name="run-test-azurestack"></a>Executar teste AzureStack
+## <a name="run-test-azurestack"></a>Run Test-AzureStack
 
 Quando você tiver um problema, entre em contato com o serviços de atendimento ao cliente Microsoft e, em seguida, execute **executar teste-AzureStack**.
 
@@ -44,7 +44,7 @@ Quando você tiver um problema, entre em contato com o serviços de atendimento 
 
 Esta seção contém uma visão geral para o cmdlet Test-AzureStack e um resumo do relatório de validação.
 
-### <a name="test-azurestack"></a>Teste AzureStack
+### <a name="test-azurestack"></a>Test-AzureStack
 
 Valida o status da pilha do Azure. O cmdlet relata o status do hardware de pilha do Azure e do software. A equipe de suporte pode usar este relatório para reduzir o tempo para resolver os casos de suporte de pilha do Azure.
 
@@ -64,7 +64,7 @@ Valida o status da pilha do Azure. O cmdlet relata o status do hardware de pilha
 | ServiceAdminCredentials | PSCredential    | Não        | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | Não        | FALSE   |
 | AdminCredential         | PSCredential    | Não        | ND      |
-| StorageConnectionString | Cadeia de caracteres          | Não        | ND      |
+<!-- | StorageConnectionString | Cadeia de caracteres          | Não        | ND      | não tem suporte no 1802-->
 | Listar                    | SwitchParameter | Não        | FALSE   |
 | Ignorar                  | Cadeia de caracteres          | Não        | ND      |
 | Incluir                 | Cadeia de caracteres          | Não        | ND      |
