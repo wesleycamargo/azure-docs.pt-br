@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b5e52e30b99e1d59c2f8bde17b31b0f1cb3d6d70
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-1802-update"></a>Atualização de pilha 1802 do Azure
 
@@ -37,10 +37,6 @@ Este artigo descreve as melhorias e correções no pacote de atualização de 18
 ## <a name="before-you-begin"></a>Antes de começar    
 > [!IMPORTANT]    
 > Não tente criar máquinas virtuais durante a instalação dessa atualização. Para obter mais informações sobre como gerenciar atualizações, consulte [gerenciar atualizações na visão geral do Azure pilha](/azure-stack-updates#plan-for-updates).
-
-> [!IMPORTANT]    
-> Quando você usa [SQL](/azure-stack-sql-resource-provider-deploy) ou [MySQL](/azure-stack-mysql-resource-provider-deploy) provedores de recursos, versão 1712 antes de iniciar a instalação da versão do Azure pilha 1802 devem executar. Se os provedores são versão 1711 ou anterior e você instalou a versão de pilha do Azure 1802, você não pode atualizar os provedores de recursos para uma versão mais recente.
-
 
 
 ### <a name="prerequisites"></a>Pré-requisitos

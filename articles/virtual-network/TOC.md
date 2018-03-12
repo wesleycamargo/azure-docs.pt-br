@@ -27,7 +27,8 @@
 ### [Grupos de segurança de rede](virtual-networks-nsg.md)
 
 ## Implantar
-### [Redes virtuais](virtual-networks-create-vnet-arm-pportal.md)
+### Redes virtuais
+#### [portal do Azure](virtual-networks-create-vnet-arm-pportal.md)
 #### [PowerShell do Azure](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI do Azure](virtual-networks-create-vnet-arm-cli.md)
 #### [Modelo](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,17 +43,20 @@
 ##### [PowerShell do Azure](virtual-networks-create-nsg-classic-ps.md)
 ##### [CLI 1.0 do Azure](virtual-networks-create-nsg-classic-cli.md)
 
-### Rotas definidas pelo usuário
-#### [portal do Azure](create-user-defined-route-portal.md)
-#### [PowerShell do Azure](virtual-network-create-udr-arm-ps.md)
-#### [CLI do Azure](virtual-network-create-udr-arm-cli.md)
+### Tabelas de rotas
+#### [portal do Azure](tutorial-create-route-table-portal.md)
+#### [PowerShell do Azure](tutorial-create-route-table-powershell.md)
+#### [CLI do Azure](tutorial-create-route-table-cli.md)
 #### [Modelo](virtual-network-create-udr-arm-template.md)
 #### Clássico
 ##### [PowerShell do Azure](virtual-network-create-udr-classic-ps.md)
 ##### [CLI do Azure](virtual-network-create-udr-classic-cli.md)
 
 ### Emparelhamento de rede virtual
-#### [Mesmo modelo de implantação - mesma assinatura](virtual-network-create-peering.md)
+#### Mesmo modelo de implantação - mesma assinatura
+##### [portal do Azure](tutorial-connect-virtual-networks-portal.md)
+##### [PowerShell do Azure](tutorial-connect-virtual-networks-powershell.md)
+##### [CLI do Azure](tutorial-connect-virtual-networks-cli.md)
 #### [Mesmo modelo de implantação - assinaturas diferentes](create-peering-different-subscriptions.md)
 #### [Modelos de implantação diferentes - mesma assinatura](create-peering-different-deployment-models.md)
 #### [Modelos de implantação diferentes - assinaturas diferentes](create-peering-different-deployment-models-subscriptions.md)

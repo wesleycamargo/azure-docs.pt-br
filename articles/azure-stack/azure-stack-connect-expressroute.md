@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 8ec733c01b19f01951d0b53265daaef32c3afe73
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 544fc1bcc9212fd38938d58447f5050df2a08796
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Conecte-se a pilha do Azure no Azure usando o rota expressa
 
@@ -273,7 +273,7 @@ A infraestrutura de rede do Azure de exemplo está configurada da seguinte manei
 3. Criar o spoke intervalo de endereços de rede virtual e sub-rede usando o 10.100.0.0/16.
 
 
-Para obter mais informações sobre como criar redes virtuais no Azure, consulte [criar uma rede virtual com várias sub-redes](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Para obter mais informações sobre como criar redes virtuais no Azure, consulte [criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ### <a name="configure-an-expressroute-circuit"></a>Configurar um circuito de rota expressa
 

@@ -28,10 +28,10 @@
 #### [Criar um Load Balancer Standard público com redundância de zona com o PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Criar um Load Balancer Standard público com redundância de zona com a CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Endereço IP público
-#### [Criar um endereço IP público em uma zona de disponibilidade com o Portal do Azure](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Criar um endereço IP público em uma zona de disponibilidade com o PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Criar um endereço IP público em uma zona de disponibilidade com a CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Endereço IP público](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+
+### Banco de dados SQL
+#### [Zonas de disponibilidade com o Banco de Dados SQL](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Armazenamento
 #### [Armazenamento com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage)

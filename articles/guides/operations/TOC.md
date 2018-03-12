@@ -6,7 +6,7 @@
 ## [Principais conceitos](azure-operations-guide.md#azure-key-concepts)
 ### [Visão geral do portal do Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
 ### [Gerenciar recursos do Azure por meio do portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps)
+### [Como instalar e configurar o PowerShell do Azure](/powershell/azure/install-azurerm-ps)
 ### [Instalar a CLI do Azure](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Referência de SDK do REST do Azure](https://docs.microsoft.com/rest/api/index)
 
@@ -16,7 +16,7 @@
 ### [ Calculadora de preços online](http://azure.microsoft.com/pricing/calculator)
 ### [Configurar alertas de cobrança](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [Gerenciador de Recursos do Azure](azure-operations-guide.md#azure-resource-manager)
+## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
 ### [Criando modelos do Gerenciador de Recursos do Azure](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ###[Implantar modelos usando o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -88,9 +88,9 @@
 
 
 ## [Redes virtuais](azure-operations-guide.md#azure-virtual-network)
-### [Criar uma rede virtual usando o portal do Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Criar uma rede virtual usando o Azure PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Criar uma rede virtual usando a CLI do Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Criar uma rede virtual usando o portal do Azure](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Criar uma rede virtual usando o Azure PowerShell](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Criar uma rede virtual usando a CLI do Azure](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Tutoriais de rede virtual
 #### [VMs de balanceamento de carga](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura de pilha do Azure
 
@@ -31,8 +31,12 @@ Na pilha do Azure, há duas camadas de postura de segurança que coexistem. A pr
 ## <a name="security-approach"></a>Abordagem de segurança
 A pilha do Azure foi projetada com uma postura de segurança para proteger contra ameaças modernas e foi criada para atender aos requisitos de padrões de conformidade principais. Como resultado, a postura de segurança da infraestrutura do Azure pilha baseia-se em duas colunas:
 
- - **Suponha que a violação.** Iniciando na suposição de que o sistema já tiver sido violado, enfocam *detectando e limitar o impacto de violações de* em vez de apenas tentar evitar ataques. 
- - **Protegido por padrão.**  Como a infraestrutura é executado em hardware bem definido e software, *habilitar, configurar e validar os recursos de segurança* que deixam de clientes para implementar.
+ - **Suponha que a violação.**  
+Iniciando na suposição de que o sistema já tiver sido violado, enfocam *detectando e limitar o impacto de violações de* em vez de apenas tentar evitar ataques. 
+ - **Protegido por padrão.**  
+Como a infraestrutura é executado em hardware bem definido e software, nós *habilitar, configurar e validar todos os recursos de segurança* por padrão.
+
+
 
 Porque a pilha do Azure é entregue como um sistema integrado, a postura de segurança da infraestrutura do Azure pilha é definida pela Microsoft. Assim como no Azure, locatários serão responsáveis por definir a postura de segurança de suas cargas de trabalho de locatário. Este documento fornece conhecimento básico sobre a postura de segurança da infraestrutura de pilha do Azure.
 

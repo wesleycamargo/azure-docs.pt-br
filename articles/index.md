@@ -3,13 +3,14 @@ layout: HubPage
 hide_bc: 
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
+ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 7a702ec2bb3ccff0766ee70f3efd00e9caa7dbba
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1d4ea845bf2b62e982db560580e63a3d54845d00
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -159,6 +160,9 @@ ms.lasthandoff: 03/05/2018
                                                         <a class="barLink" href="/javascript/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
+                                                    <li>
+                                                        <a class="barLink" href="/go/azure/"> Go</a>
+                                                    </li>
                                                 </ul></td></tr></table>
                                                <h4>Modelos de Aplicativo</h4>
                                                 <ul class="noBullet">
@@ -212,7 +216,7 @@ ms.lasthandoff: 03/05/2018
                                                 <h3>Ferramentas da linha de comando</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/cli/azure/overview">
+                                                        <a class="barLink" href="/cli/azure">
                                                             <img src="media/index/azure_dev-7.svg" alt=""> CLI do Azure </a>
                                                     </li>
                                                     <li>
@@ -638,12 +642,6 @@ ms.lasthandoff: 03/05/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/recommendations/overview">
-                                                <img src="media/index/API_Recommendations.svg" alt="" />
-                                                <p>Recomendações</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/cognitive-services/academic-knowledge/home">
                                                 <img src="media/index/API_Know_Academic.svg" alt="" />
                                                 <p>Conhecimento Acadêmico</p>
@@ -680,7 +678,7 @@ ms.lasthandoff: 03/05/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/translator/translator-info-overview">
+                                            <a href="/azure/cognitive-services/translator/">
                                                 <img src="media/index/API_TranslatorText.svg" alt="" />
                                                 <p>API de Tradução de Texto</p>
                                             </a>
@@ -692,7 +690,7 @@ ms.lasthandoff: 03/05/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/Bing-news-Search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-news-search/">
                                                 <img src="media/index/API_Bing_News_Search.svg" alt="" />
                                                 <p>Notícias do Bing</p>
                                             </a>
@@ -2704,19 +2702,10 @@ ms.lasthandoff: 03/05/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>Serviço Personalizado de Decisão&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/entitylinking/home"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Vinculação de Entidade&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/kes/overview"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>KES (Serviço de Exploração de Conhecimento)&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
-                                                            </li>
-                                                            <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recomendações&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="media/index/API_Know_Academic.svg" alt="" /><span>Conhecimento Acadêmico&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2732,7 +2721,7 @@ ms.lasthandoff: 03/05/2018
                                                         <h3>Search</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing Notícias</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Pesquisa do Bing Notícias</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Pesquisa de Vídeo do Bing</a>
@@ -3985,6 +3974,29 @@ ms.lasthandoff: 03/05/2018
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">Obtenha o SDK móvel</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Introdução</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Referência</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
@@ -4021,7 +4033,7 @@ ms.lasthandoff: 03/05/2018
                                                 <h3>
 CLI do Azure 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">Introdução</a>
+                                                    <a href="/cli/azure">Introdução</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Baixar a CLI do Azure 2.0</a>

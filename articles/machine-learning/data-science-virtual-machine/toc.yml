@@ -8,6 +8,8 @@
       href: overview.md
     - name: O que é a VM de aprendizado profundo?
       href: deep-learning-dsvm-overview.md
+    - name: O que é a VM de Ciência de Dados de IA geográfica?
+      href: geo-ai-dsvm-overview.md
 - name: Introdução
   items:
     - name: Criar uma VM de Ciência de Dados do Windows
@@ -18,6 +20,8 @@
       href: linux-dsvm-intro.md
     - name: Criar uma VM de Aprendizado Profundo
       href: provision-deep-learning-dsvm.md
+    - name: Criar uma VM de Ciência de Dados de IA geográfica
+      href: provision-geo-ai-dsvm.md
 - name: Como
   items:
     - name: Usar uma VM de Ciência de Dados do Windows
@@ -26,6 +30,8 @@
       href: linux-dsvm-walkthrough.md
     - name: Usar uma VM de Aprendizado Profundo
       href: use-deep-learning-dsvm.md
+    - name: Usar uma VM de Ciência de Dados de IA geográfica
+      href: use-geo-ai-dsvm.md
 - name: Referência
   expanded: true
   items:
