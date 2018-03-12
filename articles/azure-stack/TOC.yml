@@ -236,10 +236,6 @@
               href: azure-stack-app-service-deploy.md
             - name: Implantar o Serviço de Aplicativo offline
               href: azure-stack-app-service-deploy-offline.md
-            - name: Atualizar provedor de recursos do serviço de aplicativo
-              href: azure-stack-app-service-update.md
-            - name: Atualizar provedor de recursos do serviço de aplicativo offline
-              href: azure-stack-app-service-update-offline.md
             - name: Adicionar mais funções de trabalho da Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurar fontes de implantação

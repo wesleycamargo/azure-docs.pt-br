@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 067e478548ba840ece14737cdf3e6d5d4da28be0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados MySQL na pilha do Microsoft Azure
 
@@ -162,7 +162,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou se qualquer parâmetro de validação falhar, você precisará fornecer os parâmetros necessários.
 
 | Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
@@ -268,9 +268,13 @@ Você pode modificar a senha primeiro alterá-la na instância do servidor MySQL
 ## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Atualizar o adaptador de provedor de recursos do MySQL (com vários nós apenas, compilações 1710 e posteriores)
 Um novo adaptador de provedor de recursos do SQL pode ser liberado quando as compilações de pilha do Azure são atualizadas. Enquanto o adaptador existente continuará a funcionar, é recomendável atualizar para a versão mais recente assim que possível. 
 
-O processo de atualização é semelhante ao processo de instalação descrito anteriormente. Você pode criar uma nova VM com o código mais recente do provedor de recursos. Então você migra as configurações para essa nova instância, incluindo o banco de dados e informações do servidor de hospedagem. Também é possível migrar o registro DNS necessário.
+Para atualizar do provedor de recursos que você usar o *UpdateMySQLProvider.ps1* script. O processo é semelhante ao processo usado para instalar um provedor de recursos, conforme descrito no [implantar o provedor de recursos](#deploy-the-resource-provider) deste artigo. O script está incluído no download do provedor de recursos.
 
-Use o script de UpdateMySQLProvider.ps1 com os mesmos argumentos que foram descritos anteriormente. Forneça o certificado aqui também.
+O *UpdateMySQLProvider.ps1* script cria uma nova VM com o código mais recente do provedor de recursos e migra as configurações da VM antiga para a nova VM. As configurações de migração incluem o banco de dados e informações do servidor de hospedagem e registro de DNS necessário.
+
+O script requer o uso dos mesmos argumentos que são descritas para o script DeployMySqlProvider.ps1. Forneça o certificado aqui também. 
+
+A seguir está um exemplo de como o *UpdateMySQLProvider.ps1* script que pode ser executado do prompt do PowerShell. Certifique-se de alterar as informações de conta e senhas, conforme necessário: 
 
 > [!NOTE]
 > O processo de atualização só se aplica a sistemas integrados.

@@ -3,8 +3,8 @@ title: "Expansão de funções de trabalho nos serviços de aplicativo - pilha d
 description: "Instruções detalhadas para dimensionar os serviços de aplicativos de pilha do Azure"
 services: azure-stack
 documentationcenter: 
-author: brenduns
-manager: femila
+author: apwestgarth
+manager: stefsch
 editor: 
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
@@ -12,16 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: ddd9820715e964218db8b88fb5211b3725c808b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/08/2018
+ms.author: anwestg
+ms.reviewer: brenduns
+ms.openlocfilehash: d6471796863a80e69fdaf740b68fb27d59503453
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Serviço de aplicativo na pilha do Azure: adicionar mais funções de infraestrutura ou de trabalho
+
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*  
 
 Este documento fornece instruções sobre como dimensionar o serviço de aplicativo em funções de infraestrutura e de trabalho da pilha do Azure. Ele contém as etapas para a criação de funções de trabalho adicional para dar suporte a aplicativos de qualquer tamanho.
@@ -35,37 +36,83 @@ Se não tiver certeza de que foi implantado com o serviço de aplicativo padrão
 
 Serviço de aplicativo do Azure na pilha do Azure implanta todas as funções usando conjuntos de escala de máquina Virtual e como tal tira proveito dos recursos de dimensionamento dessa carga de trabalho. Portanto, todo o dimensionamento das camadas de trabalhador é feito por meio do administrador do serviço de aplicativo.
 
-Adicionar operadores adicionais diretamente no provedor de administrador do aplicativo serviço recursos.
+> [!IMPORTANT]
+> No momento não é possível dimensionar conjuntos de escala de máquina virtual no portal de conforme identificado nas notas de versão de pilha do Azure, portanto, usar o exemplo do PowerShell para expansão.
+>
+>
 
-1. Faça logon portal de administração do Azure pilha como o administrador de serviço.
+## <a name="add-additional-workers-with-powershell"></a>Adicionar operadores adicionais com o PowerShell
 
-2. Navegue até **serviços de aplicativos**.
+1. [Configurar o ambiente de administração de pilha do Azure no PowerShell](azure-stack-powershell-configure-admin.md)
+2. Use este exemplo para expandir o conjunto de escala:
+   ```powershell
+   
+    ##### Scale out the AppService Role instances ######
+   
+    # Set context to AzureStack admin.
+    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+                                                 
+    ## Name of the Resource group where AppService is deployed.
+    $AppServiceResourceGroupName = "AppService.local"
+
+    ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
+    $ScaleSetName = "SharedWorkerTierScaleSet"
+
+    ## TotalCapacity is sum of the instances needed at the end of operation. 
+    ## e.g. if you VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    $TotalCapacity = 2  
+
+    # Get current scale set
+    $vmss = Get-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+
+    # Set and update the capacity
+    $vmss.sku.capacity = $TotalCapacity
+    Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+  
+    '''
+
+> [!NOTE]
+> This step can take a number of hours to complete depending on the type of role and the number of instances.
+>
+>
+
+3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
+
+## Add additional workers directly within the App Service Resource Provider Admin.
+
+1. Log in to the Azure Stack administration portal as the service administrator.
+
+2. Browse to **App Services**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Clique em **Funções**. Veja aqui a análise de todas as funções de serviço de aplicativo implantado.
+3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
 
-4. Clique com o botão direito na linha do tipo que você deseja dimensionar e, em seguida, clique em **ScaleSet**.
+4. Right click on the row of the type you want to scale and then click **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Clique em **Scaling**, selecione o número de instâncias que você deseja dimensionar para e, em seguida, clique em **salvar**.
+5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. Serviço de aplicativo na pilha do Azure agora será adicionar outras VMs, configurá-los, instalar todos os softwares necessários e marcá-los como pronto quando esse processo é concluído. Esse processo pode levar aproximadamente 80 minutos.
+6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
 
-7. Você pode monitorar o progresso da preparação das novas funções, exibindo os trabalhadores no **funções** folha.
+7. You can monitor the progress of the readiness of the new roles by viewing the workers in the **Roles** blade.
 
-Depois que eles são totalmente implantado e estiver pronto, os trabalhadores ficam disponíveis para os usuários implantar suas cargas de trabalho para eles. O exemplo a seguir mostra um exemplo de várias camadas de preços disponíveis por padrão. Se não houver nenhum operadores disponíveis para uma camada de trabalhador específico, a opção de escolher a camada de preços correspondente não está disponível.
+## Result
+
+After they are fully deployed and ready, the workers become available for users to deploy their workload onto them. The following shows an example of the multiple pricing tiers available by default. If there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Para expandir gerenciamento, funções de Front-End ou publicador adicionam que você deve expandir o conjunto de escalas de VM correspondente. Vamos adicionar a capacidade de expandir essas funções por meio do gerenciamento de serviço de aplicativo em uma versão futura.
+> To scale out Management, Front End or Publisher roles add you must scale out the corresponding role type. 
+>
+>
 
-Para expandir gerenciamento, Front-End ou publicador funções, siga as mesmas etapas que selecionando o tipo de função apropriada. Controladores não são implantados como conjuntos de escala e, portanto, duas devem ser implantadas no momento da instalação para todas as implantações de produção.
+To scale out Management, Front End, or Publisher roles, follow the same steps selecting the appropriate role type. Controllers are not deployed as Scale Sets and therefore two should be deployed at Installation time for all production deployments.
 
-### <a name="next-steps"></a>Próximas etapas
+### Next steps
 
-[Configurar fontes de implantação](azure-stack-app-service-configure-deployment-sources.md)
+[Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)

@@ -73,6 +73,7 @@
 ### [Visualizar os padrões de tráfego de rede usando ferramentas de código aberto](network-watcher-using-open-source-tools.md)
 ## Analisar logs de fluxo NSG
 ### [Ler logs de fluxo NSG](network-watcher-read-nsg-flow-logs.md)
+### [Usar Análise de Tráfego](traffic-analytics.md)
 ### [Usar o Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Usar o Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Usar o Grafana](network-watcher-nsg-grafana.md)

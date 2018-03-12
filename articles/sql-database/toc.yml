@@ -45,12 +45,14 @@
       href: sql-database-design-first-database.md
     - name: 1 - Criar banco de dados usando .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - Migrar bancos de dados do SQL Server
+    - name: 2 - Migrar para o Banco de dados do SQL Server
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Proteja o seu Banco de Dados SQL
       href: sql-database-security-tutorial.md
     - name: 4 - implementar um banco de dados distribuído geograficamente
       href: sql-database-implement-geo-distributed-database.md
+    - name: 5 - Criar Instância Gerenciada
+      href: sql-database-managed-instance-tutorial-portal.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -61,26 +63,26 @@
       href: sql-database-powershell-samples.md
 - name: Conceitos
   items:
-    - name: Serviço do banco de dados
-      items:
-        - name: Servidores e bancos de dados
-          href: sql-database-servers-databases.md
-        - name: Camadas de serviço
-          href: sql-database-service-tiers.md
-        - name: Limites de recursos
-          href: sql-database-resource-limits.md
-        - name: Bancos de dados únicos
-          href: sql-database-single-database-resources.md
-        - name: Pools elásticos
-          href: sql-database-elastic-pool.md
-        - name: Arquitetura de conectividade
-          href: sql-database-connectivity-architecture.md
-        - name: DTUs e eDTUs
-          href: sql-database-what-is-a-dtu.md
-        - name: Parâmetro de comparação de DTU
-          href: sql-database-benchmark-overview.md
-        - name: Recursos comuns do SQL Server
-          href: sql-database-features.md
+    - name: Servidores e bancos de dados
+      href: sql-database-servers-databases.md
+    - name: Instância gerenciada
+      href: sql-database-managed-instance.md
+    - name: Camadas de serviço
+      href: sql-database-service-tiers.md
+    - name: Limites de recursos
+      href: sql-database-resource-limits.md
+    - name: Bancos de dados únicos
+      href: sql-database-single-database-resources.md
+    - name: Pools elásticos
+      href: sql-database-elastic-pool.md
+    - name: Arquitetura de conectividade
+      href: sql-database-connectivity-architecture.md
+    - name: DTUs e eDTUs
+      href: sql-database-what-is-a-dtu.md
+    - name: Parâmetro de comparação de DTU
+      href: sql-database-benchmark-overview.md
+    - name: Recursos comuns do SQL Server
+      href: sql-database-features.md
     - name: Alta disponibilidade
       href: sql-database-high-availability.md
     - name: Segurança
@@ -101,8 +103,10 @@
           href: sql-database-ssms-mfa-authentication.md
         - name: Auditoria
           href: sql-database-auditing.md
-        - name: Detecção de ameaças
+        - name: Detecção de ameaças - Banco de Dados SQL
           href: sql-database-threat-detection.md
+        - name: Detecção de ameaças - Instância Gerenciada
+          href: sql-database-managed-instance-threat-detection.md
         - name: Auditoria de tabela e TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Mascaramento de dados dinâmicos
@@ -137,11 +141,15 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Migrar para o Banco de Dados SQL
       items:
-        - name: Visão geral
+        - name: Migrar para o Banco de Dados SQL
           href: sql-database-cloud-migrate.md
-        - name: Alterações no T-SQL
+        - name: Como migrar para Instância Gerenciada
+          href: sql-database-managed-instance-migrate.md
+        - name: Detalhes de T-SQL do Banco de Dados SQL
           href: sql-database-transact-sql-information.md
-        - name: Gerenciar banco de dados após migração
+        - name: Detalhes de T-SQL da Instância Gerenciada
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: Gerenciar Banco de Dados SQL após migração
           href: sql-database-manage-after-migration.md
     - name: Carregar e mover dados
       items:
@@ -265,6 +273,16 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: Como consultar tabelas com esquemas diferentes
           href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Instância Gerenciada
+      items:
+        - name: Configuração VNET
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: DNS Personalizado
+          href: sql-database-managed-instance-custom-dns.md
+        - name: Conectar aplicativos
+          href: sql-database-managed-instance-connect-app.md
+        - name: Configuração de rede de sincronização
+          href: sql-database-managed-instance-sync-network-configuration.md
     - name: Segurança
       items:
         - name: Configurar a autenticação do Azure AD
@@ -472,4 +490,4 @@
     - name: Centro de arquitetura
       href: /azure/architecture/
     - name: Relatos de clientes
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
