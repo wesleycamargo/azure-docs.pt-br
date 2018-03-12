@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrar o tráfego de rede com grupos de segurança de rede
 
@@ -30,9 +30,9 @@ Um NSG (grupo de segurança de rede) contém uma lista de regras de segurança q
 ## <a name="nsg-resource"></a>Recurso NSG
 Os NSGs contêm as seguintes propriedades:
 
-| Propriedade | Descrição | Restrições | Considerações |
+| Propriedade | DESCRIÇÃO | Restrições | Considerações |
 | --- | --- | --- | --- |
-| Nome |Nome do NSG |Deve ser exclusivo na região.<br/>Pode conter letras, números, sublinhados, pontos e hifens.<br/>Deve começar com uma letra ou número.<br/>Deve terminar com uma letra, número ou sublinhado.<br/>Não pode exceder 80 caracteres. |Como talvez seja necessário criar vários NSGs, use uma convenção de nomenclatura que facilite a identificação da função dos NSGs. |
+| NOME |Nome do NSG |Deve ser exclusivo na região.<br/>Pode conter letras, números, sublinhados, pontos e hifens.<br/>Deve começar com uma letra ou número.<br/>Deve terminar com uma letra, número ou sublinhado.<br/>Não pode exceder 80 caracteres. |Como talvez seja necessário criar vários NSGs, use uma convenção de nomenclatura que facilite a identificação da função dos NSGs. |
 | Região |[Região](https://azure.microsoft.com/regions) do Azure em que o NSG é criado. |Os NSGs só podem ser associados a recursos na mesma região que o NSG. |Para saber mais sobre quantos NSGs você pode ter por região, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md#virtual-networking-limits-classic).|
 | Grupo de recursos |O [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups) em que o NSG existe. |Embora um NSG exista em um grupo de recursos, ele pode ser associado a recursos em qualquer grupo de recursos, desde que o recurso faça parte da mesma região do Azure que o NSG. |Os grupos de recursos são usados para gerenciar vários recursos juntos, como uma unidade de implantação.<br/>Você pode considerar o agrupamento do NSG com recursos ao qual ele está associado. |
 | Regras |Regras de entrada ou saída que definem o tráfego que é permitido ou negado. | |Confira a seção [Regras de NSG](#Nsg-rules) deste artigo. |
@@ -44,7 +44,7 @@ Os NSGs contêm as seguintes propriedades:
 ### <a name="nsg-rules"></a>Regras NSG
 As regras NSG contêm as propriedades a seguir:
 
-| Propriedade | Descrição | Restrições | Considerações |
+| Propriedade | DESCRIÇÃO | Restrições | Considerações |
 | --- | --- | --- | --- |
 | **Nome** |Nome para a regra. |Deve ser exclusivo na região.<br/>Pode conter letras, números, sublinhados, pontos e hifens.<br/>Deve começar com uma letra ou número.<br/>Deve terminar com uma letra, número ou sublinhado.<br/>Não pode exceder 80 caracteres. |Você pode ter várias regras em um NSG, portanto, siga uma convenção de nomenclatura que permita a identificação da função da sua regra. |
 | **Protocolo** |Protocolo para fazer a correspondência da regra. |TCP, UDP ou * |O uso de * como um protocolo inclui ICMP (somente tráfego Leste-Oeste), bem como TCP e UDP, e pode reduzir o número de regras necessárias.<br/>Ao mesmo tempo, o uso de * pode ser uma abordagem muito ampla. Portanto, é recomendável que você use * somente quando necessário. |
@@ -66,7 +66,7 @@ A figura anterior mostra como as regras de NSG são processadas.
 Marcas padrão são identificadores fornecidos pelo sistema para atender a uma categoria de endereços IP. Você pode usar marcas padrão nas propriedades **prefixo de endereço de origem** e **prefixo de endereço de destino** de qualquer regra. Há três marcas padrão que você pode usar:
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para clássico): essa marca inclui o espaço de endereço de rede virtual (intervalos CIDR definidos no Azure), todos os espaços de endereço locais conectados e todas as conectados do Azure conectadas (redes locais).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para clássico): essa marca denota o balanceador de carga de infraestrutura do Azure. A marca significa um IP de datacenter do Azure de onde se originam as investigações de integridade do Azure.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para clássico): essa marca denota o balanceador de carga de infraestrutura do Azure. A marca significa um IP de datacenter do Azure de onde se originam as investigações de integridade do Azure Load Balancer.
 * **Internet** (Resource Manager) (**INTERNET** para clássico): essa marca denota o espaço de endereço IP que está fora da rede virtual e é acessível pela Internet pública. O intervalo inclui o [espaço IP público do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Regras padrão
@@ -75,23 +75,23 @@ Todos os NSGs contêm um conjunto de regras padrão. As regras padrão não pode
 As regras padrão permitem e impedem o tráfego da seguinte maneira:
 - **Rede virtual:** o tráfego que começa e termina em uma rede virtual é permitido nas direções de entrada e saída.
 - **Internet:** o tráfego de saída é permitido, mas o tráfego de entrada é bloqueado.
-- **Balanceador de carga:** o balanceador de carga do Azure permite investigar a integridade de suas VMs e instâncias de função. Se não estiver usando um conjunto de balanceamento de carga, você poderá substituir essa regra.
+- **Balanceador de carga:** permita ao Azure Load Balancer investigar a integridade de suas VMs e instâncias de função. Se você substituir essa regra, a investigação da integridade do Azure Load Balancer falhará e poderá causar impacto ao seu serviço.
 
 **Regras de entrada padrão**
 
-| Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
+| NOME | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | PERMITIR |
 | AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | PERMITIR |
-| DenyAllInBound |65500 | * | * | * | * | * | NEGAR |
+| DenyAllInBound |65500 | * | * | * | * | * | Negar |
 
 **Regras de saída padrão**
 
-| Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
+| NOME | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | PERMITIR |
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | PERMITIR |
-| DenyAllOutBound | 65500 | * | * | * | * | * | NEGAR |
+| DenyAllOutBound | 65500 | * | * | * | * | * | Negar |
 
 ## <a name="associating-nsgs"></a>Associando NSGs
 Você pode associar um NSG a VMs, NICs e sub-redes, dependendo do modelo de implantação que estiver usando, da seguinte maneira:
@@ -123,11 +123,11 @@ Você pode implementar NSGs no Resource Manager ou modelos de implantação clá
 
 | Ferramenta de implantação | Clássico | Gerenciador de Recursos |
 | --- | --- | --- |
-| Portal do Azure   | Não | [Sim](virtual-networks-create-nsg-arm-pportal.md) |
+| Portal do Azure   | Não  | [Sim](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Sim](virtual-networks-create-nsg-classic-ps.md) | [Sim](virtual-networks-create-nsg-arm-ps.md) |
 | CLI do Azure **V1**   | [Sim](virtual-networks-create-nsg-classic-cli.md) | [Sim](virtual-networks-create-nsg-arm-cli.md) |
-| CLI do Azure **V2**   | Não | [Sim](virtual-networks-create-nsg-arm-cli.md) |
-| Modelo do Azure Resource Manager   | Não  | [Sim](virtual-networks-create-nsg-arm-template.md) |
+| CLI do Azure **V2**   | Não  | [Sim](virtual-networks-create-nsg-arm-cli.md) |
+| Modelo do Azure Resource Manager   | Não   | [Sim](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planejamento
 Antes de implementar NSGs, você precisa responder às perguntas a seguir:
@@ -163,9 +163,10 @@ As atuais regras do NSG permitem apenas os protocolos *TCP* ou *UDP*. Não há u
 ### <a name="load-balancers"></a>Balanceadores de carga
 * Considere as regras de balanceamento de carga de rede e conversão de endereço (NAT) para cada balanceador de carga usado por cada uma das suas cargas de trabalho. Regras NAT são vinculadas a um pool de back-end que contém instâncias de função de serviços de nuvem/máquinas virtuais (clássicas) ou NICs (Resource Manager). Considere a criação de um NSG para cada pool de back-end, permitindo apenas o tráfego mapeado por meio das regras implementadas nos balanceadores de carga. Criar um NSG para cada pool de back-end garante que o tráfego de entrada vindo para o pool de back-end diretamente (e não por meio do balanceador de carga) também seja filtrado.
 * Em implantações clássicas, você cria pontos de extremidade que mapeiam portas em um balanceador de carga para portas nas VMs ou instâncias de função. Você também pode criar seu próprio balanceador de carga público individual por meio do Resource Manager. A porta de destino para tráfego de entrada é a porta real na instância de função ou VM, não a porta exposta por um balanceador de carga. A porta e o endereço de origem para a conexão com a VM é a porta e o endereço no computador remoto na Internet, não a porta e o endereço expostos pelo balanceador de carga.
-* Quando você cria NSGs para filtrar o tráfego de entrada por meio de um balanceador de carga interno (ILB), o intervalo de portas e endereços de origem aplicados são do computador de origem, não do balanceador de carga. Os intervalos de porta e endereço de destino são aos do computador de destino, não do balanceador de carga.
+* Quando você cria NSGs para filtrar o tráfego por meio de um Azure Load Balancer, o intervalo de portas e endereços de origem aplicados são do computador de origem, não do front-end do balanceador de carga. Os intervalos de porta e endereço de destino são aos do computador de destino, não do front-end do balanceador de carga.
+* Se você bloquear a marca AzureLoadBalancer, os testes de integridade do Azure Load Balancer falhará e o serviço poderá ser afetado.
 
-### <a name="other"></a>outro
+### <a name="other"></a>Outros
 * Listas de controle de acesso baseado em ponto de extremidade (ACL) e NSGs não são suportados na mesma instância da VM. Se você quiser usar um NSG e já tiver uma ACL de ponto de extremidade à disposição, primeiro remova a ACL de ponto de extremidade. Para obter informações sobre como remover um ponto de extremidade ACL, confira o artigo [Gerenciar ACLs de ponto de extremidade](virtual-networks-acl-powershell.md).
 * No Resource Manager, você pode usar um NSG associado a uma NIC para VMs com várias NICs para habilitar o gerenciamento (acesso remoto) por NIC. A associação de NSGs exclusivos a cada NIC permite a separação dos tipos de tráfego em NICs.
 * De forma semelhante ao uso de balanceadores de carga, ao filtrar o tráfego de outras redes virtuais, você deve usar o intervalo de endereços de origem do computador remoto, não o gateway que se conecta às redes virtuais.
@@ -197,26 +198,26 @@ Os requisitos 1 a 6 (exceto os requisitos 3 e 4) são restritos aos espaços de 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-HTTP-Internet | PERMITIR | 100 | Internet | * | * | 80 | TCP |
 | Allow-Inbound-RDP-Internet | PERMITIR | 200 | Internet | * | * | 3389 | TCP |
-| Deny-Inbound-All | NEGAR | 300 | Internet | * | * | * | TCP |
+| Deny-Inbound-All | Negar | 300 | Internet | * | * | * | TCP |
 
 **Regras de saída**
 
 | Regra | Access | Prioridade | Intervalo de endereços de origem | Porta de origem | Intervalo de endereços de destino | Porta de destino | Protocolo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All |NEGAR |100 | * | * | Internet | * | * |
+| Deny-Internet-All |Negar |100 | * | * | Internet | * | * |
 
 ### <a name="backend"></a>BackEnd
 **Regras de entrada**
 
 | Regra | Access | Prioridade | Intervalo de endereços de origem | Porta de origem | Intervalo de endereços de destino | Porta de destino | Protocolo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | NEGAR | 100 | Internet | * | * | * | * |
+| Deny-Internet-All | Negar | 100 | Internet | * | * | * | * |
 
 **Regras de saída**
 
 | Regra | Access | Prioridade | Intervalo de endereços de origem | Porta de origem | Intervalo de endereços de destino | Porta de destino | Protocolo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | NEGAR | 100 | * | * | Internet | * | * |
+| Deny-Internet-All | Negar | 100 | * | * | Internet | * | * |
 
 Os NSGs a seguir são criados e associados a NICs nas seguintes VMs:
 
@@ -229,7 +230,7 @@ Os NSGs a seguir são criados e associados a NICs nas seguintes VMs:
 | Allow-Inbound-HTTP-Internet | PERMITIR | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> O intervalo de endereços de origem para as regras anteriores é a **Internet**, não o endereço IP virtual do balanceador de carga. A porta de origem é *, não 500001. As regras NAT para balanceadores de carga não são iguais às regras de segurança NSG. As regras de segurança de NSG sempre estão relacionadas à verdadeira origem e ao destino final do tráfego, **não** ao balanceador de carga entre os dois. 
+> O intervalo de endereços de origem para as regras anteriores é a **Internet**, não o endereço IP virtual do balanceador de carga. A porta de origem é *, não 500001. As regras NAT para balanceadores de carga não são iguais às regras de segurança NSG. As regras de segurança de NSG sempre estão relacionadas à verdadeira origem e ao destino final do tráfego, **não** ao balanceador de carga entre os dois. O Azure Load Balancer sempre preserva o endereço IP de origem e a porta.
 > 
 > 
 
@@ -238,7 +239,7 @@ Os NSGs a seguir são criados e associados a NICs nas seguintes VMs:
 
 | Regra | Access | Prioridade | Intervalo de endereços de origem | Porta de origem | Intervalo de endereços de destino | Porta de destino | Protocolo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Inbound-RDP-Internet | NEGAR | 100 | Internet | * | * | 3389 | TCP |
+| Deny-Inbound-RDP-Internet | Negar | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | PERMITIR | 200 | Internet | * | * | 80 | TCP |
 
 ### <a name="db-servers-management-nic"></a>Servidores DB (NIC de gerenciamento)

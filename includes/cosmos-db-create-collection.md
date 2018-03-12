@@ -15,6 +15,8 @@ Agora, você pode usar a ferramenta Data Explorer no Portal do Azure para criar 
     Capacidade de armazenamento| Fixo (10 GB)|Altere o valor para **Fixo (10 GB)**. Esse valor é a capacidade de armazenamento do banco de dados.
     Throughput|400 RU|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). A capacidade de armazenamento deve ser definida como **Fixa (10 GB)** para definir a taxa de transferência para 400 RU/s. Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde. 
     
+    Além das configurações anteriores, você pode opcionalmente adicionar **Chaves exclusivas** à coleção. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos desenvolvedores a capacidade de adicionar uma camada de integridade dos dados ao seu banco de dados. Ao criar uma política de chave exclusiva durante a criação de uma coleção, você garante a exclusividade de um ou mais valores por chave de partição. Para obter mais informações, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
+    
     Clique em **OK**.
 
     O Data Explorer exibe o novo banco de dados e a coleção.

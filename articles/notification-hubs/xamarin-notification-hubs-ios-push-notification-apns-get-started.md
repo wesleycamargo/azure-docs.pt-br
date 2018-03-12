@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: edb48cd8de9b1f7357c40cea73fa4b9a422cb8fa
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38ad8a15fcc4077926e735e01f877a4ee66718ef
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-xamarinios-apps"></a>Introdução aos Hubs de Notificação do Azure para aplicativos do Xamarin.iOS
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -82,7 +82,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNS e voc
 
 2. Digite o Nome do Aplicativo e o identificador da organização e clique em **Avançar**, depois em **Criar**
 
-3. Na exibição de solução, clique duas vezes em *Into.plist* e em **Identidade** e verifique se o identificador de pacote corresponde ao usado ao criar o perfil de provisionamento. Em **assinatura**, verifique se sua conta de desenvolvedor está selecionada em **Equipe**, se "Gerenciar assinatura automaticamente" está selecionado e se seu certificado de autenticação e perfil de provisionamento são selecionados automaticamente.
+3. Na exibição de Solução, clique duas vezes em *Into.plist* e em **Identidade** e verifique se o Identificador de Pacote corresponde ao usado ao criar o perfil de provisionamento. Em **assinatura**, verifique se sua conta de desenvolvedor está selecionada em **Equipe**, se "Gerenciar assinatura automaticamente" está selecionado e se seu certificado de autenticação e perfil de provisionamento são selecionados automaticamente.
 
     ![Configuração de aplicativo do Visual Studio-iOS][32]
 

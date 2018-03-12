@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3c8d345d8846994ac1e286d977b62d9ae2b7d660
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -84,6 +84,14 @@ Verifique se o arquivo .OVA é seguro antes de implantá-lo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. O hash gerado deve corresponder a estas configurações.
+
+    Para a versão OVA 1.0.9.5
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
     
     Para a versão OVA 1.0.9.2
 
@@ -233,7 +241,7 @@ Para o dimensionamento baseado em desempenho da VM, as Migrações para Azure pr
 
 Uma avaliação pode não ter todos os pontos de dados disponíveis devido a um dos seguintes motivos:
 - A configuração de estatísticas no vCenter Server não está definida para o nível 3, e a avaliação tem o dimensionamento com base no desempenho como o critério de dimensionamento. Se a configuração de estatísticas no vCenter Server for menor que o nível 3, os dados de desempenho de disco e de rede não são coletados do vCenter Server. Nesse caso, a recomendação fornecida pelas Migrações para Azure para o disco e a rede não é baseada na utilização. Para o armazenamento, as Migrações para Azure recomendam discos padrão, uma vez que, se não considerar a IOPS/taxa de transferência do disco, as Migrações para Azure não podem identificar se o disco precisará de um disco premium no Azure.
-- A configuração de estatísticas no vCenter Server foi definida para o nível 3 para uma duração curta, antes de iniciar a descoberta. Por exemplo, vamos pensar em um cenário em que você altera o nível de configuração de estatísticas para 3 hoje e inicia a descoberta usando o dispositivo de coletor amanhã (após 24 horas). Se estiver criando uma avaliação de um dia, você tem todos os pontos de dados, e a classificação de confiança da avaliação seria de 5 estrelas. Mas se estiver alterando a duração de desempenho nas propriedades de avaliação para um mês, a classificação de confiança diminui, uma vez que os dados de desempenho do disco e da rede do último mês não estariam disponíveis. Se você desejar considerar os dados de desempenho do último mês, é recomendável manter a configuração de estatísticas do vCenter Server no nível 3 por um mês antes de iniciar a descoberta. 
+- A configuração de estatísticas no vCenter Server foi definida para o nível 3 para uma duração curta, antes de iniciar a descoberta. Por exemplo, vamos pensar em um cenário em que você altera o nível de configuração de estatísticas para 3 hoje e inicia a descoberta usando o dispositivo de coletor amanhã (após 24 horas). Se estiver criando uma avaliação de um dia, você terá todos os pontos de dados, e a classificação de confiança da avaliação seria de 5 estrelas. Mas se estiver alterando a duração de desempenho nas propriedades de avaliação para um mês, a classificação de confiança diminuirá, visto que os dados de desempenho do disco e da rede do último mês não estariam disponíveis. Se você desejar considerar os dados de desempenho do último mês, é recomendável manter a configuração de estatísticas do vCenter Server no nível 3 por um mês antes de iniciar a descoberta. 
 - Algumas VMs foram desativadas durante o período para o qual a avaliação é calculada. Se todas as VMs foram desligadas por algum tempo, o vCenter Server não terá os dados de desempenho para aquele período. 
 - Algumas VMs foram criadas durante o período para o qual a avaliação é calculada. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesses casos, o histórico de desempenho das novas VMs não estará lá durante todo o período.
 

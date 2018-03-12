@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 14e5e7613fd5df650625cf8997d569b754ceb689
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do serviço e dispositivo Java e registros de grupo para Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 
@@ -39,9 +39,7 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
     > Esta etapa requer [OpenSSL](https://www.openssl.org/), que pode a ser criada e instalada da fonte ou baixada e instalada de [terceiros](https://wiki.openssl.org/index.php/Binaries) como [este](https://sourceforge.net/projects/openssl/). Se você já tiver criado seus certificados de _raiz_, _intermediário_ e _dispositivo_, você pode ignorar esta etapa.
     >
 
-1. Criar as informações do grupo de registros:
-
-    1. Execute a **Etapa 1** e a **Etapa 2** para criar seus certificados _raiz_ e _intermediário_.
+    1. Execute as etapas 1 e 2 para criar seus certificados _raiz_ e _intermediário_.
 
     1. Faça logon no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de provisionamento.
 
@@ -56,16 +54,16 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 
         1. Selecione o certificado recém-criado:
             - Clique em **Gerar Código de Verificação**. Copie o código gerado.
-            - Execute **Etapa 3**. Insira o _código de verificação_ ou clique com o botão direito do mouse para colar na janela do PowerShell.  Pressione **Enter**.
+            - Execute a etapa de verificação. Insira o _código de verificação_ ou clique com o botão direito do mouse para colar na janela do PowerShell.  Pressione **Enter**.
             - Selecione o arquivo **_verifyCert4.pem_** recém-criados no portal do Azure. Clique em **Verificar**.
 
             ![Validar certificado](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Conclua executando a **Etapa 4** e a **Etapa 5** para criar seus certificados de dispositivo e os recursos de limpeza.
+    1. Conclua executando as etapas para criar seus certificados de dispositivo e os recursos de limpeza.
 
-> [!NOTE]
-> Ao criar certificados de dispositivo, certifique-se de usar somente caracteres alfanuméricos em letras minúsculas e hifens no seu nome de dispositivo.
->
+    > [!NOTE]
+    > Ao criar certificados de dispositivo, certifique-se de usar somente caracteres alfanuméricos em letras minúsculas e hifens no seu nome de dispositivo.
+    >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Criar uma entrada de registro de dispositivo
@@ -78,17 +76,17 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 
 1. No código-fonte baixado, navegue até a pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Abra o arquivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** em um editor de sua escolha e adicione os seguintes detalhes:
 
-    1. Adicione o `[Provisioning Connection String]` do serviço de provisionamento do portal desta forma:
+    1. Adicione a `[Provisioning Connection String]` do serviço de provisionamento pelo portal desta forma:
 
         1. Navegue até seu serviço de provisionamento no [Portal do Azure](https://portal.azure.com). 
 
-        1. Abra s **Políticas de acesso compartilhadas** e selecione uma política que tem a permissão *EnrollmentWrite*.
+        1. Abra as **Políticas de acesso compartilhadas** e selecione uma política que tenha a permissão *EnrollmentWrite*.
     
         1. Copie a **Cadeia de conexão da chave primária**. 
 
             ![Obter a cadeia de conexão de provisionamento do portal](./media/tutorial-group-enrollments/provisioning-string.png)  
 
-        1. No arquivo de código de exemplo **_ServiceEnrollmentGroupSample.java_**, substitua o `[Provisioning Connection String]` por uma **cadeia de conexão de chave primária**.
+        1. No arquivo de código de exemplo **_ServiceEnrollmentGroupSample.java_**, substitua a `[Provisioning Connection String]` por uma **cadeia de conexão de chave primária**.
 
             ```java
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";

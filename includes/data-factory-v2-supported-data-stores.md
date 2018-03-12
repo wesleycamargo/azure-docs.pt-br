@@ -1,7 +1,7 @@
 | Categoria | Armazenamento de dados | Tem suporte como origem | Tem suporte como coletor | Suporte do [IR do Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Suporte do [IR auto-hospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **As tabelas** |[Armazenamento de Blobs do Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Banco de dados do Azure Cosmos](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Repositório Azure Data Lake](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Banco de Dados do Azure para MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Banco de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  |
@@ -22,6 +22,7 @@
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |✓ | |✓ |✓  |
 | &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |✓ | | |✓  |
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |✓ | | |✓  |
+| &nbsp; |[Netezza (Beta)](../articles/data-factory/connector-netezza.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | | |✓  |
@@ -32,6 +33,7 @@
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  |
 | &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |✓ | | |✓  |
+| &nbsp; |[Vertical (Beta)](../articles/data-factory/connector-vertica.md) |✓ | |✓ |✓  |
 | **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase (Beta)](../articles/data-factory/connector-couchbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[MongoDB](../articles/data-factory/connector-mongodb.md) |✓ | |✓ |✓  |
@@ -58,6 +60,7 @@
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Nuvem de serviço Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ |
 | &nbsp; |[ServiceNow (Beta)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (Beta)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Square (Beta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |

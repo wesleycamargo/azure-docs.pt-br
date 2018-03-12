@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 55211e29149cd334421bd8723d47278a19afbfbb
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 146c6fdada651551c05b2cbcadc3e1248a40b613
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="load-data-with-bcp"></a>Carregar dados com o bcp
 
@@ -174,7 +174,7 @@ Você pode verificar se os dados foram exportados corretamente abrindo o novo ar
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para criar o processo de carregamento, consulte a [Visão geral de carregamento] (sql-data-warehouse-design-elt-data-loading].  
+Para criar o processo de carregamento, confira a [Visão geral de carregamento](sql-data-warehouse-design-elt-data-loading).  
 
 
 

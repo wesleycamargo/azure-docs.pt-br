@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4ee59782a0e40f9d09023a75862ab0f8415e6d12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0639a2b7e71878103542d3e037040f8a7444976f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Executar aplicativos no AKS (Serviço de Contêiner do Azure)
 
@@ -52,12 +52,26 @@ O arquivo de manifesto foi pré-criado com um nome do servidor de logon `microso
 vi azure-vote-all-in-one-redis.yaml
 ```
 
+Como alternativa, se você estiver trabalhando no Windows, poderá usar o Visual Studio Code.
+
+```console
+code azure-vote-all-in-one-redis.yaml
+```
+
 Substitua `microsoft` pelo nome do servidor de logon do ACR. Esse valor pode ser encontrado na linha **47** do arquivo de manifesto.
 
 ```yaml
 containers:
 - name: azure-vote-front
   image: microsoft/azure-vote-front:v1
+```
+
+Em seguida, torna-se o código acima.
+
+```yaml
+containers:
+- name: azure-vote-front
+  image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Salve e feche o arquivo.

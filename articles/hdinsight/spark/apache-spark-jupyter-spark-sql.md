@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: 1dbad36b7420791e70066263a566f1820823ad27
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: baad137a6f982df987faf95d7c7c595698e8e399
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Criar um cluster do Apache Spark no Azure HDInsight
 
@@ -47,8 +47,8 @@ Crie um cluster Spark do HDInsight usando um [modelo do Azure Resource Manager](
     * No **Grupo de recursos**: crie um grupo de recursos ou selecione um existente. O grupo de recursos é usado para gerenciar recursos do Azure em seus projetos.
     * **Local**: selecione um local para o grupo de recursos. O modelo usa esse local para criar o cluster, bem como para o armazenamento de cluster padrão.
     * **ClusterName**: insira um nome para o cluster HDInsight que você deseja criar.
-    * **Nome e senha de logon do cluster**: o nome de logon padrão é admin.
-    * **Nome de usuário e senha de SSH**.
+    * **Nome e senha de logon do cluster**: o nome de logon padrão é admin. Escolha uma senha para o logon do cluster.
+    * **Nome de usuário e senha de SSH**. Escolha uma senha para o usuário do SSH.
 
 3. Selecione **Concordo com os termos e condições declarados acima**, selecione **Fixar no painel**e, em seguida, clique em **Comprar**. Veja um novo bloco intitulado **Implantar a implantação de modelo**. Demora cerca de 20 minutos para criar o cluster.
 
@@ -103,16 +103,17 @@ Para obter um exemplo de leitura de dados de um arquivo csv, em vez de uma tabel
 
     ![Consulta de Hive no HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Consulta de Hive no HDInsight Spark")
 
-2. Quando o kernel estiver pronto, cole o código a seguir em uma célula vazia e pressione **SHIFT + ENTER** para executar o código. A saída deve listar um `hivesampletable` que está disponível no cluster, por padrão.
+2. Quando o kernel estiver pronto, cole o código a seguir em uma célula vazia e pressione **SHIFT + ENTER** para executar o código. O comando lista as tabelas de Hive no cluster:
 
     ```PySpark
     %%sql
     SHOW TABLES
     ```
+    Quando você usa um Notebook Jupyter com o cluster HDInsight Spark, obtém uma predefinição `sqlContext` que você pode usar para executar consultas do Hive usando o Spark SQL. `%%sql` informa ao Notebook Jupyter para usar a predefinição `sqlContext` para executar a consulta Hive. A consulta recupera as primeiras 10 linhas de uma tabela Hive (**hivesampletable**) que vem com todos os clusters HDInsight por padrão. Ele leva aproximadamente 30 segundos para obter os resultados. A saída se parece com isso: 
 
     ![Consulta de Hive no HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Consulta de Hive no HDInsight Spark")
 
-    Quando você usa um Notebook Jupyter com o cluster HDInsight Spark, obtém uma predefinição `sqlContext` que você pode usar para executar consultas do Hive usando o Spark SQL. `%%sql` informa ao Notebook Jupyter para usar a predefinição `sqlContext` para executar a consulta Hive. A consulta recupera as primeiras 10 linhas de uma tabela Hive (**hivesampletable**) que vem com todos os clusters HDInsight por padrão. Para obter mais informações sobre o `%%sql` mágico e os contextos predefinidos, confira [Jupyter kernels disponíveis para um cluster HDInsight](apache-spark-jupyter-notebook-kernels.md).
+    Para obter mais informações sobre o `%%sql` mágico e os contextos predefinidos, confira [Jupyter kernels disponíveis para um cluster HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
     Toda vez que você executar uma consulta no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito.
     

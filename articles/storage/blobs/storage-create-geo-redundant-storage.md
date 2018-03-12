@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Torne os dados do aplicativo altamente disponíveis com o armazenamento do Azure
 
@@ -69,7 +69,7 @@ Siga estas etapas para criar uma conta de armazenamento com redundância geográ
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome** | mystorageaccount | Um valor exclusivo para sua conta de armazenamento |
    | **Modelo de implantação** | Gerenciador de Recursos  | O Resource Manager contém os recursos mais recentes.|
-   | **Tipo de conta** | Propósito geral | Para obter detalhes sobre os tipos de contas, consulte [tipos de contas de armazenamento](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Tipo de conta** | StorageV2 | Para obter detalhes sobre os tipos de contas, consulte [tipos de contas de armazenamento](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Desempenho** | Standard | O padrão é suficiente para o cenário de exemplo. |
    | **Replicação**| Armazenamento com redundância geográfica com acesso de leitura (RA-GRS) | Isso é necessário para que o exemplo funcione. |
    |**Transferência segura é necessária** | Desabilitado| Transferência segura não é necessária para este cenário. |
@@ -77,7 +77,7 @@ Siga estas etapas para criar uma conta de armazenamento com redundância geográ
    |**ResourceGroup** | myResourceGroup |Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Localidade** | Leste dos EUA | Escolha um local. |
 
-![criar conta de armazenamento](media/storage-create-geo-redundant-storage/figure1.png)
+![criar conta de armazenamento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 

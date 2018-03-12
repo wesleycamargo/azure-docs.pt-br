@@ -1,10 +1,27 @@
+---
+title: "Arquivo de inclusão"
+description: "Arquivo de inclusão"
+services: biztalk-services
+author: MandiOhlinger
+ms.service: biztalk-services
+ms.topic: include
+ms.date: 11/09/2017
+ms.author: mandia
+ms.custom: include file
+ms.openlocfilehash: 81e053c8258d24177d5c7ea499595c4dd4a3b0f0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/05/2018
+---
 > [!IMPORTANT]
-> Os Serviços BizTalk do Microsoft Azure (MABS) estão sendo desativados e substituídos pelos Aplicativos Lógicos do Azure. Se você estiver usando o MABS, então, [Mover dos Serviços BizTalk para os Aplicativos Lógicos](../articles/logic-apps/logic-apps-move-from-mabs.md) fornecerá algumas diretrizes sobre como mover suas soluções de integração para os Aplicativos Lógicos. 
+> Os Serviços BizTalk do Microsoft Azure (MABS) estão sendo desativados e substituídos pelos Aplicativos Lógicos do Azure.
+> Se você estiver usando o MABS, analise este artigo para obter algumas diretrizes sobre como migrar suas soluções de integração para os Aplicativos Lógicos: [Mover dos Serviços BizTalk para os Aplicativos Lógicos](../articles/logic-apps/logic-apps-move-from-mabs.md) 
 > 
-> Se você for novato nos Aplicativos Lógicos, sugerimos iniciar aqui: 
+> Se você não estiver familiarizado com os Aplicativos Lógicos, tente iniciar aqui: 
 > 
-> - [O que são Aplicativos Lógicos](../articles/logic-apps/logic-apps-what-are-logic-apps.md)  
+> * [O que são Aplicativos Lógicos do Azure?](../articles/logic-apps/logic-apps-overview.md)  
 > 
-> - [Crie seu primeiro aplicativo lógico](../articles/logic-apps/logic-apps-create-a-logic-app.md) ou comece rapidamente usando um [modelo predefinido](../articles/logic-apps/logic-apps-use-logic-app-templates.md)  
+> * [Crie seu primeiro aplicativo lógico](../articles/logic-apps/quickstart-create-first-logic-app-workflow.md) ou comece rapidamente com um [modelo predefinido](../articles/logic-apps/logic-apps-use-logic-app-templates.md).
 > 
-> - [Exibir todos os conectores disponíveis](../articles/connectors/apis-list.md) você pode usar em um aplicativo lógico
+> * [Veja todos os conectores](../articles/connectors/apis-list.md) que você pode usar em um aplicativo lógico.
