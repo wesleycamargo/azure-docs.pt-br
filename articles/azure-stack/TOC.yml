@@ -264,14 +264,24 @@
           items:
             - name: Visão geral
               href: azure-stack-billing-and-chargeback.md
-            - name: Relatórios de dados de uso
-              href: azure-stack-usage-reporting.md
-            - name: API de uso do provedor
-              href: azure-stack-provider-resource-api.md
-            - name: API de uso do locatário
-              href: azure-stack-tenant-resource-usage-api.md
-            - name: Perguntas frequentes sobre o uso
-              href: azure-stack-usage-related-faq.md
+            - name: Gerenciar o uso e cobrança como um CSP
+              href: azure-stack-add-manage-billing-as-a-csp.md
+            - name: Adicionar locatários pelo uso e cobrança
+              href: azure-stack-csp-howto-register-tenants.md
+            - name: Gerenciar o registro do inquilino
+              href: azure-stack-csp-ref-operations.md
+            - name: Uso e cobrança referência
+              items:
+                - name: Relatórios de dados de uso
+                  href: azure-stack-usage-reporting.md
+                - name: Uso de infraestrutura de relatório para provedores de serviços de nuvem
+                  href: azure-stack-csp-ref-infrastructure.md
+                - name: API de uso do provedor
+                  href: azure-stack-provider-resource-api.md
+                - name: API de uso do locatário
+                  href: azure-stack-tenant-resource-usage-api.md
+                - name: Perguntas frequentes sobre o uso
+                  href: azure-stack-usage-related-faq.md
         - name: Conecte-se ao Azure
           items:
             - name: Conectar-se usando VPN
