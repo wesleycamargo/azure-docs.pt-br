@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: f400180bc71efc6766b73b098c1f82542eec86f7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de iniciar o serviço de aplicativo na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+
+> [!IMPORTANT]
+> Aplicar a atualização 1802 para seu sistema de pilha do Azure integradas ou implantar o kit de desenvolvimento de pilha do Azure mais recente antes de implantar o serviço de aplicativo do Azure.
+>
+>
 
 Antes de implantar o serviço de aplicativo do Azure na pilha do Azure, você deve concluir os pré-requisitos neste artigo.
 
@@ -40,11 +45,11 @@ Antes de implantar o serviço de aplicativo do Azure na pilha do Azure, você de
    - Módulos
      - GraphAPI.psm1
 
-## <a name="prepare-for-high-availability"></a>Preparar para alta disponibilidade
+## <a name="high-availability"></a>Alta disponibilidade
 
-Serviço de aplicativo do Azure na pilha do Azure atualmente não pode oferecer alta disponibilidade porque a pilha do Azure implanta cargas de trabalho em apenas um domínio de falha.
+Devido à versão 1802 da pilha do Azure, que adicionou suporte para domínios de falha, novas implantações de serviço de aplicativo do Azure na pilha do Azure serão distribuídas em domínios de falha e fornecem tolerância a falhas.  Para as implantações existentes do serviço de aplicativo do Azure na pilha do Azure que foram implantadas antes do lançamento do 1802 atualizar, consulte a documentação (azure-stack-app-service-fault-domain-update.md) como rebalancear a implantação.
 
-Para preparar o serviço de aplicativo do Azure na pilha do Azure para alta disponibilidade, implante o servidor de arquivo necessário e a instância do SQL Server em uma configuração altamente disponível. Quando a pilha do Azure oferece suporte a vários domínios de falha, serão fornecidas diretrizes sobre como habilitar o serviço de aplicativo do Azure na pilha do Azure em uma configuração altamente disponível.
+Além disso, serviço de aplicativo do Azure na pilha do Azure para alta disponibilidade, implantar o servidor de arquivos necessários e a instância do SQL Server em uma configuração altamente disponível. 
 
 ## <a name="get-certificates"></a>Obter certificados
 
@@ -127,13 +132,17 @@ O certificado de identidade deve conter uma entidade que corresponda o seguinte 
 
 ## <a name="virtual-network"></a>Rede Virtual
 
-Serviço de aplicativo do Azure na pilha do Azure permite que você implante o provedor de recursos em uma rede Virtual existente.  Isso permite o uso de IPs internos para se conectar ao servidor de arquivos e do SQL server necessárias pelo serviço de aplicativo do Azure na pilha do Azure.  A rede Virtual deve ser configurada com o intervalo de endereço e sub-redes a seguir antes de instalar o serviço de aplicativo do Azure na pilha do Azure:
+Serviço de aplicativo do Azure na pilha do Azure permite que você implante o provedor de recursos para um uma rede Virtual existente ou o serviço de aplicativo será criada como parte da implantação.  Usar uma rede Virtual existente permite o uso de IPs internos para se conectar ao servidor de arquivos e do SQL server necessárias pelo serviço de aplicativo do Azure na pilha do Azure.  A rede Virtual deve ser configurada com o intervalo de endereço e sub-redes a seguir antes de instalar o serviço de aplicativo do Azure na pilha do Azure:
 
 Rede virtual - /16
 
 Sub-redes
 
-ControllersSubnet /24 ManagementServersSubnet /24 FrontEndsSubnet /24 PublishersSubnet /24 WorkersSubnet /21
+* ControllersSubnet /24
+* ManagementServersSubnet /24
+* FrontEndsSubnet /24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Preparar o servidor de arquivos
 

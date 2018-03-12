@@ -6,25 +6,25 @@ documentationcenter:
 author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Relatar dados de uso de pilha do Azure para o Azure 
 
 Dados de uso, também chamados de dados de consumo, representam a quantidade de recursos usados. 
 
-Sistemas com vários nós do Azure pilha que usam o modelo de cobrança com base em consumo devem relatar dados de uso do Azure para a finalidade de cobrança.  Operadores de pilha do Azure devem configurar sua instância de pilha do Azure para relatar dados de uso para o Azure.
+Sistemas com vários nós do Azure pilha que usam o modelo de cobrança com base em consumo devem relatar dados de uso do Azure para fins de cobrança.  Operadores de pilha do Azure devem configurar sua instância de pilha do Azure para relatar dados de uso para o Azure.
 
 > [!NOTE]
 > Relatórios de dados de uso é necessário para os usuários de vários nós de pilha do Azure que no modelo de pagamento que você-uso de licença. É opcional para os clientes que no modelo de capacidade de licença (consulte o [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Para usuários do Kit de desenvolvimento de pilha do Azure, os operadores de pilha do Azure podem relatar dados de uso e testar o recurso. No entanto, os usuários não serão cobrados para qualquer uso incorrem. 
@@ -76,7 +76,7 @@ Uso de recursos está livre para o Kit de desenvolvimento de pilha do Azure. Enq
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>Os usuários são cobrados para a infraestrutura de máquinas virtuais?
 
-Não. Dados de uso para o provedor de recursos alguns pilha Azure VMs são relatados para o Azure, mas não há nenhum encargo para essas VMs, nem para as máquinas virtuais criadas durante a implantação habilitar a infraestrutura de pilha do Azure.  
+Nº Dados de uso para o provedor de recursos alguns pilha Azure VMs são relatados para o Azure, mas não há nenhum encargo para essas VMs, nem para as máquinas virtuais criadas durante a implantação habilitar a infraestrutura de pilha do Azure.  
 
 Os usuários só são cobrados pelas VMs que executam em assinaturas de locatários. Todas as cargas de trabalho devem ser implantadas em assinaturas do locatário de acordo com os termos de licenciamento da pilha do Azure.
 
@@ -108,3 +108,4 @@ Sempre há um delaybetween os dados de uso relatados, o uso da pilha do Azure AP
 * [API de uso do provedor](azure-stack-provider-resource-api.md)  
 * [API de uso do locatário](azure-stack-tenant-resource-usage-api.md)
 * [Perguntas frequentes sobre o uso](azure-stack-usage-related-faq.md)
+* [Gerenciar o uso e cobrança como um provedor de serviços de nuvem](azure-stack-add-manage-billing-as-a-csp.md)

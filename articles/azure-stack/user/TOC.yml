@@ -119,6 +119,8 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Implantação com o Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
+    - name: Habilitar um provedor de serviços de nuvem
+      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Referência
   items:
     - name: Azure Stack PowerShell
