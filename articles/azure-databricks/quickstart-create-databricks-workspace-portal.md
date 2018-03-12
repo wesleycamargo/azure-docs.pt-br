@@ -11,18 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 03/01/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
 O início rápido mostra como criar um espaço de trabalho do Azure Databricks e um cluster do Apache Spark dentro desse espaço de trabalho. Por fim, você sabe como executar um trabalho do Spark no cluster do Databricks. Para obter mais informações sobre o Azure Databricks, consulte [O que é o Azure Databricks?](what-is-azure-databricks.md)
+
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
@@ -62,7 +64,8 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
     ![Criar cluster do Databricks Spark no Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
 
     * Insira um nome para o cluster.
-    * Verifique se você selecionou caixa de seleção **Terminar depois de ___ minutos de atividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
+    * Neste artigo, crie um cluster com o tempo de execução **4.0 (beta)**. 
+    * Verifique se você marcou a caixa de seleção **Terminar depois de ____ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
     * Aceite todos os outros valores padrão. 
     * Clique em **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
 
@@ -70,7 +73,7 @@ Para obter mais informações sobre como criar clusters, consulte [Criar um clus
 
 ## <a name="run-a-spark-sql-job"></a>Executar um trabalho SQL do Spark
 
-Antes de iniciar esta seção, você deve concluir o seguinte:
+Antes de iniciar esta seção, você deve concluir os pré-requisitos a seguir:
 
 * [Criar uma conta de Armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 * Baixar um arquivo JSON de exemplo [do Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
@@ -88,11 +91,27 @@ Execute as seguintes etapas para criar um bloco de notas em Databricks, configur
 
     Clique em **Criar**.
 
-3. No trecho de código a seguir, substitua `{YOUR STORAGE ACCOUNT NAME}` pelo nome da conta de armazenamento do Azure que você criou e `{YOUR STORAGE ACCOUNT ACCESS KEY}` pela sua chave de acesso da conta de armazenamento. Cole o trecho de código em uma célula vazia no bloco de notas e pressione SHIFT + ENTER para executar a célula do código. Esse trecho de código configura o bloco de notas para ler dados de um armazenamento de Blob do Azure.
+3. Nesta etapa, associe a conta de Armazenamento do Azure com o cluster Databricks Spark. Há duas maneiras de fazer isso: montando a conta de Armazenamento do Azure para o Databricks Filesystem (DBFS) ou acessando a conta de armazenamento do Azure diretamente do aplicativo que você criar.  
 
-       spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-    
-    Para instruções sobre como recuperar sua chave da conta de armazenamento, consulte [Gerenciar chaves de acesso de armazenamento](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
+    > [!IMPORTANT]
+    >Este artigo usa a **abordagem para montar o armazenamento com o DBFS**. Essa abordagem garante que o armazenamento montado se associará ao sistema de arquivos do cluster em si. Portanto, qualquer aplicativo que está acessando o cluster é capaz de usar o armazenamento associado. A abordagem de acesso direto é limitada ao aplicativo de onde você pode configurar o acesso.
+    >
+    > Para usar a abordagem de montagem, você deve criar um cluster Spark com a versão de tempo de execução Databricks **4.0 (beta)**, que é o que você escolheu neste artigo.
+
+    No trecho a seguir, substitua `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}`, e `{YOUR STORAGE ACCOUNT ACCESS KEY}` pelos valores apropriados para sua conta de armazenamento do Azure. Cole o trecho de código em uma célula vazia no bloco de notas e pressione SHIFT + ENTER para executar a célula do código.
+
+    * **Monte a conta de armazenamento com o DBFS (recomendado)**. Neste trecho, o caminho da conta de Armazenamento do Azure está montado em `/mnt/mypath`. Portanto, em todas as ocorrências futuras em que você acessar a conta de Armazenamento do Azure, não será necessário fornecer o caminho completo. Você pode usar apenas `/mnt/mypath`.
+
+          dbutils.fs.mount(
+            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+            mountPoint = "/mnt/mypath",
+            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+
+    * **Acessar diretamente a conta de armazenamento**
+
+          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+
+    Para obter instruções sobre como recuperar sua chave da conta de armazenamento, confira [Gerenciar chaves de acesso de armazenamento](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
     > [!NOTE]
     > Você também pode usar o Azure Data Lake Store com um cluster Spark no Azure Databricks. Para obter instruções, consulte [Usar Data Lake Store com Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
@@ -101,10 +120,11 @@ Execute as seguintes etapas para criar um bloco de notas em Databricks, configur
 
     ```sql
     %sql 
-    CREATE TEMPORARY TABLE radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data
+    CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/small_radio_json.json"
+     path "/mnt/mypath/small_radio_json.json"
     )
     ```
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequentes, esporádicas e de arquivo
 
@@ -83,7 +83,7 @@ Quando um blob é movido para uma camada mais esporádica (frequente -> esporád
 
 Caso altere a camada de conta de frequente para esporádico, você será cobrado por operações de gravação (por 10.000) para todos os blobs sem uma camada de conjunto apenas em contas de GPv2. Não há nenhum custo para isso em contas de Armazenamento de Blobs. Você será cobrado por operações de leitura (por 10.000) e por recuperação de dados (por GB) caso altere a conta de Armazenamento de Blobs ou de GPv2 de esporádica para frequente. Encargos de exclusão antecipada para qualquer blob tirado das camadas esporádica ou de arquivo também podem incorrer.
 
-### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Exclusão antecipada de arquivo ou esporádica (em vigor a partir de 1º de março de 2018)
+### <a name="cool-and-archive-early-deletion"></a>Exclusão antecipada esporádica e de arquivo
 
 Além dos encargos por GB e por mês, qualquer blob que seja colocado na camada esporádica (apenas para contas de GPv2) está sujeito a um período inicial de exclusão moderada de 30 dias, e qualquer blob que seja colocado na camada de arquivo está sujeito a um período de exclusão antecipada do arquivo de 180 dias. A cobrança é proporcional. Por exemplo, se um blob for movido para o arquivo e depois for excluído ou movido para a camada frequente após 45 dias, será cobrada um valor pela exclusão antecipada equivalente a 135 dias (180 menos 45) de armazenamento de blob no arquivo.
 
@@ -177,7 +177,7 @@ Cada blob é sempre cobrado de acordo com a camada indicada pelo propriedade de 
 
 **Como determino se vou incorrer um custo de exclusão antecipada ao excluir ou tirar um blob da camada esporádica ou de arquivo?**
 
-Qualquer blob que for excluído ou tirado da camada esporádica (somente para contas de GPv2) ou de arquivo morto antes de 30 e 180 dias respectivamente incorrerá em uma carga de exclusão antecipada proporcional (em vigor a partir de 1º de março de 2018). Você pode determinar quanto tempo um blob está na camada esporádica ou de arquivo verificando a propriedade **Acessar hora de alteração da camada**, a qual fornece um carimbo da última alteração da camada. Consulte a seção [Exclusão antecipada de esporádica e de arquivo](#cool-and-archive-early-deletion) para obter mais detalhes.
+Qualquer blob que for excluído ou tirado da camada esporádica (somente para contas de GPv2) ou de arquivo morto antes de 30 e 180 dias respectivamente incorrerá em uma carga de exclusão antecipada proporcional. Você pode determinar quanto tempo um blob está na camada esporádica ou de arquivo verificando a propriedade **Acessar hora de alteração da camada**, a qual fornece um carimbo da última alteração da camada. Consulte a seção [Exclusão antecipada de esporádica e de arquivo](#cool-and-archive-early-deletion) para obter mais detalhes.
 
 **Quais ferramentas e SDKs do Azure dão suporte a armazenamento de camada no nível do blob e de arquivo?**
 

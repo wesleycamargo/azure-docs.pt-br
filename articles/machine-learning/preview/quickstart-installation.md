@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 2/22/2018
-ms.openlocfilehash: 186a7b5632c1680e80e087e8f855eaacf3448207
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 33ced510dc9579248b75fb21520d55bd747a6a5c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Guia de início rápido: instalar e começar a usar os serviços do Azure Machine Learning
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta. Eles ajudam os cientistas de dados profissionais a preparar dados, desenvolver experimentos e implantar modelos em escala de nuvem.
@@ -29,7 +29,9 @@ Este guia de início rápido mostra como:
 * Acessar a interface de linha de comando (CLI)
 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Como parte do portfólio do Microsoft Azure, os serviços do Azure Machine Learning exigem uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+Além disso, você deve ter as permissões adequadas para criar ativos, como Grupos de Recursos, Máquinas Virtuais etc. 
 
 <a name="prerequisites"></a>É possível instalar o aplicativo do Azure Machine Learning Workbench nos seguintes sistemas operacionais:
 - Windows 10 ou Windows Server 2016
@@ -63,7 +65,7 @@ Use o Portal do Azure para provisionar suas contas do Azure Machine Learning:
    Local padrão | _A região mais próxima de seus usuários_ | Escolha a localização mais próxima a seus usuários e recursos de dados.
    Número de estações | 2 | Insira o número de estações. Saiba como [estações afetam o preço](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Para este guia de início rápido, apenas duas estações são necessárias. Estações podem ser adicionadas ou removidas conforme o necessário no Portal do Azure.
    Conta de armazenamento | _Nome exclusivo_ | Selecione **Criar nova** e forneça um nome para criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). Selecione **Usar existente**e selecione uma conta de armazenamento existente na lista suspensa. A conta de armazenamento é necessária e é usada para conter os artefatos de projeto e dados do histórico de execuções. 
-   Espaço de trabalho para a conta de Experimentação | IrisGarden | Forneça um nome para um espaço de trabalho dessa conta. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). Esse espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar testes.
+   Espaço de trabalho para a conta de Experimentação | IrisGarden<br/>(o nome é usado em tutoriais) | Forneça um nome para um espaço de trabalho dessa conta. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). Esse espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar testes.
    Atribuir um proprietário para o espaço de trabalho | _Sua conta_ | Selecione sua própria conta como o proprietário do espaço de trabalho.
    Criar conta de Gerenciamento de Modelos | **verificar** |Crie uma conta de Gerenciamento de Modelos agora para que esse recurso esteja disponível quando desejar implantar e gerenciar seus modelos como serviços Web em tempo real. <br/><br/>Embora opcional, é recomendável criar a conta de Gerenciamento de Modelos ao mesmo tempo que a conta de Experimentação.
    Nome da conta | _Nome exclusivo_ | Escolha um nome exclusivo que identifique a sua conta de Gerenciamento de Modelos. Você pode usar seu próprio nome ou um nome do projeto ou departamental que melhor identifique o experimento. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). 
@@ -145,7 +147,7 @@ Aqui, estamos criando um novo projeto do Workbench usando um modelo que inclui o
    Diretório do projeto | c:\Temp\ | Especifique o diretório no qual o projeto é criado.
    Descrição do projeto | _deixar em branco_ | Campo opcional útil para descrever os projetos.
    Visualstudio.com |_deixar em branco_ | Campo opcional. Como opção, um projeto pode ser associado a um repositório Git no Visual Studio Team Services para controle do código-fonte e colaboração. [Saiba como configurar](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Espaço de trabalho | IrisGarden (se houver) | Escolha um espaço de trabalho que você criou para sua conta de Experimentação no Portal do Azure. <br/>Se você seguiu o Início Rápido, deve ter um espaço de trabalho com o nome IrisGarden. Caso contrário, selecione aquele criado quando você criou sua conta de Experimentação ou quaisquer outras que deseja usar.
+   Espaço de trabalho | IrisGarden (se houver) | Escolha um espaço de trabalho que você criou para sua conta de Experimentação no portal do Azure. <br/>Se você seguiu o Início Rápido, deve ter um espaço de trabalho com o nome IrisGarden. Caso contrário, selecione aquele criado quando você criou sua conta de Experimentação ou quaisquer outras que deseja usar.
    Modelo do projeto | Classificando a Íris | Os modelos contêm scripts e dados que você pode usar para explorar o produto. Este modelo contém os scripts e os dados necessários para este início rápido e outros tutoriais neste site de documentação. 
 
    ![Novo Projeto](media/tutorial-classifying-iris/new_project.png)

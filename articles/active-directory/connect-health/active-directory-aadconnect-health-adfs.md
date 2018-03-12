@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 834dbbd0be30181de1a71df05d2867be0e1c59b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para saber mais sobre como monitorar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
@@ -86,7 +86,7 @@ Um dos motivos comuns para a falha de uma solicitação de autenticação em um 
 
 Mas há outros motivos que podem resultar em um número inesperado de solicitações manipuladas pelos servidores do AD FS, tais como: um aplicativo que armazena em cache as credenciais de usuário e as credenciais expiram ou um usuário mal-intencionado tenta entrar em uma conta com uma série de senhas conhecidas. Estes dois exemplos são motivos válidos que poderiam levar a um aumento nas solicitações.
 
-O Azure AD Connect Health para ADFS fornece um relatório sobre os 50 principais usuários com falhas em tentativas de logon devido a um nome de usuário ou uma senha inválidos. Esse relatório é obtido com o processamento dos eventos de auditoria gerados por todos os servidores do AD FS nos farms
+O Azure AD Connect Health para ADFS fornece um relatório sobre os 50 principais usuários com falhas em tentativas de logon devido a um nome de usuário ou uma senha inválidos. Esse relatório é obtido com o processamento dos eventos de auditoria gerados por todos os servidores do AD FS nos farms.
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
@@ -95,7 +95,7 @@ Neste relatório, você tem acesso fácil às seguintes informações:
 * Número total de solicitações com falha com nome de usuário/senha incorretos nos últimos 30 dias
 * Número médio de usuários com falha de logon com um nome de usuário/senha inválidos por dia.
 
-Ao clicar nessa opção, você é levado até a folha de relatório principal, que fornece detalhes adicionais. Esta folha inclui um grafo com informações de tendência para ajudar a estabelecer uma linha de base sobre solicitações com nome de usuário ou senha incorretos. Além disso, ele fornece a lista dos 50 principais usuários com o maior número de tentativas com falha.
+Ao clicar nessa opção, você é levado até a folha de relatório principal, que fornece detalhes adicionais. Esta folha inclui um grafo com informações de tendência para ajudar a estabelecer uma linha de base sobre solicitações com nome de usuário ou senha incorretos. Além disso, ele fornece a lista dos 50 principais usuários com o maior número de tentativas com falha durante a semana passada.
 
 O grafo fornece as seguintes informações:
 
@@ -107,7 +107,7 @@ O grafo fornece as seguintes informações:
 
 O relatório fornece as seguintes informações:
 
-| Item do relatório | Descrição |
+| Item do relatório | DESCRIÇÃO |
 | --- | --- |
 | Id de Usuário |Mostra a ID de usuário que foi usada. Esse valor é o que o usuário digitou, que, em alguns casos, é o uso da ID de usuário errada. |
 | Tentativas com falha |Mostra o número total de tentativas com falha para essa ID de usuário específica. A tabela é classificada com o maior número de tentativas com falha em ordem decrescente. |
@@ -115,7 +115,7 @@ O relatório fornece as seguintes informações:
 | IP da última falha |Mostra o endereço IP do cliente da solicitação incorreta mais recente. |
 
 > [!NOTE]
-> Esse relatório é atualizado automaticamente a cada duas horas com as novas informações coletadas no momento. Como resultado, as tentativas de logon nas últimas duas horas podem não ser incluídas no relatório.
+> Esse relatório é atualizado automaticamente a cada 12 horas com as novas informações coletadas no momento. Como resultado, as tentativas de logon nas últimas duas horas podem não ser incluídas no relatório.
 >
 >
 

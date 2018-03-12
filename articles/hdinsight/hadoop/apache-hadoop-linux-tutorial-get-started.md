@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: a96612e09e51db8941a7828f8fe9cb7bbced837d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 11c0a583ab671b27a5c5a65c4bb36032a8582466
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Tutorial do Hadoop: Introdução ao uso do Hadoop no HDInsight
 
-Aprenda a criar clusters [Hadoop](http://hadoop.apache.org/) no HDInsight e a executar trabalhos do Hive no HDInsight. [Apache Hive](https://hive.apache.org/) é o componente mais popular no ecossistema do Hadoop. Atualmente, o HDInsight vem com [sete tipos diferentes de cluster](apache-hadoop-introduction.md#overview). Cada tipo de cluster dá suporte a um conjunto diferente de componentes. Todos os tipos de cluster dão suporte ao Hive. Para obter uma lista de componentes com suporte no HDInsight, confira [Novidades nas versões de cluster Hadoop fornecidas pelo HDInsight?](../hdinsight-component-versioning.md)  
+Aprenda a criar clusters [Hadoop](http://hadoop.apache.org/) no HDInsight e a executar trabalhos do Hive no HDInsight. [Apache Hive](https://hive.apache.org/) é o componente mais popular no ecossistema do Hadoop. Atualmente, o HDInsight vem com [sete tipos diferentes de cluster](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de cluster dá suporte a um conjunto diferente de componentes. Todos os tipos de cluster dão suporte ao Hive. Para obter uma lista de componentes com suporte no HDInsight, confira [Novidades nas versões de cluster Hadoop fornecidas pelo HDInsight?](../hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -45,16 +45,16 @@ O modelo do Resource Manager usado neste tutorial está localizado no [GitHub](h
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Digite ou selecione os valores a seguir:
-   
-    ![Modelo do Gerenciador de Recursos de introdução ao HDInsight para Linux no portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Implantar o cluster Hadoop implantar no HDInsigut usando o portal do Azure e um modelo do gerenciador de grupo de recursos").
-   
+
     * **Assinatura**: selecione sua assinatura do Azure.
     * **Grupo de recursos**: Crie um novo grupo de recursos ou escolha um grupo de recursos existente.  Um grupo de recursos é um contêiner de componentes do Azure.  Nesse caso, o grupo de recursos contém o cluster HDInsight e a conta de Armazenamento do Azure dependente. 
     * **Local**: selecione um local do Azure em que você deseja criar o cluster.  Escolha um local mais próximo a você para obter melhor desempenho. 
     * **Tipo de cluster**: selecione **hadoop** para este tutorial.
     * **Nome do Cluster**: insira um nome para o cluster Hadoop. Como todos os clusters no HDInsight compartilham o mesmo namespace DNS esse nome precisa ser exclusivo. O nome pode ter até 59 caracteres incluindo letras, números e hifens. Observe que o primeiro e último caracteres do nome não podem ser hifens.
-    * **Nome e senha de logon do cluster**: o nome de logon padrão é **admin**.
-    * **Nome de usuário e senha SSH**: o nome de usuário padrão é **sshuser**.  Você pode renomeá-lo. 
+    * **Nome e senha de logon do cluster**: o nome de logon padrão é **admin**. A senha deve ter no mínimo 10 caracteres e deve conter pelo menos um dígito, uma letra maiúscula, uma minúscula e um caractere não alfanumérico (exceto os caracteres ' " ` \). 
+    * **Nome de usuário e senha SSH**: o nome de usuário padrão é **sshuser**.  Você pode renomear o nome de usuário SSH.  A senha de usuário SSH tem os mesmos requisitos que a senha de logon do cluster.   
+   
+    ![Modelo do Gerenciador de Recursos de introdução ao HDInsight para Linux no portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Implantar o cluster Hadoop implantar no HDInsigut usando o portal do Azure e um modelo do gerenciador de grupo de recursos").
      
     Algumas propriedades foram inseridas no código do modelo.  Você pode configurar esses valores do modelo.
     
@@ -124,9 +124,11 @@ Após concluir o tutorial, convém excluir o cluster. Com o HDInsight, seus dado
 
 **Para excluir o cluster e/ou a conta de armazenamento padrão**
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No painel do portal, clique no bloco com o nome do grupo de recursos usado ao criar o cluster.
-3. Clique em **Excluir grupo de recursos** para excluir o grupo de recursos que contém o cluster e a conta de armazenamento padrão ou clique no nome do cluster no bloco **Recursos** e clique em **Excluir**. Observe que a exclusão do grupo de recursos exclui a conta de armazenamento. Para manter a conta de armazenamento, exclua apenas o cluster.
+1. Volte para a guia do navegador onde você tem o portal do Azure. Você deve estar na página de visão geral do cluster. Você pode clicar em **Excluir** se quiser apenas excluir o cluster, mas manter a conta de armazenamento padrão:
+
+    ![Excluir o cluster HDInsight](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "Excluir o cluster HDInsight")
+1. À direita, clique no nome do grupo de recursos (Realçado na captura de tela anterior) para abrir a página do grupo de recursos.
+2. Clique em **Excluir grupo de recursos** para excluir o grupo de recursos que contém o cluster e a conta de armazenamento padrão ou clique no nome do cluster no bloco **Recursos** e clique em **Excluir**. Observe que a exclusão do grupo de recursos exclui a conta de armazenamento. Para manter a conta de armazenamento, exclua apenas o cluster.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 

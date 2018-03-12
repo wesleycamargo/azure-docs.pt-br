@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: 7e5e33ee2a7b53f3ffbd27992f6b604358db49bb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7eeb3b01ddaea56b1e11fc37bbeba7d3f328772d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando a CLI do Azure 
 Neste tutorial, você usará a CLI (interface de linha de comando) do Azure e outros utilitários para aprender a:
@@ -50,6 +50,25 @@ Adicione a extensão de gerenciamento atualizada do Banco de Dados do Azure para
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+Verifique se que você tem a versão de extensão correta instalada. 
+```azurecli-interactive
+az extension list
+```
+
+O retorno JSON deve incluir o seguinte: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+Se a versão 0.0.3 não for retornada, execute as etapas a seguir para atualizar a extensão: 
+```azurecli-interactive
+az extension update --name rdbms
+```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um Banco de Dados do Azure para o servidor PostgreSQL
 Crie um [Banco de Dados do Azure para PostgreSQL](overview.md) usando o comando [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Um servidor contém um grupo de bancos de dados gerenciados conjuntamente. 

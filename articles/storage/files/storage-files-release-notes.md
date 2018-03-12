@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9b6dfec6465482efcbf55d0441e44a0278f44a22
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5f57edb33770acd7a97287d5cfd650b7fe8366f4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-file-sync-agent-release-notes"></a>Notas de versão do agente da Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -30,11 +30,25 @@ As seguintes versões têm o suporte da Sincronização de Arquivos do Azure:
 
 | Número de versão do agente | Data do lançamento | Com suporte até |
 |----------------------|--------------|------------------|
+| 2.1.0.0 | 2018-02-28 | Versão atual |
 | 2.0.11.0 | 2018-02-08 | Versão atual |
 | 1.1.0.0 | 2017-09-26 | 2018-07-30 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2100"></a>Versão 2.1.0.0 do agente
+As notas de versão a seguir são para a versão 2.1.0 do agente, que foi lançada em 28 de fevereiro de 2018. Essas são adições feitas às notas de versão abaixo para a versão 2.0.11.0
+
+Entre as alterações exclusivas para essa atualização mensal estão:
+- Melhoria no tratamento de failover de cluster.
+- Melhoria no tratamento de arquivos em camadas para ser mais confiável.
+- Permissão da instalação do agente em computadores do controlador de domínio adicionados a um ambiente de domínio 2008R2.
+- Correção da geração excessiva de diagnósticos em servidores com vários arquivos.
+- Melhoria no tratamento de erros de falhas de sessão.
+- Melhoria no tratamento de erros para problemas de transferência de arquivo.
+- Alteração do intervalo padrão para executar a disposição em camadas de nuvem quando habilitada no servidor de ponto de extremidade para uma hora. 
+- Bloqueio temporário movendo recursos de Sincronização de arquivos do Azure (Serviço de sincronização de armazenamento) para uma nova assinatura do Azure
 
 ## <a name="agent-version-20110"></a>Versão 2.0.11.0 do agente
 As notas de versão a seguir são para a versão 2.0.11.0 do agente que foi lançado em 9 de fevereiro de 2018. 

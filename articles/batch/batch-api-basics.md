@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/16/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -171,13 +171,9 @@ Para informações sobre preços de ambos os nós de computação de baixa prior
 
 ### <a name="size-of-the-compute-nodes"></a>Tamanho dos nós de computação
 
-**Configuração dos Serviços de Nuvem** são listados em [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). O Lote dá suporte a todos os tamanhos de Serviços de Nuvem, exceto `ExtraSmall`, `STANDARD_A1_V2` e `STANDARD_A2_V2`.
+Ao criar um pool de Lote do Azure, você pode escolher dentre quase todas as famílias de VMs e os tamanhos disponíveis no Azure. O Azure oferece uma variedade de tamanhos de VMs para diferentes cargas de trabalho, incluindo tamanhos de VMs [HPC](../virtual-machines/linux/sizes-hpc.md) ou [habilitado para GPU](../virtual-machines/linux/sizes-gpu.md) especializados. 
 
-Os tamanhos de nós de computação da **Configuração de Máquina Virtual** são listados em [Tamanhos de máquinas virtuais no Azure](../virtual-machines/linux/sizes.md) (Linux) e [Tamanhos de máquinas virtuais no Azure](../virtual-machines/windows/sizes.md) (Windows). O Lote dá suporte a todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e aqueles com armazenamento premium (série `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).
-
-Ao selecionar um tamanho de nó de computação, considere as características e os requisitos dos aplicativos que você vai executar nos nós. Os aspectos como se o aplicativo tem multithread e quanta memória ele consome podem ajudar a determinar o tamanho do nó mais adequado e econômico. Geralmente, você seleciona um tamanho de nó supondo que uma tarefa seja executada no nó por vez. No entanto, é possível ter várias tarefas (e, portanto, várias instâncias do aplicativo) [executadas em paralelo](batch-parallel-node-tasks.md) em nós de computação durante a execução do trabalho. Nesse caso, é comum escolher um tamanho maior de nó para acomodar a demanda crescente de execução de tarefas paralelas. Confira [Política de agendamento](#task-scheduling-policy) de tarefas para obter mais informações.
-
-Todos os nós em um pool têm o mesmo tamanho. Se você pretende executar aplicativos com diferentes requisitos de sistema e/ou níveis de carga, é recomendável usar pools separados.
+Para obter mais informações, confira [Escolha um tamanho de VM para nós de computação em um pool do Lote do Azure](batch-pool-vm-sizes.md).
 
 ### <a name="scaling-policy"></a>Política de dimensionamento
 

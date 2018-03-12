@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 50bb3f8ca1032e704b9805beb54fbd4ea4f8e7c1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: feb99ae5bae16125d65a6c6e5776e6f3f286f0e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Início Rápido: criar um Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como criar um Banco de Dados do Azure para o servidor PostgreSQL em um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando a CLI do Azure.
@@ -43,15 +43,35 @@ Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-ov
 az group create --name myresourcegroup --location westus
 ```
 ## <a name="add-the-extension"></a>Adicionar a extensão
-Adicione o Banco de Dados do Azure atualizado para a extensão de gerenciamento do PostgreSQL usando o seguinte comando:
+Adicione a extensão de gerenciamento atualizada do Banco de Dados do Azure para PostgreSQL usando o seguinte comando:
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+Verifique se que você tem a versão de extensão correta instalada. 
+```azurecli-interactive
+az extension list
+```
+
+O retorno JSON deve incluir o seguinte: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+Se a versão 0.0.3 não for retornada, execute as etapas a seguir para atualizar a extensão: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um Banco de Dados do Azure para o servidor PostgreSQL
 
 Crie um [Banco de Dados do Azure para PostgreSQL](overview.md) usando o comando [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Um servidor contém um grupo de bancos de dados gerenciados conjuntamente. 
 
-O exemplo a seguir cria um servidor no Oeste dos EUA chamado `mydemoserver` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `myadmin`. Este é um servidor **Gen 4** de **Uso geral** com 2 **núcleos virtuais**. O nome de um servidor é mapeado para o nome DNS e, portanto, deve ser globalmente exclusivo no Azure. Substitua o `<server_admin_password>` com seu próprio valor.
+O exemplo a seguir cria um servidor no Oeste dos EUA chamado `mydemoserver` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `myadmin`. Este é um servidor **Gen 4** de **Uso geral** com 2 **vCores**. O nome de um servidor é mapeado para o nome DNS e, portanto, deve ser globalmente exclusivo no Azure. Substitua o `<server_admin_password>` com seu próprio valor.
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
@@ -120,7 +140,7 @@ Se o computador cliente tiver o PostgreSQL instalado, você poderá usar uma ins
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  Por exemplo, o comando a seguir se conecta ao banco de dados padrão chamado **postgres** em seu servidor PostgreSQL **mydemoserver.postgres.database.azure.com** usando as credenciais de acesso. Insira o `<server_admin_password>` que você escolheu quando uma senha foi solicitada a você.
+  Por exemplo, o comando a seguir se conecta ao banco de dados padrão chamado **postgres** no seu servidor PostgreSQL **mydemoserver.postgres.database.azure.com** usando as credenciais de acesso. Insira o `<server_admin_password>` que você escolheu quando uma senha foi solicitada a você.
   
   ```azurecli-interactive
 psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres

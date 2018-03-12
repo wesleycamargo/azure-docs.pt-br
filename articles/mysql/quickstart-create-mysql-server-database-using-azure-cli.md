@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: a2efce07dac65eb8af59e6bc1bd5a51bfc62d69e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2cd867f09550f922479955b885f10ff329715c1c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure
 Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure em aproximadamente cinco minutos. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
@@ -45,6 +45,25 @@ Adicione a extensão de gerenciamento atualizada do Banco de Dados do Azure para
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+Verifique se que você tem a versão de extensão correta instalada. 
+```azurecli-interactive
+az extension list
+```
+
+O retorno JSON deve incluir o seguinte: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+Se a versão 0.0.3 não for retornada, execute as etapas a seguir para atualizar a extensão: 
+```azurecli-interactive
+az extension update --name rdbms
+```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar um Banco de Dados do Azure para o servidor MySQL
 Crie um servidor de Banco de Dados do Azure para MySQL com o comando **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)**. Um servidor pode gerenciar vários bancos de dados. Normalmente, um banco de dados separado é usado para cada projeto ou para cada usuário.
@@ -201,7 +220,7 @@ Se não precisar desses recursos para outro início rápido/tutorial, você pode
 az group delete --name myresourcegroup
 ```
 
-Se você quiser simplesmente excluir o servidor recém-criado, poderá executar o comando [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete).
+Se você quiser simplesmente excluir o servidor recém-criado, poderá executar o comando **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)**.
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
