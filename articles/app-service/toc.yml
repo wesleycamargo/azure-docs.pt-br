@@ -97,7 +97,7 @@
       items:
         - name: Implantar o aplicativo
           items:
-            - name: Implantar arquivo ZIP
+            - name: Implantar ZIP ou WAR
               href: app-service-deploy-zip.md
             - name: Implantar por FTP
               href: app-service-deploy-ftp.md

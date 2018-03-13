@@ -3,7 +3,7 @@ documentType: LandingData
 title: "Documentação do gerenciamento de custo do Azure"
 metadata:
   title: "Documentação do Gerenciamento de Custos - Tutoriais, Referência de API | Microsoft Docs"
-  description: "O Gerenciamento de Custos do Azure por Cloudyn é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido."
+  description: "O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido."
   services: cost-management
   author: czeumault
   manager: carolz
@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
-  ms.openlocfilehash: d277487ff94578643fd455e460e49299938590d7
-  ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
+  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/07/2017
+  ms.lasthandoff: 03/09/2018
 abstract:
-  description: "O Gerenciamento de Custos do Azure por Cloudyn é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar e gerenciar, da melhor forma, o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido."
+  description: "O Gerenciamento de Custos do Azure licenciado pelo Cloudyn, uma subsidiária da Microsoft, é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar e gerenciar, da melhor forma, o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido."
 sections:
 - title: "Guia de início rápido de 5 minutos"
   items:
@@ -32,7 +32,7 @@ sections:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Exibir Dados de Custo
       href: quick-register-azure-sub
-- title: Tutoriais passo a passo
+- title: Tutoriais Passo a Passo
   items:
   - type: paragraph
     text: "Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com o Gerenciamento de Custos."
