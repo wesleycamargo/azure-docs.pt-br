@@ -35,6 +35,7 @@
 ### Configurar a Área de Trabalho Remota
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Implantar
 ### [Criar e implantar um serviço de nuvem no portal](cloud-services-how-to-create-deploy-portal.md)
