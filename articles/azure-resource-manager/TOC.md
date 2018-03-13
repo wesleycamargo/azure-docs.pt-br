@@ -44,7 +44,7 @@
 ## Gerenciar
 ### [PowerShell do Azure](powershell-azure-resource-manager.md)
 ### [CLI do Azure](xplat-cli-azure-resource-manager.md)
-### [portal do Azure](resource-group-portal.md)
+### [Portal do Azure](resource-group-portal.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
 ### [Criar grupos de gerenciamento](management-groups-create.md)
@@ -55,7 +55,7 @@
 ### Criar uma entidade de serviço
 #### [PowerShell do Azure](resource-group-authenticate-service-principal.md)
 #### [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [portal do Azure](resource-group-create-service-principal-portal.md)
+#### [Portal do Azure](resource-group-create-service-principal-portal.md)
 ### [API de autenticação para assinaturas de acesso](resource-manager-api-authentication.md)
 ### [Bloquear recursos](resource-group-lock-resources.md)
 
@@ -64,21 +64,20 @@
 ### [Exibir operações de implantação](resource-manager-deployment-operations.md)
 
 ## Solucionar problemas
-### [Erros de implantação comuns](resource-manager-common-deployment-errors.md)
-#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
-#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
-#### [Problemas de implantação do Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
-#### [NotFound](resource-manager-not-found-errors.md)
-#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
-#### [Problemas de provisionamento e alocação do Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-#### [Problemas de provisionamento e alocação do Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
-#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
-#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
-#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-#### [Problemas de implantação do Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-### [Compreenda os erros de implantação](resource-manager-troubleshoot-tips.md)
+### [Solucionar problemas de erros de implantação](resource-manager-common-deployment-errors.md)
+### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+### [Problemas de implantação do Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+### [NotFound](resource-manager-not-found-errors.md)
+### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+### [Problemas de provisionamento e alocação do Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+### [Problemas de provisionamento e alocação do Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### [ReservedResourceName](resource-manager-reserved-resource-name.md)
+### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
+### [Problemas de implantação do Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Referência
 ## [Formato do modelo](/azure/templates/)
