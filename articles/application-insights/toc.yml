@@ -121,6 +121,10 @@
               href: app-insights-configuration-with-applicationinsights-config.md
             - name: Depurador de instantâneo
               href: app-insights-snapshot-debugger.md
+        - name: ASP.NET Core
+          items:
+            - name: Criador de perfil para serviços de Aplicativos Linux
+              href: app-insights-profiler-aspnetcore-linux.md
         - name: J2EE
           items:
             - name: Rastreamentos de log

@@ -76,7 +76,7 @@
 
 ## [Gerenciar grupos e membros](active-directory-manage-groups.md)
 ### Gerenciar grupos
-#### [portal do Azure](active-directory-groups-create-azure-portal.md)
+#### [Portal do Azure](active-directory-groups-create-azure-portal.md)
 #### [PowerShell do Azure](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Gerenciar membros do grupo](active-directory-groups-members-azure-portal.md)
 ### [Gerenciar proprietários do grupo](active-directory-accessmanagement-managing-group-owners.md)
@@ -146,7 +146,7 @@
 ### [Requisitos de dados de SSPR](active-directory-passwords-data.md)
 ### [Relatórios de SSPR](active-directory-passwords-reporting.md)
 ### Administradores de TI: redefinir senhas
-#### [portal do Azure](active-directory-users-reset-password-azure-portal.md)
+#### [Portal do Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Licença SSPR](active-directory-passwords-licensing.md)
 ### [Write-back de senha](active-directory-passwords-writeback.md)
 ### [Solucionar problemas](active-directory-passwords-troubleshoot.md)
@@ -290,9 +290,10 @@
 ### [Funções de administrador](active-directory-assign-admin-roles-azure-portal.md)
 #### [Atribuir função de administrador a um usuário](active-directory-users-assign-role-azure-portal.md)
 #### [Comparar permissões de usuários membro e convidado](users-default-permissions.md)
+### [Protegendo o acesso privilegiado](admin-roles-best-practices.md) 
+### [Criar contas administrativas de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configurar tempo de vida de tokens](active-directory-configurable-token-lifetimes.md)
-### [Gerenciar contas administrativas de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Análises de acesso
 ### [Visão geral de revisões de acesso](active-directory-azure-ad-controls-access-reviews-overview.md)
