@@ -87,6 +87,8 @@
       items:
         - name: Acesso ao nó de SSH
           href: aks-ssh.md
+        - name: Obter logs de kubelet
+          href: kubelet-logs.md
 - name: Referência
   items:
     - name: CLI do Azure
