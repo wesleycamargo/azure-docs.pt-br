@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Transformação Combinar colunas por exemplo
 Essa transformação permite que o usuário adicione uma nova coluna combinando valores de várias colunas. O usuário pode especificar um separador ou fornecer exemplos de valores combinados para realizar essa transformação. Quando o usuário fornece exemplos de combinação, a transformação é tratada pelo mesmo mecanismo **Por exemplo** usado na transformação **Derivar coluna por exemplo**.

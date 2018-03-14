@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5c59300cd5dc8dcb67ba3b2e035bb7a3b9dce216
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Como executar uma transmissão ao vivo com codificadores locais usando .NET
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 Este tutorial descreve as etapas de uso do SDK do .NET dos Serviços de Mídia do Azure para criar um **Canal** configurado para uma entrega de passagem. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Os itens a seguir são necessários para concluir o tutorial:
 
 * Uma conta do Azure.
@@ -69,7 +69,7 @@ O exemplo de código a seguir demonstra como concretar as seguintes tarefas:
 
 Para obter informações sobre como configurar um codificador ativo, consulte [Suporte a RTMP dos Serviços de Mídia do Azure e codificadores ativos](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

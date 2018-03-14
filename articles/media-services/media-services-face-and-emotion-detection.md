@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detectar a face e a emoção com o Azure Media Analytics
 ## <a name="overview"></a>Visão geral
@@ -64,21 +64,24 @@ O Face Detector usa técnicas de fragmentação (em que os metadados podem ser d
 ### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especificar uma predefinição de configuração. A predefinição de configuração a seguir serve apenas para detecção de face.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Descrições de atributos
-| Nome do atributo | Descrição |
+| Nome do atributo | DESCRIÇÃO |
 | --- | --- |
 | Mode |Mais rápido: maior velocidade de processamento, mas menos precisão (padrão).|
 
 ### <a name="json-output"></a>Saída em JSON
 O exemplo de saída JSON a seguir foi truncado.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ O exemplo de saída JSON a seguir foi truncado.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Exemplo de entrada e saída da detecção de emoção
 ### <a name="input-video"></a>Vídeo de entrada
@@ -133,6 +136,7 @@ O exemplo de saída JSON a seguir foi truncado.
 ### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especificar uma predefinição de configuração. A configuração de predefinição a seguir especifica a criação do JSON com base na detecção de emoção.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,12 +145,13 @@ Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especifi
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Descrições de atributos
-| Nome do atributo | Descrição |
+| Nome do atributo | DESCRIÇÃO |
 | --- | --- |
-| Modo |Faces: somente detecção facial.<br/>PerFaceEmotion: retornar emoção independentemente de cada detecção facial.<br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro. |
+| Mode |Faces: somente detecção facial.<br/>PerFaceEmotion: retornar emoção independentemente de cada detecção facial.<br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro. |
 | AggregateEmotionWindowMs |Use se o modo AggregateEmotion for selecionado. Especifica a duração do vídeo usado para produzir cada resultado da agregação, em milissegundos. |
 | AggregateEmotionIntervalMs |Use se o modo AggregateEmotion for selecionado. Especifica com que frequência deve-se produzir resultados agregados. |
 
@@ -161,6 +166,7 @@ Abaixo, temos os valores recomendados para as configurações de janela e interv
 ### <a name="json-output"></a>Saída em JSON
 Saída em JSON para agregação de emoção (truncada):
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ Saída em JSON para agregação de emoção (truncada):
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>Limitações
 * Os formatos de vídeo de entrada com suporte incluem MP4, MOV e WMV.
@@ -324,10 +331,12 @@ O programa a seguir mostra como:
 
 1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
 2. Crie um trabalho com uma tarefa de detecção facial baseada em um arquivo de configuração que contém a predefinição de json a seguir: 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. Baixe os arquivos JSON de saída. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
@@ -336,7 +345,7 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

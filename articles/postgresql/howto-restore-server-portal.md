@@ -1,55 +1,77 @@
 ---
-title: Como restaurar um servidor no Banco de Dados do Azure para PostgreSQL | Microsoft Docs
+title: Como restaurar um servidor no Banco de Dados do Azure para PostgreSQL
 description: Este artigo descreve como restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 903fd2ff446e1963ab5cfcec745766188b74efcf
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 7607a3e60eec39de61c785b8ff75a9f11fa02d0c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o portal do Azure
 
 ## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
-Ao usar o Banco de Dados do Azure para PostgreSQL, o serviço de banco de dados faz automaticamente um backup do serviço a cada 5 minutos. 
+O backup do Banco de Dados do Azure para servidores PostgreSQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
-Os backups ficam disponíveis por sete dias ao usar a camada Basic e 35 dias ao usar a camada Standard. Para saber mais, confira [Camadas do Banco de Dados do Azure para PostgreSQL](concepts-service-tiers.md)
+## <a name="set-backup-configuration"></a>Definir configuração de backup
 
-Com esse recurso de backup automático você pode restaurar o servidor e todos os seus bancos de dados em um novo servidor em um ponto anterior no tempo.
+Escolha entre configurar o servidor para backups com redundância local ou backups com redundância geográfica na criação do servidor, na janela **Tipo de Preço**.
 
-## <a name="restore-in-the-azure-portal"></a>Restaurar no Portal do Azure
-O Banco de Dados do Azure para PostgreSQL permite a restauração do servidor em um ponto anterior no tempo e em uma nova cópia do servidor. Use esse novo servidor para recuperar os dados. 
+> [!NOTE]
+> Depois que um servidor é criado, o tipo de redundância que ele tem, geográfica ou local, não pode ser alternado.
+>
 
-Por exemplo, se uma tabela for acidentalmente descartada ao meio-dia de hoje, você poderá restaurar em um momento logo antes do meio-dia e recuperar a tabela e os dados dessa nova cópia do servidor.
+Ao criar um servidor por meio do portal do Azure, a janela **Tipo de Preço** é onde você seleciona backups **Com Redundância Local** ou **Com Redundância Geográfica** para o servidor. Essa janela também é onde você seleciona o **Período de Retenção de Backup**: quanto tempo (em número de dias) você deseja que os backups de servidor sejam armazenados.
 
-As etapas a seguir restauram o exemplo de servidor para um ponto no tempo:
-1. Entre no [Portal do Azure](https://portal.azure.com/)
-2. Localize seu servidor de Banco de Dados do Azure para PostgreSQL. No Portal do Azure, clique em **Todos os Recursos** no menu esquerdo e digite o nome do servidor, como **mypgserver-20170401**, para pesquise o servidor existente. Clique no nome do servidor listado nos resultados da pesquisa. A página **Visão geral** do servidor é aberta e oferece outras opções de configuração.
+   ![Tipo de preço - Escolher redundância de backup](./media/howto-restore-server-portal/pricing-tier.png)
 
-   ![Portal do Azure - Pesquisar para localizar o servidor](media/postgresql-howto-restore-server-portal/1-locate.png)
+Para saber mais sobre como definir esses valores de durante a criação, confira o [guia de início rápido do Banco de Dados do Azure para servidor PostgreSQL](quickstart-create-server-database-portal.md).
 
-3. Na barra de ferramentas da página de visão geral do servidor, clique em **Restaurar**. A página Restaurar é aberta.
+O período de retenção de backup de um servidor pode ser alterado por meio das seguintes etapas:
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+2. Selecione seu servidor de Banco de Dados do Azure para PostgreSQL. Essa ação abre a página **Visão geral** do runbook.
+3. Selecione **Tipo de Preço** no menu, em **CONFIGURAÇÕES**. Usando o controle deslizante, você pode alterar o **Período de Retenção de Backup** entre 7 e 35 dias, conforme a sua preferência.
+Na captura de tela abaixo, ele foi aumentado para 34 dias.
+![Período de retenção de backup aumentado](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
-   ![Banco de Dados do Azure para PostgreSQL - Visão geral - botão Restaurar](./media/postgresql-howto-restore-server-portal/2_server.png)
+4. Clique em **OK** para confirmar a alteração.
 
-4. Preencha o formulário Restaurar com as informações necessárias:
+O período de retenção de backup determina até quando a restauração de pontos anteriores pode ser feita, já que ele se baseia em backups disponíveis. A Restauração pontual é descrita mais detalhadamente na seção a seguir. 
 
-   ![Banco de Dados do Azure para PostgreSQL - Informações de restauração ](./media/postgresql-howto-restore-server-portal/3_restore.png)
-  - **Ponto de restauração**: selecione um ponto no tempo anterior à alteração do servidor.
-  - **Servidor de destino**: forneça um novo nome do servidor no qual você deseja restaurar.
+## <a name="point-in-time-restore-in-the-azure-portal"></a>Restauração pontual no portal do Azure
+O Banco de Dados do Azure para PostgreSQL permite a restauração do servidor em um ponto anterior no tempo e em uma nova cópia do servidor. Você pode usar esse novo servidor para recuperar seus dados ou fazer seu aplicativo cliente apontar para esse novo servidor.
+
+Por exemplo, se uma tabela for acidentalmente descartada ao meio-dia de hoje, você poderá restaurar em um momento logo antes do meio-dia e recuperar a tabela e os dados dessa nova cópia do servidor. A restauração pontual está no nível do servidor, não no nível do banco de dados.
+
+As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
+1. No Portal do Azure, selecione o servidor do Banco de Dados do Azure para PostgreSQL. 
+
+2. Na barra de ferramentas da página **Visão geral** do servidor, selecione **Restaurar**.
+
+   ![Banco de Dados do Azure para PostgreSQL - Visão geral - botão Restaurar](./media/howto-restore-server-portal/2-server.png)
+
+3. Preencha o formulário Restaurar com as informações necessárias:
+
+   ![Banco de Dados do Azure para PostgreSQL - Informações de restauração ](./media/howto-restore-server-portal/3-restore.png)
+  - **Ponto de restauração**: selecione o ponto para o qual você deseja restaurar.
+  - **Servidor de destino**: forneça um nome para o novo servidor.
   - **Local**: não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
-  - **Tipo de preço**: não é possível alterar esse valor ao restaurar um servidor. Ele é igual ao servidor de origem. 
+  - **Tipo de preço**: você não pode alterar esses parâmetros ao fazer uma restauração pontual. Ele é igual ao servidor de origem. 
 
-5. Clique em **OK** para restaurar o servidor em um ponto no tempo. 
+4. Clique em **OK** para restaurar o servidor em um ponto anterior. 
 
-6. Após a conclusão da restauração, localize o novo servidor criado para verificar se os dados foram restaurados conforme o esperado.
+5. Após a conclusão da restauração, localize o novo servidor criado para verificar se os dados foram restaurados conforme o esperado.
+
+>[!Note]
+>O novo servidor criado pela restauração pontual tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no ponto escolhido. Você pode alterar a senha na página **Visão geral** do novo servidor.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL](concepts-connection-libraries.md)
+- Saiba mais sobre os [backups](concepts-backup.md) do serviço.
+- Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md).

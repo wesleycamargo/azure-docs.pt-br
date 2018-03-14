@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 975f572d9bd0f32825e6a618cd31bbc263885030
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento 
 Grupos de gerenciamento são contêineres que o ajudarão a gerenciar o acesso, a política e a conformidade entre várias assinaturas. Você pode alterar, excluir e gerenciar esses contêineres para ter hierarquias que podem ser usadas com o [Azure Policy](../azure-policy/azure-policy-introduction.md) e os [Controles de Acesso Baseados em Função (RBAC) do Azure](../active-directory/role-based-access-control-what-is.md). Para saber mais sobre grupos de gerenciamento, consulte [Organizar seus recursos com grupos de gerenciamento do Azure](management-groups-overview.md).
@@ -171,7 +171,7 @@ Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em s
 Para mover uma assinatura no PowerShell, use o comando Add-AzureRmManagementGroupSubscription.  
 
 ```azurepowershell-interactive
-Add-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 12345678-1234-1234-1234-123456789012
+New-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 12345678-1234-1234-1234-123456789012
 ```
 
 Para remover o vínculo entre a assinatura e o grupo de gerenciamento, use o comando Remove-AzureRmManagementGroupSubscription.

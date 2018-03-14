@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexando arquivos de mídia com a Preview do Azure Media Indexer 2
 ## <a name="overview"></a>Visão geral
@@ -56,6 +56,7 @@ Ao criar uma tarefa de indexação com a **Preview do Azure Media Indexer 2**, �
 
 O JSON a seguir define os parâmetros disponíveis.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ O JSON a seguir define os parâmetros disponíveis.
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>Idiomas com suporte
 A Preview do Azure Media Indexer 2 dá suporte à conversão de fala em texto para os seguintes idiomas (ao especificar o nome do idioma na configuração de tarefa, use o código de 4 caracteres entre colchetes, como mostrado abaixo):
@@ -96,20 +98,23 @@ O programa a seguir mostra como:
 
 1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
 2. Crie um trabalho com uma tarefa de indexação baseada em um arquivo de configuração que contenha a predefinição de JSON a seguir:
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. Baixe os arquivos de saída. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
@@ -118,7 +123,7 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

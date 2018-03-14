@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
 ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Editor OPC para Azure IoT Edge
 
@@ -44,7 +44,7 @@ Esse aplicativo usa a pilha de referência de UA OPC da OPC Foundation e, portan
 
 Você pode encontrar o código-fonte do editor OPC no repositório GitHub [Editor OPC para Azure IoT Edge](https://github.com/Azure/iot-edge-opc-publisher).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para criar o aplicativo, você precisa ter o [SDK do .NET Core 1.1.](https://docs.microsoft.com/dotnet/core/sdk) para o seu sistema operacional.
 
@@ -382,7 +382,7 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>Usando montagens associadas (sistema de arquivos compartilhado)
 
-Em alguns cenários, você deseja ler informações de configuração em locais no host, ou gravar arquivos de log neles, em vez de usar o sistema de arquivos do contêiner. Para configurar esse comportamento, use a opção `-v` de `docker run` no modo de montagem associada. Por exemplo:
+Em alguns cenários, você deseja ler informações de configuração em locais no host, ou gravar arquivos de log neles, em vez de usar o sistema de arquivos do contêiner. Para configurar esse comportamento, use a opção `-v` de `docker run` no modo de montagem associada. Por exemplo: 
 
 ```cmd/sh
 -v //D/docker:/build/out/Logs

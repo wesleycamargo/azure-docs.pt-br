@@ -4,18 +4,18 @@ description: "Referência da API de coleta de dados de modelo do Azure Machine L
 services: machine-learning
 author: aashishb
 ms.author: aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de5e8bc8880fea5e7f57c88590e32a9fbb60ac6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Referência da API de coleta de dados de modelo do Azure Machine Learning
 
@@ -53,14 +53,14 @@ dc = ModelDataCollector(model_name, identifier='default', feature_names=None, mo
 Consulte os detalhes da classe e dos parâmetros:
 
 ### <a name="class"></a>Classe
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 |--------------------|--------------------|
 | ModelDataCollector | Uma classe no namespace azureml.datacollector. Uma instância desta classe será usada para coletar dados de modelo. Um único arquivo de pontuação pode conter vários ModelDataCollectors. Cada instância deve ser usada para coletar dados em um local distinto no arquivo de pontuação para que o esquema de dados coletados permaneça consistente (ou seja, entradas e previsão)|
 
 
 ### <a name="parameters"></a>parâmetros
 
-| Nome | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 |-------------|------------|-------------------------|
 | model_name | string | o nome do modelo do qual os dados estão sendo coletados |
 | identificador | string | o local no código que identifica esses dados, ou seja 'RawInput' ou 'Prediction' |
@@ -83,14 +83,14 @@ Você pode coletar os dados de modelo usando uma instância do ModelDataCollecto
 Consulte os detalhes do método e dos parâmetros:
 
 ### <a name="method"></a>Método
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 |--------------------|--------------------|
 | collect | Usado para coletar os dados para uma entrada ou previsão de modelo|
 
 
 ### <a name="parameters"></a>parâmetros
 
-| Nome | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 |-------------|------------|-------------------------|
 | input_data | vários tipos | os dados a serem coletados (atualmente aceita a lista de tipos, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame). Para os tipos dataframe, se houver um cabeçalho com nomes de recurso, essas informações estarão incluídas no destino dos dados (sem a necessidade de passar explicitamente os nomes de recurso no construtor ModelDataCollector) |
 | user_correlation_id | string | uma ID de correlação opcional, que pode ser fornecida pelo usuário para correlacionar essa previsão |
