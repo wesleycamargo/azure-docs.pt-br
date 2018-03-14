@@ -4,7 +4,7 @@ description: "Aprenda o que é um adaptador de rede e como criar, alterar suas c
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou excluir um adaptador de rede
 
@@ -30,12 +30,12 @@ Se você precisar adicionar, alterar ou remover endereços IP de um adaptador de
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Conclua as seguintes tarefas antes de concluir quaisquer etapas em qualquer seção deste artigo:
+Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção deste artigo:
 
-- Leia o artigo [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para saber mais sobre os limites para adaptadores de rede.
-- Faça logon no [Portal](https://portal.azure.com) do Azure, na CLI (interface de linha de comando) do Azure ou no Azure PowerShell com uma conta do Azure. Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se usar comandos do PowerShell para concluir as tarefas neste artigo, [instale e configure o Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Verifique se você tem a versão mais recente dos commandlets do Azure PowerShell instalada. Para obter ajuda com os comandos do PowerShell, com exemplos, digite `get-help <command> -full`.
-- Se você for usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, [instale e configure a CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Verifique se você tem a versão mais recente da CLI do Azure instalada. Para obter ajuda sobre os comandos da CLI, digite `az <command> --help`. Em vez de instalar a CLI e seus pré-requisitos, use o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que podem ser executado diretamente no portal do Azure. Ele tem a CLI do Azure instalada e configurada para usar com sua conta. Para usar o Cloud Shell, clique no botão **>_** do Cloud Shell na parte superior do [Portal](https://portal.azure.com).
+- Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
+- Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
+- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo do Azure PowerShell versão 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.26 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 ## <a name="create-a-network-interface"></a>Criar um adaptador de rede
 
@@ -163,7 +163,7 @@ Você pode alterar a sub-rede, mas não a rede virtual, à qual o adaptador de r
 
 ## <a name="delete-a-network-interface"></a>Excluir um adaptador de rede
 
-Você pode excluir um adaptador de rede desde que ele não esteja conectado a uma máquina virtual. Se ele estiver conectado a uma máquina virtual, primeiro você deve colocar a máquina virtual no estado parado (desalocado) e desconectar o adaptador de rede da máquina virtual, antes de poder exclui-lo. Para desanexar um adaptador de rede de uma máquina virtual, conclua as etapas na seção [Desanexar um adaptador de rede de uma máquina virtual](virtual-network-network-interface-vm.md#vm-remove-nic) do artigo [Adicionar ou remover adaptadores de rede](virtual-network-network-interface-vm.md). A exclusão da máquina virtual desconecta todos os adaptadores de rede conectados a ela, mas não exclui os adaptadores de rede.
+Você pode excluir um adaptador de rede desde que ele não esteja conectado a uma máquina virtual. Se ele estiver conectado a uma máquina virtual, primeiro você deve colocar a máquina virtual no estado parado (desalocado) e desconectar o adaptador de rede da máquina virtual, antes de poder exclui-lo. Para desanexar um adaptador de rede de uma máquina virtual, conclua as etapas na seção [Desanexar um adaptador de rede de uma máquina virtual](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm) do artigo [Adicionar ou remover adaptadores de rede](virtual-network-network-interface-vm.md). A exclusão da máquina virtual desconecta todos os adaptadores de rede conectados a ela, mas não exclui os adaptadores de rede.
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.

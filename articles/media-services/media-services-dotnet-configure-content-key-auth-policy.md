@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 39782bd687c9c1b50699c05e61e57d9c767a8d32
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e215b21c8010bce6fb2a6ac540ba925f4c1a79a2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Criptografia dinâmica: Configurar uma política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -56,7 +56,7 @@ Para obter mais informações, consulte os seguintes artigos:
 Restrição aberta significa que o sistema entrega a chave a qualquer pessoa que faça uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
 
 O exemplo a seguir cria uma política de autorização aberta e a adiciona à chave de conteúdo:
-
+```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
         // Create ContentKeyAuthorizationPolicy with Open restrictions
@@ -92,14 +92,14 @@ O exemplo a seguir cria uma política de autorização aberta e a adiciona à ch
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
     }
-
+```
 
 ### <a name="token-restriction"></a>Restrição de token
 Esta seção descreve como criar uma política de autorização de chave de conteúdo e associá-la com a chave de conteúdo. A política de autorização descreve quais requisitos de autorização devem ser atendidos para determinar se o usuário está autorizado a receber a chave. Por exemplo, a lista de chave de verificação contém a chave com a qual o token foi assinado?
 
 Para configurar a opção de restrição de token, você precisa usar um XML para descrever os requisitos da autorização do token. O XML de configuração de restrição de token deve estar de acordo com o esquema XML a seguir:
-
-#### <a name="token-restriction-schema"></a>Esquema de restrição de token
+```csharp
+#### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -146,12 +146,12 @@ Para configurar a opção de restrição de token, você precisa usar um XML par
       </xs:complexType>
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
-
+```
 Ao configurar a política restrita do token, você deve especificar os parâmetros de chave de verificação primária, emissor e público. A chave de verificação primária contém a chave com a qual o token foi assinado. O emissor é o STS que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
 Ao usar o SDK dos Serviços de Mídia para .NET, você pode usar a classe TokenRestrictionTemplate para gerar o token de restrição.
 O exemplo a seguir cria uma política de autorização com uma restrição de token. Neste exemplo, o cliente precisa apresentar um token que contenha a chave de assinatura (VerificationKey), um emissor de token e as declarações necessárias.
-
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -205,10 +205,10 @@ O exemplo a seguir cria uma política de autorização com uma restrição de to
 
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
-
+```
 #### <a name="test-token"></a>Token de teste
 Para obter um token de teste com base na restrição de token que foi usada para a política de autorização da chave, faça o seguinte:
-
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -224,7 +224,7 @@ Para obter um token de teste com base na restrição de token que foi usada para
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
     Console.WriteLine();
-
+```
 
 ## <a name="playready-dynamic-encryption"></a>Criptografia dinâmica do PlayReady
 Você pode usar os Serviços de Mídia para configurar os direitos e restrições que você deseja para que o tempo de execução do PlayReady DRM imponha quando um usuário tentar reproduzir conteúdo protegido. 
@@ -238,6 +238,7 @@ Restrição aberta significa que o sistema entrega a chave a qualquer pessoa que
 
 O exemplo a seguir cria uma política de autorização aberta e a adiciona à chave de conteúdo:
 
+```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
 
@@ -274,10 +275,12 @@ O exemplo a seguir cria uma política de autorização aberta e a adiciona à ch
         contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
         contentKey = contentKey.UpdateAsync().Result;
     }
+```
 
 ### <a name="token-restriction"></a>Restrição de token
 Para configurar a opção de restrição de token, você precisa usar um XML para descrever os requisitos da autorização do token. O XML de configuração de restrição de token deve estar em conformidade com o esquema XML mostrado na seção “[Esquema de restrição de token](#token-restriction-schema)”.
 
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -383,20 +386,25 @@ Para configurar a opção de restrição de token, você precisa usar um XML par
 
         return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
     }
-
+```
 
 Para obter um token de teste com base na restrição de token que foi usada para a política de autorização da chave, consulte a seção “[Testar token](#test-token)”. 
 
 ## <a id="types"></a>Tipos usados ao definir ContentKeyAuthorizationPolicy
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
+```csharp
     public enum ContentKeyRestrictionType
     {
         Open = 0,
         TokenRestricted = 1,
         IPRestricted = 2,
     }
+```
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+
+```csharp 
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -404,14 +412,18 @@ Para obter um token de teste com base na restrição de token que foi usada para
       BaselineHttp = 2,
       Widevine = 3
     }
+```
 
 ### <a id="TokenType"></a>TokenType
+
+```csharp
     public enum TokenType
     {
         Undefined = 0,
         SWT = 1,
         JWT = 2,
     }
+```
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e143ed1e6bcece7efac9126c8e46408e7a88a5c0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar sua VM do Linux no Azure
 É fácil criar uma máquina virtual (VM) Linux desde a linha de comando ou do portal. Este tutorial mostra como garantir que você configurou uma VM para otimizar o desempenho na plataforma Microsoft Azure. Este tópico usa uma VM do Ubuntu Server, mas é possível também criar uma máquina virtual do Linux usando [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -131,8 +131,7 @@ Lembre-se de que, como com todas as discussões de otimização, você precisar�
 
 Alguns links úteis para recursos adicionais: 
 
-* [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](../windows/premium-storage.md)
-* [Guia do usuário do agente Linux para o Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Otimizando o desempenho do MySQL nas VMs Linux do Azure](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configurar RAID de software no Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+* [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](premium-storage.md)
+* [Guia do usuário do agente Linux para o Azure](agent-user-guide.md)
+* [Otimizando o desempenho do MySQL nas VMs Linux do Azure](classic/optimize-mysql.md)
+* [Configurar RAID de software no Linux](configure-raid.md)

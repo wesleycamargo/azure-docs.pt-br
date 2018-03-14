@@ -13,11 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c94f59eaa079677223083339f111cf73b13632e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar blobs existentes para um ativo dos Serviços de Mídia
 Este artigo mostra como copiar os blobs de uma conta de armazenamento para um novo ativo dos AMS (Serviços de Mídia do Azure) usando as [Extensões do SDK do .NET dos Serviços de Mídia do Azure](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -39,7 +39,7 @@ O artigo mostra dois exemplos de código:
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Copiar blobs entre duas contas do AMS  
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 Duas contas dos Serviços de Mídia. Confira o artigo [Como criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
 
@@ -51,7 +51,7 @@ Você pode seguir as etapas deste artigo ou baixar um exemplo que contém o cód
 1. Configure seu ambiente de desenvolvimento, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 2. Adicione a seção appSettings ao arquivo .config e atualize os valores com base em suas contas de Serviços de Mídia, na conta de armazenamento de destino e na ID do ativo de origem.  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -77,7 +77,7 @@ Você pode seguir as etapas deste artigo ou baixar um exemplo que contém o cód
 
 O código a seguir usa o método da extensão **IAsset.Copy** para copiar todos os arquivos do ativo de origem para o ativo de destino usando uma única extensão.
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -157,7 +157,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copiar blobs de uma conta de armazenamento para uma conta do AMS 
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 - Uma conta de armazenamento do qual você deseja copiar blobs.
 - Uma conta do AMS para qual você deseja copiar blobs.
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 1. Configure seu ambiente de desenvolvimento, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 2. Adicione a seção appSettings ao arquivo .config e atualize os valores com base em suas contas do AMS de armazenamento de origem e destino.
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -189,7 +189,7 @@ O código a seguir copia blobs de uma conta de armazenamento para um ativo dos S
 >[!NOTE]
 >Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -371,6 +371,7 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora você pode codificar seus ativos carregados. Para saber mais, veja [Codificar ativos](media-services-portal-encode.md).

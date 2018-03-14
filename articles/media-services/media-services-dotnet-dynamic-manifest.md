@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: dd7e332eb1c935ee70a617124bd4d86e160366c7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Criando filtros com o SDK do .NET dos Serviços de Mídia do Azure
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/08/2017
 > 
 > 
 
-A partir da versão 2.17, os Serviços de Mídia permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitem aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é obtida por meio de **Manifestos Dinâmicos**criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
+A partir da versão 2.17, os Serviços de Mídia do Microsoft Azure permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitem aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é obtida por meio de **Manifestos Dinâmicos**criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
 
 Para obter mais informações relacionadas a filtros e ao Manifesto Dinâmico, consulte [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md).
 
@@ -46,6 +46,7 @@ Os tipos a seguir são usados durante a criação de filtros:
 ## <a name="createupdatereaddelete-global-filters"></a>Criar/atualizar/ler/excluir os filtros globais
 O código a seguir mostra como usar o .NET para criar, atualizar, ler e excluir filtros de ativo.
 
+```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
     List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
@@ -70,11 +71,12 @@ O código a seguir mostra como usar o .NET para criar, atualizar, ler e excluir 
 
     // Delete
     filter.Delete();
-
+```
 
 ## <a name="createupdatereaddelete-asset-filters"></a>Criar/atualizar/ler/excluir os filtros de ativo
 O código a seguir mostra como usar o .NET para criar, atualizar, ler e excluir filtros de ativo.
 
+```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
     var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
 
@@ -100,7 +102,7 @@ O código a seguir mostra como usar o .NET para criar, atualizar, ler e excluir 
     // Delete
     filterUpdated.Delete();
 
-
+```
 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Criar URLs de streaming que usam filtros
@@ -131,6 +133,6 @@ Os exemplos a seguir mostram como adicionar filtros às URLs de streaming.
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
 
