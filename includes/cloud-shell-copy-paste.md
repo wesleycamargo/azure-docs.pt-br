@@ -1,3 +1,3 @@
-* Windows: `Ctrl-insert` para copiar e `Shift-insert` para colar. A lista suspensa aberta com um clique com o botão direito do mouse também pode habilitar copiar/colar.
+* Windows: `Ctrl-c` para copiar é compatível, mas use `Shift-insert` para colar.
   * Talvez o FireFox/IE não dê suporte apropriado a permissões de área de transferência.
-* Mac OS: `Cmd-c` para copiar e `Cmd-v` para colar. A lista suspensa aberta com um clique com o botão direito do mouse também pode habilitar copiar/colar.
+* Mac OS: `Cmd-c` para copiar e `Cmd-v` para colar.

@@ -1,7 +1,22 @@
+---
+title: "Arquivo de inclusão"
+description: "Arquivo de inclusão"
+services: virtual-machines-windows
+author: dlepow
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/01/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 506c2a4cf675a347dc4c45c9ccf8bce95de2f6fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/05/2018
+---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operacionais e drivers com suporte
 
-
-### <a name="nc-ncv2-and-nd-instances---nvidia-tesla-drivers"></a>Instâncias de NC, NCv2 e ND – Unidades NVIDIA Tesla
+### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-tesla-drivers"></a>Série NC, NCv2, NCv3 e ND - drivers NVIDIA Tesla
 
 | SO | Driver |
 | -------- |------------- |
@@ -12,7 +27,7 @@
 > Os links de download do driver Tesla são atuais no momento da publicação. Para os drivers mais recentes, visite o site da [NVIDIA](http://www.nvidia.com/).
 >
 
-### <a name="nv-instances---nvidia-grid-drivers"></a>Instâncias NV - drivers NVIDIA GRID
+### <a name="nv-series---nvidia-grid-drivers"></a>Série NV - drivers NVIDIA GRID
 
 | SO | Driver |
 | -------- |------------- |

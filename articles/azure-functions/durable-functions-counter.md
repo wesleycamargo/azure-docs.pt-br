@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Singletons com estado nas Funções Duráveis – Exemplo de contador
+
+> [!NOTE]
+> Estamos reconfigurando esse exemplo. Os trechos de código foram removidos e um novo artigo para um novo exemplo irá substituí-lo.
 
 Singletons com estado são funções de orquestrador de execução longa (potencialmente eterna) que podem armazenar o estado e podem ser invocados e consultados por outras funções. Singletons com estado são semelhantes ao [Modelo de ator](https://en.wikipedia.org/wiki/Actor_model) na computação distribuída.
 
@@ -28,7 +31,7 @@ Embora não sejam exatamente uma implementação de "ator", as funções de orqu
 
 Este artigo mostra como executar o exemplo de *contador*. O exemplo demonstra um objeto singleton que dá suporte a operações de *incremento* e *decremento* e atualiza seu estado interno de acordo com elas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Siga as instruções em [Instalar Funções Duráveis](durable-functions-install.md) para configurar o exemplo.
 * Este artigo pressupõe que você já tenha passado pelo passo a passo do exemplo [Sequência Hello](durable-functions-sequence.md).
@@ -55,11 +58,11 @@ As seções a seguir explicam o código que é utilizado para o desenvolvimento 
 
 O arquivo function.json:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 O arquivo run.csx:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>C# pré-compilado 
 
@@ -67,7 +70,7 @@ As seções a seguir explicam o código que é usado para desenvolvimento no Vis
 
 Este é o código que implementa a função de orquestrador:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>Explicação do código
 

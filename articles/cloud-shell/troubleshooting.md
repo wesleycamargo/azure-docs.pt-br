@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="troubleshooting-azure-cloud-shell"></a>Solucionando problemas do Azure Cloud Shell
+# <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solução de problemas e limitações do Azure Cloud Shell
 
-As soluções conhecidas para problemas no Azure Cloud Shell incluem:
+As resoluções conhecidas para solucionar problemas no Azure Cloud Shell incluem:
 
-## <a name="general-resolutions"></a>Resoluções gerais
+## <a name="general-troubleshooting"></a>Solução de problemas gerais
 
 ### <a name="early-timeouts-in-firefox"></a>Tempos limites iniciais no FireFox
 - **Detalhes**: Cloud Shell utiliza um websocket aberto para passar a entrada/saída para o navegador. FireFox tem políticas predefinidas que podem fechar o websocket prematuramente, causando tempos limites iniciais no Cloud Shell.
@@ -42,7 +42,7 @@ As soluções conhecidas para problemas no Azure Cloud Shell incluem:
  - **Detalhes**: o Cloud Shell requer a capacidade de estabelecer uma conexão websocket à infraestrutura do Cloud Shell.
  - **Resolução**: verifique se você definiu as configurações de rede para permitir o envio de solicitações HTTPS e solicitações de websocket para domínios em *.console.azure.com.
 
-## <a name="bash-resolutions"></a>Resoluções de bash
+## <a name="bash-troubleshooting"></a>Solução de problemas de Bash
 
 ### <a name="cannot-run-az-login"></a>Não é possível executar o az login
 
@@ -54,7 +54,7 @@ As soluções conhecidas para problemas no Azure Cloud Shell incluem:
 - **Detalhes**: O Cloud Shell utiliza um contêiner para hospedar o seu ambiente de shell e, como resultado, a execução do daemon deixa de ser permitida.
 - **Resolução**: utilize o [Docker Machine](https://docs.docker.com/machine/overview/), que é instalado por padrão, para gerenciar contêineres do Docker de um host remoto do Docker.
 
-## <a name="powershell-resolutions"></a>Soluções do PowerShell
+## <a name="powershell-troubleshooting"></a>Solução de problemas do PowerShell
 
 ### <a name="no-home-directory-persistence"></a>Sem persistência do diretório $Home
 
@@ -70,7 +70,6 @@ As soluções conhecidas para problemas no Azure Cloud Shell incluem:
 
 - **Detalhes**: se um usuário inicia um aplicativo GUI, o prompt não retorna. Por exemplo, quando um usuário clona um repositório do GitHub privado com autenticação de dois fatores habilitada, uma caixa de diálogo é exibida para completar a autenticação de dois fatores.  
 - **Resolução**: feche e reabra o shell.
-
 
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help -online não abre a página de ajuda
 
@@ -97,3 +96,55 @@ As soluções conhecidas para problemas no Azure Cloud Shell incluem:
 
 - **Detalhes**: o resultado de `dir` é armazenado em cache na unidade do Azure.
 - **Resolução**: depois de criar ou remover um recurso no modo de exibição da unidade do Azure, execute `dir -force` para atualizar.
+
+## <a name="general-limitations"></a>Limitações gerais
+O Azure Cloud Shell tem as seguintes limitações conhecidas:
+
+### <a name="system-state-and-persistence"></a>Estado do sistema e persistência
+
+O computador que fornece a sessão do Cloud Shell é temporário e é reciclado após a sessão ficar inativa por 20 minutos. O Cloud Shell exige a montagem de um compartilhamento de arquivos do Azure. Como resultado, sua assinatura deve ser capaz de configurar recursos de armazenamento para acessar o Cloud Shell. Outras considerações incluem:
+
+* Com o armazenamento montado, apenas as modificações no diretório `clouddrive` persistem. No Bash, seu `$Home` diretório também persiste.
+* Os compartilhamentos de arquivo do Azure só podem ser montados em sua [região atribuída](persisting-shell-storage.md#mount-a-new-clouddrive).
+  * No Bash, execute `env` para localizar sua região definida como `ACC_LOCATION`.
+* Os Arquivos do Azure oferece suporte apenas a armazenamento com redundância local e a contas de armazenamento com redundância geográfica.
+
+### <a name="browser-support"></a>Suporte ao navegador
+
+O Cloud Shell oferece suporte às versões mais recentes do Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox e Apple Safari. Não há suporte para o Safari no modo particular.
+
+### <a name="copy-and-paste"></a>Copiar e colar
+
+[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+
+### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Apenas um shell pode estar ativo para um dado usuário
+
+Os usuários podem iniciar apenas um tipo de shell por vez, **Bash** ou **PowerShell**. No entanto, você pode ter várias instâncias de Bash ou PowerShell em execução ao mesmo tempo. Trocar entre Bash ou PowerShell faz com que o Cloud Shell seja reinicializado, o que encerra as sessões existentes.
+
+### <a name="usage-limits"></a>Limites de uso
+
+O Cloud Shell destina-se a casos de uso interativos. Como resultado, quaisquer sessões não interativo e de longa execução são finalizadas sem aviso.
+
+## <a name="bash-limitations"></a>Limitações do Bash
+
+### <a name="user-permissions"></a>Permissões de usuário
+
+As permissões são definidas como usuários regulares sem acesso sudo. Qualquer instalação fora do seu diretório `$Home` não será persistida.
+
+### <a name="editing-bashrc"></a>Edição de .bashrc
+
+Tome cuidado ao editar .bashrc, uma vez que isso pode causar erros inesperados no Cloud Shell.
+
+## <a name="powershell-limitations"></a>Limitações do PowerShell
+
+### <a name="slow-startup-time"></a>Tempo de inicialização lento
+
+O PowerShell no Azure Cloud Shell (Versão prévia) pode levar até 60 segundos para inicializar durante a versão prévia.
+
+### <a name="default-file-location-when-created-from-azure-drive"></a>Local padrão do arquivo quando criado da unidade do Azure:
+
+Usando cmdlets do PowerShell, os usuários não podem criar arquivos na unidade do Azure. Quando os usuários criam novos arquivos usando outras ferramentas como vim ou nano, os arquivos são salvos na pasta C:\Usuários por padrão. 
+
+### <a name="gui-applications-are-not-supported"></a>Não há suporte para aplicativos GUI
+
+Se o usuário executar um comando que cria uma caixa de diálogo do Windows, como `Connect-AzureAD` ou `Login-AzureRMAccount`, vê-se uma mensagem de erro como a seguinte: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.

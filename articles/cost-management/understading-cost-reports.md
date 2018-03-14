@@ -1,24 +1,24 @@
 ---
-title: "Noções básicas dos relatórios de custo no Gerenciamento de Custos do Azure | Microsoft Docs"
-description: "Este artigo ajuda você a entender a estrutura básica e funções dos relatórios do Cloudyn."
+title: "Compreendendo os relatórios de gerenciamento de custos no Gerenciamento de Custos do Azure | Microsoft Docs"
+description: "Este artigo ajuda você a entender a estrutura básica e funções dos relatórios de gestão de custos do Cloudyn."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Compreendendo os relatórios de custos
+# <a name="understanding-cost-management-reports"></a>Compreendendo os relatórios do gerenciamento de custos
 
-Este artigo ajuda você a entender a estrutura básica e funções dos relatórios do Cloudyn. A maioria dos relatórios do Cloudyn é intuitiva e tem uma aparência uniforme. Depois de ler este artigo, você estará pronto para usar todos os relatórios. Muitos recursos padrão estão disponíveis em vários relatórios, permitindo uma fácil navegação pelos relatórios. Os relatórios são personalizáveis, e você pode selecionar várias opções para calcular e exibir os resultados.
+Este artigo ajuda você a entender a estrutura básica e funções dos relatórios de gestão de custos do Cloudyn. A maioria dos relatórios do Cloudyn é intuitiva e tem uma aparência uniforme. Depois de ler este artigo, você estará pronto para usar todos os relatórios de gestão de custos. Muitos recursos padrão estão disponíveis em vários relatórios, permitindo uma fácil navegação pelos relatórios. Os relatórios são personalizáveis, e você pode selecionar várias opções para calcular e exibir os resultados.
 
 ## <a name="report-fields-and-options"></a>Campos e opções do relatório
 
@@ -131,6 +131,27 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 14. **Ações**
 
     Use Ações para salvar, exportar ou agendar do relatório.
+
+## <a name="save-and-schedule-reports"></a>Salvar e agendar relatórios
+
+Depois de criar um relatório, salve-o para uso futuro. Relatórios salvos ficam disponíveis em **Minhas ferramentas** > **Meus relatórios**. Se você fizer alterações a um relatório existente e salvá-lo, o relatório é salvo como uma nova versão. Ou então, você pode salvá-lo como um novo relatório.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Salve um relatório no portal Cloudyn
+
+Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Salvar em Meus relatórios**. Nomeie o relatório e, em seguida, adicione sua própria URL ou use a URL criada automaticamente. Opcionalmente, você pode **compartilhar** o relatório publicamente com outras pessoas na sua organização, ou você pode compartilhá-lo com sua entidade. Se você não compartilhar o relatório, ele permanecerá um relatório pessoal e que somente você poderá visualizar. Salve o relatório.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Salvar um relatório no armazenamento do provedor de nuvem
+
+Para salvar um relatório no seu provedor de serviços de nuvem, você já deve ter configurado uma conta de armazenamento. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Nomeie o relatório e, em seguida, adicione sua própria URL ou use a URL criada automaticamente. Selecione **Salvar no armazenamento** e, em seguida, selecione a conta de armazenamento ou adicione uma nova conta. Digite um prefixo que seja anexado ao nome do arquivo do relatório. Selecione um formato de arquivo CSV ou JSON e, em seguida, salve o relatório.
+
+### <a name="schedule-a-report"></a>Agendar um relatório
+
+Você pode executar relatórios em intervalos agendados, e você pode enviá-los para uma lista de destinatários ou conta de armazenamento do provedor de serviços de nuvem. Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Você pode enviar o relatório por e-mail e salvá-lo em uma conta de armazenamento. Em **Agendar**, selecione o intervalo (diariamente, semanalmente ou mensalmente). Para agendamentos semanais e mensais, selecione o dia ou as datas para o envio e selecione a hora. Salve o relatório agendado. Se você selecionar o formato de relatório do Excel, o relatório é enviado como um anexo. Quando você seleciona o formato de conteúdo de e-mail, os resultados do relatório que são exibidos em formato de gráfico são entregues como um gráfico.
+
+### <a name="export-a-report-as-a-csv-file"></a>Exportar um relatório como um arquivo CSV
+
+Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Exportar todos os dados do relatório**. Uma janela pop-up será exibida e um arquivo CSV é baixado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

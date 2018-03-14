@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Gerenciar bancos de dados no SQL Data Warehouse do Azure
 O SQL Data Warehouse automatiza muitos aspectos do gerenciamento de seus bancos de dados. Por exemplo, para aumentar o desempenho, basta ajustar para o nível certo de recursos de computação e pagar por eles, para então deixar o SQL Data Warehouse fazer todo o trabalho de escalar horizontalmente e de reverter essa escala.
@@ -34,13 +34,13 @@ Esta visão geral aborda esses aspectos do gerenciamento do SQL Data Warehouse.
 * Práticas recomendadas de desempenho
 * Monitoramento de consulta
 * Segurança
-* Backup e restauração
+* Fazer backup e restauração
 
 ## <a name="management-tools"></a>Ferramentas de gerenciamento
 Você pode usar uma variedade de ferramentas para gerenciar bancos de dados no SQL Data Warehouse. Ao gerenciar bancos de dados, você desenvolverá preferências de ferramenta para cada tipo de tarefa, que você precisa executar.
 
 ### <a name="azure-portal"></a>Portal do Azure
-O [Portal do Azure][Azure portal] é um portal baseado na Web, no qual você pode criar, atualizar e excluir bancos de dados e monitorar recursos do banco de dados. Essa ferramenta será excelente se você estiver começando a usar o Azure, se estiver gerenciando uma pequena quantidade de bancos de dados de data warehouse ou se precisar fazer alguma coisa rapidamente.
+O [Portal do Azure][Azure portal] é um portal baseado na Web, no qual você pode criar, atualizar e excluir bancos de dados e monitorar recursos do banco de dados. Essa ferramenta é excelente se você estiver começando a usar o Azure, gerenciando uma pequena quantidade de bancos de dados de data warehouse ou, se precisar fazer algo rapidamente.
 
 Para começar a usar o Portal do Azure, confira [Criar um SQL Data Warehouse (Portal do Azure)][Create a SQL Data Warehouse (Azure portal)].
 
@@ -52,7 +52,7 @@ O SSDT inclui o Pesquisador de Objetos do SQL Server, que permite a visualizaç�
 Para uma introdução ao SSDT no Visual Studio, confira [Conectar-se ao SQL Data Warehouse do Azure com o Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 
 ### <a name="command-line-tools"></a>Ferramentas da linha de comando
-Ferramentas de linha de comando são ideais para automatizar suas cargas de trabalho.  PowerShell e sqlcmd são duas formas incríveis de automatizar os processos.  Recomendamos essas ferramentas para gerenciar uma grande quantidade de servidores lógicos e implantar alterações de recursos em um ambiente de produção, pois as tarefas necessárias podem ser incluídas em script e automatizadas.
+Ferramentas de linha de comando são ideais para automatizar as cargas de trabalho.  PowerShell e sqlcmd são duas formas incríveis de automatizar os processos.  Recomendamos essas ferramentas para gerenciar uma grande quantidade de servidores lógicos e implantar alterações de recursos em um ambiente de produção, pois as tarefas necessárias podem ser incluídas em script e automatizadas.
 
 ### <a name="dynamic-management-views"></a>Exibições de gerenciamento dinâmico
 DMVs são a base do gerenciamento de SQL Data Warehouse. Quase todas as informações que aparecem no portal dependem de DMVs. Para ver uma lista de DMVs do SQL Data Warehouse, confira [Exibições do sistema do SQL Data Warehouse][SQL Data Warehouse system views].
@@ -84,8 +84,8 @@ Para manter um sistema seguro, você deve estar alerta e protegê-lo contra todo
 
 Para saber sobre como gerenciar a segurança, vá até a [Visão geral de segurança][Security overview].
 
-## <a name="backup-and-restore"></a>Backup e restauração
-Ter backups confiáveis de seus dados é uma parte essencial de qualquer banco de dados de produção. O SQL Data Warehouse mantém seus dados seguros fazendo backup automaticamente de seus bancos de dados ativos em intervalos regulares. Esses backups permitem que você se recupere de cenários em que corromper ou descartar acidentalmente seus dados ou banco de dados.  Para agendamento de backup de dados, política de retenção e como restaurar um banco de dados, confira [Restaurar do instantâneo][Restore from snapshot].
+## <a name="back-up-and-restore"></a>Fazer backup e restauração
+Ter backups confiáveis dos dados é uma parte essencial de qualquer banco de dados de produção. O SQL Data Warehouse mantém seus dados seguros fazendo backup automaticamente de seus bancos de dados ativos em intervalos regulares. Esses backups permitem que você se recupere de cenários em que corromper ou descartar acidentalmente seus dados ou banco de dados.  Para agendamento de backup de dados, política de retenção e como restaurar um banco de dados, confira [Restaurar do instantâneo][Restore from snapshot].
 
 ## <a name="next-steps"></a>Próximas etapas
 Usar bons princípios de design de banco de dados tornará mais fácil gerenciar seus bancos de dados no SQL Data Warehouse. Para saber mais, vá até a [Visão geral de desenvolvimento][Development overview].
@@ -100,10 +100,10 @@ Usar bons princípios de design de banco de dados tornará mais fácil gerenciar
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Dimensionar o desempenho]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[Dimensionar o desempenho]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

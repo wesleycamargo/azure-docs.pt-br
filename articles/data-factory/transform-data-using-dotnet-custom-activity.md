@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: ad829fc771bf67953315f3f42abd66eaa2628c13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -300,7 +300,7 @@ Caso deseje consumir o conteúdo de stdout.txt em atividades de downstream, é p
 
 ## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Diferença entre a Atividade Personalizada no Azure Data Factory versão 2 e na Atividade DotNet (Personalizada) no Azure Data Factory versão 1
 
-  No Azure Data Factory versão 1, o código da Atividade DotNet (Personalizada) é implementado por meio da criação de um projeto de biblioteca de classes .NET, com uma classe que implementa o método Executar da interface IDotNetActivity. Os Serviços Vinculados, os Conjuntos de Dados e as Propriedades Estendidas no payload JSON da Atividade DotNet (Personalizada) são passados para o Método de Execução como objetos fortemente tipados. Para obter detalhes, consulte [DotNet (Personalizado) na versão 1](v1/data-factory-use-custom-activities.md). Por isso, o código personalizado deve ser escrito no .Net Framework 4.5.2 e ser executado em nós do Pool do Lote do Azure baseado no Windows. 
+  No Azure Data Factory versão 1, o código da Atividade DotNet (Personalizada) é implementado por meio da criação de um projeto de biblioteca de classes .NET, com uma classe que implementa o método Executar da interface IDotNetActivity. Os Serviços Vinculados, os Conjuntos de Dados e as Propriedades Estendidas no payload JSON da Atividade DotNet (Personalizada) são passados para o Método de Execução como objetos fortemente tipados. Para obter detalhes, consulte [DotNet (Personalizado) na versão 1](v1/data-factory-use-custom-activities.md). Por causa dessa implementação, o código personalizado deve ser escrito no .Net Framework 4.5.2 e ser executado em nós do Pool do Lote do Azure baseado no Windows. 
 
   Na Atividade Personalizada do Azure Data Factory V2, não é necessário implementar uma interface .Net. Agora, é possível executar diretamente comandos, scripts e código personalizado compilado como executável. Basta especificar a propriedade Comando junto com a propriedade folderPath. A Atividade Personalizada carrega o executável e as dependências no caminho da pasta e executa o comando para você. 
 
@@ -317,7 +317,7 @@ Caso deseje consumir o conteúdo de stdout.txt em atividades de downstream, é p
 |Ambiente de execução da lógica personalizada      |Windows ou Linux      |Windows (.Net Framework 4.5.2)      |
 |Execução de scripts      |Suporte a execução de scripts diretamente (por exemplo "cmd /c echo hello world" na VM do Windows)      |Requer a implementação no .Net DLL      |
 |Conjunto de dados necessário      |Opcional      |Necessário para atividades de cadeia e transmitir informações      |
-|Transmitir informações de atividade para lógica personalizada      |Por meio de ReferenceObjects (LinkedServices e conjuntos de dados) e ExtendedProperties (propriedades personalizadas) e      |Por meio de conjuntos de dados de ExtendedProperties (propriedades personalizadas), de entrada e de saída      |
+|Transmitir informações de atividade para lógica personalizada      |Por meio de ReferenceObjects (LinkedServices e conjuntos de dados) e ExtendedProperties (propriedades personalizadas)      |Por meio de conjuntos de dados de ExtendedProperties (propriedades personalizadas), de entrada e de saída      |
 |Recuperar informações em lógica personalizada      |Analisar o activity.json, o linkedServices.json e o datasets.json armazenados na mesma pasta do executável      |Por meio de .Net SDK (quadro para .net 4.5.2)      |
 |Registro em log      |Grava diretamente no STDOUT      |Implementando agente na DLL do .Net      |
 

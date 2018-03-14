@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -56,8 +56,8 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte:
 
 |Sistema operacional  |Observações  |
 |---------|---------|
-|Windows Server 2008 e superior     | Suporte apenas para avaliações de atualização         |
-|Windows Server 2008 R2 SP1 e superior     |.NET Framework 4.5 e WMF 5.0 ou posterior são necessários para Windows Server 2008 R2 SP1<br>Não há suporte para Nano Server         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Suporte apenas para avaliações de atualização         |
+|Windows Server 2008 R2 SP1 e superior     |.NET Framework 4.5 e WMF 5.0 ou posterior são necessários para Windows Server 2008 R2 SP1        |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
@@ -70,7 +70,7 @@ A tabela a seguir lista os sistemas operacionais que não têm suporte:
 |Sistema operacional  |Observações  |
 |---------|---------|
 |Windows Client     | Não há suporte para sistemas operacionais de cliente (Windows 7, Windows 10 e etc.).        |
-|Nano Server     | Nano Server é parte do Windows 2016.        |
+|Windows Server 2016 Nano Server     | Sem suporte       |
 
 ### <a name="client-requirements"></a>Requisitos do cliente
 

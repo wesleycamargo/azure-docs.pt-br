@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits
 ## <a name="overview"></a>Visão geral
@@ -156,7 +156,7 @@ Para saber mais sobre a saída do canal, consulte a seção [Intervalo de quadro
 ### <a name="channel-managed-programs"></a>Programas gerenciados por canal
 Um canal é associado a programas que podem ser usados para controlar a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam programas. A relação entre canal e programa é semelhante à mídia tradicional, em que um canal tem um fluxo constante de conteúdo e um programa tem como escopo um evento cronometrado nesse canal.
 
-Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo morto também determina o número máximo de tempo que os clientes podem buscar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
+Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas. A duração da janela de arquivo morto também determina o número máximo de tempo que os clientes podem buscar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
 Cada programa está associado um ativo que armazena o conteúdo transmitido. Um ativo é mapeado para um contêiner de blob de blocos na conta de Armazenamento do Azure e os arquivos no ativo são armazenados como blobs nesse contêiner. Para publicar o programa para que seus clientes possam exibir o fluxo, você deve criar um localizador OnDemand para o ativo associado. Use esse localizador para criar uma URL de transmissão que você pode fornecer aos seus clientes.
 
@@ -182,9 +182,9 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado de canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- | --- |
 | **Iniciando** |**Iniciando** |Nenhum (estado transitório) |
-| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou o<p>**Streaming** (há pelo menos um programa em execução) |Sim |
+| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou o<p>**Streaming** (há pelo menos um programa em execução) |sim |
 | **Parando** |**Parando** |Nenhum (estado transitório) |
-| **Interrompido** |**Interrompido** |Não |
+| **Interrompido** |**Interrompido** |Não  |
 
 ## <a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncios
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
@@ -209,6 +209,10 @@ Ao se usar um codificador ao vivo local para enviar um fluxo com múltiplas taxa
 Confira outras considerações relacionadas ao trabalho com canais e componentes relacionados:
 
 * Sempre que você reconfigurar o codificador ao vivo, chame o método **Redefinir** no canal. Antes de redefinir o canal, você precisa interromper o programa. Antes de redefinir o canal, reinicie o programa.
+
+  > [!NOTE]
+  > Ao reiniciar o programa, será necessário associá-lo a um novo ativo e criar um novo localizador. 
+  
 * Um canal pode ser interrompido somente quando estiver no estado **Executando** e todos os programas no canal tiverem sido interrompidos.
 * Por padrão, você pode adicionar apenas cinco canais à sua conta dos Serviços de Mídia. Para saber mais, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
 * Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte a seção [Estados do canal e cobrança](media-services-live-streaming-with-onprem-encoders.md#states).

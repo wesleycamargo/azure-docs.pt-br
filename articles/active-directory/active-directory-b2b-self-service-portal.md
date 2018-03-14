@@ -3,7 +3,7 @@ title: "Portal de inscrição para autoatendimento para colaboração do Azure A
 description: "A colaboração B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,28 +14,29 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
-ms.author: sasubram
-ms.openlocfilehash: 28c93212e247dae23cfb35a587d0d6e87cb56a6f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: bb63a3b23bdcaac5c94d43bb8e7294a82b0c3fa0
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portal de autoatendimento para inscrição na colaboração B2B do Azure AD
 
-Os clientes podem fazer muito com os recursos internos expostos por meio de nosso [Portal do Azure](https://portal.azure.com) de administração de TI e de nosso [Painel de acesso do aplicativo](https://myapps.microsoft.com) para usuários finais. Mas nós também estamos cientes de que as empresas precisam personalizar o fluxo de trabalho de integração para usuários B2B para se adequar às necessidades da organização deles. Eles podem fazer isso com a [nossa API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Os clientes podem fazer muito com os recursos internos expostos por meio do [Portal do Azure](https://portal.azure.com) de administração de TI e do [Painel de Acesso de Aplicativos](https://myapps.microsoft.com) para usuários finais. Mas nós também estamos cientes de que as empresas precisam personalizar o fluxo de trabalho de integração para usuários B2B para se adequar às necessidades da organização deles. Eles podem fazer isso com [a API de convite](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
-Ao discutir isso com nossos clientes, vimos uma necessidade comum se destacar das outras. A organização que está convidando pode não saber antecipadamente quem são os colaboradores externos individuais que precisam de acesso aos seus recursos. Eles queriam uma maneira de os usuários das empresas parceiras fazerem a própria inscrição com um conjunto de políticas controladas pela organização que está convidando. Esse cenário é possível por meio de nossas APIs, portanto, publicamos um projeto no Github que fez exatamente isso: [exemplo de projeto no Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+Nas discussões com os clientes, há uma necessidade comum que destaca-se de todas as outras. A organização que está convidando pode não saber antecipadamente quem são os colaboradores externos individuais que precisam de acesso aos seus recursos. Eles queriam uma maneira para os usuários de empresas parceiras inscreverem-se com um conjunto de políticas que a organização convidando controla. Esse cenário é possível por meio de APIs, portanto, publicamos um projeto no Github que fez exatamente isso: [exemplo de projeto no Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-Nosso projeto no Github demonstra como as organizações podem usar as nossas APIs e fornecer uma capacidade de inscrição para autoatendimento baseada em política para seus parceiros confiáveis, com regras que determinam os aplicativos que eles podem acessar. Os usuários de parceiros poderão obter acesso aos recursos quando precisarem, com segurança, sem exigir que a organização que está convidando integre-os manualmente. É possível implantar facilmente o projeto em uma assinatura do Azure de sua escolha.
+Esse projeto no Github demonstra como as organizações podem usar as APIs e fornecer uma capacidade de inscrição para autoatendimento baseada em política para seus parceiros confiáveis, com regras que determinam os aplicativos que eles podem acessar. Os usuários de parceiros poderão obter acesso aos recursos quando precisarem, com segurança, sem exigir que a organização que está convidando integre-os manualmente. É possível implantar facilmente o projeto em uma assinatura do Azure de sua escolha.
 
 ## <a name="as-is-code"></a>Código no estado em que se encontra
 
-Lembre-se de que esse código é disponibilizado como um exemplo para demonstrar o uso da API de convite do Azure Active Directory B2B. Ele deve ser personalizado pela sua equipe de desenvolvimento ou por um parceiro e deve ser revisado antes de ser implantado em um cenário de produção.
+Lembre-se de que esse código é disponibilizado como um exemplo para demonstrar o uso da API de convite do Azure Active Directory B2B. Ele deve ser personalizado por sua equipe de desenvolvimento ou um parceiro e deverá ser revisado antes de ser implantado em um cenário de produção.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
+Consulte outros artigos sobre a colaboração B2B do Azure Active Directory:
 * [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
 * [Como os operadores de informação adicionam usuários de colaboração B2B?](active-directory-b2b-iw-add-users.md)

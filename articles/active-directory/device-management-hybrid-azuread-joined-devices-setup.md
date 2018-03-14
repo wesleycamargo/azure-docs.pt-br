@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos adicionados ao Azure Active Directory híbrido
 
@@ -33,6 +33,8 @@ Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos
 Antes de começar a configurar dispositivos adicionados ao Azure AD híbrido no seu ambiente, você deve se familiarizar com os cenários com suporte e as restrições.  
 
 Se você estiver dependendo da [Ferramenta de Preparação do Sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), certifique-se de criar imagens de uma instalação do Windows que ainda não foi registrado com o Azure AD.
+
+Todos os dispositivos associados ao domínio eu executam a Atualização de Aniversário do Windows 10 e o Windows Server 2016 serão registrados automaticamente no Azure Active Directory no reinício do dispositivo ou na entrada do usuário, quando as etapas de configuração mencionadas a seguir estiverem concluídas. Se esse comportamento de registro automático não for preferencial ou se uma distribuição controlada for requerida, primeiro siga as instruções na seção Controle de Implantação e Distribuição abaixo para habilitar ou desabilitar seletivamente a distribuição automática, antes de seguir as outras etapas de configuração.  
 
 Para melhorar a legibilidade das descrições, este tópico usa o termo a seguir: 
 
@@ -566,7 +568,8 @@ Para controlar a distribuição dos computadores atuais com Windows, você deve 
    > [!NOTE]
    > Esse modelo de Política de Grupo foi renomeado de versões anteriores do console de Gerenciamento de Política de Grupo. Se você estiver usando uma versão anterior do console, vá para `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Selecione **Habilitado** e clique em **Aplicar**.
+7. Selecione **Habilitado** e clique em **Aplicar**. Você deve selecionar **Desabilitado**, se quiser que a política bloqueie os dispositivos controlados por essa política de grupo de registrar-se automaticamente com o Azure Active Directory.
+
 8. Clique em **OK**.
 9. Vincule o objeto da Política de Grupo a um local de sua escolha. Por exemplo, você pode vinculá-lo a uma unidade organizacional específica. Você também pode vinculá-lo a um grupo específico de computadores de segurança que ingressam automaticamente no Azure AD. Para definir essa política para todos os computadores com Windows 10 e Windows Server 2016 ingressados no domínio em sua organização, vincule o objeto de Política de Grupo ao domínio.
 

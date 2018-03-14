@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -32,7 +32,7 @@ Este artigo explica como trabalhar com associações de armazenamento de blob do
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Não há suporte para [contas de armazenamento exclusivas de blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts). Gatilhos de armazenamento de blobs e associações exigem uma conta de armazenamento de uso geral. 
+> Não há suporte para[Contas de armazenamento exclusivas de Blobs](../storage/common/storage-create-storage-account.md#blob-storage-accounts) para gatilhos de blob. Os gatilhos de armazenamento de Blobs requerem uma conta de armazenamento de uso geral. Para associações de entrada e saída, é possível utilizar contas de armazenamento exclusivas de blobs.
 
 ## <a name="trigger"></a>Gatilho
 
@@ -63,6 +63,8 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
+A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
+
 Para obter mais informações sobre o atributo `BlobTrigger`, consulte [Gatilho - atributos](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Gatilho - exemplo de script C#
@@ -79,14 +81,16 @@ Aqui estão os dados de associação no arquivo *function.json*:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-A seção [configuração](#trigger---configuration) explica essas propriedades.
+A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
+
+Para obter mais informações sobre as propriedades do arquivo *function.json*, consulte a seção [Configuração](#trigger---configuration) que explica essas propriedades.
 
 Aqui está o código script C# que associa a um `Stream`:
 
@@ -112,7 +116,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Gatilho - exemplo de JavaScript
 
-O exemplo a seguir mostra uma associação de gatilho de blob em um arquivo *function.json* e [código JavaScript] (functions-reference-node.md) que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no `samples-workitems` contêiner.
+O exemplo a seguir mostra uma associação de gatilho de blob em um arquivo *function.json* e [código JavaScript](functions-reference-node.md) que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no `samples-workitems` contêiner.
 
 Aqui está o arquivo *function.json*:
 
@@ -124,14 +128,16 @@ Aqui está o arquivo *function.json*:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-A seção [configuração](#trigger---configuration) explica essas propriedades.
+A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
+
+Para obter mais informações sobre as propriedades do arquivo *function.json*, consulte a seção [Configuração](#trigger---configuration) que explica essas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -214,12 +220,13 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 
-Em C# e script C#, acesse os dados de blob usando um parâmetro de método, como `T paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. É possível associar a qualquer um dos seguintes tipos:
+Em C# e script C#, você pode usar os tipos de parâmetros a seguir para o blob disparando:
 
 * `Stream`
 * `TextReader`
-* `Byte[]`
 * `string`
+* `Byte[]`
+* Um POCO serializado como JSON
 * `ICloudBlob` (exige a direção de associação "inout" em *function.json*)
 * `CloudBlockBlob` (exige a direção de associação "inout" em *function.json*)
 * `CloudPageBlob` (exige a direção de associação "inout" em *function.json*)
@@ -227,9 +234,9 @@ Em C# e script C#, acesse os dados de blob usando um parâmetro de método, como
 
 Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
 
-Se blobs de texto forem esperados, você poderá associar a um tipo `string`. Isso será recomendado apenas se o tamanho do blob for pequeno, porque o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
+Associação para `string`, `Byte[]`, ou POCO só é recomendada se o tamanho do blob for pequeno, pois o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
 
-Em JavaScript, acesse os dados do blob de entrada usando `context.bindings.<name>`.
+Em JavaScript, acesse os dados do blob de entrada usando `context.bindings.<name from function.json>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Gatilho - padrões de nome de blob
 
@@ -242,7 +249,7 @@ O exemplo a seguir mostra como associar ao nome do arquivo de blob e extensão s
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
-Se um blob é chamado *original-Blob1.txt* o valor das variáveis `blobname` e `blobextension` no código de função é *original-Blob1* e *txt*.
+Se um blob é nomeado *original-Blob1.txt* o valor das variáveis `blobname` e `blobextension` no código de função é *original-Blob1* e *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtre por nome de blob
 
@@ -276,13 +283,28 @@ Se o blob é nomeado *{20140101}-soundfile.mp3*, o `name` valor da variável no 
 
 O gatilho de blob fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Esses valores têm a mesma semântica que o tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
-
 |Propriedade  |type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|O caminho do blob de gatilho.|
 |`Uri`|`System.Uri`|A URI do blob para o local principal.|
 |`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|As propriedades do sistema do blob. |
 |`Metadata` |`IDictionary<string,string>`|Os metadados definidos pelo usuário para o blob.|
+
+Por exemplo, o script C# e exemplos de JavaScript a seguir registram o caminho para o blob disparando, incluindo o contêiner:
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+{
+    log.Info($"Full blob path: {blobTrigger}");
+} 
+```
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
 
 ## <a name="trigger---blob-receipts"></a>Gatilho - recebimentos de blob
 
@@ -316,9 +338,9 @@ O gatilho de blob usa uma fila internamente, portanto, o número máximo de invo
 
 [O plano de consumo](functions-scale.md#how-the-consumption-plan-works) limita um aplicativo de funções em uma VM (máquina virtual) a 1,5 GB de memória. A memória é usada por cada instância de execução de execução simultânea e pelo próprio tempo de execução de Funções. Se uma função disparada por blob carregar todo o blob na memória, a memória máxima usada por essa função apenas para blobs será tamanho máximo de blob 24 *. Por exemplo, um aplicativo de funções com três funções disparadas por blob e as configurações padrão teriam uma concorrência máxima por VM de 3*24 = 72 invocações de função.
 
-As funções de JavaScript carregam todo o blob na memória, e as funções C# fazem isso se você associar a `string`.
+As funções de JavaScript carregam todo o blob na memória, e as funções C# fazem isso se você associar a `string`, `Byte[]` ou POCO.
 
-## <a name="trigger---polling-for-large-containers"></a>Gatilho - Controle de blobs para grandes contêineres
+## <a name="trigger---polling"></a>Disparar - sondagem
 
 Se o contêiner de blob que está sendo monitorado contiver mais de 10.000 blobs, as verificações de tempo de execução do Functions varrerão os arquivos de log em busca de blobs novos ou alterados. Esse processo pode resultar em atrasos. Uma função não poderá ser disparada até que se passem vários minutos ou mais tempo depois da criação do blob. Além disso, [logs de armazenamento são criados da "melhor forma dentro do possível"](/rest/api/storageservices/About-Storage-Analytics-Logging). Não há nenhuma garantia de que todos os eventos são capturados. Sob algumas condições, logs poderão ser perdidos. Se você precisar de um processamento de blob mais rápido ou confiável, crie uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) ao criar o blob. Em seguida, use um [gatilho de fila](functions-bindings-storage-queue.md) em vez de um gatilho de blob para processar o blob. Outra opção é usar a Grade de Eventos; consulte o tutorial [Automatize redimensionamento de imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
@@ -498,12 +520,12 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="input---usage"></a>Entrada - uso
 
-Em bibliotecas de classes C# e script C#, acesse os dados de blob usando um parâmetro de método, como `Stream paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. É possível associar a qualquer um dos seguintes tipos:
+Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a associação de entrada de blob:
 
+* `Stream`
 * `TextReader`
 * `string`
 * `Byte[]`
-* `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob` (exige a direção de associação "inout" em *function.json*)
@@ -513,9 +535,9 @@ Em bibliotecas de classes C# e script C#, acesse os dados de blob usando um par�
 
 Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
 
-Se você estiver lendo blobs de texto, você pode vincular a um tipo `string`. Esse tipo será recomendado apenas se o tamanho do blob for pequeno, porque o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`.
+Associação para `string` ou `Byte[]` só é recomendada se o tamanho do blob for pequeno, pois o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
 
-Em JavaScript, acesse os dados do blob usando `context.bindings.<name>`.
+Em JavaScript, acesse os dados do blob usando `context.bindings.<name from function.json>`.
 
 ## <a name="output"></a>Saída
 
@@ -709,7 +731,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="output---usage"></a>Saída - uso
 
-Em bibliotecas de classes C# e script C#, acesse os dados de blob usando um parâmetro de método, como `Stream paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. É possível associar a qualquer um dos seguintes tipos:
+Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a associação de saída de blob:
 
 * `TextWriter`
 * `out string`
@@ -725,9 +747,12 @@ Em bibliotecas de classes C# e script C#, acesse os dados de blob usando um par�
 
 Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
 
-Se você estiver lendo blobs de texto, você pode vincular a um tipo `string`. Esse tipo será recomendado apenas se o tamanho do blob for pequeno, porque o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`.
+Em funções assíncronas, use o valor de retorno ou `IAsyncCollector` em vez de um parâmetro `out`.
 
-Em JavaScript, acesse os dados do blob usando `context.bindings.<name>`.
+Associação para `string` ou `Byte[]` só é recomendada se o tamanho do blob for pequeno, pois o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
+
+
+Em JavaScript, acesse os dados do blob usando `context.bindings.<name from function.json>`.
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP em aplicativos lógicos
 
@@ -30,12 +30,12 @@ Para criar pontos de extremidade HTTP, você pode adicionar esses gatilhos para 
 
 * [Solicitação](../connectors/connectors-native-reqres.md)
 
-* [Webhook de Conexão de API](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [Webhook de Conexão de API](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [Webhook HTTP](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Embora nossos exemplos usem o gatilho **Solicitar**, você pode usar qualquer um dos gatilhos HTTP listados e todos os princípios se aplicam de modo idêntico a outros tipos de gatilho.
+   > Embora esses exemplos usem o gatilho **Solicitar**, você pode usar qualquer um dos gatilhos HTTP listados e todos os princípios se aplicam de modo idêntico a outros tipos de gatilho.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurar um ponto de extremidade HTTP para o aplicativo lógico
 
@@ -166,6 +166,7 @@ Quando desejar que a URL de ponto de extremidade HTTP aceite parâmetros, person
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Tokens gerados de esquemas JSON para o aplicativo lógico
 
 Quando você fornece um esquema JSON no gatilho **Solicitar**, o Designer de Aplicativo Lógico gera tokens para propriedades nesse esquema. Assim, você pode usar esses tokens para transmitir dados por meio do fluxo de trabalho do aplicativo lógico.
@@ -206,6 +207,9 @@ Você pode aninhar os fluxos de trabalho no aplicativo lógico adicionando outro
 
 Depois de criar o ponto de extremidade HTTP, é possível disparar o aplicativo lógico por meio de um método `POST` para a URL completa. Os aplicativos lógicos têm suporte interno para pontos de extremidade de acesso direto.
 
+> [!NOTE] 
+> Para executar um aplicativo lógico manualmente a qualquer momento, na barra de ferramentas do Designer do Aplicativo Lógico ou Modo de exibição de código do Aplicativo Lógico, escolha **executar**.
+
 ## <a name="reference-content-from-an-incoming-request"></a>Fazer referência ao conteúdo de uma solicitação de entrada
 
 Se o tipo do conteúdo for `application/json`, você poderá fazer referência às propriedades da solicitação de entrada. Caso contrário, o conteúdo será tratado como uma única unidade binária que você pode passar para outras APIs. Para fazer referência a esse conteúdo no fluxo de trabalho, você deve converter esse conteúdo. Por exemplo, se transmitir o conteúdo de `application/xml`, você poderá usar `@xpath()` para uma extração de XPath ou `@json()` para converter XML em JSON. Saiba mais sobre [como trabalhar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
@@ -234,13 +238,13 @@ Talvez você queira responder a determinadas solicitações que iniciam um aplic
 
 ### <a name="construct-the-response"></a>Construir a resposta
 
-Você pode incluir mais de um cabeçalho e qualquer tipo de conteúdo no corpo da resposta. Em nossa resposta de exemplo, o cabeçalho especifica que a resposta tem o tipo de conteúdo `application/json`. E o corpo contém `title` e `name`, com base no esquema JSON atualizado anteriormente para o gatilho **Solicitar**.
+Você pode incluir mais de um cabeçalho e qualquer tipo de conteúdo no corpo da resposta. Na resposta de exemplo, o cabeçalho especifica que a resposta tem o tipo de conteúdo `application/json`. E o corpo contém `title` e `name`, com base no esquema JSON atualizado anteriormente para o gatilho **Solicitar**.
 
 ![Ação Resposta HTTP][3]
 
 As respostas têm estas propriedades:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | statusCode |Especifica o código de status HTTP para responder à solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
 | headers |Define qualquer número de cabeçalhos a serem incluídos na resposta. |

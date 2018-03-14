@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d588dc6037b6295594301b577fe9df31d169a9e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -30,22 +30,24 @@ Planeje suas descobertas e avaliações com base nos limites a seguir:
 | **Entidade** | **Limite de máquinas** |
 | ---------- | ----------------- |
 | Project    | 1.500              | 
-| Descoberta  | 1.000              |
-| Avaliação | 400               |
+| Descoberta  | 1.500              |
+| Avaliação | 1.500               |
 
-- Se você tiver menos de 400 máquinas para descobrir e avaliar, precisará de um único projeto com uma única descoberta. Dependendo dos requisitos, você pode avaliar todas as máquinas em uma única avaliação ou dividir as máquinas em várias avaliações. 
-- Se você tiver entre 400 e 1.000 máquinas para descobrir, você precisará de um único projeto com uma única descoberta. Mas você precisará de várias avaliações para avaliar essas máquinas, porque uma única avaliação pode conter até 400 máquinas.
-- Se você tiver entre 1.001 e 1.500 máquinas, precisará de um único projeto contendo duas descobertas.
-- Se você tiver mais de 1.500 máquinas, precisará criar vários projetos e executar várias descobertas, de acordo com suas necessidades. Por exemplo: 
-    - Se você tiver 3.000 máquinas, poderá configurar dois projetos com duas descobertas cada ou três projetos com uma única descoberta cada.
-    - Se tiver 5.000 máquinas, você poderá configurar quatro projetos: três com uma descoberta de 1.500 máquinas e uma com uma descoberta de 500 máquinas. Como alternativa, você pode configurar cinco projetos com uma única descoberta em cada um. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Planejar várias descobertas
 
 Você pode usar o mesmo Coletor de Migrações para Azure para fazer várias descobertas para um ou mais projetos. Lembre-se dessas considerações de planejamento:
  
 - Quando você faz uma descoberta usando o Coletor de Migrações para Azure, você pode definir o escopo de descoberta para um datacenter, cluster, host ou pasta do vCenter Server.
-- Para fazer mais de uma descoberta, verifique no vCenter Server se as VMs que você deseja descobrir estão em pastas, datacenters, clusters ou hosts que compatíveis com o limite de 1.000 máquinas.
+- Para fazer mais de uma descoberta, verifique no vCenter Server se as VMs que você deseja descobrir estão em pastas, datacenters, clusters ou hosts com suporte para limite de 1.500 máquinas.
 - Recomendamos que, para fins de avaliação, você mantenha máquinas com interdependências dentro dos mesmos projeto e avaliação. No vCenter Server, verifique se as máquinas dependentes estão na mesma pasta, datacenter ou cluster para a avaliação.
 
 
@@ -83,6 +85,22 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
 
    Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Verifique se o hash gerado corresponde às configurações a seguir.
+
+    Para a versão OVA 1.0.9.5
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+
+    Para a versão OVA 1.0.9.2
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
     Para a versão OVA 1.0.8.59
 

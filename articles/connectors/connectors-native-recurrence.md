@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Agendar tarefas e fluxos de trabalho que são executados regularmente com aplicativos lógicos
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Crie e agende regularmente tarefas em execução com os Aplicativos Lógicos do Azure
 
 Para agendar tarefas, ações, cargas de trabalho ou processos que são executados regularmente, você pode criar um fluxo de trabalho de aplicativo lógico que começa com o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Agenda – Recorrência**. Com esse gatilho, você pode definir uma data e hora para iniciar a recorrência, bem como uma agenda de recorrência para a realização das tarefas, como esses exemplos e muito mais:
 
@@ -34,8 +34,8 @@ Para agendar tarefas, ações, cargas de trabalho ou processos que são executad
 
 Esse gatilho oferece suporte a vários padrões, por exemplo:
 
-* Executar imediatamente e repetir a cada *n* número de segundos, minutos, horas, dias, semanas ou meses.
-* Iniciar em um momento específico e, então, executar e repetir a cada *n* número de segundos, minutos, horas, dias, semanas ou meses.
+* Execute imediatamente e repita todos os *n* número de segundos, minutos, horas, dias semanas ou meses.
+* Inicie em um momento específico e, em seguida, execute e repita todos os *n* número de segundos, minutos, horas, dias, semanas ou meses.
 * Executar e repetir uma ou mais vezes por dia, por exemplo, às 8h e 17h.
 * Executar e repetir a cada semana, mas apenas em dias específicos, como sábado e domingo.
 * Executar e repetir a cada semana, mas somente em determinados dias e horas, como de segunda a sexta-feira, às 8h e às 17h.
@@ -109,7 +109,7 @@ Você pode configurar essas propriedades para o gatilho de recorrência.
 
 ## <a name="json-example"></a>Exemplo de JSON
 
-Aqui está uma definição de gatilho de recorrência de exemplo:
+Aqui está um exemplo [definição de gatilho de recorrência](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
 {

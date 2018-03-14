@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 41b36a25eab9c1564dc59a40acd7daefde888b7f
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
@@ -40,21 +40,15 @@ Esse projeto destina-se a servir de base modular para que os clientes ajustem ao
 
 -   Os clientes são responsáveis pela realização de avaliações adequadas de segurança e conformidade de qualquer solução compilada usando essa arquitetura fundamental.
 
-Para uma visão geral de como essa solução funciona, assista a este [vídeo](https://aka.ms/healthblueprintvideo) explicando e demonstrando sua implantação.
-
 ## <a name="deploying-the-automation"></a>Implantar a automação
 
 - Para implantar a solução, siga as instruções fornecidas nas diretrizes de implantação. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
+Para uma visão geral de como essa solução funciona, assista a este [vídeo](https://aka.ms/healthblueprintvideo) explicando e demonstrando sua implantação.
+
 - Perguntas frequentes podem ser encontradas nas diretrizes de [Perguntas Frequentes](https://aka.ms/healthblueprintfaq).
-
-
-## <a name="solution-components"></a>Componentes da solução
-
-
-A arquitetura fundamental é composta pelos componentes a seguir:
 
 -   **Diagrama de arquitetura.** O diagrama mostra a arquitetura de referência utilizada para o modelo e o exemplo do cenário de caso de uso.
 
@@ -66,12 +60,16 @@ A arquitetura fundamental é composta pelos componentes a seguir:
 -   Uma instalação do módulo e um script de configuração de [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) são usados para instalar e verificar se os módulos do PowerShell obrigatórios e as funções de administrador global foram configuradas corretamente. 
 -   Um script do PowerShell de instalação é utilizado para implantar a solução, fornecido por meio de um arquivo .zip que contém funções de demonstração pré-criadas.
 
+## <a name="solution-components"></a>Componentes da solução
+
+
+A arquitetura fundamental é composta pelos componentes a seguir:
 
 -   **[Modelo de risco](https://aka.ms/healththreatmodel)** Um modelo de risco abrangente é fornecido no formato tm7 para uso com a [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), mostrando os componentes da solução, os fluxos de dados entre eles e os limites de confiança. O modelo pode ajudar os clientes a entender os pontos de risco em potencial na infraestrutura do sistema ao desenvolver componentes de aprendizado de máquina ou outras modificações.
 
--   **[Matriz de responsabilidades do cliente](https://aka.ms/healthcrmblueprint)** Uma pasta de trabalho do Microsoft Excel lista os requisitos HITRUST relevantes e explica como a Microsoft e o cliente são responsáveis pelo cumprimento de cada um desses requisitos.
+-   **[Matriz de implementação do cliente](https://aka.ms/healthcrmblueprint)** Uma pasta de trabalho do Microsoft Excel lista os requisitos HITRUST relevantes e explica como a Microsoft e o cliente são responsáveis pelo cumprimento de cada um desses requisitos.
 
--   **[Análise de integridade. A solução foi revisada pela Coalfire Systems, Inc. A Análise de Conformidade de Integridade (HIPAA e HITRUST) e diretrizes para implantação fornecem uma análise do \'auditor da solução e considerações para transformar o projeto em uma implantação pronta para produção.
+-   **[Análise de integridade.](https://aka.ms/healthreviewpaper)** A solução foi revisada pela Coalfire Systems, Inc. A Análise de Conformidade de Integridade (HIPAA e HITRUST) e diretrizes para implantação fornecem uma análise do \'auditor da solução e considerações para transformar o projeto em uma implantação pronta para produção.
 
 # <a name="architectural-diagram"></a>Diagrama de arquitetura
 
