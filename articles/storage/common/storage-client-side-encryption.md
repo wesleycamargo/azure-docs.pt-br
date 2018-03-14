@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.openlocfilehash: fe8023729bd1294dedd2a4e4723a8be0976731d6
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 6b26261994bd1e64bf998cf3838ec9e52f844e54
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -65,7 +65,7 @@ Durante a criptografia, a biblioteca de cliente gerará um vetor de inicializaç
 > 
 > 
 
-Baixar um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **DownloadTo***/**BlobReadStream**. O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
+Fazer o download de um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **DownloadTo***/**BlobReadStream**. O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
 
 Baixar um intervalo arbitrário (métodos**DownloadRange***) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar o intervalo solicitado com êxito.
 
@@ -103,6 +103,10 @@ Para tabelas, além da política de criptografia, os usuários devem especificar
 Em operações em lote, o mesmo KEK será usado em todas as linhas de operação em lote porque a biblioteca de cliente permite apenas um objeto de opções (e, portanto, uma política/KEK) por operação em lote. No entanto, a biblioteca de cliente gerará internamente um novo IV e CEK aleatórios por linha no lote. Os usuários também podem optar por criptografar propriedades diferentes para cada operação em lote definindo esse comportamento no resolvedor de criptografia.
 
 ### <a name="queries"></a>Consultas
+> [!NOTE]
+> Como as entidades são criptografadas, é possível executar consultas que filtram uma propriedade criptografada.  Se você tentar, os resultados estarão incorretos, porque o serviço tentará comparar dados criptografados com dados não criptografados.
+> 
+> 
 Para executar operações de consulta, você deve especificar que um resolvedor de chave é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida para um provedor, a biblioteca de cliente gerará um erro. Para qualquer consulta que realiza as projeções do lado do servidor, a biblioteca de cliente adicionará as propriedades de metadados de criptografia especial (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) por padrão às colunas selecionadas.
 
 ## <a name="azure-key-vault"></a>Cofre da Chave do Azure
