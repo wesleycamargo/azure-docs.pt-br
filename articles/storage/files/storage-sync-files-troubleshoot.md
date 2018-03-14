@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solucionar problemas da Sincronização de Arquivos do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -29,6 +29,9 @@ Este artigo foi projetado para ajudá-lo a solucionar problemas e resolver probl
 2. O [Fórum do Armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. O [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda**, selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
+
+## <a name="storage-sync-service-object-management"></a>Gerenciamento do objeto de Serviço de Sincronização de Armazenamento
+Se você fizer uma movimentação de recurso de uma assinatura para outra assinatura, os recursos de sincronização de arquivos (Serviço de Sincronização de Armazenamento) serão impedidos de serem movidos. 
 
 ## <a name="agent-installation-and-server-registration"></a>Instalação do agente e registro do servidor
 <a id="agent-installation-failures"></a>**Como solucionar problemas de falhas de instalação do agente**  
@@ -145,15 +148,14 @@ Se a sincronização falhar em um servidor:
 <a id="replica-not-ready"></a>**Falha na sincronização com erro: 0x80c8300f – a réplica não está pronta para executar a operação necessária**  
 Esse problema é esperado quando você cria um ponto de extremidade de nuvem e usa um compartilhamento de arquivos do Azure que contém dados. Quando o trabalho de detecção de alteração for concluída em execução no compartilhamento de arquivos do Azure (pode levar até 24 horas), a sincronização deve começar a funcionar corretamente.
 
-<a id="broken-sync-files"></a>**Como solucionar problemas de falha de sincronização de arquivos individuais**  
-Se os arquivos individuais não sincronizar:
-1. No Visualizador de Eventos, examine os logs de eventos operacionais e de diagnóstico, localizados em aplicativos e Services\Microsoft\FileSync\Agent.
-2. Verifique se não há nenhum identificador aberto no arquivo.
 
     > [!NOTE]
-    > A Sincronização de arquivos do Azure periodicamente gera instantâneos do VSS para arquivos para sincronizar arquivos com identificadores abertos.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 Atualmente, não há suporte para a movimentação de recursos para outra assinatura ou para mover outro locatário do Microsoft Azure AD.  Se a assinatura for movida para um locatário diferente, o compartilhamento de arquivos do Azure se torna inacessível para nossos serviços, com base na alteração na propriedade. Se o locatário for alterado, você precisará excluir os pontos de extremidade do servidor e o ponto de extremidade de nuvem (consulte a seção de gerenciamento de grupo de sincronização para obter instruções de como limpar o compartilhamento de arquivos do Azure a ser usado novamente) e recrie o grupo de sincronização.
+
+<a id="doesnt-have-enough-free-space"></a>**Este computador não tem erro de espaço livre suficiente**  
+Se o portal mostrar o status "Este computador não tem espaço livre suficiente", o problema pode ser que menos de 1 GB de espaço livre permanecerá no volume.  Por exemplo, se houver um volume de 1,5 GB, a sincronização poderá utilizar somente 0,5 GB. Se esse problema ocorrer com você, expanda o tamanho do volume que está sendo usado para o ponto de extremidade do servidor.
 
 ## <a name="cloud-tiering"></a>Disposição em camadas de nuvem 
 Há dois caminhos para falhas na definição de camadas de nuvem:

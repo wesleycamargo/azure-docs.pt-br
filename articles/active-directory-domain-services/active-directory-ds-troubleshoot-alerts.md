@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services – Alertas de solução de problemas
 Este artigo fornece guias de solução de problemas para quaisquer alertas que podem ocorrer em seu domínio gerenciado.
@@ -34,6 +34,13 @@ Selecione as etapas de solução de problemas que correspondam ao ID de alerta o
 | AADDS102 | *Uma Entidade de Serviço necessária para o funcionamento correto do Azure AD Domain Services foi excluída do seu diretório do Azure AD. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.* | [Entidade de Serviço ausente](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *O intervalo de endereços IP para a rede virtual na qual você habilitou os serviços de domínio do Azure AD está em um intervalo de IP público. Serviços de domínio do Azure AD devem ser habilitados em uma rede virtual com um intervalo de endereços IP privados. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.* | [Endereço está em um intervalo de IP público](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *A Microsoft não consegue alcançar os controladores de domínio para este domínio gerenciado. Isso pode ocorrer se um grupo de segurança de rede (NSG) configurado na sua rede virtual bloquear o acesso ao domínio gerenciado. Outro motivo possível é a existência de uma rota definida pelo usuário que bloqueia o tráfego de entrada da internet.* | [Erro de Rede](active-directory-ds-troubleshoot-nsg.md) |
+| AADDS500 | *O domínio gerenciado foi sincronizado pela última vez com o Microsoft Azure Active Directory em {0}. Os usuários poderão não conseguir entrar no domínio gerenciado ou as associações de grupo poderão não ser sincronizadas com o Microsoft Azure Active Directory.* | [A sincronização não é realizada há algum tempo](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *O backup do domínio gerenciado foi feito pela última vez em XX.* | [O backup não é realizado há algum tempo](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS502 | *O certificado LDAP seguro para o domínio gerenciado expira em XX.* | [Certificado LDAP seguro perto de expirar](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS503 | *O domínio gerenciado está suspenso porque a assinatura do Azure associada ao domínio não está ativa.* | [Suspensão devido a uma assinatura desativada](#aadds503-suspension-due-to-disabled-subscription) |
+| AADDS504 | *O domínio gerenciado está suspenso devido a uma configuração inválida. O serviço foi não tem conseguido gerenciar, aplicar patches ou atualizar os controladores de domínio para seu domínio gerenciado há muito tempo.* | [Suspensão devido a uma configuração inválida](#aadds504-suspension-due-to-an-invalid-configuration) |
+
+
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Diretório ausente
 **Mensagem de alerta:**
@@ -75,7 +82,7 @@ Para restaurar seu serviço, siga estas etapas:
 
 Antes de começar, leia a seção **espaço do endereço IP privado v4** [neste artigo](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-Dentro da rede virtual, as máquinas podem fazer solicitações para recursos do Azure que estão no mesmo intervalo de endereços IP dos configurados para a sub-rede. No entanto, como a rede virtual é configurada para esse intervalo, essas solicitações serão direcionadas dentro da rede virtual e não alcançarão os recursos web pretendidos. Isso pode levar a erros imprevisíveis com os Azure Active Directory Domain Services.
+Dentro da rede virtual, as máquinas podem fazer solicitações para recursos do Azure que estão no mesmo intervalo de endereços IP dos configurados para a sub-rede. No entanto, como a rede virtual é configurada para esse intervalo, essas solicitações serão direcionadas dentro da rede virtual e não alcançarão os recursos web pretendidos. Essa configuração pode levar a erros imprevisíveis com os Azure Active Directory Domain Services.
 
 **Se você possui o intervalo de endereços IP na internet que está configurada em sua rede virtual, esse alerta pode ser ignorado. No entanto, os Azure Active Directory Domain Services não podem confirmar o [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] com essa configuração, pois isso poderá resultar em erros imprevisíveis.**
 
@@ -93,6 +100,47 @@ Dentro da rede virtual, as máquinas podem fazer solicitações para recursos do
 4. Para associar domínio às suas máquinas virtuais para seu novo domínio, siga [este guia](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Para garantir que o alerta seja resolvido, verifique a integridade do seu domínio em duas horas.
 
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: A sincronização não é realizada há um tempo
+
+**Mensagem de alerta:**
+
+*O domínio gerenciado foi sincronizado pela última vez com o Microsoft Azure Active Directory em {0}. Os usuários poderão não conseguir entrar no domínio gerenciado ou as associações de grupo poderão não ser sincronizadas com o Microsoft Azure Active Directory.*
+
+**Correção:**
+
+[Verifique a integridade do seu domínio](active-directory-ds-check-health.md) para todos os alertas que possam indicar problemas na configuração do seu domínio gerenciado. Às vezes, problemas com sua configuração podem impedir que a Microsoft sincronize seu domínio gerenciado. Se você conseguir resolver os alertas, aguarde duas horas e veja de novo se a sincronização foi concluída.
+
+
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: O backup não é realizado há algum tempo
+
+**Mensagem de alerta:**
+
+*O backup do domínio gerenciado foi feito pela última vez em XX.*
+
+**Correção:**
+
+[Verifique a integridade do seu domínio](active-directory-ds-check-health.md) para todos os alertas que possam indicar problemas na configuração do seu domínio gerenciado. Às vezes, problemas com sua configuração podem impedir que a Microsoft sincronize seu domínio gerenciado. Se você conseguir resolver os alertas, aguarde duas horas e veja de novo se a sincronização foi concluída.
+
+
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Suspensão devido a uma assinatura desativada
+
+**Mensagem de alerta:**
+
+*O domínio gerenciado está suspenso porque a assinatura do Azure associada ao domínio não está ativa.*
+
+**Correção:**
+
+Para restaurar seu serviço, [renove sua assinatura do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) associada a seu domínio gerenciado.
+
+## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Suspensão devido a uma configuração inválida
+
+**Mensagem de alerta:**
+
+*O domínio gerenciado está suspenso devido a uma configuração inválida. O serviço foi não tem conseguido gerenciar, aplicar patches ou atualizar os controladores de domínio para seu domínio gerenciado há muito tempo.*
+
+**Correção:**
+
+[Verifique a integridade do seu domínio](active-directory-ds-check-health.md) para todos os alertas que possam indicar problemas na configuração do seu domínio gerenciado. Se puder resolver esses alertas, resolva. Depois, contate o suporte para habilitar novamente a sua assinatura.
 
 ## <a name="contact-us"></a>Fale conosco
 Entre em contato com a equipe de produto do Azure Active Directory Domain Services para [compartilhar comentários ou obter suporte](active-directory-ds-contact-us.md).

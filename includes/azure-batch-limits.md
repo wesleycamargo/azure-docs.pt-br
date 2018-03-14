@@ -7,7 +7,7 @@
 | Núcleos por conta do Lote | 20 - 100 | 2500 |
 
 > [!NOTE]
-> Os limites padrão variam dependendo do tipo de assinatura que você usa para criar uma conta do Lote. As cotas de núcleos mostradas são para as contas do Lote no modo do Serviço de lote.
+> Os limites padrão variam dependendo do tipo de assinatura que você usa para criar uma conta do Lote. As cotas de núcleos mostradas são para as contas do Lote no modo do Serviço de lote. [Exibir as cotas na conta do Lote](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
 
 <sup>1</sup> O número de núcleos dedicados por conta do Lote pode ser aumentado, mas o número máximo não está especificado. Entre em contato com o suporte do Azure para discutir opções de aumento.
 

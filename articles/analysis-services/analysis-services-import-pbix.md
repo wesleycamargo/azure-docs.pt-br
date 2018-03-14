@@ -15,18 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: owend
-ms.openlocfilehash: 43eab587a1e5209069a248f1e2e1f57af158a2b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importar um arquivo do Power BI Desktop
 
-Você pode criar um novo modelo no Azure AS importando um arquivo do Power BI Desktop (pbix). Metadados de modelo, dados armazenados em cache e conexões de fonte de dados são importados. Relatórios e visualizações não serão importadas. Uma vez em seu servidor, alterações de modelo podem ser feitas atualizando e reimportando o pbix, usando o recurso de web designer (versão prévia) no portal, ou usando o SQL Server Management Studio (SSMS). Modelos importados não podem ser abertos ou exportados para o Visual Studio.
+Você pode criar um novo modelo no Azure AS importando um arquivo do Power BI Desktop (pbix). Metadados de modelo, dados armazenados em cache e conexões de fonte de dados são importados. Relatórios e visualizações não serão importadas.
 
-> [!NOTE]
-> Se seu modelo pbix se conecta a fontes de dados local, um [gateway local](analysis-services-gateway.md) deve ser configurado para o servidor.
+**Restrições**   
+- O modelo pbix deve se conectar somente às [fontes de dados compatíveis com o Analysis Services](analysis-services-datasource.md). 
+- O modelo pbix não pode ter conexões dinâmica ou DirectQuery. 
+- Se o modelo pbix se conecta a fontes de dados local, um [Gateway de dados local](analysis-services-gateway.md) deve ser configurado para o servidor do Analysis Services.
+- A importação pode falhar se o modelo de dados pbix contiver metadados que incompatíveis com o Analysis Services.
 
 ## <a name="to-import-from-pbix"></a>Para importar do pbix
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
 
@@ -40,7 +40,9 @@ Esse problema ocorrerá se o certificado do cliente estiver ausente em **Certifi
 
 Para resolver esse problema, siga estas etapas:
 
-1. Verifique se os certificados abaixo estão no local correto:
+1. Abra o Gerenciador de Certificados: Clique em **Iniciar**, digite **gerenciar certificados do computador** e, em seguida, clique em **gerenciar certificados do computador** no resultado da pesquisa.
+
+2. Verifique se os certificados abaixo estão no local correto:
 
     | Certificado | Local padrão |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ Para resolver esse problema, siga estas etapas:
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-2. Vá para Usuários\<UserName>AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, instale manualmente o certificado (arquivo *.cer) no repositório do computador e do usuário.
+3. Vá para Usuários\<UserName>AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, instale manualmente o certificado (arquivo *.cer) no repositório do computador e do usuário.
 
 Para saber mais sobre como instalar o certificado do cliente, confira [Gerar e exportar certificados para conexões ponto a site](vpn-gateway-certificates-point-to-site.md).
 
@@ -335,7 +337,7 @@ O driver NIC está desatualizado.
 Atualize o driver NIC:
 
 1. Clique em **Iniciar**, digite **Gerenciador de Dispositivos** e selecione-o na lista de resultados. Se você for solicitado para uma senha de administrador ou confirmação, digite a senha ou forneça a confirmação.
-2. Nas categorias ** Adaptadores de rede **, localize o NIC que deseja atualizar.  
+2. Nas categorias **Adaptadores de rede**, localize o NIC a ser atualizado.  
 3. Clique duas vezes no nome do dispositivo, selecione **Atualizar Driver**, selecione **Pesquisar automaticamente software de driver atualizado**.
 4. Se o Windows não localizar um novo driver, você poderá tentar procurar um no site do fabricante do dispositivo e seguir as instruções.
 5. Reinicie o computador e tente novamente a conexão.

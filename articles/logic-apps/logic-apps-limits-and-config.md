@@ -2,7 +2,7 @@
 title: "Limites e configuração – Aplicativos Lógicos do Azure | Microsoft Docs"
 description: "Valores de limites e de configuração do serviço para os Aplicativos Lógicos do Azure"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limites e configuração de Aplicativos Lógicos
 
@@ -28,13 +28,13 @@ Esse artigo descreve os limites atuais e detalhes de configuração para Aplicat
 
 ### <a name="http-request-limits"></a>Limites de solicitação HTTP
 
-Esses limites se aplicam a uma única solicitação HTTP ou uma chamada de conector.
+Estes são os limites para uma única solicitação HTTP ou uma chamada de conector:
 
 #### <a name="timeout"></a>Tempo limite
 
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
-| Tempo limite da solicitação | 120 segundos | Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [loop until](logic-apps-loops-and-scopes.md) pode compensar, conforme necessário |
+| Tempo limite da solicitação | 120 segundos | Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [loop until](logic-apps-control-flow-loops.md) pode compensar, conforme necessário | 
 |||| 
 
 #### <a name="message-size"></a>Tamanho da mensagem
@@ -56,7 +56,7 @@ Esses limites se aplicam a uma única solicitação HTTP ou uma chamada de conec
 
 ### <a name="run-duration-and-retention"></a>Retenção e duração da execução
 
-Estes limites se aplicam à execução de um único aplicativo lógico.
+Estes são os limites de execução de um único aplicativo lógico:
 
 | NOME | Limite | 
 | ---- | ----- | 
@@ -66,11 +66,11 @@ Estes limites se aplicam à execução de um único aplicativo lógico.
 | Intervalo de recorrência máx. | 500 dias | 
 ||| 
 
-Para exceder os limites de retenção de duração ou armazenamento no fluxo de processamento normal, [entre em contato com a equipe do produto](mailto://logicappsemail@microsoft.com) para receber ajuda com os requisitos.
+Para exceder os limites de retenção de duração ou armazenamento no fluxo de processamento normal, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para que possam ajudar com suas necessidades.
 
 ### <a name="looping-and-debatching-limits"></a>Limites de loop e debatching
 
-Estes limites se aplicam à execução de um único aplicativo lógico.
+Estes são os limites de execução de um único aplicativo lógico:
 
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
@@ -82,22 +82,22 @@ Estes limites se aplicam à execução de um único aplicativo lógico.
 
 ### <a name="throughput-limits"></a>Limites de taxa de transferência
 
-Estes limites se aplicam a um único recurso de aplicativo lógico.
+Estes são os limites de instância de um único aplicativo lógico:
 
 | NOME | Limite | Observações | 
 | ----- | ----- | ----- | 
-| Execuções de ações a cada cinco minutos | 100.000 |<p>O limite pode ser aumentado até 300.000 executando um aplicativo lógico em modo `High Througput`. Modo de alta taxa de transferência pode ser configurado definindo-se a propriedade `operationOptions` em`runtimeConfiguration` do recurso do fluxo de trabalho como `OptimizedForHighThroughput`. <p>O modo de alta taxa de transferência está em visualização. Além disso, uma carga de trabalho pode ser distribuída entre vários aplicativos conforme necessário. | 
+| Execuções de ações a cada cinco minutos | 100.000 | Para aumentar o limite para 300.000, você pode executar um aplicativo lógico no modo `High Througput`. Para configurar o modo de taxa de transferência no `runtimeConfiguration` do recurso de fluxo de trabalho, defina a propriedade `operationOptions` como `OptimizedForHighThroughput`. <p>**Nota**: O modo de alta taxa de transferência está em versão prévia. Você também pode distribuir uma carga de trabalho entre vários aplicativos conforme necessário. | 
 | Chamadas de saída simultâneas a ações | ~2.500 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
 | Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas |~1,000 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
 | Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos  | 60.000 | Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
 | Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos| 45,000 |Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 
 |||| 
 
-Para exceder esses limites no processamento normal ou executar um teste de carga que possa exceder esses limites, [entre em contato com a equipe do produto](mailto://logicappsemail@microsoft.com) para que possamos ajudá-lo com suas necessidades.
+Para exceder esses limites no processamento normal ou executar um teste de carga que possa exceder esses limites, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para que possam ajudá-lo com suas necessidades.
 
 ### <a name="logic-app-definition-limits"></a>Limites de definição de aplicativos lógicos
 
-Estes limites se aplicam uma única definição de aplicativo lógico.
+Estes são os limites de definição de um único aplicativo lógico:
 
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
@@ -129,7 +129,7 @@ Esses limites se aplicam a conectores personalizados que você pode criar de API
 
 ### <a name="integration-account-limits"></a>Limites da conta de integração
 
-Estes limites se aplicam aos artefatos que podem ser adicionados a uma conta de integração.
+Estes são os limites para os artefatos que podem ser adicionados a uma conta de integração.
 
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
@@ -148,7 +148,7 @@ Estes limites se aplicam ao número de artefatos que podem ser adicionados a uma
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Contratos | 10 | | 
-| Outros tipos de artefato | 25 |Os tipos de artefatos incluem parceiros, esquemas, certificados e mapas. Cada tipo pode conter até o número máximo de artefatos. | 
+| Outros tipos de artefato | 25 | Os tipos de artefatos incluem parceiros, esquemas, certificados e mapas. Cada tipo pode conter até o número máximo de artefatos. | 
 |||| 
 
 #### <a name="standard-pricing-tier"></a>Tipo de preço Standard
@@ -160,7 +160,7 @@ Estes limites se aplicam ao número de artefatos que podem ser adicionados a uma
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Tamanho da mensagem dos protocolos B2B (AS2, X12, EDIFACT)
 
-Esses limites se aplicam a protocolos B2B.
+Estes são os limites que se aplicam a protocolos B2B:
 
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 

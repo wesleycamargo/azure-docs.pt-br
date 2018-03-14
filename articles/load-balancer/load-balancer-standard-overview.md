@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Visão geral do Azure Load Balancer Standard (versão prévia)
 
@@ -302,9 +302,11 @@ Os SKUs não são mutáveis. Siga as etapas nesta seção para mover de um SKU d
 
 1. Crie um novo recurso Standard (Load Balancer e IPs Públicos, conforme necessário). Recrie suas regras e definições de investigação.
 
-2. Remova os recursos de SKU Básico (Load Balancer e IPs Públicos, conforme aplicável) de todas as instâncias VM. Certifique-se também de remover todas as instâncias VM de um conjunto de disponibilidade.
+2. Crie um novo ou atualize o NSG existente no NIC ou na sub-rede para lista de permissões de tráfego com balanceamento de carga, investigação, assim como qualquer outro tráfego que você deseja permitir.
 
-3. Anexe todas as instâncias de VM aos novos recursos de SKU Standard.
+3. Remova os recursos de SKU Básico (Load Balancer e IPs Públicos, conforme aplicável) de todas as instâncias VM. Certifique-se também de remover todas as instâncias VM de um conjunto de disponibilidade.
+
+4. Anexe todas as instâncias de VM aos novos recursos de SKU Standard.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migrar do SKU Standard para o Básico
 
@@ -464,6 +466,7 @@ As seguintes limitações se aplicam no momento da versão prévia e estão suje
 - No contexto das Zonas de disponibilidade, um endereço IP Público zonal não pode ser movido de uma zona para outra.
 - [Alertas do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são compatíveis no momento.
 - O Portal ainda não dá suporte para as regiões de visualização expandida.  Use as ferramentas de cliente como modelos, Azure CLI 2.0 ou PowerShell como solução alternativa.
+- Não há suporte para operações de movimentação de assinatura.
 
 
 ## <a name="next-steps"></a>Próximas etapas

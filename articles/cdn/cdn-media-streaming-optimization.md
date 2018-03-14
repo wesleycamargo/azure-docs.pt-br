@@ -1,5 +1,5 @@
 ---
-title: "Otimização de streaming de mídia por meio da Rede de Distribuição de Conteúdo do Azure"
+title: "Otimização de streaming de mídia por meio da CDN do Azure"
 description: "Otimizar arquivos de mídia de streaming para a distribuição suave"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c953baad9ca5def916800e6abe7032b4572def5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Otimização de streaming de mídia por meio da Rede de Distribuição de Conteúdo do Azure 
+# <a name="media-streaming-optimization-via-azure-cdn"></a>Otimização de streaming de mídia por meio da CDN do Azure 
  
 O uso de vídeo de alta definição está aumentando na Internet, o que cria dificuldades para a distribuição eficiente de arquivos grandes. Os clientes esperam a reprodução suave de ativos de vídeo por demanda ou vídeo ao vivo em uma variedade de redes e clientes no mundo todo. Um mecanismo de distribuição rápido e eficiente para arquivos de streaming de mídia é crítico para garantir uma experiência do consumidor agradável e sem problemas.  
 
@@ -28,13 +28,13 @@ A mídia de transmissão ao vivo é especialmente difícil de ser entregue, devi
 
 Os padrões de solicitação de streaming também fornecem alguns novos desafios. Quando uma transmissão ao vivo popular ou uma nova série é liberada para vídeo por demanda, milhares a milhões de espectadores podem solicitar o fluxo ao mesmo tempo. Nesse caso, a consolidação de solicitações inteligentes é essencial para não sobrecarregar os servidores de origem quando os ativos ainda não estão em cache.
  
-A Rede de Distribuição de Conteúdo do Azure da Akamai agora oferece um recurso que distribui ativos de mídia de streaming com eficiência aos usuários no mundo todo em escala. O recurso reduz as latências porque reduz a carga nos servidores de origem. Esse recurso está disponível no tipo de preço Standard da Akamai. 
+**A CDN do Azure da Akamai** oferece um recurso que oferece ativos de mídia de streaming de forma eficiente para usuários em todo o mundo em escala. O recurso reduz as latências porque reduz a carga nos servidores de origem. Esse recurso está disponível no tipo de preço standard da Akamai. 
 
-A Rede de Distribuição de Conteúdo do Azure da Verizon distribui mídia de streaming diretamente no tipo de otimização de distribuição na Web geral.
+**A CDN do Azure do Verizon** pode fornecer mídia de streaming diretamente no tipo de otimização de entrega Web geral.
  
-## <a name="configure-an-endpoint-to-optimize-media-streaming-in-the-azure-content-delivery-network-from-akamai"></a>Configurar um ponto de extremidade para otimizar o streaming de mídia na Rede de Distribuição de Conteúdo do Azure da Akamai
+## <a name="configure-an-endpoint-to-optimize-media-streaming"></a>Configure um ponto de extremidade para otimizar streaming de mídia
  
-Configure o ponto de extremidade CDN (rede de distribuição de conteúdo) para otimizar a distribuição de arquivos grandes pelo portal do Azure. Você também pode usar nossas APIs REST ou qualquer um dos SDKs de cliente para fazer isso. As seguintes etapas mostram o processo por meio do portal do Azure:
+Configure o ponto de extremidade CDN (rede de distribuição de conteúdo) para otimizar a distribuição de arquivos grandes pelo portal do Azure. Você também pode usar as APIs REST ou qualquer um dos SDKs cliente para fazer isso. As seguintes etapas mostram o processo através do Portal do Azure para um perfil **CDN do Azure da Akamai**:
 
 1. Para adicionar um novo ponto de extremidade, na página **Perfil CDN**, selecione **Ponto de extremidade**.
   
@@ -46,16 +46,15 @@ Configure o ponto de extremidade CDN (rede de distribuição de conteúdo) para 
  
 Depois de criar o ponto de extremidade, ele aplica a otimização a todos os arquivos que correspondem a determinados critérios. A seção a seguir descreve esse processo. 
  
-## <a name="media-streaming-optimizations-for-the-azure-content-delivery-network-from-akamai"></a>Otimizações de streaming de mídia na Rede de Distribuição de Conteúdo do Azure da Akamai
+## <a name="media-streaming-optimizations-for-azure-cdn-from-akamai"></a>Otimizações de streaming de mídia para Azure CDN do Akamai
  
-A otimização de streaming de mídia da Akamai é eficaz para mídia de streaming de vídeo ao vivo ou de vídeo por demanda que usa fragmentos de mídia individuais para distribuição. Esse processo é diferente de um único ativo grande transferido por meio de download progressivo ou usando solicitações de intervalo de bytes. Para obter informações sobre esse estilo de distribuição de mídia, consulte [Otimização de arquivos grandes](cdn-large-file-optimization.md).
-
+A otimização de streaming de mídia para **CDN do Azure da Akamai** é eficaz para mídia de streaming de vídeo ao vivo ou de vídeo por demanda que usa fragmentos de mídia individuais para distribuição. Esse processo é diferente de um único ativo grande transferido por meio de download progressivo ou usando solicitações de intervalo de bytes. Para obter informações sobre esse estilo de distribuição de mídia, consulte [Otimização de arquivos grandes](cdn-large-file-optimization.md).
 
 Os tipos de otimização de distribuição de mídia geral ou de distribuição de mídia de vídeo por demanda usam uma CDN com otimizações de back-end para distribuir ativos de mídia mais rapidamente. Eles também usam configurações de ativos de mídia baseadas nas melhores práticas aprendidas ao longo do tempo.
 
 ### <a name="caching"></a>Cache
 
-Se a Rede de Distribuição de Conteúdo do Azure da Akamai detectar que o ativo é um manifesto ou fragmento de streaming, ela usará diferentes tempos de expiração de cache da distribuição na Web geral. (Consulte a lista completa na tabela a seguir.) Como sempre, o controle de cache ou os cabeçalhos Expires enviados da origem são respeitados. Se o ativo não for um ativo de mídia, ela armazenará em cache usando os tempos de expiração da distribuição na Web geral.
+Se a **CDN do Azure da Akamai** detectar que o ativo é um manifesto ou fragmento de streaming, ela usará diferentes tempos de expiração de cache da entrega Web geral. (Consulte a lista completa na tabela a seguir.) Como sempre, o controle de cache ou os cabeçalhos Expires enviados da origem são respeitados. Se o ativo não for um ativo de mídia, ela armazenará em cache usando os tempos de expiração da distribuição na Web geral.
 
 O tempo de cache negativo curto é útil para descarregamento de origem quando muitos usuários solicitam um fragmento que ainda não existe. Um exemplo é um transmissão ao vivo em que os pacotes não estão disponíveis na origem nesse segundo. O intervalo de cache mais longo também ajuda a descarregar as solicitações da origem, já que o conteúdo de vídeo normalmente não é modificado.
  
@@ -67,7 +66,7 @@ Cache: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo | 1 seg
  
 ### <a name="deal-with-origin-failure"></a>Lidar com falhas de origem  
 
-A distribuição de mídia geral e a distribuição de mídia de vídeo por demanda também têm um tempo limite de origem e um log de repetição baseados nas melhores práticas para padrões de solicitação típicos. Por exemplo, como a distribuição de mídia geral é direcionada para a distribuição de mídia de vídeo ao vivo e por demanda, ela usa um tempo limite de conexão menor devido à natureza sensível ao tempo da transmissão ao vivo.
+A entrega de mídia geral e entrega de mídia de vídeo por demanda também têm tempos limite de origem e um log de repetição baseado nas melhores práticas para padrões de solicitação típicos. Por exemplo, como a entrega de mídia geral é direcionada para a entrega de mídia de vídeo ao vivo e por demanda, ela usa um tempo limite de conexão menor devido à natureza sensível ao tempo da transmissão ao vivo.
 
 Quando uma conexão atinge o tempo limite, a CDN repete a operação várias vezes antes de enviar um erro “504 – Tempo Limite do Gateway” para o cliente. 
 
@@ -82,13 +81,13 @@ Tipos de streaming com suporte | Extensões de arquivo
 HLS da Apple | m3u8, m3u, m3ub, key, ts, aac
 HDS da Adobe | f4m, f4x, drmmeta, bootstrap, f4f,<br>Estrutura de URL Seg-Frag <br> (expressão regular correspondente: ^(/.*)Seq(\d+)-Frag(\d+)
 DASH | mpd, dash, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
-Streaming suave | /manifest/,/QualityLevels/Fragments/
+Streaming suave | /manifest/, /QualityLevels/Fragments/
   
 
  
-## <a name="media-streaming-optimizations-for-the-azure-content-delivery-network-from-verizon"></a>Otimizações de streaming de mídia na Rede de Distribuição de Conteúdo do Azure da Verizon
+## <a name="media-streaming-optimizations-for-azure-cdn-from-verizon"></a>Otimizações de streaming de mídia para Azure CDN da Verizon
 
-A Rede de Distribuição de Conteúdo do Azure da Verizon distribui ativos de mídia de streaming diretamente usando o tipo de otimização de distribuição na Web geral. Alguns recursos na CDN ajudam diretamente na entrega de ativos de mídia por padrão.
+A **CDN do Azure do Verizon** entrega ativos de mídia de streaming diretamente usando o tipo de otimização de entrega Web geral. Alguns recursos na CDN ajudam diretamente na entrega de ativos de mídia por padrão.
 
 ### <a name="partial-cache-sharing"></a>Compartilhamento de cache parcial
 

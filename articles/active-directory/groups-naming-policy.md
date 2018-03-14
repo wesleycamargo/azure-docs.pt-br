@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: dce848d75e2ce89e8e6003108f1cd5371cbb0f31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de nomenclatura para o Office 365 no Azure Active Directory (versão prévia)
 
@@ -100,7 +100,9 @@ Se você for solicitado sobre como acessar um repositório não confiável, digi
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-Na tela **Entrar na sua conta** que abre, digite sua conta de administrador e senha para conectar-se ao serviço e selecione **Entrar**.
+  Na tela **Entrar na sua conta** que abre, digite sua conta de administrador e senha para conectar-se ao serviço e selecione **Entrar**.
+
+3. Siga as etapas em [cmdlets do Azure Active Directory para definir as configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md) para criar configurações de grupo para este locatário.
 
 ### <a name="view-the-current-settings"></a>Exiba as configurações atuais
 
@@ -140,7 +142,7 @@ Na tela **Entrar na sua conta** que abre, digite sua conta de administrador e se
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Exportar ou importar a lista de palavras bloqueadas personalizadas
 
-Para saber mais, consulte o artigo [Cmdlets do Azure Active Directory para definir as configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
+Para saber mais, consulte o artigo [Cmdlets do Azure Active Directory para definir as configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md).
 
 Aqui está um exemplo de script do PowerShell para exportar várias palavras bloqueadas:
 

@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e32e84eacee3a43b948b0a4b4177ab956b34ca3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
-Este artigo aborda as etapas para configurar relatórios para o Backup do Azure usando o cofre dos Serviços de Recuperação e para acessar esses relatórios usando o Power BI. Depois de executar essas etapas, você poderá ir diretamente para o Power BI para exibir todos os relatórios, personalizar e criar relatórios. 
+Este artigo aborda as etapas para configurar relatórios para o Backup do Azure usando o cofre dos Serviços de Recuperação e acessar esses relatórios usando o Power BI. Depois de executar essas etapas, você poderá ir diretamente para o Power BI para exibir todos os relatórios, personalizar e criar relatórios. 
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 1. Os relatórios de Backup do Azure têm suporte para backup da máquina virtual do Azure e backup de arquivo/pasta para a nuvem usando o Agente de serviços de recuperação do Azure.
@@ -123,7 +123,7 @@ Depois de configurar a conta de armazenamento para relatórios usando o cofre de
 
 2. **Qual é a frequência de push de dados para a conta de armazenamento e para o pacote de conteúdo de Backup do Azure no Power BI?**
 
-   Para usuários do dia 0, leva cerca de 24 horas para enviar dados por push para a conta de armazenamento. Após esse envio por push inicial ser concluído, os dados são atualizados com a frequência mostrada na figura abaixo. 
+   Para usuários do dia 0, leva cerca de 24 horas para enviar dados por push para a conta de armazenamento. Após esse envio por push inicial ser concluído, os dados serão atualizados com a frequência mostrada na figura abaixo. 
       * Os dados relacionados a **trabalhos, alertas, itens de backup, cofres, servidores protegidos e políticas** são enviados por push para a conta de armazenamento do cliente como e quando ela estiver conectada.
       * Os dados relacionados a **armazenamento** são enviados por push para a conta de armazenamento do cliente a cada 24 horas.
    

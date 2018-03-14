@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 836d56012afa9e5d5bdec35d85c37dd4b0b788ce
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 Este artigo descreve como modificar um conjunto de dimensionamento existente. Ele contém instruções de como alterar a configuração do conjunto de dimensionamento, como alterar a configuração de aplicativos em execução no conjunto de dimensionamento, como gerenciar a disponibilidade e muito mais.
@@ -255,7 +255,7 @@ Você também pode usar os [SDKs do Azure](https://azure.microsoft.com/downloads
 > Clusters do Service Fabric só podem usar o modo Automático, mas a atualização é tratada de maneira diferente. Para saber mais sobre atualizações da malha de serviço, consulte a [documentação do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
 >[!NOTE]
-> Há um tipo de modificação das propriedades globais do conjunto de dimensionamento que não segue a política de atualização. Estas são as alterações para o Perfil do SO do conjunto de dimensionamento (por exemplo, nome de usuário e senha do administrador). Essas alterações se aplicam somente a VMs criadas depois da alteração no modelo do conjunto de dimensionamento. Para atualizar VMs existentes, você deve "refazer a imagem" de cada VM existente. Você pode refazer a imagem por meio de:
+> Há um tipo de modificação das propriedades globais do conjunto de dimensionamento que não segue a política de atualização. Estas são as alterações para o Perfil do SO do conjunto de dimensionamento (por exemplo, nome de usuário e senha do administrador). Essas propriedades só podem ser alteradas na versão da API de 01-12-2017 ou posterior. Essas alterações se aplicam somente a VMs criadas depois da alteração no modelo do conjunto de dimensionamento. Para atualizar VMs existentes, você deve "refazer a imagem" de cada VM existente. Você pode refazer a imagem por meio de:
 
 API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (para obter mais informações, consulte a [Documentação da API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 

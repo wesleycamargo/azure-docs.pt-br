@@ -13,26 +13,24 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/21/2017
+ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
-Este artigo fornece as etapas para preparar seu ambiente para fazer backup de uma VM (máquina virtual) implantada com o Azure Resource Manager. As etapas mostradas nos procedimentos usam o Portal do Azure.  
-
-O serviço de Backup do Azure tem dois tipos de cofres para proteger suas VMs: cofres de backup e de Serviços de Recuperação. Um cofre de backup ajuda a proteger as VMs implantadas por meio do modelo de implantação clássico. Um cofre de Serviços de Recuperação protege *tanto as VMs implantadas com o modelo de implantação Clássico quanto aquelas implantadas com o Resource Manager*. Você deverá usar um cofre dos Serviços de Recuperação se desejar proteger uma VM implantada com o Resource Manager.
+Este artigo mostra como preparar seu ambiente para o backup de uma VM (máquina virtual) implantada com o Azure Resource Manager. As etapas mostradas nos procedimentos usam o Portal do Azure. Armazene os dados de backup da máquina virtual em um cofre dos Serviços de Recuperação. O cofre contém os dados de backup para máquinas virtuais implantadas com o Resource Manager e clássicas.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Antes de proteger ou fazer backup de uma máquina virtual implantada com o Resource Manager, verifique se esses pré-requisitos existem:
+Antes de proteger (ou fazer backup) uma máquina virtual implementada com o Resource Manager, verifique se esses pré-requisitos existem:
 
-* Crie um cofre dos Serviços de Recuperação (ou identifique um cofre dos Serviços de Recuperação existente) *no mesmo local que sua VM*.
+* Crie um cofre dos Serviços de Recuperação (ou identifique um cofre dos Serviços de Recuperação existente) *na mesma região da sua VM*.
 * Selecione um cenário, defina a política de backup e os itens a serem protegidos.
 * Verifique a instalação de um agente de VM na máquina virtual.
 * Verifique a conectividade de rede.
@@ -44,39 +42,40 @@ Se essas condições já existem em seu ambiente, prossiga para o artigo [Fazer 
  * **Linux**: o Backup do Azure é compatível [uma lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) exceto o CoreOS Linux. 
  
     > [!NOTE] 
-    > Outras distribuições personalizadas do Linux devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python. No entanto, não endossamos essas distribuições para backup.
+    > Outras distribuições personalizadas do Linux devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python. No entanto, não há suporte para essas distribuições.
  * **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações durante o backup e a restauração de uma VM
-Antes de preparar seu ambiente, certifique-se de compreender essas limitações:
+Antes de preparar seu ambiente, note as seguintes limitações:
 
 * Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 * Não há suporte para o backup de máquinas virtuais com tamanhos de discos de dados maiores que 1.023 GB.
 
   > [!NOTE]
-  > Temos uma versão prévia privada para dar suporte a backups para VMs com discos > 1 TB. Para obter detalhes, consulte [Versão prévia privada para suporte de backup de VM de discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Temos uma versão prévia privada para dar suporte a backups para VMs com discos superiores a um TB. Para obter detalhes, veja [Versão prévia privada para suporte a backup de VMs com discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a) (em inglês).
   >
 
 * Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
-* O backup de VMs criptografadas por meio de apenas uma BEK (chave de criptografia BitLocker) não é compatível. O backup de máquinas virtuais de Linux criptografadas por meio da criptografia LUKS (Linux Unified Key Setup) não é compatível.
+* O backup de máquinas virtuais de Linux criptografadas por meio da criptografia LUKS (Linux Unified Key Setup) não é compatível.
 * Não é recomendável fazer backup de VMs que contêm a configuração CSV (Volume Compartilhado Clusterizado) ou Servidor de Arquivos de Escalabilidade Horizontal. Elas exigem o envolvimento de todas as VMs incluídas na configuração do cluster durante a tarefa de instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs. 
 * Os dados de backup não incluem unidades de rede montadas anexadas à VM.
 * Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar restaurar a VM quando ela existir, a operação de restauração falhará.
 * Não há suporte para backup e restauração entre regiões.
-* Não há suporte atualmente para Backup e Restauração de Máquinas Virtuais usando discos não gerenciados em contas de armazenamento com as regras de rede aplicadas. Ao configurar o backup, certifique-se de que as configurações de “Firewalls e redes virtuais” para a conta de armazenamento permitem acesso de “Todas as redes.”
-* Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure. (Consulte a [lista de verificação](https://azure.microsoft.com/regions/#services) das regiões compatíveis.) Se a região que você procura ainda não for compatível, ela não aparecerá na lista suspensa durante a criação de cofre.
-* A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Para saber mais, consulte [Restaurando um controlador de domínio com vários DCs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
-* Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. VMs criadas por meio do fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
+* Não há suporte para backup e restauração de máquinas virtuais usando discos não gerenciados em contas de armazenamento com regras de rede aplicadas. 
+* Ao configurar o backup, certifique-se de que as configurações de **Firewalls e redes virtuais** da conta de armazenamento permitem o acesso de Todas as redes.
+* Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure. (Veja a [lista](https://azure.microsoft.com/regions/#services) das regiões com suporte.) Se o suporte ainda não estiver disponível para região que você procura, ela não aparecerá na lista suspensa durante a criação de cofre.
+* A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Para saber mais, confira [Restauração de um controlador de domínio com vários DCs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. As VMs criadas por meio do fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restauração de VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Máquinas virtuais sob configuração do balanceador de carga (interno e externo)
   * Máquinas virtuais com vários endereços IP reservados
   * Máquinas virtuais com vários adaptadores de rede
 
-## <a name="create-a-recovery-services-vault-for-a-vm"></a>Criar um cofre dos Serviços de Recuperação para uma VM
-Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e os pontos de recuperação criados ao longo do tempo. O cofre dos Serviços de Recuperação também contém as políticas de backup associadas às máquinas virtuais protegidas.
+## <a name="create-a-recovery-services-vault-for-a-vm"></a>Criar um cofre de Serviços de Recuperação para uma VM
+Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e os pontos de recuperação criados ao longo do tempo. O cofre de Serviços de Recuperação também contém as políticas de backup associadas às máquinas virtuais protegidas.
 
 Para criar um cofre de Serviços de Recuperação:
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu **Hub**, selecione **Procurar** e digite **Serviços de Recuperação**. Conforme você começa a digitar, sua entrada filtra a lista de recursos. Selecione **Cofres de Serviços de Recuperação**.
 
     ![Digitando na caixa e selecionando "Cofres de Serviços de Recuperação" nos resultados](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
@@ -91,11 +90,11 @@ Para criar um cofre de Serviços de Recuperação:
     ![Painel "Cofres de Serviços de Recuperação"](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
 4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
 5. Selecione **Assinatura** para ver a lista de assinaturas disponíveis. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou a sugerida). Só haverá múltiplas opções se sua conta corporativa ou de estudante estiver associada a várias assinaturas do Azure.
-6. Selecione **Grupo de recursos** para ver a lista dos grupos de recursos disponíveis ou selecione **Novo** para criar um novo grupo de recursos. Para obter informações completas sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-7. Selecione **localização** para selecionar a região geográfica do cofre. O cofre *deve* estar na mesma região que as máquinas virtuais que você deseja proteger.
+6. Clique em **Grupo de recursos** para ver a lista disponível de grupos de recursos ou em **Novo** para criar um grupo de recursos. Para obter informações completas sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+7. Clique em **Localização** para selecionar a região geográfica do cofre. O cofre *deve* estar na mesma região que as máquinas virtuais que você deseja proteger.
 
    > [!IMPORTANT]
-   > Se você não souber ao certo a localização em que a VM se encontra, feche a caixa de diálogo de criação do cofre e vá para a lista de máquinas virtuais no portal. Se você tiver máquinas virtuais em várias regiões, será necessário criar um cofre de Serviços de Recuperação em cada região. Crie o cofre no primeiro local antes de ir para o próximo local. Não é necessário especificar contas de armazenamento para armazenar os dados de backup. O cofre de Serviços de Recuperação e o serviço de Backup do Azure lidam com isso automaticamente.
+   > Caso não saiba a localização da VM, feche a caixa de diálogo de criação do cofre e vá para a lista de máquinas virtuais no portal. Se você tem máquinas virtuais em várias regiões, é necessário criar um cofre de Serviços de Recuperação em cada região. Crie o cofre no primeiro local antes de ir para o próximo local. Não é necessário especificar contas de armazenamento para armazenar os dados de backup. O cofre de Serviços de Recuperação e o serviço de Backup do Azure lidam com isso automaticamente.
    >
    >
 
@@ -106,7 +105,7 @@ Para criar um cofre de Serviços de Recuperação:
 Agora que você criou o cofre, saiba como configurar a replicação de armazenamento.
 
 ## <a name="set-storage-replication"></a>Definir replicação de armazenamento
-A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável.
+A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a configuração da opção como armazenamento com redundância geográfica para o backup primário. Se você quiser uma opção mais barata que não seja tão durável, escolha o armazenamento com redundância local.
 
 Para editar a configuração de replicação de armazenamento:
 
@@ -126,9 +125,7 @@ Para editar a configuração de replicação de armazenamento:
 Depois de escolher a opção de armazenamento para o cofre, você estará pronto para associar a VM ao cofre. Para iniciar a associação, você deverá descobrir e registrar as máquinas virtuais do Azure.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selecionar a meta de backup, definir a política e os itens a serem protegidos
-Antes de registrar uma VM em um cofre, execute o processo de descoberta para garantir que todas as novas máquinas virtuais adicionadas à assinatura sejam identificadas. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações como o nome do serviço de nuvem e a região. 
-
-No Portal do Azure, o *cenário* se refere ao que você colocará no cofre de Serviços de Recuperação. A *Política* é o agendamento para quando e com que frequência os pontos de recuperação serão feitos. A Política também inclui o período de retenção dos pontos de recuperação.
+Antes de registrar uma máquina virtual com um cofre dos Serviços de Recuperação, execute o processo de descoberta para identificar novas máquinas virtuais adicionadas à assinatura. O processo de descoberta consulta o Azure para a lista de máquinas virtuais na assinatura. Se novas máquinas virtuais forem localizadas, o portal exibirá o nome do serviço de nuvem e a região associada. No Portal do Azure, o *cenário* é o que você insere no cofre dos Serviços de Recuperação. A *Política* define quando e com que frequência os pontos de recuperação são criados. A Política também inclui o período de retenção dos pontos de recuperação.
 
 1. Se você já tiver um cofre de Serviços de Recuperação aberto, vá para a etapa 2. Se você não tiver um cofre de Serviços de Recuperação aberto, abra o [Portal do Azure](https://portal.azure.com/). No menu **Hub**, selecione **Mais serviços**.
 
@@ -151,7 +148,7 @@ No Portal do Azure, o *cenário* se refere ao que você colocará no cofre de Se
 
    Os painéis **Backup** e **Meta de Backup** abrem.
 
-3. No painel **Meta de Backup**, defina **Onde sua carga de trabalho é executada?** como **Azure** e **Do que fazer você deseja fazer backup?** como **Máquina virtual**. Depois, selecione **OK**.
+3. No painel **Meta de Backup**, defina **Onde sua carga de trabalho é executada?** como **Azure** e **O que você quer fazer de backup?** como **Máquina virtual**. Depois, selecione **OK**.
 
    ![Painéis Backup e Meta de Backup](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -170,7 +167,7 @@ No Portal do Azure, o *cenário* se refere ao que você colocará no cofre de Se
 
    ![Painel "Selecionar máquinas virtuais"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-   A máquina virtual selecionada é validada. Se você não encontrar as máquinas virtuais esperadas, verifique se elas existem no mesmo local do Azure que o cofre de Serviços de Recuperação e se já não estão protegidas em outro cofre. O painel do cofre mostra a localização do cofre de Serviços de Recuperação.
+   A máquina virtual selecionada é validada. Se você não visualizar as máquinas virtuais esperadas, verifique se as máquinas virtuais estão na mesma região do Azure do cofre dos Serviços de Recuperação. Se ainda não for possível visualizar as máquinas virtuais, verifique se elas não estão protegidas com outro cofre. O painel do cofre mostra a região onde existe o cofre dos Serviços de Recuperação.
 
 6. Agora que você definiu todas as configurações para o cofre, no painel **Backup**, selecione **Habilitar backup**. Esta etapa implanta a política no cofre e nas VMs. Essa etapa não cria o ponto de recuperação inicial para a máquina virtual.
 
@@ -196,7 +193,7 @@ Se você tiver problemas para fazer backup da VM do Azure, use a tabela a seguir
 ### <a name="backup-extension"></a>Extensão de backup
 Depois que o Agente de VM for instalado na máquina virtual, o serviço de Backup do Azure instalará a extensão de backup no agente de VM. O serviço do Backup atualiza e corrige continuamente a extensão de backup.
 
-O serviço de Backup instala a extensão de backup independentemente de a VM estar em execução. Uma VM em execução oferece uma maior chance de obter um ponto de recuperação consistente com o aplicativo. No entanto, o serviço do Backup continuará a realizar o backup da VM mesmo quando ela estiver desativada e a extensão não puder ser instalada. Isso é conhecido como *VM offline*. Nesse caso, o ponto de recuperação será *consistente com a falha*.
+O serviço de Backup instala a extensão de backup independentemente de a VM estar em execução. Uma VM em execução oferece uma maior chance de obter um ponto de recuperação consistente com o aplicativo. No entanto, o serviço do Backup continua a realizar o backup da VM mesmo quando ela está desativada e a extensão não pode ser instalada. Isso é conhecido como *VM offline*. Nesse caso, o ponto de recuperação será *consistente com a falha*.
 
 ## <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 Para gerenciar os instantâneos de VM, a extensão de backup precisa de conectividade com os endereços IP públicos do Azure. Sem a conexão correta com a Internet, as solicitações HTTP da máquina virtual atingirão o tempo limite e a operação de backup falhará. Se sua implantação tiver restrições de acesso em vigor, por meio de um NSG (grupo de segurança de rede), por exemplo, escolha uma destas opções para fornecer um caminho livre para o tráfego de backup:

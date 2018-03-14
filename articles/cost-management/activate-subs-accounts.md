@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: c2728545aeb202bdd216e00fd4a7e464e483b1da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar assinaturas e contas do Azure com o Gerenciamento de Custos do Azure
 
@@ -56,7 +56,7 @@ Quando você adiciona uma assinatura a uma atualização de conta, você concede
 
 ### <a name="update-a-subscription"></a>Atualizar uma assinatura
 
-1. Se você quiser atualizar uma assinatura _não ativa_ que já existe no Gerenciamento de Custos do Azure no Gerenciamento de Contas, clique no símbolo de lápis de edição à direita do _GUID de locatário_.
+1. Se você quiser atualizar uma assinatura _não ativa_ que já existe no Gerenciamento de Custos do Azure no Gerenciamento de Contas, clique no símbolo de lápis de edição à direita do _GUID de locatário_ pai. As assinaturas são agrupadas em um locatário pai, portanto, evite ativar assinaturas individualmente.
     ![Redescobrir assinaturas](./media/activate-subs-accounts/existing-sub.png)
 2. Se necessário, insira a ID de locatário. Se você não souber sua ID de locatário, use as seguintes etapas para localizá-lo:
     1. Faça logon no [Portal do Azure](https://portal.azure.com).

@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -34,6 +34,19 @@ As Migrações para Azure usam a solução [Mapa do Serviço](../operations-mana
 Para usar a visualização de dependência, você precisa baixar e instalar agentes em cada computador local que você deseja analisar.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>Eu preciso pagar por ele?
+
+As Migrações para Azure estão disponíveis sem custo adicional. O uso dos recursos de visualização de dependência nas Migrações para Azure exigem o Mapa do Serviço. Ao criar um projeto de Migrações para Azure, ele criará automaticamente um novo espaço de trabalho do Log Analytics em seu nome.
+
+> [!NOTE]
+> O recurso de visualização de dependência usa o Mapa do Serviço por meio de um espaço de trabalho do Log Analytics. Desde de 28 de fevereiro de 2018, com o anúncio da disponibilidade geral das Migrações para Azure, o recurso agora está disponível sem custo adicional. Você precisará criar um novo projeto para usar o espaço de trabalho de uso gratuito. Os espaços de trabalho existentes antes da disponibilidade geral ainda são cobrados; portanto, recomendamos que você mova para um novo projeto.
+
+1. O uso de qualquer solução que não o Mapa do Serviço dentro desse espaço de trabalho do Log Analytics incorrerá em cobranças padrão do Log Analytics. 
+2. Para dar suporte a cenários de migração sem custo adicional, a solução de Mapa do Serviço não incorrerá em nenhum encargo nos primeiros 180 dias a partir da criação do projeto de Migrações para Azure, após o qual taxas padrão serão aplicadas.
+3. Somente o espaço de trabalho criado como parte da criação do projeto será gratuito para uso.
+
+Quando você registrar agentes para o espaço de trabalho, use a ID e a chave fornecida pelo projeto na página das etapas do agente de instalação. Você não pode usar um espaço de trabalho existente e associá-lo ao projeto de Migrações para Azure.
+
+Quando o projeto de Migrações para Azure é excluído, o espaço de trabalho não é excluído junto com ele. Após a exclusão do projeto, o uso do Mapa do Serviço não será gratuito e cada nó será cobrado de acordo com a camada paga do espaço de trabalho do Log Analytics.
 
 Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 

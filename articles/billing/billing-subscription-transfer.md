@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
 
@@ -29,7 +29,7 @@ Transfira sua assinatura para outro usuário no Centro de Contas para alterar o 
 
 > [!IMPORTANT]
 > 
-> Atualmente não há suporte para transferências de assinatura de avaliação gratuita ou assinaturas [AIO (Azure via Open)](https://azure.microsoft.com/offers/ms-azr-0111p/). Para uma solução alternativa, consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
+> Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../active-directory/role-based-access-control-what-is.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma assinatura do Azure
 
@@ -49,7 +49,12 @@ Transfira sua assinatura para outro usuário no Centro de Contas para alterar o 
    ![Guia de assinaturas de conta do Azure](./media/billing-subscription-transfer/image1.png)
 1. Especifique o destinatário.
 
+   > [!IMPORTANT]
+   > 
+   > Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../active-directory/role-based-access-control-what-is.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino.
+
    ![Caixa de diálogo de assinatura de transferência](./media/billing-subscription-transfer/image2.PNG)
+
 1. O destinatário recebe automaticamente um email com um link de aceitação.
 
    ![Email de transferência de assinatura para o destinatário](./media/billing-subscription-transfer/image3.png)
@@ -80,7 +85,7 @@ O Administrador Corporativo pode transferir a propriedade das assinaturas em um 
 
 ## <a name="whats-supported"></a>O que tem suporte:
 
-A transferência de assinatura de autoatendimento está disponível para as ofertas ou tipos de assinatura listados na tabela a seguir. Para transferir a outras assinaturas, como [Patrocínios](https://azure.microsoft.com/offers/ms-azr-0036p/) ou planos de suporte, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+A transferência de assinatura de autoatendimento está disponível para as ofertas ou tipos de assinatura listados na tabela a seguir. Atualmente, não é possível transferir assinaturas de Avaliação Gratuita ou [AIO (Azure via Open)](https://azure.microsoft.com/offers/ms-azr-0111p/). Para uma solução alternativa, consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md). Para transferir outras assinaturas, como [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) ou planos de suporte, [contate o Suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Nome da oferta                                                                             | Número da oferta |
 |----------------------------------------------------------------------------------------|--------------|

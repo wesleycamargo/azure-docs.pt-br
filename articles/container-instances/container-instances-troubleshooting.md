@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Solucionar problemas de implantação com as Instâncias de Contêiner do Azure
 
@@ -91,6 +91,10 @@ A saída inclui as propriedades principais do contêiner, juntamente com eventos
 ## <a name="common-deployment-issues"></a>Tarefas de implantação comuns
 
 Há alguns problemas comuns responsáveis pela maioria dos erros na implantação.
+
+## <a name="image-version-not-supported"></a>Não há suporte para versão da imagem
+
+Se uma imagem for especificada, cujas Instâncias de Contêiner do Azure não poderá dar suporte, um erro será retornado do formulário `ImageVersionNotSupported`. O valor do erro mostrará `The version of image '{0}' is not supported.`. Esse erro atualmente aplica-se às imagens do Windows 1709, para mitigar o uso de uma imagem LTS do Windows. O suporte para imagens do Windows 1709 está em andamento.
 
 ## <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
 

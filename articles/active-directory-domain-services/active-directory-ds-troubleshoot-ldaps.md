@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: c6c47d1f9776f9e45711d8139661255dcd44c2a1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f80de47f8e9ba326fc224a8bc09f8029b5afd1ca
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services: Solução de problemas de configuração do LDAP Seguro
 
@@ -51,6 +51,16 @@ Quando o LDAP Seguro estiver habilitado, recomendamos a criação de regras adic
 > [!TIP]
 > A Porta 636 não é a única regra necessária para que os Azure Active Directory Domain Services sejam executados sem problemas. Para saber mais, acesse os artigos [Diretrizes de rede](active-directory-ds-networking.md) ou [Solução de problemas de configuração de NSG](active-directory-ds-troubleshoot-nsg.md).
 >
+
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: Expiração do certificado LDAP Seguro
+
+**Mensagem de alerta:**
+
+*O certificado LDAP seguro para o domínio gerenciado expira em XX.*
+
+**Correção:**
+
+Crie um novo certificado LDAP seguro seguindo as etapas descritas no artigo [Configurar LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 ## <a name="contact-us"></a>Fale conosco
 Entre em contato com a equipe de produto do Azure Active Directory Domain Services para [compartilhar comentários ou obter suporte](active-directory-ds-contact-us.md).

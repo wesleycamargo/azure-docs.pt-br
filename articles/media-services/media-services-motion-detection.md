@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detectar movimentos com o Azure Media Analytics
 ## <a name="overview"></a>Visão geral
 O MP (processador de mídia) **Azure Media Motion Detector** permite a identificação eficiente de seções de interesse em um vídeo longo e rotineiro. A detecção de movimento pode ser usada em sequências de imagens estáticas para identificar seções do vídeo onde ocorrem movimentos. Ela gera um arquivo JSON contendo metadados com carimbos de hora e a região delimitadora onde o evento ocorreu.
 
-Essa tecnologia, destinada à segurança de feeds de vídeo, é capaz de categorizar o movimento em eventos relevantes e falsos positivos, como mudanças de iluminação e sombras. Isso permite a geração de alertas de segurança por meio de feeds da câmera, sem gerar incontáveis eventos irrelevantes, além de permitir também a extração de momentos de interesse dos vídeos de vigilância extremamente longos.
+Essa tecnologia, destinada à segurança de feeds de vídeo, é capaz de categorizar o movimento em eventos relevantes e falsos positivos, como mudanças de iluminação e sombras. Isso permite a geração de alertas de segurança por meio de feeds da câmera, sem gerar incontáveis eventos irrelevantes, além de permitir a extração de momentos de interesse dos vídeos de vigilância longos.
 
 No momento, o MP **Azure Media Motion Detector** está em versão de Visualização.
 
@@ -35,18 +35,20 @@ Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV
 ## <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Quando você criar uma tarefa com o **Azure Media Motion Detector**, deverá especificar uma predefinição de configuração. 
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 Você pode usar os seguintes parâmetros:
 
-| Nome | Opções | Descrição | Padrão |
+| NOME | Opções | DESCRIÇÃO | Padrão |
 | --- | --- | --- | --- |
-| sensitivityLevel |Cadeia de caracteres: 'low', 'medium', 'high' |Define o nível de sensibilidade para relatar os movimentos. Ajuste para ajustar o número de falsos positivos. |'medium' |
-| frameSamplingValue |Número inteiro positivo |Define a frequência na qual o algoritmo é executado. 1 equivale a cada quadro, 2 significa a cada dois quadros e assim por diante. |1 |
+| sensitivityLevel |Cadeia de caracteres: 'low', 'medium', 'high' |Define o nível de sensibilidade ao qual os movimentos são relatados. Ajuste para ajustar o número de falsos positivos. |'medium' |
+| frameSamplingValue |Número inteiro positivo |Define a frequência na qual o algoritmo é executado. 1 é igual a cada quadro, 2 significa cada segundo quadro, e assim por diante. |1 |
 | detectLightChange |Booliano: 'true', 'false' |Define se as mudanças leves são relatadas nos resultados |'False' |
-| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Exemplo: 00:00:03 |Especifica a janela de tempo entre eventos de movimento, em que dois eventos serão combinados e relatados como um. |00:00:00 |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Exemplo: 00:00:03 |Especifica a janela de tempo entre eventos de movimento, em que 2 eventos são combinados e relatados como 1. |00:00:00 |
 | detectionZones |Uma matriz de zonas de detecção:<br/>- A Zona de Detecção é uma matriz de três ou mais pontos<br/>- Ponto é uma coordenada x e y de 0 a 1. |Descreve a lista de zonas de detecção em forma de polígono a ser usada.<br/>Os resultados são informados com as zonas como uma ID, com o primeiro sendo 'id': 0 |Zona única que abrange todo o quadro. |
 
 ### <a name="json-example"></a>Exemplo de JSON
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,10 +76,10 @@ Você pode usar os seguintes parâmetros:
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>Arquivos de saída do Motion Detector
-Um trabalho de detecção de movimento retornará um arquivo JSON no ativo de saída, que descreve os alertas de movimento, e suas categorias, no vídeo. O arquivo conterá informações sobre a hora e a duração do movimento detectado no vídeo.
+Um trabalho de detecção de movimento retorna um arquivo JSON no recurso de saída, que descreve os alertas de movimento e suas categorias dentro do vídeo. O arquivo contém informações sobre o tempo e a duração do movimento detectado no vídeo.
 
 A API do Motion Detector fornecerá indicadores quando houver objetos em movimento em um vídeo fixo em segundo plano (por exemplo, um vídeo de vigilância). O Motion Detector é treinado para reduzir alarmes falsos, como mudanças de iluminação e de sombra. As limitações atuais dos algoritmos incluem vídeos de visão noturna, objetos semitransparentes e objetos pequenos.
 
@@ -89,26 +91,27 @@ A API do Motion Detector fornecerá indicadores quando houver objetos em movimen
 
 A tabela a seguir descreve os elementos do arquivo JSON de saída:
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | --- | --- |
 | Versão |Refere-se à versão da API de Vídeo. A versão atual é 2. |
 | Escala de tempo |"Tiques" por segundo do vídeo. |
-| Deslocamento |A diferença de tempo para carimbos de hora em “tiques”. Na versão 1.0 das APIs de Vídeo, sempre será 0. Em cenários futuro para os quais oferecemos suporte, esse valor poderá ser alterado. |
+| Deslocamento |A diferença de horário para carimbos de data/hora em "tiques." Na versão 1.0 das APIs de Vídeo, sempre será 0. Em cenários futuro para os quais oferecemos suporte, esse valor poderá ser alterado. |
 | Taxa de quadros |Quadros por segundo do vídeo. |
 | Largura, Altura |Refere-se à largura e à altura do vídeo em pixels. |
 | Iniciar |O carimbo de hora inicial em "tiques". |
-| Duração |A duração do evento, em "tiques". |
+| Duration |A duração do evento, em "tiques". |
 | Intervalo |O intervalo de cada entrada no evento, em "tiques". |
 | Eventos |Cada fragmento de evento contém o movimento detectado dentro dessa duração. |
-| Tipo |Na versão atual, essa opção sempre será “2” para movimentos genéricos. Esse rótulo dá a flexibilidade às APIs de Vídeo para categorizar o movimento em futuras versões. |
+| type |Na versão atual, essa opção sempre será “2” para movimentos genéricos. Esse rótulo dá a flexibilidade às APIs de Vídeo para categorizar o movimento em futuras versões. |
 | RegionID |Conforme explicado acima, isso sempre será 0 nesta versão. Esse rótulo oferece à API de Vídeo a flexibilidade de encontrar o movimento em várias regiões em versões futuras. |
 | Regiões |Refere-se à área no vídeo onde você se preocupa com movimento. <br/><br/>-"id" representa a área de região – nesta versão há apenas uma, ID 0. <br/>-"type" representa a forma da região em que você se preocupa com o movimento. Atualmente, "retângulo" e "polígono" têm suporte.<br/> Se você tiver especificado "retângulo", a região terá dimensões em X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY do lado superior esquerdo da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixos em 0, 0 e 1, 1. <br/>Se você tiver especificado "polígono", a região terá dimensões em pontos. <br/> |
 | Fragmentos |Os metadados são agrupados em segmentos diferentes, chamados fragmentos. Cada fragmento contém um início, uma duração, um número de intervalo e evento(s). Um fragmento sem eventos significa que nenhum movimento foi detectado durante essa hora de início e duração. |
 | Colchetes [] |Cada colchete representa um intervalo no evento. Colchetes vazios para esse intervalo significam que nenhum movimento foi detectado. |
 | locais |Essa nova entrada em eventos lista o local onde ocorreu o movimento. Isso é mais específico do que as zonas de detecção. |
 
-Este é um exemplo de saída JSON
+O seguinte exemplo JSON mostra a saída:
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ Este é um exemplo de saída JSON
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>Limitações
 * Os formatos de vídeo de entrada com suporte incluem MP4, MOV e WMV.
 * A detecção de movimento é otimizada para vídeos estáticos em segundo plano. O algoritmo se concentra na redução de alarmes falsos, como mudanças de iluminação e sombras.
@@ -164,33 +167,36 @@ O programa a seguir mostra como:
 1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
 2. Crie um trabalho com uma tarefa de detecção de movimento em vídeo baseada em um arquivo de configuração que contém a predefinição de JSON a seguir: 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. Baixe os arquivos JSON de saída. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
@@ -199,7 +205,7 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 
 using System;
 using System.Configuration;

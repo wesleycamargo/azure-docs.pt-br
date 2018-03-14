@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
 Agora disponível: [calculadora de unidades de solicitação](https://www.documentdb.com/capacityplanner) do Azure Cosmos DB. Saiba mais em [Estimativa das necessidades de produção](request-units.md#estimating-throughput-needs).
@@ -44,7 +44,7 @@ Como o Azure Cosmos DB é um banco de dados multimodelo, é importante observar 
 ## <a name="request-units-and-request-charges"></a>Unidades de solicitação e solicitações de encargos
 O Azure Cosmos DB fornece desempenho rápido e previsível *reservando* recursos para atender às necessidades de produtividade do aplicativo.  Como os padrões de carga e acesso do aplicativo mudam com o tempo, o Azure Cosmos DB permite que você aumente ou diminua facilmente a quantidade de produtividade reservada disponível para o aplicativo.
 
-Com o Azure Cosmos DB, a produtividade reservada é especificada em termos de processamento de unidades de solicitação por segundo. Você pode considerar as unidades de solicitação como a moeda de produtividade, com as quais você *reserva* uma quantidade de unidades de solicitação garantidas disponíveis para o aplicativo por segundo.  Cada operação do Azure Cosmos DB – gravar um documento, realizar uma consulta, atualizar um documento – consome CPU, memória e IOPS.  Ou seja, cada operação resulta em um *encargo de solicitação*, que é expressa em *unidades de solicitação*.  Ao entender os fatores que afetam os encargos de unidade de solicitação e os requisitos de taxa de transferência do aplicativo, você pode executar o aplicativo da maneira mais econômica possível. O gerenciador de consultas também é uma ferramenta excelente para testar o núcleo de uma consulta.
+Com o Azure Cosmos DB, a produtividade reservada é especificada em termos de processamento de unidades de solicitação por segundo. Você pode considerar as unidades de solicitação como a moeda de produtividade, com as quais você *reserva* uma quantidade de unidades de solicitação garantidas disponíveis para o aplicativo por segundo.  Cada operação do Azure Cosmos DB – gravar um documento, realizar uma consulta, atualizar um documento – consome CPU, memória e IOPS.  Ou seja, cada operação resulta em um *encargo de solicitação*, que é expressa em *unidades de solicitação*.  Ao entender os fatores que afetam os encargos de unidade de solicitação e os requisitos de taxa de transferência do aplicativo, você pode executar o aplicativo da maneira mais econômica possível. O Data Explorer no portal do Azure também é uma ferramenta excelente para testar o núcleo de uma consulta.
 
 Recomendamos que você comece assistindo ao vídeo a seguir, no qual Aravind Ramachandran explica as unidades de solicitação e o desempenho previsível com o Azure Cosmos DB.
 
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 Não há nenhum impacto sobre a disponibilidade do contêiner quando a produtividade é alterada. Normalmente, a nova taxa de transferência reservada se torna eficaz em segundos no aplicativo da nova taxa de transferência.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolamento de taxa de transferência em bancos de dados distribuído globalmente
+
+Quando o banco de dados é replicado em mais de uma região, o Azure Cosmos DB fornece isolamento de taxa de transferência para garantir que o uso de RU em uma região não afete o uso de RU em outra região. Por exemplo, se você gravar dados em uma região e ler dados de outra região, as RUs usadas para executar a operação de gravação na região A não removem as RUs usadas para a operação de leitura na região B. As RUs não são divididas entre as regiões implantadas. Cada região onde o banco de dados é replicado tem a quantidade total de RUs provisionada. Para obter mais informações sobre replicação global, consulte [Como distribuir os dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Considerações sobre unidades de solicitação
 Ao estimar o número de unidades de solicitação a ser reservado para o contêiner do Azure Cosmos DB, é importante considerar as seguintes variáveis:
@@ -190,9 +194,7 @@ Usar a ferramenta é simples:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Usar o cabeçalho de resposta de encargos da solicitação do Azure Cosmos DB
-Todas as respostas do serviço Azure Cosmos DB incluem um cabeçalho personalizado (`x-ms-request-charge`) que contém as unidades de solicitação consumidas para a solicitação. Esse cabeçalho também está acessível por meio dos SDKs do Azure Cosmos DB. No SDK .NET, RequestCharge é uma propriedade do objeto ResourceResponse.  Para consultas, o Gerenciador de Consultas do Azure Cosmos DB no portal do Azure fornece informações de encargos de solicitação para as consultas executadas.
-
-![Análise de encargos de RU no Gerenciador de Consultas][1]
+Todas as respostas do serviço Azure Cosmos DB incluem um cabeçalho personalizado (`x-ms-request-charge`) que contém as unidades de solicitação consumidas para a solicitação. Esse cabeçalho também está acessível por meio dos SDKs do Azure Cosmos DB. No SDK .NET, RequestCharge é uma propriedade do objeto ResourceResponse.  Para consultas, o Data Explorer do Azure Cosmos DB no portal do Azure fornece informações de encargos de solicitação para as consultas executadas.
 
 Tendo isso em mente, um método para estimar a quantidade de produtividade reservada exigida pelo aplicativo é registrar o encargo de unidade de solicitação associado à execução de operações típicas em relação a um item representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo.  Também meça e inclua consultas típicas e o uso de scripts do Azure Cosmos DB.
 
@@ -211,7 +213,7 @@ Por exemplo:
 6. Calcule as unidades de solicitação necessárias, dado o número estimado de operações que você prevê que executará por segundo.
 
 ## <a id="GetLastRequestStatistics"></a>Usar o comando GetLastRequestStatistics da API para MongoDB
-A API para MongoDB dá suporte a um comando personalizado, *getLastRequestStatistics*, para recuperar a carga de solicitação de operações especificadas.
+A API MongoDB dá suporte a um comando personalizado *getLastRequestStatistics*, para recuperar o encargo de solicitação para operações especificadas.
 
 Por exemplo, no Shell do Mongo, execute a operação para a qual você deseja verificar a carga de solicitação.
 ```
@@ -237,10 +239,10 @@ Tendo isso em mente, um método para estimar a quantidade de produtividade reser
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>Usar as métricas de portal da API para MongoDB
-A maneira mais simples de obter uma boa estimativa dos encargos da unidade de solicitação para seu banco de dados da API para MongoDB é usar as métricas do [Portal do Azure](https://portal.azure.com). Com os gráficos *Número de solicitações* e *Custo da Solicitação*, você pode obter uma estimativa de quantas unidades de solicitação cada operação está consumindo, e quantas unidades de solicitação elas consomem com relação às outras operações.
+## <a name="use-mongodb-api-portal-metrics"></a>Usar métricas do portal da API MongoDB
+A maneira mais simples de obter uma boa estimativa de encargos da unidade de solicitação para o banco de dados de API MongoDB é usar as métricas do [Portal do Azure](https://portal.azure.com). Com os gráficos *Número de solicitações* e *Custo da Solicitação*, você pode obter uma estimativa de quantas unidades de solicitação cada operação está consumindo, e quantas unidades de solicitação elas consomem com relação às outras operações.
 
-![Métricas do portal da API para MongoDB][6]
+![Métricas do portal da API MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Um exemplo de estimativa de unidade de solicitação
 Considere o seguinte documento de aproximadamente 1 KB:
@@ -345,8 +347,8 @@ Se estiver usando as consultas do SDK do cliente .NET e LINQ, em seguida, na mai
 
 Se você tiver mais de um cliente operando cumulativamente acima da taxa de solicitação, o comportamento de repetição padrão poderá não ser suficiente e o cliente lançará uma DocumentClientException com o código de status 429 para o aplicativo. Em casos como esse, considere a manipulação do comportamento de repetição e da lógica nas rotinas de tratamento de erro do aplicativo ou o aumento da produtividade reservada para o contêiner.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de taxa de transferência reservada na API para MongoDB
-Os aplicativos que ultrapassarem as unidades de solicitação provisionadas para uma coleção serão limitados até que a taxa caia para baixo do nível reservado. Quando ocorrer uma limitação, o back-end terminará preventivamente a solicitação com um código de erro *16500* - *Muitas Solicitações*. Por padrão, a API para MongoDB repetirá automaticamente até 10 vezes antes de retornar um código de erro *Muitas Solicitações*. Se você estiver recebendo códigos de erro *Muitas Solicitações*, considere a repetição nas rotinas de manipulação de erro de seu aplicativo ou [aumentar a taxa de transferência reservada para a coleção](set-throughput.md).
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de taxa de transferência reservados na API MongoDB
+Os aplicativos que ultrapassarem as unidades de solicitação provisionadas para uma coleção serão limitados até que a taxa caia para baixo do nível reservado. Quando ocorrer uma limitação, o back-end terminará preventivamente a solicitação com um código de erro *16500* - *Muitas Solicitações*. Por padrão, a API MongoDB tentará novamente até 10 vezes antes de retornar um código de erro *Muitas Solicitações*. Se você estiver recebendo códigos de erro *Muitas Solicitações*, considere a repetição nas rotinas de manipulação de erro de seu aplicativo ou [aumentar a taxa de transferência reservada para a coleção](set-throughput.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a produtividade reservada com bancos de dados do Azure Cosmos DB, conheça estes recursos:
@@ -358,7 +360,6 @@ Para saber mais sobre o Azure Cosmos DB, consulte a [documentação](https://azu
 
 Para obter uma introdução aos testes de escala e desempenho com o Azure Cosmos DB, consulte [Testes de desempenho e escala com o Azure Cosmos DB](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

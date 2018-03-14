@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Criar uma rota definida pelo usuário - portal do Azure
 
@@ -53,7 +53,7 @@ Este artigo fornece etapas para criar uma rota definida pelo usuário usando o m
 
         |Configuração|Valor|
         |-----|-----|
-        |Nome|Rede de Perímetro|
+        |NOME|Rede de Perímetro|
         |Intervalo de endereços (bloco CIDR)|10.0.2.0/24|
 
 6. Crie uma máquina virtual de solução de virtualização de rede:
@@ -63,12 +63,12 @@ Este artigo fornece etapas para criar uma rota definida pelo usuário usando o m
 
         |Configuração|Valor|
         |---|---|
-        |Nome|myVm-Nva|
+        |NOME|myVm-Nva|
         |Nome de usuário|azureuser|
         |Senha e Confirmar senha|Uma senha de sua escolha|
         |Assinatura|Selecione sua assinatura|
         |Grupo de recursos|Clique em **Usar existente** e selecione **myResourceGroup**|
-        |Local|Leste dos EUA|
+        |Local padrão|Leste dos EUA|
     - Na folha **Escolha um tamanho** exibida, clique em **DS1_V2 Standard** e em **Selecionar**.
     - Na folha **Configurações** exibida, clique em **Rede virtual**. Clique em **myVnet** na folha **Escolher rede virtual** exibida.
     - Na folha **Configurações**, clique em **Sub-redes**. Clique em **DMZ** na folha **Escolher sub-rede** exibida. 
@@ -82,7 +82,7 @@ Este artigo fornece etapas para criar uma rota definida pelo usuário usando o m
     - Na caixa **Pesquisar recursos** na parte superior da página, digite *myVm Nva*.
     - Clique em **myVm-Nva** quando ele for exibido nos resultados da pesquisa.
     - Clique em **Rede** em **CONFIGURAÇÕES** no lado esquerdo.
-    - Clique no nome do adaptador de rede em **myVm-Nva - Adaptadores de rede**. O nome é **myvm nva***X*, em que *X* é um número atribuído pelo portal.
+    - Clique no nome do adaptador de rede em **myVm-Nva - Adaptadores de rede**. O nome é **myvm-nva***X*, onde *X* é um número atribuído pelo portal.
     - Clique em **Configurações de IP** em **CONFIGURAÇÕES** do adaptador de rede, conforme mostrado na figura abaixo:
 
         ![Configurações de adaptador de rede](./media/create-user-defined-route/network-interface-settings.png)
@@ -102,10 +102,10 @@ Este artigo fornece etapas para criar uma rota definida pelo usuário usando o m
 
         |Configuração|Valor|
         |---|---|
-        |Nome|myRouteTable-Public|
+        |NOME|myRouteTable-Public|
         |Assinatura|Selecione sua assinatura|
         |Grupo de recursos|Clique em **Usar existente** e selecione **myResourceGroup**|
-        |Local|Leste dos EUA|
+        |Local padrão|Leste dos EUA|
     
     - Conclua as subetapas anteriores da etapa 8 novamente, mas nomeie a tabela de rotas *myRouteTable-Private*.
 9. Adicione rotas à tabela de rotas *myRouteTable-Public* e associe a tabela de rotas à sub-rede *Pública*:
@@ -259,7 +259,7 @@ Este artigo fornece etapas para criar uma rota definida pelo usuário usando o m
       --settings '{"commandToExecute":"powershell.exe Restart-Computer -ComputerName myVm-Nva -Force"}'
     ```
 
-3. Valide a comunicação entre as máquinas virtuais nas sub-redes pública e privada. 
+3. Valide a comunicação entre as máquinas virtuais nas sub-redes Pública e Privada. 
 
     - Abra uma conexão [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) ou de [Área de Trabalho Remota](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) para o endereço IP público da máquina virtual *myVm-Public*.
     - Em um prompt de comando na máquina virtual *myVm-Public*, digite `ping myVm-Private`. Você recebe respostas porque a NVA roteia o tráfego da sub-rede pública para a privada.
@@ -329,6 +329,6 @@ Após a conclusão este tutorial, convém excluir os recursos criados, para não
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Crie uma [solução de virtualização de rede altamente disponível](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Criar uma [solução de virtualização de rede altamente disponível](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Soluções de virtualização de rede geralmente possuem vários adaptadores de rede e endereços IP atribuídos a eles. Saiba como [adicionar adaptadores de rede a uma máquina virtual existente](virtual-network-network-interface-vm.md#vm-add-nic) e [adicionar endereços IP a um adaptador de rede](virtual-network-network-interface-addresses.md#add-ip-addresses). Embora todos os tamanhos de máquina virtual possam ter pelo menos dois adaptadores de rede anexados a eles, o tamanho de cada máquina virtual dá suporte a um número máximo de adaptadores de rede. Para saber a quantos adaptadores de rede cada tamanho de máquina virtual dá suporte, consulte os tamanhos de máquina virtual do [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 - Crie uma rota definida pelo usuário para realizar túnel forçado de tráfego local por meio de uma [conexão de VPN site a site](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
