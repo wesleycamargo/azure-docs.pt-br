@@ -43,7 +43,7 @@
 ### [Executar trabalhos no IoT edge](stream-analytics-edge.md) 
 ### [Executar um UDA do JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Transação de alta frequência](stream-analytics-high-frequency-trading.md)
-### [Executar o Azure Functions](stream-analytics-with-azure-functions.md)
+### [Executar Azure Functions](stream-analytics-with-azure-functions.md)
 
 ## Monitoramento
 
