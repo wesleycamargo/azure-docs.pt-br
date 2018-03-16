@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: jawh
-ms.openlocfilehash: 7d44d0a0f8683ad6ad55136ad17879e98e26498b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38d60001293a3bae6eb9f90179abb8af7815fbe7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>Introdução aos Hubs de Notificação do Azure para aplicativos do Windows Phone
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -67,7 +67,7 @@ O hub foi criado e configurado para enviar a notificação não autenticada para
 ## <a name="connecting-your-app-to-the-notification-hub"></a>Conectando seu aplicativo ao Hub de Notificação
 1. No Visual Studio, crie um novo aplicativo de console do Windows Phone 8.
    
-       ![Visual Studio - New Project - Windows Phone App][13]
+    ![Aplicativo do Visual Studio - Novo Projeto - Windows Phone][13]
    
     No Visual Studio 2013 Atualização 2 ou posterior, você cria um aplicativo do Windows Phone Silverlight.
    
@@ -119,9 +119,9 @@ O hub foi criado e configurado para enviar a notificação não autenticada para
    > 
 6. No Gerenciador de Soluções, expanda **Propriedades**, abra o arquivo `WMAppManifest.xml`, clique na guia **Recursos** e verifique se a funcionalidade **ID_CAP_PUSH_NOTIFICATION** está marcada.
    
-       ![Visual Studio - Windows Phone App Capabilities][14]
+    ![Visual Studio - Recursos de aplicativo do Windows Phone][14]
    
-       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
+    Isso garante que seu aplicativo receba notificações por push. Sem ela, qualquer tentativa de enviar uma notificação por push ao aplicativo falhará.
 7. Pressione a tecla `F5` para executar o aplicativo.
    
     Uma mensagem de registro é exibida no aplicativo.

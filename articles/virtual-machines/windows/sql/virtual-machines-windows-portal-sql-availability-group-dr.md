@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 2a954ca10bdec3343dbd8796b50053a1c8c40ff4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 84fa2e051c46e178e3e72709886babc8c3db7b9d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um Grupo de Disponibilidade Always On em máquinas virtuais do Azure em diferentes regiões
 
@@ -61,7 +61,7 @@ O diagrama a seguir mostra como as redes se comunicam entre data centers.
 
 Para criar uma réplica em um data center remoto, execute as seguintes etapas:
 
-1. [Criar uma rede virtual na nova região](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+1. [Criar uma rede virtual na nova região](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 1. [Configurar uma conexão de rede virtual usando o portal do Azure](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 

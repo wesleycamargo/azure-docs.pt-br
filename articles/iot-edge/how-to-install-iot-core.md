@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 75d2b370ed6118a30153a001a4b654d7212b56cd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Instalar o tempo de execução do Azure IoT Edge em um dispositivo Windows IoT Core - versão prévia
 
@@ -30,7 +30,7 @@ Este artigo o orienta por meio do provisionamento de tempo de execução em um [
 1. No console do PowerShell, instale o tempo de execução do contêiner: 
 
    ```powershell
-   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-0.0.0-dev.zip -o temp.zip
    Expand-Archive .\temp.zip $env:ProgramFiles -f
    Remove-Item .\temp.zip
    $env:Path += ";$env:programfiles\docker"

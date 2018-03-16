@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 033d696f0d219fef66b4acd523f28a35afcf9929
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8558593633de47ce67adbfe28dc8973fd21f1a4b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um emparelhamento de rede virtual – modelos de implantação diferentes e na mesma assinatura 
 
@@ -29,7 +29,7 @@ As etapas para criar um emparelhamento de rede virtual são diferentes, dependen
 
 |Modelo de implantação do Azure  | Assinatura do Azure  |
 |--------- |---------|
-|[Ambos Resource Manager](virtual-network-create-peering.md) |Idêntico|
+|[Ambos Resource Manager](tutorial-connect-virtual-networks-portal.md) |Idêntico|
 |[Ambos Resource Manager](create-peering-different-subscriptions.md) |Diferente|
 |[Um Resource Manager, um clássico](create-peering-different-deployment-models-subscriptions.md) |Diferente|
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à computação em nuvem e ao Microsoft Azure
 
@@ -169,7 +169,7 @@ Além de criar, gerenciar e excluir recursos usando o portal do Azure, você pod
 
 **PowerShell do Azure**
 
-O Azure PowerShell é um conjunto de módulo que fornece cmdlets para gerenciar o Azure. Você pode usar os cmdlets para criar, gerenciar e remover serviços do Azure. Os cmdlets podem ajudá-lo a conseguir implantações consistentes, reproduzíveis e sem intervenção. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps):
+O Azure PowerShell é um conjunto de módulo que fornece cmdlets para gerenciar o Azure. Você pode usar os cmdlets para criar, gerenciar e remover serviços do Azure. Os cmdlets podem ajudá-lo a conseguir implantações consistentes, reproduzíveis e sem intervenção. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 **interface de linha de comando do Azure**
 
@@ -491,19 +491,19 @@ Há várias opções para a implantação de uma rede virtual.
 
 **Portal**
 
-Implantar uma rede virtual do Azure usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova rede virtual em um grupo de recursos novo ou existente. Quando você estiver criando uma nova máquina virtual por meio do portal, você pode selecionar uma rede virtual existente ou crie uma nova. Para obter mais informações, consulte [Criar uma rede virtual usando o Portal do Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Implantar uma rede virtual do Azure usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova rede virtual em um grupo de recursos novo ou existente. Quando você estiver criando uma nova máquina virtual por meio do portal, você pode selecionar uma rede virtual existente ou crie uma nova. Para obter mais informações, consulte [Criar uma rede virtual usando o Portal do Azure](../../virtual-network/quick-create-portal.md).
 
 Além de implantar uma rede virtual do Azure do portal do Azure, você pode implantar um modelo do Azure Resource Manager por meio do portal. Isso implantará e configurará todos os recursos, conforme definido no modelo, incluindo quaisquer recursos de rede virtual. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Implantar uma rede virtual do Azure usando o PowerShell permite a automação da implantação completa da conta de armazenamento. Para obter mais informações, consulte [Criar uma rede virtual usando o PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+Implantar uma rede virtual do Azure usando o PowerShell permite a automação da implantação completa da conta de armazenamento. Para obter mais informações, consulte [Criar uma rede virtual usando o PowerShell](../../virtual-network/quick-create-powershell.md).
 
 Além de implantar recursos do Azure individualmente, você pode usar o módulo do Azure PowerShell para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **CLI (Interface da linha de comando)**
 
-Assim como acontece com o módulo do PowerShell, a interface de linha de comando do Azure fornece automação de implantação e pode ser usada em sistemas Windows, OS X ou Linux. Você pode usar o comando **network vnet create** da CLI do Azure para criar uma rede virtual. Para obter mais informações, consulte [Criar uma rede virtual usando a CLI do Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+Assim como acontece com o módulo do PowerShell, a interface de linha de comando do Azure fornece automação de implantação e pode ser usada em sistemas Windows, OS X ou Linux. Você pode usar o comando **network vnet create** da CLI do Azure para criar uma rede virtual. Para obter mais informações, consulte [Criar uma rede virtual usando a CLI do Azure](../../virtual-network/quick-create-cli.md).
 
 Do mesmo modo, você pode usar uma CLI do Azure para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 

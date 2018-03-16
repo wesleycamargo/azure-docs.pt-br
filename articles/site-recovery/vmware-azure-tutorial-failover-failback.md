@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dec4beef44e4086e1b41e3c20bea6585db385c9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure
 
@@ -48,7 +48,7 @@ O failover e o failback têm quatro fases:
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
-Confira as propriedades da VM e verifique se a VM está em conformidade com os [Requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Confira as propriedades da VM e verifique se a VM está em conformidade com os [Requisitos do Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
 
@@ -88,7 +88,7 @@ O servidor de processo recebe dados da VM do Azure e envia-os para o site local.
 
 - Para fins de teste, se você tiver uma conexão Azure ExpressRoute, será possível usar o servidor de processo local que é instalado automaticamente no servidor de configuração.
 - Se você tiver uma conexão VPN ou estiver executando o failback em um ambiente de produção, você deverá configurar uma VM do Azure como um servidor de processo baseado no Azure para failback.
-- Para configurar um servidor de processo no Azure, siga as instruções [neste artigo](site-recovery-vmware-setup-azure-ps-resource-manager.md).
+- Para configurar um servidor de processo no Azure, siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md).
 
 ## <a name="configure-the-master-target-server"></a>Configurar o servidor de destino mestre
 

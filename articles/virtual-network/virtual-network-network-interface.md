@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou excluir um adaptador de rede
 
@@ -39,7 +39,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 ## <a name="create-a-network-interface"></a>Criar um adaptador de rede
 
-Ao criar uma máquina virtual usando o Portal do Azure, o portal cria um adaptador de rede com as configurações padrão para você. Se você preferir especificar todas as configurações de seu adaptador de rede, crie um adaptador de rede com configurações personalizadas e anexe-o a uma máquina virtual durante a criação de uma (usando o PowerShell ou a CLI do Azure). Você também pode criar um adaptador de rede e adicioná-lo a uma máquina virtual existente (usando o PowerShell ou a CLI do Azure). Para saber como criar uma máquina virtual com um adaptador de rede existente, ou adicionar e remover adaptadores de rede de máquinas virtuais existentes, leia o artigo [Adicionar ou remover adaptadores de rede](virtual-network-network-interface-vm.md). Antes de criar um adaptador de rede, você deve ter uma [rede virtual](virtual-networks-create-vnet-arm-pportal.md) existente no mesmo local e assinatura na qual criou um adaptador de rede.
+Ao criar uma máquina virtual usando o Portal do Azure, o portal cria um adaptador de rede com as configurações padrão para você. Se você preferir especificar todas as configurações de seu adaptador de rede, crie um adaptador de rede com configurações personalizadas e anexe-o a uma máquina virtual durante a criação de uma (usando o PowerShell ou a CLI do Azure). Você também pode criar um adaptador de rede e adicioná-lo a uma máquina virtual existente (usando o PowerShell ou a CLI do Azure). Para saber como criar uma máquina virtual com um adaptador de rede existente, ou adicionar e remover adaptadores de rede de máquinas virtuais existentes, leia o artigo [Adicionar ou remover adaptadores de rede](virtual-network-network-interface-vm.md). Antes de criar um adaptador de rede, você deve ter uma [rede virtual](manage-virtual-network.md#create-a-virtual-network) existente no mesmo local e assinatura na qual criou um adaptador de rede.
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.

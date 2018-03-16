@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
 ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -180,7 +180,7 @@ O Windows 10 e Windows Server 2016 vêm com suporte para HTTP/2 no lado do clien
 5. Reinicie seu servidor.
 6. Vá para o **Site da Web padrão** e, em **Associações**, crie uma nova associação TLS com o certificado autoassinado recém-criado. 
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
 - [Vídeo: HTTP/2 no Windows 10: navegador, aplicativos e servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)

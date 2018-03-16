@@ -9,17 +9,17 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 600689dfe2d572a83382522f6bea1ec5bf0f3883
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Uma conta de armazenamento do Azure fornece um namespace exclusivo na nuvem para armazenar e acessar os objetos de dados no Armazenamento do Azure. Uma conta de armazenamento contém todos os blobs, arquivos, filas, tabelas e discos que você criar nessa conta. 
 
-Para começar a usar o Armazenamento do Azure, primeiro você precisa criar uma nova conta de armazenamento. Você pode criar uma conta de armazenamento do Azure usando o [portal do Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Este guia de início rápido mostra como usar cada uma dessas opções para criar sua nova conta de armazenamento. 
+Para começar a usar o Armazenamento do Azure, primeiro você precisa criar uma nova conta de armazenamento. Você pode criar uma conta de armazenamento do Azure usando o [portal do Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Este guia de início rápido mostra como usar cada uma dessas opções para criar sua nova conta de armazenamento. 
 
 
 ## <a name="prerequisites"></a>pré-requisitos

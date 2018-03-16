@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Criptografia dinâmica: Configurar uma política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -26,13 +26,13 @@ ms.lasthandoff: 01/10/2018
 ## <a name="overview"></a>Visão geral
  Você pode usar os Serviços de Mídia do Microsoft Azure para distribuir o conteúdo criptografado (dinamicamente) com a criptografia AES (usando chaves de criptografia de 128 bits) e a criptografia de gerenciamento de direitos digitais (DRM) do PlayReady ou Widevine. Os Serviços de Mídia também fornecem um serviço de entrega de chaves e licenças do PlayReady/Widevine a clientes autorizados.
 
-Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo. Para saber mais, confira [Criar chaves de conteúdo com REST](media-services-rest-create-contentkey.md). Você também precisa configurar políticas de autorização para a chave (conforme descrito neste artigo).
+Se você desejar que os Serviços de Mídia criptografem um ativo, associe uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo. Para saber mais, confira [Criar chaves de conteúdo com REST](media-services-rest-create-contentkey.md). Você também precisa configurar políticas de autorização para a chave (conforme descrito neste artigo).
 
 Quando um fluxo é solicitado por um player, os Serviços de Mídia do Microsoft Azure usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicita a chave do serviço de distribuição de chaves. Para determinar se o usuário está autorizado a obter a chave, o serviço avalia as políticas de autorização que você especificou para a chave.
 
 Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização usando a restrição aberta ou de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de Mídia oferecem suporte a tokens nos formatos simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e Token Web JSON (JWT).
 
-Os Serviços de Mídia não oferecem um STS. Você pode criar um STS personalizado ou usar os tokens de problema do Microsoft Azure Active Directory (Azure AD). O STS deve ser configurado para criar um token assinado com a chave especificada e declarações de emissão que você especificou na configuração de restrição do token (conforme descrito neste artigo). Se o token for válido e as declarações no token corresponderem às configuradas para a chave de conteúdo, o serviço de distribuição de chave dos Serviços de Mídia retorna a chave criptografada para o cliente.
+Os Serviços de Mídia não oferecem um STS. Você pode criar um STS personalizado ou usar os tokens de problema do Microsoft Azure Active Directory (Azure AD). O STS deve ser configurado para criar um token assinado com a chave especificada e declarações de emissão que você especificou na configuração de restrição do token (conforme descrito neste artigo). Se o token for válido e as declarações no token corresponderem às configuradas para a chave de conteúdo, o serviço de distribuição de chave dos Serviços de Mídia retornará a chave criptografada para o cliente.
 
 Para obter mais informações, consulte os seguintes artigos:
 - [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)

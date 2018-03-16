@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 35632cc93c9a0650b45220ba84b4983679de3d9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Criar um balanceador de carga para a Internet usando o Portal do Azure
 
@@ -54,7 +54,7 @@ Você precisa criar e configurar os objetos a seguir para implantar um balancead
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Configurar um balanceador de carga no portal do Azure
 
 > [!IMPORTANT]
-> Este exemplo pressupõe que você tem uma rede virtual chamada **myVNet**. Consulte [Criar rede virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) para fazer isso. Ele também pressupõe que há uma sub-rede dentro de **myVNet** chamada **LB-Subnet-BE** e duas VMs chamadas **web1** e **web2**, respectivamente, no mesmo conjunto de disponibilidade chamado **myAvailSet** em **myVNet**. Consulte [esse link](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para criar VMs.
+> Este exemplo pressupõe que você tem uma rede virtual chamada **myVNet**. Consulte [Criar rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network) para fazer isso. Ele também pressupõe que há uma sub-rede dentro de **myVNet** chamada **LB-Subnet-BE** e duas VMs chamadas **web1** e **web2**, respectivamente, no mesmo conjunto de disponibilidade chamado **myAvailSet** em **myVNet**. Consulte [esse link](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para criar VMs.
 
 1. Em um navegador, navegue até o portal do Azure: [http://portal.azure.com](http://portal.azure.com) e faça logon com sua conta do Azure.
 2. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Balanceador de carga**.

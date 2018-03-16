@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4827fabf1d8cde366dda8b3a782a2fefe01db8d5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Criar grupos de segurança de rede usando a CLI do Azure
 
@@ -36,7 +36,7 @@ Os seguintes exemplos de comandos de CLI do Azure esperam um ambiente simples ex
 
 Siga as etapas abaixo para criar um NSG chamado *NSG-FrontEnd* com base no cenário anterior.
 
-1. Caso ainda não tenha feito isso, instale e configure a versão mais recente da [CLI do Azure 2.0](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#az_login). 
+1. Caso ainda não tenha feito isso, instale e configure a versão mais recente da [CLI do Azure 2.0](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/reference-index#az_login). 
 
 2. Crie um NSG usando o comando [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). 
 

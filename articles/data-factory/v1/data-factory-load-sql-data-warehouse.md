@@ -114,7 +114,7 @@ Com as etapas de pré-requisito concluídas, agora estamos prontos para configur
 
 ## <a name="launch-copy-wizard"></a>Iniciar o Assistente de cópia
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Criar um recurso** no canto superior esquerdo, clique em **	Inteligência + análise** e clique em **Data Factory**.
+2. Clique em **Criar um recurso** no canto superior esquerdo, clique em **Inteligência + análise** e clique em **Data Factory**.
 3. No painel **Novo data factory**:
 
    1. Insira **LoadIntoSQLDWDataFactory** para o **nome**.

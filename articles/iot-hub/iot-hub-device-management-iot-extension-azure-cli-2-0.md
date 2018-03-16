@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 07b9f14048b6618863efd5bd8eb8bcc8f52ec735
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Use a extensão de IoT da CLI do Azure 2.0 para gerenciamento de dispositivo Hub IoT do Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/23/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[A extensão de IoT para a CLI do Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma nova extensão IoT de código aberto que adiciona aos recursos da [CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) inclui comandos para interagir com pontos de extremidade de gerenciamento de gerente de recursos do Azure. A CLI do Azure 2.0 inclui comandos para interagir com pontos de extremidade de gerenciamento e gerente de recursos do Azure. Por exemplo, é possível usar a CLI do Azure 2.0 para criar um Hub IoT ou uma VM do Azure. Uma extensão CLI permite que um serviço do Azure amplie a CLI do Azure, fornecendo acesso a recursos específicos de serviços adicionais. A extensão de IoT fornece aos desenvolvedores de IoT acesso de linha de comando para todos os Hub IoT, IoT Edge, e recursos do Serviço de Provisionamento de Dispositivos no Hub IoT.
+[A extensão de IoT para a CLI do Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma nova extensão IoT de código aberto que adiciona aos recursos da [CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) inclui comandos para interagir com pontos de extremidade de gerenciamento de gerente de recursos do Azure. A CLI do Azure 2.0 inclui comandos para interagir com pontos de extremidade de gerenciamento e gerente de recursos do Azure. Por exemplo, é possível usar a CLI do Azure 2.0 para criar um Hub IoT ou uma VM do Azure. Uma extensão CLI permite que um serviço do Azure amplie a CLI do Azure, fornecendo acesso a recursos específicos de serviços adicionais. A extensão de IoT fornece aos desenvolvedores de IoT acesso de linha de comando para todos os Hub IoT, IoT Edge, e recursos do Serviço de Provisionamento de Dispositivos no Hub IoT.
 
 | Opção de gerenciamento          | Tarefa                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|

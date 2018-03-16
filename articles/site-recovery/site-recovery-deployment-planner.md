@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7e3e0cebbb1ae0c7c63de586f458814f5dc6f202
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Planejador de Implantações do Azure Site Recovery para VMware para o Azure
 Este artigo é o guia de usuário do Planejador de Implantações do Azure Site Recovery para implantações de produção do VMware para o Azure.
@@ -36,7 +36,7 @@ A ferramenta fornece os seguintes detalhes:
 **Avaliação de compatibilidade**
 
 * Avaliação de qualificação de VM com base no número de discos, no tamanho do disco, no IOPS, na variação, no tipo de inicialização (EFI/BIOS) e na versão do sistema operacional
- 
+
 **Largura de banda de rede necessária versus avaliação de RPO**
 
 * Largura de banda de rede estimada que é necessária para a replicação delta
@@ -71,7 +71,7 @@ A ferramenta fornece os seguintes detalhes:
 
 | | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
-Cenários com suporte |sim|sim|Não |Sim*|Não 
+Cenários com suporte |sim|Sim|Não |Sim*|Não 
 Versão com suporte | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configuração com suporte|vCenter, ESXi| cluster do Hyper-V, host do Hyper-V|ND|cluster do Hyper-V, host do Hyper-V|ND|
 Número de servidores que podem ser analisados por instância em execução do Planejador de Implantações do Site Recovery |Único (máquinas virtuais que pertencem a um vCenter Server ou um servidor ESXi podem ser criados em um momento)|Vários (VMs em vários hosts ou clusters de hosts podem ter o perfil criado de uma vez)| ND |Vários (VMs em vários hosts ou clusters de hosts podem ter o perfil criado de uma vez)| ND
@@ -93,13 +93,16 @@ A ferramenta tem duas fases principais: criação de perfil e geração de relat
 >
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Baixe e extraia a ferramenta de planejamento de implantação
-1. Baixe a versão mais recente do [Planejador de Implantação do Site Recovery](https://aka.ms/asr-deployment-planner). A ferramenta é empacotada em uma pasta .zip. A versão atual da ferramenta dá suporte apenas ao cenário do VMware para o Azure.
+1. Baixe a versão mais recente do [Planejador de Implantação do Site Recovery](https://aka.ms/asr-deployment-planner).
+A ferramenta é empacotada em uma pasta .zip. A versão atual da ferramenta dá suporte apenas ao cenário do VMware para o Azure.
 
-2. Copie a pasta .zip para o servidor Windows do qual você deseja executar a ferramenta. Você poderá executar a ferramenta no Windows Server 2012 R2 se o servidor tiver acesso à rede para se conectar ao servidor vCenter/host ESXi vSphere que mantém as VMs para a criação de perfil. No entanto, é recomendável que você execute a ferramenta em um servidor cuja configuração de hardware atenda à [orientação de dimensionamento do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components). Se já tiver implantado os componentes do Site Recovery no local, execute a ferramenta no servidor de configuração.
+2. Copie a pasta .zip para o servidor Windows do qual você deseja executar a ferramenta.
+Você poderá executar a ferramenta no Windows Server 2012 R2 se o servidor tiver acesso à rede para se conectar ao servidor vCenter/host ESXi vSphere que mantém as VMs para a criação de perfil. No entanto, é recomendável que você execute a ferramenta em um servidor cuja configuração de hardware atenda à [orientação de dimensionamento do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components). Se já tiver implantado os componentes do Site Recovery no local, execute a ferramenta no servidor de configuração.
 
     Recomendamos que você tenha a mesma configuração de hardware que o servidor de configuração (que tem um servidor de processo integrado) no servidor em que executa a ferramenta. Essa configuração garante que a taxa de transferência obtida relatada pela ferramenta corresponda à taxa de transferência real que o Site Recovery pode alcançar durante a replicação. O cálculo de taxa de transferência depende da largura de banda disponível no servidor e da configuração de hardware (como CPU e armazenamento) do servidor. Se você executar a ferramenta de qualquer outro servidor, a taxa de transferência será calculada a partir desse servidor para o Azure. Além disso, como a configuração de hardware do servidor pode ser diferente daquela do servidor de configuração, a taxa de transferência obtida relatada pela ferramenta de relatórios pode ser imprecisa.
 
-3. Extraia a pasta .zip. A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploymentPlanner.exe na pasta pai.
+3. Extraia a pasta .zip.
+A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploymentPlanner.exe na pasta pai.
 
     Exemplo: copiar o arquivo .zip para a unidade E:\ e extraí-lo.
     E:\ASR Deployment Planner_v2.1zip

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Relatório do Planejador de Implantações do Azure Site Recovery
 O relatório gerado do Microsoft Excel contém as seguintes planilhas:
@@ -132,16 +132,16 @@ O gráfico mostra a exibição de resumo do custo total de recuperação de desa
 ![Resumo de estimativa de custo](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
 O resumo ajuda a entender o custo que precisa ser pago para armazenamento, computação, rede e licença ao proteger todas as suas VMs compatíveis para o Azure usando o Azure Site Recovery. O custo é calculado sobre as VMs compatíveis e não todas as VMs com criação de perfil.  
- 
+
 Você pode exibir o custo mensal ou anual. Saiba mais sobre [regiões de destino com suporte](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) e [moedas com suporte](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
 **Custo por componentes** O custo total da recuperação de desastre é dividido em quatro componentes: custos de licença de Computação, Armazenamento, Rede e do Azure Site Recovery. O custo é calculado com base no consumo incorrido durante a replicação e em tempo de análise de recuperação de desastre para computação, armazenamento (premium e standard), ExpressRoute/VPN configurado entre o site local e o Azure, e a licença do Azure Site Recovery.
 
-**Custo por estados** O custo total da recuperação de desastre (DR) se baseia em categorias em dois estados diferentes - Replicação e análise de recuperação de desastre. 
+**Custo por estados** O custo total da recuperação de desastre (DR) se baseia em categorias em dois estados diferentes - Replicação e análise de recuperação de desastre.
 
-**Custo de replicação**: o custo incorrido durante a replicação. Abrange o custo de armazenamento, de rede e de licença do Azure Site Recovery. 
+**Custo de replicação**: o custo incorrido durante a replicação. Abrange o custo de armazenamento, de rede e de licença do Azure Site Recovery.
 
-**Custo de análise de DR**: o custo incorrido durante os failovers de teste. O Azure Site Recovery gira máquinas virtuais durante o failover de teste. O custo de análise de análise de risco abrange os custos de computação e armazenamento das VMs em execução. 
+**Custo de análise de DR**: o custo incorrido durante os failovers de teste. O Azure Site Recovery gira máquinas virtuais durante o failover de teste. O custo de análise de análise de risco abrange os custos de computação e armazenamento das VMs em execução.
 
 **Custo de armazenamento do Azure por mês/ano** Mostra o custo total de armazenamento incorrido no armazenamento standard e premium para replicação e análise de recuperação de desastre.
 Você pode exibir a análise de custo detalhada por VM na planilha [Estimativa de Custo](site-recovery-vmware-deployment-planner-cost-estimation.md).
@@ -266,7 +266,7 @@ Por exemplo, se as características de carga de trabalho de um disco o colocarem
 
 **Tipo de inicialização**: tipo de inicialização da VM. Pode ser o BIOS ou EFI.  Atualmente, o Azure Site Recovery dá suporte às VMs do Windows Server EFI (Windows Server 2012, 2012 R2 e 2016) desde que o número de partições no disco de inicialização seja menor do que 4 e o tamanho do setor de inicialização seja de 512 bytes. Para proteger as VMs do EFI, a versão do serviço de mobilidade do Azure Site Recovery deverá ser a 9.13 ou superior. Somente o failover tem suporte para as VMs do EFI. Não há suporte para failback.
 
-**Tipo de sistema operacional**: o tipo de SO da VM. Pode ser Windows ou Linux ou outro com base no modelo do VMware vSphere escolhido durante a criação da máquina virtual. 
+**Tipo de sistema operacional**: o tipo de SO da VM. Pode ser Windows ou Linux ou outro com base no modelo do VMware vSphere escolhido durante a criação da máquina virtual.
 
 ## <a name="azure-site-recovery-limits"></a>Limites da Azure Site Recovery
 A tabela a seguir fornece os limites do Azure Site Recovery. Esses limites são baseados em nossos testes, mas eles não podem abranger todas as combinações possíveis de E/S de aplicativos. Os resultados reais podem variar dependendo da combinação de E/S do aplicativo. Para obter os melhores resultados, mesmo após planejar a implantação, é sempre recomendável executar amplos testes de aplicativos usando um failover de teste para obter a visão real do desempenho do aplicativo.
@@ -282,15 +282,15 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |10 MB/s | 842 GB por di
 
 **Variação de dados de origem** | **Limite máximo**
 ---|---
-Média de variação de dados por VM| 25 MB/s 
+Média de variação de dados por VM| 25 MB/s
 Variação de dados de pico entre todos os discos em uma VM | 54 MB/s
-Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 TB 
+Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 TB
 
 Esses são números médios, pressupondo uma sobreposição de E/S de 30%. O Site Recovery pode lidar com uma maior taxa de transferência com base na taxa de sobreposição, em tamanhos maiores de gravação e em comportamento de E/S de carga de trabalho real. Os números anteriores pressupõem uma lista de pendências típica de aproximadamente cinco minutos. Ou seja, depois que os dados são carregados, eles são processados, e um ponto de recuperação é criado dentro de cinco minutos.
 
 
 ## <a name="cost-estimation"></a>Estimativa de custo
-Saiba mais sobre [estimativa de custo](site-recovery-vmware-deployment-planner-cost-estimation.md). 
+Saiba mais sobre [estimativa de custo](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

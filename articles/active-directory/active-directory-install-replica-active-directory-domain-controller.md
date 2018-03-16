@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f4e64fbc6c2fda026297b69bd54471d49b6785a1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Instalar uma Réplica do Controlador de Domínio do Active Directory em uma rede virtual do Azure
 Este artigo discute como instalar os controladores de domínio adicionais (DCs) a serem usados como controladores de domínio de réplica para um domínio Active Directory local em máquinas virtuais (VMs) do Azure numa rede virtual do Azure. Você também pode [instalar uma floresta do Active Directory do Servidor do Windows em uma rede virtual do Azure](active-directory-new-forest-virtual-machine.md). Para saber como instalar os Serviços de Domínio do Active Directory (AD DS) em uma rede virtual do Azure, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
@@ -50,7 +50,7 @@ Para criar máquinas virtuais para hospedar a função de controlador de domíni
 
 Para criar as máquinas virtuais usando o Windows PowerShell em vez do portal do Azure, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](/powershell/azure/overview) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
+Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](/powershell/azure/overview) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo: 
 
 ````
 Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
@@ -62,7 +62,7 @@ Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN si
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Reconfigure o servidor DNS para a rede virtual
 1. Para obter uma lista de nomes de rede virtual, no [Portal do Azure](https://portal.azure.com), procure por *Redes virtuais* e, em seguida, selecione **Redes virtuais** para exibir a lista. 
-2. Abra a rede virtual que você desejar gerenciar e, em seguida, [reconfigure os endereços IP do servidor DNS para a sua rede virtual](../virtual-network/virtual-network-manage-network.md#dns-servers) para usar os endereços IP estáticos atribuídos aos controladores de domínio de réplica em vez de endereços IP de servidores DNS locais.
+2. Abra a rede virtual que você desejar gerenciar e, em seguida, [reconfigure os endereços IP do servidor DNS para a sua rede virtual](../virtual-network/manage-virtual-network.md#change-dns-servers) para usar os endereços IP estáticos atribuídos aos controladores de domínio de réplica em vez de endereços IP de servidores DNS locais.
 3. Para garantir que todas as máquinas virtuais do DC da réplica na rede virtual estejam configurados para usar os servidores DNS na rede virtual:
   1. Selecione **Máquinas Virtuais do Microsoft Azure**.
   2. Selecione as máquinas virtuais e selecione **Reiniciar**. 
@@ -94,7 +94,7 @@ Após cada VM ter sido provisionada, conecte-se e a associe ao domínio.
 * [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md)
 * [Microsoft Azure IaaS para profissionais de TI: (01) conceitos básicos de máquina virtual](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-* [Azure PowerShell](/powershell/azure/overview)
+* [PowerShell do Azure](/powershell/azure/overview)
 * [Cmdlets de gerenciamento do Azure](/powershell/module/azurerm.compute/#virtual_machines)
 
 <!--Image references-->

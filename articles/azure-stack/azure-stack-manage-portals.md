@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Usando o portal de administrador na pilha do Azure
 
@@ -35,7 +35,7 @@ Para acessar o portal do administrador, navegue até a URL de portal e entrar us
 | Ambiente | URL do Portal de administrador |   
 | -- | -- | 
 | Kit de desenvolvimento| https://adminportal.local.azurestack.external  |
-| Sistemas integrados | https://adminportal. &lt; *região*&gt;.&lt; *FQDN*&gt; | 
+| Sistemas integrados | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
  ![O portal do administrador](media/azure-stack-manage-portals/image1.png)

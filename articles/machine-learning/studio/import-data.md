@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: garye;bradsev
 ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os dados de treinamento para o Azure Machine Learning Studio de diferentes fontes de dados
 Para usar seus próprios dados no Machine Learning Studio para desenvolver e treinar uma solução de análise preditiva, você pode: 
@@ -80,9 +80,9 @@ Os **tipos de dados** a seguir são reconhecidos pelo Machine Learning Studio:
 * Cadeia de caracteres
 * Número inteiro
 * Duplo
-* Booliano
-* DateTime
-* TimeSpan
+* BOOLEAN
+* Datetime
+* timespan
 
 O Machine Learning Studio usa um tipo de dados interno chamado ***Tabela de Dados*** para transmitir dados entre módulos. É possível converter explicitamente os dados para o formato de tabela de dados usando o módulo [Converter para Conjunto de Dados][convert-to-dataset].
 

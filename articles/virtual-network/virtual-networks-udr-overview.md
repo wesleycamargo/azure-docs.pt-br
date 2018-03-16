@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -45,7 +45,7 @@ Cada rota contém um prefixo de endereço e o tipo do próximo salto. Quando um 
 
 Os tipos do próximo salto listados na tabela anterior representam como o Azure roteia o tráfego destinado ao prefixo de endereço listado. As explicações para os tipos do próximo salto seguem:
 
-- **Rede virtual**: roteia o tráfego entre os intervalos de endereços no [espaço de endereço](virtual-network-manage-network.md#add-address-spaces) de uma rede virtual. O Azure cria uma rota com um prefixo de endereço que corresponde a cada intervalo de endereços definido no espaço de endereço de uma rede virtual. Se o espaço de endereço da rede virtual tiver vários intervalos de endereços definidos, o Azure cria uma rota individual para cada intervalo de endereços. O Azure roteia automaticamente o tráfego entre as sub-redes usando as rotas criadas para cada intervalo de endereços. Não é preciso definir gateways para o Azure para rotear o tráfego entre sub-redes. Embora uma rede virtual contenha sub-redes e cada sub-rede tenha um intervalo de endereços definido, o Azure *não* cria rotas padrão para intervalos de endereço da sub-rede porque cada um desses intervalos está dentro de um intervalo de endereços do espaço de endereço de uma rede virtual.
+- **Rede virtual**: roteia o tráfego entre os intervalos de endereços no [espaço de endereço](manage-virtual-network.md#add-or-remove-an-address-range) de uma rede virtual. O Azure cria uma rota com um prefixo de endereço que corresponde a cada intervalo de endereços definido no espaço de endereço de uma rede virtual. Se o espaço de endereço da rede virtual tiver vários intervalos de endereços definidos, o Azure cria uma rota individual para cada intervalo de endereços. O Azure roteia automaticamente o tráfego entre as sub-redes usando as rotas criadas para cada intervalo de endereços. Não é preciso definir gateways para o Azure para rotear o tráfego entre sub-redes. Embora uma rede virtual contenha sub-redes e cada sub-rede tenha um intervalo de endereços definido, o Azure *não* cria rotas padrão para intervalos de endereço da sub-rede porque cada um desses intervalos está dentro de um intervalo de endereços do espaço de endereço de uma rede virtual.
 
 - **Internet**: roteia o tráfego especificado pelo prefixo de endereço para a Internet. A rota padrão de sistema especifica o prefixo de endereço 0.0.0.0/0. Se você não substituir as rotas padrão do Azure, o Azure roteia o tráfego para qualquer endereço não especificado por um intervalo de endereços em uma rede virtual para a Internet, com uma exceção. Se o endereço de destino for para um dos serviços do Azure, o Azure roteia o tráfego diretamente ao serviço da sua rede de backbone em vez de rotear o tráfego para a Internet. O tráfego entre os serviços do Azure não percorre a Internet, independentemente de em qual região do Azure a rede virtual existe ou em qual região do Azure uma instância do serviço do Azure está implantada. Você pode substituir a rota do sistema padrão do Azure para o prefixo de endereço 0.0.0.0/0 com uma [rota personalizada](#custom-routes).
 
@@ -250,7 +250,7 @@ A tabela de rotas para *Subnet2* contém todas as rotas padrão criadas pelo Azu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar uma tabela de rotas definidas pelo usuário com rotas e uma solução de virtualização de rede](create-user-defined-route-portal.md)
+- [Criar uma tabela de rotas definidas pelo usuário com rotas e uma solução de virtualização de rede](tutorial-create-route-table-portal.md)
 - [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Usar o BGP com ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Exibir todas as rotas de uma sub-rede](virtual-network-routes-troubleshoot-portal.md). Uma tabela de rotas definidas pelo usuário só mostra as rotas definidas pelo usuário, não as rotas padrão e BGP de uma sub-rede. Exibir todas as rotas mostra as rotas padrão, BGP e definidas pelo usuário da sub-rede na qual está uma interface de rede.

@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Executar failover e failback de servidores físicos replicados para Azure
 
@@ -30,7 +30,7 @@ O failover e o failback têm quatro fases:
 
 ## <a name="verify-server-properties"></a>Verificar as propriedades do servidor
 
-Confira as propriedades do servidor e verifique se ele está em conformidade com os [Requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) quanto a VMs do Azure.
+Confira as propriedades do servidor e verifique se ele está em conformidade com os [Requisitos do Azure](vmware-physical-azure-support-matrix.md#replicated-machines) quanto a VMs do Azure.
 
 1. Em **Itens Protegidos**, clique em **Itens Replicados** e selecione o computador.
 
@@ -62,7 +62,7 @@ O servidor de processo recebe dados da VM do Azure e envia-os para o site local.
 
 - Para fins de teste, se você tiver uma conexão Azure ExpressRoute, será possível usar o servidor de processo local que é instalado automaticamente no servidor de configuração.
 - Se você tiver uma conexão VPN ou estiver executando o failback em um ambiente de produção, você deverá configurar uma VM do Azure como um servidor de processo baseado no Azure para failback.
-- Siga as instruções [neste artigo](site-recovery-vmware-setup-azure-ps-resource-manager.md) para configurar um servidor de processo no Azure.
+- Siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md) para configurar um servidor de processo no Azure.
 
 ## <a name="configure-the-master-target-server"></a>Configurar o servidor de destino mestre
 

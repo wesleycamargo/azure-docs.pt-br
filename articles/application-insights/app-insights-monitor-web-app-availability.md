@@ -1,8 +1,23 @@
- ;--- title: Monitorar disponibilidade e resposta de qualquer site | Descrição do Microsoft Docs: Configure testes da Web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
-services: application-insights documentationcenter: '' author: SoubhagyaDash manager: carmonm
-
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: na ms.topic: get-started-article ms.date: 02/09/2018 ms.author: sdash ; mbullwin
-
+---
+title: Monitorar a disponibilidade e a capacidade de resposta de qualquer site da Web | Microsoft Docs
+description: "Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente."
+services: application-insights
+documentationcenter: 
+author: SoubhagyaDash
+manager: carmonm
+ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 02/09/2018
+ms.author: sdash ; mbullwin
+ms.openlocfilehash: d8d6c6a242f63ad891a8134657273ff73dfcde18
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.

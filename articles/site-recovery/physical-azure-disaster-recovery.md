@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastre de servidores físicos locais para o Azure
 
@@ -32,8 +32,8 @@ Este tutorial mostra como configurar a recuperação de desastre de servidores W
 Para concluir este tutorial:
 
 - Verifique se você entende os [componentes e a arquitetura do cenário](physical-azure-architecture.md).
-- Examine os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) de todos os componentes.
-- Verifique se os servidores que você deseja replicar estão em conformidade com os [requisitos de VM do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Examine os [requisitos de suporte](vmware-physical-secondary-support-matrix.md) de todos os componentes.
+- Verifique se os servidores que você deseja replicar estão em conformidade com os [requisitos de VM do Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare o Azure. Você precisa de uma assinatura do Azure, de uma rede virtual do Azure e de uma conta de armazenamento.
 - Prepare uma conta para a instalação automática do serviço de Mobilidade em cada servidor que você deseja replicar.
 

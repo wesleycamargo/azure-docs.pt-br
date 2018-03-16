@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configurar e usar o Log Analytics (OMS) com um aplicativo SaaS multilocatário do Banco de Dados SQL do Azure
 
@@ -132,7 +132,7 @@ No portal do OMS, você pode explorar mais os dados de log e métrica no espaço
 
 O monitoramento e os alertas no Log Analytics e no OMS baseiam-se em consultas sobre os dados no espaço de trabalho, ao contrário dos alertas definidos em cada folha de recursos no portal do Azure. Baseando alertas em consultas, você pode definir um único alerta sobre todos os bancos de dados em vez de uma definição para cada banco de dados. As consultas são limitadas apenas pelos dados disponíveis no espaço de trabalho.
 
-Para saber mais sobre como usar o OMS para consultar e definir alertas, confira [Trabalhando com regras de alerta no Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+Para saber mais sobre como usar o OMS para consultar e definir alertas, confira [Trabalhando com regras de alerta no Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 O Log Analytics para o Banco de Dados SQL é cobrado com base no volume de dados no espaço de trabalho. Nesse tutorial, você criou um espaço de trabalho Gratuito, que é limitado a 500 MB por dia. Quando esse limite é atingido, os dados não são mais adicionados ao espaço de trabalho.
 

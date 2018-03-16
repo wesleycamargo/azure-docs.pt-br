@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 
@@ -31,7 +31,7 @@ Este artigo tem duas partes principais:
     * O tutorial usa o aplicativo SaaS de exemplo Wingtip Tickets, adaptado para o aplicativo autônomo por padrão de locatário.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Padrão de aplicativo por locatário autônomo
-O aplicativo autônomo por padrão locatário é um dos vários padrões para aplicativos SaaS multilocatários.  Neste padrão, um aplicativo autônomo é provisionado para cada locatário. O aplicativo compreende componentes de nível de aplicativo e banco de dados SQL.  Cada aplicativo de locatário pode ser implantado na assinatura do fornecedor.  Alternativamente, o Azure oferece um [programa de aplicativos gerenciados](https://docs.microsoft.com/en-us/azure/managed-applications/overview) no qual um aplicativo pode ser implantado na assinatura de um locatário e gerenciado pelo fornecedor em nome do locatário. 
+O aplicativo autônomo por padrão locatário é um dos vários padrões para aplicativos SaaS multilocatários.  Neste padrão, um aplicativo autônomo é provisionado para cada locatário. O aplicativo compreende componentes de nível de aplicativo e banco de dados SQL.  Cada aplicativo de locatário pode ser implantado na assinatura do fornecedor.  Alternativamente, o Azure oferece um [programa de aplicativos gerenciados](https://docs.microsoft.com/azure/managed-applications/overview) no qual um aplicativo pode ser implantado na assinatura de um locatário e gerenciado pelo fornecedor em nome do locatário. 
 
    ![padrão de aplicativo por locatário](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ Embora cada banco de dados e aplicativo do locatário seja totalmente isolado, v
 O catálogo de locatário contém um mapeamento entre um identificador de locatário e um banco de dados de locatário, permitindo que um identificador seja resolvido para um servidor e nome de banco de dados.  No aplicativo SaaS Wingtip, o identificador de locatário é calculado como um hash do nome do locatário, embora outros esquemas possam ser utilizados.  Embora aplicativos autônomos não precisem do catálogo para gerenciar conexões, o catálogo pode ser utilizado para escopo de outras ações para um conjunto de banco de dados de locatário. Por exemplo, o Elastic Query pode usar o catálogo para determinar o conjunto de bancos de dados em que as consultas são distribuídas para o relatório de locatários cruzados.
 
 ## <a name="elastic-database-client-library"></a>Biblioteca de cliente do Banco de Dados Elástico
-No aplicativo de exemplo Wingtip, o catálogo é implementado pelos recursos de gerenciamento de fragmentos da EDCL [(Biblioteca de Clientes do Banco de Dados Elástico)](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library).  A biblioteca permite que um aplicativo crie, gerencie e use um mapa de fragmentos que esteja armazenado em um banco de dados. No exemplo de Tickets Wingtip, o catálogo é armazenado no banco de dados do *catálogo de locatário*.  O fragmento mapeia uma chave de locatário para o fragmento (banco de dados) em que os dados desse locatário sejam armazenados.  As funções da EDCL gerenciam um *mapa de fragmentos global* armazenado em tabelas no banco de dados do *catálogo de locatário* e um *mapa de fragmentos local* armazenado em cada fragmento.
+No aplicativo de exemplo Wingtip, o catálogo é implementado pelos recursos de gerenciamento de fragmentos da EDCL [(Biblioteca de Clientes do Banco de Dados Elástico)](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library).  A biblioteca permite que um aplicativo crie, gerencie e use um mapa de fragmentos que esteja armazenado em um banco de dados. No exemplo de Tickets Wingtip, o catálogo é armazenado no banco de dados do *catálogo de locatário*.  O fragmento mapeia uma chave de locatário para o fragmento (banco de dados) em que os dados desse locatário sejam armazenados.  As funções da EDCL gerenciam um *mapa de fragmentos global* armazenado em tabelas no banco de dados do *catálogo de locatário* e um *mapa de fragmentos local* armazenado em cada fragmento.
 
 As funções da EDCL podem ser chamadas a partir de aplicativos ou scripts do PowerShell para criar e gerenciar as entradas no mapa de fragmentos. Outras funções da EDCL podem ser usadas para recuperar o conjunto de fragmentos ou conectar ao banco de dados correto para uma determinada chave de locatário. 
     
@@ -69,7 +69,7 @@ No final deste tutorial, você terá um conjunto de aplicativos de locatário au
 ## <a name="prerequisites"></a>pré-requisitos
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos: 
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Os três aplicativos de locatário de exemplo são implantados. Para implantar esses aplicativos em menos de cinco minutos, consulte [Implantar e explorar o padrão de aplicativo autônomo SaaS Wingtip Tickets](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* Os três aplicativos de locatário de exemplo são implantados. Para implantar esses aplicativos em menos de cinco minutos, consulte [Implantar e explorar o padrão de aplicativo autônomo SaaS Wingtip Tickets](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
 
 ## <a name="provision-the-catalog"></a>Provisionar o catálogo
 Nesta tarefa, você aprenderá como provisionar o catálogo usado para registrar todos os bancos de dados de locatário. Você vai: 
@@ -149,4 +149,4 @@ Neste tutorial, você aprendeu:
 > * Sobre os servidores e bancos de dados que constituem o aplicativo.
 > * Como excluir recursos de exemplo para interromper a cobrança relacionada.
 
-Você pode explorar como o catálogo é usado para dar suporte a vários cenários entre locatários usando a versão do banco de dados por locatário do [aplicativo SaaS Wingtip Tickets](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+Você pode explorar como o catálogo é usado para dar suporte a vários cenários entre locatários usando a versão do banco de dados por locatário do [aplicativo SaaS Wingtip Tickets](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 46d026802668fd77ae184b374439ca78cf51393d
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Machine Learning
 
@@ -127,7 +127,7 @@ Nº O Azure Machine Learning Workbench é um aplicativo gratuito. Você pode bai
 
 **Há suporte para funcionalidades de linha de comando?**
 
-Sim, o Azure Machine Learning oferece uma interface de CLI completa. A CLI de Machine Learning é instalada por padrão com Azure Machine Learning Workbench. Ele também é fornecido como parte da máquina virtual de Ciência de Dados Linux no Azure e será integrado à [CLI do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+Sim, o Azure Machine Learning oferece uma interface de CLI completa. A CLI de Machine Learning é instalada por padrão com Azure Machine Learning Workbench. Ele também é fornecido como parte da máquina virtual de Ciência de Dados Linux no Azure e será integrado à [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 
 
 **Posso usar Blocos de Anotações do Jupyter com o Workbench?**

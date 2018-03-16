@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure
 Este artigo explica as diferenças importantes entre implantar o AD DS (Serviços de Domínio do Active Directory) do Windows Server e o AD FS (Serviços de Federação do Active Directory) no local e implantá-los em máquinas virtuais do Microsoft Azure.
@@ -51,7 +51,7 @@ Você pode baixar e executar a [Avaliação de Prontidão da Máquina Virtual do
 
 Recomendamos que você examine primeiro os tutoriais, guias e vídeos que abrangem os tópicos abaixo:
 
-* [Configurar uma rede virtual somente em nuvem no Portal do Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Configurar uma rede virtual somente em nuvem no Portal do Azure](../virtual-network/quick-create-portal.md)
 * [Configurar uma VPN Site a Site no Portal do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](active-directory-new-forest-virtual-machine.md)
 * [Instalar uma réplica do controlador de domínio do Active Directory no Azure](active-directory-install-replica-active-directory-domain-controller.md)

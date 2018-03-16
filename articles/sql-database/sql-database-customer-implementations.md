@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.openlocfilehash: b22307ee0cade40370b096ee49bb15dcfd2f0071
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3da41adfa0865c0741c61b5d15c3ef1741eb6118
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Aspectos técnicos de implementações do cliente do Banco de Dados SQL do Azure
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/31/2017
 
 - [Quorum](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database): o Quorum dobra a principal carga de trabalho do banco de dados, enquanto reduz a DTU em 70% com o Banco de Dados SQL.
 
-- [Quest](https://customers.microsoft.com/en-US/story/quest): o Quest oferece o Spotlight no serviço SQL Server Enterprise com um objetivo em mente: fornecer as melhores ferramentas disponíveis aos profissionais de banco de dados para proteção de dados, movimentação dos dados e monitoramento de operações de bancos de dados. Com o Spotlight, usando o Microsoft Azure e Banco de Dados SQL do Azure, os administradores de Banco de Dados do SQL Server podem monitorar, detectar, diagnosticar e fornecer uma maneira de resolver problemas de desempenho no SQL Server, seja de suas mesas de trabalho ou em casa.
+- [Quest](https://customers.microsoft.com/story/quest): o Quest oferece o Spotlight no serviço SQL Server Enterprise com um objetivo em mente: fornecer as melhores ferramentas disponíveis aos profissionais de banco de dados para proteção de dados, movimentação dos dados e monitoramento de operações de bancos de dados. Com o Spotlight, usando o Microsoft Azure e Banco de Dados SQL do Azure, os administradores de Banco de Dados do SQL Server podem monitorar, detectar, diagnosticar e fornecer uma maneira de resolver problemas de desempenho no SQL Server, seja de suas mesas de trabalho ou em casa.
 
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): esse breve estudo de caso realça as práticas recomendadas e lições aprendidas com a experiência da equipe do produto Dynamics 365 for Operations em migrar para o Banco de Dados SQL do Azure a fim de fornecer aos clientes uma oferta de SaaS (software como serviço) totalmente gerenciado. Usando o Banco de Dados SQL do Azure, a equipe do Dynamics 365 for Operations foi capaz de gerenciar e operar o serviço com menos pessoal e dimensionar com facilidade usando recursos de gerenciamento prontos para uso, como backups automáticos de banco de dados, retenção de backup do banco de dados, alta disponibilidade e recuperação de desastres. Isso, junto com a capacidade de provisionar bancos de dados com a automação trivial, permitiu que o Banco de Dados SQL se tornasse uma excelente plataforma para manter os serviços em larga escala.
 
