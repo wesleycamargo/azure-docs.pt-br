@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede de pilha do Azure para ajudá-lo a decidir como integrar melhor pilha do Azure em seu ambiente de rede existente. 
@@ -53,7 +53,9 @@ A infraestrutura de rede para a pilha do Azure consiste em várias redes lógica
 ![Conexões de diagrama e o comutador de rede lógica](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>Rede do BMC
-Esta rede dedicada para se conectar a todos os controladores BMC (também conhecido como processadores de serviço, por exemplo, iDRAC iLO, iBMC, etc.) para a rede de gerenciamento. Se estiver presente, o host do ciclo de vida de hardware (HLH) está localizado na rede e pode fornecer o software específico do OEM para manutenção de hardware e/ou o monitoramento. 
+Esta rede dedicada para se conectar a todos os controladores BMC (também conhecido como processadores de serviço, por exemplo, iDRAC iLO, iBMC, etc.) para a rede de gerenciamento. Se estiver presente, o Host de ciclo de vida de Hardware (HLH) está localizado na rede e pode fornecer o software específico do OEM para manutenção de hardware ou de monitoramento. 
+
+O HLH também hospeda a VM de implantação (DVM). O DVM é usado durante a implantação da pilha do Azure e será removido quando a implantação for concluída. O DVM requer acesso à internet em cenários de implantação conectado para testar, validar e acessar os vários componentes. Esses componentes podem ser dentro e fora da sua rede corporativa; Por exemplo NTP, o DNS e o Azure. Para obter mais informações sobre requisitos de conectividade, consulte o [seção NAT na integração do firewall do Azure pilha](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Rede privada
 Este /24 254 host da rede de IP) (é privada à região de pilha do Azure (não expandir além dos dispositivos de switch de borda da região de pilha do Azure) e é dividido em duas sub-redes:
