@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Como manter alterações e trabalhar com arquivos grandes
 Com o serviço de Experimentação do Azure Machine Learning, é possível configurar uma variedade de destinos de execução. Alguns destinos são locais, como um computador local ou um contêiner do Docker em um computador local. Outros são remotos, como um contêiner do Docker em um computador remoto ou um cluster HDInsight. Para saber mais, consulte [Visão geral do serviço de execução de experimento do Microsoft Azure Machine Learning](experimentation-service-configuration.md). 
@@ -45,7 +45,7 @@ Essa opção é a preferencial se todas as seguintes condições se aplicarem:
 Estes são alguns casos de uso comuns:
 * Treinando um modelo
 * Como criar um conjunto de dados
-* Como plotar um gráfico como um arquivo de imagem como parte de sua execução do treinamento do modelo 
+* Como plotar um grafo como um arquivo de imagem como parte de sua execução do treinamento do modelo 
 
 Além disso, é recomendável comparar as saídas das execuções, selecionar um arquivo de saída (como um modelo) produzido por uma execução anterior e usá-lo para uma tarefa subsequente (como pontuação).
 

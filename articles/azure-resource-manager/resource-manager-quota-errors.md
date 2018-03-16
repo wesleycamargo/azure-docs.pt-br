@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolva erros de cota de recursos
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 As cotas são aplicadas por grupo de recursos, assinaturas, contas e outros escopos. Por exemplo, sua assinatura pode estar configurada para limitar o número de núcleos de uma região. Se tentar implantar uma máquina virtual com mais núcleos do que o valor permitido, você receberá um erro informando que a cota foi excedida.
 Para obter informações completas sobre cotas, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md).
 
-## <a name="solution"></a>Solução
+## <a name="troubleshooting"></a>solução de problemas
 
-### <a name="solution-1"></a>Solução 1
+### <a name="azure-cli"></a>CLI do Azure
 
 Na CLI do Azure, use o comando `az vm list-usage` para encontrar as cotas da máquina virtual.
 
@@ -73,7 +73,7 @@ Que retorna:
 ]
 ```
 
-### <a name="solution-2"></a>Solução 2
+### <a name="powershell"></a>PowerShell
 
 No PowerShell, use o comando **Get-AzureRmVMUsage** para encontrar as cotas da máquina virtual.
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>Solução 3
+## <a name="solution"></a>Solução
 
 Para solicitar um aumento de cota, vá ao portal e registre um problema de suporte. No problema de suporte, solicite um aumento da sua cota para a região na qual você deseja implantar.
 

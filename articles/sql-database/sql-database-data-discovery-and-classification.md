@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Descoberta e Classificação de Dados do Banco de Dados SQL do Azure
 A Descoberta e Classificação de Dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Microsoft Azure para **descobrir**, **classificar**, **rotular** & **proteger** os dados confidenciais em seus bancos de dados.
@@ -95,12 +95,12 @@ A classificação inclui dois atributos de metadados:
 
 Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais.
 
-A [Auditoria do Banco de Dados SQL Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) foi aprimorada para incluir um novo campo no log de auditoria chamado *data_sensitivity_information*, que registra a classificações de confidencialidade (rótulos) dos dados reais que foram retornados pela consulta.
+A [Auditoria do Banco de Dados SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) foi aprimorada para incluir um novo campo no log de auditoria chamado *data_sensitivity_information*, que registra a classificações de confidencialidade (rótulos) dos dados reais que foram retornados pela consulta.
 
 ![Painel de navegação][11]
 
 ## <a id="subheading-4"></a>Próximas etapas
-Considere configurar a [Auditoria do Banco de Dados SQL Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) para monitorar e auditar o acesso aos seus dados confidenciais classificados.
+Considere configurar a [Auditoria do Banco de Dados SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para monitorar e auditar o acesso aos seus dados confidenciais classificados.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

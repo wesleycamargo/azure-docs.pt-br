@@ -4,7 +4,7 @@ description: Aprenda a planejar e projetar redes virtuais no Azure com base em s
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planejar e projetar redes virtuais do Azure
-Criar uma rede virtual para fazer experiências com ela é bastante simples, mas as chances são: você implantará múltiplas redes virtuais ao longo do tempo para dar suporte às necessidades de produção da sua organização. Com algum planejamento e design, você poderá implantar redes virtuais e conectar-se aos recursos de que precisa com mais eficiência. Se você não estiver familiarizado com redes virtuais, recomenda-se que você [saiba mais sobre redes virtuais](virtual-networks-overview.md) e [como implantar](virtual-networks-create-vnet-arm-pportal.md) uma antes de continuar.
+Criar uma rede virtual para fazer experiências com ela é bastante simples, mas as chances são: você implantará múltiplas redes virtuais ao longo do tempo para dar suporte às necessidades de produção da sua organização. Com algum planejamento e design, você poderá implantar redes virtuais e conectar-se aos recursos de que precisa com mais eficiência. Se você não estiver familiarizado com redes virtuais, recomenda-se que você [saiba mais sobre redes virtuais](virtual-networks-overview.md) e [como implantar](quick-create-portal.md) uma antes de continuar.
 
 ## <a name="plan"></a>Plano
 Uma compreensão completa de assinaturas do Azure, regiões e recursos de rede é essencial para o sucesso. Você pode usar a lista de considerações abaixo como ponto de partida. Depois de compreender essas considerações, você pode definir os requisitos para o design de rede.
@@ -58,7 +58,7 @@ Os recursos de rede virtual e sub-redes ajudam a definir um limite de segurança
 
 As VNets contêm as propriedades a seguir.
 
-| Propriedade | Descrição | Restrições |
+| Propriedade | DESCRIÇÃO | Restrições |
 | --- | --- | --- |
 | **name** |Nome da VNet |Cadeia de caracteres de até 80 caracteres. Pode conter letras, números, sublinhados, pontos ou hifens. Deve começar com uma letra ou número. Deve terminar com uma letra, número ou sublinhado. Pode contém letras maiúsculas ou minúsculas. |
 | **local** |Local do Azure (também conhecido como região). |Deve ser um dos locais do Azure válidos. |
@@ -71,7 +71,7 @@ Uma sub-rede é um recurso filho de uma VNet e ajuda a definir segmentos de espa
 
 As sub-redes contêm as propriedades a seguir.
 
-| Propriedade | Descrição | Restrições |
+| Propriedade | DESCRIÇÃO | Restrições |
 | --- | --- | --- |
 | **name** |Nome da sub-rede |Cadeia de caracteres de até 80 caracteres. Pode conter letras, números, sublinhados, pontos ou hifens. Deve começar com uma letra ou número. Deve terminar com uma letra, número ou sublinhado. Pode contém letras maiúsculas ou minúsculas. |
 | **local** |Local do Azure (também conhecido como região). |Deve ser um dos locais do Azure válidos. |
@@ -183,7 +183,7 @@ Você deve iniciar seu planejamento de design respondendo à pergunta na seção
     Sim. Cada aplicativo deve ser completamente isolado um do outro, e cada camada do aplicativo também deve ser isolada.
 6. Você precisa controlar o fluxo de tráfego usando dispositivos virtuais?
 
-    Não. Dispositivos virtuais podem ser usados para fornecer mais controle sobre o fluxo de tráfego, incluindo logs mais detalhados de plano de dados.
+    Nº Dispositivos virtuais podem ser usados para fornecer mais controle sobre o fluxo de tráfego, incluindo logs mais detalhados de plano de dados.
 7. Os usuários precisam de diferentes conjuntos de permissões para diferentes recursos do Azure?
 
     Sim. A equipe de rede precisa de controle total sobre as configurações de rede virtual, enquanto os desenvolvedores somente devem ser capazes de implantar suas VMs em sub-redes já existentes.

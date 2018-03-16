@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8d6472345d84540cbe0b70240546b465e91155c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 855fc155bbdef9a3a0ab8415067102e607fab0f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -292,7 +292,7 @@ ms.lasthandoff: 02/28/2018
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
@@ -725,7 +725,7 @@ Uma segunda possibilidade é usar uma VM grande que possa ter muitos discos anex
 Algumas práticas recomendadas também foram documentadas [aqui](https://blogs.msdn.com/b/sqlcat/archive/2015/02/26/large-sql-server-database-backup-on-an-azure-vm-and-archiving.aspx) . 
 
 #### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para backups/restaurações
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compressão de backup pode desempenhar um papel significativo nas VMs com até oito threads por CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor for o número de discos usados para armazenar os arquivos de dados, menor será a taxa de transferência geral na leitura.
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup.
@@ -984,7 +984,7 @@ Além da compactação do LOB e dados, o SAP ASE também oferece a compactação
 Não use a unidade D:\ como destino de despejo de log ou banco de dados.
 
 #### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para backups/restaurações
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compressão de backup pode desempenhar um papel significativo nas VMs com até oito threads por CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup
@@ -1137,7 +1137,7 @@ Além da compactação do LOB e dados, o SAP ASE também oferece a compactação
 Não use o espaço temporário da VM do Azure /mnt ou /mnt/resource como o destino do despejo de log ou banco de dados.
 
 #### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para backups/restaurações
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compressão de backup pode desempenhar um papel significativo nas VMs com até oito threads por CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup
@@ -1428,7 +1428,7 @@ A funcionalidade de backup/restauração para o IBM DB2 para LUW tem suporte da 
 
 Você deve se certificar de que tenha uma estratégia de backup do banco de dados válida em vigor. 
 
-Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compressão de backup pode desempenhar um papel significativo nas VMs com até oito threads por CPU. Portanto, é possível supor que:
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Além disso, o consumo de CPU usado pela compactação de backup pode desempenhar uma função significativa nas VMs com até oito threads por CPU. Portanto, é possível supor que:
 
 * Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
 * Quanto menor o número de threads de CPU na VM, mais severo é o impacto da compactação de backup

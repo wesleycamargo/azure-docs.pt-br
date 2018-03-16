@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 28d772df384e620c7e82812adfa2bfa148401132
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Retenção de endereço IP para failover de máquina virtual do Azure
 
@@ -88,7 +88,7 @@ Gateways de VPN utilizam endereços IP públicos e saltos de gateway para estabe
 
 Esse recurso está atualmente em versão prévia pública e está sendo expandido para oferecer suporte a mais regiões — permitindo a conectividade direta entre VMs sem qualquer envolvimento da internet pública ou saltos extras.
 
-Para obter mais informações, consulte a [documentação de emparelhamento](../virtual-network/virtual-network-create-peering.md#register) e os [preços](https://azure.microsoft.com/en-us/pricing/details/virtual-network/).
+Para obter mais informações, consulte a [documentação de emparelhamento](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) e os [preços](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Conectividade local para Azure
 

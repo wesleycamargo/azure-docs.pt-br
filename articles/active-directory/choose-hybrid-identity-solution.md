@@ -6,18 +6,18 @@ author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
-ms.date: 01/03/2018
+ms.date: 03/02/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Soluções de identidade híbrida da Microsoft
 As soluções de identidade híbridas do [Microsoft Azure AD (Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) permitem que você sincronize objetos de diretório locais com o Azure AD enquanto ainda está gerenciando seus usuários locais. A primeira decisão a tomar ao planejar sincronizar seu Windows Server Active Directory localmente com o Azure AD é se você deseja usar a identidade sincronizada ou a identidade federada. As identidades sincronizadas e, opcionalmente, os hashes de senha, permitem que os usuários usem a mesma senha para acessar os recursos organizacionais locais e baseados em nuvem. Para requisitos de cenário mais avançados, como SSO (logon único) ou MFA local, você precisa implantar os Serviços de Federação do Active Directory (AD FS) para federar as identidades. 
@@ -50,9 +50,6 @@ A autenticação de passagem é configurada por meio do Azure AD Connect, que ut
 
 - Windows Server 2012 R2 ou posterior
 - Ingressado em um domínio na floresta em que os usuários são validados
-
-A autenticação de passagem no momento não tem suporte ao usar dispositivos Windows 10 ingressados no Azure AD. No entanto, você pode usar a sincronização de hash de senha como um fallback automático para dar suporte ao Windows 10 e aos clientes herdados mencionados anteriormente. Durante a versão prévia, a sincronização de hash de senha está habilitada por padrão quando a autenticação de passagem é selecionada como a opção de entrada no Azure AD Connect.
-
 
 ## <a name="federated-identity-ad-fs"></a>Identidade federada (AD FS)
 Para obter mais controle sobre como os usuários acessam o Office 365 e outros serviços de nuvem, você pode configurar a sincronização de diretórios com SSO (logon único) usando os [Serviços de Federação do Active Directory (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). Federar as entradas de seus usuários com o AD FS delega a autenticação para um servidor local que valida as credenciais do usuário. Nesse modelo, as credenciais do Active Directory local nunca são passadas para o Azure AD.

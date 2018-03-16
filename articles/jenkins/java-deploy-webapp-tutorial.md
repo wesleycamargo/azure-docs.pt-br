@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurar a integração e implantação contínuas ao Serviço de Aplicativo do Azure com o Jenkins
 
@@ -37,7 +37,7 @@ Para concluir este tutorial, você precisará:
 
 * [Jenkins](https://jenkins.io/) com as ferramentas JDK e Maven configuradas. Se você não tiver um sistema Jenkins, crie um agora no Azure com base no [modelo de solução Jenkins](/azure/jenkins/install-jenkins-solution-template).
 * Uma conta do [GitHub](https://github.com).
-* A [CLI do Azure 2.0](/cli/azure/overview), na linha de comando local ou no [Azure Cloud Shell](/azure/cloud-shell/overview)
+* A [CLI do Azure 2.0](/cli/azure), na linha de comando local ou no [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

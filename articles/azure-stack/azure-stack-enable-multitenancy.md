@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
 ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Habilitar multilocação na pilha do Azure
 
@@ -89,7 +89,7 @@ Register-AzSWithMyDirectoryTenant `
  -Verbose 
 ````
 ## <a name="direct-users-to-sign-in"></a>Direcionar os usuários para entrar
-Agora que você e Mary concluiu as etapas para o diretório de Mary integrado, Mary pode direcionar usuários Fabrikam para entrar.  Usuários da Fabrikam (ou seja, os usuários com o sufixo fabrikam.onmicrosoft.com) entram visitando https://portal.local.azurestack.external.  
+Agora que você e Mary concluiu as etapas para o diretório de Mary integrado, Mary pode direcionar usuários Fabrikam para entrar.  Usuários da Fabrikam (ou seja, os usuários com o sufixo fabrikam.onmicrosoft.com) de entrada visitando https://portal.local.azurestack.external.  
 
 Mary direcionará qualquer [entidades externas](../active-directory/active-directory-understanding-resource-access.md) no diretório Fabrikam (ou seja, os usuários no diretório Fabrikam sem o sufixo do fabrikam.onmicrosoft.com) para entrar usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se eles não usam essa URL, eles são enviados ao seu diretório padrão (Fabrikam) e receber um erro informando que seu administrador não consentiu.
 

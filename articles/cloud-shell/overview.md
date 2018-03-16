@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 72338a4c168b4d3b7c918fbb16758724f73fefc2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o gerenciamento de recursos do Azure.
@@ -54,7 +54,7 @@ Exiba a lista completa de ferramentas da [experiência do Bash](features.md#tool
 O Cloud Shell é uma ferramenta flexível que pode ser usada a partir de:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentação de "Teste" de 2.0 do CLI do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+* [Documentação de "Teste" de 2.0 do CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 * [Aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensão da conta do Azure do VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

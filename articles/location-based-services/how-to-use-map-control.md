@@ -3,23 +3,23 @@ title: "Como usar o Controle de Mapeamento dos Serviços do Azure Baseados na Lo
 description: "Saiba como usar a biblioteca Javascript do lado do cliente do Controle de Mapeamento dos Serviços do Azure Baseados na Localização."
 services: location-based-services
 keywords: "Não adicione ou edite palavras-chave sem consultar seu especialista em SEO."
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9843387a9e4f3b5751bafceb48d6fc949dff7e23
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Como usar o Controle de Mapeamento dos Serviços do Azure Baseados na Localização
 A biblioteca Javascript do lado do cliente do Controle de Mapeamento permite renderizar mapas e funcionalidade inserida nos Serviços do Azure Baseados na Localização em seu aplicativo Web ou móvel. 
 
 ## <a name="prerequisites"></a>pré-requisitos
-Uma chave e conta dos Serviços do Azure Baseados na Localização. Para obter mais informações sobre como criar uma conta e recuperar uma chave, consulte [Como gerenciar sua conta e as chaves dos Serviços do Azure Baseados na Localização](how-to-manage-account-keys.md). 
+Uma chave e conta dos Serviços do Azure Baseados na Localização. Para obter mais informações sobre como criar uma conta e recuperar uma chave, consulte [Como gerenciar as chaves e a conta dos Serviços do Azure Baseados na Localização](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Criar um novo mapa em uma página da Web usando a API de Controle de Mapeamento
 Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript do lado do cliente do Controle de Mapeamento.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurar uma rede virtual (clássico) usando um arquivo de configuração de rede
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ Criar e configurar uma rede virtual (clássica) com um arquivo de configuração
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Criar ou modificar um arquivo de configuração de rede
 
-Um arquivo de configuração de rede é um arquivo XML (ao usar o PowerShell) ou um arquivo json (ao usar a CLI do Azure). É possível editar o arquivo em qualquer texto ou editor XML/json. O artigo [Configurações de esquema de arquivo de configuração de rede](https://msdn.microsoft.com/library/azure/jj157100.aspx) inclui detalhes de todas as configurações. Para obter explicações adicionais sobre as configurações, consulte [Exibir redes virtuais e configurações](virtual-network-manage-network.md#view-vnet). As alterações feitas no arquivo:
+Um arquivo de configuração de rede é um arquivo XML (ao usar o PowerShell) ou um arquivo json (ao usar a CLI do Azure). É possível editar o arquivo em qualquer texto ou editor XML/json. O artigo [Configurações de esquema de arquivo de configuração de rede](https://msdn.microsoft.com/library/azure/jj157100.aspx) inclui detalhes de todas as configurações. Para obter explicações adicionais sobre as configurações, consulte [Exibir redes virtuais e configurações](manage-virtual-network.md#view-virtual-networks-and-settings). As alterações feitas no arquivo:
 
 - Deverão cumprir o esquema ou a importação do arquivo de configuração da rede falhará.
 - Substituirão todas as configurações de rede existentes para sua assinatura, portanto, tenha extremo cuidado ao realizar as modificações. Por exemplo, faça referência aos exemplos de arquivos de configuração de rede que se seguem. Digamos que o arquivo original continha duas instâncias **VirtualNetworkSite** e foram alteradas, conforme mostrado nos exemplos. Ao importar o arquivo, o Azure exclui a rede virtual da instância **VirtualNetworkSite** removida no arquivo. Esse cenário simplificado não considera recursos na rede virtual, como se existisse, a rede virtual não poderia ser excluída e, a importação falharia.

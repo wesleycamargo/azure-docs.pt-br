@@ -1,4 +1,4 @@
-| Recurso | Grátis | Compartilhado (Visualização) | Basic | Standard | Premium (Visualização)</th> |
+| Recurso | Grátis | Compartilhado (Visualização) | Basic | Standard | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
 | [Aplicativos Web, móveis ou de API](https://azure.microsoft.com/services/app-service/) por [plano do Serviço de Aplicativo](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |
 | [Aplicativos lógicos](https://azure.microsoft.com/services/app-service/logic/) por [plano do Serviço de Aplicativo](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 por núcleo |20 por núcleo |

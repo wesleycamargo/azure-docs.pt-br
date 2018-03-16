@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com REST
 
@@ -59,7 +59,7 @@ Para acessar a API dos Serviços de Mídia, você precisa coletar os seguintes p
 
 |Configuração|Exemplo|DESCRIÇÃO|
 |---|-------|-----|
-|Domínio do locatário do Azure Active Directory|microsoft.onmicrosoft.com|O Azure AD como um ponto de extremidade de STS (serviço de token de segurança) é criado usando o seguinte formato: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. O Azure AD emite um JWT para acessar recursos (um token de acesso).|
+|Domínio do locatário do Azure Active Directory|microsoft.onmicrosoft.com|O Azure AD enquanto ponto de extremidade do STS (Serviço de Token de Segurança) é criado usando o seguinte formato: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. O Azure AD emite um JWT para acessar recursos (um token de acesso).|
 |Ponto de extremidade da API REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Este é o ponto de extremidade pelo qual todas as chamadas de API REST dos Serviços de Mídia em seu aplicativo são feitas.|
 |ID do cliente (ID do aplicativo)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID do aplicativo (cliente) do Azure AD. A ID do cliente é necessária para obter o token de acesso. |
 |Segredo do cliente|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Chaves de aplicativo do Azure AD (segredo do cliente). O segredo do cliente é necessário para obter o token de acesso.|
@@ -159,7 +159,7 @@ Esta seção mostra como acessar a API de **Ativos** usando o **Postman**.
 
 1. Abra o **Postman**.
 2. Selecione **GET**.
-3. Cole o ponto de extremidade de API REST (por exemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Cole o ponto de extremidade da API REST (por exemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selecione a guia **Autorização**. 
 5. Selecione **Token de Portador**.
 6. Cole o token que foi criado na seção anterior.

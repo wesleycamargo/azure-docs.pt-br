@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou de um VHD
 
@@ -37,7 +37,7 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 
 * Você precisa de uma VM do Azure criada no modelo de implantação do Resource Manager usando Managed Disks. Se você ainda não criou uma VM do Linux, pode usar o [portal](quick-create-portal.md), a [CLI do Azure](quick-create-cli.md) ou [modelos do Resource Manager](create-ssh-secured-vm-from-template.md). Configure a VM conforme necessário. Por exemplo, [adicionar discos de dados](add-disk.md), aplicar atualizações e instalar aplicativos. 
 
-* Também é preciso ter a [CLI do Azure 2.0](/cli/azure/install-az-cli2) mais recente instalada e estar conectado a uma conta do Azure usando [az login](/cli/azure/#az_login).
+* Também é preciso ter a [CLI do Azure 2.0](/cli/azure/install-az-cli2) mais recente instalada e estar conectado a uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
@@ -143,4 +143,4 @@ Você pode criar várias máquinas virtuais da sua imagem de VM de origem. Se vo
 - Siga as etapas novamente para desprovisionar, desalocar, generalizar e criar uma imagem.
 - Use essa nova imagem para implantações futuras. Se desejar, exclua a imagem original.
 
-Para saber mais sobre como gerenciar suas VMs com a CLI, confira [CLI 2.0 do Azure](/cli/azure/overview).
+Para saber mais sobre como gerenciar suas VMs com a CLI, confira [CLI 2.0 do Azure](/cli/azure).

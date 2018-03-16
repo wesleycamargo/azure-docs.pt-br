@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de banco de dados no Banco de Dados SQL do Azure
 
@@ -133,7 +133,7 @@ No Banco de Dados SQL, por padrão, os dados em repouso nos arquivos de dados e 
 |**Características**|**Always Encrypted**|**Transparent Data Encryption**|
 |---|---|---|
 |**Expansão de criptografia**|Ponta a ponta|Dados em repouso|
-|**O servidor de banco de dados pode acessar dados confidenciais**|Não|Sim, desde que a criptografia seja para os dados em repouso|
+|**O servidor de banco de dados pode acessar dados confidenciais**|Não |Sim, desde que a criptografia seja para os dados em repouso|
 |**Operações de T-SQL permitidas**|Comparação de igualdade|Toda a área de superfície do T-SQL está disponível|
 |**Alterações de aplicativo necessárias para usar o recurso**|Mínimo|Muito Mínimo|
 |**Granularidade de criptografia**|Nível de coluna|Nível de banco de dados|
@@ -213,7 +213,7 @@ Nesse gráfico, você também pode configurar alertas por recurso. Esses alertas
 - **Exibições de Gerenciamento Dinâmico**: você pode consultar o modo de exibição de gerenciamento dinâmico [sys.DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) para retornar o histórico de estatísticas de consumo de recursos na última hora e o modo de exibição de catálogo do sistema [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para retornar o histórico dos últimos 14 dias.
 - **Análise de Desempenho de Consultas**: a [Análise de Desempenho de Consultas](sql-database-query-performance.md) permite que você veja um histórico das principais consultas de consumo de recursos e de longa execução para um banco de dados específico. Você pode identificar rapidamente as PRINCIPAIS consultas por utilização de recursos, duração e frequência de execução. Você pode acompanhar as consultas e detectar de regressão. Este recurso requer que o [Repositório de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) esteja habilitado e ativo para o banco de dados.
 
-   ![Análise de desempenho de consultas](./media/sql-database-manage-after-migration/query-performance-insight.png)
+   ![Análise de Desempenho de Consultas](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 - **Análise de SQL do Azure (versão prévia) no Log Analytics**: o [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) permite coletar e visualizar as principais métricas de desempenho do SQL Azure, dando suporte a até 150.000 Bancos de Dados SQL e a 5.000 pools elásticos SQL por espaço de trabalho. Você pode usá-lo para monitorar e receber notificações. Você pode monitorar métricas do Banco de Dados SQL e de pool elástico em várias assinaturas do Azure e pools elásticos, e isso pode ser usado para identificar problemas em cada camada da pilha de um aplicativo.
 
@@ -260,7 +260,7 @@ O Banco de Dados SQL usa algumas técnicas inteligentes que permitem manipular d
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Como fazer para sincronizar dados entre o Banco de Dados SQL e o SQL Server?
 Há várias maneiras fazer isso: 
 - **[Sincronização de Dados](sql-database-sync-data.md)** – Esse recurso ajuda a sincronizar dados bidirecionalmente entre vários bancos de dados locais do SQL Server e do Banco de Dados SQL. Para sincronizar com bancos de dados do SQL Server local, você precisa instalar e configurar o agente de sincronização em um computador local e abrir a porta TCP de saída 1433.
-- **[Replicação de Transação](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com replicação de transação, você pode sincronizar os dados do local para o Azure SQL DB com o local que está sendo o publicador e o Azure SQL DB que está sendo o assinante. Por ora, apenas há suporte apenas para esta configuração. Para obter mais informações sobre como migrar os dados do local para o Azure SQL com um mínimo tempo de inatividade, consulte: [Usar replicação de transação](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Replicação de Transação](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com replicação de transação, você pode sincronizar os dados do local para o Azure SQL DB com o local que está sendo o publicador e o Azure SQL DB que está sendo o assinante. Por ora, apenas há suporte apenas para esta configuração. Para obter mais informações sobre como migrar os dados do local para o Azure SQL com um mínimo tempo de inatividade, consulte: [Usar replicação de transação](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Próximas etapas
 Conheça o [Banco de Dados SQL](sql-database-technical-overview.md).

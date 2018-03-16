@@ -12,22 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planejar a capacidade para proteger VMs Hyper-V com o Site Recovery
 
-A nova versão aprimorada do [Planejador de Implantações do Azure Site Recovery do Hyper-V para o Azure](site-recovery-hyper-v-deployment-planner.md) já está disponível. Ele substitui a ferramenta antiga. Use a nova ferramenta para o planejamento da implantação. A ferramenta fornece as seguintes orientações:
+A nova versão aprimorada do [Planejador de Implantações do Azure Site Recovery do Hyper-V para implantação do Azure](site-recovery-hyper-v-deployment-planner.md) já está disponível. Ele substitui a ferramenta antiga. Use a nova ferramenta para o planejamento da implantação.
+A ferramenta oferece as seguintes orientações:
 
-* Avaliação de qualificação de VM com base no número de discos, no tamanho do disco, em IOPS, em variações e em algumas características da VM
-* Largura de banda de rede necessária versus avaliação de RPO
+* Avaliação de qualificação de VM com base em número de discos, tamanho de disco, IOPS, variações e algumas características da VM
+* Avaliação de largura de banda de rede necessária versus RPO
 * Requisitos de infraestrutura do Azure
-* Requisitos da infraestrutura local
+* Requisitos de infraestrutura local
 * Diretriz de envio em lote da replicação inicial
 * Custo estimado de recuperação de desastre total para Azure
 
@@ -45,7 +46,7 @@ Você pode executar a ferramenta em dois modos:
 
 * Reúna informações sobre seu ambiente, inclusive VMs, discos por VM e armazenamento por disco.
 * Identifique sua taxa de alteração (variação) diária de dados replicados. Baixe a [ferramenta de planejamento de capacidade do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para obter a taxa de alteração. [Saiba mais](site-recovery-capacity-planning-for-hyper-v-replication.md) sobre essa ferramenta. Recomendamos que você execute essa ferramenta durante uma semana para capturar as médias.
-   
+
 
 ## <a name="run-the-quick-planner"></a>Execute o Planejador Rápido
 1. Baixe e abra o [Planejador de Capacidade do Site Recovery ](http://aka.ms/asr-capacity-planner-excel). Você precisa executar macros. Quando você for solicitado, faça seleções para habilitar a edição e o conteúdo.
@@ -58,7 +59,7 @@ Você pode executar a ferramenta em dois modos:
 
    a. Em **Selecionar seu cenário**, escolha **Hyper-V para Azure** ou **VMware/físico para Azure**.
 
-   b. Em **Taxa média diária de alteração de dados (%)**, insira as informações coletadas usando a [ferramenta de planejamento de capacidade do Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou o [Planejador de Implantação do Site Recovery](./site-recovery-deployment-planner.md). 
+   b. Em **Taxa média diária de alteração de dados (%)**, insira as informações coletadas usando a [ferramenta de planejamento de capacidade do Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou o [Planejador de Implantação do Site Recovery](./site-recovery-deployment-planner.md).
 
    c. A configuração **Compactação** não é usada quando você replica VMs do Hyper-V para o Azure. Para compactação, use um dispositivo de terceiros como o Riverbed.
 
@@ -147,7 +148,7 @@ Depois que todas as informações forem inseridas, selecione **Enviar dados para
 ### <a name="submit-data-in-capacity-planner"></a>Enviar dados no Planejador de Capacidade
 1. Ao abrir o **Planejador de Capacidade**, a planilha é preenchida com base nas configurações que você especificou. As palavras “Carga de trabalho” são exibidas na célula **Fonte de entradas de infraestrutura**, para mostrar que a entrada é a planilha **Qualificação da Carga de Trabalho**.
 
-2. Se você desejar fazer alterações, será necessário modificar a planilha **Qualificação da Carga de Trabalho**. Em seguida, selecione **Enviar dados para a ferramenta de planejador** novamente. 
+2. Se você desejar fazer alterações, será necessário modificar a planilha **Qualificação da Carga de Trabalho**. Em seguida, selecione **Enviar dados para a ferramenta de planejador** novamente.
 
    ![Planejador de Capacidade](./media/site-recovery-capacity-planner/capacity-planner.png)
 

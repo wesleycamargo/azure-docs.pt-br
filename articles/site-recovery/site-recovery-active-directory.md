@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Usar o Azure Site Recovery para proteger o Active Directory e o DNS
 
@@ -73,7 +73,7 @@ Para evitar impactos nas cargas de trabalho de produção, o failover de teste o
 
 A maioria dos aplicativos exige a presença de um controlador de domínio ou de um servidor DNS. Portanto, antes do failover do aplicativo, você deve criar um controlador de domínio na rede isolada para ser usado para failover de teste. A maneira mais fácil de fazer isso é usar o Site Recovery para replicar uma máquina virtual que hospede um controlador de domínio ou um DNS. Em seguida, execute um failover de teste da máquina virtual do controlador de domínio antes de executar um failover de teste do plano de recuperação para o aplicativo. Veja como fazer isso:
 
-1. Você pode usar o Site Recovery para [replicar](site-recovery-replicate-vmware-to-azure.md) a máquina virtual que hospeda o controlador de domínio ou o DNS.
+1. Você pode usar o Site Recovery para [replicar](vmware-azure-tutorial.md) a máquina virtual que hospeda o controlador de domínio ou o DNS.
 2. Crie uma rede isolada. Qualquer rede virtual criada por você no Azure é isolada de outras redes, por padrão. Recomendamos que você use o mesmo intervalo de endereços IP para essa rede de sua rede de produção. Não habilite a conectividade site a site nessa rede.
 3. Forneça um endereço IP DNS na rede isolada. Use o endereço IP que você espera que a máquina virtual DNS obtenha. Se você estiver replicando para o Azure, forneça o endereço IP da máquina virtual usada no failover. Para digitar o endereço IP, na máquina virtual replicada, nas configurações **Computação e Rede**, selecione as configurações **IP de Destino**.
 

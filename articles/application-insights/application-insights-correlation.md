@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -53,7 +53,7 @@ Você pode analisar telemetria resultante da execução de uma consulta:
 
 Na exibição resultante, observe que todos os itens de telemetria compartilham a raiz `operation_Id`. Quando a chamada AJAX é feita da página – a nova ID exclusiva `qJSXU` é atribuída à telemetria de dependência e a ID de pageView é usada como `operation_ParentId`. A solicitação do servidor, por sua vez, usa a ID do AJAX como `operation_ParentId`, etc.
 
-| itemType   | name                      | ID           | operation_ParentId | operation_Id |
+| itemType   | Nome                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Página de ações                |              | STYz               | STYz         |
 | dependência | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -98,7 +98,7 @@ O [Guia para atividades](https://github.com/dotnet/corefx/blob/master/src/System
 
 O ASP.NET Core 2.0 dá suporte à extração de cabeçalhos HTTP e inicia a nova atividade. 
 
-A versão inicial `<fill in>` de `System.Net.HttpClient` dá suporte à injeção automática de cabeçalhos HTTP de correlação e ao acompanhamento da chamada HTTP como uma atividade.
+A versão inicial `4.1.0` de `System.Net.HttpClient` dá suporte à injeção automática de cabeçalhos HTTP de correlação e ao acompanhamento da chamada HTTP como uma atividade.
 
 Há um novo módulo HTTP [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) para o ASP.NET Clássico. Este módulo implementa a correlação de telemetria usando DiagnosticsSource. Ele inicia a atividade com base nos cabeçalhos de solicitação de entrada. Ele correlaciona telemetria de diferentes estágios do processamento da solicitação. Isso se dá mesmo nos casos em que todos os estágios do processamento de IIS são executados em um thread de gerenciamento diferente.
 

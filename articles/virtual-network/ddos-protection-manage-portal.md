@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerenciar a Proteção contra DDoS do Azure Standard usando o Portal do Azure
 
@@ -33,7 +33,7 @@ Saiba como habilitar e desabilitar a proteção contra DDoS (ataque de negação
 1. Faça logon no Portal do Azure em http://portal.azure.com. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 2. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 3. Selecione **Rede** e, em seguida, selecione **Rede Virtual**.
-4. Crie uma rede virtual com as configurações escolhidas. Para obter mais informações sobre como criar redes virtuais, consulte [Criar uma rede virtual](virtual-networks-create-vnet-arm-pportal.md). Em **Proteção contra DDoS**, clique em **Habilitado** e, em seguida, clique em **Criar**. Se você não vê **Proteção contra DDoS**, uma causa provável é que sua assinatura não está registrada para o recurso. Você deve concluir o [registro](http://aka.ms/ddosprotection)e receber uma notificação de que sua assinatura foi habilitada para o recurso antes que a **Proteção contra DDoS** seja exibida.
+4. Crie uma rede virtual com as configurações escolhidas. Para obter mais informações sobre como criar redes virtuais, consulte [Criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Em **Proteção contra DDoS**, clique em **Habilitado** e, em seguida, clique em **Criar**. Se você não vê **Proteção contra DDoS**, uma causa provável é que sua assinatura não está registrada para o recurso. Você deve concluir o [registro](http://aka.ms/ddosprotection)e receber uma notificação de que sua assinatura foi habilitada para o recurso antes que a **Proteção contra DDoS** seja exibida.
 
     ![Criar rede virtual](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
