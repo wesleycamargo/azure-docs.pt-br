@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerações para máquinas virtuais na pilha do Azure
 
@@ -37,7 +37,7 @@ Máquinas virtuais são uma sob demanda, recursos escalonáveis de computação 
 | Rede de máquina virtual | Endereços IP públicos atribuídos à máquina virtual são acessíveis pela Internet.<br><br><br>Máquinas virtuais do Azure tem um nome DNS fixado | Endereços IP públicos atribuídos a uma máquina virtual de locatário são acessíveis no ambiente somente do Kit de desenvolvimento de pilha do Azure. Um usuário deve ter acesso para o Kit de desenvolvimento de pilha do Azure por meio de [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para se conectar a uma máquina virtual que é criada na pilha do Azure.<br><br>Máquinas virtuais criadas em uma instância específica da pilha do Azure tem um nome DNS com base no valor que é configurado pelo administrador de nuvem. |
 | Armazenamento de máquina virtual | Dá suporte a [discos gerenciado.](../../virtual-machines/windows/managed-disks-overview.md) | Discos gerenciados ainda não têm suporte na pilha do Azure. |
 | Versões de API | O Azure sempre tem as versões de API mais recentes para todos os recursos de máquina virtual. | A pilha do Azure oferece suporte a serviços específicos do Azure e as versões de API específicas para esses serviços. Para exibir a lista de versões de API com suporte, consulte o [as versões de API](#api-versions) deste artigo. |
-|Conjuntos de disponibilidade da máquina virtual|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização<br>Suporte a disco gerenciado|Domínio de falha único<br>Domínio de atualização<br>Não há suporte de disco gerenciado|
+|Conjuntos de disponibilidade da máquina virtual|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização<br>Suporte a disco gerenciado|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização (até 20)<br>Não há suporte de disco gerenciado|
 |conjuntos de escala de máquina virtual|Suporte para dimensionamento automático|Dimensionamento automático não tem suportado.<br>Adicione mais instâncias em uma escala definida usando o portal, o Gerenciador de recursos de modelos ou o PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Tamanhos de máquina virtual
