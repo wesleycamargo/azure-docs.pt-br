@@ -380,7 +380,6 @@
             - name: Locatários da provisão
               href: saas-standaloneapp-provision-and-catalog.md
         - name: Banco de dados por locatário
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: Tutorial de introdução
               href: saas-dbpertenant-wingtip-app-overview.md
