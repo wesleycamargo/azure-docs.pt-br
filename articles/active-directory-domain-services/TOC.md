@@ -22,7 +22,6 @@
 ## [Verifique a integridade de um domínio gerenciado](active-directory-ds-check-health.md)
 ## [Usar Serviços de Domínio do Azure AD nas assinaturas do Azure CSP](active-directory-ds-csp.md)
 ## [Habilitar o Azure AD Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md)
-## [Verificar a integridade do seu domínio](active-directory-ds-check-health.md)
 ## Ingressar em um domínio gerenciado
 ### [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [VM do Windows Server a partir do modelo](active-directory-ds-join-windows-vm-template.md)

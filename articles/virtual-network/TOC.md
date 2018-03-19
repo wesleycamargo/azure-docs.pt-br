@@ -27,14 +27,9 @@
 ### [Grupos de segurança de rede](virtual-networks-nsg.md)
 
 ## Implantar
-### Redes virtuais
-#### [portal do Azure](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell do Azure](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI do Azure](virtual-networks-create-vnet-arm-cli.md)
-#### [Modelo](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Grupos de segurança de rede
-#### [portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
+#### [Portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell do Azure](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI do Azure](virtual-networks-create-nsg-arm-cli.md)
 #### [Modelo](virtual-networks-create-nsg-arm-template.md)
@@ -44,7 +39,7 @@
 ##### [CLI 1.0 do Azure](virtual-networks-create-nsg-classic-cli.md)
 
 ### Tabelas de rotas
-#### [portal do Azure](tutorial-create-route-table-portal.md)
+#### [Portal do Azure](tutorial-create-route-table-portal.md)
 #### [PowerShell do Azure](tutorial-create-route-table-powershell.md)
 #### [CLI do Azure](tutorial-create-route-table-cli.md)
 #### [Modelo](virtual-network-create-udr-arm-template.md)
@@ -54,7 +49,7 @@
 
 ### Emparelhamento de rede virtual
 #### Mesmo modelo de implantação - mesma assinatura
-##### [portal do Azure](tutorial-connect-virtual-networks-portal.md)
+##### [Portal do Azure](tutorial-connect-virtual-networks-portal.md)
 ##### [PowerShell do Azure](tutorial-connect-virtual-networks-powershell.md)
 ##### [CLI do Azure](tutorial-connect-virtual-networks-cli.md)
 #### [Mesmo modelo de implantação - assinaturas diferentes](create-peering-different-subscriptions.md)
@@ -62,11 +57,6 @@
 #### [Modelos de implantação diferentes - assinaturas diferentes](create-peering-different-deployment-models-subscriptions.md)
 
 ### [Pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-configure.md)
-
-### Endereço IP público - zona de disponibilidade
-#### [portal do Azure](create-public-ip-availability-zone-portal.md)
-#### [CLI do Azure](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Máquinas virtuais
 #### [Interfaces de rede de máquina virtual](virtual-machine-network-throughput.md)
@@ -79,11 +69,11 @@
 ###### [PowerShell do Azure](virtual-networks-reserved-public-ip.md)
 
 #### Criar VM - endereço IP privado estático
-##### [portal do Azure](virtual-networks-static-private-ip-arm-pportal.md)
+##### [Portal do Azure](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell do Azure](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI do Azure](virtual-networks-static-private-ip-arm-cli.md)
 ##### Clássico
-###### [portal do Azure](virtual-networks-static-private-ip-classic-pportal.md)
+###### [Portal do Azure](virtual-networks-static-private-ip-classic-pportal.md)
 ###### [PowerShell do Azure](virtual-networks-static-private-ip-classic-ps.md)
 ###### [CLI do Azure](virtual-networks-static-private-ip-classic-cli.md)
 
@@ -97,7 +87,7 @@
 ###### [CLI do Azure](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Criar VM - vários endereços IP
-##### [portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
+##### [Portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell do Azure](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI do Azure](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Modelo](virtual-network-multiple-ip-addresses-template.md)
@@ -126,7 +116,7 @@
 
 ### Clássico
 #### [Rede virtual](create-virtual-network-classic.md)
-##### [portal do Azure](virtual-networks-create-vnet-classic-pportal.md)
+##### [Portal do Azure](virtual-networks-create-vnet-classic-pportal.md)
 ##### [PowerShell do Azure](virtual-networks-create-vnet-classic-netcfg-ps.md)
 ##### [CLI do Azure](virtual-networks-create-vnet-classic-cli.md)
 #### [Especificar as configurações de DNS em um arquivo de configuração de rede virtual](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
@@ -147,18 +137,18 @@
 
 ### Clássico
 #### Listas de controle de acesso
-##### [portal do Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Portal do Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell do Azure](virtual-networks-acl-powershell.md)
 
 ## Gerenciar
-### [Redes virtuais](virtual-network-manage-network.md)
+### [Redes virtuais](manage-virtual-network.md)
 #### [Sub-redes](virtual-network-manage-subnet.md)
 #### [Emparelhamentos](virtual-network-manage-peering.md)
 #### Clássico
 ##### [Arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)
 ##### [Migrar de um grupo de afinidade para uma região](virtual-networks-migrate-to-regional-vnet.md)
 ### Grupos de segurança de rede
-#### [portal do Azure](virtual-network-manage-nsg-arm-portal.md)
+#### [Portal do Azure](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell do Azure](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI do Azure](virtual-network-manage-nsg-arm-cli.md)
 
@@ -171,15 +161,15 @@
 #### [Mover uma VM para uma sub-rede diferente](virtual-networks-move-vm-role-to-subnet.md)
 ### [Endereços IP públicos](virtual-network-public-ip-address.md)
 ### Proteção contra DDoS
-#### [portal do Azure](ddos-protection-manage-portal.md)
+#### [Portal do Azure](ddos-protection-manage-portal.md)
 #### [PowerShell do Azure](ddos-protection-manage-ps.md)
 
 ## Solucionar problemas
 ### Grupos de segurança de rede
-#### [portal do Azure](virtual-network-nsg-troubleshoot-portal.md)
+#### [Portal do Azure](virtual-network-nsg-troubleshoot-portal.md)
 #### [PowerShell do Azure](virtual-network-nsg-troubleshoot-powershell.md)
 ### Rotas
-#### [portal do Azure](virtual-network-routes-troubleshoot-portal.md)
+#### [Portal do Azure](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell do Azure](virtual-network-routes-troubleshoot-powershell.md)
 ### [Teste de taxa de transferência](virtual-network-bandwidth-testing.md)
 ### [Não é possível excluir as redes virtuais](virtual-network-troubleshoot-cannot-delete-vnet.md)
