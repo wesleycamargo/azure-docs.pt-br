@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 23281067021dd6e4b8959fe73f3c8a11a651d9d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -35,7 +35,7 @@ Os benefícios do uso do emparelhamento de rede virtual incluem:
 
 ## <a name="requirements-constraints"></a>Requisitos e restrições
 
-* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está em versão prévia no Centro-oeste dos EUA, Centro do Canadá, Oeste dos EUA 2, Coreia do Sul, Sul do Reino Unido, Oeste do Reino Unido, Leste do Canadá, Sul da Índia, Índia Central e Índia Ocidental. Antes de fazer o emparelhamento das redes virtuais em regiões diferentes, você deve primeiro [registrar sua assinatura](virtual-network-create-peering.md#register) para a versão prévia. A tentativa de criar um emparelhamento entre redes virtuais em regiões diferentes falhará se você não tiver concluído o registro para a versão prévia.
+* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está em versão prévia no Centro-oeste dos EUA, Centro do Canadá, Oeste dos EUA 2, Coreia do Sul, Sul do Reino Unido, Oeste do Reino Unido, Leste do Canadá, Sul da Índia, Índia Central e Índia Ocidental. Antes de fazer o emparelhamento das redes virtuais em regiões diferentes, você deve primeiro [registrar sua assinatura](tutorial-connect-virtual-networks-powershell.md#register) para a versão prévia. A tentativa de criar um emparelhamento entre redes virtuais em regiões diferentes falhará se você não tiver concluído o registro para a versão prévia.
     > [!WARNING]
     > Os emparelhamentos de rede virtual criados entre regiões podem não ter o mesmo nível de disponibilidade e confiabilidade encontrado em emparelhamentos em uma versão de disponibilidade geral. Emparelhamentos de rede virtual podem ter funcionalidades restringidas e podem não estar disponíveis em todas as regiões do Azure. Para ver as notificações mais recentes sobre disponibilidade e o status desse recurso, verifique a página [Atualizações da Rede Virtual](https://azure.microsoft.com/updates/?product=virtual-network) .
 
@@ -126,7 +126,7 @@ Há um custo nominal para tráfego de entrada e saída que utiliza uma conexão 
 
     |Modelo de implantação do Azure  | Assinatura  |
     |---------|---------|
-    |Ambos Resource Manager |[Idêntica](virtual-network-create-peering.md)|
+    |Ambos Resource Manager |[Idêntica](tutorial-connect-virtual-networks-portal.md)|
     | |[Diferente](create-peering-different-subscriptions.md)|
     |Um Resource Manager, um clássico     |[Idêntica](create-peering-different-deployment-models.md)|
     | |[Diferente](create-peering-different-deployment-models-subscriptions.md)|

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b91d1c1eb452ade005fceb095f8d9e62b28a14ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introdução ao Apache Kafka no HDInsight
 
@@ -29,7 +29,7 @@ O [Apache Kafka](https://kafka.apache.org) é uma plataforma de streaming distri
 
 O Kafka no HDInsight oferece os seguintes recursos:
 
-* __Contrato de Nível de Serviço (SLA) 99% no tempo de atividade do Kafka__: Para obter mais informações, consulte o documento [informações de SLA para HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __Contrato de Nível de Serviço (SLA) 99,9% no tempo de atividade do Kafka__: para obter mais informações, consulte o documento [Informações de SLA para HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * __Reconhecimento de tolerância a falhas e rack__: O Kafka foi desenvolvido com uma exibição dimensional única de um rack que funciona bem em alguns ambientes. No entanto, em ambientes como o Azure, um rack é separado em duas dimensões: domínios de atualização (UDs) e domínios de falha (FDs). A Microsoft fornece ferramentas que garantem a redistribuição de partições e réplicas Kafka por UDs e FDs. 
 

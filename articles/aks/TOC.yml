@@ -79,6 +79,8 @@
           href: jenkins-continuous-deployment.md
         - name: Usando OpenFaaS com AKS
           href: openfaas.md
+        - name: Executar trabalhos do Spark no AKS
+          href: spark-job.md
     - name: Noções básicas do Kubernetes
       items:
         - name: Usar painel do Kubernetes

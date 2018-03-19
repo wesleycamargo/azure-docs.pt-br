@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: Atribuir acesso aos dados de gerenciamento de custos
 
@@ -54,7 +54,7 @@ Usuários típicos que precisam de acesso aos dados de gerenciamento de custos, 
 
 ![adicionar novo usuário com acesso de usuário](.\media\tutorial-user-access\new-user-access.png)
 
-Para assistir a um vídeo de tutorial sobre como adicionar usuários, consulte [Como adicionara usuários ao Gerenciamento de Custos do Azure por Cloudyn](https://youtu.be/Nzn7GLahx30).
+Para assistir a um vídeo de tutorial sobre como adicionar usuários, consulte [Como adicionara usuários ao Gerenciamento de Custos do Azure](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="create-entities"></a>Criar entidades
 
@@ -75,9 +75,9 @@ Ao lado de **Entidades**, clique em **Adicionar Entidade**. Insira informações
 Quando terminar, **Salve** a entidade.
 
 
-Para assistir a um vídeo de tutorial sobre como criar uma hierarquia de entidade de custo, consulte [Como criar uma hierarquia de entidade de custo no Gerenciamento de Custo do Azure por Cloudyn](https://youtu.be/dAd9G7u0FmU).
+Para assistir a um vídeo de tutorial sobre como criar uma hierarquia de entidade de custo, consulte [Como criar uma hierarquia de entidade de custo no Gerenciamento de Custos do Azure](https://youtu.be/dAd9G7u0FmU).
 
-Se você for um usuário do Contrato Enterprise do Azure, assista a um vídeo tutorial sobre como associar contas e assinaturas a entidades em [Como conectar-se ao Azure Resource Manager com o Gerenciamento de Custos do Azure por Cloudyn](https://youtu.be/oCIwvfBB6kk).
+Se você for um usuário do Contrato Enterprise do Azure, assista a um vídeo tutorial sobre como associar contas e assinaturas a entidades em [Como conectar-se ao Azure Resource Manager com o Gerenciamento de Custos do Azure](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Próximas etapas
 

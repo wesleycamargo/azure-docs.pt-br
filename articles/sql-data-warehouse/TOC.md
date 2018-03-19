@@ -18,7 +18,7 @@
 
 
 # Tutoriais
-## [1 - Carregar dados do blob](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - Carregar WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # Conceitos
 ## Recursos de serviço
@@ -101,6 +101,7 @@
 
 
 ## Carregar e mover dados
+### [Dados do táxi de Nova York](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Dados públicos da Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Repositório Azure Data Lake](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

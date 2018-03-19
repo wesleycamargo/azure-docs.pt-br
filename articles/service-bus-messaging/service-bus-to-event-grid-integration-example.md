@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Barramento de Serviço do Azure para exemplos da Grade de Eventos do Azure
 
@@ -118,7 +118,7 @@ Clique em salvar e executar.
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>Conecte a função e o namespace através da Grade de Eventos
 
-A próxima etapa é unir a função e o namespace do barramento de serviço. Para este exemplo, use o portal do Azure. Confira a página [conceitos](service-bus-to-event-grid-integration-concept.md para entender como usar o PowerShell ou a CLI do Azure para obter o mesmo.
+A próxima etapa é unir a função e o namespace do barramento de serviço. Para este exemplo, use o portal do Azure. Confira a página [Conceitos](service-bus-to-event-grid-integration-concept.md) para entender como usar o PowerShell ou a CLI do Azure para obter o mesmo resultado.
 
 Para criar uma nova assinatura da Grade de Eventos do Azure, navegue até o namespace no portal do Azure e selecione a folha da Grade de Eventos. Clique em “+ Assinatura de Evento”.
 

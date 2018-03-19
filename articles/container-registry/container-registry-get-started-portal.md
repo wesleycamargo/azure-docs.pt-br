@@ -6,18 +6,18 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/06/2017
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Criar um registro de contêiner usando o portal do Azure
 
-Um registro de contêiner do Azure é um registro particular do Docker no Azure no qual você pode armazenar e gerenciar suas imagens de contêiner particulares do Docker. Neste guia de início rápido, você criará um registro de contêiner com o Portal do Azure.
+Um registro de contêiner do Azure é um registro particular do Docker no Azure no qual você pode armazenar e gerenciar suas imagens de contêiner particulares do Docker. Neste início rápido, você cria um registro de contêiner com o portal do Azure, envia por push uma imagem de contêiner para o registro e, por fim, implanta o contêiner do registro nas ACI (Instâncias de Contêiner do Azure ).
 
 Para concluir este guia de início rápido, você deve ter o Docker instalado localmente. O Docker fornece pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
@@ -73,13 +73,13 @@ docker pull microsoft/aci-helloworld
 
 Antes de enviar a imagem por push para o registro, você deve marcar a imagem com o nome do servidor de logon do ACR. Marque a imagem usando o comando [docker tag][docker-tag]. Substitua o *servidor de logon* pelo nome do servidor de logon que você anotou anteriormente.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 Por fim, use [docker push][docker-push] para enviar a imagem por push para a instância do ACR. Substitua o *servidor de logon* pelo nome do servidor de logon da sua instância do ACR.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -104,15 +104,43 @@ Neste exemplo, selecionamos o repositório **aci-helloworld** e nós podemos ver
 
 ![Criar um registro de contêiner no Portal do Azure][qs-portal-09]
 
+## <a name="deploy-image-to-aci"></a>Implantar imagem nas ACI
+
+Para implantar em uma instância a partir do registro, precisamos navegar até o repositório (aci-helloworld) e clicar no botão de reticências ao lado de v1.
+
+![Iniciar uma Instância de Contêiner do Azure a partir do portal][qs-portal-10]
+
+Será exibido um menu de contexto; selecione **Executar instância**:
+
+![Iniciar o menu de contexto das ACI][qs-portal-11]
+
+Preencha o **Nome do contêiner**, verifique se a assinatura correta está selecionada, selecione o **Grupo de recursos**: "myResourceGroup" e clique em **OK** para iniciar a Instância de Contêiner do Azure.
+
+![Iniciar opções de implantação nas ACI][qs-portal-12]
+
+Quando a implantação é iniciada, um bloco é colocado no painel do portal indicando o progresso da implantação. Após a conclusão da implantação, o bloco é atualizado para mostrar o novo grupo de contêineres **mycontainer**.
+
+![Status da implantação das ACI][qs-portal-13]
+
+Selecione o grupo de contêineres mycontainer para exibir as propriedades do grupo de contêineres. Anote o **Endereço IP** do grupo de contêineres, bem como o **STATUS** do contêiner.
+
+![Detalhes do contêiner das ACI][qs-portal-14]
+
+## <a name="view-the-application"></a>Exibir o aplicativo
+
+Depois que o contêiner é movido para o estado **Em Execução**, use seu navegador favorito para acessar o endereço IP que você anotou na etapa anterior e exibir o aplicativo hospedado no seu novo contêiner.
+
+![Aplicativo Olá, Mundo no navegador][qs-portal-15]
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua o grupo de recursos **myResourceGroup**. Isso excluirá o grupo de recursos, a instância do ACR e todas as imagens de contêiner.
+Para limpar seus recursos, navegue até o grupo de recursos **myResourceGroup** no portal. Depois que o grupo de recursos for carregado, clique em **Excluir grupo de recursos** para remover o grupo de recursos, o Registro de Contêiner do Azure e todas as Instâncias de Contêiner do Azure.
 
 ![Criar um registro de contêiner no Portal do Azure][qs-portal-08]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você ciou um Registro de Contêiner do Azure com o Portal do Azure. Se você quiser usar o Registro de Contêiner do Azure com Instâncias de Contêiner do Azure, prossiga para o tutorial de Instâncias de Contêiner do Azure.
+Neste início rápido, você criou um Registro de Contêiner do Azure com a CLI do Azure e iniciou uma instância dele nas Instâncias de Contêiner do Azure. Continue com o tutorial das Instâncias de Contêiner do Azure a fim de ver as ACI com mais detalhes.
 
 > [!div class="nextstepaction"]
 > [Tutoriais sobre Instâncias de Contêiner do Azure][container-instances-tutorial-prepare-app]
@@ -127,6 +155,12 @@ Neste guia de início rápido, você ciou um Registro de Contêiner do Azure com
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

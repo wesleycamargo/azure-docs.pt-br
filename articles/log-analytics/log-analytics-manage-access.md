@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-workspaces"></a>Gerenciar espaços de trabalho
 
@@ -83,8 +83,8 @@ A tabela a seguir resume o acesso que pode ser definido usando cada modelo de pe
 
 |                          | Portal do Log Analytics | Portal do Azure | API (incluindo PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Funções de usuário do Log Analytics | sim                  | Não            | Não                          |
-| Acesso baseado em função do Azure  | sim                  | sim          | sim                        |
+| Funções de usuário do Log Analytics | sim                  | Não           | Não                          |
+| Acesso baseado em função do Azure  | sim                  | Sim          | sim                        |
 
 > [!NOTE]
 > O Log Analytics está passando a usar o acesso baseado em função do Azure como o modelo de permissão, substituindo as funções de usuário do Log Analytics.
@@ -246,7 +246,7 @@ Use as seguintes etapas para remover um usuário de um espaço de trabalho. Remo
 4. Selecione o grupo nos resultados da lista e clique em **Adicionar**.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Vincular um espaço de trabalho existente a uma assinatura do Azure
-Todos os espaços de trabalho criados depois de 26 de setembro de 2016 devem ser vinculados a uma assinatura do Azure no momento da criação. Os espaços de trabalho criados antes dessa data devem ser vinculados a um espaço de trabalho quando você entra. Quando você cria o espaço de trabalho no Portal do Azure ou vincula seu espaço de trabalho a uma assinatura do Azure, o Azure Active Directory é vinculado à sua conta organizacional.
+Todos os espaços de trabalho criados depois de 26 de setembro de 2016 devem ser vinculados a uma assinatura do Azure no momento da criação. Os espaços de trabalho criados antes dessa data devem ser vinculados a uma assinatura quando você entra. Quando você cria o espaço de trabalho no Portal do Azure ou vincula seu espaço de trabalho a uma assinatura do Azure, o Azure Active Directory é vinculado à sua conta organizacional.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Para vincular um espaço de trabalho a uma assinatura do Azure no portal do OMS
 

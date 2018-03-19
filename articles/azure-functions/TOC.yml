@@ -179,6 +179,8 @@
           href: durable-functions-counter.md
         - name: Interação humana
           href: durable-functions-phone-verification.md
+        - name: Teste de unidade
+          href: durable-functions-unit-testing.md
 - name: Referência
   items:
     - name: Associações

@@ -61,6 +61,7 @@
 ## [Personalização de linguagem](active-directory-b2c-reference-language-customization.md)
 ## [Usar a API de relatórios](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Migrar usuários](active-directory-b2c-user-migration.md)
+## [Migrar identidades sociais](active-directory-b2c-social-migration.md)
 
 # Identity Experience Framework
 ## [Políticas personalizadas](active-directory-b2c-overview-custom.md)

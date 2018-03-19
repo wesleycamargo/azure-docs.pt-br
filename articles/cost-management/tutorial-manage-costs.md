@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 238964540bffaf8d05148c587462256ce20d87f4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Tutorial: Gerenciar custos usando o Gerenciamento de Custos do Azure
 
-Gerencie os custos e produza relatórios de análise no Gerenciamento de Custos do Azure por Cloudyn alocando os custos com base em marcas. O processo de alocação de custos atribui os custos aos recursos de nuvem consumidos. Os custos são totalmente alocados quando todos os seus recursos são categorizados com marcas. Depois que os custos são alocados, você pode fornecer análise ou estorno para seus usuários com painéis e relatórios. Porém, muitos recursos poderão estar desmarcados ou não ser marcáveis quando você começar a usar o Gerenciamento de Custos.
+Gerencie os custos e produza relatórios de análise no Gerenciamento de Custos do Azure alocando os custos com base em marcas. O processo de alocação de custos atribui os custos aos recursos de nuvem consumidos. Os custos são totalmente alocados quando todos os seus recursos são categorizados com marcas. Depois que os custos são alocados, você pode fornecer análise ou estorno para seus usuários com painéis e relatórios. Porém, muitos recursos poderão estar desmarcados ou não ser marcáveis quando você começar a usar o Gerenciamento de Custos.
 
 Por exemplo, você talvez queira obter reembolso para custos de engenharia. Você precisa ser capaz de mostrar à sua equipe de engenharia que é necessário um valor específico, com base em custos de recursos. Você pode mostrar um relatório para todos os recursos consumidos que estiverem marcados como *engenharia*.
 

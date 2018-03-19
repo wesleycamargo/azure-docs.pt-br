@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-experiment: 
-ms.openlocfilehash: 391cf4b5df4b52e6fcbe496c6e31052f1fda4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1f7c1a12aea8336b71d6e3eb47037d193841ddb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar sua primeira função no portal do Azure
 
@@ -33,7 +32,7 @@ O Azure Functions lhe permite executar seu código em um ambiente [sem servidor]
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Entre no portal do Azure no endereço <http://portal.azure.com> com sua conta do Azure.
+Entre no portal do Azure em <http://portal.azure.com> com sua conta do Azure.
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 

@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Tutorial: Examinar o uso e os custos
 
-O Azure Cost Management da Cloudyn mostra o uso e os custos para que seja possível acompanhar tendências, detectar ineficiências e criar alertas. Todos os dados de uso e de custo são exibidos em relatórios e painéis da Cloudyn. Os exemplos neste tutorial demonstram como examinar o uso e os custos usando painéis e relatórios. Neste tutorial, você aprenderá como:
+O Gerenciamento de Custos do Azure mostra o uso e os custos para que seja possível acompanhar tendências, detectar ineficiências e criar alertas. Todos os dados de uso e de custo são exibidos em relatórios e painéis da Cloudyn. Os exemplos neste tutorial demonstram como examinar o uso e os custos usando painéis e relatórios. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Acompanhar as tendências de uso e custo
@@ -57,7 +57,7 @@ No exemplo anterior, menos dinheiro foi gasto a partir de 31/08/2017 do que ante
 
 No exemplo, você vê claramente que o custo de armazenamento do Azure caiu a partir de 31-08-2017 enquanto as despesas com outros serviços do Azure permaneceram no mesmo nível. Portanto, o que causou essa redução de gastos? Neste exemplo, alguns funcionários estavam de férias do trabalho em não usaram o serviço de armazenamento.
 
-Para assistir a um vídeo de tutorial sobre o acompanhamento de tendências de custo e uso, consulte [Analisar seus dados de cobrança da nuvem vs. tempo com Gerenciamento de Custos do Azure por Cloudyn](https://youtu.be/7LsVPHglM0g).
+Para assistir a um vídeo de tutorial sobre o acompanhamento de tendências de custo e uso, consulte [Analisar seus dados de cobrança da nuvem vs. tempo com Gerenciamento de Custos do Azure](https://youtu.be/7LsVPHglM0g).
 
 ## <a name="detect-usage-inefficiencies"></a>Detectar ineficiências de uso
 
@@ -81,7 +81,7 @@ Exiba as IDs da instância VM clicando no símbolo de mais ao lado de **Lista de
 
 ![Lista de candidatos](./media/tutorial-review-usage/sizing03.png)
 
-Para assistir a um vídeo de tutorial sobre como detectar ineficiências de uso, consulte [Otimizando o tamanho da VM no Gerenciamento de Custo do Azure por Cloudyn](https://youtu.be/1xaZBNmV704).
+Para assistir a um vídeo de tutorial sobre como detectar ineficiências de uso, consulte [Otimizando o tamanho da VM no Gerenciamento de Custos do Azure](https://youtu.be/1xaZBNmV704).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para gastos incomuns
 

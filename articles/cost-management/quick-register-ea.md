@@ -1,6 +1,6 @@
 ---
 title: Registrar seu Contrato Enterprise do Azure no Gerenciamento de Custo do Azure | Microsoft Docs
-description: Use seu Contrato Enterprise para se registrar no Gerenciamento de Custo do Azure pelo Cloudyn.
+description: Use seu Contrato Enterprise para se registrar no Gerenciamento de Custos do Azure.
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 1b552ba5a0c3afd066e2ac62c8b3a90dd7696185
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar um Contrato Enterprise do Azure e exibir dados de custo
 
-Use seu Contrato Enterprise do Azure para se registrar no Gerenciamento de Custo do Azure pelo Cloudyn. O registro fornece acesso ao portal do Cloudyn. Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn. Também mostra como começar a exibir dados de custo imediatamente.
+Use seu Contrato Enterprise do Azure para se registrar no Gerenciamento de Custos do Azure. O registro fornece acesso ao portal do Cloudyn. Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn. Também mostra como começar a exibir dados de custo imediatamente.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -41,13 +41,13 @@ Use seu Contrato Enterprise do Azure para se registrar no Gerenciamento de Custo
 7. Em **Convidar outros stakeholders**, adicione usuários digitando seus endereços de email. Quando concluir, clique em **Avançar**. Dependendo do tamanho do seu registro do Azure, pode levar até 24 horas para todos os seus dados de cobrança serem adicionados ao Cloudyn.
 8. Clique em **Ir para o Cloudyn** para abrir o portal de Cloudyn e, em seguida, na página **Gerenciamento de Contas de Nuvem**, você deverá ver as informações de sua conta do EA registrada.
 
-Para assistir a um vídeo de tutorial sobre como registrar seu Contrato Enterprise, consulte [Como localizar sua ID de registro de EA e chave de API para uso no Gerenciamento de Custo do Azure por Cloudyn](https://youtu.be/u_phLs_udig).
+Para assistir a um vídeo de tutorial sobre como registrar seu Contrato Enterprise, consulte [Como localizar sua ID de registro de EA e chave de API para uso no Gerenciamento de Custos do Azure](https://youtu.be/u_phLs_udig).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você usou as informações do Contrato Enterprise do Azure para se registrar no Gerenciamento de Custo. Você também entrou no portal do Cloudyn e começou a exibir os dados de custo. Para saber mais sobre o Gerenciamento de Custo do Azure pelo Cloudyn, continue com o tutorial sobre o Gerenciamento de Custo.
+Neste guia de início rápido, você usou as informações do Contrato Enterprise do Azure para se registrar no Gerenciamento de Custo. Você também entrou no portal do Cloudyn e começou a exibir os dados de custo. Para saber mais sobre o Gerenciamento de Custos do Azure, continue com o tutorial sobre Gerenciamento de Custos.
 
 > [!div class="nextstepaction"]
 > [Examinar o uso e os custos](./tutorial-review-usage.md)

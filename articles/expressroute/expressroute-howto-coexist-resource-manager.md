@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: d1dd5a71d922d688ee7b64cef8887e903f78c802
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bec984aa04efbe123b71fa9088fbd37ae53cc2f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurar conexões coexistentes Site a Site e do ExpressRoute
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Este procedimento orientará você na criação de uma VNet, bem como na criaç�
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65010
   ```
-3. Crie uma rede virtual incluindo uma Sub-rede de Gateway. Para saber mais sobre a configuração da rede virtual, consulte [Configuração da Rede Virtual do Azure](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+3. Crie uma rede virtual incluindo uma Sub-rede de Gateway. Para saber mais sobre como criar uma rede virtual, confira [Criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para saber mais sobre como criar sub-redes, confira [Criar uma sub-rede](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    
    > [!IMPORTANT]
    > A Sub-rede de Gateway deve ser /27 ou um prefixo mais curto (como /26 ou /25).
