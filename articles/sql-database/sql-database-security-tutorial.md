@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 678f3ae09a57cbbbb486d256f81f0f58563b482c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger o Banco de Dados SQL do Azure
 
@@ -39,7 +39,7 @@ Você pode melhorar a proteção do banco de dados contra usuários mal-intencio
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, você precisa do seguinte:
 
@@ -187,7 +187,7 @@ A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava 
 5. Clique em **Salvar**.
 
 > [!IMPORTANT]
-> Se desejar personalizar os eventos auditados, será possível fazer isso por meio do PowerShell ou da API REST – consulte [Auditoria do banco de dados SQL](sql-database-auditing.md) para obter mais detalhes.
+> Se você desejar personalizar os eventos auditados, poderá fazer isso por meio do PowerShell ou da API REST. Confira [Auditoria do banco de dados SQL](sql-database-auditing.md) para saber mais.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Habilitar a detecção de ameaças do Banco de Dados SQL
@@ -216,7 +216,7 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 
     ![Registros de auditoria](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Clique nos registros de auditoria para exibir mais detalhes sobre as atividades suspeitas do banco de dados, como a instrução SQL, motivo da falha e IP do cliente.
+7. Clique nos registros de auditoria para exibir mais informações sobre as atividades suspeitas do banco de dados, como a instrução SQL, o motivo da falha e o IP do cliente.
 
     ![Detalhes do registro](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 

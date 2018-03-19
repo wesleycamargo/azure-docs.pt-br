@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3cc667286e9c643f31d9c704a8a2dfac18312bb3
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo TPM simulado usando o Node.js do SDK do dispositivo Python para o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -62,7 +62,7 @@ Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de
     ```
 
     > [!NOTE]
-    > Há alguns problemas conhecidos ao instalar os pacotes acima. Para resolvê-los, execute `npm install --global --production windows-build-tools` usando um prompt de comando no modo **Executar como administrador**, execute `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` depois de substituir o caminho com sua versão instalada, e execute novamente os comandos de instalação acima.
+    > Há alguns problemas conhecidos ao instalar os pacotes acima. Para resolver esses problemas, execute `npm install --global --production windows-build-tools` usando um prompt de comando no modo **Executar como administrador**, execute `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` depois de substituir o caminho com sua versão instalada e execute novamente os comandos de instalação acima.
     >
 
 1. Instale os pacotes a seguir que contêm os componentes usados durante o registro:
@@ -81,7 +81,7 @@ Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de
     > Os exemplos a seguir usam os transportes `azure-iot-provisioning-device-http` e `azure-iot-device-mqtt`.
     > 
 
-    É possível instalar todos eles simultaneamente executando o seguinte comando no prompt de comando na pasta **registereddevice**:
+    Você pode instalar todos esses pacotes simultaneamente executando o seguinte comando no prompt de comando na pasta **registerdevice**:
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device

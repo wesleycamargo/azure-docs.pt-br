@@ -1,4 +1,4 @@
-# [Documentação dos Observadores de Rede do Azure](index.md)
+# [Documentação do Observador de Rede do Azure](index.md)
 
 # Visão geral
 ## [O que é o Observador de Rede?](network-watcher-monitoring-overview.md)

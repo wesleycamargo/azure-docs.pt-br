@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para saber mais sobre como monitorar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
@@ -115,9 +115,12 @@ O relatório fornece as seguintes informações:
 | IP da última falha |Mostra o endereço IP do cliente da solicitação incorreta mais recente. |
 
 > [!NOTE]
-> Esse relatório é atualizado automaticamente a cada 12 horas com as novas informações coletadas no momento. Como resultado, as tentativas de logon nas últimas duas horas podem não ser incluídas no relatório.
+> Esse relatório é atualizado automaticamente a cada 12 horas com as novas informações coletadas no momento. Como resultado, as tentativas de logon nas últimas 12 horas podem não ser incluídas no relatório.
 >
 >
+
+### <a name="risky-ip-report"></a>Relatório IP arriscado 
+Versão prévia em breve.
 
 ## <a name="related-links"></a>Links relacionados
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

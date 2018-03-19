@@ -9,13 +9,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: ec0731534da2543d48bedc575bf882b790fa136b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicativos locais do AD FS para o Azure 
 
@@ -166,7 +166,7 @@ Os aplicativos que exigem os recursos a seguir não podem ser migrados atualment
 - Declarações em recursos de token
     - Emitir nomes de grupos locais como declarações
     - Declarações de armazenamentos diferentes do Azure AD
-    - Regras de transformação de emissão de declarações complexas (consulte este documento e este documento para saber mais sobre mapeamentos de declarações com suporte)
+    - Regras de transformação de emissão de declarações complexas (consulte este [documento](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) e este [documento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) para saber mais sobre mapeamentos de declarações com suporte)
     - Emitir extensões de diretório como declarações
     - Especificação personalizada do formato NameID
     - Emissão de atributos com vários valores

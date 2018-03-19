@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
-ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e29e842a54d286e19d23c1c91c08d55933a0eada
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Recurso de Termos de Uso do Azure Active Directory (Visualização)
 OS Termos de Uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais.  Isso garante que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais.
@@ -36,7 +36,7 @@ Os Termos de Uso do Azure AD podem ser usados nos seguintes cenários:
 -   Termos específicos de uso baseados no acesso de aplicativos de alto impacto nos negócios, como o Salesforce.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Use as etapas a seguir para configurar os Termos de Uso do Azure AD:
 
 1. Entre no Azure AD usando um administrador global, administrador de segurança ou um administrador de acesso condicional para o diretório que você deseja configurar os Termos de Uso Azure AD.
@@ -125,10 +125,10 @@ Isso ocorre porque as políticas de acesso condicional entram em vigor de forma 
 R: O usuário que aceita os termos de uso é gravado no log de auditoria. Você pode pesquisar o log de auditoria do Azure AD para ver os resultados.  
 
 **P: Se os termos de uso forem alterados, os usuários precisam aceitá-los novamente?**</br>
-R: Sim, um administrador pode alterar os termos de uso e isso requer que os novos termos também sejam aceitos.
+R: sim, um administrador pode alterar os termos de uso e isso requer que os novos termos também sejam aceitos.
 
-**P: Os termos de uso possuem suporte para vários idiomas?**</br>
-R: Não, atualmente não é possível ter vários idiomas em um único conjunto de termos de uso.  No entanto, você pode definir o escopo para um grupo (por exemplo, os termos de uso para a França são diferentes dos termos de uso para o Reino Unido). 
+**P: os termos de uso possuem suporte para vários idiomas?**</br>
+R: Sim.  Atualmente há 18 idiomas diferentes que um administrador pode configurar para um mesmo documento de termos de uso. 
 
 **P: Quando os termos de uso são acionados?**</br>
 R: Os termos de uso são acionados acionada no momento em que o usuário faz o logon.

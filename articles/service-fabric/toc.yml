@@ -31,6 +31,18 @@
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
         - name: 4 - Monitorar e Diagnosticar
           href: service-fabric-tutorial-monitoring-aspnet.md
+    - name: Implantar um aplicativo Java
+      items:
+        - name: 1 - Criar um aplicativo Java
+          href: service-fabric-tutorial-create-java-app.md
+        - name: 2 - Depurar o aplicativo
+          href: service-fabric-tutorial-debug-log-local-cluster.md
+        - name: 3 - Implantar o aplicativo
+          href: service-fabric-tutorial-java-deploy-azure.md
+        - name: 4 - Monitorar e diagnosticar
+          href: service-fabric-tutorial-java-elk.md
+        - name: 5 - Configurar CI/CD
+          href: service-fabric-tutorial-java-jenkins.md
     - name: Colocar um aplicativo .NET existente em um contêiner
       items:
         - name: 1 - Implantar um aplicativo .NET usando o Docker Compose
@@ -129,6 +141,8 @@
               href: service-fabric-reliable-actors-reentrancy.md
             - name: Serialização do tipo
               href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
+        - name: Executáveis de convidado
+          href: service-fabric-guest-executables-introduction.md
     - name: Aplicativos e serviços
       items:
         - name: Modelo de aplicativo

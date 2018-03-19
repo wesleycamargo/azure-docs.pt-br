@@ -1,6 +1,6 @@
 ---
 title: "Visão geral da do Microsoft Azure Data Lake Analytics | Microsoft Docs"
-description: "O Data Lake Analytics é um serviço de computação de Big Data do Azure que permite usar dados para impulsionar seus negócios com as informações obtidas de seus dados na nuvem, independentemente de onde eles estiverem e de seu tamanho."
+description: "O Data Lake Analytics permite a você conduzir seus negócios usando insights decorrentes de seus dados de nuvem em qualquer escala."
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,43 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 316c35fa4b04bdb251c2b9ae14f6b32f4e4bf939
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a788c7ad6eca0abea6f6ab400cbe2d0e5914eed8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Visão geral da Análise Microsoft Azure Data Lake
+# <a name="overview-of-azure-data-lake-analytics"></a>Visão geral do Azure Data Lake Analytics
 
-## <a name="what-is-azure-data-lake-analytics"></a>O que é a Análise Azure Data Lake?
 O Azure Data Lake Analytics é um serviço de análise sob demanda que simplifica big data. Em vez de implantar, configurar e ajustar o hardware, você escreve consultas para transformar seus dados e extrair informações importantes. O serviço de análise pode manipular trabalhos de qualquer escala de maneira instantânea, simplesmente configurando o controle para a quantidade de potência necessária. Você só paga pelo trabalho quando ele está em execução, o que o torna econômico. O suporte ao serviço de análise inclui U-SQL, uma linguagem que reúne os benefícios do SQL com a potência do código obrigatório. O U-SQL permite que você analise dados no Data Lake Store, no SQL Server no Azure, no Banco de Dados SQL do Azure e no SQL Data Warehouse do Azure.
 
-## <a name="dynamic-scaling"></a>Escala dinâmica
+### <a name="dynamic-scaling"></a>Escala dinâmica
   
-O Data Lake Analytics foi projetado desde o início para proporcionar escala e desempenho na nuvem.  Ela provisiona recursos de maneira dinâmica e permitir a análise de dados em terabytes ou até mesmo em exabytes. Ao final do trabalho, o serviço deixa de usar os recursos automaticamente, e você paga apenas pela potência de processamento usada. À medida que o tamanho dos dados armazenados ou da quantidade de recursos de computação usados aumenta ou diminui, você não precisa reescrever os códigos. Você pode se concentrar apenas na lógica dos seus negócios e não em como você processa e armazena grandes conjuntos de dados.
+O Data Lake Analytics provisiona recursos de maneira dinâmica e permite a análise de dados em terabytes ou até mesmo em petabytes. Pague apenas pela capacidade de processamento usada. À medida que o tamanho dos dados armazenados ou da quantidade de recursos de computação usados aumenta ou diminui, você não precisa reescrever os códigos. 
 
-## <a name="develop-faster-debug-and-optimize-smarter-using-familiar-tools"></a>Use ferramentas com as quais você está familiarizado para desenvolver, depurar e otimizar de maneira mais rápida e inteligente
+### <a name="develop-faster-debug-and-optimize-smarter-using-familiar-tools"></a>Use ferramentas com as quais você está familiarizado para desenvolver, depurar e otimizar de maneira mais rápida e inteligente
   
-O Data Lake Analytics apresenta uma ampla integração com o Visual Studio, para que você possa usar ferramentas com as quais já está familiarizado para executar, depurar e ajustar códigos. A visualização dos trabalhos do U-SQL permite ver como ocorre a execução de códigos em escala, para que você possa identificar gargalos de desempenho e otimizar custos.
+O Data Lake Analytics integra-se ao Visual Studio profundamente. Você pode usar ferramentas conhecidas para executar, depurar e ajustar seu código. A visualização dos trabalhos do U-SQL permite ver como ocorre a execução de códigos em escala, para que você possa identificar gargalos de desempenho e otimizar custos.
 
-
-## <a name="u-sql-simple-and-familiar-powerful-and-extensible"></a>U-SQL: simples e familiar, poderoso e extensível
+### <a name="u-sql-simple-and-familiar-powerful-and-extensible"></a>U-SQL: simples e familiar, poderoso e extensível
   
-A Análise Data Lake inclui o U-SQL, uma linguagem de consulta que estende a natureza declarativa simples e familiar do SQL com o poder expressivo do C#. A linguagem U-SQL é baseada no mesmo tempo de execução distribuído que alimenta os sistemas de Big Data na Microsoft. Milhões de desenvolvedores do SQL e do .NET agora podem processar e analisar dados com as habilidades que eles já têm.
+A Análise Data Lake inclui o U-SQL, uma linguagem de consulta que estende a natureza declarativa simples e familiar do SQL com o poder expressivo do C#. A linguagem U-SQL usa o mesmo tempo de execução distribuído que alimenta o data lake interno da Microsoft em escala de exabytes. Os desenvolvedores do SQL e do .NET agora podem processar e analisar dados com as habilidades que eles já têm.
 
-## <a name="integrates-seamlessly-with-your-it-investments"></a>Integração total com seus investimentos de TI
+### <a name="integrates-seamlessly-with-your-it-investments"></a>Integração total com seus investimentos de TI
   
-A Análise Data Lake pode usar seus investimentos de TI existentes para identidade, gerenciamento, segurança e armazenamento de dados. Isso simplifica a governança de dados e facilita estender seus aplicativos de dados atuais. O Data Lake Analytics é integrado ao Active Directory para o gerenciamento e permissões de usuário e é fornecido com o monitoramento e auditoria internos.
+O Data Lake Analytics usa seus investimentos de TI em identidade, gerenciamento e segurança. Isso simplifica a governança de dados e facilita estender seus aplicativos de dados atuais. O Data Lake Analytics é integrado ao Active Directory para o gerenciamento e permissões de usuário e é fornecido com o monitoramento e auditoria internos.
 
-## <a name="affordable-and-cost-effective"></a>Financeiramente viável e econômico
+### <a name="affordable-and-cost-effective"></a>Financeiramente viável e econômico
 
 A Análise Data Lake é uma solução econômica para executar cargas de trabalho de Big Data. Você paga por trabalho quando os dados são processados. Não é necessário nenhum hardware, licenças ou contratos de suporte específico do serviço. O sistema é automaticamente escalado vertical ou horizontalmente conforme a tarefa é iniciada e concluída, para que você só pague pelo serviço de que precisa. [Saiba mais sobre o controle de custos e como reduzir os custos](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
     
-## <a name="works-with-all-your-azure-data"></a>Funciona com todos os seus Dados do Azure
+### <a name="works-with-all-your-azure-data"></a>Funciona com todos os seus dados do Azure
   
 O Data Lake Analytics funciona com o Azure Data Lake Store para o mais alto desempenho, taxa de transferência e paralelização e funciona com blobs de Armazenamento do Azure, Banco de Dados SQL do Azure, Azure Warehouse.
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximas etapas
  
   * Introdução ao Data Lake Analytics usando: o [Portal do Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)
   * Gerencie o Azure Data Lake Analytics usando [portal do Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [SDK do Azure .NET](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)

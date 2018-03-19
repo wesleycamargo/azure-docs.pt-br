@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware locais para recuperação de desastre para o Azure
 
@@ -86,7 +86,7 @@ Verifique se a VM está em conformidade com os requisitos do Azure resumidos na 
 **Nome da VM** | Entre 1 e 63 caracteres.<br/><br/> Restrito a letras, números e hifens. O nome da VM deve começar e terminar com uma letra ou um número.
 **Tipo de VM** | Geração 1 – Linux ou Windows<br/><br/>Geração 2 – somente Windows
 
-A VM também deve estar executando um sistema operacional com suporte. Consulte a [matriz de suporte do Site Recovery](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) para obter uma lista completa de versões com suporte.
+A VM também deve estar executando um sistema operacional com suporte. Consulte a [matriz de suporte de VMware e servidores físicos](vmware-physical-azure-support-matrix.md#replicated-machines) para obter uma lista completa de versões com suporte.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar para conectar VMs do Azure após o failover
 

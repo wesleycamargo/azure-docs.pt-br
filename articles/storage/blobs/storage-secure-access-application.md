@@ -5,17 +5,15 @@ services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de um aplicativo na nuvem
 
@@ -147,47 +145,7 @@ As classes, propriedades e métodos a seguir são usados na tarefa anterior:
 
 [A SSE (Criptografia do Serviço de Armazenamento) do Azure](../common/storage-service-encryption.md) ajuda a proteger seus dados. A SSE criptografa os dados em repouso, tratando da criptografia, descriptografia e gerenciamento de chaves. Todos os dados são criptografados usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, um dos codificadores de blocos mais potentes.
 
-No exemplo a seguir você habilita a criptografia para blobs. Os blobs existentes criados antes de habilitar a criptografia não são criptografados. O cabeçalho `x-ms-server-encrypted` em uma solicitação para um blob mostra o status da criptografia do blob.
-
-```azurecli-interactive
-az storage account update --encryption-services blob --name <storage-account-name> --resource-group myResourceGroup
-```
-
-Carregue uma nova imagem para o aplicativo Web agora que a criptografia está habilitada.
-
-Usando `curl` com a opção `-I` para recuperar somente os cabeçalhos, substitua seus próprios valores para `<storage-account-name>`, `<container>` e `<blob-name>`.  
-
-```azurecli-interactive
-sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <blob-name> \
-    --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
-
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>?$sasToken -I
-```
-
-Na resposta, observe que o cabeçalho `x-ms-server-encrypted` mostra `true`. Esse cabeçalho identifica que os dados agora são criptografados com SSE.
-
-```
-HTTP/1.1 200 OK
-Content-Length: 209489
-Content-Type: image/png
-Last-Modified: Mon, 11 Sep 2017 19:27:42 GMT
-Accept-Ranges: bytes
-ETag: "0x8D4F94B2BE76D45"
-Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
-x-ms-request-id: 57047db3-001e-0050-3e34-2ba769000000
-x-ms-version: 2017-04-17
-x-ms-lease-status: unlocked
-x-ms-lease-state: available
-x-ms-blob-type: BlockBlob
-x-ms-server-encrypted: true
-Date: Mon, 11 Sep 2017 19:27:46 GMT
-```
+O SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Azure (Blobs, Filas, Tabelas e Arquivos). 
 
 ## <a name="enable-https-only"></a>Habilitar o HTTPS apenas
 

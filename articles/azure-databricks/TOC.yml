@@ -9,6 +9,10 @@
   items:
     - name: Criar espaço de trabalho do Databricks
       href: quickstart-create-databricks-workspace-portal.md
+- name: Tutoriais
+  items:
+    - name: Eventos de fluxo usando os Hubs de Eventos
+      href: databricks-stream-from-eventhubs.md
 - name: Guias de instruções
   items:
     - name: 'Conecte-se com o Excel, R e Python'

@@ -24,6 +24,7 @@
 
 ### Balanceador de carga
 #### [O que é o Balanceador de carga?](../load-balancer/load-balancer-standard-overview.md)
+#### [Zonas de disponibilidade e padrão do balanceador de carga](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Criar um Load Balancer Standard público com redundância de zona com o Portal do Azure](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [Criar um Load Balancer Standard público com redundância de zona com o PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Criar um Load Balancer Standard público com redundância de zona com a CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)

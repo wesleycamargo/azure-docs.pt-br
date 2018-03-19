@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
@@ -48,12 +48,17 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
     * Para **Assinatura**, na lista suspensa, selecione sua assinatura do Azure.
     * Para **Grupo de recursos**, especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. Para obter mais informações, consulte [Visão geral do Grupo de Recursos do Azure](../azure-resource-manager/resource-group-overview.md).
     * Para **Local**, selecione **Leste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).
+    * Para **Tipo de preço**, selecione entre **Standard** ou **Premium**. Para saber mais sobre essas camadas, confira [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).
 
-4. Clique em **Criar**.
+    Clique em **Criar**.
+
+4. A criação da conta leva alguns minutos. Durante a criação da conta, o portal exibe o bloco **Enviando a implantação para o Azure Databricks** no lado direito. Talvez seja necessário rolar diretamente no painel para ver o bloco. Também é exibida na parte superior da tela de uma barra de progresso. Você pode assistir a área de andamento.
+
+    ![Bloco de implantação do Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Bloco de implantação do Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster Spark no Databricks
 
-1. No Portal do Azure, vá para o espaço de trabalho do Databricks que você criou e clique em **Inicializar o espaço de trabalho**.
+1. No portal do Azure, vá para o espaço de trabalho do Databricks que você criou e clique em **Inicializar Espaço de Trabalho**.
 
 2. Você é redirecionado para o portal do Azure Databricks. No portal, clique em **Cluster**.
 
@@ -64,7 +69,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
     ![Criar cluster do Databricks Spark no Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
 
     * Insira um nome para o cluster.
-    * Neste artigo, crie um cluster com o tempo de execução **4.0 (beta)**. 
+    * Neste artigo, crie um cluster com o tempo de execução **4.0**. 
     * Verifique se você marcou a caixa de seleção **Terminar depois de ____ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
     * Aceite todos os outros valores padrão. 
     * Clique em **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
@@ -96,7 +101,7 @@ Execute as seguintes etapas para criar um bloco de notas em Databricks, configur
     > [!IMPORTANT]
     >Este artigo usa a **abordagem para montar o armazenamento com o DBFS**. Essa abordagem garante que o armazenamento montado se associará ao sistema de arquivos do cluster em si. Portanto, qualquer aplicativo que está acessando o cluster é capaz de usar o armazenamento associado. A abordagem de acesso direto é limitada ao aplicativo de onde você pode configurar o acesso.
     >
-    > Para usar a abordagem de montagem, você deve criar um cluster Spark com a versão de tempo de execução Databricks **4.0 (beta)**, que é o que você escolheu neste artigo.
+    > Para usar a abordagem de montagem, você deve criar um cluster Spark com a versão de tempo de execução Databricks **4.0**, que é o que você escolheu neste artigo.
 
     No trecho a seguir, substitua `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}`, e `{YOUR STORAGE ACCOUNT ACCESS KEY}` pelos valores apropriados para sua conta de armazenamento do Azure. Cole o trecho de código em uma célula vazia no bloco de notas e pressione SHIFT + ENTER para executar a célula do código.
 

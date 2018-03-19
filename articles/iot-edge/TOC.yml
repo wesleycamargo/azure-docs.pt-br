@@ -62,6 +62,8 @@
           href: module-development.md
         - name: Composição
           href: module-composition.md
+        - name: Propriedades de hub e agente de borda
+          href: module-edgeagent-edgehub.md
     - name: Tempo de execução do IoT Edge
       href: iot-edge-runtime.md
     - name: Implantações

@@ -64,6 +64,7 @@
 ## Ferramentas do Visual Studio
 ### [Instalar ferramentas](stream-analytics-tools-for-visual-studio-install.md)
 ### [Desenvolver um trabalho de nuvem](stream-analytics-tools-for-visual-studio.md)
+### [Desenvolver um trabalho de Borda](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [Configurar pipeline de CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Solucionar problemas

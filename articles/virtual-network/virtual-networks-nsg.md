@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrar o tráfego de rede com grupos de segurança de rede
 
 Um NSG (grupo de segurança de rede) contém uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos conectados a VNets (redes virtuais) do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou interfaces de rede individuais (NIC) anexadas a VMs (Resource Manager). Quando um NSG está associado a uma sub-rede, as regras se aplicam a todos os recursos conectados à sub-rede. O tráfego pode ser restritao também associando um NSG a uma VM ou NIC.
-
+ 
 > [!NOTE]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso de ambos os modelos, mas a Microsoft recomenda as mais novas implantações usem o modelo do Gerenciador de Recursos.
 
@@ -98,7 +98,7 @@ Você pode associar um NSG a VMs, NICs e sub-redes, dependendo do modelo de impl
 
 * **VM (apenas clássico):** regras de segurança são aplicadas a todo o tráfego de/para a VM. 
 * **NIC (somente Resource Manager):** regras de segurança são aplicadas a todo o tráfego para/da NIC à quak o NSG está associado. Em uma VM com várias NICs, você pode aplicar diferentes NSGs (ou o mesmo) a cada NIC individualmente. 
-* **Subrede (Resource Manager e clássico):** regras de segurança são aplicadas a qualquer tráfego de/para quaisquer recursos conectados à VNet.
+* **Sub-rede (Resource Manager e clássico):** As regras de segurança são aplicadas a qualquer tráfego de/para recursos conectados à sub-rede.
 
 É possível associar diferentes NSGs a uma VM (ou NIC, dependendo do modelo de implantação) e à sub-rede a qual uma NIC ou VM está conectada. Regras de segurança são aplicadas ao tráfego por prioridade, em cada NSG, na seguinte ordem:
 

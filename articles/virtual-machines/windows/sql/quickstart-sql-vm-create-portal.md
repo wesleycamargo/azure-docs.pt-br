@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do Windows do SQL Server 2017 no portal do Azure
 
@@ -29,6 +29,11 @@ Esse Início Rápido percorre a criação de uma máquina virtual do SQL Server 
 
 > [!TIP]
 > Este início rápido fornece um caminho para provisionar rapidamente e conectar-se a uma VM do SQL. Para obter mais informações sobre outras opções de provisionamento da VM SQL, confira o [Guia de provisionamento para VMs do Windows do SQL Server no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
+
+> [!TIP]
+> Se você tiver dúvidas sobre máquinas virtuais do SQL Server, confira as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a id="subscription"></a> Obter uma assinatura do Azure
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

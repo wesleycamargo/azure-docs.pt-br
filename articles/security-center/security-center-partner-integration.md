@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -41,13 +41,13 @@ A experiência de integração da proteção de ponto de extremidade pode variar
 
 | Proteção do ponto de extremidade               | Plataformas                             | Instalação da Central de Segurança | Descoberta da Central de Segurança |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | Não, Integrado no SO           | Sim                       |
-| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via extensão                | Sim                       |
-| Trend Micro – Todas as versões         | Família Windows Server                 | Via extensão                | Sim                       |
-| Symantec v12.1.1100+                     | Família Windows Server                 | Não                           | Sim                        |
-| MacAfee                           | Família Windows Server                 | Não                           | Não                        |
-| Kaspersky                         | Família Windows Server                 | Não                           | Não                        |
-| Sophos                            | Família Windows Server                 | Não                           | Não                        |
+| Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | Não, Integrado no SO           | sim                       |
+| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via extensão                | sim                       |
+| Trend Micro – Todas as versões         | Família Windows Server                 | Via extensão                | sim                       |
+| Symantec v12.1.1100+                     | Família Windows Server                 | Não                            | sim                        |
+| MacAfee                           | Família Windows Server                 | Não                            | Não                         |
+| Kaspersky                         | Família Windows Server                 | Não                            | Não                         |
+| Sophos                            | Família Windows Server                 | Não                            | Não                         |
 
 
 
@@ -63,7 +63,15 @@ As soluções de segurança do Azure implantadas da Central de Segurança serão
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gerenciar soluções de segurança integrada do Azure e outras fontes de dados
 
-Após a implantação, você pode exibir informações sobre a integridade da solução integrada de segurança do Azure e executar tarefas básicas de gerenciamento. Você também pode conectar a outros tipos de fontes de dados de segurança, como logs de firewall e alertas do Azure Active Directory Identity Protection no CEF (Formato de Evento Comum). No painel da Central de Segurança, selecione as soluções de Segurança.
+1. Entre no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+
+2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
+
+  ![Visão geral da Central de Segurança](./media/security-center-partner-integration/overview.png)
+
+3. Em **Visão Geral**, selecione **Soluções de segurança**.
+
+Em **Soluções de segurança**, você pode exibir informações sobre a integridade da solução integrada de segurança do Azure e executar tarefas básicas de gerenciamento. Você também pode conectar a outros tipos de fontes de dados de segurança, como logs de firewall e alertas do Azure Active Directory Identity Protection no CEF (Formato de Evento Comum).
 
 ### <a name="connected-solutions"></a>Soluções conectadas
 
@@ -71,13 +79,22 @@ A seção **Soluções conectadas** inclui soluções de segurança atualmente c
 
 ![Soluções conectadas](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+Consulte [Gerenciando soluções de parceiros conectadas](security-center-partner-solutions.md) para saber mais.
+
 ### <a name="discovered-solutions"></a>Soluções descobertas
 
-A seção **Soluções descobertas** mostra todas as soluções que foram adicionadas por meio do Azure. Ela também mostra todas as soluções sugeridas pela Central de Segurança para serem conectadas.
+A Central de Segurança detecta automaticamente as soluções de segurança em execução no Azure, mas não conectadas à Central de Segurança, e exibe as soluções na seção **Soluções descobertas**. Isso inclui soluções do Azure, como o [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), bem como soluções de parceiros.
+
+> [!NOTE]
+> O recurso de soluções descobertas está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
+>
+>
+
+Selecione **CONNECT** em uma solução para integrá-la à Central de Segurança e ser notificado sobre alertas de segurança.
 
 ![Soluções descobertas](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-A Central de Segurança detecta automaticamente outras soluções de segurança em execução no Azure. Isso inclui soluções do Azure, como o [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), bem como soluções de parceiros que estejam em execução no Azure. Para integrar essas soluções com a Central de Segurança, selecione **CONECTAR**.
+A Central de Segurança também detecta soluções implantadas na assinatura que podem encaminhar logs em CEF (formato de eventos comuns). Saiba como [conectar a uma solução de segurança](quick-security-solutions.md) que usa os logs em CEF à Central de Segurança.
 
 ### <a name="add-data-sources"></a>Adicionar fontes de dados
 
@@ -90,7 +107,6 @@ A seção **Adicionar fontes de dados** inclui outras fontes de dados disponíve
 
 Neste artigo, você aprendeu a integrar as soluções de parceiro à Central de Segurança. Para saber mais sobre a Central de Segurança, confira estes artigos:
 
-* [Guia de planejamento e operações da Central de Segurança](security-center-planning-and-operations-guide.md)
 * [Conexão do Microsoft Advanced Threat Analytics à Central de Segurança do Azure](security-center-ata-integration.md)
 * [Conexão do Azure Active Directory Identity Protection à Central de Segurança do Azure](security-center-aadip-integration.md)
 * [Monitoramento da integridade de segurança na Central de Segurança](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
