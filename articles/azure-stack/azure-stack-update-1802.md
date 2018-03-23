@@ -1,25 +1,25 @@
 ---
-title: "Atualização da pilha do Azure 1802 | Microsoft Docs"
-description: "Saiba mais sobre o que é a atualização 1802 pilha do Azure integradas de sistemas, os problemas conhecidos e onde baixar a atualização."
+title: Atualização da pilha do Azure 1802 | Microsoft Docs
+description: Saiba mais sobre o que é a atualização 1802 pilha do Azure integradas de sistemas, os problemas conhecidos e onde baixar a atualização.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Atualização de pilha 1802 do Azure
 
@@ -103,7 +103,7 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
 
 #### <a name="portal"></a>Portal
 - A capacidade de [para abrir uma nova solicitação de suporte na lista suspensa](azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, use o seguinte link:     
-    - Para a pilha do Azure sistemas integrados, use https://aka.ms/newsupportrequest.
+    - Para o Azure pilha sistemas integrados, use https://aka.ms/newsupportrequest.
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
@@ -123,6 +123,13 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
     - *Erro - o modelo para o FaultType ResourceProviderTimeout está ausente.*
 
     Esse alerta pode ser ignorado. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- No portal de administração e no portal do usuário, a folha de visão geral não é carregado quando você seleciona a folha de visão geral de contas de armazenamento que foram criados com uma versão mais antiga de API (exemplo: 2015-06-15). Isso inclui contas de armazenamento do sistema como **updateadminaccount** que é usado durante o patch e atualização. 
+
+  Como alternativa, use o PowerShell para executar o **ResourceSynchronization.ps1 início** script para restaurar o acesso para os detalhes da conta de armazenamento. [O script está disponível no GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)e deve ser executada com as credenciais de administrador de serviço no ponto de extremidade com privilégios. 
+
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
 Não há nenhum problema conhecido depois de atualizar para 1802.

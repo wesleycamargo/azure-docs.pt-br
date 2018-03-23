@@ -1,29 +1,28 @@
 ---
-title: "Tornar disponível para os usuários do Azure pilha da web e aplicativos de API | Microsoft Docs"
-description: "Tutorial para instalar o provedor de recursos do serviço de aplicativo e criar oferece que dar aos usuários de pilha do Azure, a capacidade de criar a web e aplicativos de API."
+title: Tornar disponível para os usuários do Azure pilha da web e aplicativos de API | Microsoft Docs
+description: Tutorial para instalar o provedor de recursos do serviço de aplicativo e criar oferece que dar aos usuários de pilha do Azure, a capacidade de criar a web e aplicativos de API.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Tornar disponível para os usuários do Azure pilha da web e aplicativos de API
-
 Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que permitem aos usuários (locatários) criarem aplicativos web e funções do Azure e de API. Fornecendo acesso a esses aplicativos sob demanda, com base em nuvem para seus usuários, você pode salvá-los, tempo e recursos. Para configurar isso, você irá:
 
 > [!div class="checklist"]
@@ -58,12 +57,12 @@ Por exemplo, você pode criar uma oferta que permite aos usuários criar sistema
 Agora que você implantou o provedor de recursos do serviço de aplicativo e criar uma oferta, você pode entrar como um usuário, assinar a oferta e criar um aplicativo. Neste exemplo, vamos criar um sistema de gerenciamento de conteúdo DNN plataforma. Você deve primeiro criar um banco de dados do SQL e, em seguida, o aplicativo web DNN.
 
 ### <a name="subscribe-to-the-offer"></a>Assinar a oferta
-1. Entre no portal do Azure pilha (https://portal.local.azurestack.external) como um locatário.
+1. Entre portal do Azure pilha (https://portal.local.azurestack.external) como um locatário.
 2. Clique em **obter uma assinatura** > tipo **TestAppServiceSubscription** em **nome de exibição** > **selecione uma oferta**  >  **TestAppServiceOffer** > **criar**.
 
 ### <a name="create-a-sql-database"></a>Criar um banco de dados SQL
 
-1. Clique em  **+**   >  **dados + armazenamento** > **banco de dados SQL**.
+1. Clique em **+**  >  **dados + armazenamento** > **banco de dados SQL**.
 2. Mantenha os padrões para os campos, exceto da seguinte maneira:
     - **Nome do banco de dados**: DNNdb
     - **Tamanho máximo em MB**: 100
@@ -75,7 +74,7 @@ Agora que você implantou o provedor de recursos do serviço de aplicativo e cri
 
 ### <a name="create-a-dnn-app"></a>Criar um aplicativo DNN    
 
-1. Clique em  **+**   >  **ver todos os** > **visualização da plataforma DNN** > **criar**.
+1. Clique em **+**  >  **ver todos os** > **visualização da plataforma DNN** > **criar**.
 2. Tipo *DNNapp* em **nome do aplicativo** e selecione **TestAppServiceOffer** em **assinatura**.
 3. Clique em **definir as configurações necessárias** > **criar novo** > tipo uma **plano de serviço de aplicativo** nome.
 4. Clique em **preço** > **F1 livre** > **selecione** > **Okey**.

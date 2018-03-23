@@ -1,20 +1,20 @@
 ---
-title: "Integração do data center do Azure pilha - identidade"
+title: Integração do data center do Azure pilha - identidade
 description: Saiba como integrar a pilha do Azure AD FS com o data center do AD FS
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
-ms.openlocfilehash: 9e71707f13a14cb4cd0bc9cc7cd7d13dd7bb38e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do data center do Azure pilha - identidade
 Você pode implantar a pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Antes de implantar a pilha do Azure, você deve fazer a escolha. Implantação usando o AD FS também é chamada de como implantar o Azure pilha no modo desconectado.
@@ -334,4 +334,4 @@ Se qualquer um dos cmdlets falhar, você poderá coletar logs adicionais usando 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Registrar a pilha do Azure](azure-stack-registration.md)
+[Integrar soluções de monitoramento externas](azure-stack-integrate-monitor.md)

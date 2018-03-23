@@ -1,24 +1,25 @@
 ---
-title: "Atualização da pilha do Azure 1711 | Microsoft Docs"
-description: "Saiba mais sobre o que é a atualização 1711 pilha do Azure integradas de sistemas, os problemas conhecidos e onde baixar a atualização."
+title: Atualização da pilha do Azure 1711 | Microsoft Docs
+description: Saiba mais sobre o que é a atualização 1711 pilha do Azure integradas de sistemas, os problemas conhecidos e onde baixar a atualização.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -37,7 +38,13 @@ Este artigo descreve as melhorias e correções neste pacote de atualização, p
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Você deve primeiro instalar a pilha do Azure [1710 atualizar](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) antes de aplicar essa atualização.
+- Você deve primeiro instalar a pilha do Azure [1710 atualizar](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) antes de aplicar essa atualização.
+
+- Examine o uso de **CloudAdmin** como um nome de conta antes de instalar atualização 1711. Começando com a versão 1711, *CloudAdmin* é um nome de conta reservado e não deve ser especificado manualmente. Quando você atualizar para a versão 1711, a atualização remove as instâncias existentes da conta de implantação (geralmente chamados de AzureStackAdmin). Se a conta de implantação *CloudAdmin*, atualizando a 1711 exclui-lo. 
+
+  *CloudAdmin* é a conta interna para conectar-se para o [ *privilegiado do ponto de extremidade* ](azure-stack-privileged-endpoint.md) (PEP). A exclusão dessa conta pode resultar em um bloqueio da PEP, a menos que já existe outra conta de usuário que seja membro do grupo CloudAdmin. 
+
+  Se você usou CloudAdmin como nome da conta de implantação, adicione um novo usuário de CloudAdmin para sua PEP antes de iniciar a atualização 1711 para evitar a pilha do Azure que está sendo bloqueado. Para adicionar um novo usuário CloudAdmin, execute o cmdlet **CloudAdminUser novo** sobre o PEP.
 
 ### <a name="new-features-and-fixes"></a>Novos recursos e correções
 
@@ -61,7 +68,7 @@ Esta atualização inclui os seguintes aprimoramentos e correções para a pilha
 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Correções e novos recursos do Windows Server 2016
 
-- [14 de novembro de 2017 — KB4048953 (Build de SO 14393.1884)](https://support.microsoft.com/help/4048953)
+- [14 de novembro de 2017 — KB4048953 (Build de SO 14393.1884) ](https://support.microsoft.com/help/4048953)
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização
 
@@ -76,11 +83,11 @@ Esta seção contém os problemas conhecidos que podem ocorrer durante a instala
     1. **Causa:** esse problema é causado quando reiniciando a atualização do portal que anteriormente era retomado usando um ponto de extremidade privilegiado (PEP).
     2. **Resolução:** entre em contato com Microsoft atendimento e suporte (CSS) para obter assistência.
 <br><br>
-3. **Sintoma:**operadores de pilha do Azure poderão ver o seguinte erro durante o processo de atualização:*"tipo 'CheckHealth' da função 'VirtualMachines' gerado uma verificação de integridade de máquina de exceção: \n\nVirtual para <machineName>-ACS01 produzida o erros. \nThere a seguir foi um erro ao obter informações de VM de hosts. Detalhes da exceção: \nGet-VM: A operação no computador 'Node03' falhou: serviço o WS-Management não pode processar a solicitação. \Nservice o WMI ou o provedor WMI retornou um erro desconhecido: HRESULT 0x8004106c ".*
+3. **Sintoma:** operadores de pilha do Azure poderão ver o seguinte erro durante o processo de atualização:*"tipo 'CheckHealth' da função 'VirtualMachines' gerado uma verificação de integridade de máquina de exceção: \n\nVirtual para <machineName>-ACS01 produzida o erros. \nThere a seguir foi um erro ao obter informações de VM de hosts. Detalhes da exceção: \nGet-VM: A operação no computador 'Node03' falhou: serviço o WS-Management não pode processar a solicitação. \Nservice o WMI ou o provedor WMI retornou um erro desconhecido: HRESULT 0x8004106c ".*
     1. **Causa:** esse problema é causado por um problema do Windows Server que se destina a ser resolvido em atualizações subsequentes do servidor de janela.
     2. **Resolução:** entre em contato com Microsoft atendimento e suporte (CSS) para obter assistência.
 <br><br>
-4. **Sintoma:**operadores de pilha do Azure poderão ver o seguinte erro durante o processo de atualização:*"tipo 'DefenderUpdate' da função 'URP' gerou uma exceção: Falha ao obter a versão do \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{nome do arquivo} .exe após 60 tentativas de copiar-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: linha 262"*
+4. **Sintoma:** operadores de pilha do Azure poderão ver o seguinte erro durante o processo de atualização:*"tipo 'DefenderUpdate' da função 'URP' gerou uma exceção: Falha ao obter a versão do \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{nome do arquivo} .exe após 60 tentativas de copiar-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: linha 262"*
     1. **Causa:** esse problema é causado por um download do plano de fundo com falha ou incompleta de atualizações de definições do Windows Defender.
     2. **Resolução:** para continuar a atualização depois de até 8 horas, tente passaram desde que a primeira atualização tente.
 

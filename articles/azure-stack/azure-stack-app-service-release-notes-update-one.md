@@ -1,27 +1,27 @@
 ---
-title: "Serviço de aplicativo em uma atualização de pilha do Azure | Microsoft Docs"
-description: "Saiba mais sobre novidades da atualização para o serviço de aplicativo na pilha do Azure, os problemas conhecidos e onde baixar a atualização."
+title: Serviço de aplicativo no Azure pilha update 1 notas | Microsoft Docs
+description: Saiba mais sobre novidades da atualização para o serviço de aplicativo na pilha do Azure, os problemas conhecidos e onde baixar a atualização.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 0c33c8fdefbb27ba8414e58bed1b42ee7aaba88a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="app-service-on-azure-stack-update-one-release-notes"></a>Um notas de versão de atualização de serviço de aplicativo na pilha do Azure
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>Serviço de aplicativo no Azure pilha update 1 notas
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
@@ -39,7 +39,7 @@ O serviço de aplicativo no Azure pilha Update 1 número de compilação está *
 ### <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-> Serviço de aplicativo do Azure na pilha do Azure, agora requer um [certificado curinga com três entidades](azure-stack-app-service-before-you-get-started.md#get-certificates) devido a melhorias da maneira na qual o SSO para Kudu agora é manipulado no serviço de aplicativo do Azure.  A nova entidade é * * *. sso.appservice.<region>. <domainname>.<extension>**
+> Novas implantações de serviço de aplicativo do Azure na pilha do Azure agora precisam de um [certificado curinga com três entidades](azure-stack-app-service-before-you-get-started.md#get-certificates) devido a melhorias da maneira na qual o SSO para Kudu agora é manipulado no serviço de aplicativo do Azure.  A nova entidade é * * *. sso.appservice.<region>. <domainname>.<extension>**
 >
 >
 
@@ -103,7 +103,13 @@ Serviço de aplicativo do Azure no Azure pilha Update 1 inclui os seguintes apri
 
 ### <a name="known-issues-with-the-deployment-process"></a>Problemas conhecidos com o processo de implantação
 
-- Não há nenhum problema conhecido para a implantação do serviço de aplicativo do Azure no Azure pilha atualização 1.
+- Erros de validação de certificado
+
+Alguns clientes encontraram problemas ao fornecer certificados para o instalador do serviço de aplicativo ao implantar em um sistema integrado, devido à validação excessivamente restritiva no instalador.  O instalador do serviço de aplicativo foi lançado novamente, os clientes devem [baixar o instalador atualizado](https://aka.ms/appsvconmasinstaller).  Se você continuar a ter problemas de validação de certificados com o instalador atualizado, contate o suporte.
+
+- Problema ao recuperar o certificado de raiz de pilha do Azure de sistema integrado.
+
+Um erro em Get-AzureStackRootCert.ps1 causou clientes Falha ao recuperar o certificado de raiz de pilha do Azure ao executar o script em um computador que não tenha o certificado raiz instalado.  O script agora também foi lançado novamente, resolver esse problema e os clientes de solicitação [Baixe os scripts de auxiliar atualizado](https://aka.ms/appsvconmashelpers).  Se você continuar a ter problemas ao recuperar o certificado raiz ao script atualizado, contate o suporte.
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização
 
@@ -111,13 +117,91 @@ Serviço de aplicativo do Azure no Azure pilha Update 1 inclui os seguintes apri
 
 ### <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 
-- Não há nenhum problema conhecido para a instalação do serviço de aplicativo do Azure no Azure pilha atualização 1.
+- Troca de slot não funciona
+
+Troca de slot de site é dividida nesta versão.  Para restaurar a funcionalidade, conclua estas etapas:
+
+1. Modificar o grupo de segurança de rede ControllersNSG para **permitir** conexões de área de trabalho remota para as instâncias de controlador de serviço de aplicativo.  Substitua AppService.local com o nome do grupo de recursos que você implantou o aplicativo de serviço no.
+
+    ```powershell
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+2. Navegue até o **CN0 VM** em máquinas virtuais no portal do administrador de pilha do Azure e **clique em conectar** para abrir uma sessão de área de trabalho remota com a instância do controlador.  Use as credenciais especificadas durante a implantação do serviço de aplicativo.
+3. Iniciar **PowerShell como administrador** e execute o script a seguir
+
+    ```powershell
+        Import-Module appservice
+
+        $sm = new-object Microsoft.Web.Hosting.SiteManager
+
+        if($sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$true)
+        {
+          $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$false
+        #  'Slot swap mode reverted'
+        }
+        
+        # Confirm new setting is false
+        $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus
+        
+        # Commit Changes
+        $sm.CommitChanges()
+
+        Get-AppServiceServer -ServerType ManagementServer | ForEach-Object Repair-AppServiceServer
+        
+    ```
+
+4. Feche a sessão de área de trabalho remota.
+5. Reverter o grupo de segurança de rede ControllersNSG para **Deny** conexões de área de trabalho remota para as instâncias de controlador de serviço de aplicativo.  Substitua AppService.local com o nome do grupo de recursos que você implantou o aplicativo de serviço no.
+
+    ```powershell
+
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conhecidos para que os administradores de nuvem operacional do serviço de aplicativo do Azure na pilha do Azure
 
 Consulte a documentação do [Azure pilha 1802 notas de versão](azure-stack-update-1802.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral do serviço de aplicativo do Azure, consulte [do serviço de aplicativo do Azure na visão geral do Azure pilha](azure-stack-app-service-overview.md).
 - Para obter mais informações sobre como preparar a implantação do serviço de aplicativo na pilha do Azure, consulte [antes de iniciar o serviço de aplicativo no Azure pilha](azure-stack-app-service-before-you-get-started.md).
