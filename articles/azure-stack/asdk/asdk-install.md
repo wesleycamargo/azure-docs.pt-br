@@ -2,24 +2,24 @@
 title: Instalar o Kit de desenvolvimento de pilha do Azure (ASDK) | Microsoft Docs
 description: Descreve como instalar o Kit de desenvolvimento de pilha do Azure (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e1f4cfb74d83cb23631e5a16a6e6f2dba98027ef
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Instalar o Kit de desenvolvimento de pilha do Azure (ASDK)
 Depois de [preparar o computador de host ASDK](asdk-prepare-host.md), o ASDK pode ser implantado em imagem CloudBuilder.vhdx usando as etapas a seguir neste artigo.
@@ -55,8 +55,10 @@ As etapas neste artigo mostram como implantar o ASDK usando uma interface gráfi
     - **DHCP** (padrão): A máquina virtual obtém a configuração de rede IP do servidor DHCP.
     - **Estático**: use essa opção somente se o DHCP não é possível atribuir um endereço IP válido para a pilha do Azure acessar a Internet. **Um endereço IP estático deve ser especificado com o comprimento da máscara de sub-rede no formato CIDR (por exemplo, 10.0.0.5/24)**.
     - Tipo em uma opção válida **IP do servidor de tempo** endereço. Isso necessário campo define o servidor de horário a ser usado pelo kit de desenvolvimento. Esse parâmetro deve ser fornecido como um endereço IP do servidor de tempo válido. Não há suporte para nomes de servidor.
+
       > [!TIP]
       > Para localizar um servidor de horário de endereço IP, visite [pool.ntp.org](http:\\pool.ntp.org) ou executar ping time.windows.com. 
+
     - **Opcionalmente,**, defina os seguintes valores:
         - **ID de VLAN**: define a ID de VLAN. Só use essa opção se o host e AzS BGPNAT01 devem configurar o ID de VLAN para acessar a rede física (e internet). 
         - **O encaminhador de DNS**: um servidor DNS é criado como parte da implantação da pilha do Azure. Para permitir que os computadores dentro da solução para resolver nomes fora o carimbo, forneça o servidor DNS de infraestrutura existente. O servidor DNS no carimbo encaminha solicitações de resolução de nome desconhecido para o servidor.
@@ -88,10 +90,10 @@ Parabéns, você instalou com êxito o ASDK!
 
 Se a implantação falhar por algum motivo, você pode [reimplantar](asdk-redeploy.md) de zero ou use os seguinte comandos do PowerShell, na mesma janela do PowerShell com privilégios elevados, reiniciar a implantação da última etapa bem-sucedida:
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## <a name="next-steps"></a>Próximas etapas
 [Configuração de implantação de postagem](asdk-post-deploy.md)

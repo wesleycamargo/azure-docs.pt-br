@@ -1,11 +1,11 @@
 ---
 title: Proteger as VMs implantadas na pilha do Azure | Microsoft Docs
-description: "Diretrizes sobre como proteger as máquinas virtuais implantadas na pilha do Azure."
+description: Diretrizes sobre como proteger as máquinas virtuais implantadas na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: 02get-started-article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteger máquinas virtuais implantadas na pilha do Azure
 
@@ -68,8 +68,8 @@ O esquema de proteção mais comuns para aplicativos baseados em VM é usar o so
  
 A recuperação do aplicativo requer a restauração de uma ou mais máquinas virtuais para a mesma nuvem ou em uma nuvem de novo. Você pode direcionar uma nuvem no seu data center ou na nuvem pública. Quais nuvem de destino está completamente dentro de seu controle e baseia-se nos seus requisitos de privacidade e Soberania de dados. 
  
- - RTO: Tempo de inatividade medido em segundos 
- - RPO: Perda de dados mínima
+ - RTO: Tempo de inatividade medido em horas 
+ - RPO: Perda de dados da variável (dependendo da frequência de backup)
  - Topologia de implantação: ativo/passivo 
 
 #### <a name="planning-your-backup-strategy"></a>Planejar sua estratégia de backup
@@ -95,8 +95,8 @@ Com essa abordagem, o aplicativo só é implantado em uma nuvem. A máquina virt
 
 ![Failover manual de replicação](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO: Tempo de inatividade em minutos 
- - RPO: Perda de dados da variável
+ - RTO: Tempo de inatividade medido em minutos 
+ - RPO: Perda de dados da variável (dependendo da frequência de replicação)
  - Topologia de implantação: modo de espera por ativo/passivo
  
 ### <a name="high-availabilityautomatic-failover"></a>Failover de alta disponibilidade/automático

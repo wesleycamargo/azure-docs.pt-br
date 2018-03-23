@@ -1,24 +1,24 @@
 ---
-title: "Usando o ponto de extremidade com privilégios na pilha do Azure | Microsoft Docs"
+title: Usando o ponto de extremidade com privilégios na pilha do Azure | Microsoft Docs
 description: Mostra como usar o ponto de extremidade privilegiado (PEP) na pilha do Azure (para um operador de pilha do Azure).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Usando o ponto de extremidade com privilégios na pilha do Azure
 
@@ -74,7 +74,7 @@ Recomendamos que você se conecte ao PEP apenas do host de ciclo de vida de hard
       ```` 
    Quando solicitado, use as seguintes credenciais:
 
-      - **Nome de usuário**: especifique a conta de CloudAdmin, no formato  **&lt; *domínio Azure pilha*&gt;\cloudadmin**. (Para ASDK, o nome de usuário é **azurestack\cloudadmin**.)
+      - **Nome de usuário**: especifique a conta de CloudAdmin, no formato  **&lt; *domínio Azure pilha*&gt;\accountname**. (Para ASDK, o nome de usuário é **azurestack\accountname**.) 
       - **Senha**: insira a mesma senha que foi fornecida durante a instalação para a conta de administrador de domínio AzureStackAdmin.
     
 3.  Depois de se conectar, o prompt será alterado para **[*endereço IP ou ERCS VM nome*]: PS >** ou **[azs ercs01]: PS >**, dependendo do ambiente. A partir daqui, execute `Get-Command` para exibir a lista de cmdlets disponíveis.
@@ -143,7 +143,7 @@ Para importar a sessão PEP em seu computador local, execute as seguintes etapas
       ```` 
    Quando solicitado, use as seguintes credenciais:
 
-      - **Nome de usuário**: especifique a conta de CloudAdmin, no formato  **&lt; *domínio Azure pilha*&gt;\cloudadmin**. (Para ASDK, o nome de usuário é **azurestack\cloudadmin**.)
+      - **Nome de usuário**: especifique a conta de CloudAdmin, no formato  **&lt; *domínio Azure pilha*&gt;\accountname**. (Para ASDK, o nome de usuário é **azurestack\accountname**.) 
       - **Senha**: insira a mesma senha que foi fornecida durante a instalação para a conta de administrador de domínio AzureStackAdmin.
 
 3. Importar a sessão PEP em seu computador local
@@ -161,7 +161,7 @@ Para fechar a sessão do ponto de extremidade:
 
 1. Crie um compartilhamento de arquivo externo que seja acessível pelo PEP. Em um ambiente do kit de desenvolvimento, você pode criar apenas um compartilhamento de arquivos no host do kit de desenvolvimento.
 2. Execute o `Close-PrivilegedEndpoint` cmdlet. 
-3. Você for solicitado a fornecer um caminho para armazenar o arquivo de log de transcrição. Especifique o compartilhamento de arquivo que você criou anteriormente, o formato &#92; & #92. *servername*&#92; *ShareName*. Se você não especificar um caminho, o cmdlet falhar e a sessão permanecerá aberta. 
+3. Você for solicitado a fornecer um caminho para armazenar o arquivo de log de transcrição. Especifique o compartilhamento de arquivo que você criou anteriormente, no formato &#92; &#92; *servername*&#92;*sharename*. Se você não especificar um caminho, o cmdlet falhar e a sessão permanecerá aberta. 
 
     ![Saída do cmdlet fechar PrivilegedEndpoint que mostra onde você pode especificar o caminho de destino transcrição](media/azure-stack-privileged-endpoint/closeendpoint.png)
 

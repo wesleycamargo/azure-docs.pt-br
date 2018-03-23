@@ -131,6 +131,8 @@
   items:
     - name: Documentação do Operador do Azure Stack
       href: /azure/azure-stack/
+    - name: Documentação de ASDK
+      href: /azure/azure-stack/asdk/
 - name: Recursos
   items:
     - name: Roteiro de pilha do Azure

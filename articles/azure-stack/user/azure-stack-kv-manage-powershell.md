@@ -2,10 +2,10 @@
 title: Gerenciar o Cofre de chaves na pilha do Azure usando o PowerShell | Microsoft Docs
 description: Saiba como gerenciar o Cofre de chaves na pilha do Azure usando o PowerShell
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 6ee2ceff10d16456a6e8c6283f40fa594b3311bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9dac59d74347e21bebaf7cb65d199711f45b29a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>Gerenciar o Cofre de chaves na pilha do Azure usando o PowerShell
 
@@ -81,7 +81,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![Novo cofre de chaves](media/azure-stack-kv-manage-powershell/image4.png)
 
-A saída desse comando mostra as propriedades do cofre da chave que você criou. Quando um aplicativo acessa o cofre, ele usa o **URI do cofre** propriedade mostrada na saída. Por exemplo, o identificador de recurso uniforme (URI) do cofre nesse caso é "https://vault01.vault.local.azurestack.external". Aplicativos que interagem com este cofre de chaves por meio da API REST devem usar esse URI.
+A saída desse comando mostra as propriedades do cofre da chave que você criou. Quando um aplicativo acessa o cofre, ele usa o **URI do cofre** propriedade mostrada na saída. Por exemplo, o Cofre de identificador de recurso uniforme (URI) nesse caso é "https://vault01.vault.local.azurestack.external". Aplicativos que interagem com este cofre de chaves por meio da API REST devem usar esse URI.
 
 Nos serviços de Federação do Active Directory (AD FS)-implantações com base, quando você cria uma chave de cofre usando o PowerShell, você poderá receber um aviso que diz "política de acesso não está definida. Nenhum usuário ou aplicativo tem permissão de acesso para usar este cofre." Para resolver esse problema, defina uma política de acesso para o cofre usando o [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) comando:
 
@@ -90,7 +90,7 @@ Nos serviços de Federação do Active Directory (AD FS)-implantações com base
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value 
 
-#Set the key vault access policy
+# Set the key vault access policy
 Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
 ```
 
@@ -111,10 +111,10 @@ O **destino** parâmetro é usado para especificar que a chave está protegida d
 
 ![Nova chave](media/azure-stack-kv-manage-powershell/image5.png)
 
-Agora você pode fazer referência a chave criada usando seu URI. Se você cria ou importa uma chave que tem o mesmo nome de uma chave existente, a chave original é atualizada com os valores especificados na nova chave. Você pode acessar a versão anterior usando o URI específico da versão da chave. Por exemplo: 
+Agora você pode fazer referência a chave criada usando seu URI. Se você cria ou importa uma chave que tem o mesmo nome de uma chave existente, a chave original é atualizada com os valores especificados na nova chave. Você pode acessar a versão anterior usando o URI específico da versão da chave. Por exemplo:  
 
-* Use um "chaves/https://vault10.vault.local.azurestack.external:443/key01" Obtenha sempre a versão atual. 
-* Use "https://vault010.vault.local.azurestack.external:443/chaves/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obter a versão específica.
+* Use "https://vault10.vault.local.azurestack.external:443/keys/key01" sempre obter a versão atual. 
+* Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obter a versão específica.
 
 ### <a name="get-a-key"></a>Obter uma chave
 

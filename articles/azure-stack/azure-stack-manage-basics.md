@@ -1,11 +1,11 @@
 ---
-title: "Noções básicas de administração do Azure pilha | Microsoft Docs"
-description: "Saiba o que você precisa saber para administrar a pilha do Azure."
+title: Noções básicas de administração do Azure pilha | Microsoft Docs
+description: Saiba o que você precisa saber para administrar a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração do Azure pilha
-
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
-
 Há várias coisas que você precisa saber se você é novo para a administração de pilha do Azure. Este guia fornece uma visão geral de sua função como um operador de pilha do Azure, e o que você precisa informar os usuários para que eles se tornarem rapidamente produtivo.
 
 ## <a name="understand-the-builds"></a>Entender as compilações
@@ -49,7 +46,7 @@ Por padrão, a pilha do Azure inclui os seguintes "fundamentais serviços" quand
 - Computação
 - Armazenamento
 - Rede
-- Cofre de Chaves
+- Cofre da Chave
 
 Com esses serviços fundamentais, você pode oferecer a infraestrutura-como-um-serviço (IaaS) para os usuários com configuração mínima.
 

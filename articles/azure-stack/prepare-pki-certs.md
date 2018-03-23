@@ -1,25 +1,25 @@
 ---
-title: "Preparar certificados de infraestrutura de chave pública do Azure pilha para implantação de sistemas de pilha do Azure integradas | Microsoft Docs"
+title: Preparar certificados de infraestrutura de chave pública do Azure pilha para implantação de sistemas de pilha do Azure integradas | Microsoft Docs
 description: Descreve como preparar os certificados PKI de pilha do Azure para sistemas de pilha do Azure integradas.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b2f1e9bf62773dd7124678552f23dd9262530031
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: dadb443f8b7739e3a18c0d3beb558d8c42e9d19c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparar certificados PKI de pilha do Azure para implantação
 Os arquivos de certificado [obtido da autoridade de certificação de escolha](azure-stack-get-pki-certs.md) devem ser importados e exportados com propriedades que correspondem a requisitos de certificado da pilha do Azure.
