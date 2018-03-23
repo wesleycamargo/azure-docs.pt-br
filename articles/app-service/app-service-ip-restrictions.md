@@ -1,11 +1,11 @@
 ---
-title: "Restrições de IP do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Como usar as restrições de IP do Serviço de Aplicativo do Azure"
+title: Restrições de IP do Serviço de Aplicativo do Azure | Microsoft Docs
+description: Como usar as restrições de IP do Serviço de Aplicativo do Azure
 author: btardif
 manager: stefsch
-editor: 
+editor: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.service: app-service-web
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 551f34436dfeac14bb6e8676dd7c9b10d30a3af3
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 72416cfcd05767b223cc92ac28bd0e736516ddf6
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrições de IP estático do Serviço de Aplicativo do Azure #
 
@@ -32,7 +32,7 @@ As restrições de IP são avaliadas nas mesmas instâncias do Plano do Serviço
 
 Para adicionar uma regra de restrição de IP ao aplicativo, use o menu para abrir **Rede**>**Restrições de IP** e clique em **Configurar Restrições de IP**
 
-![IP restrictions] (media/app-service-ip-restrictions/ip-restrictions.png)
+![Restrições de IP](media/app-service-ip-restrictions/ip-restrictions.png)  
 
 A partir deste ponto, é possível analisar a lista de regras de restrição de IP definida para o aplicativo.
 

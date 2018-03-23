@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Logon Único Contínuo – como ele funciona | Microsoft Docs"
-description: "Este artigo descreve como o recurso Logon Único Contínuo do Azure Active Directory funciona."
+title: 'Azure AD Connect: Logon Único Contínuo – como ele funciona | Microsoft Docs'
+description: Este artigo descreve como o recurso Logon Único Contínuo do Azure Active Directory funciona.
 services: active-directory
-keywords: "o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 0a28cd9016588d266670aa5a7fcbdd854d7ebce0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: aprofundamento técnico
 
@@ -26,9 +26,10 @@ Este artigo fornece detalhes técnicos sobre como o recurso SSO Contínuo (Logon
 
 ## <a name="how-does-seamless-sso-work"></a>Como o SSO contínuo funciona?
 
-Esta seção tem duas partes:
+Esta seção tem três partes:
 1. A instalação do recurso de SSO Contínuo.
-2. Como uma transação única de entrada de usuário funciona com o SSO Contínuo.
+2. Como uma transação única de entrada de usuário em um navegador da Web funciona com o SSO Contínuo.
+3. Como uma transação única de entrada de usuário em um cliente nativo funciona com o SSO Contínuo.
 
 ### <a name="how-does-set-up-work"></a>Como funciona a configuração?
 
@@ -43,30 +44,52 @@ O SSO Contínuo é habilitado por meio do Azure AD Connect, conforme mostrado [a
 >[!IMPORTANT]
 >É altamente recomendável que você [sobreponha a chave de descriptografia do Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) da conta do computador `AZUREADSSOACC` pelo menos a cada 30 dias.
 
-### <a name="how-does-sign-in-with-seamless-sso-work"></a>Como a entrada com o SSO Contínuo funciona?
+Quando essa configuração estiver concluída, o SSO Contínuo funcionará da mesma maneira que qualquer outra entrada que use a IWA (Autenticação Integrada do Windows).
 
-Quando essa configuração estiver concluída, o SSO Contínuo funcionará da mesma maneira que qualquer outra entrada que use a IWA (Autenticação Integrada do Windows). O fluxo é da seguinte maneira:
+### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>Como a entrada em um navegador da Web com o SSO Contínuo funciona?
 
-1. O usuário tenta acessar um aplicativo (por exemplo, o Outlook Web App – https://outlook.office365.com/owa/) por meio de um dispositivo corporativo ingressado no domínio na sua rede corporativa.
+O fluxo de entrada em um navegador da Web é o seguinte:
+
+1. O usuário tenta acessar um aplicativo da Web (por exemplo, o Outlook Web App – https://outlook.office365.com/owa/) por meio de um dispositivo corporativo ingressado no domínio na sua rede corporativa.
 2. Se o usuário ainda não tiver entrado, ele será redirecionado para a página de entrada do Azure AD.
+3. O usuário digita o nome de usuário na página de entrada do Azure AD.
 
   >[!NOTE]
-  >Se a solicitação de entrada do Azure AD incluir um parâmetro `domain_hint` (identificando o seu locatário, por exemplo, contoso.onmicrosoft.com) ou `login_hint` (identificando o usuário, por exemplo, user@contoso.onmicrosoft.com ou user@contoso.com), a etapa 2 será ignorada.
+  >Para [determinados aplicativos](./active-directory-aadconnect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), as etapas 2 e 3 são ignoradas.
 
-3. O usuário digita o nome de usuário na página de entrada do Azure AD.
 4. Usando JavaScript em segundo plano, o Azure AD desafia o navegador, por meio de uma resposta 401 Não autorizado, para fornecer um tíquete Kerberos.
 5. O navegador, por sua vez, solicita um tíquete do Active Directory para a conta do computador `AZUREADSSOACC` (que representa o Azure AD).
 6. O Active Directory localiza a conta do computador e retorna um tíquete Kerberos para o navegador criptografado com o segredo da conta do computador.
-7. O navegador encaminha o tíquete Kerberos que adquiriu do Active Directory para o Azure AD (em uma das [URLs do Azure AD adicionadas anteriormente às configurações de zona de Intranet do navegador](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
+7. O navegador encaminha o tíquete Kerberos que adquiriu do Active Directory para o Azure AD.
 8. O Azure AD descriptografa o tíquete Kerberos, que inclui a identidade do usuário conectado ao dispositivo corporativo, usando a chave compartilhada anteriormente.
 9. Após a avaliação, o Azure AD retorna um token ao aplicativo ou solicita que o usuário realize provas adicionais, como a Autenticação Multifator.
 10. Se a entrada do usuário for bem-sucedida, ele será capaz de acessar o aplicativo.
 
 O diagrama a seguir ilustra a todos os componentes e as etapas envolvidas.
 
-![Logon Único Contínuo](./media/active-directory-aadconnect-sso/sso2.png)
+![Logon Único Contínuo - Fluxo de Aplicativo na Web](./media/active-directory-aadconnect-sso/sso2.png)
 
 O SSO Contínuo é oportunista, o que significa que, se ele falhar, a experiência de entrada retornará ao comportamento normal, ou seja, o usuário precisará inserir a senha para entrar.
+
+### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>Como a entrada em um cliente nativo com o SSO Contínuo funciona?
+
+O fluxo de entrada em um cliente nativo é o seguinte:
+
+1. O usuário tenta acessar um aplicativo nativo (por exemplo, o cliente Outlook) por meio de um dispositivo corporativo ingressado no domínio na sua rede corporativa.
+2. Se o usuário ainda não tiver conectado, o aplicativo nativo recupera o nome de usuário do usuário na sessão do Windows do dispositivo.
+3. O aplicativo envia o nome de usuário para o Azure AD e recupera o ponto de extremidade MEX WS-Trust do seu locatário.
+4. O aplicativo então consulta o ponto de extremidade MEX da WS-Trust para ver se o ponto de extremidade da autenticação integrada está disponível.
+5. Se a etapa 4 for bem-sucedida, um desafio Kerberos será emitido.
+6. Se o aplicativo conseguir recuperar o tíquete Kerberos, ele o encaminhará para o ponto de extremidade de autenticação integrado do Azure AD.
+7. O Azure AD descriptografa o tíquete Kerberos e o valida.
+8. O Azure AD conecta o usuário e emite um token SAML para o aplicativo.
+9. O aplicativo então envia o token SAML para o ponto de extremidade do token OAuth2 do Azure AD.
+10. O Azure AD valida o token SAML e envia para o aplicativo um token de acesso e um token de atualização para o recurso especificado e um token de identificação.
+11. O usuário obtém acesso ao recurso do aplicativo.
+
+O diagrama a seguir ilustra a todos os componentes e as etapas envolvidas.
+
+![Logon Único Contínuo - Fluxo de Aplicativo Nativo](./media/active-directory-aadconnect-sso/sso14.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

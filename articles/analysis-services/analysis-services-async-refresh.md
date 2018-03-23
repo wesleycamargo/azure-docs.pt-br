@@ -1,25 +1,25 @@
 ---
-title: "Atualização assíncrona para modelos do Azure Analysis Services | Microsoft Docs"
-description: "Aprenda a codificar atualização assíncrona usando a API REST."
+title: Atualização assíncrona para modelos do Azure Analysis Services | Microsoft Docs
+description: Aprenda a codificar atualização assíncrona usando a API REST.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao usar qualquer linguagem de programação que seja compatível com chamadas REST, você pode executar operações de atualização de dados assíncronas em seus modelos de tabela do Azure Analysis Services. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Todas as chamadas devem ser autenticadas com um token do Azure Active Directory (OAuth 2) válido no cabeçalho Authorization e devem atender aos seguintes requisitos:
 
 - O token deve ser um token de usuário ou uma entidade de serviço de aplicativo.
-- O usuário ou o aplicativo deve ter permissões suficientes no servidor ou no modelo para fazer a chamada solicitada. O nível de permissão é determinado pelas funções no modelo ou pelo grupo de administradores no servidor.
 - O token deve ter a audiência correta definida como `https://*.asazure.windows.net`.
+- O usuário ou o aplicativo deve ter permissões suficientes no servidor ou no modelo para fazer a chamada solicitada. O nível de permissão é determinado pelas funções no modelo ou pelo grupo de administradores no servidor.
+
+    > [!IMPORTANT]
+    > Atualmente, permissões da função do **administrador do servidor** são necessárias.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

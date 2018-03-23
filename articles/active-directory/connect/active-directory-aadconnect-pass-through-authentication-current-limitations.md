@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: autenticação de passagem – Limitações atuais | Microsoft Docs"
-description: "Este artigo descreve as limitações atuais da autenticação de passagem do Azure AD (Azure Active Directory)"
+title: 'Azure AD Connect: autenticação de passagem – Limitações atuais | Microsoft Docs'
+description: Este artigo descreve as limitações atuais da autenticação de passagem do Azure AD (Azure Active Directory)
 services: active-directory
-keywords: "Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários para o Azure AD, SSO, Logon único"
-documentationcenter: 
+keywords: Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários para o Azure AD, SSO, Logon único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: limitações atuais
 
@@ -31,18 +31,18 @@ Os cenários a seguir têm suporte total:
 
 - Entradas de usuário em todos os aplicativos baseados em navegador da Web
 - Entradas de usuário em aplicativos Office com suporte para [autenticação moderna](https://aka.ms/modernauthga): Office 2016 e Office 2013 _com_ autenticação moderna
+- Entradas do usuário para clientes do Outlook usando protocolos herdados, como Exchange ActiveSync, SMTP, POP e IMAP.
 - Entradas do usuário para o Skype for Business que suportam autenticação moderna, incluindo topologias online e híbrida. Saiba mais sobre topologias com suporte [aqui](https://technet.microsoft.com/library/mt803262.aspx).
 - Ingressos em domínio do Azure AD para dispositivos com Windows 10
-- Suporte ao Exchange ActiveSync
+- Senhas de aplicativo para Autenticação Multifator.
 
 ## <a name="unsupported-scenarios"></a>Cenários sem suporte
 
 Os cenários a seguir _não_ têm suporte:
 
-- Entradas do usuário em aplicativos de cliente do Office herdados – Office 2010 e Office 2013 _sem_ autenticação moderna. As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna possibilita o suporte à Autenticação de Passagem. Também ajuda a proteger suas contas de usuário usando recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md), como Autenticação Multifator do Azure.
+- Entradas do usuário em aplicativos de cliente do Office herdados, com exceção do Outlook: Office 2010 e Office 2013 _sem_ autenticação moderna. As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna possibilita o suporte à Autenticação de Passagem. Também ajuda a proteger suas contas de usuário usando recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md), como Autenticação Multifator do Azure.
 - O usuário entra em aplicativos cliente do Skype for Business, _sem_ autenticação moderna.
 - Entradas de usuário no PowerShell versão 1.0. Recomendamos usar o PowerShell versão 2.0.
-- Senhas de aplicativo para Autenticação Multifator.
 - Detecção de usuários com [credenciais vazadas](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services precisa de sincronização de Hash de senha para ser habilitado no locatário. Portanto, os locatários que _somente_ usam a autenticação de passagem não funcionam para cenários que precisam de Azure AD Domain Services.
 - A Autenticação de passagem não está integrada com [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
@@ -63,4 +63,3 @@ Habilitar a sincronização de hash de senha oferece a opção de fazer failover
 - [Aprofundamento em segurança](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): obtenha informações técnicas avançadas sobre o recurso de Autenticação de passagem.
 - [SSO contínuo do Azure AD](active-directory-aadconnect-sso.md): saiba mais sobre esse recurso complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para arquivar novas solicitações.
-

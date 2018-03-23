@@ -1,7 +1,7 @@
 ---
-title: "Implantar um aplicativo Docker/Go no Aplicativo Web para Contêineres do Azure"
-description: "Como implantar uma imagem do Docker executando um aplicativo Go para o Aplicativo Web para Contêineres do Azure."
-keywords: "serviço de aplicativo do azure, aplicativo web, go, docker, contêiner"
+title: Implantar um aplicativo Docker/Go no Aplicativo Web para Contêineres do Azure
+description: Como implantar uma imagem do Docker executando um aplicativo Go para o Aplicativo Web para Contêineres do Azure.
+keywords: serviço de aplicativo do azure, aplicativo web, go, docker, contêiner
 services: app-service
 author: msangapu
 manager: cfowler
@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 01/17/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 710e0fc898dcd46816bfe52501d7db456d9756f2
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b8fb814aa56465f9dce51de29de37f93213bf58f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-a-dockergo-web-app-in-web-app-for-containers"></a>Implantar um aplicativo Web Docker/Go no Aplicativo Web para Contêineres
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/23/2018
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 

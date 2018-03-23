@@ -1,26 +1,20 @@
 ---
-title: "Replicar um aplicativo Web baseado no IIS de várias camadas usando o Azure Site Recovery | Microsoft Docs"
-description: "Saiba como replicar máquinas de virtuais de um farm da Web do IIS usando o Azure Site Recovery."
+title: Replicar um aplicativo Web baseado no IIS de várias camadas usando o Azure Site Recovery | Microsoft Docs
+description: Saiba como replicar máquinas de virtuais de um farm da Web do IIS usando o Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Replicar um aplicativo Web baseado no IIS de várias camadas usando o Site Recovery
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replicar um aplicativo Web baseado no IIS de várias camadas
 
 Software de aplicativo é o motor da produtividade comercial em uma organização. Vários aplicativos Web podem servir para propósitos diferentes em uma organização. Alguns aplicativos, como aplicativos usados para processamento da folha de pagamento, aplicativos financeiros e sites voltados ao cliente, podem ser críticos para uma organização. Para evitar perda de produtividade, é importante que a organização tenha esses aplicativos continuamente em execução. Mais importante ainda, ter esses aplicativos consistentemente disponíveis pode ajudar a prevenir danos à marca ou imagem da organização.
 
@@ -36,7 +30,7 @@ Este artigo descreve como proteger um aplicativo Web baseado no IIS (Serviços d
 
 Antes de começar, certifique-se de que você sabe fazer as tarefas a seguir:
 
-* [Replicar uma máquina virtual no Azure](site-recovery-vmware-to-azure.md)
+* [Replicar uma máquina virtual no Azure](vmware-azure-tutorial.md)
 * [Criar uma rede de recuperação](site-recovery-network-design.md)
 * [Executar um failover de teste para o Azure](site-recovery-test-failover-to-azure.md)
 * [Executar um failover para o Azure](site-recovery-failover.md)
@@ -75,7 +69,7 @@ As tabelas|ND|sim
 
 Para iniciar a replicação de todas as máquinas virtuais do web farm do IIS para Azure, siga as orientações em [Failover de teste para Azure no Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Se você estiver usando um endereço IP estático, poderá especificar o endereço IP que você deseja que a máquina virtual use. Para configurar o endereço IP, vá para  **Configurações de Computação e Rede** > [**TARGET IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
+Se você estiver usando um endereço IP estático, poderá especificar o endereço IP que você deseja que a máquina virtual use. Para configurar o endereço IP, vá para  **Configurações de Computação e Rede** > **TARGET IP**.
 
 ![Captura de tela que mostra como configurar o IP de destino no painel Computação e Rede do Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 

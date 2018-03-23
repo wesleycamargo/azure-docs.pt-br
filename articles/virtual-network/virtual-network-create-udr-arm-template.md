@@ -1,11 +1,11 @@
 ---
-title: "Controlar o roteamento e as soluções de virtualização no Azure – modelo | Microsoft Docs"
+title: Controlar o roteamento e as soluções de virtualização no Azure – modelo | Microsoft Docs
 description: Saiba como controlar o roteamento e os dispositivos virtuais usando um modelo do Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 832c7831-d0e9-449b-b39c-9a09ba051531
 ms.service: virtual-network
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Criar UDR (Rotas Definidas pelo Usuário) usando um modelo
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [CLI do Azure](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [CLI do Azure](tutorial-create-route-table-cli.md)
 > * [Modelo](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Clássico)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Clássica)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ Para associar a UDR à sub-rede de front-end, você precisa alterar a definiçã
 
 Observe o mesmo sendo feito para NSG back-end e a sub-rede back-end no modelo.
 
-Você também precisa garantir que a VM **FW1** tenha a propriedade de encaminhamento de IP habilitada na NIC que será usada para receber e encaminhar pacotes. A seção a seguir mostra a definição de NIC para FW1 no arquivo azuredeploy-nsg-udr.json com base no cenário acima.
+Você também precisa garantir que a VM **FW1** tenha a propriedade de encaminhamento de IP habilitada na NIC que será usada para receber e encaminhar pacotes. A seção a seguir mostra a definição da NIC para FW1 no arquivo azuredeploy-nsg-udr.json com base no cenário.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,9 +112,9 @@ Você também precisa garantir que a VM **FW1** tenha a propriedade de encaminha
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Implantar o modelo usando o clique para implantar
-O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a opção de clique para implantar, acesse [este link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
+O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito anteriormente. Para implantar esse modelo usando a opção de clique para implantar, acesse [este link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 2. Execute o seguinte comando para criar um grupo de recursos:
 
     ```powershell
@@ -173,7 +173,7 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Implantar o modelo usando a CLI do Microsoft Azure
 
-Para implantar o modelo ARM usando a CLI do Azure, siga as etapas a seguir:
+Para implantar o modelo do Azure Resource Manager usando a CLI do Azure, conclua as seguintes etapas:
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando a seguir para alternar para o modo do Gerenciador de Recursos:
@@ -182,11 +182,11 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas a seguir:
     azure config mode arm
     ```
 
-    Este é o resultado esperado para o comando descrito acima:
+    Este é o resultado esperado para o comando anterior:
 
         info:    New mode is arm
 
-3. No seu navegador, navegue até **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do arquivo json e cole em um novo arquivo em seu computador. Para esse cenário, você deve copiar o valores abaixo em um arquivo chamado **c:\udr\azuredeploy.parameters.json**.
+3. No seu navegador, navegue até **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do arquivo json e cole em um novo arquivo em seu computador. Para este cenário, copie os valores a seguir para um arquivo chamado **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas a seguir:
         }
     ```
 
-4. Execute o comando a seguir para implantar a nova VNet usando os arquivos de modelo e parâmetro que você baixou e modificou acima:
+4. Execute o seguinte comando para implantar a nova VNET usando os arquivos de modelo e parâmetro que você baixou e modificou anteriormente:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'

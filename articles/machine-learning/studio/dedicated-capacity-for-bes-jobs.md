@@ -1,23 +1,23 @@
 ---
-title: "Capacidade dedicada para trabalhos do Serviço de Execução do Lote do Machine Learning | Microsoft Docs"
-description: "Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning."
+title: Capacidade dedicada para trabalhos do Serviço de Execução do Lote do Machine Learning | Microsoft Docs
+description: Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondl
-editor: 
+documentationcenter: ''
+author: serinakaye
+ms.author: serinak
+manager: mwinkle
+editor: ''
 ms.service: machine-learning
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: 4a4c5e6bf44fb4774d9ba501479383d6c7d3b128
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 51ae9d72906799e0e4f2f7d8a8a228cd0df0d91a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Serviço do Lote do Azure para trabalhos do Machine Learning
 

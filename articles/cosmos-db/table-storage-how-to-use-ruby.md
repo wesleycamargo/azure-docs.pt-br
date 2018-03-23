@@ -1,59 +1,56 @@
 ---
-title: Como usar o Armazenamento de Tabelas do Azure com Ruby | Microsoft Docs
-description: "Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
+title: Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com Ruby | Microsoft Docs
+description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL.
 services: cosmos-db
 documentationcenter: ruby
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 02/27/2018
 ms.author: mimig
-ms.openlocfilehash: decc6ffb38a4358d3593642f9cedb59d08f6bfef
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 104d793826116462f71e4889386906256b2df8f8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="how-to-use-azure-table-storage-with-ruby"></a>Como usar o armazenamento de Tabela do Azure com Ruby
+# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-ruby"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Visão geral
-Este guia mostra como executar cenários comuns usando o serviço Tabela do Azure. Os exemplos de código são gravados com a API do Ruby. Os cenários abrangidos incluem **criar e excluir uma tabela, inserindo e consultando entidades em uma tabela**.
+Este guia mostra como executar cenários comuns usando o serviço de Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB. Os exemplos são escritos em Ruby e usam a [Biblioteca do Cliente da Tabela Armazenamento do Microsoft Azure para Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Os cenários abordados incluem **criar e excluir uma tabela, inserindo e consultando entidades em uma tabela**.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-ruby-application"></a>Criar um aplicativo Ruby
-Para obter instruções sobre como criar um aplicativo Ruby, confira [Aplicativo Web Ruby on Rails em uma VM do Azure](../virtual-machines/linux/classic/ruby-rails-web-app.md).
-
-## <a name="configure-your-application-to-access-storage"></a>Configurar seu aplicativo para acessar o Armazenamento
-Para usar o Armazenamento do Azure, você precisará baixar e usar o pacote do Azure para o Ruby, que inclui um conjunto de bibliotecas de conveniência que se comunicam com os serviços REST do Armazenamento.
+## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Adicionar acesso a armazenamento ou Azure Cosmos DB
+Para usar o Armazenamento do Microsoft Azure ou Azure Cosmos DB, você deverá baixar e usar o pacote do Azure do Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST da tabela.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Usar RubyGems para obter o pacote
 1. Use uma interface de linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
-2. Digite **gem install azure** na janela de comandos para instalar a gema e as dependências.
+2. Digite **gem install azure-storage-table** na janela de comando para instalar a gem e as dependências.
 
 ### <a name="import-the-package"></a>Importar o pacote
 Use seu editor de texto favorito e adicione o seguinte na parte superior do arquivo do Ruby no qual você pretende usar o Armazenamento:
 
 ```ruby
-require "azure"
+require "azure/storage/table"
 ```
 
-## <a name="set-up-an-azure-storage-connection"></a>Configurar uma conexão do Armazenamento do Azure
-O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** para obter as informações necessárias para se conectar à sua conta de Armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta antes de usar **Azure::TableService** com o seguinte código:
+## <a name="add-an-azure-storage-connection"></a>Adicionar uma conexão do Armazenamento do Azure
+O módulo do Armazenamento do Microsoft Azure lê as variáveis de ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY** para obter as informações necessárias para se conectar à sua conta do Armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta antes de usar **Azure::Storage::Table::TableService** com o seguinte código:
 
 ```ruby
-Azure.config.storage_account_name = "<your azure storage account>"
-Azure.config.storage_access_key = "<your azure storage access key>"
+Azure.config.storage_account_name = "<your Azure Storage account>"
+Azure.config.storage_access_key = "<your Azure Storage access key>"
 ```
 
 Para obter esses valores de uma conta de armazenamento clássico ou do Resource Manager no Portal do Azure:
@@ -64,11 +61,19 @@ Para obter esses valores de uma conta de armazenamento clássico ou do Resource 
 4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas.
 5. Clique no ícone de cópia para copiar a chave para a área de transferência.
 
-## <a name="create-a-table"></a>Criar uma tabela
-O objeto **Azure::TableService** permite trabalhar com tabelas e entidades. Para criar uma tabela, use o método **create\_table()**. O exemplo a seguir cria uma tabela ou imprime o erro, se houver.
+## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma conexão do Azure Cosmos DB
+Para se conectar ao Azure Cosmos DB, copie a cadeia de conexão principal do Portal do Azure e crie um objeto **Client** usando a cadeia de conexão copiada. Você pode passar o objeto **Client** quando criar um objeto **TableService**:
 
 ```ruby
-azure_table_service = Azure::TableService.new
+common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
+table_client = Azure::Storage::Table::TableService.new(client: common_client)
+```
+
+## <a name="create-a-table"></a>Criar uma tabela
+O objeto **Azure::Storage::Table::TableService** permite trabalhar com tabelas e entidades. Para criar uma tabela, use o método **create_table()**. O exemplo a seguir cria uma tabela ou imprime o erro, se houver.
+
+```ruby
+azure_table_service = Azure::Storage::Table::TableService.new
 begin
     azure_table_service.create_table("testtable")
 rescue
@@ -88,12 +93,12 @@ azure_table_service.insert_entity("testtable", entity)
 ## <a name="update-an-entity"></a>Atualizar uma entidade
 Há vários métodos disponíveis para atualizar uma entidade existente:
 
-* **update\_entity():** atualiza uma entidade existente substituindo-a.
-* **merge\_entity():** atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente.
-* **insert\_or\_merge\_entity():** atualiza uma entidade existente substituindo-a. Se não existir nenhuma entidade, uma nova será inserida:
-* **insert\_or\_replace\_entity():** atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente. Se nenhuma entidade existir, uma nova será inserida.
+* **update_entity():** atualiza uma entidade existente substituindo-a.
+* **merge_entity():** atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente.
+* **insert_or_merge_entity():** atualiza uma entidade existente substituindo-a. Se não existir nenhuma entidade, uma nova será inserida:
+* **insert_or_replace_entity():** atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente. Se nenhuma entidade existir, uma nova será inserida.
 
-O exemplo a seguir demonstra a atualização de uma entidade usando **update\_entity()**:
+O exemplo a seguir demonstra a atualização de uma entidade usando **update_entity()**:
 
 ```ruby
 entity = { "content" => "test entity with updated content",
@@ -101,10 +106,10 @@ entity = { "content" => "test entity with updated content",
 azure_table_service.update_entity("testtable", entity)
 ```
 
-Com **update\_entity()** e **merge\_entity()**, se a entidade que estiver sendo atualizada não existir, a operação de atualização falhará. Portanto, se desejar armazenar uma entidade independentemente de sua existência, você deverá usar **insert\_or\_replace\_entity()** ou **insert\_or\_merge\_entity()**.
+Com **update_entity()** e **merge_entity()**, se a entidade que estiver sendo atualizada não existir, a operação de atualização falhará. Portanto, se desejar armazenar uma entidade independentemente de sua existência, você deverá usar **insert_or_replace_entity()** ou **insert_or_merge_entity()**.
 
 ## <a name="work-with-groups-of-entities"></a>Trabalhar com grupos de entidades
-Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor. Para fazer isso, você cria primeiro um objeto **Batch** e depois usa o método **execute\_batch()** em **TableService**. O seguinte exemplo demonstra o envio de duas entidades com RowKey 2 e 3 em um lote. Observe que isso funciona apenas em entidades com o mesmo PartitionKey.
+Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor. Para fazer isso, você cria primeiro um objeto **Batch** e depois usa o método **execute_batch()** em **TableService**. O seguinte exemplo demonstra o envio de duas entidades com RowKey 2 e 3 em um lote. Observe que isso funciona apenas em entidades com o mesmo PartitionKey.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -117,7 +122,7 @@ results = azure_table_service.execute_batch(batch)
 ```
 
 ## <a name="query-for-an-entity"></a>Consultar uma entidade
-Para consultar uma entidade em uma tabela, use o método **get\_entity()**, transmitindo o nome da tabela, **PartitionKey** e **RowKey**.
+Para consultar uma entidade em uma tabela, use o método **get_entity()**, transmitindo o nome da tabela, **PartitionKey** e **RowKey**.
 
 ```ruby
 result = azure_table_service.get_entity("testtable", "test-partition-key",
@@ -125,7 +130,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 ```
 
 ## <a name="query-a-set-of-entities"></a>Consultar um conjunto de entidades
-Para consultar um conjunto de entidades em uma tabela, crie um objeto de hash de consulta e use o método **query\_entities()**. O exemplo a seguir demonstra como obter todas as entidades com o mesmo **PartitionKey**:
+Para consultar um conjunto de entidades em uma tabela, crie um objeto de hash de consulta e use o método **query_entities()**. O exemplo a seguir demonstra como obter todas as entidades com o mesmo **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }
@@ -138,7 +143,7 @@ result, token = azure_table_service.query_entities("testtable", query)
 >
 
 ## <a name="query-a-subset-of-entity-properties"></a>consultar um subconjunto de propriedades da entidade
-Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma entidade. Essa técnica, chamada "projeção", reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente em grandes entidades. Use a cláusula select e transmita os nomes das propriedades que você gostaria de trazer para o cliente.
+Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma entidade. Essa técnica, chamada "projeção", reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. Use a cláusula select e transmita os nomes das propriedades que você gostaria de trazer para o cliente.
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'",
@@ -147,14 +152,14 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## <a name="delete-an-entity"></a>Excluir uma entidade
-Para excluir uma entidade, use o método **delete\_entity()**. Você precisa transmitir o nome da tabela que contém a entidade, a PartitionKey e a RowKey da entidade.
+Para excluir uma entidade, use o método **delete_entity()**. Transmita o nome da tabela que contém a entidade, a PartitionKey e a RowKey da entidade.
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 ```
 
 ## <a name="delete-a-table"></a>Excluir uma tabela
-Para excluir uma tabela, use o método **delete\_table()** e passe o nome da tabela que você quer excluir.
+Para excluir uma tabela, use o método **delete_table()** e passe o nome da tabela que você quer excluir.
 
 ```ruby
 azure_table_service.delete_table("testtable")
@@ -163,5 +168,6 @@ azure_table_service.delete_table("testtable")
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
-* [SDK do Azure para repositório Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
+* [Central de Desenvolvedores do Ruby](https://azure.microsoft.com/develop/ruby/)
+* [Biblioteca de cliente de tabela de Armazenamento do Microsoft Azure para Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table) 
 

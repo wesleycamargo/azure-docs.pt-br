@@ -1,0 +1,129 @@
+---
+title: Visão geral do suporte de multilocatário para replicação de VM do VMware no Azure (CSP) usando o Azure Site Recovery | Microsoft Docs
+description: Fornece uma visão geral do suporte do Azure Site Recovery para assinaturas de locatário em um ambiente de multilocatário, por meio do programa CSP.
+services: site-recovery
+author: mayanknayar
+manager: rochakm
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.date: 03/05/2018
+ms.author: manayar
+ms.openlocfilehash: 9b4fbb34686a12f992b344ac61420c9ba99ee405
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/08/2018
+---
+# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Visão geral do suporte de multilocatário para replicação do VMware no Azure com o CSP
+
+O [Azure Site Recovery](site-recovery-overview.md) dá suporte a ambientes de multilocatário para assinaturas de locatário. Ele também dá suporte à multilocação para assinaturas de locatários que são criadas e gerenciadas por meio do programa CSP (Provedor de Soluções na Nuvem da Microsoft). 
+
+Este artigo fornece uma visão geral de implementação e gerenciamento da replicação do VMware no Azure de multilocatário. 
+
+## <a name="multi-tenant-environments"></a>Ambientes multilocatário
+
+Há três modelos principais de multilocatários:
+
+* **HSP (Provedor de Serviços de Hospedagem Compartilhada)**: o parceiro é o proprietário da infraestrutura física e usa recursos compartilhados (vCenter, datacenters, armazenamento físico e assim por diante) para hospedar VMs de vários locatários na mesma infraestrutura. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode ter recuperação de desastre como uma solução de autoatendimento.
+
+* **Provedor de Serviços de Hospedagem Dedicado**: o parceiro tem a infraestrutura física, mas usa recursos dedicados (vários vCenters, repositórios de dados físicos e assim por diante) para hospedar VMs de cada locatário em uma infraestrutura separada. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode já tê-la como uma solução de autoatendimento.
+
+* **MSP (Provedor de Serviços Gerenciado)**: o cliente tem a infraestrutura física que hospeda as VMs e o parceiro fornece a habilitação e gerenciamento de recuperação de desastre.
+
+## <a name="shared-hosting-services-provider-hsp"></a>HSP (provedor de serviços de hospedagem compartilhada)
+
+ Os outros dois cenários são subconjuntos do cenário de hospedagem compartilhada e usam os mesmos princípios. As diferenças são descritas ao final da diretriz de hospedagem compartilhada.
+
+O requisito básico em um cenário de multilocatário é que os locatários sejam isolados. Um locatário não deve ser capaz de observar o que é hospedado por outro locatário. Em um ambiente gerenciado por parceiros, esse requisito não é tão importante quanto em um ambiente de autoatendimento, no qual ele pode ser crucial. Este artigo pressupõe que o isolamento de locatários seja obrigatório.
+
+A arquitetura é mostrada no diagrama a seguir.
+
+![HSP compartilhado com um vCenter](./media/vmware-azure-multi-tenant-overview/shared-hosting-scenario.png)  
+
+**Hospedagem compartilhada com um servidor vCenter**
+
+No diagrama, cada cliente tem um servidor de gerenciamento separado. Essa configuração limita o acesso do locatário a VMs específicas a um locatário e habilita o isolamento de locatários. A replicação de VM do VMware usa o servidor de configuração para descobrir VMs e instalar agentes. Os mesmos princípios se aplicam a ambientes de multilocatário, com a adição da restrição à descoberta de VM por meio do controle de acesso do vCenter.
+
+O requisito de isolamento de dados significa que todas as informações confidenciais da infraestrutura (como credenciais de acesso) continuem não sendo divulgadas para os locatários. Por esse motivo, é recomendável que todos os componentes do servidor de gerenciamento permaneçam sob controle exclusivo do parceiro. Os componentes de servidor de gerenciamento são:
+
+* Servidor de configuração
+* Servidor de processo
+* Servidor de destino mestre
+
+Um servidor em processo dimensionado separado também está sob o controle do parceiro.
+
+## <a name="configuration-server-accounts"></a>Contas do servidor de configuração
+
+Cada servidor de configuração no cenário de multilocatário usa duas contas:
+
+- **Conta de acesso do vCenter**: essa conta é usada para descobrir VMs do locatário. Ela tem permissões de acesso do vCenter atribuídas a ela. Para ajudar a evitar perdas de acesso, recomendamos que os próprios parceiros insiram essas credenciais na ferramenta de configuração.
+
+- **Conta de acesso à máquina virtual**: essa conta é usada para instalar o agente do serviço de Mobilidade nas VMs do locatário, com um push automático. Ela é normalmente uma conta de domínio que um locatário pode fornecer a um parceiro ou uma conta que pode ser gerenciada diretamente pelo parceiro. Se um locatário não desejar compartilhar os detalhes diretamente com o parceiro, ele poderá inserir as credenciais por meio do acesso de tempo limitado no servidor de configuração. Ou, com a assistência do parceiro, ele poderá instalar o agente do serviço de Mobilidade manualmente.
+
+## <a name="vcenter-account-requirements"></a>Requisitos de conta do vCenter
+
+É necessário configurar o servidor de configuração com uma conta que tem uma função especial atribuída a ela. 
+
+- A atribuição de função deve ser aplicada à conta de acesso do vCenter para cada objeto do vCenter e não propagada para os objetos filho. Essa configuração garante o isolamento do locatário, pois a propagação de acesso também pode resultar em acesso acidental a outros objetos.
+
+    ![A opção Propagar para Filho](./media/vmware-azure-multi-tenant-overview/assign-permissions-without-propagation.png)
+
+- A abordagem alternativa é atribuir a conta de usuário e a função no objeto de datacenter e propagá-las para os objetos filho. Em seguida, conceda à conta uma função **Sem acesso** para cada objeto (como as VMs que pertencem a outros locatários) que deve ficar inacessível a um locatário específico. Essa configuração é complicada. Ela expõe controles de acesso acidentais, pois cada novo objeto filho também recebe automaticamente o acesso herdado do pai. Portanto, é recomendável usar a primeira abordagem.
+
+### <a name="create-a-vcenter-account"></a>Criar uma conta do vCenter
+
+1. Crie uma nova função clonando a função *Somente leitura* predefinida e dê a ela um nome conveniente (como Azure_Site_Recovery, como mostrado neste exemplo).
+2. Atribua as seguintes permissões a essa função:
+
+    * **Repositório de dados**: Alocar espaço, Procurar repositório de dados, Operações de arquivo de baixo nível, Remover arquivo, Atualizar arquivos de máquina virtual
+    * **Rede**: Atribuição de rede
+    * **Recurso**: Atribuir VM ao pool de recursos, Migrar VM desligada, Migrar VM ligada
+    * **Tarefas**: Criar tarefa, Atualizar tarefa
+    * **VM – Configuração**: tudo
+    - **VM – Interação** > Responder a perguntas, Conexão do dispositivo, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, Instalação de ferramentas do VMware
+    - **VM – Inventário** > Criar com base em existente, Criar novo, Registrar, Cancelar registro
+    - **VM – Provisionamento** > Permitir download de máquina virtual, Permitir upload de arquivos de máquina virtual
+    - **VM – Gerenciamento de instantâneo** > Remover instantâneos
+
+        ![A caixa de diálogo Editar Função](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+
+3. Atribua os níveis de acesso à conta do vCenter (usada no servidor de configuração do locatário) a vários objetos, da seguinte maneira:
+
+>| Objeto | Função | Comentários |
+>| --- | --- | --- |
+>| vCenter | Somente leitura | É necessário apenas para permitir o acesso do vCenter para gerenciar diferentes objetos. Você pode remover essa permissão se a conta nunca será fornecida a um locatário ou usada para operações de gerenciamento no vCenter. |
+>| Datacenter | Azure_Site_Recovery |  |
+>| Host e cluster de host | Azure_Site_Recovery | Verifique novamente se o acesso está no nível de objeto, de forma que somente os hosts acessíveis tenham VMs do locatário antes do failover e após o failback. |
+>| Repositório de dados e cluster de repositório de dados | Azure_Site_Recovery | Mesmo que o anterior. |
+>| Rede | Azure_Site_Recovery |  |
+>| Servidor de gerenciamento | Azure_Site_Recovery | Inclui o acesso a todos os componentes (CS, PS e MT) fora do computador do CS. |
+>| VMs do locatário | Azure_Site_Recovery | Verifique se as novas VMs de locatário de um locatário específico também recebem esse acesso ou elas não poderão ser descobertas por meio do Portal do Azure. |
+
+O acesso à conta do vCenter está concluído. Essa etapa cumpre o requisito de permissões mínimas para concluir operações de failback. Você também pode usar essas permissões de acesso com as políticas existentes. Basta modificar seu conjunto de permissões existentes para incluir permissões de função da etapa 2, como detalhado anteriormente.
+
+### <a name="failover-only"></a>Somente failover
+Para restringir as operações de recuperação de desastre a somente failover (ou seja, sem as funcionalidades de failback), use o procedimento anterior, com estas exceções:
+
+- Em vez de atribuir a função *Azure_Site_Recovery* à conta de acesso do vCenter, atribua apenas uma função *Somente Leitura* à essa conta. Esse conjunto de permissões permite failover e replicação de VM, mas não permite failback.
+- Todo o resto do processo anterior permanece igual. Para garantir o isolamento do locatário e restringir a descoberta de VM, cada permissão ainda é atribuída apenas no nível do objeto e não propagada para os objetos filho.
+
+
+## <a name="dedicated-hosting-solution"></a>Solução de hospedagem dedicada
+
+Como mostrado no diagrama a seguir, a diferença de arquitetura em uma solução de hospedagem dedicada é que a infraestrutura de cada locatário está configurada somente para esse locatário. Como os locatários são isolados por meio de vCenters separados, o provedor de hospedagem ainda precisa seguir as etapas de CSP fornecidas para hospedagem compartilhada, mas não precisa se preocupar com o isolamento do locatário. A configuração do CSP permanece inalterada.
+
+![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+**Cenário de hospedagem dedicada com vários vCenters**
+
+## <a name="managed-service-solution"></a>Solução de serviço gerenciado
+
+Conforme mostrado no diagrama a seguir, a diferença de arquitetura em uma solução de serviço gerenciado é que a infraestrutura de cada locatário também é fisicamente separada da infraestrutura de outros locatários. Esse cenário normalmente existe quando o locatário tem a infraestrutura e busca um provedor de solução para gerenciar a recuperação de desastre. Novamente, como os locatários são isolados fisicamente por meio de infraestruturas diferentes, o parceiro ainda precisa seguir as etapas de CSP fornecidas para hospedagem compartilhada, mas não precisa se preocupar com o isolamento do locatário. O provisionamento de CSP permanece inalterado.
+
+![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
+**Cenário de serviço gerenciado com vários vCenters**
+
+## <a name="next-steps"></a>Próximas etapas
+[Saiba mais](site-recovery-role-based-linked-access-control.md) sobre o controle de acesso baseado em função no Site Recovery.
+Saiba como [configurar a recuperação de desastre de VMs do VMware no Azure](vmware-azure-tutorial.md)
+[Configurar a recuperação de desastre de VMs do VMware com multilocação com CSP](vmware-azure-multi-tenant-csp-disaster-recovery.md)

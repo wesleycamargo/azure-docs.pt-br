@@ -1,8 +1,8 @@
 ---
-title: "Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia) | Microsoft Docs"
-description: "Saiba o que considerar ao planejar uma implantação de Arquivos do Azure."
+title: Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia) | Microsoft Docs
+description: Saiba o que considerar ao planejar uma implantação de Arquivos do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -49,7 +49,7 @@ O agente de Sincronização de arquivos do Azure é um pacote baixável que perm
 Um ponto de extremidade do servidor representa um local específico em um servidor registrado, como uma pasta em um volume do servidor. Vários pontos de extremidade do servidor podem existir no mesmo volume se seus namespaces não forem sobrepostos (por exemplo, `F:\sync1` e `F:\sync2`). Você pode configurar políticas de disposição em camada de nuvem individualmente para cada ponto de extremidade de servidor. Atualmente, não é possível criar um ponto de extremidade do servidor para a raiz de um volume (por exemplo `F:\` ou `C:\myvolume`, se um volume está montado como um ponto de montagem).
 
 > [!Note]  
-> Um ponto de extremidade de servidor pode estar localizado no volume do sistema do Windows. A camada de nuvem não tem suporte no volume do sistema.
+> Apenas volumes não removíveis são compatíveis.  Não há suporte para unidades mapeadas de um compartilhamento remoto para um caminho de ponto de extremidade do servidor.  Além disso, um ponto de extremidade do servidor pode estar localizado no volume do sistema do Windows, embora a disposição em camadas de nuvem não seja compatível com o volume do sistema.
 
 Se você adicionar uma localização de servidor que tem um conjunto existente de arquivos como um ponto de extremidade de servidor a um grupo de sincronização, esses arquivos serão mesclados com os outros arquivos que já estão em outros pontos de extremidade no grupo de sincronização.
 
@@ -92,7 +92,7 @@ Versões futuras do Windows Server serão adicionadas à medida que forem libera
 | Pontos de nova análise | Ignorado | |
 | Compactação NTFS | Com suporte total | |
 | Arquivos esparsos | Com suporte total | Os arquivos esparsos são sincronizados (não são bloqueados), mas são sincronizados com a nuvem como um arquivo completo. Se o conteúdo do arquivo for alterado na nuvem (ou em outro servidor), o arquivo não será mais esparso quando a alteração for baixada. |
-| ADS (Fluxos de Dados Alternativos) | Preservados, mas não sincronizados | |
+| ADS (Fluxos de Dados Alternativos) | Preservados, mas não sincronizados | Por exemplo, as marcas de classificação criadas pela Infraestrutura de classificação de arquivos não são sincronizadas. As marcas de classificação em arquivos existentes em cada um dos pontos de extremidade do servidor são mantidas. |
 
 > [!Note]  
 > Há suporte para apenas os volumes NTFS. ReFS, FAT, FAT32 e outros sistemas de arquivos não têm suporte.
@@ -142,7 +142,7 @@ Como as soluções de antivírus, as soluções de backup podem causar o recall 
 O suporte para soluções de criptografia depende de como elas são implementadas. A Sincronização de Arquivo do Azure é conhecida por funcionar com:
 
 - Criptografia de BitLocker
-- Azure RMS (Azure Rights Management Services) (e Active Directory RMS herdado)
+- Proteção de Informações do Azure, Azure Rights Management Services (Azure RMS) e Active Directory RMS
 
 A Sincronização de Arquivo do Azure é conhecida por não funcionar com:
 

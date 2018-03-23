@@ -1,24 +1,24 @@
 ---
-title: "Aplicativo de orquestração de patch do Azure Service Fabric | Microsoft Docs"
-description: "Aplicativo para automatizar a aplicação de patch do sistema operacional em um cluster do Service Fabric."
+title: Aplicativo de orquestração de patch do Azure Service Fabric | Microsoft Docs
+description: Aplicativo para automatizar a aplicação de patch do sistema operacional em um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -136,7 +136,9 @@ As atualizações automáticas do Windows podem causar a perda de disponibilidad
 
 ## <a name="download-the-app-package"></a>Baixar o pacote do aplicativo
 
-Baixe o aplicativo usando o [link para download](https://go.microsoft.com/fwlink/P/?linkid=849590).
+O aplicativo juntamente com scripts de instalação podem ser baixados do [link de arquivo](https://go.microsoft.com/fwlink/?linkid=869566).
+
+O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://go.microsoft.com/fwlink/?linkid=869567). Isso é útil para a [Implantação de aplicativo baseado no Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurar o aplicativo
 
@@ -361,8 +363,12 @@ Um administrador deve intervir e determinar por que o aplicativo ou cluster se t
 ### <a name="version-111"></a>Versão 1.1.1
 - Correção de bug no SetupEntryPoint de NodeAgentService que impediu a instalação de NodeAgentNTService.
 
-### <a name="version-120-latest"></a>Versão 1.2.0 (mais recente)
+### <a name="version-120"></a>Versão 1.2.0
 
 - Correções de bugs em torno do fluxo de trabalho de reinício do sistema.
 - Correção de bug na criação de tarefas RM devido à qual integridade seleção durante a preparação de tarefas de reparo não estava acontecendo conforme o esperado.
 - Alterado o modo de inicialização para o serviço windows POANodeSvc de auto para delayed-auto.
+
+### <a name="version-121-latest"></a>Versão 1.2.1 (mais recente)
+
+- Correção de bug no fluxo de trabalho de redução de escala de cluster. Introduziu a lógica de coleta de lixo para tarefas de reparo POA pertencentes a nós inexistentes.

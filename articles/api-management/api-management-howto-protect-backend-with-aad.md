@@ -2,10 +2,10 @@
 title: Proteger um back-end de API da Web com o Azure Active Directory e o Gerenciamento de API | Microsoft Docs
 description: Saiba como proteger um back-end de API da Web com o Active Directory do Azure e Gerenciamento de API
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Como proteger um back-end de API da Web com o Active Directory do Azure e Gerenciamento de API
 
@@ -179,7 +179,7 @@ APIs são configuradas no portal do publicador da API, que pode ser acessado no 
 
 ![Portal do editor][api-management-management-console]
 
-As operações podem ser [adicionadas manualmente às APIs](api-management-howto-add-operations.md)ou podem ser importadas. Neste vídeo, as operações são importadas no formato Swagger começando em 6:40.
+As operações podem ser [adicionadas manualmente às APIs](api-management-howto-add-operations.md)ou podem ser importadas.
 
 Crie um arquivo chamado `calcapi.json` com o conteúdo a seguir e salve-o em seu computador. Verifique os pontos do atributo `host` para o back-end da API da Web. Neste exemplo, `"host": "apimaaddemo.azurewebsites.net"` é usado.
 

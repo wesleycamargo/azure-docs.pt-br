@@ -8,7 +8,7 @@
 | Servidores de banco de dados SQL por assinatura |6 |150 |
 | Servidores DNS por assinatura |9 |100 |
 | IPs reservados por assinatura |20 |100 |
-| Certificados de serviço hospedado por assinatura |400 |400 |
+| Certificados de serviço hospedado por assinatura |199 |199 |
 | [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura |256 |256 |
 
 

@@ -1,11 +1,11 @@
 ---
 title: Problemas ao instalar o conector de agente do Application Proxy | Microsoft Docs
-description: "Como solucionar problemas que você poderá enfrentar ao instalar o conector de agente do Application Proxy"
+description: Como solucionar problemas que você poderá enfrentar ao instalar o conector de agente do Application Proxy
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
@@ -37,7 +37,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 **Objetivo:** Verifique se o computador do conector pode se conectar ao ponto de extremidade de registro do Application Proxy do AAD, bem como página de logon do Microsoft.
 
-1.  Abra um navegador e vá para a seguinte página da Web: <https://aadap-portcheck.connectorporttest.msappproxy.net> e verificar se a conectividade com data centers aos EUA Central e Leste dos EUA com portas 80 e 443 está funcionando.
+1.  Abra um navegador e vá para a seguinte página da Web: <https://aadap-portcheck.connectorporttest.msappproxy.net> e verifique se a conectividade com data centers aos EUA Central e Leste dos EUA com portas 80 e 443 está funcionando.
 
 2.  Se qualquer uma dessas portas não for bem-sucedida (não tem uma marca de seleção verde), verifique se o proxy do Firewall ou back-end tem portas 80 e 443 de \*.msappproxy.net definidas corretamente.
 
@@ -64,7 +64,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 **Para verificar se as credenciais estão corretas:**
 
-Conecte ao <https://login.microsoftonline.com> e use as mesmas credenciais. Verifique se o logon foi bem-sucedido. Você pode verificar a função de usuário acessando **Azure Active Directory** -&gt;**Usuários e grupos** -&gt;**Todos os usuários**. 
+Conecte-se ao <https://login.microsoftonline.com> e use as mesmas credenciais. Verifique se o logon foi bem-sucedido. Você pode verificar a função de usuário acessando **Azure Active Directory** -&gt;**Usuários e grupos** -&gt;**Todos os usuários**. 
 
 Selecione sua conta de usuário, em seguida, "função do Directory" no menu resultante. Verifique se a função selecionada é "Administrador Global". Se não for possível acessar qualquer uma das páginas ao longo dessas etapas, você não será um administrador global.
 

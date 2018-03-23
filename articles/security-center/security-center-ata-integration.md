@@ -1,24 +1,24 @@
 ---
-title: "Conexão do Microsoft Advanced Threat Analytics à Central de Segurança do Azure | Microsoft Docs"
-description: "Saiba como a Central de Segurança do Azure integra-se ao Microsoft Advanced Threat Analytics."
+title: Conexão do Microsoft Advanced Threat Analytics à Central de Segurança do Azure | Microsoft Docs
+description: Saiba como a Central de Segurança do Azure integra-se ao Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: e1b9e598af3b55c1d9591e5c1e529a80ae3319ca
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Conexão do Microsoft Advanced Threat Analytics à Central de Segurança do Azure
 Este documento ajuda você a configurar a integração entre o Microsoft Advanced Threat Analytics e a Central de Segurança do Azure.
@@ -61,7 +61,7 @@ Supondo que você já tenha o ATA instalado e funcionando corretamente localment
 12. Instale o agente no Centro do ATA. Durante a instalação, selecione a opção **Conectar o agente ao Azure Log Analytics (OMS)** e forneça a *ID do espaço de trabalho* e a *chave primária*, quando solicitado.
 
 
-Depois de concluir a instalação, a integração será concluída e você poderá ver os novos alertas enviados do ATA à Central de Segurança em **Alertas de Segurança** e **Pesquisa**. A solução aparece na página **Soluções de Segurança** em **Soluções conectadas**. 
+Depois de concluir a instalação, a integração será concluída e você poderá ver os novos alertas enviados do ATA à Central de Segurança no resultado da **Pesquisa**. A solução aparece na página **Soluções de Segurança** em **Soluções conectadas**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu como conectar o Microsoft ATA à Central de Segurança. Para saber mais sobre a Central de Segurança, confira estes artigos:

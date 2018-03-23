@@ -1,9 +1,9 @@
 ---
-title: "Criar alertas do log de atividades e gerenciá-los usando a nova experiência de Alertas (versão prévia) no Monitor Azure| Microsoft Docs"
-description: "Este artigo fornece informações sobre como criar alertas do log de atividades a partir da guia Alertas (versão prévia) no Azure Monitor. Este artigo detalha a nova experiência do usuário para esse recurso."
+title: Criar alertas do log de atividades e gerenciá-los usando a nova experiência de Alertas (versão prévia) no Monitor Azure| Microsoft Docs
+description: Este artigo fornece informações sobre como criar alertas do log de atividades a partir da guia Alertas (versão prévia) no Azure Monitor. Este artigo detalha a nova experiência do usuário para esse recurso.
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Crie alertas do log de atividades usando a nova experiência de Alertas (versão prévia)
 
@@ -89,7 +89,7 @@ Use este procedimento:
 
      ![Selecionar o destino](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Em ** Critérios de destino, clique em **adicionar critérios**, selecione o tipo de sinal como **Log de atividades**.
+    - Em **Critérios de destino**, clique em **adicionar critérios**, selecione o tipo de sinal como **Log de atividades**.
 
     - Selecione o sinal da lista exibida.
 
@@ -111,7 +111,7 @@ Use este procedimento:
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. Em **definir regras de alerta,** forneça os detalhes a seguir:
+4. Em **definir detalhes de regras de alerta,** forneça os detalhes a seguir:
 
     - **Nome da regra de alerta** – nome da nova regra de alerta
     - **Descrição** – Descrição para a nova regra de alerta

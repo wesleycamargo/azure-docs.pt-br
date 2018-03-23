@@ -1,8 +1,8 @@
 ---
-title: "Criação visual no Azure Data Factory | Microsoft Docs"
-description: "Saiba como usar a criação visual no Azure Data Factory"
+title: Criação visual no Azure Data Factory | Microsoft Docs
+description: Saiba como usar a criação visual no Azure Data Factory
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 A experiência (UX) da interface do usuário do Azure Data Factory permite criar e implantar visualmente recursos para seu data factory sem ter que gravar nenhum código. Você pode arrastar atividades para uma tela de pipeline, realizar execuções de teste, depurar iterativamente e implantar e monitorar as execuções do pipeline. Há duas abordagens para usar a UX para executar a criação visual:
@@ -39,6 +39,9 @@ Quando você usa a UX **Tela de criação** para criar diretamente com o serviç
 
 ## <a name="author-with-vsts-git-integration"></a>Criar com a integração do Git do VSTS
 A criação visual com a integração do Git do VSTS oferece suporte ao controle do código-fonte e à colaboração para trabalhar em seus pipelines de data factory. Você pode associar um data factory com um repositório de conta do Git do VSTS para controle do código-fonte, colaboração, controle de versão e assim por diante. Uma única conta do Git do VSTS pode ter vários repositórios, mas um repositório do Git do VSTS pode ser associado somente a um data factory. Se não tiver uma conta ou repositório do VSTS, siga [estas instruções](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) para criar seus recursos.
+
+> [!NOTE]
+> Um pipeline do Data Factory não pode acessar arquivos armazenados em um repositório Git do VSTS. Como resultado, não será possível armazenar arquivos que usados pelas atividades de pipeline do Data Factory - por exemplo, arquivos de dados e arquivos de script - em um repositório Git do VSTS.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurar o repositório do Git do VSTS com o Azure Data Factory
 Você pode configurar um repositório do GIT do VSTS com um data factory por meio de dois métodos.

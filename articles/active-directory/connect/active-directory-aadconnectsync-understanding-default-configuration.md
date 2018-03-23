@@ -1,11 +1,11 @@
 ---
-title: "Sincronização do Azure AD Connect: práticas noções básicas sobre a configuração padrão | Microsoft Docs"
-description: "Este artigo descreve a configuração padrão na sincronização do Azure AD Connect."
+title: 'Sincronização do Azure AD Connect: práticas noções básicas sobre a configuração padrão | Microsoft Docs'
+description: Este artigo descreve a configuração padrão na sincronização do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
 Este artigo explica as regras da configuração pronta para uso. Ele documenta as regras e como elas afetarão a configuração. Ele também o orienta durante a configuração padrão da sincronização do Azure AD Connect. O objetivo é que o leitor compreenda como o modelo de configuração, chamado de provisionamento declarativo, está funcionando em um exemplo do mundo real. Este artigo pressupõe que você já instalou e configurou a sincronização do Azure AD Connect usando o assistente de instalação.
@@ -50,7 +50,7 @@ Os seguintes objetos de usuário **não** estão sincronizados ao AD do Azure:
 * Não sincronize objetos que não funcionem no Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Essa máscara de bit (&amp; H21C07000) filtraria os objetos a seguir:
-  * Pasta pública habilitada para email
+  * Pasta pública habilitada para Email (em versão prévia desde a versão 1.1.524.0)
   * Caixa de correio do Atendedor do sistema
   * Caixa de correio do banco de dados de correio (caixa de correio do sistema)
   * Grupo de segurança universal (não se aplica a um usuário, mas está presente por motivos herdados)

@@ -1,12 +1,12 @@
 ---
-title: "Visão geral do Azure Load Balancer Standard | Microsoft Docs"
-description: "Visão geral dos recursos do Azure Load Balancer Standard"
+title: Visão geral do Azure Load Balancer Standard | Microsoft Docs
+description: Visão geral dos recursos do Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Visão geral do Azure Load Balancer Standard (versão prévia)
 
@@ -327,7 +327,7 @@ Os SKUs não são mutáveis. Siga as etapas nesta seção para mover de um SKU d
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O Load Balancer Padrão está disponível atualmente em todas as regiões de nuvem pública.
+O Load Balancer Standard está disponível atualmente em todas as regiões de nuvem pública, exceto o Oeste dos EUA.
 
 >[!IMPORTANT]
 > Por um curto período, o acesso a regiões fora das regiões de lançamento iniciais (Leste dos EUA 2, Centro dos EUA, Norte da Europa, Região Central Ocidental dos EUA, Europa Ocidental, Sudeste da Ásia) exige o registro de recursos de assinatura adicionais (AllowLBPreviewWave2 e AllowLBPreviewWave3).  [Siga estas etapas](#additionalpreviewregions). Execute todas elas, mesmo se você já tiver se inscrito em AllowLBPreview.
@@ -467,6 +467,7 @@ As seguintes limitações se aplicam no momento da versão prévia e estão suje
 - [Alertas do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são compatíveis no momento.
 - O Portal ainda não dá suporte para as regiões de visualização expandida.  Use as ferramentas de cliente como modelos, Azure CLI 2.0 ou PowerShell como solução alternativa.
 - Não há suporte para operações de movimentação de assinatura.
+- Não disponível no Oeste dos EUA.
 
 
 ## <a name="next-steps"></a>Próximas etapas

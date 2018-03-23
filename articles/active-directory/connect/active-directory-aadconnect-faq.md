@@ -1,8 +1,8 @@
 ---
 title: Perguntas frequentes sobre o Azure Active Directory | Microsoft Docs
-description: "Esta página tem perguntas frequentes sobre o Azure AD Connect."
+description: Esta página tem perguntas frequentes sobre o Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
-ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas frequentes sobre o Azure Active Directory Connect
 
@@ -66,7 +66,7 @@ Use as diretrizes descritas no artigo [Renovar certificados](active-directory-aa
 
 ## <a name="environment"></a>Ambiente
 **P: É possível renomear o servidor após a instalação do Azure AD Connect?**  
-Não. Alterar o nome do servidor fará com que o mecanismo de sincronização não consiga se conectar ao banco de dados SQL e o serviço não poderá iniciar.
+Nº Alterar o nome do servidor fará com que o mecanismo de sincronização não consiga se conectar ao banco de dados SQL e o serviço não poderá iniciar.
 
 ## <a name="identity-data"></a>Dados de identidade
 **P: O atributo UPN (userPrincipalName) no AD do Azure não coincide com o UPN local - por quê?**  
@@ -78,7 +78,7 @@ Consulte estes artigos:
 Você também pode configurar o Azure AD para permitir que o mecanismo de sincronização atualize o userPrincipalName da forma descrita em [Azure AD Connect sync service features (Recursos do serviço de sincronização do Azure AD Connect)](active-directory-aadconnectsyncservice-features.md).
 
 **P: Há suporte para a correspondência suave de objetos de Grupo/Contato do Azure AD no local com objetos de Grupo/Contato existentes do Azure AD?**  
-Não, não há suporte para esse recurso no momento.
+Sim, com base no proxyAddress.  A correspondência suave não tem suporte para grupos que não são habilitados para email.
 
 **P: Há suporte para o atributo ImmutableId definido manualmente em objetos de Grupo/Contato existentes do Azure AD para correspondência rígida com objetos de Grupo/Contato do AD locais?**  
 Não, não há suporte para esse recurso no momento.
@@ -88,7 +88,7 @@ Não, não há suporte para esse recurso no momento.
 Com exceção dos cmdlets documentados neste site, não há suporte para outros cmdlets do PowerShell encontrados no Azure AD Connect para uso do cliente.
 
 **P: Posso usar a opção "Exportação do servidor/importação do servidor" encontrada no *Synchronization Service Manager* para mover a configuração entre servidores?**  
-Não. Essa opção não irá recuperar todos os parâmetros de configuração e não deve ser usada. Em vez disso, você deve usar o assistente para criar a configuração básica no segundo servidor e usar o editor de regra de sincronização para gerar scripts do PowerShell para mover qualquer regra personalizada entre servidores. Confira [Migração Swing](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
+Nº Essa opção não irá recuperar todos os parâmetros de configuração e não deve ser usada. Em vez disso, você deve usar o assistente para criar a configuração básica no segundo servidor e usar o editor de regra de sincronização para gerar scripts do PowerShell para mover qualquer regra personalizada entre servidores. Confira [Migração Swing](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
 
 **P: As senhas podem ser armazenadas em cache para a página de entrada do Azure, e isso pode ser evitado, já que contém um elemento de entrada de senha com o atributo de preenchimento automático = "false"?**</br>
 No momento, não há suporte para a modificação dos atributos HTML do campo de entrada de Senha, incluindo a marca de preenchimento automático. Estamos trabalhando em um recurso que permitirá Javascript personalizado, e permitirá que você adicione qualquer atributo ao campo de senha. Isso deve ser disponibilizado no último semestre de 2017.
@@ -97,9 +97,9 @@ No momento, não há suporte para a modificação dos atributos HTML do campo de
 Atualmente, não há suporte para a modificação dos atributos HTML da página de entrada. Estamos trabalhando em um recurso que permitirá Javascript personalizado, e permitirá que você adicione qualquer atributo ao campo de senha. Isso deve ser disponibilizado no último semestre de 2017.
 
 **P: Existe uma maneira de evitar sessões simultâneas?**</br>
-Não.
+Nº
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 **P: Como posso obter ajuda com o Azure AD Connect?**
 
 [Pesquise a Base de Dados de Conhecimento (KB) Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)

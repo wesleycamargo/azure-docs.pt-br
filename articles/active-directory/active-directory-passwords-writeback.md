@@ -1,26 +1,26 @@
 ---
 title: SSPR do Azure AD com write-back de senha | Microsoft Docs
-description: "Usar o Azure AD e o Azure AD Connect para o write-back de senhas para um diretório local"
+description: Usar o Azure AD e o Azure AD Connect para o write-back de senhas para um diretório local
 services: active-directory
-keywords: "Gerenciamento de senha do Active Directory, gerenciamento de senha, autoatendimento de redefinição de senha do Azure AD"
-documentationcenter: 
+keywords: Gerenciamento de senha do Active Directory, gerenciamento de senha, autoatendimento de redefinição de senha do Azure AD
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="password-writeback-overview"></a>Visão geral de write-back de senha
 
@@ -31,6 +31,7 @@ O write-back de senha fornece os seguintes recursos:
 * **Fornece comentários sem atraso** – o write-back de senha é uma operação síncrona. Os usuários serão notificados imediatamente se suas senhas não atenderem à política ou se não puderem ser redefinidas nem alteradas por qualquer motivo.
 * **É compatível com a redefinição de senhas de usuários que usam os AD FS (Serviços de Federação do Active Directory) ou outras tecnologias de federação**: com o write-back de senha, desde que as contas dos usuários federados sejam sincronizadas no locatário do Azure AD, eles poderão gerenciar suas senhas do Active Directory local da nuvem.
 * **É compatível com a redefinição de senhas de usuários que usam a** [sincronização de hash de senha](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): quando o serviço de redefinição de senha detecta que uma conta de usuário sincronizado está habilitada para a sincronização de hash de senha, redefinimos a senha local e na nuvem dessa conta simultaneamente.
+* **É compatível com a redefinição de senhas de usuários que usam Autenticação de Passagem**: com o write-back de senha, desde que as contas da Autenticação de Passagem sejam sincronizadas no locatário do Azure AD, eles poderão gerenciar suas senhas do Active Directory local da nuvem.
 * **É compativel com alterações de senhas no painel de acesso e no Office 365**: quando os usuários federados ou sincronizados com senha alteram suas senhas expiradas ou não expiradas, fazemos o write-back das senhas para seu ambiente do Active Directory local.
 * **É compatível com write-back de senhas quando um administrador as redefine no portal do Azure**: sempre que um administrador redefine uma senha de usuário no [portal do Azure](https://portal.azure.com), se esse usuário for federado ou sincronizado com senha, definiremos a senha escolhida pelo administrador no Active Directory local também. Essa funcionalidade não é compatível atualmente com o Portal de Administração do Office.
 * **Impõe políticas de senha do Active Directory local**: quando um usuário redefine sua senha, verificamos se ela atende à sua política do Active Directory local antes de confirmá-la nesse diretório. Essa revisão inclui a verificação do histórico, da complexidade, do tempo, dos filtros de senha e de qualquer outra restrição de senha que você tenha definido no Active Directory local.

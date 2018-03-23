@@ -1,11 +1,11 @@
 ---
-title: "Solucionar problemas de falha de Backup do Azure: indisponível no status de agente convidado | Microsoft Docs"
-description: "Sintomas, causas e resoluções para falhas do Backup do Azure relacionados a agente, extensão e discos."
+title: 'Solucionar problemas de falha de Backup do Azure: indisponível no status de agente convidado | Microsoft Docs'
+description: Sintomas, causas e resoluções para falhas do Backup do Azure relacionados a agente, extensão e discos.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 keywords: Backup do Azure; agente da VM; conectividade de rede;
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -30,9 +30,6 @@ Este artigo fornece etapas de solução de problemas que podem ajudar você a re
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agente de VM não consegue se comunicar com o Backup do Azure
 
 Mensagem de erro: "Agente de VM não consegue se comunicar com o Backup do Azure"
-
-> [!NOTE]
-> Se os backups do Azure de VM do Linux falharem com este erro a partir de 4 de janeiro de 2018, execute o seguinte comando na VM e, em seguida, repita os backups: `sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
 
 Depois de registrar e agendar uma VM para o serviço de Backup, o Backup iniciará o trabalho comunicando-se com o agente de VM para obter um instantâneo pontual. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Quando um instantâneo não é disparado, o backup pode falhar. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:
 
@@ -58,9 +55,8 @@ Mensagem de erro: "Falha na operação da extensão VMSnapshot"
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
 **Causa 1: [não é possível recuperar o status do instantâneo ou não é possível obter o instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 2: [a extensão de backup falha ao ser atualizada ou carregada](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 3: [a VM não tem acesso à Internet](#the-vm-has-no-internet-access)**  
-**Causa 4: [o agente está instalado na VM, mas sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 5: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Causa 3: [o agente está instalado na VM, mas sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 4: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Falha no backup porque o agente de VM está sem resposta
 
@@ -168,7 +164,7 @@ A maioria das falhas relacionadas ao agente ou relacionadas à extensão para VM
 Se precisarmos do registro detalhado para waagent, siga estas etapas:
 
 1. No arquivo /etc/waagent.conf, localize a seguinte linha: **habilitar o log detalhado (y | n)**
-2. Altere o valor **Logs.Verbose** de *n* para *y*.
+2. Altere o valor **Logs.Verbose** de *n* para *s*.
 3. Salve a alteração e, em seguida, reinicie o waagent, completando as etapas descritas anteriormente nesta seção.
 
 ###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Não é possível recuperar o status do instantâneo ou não é possível obter o instantâneo
@@ -179,7 +175,6 @@ As seguintes condições podem causar falha na tarefa de instantâneo:
 
 | Causa | Solução |
 | --- | --- |
-| A máquina virtual tem o backup do SQL Server configurado. | Por padrão, o backup de VM executa um backup completo do VSS (Serviço de Cópias de Sombra de Volume) em VMs do Windows. Nas VMs que executam servidores baseados no SQL Server e em que o backup do SQL Server está configurado, pode ocorrer atrasos na execução do instantâneo.<br><br>Se houver uma falha de backup devido a um problema de instantâneo, defina a seguinte chave do Registro:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | O status da VM foi informado incorretamente porque a VM foi desligada no protocolo RDP. | Se você desligar a VM no RDP, verifique o portal para determinar se o status da VM está correto. Se não estiver correto, desligue a VM no portal usando a opção de **Desligar** no painel de VM. |
 | A VM não pode obter o endereço do host ou da malha do DHCP. | O DHCP deve estar habilitado no convidado para que o backup da VM IaaS funcione. Se a VM não puder obter o endereço do host ou da malha por meio da resposta 245 do DHCP, ela não poderá baixar ou executar nenhuma extensão. Se você precisar de um endereço IP privado estático, configure-o usando a plataforma. A opção DHCP na VM deve ser ativada. Para saber mais, veja [Definir um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
@@ -188,12 +183,7 @@ Se as extensões não puderem ser carregadas, o backup falhará porque não é p
 
 #### <a name="solution"></a>Solução
 
-**Para convidados do Windows:** verifique se o serviço iaasvmprovider está habilitado e tem um tipo de inicialização *automática*. Se o serviço não estiver configurado dessa forma, habilite o serviço para determinar se o próximo backup será bem-sucedido.
-
-**Para convidados do Linux:** verifique se a versão mais recente do VMSnapshot para Linux (a extensão usada pelo Backup) é a 1.0.91.0.<br>
-
-
-Se a extensão de backup ainda falhar ao ser atualizada ou carregada, desinstale a extensão para forçar a extensão VMSnapshot a ser recarregada. A próxima tentativa de backup recarregará a extensão.
+Desinstale a extensão para forçar o recarregamento da extensão VMSnapshot. A próxima tentativa de backup recarregará a extensão.
 
 Para desinstalar a extensão:
 

@@ -1,8 +1,8 @@
 ---
-title: "Ciência de dados com a Máquina Virtual da Ciência de Dados do Linux no Azure | Microsoft Docs"
-description: "Como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux."
+title: Ciência de dados com a Máquina Virtual da Ciência de Dados do Linux no Azure | Microsoft Docs
+description: Como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
@@ -27,13 +27,13 @@ As tarefas da ciência de dados demonstradas neste passo a passo seguem as etapa
 
 Analisamos o conjunto de dados [baseado em spam](https://archive.ics.uci.edu/ml/datasets/spambase) neste passo a passo. Este é um conjunto de emails marcados como spam ou ham (ou seja, não são spam) e também contém algumas estatísticas sobre o conteúdo dos emails. As estatísticas incluídas serão analisadas na próxima seção, exceto uma.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de criar uma Máquina Virtual da Ciência de Dados do Linux, você deve ter o seguinte:
 
 * Uma **assinatura do Azure**. Se você não tiver uma, consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free/).
 * Uma [**VM da ciência de dados do Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre como provisionar essa VM, consulte [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md).
 * [X2Go](http://wiki.x2go.org/doku.php) instalado em seu computador e aberto em uma sessão XFCE. Para obter informações sobre como instalar e configurar um **cliente X2Go**, confira [Instalando e configurando o cliente X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-* Para uma experiência mais suave de rolagem, alterne o sinalizador de gfx.xrender.enabled em about: config no navegador FireFox VMs. [Consulte mais aqui.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Além disso, considere mudar *mousewheel.enable_pixel_scrolling* para False. [Instruções aqui.](https://support.mozilla.org/en-US/questions/981140)
+* Para uma experiência mais suave de rolagem, alterne o sinalizador de gfx.xrender.enabled em about: config no navegador FireFox VMs. [Consulte mais aqui](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Além disso, considere mudar *mousewheel.enable_pixel_scrolling* para False. [Instruções aqui.](https://support.mozilla.org/en-US/questions/981140)
 * Uma **conta do AzureML**. Se você ainda não tiver, inscreva-se para ter uma nova na [home page do AzureML](https://studio.azureml.net/). Há uma camada de uso gratuita para ajudá-lo a começar.
 
 ## <a name="download-the-spambase-dataset"></a>Baixar o conjunto de dados baseado em spam
@@ -101,7 +101,7 @@ A coluna *spam* foi lida como um número inteiro, mas é realmente uma variável
 
     data$spam <- as.factor(data$spam)
 
-Para fazer algumas análises exploratórias, use o pacote [ggplot2](http://ggplot2.org/) , uma biblioteca de gráficos popular para R já está instalada na VM. Observe, dos dados de resumo exibidos anteriormente, temos as estatísticas de resumo sobre a frequência do caractere de ponto de exclamação. Iremos criar gráficos com as frequências aqui com os seguintes comandos:
+Para fazer algumas análises exploratórias, use o pacote [ggplot2](http://ggplot2.org/), uma biblioteca de gráficos popular para R já está instalada na VM. Observe, dos dados de resumo exibidos anteriormente, temos as estatísticas de resumo sobre a frequência do caractere de ponto de exclamação. Iremos criar gráficos com as frequências aqui com os seguintes comandos:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
@@ -360,7 +360,7 @@ A guia **Explorar** também permite gerar várias gráficos criteriosas. Para cr
 
 * Selecione **Distribuições**.
 * Verifique o **Histograma** quanto a **word_freq_remove** e **word_freq_you**.
-* Selecione **Executar**. Você deverá ver duas plotagens de densidade em uma janela de gráfico, na qual fica claro que a palavra "you" aparece com muito mais frequência nos emails que "remove".
+* Selecione **Executar**. Você deverá ver duas plotagens de densidade em uma janela de grafo, na qual fica claro que a palavra "you" aparece com muito mais frequência nos emails que "remove".
 
 As gráficos de correlação também são interessantes. Para criar uma:
 

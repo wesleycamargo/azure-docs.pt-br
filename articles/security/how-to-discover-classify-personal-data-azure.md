@@ -1,29 +1,29 @@
 ---
 title: Descobrir, identificar e classificar dados pessoais no Microsoft Azure | Microsoft Docs
-description: Saiba mais sobre como pesquisar, classificar, descobrir e identificar dados
+description: Pesquisar, classificar, descobrir e identificar dados no Azure pode ajudá-lo a estar em conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR)
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Descobrir, identificar e classificar dados pessoais no Microsoft Azure
 
-Este artigo fornece diretrizes sobre como descobrir, identificar e classificar dados pessoais em várias ferramentas e serviços do Azure, incluindo o uso do Catálogo de Dados do Azure, Azure Active Directory, Banco de Dados SQL, Power Query para clusters Hadoop no Azure HDInsight, Proteção de Informações do Azure, Azure Search e consultas SQL para o Azure Cosmos DB.
+Este artigo fornece diretrizes sobre como descobrir, identificar e classificar dados pessoais em várias ferramentas e serviços do Azure, incluindo o uso do Catálogo de Dados do Azure, Azure Active Directory, Banco de Dados SQL, Power Query para clusters Hadoop no Azure HDInsight, Proteção de Informações do Azure, Azure Search e consultas SQL para o Azure Cosmos DB. Essas ferramentas e processos podem ser usados para estar em conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR)
 
 ## <a name="scenario-problem-statement-and-goal"></a>Cenário, declaração do problema e meta
 
@@ -114,7 +114,7 @@ Para saber como criar seu banco de dados dessa forma, visite o tutorial [Criar u
 >[!Note]
 Os administradores do Windows tendem a usar o PowerShell, mas alguns preferem a CLI do Azure.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Como fazer para pesquisar dados pessoais no banco de dados SQL no portal do Azure?**
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Como fazer para pesquisar dados pessoais no banco de dados SQL no Portal do Azure?
 
 Use a ferramenta interna do editor de consultas no portal do Azure para pesquisar dados pessoais. Você fará logon na ferramenta usando o logon de administrador e a senha do SQL Server e, em seguida, inserirá uma consulta.
 

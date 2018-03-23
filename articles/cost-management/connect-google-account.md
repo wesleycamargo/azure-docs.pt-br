@@ -1,20 +1,20 @@
 ---
 title: Conectar uma conta do Google Cloud Platform ao Gerenciamento de Custos do Azure | Microsoft Docs
-description: "Conectar uma conta do Google Cloud Platform para exibição dos dados de uso e custo em relatórios do Gerenciamento de Custos."
+description: Conectar uma conta do Google Cloud Platform para exibição dos dados de uso e custo em relatórios do Gerenciamento de Custos.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/05/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 81a38f471ee1f2f8064a956eca121fd0e6feb235
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Conectar uma conta do Google Cloud Platform
 
@@ -73,4 +73,4 @@ Dentro de algumas horas, os relatórios de Gerenciamento de Custos mostrarão as
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre o Gerenciamento de Custos do Azure pelo Cloudyn, continue com o tutorial [Analisar o uso e os custos](./tutorial-review-usage.md) para Gerenciamento de Custos.
+- Para saber mais sobre o Gerenciamento de Custos do Azure, continue com o tutorial [Analisar o uso e os custos](./tutorial-review-usage.md) para Gerenciamento de Custos.

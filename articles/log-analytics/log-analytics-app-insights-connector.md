@@ -1,11 +1,11 @@
 ---
 title: Exibir dados do aplicativo do Azure Application Insights | Microsoft Docs
-description: "Use a solução Conector do Application Insights para diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o Application Insights."
+description: Use a solução Conector do Application Insights para diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o Application Insights.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gerenciamento Conector do Application Insights (versão prévia)
 
@@ -64,7 +64,7 @@ Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Appli
 Outros pontos a serem considerados:
 
 - Você pode vincular aplicativos do Application Insights somente a um único espaço de trabalho do Log Analytics.
-- Só é possível vincular os [recursos do Application Insights Standard ou Premium](https://azure.microsoft.com/pricing/details/application-insights) ao Log Analytics. No entanto, você pode usar a camada Gratuita do Log Analytics.
+- Só é possível vincular os [recursos do Application Insights Básico ou Enterprise](https://azure.microsoft.com/pricing/details/application-insights) ao Log Analytics. No entanto, você pode usar a camada Gratuita do Log Analytics.
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 

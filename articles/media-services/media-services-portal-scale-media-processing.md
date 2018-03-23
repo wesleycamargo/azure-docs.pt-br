@@ -1,11 +1,11 @@
 ---
-title: "Dimensionar o processamento de mídia usando o portal do Azure | Microsoft Docs"
-description: "Este tutorial orienta você pelas etapas do dimensionamento do processamento de mídia usando o portal do Azure."
+title: Dimensionar o processamento de mídia usando o portal do Azure | Microsoft Docs
+description: Este tutorial orienta você pelas etapas do dimensionamento do processamento de mídia usando o portal do Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f65ba489d70a3844169780c4680fcc43b3064b54
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>Alterar o tipo de unidade reservada
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 12/21/2017
 > 
 
 > [!NOTE]
-> Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, consulte [Introdução ao SDK de cliente Java para Serviços de Mídia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Para baixar o SDK mais recente do PHP para os Serviços de Mídia, procure a versão 0.5.7 do pacote do Microsoft/WindowsAzure no [Repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, confira [Introdução ao SDK de cliente Java para Serviços de Mídia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Para baixar o SDK mais recente do PHP para os Serviços de Mídia, procure a versão 0.5.7 do pacote do Microsoft/WindowAzure no [Repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Visão geral
 
@@ -54,11 +54,10 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas, fa�
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Na janela **Configurações**, selecione **Unidades reservadas de mídia**.
    
-    Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, use o controle deslizante **Unidades Reservadas de Mídia** .
+    Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, use o controle deslizante **Unidades Reservadas de Mídia** no canto superior da tela.
    
-    Para alterar o **TIPO DE UNIDADE RESERVADA**, pressione S1, S2 ou S3.
+    Para alterar o **TIPO DE UNIDADE RESERVADA**, clique na barra **Velocidade das unidades reservadas de processamento**. Em seguida, selecione o tipo de preço de que precisa: S1, S2 ou S3.
    
-    ![Página processadores](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. Pressione o botão SALVAR para salvar as alterações.
    
     As novas unidades reservadas são alocadas quando você pressiona SALVAR.

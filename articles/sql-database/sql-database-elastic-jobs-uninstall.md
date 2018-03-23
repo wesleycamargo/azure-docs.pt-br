@@ -1,25 +1,19 @@
 ---
-title: "Veja como desinstalar a ferramenta de trabalho de banco de dados elástico"
-description: "Saiba como desinstalar os componentes de trabalhos do banco de dados Elástico usando o portal do Azure do PowerShell."
+title: Veja como desinstalar a ferramenta de trabalho de banco de dados elástico
+description: Saiba como desinstalar os componentes de trabalhos do banco de dados Elástico usando o portal do Azure do PowerShell.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
+manager: craigg
+author: stevestein
 ms.service: sql-database
-ms.workload: Inactive
 ms.custom: scale out apps
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 5e665ee8cc9efacbd31111dc0458ad6096e457c0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: e6a86a3571301f6fa2a356714721daa141e696bf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Desinstalar componentes de trabalhos de banco de dados elástico
 Componentes de **trabalhos do Banco de Dados Elástico** podem ser desinstalados usando o portal do Azure ou o PowerShell.

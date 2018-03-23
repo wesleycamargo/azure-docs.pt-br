@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas da Sincronização de Dados SQL do Azure (versão prévia) | Microsoft Docs"
-description: "Saiba como solucionar problemas comuns com a Sincronização de Dados SQL do Azure (versão prévia)."
+title: Solução de problemas da Sincronização de Dados SQL do Azure (versão prévia) | Microsoft Docs
+description: Saiba como solucionar problemas comuns com a Sincronização de Dados SQL do Azure (versão prévia).
 services: sql-database
 ms.date: 11/13/2017
 ms.topic: article
@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Solucionar problemas com a Sincronização de Dados SQL do Azure (versão prévia)
 
@@ -135,7 +135,7 @@ Também habilite o log para todas as instalações executadas pelo Windows Insta
 
 Você obtém as mensagens de erro a seguir quando tenta usar o agente cliente:
 
-“Falha na sincronização com a exceção Erro ao tentar desserializar o parâmetro www.microsoft.com/.../05:GetBatchInfoResult. Consulte InnerException para obter mais detalhes.”
+“Falha na sincronização com a exceção Erro ao tentar desserializar o parâmetro www.microsoft.com/.../05:GetBatchInfoResult. Consulte InnerException para obter mais informações."
 
 “Mensagem de exceção interna: o tipo 'Microsoft.Synchronization.ChangeBatch' é um tipo de coleção inválido porque ele não tem um construtor padrão.”
 
@@ -436,7 +436,7 @@ Não é possível excluir um grupo de sincronização em até três minutos apó
 Se você restaurar um banco de dados perdido ou corrompido de um backup, poderá haver não convergência de dados no grupo de sincronização ao qual pertence o banco de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre a Sincronização de Dados SQL (versão prévia), consulte:
+Para obter mais informações sobre a Sincronização de Dados SQL (versão prévia), veja:
 
 -   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-sync-data.md)  
 -   [Configurar a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-get-started-sql-data-sync.md)  

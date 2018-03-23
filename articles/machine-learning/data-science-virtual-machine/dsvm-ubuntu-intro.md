@@ -1,8 +1,8 @@
 ---
-title: "Provisionar uma Máquina Virtual de Ciência de Dados do Linux (Ubuntu) no Azure | Microsoft Docs"
-description: "Configure e crie uma Máquina Virtual de Ciência de Dados para Linux (Ubuntu) no Azure para realizar a análise e o aprendizado de máquina."
+title: Provisionar uma Máquina Virtual de Ciência de Dados do Linux (Ubuntu) no Azure | Microsoft Docs
+description: Configure e crie uma Máquina Virtual de Ciência de Dados para Linux (Ubuntu) no Azure para realizar a análise e o aprendizado de máquina.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -73,7 +73,7 @@ Não há encargos de software para esta imagem da VM de ciência de dados. Você
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Outras versões da Máquina Virtual de Ciência de Dados
 A imagem do [CentOS](linux-dsvm-intro.md) também está disponível, com muitas das mesmas ferramentas que a imagem do Ubuntu. Uma imagem do [Windows](provision-vm.md) também está disponível.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de criar uma Máquina Virtual de Ciência de Dados para Linux, você deve ter uma assinatura do Azure. Para obter uma, confira [Obter avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar sua Máquina Virtual de Ciência de Dados para Linux
@@ -175,7 +175,7 @@ DIGITS está disponível como um serviço, chamado de dígitos. Inicie o serviç
 DIGITS também é instalado como um módulo do Python no ambiente raiz Conda.
 
 #### <a name="tensorflow"></a>TensorFlow
-TensorFlow é a biblioteca de aprendizado aprofundado do Google. É uma biblioteca de software de código-fonte aberto para computação numérica usando gráficos de fluxo de dados. O TensorFlow está disponível no ambiente de py35 do Python e alguns blocos de anotações de amostra estão incluídos no JupyterHub.
+TensorFlow é a biblioteca de aprendizado aprofundado do Google. É uma biblioteca de software de código-fonte aberto para computação numérica usando grafos de fluxo de dados. O TensorFlow está disponível no ambiente de py35 do Python e alguns blocos de anotações de amostra estão incluídos no JupyterHub.
 
 #### <a name="theano"></a>Theano
 Theano é uma biblioteca do Python para computação numérica eficiente. Ela está disponível nos ambientes raiz e py35 do Python. 
@@ -212,10 +212,10 @@ O Python 3.5 está instalado em */anaconda/envs/py35/bin*.
 
 Para invocar a sessão interativa do Python, basta digitar **Python** no shell. Se estiver em uma interface gráfica ou tiver a configuração do encaminhamento X11, você poderá digitar o comando **pycharm** para iniciar o IDE do PyCharm Python.
 
-Para instalar bibliotecas Python adicionais, execute o comando ```conda``` ou ````pip```` sob sudo e forneça o caminho completo do Gerenciador de pacotes do Python (conda ou pip) para instalar no ambiente correto de Python. Por exemplo:
+Para instalar bibliotecas Python adicionais, execute o comando ```conda``` ou ````pip```` sob sudo e forneça o caminho completo do Gerenciador de pacotes do Python (conda ou pip) para instalar no ambiente correto de Python. Por exemplo: 
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Notebook Jupyter
@@ -402,7 +402,7 @@ Agora, uma interface gráfica é aberta com um conjunto de guias. Aqui estão as
 5. Clique em **Desenhar** para exibir a árvore de decisão.
 6. Clique no botão de opção **Floresta** e clique em **Executar** para compilar uma floresta aleatória.
 7. Clique na guia **Avaliar** .
-8. Clique no botão de opção **Risco** e em **Executar** para exibir duas plotagens de desempenho de Risco (Cumulativo).
+8. Clique no botão de opção **Risco** e em **Executar** para exibir duas gráficos de desempenho de Risco (Cumulativo).
 9. Clique a guia **Log** para mostrar o código R gerado das operações anteriores.
    (Devido a um bug na versão atual do Rattle, você precisa inserir um caractere *#* na frente de *Exportar este log...* no texto do log.)
 10. Clique no botão **Exportar** para salvar o script de R chamado *weather_script.R* na pasta base.

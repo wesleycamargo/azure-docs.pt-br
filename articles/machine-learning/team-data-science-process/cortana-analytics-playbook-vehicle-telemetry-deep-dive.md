@@ -1,8 +1,8 @@
 ---
-title: "Aprofundamento sobre como prever a integridade do veículo e os hábitos de condução – Azure | Microsoft Docs"
-description: "Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução."
+title: Aprofundamento sobre como prever a integridade do veículo e os hábitos de condução – Azure | Microsoft Docs
+description: Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Guia estratégico da Solução de Análise de Telemetria do Veículo: aprofundamento na solução
 Este menu fornece links para as seções deste guia estratégico: 
@@ -40,7 +40,7 @@ Um simulador de telemática do veículo é incluído como parte desta solução,
 
 Este conjunto de dados formatado em JSON contém o esquema a seguir.
 
-| Coluna | Descrição | Valores |
+| Coluna | DESCRIÇÃO | Valores |
 | --- | --- | --- |
 | VIN |VIN gerado aleatoriamente |Obtido de uma lista mestre de 10.000 VINs gerados aleatoriamente |
 | Temperatura externa |A temperatura externa onde o veículo está sendo conduzido |Número gerado aleatoriamente de 0 a 100 |
@@ -668,7 +668,7 @@ Este documento contém um detalhamento da Solução de Análise da Telemetria do
 ### <a name="references"></a>Referências
 
 * [Solução Vehicle Telematics Simulator do Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) 
-* [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
+* [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [SDK dos Hubs de Eventos do Azure para ingestão de fluxo](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Funcionalidades de movimentação de dados do Azure Data Factory](../../data-factory/v1/data-factory-data-movement-activities.md)

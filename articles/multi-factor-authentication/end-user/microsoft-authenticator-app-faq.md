@@ -1,8 +1,8 @@
 ---
 title: Ajuda e suporte para o aplicativo Microsoft Authenticator | Microsoft Docs
-description: "Fornece uma lista de perguntas frequentes e respostas relacionadas ao aplicativo Microsoft Authentication e ao Autenticação Multifator do Azure."
+description: Fornece uma lista de perguntas frequentes e respostas relacionadas ao aplicativo Microsoft Authentication e ao Autenticação Multifator do Azure.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -28,6 +28,14 @@ Este artigo responde às perguntas comuns que recebemos sobre o aplicativo Micro
 O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator, e é o aplicativo recomendado ao usar a Autenticação Multifator do Azure. O aplicativo Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Quais dados o Authenticator armazena em meu nome e como posso excluí-lo?
+
+O Microsoft Authenticator armazena as informações de conta que você cria quando adiciona uma conta. Quando você usa o Authenticator, um log de diagnóstico é criado para fins de depuração e armazena dados úteis para ajudar a Microsoft a diagnosticar problemas imprevistos. Você pode acessar os dados de log, abrindo **Ajuda** > **Enviar Logs** > **Exibir logs**.
+
+Você pode excluir os dados excluindo o bloco da conta. Isso excluirá todas as informações de conta que estão sendo usadas pelo aplicativo incluindo os logs. 
+
+Para saber mais sobre como a Microsoft usa os dados, visite: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Para que servem os códigos no aplicativo? Por que a contagem diminui?
 

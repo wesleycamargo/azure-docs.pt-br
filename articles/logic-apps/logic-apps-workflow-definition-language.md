@@ -1,11 +1,11 @@
 ---
-title: "Esquema de linguagem de definição de fluxo de trabalho - Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Define fluxos de trabalho com base no esquema de definição de fluxo de trabalho para Aplicativos Lógico do Azure"
+title: Esquema de linguagem de definição de fluxo de trabalho - Aplicativo Lógico do Azure | Microsoft Docs
+description: Define fluxos de trabalho com base no esquema de definição de fluxo de trabalho para Aplicativos Lógico do Azure
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
 ms.workload: integration
@@ -126,14 +126,14 @@ Os valores JSON na definição podem ser literais ou podem ser expressões que s
 > [!NOTE]
 > Algumas expressões obtêm seus valores de ações de tempo de execução que podem não existir no início da execução. Você pode usar **funções** para ajudar a recuperar alguns desses valores.  
   
-As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Quando um valor JSON tiver sido determinado como uma expressão, o corpo da expressão é extraído, removendo a arroba (@). Se for necessária uma cadeia de caracteres literal que comece com @, essa cadeia de caracteres deve ser substituída usando @@. Os exemplos a seguir mostram como as expressões são avaliadas.  
+As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Quando um valor JSON tiver sido determinado como uma expressão, o corpo da expressão é extraído, removendo a arroba \(\@). Se for necessária uma cadeia de caracteres literal que comece com \@, essa cadeia de caracteres deve ser substituída usando \@@. Os exemplos a seguir mostram como as expressões são avaliadas.  
   
 |Valor JSON|Result|  
 |----------------|------------|  
 |"parameters"|Os “parâmetros” dos caracteres são retornados.|  
 |"parameters[1]"|Os “parâmetros[1]” dos caracteres são retornados.|  
-|"@@"|Uma cadeia de caracteres de 1 caractere que contém '@' será retornada.|  
-|" @"|Uma cadeia de caracteres de 2 caracteres que contém ' @' será retornada.|  
+|\"\@\@\"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
+|\" \@\"|Uma cadeia de caracteres de 2 caracteres que contém \' \@\' será retornada.|  
   
 Com *interpolação de cadeia de caracteres*, as expressões também podem aparecer dentro de cadeias de caracteres onde as expressões são encapsuladas em `@{ ... }`. Por exemplo:  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
@@ -142,12 +142,12 @@ O resultado é sempre uma cadeia de caracteres, o que torna esse recurso semelha
 |Valor JSON|Result|  
 |----------------|------------|  
 |"@parameters('myString')"|Retorna `sampleString` como uma cadeia de caracteres.|  
-|"@{parameters('myString')}"|Retorna `sampleString` como uma cadeia de caracteres.|  
+|\"\@{parameters('myString')}"|Retorna `sampleString` como uma cadeia de caracteres.|  
 |"@parameters('myNumber')"|Retorna `42` como um *número*.|  
-|"@{parameters('myNumber')}"|Retorna `42` como uma *cadeia de caracteres*.|  
-|"A resposta é: @{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: 42`.|  
+|\"\@{parameters('myNumber')}"|Retorna `42` como uma *cadeia de caracteres*.|  
+|"A resposta é: \@{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: 42`.|  
 |"@concat('A resposta é: ', string(parameters('myNumber')))"|Retorna a cadeia de caracteres `Answer is: 42`|  
-|"A resposta é: @@{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: @{parameters('myNumber')}`.|  
+|"A resposta é: \@\@{parameters('myNumber')}"|Retorna a cadeia de caracteres `Answer is: @{parameters('myNumber')}`.|  
   
 ## <a name="operators"></a>Operadores  
 

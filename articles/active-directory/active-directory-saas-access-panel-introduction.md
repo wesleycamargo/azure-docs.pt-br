@@ -1,8 +1,8 @@
 ---
-title: "O que é o painel de acesso no Azure Active Directory? | Microsoft Docs"
-description: "Saiba como usar variações do painel de acesso (navegador da Web, aplicativo Android, iPhone e iPad) para acessar os aplicativos SaaS."
+title: O que é o painel de acesso no Azure Active Directory? | Microsoft Docs
+description: Saiba como usar variações do painel de acesso (navegador da Web, aplicativo Android, iPhone e iPad) para acessar os aplicativos SaaS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
-O painel de acesso é um portal baseado na Web. Caso você tenha uma conta corporativa ou de estudante no Azure Active Directory (Azure AD), pode usar o painel de acesso para exibir e iniciar aplicativos baseados em nuvem para os quais um administrador do Azure AD concedeu acesso. Você também pode usar os recursos de gerenciamento de grupo de autoatendimento e aplicativo por meio do painel de acesso.
+O painel de acesso é um portal baseado na Web. Se você tiver uma conta de estudante ou corporativa no Azure Active Directory (Azure AD), você pode usar o painel de acesso para exibir e iniciar aplicativos baseados em nuvem para os quais um administrador do Azure AD tenha concedido acesso. Você também pode usar os recursos de gerenciamento de grupo de autoatendimento e aplicativo por meio do painel de acesso.
 
 O painel de acesso é separado do portal do Azure. Não é preciso ter uma assinatura do Azure.
 
@@ -68,11 +68,14 @@ Quando está autenticado, você pode interagir com os aplicativos integrados ao 
 
 O painel de acesso exige, pelo menos, um navegador com suporte para JavaScript e CSS habilitado. Para entrar nos aplicativos usando SSO (logon único) baseado em senha, é preciso ter a extensão do painel de acesso instalada no seu navegador. A extensão é baixada automaticamente quando você seleciona um aplicativo configurado para SSO baseado em senha.
 
+O instalador é específico da arquitetura. Se clicar no link de download, você só obterá o instalador para a arquitetura do sistema operacional em que está trabalhando no momento. Se você é um administrador de implantação de aplicativos, certifique-se de visitar o link de download de um dispositivo de 64 bits e 32 bits para obter os dois instaladores.
+
+
 A extensão do painel de acesso está atualmente disponível para:
-- **Edge**: no Windows 10 Anniversary Edition ou posterior. 
+- **Edge**: na Edição de Aniversário do Windows 10 ou posterior. 
 - **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
-- **Internet Explorer 8, 9, 10 ou 11**: no Windows 7 ou posterior (suporte limitado).
+- **Internet Explorer 8, 9, 10, 11**: no Windows 7 ou posterior (suporte limitado).
 
 ## <a name="my-apps-secure-sign-in-extension"></a>Extensão de Entrada Segura dos Meus Aplicativos
 Para entrar com logon único baseado em senha, você deve usar a extensão. Depois que a extensão estiver instalada, você pode entrar para habilitar recursos adicionais selecionando **Entrar para começar**. 
@@ -86,7 +89,7 @@ Para entrar com logon único baseado em senha, você deve usar a extensão. Depo
 >
 
 Caso esteja usando uma URL dos Meus Aplicativos diferente de `https://myapps.microsoft.com`, configure sua URL padrão fazendo o seguinte:
-1. Enquanto *não* estiver conectado à extensão, clique com o botão direito do mouse no ícone da extensão.
+1. Enquanto você *não* estiver conectado à extensão, clique com o botão direito do mouse no ícone de extensão.
 2. No menu, selecione **URL dos Meus aplicativos**.
 3. Selecione a URL padrão.
 4. Selecione o ícone da extensão.

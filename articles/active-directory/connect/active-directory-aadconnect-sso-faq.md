@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Logon Único Contínuo – perguntas frequentes | Microsoft Docs"
-description: "Respostas às perguntas frequentes sobre o Logon Único Contínuo do Azure Active Directory."
+title: 'Azure AD Connect: Logon Único Contínuo – perguntas frequentes | Microsoft Docs'
+description: Respostas às perguntas frequentes sobre o Logon Único Contínuo do Azure Active Directory.
 services: active-directory
-keywords: "o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: perguntas frequentes
 
@@ -38,7 +38,16 @@ Nº O SSO Contínuo está disponível apenas na instância mundial do Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quais aplicativos tiram proveito da capacidade de parâmetro `domain_hint` ou `login_hint` do SSO Contínuo?
 
-Estamos no processo de compilação da lista de aplicativos que enviam esses parâmetros e aqueles que não. Se houver aplicativos nos quais você tenha interesse, avise-nos na seção de comentários.
+Veja abaixo uma lista parcial de aplicativos que enviam esses parâmetros para o Azure AD e, portanto, fornecem aos usuários uma experiência de logon silenciosa usando o SSO contínuo:
+
+| Nome do aplicativo | URL do aplicativo a ser usada |
+| -- | -- |
+| Painel de acesso | myapps.microsoft.com/contoso.com |
+| Outlook na Web | outlook.office365.com/contoso.com |
+
+Na tabela acima, substitua "contoso.com" por seu nome de domínio para obter as URLs do aplicativo certo para o seu locatário.
+
+Se houver outros aplicativos nos quais você tenha interesse, avise-nos na seção de comentários.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>O SSO Contínuo dá suporte ao `Alternate ID` como o nome de usuário, em vez de `userPrincipalName`?
 
@@ -66,7 +75,7 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Etapa 1. Obter lista de florestas do AD em que o SSO Contínuo foi habilitado
 
 1. Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+2. Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
 5. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.

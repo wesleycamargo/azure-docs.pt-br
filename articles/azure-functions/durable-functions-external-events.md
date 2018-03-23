@@ -1,12 +1,12 @@
 ---
-title: "Lidando com eventos externos nas Funções Duráveis – Azure"
-description: "Saiba como lidar com eventos externos na extensão de Funções Duráveis do Azure Functions."
+title: Lidando com eventos externos nas Funções Duráveis – Azure
+description: Saiba como lidar com eventos externos na extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 5ffbe6a7d74f0be2193d711d304f19e62ab08741
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Lidando com eventos externos nas Funções Duráveis (Azure Functions)
 
@@ -128,7 +128,7 @@ Internamente, `RaiseEventAsync` enfileira uma mensagem que é obtida pela funç�
 > [Saiba como configurar orquestrações eternas](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Executar um exemplo que aguarda eventos externos](durable-functions-counter.md)
+> [Executar um exemplo que aguarda eventos externos](durable-functions-phone-verification.md)
 
 > [!div class="nextstepaction"]
 > [Executar um exemplo que aguarda interação humana](durable-functions-phone-verification.md)

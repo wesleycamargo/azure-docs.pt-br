@@ -1,23 +1,23 @@
 ---
-title: "Erros de modelo inválido do Azure | Microsoft Docs"
-description: "Descreve como resolver erros de modelo inválido."
+title: Erros de modelo inválido do Azure | Microsoft Docs
+description: Descreve como resolver erros de modelo inválido.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolva erros de modelo inválido
 
@@ -38,9 +38,7 @@ A mensagem de erro depende do tipo de erro.
 
 Esse erro pode resultar de vários tipos diferentes de erros. Normalmente, ele envolve um erro de sintaxe ou estrutural no modelo.
 
-## <a name="solution"></a>Solução
-
-### <a name="solution-1---syntax-error"></a>Solução 1 – erro de sintaxe
+## <a name="solution-1---syntax-error"></a>Solução 1 – erro de sintaxe
 
 Se você receber uma mensagem de erro que indica a validação do modelo falhou, você poderá ter um problema de sintaxe em seu modelo.
 
@@ -59,7 +57,7 @@ Se você não fornecer a sintaxe correspondente, o modelo produzirá um valor di
 
 Quando você receber esse tipo de erro, examine cuidadosamente a sintaxe da expressão. Considere usar um editor JSON como o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) ou o [Visual Studio Code](resource-manager-vs-code.md) que pode avisá-lo sobre os erros de sintaxe.
 
-### <a name="solution-2---incorrect-segment-lengths"></a>Solução 2 – comprimentos de segmento incorretos
+## <a name="solution-2---incorrect-segment-lengths"></a>Solução 2 – comprimentos de segmento incorretos
 
 Outro erro de modelo inválido ocorre quando o nome do recurso não está no formato correto.
 
@@ -118,9 +116,9 @@ Ter os segmentos corretos pode ser difícil com os tipos de Resource Manager que
 }
 ```
 
-### <a name="solution-3---parameter-is-not-valid"></a>Solução 3 – o parâmetro não é válido
+## <a name="solution-3---parameter-is-not-valid"></a>Solução 3 – o parâmetro não é válido
 
-Se o modelo especificar os valores permitidos para um parâmetro e você fornecer um valor que não é um deles, você receberá uma mensagem semelhante ao erro a seguir:
+Se você fornecer um valor de parâmetro que não seja um dos valores permitidos, receberá uma mensagem semelhante ao erro a seguir:
 
 ```
 Code=InvalidTemplate;
@@ -129,12 +127,36 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-Verifique uma segunda vez os valores permitidos no modelo e forneça um durante a implantação.
+Verifique uma segunda vez os valores permitidos no modelo e forneça um durante a implantação. Para saber mais sobre os valores de parâmetro permitidos, confira a [seção Parâmetros dos modelos do Azure Resource Manager](resource-manager-templates-parameters.md).
 
-### <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 – Muitos grupos de recursos de destino
+## <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 – Muitos grupos de recursos de destino
 
 Se especificar mais de cinco grupos de recursos de destino em uma única implantação, você receberá esse erro. Considere a possibilidade de consolidar o número de grupos de recursos em sua implantação ou implantar alguns dos modelos como implantações separadas. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
 
-### <a name="solution-5---circular-dependency-detected"></a>Solução 5 – Dependência circular detectada
+## <a name="solution-5---circular-dependency-detected"></a>Solução 5 – Dependência circular detectada
 
 Você recebe esse erro quando recursos dependem entre si de uma maneira que impede que a implantação seja iniciado. Uma combinação de interdependências faz com que dois ou mais recursos aguardar para outros recursos que também estão aguardando. Por exemplo, recurso1 depende resource3 resource2 depende recurso1 e resource3 depende resource2. Geralmente você pode resolver esse problema removendo dependências desnecessárias.
+
+Para resolver uma dependência circular:
+
+1. No modelo, localize o recurso identificado na dependência circular. 
+2. Para esse recurso, examine o **dependsOn** propriedade e quaisquer usos da **referência** função para ver quais recursos ele depende. 
+3. Examine os recursos para ver quais recursos eles dependem. Siga as dependências até você perceber um recurso depende do recurso original.
+5. Para os recursos envolvidos na dependência circular, examine cuidadosamente todas as funções de **dependsOn** propriedade para identificar quaisquer dependências que não são necessários. Remova essas dependências. Se você não tiver certeza de que uma dependência é necessária, tente removê-lo. 
+6. Reimplante o modelo.
+
+Removendo valores do **dependsOn** propriedade pode causar erros quando você implanta o modelo. Se você receber um erro, adicione a dependência de volta ao modelo. 
+
+Se essa abordagem não resolver a dependência circular, considere mover parte de sua lógica de implantação para recursos filho (como extensões ou definições de configuração). Configure os recursos filho para implantar após os recursos envolvidos na dependência circular. Por exemplo, suponha que você estiver implantando duas máquinas virtuais, mas você deve definir propriedades em cada um deles que se referem a outro. Você pode implantá-los na seguinte ordem:
+
+1. vm1
+2. vm2
+3. Extensão na vm1 depende vm1 e vm2. A extensão define valores na vm1 que ele obtém da vm2.
+4. Extensão da vm2 depende vm1 e vm2. A extensão define valores de vm2 obtido do vm1.
+
+A mesma abordagem funciona para aplicativos de serviço de aplicativo. Considere a mudança de valores de configuração em um recurso filho de recurso de aplicativo. Você pode implantar dois aplicativos web na seguinte ordem:
+
+1. webapp1
+2. webapp2
+3. a configuração para webapp1 depende de webapp1 e webapp2. Ele contém configurações do aplicativo com os valores do webapp2.
+4. a configuração para webapp2 depende de webapp1 e webapp2. Ele contém configurações do aplicativo com os valores do webapp1.

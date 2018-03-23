@@ -1,25 +1,19 @@
 ---
 title: Usar o portal do Azure para criar alertas de Banco de Dados SQL | Microsoft Docs
-description: "Use o portal do Azure para criar alertas do Banco de Dados SQL, que podem disparar notificações ou automação quando as condições especificadas são atendidas."
+description: Use o portal do Azure para criar alertas do Banco de Dados SQL, que podem disparar notificações ou automação quando as condições especificadas são atendidas.
 author: aamalvea
-manager: jhubbard
-editor: 
+manager: craigg
 services: sql-database
-documentationcenter: 
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.openlocfilehash: fd21c9b5e573ac6a47fef88c2a9d31c52618ecb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 611b88c540902bc7a72d53671dacd098d9798b48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar o Portal do Azure para criar alertas para o Banco de Dados SQL do Azure e para o Data Warehouse
 
@@ -52,7 +46,7 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
    
      ![Monitoramento](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
   
-   - **SOMENTE SQL DW**: selecione **Monitoramento** na seção de TAREFAS COMUNS. Clique no gráfico **Uso de DWU**.
+   - **SOMENTE SQL DW**: selecione **Monitoramento** na seção de TAREFAS COMUNS. Clique no grafo **Uso de DWU**.
 
      ![TAREFAS COMUNS](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
 
@@ -71,7 +65,7 @@ Em alguns minutos, o alerta estará ativo e disparará conforme descrito anterio
 ## <a name="managing-your-alerts"></a>Gerenciar seus alertas
 Depois de criar um alerta, você poderá selecioná-lo e:
 
-* Exibir um gráfico mostrando o limite de métrica e os valores reais do dia anterior.
+* Exibir um grafo mostrando o limite de métrica e os valores reais do dia anterior.
 * Editar ou exclui-lo.
 * **Desabilitar** ou **Habilitar** se você quiser interromper temporariamente ou continuar recebendo notificações do alerta.
 

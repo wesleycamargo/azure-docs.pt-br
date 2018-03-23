@@ -1,17 +1,23 @@
 
 
 
-**Última atualização do documento**: 22 de janeiro às 21h00.
+**Última atualização do documento**: 6 de março, 10h PST.
 
 A divulgação recente de uma [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecida como ataques de canal lateral de execução especulativa resultou em várias perguntas dos clientes que queriam saber com mais clareza.  
 
-A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente entre elas está protegida.  Isso significa que os outros clientes em execução no Azure não podem atacar o seu aplicativo usando essas vulnerabilidades.
+A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente entre elas está protegida.  Isso significa que outros clientes em execução no Azure não podem atacar seu aplicativo usando essas vulnerabilidades.
 
 > [!NOTE] 
-> As mitigações do Azure previamente anunciadas em 3 de janeiro de 2018 não são afetadas pela recente [diretriz atualizada](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) da Intel. Não haverá atividade de manutenção adicional em VMs de cliente como resultado dessas novas informações.
+> No final de fevereiro de 2018, a Intel Corporation publicou [Diretrizes de Revisão de Microcódigo](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) atualizadas sobre o status de suas versões de microcódigo, o que melhora a estabilidade e atenua as vulnerabilidades recentes divulgadas pelo [Projeto Zero da Google](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). As mitigações implementadas pelo Azure em [3 de janeiro de 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) não são afetadas pela atualização de microcódigo da Intel. A Microsoft já implementou mitigações substanciais para proteger os clientes do Azure contra outros locatários do Azure.  
 >
-> Continuaremos atualizando essas melhores práticas na medida em que recebermos as atualizações de microcódigo dos fornecedores de hardware. Verifique novamente as diretrizes atualizadas.
+> O microcódigo da Intel aborda a variante 2 do Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) para proteger contra ataques que só são aplicáveis quando você executa cargas de trabalho compartilhadas ou não confiáveis dentro das VMs no Azure. Nossos engenheiros estão testando a estabilidade para minimizar impactos no desempenho do microcódigo, antes de disponibilizá-lo para os clientes do Azure.  Como muito poucos clientes executam cargas de trabalho não confiáveis em suas VMs, a maioria dos clientes não precisará habilitar essa funcionalidade depois de liberada. 
 >
+> Esta página será atualizada à medida que outras informações estiverem disponíveis.  
+
+
+
+
+
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Mantenha seus Sistemas Operacionais atualizados
 
@@ -43,7 +49,7 @@ Não é necessária nenhuma ação adicional por parte do cliente, a menos que v
 
 
 ### <a name="windows"></a>Windows 
-Se você estiver usando o Windows e hospedando código não confiável, também deverá habilitar um recurso do Windows chamado Sombreamento de Endereço Virtual do Kernel (KVA) que fornece proteção adicional contra vulnerabilidades de canal lateral de execução especulativa. Esse recurso está desativado por padrão e, se habilitado, pode afetar o desempenho. Siga as instruções [KB4072698 do Windows Server](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para Habilitar Proteções no Servidor. Se você estiver executando os Serviços de Nuvem do Azure, verifique se está executando o WA-GUEST-OS-5.15_201801-01 ou WA-GUEST-OS-4.50_201801-01 (disponível a partir de 10 de janeiro) e habilite a chave do Registro por meio de uma tarefa de inicialização.
+Se você estiver usando o Windows e hospedando código não confiável, também deverá habilitar um recurso do Windows chamado Sombreamento de Endereço Virtual do Kernel (KVA) que fornece proteção adicional contra vulnerabilidades de canal lateral de execução especulativa. Esse recurso está desativado por padrão e, se habilitado, pode afetar o desempenho. Siga as instruções [KB4072698 do Windows Server](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para Habilitar Proteções no Servidor. Caso esteja executando os Serviços de Nuvem do Azure, verifique se está executando WA-GUEST-OS-5.15_201801-01 ou WA-GUEST-OS-4.50_201801-01 (disponível a partir de 10 de janeiro de 2018) e habilite a chave do Registro por meio de uma tarefa de inicialização.
 
 
 ### <a name="linux"></a>Linux

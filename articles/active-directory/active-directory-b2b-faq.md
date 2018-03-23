@@ -1,26 +1,26 @@
 ---
-title: "Perguntas frequentes sobre a colaboração B2B do Azure Active Directory | Microsoft Docs"
-description: "Obtenha respostas para as perguntas frequentes sobre a colaboração B2B do Azure Active Directory."
+title: Perguntas frequentes sobre a colaboração B2B do Azure Active Directory | Microsoft Docs
+description: Obtenha respostas para as perguntas frequentes sobre a colaboração B2B do Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 01/08/2018
+ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 21511b37eba2cd2e87d8720f3e9cfe453b50d88c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -84,8 +84,8 @@ Sim. Aqui estão os detalhes importantes para redefinição de senha de autoaten
 ### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>A redefinição de senha está disponível para usuários convidados em um locatário just-in-time (JIT) ou "viral" que aceitaram convites com um endereço de email corporativo ou de estudante, mas que não tinham uma conta existente do Azure AD?
 Sim. Um email de redefinição de senha pode ser enviado para permitir que um usuário redefina sua senha na locação JIT.
 
-### <a name="does-microsoft-dynamics-crm-provide-online-support-for-azure-ad-b2b-collaboration"></a>O Microsoft Dynamics CRM fornece suporte online para a colaboração do Azure AD B2B?
-Atualmente, o Microsoft Dynamics CRM não fornece suporte online para a colaboração do Azure AD B2B. No entanto, estamos planejando dar suporte a esse recurso no futuro.
+### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>O Microsoft Dynamics 365 fornece suporte online para a colaboração do Azure AD B2B?
+Sim, o Dynamics 365 (online) oferece suporte para a colaboração do Azure AD B2B. Para saber mais, veja o artigo sobre o Dynamics 365 [Convidar usuários com a colaboração do Azure AD B2B](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Qual é o tempo de vida de uma senha inicial para um usuário de colaboração B2B recém-criado?
 O Azure AD tem um conjunto fixo de requisitos de caracteres, de força da senha e bloqueio de conta que é aplicado igualmente a todas as contas de usuário de nuvem do Azure AD. As contas de usuário de nuvem são contas que não estão federadas com outro provedor de identidade, como 

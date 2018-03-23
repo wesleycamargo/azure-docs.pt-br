@@ -1,11 +1,11 @@
 ---
 title: Pesquisa de logs no Log Analytics do Azure | Microsoft Docs
-description: "Você precisará de uma pesquisa de logs para recuperar quaisquer dados do Log Analytics.  Este artigo descreve como novas pesquisas de logs são utilizadas no Log Analytics e fornece conceitos necessários para serem compreendidos antes de criar uma."
+description: Você precisará de uma pesquisa de logs para recuperar quaisquer dados do Log Analytics.  Este artigo descreve como novas pesquisas de logs são utilizadas no Log Analytics e fornece conceitos necessários para serem compreendidos antes de criar uma.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.author: bwren
 ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Compreendendo as pesquisas de logs no Log Analytics
 

@@ -1,6 +1,6 @@
 ---
-title: "Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics do OMS | Microsoft Docs"
-description: "Saiba como monitorar a Sincronização de Dados SQL do Azure usando a análise de logs do OMS"
+title: Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics do OMS | Microsoft Docs
+description: Saiba como monitorar a Sincronização de Dados SQL do Azure usando a análise de logs do OMS
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -8,11 +8,12 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: data-sync
+ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Monitorar a Sincronização de Dados SQL (versão prévia) com o Log Analytics do OMS 
 
@@ -92,7 +93,7 @@ Para obter mais informações sobre como criar um runbook, consulte [Meu primeir
 
     2.  Informações do Grupo de Sincronização.
 
-    3.  Informações do OMS. Encontre essas informações no Portal do OMS | Configurações | Fontes Conectadas. Para obter mais informações sobre como enviar dados para o Log Analytics, consulte [Enviar dados para o Log Analytics com a API do Coletor de Dados HTTP (visualização pública)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Informações do OMS. Encontre essas informações no Portal do OMS | Configurações | Fontes Conectadas. Para obter mais informações sobre como enviar dados para o Log Analytics, consulte [Enviar dados para o Log Analytics com a API do Coletor de Dados HTTP (versão prévia)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Execute o runbook no painel Teste. Verifique se ele foi bem-sucedido.
 

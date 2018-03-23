@@ -1,11 +1,11 @@
 ---
 title: Como usar o PowerShell para criar certificados X.509 | Microsoft Docs
-description: "Como usar o PowerShell para criar certificados X.509 localmente e habilitar a segurança baseada em X.509 em seu Hub IoT do Azure em um ambiente simulado."
+description: Como usar o PowerShell para criar certificados X.509 localmente e habilitar a segurança baseada em X.509 em seu Hub IoT do Azure em um ambiente simulado.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
 ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Scripts do PowerShell para gerenciar certificados X.509 assinados pela AC
 
@@ -279,7 +279,7 @@ Em seguida, execute `New-CADevice "<yourTestDevice>"` na janela do PowerShell, u
 
 ## <a name="clean-up-certificates"></a>Limpar certificados
 
-Em sua barra de início no aplicativo **Configurações**, procure e selecione **Gerenciar certificados de computador**. Remova todos os certificados emitidos por **Azure IoT CA TestOnly**\*. Esses certificados devem existir nos três locais a seguir: 
+Em sua barra de início no aplicativo **Configurações**, procure e selecione **Gerenciar certificados de computador**. Remova todos os certificados emitidos por **Azure IoT CA TestOnly***. Esses certificados devem existir nos três locais a seguir: 
 
 * Certificados - Computador Local > Pessoal > Certificados
 * Certificados - Computador Local > Autoridades de Certificação Confiáveis > Certificados

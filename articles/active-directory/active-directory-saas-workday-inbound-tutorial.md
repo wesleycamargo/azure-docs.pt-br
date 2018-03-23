@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configurar o Workday para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
+title: 'Tutorial: Configurar o Workday para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como usar o Workday como fonte de dados de identidade para Active Directory e Azure Active Directory.
 services: active-directory
 author: asmalser-msft
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -654,7 +654,7 @@ Para fazer isso, você deve usar o [Workday Studio](https://community.workday.co
 
 1. Baixe e instale o [Workday Studio](https://community.workday.com/studio-download). Você precisará de uma conta da comunidade do Workday para acessar o instalador.
 
-2. Faça o download do arquivo WDSL Human_Resources do Workday que está nesta URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+2. Baixe o arquivo WDSL Human_Resources do Workday desta URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Inicie o Workday Studio.
 
@@ -768,12 +768,27 @@ Para fazer isso, você deve usar o [Workday Studio](https://community.workday.co
 
 * Um problema antigo com logs de auditoria que não eram exibidos nos locatários do Azure AD localizados na União Europeia foi resolvido. No entanto, uma configuração de agente adicional é necessária para locatários do Azure AD na UE. Para obter detalhes, consulte [Parte 3: Configurar o agente de sincronização local](#Part 3: Configure the on-premises synchronization agent)
 
+## <a name="gdpr-compliance"></a>Conformidade de GDPR
 
-## <a name="additional-resources"></a>Recursos adicionais
-* [Tutorial: configurar logon único entre Workday e Azure Active Directory](active-directory-saas-workday-tutorial.md)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+O [GDPR (Regulamento Geral sobre a Proteção de Dados)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR impõe regras às empresas, órgãos governamentais, organizações sem fins lucrativos e outras organizações que oferecem bens e serviços para pessoas da UE ou que coletam e analisam dados vinculados a residentes da UE. 
+
+O serviço de provisionamento do Azure AD é compatível com GDPR, junto com o restante dos recursos e serviços da Microsoft. Para saber mais sobre a história do GDPR da Microsoft, confira os [termos de serviço](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+No entanto, como a solução de provisionamento da Workday para o Active Directory exige a instalação de um agente de sincronização em um servidor ingressado no domínio, será necessário monitorar alguns eventos para também permanecer compatível com GDPR.
+ 
+O agente cria logs no **Log de eventos do Windows**, o que pode conter informações de identificação pessoal.
+
+Há duas maneiras de permanecer compatível com GDPR:
+
+1. Mediante solicitação, extraia dados de uma pessoa e remova os dados dessa pessoa dos logs de Eventos do Windows. 
+2. Mantenha a retenção dos logs de Eventos do Windows provenientes do processo AADSyncAgent abaixo de 48 horas
+
+Para saber mais sobre como configurar a retenção de dados para os logs de Eventos do Windows, confira as [Configurações dos logs de eventos](https://technet.microsoft.com/en-us/library/cc952132.aspx). Para obter informações gerais sobre o log de Eventos do Windows, confira [este artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](active-directory-saas-workday-tutorial.md)
+* [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
+

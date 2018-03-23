@@ -1,17 +1,17 @@
 ---
-title: "Dispositivo Coletor no Migrações para Azure | Microsoft Docs"
-description: "Fornece uma visão geral do dispositivo Coletor e como configurá-lo."
+title: Dispositivo Coletor no Migrações para Azure | Microsoft Docs
+description: Fornece uma visão geral do dispositivo Coletor e como configurá-lo.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>Dispositivo Coletor
 
@@ -23,9 +23,23 @@ As [Migrações para Azure](migrate-overview.md) avaliam as cargas de trabalho l
 
 Um Coletor de Migrações para Azure é um dispositivo leve que pode ser usado para descobrir o seu ambiente do vCenter local. Esse dispositivo descobre as VMs do VMware local e envia os metadados sobre elas para o serviço Migrações para Azure.
 
-O dispositivo Coletor é um OVF que você pode baixar do projeto de Migrações para Azure. Ele cria uma instância de uma máquina virtual do VMware com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operacional do dispositivo é o Windows Server 2012 R2 (64 bits)
+O dispositivo Coletor é um OVF que você pode baixar do projeto de Migrações para Azure. Ele cria uma instância de uma máquina virtual do VMware com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operacional do dispositivo é Windows Server 2012 R2 (64 bits).
 
 Você pode criar o Coletor seguindo as etapas aqui - [Como criar a VM do Coletor](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="collector-communication-diagram"></a>Diagrama de comunicação do coletor
+
+![Diagrama de comunicação do coletor](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| Componente      | Para comunicar-se com   | Porta obrigatória                            | Motivo                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Coletor      | Serviço Migrações para Azure | TCP 443                                  | O coletor deve ser capaz de comunicar-se com o serviço pela porta SSL 443 |
+| Coletor      | vCenter Server        | Padrão 443                             | O coletor deve ser capaz de comunicar-se com o vCenter Server. Por padrão, ele conecta ao vCenter na 443. Se o vCenter escutar em uma porta diferente, essa porta deverá estar disponível como porta de saída no coletor |
+| Coletor      | RDP|   | TCP 3389 | Para capacidade de RDP no computador do coletor |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>Pré-requisitos do Coletor
@@ -158,6 +172,32 @@ A tabela a seguir lista os contadores de desempenho que são coletados e também
 O Coletor somente descobre os dados do computador e os envia para o projeto. O projeto pode levar mais tempo antes de os dados descobertos serem exibidos no portal e você poder começar a criar uma avaliação.
 
 Com base no número de máquinas virtuais no escopo selecionado, levará até 15 minutos para enviar os metadados estáticos para o projeto. Depois que os metadados estáticos estiverem disponíveis no portal, você poderá ver a lista de máquinas no portal e iniciar a criação de grupos. Não é possível criar uma avaliação até que o trabalho de coleta seja concluído e o projeto tenha processado os dados. Uma vez que o trabalho de coleta tenha sido concluído no Coletor, poderá levar até uma hora para os dados de desempenho estarem disponíveis no portal, com base no número de máquinas virtuais no escopo selecionado.
+
+## <a name="how-to-upgrade-collector"></a>Como atualizar o Coletor
+
+É possível atualizar o Coletor para a última versão sem baixar o OVA novamente.
+
+1. Baixe a última versão do [pacote de atualização](https://aka.ms/migrate/col/latestupgrade).
+2. Para garantir que o hotfix baixado é seguro, abra a janela de comando do Administrador e execute o comando a seguir para gerar o hash do arquivo ZIP. O hash gerado deve corresponder ao hash mencionado em relação à versão específica:
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (exemplo de uso C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Copie o arquivo zip para a máquina virtual do Coletor de Migrações para Azure (dispositivo do coletor).
+4. Clique com o botão direito do mouse no arquivo zip e selecione Extrair Tudo.
+5. Clique com o botão direito do mouse em Setup.ps1, selecione Executar com o PowerShell e siga as instruções na tela para instalar a atualização.
+
+### <a name="list-of-updates"></a>Lista de atualizações
+
+#### <a name="upgrade-to-version-1095"></a>Upgrade para versão 1.0.9.5
+
+Para fazer upgrade da versão 1.0.9.5, baixe o [pacote](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Próximas etapas
 

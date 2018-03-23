@@ -1,25 +1,20 @@
 ---
-title: "Métricas de banco de dados SQL do Azure e log de diagnósticos | Microsoft Docs"
-description: "Saiba mais sobre como configurar o Banco de Dados SQL do Azure para armazenar o uso de recursos, a conectividade e as estatísticas de execução de consulta."
+title: Métricas de banco de dados SQL do Azure e log de diagnósticos | Microsoft Docs
+description: Saiba mais sobre como configurar o Banco de Dados SQL do Azure para armazenar o uso de recursos, a conectividade e as estatísticas de execução de consulta.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: veljko-msft
-manager: jhubbard
-editor: 
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico 
 O Banco de Dados SQL do Azure pode emitir métrica e logs de diagnóstico para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
@@ -52,8 +47,8 @@ Você pode provisionar um novo recurso do Azure ou selecionar um recurso existen
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contém informações sobre as estatísticas de tempo de execução da consulta, como o uso de CPU e a duração da consulta.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contém informações sobre as estatísticas de espera da consulta, que informam sobre o que suas consultas aguardaram, como CPU, LOG e LOCKING.
 - [Erros](sql-database-metrics-diag-logging.md#errors-dataset): contém informações sobre erros de SQL que ocorreram neste banco de dados.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): contém informações sobre a quantidade de tempo de espera de um banco de dados em diferentes tipos de espera.
-- [Tempos limite](sql-database-metrics-diag-logging.md#timeouts-dataset): contêm informações sobre os tempos limite ocorridos em um banco de dados.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): contém informações sobre a quantidade de tempo de espera de um banco de dados em diferentes tipos de espera.
+- [Tempos limite](sql-database-metrics-diag-logging.md#time-outs-dataset): contêm informações sobre os tempos limite ocorridos em um banco de dados.
 - [Bloqueios](sql-database-metrics-diag-logging.md#blockings-dataset): contém informações sobre eventos de bloqueio ocorridos em um banco de dados.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contém o recurso Insights Inteligentes. [Saiba mais sobre Insights Inteligentes](sql-database-intelligent-insights.md).
 
@@ -257,7 +252,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-storage"></a>Fazer download de métricas e logs do Armazenamento
 
-Saiba como [baixar métricas e logs de diagnóstico do Armazenamento](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Saiba como [baixar métricas e logs de diagnóstico do Armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="metrics-and-logs-available"></a>Métricas e logs disponíveis
 
@@ -478,4 +473,4 @@ Para saber mais sobre os Hubs de Evento, leia:
 * [O que é Hub de Eventos do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Introdução aos Hubs de Evento](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-Para saber mais sobre o Armazenamento, veja como [baixar métricas e logs de diagnóstico do Armazenamento](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Para saber mais sobre o Armazenamento, veja como [baixar métricas e logs de diagnóstico do Armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

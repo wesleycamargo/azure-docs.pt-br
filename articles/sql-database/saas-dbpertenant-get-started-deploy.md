@@ -1,26 +1,20 @@
 ---
-title: "Tutorial de SaaS Database-per-tenant – Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Implante e explore o aplicativo Wingtip Tickets SaaS multi-tenant, que demonstra o Database per Tenant e outros padrões de SaaS usando o Banco de Dados SQL do Azure."
+title: Tutorial de SaaS Database-per-tenant – Banco de Dados SQL do Azure | Microsoft Docs
+description: Implante e explore o aplicativo Wingtip Tickets SaaS multi-tenant, que demonstra o Database per Tenant e outros padrões de SaaS usando o Banco de Dados SQL do Azure.
 keywords: tutorial do banco de dados SQL
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: genemi
-ms.openlocfilehash: cbe8a04abbf2dada7cc43e57e823c3a41bf83fe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8aa4c8691093779bd8febee80fca88efad93dc00
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão por locatário do banco de dados com o Banco de Dados SQL do Azure
 
@@ -53,7 +47,7 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 #### <a name="plan-the-names"></a>Planejar os nomes
 
 Nas etapas desta seção, você fornece um valor *user* que é usado para garantir que os nomes de recursos fiquem globalmente exclusivos, e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implantação do aplicativo. Para uma pessoa denominada *Aline Faria*, sugerimos:
-- *Usuário:* **af1**  *(Suas iniciais, mais um dígito.) Use um valor diferente (por exemplo, af2) se você implantar o aplicativo novamente.)*
+- *Usuário:*  **af1** *(Suas iniciais, mais um dígito. Use um valor diferente (por exemplo, af2) se você implantar o aplicativo novamente.)*
 - *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip-dpt indica que esse é o aplicativo de banco de dados por locatário. A anexação do nome de usuário af1 correlaciona o nome do grupo de recursos com os nomes dos recursos que ele contém.)*
 
 Escolha seus nomes agora e os escreva. 

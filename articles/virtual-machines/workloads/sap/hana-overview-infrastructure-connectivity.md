@@ -1,11 +1,11 @@
 ---
-title: "Infraestrutura e conectividade para o SAP HANA no Azure (Instâncias Grandes) | Microsoft Docs"
-description: "Configure a infraestrutura de conectividade necessária para usar SAP HANA no Azure (Instâncias Grandes)."
+title: Infraestrutura e conectividade para o SAP HANA no Azure (Instâncias Grandes) | Microsoft Docs
+description: Configure a infraestrutura de conectividade necessária para usar SAP HANA no Azure (Instâncias Grandes).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestrutura e conectividade para o SAP HANA (instâncias grandes) no Azure 
 
 Algumas definições prévias antes de ler este guia. Em [Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), apresentamos duas classes diferentes de unidades de Instância Grande do HANA com:
 
 - S72, S72m, S144, S144m, S192 e S192m, que chamamos de “classe do Tipo I” de SKUs.
-- S384, S384m, S384xm, S576, S768 e S960, que chamamos de “classe do Tipo II” de SKUs.
+- S384, S384m, S384xm, S576, S768 e S960, que chamamos de 'classe do Tipo II' de SKUs.
 
 Os especificadores de classe serão usados em toda a documentação da Instância Grande do HANA para, em última análise, se referirem a diferentes funcionalidades e requisitos de acordo com os SKUs da Instância Grande do HANA.
 
@@ -75,7 +75,7 @@ Portanto, vamos examinar mais detalhadamente a criação de Rede Virtual do Azur
 >[!Note]
 >A Rede Virtual do Azure para instância grande HANA deve ser criada usando o modelo de implantação do Azure Resource Manager. Não há suporte para o modelo de implantação mais antigo do Azure, geralmente conhecido como modelo de implantação clássico, na solução Instância Grande do HANA.
 
-A VNet pode ser criada usando o portal do Azure, o PowerShell, o modelo do Azure ou a CLI do Azure (consulte [Criar uma rede virtual usando o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). No exemplo a seguir, analisamos uma VNet criada por meio do portal do Azure.
+A VNet pode ser criada usando o portal do Azure, o PowerShell, o modelo do Azure ou a CLI do Azure (consulte [Criar uma rede virtual usando o portal do Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). No exemplo a seguir, analisamos uma VNet criada por meio do portal do Azure.
 
 Se examinamos as definições de uma VNet do Azure pelo portal do Azure, vamos dar uma olhada em algumas das definições e como elas se relacionam ao que listamos como diferentes intervalos de endereços IP. Quando falamos sobre o **Espaço de Endereço**, queremos dizer o espaço de endereço que a VNet do Azure tem permissão para usar. Esse espaço de endereço também é o intervalo de endereços usado pela VNet para a propagação de rotas BGP. Esse **Espaço de Endereço** pode ser visto aqui:
 
@@ -126,7 +126,7 @@ Já apresentamos alguns intervalos de endereços IP necessários para implantar 
 - **Intervalo de endereços IP de sub-rede de Gateway de rede virtual:** dependendo dos recursos que você planeja usar, o tamanho recomendado seria:
    - Gateway do ExpressRoute de ultra desempenho: bloco de endereço /26 – necessário para a classe do Tipo II de SKUs
    - Coexistência com VPN e ExpressRoute usando um Gateway de ExpressRoute de alto desempenho (ou menor): bloco de endereço /27
-   - Todas as outras situações: bloco de endereço /28. Este intervalo de endereços deve ser uma parte dos valores usados nos valores de "Espaço de endereço de rede virtual". Este intervalo de endereços deve ser uma parte dos valores usados nos valores de Espaço de Endereço de Rede Virtual do Azure que você precisa para enviar à Microsoft. Como obter esse intervalo de endereços IP? A equipe de rede corporativa ou o provedor de serviço deve fornecer um Intervalo de Endereços IP que não estejam sendo usados atualmente na rede. 
+   - Todas as outras situações: bloco de endereço /28. Este intervalo de endereços deve ser uma parte dos valores usados nos valores de "Espaço de Endereço de VNET". Este intervalo de endereços deve ser uma parte dos valores usados nos valores de Espaço de Endereço de Rede Virtual do Azure que você precisa para enviar à Microsoft. Como obter esse intervalo de endereços IP? A equipe de rede corporativa ou o provedor de serviço deve fornecer um Intervalo de Endereços IP que não estejam sendo usados atualmente na rede. 
 
 - **Intervalo de endereços para conectividade do ER-P2P:** esse intervalo é o intervalo de IP da conexão P2P do ER (ExpressRoute) da Instância Grande do SAP HANA. Este intervalo de endereços IP deve ser um intervalo de endereços IP CIDR /29. Esse intervalo não deve sobrepor seu local ou outros intervalos de endereços IP do Azure. Esse intervalo de endereços IP é usado para configurar a conectividade do ER do Gateway do ExpressRoute da VNet do Azure com os servidores da Instância Grande do SAP HANA. Como obter esse intervalo de endereços IP? A equipe de rede corporativa ou o provedor de serviço deve fornecer um Intervalo de Endereços IP que não estejam sendo usados atualmente na rede. **Esse intervalo é um intervalo de endereços IP, que precisa ser enviado à Microsoft quando uma implantação inicial é solicitada**
   
@@ -250,7 +250,7 @@ Use o portal do Azure, o PowerShell ou a CLI ao adicionar mais endereços IP ou 
 
 Nesse caso, a recomendação é adicionar o novo intervalo de endereços IP como um novo intervalo ao Espaço de Endereço da VNet, em vez de gerar um novo intervalo agregado. Em ambos os casos, você precisa enviar essa alteração para a Microsoft para permitir a conectividade fora desse novo intervalo de endereços IP para as unidades de instância grande HANA no seu cliente. Abra uma solicitação de suporte do Azure para obter o novo espaço de endereço da VNet adicionado. Após receber a confirmação, realize as próximas etapas.
 
-Para criar uma sub-rede adicional no portal do Azure, confira o artigo [Criar uma rede virtual usando o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e para criar a partir do PowerShell, confira [Criar uma rede virtual usando o PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para criar uma sub-rede adicional no portal do Azure, confira o artigo [Criar uma rede virtual usando o portal do Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network) e para criar a partir do PowerShell, confira [Criar uma rede virtual usando o PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Como adicionar redes virtuais
 
@@ -277,15 +277,13 @@ Depois que o novo circuito for criado e a configuração do Gerenciamento de Ser
 
 Para remover uma sub-rede da VNet, o portal do Azure, o PowerShell ou a CLI podem ser usados. Caso o IP de Rede Virtual do Azure endereço intervalo/Azure Espaço de Endereço de rede virtual foi um intervalo agregado, não há nenhum acompanhamento para você com a Microsoft. Exceto se a VNet ainda estiver propagando o espaço de endereço da rota BGP que inclui a sub-rede excluída. Se você tiver definido o IP de Rede Virtual do Azure endereço intervalo/Azure Espaço de Endereço de rede virtual como vários intervalos de endereços IP que um deles foi atribuído à sua sub-rede excluído, você deve excluir que fora do seu Espaço de Endereço de rede virtual e informar subsequentemente SAP HANA em gerenciamento de serviços do Azure para removê-lo do SAP HANA no Azure (instâncias grandes) tem permissão para se comunicar com os intervalos.
 
-Enquanto ainda não for específico, as diretrizes dedicadas no Azure.com sobre a remoção de sub-redes, o processo de remoção de sub-redes é o inverso do processo para adicioná-los. Consulte o artigo [Criar uma rede virtual usando o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre como criar sub-redes.
+Para excluir uma sub-rede, consulte [Excluir uma sub-rede](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) para obter mais informações sobre a criação de sub-redes.
 
 ## <a name="deleting-a-vnet"></a>Como excluir uma rede virtual
 
-Use o portal do Azure, o PowerShell ou a CLI ao excluir uma VNet. O SAP HANA no Gerenciamento de Serviços do Azure remove as autorizações existentes no SAP HANA no circuito de ExpressRoute do Azure (Instâncias Grandes) e remove o intervalo de endereços IP de Rede Virtual do Aure/Espaço de Endereço de Rede Virtual do Aure para a comunicação com Instâncias Grandes HANA.
+Para excluir uma rede virtual, consulte [Excluir uma rede virtual](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). O SAP HANA no Gerenciamento de Serviços do Azure remove as autorizações existentes no SAP HANA no circuito de ExpressRoute do Azure (Instâncias Grandes) e remove o intervalo de endereços IP de Rede Virtual do Aure/Espaço de Endereço de Rede Virtual do Aure para a comunicação com Instâncias Grandes HANA.
 
 Depois que a rede virtual tiver sido removida, abra uma solicitação de suporte do Azure para fornecer os intervalos de endereço IP a serem removidos.
-
-Enquanto ainda não for específico, as diretrizes dedicadas no Azure.com sobre a remoção de redes virtuais, o processo de remoção de redes virtuais é o inverso do processo para adicioná-los, que é descrito acima. Confira os artigos [Criar uma rede virtual usando o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Criar uma rede virtual usando o PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre a criação de redes virtuais.
 
 Para garantir que tudo seja removido, exclua os itens a seguir:
 

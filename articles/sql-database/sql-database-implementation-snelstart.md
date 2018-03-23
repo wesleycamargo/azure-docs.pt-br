@@ -1,25 +1,19 @@
 ---
 title: Estudo de caso sobre o Banco de Dados SQL do Azure - SnelStart | Microsoft Docs
-description: "Saiba mais sobre como a SnelStart usa o Banco de Dados SQL para expandir rapidamente seus serviços comerciais a uma taxa de 1.000 novos Bancos de Dados SQL do Azure por mês"
+description: Saiba mais sobre como a SnelStart usa o Banco de Dados SQL para expandir rapidamente seus serviços comerciais a uma taxa de 1.000 novos Bancos de Dados SQL do Azure por mês
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: fab506b2-439d-4f1a-bdc5-d1d25c80d267
+manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: a5100941675b6bdd1934bfcabe10172b4949fff9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5b203ca9ac439dc6bfed6658abdd605a9895d2fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Com o Azure, a SnelStart expandiu rapidamente seus serviços comerciais a uma taxa de 1.000 novos Bancos de Dados SQL do Azure por mês
 ![Logotipo da SnelStart](./media/sql-database-implementation-snelstart/snelstartlogo.png)

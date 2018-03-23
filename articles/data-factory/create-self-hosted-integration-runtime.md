@@ -2,7 +2,7 @@
 title: Criar o Integration Runtime auto-hospedado no Azure Data Factory | Microsoft Docs
 description: Saiba como criar o Integration Runtime auto-hospedado no Azure Data Factory, que permite que os data factories acessem armazenamentos de dados em uma rede privada.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3f1b55f2752821de447e6c03bcbf79f01d9f8264
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Integration Runtime do auto-hospedado
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, consulte [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -65,6 +65,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 - O Integration Runtime auto-hospedado deve ser usado para dar suporte à integração de dados na Rede Virtual do Azure.
 - Trate a fonte de dados como local (isto é, protegida por um firewall) mesmo quando você usar o **ExpressRoute**. Use o Integration Runtime auto-hospedado para estabelecer a conectividade entre o serviço e a fonte de dados.
 - Você deverá usar o Integration Runtime auto-hospedado mesmo se o armazenamento de dados estiver na nuvem em uma **máquina virtual de IaaS do Azure**.
+- As tarefas podem falhar em um Microsoft Integration Runtime auto-hospedado instalado em um Windows Server no qual a criptografia compatível com FIPS está habilitada. Para contornar esse problema, desabilite a criptografia compatível com FIPS no servidor. Para desabilitar a criptografia compatível com FIPS, altere o valor de registro de 1 (habilitado) a seguir para 0 (desabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>pré-requisitos
 

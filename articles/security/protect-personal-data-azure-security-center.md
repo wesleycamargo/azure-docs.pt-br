@@ -1,29 +1,29 @@
 ---
-title: "Proteger dados pessoais com a Central de Segurança do Azure | Microsoft Docs"
-description: "proteger dados pessoais usando a central de segurança do Azure"
+title: Proteger dados pessoais com a Central de Segurança do Azure | Microsoft Docs
+description: Usar a central de segurança para proteger dados pessoais. Pode ser usado em esforços para estar em conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Proteger dados pessoais contra violações e ataques: Central de Segurança do Azure
 
-Este artigo ajudará você a entender como usar a Central de Segurança do Azure para proteger dados pessoais contra violações e ataques.
+Este artigo ajudará você a entender como usar a Central de Segurança do Azure para proteger dados pessoais contra violações e ataques. As informações incluídas aqui ajudarão você nos esforços para estar em conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR).
 
 ## <a name="scenario"></a>Cenário 
 
@@ -138,7 +138,7 @@ No ASC, um incidente de segurança é uma agregação de todos os alertas de um 
 
 Para examinar e gerenciar incidentes de segurança, faça o seguinte:
 
-1. Selecione o bloco **Alertas de segurança**. Se um incidente de segurança for detectado, ele será exibido no gráfico de alertas de segurança. Ele terá um ícone diferente dos outros alertas.
+1. Selecione o bloco **Alertas de segurança**. Se um incidente de segurança for detectado, ele será exibido no grafo de alertas de segurança. Ele terá um ícone diferente dos outros alertas.
 
 2. Selecione o incidente para ver mais detalhes sobre esse incidente de segurança. Detalhes adicionais incluem sua descrição completa, sua gravidade, seu estado atual, o recurso atacado, as etapas de correção do incidente e os alertas que foram incluídos nesse incidente.
 

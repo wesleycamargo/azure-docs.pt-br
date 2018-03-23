@@ -1,11 +1,11 @@
 ---
-title: "Como usar uma MSI (Identidade do Serviço Gerenciado) de VM Linux para acessar o Azure Data Lake Store"
-description: "Um tutorial que mostra como usar uma MSI (Identidade do Serviço Gerenciado) de VM Linux para acessar o Azure Data Lake Store."
+title: Como usar uma MSI (Identidade do Serviço Gerenciado) de VM Linux para acessar o Azure Data Lake Store
+description: Um tutorial que mostra como usar uma MSI (Identidade do Serviço Gerenciado) de VM Linux para acessar o Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Usar uma MSI (Identidade do Serviço Gerenciado) de VM Linux para acessar o Azure Data Lake Store
 
@@ -39,7 +39,7 @@ Este tutorial mostra como usar uma MSI (Identidade do Serviço Gerenciado) para 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma Máquina Virtual do Linux em um novo Grupo de Recursos
 
@@ -103,7 +103,7 @@ Para concluir essas etapas, você precisará do cliente SSH. Se você estiver us
 
 1. No portal, navegue até a VM do Linux e em **Visão geral**, clique em **Conectar**.  
 2. **Conecte-se** à VM com um cliente SSH de sua escolha. 
-3. Na janela de terminal, usando o CURL, faça uma solicitação para o ponto de extremidade da MSI local para obter um token de acesso para o sistema de arquivos do Data Lake Store.  O identificador de recursos do Data Lake Store é “https://datalake.azure.net/”.  É importante incluir a barra à direita no identificador de recursos.
+3. Na janela de terminal, usando o CURL, faça uma solicitação para o ponto de extremidade da MSI local para obter um token de acesso para o sistema de arquivos do Data Lake Store.  O identificador de recursos para Data Lake Store é "https://datalake.azure.net/."  É importante incluir a barra à direita no identificador de recursos.
     
    ```bash
    curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   

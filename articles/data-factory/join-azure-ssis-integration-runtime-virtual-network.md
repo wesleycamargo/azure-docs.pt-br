@@ -1,8 +1,8 @@
 ---
-title: "Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual | Microsoft Docs"
-description: "Saiba como unir o tempo de execução de integração do Azure-SSIS a uma rede virtual do Azure."
+title: Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual | Microsoft Docs
+description: Saiba como unir o tempo de execução de integração do Azure-SSIS a uma rede virtual do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual do Azure nos cenários a seguir: 
@@ -176,7 +176,9 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 # Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -211,6 +213,11 @@ $AzureSSISName = "<Specify Azure-SSIS IR name>"
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
 ```
+
+#### <a name="guidelines-for-selecting-a-subnet"></a>Diretrizes para selecionar uma sub-rede
+-   Não selecione GatewaySubnet para implantar um Microsoft Integration Runtime do Azure-SSIS, porque ele é dedicado para gateways de rede virtual.
+-   Verifique se a sub-rede que você selecionar tem espaço de endereço disponível suficiente para o IR do Azure-SSIS usar. Deixe pelo menos 2 * número de nós do IR em endereços IP disponíveis. O Azure reserva alguns endereços IP em cada sub-rede, os quais não podem ser usados. O primeiro e o último endereço IP das sub-redes são reservados para fins de conformidade de protocolo, juntamente com três outros endereços usados para os serviços do Azure. Para saber mais, veja [Existem restrições quanto ao uso de endereços IP dentro dessas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+
 
 ### <a name="stop-the-azure-ssis-ir"></a>Interrompa o IR do Azure-SSIS
 Pare o tempo de execução de integração do Azure-SSIS antes de uni-lo a uma rede virtual. Esse comando libera todos os nós e para a cobrança:
@@ -264,6 +271,22 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ```
 Esse comando demora de 20 a 30 minutos para concluir.
+
+## <a name="use-azure-expressroute-with-the-azure-ssis-ir"></a>Usar o ExpressRoute do Azure com o IR do Azure-SSIS
+
+Você pode conectar um circuito do [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) à sua infraestrutura de rede virtual para estender a rede local até o Azure. 
+
+Uma configuração comum é usar o túnel forçado (anunciar um roteamento BGP, 0.0.0.0/0 para a rede virtual) que força o tráfego de Internet de saída do fluxo da rede virtual para o dispositivo da rede local para inspeção e registro em log. Este fluxo de tráfego quebra a conectividade entre o IR do Azure-SSIS na rede virtual com os serviços dependentes do Azure Data Factory. A solução é definir uma (ou mais) [UDRs (rotas definidas pelo usuário)](../virtual-network/virtual-networks-udr-overview.md) na sub-rede que contém o IR do Azure-SSIS. Uma UDR define rotas específicas de sub-rede que são consideradas no lugar da rota BGP.
+
+Se for possível, use a seguinte configuração:
+-   A configuração de ExpressRoute anuncia 0.0.0.0/0 e, por padrão, encapsula à força todo o tráfego de saída no local.
+-   O UDR aplicado à sub-rede que contém o IR do Azure-SSIS define a rota 0.0.0.0/0 com o tipo do próximo salto para 'Internet'.
+- 
+O efeito combinado dessas etapas é que a UDR do nível de sub-rede tem precedência sobre o túnel forçado do ExpressRoute, garantindo acesso de Internet de saída do IR do Azure-SSIS.
+
+Se você estiver preocupado em perder a capacidade de inspecionar o tráfego de Internet de saída dessa sub-rede, também poderá adicionar uma regra NSG na sub-rede para restringir os destinos de saída para [Endereços IP do data center do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Veja [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) para obter um exemplo. Você precisa executar o script semanalmente para manter atualizada a lista de endereços IP do data center do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o tempo de execução do Azure-SSIS, consulte os tópicos a seguir: 

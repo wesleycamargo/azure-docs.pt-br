@@ -1,6 +1,6 @@
 ---
-title: "Como usar Importação/Exportação do Azure para transferir dados bidirecionalmente do armazenamento de blobs | Microsoft Docs"
-description: "Saiba como criar trabalhos de importação e exportação no Portal do Azure para transferir dados de e para o Armazenamento do Azure."
+title: Como usar Importação/Exportação do Azure para transferir dados bidirecionalmente do armazenamento de blobs | Microsoft Docs
+description: Saiba como criar trabalhos de importação e exportação no Portal do Azure para transferir dados de e para o Armazenamento do Azure.
 author: muralikk
 manager: syadav
 services: storage
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento do Azure
 Neste artigo, apresentamos instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para transferir com segurança grandes quantidades de dados para o armazenamento de Blobs e do Azure e Arquivos do Azure enviando unidades de disco para um data center do Azure. Este serviço também pode ser usado para transferir dados do armazenamento do Azure para as discos rígidos e enviá-los aos seu site local. Os dados de uma única unidade de disco SATA interna podem ser importados para o armazenamento de Blobs do Azure ou para o os Arquivos do Azure. 
@@ -294,7 +294,7 @@ A tabela a seguir descreve os estados de falha de unidade e as ações executada
 | N/D | Uma unidade que não é parte de qualquer trabalho chega no data center como parte de outro trabalho. | A unidade será marcada como uma unidade adicional e será retornada ao cliente quando o trabalho associado ao pacote original for concluído. |
 
 ### <a name="time-to-process-job"></a>Tempo para processar o trabalho
-O tempo necessário para processar um trabalho de importação/exportação varia de acordo com diversos fatores, como tempo de envio, tipo do trabalho, tipo e tamanho dos dados sendo copiados, e tamanho dos discos fornecidos. O serviço de Importação/Exportação não tem um SLA, mas depois que os discos forem recebidos, o serviço se esforçará para concluir a cópia no prazo de 7 a 10 dias. Você pode usar a API REST para acompanhar o andamento do trabalho mais de perto. Há um parâmetro de porcentagem completa na operação Listar Trabalhos que fornece uma indicação do andamento da cópia. Contate-nos se precisar de uma estimativa para concluir um trabalho de importação/exportação de tempo crítico.
+O tempo necessário para processar um trabalho de importação/exportação varia de acordo com uma série de fatores, como a hora de envio, a carga no DataCenter, o tipo de trabalho e o tamanho dos dados que estão sendo copiados e o número de discos em um trabalho. O serviço de Importação/Exportação não tem um SLA, mas o serviço se esforçará para concluir a cópia no prazo de 7 a 10 dias após o recebimento dos discos. Além do status postado no Portal do Azure, as APIs REST podem ser usadas para acompanhar o progresso do trabalho. O parâmetro de porcentagem concluída na chamada à API da operação Listar Trabalhos fornece o percentual de progresso da cópia.
 
 ### <a name="pricing"></a>Preços
 **Taxa de manuseio de unidade**

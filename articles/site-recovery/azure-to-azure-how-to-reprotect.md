@@ -1,18 +1,18 @@
 ---
-title: "Proteger novamente VMs do Azure que sofreram failover de volta para a região do Azure primária com o Azure Site Recovery | Microsoft Docs"
-description: "Descreve como proteger novamente VMs do Azure em uma região secundária, após o failover de uma região primária, usando o Azure Site Recovery."
+title: Proteger novamente VMs do Azure que sofreram failover de volta para a região do Azure primária com o Azure Site Recovery | Microsoft Docs
+description: Descreve como proteger novamente VMs do Azure em uma região secundária, após o failover de uma região primária, usando o Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Proteger novamente VMs do Azure que sofreram failover para a região primária
 
@@ -29,7 +29,7 @@ Quando você [faz failover](site-recovery-failover.md) de VMs do Azure de uma re
 - Depois que a nova proteção é concluída e as VMs estão replicando, você pode fazer failover delas da região secundária para a primária.
 
 > [!WARNING]
-> Se você [migrar](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) máquinas da região primária para a secundária, mover a VM para outro grupo de recursos ou excluir a VM do Azure, você não poderá protegê-la novamente nem fazer failback dela.
+> Se você [migrar](migrate-overview.md#what-do-we-mean-by-migration) máquinas da região primária para a secundária, mover a VM para outro grupo de recursos ou excluir a VM do Azure, você não poderá protegê-la novamente nem fazer failback dela.
 
 
 ## <a name="prerequisites"></a>pré-requisitos

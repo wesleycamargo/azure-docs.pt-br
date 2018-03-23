@@ -1,8 +1,8 @@
 ---
-title: "Habilitar o Application Insights Profiler para aplicativos que são hospedados nos recursos de Serviços de Nuvem do Azure | Microsoft Docs"
-description: "Saiba como configurar o Application Insights Profiler em um aplicativo em execução nos Serviços de Nuvem do Azure."
+title: Habilitar o Application Insights Profiler para aplicativos que são hospedados nos recursos de Serviços de Nuvem do Azure | Microsoft Docs
+description: Saiba como configurar o Application Insights Profiler em um aplicativo em execução nos Serviços de Nuvem do Azure.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: ramach-msft
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Habilitar o Application Insights Profiler para VMs do Azure, o Service Fabric e os Serviços de Nuvem do Azure
 
@@ -46,8 +46,7 @@ Para habilitar completamente o criador de perfil, você deve alterar a configura
 
    ![Localização da chave de instrumentação](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Para terminar de configurar a instância do Application Insights para o criador de perfil, conclua o procedimento descrito em [Habilitar Criador de Perfil](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    Você não precisa vincular os aplicativos web, porque as etapas são específicas para o recurso de serviços do aplicativo. Certifique-se de que o criador de perfil esteja habilitado no painel **Configurar Criador de Perfil**.
+3. Para concluir a configuração da instância do Application Insights para o Criador de Perfil, conclua o procedimento descrito em [Habilitar Criador de Perfil]. Você não precisa vincular os aplicativos web, porque as etapas são específicas para o recurso de serviços do aplicativo. Certifique-se de que o criador de perfil esteja habilitado no painel **Configurar Criador de Perfil**.
 
 
 ## <a name="set-up-the-application-source-code"></a>Configurar o código-fonte do aplicativo
@@ -157,6 +156,8 @@ Para configurar seu ambiente, faça o seguinte:
 
       Para obter informações sobre como adicionar a extensão de Diagnóstico em seu modelo de implantação, consulte [Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> Para Máquinas Virtuais, uma alternativa às etapas baseadas em JSON acima é navegar no portal do Azure para **Máquinas Virtuais** > **Configurações de Diagnóstico** > **Coletores** > Definir a opção Enviar dados de diagnóstico para o Application Insights como **Habilitado** e selecionar uma conta do Application Insights ou uma ikey específica.
 
 ### <a name="azure-cloud-services"></a>Serviços de nuvem do Azure
 
@@ -196,7 +197,7 @@ Para configurar seu ambiente, faça o seguinte:
 
 1. Implante a definição de implantação de ambiente modificada.  
 
-   Normalmente, para aplicar as modificações, você envolve uma implantação de modelo completo ou uma publicação de serviços de nuvem por meio de cmdlets do PowerShell ou do Visual Studio.  
+   Normalmente, a aplicação das modificações envolve uma implantação de modelo completo ou uma publicação baseada em serviços de nuvem por meio de cmdlets do PowerShell ou do Visual Studio.  
 
    Uma abordagem alternativa para máquinas virtuais existentes que envolve apenas a extensão do Diagnóstico do Azure é a seguinte:  
 

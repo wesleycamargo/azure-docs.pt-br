@@ -1,11 +1,11 @@
 ---
-title: "Como solucionar problemas de funções com falha na inicialização | Microsoft Docs"
-description: "Veja algumas razões comuns pelas quais uma função do Serviço de Nuvem pode falhar ao ser iniciada. Soluções para esses problemas também são fornecidas."
+title: Como solucionar problemas de funções com falha na inicialização | Microsoft Docs
+description: Veja algumas razões comuns pelas quais uma função do Serviço de Nuvem pode falhar ao ser iniciada. Soluções para esses problemas também são fornecidas.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 36966151b616a14e429807feb63df93503e7b249
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solução de problemas de funções do serviço de nuvem com falha de inicialização
 Veja alguns problemas comuns e soluções relacionadas às funções do serviço de nuvem do Azure com falha na inicialização.
@@ -62,7 +62,7 @@ Depois que o serviço for implantado novamente, você verá uma mensagem de erro
 Você pode usar a Área de Trabalho Remota para acessar a função e exibir informações de erros mais completas remotamente. Use as seguintes etapas para exibir os erros usando a Área de Trabalho Remota:
 
 1. Verifique se o Azure SDK 1.3 ou posterior está instalado.
-2. Durante a implantação da solução usando o Visual Studio, escolha "Configurar conexões da Área de Trabalho Remota". Para obter mais informações sobre como configurar a Conexão de Área de Trabalho Remota, confira [Usando a Área de Trabalho Remota com as Funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
+2. Durante a implantação da solução usando o Visual Studio, habilite a Área de Trabalho Remota. Para saber mais, veja [Habilitar Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure usando o Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 3. No portal do Microsoft Azure, depois que a instância mostrar um status de **Pronto**, acesse-a remotamente. Para obter mais informações sobre como usar a área de trabalho com Serviços de Nuvem, consulte [Remoto em instâncias de função](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Entre na máquina virtual usando as credenciais especificadas durante a configuração da Área de Trabalho Remota.
 6. Abra uma janela de comando.
@@ -77,7 +77,7 @@ Navegar até o site agora retornará mensagens de erro mais explícitas:
 * Descrição: ocorreu uma exceção sem tratamento durante a execução da solicitação da Web atual. Examine o rastreamento de pilha para obter mais informações sobre o erro e em que ponto ele ocorreu no código.
 * Detalhes da exceção: System.IO.FIleNotFoundException: não foi possível carregar o arquivo ou assembly ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ ou uma de suas dependências. O sistema não pode encontrar o arquivo especificado.
 
-Por exemplo:
+Por exemplo: 
 
 ![Erro de servidor explícito no aplicativo '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

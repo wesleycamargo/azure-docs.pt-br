@@ -1,19 +1,19 @@
 ---
 title: Implantar o Azure Machine Learning com o Azure IoT Edge | Microsoft Docs
-description: "Implantar o Azure Machine Learning como um módulo em um dispositivo de borda"
+description: Implantar o Azure Machine Learning como um módulo em um dispositivo de borda
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/13/2017
+ms.date: 03/06/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implantar o Azure Machine Learning como um módulo do IoT Edge – versão prévia
 
@@ -27,14 +27,13 @@ Neste tutorial, você aprenderá como:
 > * Implantar um módulo do Azure Machine Learning no dispositivo do IoT Edge
 > * Exibir os dados gerados
 
-O módulo do Azure Machine Learning criado neste tutorial lê os dados de temperatura gerados pelo dispositivo e envia apenas mensagens upstream para o Hub IoT do Azure quando prevê uma falha (chamada de uma anomalia). 
+O módulo do Azure Machine Learning criado neste tutorial lê os dados ambientais gerados pelo dispositivo e rotula as mensagens como anômalas ou não. 
 
-
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * O dispositivo do Azure IoT Edge criado no guia de início rápido ou no primeiro tutorial.
 * A cadeia de conexão do Hub IoT para o hub IoT ao qual o dispositivo IoT Edge se conecta.
-* Uma conta do Azure Machine Learning. Para criar uma conta, siga as instruções em [Criar contas do Azure Machine Learning e instalar o Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). Você não precisa instalar o aplicativo workbench para este tutorial. 
+* Uma conta do Azure Machine Learning. Para criar uma conta, siga as instruções em [Criar contas do Azure Machine Learning e instalar o Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). Você não precisa instalar o aplicativo workbench para este tutorial. 
 * Gerenciamento de módulo para Azure ML no seu computador. Para configurar seu ambiente e criar uma conta, siga as instruções em [Configuração de gerenciamento de modelo](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>Criar o contêiner do Azure ML
@@ -108,7 +107,7 @@ Windows:
 
 ## <a name="view-generated-data"></a>Exibir os dados gerados
 
-Você pode exibir as mensagens de dispositivo para a nuvem que seu dispositivo IoT Edge envia usando a extensão do Kit de ferramentas do Azure IoT para o Visual Studio Code. 
+Exiba as mensagens do dispositivo para a nuvem enviadas pelo dispositivo IoT Edge usando o [gerenciador do Hub IoT](https://github.com/azure/iothub-explorer) ou a extensão do Kit de Ferramentas do Azure IoT para o Visual Studio Code. 
 
 1. No Visual Studio Code, selecione **Dispositivos de Hub IoT**. 
 2. Selecione **...** , em seguida, selecione **Definir cadeia de Conexão de Hub IoT** no menu. 
@@ -117,7 +116,7 @@ Você pode exibir as mensagens de dispositivo para a nuvem que seu dispositivo I
 
 3. Na caixa de texto que é aberta na parte superior da página, insira a cadeia de caracteres de conexão iothubowner para seu Hub IoT. Seu dispositivo Edge IoT deverá aparecer na lista de dispositivos de Hub IoT.
 4. Selecione **...**  novamente, em seguida, selecione **Iniciar o monitoramento de mensagem D2C**.
-5. Observe as mensagens provenientes do tempSensor a cada cinco segundos, qual machinelearningmodule anexa sua avaliação da integridade do dispositivo. 
+5. Observe as mensagens recebidas de tempSensor a cada cinco segundos. O corpo da mensagem contém uma propriedade chamada **anomaly** que fornece ao machinelearningmodule um valor verdadeiro ou falso. A propriedade **AzureMLResponse** contém o valor "OK" se o modelo foi executado com êxito. 
 
    ![Resposta do Azure ML no corpo da mensagem](./media/tutorial-deploy-machine-learning/ml-output.png)
 

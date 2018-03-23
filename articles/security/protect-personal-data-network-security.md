@@ -1,29 +1,29 @@
 ---
-title: "Proteger dados pessoais com os recursos de segurança de rede do Azure | Microsoft Docs"
-description: "Proteger dados pessoais usando os recursos de segurança de rede do Azure"
+title: Proteger dados pessoais com os recursos de segurança de rede do Azure | Microsoft Docs
+description: Proteger dados pessoais usando os recursos de segurança de rede do Azure. Pode ser usado para estar em conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Proteger dados pessoais com os recursos de segurança de rede: Gateway de Aplicativo do Azure e Grupos de Segurança de Rede
 
-Este artigo fornece informações e procedimentos que ajudarão você a usar o Gateway de Aplicativo do Azure e os Grupos de Segurança de Rede para proteger dados pessoais.
+Este artigo fornece informações e procedimentos que ajudarão você a usar o Gateway de Aplicativo do Azure e os Grupos de Segurança de Rede para proteger dados pessoais. Essas informações podem ser úteis nos esforços para estar em conformidade com o GDPR (Regulamento Geral sobre a Proteção de Dados).
 
 Um elemento importante em uma estratégia de segurança de várias camadas para proteger a privacidade de dados pessoais é uma proteção contra explorações de vulnerabilidade comuns, como injeção de SQL ou script entre sites. Manter o tráfego de rede indesejado fora da rede virtual do Azure ajuda a proteger contra o comprometimento potencial de dados confidenciais e o Microsoft Azure fornece as ferramentas para ajudar a proteger seus dados contra invasores.
 

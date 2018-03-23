@@ -1,11 +1,11 @@
 ---
-title: "Como configurar dispositivos adicionados ao Azure Active Directory híbrido | Microsoft Docs"
-description: "Saiba como configurar dispositivos adicionados ao Azure Active Directory híbrido."
+title: Como configurar dispositivos adicionados ao Azure Active Directory híbrido | Microsoft Docs
+description: Saiba como configurar dispositivos adicionados ao Azure Active Directory híbrido.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos adicionados ao Azure Active Directory híbrido
 
@@ -34,7 +34,7 @@ Antes de começar a configurar dispositivos adicionados ao Azure AD híbrido no 
 
 Se você estiver dependendo da [Ferramenta de Preparação do Sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), certifique-se de criar imagens de uma instalação do Windows que ainda não foi registrado com o Azure AD.
 
-Todos os dispositivos associados ao domínio eu executam a Atualização de Aniversário do Windows 10 e o Windows Server 2016 serão registrados automaticamente no Azure Active Directory no reinício do dispositivo ou na entrada do usuário, quando as etapas de configuração mencionadas a seguir estiverem concluídas. Se esse comportamento de registro automático não for preferencial ou se uma distribuição controlada for requerida, primeiro siga as instruções na seção Controle de Implantação e Distribuição abaixo para habilitar ou desabilitar seletivamente a distribuição automática, antes de seguir as outras etapas de configuração.  
+Todos os dispositivos associados ao domínio eu executam a Atualização de Aniversário do Windows 10 e o Windows Server 2016 serão registrados automaticamente no Azure Active Directory no reinício do dispositivo ou na entrada do usuário, quando as etapas de configuração mencionadas a seguir estiverem concluídas. **Se esse comportamento de registro automático não for preferencial, ou se uma distribuição controlada for desejável**, siga as instruções na seção "Etapa 4: Controle de Implantação e Distribuição" abaixo para habilitar ou desabilitar seletivamente a distribuição automática, antes de seguir as outras etapas de configuração.  
 
 Para melhorar a legibilidade das descrições, este tópico usa o termo a seguir: 
 
@@ -542,7 +542,7 @@ Quando você tiver concluído as etapas necessárias, os dispositivos adicionado
 
 ### <a name="remarks"></a>Comentários
 
-- Você pode usar um objeto de Política de Grupo para controlar a distribuição de registro automático de computadores associados ao domínio do Windows 10 e do Windows Server 2016.
+- Você pode usar um objeto de Política de Grupo para controlar a distribuição de registro automático de computadores associados ao domínio do Windows 10 e do Windows Server 2016. **Se você não quiser que esses dispositivos registrem automaticamente com o Azure AD, ou se quiser controlar o registro**, primeiro implemente a política de grupo desabilitando o registro automático em todos esses dispositivos, antes de iniciar as etapas de configuração. Depois de terminar a configuração, e quando estiver pronto para testar, implemente a política de grupo habilitando o registro automático somente nos dispositivos de teste, e depois em todos os outros dispositivos que você escolher.
 
 - A Atualização de 10 de novembro de 2015 do Windows será adicionada automaticamente ao Azure AD **apenas** se o objeto da Política de Grupo de distribuição for definido.
 

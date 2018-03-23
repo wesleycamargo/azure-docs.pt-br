@@ -1,6 +1,6 @@
 ---
-title: "Configurar endereços IP para máquinas virtuais - Azure PowerShell | Microsoft Docs"
-description: "Saiba como configurar endereços IP para máquinas virtuais usando o PowerShell."
+title: Configurar endereços IP para máquinas virtuais - Azure PowerShell | Microsoft Docs
+description: Saiba como configurar endereços IP para máquinas virtuais usando o PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Configurar endereços IP particulares para uma máquina virtual usando o PowerShell
 
@@ -32,7 +32,7 @@ O Azure tem dois modelos de implantação: Azure Resource Manager e clássico. A
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-O exemplo de comando PowerShell abaixo espera um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma rede virtual](virtual-networks-create-vnet-arm-ps.md).
+O exemplo de comando PowerShell abaixo espera um ambiente simples já criado com base no cenário acima. Caso deseje executar os comandos conforme eles são mostrados neste documento, primeiro crie o ambiente de teste descrito em [Criar uma rede virtual](quick-create-powershell.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Criar uma VM com um endereço IP privado estático
 Para criar uma VM denominada *DNS01* na sub-rede *FrontEnd* de uma VNet chamada *TestVNet* com o endereço IP privado estático *192.168.1.101*, execute as etapas abaixo:

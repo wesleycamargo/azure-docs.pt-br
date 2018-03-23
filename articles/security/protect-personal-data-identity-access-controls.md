@@ -1,29 +1,29 @@
 ---
 title: Proteger dados pessoais com controles de acesso e identidade do Azure | Microsoft Docs
-description: Usando os controles de acesso e identidade do Azure para ajudar a proteger dados pessoais
+description: Os controles de acesso e identidade do Azure ajudam a proteger dados pessoais e podem ser úteis para a conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Autenticação Multifator: proteger dados pessoais com controles de acesso e identidade
 
-Este artigo fornece informações e procedimentos que podem ser usados para proteger dados pessoais, usando os serviços e recursos de segurança do Azure Active Directory e da Autenticação multifator.
+Este artigo fornece informações e procedimentos que podem ser usados para proteger dados pessoais, usando os serviços e recursos de segurança do Azure Active Directory e da Autenticação multifator. As informações contidas neste artigo podem ser úteis nos esforços para estar em conformidade com o GDPR (Regulamento Geral sobre a Proteção de Dados).
 
 ## <a name="scenario"></a>Cenário
 

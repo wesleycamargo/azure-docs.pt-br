@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Logon Único Contínuo – Início Rápido| Microsoft Docs"
-description: "Este artigo descreve como começar a usar o Logon Único Contínuo do Azure Active Directory"
+title: 'Azure AD Connect: Logon Único Contínuo – Início Rápido| Microsoft Docs'
+description: Este artigo descreve como começar a usar o Logon Único Contínuo do Azure Active Directory
 services: active-directory
-keywords: "o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -87,7 +87,7 @@ Além disso, você precisa habilitar uma configuração da política de Zona de 
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que você precisa modificar as configurações de Zona da Intranet dos usuários?
 
-Por padrão, o navegador calcula automaticamente a zona correta, Internet ou Intranet, de uma URL específica. Por exemplo, "http://contoso/" é mapeada para a Zona da Intranet, enquanto que "http://intranet.contoso.com/" é mapeada para a Zona da Internet (porque a URL contém um ponto). Os navegadores não enviarão tickets Kerberos para um ponto de extremidade da nuvem, como a URL do Azure Active Directory, a menos que a URL seja explicitamente adicionada à zona da Intranet do navegador.
+Por padrão, o navegador calcula automaticamente a zona correta, Internet ou Intranet, de uma URL específica. Por exemplo, "http://contoso/" é mapeada para a Zona da Intranet, enquanto "http://intranet.contoso.com/" é mapeada para a Zona da Internet (porque a URL contém um ponto). Os navegadores não enviarão tickets Kerberos para um ponto de extremidade da nuvem, como a URL do Azure Active Directory, a menos que a URL seja explicitamente adicionada à zona da Intranet do navegador.
 
 ### <a name="detailed-steps"></a>Etapas detalhadas
 
@@ -138,7 +138,7 @@ Verifique se o computador que está executando o Mac OS está associado ao Azure
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 
-Caso tenha substituído as configurações de política [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) no seu ambiente, certifique-se de adicionar também a URL do Azure Active Directory (https://autologon.microsoftazuread-sso.com).
+Caso tenha substituído as configurações de política [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) no seu ambiente, certifique-se de adicionar também a URL do Azure AD (https://autologon.microsoftazuread-sso.com)).
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (somente Mac OS)
 
@@ -159,11 +159,11 @@ Para testar o recurso para um usuário específico, verifique se todas as seguin
   - Você [distribuiu o recurso](##step-3-roll-out-the-feature) a esse usuário por meio da Política de Grupo.
 
 Para testar o cenário em que o usuário insere somente o nome de usuário, mas não a senha:
-   - Entre no https://myapps.microsoft.com/ em uma nova sessão privativa do navegador.
+   - Entre no https://myapps.microsoft.com/ em uma nova sessão privada do navegador.
 
 Para testar o cenário em que o usuário não tem que inserir o nome de usuário ou a senha, siga uma destas etapas: 
-   - Entre no https://myapps.microsoft.com/contoso.onmicrosoft.com em uma nova sessão privativa do navegador. Substitua *contoso* pelo nome do seu locatário.
-   - Entre no https://myapps.microsoft.com/contoso.com em uma nova sessão privativa do navegador. Substitua *contoso.com* por um domínio verificado (não um domínio federado) em seu locatário.
+   - Entre no https://myapps.microsoft.com/contoso.onmicrosoft.com em uma nova sessão privada do navegador. Substitua *contoso* pelo nome do seu locatário.
+   - Entre no https://myapps.microsoft.com/contoso.com em uma nova sessão privada do navegador. Substitua *contoso.com* por um domínio verificado (não um domínio federado) em seu locatário.
 
 ## <a name="step-5-roll-over-keys"></a>Etapa 5: Sobrepor chaves
 

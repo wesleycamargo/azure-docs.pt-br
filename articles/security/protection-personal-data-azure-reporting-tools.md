@@ -1,29 +1,28 @@
 ---
-title: "Documentar a proteção de dados pessoais com ferramentas de relatório do Azure | Microsoft Docs"
-description: "como usar as tecnologias e os serviços de relatório do Azure para ajudar a proteger a privacidade de dados pessoais."
+title: Documentar a proteção de dados pessoais com ferramentas de relatório do Azure | Microsoft Docs
+description: Use os serviços de relatório do Azure para proteger a privacidade dos dados pessoais em iniciativas para estar em conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR).
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentar a proteção de dados pessoais com ferramentas de relatório do Azure
 
-Este artigo abordará como usar as tecnologias e os serviços de relatório do Azure para ajudar a proteger a privacidade de dados pessoais.
-
+Este artigo abordará como usar as tecnologias e os serviços de relatório do Azure para ajudar a proteger a privacidade de dados pessoais. Essas informações podem ser usadas para atender às regulamentações governamentais ou do setor como o Regulamento Geral sobre a Proteção de Dados (GDPR).
 ## <a name="scenario"></a>Cenário
 
 Uma empresa de cruzeiro de grande porte, com sede nos Estados Unidos, está expandindo suas operações para oferecer roteiros nos mares Mediterrâneo, Adriático e Báltico, bem como nas Ilhas Britânicas. Para ajudar nesses esforços, ela adquiriu várias linhas de cruzeiro menores localizadas na Itália, na Alemanha, na Dinamarca e no Reino Unido.

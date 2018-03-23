@@ -1,25 +1,20 @@
 ---
 title: Gerenciando bancos de dados de nuvem com escala horizontal | Microsoft Docs
-description: "Use o serviço de trabalho de banco de dados elástico para executar um script em um grupo de bancos de dados."
+description: Use o serviço de trabalho de banco de dados elástico para executar um script em um grupo de bancos de dados.
 metakeywords: azure sql database elastic databases
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 6fa47cf2-1162-4534-a206-6e2d95b78580
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: f709cd38a690ba666ca290cc029caa2ce4f9dff0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 1f0e022eb98619b22f7e62e0602d36ba821def22
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gerenciando bancos de dados de nuvem com escalonamento horizontal
 Para gerenciar bancos de dados fragmentados escalados horizontalmente, o recurso de **Trabalhos do Banco de Dados Elástico** (visualização) permite executar um script Transact-SQL (T-SQL) confiável em um grupo de bancos de dados, incluindo:
@@ -64,7 +59,7 @@ Defina grupos personalizados de Bancos de Dados SQL do Azure e defina agendas pa
 > 
 > 
 
-## <a name="applications"></a>Aplicativos
+## <a name="applications"></a>APLICATIVOS
 * Realize tarefas administrativas, como a implantação de um novo esquema.
 * Atualize informações de dados de referência do produto comuns a todos os bancos de dados. Ou agende atualizações automáticas a cada dia da semana, após o expediente.
 * Recompilar índices para melhorar o desempenho da consulta. A recriação pode ser configurada para executar em um conjunto de bancos de dados de modo recorrente, como fora dos horários de pico.

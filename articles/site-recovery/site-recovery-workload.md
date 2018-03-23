@@ -1,24 +1,24 @@
 ---
 title: Quais cargas de trabalho posso proteger com o Azure Site Recovery? | Microsoft Docs
-description: "Descreve as cargas de trabalho que podem ser protegidas usando a recuperação de desastres com o serviço do Azure Site Recovery."
+description: Descreve as cargas de trabalho que podem ser protegidas usando a recuperação de desastres com o serviço do Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: cfreeman
-editor: 
+editor: ''
 ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 3/16/2018
 ms.author: raynew
-ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 3b138546ffb1cb6d5bec0aaf2bb11510ab399933
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais cargas de trabalho posso proteger com o Azure Site Recovery?
 
@@ -110,9 +110,9 @@ O RDS (Serviços da Área de Trabalho Remota) habilita a infraestrutura da área
 
 | **RDS** |**Replicar VMs do Azure para o Azure** | **Replicar máquinas virtuais do Hyper-V para um site secundário** | **Replicar VMs do Hyper-V para o Azure** | **Replicar VMs do VMware para um site secundário** | **Replicar VMs do VMware para o Azure** | **Replicar servidores físicos para um site secundário** | **Replicar servidores físicos para o Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Área de trabalho virtual em pool (não gerenciada)** |Não |Sim |Não  |Sim |Não  |Sim |Não  |
-| **Área de trabalho virtual em pool (gerenciada e sem UPD)** |Não |Sim |Não  |Sim |Não  |Sim |Não  |
-| **Aplicativos remotos e sessões da área de trabalho (sem UDP)** |Sim|Sim |Sim |Sim |Sim |Sim |Sim |
+| **Área de trabalho virtual em pool (não gerenciada)** |Não |Sim |Não |Sim |Não |Sim |Não  |
+| **Área de trabalho virtual em pool (gerenciada e sem UPD)** |Não |Sim |Não |Sim |Não |Sim |Não  |
+| **Aplicativos remotos e sessões da área de trabalho (sem UDP)** |sim|Sim |Sim |Sim |Sim |Sim |sim |
 
 [Configurar a recuperação de desastre para RDS usando o Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

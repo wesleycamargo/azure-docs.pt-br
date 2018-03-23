@@ -1,24 +1,18 @@
 ---
-title: "Gerenciar atualizações para várias máquinas virtuais do Azure | Microsoft Docs"
-description: "Este tópico descreve como gerenciar atualizações para máquinas virtuais do Azure."
+title: Gerenciar atualizações para várias máquinas virtuais do Azure
+description: Este tópico descreve como gerenciar atualizações para máquinas virtuais do Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 11/30/2017
-ms.author: magoedte;gwallace
-ms.openlocfilehash: 1763077aa733fc93dd59147405db9942c6c98960
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -29,7 +23,7 @@ Você pode usar o gerenciamento de atualizações para gerenciar atualizações 
 - Agendar a instalação de atualizações necessárias.
 - Examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito em todas as máquinas virtuais nas quais o gerenciamento de atualização está habilitado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para usar o gerenciamento de atualizações, você precisa de:
 
@@ -112,9 +106,9 @@ A tabela a seguir descreve as fontes conectadas às quais essa solução dá sup
 
 | Fonte conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
-| Agentes do Windows |Sim |O gerenciamento de atualizações coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
-| Agentes do Linux |Sim |O gerenciamento de atualizações coleta informações sobre atualizações do sistema de agentes Linux e inicia a instalação das atualizações necessárias em distribuições com suporte. |
-| Grupo de gerenciamento do Operations Manager |Sim |O gerenciamento de atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
+| Agentes do Windows |sim |O gerenciamento de atualizações coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
+| Agentes do Linux |sim |O gerenciamento de atualizações coleta informações sobre atualizações do sistema de agentes Linux e inicia a instalação das atualizações necessárias em distribuições com suporte. |
+| Grupo de gerenciamento do Operations Manager |sim |O gerenciamento de atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
 | Conta de Armazenamento do Azure |Não  |O armazenamento do Azure não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
