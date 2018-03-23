@@ -1,11 +1,11 @@
 ---
-title: "Visão Geral do Service Fabric e contêineres | Microsoft Docs"
-description: "Uma visão geral do Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo fornece uma visão geral de como os contêineres podem ser usados e dos recursos disponíveis no Service Fabric."
+title: Visão Geral do Service Fabric e contêineres | Microsoft Docs
+description: Uma visão geral do Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo fornece uma visão geral de como os contêineres podem ser usados e dos recursos disponíveis no Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f12dc08953372b2dfae773df11cf1f47b42a1b89
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contêineres
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/13/2018
 > 
 
 ## <a name="introduction"></a>Introdução
-O Azure Service Fabric é um [orquestrador](service-fabric-cluster-resource-manager-introduction.md) de serviços entre um cluster de computadores, com anos de uso e otimização em grande escala dos serviços da Microsoft. Os serviços podem ser desenvolvidos de várias maneiras, desde usando os [modelos de programação do Service Fabric ](service-fabric-choose-framework.md) até implantando [executáveis convidados](service-fabric-deploy-existing-app.md). Por padrão, o Service Fabric implanta e ativa esses serviços como processos. Processos fornecem a ativação mais rápida e o uso de densidade mais alto dos recursos em um cluster. O Service Fabric também pode implantar serviços em imagens de contêiner. É importante observar que você pode misturar serviços em processos e serviços em contêineres no mesmo aplicativo.   
+O Azure Service Fabric é um [orquestrador](service-fabric-cluster-resource-manager-introduction.md) de serviços entre um cluster de computadores, com anos de uso e otimização em grande escala dos serviços da Microsoft. Os serviços podem ser desenvolvidos de várias maneiras, desde usando os [modelos de programação do Service Fabric ](service-fabric-choose-framework.md) até implantando [executáveis convidados](service-fabric-guest-executables-introduction.md). Por padrão, o Service Fabric implanta e ativa esses serviços como processos. Processos fornecem a ativação mais rápida e o uso de densidade mais alto dos recursos em um cluster. O Service Fabric também pode implantar serviços em imagens de contêiner. É importante observar que você pode misturar serviços em processos e serviços em contêineres no mesmo aplicativo.   
 
 ## <a name="what-are-containers"></a>O que são contêineres?
 Contêineres são componentes encapsulados e implantados individualmente executados como instâncias isoladas no mesmo kernel para beneficiarem-se da virtualização que um sistema operacional oferece. Assim, cada aplicativo e seu tempo de execução, suas dependências e suas bibliotecas de sistema são executados dentro de um contêiner com acesso privado e completo à exibição isolada própria do contêiner dos constructos do sistema operacional. Junto com a portabilidade, esse nível de isolamento de segurança e de recursos é o principal benefício para o uso de contêineres com o Service Fabric, que, caso contrário, executa serviços em processos.
@@ -72,7 +72,7 @@ Estes são exemplos típicos em que um contêiner é uma boa opção:
 ## <a name="service-fabric-support-for-containers"></a>Suporte ao Service Fabric para contêineres
 O Service Fabric dá suporte à implantação de contêineres do Docker em contêineres do Linux e do Windows Server no Windows Server 2016, juntamente com o suporte para o modo de isolamento do Hyper-V. 
 
-No [modelo de aplicativo](service-fabric-application-model.md)do Service Fabric, um contêiner representa um host de aplicativo no qual várias réplicas de serviço são colocadas. O Service Fabric pode executar qualquer contêiner, e o cenário é semelhante ao [cenário executável de convidado](service-fabric-deploy-existing-app.md), no qual você pode empacotar um aplicativo existente dentro de um contêiner. Este cenário é o caso de uso comum para contêineres, e os exemplos incluem a execução de um aplicativo escrito usando qualquer linguagem ou estruturas, mas não usando os modelos de programação internos do Service Fabric.
+No [modelo de aplicativo](service-fabric-application-model.md)do Service Fabric, um contêiner representa um host de aplicativo no qual várias réplicas de serviço são colocadas. O Service Fabric pode executar qualquer contêiner, e o cenário é semelhante ao [cenário executável de convidado](service-fabric-guest-executables-introduction.md), no qual você pode empacotar um aplicativo existente dentro de um contêiner. Este cenário é o caso de uso comum para contêineres, e os exemplos incluem a execução de um aplicativo escrito usando qualquer linguagem ou estruturas, mas não usando os modelos de programação internos do Service Fabric.
 
 Além disso, também é possível executar os [serviços do Service Fabric dentro de contêineres](service-fabric-services-inside-containers.md). No momento, o suporte para execução de serviços do Service Fabric dentro de contêineres é limitado, mas será melhorado em versões futuras.
 

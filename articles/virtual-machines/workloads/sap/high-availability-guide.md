@@ -1,13 +1,13 @@
 ---
-title: "Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver | Microsoft Docs"
-description: "Guia de alta disponibilidade do SAP NetWeaver em máquinas virtuais do Azure"
+title: Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver | Microsoft Docs
+description: Guia de alta disponibilidade do SAP NetWeaver em máquinas virtuais do Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae90fe1d6d9e91bffa3fd4c6a7d79d069ab604a2
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f2216a2d5c30e95fcd02b4df56305153335511e0
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure
 
@@ -293,7 +293,7 @@ ms.lasthandoff: 11/02/2017
 [sap-ha-guide-10.2]:high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916
 [sap-ha-guide-10.3]:high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5
 
-[sap-ha-multi-sid-guide]:high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:high-availability-multi-sid.md (Configuração de alta disponibilidade de várias SID do SAP)
 
 
 [sap-ha-guide-figure-1000]:media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -367,7 +367,7 @@ ms.lasthandoff: 11/02/2017
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
-[sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
+[sap-pam]:https://support.sap.com/pam (Matriz de Disponibilidade de Produto SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -422,7 +422,7 @@ ms.lasthandoff: 11/02/2017
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
@@ -1021,7 +1021,7 @@ Se você quiser usar números diferentes para as instâncias SAP ASCS ou SCS, pr
 1.  No portal do Azure, selecione **<*SID*>-lb-ascs load balancer** > **Regras de Balanceamento de Carga**.
 2.  Para todas as regras de balanceamento de carga que pertencem à instância do SAP ASCS ou SCS, altere estes valores:
 
-  * Nome
+  * NOME
   * Porta
   * Porta de back-end
 
@@ -1413,7 +1413,7 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as se
 1.  No Gerenciador de DNS do Windows, crie uma entrada DNS para o nome de host virtual da instância ASCS/SCS.
 
   > [!IMPORTANT]
-  > O endereço IP que você atribui ao nome de host virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que você atribuiu ao Azure Load Balancer (**<*SID*>-lb-ascs**).  
+  > O endereço IP atribuído ao nome do host virtual da instância do ASCS/SCS deve ser o mesmo que o endereço IP atribuído ao Azure Load Balancer (**<*SID*>-lb-ascs**).  
   >
   >
 
@@ -1491,7 +1491,7 @@ Para adicionar uma porta de investigação:
 
   O número da porta é definido nos modelos do Azure Resource Manager para SAP. Você pode atribuir o número da porta no PowerShell.
 
-  Para definir um novo valor de ProbePort para o recurso de cluster **SAP <*SID*> IP**, execute o seguinte script do PowerShell. Atualize as variáveis do PowerShell para seu ambiente. Depois que o script é executado, será solicitado que você reinicie o grupo de clusters do SAP para ativar as alterações.
+  Para definir um novo valor de ProbePort para o recurso de cluster **SAP <*SID*> IP**, execute o script do PowerShell a seguir. Atualize as variáveis do PowerShell para seu ambiente. Depois que o script é executado, será solicitado que você reinicie o grupo de clusters do SAP para ativar as alterações.
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
@@ -1549,7 +1549,7 @@ Para adicionar uma porta de investigação:
   }
   ```
 
-  Depois de colocar a função de cluster **SAP <*SID*>** online, verifique se **ProbePort** está definido como o novo valor.
+  Depois de colocar a função de cluster SAP **SAP <*SID*>** online, verifique se **ProbePort** está definido com o novo valor.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1597,7 +1597,7 @@ Instalar a instância <*SID*>-di-0 do PAS (Servidor de Aplicativos primário) na
 
 ### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Instalar o servidor de aplicativos SAP adicional
 
-Instale um AAS (Servidor de Aplicativos Adicional) SAP em todas as máquinas virtuais que você designou para hospedar um Servidor de Aplicativos SAP. Por exemplo, de <*SID*>-di-1 para <*SID*>-di-&lt;n&gt;.
+Instale um AAS (Servidor de Aplicativos Adicional) SAP em todas as máquinas virtuais que você designou para hospedar um Servidor de Aplicativos SAP. Por exemplo, em <*SID*>-di-1 para <*SID*>-di-&lt;n&gt;.
 
 > [!NOTE]
 > Isso conclui a instalação de um sistema SAP NetWeaver de alta disponibilidade. Em seguida, continue com o teste de failover.

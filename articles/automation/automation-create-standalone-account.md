@@ -1,24 +1,20 @@
 ---
-title: "Criar conta autônoma de Automação do Azure | Microsoft Docs"
-description: "Este artigo orienta você pelas etapas de criação, teste e uso de uma autenticação de entidade de segurança de exemplo na Automação do Azure."
+title: Como criar conta autônoma de automação do Azure
+description: Este artigo orienta você pelas etapas de criação, teste e uso de uma autenticação de entidade de segurança de exemplo na Automação do Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.date: 08/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 4a6946f34babfd63a2b9a12818761c6d6c74bc15
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 Este artigo mostra como criar uma conta da Automação do Azure no portal do Azure. Use a conta de Automação do portal para avaliar e saber mais sobre a Automação sem usar soluções de gerenciamento adicionais ou a integração com o Azure Log Analytics no OMS (Operations Management Suite). Adicione essas soluções de gerenciamento ou integre o Log Analytics para o monitoramento avançado de trabalhos de runbook a qualquer momento no futuro. 
@@ -39,7 +35,7 @@ Com essas contas criadas para você, você pode começar rapidamente a criar e i
 Para criar ou atualizar uma conta de Automação e concluir as tarefas descritas neste artigo, é necessário ter os seguintes privilégios e permissões: 
 
 * Para criar uma conta de Automação, sua conta de usuário do Azure AD precisa ser adicionada a uma função com permissões equivalentes à função de Proprietário para os recursos do **Microsoft. Automation**. Para obter mais informações, consulte [Controle de Acesso Baseado em Função na Automação do Azure](automation-role-based-access-control.md).  
-* No portal do Azure, em **Azure Active Directory** > **GERENCIAR** > **Registros do aplicativo**, se **Registros do aplicativo** estiver definido como **Sim**, os usuários não administradores no locatário do Azure AD poderão [registrar aplicativos do Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Se **Registros do aplicativo** estiver definido como **Não**, o usuário que executar esta ação precisará ser um administrador global no Azure AD. 
+* No portal do Azure, em **Azure Active Directory** > **GERENCIAR** > **Registros do aplicativo**, se **Registros do aplicativo**  estiver definido como **Sim**, os usuários não administradores no locatário do Azure AD poderão [registrar aplicativos do Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Se **Registros do aplicativo** estiver definido como **Não**, o usuário que executar esta ação precisará ser um administrador global no Microsoft Azure AD. 
 
 Caso não seja membro da instância do Active Directory da assinatura antes de ser adicionado à função de administrador global/coadministrador da assinatura, você será adicionado ao Active Directory como convidado. Neste cenário, você recebe esta mensagem na página **Adicionar Conta de Automação**: “Você não tem permissões para criar”. 
 

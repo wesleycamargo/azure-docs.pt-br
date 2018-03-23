@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao Andromeda SCM | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Andromeda SCM."
+title: 'Tutorial: Integração do Azure Active Directory ao Andromeda | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Andromeda.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 72b66eec34995c334c6d65a1d03637fe21b9dc80
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7e2a140ba6dc4825283801ed4f3435136b307153
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-andromeda-scm"></a>Tutorial: Integração do Azure Active Directory ao Andromeda SCM
+# <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integração do Azure Active Directory ao Andromeda
 
-Neste tutorial, você aprenderá a integrar o Andromeda SCM ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprende a integrar o Andromeda ao Azure AD (Azure Active Directory).
 
-A integração do Andromeda SCM ao Azure AD oferece os seguintes benefícios:
+A integração do Andromeda ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem terá acesso ao Andromeda SCM.
-- Você pode permitir que seus usuários façam logon automaticamente no Andromeda SCM (logon único) com as contas do Azure AD deles.
+- Você pode controlar no Azure AD quem tem acesso ao Andromeda.
+- Você pode permitir que os usuários sejam conectados automaticamente no Andromeda (Logon Único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para configurar a integração do Azure AD ao Andromeda SCM, você precisará dos seguintes itens:
+Para configurar a integração do Azure AD ao Andromeda, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do Andromeda SCM
+- Uma assinatura habilitada para logon único do Andromeda
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -50,13 +50,13 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Andromeda SCM da Galeria
+1. Adicionando o Andromeda por meio da galeria
 2. configurar e testar o logon único do AD do Azure
 
-## <a name="adding-andromeda-scm-from-the-gallery"></a>Adicionar Andromeda SCM da Galeria
-Para configurar a integração do Andromeda SCM ao Azure AD, você precisará adicionar o Andromeda SCM da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-andromeda-from-the-gallery"></a>Adicionando o Andromeda por meio da galeria
+Para configurar a integração do Andromeda ao Azure AD, você precisa adicionar o Andromeda por meio da galeria à lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Andromeda SCM da galeria, execute as seguintes etapas:**
+**Para adicionar o Andromeda por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
@@ -70,31 +70,31 @@ Para configurar a integração do Andromeda SCM ao Azure AD, você precisará ad
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Andromeda SCM**, selecione **Andromeda SCM** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Andromeda**, selecione **Andromeda** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Andromeda SCM na lista de resultados](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
+    ![Andromeda na lista de resultados](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Andromeda SCM, com base em um usuário de teste chamado “Brenda Fernandes”.
+Nesta seção, você configura e testa o logon único do Azure AD com o Andromeda, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Andromeda SCM é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado do Andromeda SCM.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Andromeda é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Andromeda.
 
-Para configurar e testar o logon único do Azure AD com o Andromeda SCM, você precisará concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o Andromeda, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Andromeda SCM](#create-an-andromeda-scm-test-user)** – para ter um equivalente de Brenda Fernandes no Andromeda SCM que esteja vinculado à representação de usuário do Microsoft Azure Active Directory.
+3. **[Criar um usuário de teste do Andromeda](#create-an-andromeda-test-user)** – para ter um equivalente de Brenda Fernandes no Andromeda que esteja vinculado à representação de usuário do Azure AD.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo Andromeda SCM.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Andromeda.
 
-**Para configurar o logon único do Azure AD com o Andromeda SCM, realize as seguintes etapas:**
+**Para configurar o logon único do Azure AD com o Andromeda, execute as seguintes etapas:**
 
-1. No Portal do Azure, na página de integração de aplicativos do **Andromeda SCM**, clique em **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Andromeda**, clique em **Logon único**.
 
     ![Link Configurar logon único][4]
 
@@ -102,24 +102,24 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_samlbase.png)
 
-3. Na seção **Domínio e URLs do Andromeda SCM**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+3. Na seção **Domínio e URLs do Andromeda**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
-    ![Informações de logon único de Domínio e URLs do Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
+    ![Informações de logon único de Domínio e URLs do Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantURL>`
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<tenantURL>.ngcxpress.com/`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<tenantURL>`
+    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
-    ![Informações de logon único de Domínio e URLs do Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
+    ![Informações de logon único de Domínio e URLs do Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantURL>/SAMLLogon.aspx`
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
      
     > [!NOTE] 
     > O valor anterior não é um valor real. Você atualizará o valor com o identificador real, URL de resposta, e URL de logon que é explicado no tutorial posteriormente.
 
-5. O aplicativo Andromeda SCM espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. A captura de tela a seguir mostra um exemplo disso.
+5. O aplicativo Andromeda espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. A captura de tela a seguir mostra um exemplo disso.
     
     ![Configurar logon único attb](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attribute.png)
 
@@ -129,13 +129,13 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 6. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
     
     | Nome do atributo | Valor do atributo |
-    | ------------------- | -------------------- |    
-    | função        | DEMO |
-    | Tipo        | PADRÃO |
-    | company       | COMP02    |
+    | -------------- | -------------------- |    
+    | função        | Função específica do aplicativo |
+    | Tipo        | Tipo de Aplicativo |
+    | company       | CompanyName    |
 
     > [!NOTE]
-    > Não há valores reais. Esses valores são somente para finalidade de demonstração, use as funções da organização.
+    > Não há valores reais. Esses valores são somente para finalidade de demonstração; use as funções de sua organização.
 
     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
@@ -159,31 +159,31 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-andromedascm-tutorial/tutorial_general_400.png)
     
-9. Na seção **Configuração do Andromeda SCM**, clique em **Configurar o Andromeda SCM** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+9. Na seção **Configuração do Andromeda**, clique em **Configurar o Andromeda** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
-    ![Configuração de Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
+    ![Configuração do Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
 
-10. Faça logon no site do Andromeda SCM da sua empresa como administrador.
+10. Faça logon no site de empresa do Andromeda como administrador.
 
 11. Na parte superior da barra de menus, clique em **Admin** e navegue até **Administração**.
 
-    ![Administração do Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
+    ![Administrador do Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 12. No lado esquerdo da barra de ferramentas na seção **Interfaces**, clique em **Configuração do SAML**.
 
-    ![Andromeda SCM saml](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
+    ![SAML do Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 13. Na página **Configuração do SAML**, realize as seguintes etapas:
 
-    ![Configuração de Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
+    ![Configuração do Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
 
     a. Marque **Habilitar o SSO com SAML**.
 
-    b. Na seção **Informações do Andromeda**, copie o valor **identidade SP** e cole-o na caixa de texto **Identificador** da seção **Domínio e URL do Andromeda SCM**.
+    b. Na seção **Informações sobre o Andromeda**, copie o valor **Identidade do SP** e cole-o na caixa de texto **Identificador** da seção **Domínio e URL do Andromeda**.
 
-    c. Copie o valor **URL do Consumidor** e cole-o na caixa de texto **URL de resposta** da seção **Domínio e URLs do Andromeda SCM**.
+    c. Copie o valor **URL do Consumidor** e cole-o na caixa de texto **URL de Resposta** da seção **Domínio e URLs do Andromeda**.
 
-    d. Copie o valor **URL de Logon** e cole-o na caixa de texto **URL de Logon** da seção **Domínio e URLs do Andromeda SCM**.
+    d. Copie o valor **URL de Logon** e cole-o na caixa de texto **URL de Logon** da seção **Domínio e URLs do Andromeda**.
 
     e. Na seção **provedor de identidade SAML**, digite seu nome IDP.
 
@@ -191,9 +191,9 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     g. Abra o **certificado codificado com Base64** baixado do portal do Azure no bloco de notas, cole-o na caixa de texto **Certificado X 509**.
     
-    h. Mapeie os seguintes atributos com o respectivo valor para facilitar o logon SSO do Azure AD. O atributo **ID de usuário** é necessário para fazer login. Para provisionamento, **Email**, **Empresa**, **UserType** e **Função** são necessários. Nesta seção, definimos mapeamento de atributos (nome e valores) correlacionados às definidas no portal do Azure
+    h. Mapeie os seguintes atributos com o respectivo valor para facilitar o logon SSO do Azure AD. O atributo **ID de usuário** é necessário para fazer login. Para o provisionamento, **Email**, **Company**, **UserType** e **Role** são obrigatórios. Nesta seção, definimos o mapeamento de atributos (nome e valores) correlacionados àqueles definidos no portal do Azure
 
-    ![attbmap do Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    ![attbmap do Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
     i. Clique em **Salvar**.
 
@@ -232,28 +232,28 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Clique em **Criar**.
  
-### <a name="create-an-andromeda-scm-test-user"></a>Criar um usuário de teste do Andromeda SCM
+### <a name="create-an-andromeda-test-user"></a>Criar um usuário de teste do Andromeda
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Andromeda SCM. O Andromeda SCM dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Andromeda SCM, caso ele ainda não exista.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Andromeda. O Andromeda dá suporte ao provisionamento Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o Andromeda, caso ele ainda não exista.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao cliente do Andromeda SCM](https://www.ngcsoftware.com/support/).
+>Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao Cliente do Andromeda](https://www.ngcsoftware.com/support/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Andromeda SCM.
+Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Andromeda.
 
 ![Atribuir a função de usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Andromeda SCM, execute as seguintes etapas:**
+**Para atribuir Brenda Fernandes ao Andromeda, execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Andromeda SCM**.
+2. Na lista de aplicativos, selecione **Andromeda**.
 
-    ![O link do Andromeda SCM na lista de Aplicativos](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
+    ![O link do Andromeda na lista de Aplicativos](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -273,7 +273,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Andromeda SCM no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Andromeda SCM.
+Ao clicar no bloco do Andromeda no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Andromeda.
 Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -296,4 +296,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_203.png
-

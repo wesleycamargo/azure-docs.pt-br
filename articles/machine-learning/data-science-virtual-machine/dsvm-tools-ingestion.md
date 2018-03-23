@@ -1,13 +1,13 @@
 ---
-title: "Ferramentas de ingestão de dados da Máquina Virtual de Ciência de Dados – Azure | Microsoft Docs"
-description: "Ferramentas de ingestão de dados de Máquina Virtual de Ciência de Dados"
-keywords: "ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux"
+title: Ferramentas de ingestão de dados da Máquina Virtual de Ciência de Dados – Azure | Microsoft Docs
+description: Ferramentas de ingestão de dados de Máquina Virtual de Ciência de Dados
+keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8526e949aee2935824a03a0972d9e45c71d6601b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de Ciência de Dados
 
@@ -35,7 +35,7 @@ Aqui estão algumas ferramentas de movimentação de dados que fornecemos na DSV
 | Versões do DSVM com suporte      | Windows      |
 | Usos típicos      | Importar de vários blobs do armazenamento do Azure para o Azure Data Lake Store.      |
 |  Como usar/executar?    |   Abra um prompt de comando e digite `adlcopy` para obter ajuda.    |
-| Links para exemplos      | [Utilizando AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Links para exemplos      | [Como usar AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Ferramentas relacionadas ao DSVM      | AzCopy, Linha de Comando do Azure     |
 
 ## <a name="azure-command-line"></a>Linha de comando do Azure
@@ -46,7 +46,7 @@ Aqui estão algumas ferramentas de movimentação de dados que fornecemos na DSV
 | Versões do DSVM com suporte      | Windows, Linux     |
 | Usos típicos      | Importar e exportar dados para e do armazenamento do Azure, Azure Data Lake Store      |
 |  Como usar/executar?    |   Abra um prompt de comando e digite `az` para obter ajuda.    |
-| Links para exemplos      | [Usar a CLI do Azure](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| Links para exemplos      | [Usar a CLI do Azure](https://docs.microsoft.com/cli/azure)     |
 | Ferramentas relacionadas ao DSVM      | AzCopy, AdlCopy      |
 
 
@@ -93,7 +93,7 @@ Aqui estão algumas ferramentas de movimentação de dados que fornecemos na DSV
 | Versões do DSVM com suporte      | Linux      |
 | Usos típicos      | Leitura e gravação para blobs em um contêiner      |
 |  Como usar/executar?    |   Execute _blobfuse_ em um terminal.    |
-| Links para exemplos      | [blobfuse no GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| Links para exemplos      | [blobfuse no GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Ferramentas relacionadas ao DSVM      | Linha de comando do Azure      |
 
 

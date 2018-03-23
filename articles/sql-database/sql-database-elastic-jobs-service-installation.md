@@ -1,32 +1,26 @@
 ---
-title: "Instalando trabalhos de banco de dados elástico | Microsoft Docs"
-description: "Percorra a instalação do recurso de trabalho elástico."
+title: Instalando trabalhos de banco de dados elástico | Microsoft Docs
+description: Percorra a instalação do recurso de trabalho elástico.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Visão geral de Instalando trabalhos de Banco de Dados Elástico
 Os [**trabalhos de Banco de Dados Elástico**](sql-database-elastic-jobs-overview.md) podem ser instalados por meio do PowerShell ou pelo portal do Azure. Será possível obter acesso para criar e gerenciar trabalhos usando a API do PowerShell apenas se você instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem muito mais funcionalidade do que o portal neste momento.
 
 Se você já tiver instalado os **trabalhos de Banco de Dados Elástico** por meio do Portal usando um **pool elástico** existente, a versão prévia mais recente do Powershell incluirá scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para a versão mais recente dos componentes dos **trabalhos de Banco de Dados Elástico** para aproveitar a nova funcionalidade exposta por meio das APIs do PowerShell.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Uma assinatura do Azure. Para obter uma avaliação gratuita, veja [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * PowerShell do Azure. Instale a versão mais recente usando o [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 * [Utilitário de Linha de Comando do NuGet](https://nuget.org/nuget.exe) é usado para instalar o pacote de trabalhos de Banco de Dados Elástico. Para obter mais informações, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
@@ -64,7 +58,7 @@ Os parâmetros fornecidos nesta chamada de exemplo podem ser modificados para as
 <table style="width:100%">
   <tr>
     <th>Parâmetro</th>
-    <th>Descrição</th>
+    <th>DESCRIÇÃO</th>
   </tr>
 
 <tr>
@@ -125,7 +119,7 @@ Para atualizar o tamanho da VM de uma instalação, execute o script a seguir co
 <table style="width:100%">
   <tr>
   <th>Parâmetro</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
 </tr>
 
   <tr>

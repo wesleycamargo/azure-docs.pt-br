@@ -1,18 +1,18 @@
 ---
-title: "Arquivo de inclusão"
-description: "Arquivo de inclusão"
+title: Arquivo de inclusão
+description: Arquivo de inclusão
 services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/01/2018
-ms.author: danlep
+ms.date: 03/05/2018
+ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 34b38ff02d401e87be10f1f72cb2025b66317c9e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 96826b2f8acd579cbfe30f2e524d94ce4867df30
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 Os tamanhos de VM otimizados para GPU são máquinas virtuais especializadas disponíveis com um ou vários GPUs NVIDIA. Esses tamanhos são projetados para cargas de trabalho de visualização e com muita computação e muitos gráficos. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
@@ -95,14 +95,16 @@ As máquinas virtuais da série ND são uma novidade da família GPU, criadas pa
 
 ## <a name="nv-series"></a>Série NV
 
-As instâncias da série NV têm a tecnologia das GPUs [ Tesla M60 da NVIDIA ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e NVIDIA GRID para aplicativos acelerados de área de trabalho e áreas de trabalho virtuais, em que os clientes podem visualizar seus dados ou simulações. Os usuários podem visualizar seus fluxos de trabalho com uso intensivo de gráficos em instâncias NV para obter capacidade gráfica superior, além de executar cargas de trabalho de precisão única, como codificação e renderização. 
+As máquinas virtuais da série NV têm a tecnologia das GPUs [ Tesla M60 da NVIDIA ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e NVIDIA GRID para aplicativos acelerados de área de trabalho e áreas de trabalho virtuais, em que os clientes podem visualizar seus dados ou simulações. Os usuários podem visualizar seus fluxos de trabalho com uso intensivo de gráficos em instâncias NV para obter capacidade gráfica superior, além de executar cargas de trabalho de precisão única, como codificação e renderização. 
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Discos de dados máximos | Máximo de NICs |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 |
-| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 |
+Cada GPU em instâncias NV vem com uma licença GRID. Esta licença oferece flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único usuário ou 25 usuários simultâneos podem se conectar à VM para um cenário de aplicativo virtual.
+
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Discos de dados máximos | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
+| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 
 1 GPU = metade de um cartão M60.
 
-
+ 

@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: c2209a06921ffd6a8efb6fc38dacfa88fc87fa05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/16/2018
+---
 Os tamanhos de VM otimizados para armazenamento oferecem taxa de transferência de disco alta e de E/S e são ideais para bancos de dados Big Data, SQL e NoSQL. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
 A série Ls oferece até 32 vCPUs, usando a [família de processadores Intel® Xeon® E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls obtém o mesmo desempenho de CPU da série G/GS e vem com 8 GiB de memória por vCPU.  

@@ -5,7 +5,7 @@ services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, azure-service-management
 ms.assetid: 7e0d9658-bc00-45b0-848f-f7a6da648635
 ms.service: expressroute
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: a6363fa380d0bab05d7500141cc6019d1d3f68b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0517caed3a7d6632c1a5650147f4db240dbe0a17
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Sobre os gateways de rede virtual para ExpressRoute
 O gateway de rede virtual é usado para enviar o tráfego de rede entre as redes virtuais do Azure e locais. Quando você configura uma conexão ExpressRoute, é necessário criar e configurar um gateway de rede virtual e uma conexão de gateway de rede virtual.
@@ -48,11 +48,12 @@ A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada
 ## <a name="resources"></a>Cmdlets do PowerShell e APIs REST
 Para obter recursos técnicos adicionais e requisitos de sintaxe específicos ao usar cmdlets do PowerShell e APIs REST para configurações do gateway de rede virtual, veja as páginas a seguir:
 
-| **Clássico** | **Gerenciador de Recursos** |
+| **Clássico** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://msdn.microsoft.com/library/mt163510.aspx) |
 | [API REST](https://msdn.microsoft.com/library/jj154113.aspx) |[API REST](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte [Visão geral de ExpressRoute](expressroute-introduction.md) para saber mais sobre as configurações de conexão disponíveis. 
+Consulte [Visão geral de ExpressRoute](expressroute-introduction.md) para saber mais sobre as configurações de conexão disponíveis.
 
+Veja [Como criar um gateway de rede virtual para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) para obter mais informações sobre a criação de gateways do ExpressRoute.

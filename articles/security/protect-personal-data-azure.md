@@ -1,29 +1,29 @@
 ---
 title: Proteger dados pessoais no Microsoft Azure | Microsoft Docs
-description: "Primeiro artigo de uma série de artigos para ajudá-lo a usar o Azure para proteger dados pessoais"
+description: Este artigo deve ajudá-lo a usar o Azure para proteger dados pessoais e estar em conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Proteger dados pessoais no Microsoft Azure
 
-Este artigo apresenta uma série de artigos que ajuda a usar as tecnologias e os serviços de segurança do Azure para proteger dados pessoais. Este é um requisito fundamental para muitas iniciativas de governança e conformidade corporativas e do setor. O cenário, a declaração do problema e as metas da empresa são incluídos aqui.
+Este artigo apresenta uma série de artigos que ajuda a usar as tecnologias e os serviços de segurança do Azure para proteger dados pessoais. Este é um requisito fundamental para muitas iniciativas de governança e conformidade corporativas e do setor. Por exemplo, você pode usar as informações fornecidas nesta série de artigos para estar em conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR). O cenário, a declaração do problema e as metas da empresa são incluídos aqui.
 
 ## <a name="scenario-and-problem-statement"></a>Cenário e declaração do problema
 

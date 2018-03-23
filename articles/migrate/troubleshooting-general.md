@@ -1,16 +1,16 @@
 ---
-title: "Solucionar problemas das Migrações para Azure | Microsoft Docs"
-description: "Fornece uma visão geral dos problemas conhecidos no serviço de Migrações para Azure e dicas de solução de erros comuns."
+title: Solucionar problemas das Migrações para Azure | Microsoft Docs
+description: Fornece uma visão geral dos problemas conhecidos no serviço de Migrações para Azure e dicas de solução de erros comuns.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -126,5 +126,23 @@ Para coletar Rastreamento de Eventos para Windows, faça o seguinte:
 7. Fechar as Ferramentas para Desenvolvedores.
  
 
+## <a name="vcenter-errors"></a>Erros do vCenter
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro UnhandledException Internal: System.IO.FileNotFoundException
+
+É um problema visto nas versões do Coletor inferiores a 1.0.9.5. Se você estiver usando uma versão do Coletor 1.0.9.2 ou anteriores ao GA como 1.0.8.59, terá esse problema. Siga o [link fornecido aqui para obter uma resposta detalhada nos fóruns](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+
+[Atualize o Coletor para corrigir o problema](https://aka.ms/migrate/col/checkforupdates).
+
+### <a name="error-unabletoconnecttoserver"></a>Erro UnableToConnectToServer
+
+Não é possível conectar o Servidor vCenter "Servername.com:9443" devido ao erro: Nenhum ponto de extremidade atendendo em https://Servername.com:9443/sdk, que poderia aceitar a mensagem.
+
+Isso acontece quando a máquina do Coletor não consegue resolver o nome do servidor vCenter especificado ou a porta especificada está errada. Por padrão, se a porta não for especificada, o Coletor tentará conectar o número da porta 443.
+
+1. Tente executar o ping Servername.com a partir da máquina do Coletor.
+2. Se a etapa 1 falhar, tente conectar o servidor vCenter no endereço IP.
+3. Identifique o número correto da porta para conectar o vCenter.
+4. Finalmente, verifique se o servidor vCenter está em execução.
+ 
 

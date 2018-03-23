@@ -2,10 +2,10 @@
 title: Como registrar eventos nos Hubs de Eventos do Azure no Gerenciamento de API do Azure | Microsoft Docs
 description: Saiba como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
 Hub de Eventos do Azure é um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Hub de Eventos age como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um hub de eventos, ele pode ser transformado e armazenado usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hub de Eventos separa a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam acessar os eventos em seu próprio cronograma.
@@ -36,7 +36,7 @@ Os agentes do Gerenciamento de API são configurados usando a [API REST do Geren
 
 Para criar um agente de log, faça uma solicitação HTTP PUT usando o modelo de URL a seguir:
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Substitua `{your service}` pelo nome da sua instância do serviço de Gerenciamento de API.
 * Substitua `{new logger name}` pelo nome desejado para o novo agente. Você referencia este nome quando configura a política [log-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
@@ -51,7 +51,7 @@ Especifique o corpo da solicitação usando o modelo a seguir:
 
 ```json
 {
-  "loggertype" : "AzureEventHub",
+  "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -60,7 +60,7 @@ Especifique o corpo da solicitação usando o modelo a seguir:
 }
 ```
 
-* `loggertype` deve ser definido como `AzureEventHub`.
+* `loggerType` deve ser definido como `AzureEventHub`.
 * `description` fornece uma descrição opcional do agente e pode ser uma cadeia de caracteres de comprimento zero, se desejado.
 * `credentials` contém `name` e `connectionString` do seu Hub de Eventos do Azure.
 

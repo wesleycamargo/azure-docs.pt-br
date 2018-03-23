@@ -1,8 +1,8 @@
 ---
-title: Copiar dados do Google BigQuery utilizando o Azure Data Factory (beta) | Microsoft Docs
-description: "Saiba como copiar dados do Google BigQuery para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Data Factory."
+title: Copiar dados do Google BigQuery utilizando o Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados do Google BigQuery para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 955de6cf4b17f1df1e545ccc196856c7c898edfe
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Copiar dados do Google BigQuery utilizando o Azure Data Factory (beta)
+# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery utilizando o Azure Data Factory
 
 Este artigo descreve como usar Atividade de Cópia no Azure Data Factory para copiar dados do Google BigQuery. Ele amplia o artigo [Visão geral da Atividade de Cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você usa a versão 1 do serviço Data Factory, que está com disponibilidade geral, consulte a [Atividade de Cópia na versão 1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Esse conector está atualmente em versão beta. Você pode experimentá-lo e oferecer comentários. Não utilize-o em ambientes de produção.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -60,8 +57,8 @@ Defina a propriedade "authenticationType" para **UserAuthentication** e especifi
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | clientId | ID do aplicativo usado para gerar o token de atualização. | Não  |
-| clientSecret | Segredo do aplicativo usado para gerar o token de atualização. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
-| refreshToken | O token de atualização obtido no Google usado para autorizar o acesso ao BigQuery. Saiba como obter um a partir de [Obter tokens de acesso do OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens). Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
+| clientSecret | Segredo do aplicativo usado para gerar o token de atualização. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
+| refreshToken | O token de atualização obtido no Google usado para autorizar o acesso ao BigQuery. Saiba como obter um a partir de [Obter tokens de acesso do OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens). Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 
 **Exemplo:**
 

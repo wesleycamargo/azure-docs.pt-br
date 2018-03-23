@@ -1,8 +1,8 @@
 ---
-title: "Recuperação de desastre do Banco de Dados SQL | Microsoft Docs"
-description: "Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Restauração geográfica e Replicação geográfica ativa do Banco de dados SQL do Azure."
+title: Recuperação de desastre do Banco de Dados SQL | Microsoft Docs
+description: Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Restauração geográfica e Replicação geográfica ativa do Banco de dados SQL do Azure.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -13,20 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 224c0b9f12595ec6cdc65e3d397fb62dba504d06
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cc4f8e1566ede1d730b40c2e5ce6364786c102d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um Banco de Dados SQL ou fazer failover para um secundário
 O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação de uma paralisação:
 
 * [Grupos de failover e replicação geográfica ativos](sql-database-geo-replication-overview.md)
 * [Restauração geográfica](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [Bancos de dados com redundância de zona](sql-database-high-availability.md)
 
 Para saber mais sobre os cenários de continuidade dos negócios e os recursos com suporte para esses cenários, confira [Continuidade dos negócios](sql-database-business-continuity.md).
 
@@ -101,7 +102,7 @@ Para obter mais informações sobre regras de alerta de banco de dados, consulte
 Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Para obter mais informações, consulte [Auditoria de banco de dados](sql-database-auditing.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+* Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, consulte [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
 * Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, confira [Cenários de continuidade](sql-database-business-continuity.md)
 * Para saber mais sobre como usar backups automatizados para recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
 

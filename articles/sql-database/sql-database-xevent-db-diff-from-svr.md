@@ -1,26 +1,20 @@
 ---
 title: Eventos estendidos no Banco de Dados SQL | Microsoft Doc
-description: "Descreve eventos estendidos (XEvents) no Banco de Dados SQL do Azure e como as sessões de eventos diferem ligeiramente das sessões de eventos no Microsoft SQL Server."
+description: Descreve eventos estendidos (XEvents) no Banco de Dados SQL do Azure e como as sessões de eventos diferem ligeiramente das sessões de eventos no Microsoft SQL Server.
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: f4e41d340b38a5f29387d75b8f65b68c5fb31eb9
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: dc4660b33d8df28fd59929838e054f6703c48107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos estendidos no Banco de Dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -38,7 +32,7 @@ Informações adicionais sobre eventos estendidos, para Banco de Dados SQL e Mic
 - [Início Rápido: eventos estendidos no SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventos estendidos](http://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Este tópico pressupõe que você já tem algum conhecimento de:
 
@@ -85,7 +79,7 @@ Os tópicos relacionados fornecem dois exemplos de código:
 
 O recurso de eventos estendidos recebe suporte de várias [exibições do catálogo](http://msdn.microsoft.com/library/ms174365.aspx). As exibições do catálogo mostram *metadados ou definições* de sessões de eventos criadas pelo usuário no banco de dados atual. As exibições não retornam informações sobre as instâncias de sessões de eventos ativas.
 
-| Nome da<br/>exibição do catálogo | Descrição |
+| Nome da<br/>exibição do catálogo | DESCRIÇÃO |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Retorna uma linha para cada ação em cada evento de uma sessão de eventos. |
 | **sys.database_event_session_events** |Retorna uma linha para cada evento em uma sessão de eventos. |
@@ -99,7 +93,7 @@ No Microsoft SQL Server, exibições do catálogo semelhantes têm nomes que inc
 
 O Banco de Dados SQL do Azure tem [exibições de gerenciamento dinâmico (DMVs)](http://msdn.microsoft.com/library/bb677293.aspx) que dão suporte a eventos estendidos. DMVs mostram as sessões de evento *ativas* .
 
-| Nome da DMV | Descrição |
+| Nome da DMV | DESCRIÇÃO |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Retorna informações sobre ações da sessão de eventos. |
 | **sys.dm_xe_database_session_events** |Retorna informações sobre eventos da sessão. |

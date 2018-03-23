@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o People | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o People."
+title: 'Tutorial: integração do Azure Active Directory com o People | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o People.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: cf3c633aec5fd55d3525c0e010e1aca68407ef33
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a76701e23771efa79ef39ebd6deb29cec8acaa8a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Tutorial: Integração do Azure Active Directory ao People
 
@@ -31,7 +31,7 @@ A integração do People ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao People, você precisará dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do People a partir da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-people-from-the-gallery"></a>Adição do People a partir da galeria
 Para configurar a integração do People ao Azure AD, você precisará adicionar o People à sua lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,11 +63,11 @@ Para configurar a integração do People ao Azure AD, você precisará adicionar
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **People**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do People ao Azure AD, você precisará adicionar
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-people-tutorial/tutorial_people_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o People, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do People é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do People.
@@ -86,11 +86,11 @@ No People, atribua o valor do **nome de usuário** no Azure AD como o valor do *
 
 Para configurar e testar o logon único do Azure AD com o People, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste do People](#creating-a-people-test-user)** – para ter um equivalente de Brenda Fernandes em People, que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,24 +100,24 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 1. No Portal do Azure, na página de integração de aplicativos do **People**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-people-tutorial/tutorial_people_samlbase.png)
 
 3. Na seção **URLs e Domínio do People**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.com/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.peoplehr.com`
+    b. Na caixa de texto **Identificador**, digite a URL: `https://www.peoplehr.com`
 
-    c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
-
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Entre em contato com a [equipe de suporte ao cliente do People](mailto:customerservices@peoplehr.com) para obter esses valores.
+    c. Na caixa de texto **URL de Resposta**, digite uma URL no seguinte padrão: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+    
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do People](mailto:customerservices@peoplehr.com) para obter esses valores. 
 
 5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -125,21 +125,21 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-people-tutorial/tutorial_general_400.png)
     
 7. Para configurar o SSO para o aplicativo, você precisa entrar no locatário People como administrador.
    
 8. No menu à esquerda, clique em **Configurações**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)
+    ![Configurar o logon único](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)
 
 9. Clique em **Empresa**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_002.png)
+    ![Configurar o logon único](./media/active-directory-saas-people-tutorial/tutorial_people_002.png)
 
 10. Em **Carregar arquivo de metadados SAML de ‘Logon Único’**, clique em **Procurar** para carregar o arquivo de metadados baixado.
 
-    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
+    ![Configurar o logon único](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -194,7 +194,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **People**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-people-tutorial/tutorial_people_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 

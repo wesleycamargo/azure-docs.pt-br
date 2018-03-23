@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory Connect: solucionar problemas do Logon Único Contínuo | Microsoft Docs"
-description: "Este tópico descreve como solucionar problemas do Logon Único Contínuo do Azure Active Directory"
+title: 'Azure Active Directory Connect: solucionar problemas do Logon Único Contínuo | Microsoft Docs'
+description: Este tópico descreve como solucionar problemas do Logon Único Contínuo do Azure Active Directory
 services: active-directory
-keywords: "o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
 Este artigo ajuda você a localizar informações de solução de problemas comuns relacionados ao SSO Contínuo (Logon Único Contínuo) do Azure AD (Azure Active Directory).
 
-## <a name="known-problems"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
 - Em alguns casos, habilitar o SSO contínuo pode levar até 30 minutos.
 - Se você desabilitar e habilitar novamente o SSO Contínuo em seu locatário, os usuários não obterão a experiência de logon único até que seus tíquetes de Kerberos armazenados em cache, normalmente válidos por 10 horas, tenham se expirado.
 - O suporte ao navegador Edge não está disponível.
-- A inicialização de clientes do Office, especialmente em situações de computador compartilhado, gera prompts de entrada adicionais para usuários. Os usuários devem inserir seus nomes de usuário com frequência, mas não suas senhas.
 - Se o SSO Contínuo for bem-sucedido, o usuário não terá a oportunidade de selecionar **Manter-me conectado**. Devido a esse comportamento, os cenários de mapeamento do SharePoint e do OneDrive não funcionam.
+- Os clientes do Office abaixo da versão 16.0.8730.xxxx não têm suporte para a entrada não interativa com o SSO Contínuo. Nos clientes, os usuários devem digitar seus nomes de usuário, mas não senhas, para entrar.
 - O SSO Contínuo não funciona no modo de navegação particular no Firefox.
 - O SSO contínuo não funciona no Internet Explorer quando o modo de Proteção Avançada está ativado.
 - O SSO contínuo não funciona em navegadores de dispositivos móveis no iOS e no Android.
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) o recurso em seu locatário.
-- Adicionar URLs do serviço Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
+- Adicionar a URL do serviço Azure AD (https://autologon.microsoftazuread-sso.com) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
+- Desabilitar o uso do tipo de criptografia **RC4_HMAC_MD5** para Kerberos em suas configurações do Active Directory irá interromper o SSO Contínuo. Na ferramenta do Editor de Gerenciamento de Política de Grupo, verifique se o valor da política para **RC4_HMAC_MD5** em **Configuração do Computador -> Configurações do Windows -> Configurações de Segurança -> Políticas Locais -> Opções de Segurança -> "Segurança de Rede: Configurar tipos de criptografia permitidos para Kerberos"** é" Habilitado ".
 
-## <a name="check-the-status-of-the-feature"></a>Verificar o status do recurso
+## <a name="check-status-of-feature"></a>Verificar o status do recurso
 
 Verifique se o recurso SSO ainda está **Habilitado** em seu locatário. Você pode verificar o status acessando o painel **Azure AD Connect** no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centro de administração do Azure Active Directory: painel do Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+Clique para ver todas as florestas do AD que foram habilitadas para SSO Contínuo.
+
+![Centro de administração do Azure Active Directory: painel SSO Contínuo](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory (é necessário uma licença Premium)
 
@@ -70,7 +75,7 @@ Use a lista de verificação a seguir para solucionar problemas de SSO Contínuo
 
 - Verifique se o recurso de SSO Contínuo está habilitado no Azure AD Connect. Se você não puder habilitar o recurso (por exemplo, devido a uma porta bloqueada), verifique se você cumpriu com todos os [pré-requisitos](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites).
 - Se você habilitou o [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) e o SSO Contínuo em seu locatário, verifique se o problema não está com o Ingresso no Azure AD. O SSO por meio do Ingresso no Azure AD terá precedência sobre SSO Contínuo se o dispositivo estiver registrado no Azure AD e ingressado no domínio. Com o SSO por meio do Ingresso no Azure AD, o usuário verá um bloco de entrada com a informação "Conectado ao Windows".
-- Certifique-se de que ambas as URLs do Azure AD (https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net) façam parte das configurações da zona de Intranet do usuário.
+- Certifique-se de que o URL do Azure AD (https://autologon.microsoftazuread-sso.com) faz parte das configurações de zona da Intranet do usuário.
 - Certifique-se de que o dispositivo corporativo tenha ingressado no domínio do Active Directory.
 - Certifique-se de que o usuário esteja conectado ao dispositivo por meio de uma conta de domínio do Active Directory.
 - Verifique se a conta do usuário é de uma floresta do Active Directory na qual o SSO Contínuo foi configurado.

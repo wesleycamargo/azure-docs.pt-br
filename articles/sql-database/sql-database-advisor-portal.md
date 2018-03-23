@@ -1,8 +1,8 @@
 ---
-title: "Aplicar recomendações de desempenho - Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Use o portal do Azure para localizar as recomendações de desempenho que podem otimizar o desempenho do Banco de Dados SQL do Azure."
+title: Aplicar recomendações de desempenho - Banco de Dados SQL do Azure | Microsoft Docs
+description: Use o portal do Azure para localizar as recomendações de desempenho que podem otimizar o desempenho do Banco de Dados SQL do Azure.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: stevestein
 manager: jhubbard
 editor: monicar
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -52,7 +52,7 @@ As recomendações são classificadas de acordo com seu impacto em potencial no 
 > O Banco de Dados SQL do Azure precisa monitorar as atividades de pelo menos um dia para identificar algumas recomendações. O Banco de Dados SQL do Azure pode otimizar com mais facilidade os padrões de consulta consistentes do que intermitências aleatórias e irregulares de atividade. Se não houver recomendações disponíveis no momento, a página **Recomendação de desempenho** apresentará uma mensagem explicando o motivo.
 > 
 
-Você também pode exibir o status das operações do histórico. Selecione um status ou recomendação para ver seus detalhes.
+Você também pode exibir o status das operações do histórico. Selecione um status ou uma recomendação para obter mais informações.
 
 Confira um exemplo de recomendação "Criar índice" no Portal do Azure.
 
@@ -130,7 +130,7 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 | Revertendo |A recomendação foi aplicada, mas foi considerada não funcional e está sendo revertida automaticamente. |
 | Revertida |A recomendação foi revertida. |
 
-Clique em uma recomendação no processo da lista para ver mais detalhes:
+Clique em uma recomendação em processo da lista para ver mais informações:
 
 ![Índices recomendados](./media/sql-database-advisor-portal/operations.png)
 

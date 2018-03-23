@@ -1,25 +1,19 @@
 ---
 title: Estudo de caso sobre o Banco de Dados SQL do Azure - GEP | Microsoft Docs
-description: "Saiba como a GEP usa o Banco de Dados SQL para atingir mais clientes globais e obter mais eficiência"
+description: Saiba como a GEP usa o Banco de Dados SQL para atingir mais clientes globais e obter mais eficiência
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
+manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: bced4e04f541dde58410e25fe0c3aa5493a5e5fd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 093f891ea9dd36a2766d0a797c4f0a67b11aa8a4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>O Azure oferece à GEP alcance global e maior eficiência
 ![Logotipo da GEP](./media/sql-database-implementation-gep/geplogo.png)

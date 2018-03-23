@@ -1,20 +1,20 @@
 ---
 title: Conectar uma conta do Amazon Web Services ao Gerenciamento de Custos do Azure | Microsoft Docs
-description: "Conectar uma conta do Amazon Web Services para exibição dos dados de uso e custo em relatórios do Gerenciamento de Custos."
+description: Conectar uma conta do Amazon Web Services para exibição dos dados de uso e custo em relatórios do Gerenciamento de Custos.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/08/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: a82d803b51859f809ca5a39ce177697a1f66a008
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: 4a0280420132aad9f1e0b17d5998ec225bb0eaa1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Conectar uma conta do Amazon Web Services
 
@@ -100,4 +100,4 @@ O Gerenciamento de Custos começa coletando dados e relatórios de preenchimento
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre o Gerenciamento de Custos do Azure pelo Cloudyn, continue com o tutorial [Analisar o uso e os custos](tutorial-review-usage.md) para Gerenciamento de Custos.
+- Para saber mais sobre o Gerenciamento de Custos do Azure, continue com o tutorial [Analisar o uso e os custos](tutorial-review-usage.md) para Gerenciamento de Custos.

@@ -1,11 +1,11 @@
 ---
-title: "Criar exibições para analisar dados no Log Analytics do Azure | Microsoft Docs"
-description: "Ao usar Designer de Exibição no Log Analytics, é possível criar exibições personalizadas que são exibidas no Portal do Azure e conter uma variedade de visualizações de dados no espaço de trabalho do Log Analytics. Este artigo contém uma visão geral do Designer de Exibição e apresenta procedimentos para criar e editar exibições personalizadas."
+title: Criar exibições para analisar dados no Log Analytics do Azure | Microsoft Docs
+description: Ao usar Designer de Exibição no Log Analytics, é possível criar exibições personalizadas que são exibidas no Portal do Azure e conter uma variedade de visualizações de dados no espaço de trabalho do Log Analytics. Este artigo contém uma visão geral do Designer de Exibição e apresenta procedimentos para criar e editar exibições personalizadas.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar exibições personalizadas usando o Designer de Exibição no Log Analytics
 Ao usar o Designer de Exibição no [Azure Log Analytics](log-analytics-overview.md), é possível criar uma variedade de exibições personalizadas no Portal do Azure que podem ajudá-lo a visualizar dados no espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
@@ -28,8 +28,6 @@ Para obter mais informações sobre o Designer de Exibição, consulte:
 * [Referência de bloco](log-analytics-view-designer-tiles.md): fornece um guia de referência para as configurações de cada um dos blocos disponíveis em suas exibições personalizadas.
 * [Referência da parte de visualização](log-analytics-view-designer-parts.md): fornece um guia de referência para as configurações das partes de visualização que estão disponíveis em nas exibições personalizadas.
 
->[!NOTE]
-> Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078). Todas as exibições que criadas antes da atualização do espaço de trabalho serão convertidas automaticamente.
 
 ## <a name="concepts"></a>Conceitos
 Modos de exibição são exibidos na página **Visão geral** do seu espaço de trabalho do Log Analytics no portal do Azure. Os blocos em cada exibição personalizada são exibidos em ordem alfabética e os blocos para as soluções são instalados no mesmo espaço de trabalho.

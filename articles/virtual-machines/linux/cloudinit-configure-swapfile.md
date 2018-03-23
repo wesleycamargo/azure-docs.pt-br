@@ -1,11 +1,11 @@
 ---
 title: Usar cloud-init para configurar um arquivo de permuta em uma VM Linux | Microsoft Docs
-description: "Como usar cloud-init para configurar um arquivo de permuta em uma VM Linux durante a criação com a CLI do Azure 2.0"
+description: Como usar cloud-init para configurar um arquivo de permuta em uma VM Linux durante a criação com a CLI do Azure 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 7f9defc1f414819cf856fc92f5eb51eafdc67be9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88a141922f113caf7ad67c89de48f84a821f7ba3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Usar cloud-init para configurar um arquivo de permuta em uma VM Linux
 Este artigo mostra como usar a [cloud-init](https://cloudinit.readthedocs.io) para configurar o arquivo de permuta em várias distribuições do Linux. O arquivo de permuta tradicionalmente foi configurado pelo Agente Linux (WALA) com base em quais distribuições exigem um.  Este documento detalhará o processo para criar o arquivo de permuta sob demanda durante o tempo de provisionamento usando a cloud-init.  Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
@@ -33,18 +33,18 @@ Crie um arquivo em seu shell atual chamado *cloud_init_swapfile.txt* e cole a co
 ```yaml
 #cloud-config
 disk_setup:
-ephemeral0:
-table_type: gpt
-layout: [66, [33,82]]
-overwrite: True
+  ephemeral0:
+    table_type: gpt
+    layout: [66, [33,82]]
+    overwrite: true
 fs_setup:
-- device: ephemeral0.1
-filesystem: ext4
-- device: ephemeral0.2
-filesystem: swap
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
 mounts:
-- ["ephemeral0.1", "/mnt"]
-- ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
 Antes de implantar essa imagem, você precisa criar um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.

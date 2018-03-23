@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação da visualização do Azure Databricks"
+title: Documentação da visualização do Azure Databricks
 metadata:
-  title: "Documentação do Azure Databricks - Tutoriais | Microsoft Docs"
-  description: "Saiba como usar o Azure Databricks usando o guia de início rápido e outros links fornecidos aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure."
+  title: Documentação do Azure Databricks - Tutoriais | Microsoft Docs
+  description: Saiba como usar o Azure Databricks usando o guia de início rápido e outros links fornecidos aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure.
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -13,27 +13,27 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: nitinme
-  ms.openlocfilehash: c94a3e7ecaf89612238b80ed83474af792c3efc4
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+  ms.openlocfilehash: 8bbb8bb020c8c64e11d072729b59074a406a03ca
+  ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/16/2018
+  ms.lasthandoff: 03/17/2018
 abstract:
-  description: "Saiba como usar o Azure Databricks usando o guia de início rápido e outros links fornecidos aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure. Projetado com os fundadores do Apache Spark, O Databricks é integrado com o Azure para fornecer instalação com um clique, fluxos de trabalho simplificados e um espaço de trabalho interativo que permite a colaboração entre os cientistas de dados, os engenheiros de dados e os analistas de negócios."
+  description: Saiba como usar o Azure Databricks usando o guia de início rápido e outros links fornecidos aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure. Projetado com os fundadores do Apache Spark, O Databricks é integrado com o Azure para fornecer instalação com um clique, fluxos de trabalho simplificados e um espaço de trabalho interativo que permite a colaboração entre os cientistas de dados, os engenheiros de dados e os analistas de negócios.
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: "Introdução ao Azure Databricks (3:38)"
+    title: Introdução ao Azure Databricks (3:38)
     href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
     width: 250
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: "Saiba como criar um espaço de trabalho do Azure Databricks, um cluster Spark, e, em seguida, executar trabalhos usando:"
+    text: 'Saiba como criar um espaço de trabalho do Azure Databricks, um cluster Spark, e, em seguida, executar trabalhos usando:'
   - type: list
     style: icon48
     items:
@@ -49,8 +49,9 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Dados de fluxo de Hubs de Eventos usando o Azure Databricks</a>
+    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Análise de sentimento usando o Azure Databricks e os Serviços Cognitivos</a>
     - html: <a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Importar dados do Armazenamento do Azure</a>
     - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
-    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/notebooks/index.html\" target=\"_blank\">Trabalhar com blocos de anotações</a>"
+    - html: <a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Trabalhar com blocos de anotações</a>
     - html: <a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Executar trabalhos do Spark</a>
     - html: <a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Usar fontes de dados do Spark</a>

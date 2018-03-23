@@ -1,37 +1,52 @@
 ---
-title: "Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando .NET | Microsoft Docs"
-description: "Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para .NET a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner."
+title: Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando .NET | Microsoft Docs
+description: Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para .NET a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/01/2018
 ms.author: tamram
-ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Início rápido: Carregar, baixar e listar blobs usando .NET
 
 Neste guia de início rápido, você aprende a usar a biblioteca de clientes do .NET para o Armazenamento do Azure para carregar, baixar e listar blobs de bloco em um contêiner.
 
-## <a name="prerequisites"></a>pré-requisitos
-
-Para concluir este guia de início rápido:
-
-* Instale o núcleo do .NET 2.0 para [Linux](/dotnet/core/linux-prerequisites?tabs=netcore2x) ou [Windows](/dotnet/core/windows-prerequisites?tabs=netcore2x)
-
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+## <a name="prerequisites"></a>pré-requisitos
+
+Para concluir este início rápido, primeiro crie uma conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda sobre como criar a conta, confira [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
+
+Em seguida, baixe e instale o .NET Core 2.0 para seu sistema operacional. Você também pode optar por instalar um editor para usar com o sistema operacional.
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+- Instalar o [.NET Core para Windows](https://www.microsoft.com/net/download/windows/build) 
+- Opcionalmente, instalar o [Visual Studio para Windows](https://www.visualstudio.com/) 
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+- Instalar o [.NET Core para Linux](https://www.microsoft.com/net/download/linux/build)
+- Opcionalmente, instalar o [Visual Studio Code](https://www.visualstudio.com/) e a [extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+- Instalar o [.NET Core para macOS](https://www.microsoft.com/net/download/macos/build).
+- Opcionalmente, instalar o [Visual Studio para Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+
+---
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 
-O aplicativo de exemplo usado neste guia de início rápido é um aplicativo de console básico. 
+O aplicativo de exemplo usado neste guia de início rápido é um aplicativo de console básico. Você pode explorar o aplicativo de exemplo no [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart).
 
 Use o [git](https://git-scm.com/) para baixar uma cópia do aplicativo para seu ambiente de desenvolvimento. 
 
@@ -43,22 +58,35 @@ Este comando clona o repositório para sua pasta do git local. Para abrir a solu
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
 
-No aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. É recomendável armazenar essa cadeia de caracteres de conexão dentro de uma variável de ambiente no computador local que está executando o aplicativo. Siga um dos exemplos abaixo, dependendo do seu sistema operacional para criar a variável de ambiente.  Substitua \<yourconnectionstring\> pela sua cadeia de caracteres de conexão atual.
+Para executar o aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. Você pode armazenar essa cadeia de conexão dentro de uma variável de ambiente no computador local que está executando o aplicativo. Crie a variável de ambiente usando um dos exemplos a seguir, dependendo do seu sistema operacional. Substitua `<yourconnectionstring>` pela cadeia de conexão real.
 
-### <a name="linux"></a>Linux
-
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-### <a name="windows"></a>Windows
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+Edite seu .bash_profile e adicione a variável de ambiente:
+
+```
+export STORAGE_CONNECTION_STRING=
+```
+
+Depois de adicionar a variável de ambiente, saia e entre novamente para que as alterações entrem em vigor. Como alternativa, você pode digitar "source .bash_profile" no terminal.
+
+---
+
 ## <a name="run-the-sample"></a>Execute o exemplo
 
-Este exemplo cria um arquivo de teste em Meus Documentos, carrega-o para o Armazenamento de Blobs, lista os blobs no contêiner e baixa o arquivo com um novo nome para que você possa comparar o arquivo novo com antigo. 
+Este exemplo cria um arquivo de teste na sua pasta local **Meus documentos** e carrega-o no armazenamento de blobs. Em seguida, o exemplo lista os blobs no contêiner e baixa o arquivo com um novo nome para que você possa comparar os arquivos novos e antigos. 
 
 Navegue até seu diretório de aplicativo e execute o aplicativo com o comando `dotnet run`.
 
@@ -79,9 +107,7 @@ The program has completed successfully.
 Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
 ```
 
-Quando você pressiona qualquer tecla para continuar, ele exclui o contêiner de armazenamento e os arquivos. Antes de continuar, verifique se os dois documentos estão em MyDocuments. Você pode abri-los e ver que eles são idênticos. Copie a URL para o blob fora da janela do console e cole-a em um navegador para exibir o conteúdo do arquivo no Armazenamento de Blobs.
-
-Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento. 
+Quando você pressiona a tecla **Enter**, o aplicativo exclui o contêiner de armazenamento e os arquivos. Antes de excluí-los, verifique os dois arquivos na pasta **Meus documentos**. Você pode abri-los e ver se eles são idênticos. Copie a URL do blob da janela do console e cole-a em um navegador para exibir o conteúdo do blob.
 
 Depois de verificar os arquivos, pressione qualquer tecla para concluir a demonstração e excluir os arquivos de teste. Agora que você sabe o que o exemplo faz, abra o arquivo Program.cs para examinar o código. 
 
@@ -89,46 +115,54 @@ Depois de verificar os arquivos, pressione qualquer tecla para concluir a demons
 
 Em seguida, vamos percorrer o código de exemplo para que você possa entender como ele funciona.
 
-### <a name="get-references-to-the-storage-objects"></a>Obter referências a objetos de armazenamento
+### <a name="try-parsing-the-connection-string"></a>Tentar analisar a cadeia de conexão
 
-A primeira coisa a fazer é criar as referências aos objetos usados para acessar e gerenciar o Armazenamento de Blobs. Esses objetos dependem uns dos outros, cada um é usado pelo próximo na lista.
-
-* Crie uma instância do objeto [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet) apontando para a conta de armazenamento.
-
-* Crie uma instância do objeto [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet), que aponta para o serviço Blob na sua conta de armazenamento.
-
-* Crie uma instância do objeto [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) que representa o contêiner que você está acessando. Os contêineres são usados para organizar seus blobs da mesma forma que você usa pastas no seu computador para organizar seus arquivos.
-
-Assim que tiver o [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet), será possível criar uma instância do objeto [CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet), que aponta para o blob específico em que você está interessado e realizar a operação de upload, download, cópia etc.
-
-> [!IMPORTANT]
-> Os nomes de contêiner devem estar em minúsculas. Consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Nomenclatura e referência de contêineres, blobs e metadados) para obter mais informações sobre nomes de contêiner e de blobs.
-
-Nesta seção, você cria uma instância de objetos, cria um novo contêiner e, em seguida, define as permissões no contêiner para que os blobs sejam públicos e possam ser acessados com apenas uma URL. O contêiner é chamado de **quickstartblobs**.
-
-Este exemplo usa [CreateIfNotExists](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexists?view=azure-dotnet) porque queremos criar um novo contêiner cada vez que a amostra for executada. Em um ambiente de produção em que você usa o mesmo contêiner em um aplicativo, é uma prática recomendada chamar **CreateIfNotExists** somente uma vez. Como alternativa, é possível criar o contêiner antecipadamente para não precisar criá-lo no código.
+A primeira coisa que o exemplo faz é verificar se a variável de ambiente contém uma cadeia de conexão que pode ser analisada para criar um objeto [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) apontando para a conta de armazenamento. Para verificar se a cadeia de conexão é válida, use o método [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse). Se **TryParse** for bem-sucedido, ele inicializará a variável *storageAccount* e retornará **true**.
 
 ```csharp
-// Load the connection string for use with the application. The storage connection string is stored
+// Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
 // Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
-if (storageConnectionString == null)
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+
+// Check whether the connection string can be parsed.
+if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
+    // If the connection string is valid, proceed with operations against Blob storage here.
+    ...
+}
+else
+{
+    // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable name 'storageconnectionstring' with the actual storage " +
+        "Add a environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
+    Console.WriteLine("Press any key to exit the sample application.");
+    Console.ReadLine();
 }
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+```
 
-// Create the CloudBlobClient that is used to call the Blob Service for that storage account.
+### <a name="create-the-container-and-set-permissions"></a>Criar um contêiner e definir permissões
+
+Em seguida, o exemplo cria um contêiner e define suas permissões para que todos os blobs no contêiner fiquem públicos. Se um blob é público, ele pode ser acessado anonimamente por qualquer cliente.
+
+Para criar o contêiner, primeiro crie uma instância do objeto [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient), que aponta para o armazenamento de blobs na sua conta de armazenamento. Em seguida, crie uma instância do objeto [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) e crie o contêiner. 
+
+Nesse caso, o exemplo chama o método [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) para criar o contêiner. Um valor de GUID é acrescentado ao nome do contêiner para garantir que ele seja exclusivo. Em um ambiente de produção, geralmente é preferível só usar o método [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) para criar um contêiner se ele ainda não existir para evitar conflitos de nomenclatura.
+
+> [!IMPORTANT]
+> Os nomes de contêiner devem estar em minúsculas. Para saber mais sobre como nomear contêineres e blobs, veja [Nomenclatura e referência de contêineres, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+
+
+```csharp
+// Create the CloudBlobClient that represents the Blob storage endpoint for the storage account.
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-// Create a container called 'quickstartblobs'. 
+// Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
 cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
-await cloudBlobContainer.CreateIfNotExistsAsync();
+await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 
 BlobContainerPermissions permissions = new BlobContainerPermissions
@@ -140,14 +174,10 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contêiner
 
-O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de bloco são utilizados com mais frequência e é o que é usado nesse guia de início rápido.
-
-Para carregar um arquivo em um blob, obtenha uma referência para o blob no contêiner de destino. Após obter a referência de blob, você pode carregar dados nele usando [CloudBlockBlob.UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Essa operação cria o blob, se ele ainda não existir, ou o substitui, se ele já existir.
-
-O código de exemplo cria um arquivo local a ser usado para o upload e para o download, armazenando o arquivo a ser carregado como **fileAndPath** e o nome do blob no **localFileName**. O exemplo a seguir carrega o arquivo para seu contêiner chamado **quickstartblobs**.
+Em seguida, o exemplo carrega um arquivo local para um blob de blocos. O exemplo de código obtém uma referência a um objeto **CloudBlockBlob** chamando o método [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) no contêiner criado na seção anterior. Em seguida, carrega o arquivo selecionado para o blob chamando o método [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Esse método criará o blob se ele ainda não existir e o substituirá se já existir. 
 
 ```csharp
-// Create a file in MyDocuments to test the upload and download.
+// Create a file in your local MyDocuments folder to upload to a blob.
 string localPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 string localFileName = "QuickStart_" + Guid.NewGuid().ToString() + ".txt";
 sourceFile = Path.Combine(localPath, localFileName);
@@ -157,21 +187,17 @@ File.WriteAllText(sourceFile, "Hello, World!");
 Console.WriteLine("Temp file = {0}", sourceFile);
 Console.WriteLine("Uploading to Blob storage as blob '{0}'", localFileName);
 
-// Get a reference to the location where the blob is going to go, then upload the file.
-// Upload the file you created, use localFileName for the blob name.
+// Get a reference to the blob address, then upload the file to the blob.
+// Use the value of localFileName for the blob name.
 CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(localFileName);
 await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 ```
 
-Há vários métodos de upload que você pode usar com o Armazenamento de Blobs. Por exemplo, se você tiver um fluxo de memória, poderá usar o método UploadFromStreamAsync em vez de UploadFromFileAsync.
-
-Blobs de bloco podem ser qualquer tipo de arquivo binário ou de texto. Os blobs de páginas são usados principalmente para os arquivos VHD usados auxiliar as VMs IaaS. Os blobs de acréscimo são usados para registro em log, como quando você quer gravar em um arquivo e depois adicionar mais informações. A maioria dos objetos armazenados no Armazenamento de Blobs são blobs de blocos.
-
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
 
-Obtenha uma lista de arquivos no contêiner usando [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). O código a seguir recupera a lista de blobs e a percorre, mostrando os URIs dos blobs encontrados. Você pode copiar o URI da janela de comando e colá-lo em um navegador para exibir o arquivo.
+O exemplo lista blobs no contêiner usando o método [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). No caso do exemplo, apenas um blob foi adicionado ao contêiner e, portanto, a operação de listagem retorna apenas um blob.
 
-Se você tiver 5.000 blobs ou menos no contêiner, todos os nomes de blob serão recuperados em uma chamada para ListBlobsSegmentedAsync. Se você tiver mais de 5.000 blobs no contêiner, o serviço recuperará a lista em conjuntos de 5.000 até que todos os nomes de blob tenham sido recuperados. Portanto, na primeira vez que essa API é chamada, ela retorna os primeiros 5.000 nomes de blobs e um token de continuação. Na segunda vez, você fornece o token e o serviço recupera o próximo conjunto de nomes de blobs e assim por diante até que o token de continuação seja nulo, o que indica que todos os nomes de blobs foram recuperados.
+Se houver muitos blobs em uma chamada de retorno (por padrão, mais de 5.000), o método **ListBlobsSegmentedAsync** retornará um segmento do conjunto de resultados total e um token de continuação. Para recuperar o próximo segmento de blobs, forneça o token de continuação retornado pela chamada anterior e assim por diante, até que o token de continuação seja nulo. Um token de continuação nulo indica que todos os blobs foram recuperados. O código de exemplo mostra como usar a continuação do token para fins de melhores práticas.
 
 ```csharp
 // List the blobs in the container.
@@ -180,27 +206,24 @@ BlobContinuationToken blobContinuationToken = null;
 do
 {
     var results = await cloudBlobContainer.ListBlobsSegmentedAsync(null, blobContinuationToken);
+    // Get the value of the continuation token returned by the listing call.
     blobContinuationToken = results.ContinuationToken;
     foreach (IListBlobItem item in results.Results)
     {
         Console.WriteLine(item.Uri);
     }
     blobContinuationToken = results.ContinuationToken;
-} while (blobContinuationToken != null);
+} while (blobContinuationToken != null); // Loop while the continuation token is not null. 
 
 ```
 
 ### <a name="download-blobs"></a>Baixar blobs
 
-Baixe os blobs para o disco local usando [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
-
-O código a seguir baixa o blob carregado em uma seção anterior, adicionando um sufixo de "_DOWNLOADED" ao nome do blob para que você possa ver ambos os arquivos no disco local.
+Em seguida, o exemplo baixa o blob criado anteriormente para o sistema de arquivos local usando o método [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync). O código de exemplo adiciona um sufixo "_DOWNLOADED" ao nome do blob para que você possa ver os dois arquivos no sistema de arquivos local.
 
 ```csharp
-// Download blob. In most cases, you would have to retrieve the reference
-//   to cloudBlockBlob here. However, we created that reference earlier, and 
-//   haven't changed the blob we're interested in, so we can reuse it. 
-// First, add a _DOWNLOADED before the .txt so you can see both files in MyDocuments.
+// Download the blob to a local file, using the reference created earlier. 
+// Append the string "_DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
 destinationFile = sourceFile.Replace(".txt", "_DOWNLOADED.txt");
 Console.WriteLine("Downloading blob to {0}", destinationFile);
 await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);  
@@ -208,7 +231,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não precisar mais dos blobs carregados neste guia de início rápido, poderá excluir o contêiner inteiro usando [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Também exclua os arquivos criados se eles não forem mais necessários.
+O exemplo limpa os recursos que ele criou ao excluir o contêiner inteiro usando [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Você também pode excluir arquivos locais se desejar.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");
@@ -224,13 +247,29 @@ File.Delete(sourceFile);
 File.Delete(destinationFile);
 ```
 
+## <a name="resources-for-developing-net-applications-with-blobs"></a>Recursos para desenvolvimento de aplicativos .NET com blobs
+
+Consulte estes recursos adicionais para o desenvolvimento em .NET com armazenamento de blobs:
+
+### <a name="binaries-and-source-code"></a>Binários e código-fonte
+
+- Baixe o pacote NuGet para a versão mais recente da [biblioteca de clientes .NET de armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/). 
+- Exiba o [código-fonte da biblioteca de clientes .NET de armazenamento](https://github.com/Azure/azure-storage-net) no GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Exemplos e referência da biblioteca de clientes
+
+- Confira a [referência da API .NET de armazenamento](https://docs.microsoft.com/dotnet/api/overview/azure/storage) para saber mais sobre a biblioteca de clientes.
+- Explore [exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) codificados usando a biblioteca de clientes .NET de armazenamento.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Nesse guia de início rápido, você aprendeu a transferir arquivos entre o disco local e Armazenamento de Blobs do Azure usando o .NET. Para saber mais sobre como trabalhar com o Armazenamento de Blobs, prossiga para as instruções do Armazenamento de Blobs.
+Neste início rápido você aprendeu a carregar, baixar e listar blobs usando .NET. 
+
+Para saber como criar um aplicativo Web que carrega uma imagem no armazenamento de blobs, continue para [Carregar dados de imagem na nuvem com o Armazenamento do Azure](storage-upload-process-images.md).
 
 > [!div class="nextstepaction"]
 > [Instruções de operações do Armazenamento de Blobs](storage-dotnet-how-to-use-blobs.md)
 
-Para obter exemplos de código adicionais do Armazenamento do Azure que podem ser baixados e executados, consulte a lista de [amostras do Armazenamento do Azure que usam o .NET](../common/storage-samples-dotnet.md).
-
-Para obter mais informações sobre o Gerenciador de Armazenamento e os Blobs, consulte [Gerenciar os recursos de Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- Para saber mais sobre o núcleo do .NET, confira [Introdução ao .NET em 10 minutos](https://www.microsoft.com/net/learn/get-started/).
+- Para explorar um aplicativo de exemplo que você pode implantar do Visual Studio para Windows, confira o [exemplo de aplicativo Web de galeria de fotos do .NET com o Armazenamento de Blobs do Azure](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
+ 

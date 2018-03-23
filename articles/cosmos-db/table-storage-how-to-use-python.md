@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Armazenamento de Tabelas do Azure usando Python | Microsoft Docs"
-description: "Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
+title: Introdução ao Armazenamento de Tabelas do Azure usando Python | Microsoft Docs
+description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL.
 services: cosmos-db
 documentationcenter: python
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mimig
-ms.openlocfilehash: 2c8c7dc6d3bdb6ba34818d7e36739297cffbe2d2
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Introdução ao Armazenamento de Tabelas do Azure usando Python
 
@@ -42,7 +42,7 @@ Enquanto estiver trabalhando nos cenários deste tutorial, talvez você queira c
 Você precisará do seguinte para concluir este tutorial com sucesso:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 ou 3.6
-- [SDK de Tabela do Azure Cosmos DB 1.01 para Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Esse SDK se conecta ao Armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB.
+- [SDK de Tabela do Azure Cosmos DB para Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Esse SDK se conecta ao Armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB.
 - [Conta de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) ou [Conta do Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]

@@ -1,11 +1,11 @@
 ---
-title: "Criar um aplicativo Web PHP e implantá-lo no Serviço de Aplicativo no Linux | Microsoft Docs"
-description: "Implante seu primeiro Olá, Mundo PHP no Serviço de Aplicativo no Linux em minutos."
+title: Criar um aplicativo Web PHP e implantá-lo no Serviço de Aplicativo no Linux | Microsoft Docs
+description: Implante seu primeiro Olá, Mundo PHP no Serviço de Aplicativo no Linux em minutos.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4d74d9c39a5ea22abf496666304249418079cc0d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a39e4ec68af70b7d189ac450f880a12b5397e4c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Criar um aplicativo Web PHP no Serviço de Aplicativo no Linux
 
@@ -71,13 +71,13 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
 Navegue até o site para ver seu aplicativo Web recém-criado com imagem interna. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo web.
 

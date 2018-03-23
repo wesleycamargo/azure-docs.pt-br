@@ -1,9 +1,9 @@
 ---
-title: "Criar um serviço altamente disponível usando o Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba mais sobre a criação de um aplicativo para serviços altamente disponíveis usando o Banco de Dados SQL do Azure."
-keywords: "recuperação de desastre em nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios"
+title: Criar um serviço altamente disponível usando o Banco de Dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre a criação de um aplicativo para serviços altamente disponíveis usando o Banco de Dados SQL do Azure.
+keywords: recuperação de desastre em nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -13,19 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
 ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Criar serviços altamente disponíveis usando o Banco de Dados SQL do Azure
 
 Ao criar e implantar serviços altamente disponíveis no Banco de Dados SQL do Azure, use [grupos de failover e a replicação geográfica ativa](sql-database-geo-replication-overview.md) para fornecer resiliência a interrupções regionais e falhas catastróficas. Ela também permite a recuperação rápida em bancos de dados secundários. Este artigo tem como foco os padrões comuns de aplicativos e aborda as vantagens e desvantagens de cada opção. Para obter informações sobre o uso da replicação geográfica ativa com Pools elásticos, confira [Estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+> [!NOTE]
+> Se você estiver usando grupos e bancos de dados Premium, poderá torná-los resistentes a interrupções regionais, convertendo-os para a configuração de implantação de redundância de zona (atualmente em versão prévia). Veja [Bancos de dados com redundância de zona](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Usando duas regiões do Azure para continuidade dos negócios com tempo de inatividade mínimo
 Nesse cenário, os aplicativos têm as seguintes características: 
@@ -47,8 +50,7 @@ O seguinte diagrama mostra essa configuração antes de uma interrupção:
 Após uma interrupção na região primária, o serviço do Banco de Dados SQL detecta que o banco de dados primário não está acessível e dispara um failover para a região secundária, com base nos parâmetros da política de failover automático (1). Dependendo do SLA do aplicativo, você pode configurar um período de carência que controla o tempo entre a detecção de interrupção e o failover em si. É possível que o gerenciador de tráfego inicie o failover do ponto de extremidade antes que o grupo de failover dispare o failover do banco de dados. Nesse caso, o aplicativo Web não pode se reconectar ao banco de dados imediatamente. Porém, as reconexões terão êxito automaticamente assim que o failover do banco de dados for concluído. Quando a região com falha é restaurada e colocada online novamente, o primário antigo se reconecta automaticamente como um novo secundário. O diagrama abaixo ilustra a configuração após o failover.
  
 > [!NOTE]
-> Todas as transações confirmadas após o failover são perdidas durante a reconexão. Após a conclusão do failover, o aplicativo da região B consegue se reconectar e reiniciar o processamento das solicitações do usuário. O aplicativo Web e o banco de dados primário agora estão na região B e permanecem colocalizados. 
-n>
+> Todas as transações confirmadas após o failover são perdidas durante a reconexão. Após a conclusão do failover, o aplicativo da região B consegue se reconectar e reiniciar o processamento das solicitações do usuário. O aplicativo Web e o banco de dados primário agora estão na região B e permanecem colocalizados. n>
 
 ![Cenário 1. Configuração após o failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 

@@ -1,8 +1,8 @@
 ---
 title: Usar ferramentas do Azure Stream Analytics para Visual Studio | Microsoft Docs
-description: "Tutorial de introdução para as Ferramentas do Stream Analytics do Azure para Visual Studio"
+description: Tutorial de introdução para as Ferramentas do Stream Analytics do Azure para Visual Studio
 keywords: visual studio
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: su-jie
 manager: jhubbard
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Usar ferramentas do Azure Stream Analytics para Visual Studio
 As Ferramentas do Stream Analytics do Azure para Visual Studio agora estão disponíveis para o público geral. Essas ferramentas permitem uma experiência mais avançada para os usuários do Stream Analytics solucionarem problemas, bem como escreverem consultas complexas e até mesmo escreverem consultas localmente. Você também pode exportar um trabalho do Stream Analytics em um projeto do Visual Studio.
 
 ## <a name="introduction"></a>Introdução
-Neste tutorial, você aprenderá a usar as ferramentas do Stream Analytics para Visual Studio para criar, testar localmente, gerenciar e depurar os trabalhos do Stream Analytics. 
+Neste tutorial, você aprenderá a usar as ferramentas do Stream Analytics para Visual Studio para criar, testar localmente, gerenciar e depurar os trabalhos do Stream Analytics. Depois de criar o trabalho, você poderá configurar um processo contínuo de implantação e integração para o Azure usando o pacote do Nuget CI/CD. Para saber mais, veja o artigo [Ferramentas VS de análise de fluxo para configurar um pipeline de CI/CD](stream-analytics-tools-for-visual-studio-cicd.md).
 
 Depois de concluir este tutorial, você poderá:
 
@@ -35,7 +35,7 @@ Depois de concluir este tutorial, você poderá:
 * Usar o monitoramento para solucionar problemas.
 * Exportar os trabalhos existentes para projetos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Você precisará dos seguintes pré-requisitos para concluir este tutorial:
 
 * Conclua as etapas até "Criar um trabalho de Stream Analytics" no tutorial [Criar uma solução de IoT usando o Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 

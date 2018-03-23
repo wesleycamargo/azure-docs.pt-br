@@ -1,26 +1,20 @@
 ---
 title: Banco de Dados SQL (SaaS) versus SQL Server na nuvem em VMs (IaaS) | Microsoft Docs
-description: "Saiba qual opção do SQL Server da nuvem se adapta ao seu aplicativo: Banco de Dados SQL do Azure (PaaS) ou SQL Server na nuvem em Máquinas Virtuais do Azure."
+description: 'Saiba qual opção do SQL Server da nuvem se adapta ao seu aplicativo: Banco de Dados SQL do Azure (PaaS) ou SQL Server na nuvem em Máquinas Virtuais do Azure.'
 services: sql-database, virtual-machines
 keywords: Nuvem do SQL Server, SQL Server na nuvem, banco de dados PaaS, SQL Server na nuvem, DBaaS
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: cjgronlund
-ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: vm-windows-sql-server
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 4a0fbb2a1f468493e5b22b12518be42fdd9d5ce6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a7fde828c7a88f440cf69e3a4b26bb6c75cdaafb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)
 O Azure tem duas opções para hospedar cargas de trabalho do SQL Server no Microsoft Azure:

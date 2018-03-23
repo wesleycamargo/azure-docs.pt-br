@@ -2,10 +2,10 @@
 title: Como certificar o AppSource para o Azure Active Directory| Microsoft Docs
 description: Detalhes sobre como certificar o AppSource do seu aplicativo para o Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como certificar o AppSource para o Azure AD
 O [Microsoft AppSource](https://appsource.microsoft.com/) é um local onde os usuários de negócios podem descobrir, experimentar e gerenciar aplicativos SaaS de linha de negócios (SaaS autônomos e o complemento para produtos SaaS da Microsoft existentes).
@@ -35,7 +35,7 @@ Um aplicativo que aceita entradas de usuários de qualquer empresa ou organizaç
 
 Para habilitar a multilocação em seu aplicativo:
 - Defina a propriedade `Multi-Tenanted` como `Yes` nas informações do registro do aplicativo no [Portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (por padrão, os aplicativos criados no Portal do Azure são configurados como *único locatário*)
-- Atualize seu código para enviar solicitações para o ponto de extremidade '`common`' (atualize o ponto de extremidade em *https://login.microsoftonline.com/{seulocatario}* para *https://login.microsoftonline.com/common*)
+- Atualize seu código para enviar solicitações para o ponto de extremidade '`common`' (atualize o ponto de extremidade de *https://login.microsoftonline.com/{yourtenant}* para *https://login.microsoftonline.com/common*)
 - Para algumas plataformas, como o ASP.NET, você também precisa atualizar seu código para aceitar vários emissores
 
 Para saber mais sobre multilocação, confira: [Como conectar qualquer usuário do Azure AD (Active Directory) usando o padrão de aplicativo multilocatário](./active-directory-devhowto-multi-tenant-overview.md).

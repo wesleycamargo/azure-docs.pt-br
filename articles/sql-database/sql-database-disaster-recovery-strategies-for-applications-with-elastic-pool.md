@@ -1,26 +1,20 @@
 ---
-title: "Criar soluções de recuperação de desastre – Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Aprenda a projetar sua solução de nuvem para recuperação de desastres escolhendo o padrão de failover correto."
+title: Criar soluções de recuperação de desastre – Banco de Dados SQL do Azure | Microsoft Docs
+description: Aprenda a projetar sua solução de nuvem para recuperação de desastres escolhendo o padrão de failover correto.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2db99057-0c79-4fb0-a7f1-d1c057ec787f
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicativos que usam o Pool Elástico do banco de dados SQL
 Ao longo dos anos, aprendemos que os serviços em nuvem não são à prova de falhas e que incidentes catastróficos acontecem. O banco de dados SQL fornece uma série de recursos para permitir a continuidade dos negócios do seu aplicativo quando esses incidentes ocorrerem. [Pools elásticos](sql-database-elastic-pool.md) e bancos de dados únicos são compatíveis com o mesmo tipo de recursos de recuperação de desastre. Este artigo descreve diversas estratégias de recuperação de desastres para pools elásticos que aproveitam esses recursos de continuidade de negócios do Banco de Dados SQL.
@@ -30,6 +24,9 @@ Este artigo usa o seguinte padrão de aplicativo de SaaS ISV canônico:
 <i>Um aplicativo Web baseado em nuvem moderno provisiona um banco de dados SQL para cada usuário final. O ISV tem um grande número de clientes e, portanto, usa vários bancos de dados, conhecidos como bancos de dados de locatário. Como os bancos de dados do locatário normalmente têm padrões de atividade imprevisíveis, o ISV usa um pool elástico para tornar o custo do banco de dados bastante previsível por longos períodos de tempo. O pool elástico também simplifica o gerenciamento de desempenho quando há picos de atividade de usuário. Além dos bancos de dados do locatário, o aplicativo também usa vários bancos de dados para gerenciar perfis de usuário, segurança, coletar padrões de uso, etc. A disponibilidade de locatários individuais não afeta a disponibilidade do aplicativo como um todo. No entanto, a disponibilidade e o desempenho dos bancos de dados de gerenciamento são essenciais para o funcionamento do aplicativo. Se os bancos de dados de gerenciamento estiverem offline, todo o aplicativo estará offline.</i>  
 
 Este artigo discute estratégias de DR que abrangem uma variedade de cenários de aplicativos de inicialização sensíveis ao custo para aqueles com requisitos rígidos de disponibilidade.
+
+> [!NOTE]
+> Se você estiver usando grupos e bancos de dados Premium, poderá torná-los resistentes a interrupções regionais, convertendo-os para a configuração de implantação de redundância de zona (atualmente em versão prévia). Veja [Bancos de dados com redundância de zona](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Cenário 1. Inicialização econômica
 <i>Sou uma startup e dependo muito do custo das coisas.  Quero simplificar a implantação e o gerenciamento do aplicativo e desejo ter um SLA limitado para clientes individuais. No entanto, quero garantir que o aplicativo como um todo nunca fique offline.</i>

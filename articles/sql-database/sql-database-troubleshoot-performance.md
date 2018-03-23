@@ -1,26 +1,21 @@
 ---
-title: "Monitoramento e ajuste de desempenho – Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Dicas de ajuste de desempenho no Banco de Dados SQL por meio de avaliação e melhoria."
+title: Monitoramento e ajuste de desempenho – Banco de Dados SQL do Azure | Microsoft Docs
+description: Dicas de ajuste de desempenho no Banco de Dados SQL por meio de avaliação e melhoria.
 services: sql-database
-documentationcenter: 
 author: v-shysun
-manager: felixwu
-editor: 
+manager: craigg
+editor: ''
 keywords: ajuste de desempenho de sql, ajuste de desempenho de banco de dados, dicas de ajuste de desempenho do sql, ajuste de desempenho de banco de dados sql
-ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: v-shysun
-ms.openlocfilehash: 1791c56f86ee1997177daa95638c4f14068f8115
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 273a80134975fb9aa4d40b132c1403cc27246371
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoramento e ajuste de desempenho
 
@@ -46,7 +41,7 @@ Consulte o [tópico de diretrizes de desempenho](sql-database-performance-guidan
 
 ## <a name="optimize-database-to-improve-performance"></a>Otimizar o banco de dados para melhorar o desempenho
 
-O Banco de Dados SQL do Azure permite identificar oportunidades para melhorar e otimizar o desempenho de consultas sem alterar recursos examinando as [recomendações de ajuste de desempenho](sql-database-advisor.md). Índices ausentes e consultas precárias são motivos comuns de um desempenho ruim do banco de dados. Aplique essas recomendações de ajuste para melhorar o desempenho de sua carga de trabalho.
+O Banco de Dados SQL do Azure permite identificar oportunidades para melhorar e otimizar o desempenho de consultas sem alterar recursos examinando as [recomendações de ajuste de desempenho](sql-database-advisor.md). Índices ausentes e consultas precárias são motivos comuns para um desempenho ruim do banco de dados. Aplique essas recomendações de ajuste para melhorar o desempenho de sua carga de trabalho.
 Você também pode permitir que o banco de dados SQL do Azure [otimize o desempenho das consultas automaticamente](sql-database-automatic-tuning.md), aplicando todas as recomendações identificadas e verificando se elas melhoram o desempenho do banco de dados. Use as seguintes opções para melhorar o desempenho do banco de dados:
 
 1. Use o [Assistente do Banco de Dados SQL](sql-database-advisor-portal.md) para exibir recomendações para criar e remover índices, parametrizar consultas e corrigir problemas de esquema.

@@ -1,11 +1,11 @@
 ---
-title: "Backup do Azure: preparação para backup de máquinas virtuais | Microsoft Docs"
-description: "Assegure-se de que o ambiente esteja preparado para fazer backup de máquinas virtuais no Azure."
+title: 'Backup do Azure: preparação para backup de máquinas virtuais | Microsoft Docs'
+description: Assegure-se de que o ambiente esteja preparado para fazer backup de máquinas virtuais no Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: backups; fazendo backup;
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
@@ -49,12 +49,6 @@ Se essas condições já existem em seu ambiente, prossiga para o artigo [Fazer 
 Antes de preparar seu ambiente, note as seguintes limitações:
 
 * Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
-* Não há suporte para o backup de máquinas virtuais com tamanhos de discos de dados maiores que 1.023 GB.
-
-  > [!NOTE]
-  > Temos uma versão prévia privada para dar suporte a backups para VMs com discos superiores a um TB. Para obter detalhes, veja [Versão prévia privada para suporte a backup de VMs com discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a) (em inglês).
-  >
-
 * Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
 * O backup de máquinas virtuais de Linux criptografadas por meio da criptografia LUKS (Linux Unified Key Setup) não é compatível.
 * Não é recomendável fazer backup de VMs que contêm a configuração CSV (Volume Compartilhado Clusterizado) ou Servidor de Arquivos de Escalabilidade Horizontal. Elas exigem o envolvimento de todas as VMs incluídas na configuração do cluster durante a tarefa de instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs. 

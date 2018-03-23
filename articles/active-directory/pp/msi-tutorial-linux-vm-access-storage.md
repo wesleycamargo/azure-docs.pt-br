@@ -1,8 +1,8 @@
 ---
-title: "Utilizar uma MSI atribuída pelo usuário em uma VM do Linux para acessar o Armazenamento do Microsoft Azure"
-description: "Um tutorial que orienta você durante o processo de usar uma MSI (Identidade de Serviço Gerenciado) atribuída pelo usuário em uma VM do Linux para acessar o Armazenamento do Microsoft Azure."
+title: Utilizar uma MSI atribuída pelo usuário em uma VM do Linux para acessar o Armazenamento do Microsoft Azure
+description: Um tutorial que orienta você durante o processo de usar uma MSI (Identidade de Serviço Gerenciado) atribuída pelo usuário em uma VM do Linux para acessar o Armazenamento do Microsoft Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: arluca
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Use uma MSI (Identidade de Serviço Gerenciado) atribuída pelo usuário em uma VM do Linux para acessar o Armazenamento do Microsoft Azure
 
@@ -45,7 +45,7 @@ Para executar os exemplos de script CLI neste tutorial, você tem duas opções:
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Linux em um novo grupo de recursos
 
@@ -167,9 +167,9 @@ Para concluir essas etapas, você precisará do cliente SSH. Se você estiver us
 3. Na janela de terminal, usando CURL, faça uma solicitação para o ponto de extremidade da MSI local para obter um token de acesso para o Armazenamento do Microsoft Azure.
 
    A solicitação CURL para adquirir um token de acesso é mostrada no exemplo a seguir. Substitua `<CLIENT ID>` pela propriedade `clientId` retornada pelo comando `az identity create` em [Criar uma MSI atribuída pelo usuário](#create-a-user-assigned-msi):
-
+   
    ```bash
-   curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fstorage.azure.com/&client_id=<CLIENT ID>"
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com/&client_id=<MSI CLIENT ID>" 
    ```
 
    > [!NOTE]

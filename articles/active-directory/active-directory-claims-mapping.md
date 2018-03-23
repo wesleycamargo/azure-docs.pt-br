@@ -1,6 +1,6 @@
 ---
-title: "Mapeamento de declarações no Azure Active Directory (visualização pública) | Microsoft Docs"
-description: "Esta página descreve o mapeamento de declarações no Azure Active Directory."
+title: Mapeamento de declarações no Azure Active Directory (visualização pública) | Microsoft Docs
+description: Esta página descreve o mapeamento de declarações no Azure Active Directory.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Mapeamento de declarações no Azure Active Directory (visualização pública)
 
@@ -30,7 +30,7 @@ Esse recurso é usado por administradores de locatários para personalizar as de
 - Escolher ou alterar a fonte dos dados emitidos em declarações específicas.
 
 >[!NOTE]
->Atualmente, essa capacidade está em visualização pública. Esteja preparado para reverter ou remover quaisquer alterações. O recurso está disponível em qualquer assinatura do Azure AD (Azure Active Directory) durante a visualização pública. No entanto, quando o recurso for disponibilizado para todos, alguns aspectos dele poderão exigir uma assinatura do Azure Active Directory Premium.
+>Atualmente, essa capacidade está em visualização pública. Esteja preparado para reverter ou remover quaisquer alterações. O recurso está disponível em qualquer assinatura do Azure AD (Azure Active Directory) durante a visualização pública. No entanto, quando o recurso for disponibilizado para todos, alguns aspectos dele poderão exigir uma assinatura do Azure Active Directory Premium. Esse recurso é compatível com a configuração de políticas de mapeamento de declarações para protocolos WS-Fed, SAML, OAuth e OpenID Connect.
 
 ## <a name="claims-mapping-policy-type"></a>Tipo de política de mapeamento de declarações
 No Azure AD, um objeto de **Política** representa um conjunto de regras aplicadas a todos os aplicativos ou a aplicativos individuais em uma organização. Cada tipo de política tem uma estrutura exclusiva, com um conjunto de propriedades que são aplicadas aos objetos aos quais são atribuídas.
@@ -419,7 +419,7 @@ Políticas de mapeamento de declarações podem ser atribuídas somente a objeto
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>pré-requisitos
 Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas de entidades de serviço. Se você for um novo usuário do Azure AD, recomendamos que aprenda como obter um locatário do Azure AD antes de prosseguir com estes exemplos. 
 
 Para começar, execute uma destas etapas:

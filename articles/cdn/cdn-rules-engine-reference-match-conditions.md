@@ -1,11 +1,11 @@
 ---
-title: "Condições de correspondência do mecanismo de regras da CDN do Azure | Microsoft Docs"
-description: "Documentação de referência para condições de correspondência do mecanismo de regras da Rede de Distribuição de Conteúdo do Azure."
+title: Condições de correspondência do mecanismo de regras da CDN do Azure | Microsoft Docs
+description: Documentação de referência para condições de correspondência do mecanismo de regras da Rede de Distribuição de Conteúdo do Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -737,7 +737,7 @@ Informações de chave:
     
 - Especifique vários caminhos de URL delimitando cada um deles com um único espaço.
 
-   Por exemplo: /marketing/asset.* /sales/*.htm
+   Por exemplo: /marketing/asset.\* /sales/\*.htm
 
 - Cadeias de caracteres de consulta na URL são ignoradas.
     
@@ -753,11 +753,11 @@ A configuração de exemplo na tabela a seguir supõe que essa condição de cor
 
 Valor                   | Relativo a    | Result 
 ------------------------|----------------|-------
-*/test.html */test.php  | Raiz ou origem | Esse padrão é correspondido por solicitações para ativos nomeados "test.html" ou "test.php" em qualquer pasta.
+\*/test.html \*/test.php  | Raiz ou origem | Esse padrão é correspondido por solicitações para ativos nomeados "test.html" ou "test.php" em qualquer pasta.
 /80ABCD/origin/text/*   | Raiz           | Esse padrão é correspondido quando o ativo solicitado atende aos seguintes critérios: <br />- Ele deve estar em uma origem de cliente chamada "origem". <br />- O caminho relativo deve começar com uma pasta chamada "texto". Ou seja, o ativo solicitado pode residir na pasta "texto" ou em uma de suas subpastas recursivas.
 */css/* */js/*          | Raiz ou origem | Esse padrão é correspondido por todas as URLs CDN ou CNAME de borda que contenham uma pasta css ou js.
 *.jpg *.gif *.png       | Raiz ou origem | Esse padrão é correspondido por todas as URLs CDN ou CNAME de borda terminando com .jpg, .gif, ou .png. Uma maneira alternativa de especificar esse padrão é com a [condição de correspondência de Extensão de Caminho de URL](#url-path-extension).
-/images/* /media/*      | Origem         | Esse padrão é correspondido pelas URLs CNAME de borda ou CDN cujo caminho relativo começa com uma pasta "imagens" ou "mídia". <br />- URL CDN: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME de borda de exemplo: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | Origem         | Esse padrão é correspondido pelas URLs CNAME de borda ou CDN cujo caminho relativo começa com uma pasta "imagens" ou "mídia". <br />- URL CDN: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME de borda de exemplo: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 

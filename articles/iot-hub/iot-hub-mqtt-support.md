@@ -1,25 +1,25 @@
 ---
 title: Entender o suporte do MQTT do Hub IoT do Azure | Microsoft Docs
-description: "Guia do desenvolvedor ‑ suporte para dispositivos que se conectam a um ponto de extremidade do Hub IoT voltado para o dispositivo usando o protocolo MQTT. Inclui informações sobre suporte interno do MQTT nos SDKs do dispositivo IoT do Azure."
+description: Guia do desenvolvedor ‑ suporte para dispositivos que se conectam a um ponto de extremidade do Hub IoT voltado para o dispositivo usando o protocolo MQTT. Inclui informações sobre suporte interno do MQTT nos SDKs do dispositivo IoT do Azure.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2018
+ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22c20a26ee4750c79c23fbba69de72a0084dfe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o hub IoT usando o protocolo MQTT
 
@@ -100,6 +100,8 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele poderá se conecta
 
 Para que o MQTT conecte e desconecte pacotes, o Hub IoT emite um evento no canal **Monitoramento de Operações** . Este evento possui informações adicionais que podem ajudá-lo a solucionar problemas de conectividade.
 
+O aplicativo de dispositivo pode especificar uma mensagem **Will** no pacote **CONNECT**. O aplicativo do dispositivo devem usar `devices/{device_id}/messages/events/{property_bag}` ou `devices/{device_id}/messages/events/{property_bag}`como o nome do tópico **Will** para definir mensagens **Will** a serem encaminhadas como uma mensagem de telemetria. Nesse caso, se a conexão de rede for fechada, mas um pacote **DISCONNECT** não tiver sido recebido anteriormente do dispositivo, o Hub IoT enviará a mensagem **Will** fornecida no pacote **CONNECT** para o canal de telemetria. O canal de telemetria pode ser o ponto de extremidade padrão **Eventos**, ou um ponto de extremidade personalizado definido pelo roteamento do Hub IoT. A mensagem tem a propriedade **iothub-MessageType** com um valor de **Will** atribuído a ele.
+
 ### <a name="tlsssl-configuration"></a>Configuração de TLS/SSL
 
 Para usar o protocolo MQTT diretamente, o cliente *deve* se conectar por TLS/SSL. Tentativas de ignorar essa etapa falham com erros de conexão.
@@ -165,7 +167,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > [!NOTE]
 > Esse elemento `{property_bag}` usa a mesma codificação para cadeias de caracteres de consulta do protocolo HTTPS.
 
-O aplicativo do dispositivo também pode usar `devices/{device_id}/messages/events/{property_bag}` como o **nome do tópico Will** para definir *mensagens Will* a serem encaminhadas como uma mensagem de telemetria.
+Veja a seguir uma lista dos comportamentos específicos à implementação do Hub IoT:
 
 * O Hub IoT não dá suporte a mensagens de QoS 2. Se um aplicativo de dispositivo publicar uma mensagem com o **QoS 2**, o Hub IoT fechará a conexão de rede.
 * O Hub IoT não persiste mensagens de retenção. Se um dispositivo envia uma mensagem com o sinalizador **RETAIN** definido como 1, o Hub IoT adiciona a propriedade de aplicativo **x-opt-retain** à mensagem. Nesse caso, em vez de persistir a mensagem de retenção, o Hub IoT a transmite ao aplicativo de back-end.

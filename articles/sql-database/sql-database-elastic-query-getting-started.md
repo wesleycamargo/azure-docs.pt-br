@@ -1,24 +1,19 @@
 ---
-title: "Relatórios em bancos de dados expandidos na nuvem (particionamento horizontal) | Microsoft Docs"
-description: "Use consultas de banco de dados do banco de dados cruzadas para relatar entre vários bancos de dados."
+title: Relatórios em bancos de dados expandidos na nuvem (particionamento horizontal) | Microsoft Docs
+description: Use consultas de banco de dados do banco de dados cruzadas para relatar entre vários bancos de dados.
 services: sql-database
-documentationcenter: 
 manager: jhubbard
 author: MladjoA
-ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: 996ad1d47ece592dcf03a6eb8ed1c1916ceba374
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 29f1291f5c5d6023ca7bcd47fc2c0d9b69fd39fa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados expandidos na nuvem (preview)
 Você pode criar relatórios de vários bancos de dados do SQL Azure de um ponto de conexão única usando uma [consulta elástica](sql-database-elastic-query-overview.md). Os bancos de dados devem ser particionados horizontalmente (também conhecido como "fragmentados").
@@ -27,7 +22,7 @@ Se você tiver um banco de dados existente, consulte [Migrando bancos de dados e
 
 Para compreender os objetos SQL necessários para a consulta, veja [Consultar bancos de dados particionados horizontalmente](sql-database-elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Baixe e execute a [exemplo da Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar um gerenciador de mapa de fragmentos usando o aplicativo de exemplo

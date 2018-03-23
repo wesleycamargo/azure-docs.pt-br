@@ -1,11 +1,11 @@
 ---
-title: "Criar um Node.js no Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
-description: "Implante seu primeiro Olá, Mundo em Node.js no Serviço de Aplicativo do Azure no Linux em minutos."
+title: Criar um Node.js no Serviço de Aplicativo do Azure no Linux | Microsoft Docs
+description: Implante seu primeiro Olá, Mundo em Node.js no Serviço de Aplicativo do Azure no Linux em minutos.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a0648832c43e2aa82b64194a103cf03f4dbd6ca8
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a2643e65b74f44ee05001d5df26c7c77a430fbb2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Web Node.js no Serviço de Aplicativo do Azure no Linux
 
@@ -78,13 +78,13 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)]
 
 Navegue até o aplicativo Web recém-criado. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo web.
 

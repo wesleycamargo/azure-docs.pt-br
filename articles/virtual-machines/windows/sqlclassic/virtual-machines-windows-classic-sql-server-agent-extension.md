@@ -1,11 +1,11 @@
 ---
-title: "Automatizar tarefas de gerenciamento Em VMs do SQL (Clássicas) | Microsoft Docs"
-description: "Este tópico descreve como gerenciar a extensão do agente do SQL Server, que automatiza tarefas de administração específicas do SQL Server. Entre elas estão o Backup Automatizado, a Aplicação de Patch Automatizada e a Integração do Cofre de Chaves do Azure. Este tópico usa o modo de implantação clássico."
+title: Automatizar tarefas de gerenciamento Em VMs do SQL (Clássicas) | Microsoft Docs
+description: Este tópico descreve como gerenciar a extensão do agente do SQL Server, que automatiza tarefas de administração específicas do SQL Server. Entre elas estão o Backup Automatizado, a Aplicação de Patch Automatizada e a Integração do Cofre de Chaves do Azure. Este tópico usa o modo de implantação clássico.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 03/07/2018
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f48adec11096cfcf7a51aedd316a7b7d3f047568
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3ff9a8b91b0359c57fae5b1a01b5d895ab9a1685
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure com a Extensão do Agente do SQL Server (Clássica)
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ A Extensão do Agente IaaS do SQL Server dá suporte às seguintes tarefas de ad
 | Recurso de administração | DESCRIÇÃO |
 | --- | --- |
 | **Backup Automatizado do SQL** |Automatiza o agendamento de backups para todos os bancos de dados da instância padrão do SQL Server na VM. Para saber mais, veja [Backup automatizado para o SQL Server em Máquinas Virtuais do Azure (Clássico)](../classic/sql-automated-backup.md). |
-| **Aplicação de patch automatizada do SQL** |Configura um período de manutenção durante o qual as atualizações para sua VM podem ocorrer, evitando atualizações durante horários de pico de sua carga de trabalho. Para obter mais informações, confira [Aplicação de patch automatizada para SQL Server em máquinas virtuais do Azure (Clássico)](../classic/sql-automated-patching.md). |
+| **Aplicação de patch automatizada do SQL** |Configura uma janela de manutenção durante a qual as atualizações importantes do Windows para a VM podem ocorrer, evitando atualizações da carga de trabalho durante horários de pico. Para obter mais informações, confira [Aplicação de patch automatizada para SQL Server em máquinas virtuais do Azure (Clássico)](../classic/sql-automated-patching.md). |
 | **Integração do Cofre da Chave do Azure** |Permite a instalação e configuração automática do Cofre de Chaves do Azure em sua VM do SQL Server. Para saber mais, confira [Configurar a Integração do Cofre de Chaves do Azure para o SQL Server em VMs do Azure (Clássico)](../classic/ps-sql-keyvault.md). |
 
 ## <a name="prerequisites"></a>pré-requisitos

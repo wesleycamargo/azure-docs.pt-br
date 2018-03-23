@@ -1,8 +1,8 @@
 ---
 title: Copiar dados de e para Dynamics CRM ou Dynamics 365 usando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados do Microsoft Dynamics CRM ou Microsoft Dynamics 365 para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de fonte com suporte para Dynamics CRM ou Dynamics 365 usando uma atividade de cópia em um pipeline do Data Factory."
+description: Saiba como copiar dados do Microsoft Dynamics CRM ou Microsoft Dynamics 365 para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de fonte com suporte para Dynamics CRM ou Dynamics 365 usando uma atividade de cópia em um pipeline do Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b00c594f87a3126bd3f1548cd904adffcb214031
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 ou Dynamics CRM usando o Azure Data Factory
 
@@ -185,7 +185,7 @@ Para copiar dados de e para Dynamics, defina o tipo da propriedade do conjunto d
                 "type": "Datetime"
             }
         ],
-        "typePoperties": {
+        "typeProperties": {
             "entityName": "account"
         },
         "linkedServiceName": {

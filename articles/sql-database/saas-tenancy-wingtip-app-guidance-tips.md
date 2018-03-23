@@ -1,6 +1,6 @@
 ---
-title: "Diretrizes para o exemplo de aplicativo de multilocatário do Banco de Dados SQL - Wingtip SaaS | Microsoft Docs"
-description: "Fornece diretrizes e etapas para instalar e executar o aplicativo de multilocatário de exemplo que usa o Banco de Dados SQL do Azure, o exemplo de SaaS do Wingtip Tickets."
+title: Diretrizes para o exemplo de aplicativo de multilocatário do Banco de Dados SQL - Wingtip SaaS | Microsoft Docs
+description: Fornece diretrizes e etapas para instalar e executar o aplicativo de multilocatário de exemplo que usa o Banco de Dados SQL do Azure, o exemplo de SaaS do Wingtip Tickets.
 keywords: tutorial do banco de dados SQL
 services: sql-database
 author: MightyPen
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: genemi
-ms.openlocfilehash: ebf1c4948816746fa02b867d1ea66afc64b882b0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 13ac12377887684143d32d08e4bd5de107183105
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Diretrizes gerais para trabalhar com aplicativos SaaS de exemplo do Wingtip Tickets
 
@@ -86,7 +86,7 @@ Inicialmente, a implantação tem locatários e servidores de Banco de Dados SQL
 Para garantir uma conexão de demonstração bem-sucedida, todos os servidores têm uma [regra de firewall](sql-database-firewall-configure.md) permitindo todos os IPs.
 
 
-1. Abra o *SSMS* e conecte-se aos locatários. O nome do servidor depende do padrão de locação do banco de dados selecionado (veja abaixo detalhes específicos):
+1. Abra *SSMS* e conecte-se aos locatários. O nome do servidor depende do padrão de locação do banco de dados selecionado (veja abaixo detalhes específicos):
     - **Aplicativo autônomo:** servidores de inquilinos individuais (ex. *contosoconcerthall-&lt;Usuário&gt;.database.windows.net*) 
     - **Banco de dados por locatário:** *tenants1-dpt-&lt;Usuário&gt;.database.windows.net*
     - **Banco de dados multilocatário:** *tenants1-mt-&lt;Usuário&gt;.database.windows.net* 

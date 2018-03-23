@@ -1,11 +1,11 @@
 ---
 title: Provisionar um StorSimple Virtual Array no VMware | Microsoft Docs
-description: "Esse segundo tutorial sobre a série de implantação da StorSimple Virtual Array envolve o provisionamento de um dispositivo virtual no VMware."
+description: Esse segundo tutorial sobre a série de implantação da StorSimple Virtual Array envolve o provisionamento de um dispositivo virtual no VMware.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implantar a StorSimple Virtual Array - Provisionar no VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -119,7 +119,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 14. Retorne à janela do cliente vSphere. Com o servidor ESXi selecionado, clique com botão direito do mouse e selecione **Nova Máquina Virtual**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image15.png)
-15. Uma janela **Criar nova máquina Virtual** será exibida. Sobre a página **Configuração**, selecione a opção **Personalizada**. Clique em **Avançar**.
+15. Uma janela **Criar nova máquina Virtual** será exibida. Sobre a página **Configuração**, selecione a opção **Personalizada**. Clique em **Próximo**.
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image16.png)
 16. Na página **Nome e Local** , especifique o nome da máquina virtual. Esse nome deve corresponder ao nome da pasta (melhor prática recomendada) que você especificou anteriormente na Etapa 8.
 
@@ -127,16 +127,16 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 17. Na página **Armazenamento** selecione um repositório de dados que você deseja usar para provisionar sua VM.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. Na página **Versão da Máquina Virtual**, selecione **Versão da Máquina Virtual: 8**. Todas as versões de 8 a 11 têm suporte.
+18. Na página **Versão da Máquina Virtual**, selecione **Versão da Máquina Virtual: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. Na página **Sistema Operacional Convidado**, selecione o **Sistema Operacional Convidado** como **Windows**. Para **Versão**, na lista suspensa, selecione **Microsoft Windows Server 2012 (64 bits)**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
-20. Na página **CPUs**, ajuste o **Número de soquetes virtuais** e o **Número de núcleos por soquete virtual** para que o **Número total de núcleos** seja 4 (ou mais). Clique em **Avançar**.
+20. Na página **CPUs**, ajuste o **Número de soquetes virtuais** e o **Número de núcleos por soquete virtual** para que o **Número total de núcleos** seja 4 (ou mais). Clique em **Próximo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
-21. Na página **Memória** , especifique 8 GB (ou mais) de RAM. Clique em **Avançar**.
+21. Na página **Memória** , especifique 8 GB (ou mais) de RAM. Clique em **Próximo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image22.png)
 22. Na página **Rede** especifique o número de interfaces de rede. O requisito mínimo é uma interface de rede.
@@ -145,10 +145,10 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 23. Na página **Controlador SCSI**, aceite o padrão **Controlador SAS de Lógica LSI**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
-24. Na página **Selecionar um Disco**, escolha **Usar um disco virtual existente**. Clique em **Avançar**.
+24. Na página **Selecionar um Disco**, escolha **Usar um disco virtual existente**. Clique em **Próximo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
-25. Na página **Selecionar Disco Existente**, em **Caminho de Arquivo de Disco**, clique em **Procurar**. Isso abre uma caixa de diálogo **Procurar em Repositórios de Dados** . Navegue até o local em que você carregou o VMDK. Você verá agora somente um arquivo no repositório de dados, já que os dois arquivos que você carregou inicialmente foram mesclados. Selecione o arquivo e clique em **OK**. Clique em **Avançar**.
+25. Na página **Selecionar Disco Existente**, em **Caminho de Arquivo de Disco**, clique em **Procurar**. Isso abre uma caixa de diálogo **Procurar em Repositórios de Dados** . Navegue até o local em que você carregou o VMDK. Você verá agora somente um arquivo no repositório de dados, já que os dois arquivos que você carregou inicialmente foram mesclados. Selecione o arquivo e clique em **OK**. Clique em **Próximo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
 26. Na página **Opções Avançadas**, aceite o padrão e clique em **Próximo**.
@@ -163,10 +163,10 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 29. Você verá uma janela **Adicionar Hardware**. Na página **Tipo de Dispositivo**, em **Escolha o tipo de dispositivo que você deseja adicionar**, selecione **Disco Rígido** e clique em **Próximo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
-30. Na página **Selecionar um Disco**, escolha **Criar um novo disco virtual**. Clique em **Avançar**.
+30. Na página **Selecionar um Disco**, escolha **Criar um novo disco virtual**. Clique em **Próximo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. Na página **Criar um Disco**, altere o **Tamanho do Disco** para 500 GB (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco a ser provisionado, examine a seção sobre dimensionamento no [documento sobre melhores práticas](storsimple-ova-best-practices.md). Em **Provisionamento de Disco**, selecione **Provisionamento Dinâmico**. Clique em **Avançar**.
+31. Na página **Criar um Disco**, altere o **Tamanho do Disco** para 500 GB (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco a ser provisionado, examine a seção sobre dimensionamento no [documento sobre melhores práticas](storsimple-ova-best-practices.md). Em **Provisionamento de Disco**, selecione **Provisionamento Dinâmico**. Clique em **Próximo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. Na página **Opções Avançadas** , aceite o padrão.

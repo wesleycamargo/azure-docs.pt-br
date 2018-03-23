@@ -1,23 +1,21 @@
 ---
-title: "Passar um objeto JSON para um runbook de Automação do Azure | Microsoft Docs"
-description: "Como passar parâmetros para um runbook como um objeto JSON"
+title: Passar um objeto JSON para um runbook de Automação do Azure
+description: Como passar parâmetros para um runbook como um objeto JSON
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "powershell,  runbook, json, automação do azure"
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5390ba34a25713aed84d6e778335e30f27c2b1f8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+keywords: powershell,  runbook, json, automação do azure
+ms.openlocfilehash: c5ceced9f37cb76c8c760a7f2d1c680f98e704c3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Passar um objeto JSON para um runbook de Automação do Azure
 
@@ -28,7 +26,7 @@ Para fazer isso, você precisa converter o JSON para uma cadeia de caracteres e,
 Neste exemplo, vamos criar um script do PowerShell que chama [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) para iniciar um runbook do PowerShell, passando o conteúdo de JSON para o runbook.
 O runbook do PowerShell inicia uma VM do Azure, obtendo os parâmetros para a VM de JSON que foi passado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir este tutorial, você precisará do seguinte:
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[inscrever-se em uma conta gratuita](https://azure.microsoft.com/free/).

@@ -1,8 +1,8 @@
 ---
-title: "Detecção de ameaças – Banco de Dados SQL do Azure | Microsoft Docs"
-description: "A Detecção de Ameaças detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados."
+title: Detecção de ameaças – Banco de Dados SQL do Azure | Microsoft Docs
+description: A Detecção de Ameaças detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: rmatchoro
 manager: shaik
 editor: v-romcal
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>Detecção de Ameaças do Banco de Dados SQL
 
@@ -30,7 +30,7 @@ A Detecção de Ameaças do SQL fornece uma nova camada de segurança, que permi
 
 Por exemplo, a injeção de SQL é um dos problemas comuns de segurança do aplicativo da Web na Internet, usada para atacar os aplicativos orientados a dados. Os invasores aproveitam as vulnerabilidades do aplicativo para inserir instruções SQL mal-intencionadas nos campos de entrada do aplicativo, violando ou modificando os dados no banco de dados.
 
-A Detecção de Ameaças do SQL integra alertas à [Central de Segurança do Azure](https://azure.microsoft.com/en-us/services/security-center/) e, de cada servidor de Banco de Dados SQL protegido será cobrado o mesmo preço cobrado pela camada Standard da Central de Segurança do Azure, que é US$ 15 por nó ao mês, em que cada servidor de Banco de Dados SQL protegido será contado como um nó.  
+A Detecção de Ameaças do SQL integra alertas à [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) e, de cada servidor de Banco de Dados SQL protegido será cobrado o mesmo preço cobrado pela camada Standard da Central de Segurança do Azure, que é US$ 15 por nó ao mês, em que cada servidor de Banco de Dados SQL protegido será contado como um nó.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurar a detecção de ameaças para seu banco de dados no Portal do Azure
 1. Inicie o Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -54,13 +54,13 @@ Para obter um exemplo de script, confira [Configurar a auditoria e a detecção 
    O email fornecerá informações sobre o evento de segurança suspeito, incluindo a natureza das atividades anômalas, o nome do banco de dados, o nome do servidor, o nome do aplicativo e a hora do evento. Além disso, o email fornecerá informações sobre as possíveis causas e as ações recomendadas para investigar e atenuar a ameaça em potencial no banco de dados.<br/>
      
     ![Painel de navegação][4]
-2. O alerta por email inclui um link direto para o log de Auditoria do SQL. Clicar nesse link inicia o Portal do Azure e abre os registros de Auditoria do SQL próximos ao horário do evento suspeito. Clique em um registro de auditoria para exibir mais detalhes sobre as atividades suspeitas no banco de dados, o que facilita encontrar as instruções SQL que foram executadas (quem acessou, o que foi feito e quando) e determinar se o evento foi legítimo ou mal-intencionado (por exemplo, a vulnerabilidade do aplicativo para injeção de SQL foi explorada, alguém violou dados confidenciais, etc.).<br/>
+2. O alerta por email inclui um link direto para o log de Auditoria do SQL. Clicar nesse link inicia o Portal do Azure e abre os registros de Auditoria do SQL próximos ao horário do evento suspeito. Clique em um registro de auditoria para exibir mais informações sobre as atividades suspeitas no banco de dados, o que facilita encontrar as instruções SQL que foram executadas (quem acessou, o que foi feito e quando) e determinar se o evento foi legítimo ou mal-intencionado (por exemplo, a vulnerabilidade do aplicativo para injeção de SQL foi explorada, alguém violou dados confidenciais, etc.).<br/>
    ![Painel de navegação][5]
 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Explorar os alertas de detecção de ameaças para seu banco de dados no Portal do Azure
 
-A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central de Segurança do Azure](https://azure.microsoft.com/en-us/services/security-center/). Um bloco de segurança SQL dinâmico na página de banco de dados no Portal do Azure rastreia o status das ameaças ativas. 
+A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/). Um bloco de segurança SQL dinâmico na página de banco de dados no Portal do Azure rastreia o status das ameaças ativas. 
 
    ![Painel de navegação][6]
    
@@ -75,10 +75,10 @@ A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a Detecção de Ameaças, visite o [blog do Azure](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Saiba mais sobre a Detecção de Ameaças, visite o [blog do Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Saiba mais sobre a [Auditoria do Banco de Dados SQL do Azure](sql-database-auditing.md)
 * Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Para obter mais detalhes sobre preços, visite a [página de Preços do Banco de Dados SQL](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
+* Para saber mais sobre preços, visite a [página de Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)  
 * Para obter um exemplo de script do PowerShell, confira [Configurar a auditoria e a detecção de ameaças usando o PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 
 

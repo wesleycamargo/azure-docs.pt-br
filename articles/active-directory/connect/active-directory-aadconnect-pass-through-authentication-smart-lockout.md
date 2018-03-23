@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: autenticação de passagem – bloqueio inteligente | Microsoft Docs"
-description: "Este artigo descreve como a autenticação de passagem do Azure Active Directory (Azure AD) protege suas contas locais contra ataques de senha de força bruta na nuvem"
+title: 'Azure AD Connect: autenticação de passagem – bloqueio inteligente | Microsoft Docs'
+description: Este artigo descreve como a autenticação de passagem do Azure Active Directory (Azure AD) protege suas contas locais contra ataques de senha de força bruta na nuvem
 services: active-directory
-keywords: "Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários para o Azure AD, SSO, Logon único"
-documentationcenter: 
+keywords: Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários para o Azure AD, SSO, Logon único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Autenticação de passagem do Azure Active Directory: bloqueio inteligente
 
 ## <a name="overview"></a>Visão geral
 
-O Azure Active Directory (Azure AD) protege contra ataques de senha de força bruta e impede que usuários reais sejam impedidos de acessar seus aplicativos de SaaS e do Office 365. Essa capacidade, chamada *Bloqueio Inteligente*, tem suporte quando você usa a Autenticação de Passagem como seu método de entrada. O Bloqueio Inteligente está habilitado por padrão para todos os locatários e protege continuamente suas contas de usuário.
+O Azure Active Directory (Azure AD) protege contra ataques de senha de força bruta e impede que usuários reais sejam impedidos de acessar seus aplicativos de SaaS e do Office 365. Essa capacidade, chamada *Bloqueio Inteligente*, tem suporte quando você usa a Autenticação de Passagem como seu método de entrada. O Bloqueio Inteligente está habilitado por padrão para todos os locatários, não apenas locatários usando Autenticação de Passagem, e protege continuamente suas contas de usuário.
 
 O Bloqueio Inteligente controla as tentativas de logon que falharam. Após um certo *limite de bloqueio*, ele inicia uma *duração do bloqueio*. O Bloqueio Inteligente recusa as tentativas de logon do invasor durante a duração do bloqueio. Se o ataque persistir, as tentativas posteriores de logon com falha, após o final da duração do bloqueio, levarão a durações de bloqueio mais longas.
 

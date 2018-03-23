@@ -1,25 +1,25 @@
 ---
-title: "Provisionar os dispositivos Windows para monitoramento remoto em C – Azure | Microsoft Docs"
-description: "Descreve como conectar um dispositivo à solução pré-configurada de monitoramento remoto do Azure IoT Suite usando um aplicativo escrito em C em execução no Windows."
-services: 
+title: Provisionar os dispositivos Windows para monitoramento remoto em C – Azure | Microsoft Docs
+description: Descreve como conectar um dispositivo à solução pré-configurada de monitoramento remoto do Azure IoT Suite usando um aplicativo escrito em C em execução no Windows.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: a6453c8d84b7025f1f510db5e675cde8685c23ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (Windows)
 
@@ -95,7 +95,7 @@ Adicione a biblioteca Parson JSON ao projeto **RMDevice** e adicione as instruç
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -117,7 +117,7 @@ Adicione código para invocar a função **remote\_monitoring\_run** e compile e
     }
     ```
 
-1. Escolha **Compilar** e **Compilar Solução** para compilar o aplicativo do dispositivo. Ignore o aviso sobre a função **gmtime**.
+1. Escolha **Compilar** e **Compilar Solução** para compilar o aplicativo do dispositivo.
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **RMDevice**, escolha **Depurar** e **Iniciar nova instância** para executar a amostra. O console exibe mensagens, como:
 

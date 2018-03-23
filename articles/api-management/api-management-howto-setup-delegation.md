@@ -1,11 +1,11 @@
 ---
-title: "Como delegar o registro de usuário e a assinatura do produto"
-description: "Saiba como delegar a assinatura de produto e registro de usuário a um terceiro no Gerenciamento de API do Azure."
+title: Como delegar o registro de usuário e a assinatura do produto
+description: Saiba como delegar a assinatura de produto e registro de usuário a um terceiro no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registro de usuário e a assinatura do produto
 A delegação permite usar seu site existente para gerenciar a entrada/inscrição e assinatura de produtos feitas por desenvolvedores em vez de usar a funcionalidade integrada no portal do desenvolvedor. Isso permite que seu site tenha os dados dos usuários e realize a validação dessas etapas de forma personalizada.
@@ -101,7 +101,7 @@ Depois, certifique-se de que o ponto de extremidade de delegação realize as a�
 
 1. Receba uma solicitação com a seguinte forma:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={produto a ser assinado}&userId={usuário que faz a solicitação}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product para assinar}&userId={usuário que está fazendo a solicitação}&salt={string}&sig={string}*
    > 
    > 
    

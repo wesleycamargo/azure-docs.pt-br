@@ -1,9 +1,9 @@
 ---
-title: "Criar, exibir e gerenciar alertas usando o Azure Monitor – Alertas (versão prévia) | Microsoft Docs"
-description: "Use a nova experiência unificada de alertas do Azure para criar, exibir e gerenciar regras de alerta de métrica e de log em um único lugar."
+title: Criar, exibir e gerenciar alertas usando o Azure Monitor – Alertas (versão prévia) | Microsoft Docs
+description: Use a nova experiência unificada de alertas do Azure para criar, exibir e gerenciar regras de alerta de métrica e de log em um único lugar.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Criar, exibir e gerenciar alertas usando o Azure Monitor – Alertas (versão prévia)
 
@@ -65,13 +65,13 @@ A seguir há um guia passo a passo detalhado para usar os Alertas do Azure (vers
 
     > Alertas unificados (visualização) também oferece suporte a alertas de Log de Atividades. [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Alertas de Métrica*: verifique se **Tipo de Recurso** é o serviço de plataforma ou de monitor selecionado (diferente do *Log Analytics*), em seguida quando o **recurso** apropriado for escolhido, clique no botão *Pronto* para voltar para Criar Alerta. Em seguida, use o botão **Adicionar Critérios** para escolher o sinal específico na lista de opções de sinal, o serviço de monitoramento e o tipo listado – disponíveis para o recurso selecionado anteriormente.
+5. *Alertas de Métrica*: verifique se **Tipo de Recurso** está selecionado com o tipo de sinal **Métrica**; em seguida, depois de escolher o **recurso** apropriado, clique no botão *Concluído* para retornar à caixa de diálogo Criar Alerta. Em seguida, use o botão **Adicionar Critérios** para escolher o sinal específico na lista de opções de sinal, o serviço de monitoramento e o tipo listado – disponíveis para o recurso selecionado anteriormente.
 
     ![Selecionar um recurso](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
-    > Novas capacidades métricas introduzidas para alertas rápidos somente inclusas nos tipos de sinais como métricas do serviço de plataforma
+    >  Todos os recursos compatíveis com [alertas quase em tempo real](monitoring-near-real-time-metric-alerts.md) são listados com o serviço de monitor **Plataforma** e o tipo de sinal **Métrica**
 
 6. *Alertas de Métrica*: depois que o sinal for selecionado, a lógica para o alerta poderá ser declarada. Para referência, os dados históricos do sinal são mostrados com a opção de ajustar a janela de tempo usando **Mostrar Histórico**, variando das últimas seis horas até a última semana. Com a visualização exibida, a **Lógica de Alerta** pode ser selecionada nas opções de condição, agregação e, finalmente, limite mostradas. Como uma visualização da lógica fornecida, a condição é mostrada na visualização juntamente com o histórico de sinal para indicar quando o alerta teria sido disparado. Finalmente, especifique por qual tempo de duração, o alerta deve buscar a condição especificada escolhendo a opção **Período** juntamente com frequência em que o alerta deve ser executado, selecionando **Frequência**.
 
@@ -81,7 +81,7 @@ A seguir há um guia passo a passo detalhado para usar os Alertas do Azure (vers
 
     ![Configurar lógica de sinal para métrica multidimensional](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Alertas de Log*: verifique se **Tipo de Recurso** é uma origem de análise como *Log Analytics* ou *Application Insights*, em seguida, quando o **recurso** adequado for escolhido, clique em *Pronto*. Em seguida, use o botão **Adicionar critérios** para exibir uma lista de opções de sinais disponíveis para o recurso e na opção **Pesquisa de logs personalizada**para o serviço de monitoramento de log escolhido como *Log Analytics* ou *Application Insights*.
+8. *Alertas de Log*: verifique se **Tipo de Recurso** é uma fonte de análise como *Log Analytics* ou *Application Insights* e se o tipo de sinal é **Log**; em seguida, depois de escolher o **recurso** apropriado, clique em *Concluído*. Em seguida, use o botão **Adicionar critérios** para exibir uma lista de opções de sinais disponíveis para o recurso e na opção **Pesquisa de logs personalizada**para o serviço de monitoramento de log escolhido como *Log Analytics* ou *Application Insights*.
 
    ![Selecione um recurso – pesquisa de logs personalizada](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Para **Alertas de Log**, os alertas podem ser baseados em:
 
     Para **Alertas de Log**, algumas funcionalidades adicionais estão disponíveis para substituir as ações padrão:
 
-    - **Notificação por Email**: substitui o assunto do email enviado pelo Grupo de Ação. Não é possível modificar o corpo do email.
-    - **Incluir conteúdo JSON personalizado**: substitui o webhook JSON usado pelos Grupos de Ação e substitui o conteúdo padrão por um conteúdo personalizado. Para obter mais informações sobre formatos de webhook, consulte [ação de webhook para alertas de Log](monitor-alerts-unified-log-webhook.md)
+    - **Notificação por Email**: substitui o *assunto do email* no email, enviado pelo Grupo de Ação, se há uma ou mais ações de email no Grupo de Ação. Não é possível modificar o corpo do email e esse campo **não** se destina ao endereço de email.
+    - **Incluir conteúdo personalizado do JSON**: substitui o webhook JSON usado pelos Grupos de Ação se há uma ou mais ações de webhook no Grupo de Ação. O usuário pode especificar o formato do JSON a ser usado para todos os webhooks configurados no Grupo de Ação associado; para obter mais informações sobre formatos de webhook, consulte [Ação de webhook para Alertas de Log](monitor-alerts-unified-log-webhook.md). A opção Testar Webhook é fornecida para verificar o formato e o processamento pelo destino usando o JSON de exemplo e essa opção rotulada destina-se apenas a fins de **teste**.
 
         ![Substituições de ação para alertas de Log](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

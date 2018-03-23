@@ -1,12 +1,12 @@
 ---
-title: "Versões de esquema de configuração da extensão do Diagnóstico do Azure | Microsoft Docs"
-description: "Relevante para a coleta de contadores de desempenho em máquinas virtuais do Azure, conjuntos de dimensionamento de VM, Service Fabric e Serviços de Nuvem."
+title: Versões de esquema de configuração da extensão do Diagnóstico do Azure | Microsoft Docs
+description: Relevante para a coleta de contadores de desempenho em máquinas virtuais do Azure, conjuntos de dimensionamento de VM, Service Fabric e Serviços de Nuvem.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Versões de esquema de configuração da extensão do Diagnóstico do Azure
+# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões de esquema de configuração da extensão do Diagnóstico do Azure
 Esta página indexa versões de esquema de extensão do Diagnóstico do Azure fornecidas como parte do SDK do Microsoft Azure.  
 
 > [!NOTE]
@@ -135,13 +135,13 @@ Adição do elemento de coleta e a capacidade de enviar dados de diagnósticos a
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>SDK 2.6 do Azure e esquema de extensão 1.3 
 Para projetos do Serviço de Nuvem no Visual Studio, as seguintes alterações foram feitas. (Essas alterações também se aplicam a versões mais recentes do SDK do Azure).
 
-* O emulador local agora dá suporte a diagnósticos. Isso significa que você pode coletar dados de diagnóstico e garantir que seu aplicativo está criando os rastreamentos corretos enquanto está desenvolvendo e testando no Visual Studio. A cadeia de conexão `UseDevelopmentStorage=true` habilita a coleta de dados de diagnóstico durante a execução do seu projeto de serviço de nuvem no Visual Studio usando o emulador de armazenamento do Azure. Todos os dados de diagnóstico são coletados na conta de armazenamento (armazenamento de desenvolvimento).
+* O emulador local agora dá suporte a diagnósticos. Essa alteração significa que você pode coletar dados de diagnóstico e garantir que seu aplicativo está criando os rastreamentos corretos enquanto está desenvolvendo e testando no Visual Studio. A cadeia de conexão `UseDevelopmentStorage=true` habilita a coleta de dados de diagnóstico durante a execução do seu projeto de serviço de nuvem no Visual Studio usando o emulador de armazenamento do Azure. Todos os dados de diagnóstico são coletados na conta de armazenamento (armazenamento de desenvolvimento).
 * A cadeia de conexão da conta de armazenamento de diagnóstico (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) é armazenada novamente no arquivo de configuração de serviço (.cscfg). No SDK do Azure 2.5, a conta de armazenamento de diagnóstico foi especificada no arquivo diagnostics.wadcfgx.
 
 Há algumas diferenças perceptíveis entre como a cadeia de conexão funcionava no SDK do Azure 2.4 e anteriores e como funciona no SDK do Azure 2.6 e posteriores.
 
 * No SDK do Azure 2.4 e anteriores, a cadeia de conexão era usada como um tempo de execução pelo plug-in de diagnóstico para obter as informações de conta de armazenamento para transferir os logs de diagnóstico.
-* No SDK do Azure 2.6 e posteriores, a cadeia de conexão de diagnóstico é usada pelo Visual Studio para configurar a extensão de diagnóstico com as informações da conta de armazenamento apropriadas durante a publicação. A cadeia de conexão permite definir contas de armazenamento diferentes para diferentes configurações de serviço que o Visual Studio usará ao publicar. No entanto, como o plug-in de diagnóstico não está mais disponível (após o SDK do Azure 2.5), o arquivo .cscfg sozinho por si só não é capaz de habilitar a extensão de diagnóstico. Você precisa habilitar a extensão separadamente por meio de ferramentas como o Visual Studio ou o PowerShell.
+* No SDK do Azure 2.6 e posteriores, o Visual Studio usa a cadeia de conexão de diagnóstico para configurar a extensão de diagnóstico com as informações da conta de armazenamento apropriadas durante a publicação. A cadeia de conexão permite definir contas de armazenamento diferentes para diferentes configurações de serviço que o Visual Studio usará ao publicar. No entanto, como o plug-in de diagnóstico não está mais disponível (após o SDK do Azure 2.5), o arquivo .cscfg sozinho por si só não é capaz de habilitar a extensão de diagnóstico. Você precisa habilitar a extensão separadamente por meio de ferramentas como o Visual Studio ou o PowerShell.
 * Para simplificar o processo de configuração da extensão de diagnóstico com o PowerShell, a saída do pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. O Visual Studio usa a cadeia de conexão de diagnóstico para preencher as informações da conta de armazenamento presentes na configuração pública. Os arquivos de configuração pública são criados na pasta Extensões e seguem o padrão PaaSDiagnostics<RoleName>. PubConfig.xml. Todas as implantações baseadas em PowerShell podem usar esse padrão para mapear cada configuração para uma função.
 * A cadeia de conexão no arquivo .cscfg também é usada pelo portal do Azure para acessar os dados de diagnóstico para que possam aparecer na guia **monitoramento** . A cadeia de conexão é necessária para configurar o serviço para mostrar dados do monitoramento detalhado no portal.
 

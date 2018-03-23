@@ -1,24 +1,19 @@
 ---
 title: Excluir um cofre do Site Recovery
-description: "Saiba como excluir um cofre do Azure Site Recovery, com base no cenário do Site Recovery."
+description: Saiba como excluir um cofre do Azure Site Recovery, com base no cenário do Site Recovery.
 service: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 4cb5c387319b9659b16f0c98dc38cb79d72987e2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Excluir um cofre do Site Recovery
 Dependências podem impedir a exclusão de um cofre do Azure Site Recovery. As ações necessárias variam de acordo com o cenário do Site Recovery: VMware para o Azure, Hyper-V (com e sem o System Center Virtual Machine Manager) para o Azure e Backup do Azure. Para excluir um cofre usado no Backup do Azure, consulte [Excluir um cofre de Backup no Azure](../backup/backup-azure-delete-vault.md).
@@ -32,11 +27,11 @@ Para excluir o cofre, siga as etapas recomendadas para seu cenário.
 
 1. Exclua todas as VMs protegidas seguindo as etapas em [Desabilitar a proteção de um VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 
-2. Exclua todas as políticas de replicação seguindo as etapas em [Excluir uma política de replicação](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+2. Exclua todas as políticas de replicação seguindo as etapas em [Excluir uma política de replicação](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy).
 
-3. Exclua as referências ao vCenter seguindo as etapas em [Excluir um vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
+3. Exclua as referências ao vCenter seguindo as etapas em [Excluir um servidor vCenter](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
 
-4. Exclua o servidor de configuração seguindo as etapas em [Desativar um servidor de configuração](site-recovery-vmware-to-azure-manage-configuration-server.md##delete-or-unregister-a-configuration-server).
+4. Exclua o servidor de configuração seguindo as etapas em [Desativar um servidor de configuração](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
 
 5. Exclua o cofre.
 

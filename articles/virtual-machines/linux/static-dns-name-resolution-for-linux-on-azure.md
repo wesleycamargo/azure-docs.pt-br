@@ -1,13 +1,13 @@
 ---
-title: "Usar o DNS interno para resolução de nomes da VM com a CLI 2.0 do Azure | Microsoft Docs"
-description: "Como criar placas de adaptador de rede virtual e usar DNS interno para resolução de nome da VM no Azure com a CLI do Azure 2.0"
+title: Usar o DNS interno para resolução de nomes da VM com a CLI 2.0 do Azure | Microsoft Docs
+description: Como criar placas de adaptador de rede virtual e usar DNS interno para resolução de nome da VM no Azure com a CLI do Azure 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: fd85ab12a552f83a407dfeeca7ee455dcf731989
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb7234b6b046963a6b3a649cc521655b88cd9875
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar placas de adaptador de rede virtual e usar DNS interno para resolução de nome da VM no Azure
 Este artigo mostra como definir nomes DNS internos estáticos para VMs Linux usando vNics (placas de interface de rede virtual) e nomes de rótulo DNS com a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nomes DNS estáticos são usados para serviços de infraestrutura permanentes como um servidor de build Jenkins, que é usado para este documento ou um servidor Git.
@@ -30,7 +30,7 @@ Esses requisitos são:
 * [arquivos de chave SSH pública e privada](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Comandos rápidos
-Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#detailed-walkthrough). Para realizar essas etapas, é preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando o [logon az](/cli/azure/#az_login).
+Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#detailed-walkthrough). Para realizar essas etapas, é preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando o [logon az](/cli/azure/reference-index#az_login).
 
 Pré-requisitos: grupo de recursos, rede virtual e sub-rede, grupo de segurança de rede com o SSH de entrada.
 
@@ -76,7 +76,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>Criar a rede virtual
 
-A próxima etapa é criar uma rede virtual na qual iniciar as VMs. A rede virtual contém uma sub-rede para este passo a passo. Para saber mais sobre as redes virtuais do Azure, confira [Criar uma rede virtual usando a CLI do Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+A próxima etapa é criar uma rede virtual na qual iniciar as VMs. A rede virtual contém uma sub-rede para este passo a passo. Para obter mais informações sobre as redes virtuais do Azure, consulte [Criar uma rede virtual](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
 Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). O exemplo a seguir cria uma rede virtual chamada `myVnet` e uma sub-rede chamada `mySubnet`:
 

@@ -1,25 +1,19 @@
 ---
-title: "Usando a biblioteca de cliente do banco de dados elástico com o Entity Framework | Microsoft Docs"
-description: "Usar a biblioteca de cliente do Banco de Dados Elástico e o Entity Framework para bancos de dados de codificação"
+title: Usando a biblioteca de cliente do banco de dados elástico com o Entity Framework | Microsoft Docs
+description: Usar a biblioteca de cliente do Banco de Dados Elástico e o Entity Framework para bancos de dados de codificação
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
-ms.openlocfilehash: 1fc61657419f1f4581c5c67639d7bc2e4b0d509f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca cliente do Banco de Dados Elástico com Entity Framework
 Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do **Entity Framework Code First**. O tutorial [Code First - New Database](http://msdn.microsoft.com/data/jj193542.aspx) (Code First – Novo banco de dados) para EF funciona como o exemplo em execução ao longo deste documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
@@ -127,7 +121,7 @@ O código de exemplo a seguir ilustra essa abordagem. (Esse código também est�
   * O mapa do fragmento cria a conexão aberta ao fragmento que mantém o shardlet para a chave de fragmentação determinada.
   * Essa conexão aberta é passada para o construtor da classe base do DbContext para indicar que essa conexão deve ser usada pelo EF em vez de deixar o EF criar uma nova conexão automaticamente. Dessa forma, a conexão será marcada pela API do cliente de banco de dados elástico para poder garantir a consistência em operações de gerenciamento de mapa de fragmentos.
 
-Use o novo construtor para sua subclasse DbContext em vez do construtor padrão em seu código. Aqui está um exemplo: 
+Use o novo construtor para sua subclasse DbContext em vez do construtor padrão em seu código. Veja um exemplo: 
 
     // Create and save a new blog.
 

@@ -1,31 +1,26 @@
 ---
 title: Usar Node.js para consultar o Banco de Dados SQL do Azure | Microsoft Docs
-description: "Este tópico mostra como usar o Node.js para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL."
+description: Este tópico mostra como usar o Node.js para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: carlrab
-ms.openlocfilehash: fc7bc80e332afeb284f9e71609d1d02b8193b6f7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 3f28f360eda52087c8fca841bbd0a6804185813f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Usar o Node.js para consultar um banco de dados SQL do Azure
 
 Este tutorial de início rápido demonstra como usar o [Node.js](https://nodejs.org/en/) para criar um programa para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial de início rápido, certifique-se de que você tenha o seguinte:
 
@@ -34,9 +29,9 @@ Para concluir este tutorial de início rápido, certifique-se de que você tenha
 - Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este tutorial de início rápido.
 
 - O Node.js e o software relacionado para seu sistema operacional instalados:
-    - **MacOS**: instale o Homebrew e o Node.js e então instale o driver ODBC e SQLCMD. Veja a [Etapa 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+    - **MacOS**: instale o Homebrew e o Node.js e então instale o driver ODBC e SQLCMD. Confira as [etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
     - **Ubuntu**: instale o Node.js e então instale o driver ODBC e SQLCMD. Veja a [Etapa 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-    - **Windows**: instale o Chocolatey e o Node.js e, em seguida, instale o driver ODBC e SQL CMD. Veja a [Etapa 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+    - **Windows**: instale o Chocolatey e o Node.js e, em seguida, instale o driver ODBC e SQL CMD. Confira as [etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
 ## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 

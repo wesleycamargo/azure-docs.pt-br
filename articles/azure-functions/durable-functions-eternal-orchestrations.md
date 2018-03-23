@@ -1,12 +1,12 @@
 ---
-title: "Orquestrações eternas nas Funções Duráveis – Azure"
-description: "Saiba como implementar orquestrações eternas usando a extensão de Funções Duráveis do Azure Functions."
+title: Orquestrações eternas nas Funções Duráveis – Azure
+description: Saiba como implementar orquestrações eternas usando a extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8560921734e5037182955d8fe9605cc9831bf1b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb4115b98091f55a0324ea795ffcc83cb29223a4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternas nas Funções Duráveis (Azure Functions)
 
@@ -94,6 +94,3 @@ Se uma função de orquestrador for um loop infinito e precisar ser interrompido
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar orquestrações singleton](durable-functions-singletons.md)
-
-> [!div class="nextstepaction"]
-> [Executar um exemplo de orquestração eterna](durable-functions-counter.md)

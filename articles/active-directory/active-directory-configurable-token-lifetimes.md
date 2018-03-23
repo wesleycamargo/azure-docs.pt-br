@@ -1,11 +1,11 @@
 ---
-title: "Tempos de vida de token configuráveis no Azure Active Directory | Microsoft Docs"
+title: Tempos de vida de token configuráveis no Azure Active Directory | Microsoft Docs
 description: Saiba como definir tempos de vida dos tokens emitidos pelo Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (Visualização Pública)
 Especifique o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
@@ -34,6 +34,11 @@ No Azure AD, um objeto de política representa um conjunto de regras aplicadas a
 
 Designe uma política como a padrão para sua organização. Essa política é aplicada a qualquer aplicativo na organização, desde que não seja substituída por uma política com uma prioridade mais alta. Você também pode atribuir uma política para aplicativos específicos. A ordem de prioridade varia por tipo de política.
 
+> [!NOTE]
+> A política de tempo de vida do token configurável não tem suporte para o SharePoint Online.  Embora você tenha a capacidade de criar essa política por meio do PowerShell, o SharePoint Online não a reconhecerá. Consulte o [blog do SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para saber mais sobre como configurar o tempo limite da sessão ociosa.
+>* O tempo de vida padrão para o token de acesso do SharePoint Online é de 1 hora. 
+>* O tempo inativo máximo padrão do token de atualização do SharePoint Online é de 90 dias.
+>
 
 ## <a name="token-types"></a>Tipos de token
 

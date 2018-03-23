@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 100e0457627a04414ad2f0780a346933b11f4376
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/16/2018
+---
 1. Clicar em **Conectar** cria e baixa um arquivo .rdp (Protocolo de Área de Trabalho Remota). Clique em **Abrir** para usar esse arquivo.
 2. Você receberá um aviso de que o arquivo `.rdp` é proveniente de um editor desconhecido. Isso é normal. Na janela de Área de Trabalho Remota, clique em **Conectar** para continuar.
    

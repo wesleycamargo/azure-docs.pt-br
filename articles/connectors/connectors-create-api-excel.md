@@ -1,11 +1,11 @@
 ---
 title: Adicionar o conector do Excel | Microsoft Docs
-description: "Visão geral do Conector do Excel com os parâmetros da API REST"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+description: Visão geral do Conector do Excel com os parâmetros da API REST
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 03af8652-9223-4348-9490-602872a680f0
 ms.service: multiple
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4d62bee573aba4c8b0445b1f4c44190496fb3a18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: estfan; ladocs
+ms.openlocfilehash: 774cf3134e36c50e181a562019cbab3e6de1249d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-excel-connector"></a>Introdução ao conector do Excel
 Não há conector do Excel em Aplicativos Lógicos. 
@@ -29,7 +29,7 @@ Você pode armazenar dados do Excel como um arquivo CSV (valores separados por v
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/excel/).
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/excel/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

@@ -1,11 +1,11 @@
 ---
-title: "Como configurar alertas de segurança | Microsoft Docs"
-description: "Saiba como configurar alertas de segurança para a extensão Privileged Identity Management do Azure."
+title: Como configurar alertas de segurança | Microsoft Docs
+description: Saiba como configurar alertas de segurança para a extensão Privileged Identity Management do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 52a03624b8e3841f559caef564712ff74a614365
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8037942cb3700f8e46d3be24b5fed04004333335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Como configurar alertas de segurança no Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Alertas de segurança
@@ -27,13 +27,18 @@ O Azure PIM (Privileged Identity Management) gera alertas quando há atividade s
 
 ![Alertas de segurança do painel PIM – captura de tela][1]
 
-| Alerta | Gatilho | Recomendações |
-| --- | --- | --- |
-| **As funções estão sendo atribuídas fora do PIM** |Um administrador foi atribuído permanentemente a uma função, fora da interface do PIM. |Examine a nova atribuição de função. Já que outros serviços podem atribuir apenas administradores permanentes, altere-a para uma atribuição qualificada, se necessário. |
-| **As funções estão sendo ativadas com muita frequência** |Havia muitas reativações da mesma função durante o tempo permitido nas configurações. |Entre em contato com o usuário para ver por que ele ativou a função tantas vezes. Talvez o limite de tempo seja muito curto para que ele conclua suas tarefas ou talvez ele esteja utilizando scripts para ativar uma função automaticamente. |
-| **Roles don't require multi-factor authentication for activation (As funções não exigem o multi-factor authentication para ativação)** |Há funções sem o MFA habilitado nas configurações. |Exigimos o MFA para as funções mais altamente privilegiadas, mas recomendamos que você habilite o MFA para a ativação de todas as funções. |
-| **Administrators aren't using their privileged roles (Os administradores não estão utilizando suas funções privilegiadas)** |Existem administradores qualificados que não ativaram suas funções recentemente. |Inicie uma análise de acesso para determinar os usuários que não precisam mais de acesso. |
-| **Há muitos administradores globais** |Existem mais administradores globais do que o recomendado. |Caso você tenha um grande número de administradores globais, é provável que os usuários estejam obtendo mais permissões do que eles precisam. Mova os usuários para funções menos privilegiadas ou torne alguns deles qualificados para a função em vez de atribuídos permanentemente. |
+| Alerta | Severity | Gatilho | Recomendações |
+| --- | --- | --- | --- |
+| **As funções estão sendo atribuídas fora do PIM** |Alto |Um usuário recebeu permanentemente uma função com privilégios, fora da interface do PIM. |Examine os usuários na lista e cancele a atribuição das funções com privilégios atribuídas fora do PIM. |
+| **As funções estão sendo ativadas com muita frequência** |Média |Havia muitas reativações da mesma função durante o tempo permitido nas configurações. |Entre em contato com o usuário para ver por que ele ativou a função tantas vezes. Talvez o limite de tempo seja muito curto para que ele conclua suas tarefas ou talvez ele esteja utilizando scripts para ativar uma função automaticamente. Verifique se a duração da ativação da função é suficiente para a execução das tarefas. |
+| **Roles don't require multi-factor authentication for activation (As funções não exigem o multi-factor authentication para ativação)** |Média |Há funções sem o MFA habilitado nas configurações. |Exigimos o MFA para as funções mais altamente privilegiadas, mas recomendamos que você habilite o MFA para a ativação de todas as funções. |
+| **Usuários não estão utilizando suas funções privilegiadas** |Baixo |Existem administradores qualificados que não ativaram suas funções recentemente. |Inicie uma análise de acesso para determinar os usuários que não precisam mais de acesso. |
+| **Há muitos administradores globais** |Baixo |Existem mais administradores globais do que o recomendado. |Caso você tenha um grande número de administradores globais, é provável que os usuários estejam obtendo mais permissões do que eles precisam. Mova os usuários para funções menos privilegiadas ou torne alguns deles qualificados para a função em vez de atribuídos permanentemente. |
+
+### <a name="severity"></a>Severity
+* **Alta**: exige ação imediata devido a uma violação da política. 
+* **Média**: não exige ação imediata, mas sinaliza uma possível violação da política.
+* **Baixa**: não exige ação imediata, mas sugere uma alteração preferencial da política.
 
 ## <a name="configure-security-alert-settings"></a>Definir configurações de alerta de segurança
 Você pode personalizar os alertas de segurança no PIM para trabalhar com seu ambiente e objetivos de segurança. Siga estas etapas para acessar a folha de configurações:

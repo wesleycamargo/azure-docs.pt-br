@@ -1,11 +1,11 @@
 ---
-title: "Problemas ao entrar em um aplicativo inexistente na galeria configurado para logon único federado | Microsoft Docs"
-description: "Diretrizes para os problemas específicos que você pode enfrentar ao entrar em um aplicativo configurado para o logon único federado baseado em SAML com Azure AD"
+title: Problemas ao entrar em um aplicativo inexistente na galeria configurado para logon único federado | Microsoft Docs
+description: Diretrizes para os problemas específicos que você pode enfrentar ao entrar em um aplicativo configurado para o logon único federado baseado em SAML com Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo inexistente na galeria configurado para logon único federado
 
@@ -63,7 +63,7 @@ Após atualizar o valor do Identificador no Azure AD e correspondê-lo com o val
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo. 
 
-*Erro AADSTS50011: O endereço de resposta 'https://contoso.com' não corresponde aos endereços de resposta configurados para o aplicativo* 
+*Erro AADSTS50011: o endereço de resposta 'https://contoso.com' não corresponde aos endereços de resposta configurados para o aplicativo* 
 
 **Possível causa** 
 

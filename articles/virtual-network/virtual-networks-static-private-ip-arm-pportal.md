@@ -1,6 +1,6 @@
 ---
-title: "Configurar endereços IP privados para VMs - Portal do Azure | Microsoft Docs"
-description: "Saiba como configurar endereços IP para máquinas virtuais usando o Portal do Azure."
+title: Configurar endereços IP privados para VMs - Portal do Azure | Microsoft Docs
+description: Saiba como configurar endereços IP para máquinas virtuais usando o Portal do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2679c7cb75c438402f3ab64c3e14c964cb8a85d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d551758277373995a6f92e1a25a59d170464fe5e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurar endereços IP particulares para uma máquina virtual usando o Portal do Azure
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Portal do Azure](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [CLI do Azure](virtual-networks-static-private-ip-arm-cli.md)
 > * [Portal do Azure (Clássico)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -41,7 +41,7 @@ Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você t
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-As etapas de exemplo abaixo esperam um ambiente simples já criado. Se você quiser executar as etapas da forma como elas aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma vnet](virtual-networks-create-vnet-arm-pportal.md).
+As etapas de exemplo abaixo esperam um ambiente simples já criado. Caso deseje executar as etapas conforme são exibidas neste documento, primeiro crie o ambiente de teste descrito em [Criar uma rede virtual](quick-create-portal.md).
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Como criar uma VM para testar endereços IP privados estáticos
 Você não pode definir um endereço IP privado estático durante a criação de uma VM no modo de implantação do Gerenciador de Recursos usando o portal do Azure. Você deve criar a VM primeiro e, em seguida, definir seu IP privado como estático.

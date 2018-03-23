@@ -1,26 +1,19 @@
 ---
-title: "Armazenar backups do Banco de Dados SQL do Azure por um período de até 10 anos | Microsoft Docs"
-description: "Saiba como o Banco de Dados SQL do Azure dá suporte ao armazenamento de backups por um período de até 10 anos."
-keywords: 
+title: Armazenar backups do Banco de Dados SQL do Azure por um período de até 10 anos | Microsoft Docs
+description: Saiba como o Banco de Dados SQL do Azure dá suporte ao armazenamento de backups por um período de até 10 anos.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar backups do Banco de Dados SQL do Azure por um período de até 10 anos
 Muitos aplicativos têm fins regulamentares, de conformidade ou outros fins comerciais que exigem a retenção dos backups de banco de dados além dos 7 a 35 dias fornecidos pelos [backups automáticos](sql-database-automated-backups.md) do Banco de Dados SQL do Microsoft Azure. Ao utilizar o recurso de retenção de backup de longo prazo, você poderá armazenar seus backups do Banco de Dados SQL em um cofre dos Serviços de Recuperação do Azure por um período de até 10 anos. É possível armazenar até 1.000 bancos de dados por cofre. Você poderá selecionar qualquer backup no cofre para restaurá-lo como um novo banco de dados.

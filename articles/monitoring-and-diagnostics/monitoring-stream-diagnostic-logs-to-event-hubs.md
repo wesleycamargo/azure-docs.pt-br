@@ -1,9 +1,9 @@
 ---
-title: "Transmitir logs de diagnóstico do Azure para um hub de eventos | Microsoft Docs"
-description: "Saiba como transmitir logs de diagnóstico do Azure para um hub de eventos."
+title: Transmitir logs de diagnóstico do Azure para um hub de eventos | Microsoft Docs
+description: Saiba como transmitir logs de diagnóstico do Azure para um hub de eventos.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: johnkem
-ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmitir logs de diagnóstico do Azure para um hub de eventos
 Os **[logs de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)** podem ser transmitidos quase em tempo real a qualquer aplicativo usando a opção interna "Exportar para os Hubs de Eventos" no Portal, ou habilitando a ID da Regra de Autorização do Hub de Eventos em uma configuração de diagnóstico por meio de cmdlets do Azure PowerShell ou da CLI do Azure.
@@ -83,10 +83,10 @@ Após alguns instantes, a nova configuração aparecerá na lista de configuraç
 Para habilitar o streaming por meio de [Cmdlets do Azure PowerShell](insights-powershell-samples.md), use o cmdlet `Set-AzureRmDiagnosticSetting` com estes parâmetros:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}` , `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. Atualmente, não é possível selecionar um nome de hub de eventos específico com o PowerShell.
+A ID de Regra da Autorização do Hub de Evento é uma cadeia de caracteres com este formato: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, por exemplo, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Atualmente, não é possível selecionar um nome de hub de eventos específico com o PowerShell.
 
 ### <a name="via-azure-cli"></a>Via CLI do Azure
 Para habilitar o streaming por meio da [CLI do Azure](insights-cli-samples.md), use o comando `insights diagnostic set` da seguinte forma:
@@ -95,7 +95,7 @@ Para habilitar o streaming por meio da [CLI do Azure](insights-cli-samples.md), 
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Use o mesmo formato para ID de Regra do Barramento de Serviço, conforme explicado para o Cmdlet do PowerShell. Atualmente, não é possível selecionar um nome de hub de eventos específico com a CLI do Azure.
+Use o mesmo formato para ID de Regra da Autorização do Hub de Evento, conforme explicado para o Cmdlet do PowerShell. Atualmente, não é possível selecionar um nome de hub de eventos específico com a CLI do Azure.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Como eu consumo os dados de log dos Hubs de Eventos?
 Aqui está um exemplo de dados de saída dos Hubs de Eventos:

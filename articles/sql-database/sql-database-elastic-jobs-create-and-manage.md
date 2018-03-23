@@ -1,32 +1,26 @@
 ---
 title: Gerenciar grupos dos bancos de dados SQL do Azure | Microsoft Docs
-description: "Explore a criação e o gerenciamento de um trabalho elástico."
+description: Explore a criação e o gerenciamento de um trabalho elástico.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 9ccd7d78169fa5324808e91724e8e193b56b0290
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 77204e167d298ad77b2786b5d0a3dab1b557ccfc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal usando trabalhos elásticos (preview)
 
 
 **Trabalhos de Banco de Dados Elástico** simplificam o gerenciamento de grupos de bancos de dados executando operações administrativas como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, coleta dados de desempenho ou de telemetria do locatário (cliente). Trabalhos de Banco de Dados Elástico está disponível atualmente por meio de cmdlets do PowerShell e do Portal do Azure. No entanto, o portal do Azure revela funcionalidade reduzida limitada à execução em todos os bancos de dados em um [pool elástico (visualização)](sql-database-elastic-pool.md). Para acessar recursos adicionais e execução de scripts em um grupo de bancos de dados, incluindo uma coleção definida de modo personalizado ou um conjunto de fragmentos (criado usando a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md)), consulte [Criando e gerenciando trabalhos usando o PowerShell](sql-database-elastic-jobs-powershell.md). Para saber mais, confira [Visão geral de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Uma assinatura do Azure. Para obter uma avaliação gratuita, veja [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Um pool elástico. Consulte [Sobre pools elásticos](sql-database-elastic-pool.md).
 * Instalação dos componentes de serviço do trabalho de banco de dados elástico. Consulte [Instalando o serviço do trabalho de banco de dados elástico](sql-database-elastic-jobs-service-installation.md).

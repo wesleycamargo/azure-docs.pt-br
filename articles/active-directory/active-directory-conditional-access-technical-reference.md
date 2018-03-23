@@ -1,8 +1,8 @@
 ---
-title: "Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs"
-description: "Obtenha uma visão geral das configurações com suporte em uma política de acesso condicional do Active Directory do Azure."
+title: Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
+description: Obtenha uma visão geral das configurações com suporte em uma política de acesso condicional do Active Directory do Azure.
 services: active-directory.
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -136,9 +136,19 @@ Essa configuração funciona com todos os navegadores. No entanto, para satisfaz
 | macOS                  | Chrome, Safari                      | ![Verificação][1] |
 
 
-> [!NOTE]
-> Para obter suporte ao Chrome, use a Atualização do Windows 10 para Criadores (versão 1703) ou posterior.<br>
-> Você pode instalar [essa extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+#### <a name="chrome-support"></a>Suporte ao Chrome
+
+Para obter suporte ao Chrome, na **Atualização do Windows 10 para Criadores (versão 1703)** ou posterior, instale [essa extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do registro:
+
+|    |    |
+|--- | ---|
+|Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|NOME | 1 |
+|type | REG_SZ (String) |
+|Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Esses navegadores dão suporte à autenticação de dispositivo, permitindo que o dispositivo seja identificado e validado em relação a uma política. A verificação de dispositivo falha caso o navegador esteja sendo executado em modo privado. 
 
@@ -183,6 +193,10 @@ Em sua política de acesso condicional, você pode exigir que uma tentativa de a
 Essa configuração se aplica aos seguintes aplicativos cliente:
 
 
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Proteção de Informações do Microsoft Azure
 - Microsoft Excel
 - Microsoft Kaizala 

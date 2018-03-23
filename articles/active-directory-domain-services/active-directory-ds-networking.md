@@ -1,8 +1,8 @@
 ---
-title: "Serviços de Domínio do Azure AD: diretrizes de rede | Microsoft Docs"
-description: "Considerações de rede para os Serviços de Domínio do Azure Active Directory"
+title: 'Serviços de Domínio do Azure AD: diretrizes de rede | Microsoft Docs'
+description: Considerações de rede para os Serviços de Domínio do Azure Active Directory
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações de rede para Serviços de Domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma rede virtual do Azure
@@ -53,6 +53,7 @@ As diretrizes a seguir ajudam você a selecionar uma rede virtual a ser usada co
 * Não aplique NSGs à sub-rede dedicada de seu domínio gerenciado. Se você precisar aplicar NSGs à sub-rede dedicada, **não bloqueie as portas necessárias para executar e gerenciar seu domínio**.
 * Não restrinja excessivamente o número de endereços IP disponíveis dentro da sub-rede dedicada para seu domínio gerenciado. Essa restrição impede que o serviço disponibilize dois controladores de domínio para seu domínio gerenciado.
 * **Não habilite os Serviços de Domínio do Azure AD na sub-rede do gateway** da sua rede virtual.
+* Não bloqueie o acesso de saída da sub-rede em que seu domínio gerenciado está habilitado.
 
 > [!WARNING]
 > Quando você associa um NSG a uma sub-rede na qual os Serviços de Domínio do Azure AD estão habilitados, pode interromper a capacidade da Microsoft de gerenciar o domínio e de fazer o atendimento de usuários. Além disso, a sincronização entre o seu locatário do Azure AD e seu domínio gerenciado é interrompida. **O SLA não se aplica a implantações em que um NSG tenha sido aplicado e impeça os Serviços de Domínio do Azure AD de atualizar e gerenciar seu domínio.**
@@ -89,6 +90,8 @@ As portas a seguir são obrigatórias para os Serviços de Domínio do Azure AD 
 * Usada para habilitar acesso LDAP seguro para seu domínio gerenciado na Internet.
 * A abertura dessa pelo NSG é opcional. Abra a porta somente se você tiver acesso LDAP Seguro pela Internet habilitado.
 * Você pode restringir o acesso de entrada a essa porta aos endereços IP de origem dos quais você pretende se conectar por LDAP seguro.
+
+**Acesso de saída** Os AAD Domain Services precisam de acesso de saída para vários outros serviços do Azure para gerenciar, fazer backup e monitorar seu domínio gerenciado. Não bloqueie o acesso de saída da sub-rede dedicada em que seu domínio gerenciado está habilitado.
 
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede

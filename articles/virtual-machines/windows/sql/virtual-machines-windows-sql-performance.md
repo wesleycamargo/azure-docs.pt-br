@@ -1,11 +1,11 @@
 ---
-title: "Práticas recomendadas de desempenho para o SQL Server no Azure | Microsoft Docs"
-description: "Fornece as práticas recomendadas para aprimoramento do desempenho do SQL Server em VMs do Microsoft Azure."
+title: Práticas recomendadas de desempenho para o SQL Server no Azure | Microsoft Docs
+description: Fornece as práticas recomendadas para aprimoramento do desempenho do SQL Server em VMs do Microsoft Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2018
 ms.author: jroth
-ms.openlocfilehash: d0668a5fff3e5a69162c1893c07d5f4c2a015a28
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3458e2f1a09b597c50c01d59eb6522b3fa521310
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
 
@@ -171,4 +171,4 @@ Algumas implantações podem obter outros benefícios de desempenho usando técn
 
 Para conferir as práticas recomendadas de segurança, consulte [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-security.md).
 
-Revise outros artigos sobre Máquinas Virtuais do SQL Server em [Visão geral do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Revise outros artigos sobre Máquinas Virtuais do SQL Server em [Visão geral do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md). Em caso de dúvidas sobre máquinas virtuais do SQL Server, consulte as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).

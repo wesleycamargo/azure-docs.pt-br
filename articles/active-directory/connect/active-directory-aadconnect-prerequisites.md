@@ -1,24 +1,24 @@
 ---
-title: "Azure AD Connect: pré-requisitos e hardware | Microsoft Docs"
-description: "Este tópico descreve os pré-requisitos e requisitos de hardware para o Azure AD Connect"
+title: 'Azure AD Connect: pré-requisitos e hardware | Microsoft Docs'
+description: Este tópico descreve os pré-requisitos e requisitos de hardware para o Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este tópico descreve os pré-requisitos e requisitos de hardware para o Azure AD Connect.
@@ -31,6 +31,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
   * Você também pode usar o [portal do Azure](https://portal.azure.com). Esse portal não requer uma licença do Azure AD.
 * [Adicione e verifique o domínio](../active-directory-domains-add-azure-portal.md) que você planeja usar no AD do Azure. Por exemplo, se você planeja usar contoso.com para os usuários, em seguida, verifique se este domínio foi verificado e se não está usando apenas o domínio padrão contoso.onmicrosoft.com.
 * Um locatário do Azure AD pode ter, por padrão, 50 mil objetos. Quando você verificar seu domínio, o limite aumentará para 300 mil objetos. Se precisar de mais objetos no Azure AD, precisará abrir um caso de suporte para aumentar ainda mais o limite. Se você precisar de mais de 500 mil objetos, precisará de uma licença, como Office 365, Azure AD Básico, Azure AD Premium ou Enterprise Mobility and Security.
+* ADSyncPrep é um módulo de script do PowerShell que fornece funções usadas para preparar seu ambiente do Active Directory para o Azure AD Connect.  O ADSyncPrep exige o [Módulo do PowerShell do Azure AD Microsoft Online v1.1](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  A Versão 2 não funcionará.  Instale o módulo usando o cmdlet `Install-Module`.  Para saber mais, confira o link fornecido.
 
 ### <a name="prepare-your-on-premises-data"></a>Preparar seus dados locais
 * Usar [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar erros como duplicatas e problemas de formatação no diretório antes de sincronizar para o Azure AD e o Office 365.

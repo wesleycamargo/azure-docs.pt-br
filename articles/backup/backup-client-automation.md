@@ -2,10 +2,10 @@
 title: Usar o PowerShell para fazer backup do Windows Server no Azure | Microsoft Docs
 description: Saiba como implantar e gerenciar o Backup do Azure usando o PowerShell
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
+editor: ''
 ms.assetid: 65218095-2996-44d9-917b-8c84fc9ac415
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cabf40367a6bd8401cae3eade4b832702e5acf31
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
 Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no Windows Server ou no cliente Windows, e como gerenciar backups e recuperações.
@@ -82,6 +82,8 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="installing-the-azure-backup-agent"></a>Instalando o agente de Backup do Azure
 Antes de instalar o agente de Backup do Azure, você precisa ter o instalador baixado, já no Windows Server. Você pode obter a última versão do instalador no [Centro de Download da Microsoft](http://aka.ms/azurebackup_agent) ou na página Painel do cofre dos Serviços de Recuperação. Salve o instalador em um local de fácil acesso, como *C:\Downloads\*.

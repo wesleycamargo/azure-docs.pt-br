@@ -1,24 +1,24 @@
 ---
-title: "Log de diagnósticos do Azure Cosmos DB | Microsoft Docs"
-description: "Use este tutorial para ajudá-lo a começar a usar o log do Azure Cosmos DB."
+title: Log de diagnósticos do Azure Cosmos DB | Microsoft Docs
+description: Use este tutorial para ajudá-lo a começar a usar o log do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Log de diagnósticos do Azure Cosmos DB
 
@@ -31,6 +31,13 @@ Antes falarmos do monitoramento da sua conta do Azure Cosmos DB, vamos esclarece
 A imagem a seguir mostra os diferentes tipos de logs do Azure disponíveis.
 
 ![Diferentes tipos de logs do Azure](./media/logging/azurelogging.png)
+
+Na imagem acima, **Recursos de computação** representam os recursos do Azure para os quais você pode acessar o sistema operacional convidado. Por exemplo, Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Serviço de Contêiner do Azure etc, são considerados como recursos de computação. Recursos de computação geram Logs de atividades, Logs de diagnóstico e Logs de aplicativos. Para saber mais, veja o artigo [Monitoramento do Azure – recursos de computação](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset).
+
+**Recursos que não são de computação** são recursos nos quais você não pode acessar o sistema operacional subjacente e trabalhar diretamente com o recurso. Por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos etc. O **Cosmos DB** é um recurso que não é de computação. Você pode exibir os logs dos recursos que não são de computação no Log de atividades ou habilitando a opção Logs de diagnóstico no portal. Para saber mais, consulte o artigo [Monitoramento do Azure – recursos que não são de computação](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else).
+
+O Log de atividades registra as operações em um nível de assinatura para Cosmos DB, operações como ListKeys, Write DatabaseAccounts etc. são registradas. Logs de diagnóstico fornecem um registro em log mais granular e permite que você registre DataPlaneRequests (Criar, Ler, Consultar... ) e MongoRequests.
+
 
 Para nossa discussão, vamos nos concentrar em Atividades do Azure, Diagnóstico do Azure e Métricas. Afinal, qual é a diferença entre esses três logs? 
 

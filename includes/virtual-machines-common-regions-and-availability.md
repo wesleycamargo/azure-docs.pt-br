@@ -55,8 +55,8 @@ A tabela a seguir oferece uma visão geral das diferenças entre os tipos de rep
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Os dados são replicados entre várias instalações. |Não |Sim |Sim |Sim |
-| Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |Sim |
+| Os dados são replicados entre várias instalações. |Não  |Sim |Sim |sim |
+| Os dados podem ser lidos do local secundário e do local primário. |Não  |Não |Não |sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
 Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/common/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -75,14 +75,14 @@ Os preços variam dependendo do tipo de armazenamento e da disponibilidade que v
 Consulte [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre preços para diferentes opções de tipos de armazenamento e de disponibilidade.
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
-Um conjunto de disponibilidade é um agrupamento lógico de VMs em um datacenter que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando estiver usando uma única VM [armazenamento Premium do Azure](../articles/virtual-machines/windows/premium-storage.md), o SLA do Azure se aplica a eventos de manutenção não planejada. 
+Um conjunto de disponibilidade é um agrupamento lógico de VMs em um datacenter que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Não há nenhum custo para o conjunto de disponibilidade em si, você paga apenas por cada instância de VM que criar. Quando estiver usando uma única VM [armazenamento Premium do Azure](../articles/virtual-machines/windows/premium-storage.md), o SLA do Azure se aplica a eventos de manutenção não planejada. 
 
 Um conjunto de disponibilidade é composto por dois agrupamentos adicionais que protegem contra falhas de hardware e permitem que atualizações sejam aplicadas com segurança – FDs (domínios de falha) e UDs (domínios de atualização). Você pode ler mais sobre como gerenciar a disponibilidade de [VMs Linux](../articles/virtual-machines/linux/manage-availability.md) ou [VMs Windows](../articles/virtual-machines/windows/manage-availability.md).
 
 ### <a name="fault-domains"></a>Domínios de falha
 Um domínio de falha é um grupo lógico de hardwares subjacentes que compartilham a mesma fonte de alimentação e o mesmo comutador de rede, de forma semelhante a um rack em um datacenter local. À medida que você cria máquinas virtuais em um conjunto de disponibilidade, a plataforma Windows Azure distribui automaticamente suas VMs entre esses domínios de falha. Essa abordagem limita o impacto de possíveis falhas de hardware físico, interrupções de rede ou interrupções de energia.
 
-### <a name="update-domains"></a>Domínios de atualização
+### <a name="update-domains"></a>Atualizar domínios
 Um domínio de atualização é um grupo lógico de hardwares subjacentes que podem passar por manutenção ou ser reinicializados ao mesmo tempo. À medida que você cria máquinas virtuais em um conjunto de disponibilidade, a plataforma Windows Azure distribui automaticamente suas VMs entre esses domínios de atualização. Essa abordagem garante que pelo menos uma instância do aplicativo sempre permaneça em execução enquanto a plataforma Windows Azure passar por manutenção periódica. A ordem de reinicialização dos domínios de atualização pode não ser sequencial durante a manutenção planejada, mas apenas um domínio de atualização é reinicializado por vez.
 
 ### <a name="managed-disk-fault-domains"></a>Domínios de falha de Disco Gerenciado

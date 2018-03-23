@@ -1,31 +1,25 @@
 ---
-title: "Como iniciar um runbook na Automação do Azure | Microsoft Docs"
-description: "Resume os métodos diferentes que podem ser usados para iniciar um runbook na Automação do Azure e fornece detalhes sobre como usar o portal do Azure e o Windows PowerShell."
+title: Como iniciar um Runbook na Automação do Azure
+description: Resume os métodos diferentes que podem ser usados para iniciar um runbook na Automação do Azure e fornece detalhes sobre como usar o portal do Azure e o Windows PowerShell.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 6ee756b4-9200-4eb2-9bda-ec156853803b
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: c6a18bedec6eca5ff25d205bccecc23ecd342744
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+manager: carmonm
+ms.openlocfilehash: 064ba5f73b53681a824b1416243d10ab0e565c44
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Como iniciar um Runbook na Automação do Azure
 A tabela a seguir o ajuda a determinar o método para inicializar um runbook na Automação do Azure, que seja mais adequado ao seu cenário específico. Este artigo inclui detalhes sobre como iniciar um runbook com o portal do Azure e com o Windows PowerShell. Detalhes sobre outros métodos são fornecidos em outros documentos que você pode acessar através dos links abaixo.
 
 | **MÉTODO** | **CARACTERÍSTICAS** |
 | --- | --- |
-| [portal do Azure](#starting-a-runbook-with-the-azure-portal) |<li>Método mais simples com interface do usuário interativa.<br> <li>Formulário para fornecer valores de parâmetro simples.<br> <li>Controle facilmente o estado do trabalho.<br> <li>Acesso autenticado com o logon do Azure. |
+| [Portal do Azure](#starting-a-runbook-with-the-azure-portal) |<li>Método mais simples com interface do usuário interativa.<br> <li>Formulário para fornecer valores de parâmetro simples.<br> <li>Controle facilmente o estado do trabalho.<br> <li>Acesso autenticado com o logon do Azure. |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Chame da linha de comando com os cmdlets do Windows PowerShell.<br> <li>Pode ser incluído em uma solução automatizada com várias etapas.<br> <li>A solicitação é autenticada com certificado ou entidade de usuário/entidade de serviço OAuth.<br> <li>Fornece valores de parâmetro simples e complexos.<br> <li>Acompanhe o estado do trabalho.<br> <li>É necessário um cliente para dar suporte a cmdlets do PowerShell. |
 | [API de Automação do Azure](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Método mais flexível, mas também o mais complexo.<br> <li>Chame de qualquer código personalizado que possa fazer solicitações HTTP.<br> <li>A solicitação autenticada com certificado ou entidade de usuário/entidade de serviço OAuth.<br> <li>Fornece valores de parâmetro simples e complexos. *Se você estiver chamando um runbook do Python usando a API, o conteúdo JSON deverá ser serializado.*<br> <li>Acompanhe o estado do trabalho. |
 | [Webhooks](automation-webhooks.md) |<li>Inicie o runbook de uma solicitação HTTP única.<br> <li>Autenticado com token de segurança na URL.<br> <li>O cliente não pode substituir valores de parâmetro especificados quando o webhook foi criado. O runbook pode definir um único parâmetro que é preenchido com os detalhes da solicitação HTTP.<br> <li>Sem capacidade de acompanhar o estado do trabalho por meio da URL do webhook. |

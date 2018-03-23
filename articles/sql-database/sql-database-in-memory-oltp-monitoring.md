@@ -1,25 +1,19 @@
 ---
-title: "Monitorar o armazenamento na memória XTP | Microsoft Docs"
-description: "Estimar e monitorar o uso do armazenamento na memória XTP, capacidade; resolver o erro de capacidade 41823"
+title: Monitorar o armazenamento na memória XTP | Microsoft Docs
+description: Estimar e monitorar o uso do armazenamento na memória XTP, capacidade; resolver o erro de capacidade 41823
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: 
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: 1e7088e80cc86e3c7cf8ae8ea180d797de613e71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c1adc6e98f7d101a6e5f3227f44b0035d9b9d157
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitorar o armazenamento OLTP In-Memory
 Ao usar o [In-Memory OLTP](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP in-memory. Cada camada de serviço Premium tem um tamanho máximo de armazenamento OLTP In-Memory, que está documentado em [limites de recursos do banco de dados individual](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) e [limites de recursos do pool elástico](sql-database-resource-limits.md#elastic-pool-change-storage-size). Quando esse limite for excedido, as operações insert e update poderão começar a falhar com o erro 41823 para banco de dados independentes e erro 41840 para pools elásticos. Nesse ponto, você precisa excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.

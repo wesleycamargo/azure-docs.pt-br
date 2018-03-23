@@ -1,32 +1,32 @@
 ---
 title: 'Conectar sua rede local a uma rede virtual do Azure: VPN Site a Site: CLI | Microsoft Docs'
-description: "Etapas para criar uma conexão IPsec de sua rede local para uma rede virtual do Azure pela Internet pública. Essas etapas o ajudarão a criar uma conexão de Gateway de VPN Site a Site entre locais usando a CLI."
+description: Etapas para criar uma conexão IPsec de sua rede local para uma rede virtual do Azure pela Internet pública. Essas etapas o ajudarão a criar uma conexão de Gateway de VPN Site a Site entre locais usando a CLI.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 64c08400c39013f2bfc5bcc57eb21839ad69490b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 76df3a03b559a1be04a969351ecbfafe3da67714
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Criar uma rede virtual com uma conexão VPN Site a Site usando a CLI
 
 Este artigo mostra como usar a CLI do Azure para criar uma conexão de gateway de VPN Site a Site de sua rede local para a rede virtual. As etapas neste artigo se aplicam ao modelo de implantação do Resource Manager. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:<br>
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -89,7 +89,7 @@ az group create --name TestRG1 --location eastus
 Se você ainda não tiver uma rede virtual, crie uma usando o comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Ao criar uma rede virtual, certifique-se de que os espaços de endereço que você especificar não se sobreponham nenhum espaço de endereço que você tenha na rede local.
 
 >[!NOTE]
->Para que essa rede virtual conecte a um local, é necessário coordenar com o administrador de rede local para que ele consiga um intervalo de endereços IP que você pode usar especificamente para essa rede virtual. Caso contrário, o tráfego não será roteado corretamente se um intervalo de endereços duplicado existir em ambos os lados da conexão de VPN.
+>Para que essa rede virtual conecte a um local, é necessário coordenar com o administrador de rede local para que ele consiga um intervalo de endereços IP que você pode usar especificamente para essa rede virtual. Se um intervalo de endereços duplicado existir em ambos os lados da conexão de VPN, o tráfego não será roteado da maneira esperada. Além disso, se você deseja se conectar esta rede virtual a outra rede virtual, o espaço de endereços não pode sobrepor outra rede virtual. Tome cuidado e planeje sua configuração de rede de forma adequada.
 >
 >
 
@@ -101,17 +101,16 @@ az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefi
 
 ## 4. <a name="gwsub"></a>Criar a sub-rede de gateway
 
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-Para essa configuração, você também precisará de uma sub-rede de gateway. O gateway de rede virtual usa uma sub-rede de gateway que contém os endereços IP que são usados pelos serviços de gateway de VPN. Quando você cria uma sub-rede de gateway, ela deve ser nomeada como 'GatewaySubnet'. Se usar outro nome, você criará uma sub-rede, mas o Azure não a tratará como uma sub-rede de gateway.
-
-O tamanho da sub-rede de gateway que você especifica depende da configuração do gateway de VPN que deseja criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando /27 ou /28. Usar uma sub-rede de gateway maior permite endereços IP suficientes para acomodar as possíveis configurações futuras.
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
 Execute o comando [azure network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) para criar uma sub-rede de gateway.
 
 ```azurecli
 az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="localnet"></a>5. Criar o gateway de rede local
 

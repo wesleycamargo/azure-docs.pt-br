@@ -1,9 +1,9 @@
 ---
 title: Transmitir dados de monitoramento do Azure para os Hubs de Eventos | Microsoft Docs
-description: "Saiba como transmitir todos os dados de monitoramento do Azure para um hub de eventos para colocar os dados em um SIEM ou ferramenta de análise de um parceiro."
+description: Saiba como transmitir todos os dados de monitoramento do Azure para um hub de eventos para colocar os dados em um SIEM ou ferramenta de análise de um parceiro.
 author: johnkemnetz
 manager: robb
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa
 
@@ -36,7 +36,18 @@ Em seu ambiente do Azure há várias 'camadas' de dados de monitoramento e o mé
 
 Dados de qualquer camada podem ser enviados para um hub de eventos, do qual é possível efetuar pull desses dados para uma ferramenta de parceiro. As seções a seguir descrevem como você pode configurar os dados de cada camada para serem transmitidos para um hub de eventos. As etapas pressupõem que você já tem ativos nessa camada a serem monitorados.
 
-Antes de começar, você precisa [criar um namespace dos Hubs de Eventos e um hub de eventos](../event-hubs/event-hubs-create.md). Esse namespace e hub de eventos é o destino para todos os seus dados de monitoramento.
+## <a name="set-up-an-event-hubs-namespace"></a>Configurar um namespace dos Hubs de Eventos
+
+Antes de começar, você precisa [criar um namespace dos Hubs de Eventos e um hub de eventos](../event-hubs/event-hubs-create.md). Esse namespace e hub de eventos é o destino para todos os seus dados de monitoramento. Um namespace dos Hubs de Eventos é um agrupamento lógico de hubs de eventos que compartilham a mesma política de acesso, assim como uma conta de armazenamento tem blobs individuais dentro dessa conta de armazenamento. Observe alguns detalhes sobre o namespace dos hubs de eventos e os hubs de eventos que você criou:
+* É recomendável utilizar um namespace dos Hubs de Evento Standard.
+* Normalmente, apenas uma unidade de taxa de transferência é necessária. Se for necessário aumentar a escala vertical conforme o uso de log aumentar, sempre será possível aumentar manualmente o número de unidades de taxa transferência para o namespace posteriormente, ou habilitar a inflação automática.
+* O número de unidades de taxa de transferência permite aumentar a escala de taxa de transferência para os hubs de eventos. O número de partições permite paralelizar o consumo em muitos consumidores. Uma única partição pode fazer até 20 MBps, ou aproximadamente 20.000 mensagens por segundo. Dependendo da ferramenta que consome os dados, poderá ou não dar suporte ao consumo de várias partições. Se você não tiver certeza sobre o número de partições a definir, é recomendável iniciar com quatro partições.
+* É recomendável definir a retenção de mensagens no seu hub de eventos para 7 dias. Se a ferramenta de consumo ficar inativa por mais de um dia, isso garante que a ferramenta poderá retirar de onde parou (para eventos de até 7 dias).
+* É recomendável utilizar o grupo de consumidores padrão para o hub de eventos. Não é necessário criar outros grupos de consumidores ou utilizar um grupo de consumidores separado, exceto se você planejar ter duas ferramentas diferentes que consumam os mesmos dados do mesmo hub de eventos.
+* Para o Log de Atividades do Azure, você escolhe um namespace dos Hubs de Eventos e o Azure Monitor cria um hub de eventos dentro desse namespace chamado 'insights-logs-operationallogs.' Para outros tipos de log, é possível escolher um hub de eventos existente (permitindo que você reutilize o mesmo hub de eventos insights-logs-operationallogs) ou que o Azure Monitor crie um hub de eventos por categoria de log.
+* Normalmente, as portas 5671 e 5672 devem ser abertas no computador que consome dados do hub de eventos.
+
+Consulte também as [Perguntas frequentes sobre Hubs de Eventos do Azure](../event-hubs/event-hubs-faq.md).
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como configurar os dados de monitoramento de plataforma do Azure para serem transmitidos para um hub de eventos?
 

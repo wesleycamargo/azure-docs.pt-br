@@ -1,23 +1,23 @@
 ---
-title: "Erro RequestDisallowedByPolicy com a política de recurso do Azure | Microsoft Docs"
+title: Erro RequestDisallowedByPolicy com a política de recurso do Azure | Microsoft Docs
 description: Descreve a causa do erro RequestDisallowedByPolicy.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/03/2017
+ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 2e821c0369c6f01a7f09361c1093259429a79fa6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5a9efa6b807e933726104e7af315589ede5d9b74
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Erro RequestDisallowedByPolicy com a política de recurso do Azure
 
@@ -25,7 +25,7 @@ Este artigo descreve a causa do erro RequestDisallowedByPolicy e também fornece
 
 ## <a name="symptom"></a>Sintoma
 
-Quando tentar executar uma ação durante a implantação, você poderá receber um erro **RequestDisallowedByPolicy**, que impede que a ação seja executada. O exemplo a seguir mostra o erro:
+Durante a implantação, você pode receber um erro **RequestDisallowedByPolicy**, que impede a criação dos recursos. O exemplo a seguir mostra o erro:
 
 ```json
 {
@@ -36,11 +36,11 @@ Quando tentar executar uma ação durante a implantação, você poderá receber
 }
 ```
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Para recuperar detalhes sobre a política que bloqueou a implantação, use um dos seguintes métodos:
 
-### <a name="method-1"></a>Método 1
+### <a name="powershell"></a>PowerShell
 
 No PowerShell, forneça o identificador de política como o parâmetro `Id` para recuperar detalhes sobre a política que bloqueou sua implantação.
 
@@ -48,9 +48,9 @@ No PowerShell, forneça o identificador de política como o parâmetro `Id` para
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-### <a name="method-2"></a>Método 2 
+### <a name="azure-cli"></a>CLI do Azure
 
-Na CLI 2.0 do Azure, forneça o nome da definição de política: 
+Na CLI 2.0 do Azure, forneça o nome da definição de política:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,10 +58,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Solução
 
-Para segurança ou conformidade, seu departamento de TI pode impor uma política de recurso que proíbe a criação de Endereços IP públicos, Grupos de Segurança de Rede, Rotas Definidas pelo Usuário ou tabelas de rotas. A mensagem de erro na seção **Sintomas** mostra uma política chamada **regionPolicyDefinition**. Sua política pode ter um nome diferente.
-Para resolver esse problema, trabalhe com o departamento de TI para examinar as políticas de recurso e determinar como executar a ação solicitada em conformidade com essas políticas.
+Para segurança ou conformidade, os administradores de sua assinatura podem atribuir políticas que limitam como os recursos são implantados. Por exemplo, sua assinatura pode ter uma política que impede a criação de endereços IP Públicos, Grupos de Segurança de Rede, Rodas Definidas pelo Usuário ou tabelas de rota. A mensagem de erro na seção **Sintomas** mostra o nome da política.
+Para resolver esse problema, examine as políticas de recursos e determine como implantar recursos que estão em conformidade com essas políticas.
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Visão geral da política de recurso](resource-manager-policy.md)
-- [Exibir atribuições de política por meio do portal](resource-manager-policy-portal.md)
+- [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)
+- [Criar e gerenciar políticas para impor a conformidade](../azure-policy/create-manage-policy.md)

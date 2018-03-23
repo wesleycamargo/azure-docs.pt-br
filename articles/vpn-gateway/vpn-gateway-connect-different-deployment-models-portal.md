@@ -1,11 +1,11 @@
 ---
-title: "Conectar redes virtuais clássicas a VNets do Azure Resource Manager: Portal | Microsoft Docs"
-description: "Criar uma conexão VPN entre Rede Virtuais clássicas e Rede Virtuais do Resource Manager usando o Gateway de VPN e o portal"
+title: 'Conectar redes virtuais clássicas a VNets do Azure Resource Manager: Portal | Microsoft Docs'
+description: Criar uma conexão VPN entre Rede Virtuais clássicas e Rede Virtuais do Resource Manager usando o Gateway de VPN e o portal
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conectar redes virtuais de diferentes modelos de implantação usando o portal
 
@@ -149,7 +149,7 @@ Nesta seção, você cria o gateway de rede virtual e o gateway de rede local pa
 * Intervalo de endereços = 192.168.1.0/24 <br>
 
 
-Caso não tenha uma VNet do Resource Manager e esteja executando estas etapas como um exercício, você poderá criar uma VNet usando [este artigo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) e os valores do Exemplo.
+Caso você não tenha uma VNET do Resource Manager e esteja executando estas etapas como um exercício, crie uma rede virtual com as etapas descritas em [Criar uma rede virtual](../virtual-network/quick-create-portal.md), usando os valores de exemplo.
 
 ### <a name="2-create-a-gateway-subnet"></a>2. Criar uma sub-rede de gateway
 

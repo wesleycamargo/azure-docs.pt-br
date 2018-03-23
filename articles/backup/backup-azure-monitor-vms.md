@@ -1,11 +1,11 @@
 ---
-title: "Monitorar alertas de backup para máquinas virtuais do Azure | Microsoft Docs"
-description: "Monitore eventos e alertas de trabalhos de backup de máquina virtual do Azure. Envie um email com base em alertas."
+title: Monitorar alertas de backup para máquinas virtuais do Azure | Microsoft Docs
+description: Monitore eventos e alertas de trabalhos de backup de máquina virtual do Azure. Envie um email com base em alertas.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fed32015-2db2-44f8-b204-d89f6fd1bea2
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fbdce5c244d733a2978d473f01c8d875cbeaa65e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorar alertas para os backups das máquinas virtuais do Azure
 Os alertas são respostas do serviço informando que um limite do evento foi atingido ou ultrapassado. Saber quando os problemas iniciam pode ser essencial para manter baixos os custos do negócio. Os alertas normalmente não ocorrem em um agendamento e é útil saber assim que possível após sua ocorrência. Por exemplo, quando um trabalho de backup ou de restauração falha, um alerta ocorre em até cinco minutos após a falha. No painel do cofre, o bloco Alertas de Backup exibe os eventos nos níveis Crítico e Aviso. Nas configurações Alertas de Backup, você pode exibir todos os eventos. Mas o que fazer se um alerta ocorrer quando você estiver trabalhando em um problema separado? Se você não sabe quando o alerta ocorre, pode ser uma inconveniência secundária ou pode comprometer os dados. Para verificar se as pessoas corretas estão cientes de um alerta, quando ele ocorre, configure o serviço para enviar notificações de alerta por email. Para obter detalhes sobre como configurar as notificações por email, confira [Configurar notificações](backup-azure-monitor-vms.md#configure-notifications).
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>Como localizar informações sobre os alertas?
-Para exibir informações sobre o evento que gerou um alerta, você deve abrir a folha Alertas de Backup. Há duas maneiras de abrir a folha Alertas de Backup: no bloco Alertas de Backup no painel do cofre ou na folha Alertas e Eventos.
+Para exibir informações sobre o evento que gerou um alerta, você deve abrir a seção Alertas de Backup. Há duas maneiras de abrir a seção Alertas de Backup: no bloco Alertas de Backup no painel do cofre ou na seção Alertas e Eventos.
 
 Para abrir a folha Alertas de Backup no bloco Alertas de Backup:
 
@@ -32,16 +32,16 @@ Para abrir a folha Alertas de Backup no bloco Alertas de Backup:
 
     ![Bloco Alertas de Backup](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
 
-Para abrir a folha Alertas de Backup no bloco Alertas e Eventos:
+Para abrir a seção Alertas de Backup na seção Alertas e Eventos:
 
 1. No painel do cofre, clique em **Todas as Configurações**. ![Botão Todas as Configurações](./media/backup-azure-monitor-vms/all-settings-button.png)
 2. Na folha **Configurações**, clique em **Alertas e Eventos**. ![Botão Alertas e Eventos](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
 3. Na folha **Alertas e Eventos**, clique em **Alertas de Backup**. ![Botão Alertas de Backup](./media/backup-azure-monitor-vms/backup-alerts.png)
 
-    A folha **Alertas de Backup** é aberta e exibe os alertas filtrados.
+    A seção **Alertas de Backup** é aberta e exibe os alertas filtrados.
 
     ![Bloco Alertas de Backup](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
-4. Para exibir informações detalhadas sobre um evento específico, na lista de eventos, clique no alerta para abrir sua folha **Detalhes** .
+4. Para exibir informações detalhadas sobre um evento específico, na lista de eventos, clique no alerta para abrir sua seção **Detalhes**.
 
     ![Detalhe do Evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
@@ -56,10 +56,10 @@ Para configurar as notificações por email para alertas
 
     ![Menu Alertas de Backup](./media/backup-azure-monitor-vms/backup-alerts-menu.png)
 
-    A folha Configurar notificações é aberta.
+    A seção Configurar notificações é aberta.
 
     ![Folha Configurar notificações](./media/backup-azure-monitor-vms/configure-notifications.png)
-2. Na folha Configurar notificações, para as Notificações por email, clique em **Ativar**.
+2. Na seção Configurar notificações, para as Notificações por email, clique em **Ativar**.
 
     As caixas de diálogo Destinatários e Gravidade têm uma estrela ao lado porque essa informação é necessária. Forneça pelo menos um endereço de email e selecione pelo menos uma Gravidade.
 3. Na caixa de diálogo **Destinatários (Email)** , digite os endereços de email para quem recebe as notificações. Use o formato: username@domainname.com. Separe os vários endereços de email com um ponto e vírgula (;).
@@ -82,135 +82,53 @@ Há situações em que um alerta não é enviado, mesmo que as notificações te
 * Um trabalho de backup é disparado e falha e outro trabalho de backup está em andamento.
 * Um trabalho de backup agendado para uma VM habilitada para o Resource Manager, mas a VM não existe mais.
 
-## <a name="customize-your-view-of-events"></a>Personalizar a exibição de eventos
-A configuração **Logs de auditoria** vem com um conjunto predefinido de filtros e colunas mostrando as informações de evento operacional. Você pode personalizar a exibição para que, quando a folha **Eventos** abrir, ela mostre as informações desejadas.
+## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>Usar Logs de atividade para obter notificações de backups bem-sucedidos
 
-1. No [painel do cofre](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), procure e clique em **Logs de Auditoria** para abrir a folha **Eventos**.
+Se você quiser receber uma notificação após a conclusão bem-sucedida dos backups, use os alertas criados nos [logs de atividade](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) do cofre.
 
-    ![Logs de Auditoria](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+### <a name="login-into-azure-portal"></a>Fazer logon no Portal do Azure
+Faça logon no Portal do Azure e acesse o cofre relevante dos Serviços de Recuperação do Azure e clique na seção "Log de atividades" nas propriedades.
 
-    A folha **Eventos** será aberta para os eventos operacionais filtrados apenas para o cofre atual.
+### <a name="identify-appropriate-log"></a>Identificar o log apropriado
 
-    ![Filtro de Logs da Auditoria](./media/backup-azure-monitor-vms/audit-logs-filter.png)
+Aplique os filtros mostrados na figura a seguir para verificar se você está recebendo os logs de atividade de backups bem-sucedidos. Altere o intervalo de tempo adequadamente para exibir os registros.
 
-    A folha mostra a lista de eventos Crítico, Erro, Aviso e Informativo na última semana. O período de tempo é um valor padrão definido em **Filtrar**. A folha **Eventos** também mostra um gráfico de barras controlando quando os eventos ocorreram. Se você não quiser ver o gráfico de barras, no menu **Eventos**, clique em **Ocultar gráfico** para desativar o gráfico. A exibição padrão dos Eventos mostra informações sobre a Operação, Nível, Status, Recurso e Tempo. Para obter informações sobre como expor os atributos adicionais do Evento, confira a seção [expandindo as informações do Evento](backup-azure-monitor-vms.md#view-additional-event-attributes).
-2. Para obter mais informações sobre um evento operacional, na coluna **Operação** , clique em um evento operacional para abrir sua folha. A folha contém informações detalhadas sobre os eventos. Os eventos são agrupados por sua ID de correlação e uma lista de eventos ocorridos no Período de tempo.
+![Logs de atividade](./media/backup-azure-monitor-vms/activity-logs-identify.png)
 
-    ![Detalhes da Operação](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
-3. Para exibir informações detalhadas sobre um evento específico, na lista de eventos, clique no evento para abrir sua folha **Detalhes** .
+Clique no segmento "JSON" para obter mais detalhes e exiba-os copiando e colando-os em um editor de texto. Isso deve exibir os detalhes do cofre e o item que disparou o log de atividades, ou seja, o item de backup.
 
-    ![Detalhe do Evento](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
+Depois, clique em "Adicionar alerta do log de atividade" para gerar alertas para todos esses logs.
 
-    As informações no nível do Evento são tão detalhadas quanto as informações obtidas. Se você preferir ver muitas informações sobre cada evento e quiser adicionar muitos detalhes à folha **Eventos** , confira a seção [expandindo as Informações do evento](backup-azure-monitor-vms.md#view-additional-event-attributes).
+### <a name="add-activity-log-alert"></a>Adicionar alerta do Log de atividades
 
-## <a name="customize-the-event-filter"></a>Personalizar o filtro de eventos
-Use o **Filtro** para ajustar ou escolher as informações que aparecem em uma folha específica. Para filtrar as informações do evento:
+Clicar em "Adicionar alerta do log de atividades" mostrará uma tela, conforme exibido abaixo
 
-1. No [painel do cofre](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), procure e clique em **Logs de Auditoria** para abrir a folha **Eventos**.
+![Alerta do log de atividades](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
+    
+A assinatura e o grupo de recursos são usados para armazenar o alerta. Os critérios serão preenchidos previamente. Verifique se que todos os valores são relevantes às suas necessidades.
 
-    ![Logs de Auditoria](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+Para backups bem-sucedidos, o "Nível" é marcado como "Informativo" e o Status como "Bem-sucedido".
 
-    A folha **Eventos** será aberta para os eventos operacionais filtrados apenas para o cofre atual.
+Se você selecionar um "recurso" acima, o alerta será gerado quando os logs de atividade forem registrados para esse recurso ou cofre. Se você quiser que a regra seja aplicável a todos os cofres, deixe o "recurso" vazio.
 
-    ![Filtro de Logs da Auditoria](./media/backup-azure-monitor-vms/audit-logs-filter.png)
-2. No menu **Eventos**, clique em **Filtro** para abrir essa folha.
+### <a name="define-action-on-alert-firing"></a>Definir ação ao disparar o alerta
 
-    ![abrir folha do filtro](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
-3. Na folha **Filtrar**, ajuste os filtros **Nível**, **Período de tempo** e **Chamador**. Os outros filtros não estão disponíveis depois que foram definidos para fornecer as informações atuais para o cofre dos Serviços de Recuperação.
+Use o "grupo de ações" para definir a ação ao gerar um alerta. Você pode clicar em "Tipo de ação" para saber mais sobre as ações disponíveis, como email/SMS/Integração com ITSM etc.
 
-    ![Detalhes da consulta dos Logs de Auditoria](./media/backup-azure-monitor-vms/filter-blade.png)
+![Grupo de ações do log de atividades](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-    Você pode especificar o **Nível** do evento: Crítico, Erro, Aviso ou Informativo. Você pode escolher qualquer combinação de Níveis de evento, mas deve ter, pelo menos, um Nível selecionado. Ative ou desative o Nível. O filtro **Período de tempo** permite especificar o período de tempo para capturar os eventos. Se você usar um Período personalizado, pode definir as horas de início e término.
-4. Quando você estiver pronto para consultar os logs de operações usando o filtro, clique em **Atualizar**. Os resultados serão exibidos na folha **Eventos** .
 
-    ![Detalhes da Operação](./media/backup-azure-monitor-vms/edited-list-of-events.png)
-
-### <a name="view-additional-event-attributes"></a>Exibir atributos adicionais do evento
-Usando o botão **Colunas**, você pode habilitar os atributos de eventos adicionais para que apareçam na lista na folha **Eventos**. A lista padrão de eventos exibe informações para a Operação, Nível, Status, Recurso e Tempo. Para habilitar os atributos adicionais:
-
-1. Na folha **Eventos**, clique em **Colunas**.
-
-    ![Abrir Colunas](./media/backup-azure-monitor-vms/audi-logs-column-button.png)
-
-    A folha **Escolher colunas** será aberta.
-
-    ![Folha Colunas](./media/backup-azure-monitor-vms/columns-blade.png)
-2. Para selecionar o atributo, clique na caixa de seleção. A caixa de seleção do atributo é ativada e desativada.
-3. Clique em **Redefinir** para redefinir a lista de atributos na folha **Eventos**. Depois de adicionar ou remover os atributos da lista, use **Redefinir** para exibir a nova lista de atributos do Evento.
-4. Clique em **Atualizar** para atualizar os dados nos atributos do Evento. A tabela a seguir fornece informações sobre cada atributo.
-
-| Nome da coluna | DESCRIÇÃO |
-| --- | --- |
-| Operação |O nome da operação |
-| Nível |No nível da operação, os valores podem ser: Informativo, Aviso, Erro ou Crítico |
-| Status |Estado descritivo da operação |
-| Recurso |A URL que identifica o recurso; também conhecida como ID do recurso |
-| Hora |Hora, medida a partir da hora atual, quando o evento ocorreu |
-| Chamador |Quem ou o que chamou ou disparou o evento; pode ser o sistema ou um usuário |
-| Timestamp |A hora em que o evento foi disparado |
-| Grupo de recursos |O grupo de recursos associados |
-| Tipo de recurso |O tipo de recurso interno usado pelo Gerenciador de Recursos |
-| ID da assinatura |A ID da assinatura associada |
-| Categoria |Categoria do evento |
-| ID de Correlação |ID comum para eventos relacionados |
-
-## <a name="use-powershell-to-customize-alerts"></a>Usar o PowerShell para personalizar alertas
-Você pode obter notificações de alerta personalizadas para os trabalhos no portal. Para obter esses trabalhos, defina regras de alerta baseadas no PowerShell nos eventos de logs operacionais. Use o *PowerShell versão 1.3.0 ou posterior*.
-
-Para definir uma notificação personalizada para alertar sobre as falhas de backup, use um comando como o script a seguir:
-
-```
-PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
-PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.RecoveryServices/recoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/Microsoft.RecoveryServices/vaults/trinadhVault -Actions $actionEmail
-```
-
-**ResourceId** : você pode obter o ResourceId dos Logs de Auditoria. O ResourceId é uma URL fornecida na coluna Recurso dos Logs de Operação.
-
-**OperationName** : OperationName está no formato "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*", em que *EventName* pode ser:<br/>
-
-* Registrar  <br/>
-* Cancelar o registro  <br/>
-* Configurar Proteção  <br/>
-* Backup <br/>
-* Restore <br/>
-* Parar Proteção  <br/>
-* Excluir Dados de Backup  <br/>
-* Criar Política de Proteção  <br/>
-* Excluir Política de Proteção  <br/>
-* Atualizar Política de Proteção  <br/>
-
-**Status** : os valores com suporte são Iniciado, Êxito ou Falha.
-
-**ResourceGroup** : esse é o Grupo de Recursos ao qual o recurso pertence. Você pode adicionar a coluna Grupo de Recursos aos logs gerados. O Grupo de Recursos é um dos tipos disponíveis das informações dos eventos.
-
-**Name** : O nome da Regra de Alerta.
-
-**CustomEmail** : especifica o endereço de email personalizado para o qual você deseja enviar a notificação de alerta
-
-**SendToServiceOwners** : essa opção envia notificações de alerta para todos os administradores e coadministradores da assinatura. Pode ser usado no cmdlet **New-AzureRmAlertRuleEmail**
+Depois de clicar em OK, um alerta do log de atividades será gerado, e os logs de atividade subsequentes registrados para backups bem-sucedidos dispararão a ação conforme definido no grupo de ações.
 
 ### <a name="limitations-on-alerts"></a>Limitações sobre alertas
 Os alertas baseados em eventos estão sujeitos às seguintes limitações:
 
 1. Os alertas são disparados em todas as máquinas virtuais no cofre dos Serviços de Recuperação. Não é possível personalizar o alerta para um subconjunto de máquinas virtuais em um cofre dos Serviços de Recuperação.
-2. Esse recurso está na Visualização. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
-3. Os alertas são enviados de “alerts-noreply@mail.windowsazure.com”. No momento, você não pode modificar o remetente do email.
+2. Os alertas são enviados de “alerts-noreply@mail.windowsazure.com”. No momento, você não pode modificar o remetente do email.
 
 ## <a name="next-steps"></a>Próximas etapas
-Os logs de eventos permitem um ótimo post-mortem e suporte de auditoria para as operações de backup. As seguintes operações são registradas:
+Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-arm-restore-vms.md).
 
-* Registrar 
-* Cancelar o registro 
-* Configurar a proteção
-* Backup (backup agendado ou sob demanda)
-* Restaurar 
-* Parar a proteção
-* Excluir dados de backup
-* Adicionar política
-* Excluir política
-* Atualizar política
-* Cancelar trabalho
+Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). 
 
-Para obter uma explicação abrangente dos eventos, operações e os logs de auditoria entre os serviços do Azure, confira o artigo [Exibir eventos e logs de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md).
-
-Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Saiba mais sobre as tarefas de gerenciamento para backups da VM no artigo [Gerenciar backups da máquina virtual do Azure](backup-azure-manage-vms.md).
+Saiba mais sobre as tarefas de gerenciamento para backups da VM no artigo [Gerenciar backups da máquina virtual do Azure](backup-azure-manage-vms.md).

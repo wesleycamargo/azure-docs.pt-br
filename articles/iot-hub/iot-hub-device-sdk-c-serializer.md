@@ -1,11 +1,11 @@
 ---
-title: "SDK do dispositivo IoT do Azure para C – Serializador | Microsoft Docs"
+title: SDK do dispositivo IoT do Azure para C – Serializador | Microsoft Docs
 description: Como usar a biblioteca do Serializador no SDK do dispositivo IoT do Azure para C para criar aplicativos para dispositivos que se comunicam com um Hub IoT.
 services: iot-hub
-documentationcenter: 
-author: olivierbloch
+documentationcenter: ''
+author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
 ms.service: iot-hub
 ms.devlang: cpp
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: obloch
-ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK do dispositivo IoT do Azure para C – mais sobre o serializador
 O [primeiro artigo](iot-hub-device-sdk-c-intro.md) desta série apresentou o **SDK do dispositivo IoT do Azure para C**. O próximo artigo fornece uma descrição mais detalhada sobre o [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Este artigo conclui a abordagem do SDK com uma descrição mais detalhada do componente restante: a biblioteca do **serializador** .
@@ -64,7 +64,7 @@ O que não foi demonstrado neste exemplo são os tipos de dados adicionais que r
 ### <a name="supported-data-types"></a>Tipos de dados com suporte
 Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do **serializador** :
 
-| Tipo | Descrição |
+| type | DESCRIÇÃO |
 | --- | --- |
 | double |número de ponto flutuante de precisão dupla |
 | int |inteiro de 32 bits |
@@ -74,7 +74,7 @@ Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do *
 | int16\_t |inteiro de 16 bits |
 | int32\_t |inteiro de 32 bits |
 | int64\_t |inteiro de 64 bits |
-| bool |Booliano |
+| bool |booleano |
 | ascii\_char\_ptr |Cadeia de caracteres ASCII |
 | EDM\_DATE\_TIME\_OFFSET |diferença de data e horário |
 | EDM\_GUID |GUID |

@@ -1,11 +1,11 @@
 ---
-title: "Implantar várias instâncias dos recursos do Azure | Microsoft Docs"
-description: "Use a operação de cópia e matrizes em um modelo do Gerenciador de Recursos do Azure para iterar várias vezes durante a implantação de recursos."
+title: Implantar várias instâncias dos recursos do Azure | Microsoft Docs
+description: Use a operação de cópia e matrizes em um modelo do Gerenciador de Recursos do Azure para iterar várias vezes durante a implantação de recursos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8dfb664c7041d70f3ece812edb76df38a35e41f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implantar várias instâncias de um recurso ou propriedade nos modelos do Azure Resource Manager
 Este artigo mostra como implementar um recurso condicionalmente e como iterar em seu modelo do Azure Resource Manager para criar várias instâncias de um recurso.
@@ -344,6 +344,8 @@ Você especifica que um recurso é implantado após outro recurso usando o eleme
     "outputs": {}
 }
 ```
+
+<a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Iteração para um recurso filho
 Você não pode usar um loop de cópia para um recurso filho. Para criar várias instâncias de um recurso que você normalmente define como aninhado dentro de outro recurso, você deve criar esse recurso como um recurso de nível superior. Você define a relação com o recurso pai por meio das propriedades de tipo e nome.

@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Logon Único Contínuo | Microsoft Docs"
-description: "Este tópico descreve o Logon Único Contínuo do Azure AD (Azure Active Directory) e como ele permite que você forneça o verdadeiro logon único para usuários de área de trabalho corporativos dentro da sua rede corporativa."
+title: 'Azure AD Connect: Logon Único Contínuo | Microsoft Docs'
+description: Este tópico descreve o Logon Único Contínuo do Azure AD (Azure Active Directory) e como ele permite que você forneça o verdadeiro logon único para usuários de área de trabalho corporativos dentro da sua rede corporativa.
 services: active-directory
-keywords: "o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -51,16 +51,18 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 - O nome de usuário de conexão pode ser o nome de usuário local padrão (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (`Alternate ID`). Ambos casos de uso funcionam porque o SSO Contínuo usa a declaração `securityIdentifier` no tíquete do Kerberos para pesquisar o objeto de usuário correspondente no Azure AD.
 - O SSO Contínuo é um recurso oportunista. Se ele falhar por qualquer motivo, a experiência de entrada do usuário retornará ao comportamento normal, ou seja, o usuário precisará digitar sua senha na página de entrada.
 - Se um aplicativo encaminhar um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML) - identificando seu locatário, ou um parâmetro `login_hint` - identificando o usuário, na solicitação de entrada do Azure AD, os usuários serão automaticamente conectados sem inserirem nomes de usuário ou senhas.
+- Há suporte para saída. Isso permite que os usuários escolham outra conta do Azure AD para conectar, em vez de conectar automaticamente usando o SSO contínuo automaticamente.
+- Os clientes do Office 365 (16.0.8730.xxxx e acima) têm suporte usando um fluxo não interativo.
 - Isso pode ser habilitado por meio do Azure AD Connect.
 - Essa é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 - Há suporte para ele em clientes baseados em navegador da Web e clientes do Office que dão suporte à [autenticação moderna](https://aka.ms/modernauthga) em plataformas e navegadores que sejam compatíveis com a autenticação Kerberos:
 
 | Sistema operacional\Navegador |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim|Não |Sim|Sim\*|N/D
-|Windows 8.1|Sim|N/D|Sim|Sim\*|N/D
-|Windows 8|Sim|N/D|Sim|Sim\*|N/D
-|Windows 7|Sim|N/D|Sim|Sim\*|N/D
+|Windows 10|sim|Não|sim|Sim\*|N/D
+|Windows 8.1|sim|N/D|sim|Sim\*|N/D
+|Windows 8|sim|N/D|sim|Sim\*|N/D
+|Windows 7|sim|N/D|sim|Sim\*|N/D
 |Mac OS X|N/D|N/D|Sim\*|Sim\*|Sim\*
 
 \*Exige [configuração adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)

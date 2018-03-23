@@ -1,32 +1,31 @@
 ---
 title: Dados pessoais em repouso no Azure Protect com criptografia | Microsoft Docs
-description: "Este artigo faz parte de uma série de artigos para ajudá-lo a usar o Azure para proteger dados pessoais"
+description: Este artigo pode ser usado em iniciativas para atender aos requisitos governamentais ou do setor como o Regulamento Geral sobre a Proteção de Dados (GDPR).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.custom: ''
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Tecnologias de criptografia do Azure: proteger dados pessoais em repouso com criptografia
 
 Este artigo ajuda você a entender e usar as tecnologias de criptografia do Azure para proteger dados em repouso.
 
-A criptografia de dados em repouso é essencial como uma melhor prática para proteger dados confidenciais ou pessoais e para atender aos requisitos de conformidade e privacidade de dados.
-A criptografia em repouso é projetada para impedir que o invasor acesse os dados não criptografados, assegurando que os dados sejam criptografados quando em disco.
+A criptografia de dados em repouso é essencial como uma melhor prática para proteger dados confidenciais ou pessoais e para atender aos requisitos de conformidade e privacidade de dados. A criptografia em repouso é projetada para impedir que o invasor acesse os dados não criptografados, assegurando que os dados sejam criptografados quando em disco. As informações contidas neste artigo podem ser usadas para estar em conformidade com o Regulamento Geral sobre a Proteção de Dados (GDPR).
 
 ## <a name="scenario"></a>Cenário 
 
@@ -145,7 +144,7 @@ A TDE (Transparent Data Encryption) é um recurso do SQL Azure pelo qual você p
 
 Configure a TDE por meio do portal do Azure, usando a API REST ou o PowerShell. Para habilitar a TDE em um banco de dados existente usando o Portal do Azure, faça o seguinte:
 
-1. Visite o portal do Azure em <https://portal.azure.com> e entre com sua conta de Administrador ou Colaborador do Azure.
+1. Visite o Portal do Azure em <https://portal.azure.com> e entre com sua conta de Administrador ou Colaborador do Azure.
 
 2. Na faixa à esquerda, clique em PROCURAR e, em seguida, clique em bancos de dados SQL.
 

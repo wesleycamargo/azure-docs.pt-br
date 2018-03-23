@@ -2,7 +2,7 @@
 title: Transformar dados usando a atividade do Spark no Azure Data Factory | Microsoft Docs
 description: Saiba como transformar dados executando programas Spark em um pipeline do Azure Data Factory usando a atividade do Spark.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e4cc412f9c6e37d6e6c3b030a934d572a7319011
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Spark no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 | Descrição           | Texto que descreve o que a atividade faz.  | Não        |
 | Tipo                  | Para a atividade do Spark, o tipo de atividade é HDInsightSpark. | sim      |
 | linkedServiceName     | Nome do serviço vinculado do HDInsight Spark no qual o programa Spark é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | sim      |
-| SparkJobLinkedService | O serviço vinculado ao Armazenamento do Azure que contém o arquivo de trabalho, dependências e os logs do Spark.  Se você não especificar um valor para essa propriedade, o armazenamento associado ao cluster HDInsight será usado. | Não        |
+| SparkJobLinkedService | O serviço vinculado ao Armazenamento do Azure que contém o arquivo de trabalho, dependências e os logs do Spark.  Se você não especificar um valor para essa propriedade, o armazenamento associado ao cluster HDInsight será usado. O valor desta propriedade só pode ser um serviço vinculado do Armazenamento do Microsoft Azure. | Não        |
 | rootPath              | O contêiner de Blob do Azure e a pasta que contém o arquivo Spark. O nome do arquivo diferencia maiúsculas de minúsculas. Consulte a seção de estrutura de pasta (próxima seção) para obter detalhes sobre a estrutura desta pasta. | sim      |
 | entryFilePath         | Caminho relativo à pasta raiz do código/pacote Spark. | sim      |
 | className             | Classe principal de Java/Spark do aplicativo      | Não        |

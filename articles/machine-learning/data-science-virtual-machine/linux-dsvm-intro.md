@@ -1,8 +1,8 @@
 ---
-title: "Provisionar uma Máquina Virtual de Ciência de Dados do Linux CentOS no Azure | Microsoft Docs"
-description: "Configure e crie uma Máquina Virtual de Ciência de Dados Linux no Azure para realizar a análise e o machine learning."
+title: Provisionar uma Máquina Virtual de Ciência de Dados do Linux CentOS no Azure | Microsoft Docs
+description: Configure e crie uma Máquina Virtual de Ciência de Dados Linux no Azure para realizar a análise e o machine learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: e36c28ef1c05dcdcebc7372316c7f144c92fd02f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Ciência de Dados do Linux CentOS no Azure
 
@@ -58,7 +58,7 @@ Não há encargos de software para esta imagem da VM de ciência de dados. Você
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Outras versões da Máquina Virtual de Ciência de Dados
 Uma imagem do [Ubuntu](dsvm-ubuntu-intro.md) também está disponível, com muitas das mesmas ferramentas que a imagem do CentOS além de estruturas de aprendizado aprofundado. Uma imagem do [Windows](provision-vm.md) também está disponível.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de criar uma Máquina Virtual de Ciência de Dados Linux, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**: para obter uma, confira [Obter avaliação gratuita do Azure](https://azure.microsoft.com/free/).
@@ -151,10 +151,10 @@ O Python 3.5 está instalado em */anaconda/envs/py35/bin*.
 
 Para invocar a sessão interativa do Python, basta digitar **Python** no shell. Se estiver em uma interface gráfica ou tiver a configuração do encaminhamento X11, você poderá digitar o comando **pycharm** para iniciar o IDE do PyCharm Python.
 
-Para instalar bibliotecas Python adicionais, execute o comando ```conda``` ou ````pip```` sob sudo e forneça o caminho completo do Gerenciador de pacotes do Python (conda ou pip) para instalar no ambiente correto de Python. Por exemplo:
+Para instalar bibliotecas Python adicionais, execute o comando ```conda``` ou ````pip```` sob sudo e forneça o caminho completo do Gerenciador de pacotes do Python (conda ou pip) para instalar no ambiente correto de Python. Por exemplo: 
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Notebook Jupyter
@@ -359,7 +359,7 @@ Agora, uma interface gráfica é aberta com um conjunto de guias. Aqui estão as
 5. Clique em **Desenhar** para exibir a árvore de decisão.
 6. Clique no botão de opção **Floresta** e clique em **Executar** para compilar uma floresta aleatória.
 7. Clique na guia **Avaliar** .
-8. Clique no botão de opção **Risco** e em **Executar** para exibir duas plotagens de desempenho de Risco (Cumulativo).
+8. Clique no botão de opção **Risco** e em **Executar** para exibir duas gráficos de desempenho de Risco (Cumulativo).
 9. Clique a guia **Log** para mostrar o código R gerado das operações anteriores.
    (Devido a um bug na versão atual do Rattle, você precisa inserir um caractere *#* na frente de *Exportar este log...* no texto do log.)
 10. Clique no botão **Exportar** para salvar o script de R chamado *weather_script.R* na pasta base.

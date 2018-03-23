@@ -1,31 +1,26 @@
 ---
 title: Como usar o Ruby para consultar o Banco de Dados SQL do Azure| Microsoft Docs
-description: "Este tópico mostra como usar o Ruby para criar um programa que se conecta a um Banco de Dados SQL do Azure e consultá-los usando instruções do Transact-SQL."
+description: Este tópico mostra como usar o Ruby para criar um programa que se conecta a um Banco de Dados SQL do Azure e consultá-los usando instruções do Transact-SQL.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 07/15/2017
 ms.author: carlrab
-ms.openlocfilehash: 3427d216540451bc10b968f866d0fce0f6df3c54
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 19ff40c5e4a42195dcfe0b68c8d0b941e53f25a2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>Como usar o Ruby para consultar um banco de dados SQL do Azure
 
 Este tutorial de início rápido demonstra como usar o [Ruby](https://www.ruby-lang.org) para criar um programa que permite se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial de início rápido, você precisa ter o seguinte:
 

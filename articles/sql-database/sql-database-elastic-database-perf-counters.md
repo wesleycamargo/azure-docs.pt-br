@@ -2,24 +2,18 @@
 title: Contadores de desempenho do gerenciador de mapa de fragmentos
 description: Classe do ShardMapManager e contadores de desempenho de roteamento dependente de dados
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: ddove
-ms.openlocfilehash: 4a7a2e0b4f2be852c61fc3ccdd4dea2034b80918
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 11f19348e91f11d73d885f5d9bb70245c709fab9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Contadores de desempenho do gerenciador de mapa de fragmentos
 Você pode capturar o desempenho de um [Gerenciador de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md), especialmente ao usar [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Contadores são criados com métodos da classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
@@ -28,7 +22,7 @@ Contadores são usados para controlar o desempenho de operações de [roteamento
 
 **Para obter a versão mais recente:** acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte também [Atualizar um aplicativo para usar a biblioteca de cliente de banco de dados elástico mais recente](sql-database-elastic-scale-upgrade-client-library.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Para criar a categoria de desempenho e contadores, o usuário deve ser uma parte do grupo **Administradores** local no computador que hospeda o aplicativo.  
 * Para criar uma instância do contador de desempenho e atualizar os contadores, o usuário deve ser um membro do grupo **Administradores** ou **Usuários do Monitor de Desempenho**. 
 

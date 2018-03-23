@@ -1,12 +1,12 @@
 ---
 title: Monitorar o desempenho de banco de dados no Banco de Dados SQL do Azure| Microsoft Docs
-description: "Saiba mais sobre as opções de monitoramento de seu banco de dados com as ferramentas do Azure e exibições de gerenciamento dinâmico."
+description: Saiba mais sobre as opções de monitoramento de seu banco de dados com as ferramentas do Azure e exibições de gerenciamento dinâmico.
 keywords: monitoramento de banco de dados, desempenho do banco de dados em nuvem
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
 ms.custom: monitor & tune
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f6b370db3363180017c6561d7bd3a6d6b40d03ab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorar o desempenho do banco de dados no Banco de Dados SQL do Azure
 O monitoramento do desempenho de um banco de dados SQL no Azure começa com o monitoramento da utilização de recursos em relação ao nível de desempenho de banco de dados escolhido. O monitoramento ajuda você a determinar se o seu banco de dados tem excesso de capacidade ou se está enfrentando problemas por ter atingido o máximo de recursos. Com essas informações, você pode decidir se é hora de ajustar o nível do desempenho e a [camada de serviço](sql-database-service-tiers.md) do banco de dados. Você pode monitorar o banco de dados usando ferramentas gráficas no [Portal do Azure](https://portal.azure.com) ou as [exibições de gerenciamento dinâmico](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
@@ -37,7 +37,7 @@ No [Portal do Azure](https://portal.azure.com/), é possível monitorar a utiliz
 * Porcentagem de E/S de dados
 * Percentual de tamanho do banco de dados
 
-Depois de adicionar essas métricas, você pode continuar a exibi-las no gráfico **Monitoramento** com mais detalhes na janela **Métrica**. Todas as quatro métricas mostram o percentual médio de utilização relativo à **DTU** do seu banco de dados. Confira o artigo [camadas de serviço](sql-database-service-tiers.md) para obter detalhes sobre DTUs.
+Depois de adicionar essas métricas, você pode continuar a exibi-las no gráfico **Monitoramento** com mais informações na janela **Métrica**. Todas as quatro métricas mostram o percentual médio de utilização relativo à **DTU** do seu banco de dados. Confira o artigo [camadas de serviço](sql-database-service-tiers.md) para obter detalhes sobre DTUs.
 
 ![Monitoramento da camada de serviço do desempenho do banco de dados.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 

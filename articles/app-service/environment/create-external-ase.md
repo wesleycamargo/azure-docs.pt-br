@@ -1,6 +1,6 @@
 ---
-title: "Criação de um ambiente externo do Serviço de Aplicativo do Azure"
-description: "Explica como criar um ambiente do serviço de aplicativo durante a criação de um aplicativo ou autônomo"
+title: Criação de um ambiente externo do Serviço de Aplicativo do Azure
+description: Explica como criar um ambiente do serviço de aplicativo durante a criação de um aplicativo ou autônomo
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -97,7 +97,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 Se você criar um ASE autônomo, ele estará vazio. Um ASE vazio ainda incorrerá em um encargo mensal pela infraestrutura. Siga estas etapas para criar um ASE com um ILB ou para criar um ASE em seu próprio grupo de recursos. Depois de criar o seu ASE, você pode criar aplicativos nele usando o processo normal. Selecione o ASE novo como o local.
 
-1. Pesquise o Azure Marketplace para **	Ambiente do Serviço de Aplicativo**, ou selecione **Criar um recurso** > **Web Celular** > **Ambiente do Serviço de Aplicativo**. 
+1. Pesquise o Azure Marketplace para **Ambiente do Serviço de Aplicativo**, ou selecione **Criar um recurso** > **Web Celular** > **Ambiente do Serviço de Aplicativo**. 
 
 2. Insira o nome do seu ASE. O nome inserido é usado nos aplicativos criados no ASE. Se o nome for *mynewdemoase*, o nome do subdomínio será *.mynewdemoase.p.azurewebsites.net*. Se você criar um aplicativo chamado *mytestapp*, ele será endereçável em mytestapp.mynewdemoase.p.azurewebsites.net. Você não pode usar um espaço em branco no nome. Se você usar caracteres maiúsculos, o nome do domínio será a versão totalmente minúscula do nome escolhido. Se você usar um ILB, o nome do ASE não será usado no subdomínio, mas sim declarado explicitamente durante a criação do ASE.
 

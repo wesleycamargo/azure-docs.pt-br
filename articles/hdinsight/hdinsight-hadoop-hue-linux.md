@@ -1,9 +1,9 @@
 ---
-title: "Hue com Hadoop em clusters HDInsight baseados em Linux – Azure | Microsoft Docs"
-description: "Saiba como instalar o Hue em clusters do HDInsight e usar o túnel para rotear as solicitações para a Matiz. Use o Hue para procurar armazenamento e executar o Hive ou o Pig."
+title: Hue com Hadoop em clusters HDInsight baseados em Linux – Azure | Microsoft Docs
+description: Saiba como instalar o Hue em clusters do HDInsight e usar o túnel para rotear as solicitações para a Matiz. Use o Hue para procurar armazenamento e executar o Hive ou o Pig.
 keywords: hue hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalar e usar o Hue em clusters de Hadoop do HDInsight
 
@@ -48,7 +48,7 @@ A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster
 
 ## <a name="install-hue-using-script-actions"></a>Instalar o Hue usando Ações de Script
 
-O script para instalar o Hue em um cluster baseado em Linux do HDInsight está disponível em https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Você pode usar esse script para instalar o Hue em clusters com Blobs de armazenamento do Azure (WASB) ou Azure Data Lake Store como armazenamento padrão.
+O script para instalar o Hue em um cluster HDInsight baseado em Linux está disponível em https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Você pode usar esse script para instalar o Hue em clusters com Blobs de armazenamento do Azure (WASB) ou Azure Data Lake Store como armazenamento padrão.
 
 Esta seção fornece instruções sobre como usar o script ao provisionar o cluster usando o Portal do Azure.
 

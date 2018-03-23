@@ -1,11 +1,11 @@
 ---
-title: "Usar os Serviços de Mídia do Azure para fornecer licenças DRM ou chaves AES | Microsoft Docs"
-description: "Este artigo descreve como você pode usar os Serviços de Mídia do Azure para fornecer licenças do PlayReady e/ou Widevine e chaves AES, mas fazer o restante (codificação, criptografia, transmissão) usando os servidores locais."
+title: Usar os Serviços de Mídia do Azure para fornecer licenças DRM ou chaves AES | Microsoft Docs
+description: Este artigo descreve como você pode usar os Serviços de Mídia do Azure para fornecer licenças do PlayReady e/ou Widevine e chaves AES, mas fazer o restante (codificação, criptografia, transmissão) usando os servidores locais.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usar os Serviços de Mídia do Azure para fornecer licenças DRM ou chaves AES
 Os Serviços de Mídia do Azure permitem criar, codificar, adicionar proteção de conteúdo e transmitir seu conteúdo. Para obter mais informações, consulte [Usar criptografia comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md). Alguns clientes desejam usar os Serviços de Mídia somente para fornecer licenças e/ou as chaves e codificar, criptografar e transmitir usando seus servidores locais. Este artigo descreve como você pode usar os Serviços de Mídia para fornecer licenças PlayReady e/ou Widevine, mas fazer o restante com seus servidores locais. 

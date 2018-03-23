@@ -1,26 +1,19 @@
 ---
-title: "Operando o Repositório de Consultas no Banco de Dados SQL do Azure"
-description: "Saiba como operar o Repositório de Consultas no Banco de Dados SQL do Azure"
-keywords: 
+title: Operando o Repositório de Consultas no Banco de Dados SQL do Azure
+description: Saiba como operar o Repositório de Consultas no Banco de Dados SQL do Azure
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: jhubbard
-editor: 
-ms.assetid: 0cccf6bd-1327-44f7-a6f9-8eff0c210463
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: sqldb-performance
-ms.workload: Inactive
 ms.date: 11/08/2016
 ms.author: bonova
-ms.openlocfilehash: e57f1c51ef5c551f3b2e5d0f0a51a1f462b6c1af
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c3780f6efe87437742af7c1b8f6a3e6d0ee243
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Operando o Repositório de Consultas no Banco de Dados SQL do Azure
 O Repositório de Consultas no Azure é um recurso de banco de dados totalmente gerenciado que continuamente coleta e apresenta informações históricas sobre todas as consultas. Você pode pensar sobre Repositório de Consultas de forma semelhante à caixa-preta de bordo do avião que simplifica significativamente o desempenho da consulta de solução de problemas para a nuvem e os clientes locais. Este artigo explica os aspectos específicos da operação de Repositório de Consultas no Azure. Usando esta consulta de dados previamente coletados, você pode diagnosticar e resolver problemas de desempenho rapidamente e, portanto, gastar mais tempo concentrando-se em seus negócios. 
@@ -35,7 +28,7 @@ O Repositório de Consultas ficou [disponível globalmente](https://azure.micros
 ## <a name="optimal-query-store-configuration"></a>Configuração do Repositório de Consulta ideais
 Esta seção descreve os padrões de configuração ideais que são projetados para garantir a operação confiável do Repositório de Consultas, bem como recursos dependentes como o [Painel de Orientador e Desempenho do Banco de Dados SQL](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). A configuração padrão é otimizada para coleta de dados contínua, ou seja, tempo mínimo gasto nos estados OFF/READ_ONLY.
 
-| Configuração | Descrição | Padrão | Comentário |
+| Configuração | DESCRIÇÃO | Padrão | Comentário |
 | --- | --- | --- | --- |
 | MAX_STORAGE_SIZE_MB |Especifica o limite para o espaço de dados que o Repositório de Consultas ocupará no banco de dados do cliente |100 |Imposto para novos bancos de dados |
 | INTERVAL_LENGTH_MINUTES |Define o tamanho da janela de tempo durante o qual as estatísticas de tempo de execução coletadas para planos de consulta são agregadas e persistidas. Cada plano de consulta ativa tem no máximo uma linha por um período de tempo definido com esta configuração |60 |Imposto para novos bancos de dados |

@@ -2,7 +2,7 @@
 title: Mover recursos do Azure para uma nova assinatura ou um novo grupo de recursos | Microsoft Docs
 description: Use o Azure Resource Manager para mover recursos para um novo grupo de recursos ou uma nova assinatura.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -99,7 +99,7 @@ Entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure
 * Mover os recursos para uma nova conta do Azure (e o locatário do Azure Active Directory) e precisar de ajuda com as instruções na seção anterior.
 * Mover recursos clássicos, mas está tendo problemas com as limitações.
 
-## <a name="services-that-enable-move"></a>Serviços que permitem mover
+## <a name="services-that-can-be-moved"></a>Serviços que podem ser movidos
 
 Os serviços que permitem mover para um novo grupo de recursos e uma nova assinatura são:
 
@@ -149,7 +149,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Redes virtuais – consulte [Limitações de redes virtuais](#virtual-networks-limitations)
 * Gateway de VPN
 
-## <a name="services-that-do-not-enable-move"></a>Serviços que não permitem mover
+## <a name="services-that-cannot-be-moved"></a>Serviços que não podem ser movidos
 
 Os serviços que atualmente não permitem mover um recurso são:
 

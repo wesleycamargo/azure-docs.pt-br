@@ -1,24 +1,20 @@
 ---
-title: "Relatórios entre bancos de dados em nuvem expandidos | Microsoft Docs"
-description: "como configurar consultas elásticas em partições horizontais"
+title: Relatórios entre bancos de dados em nuvem expandidos | Microsoft Docs
+description: como configurar consultas elásticas em partições horizontais
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+documentationcenter: ''
+manager: craigg
 author: MladjoA
-ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 41accea2e94fc763d0dcbba709829ec07453da78
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ec47a10fcfcb3ef52810ba2b3da9599b65db375a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados em nuvem expandidos (visualização)
 ![Consultar em fragmentos][1]
@@ -29,7 +25,7 @@ Para um início rápido, confira [Relatórios entre bancos de dados em nuvem exp
 
 Para bancos de dados não fragmentados, consulte [Query across cloud databases with different schemas (Consulta entre bancos de dados na nuvem com esquemas diferentes)](sql-database-elastic-query-vertical-partitioning.md). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Crie um mapa de fragmentos usando a biblioteca de cliente do banco de dados elástico. Confira [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Ou use o aplicativo de exemplo em [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 * Como alternativa, confira [Migrar bancos de dados existentes para bancos de dados expandidos](sql-database-elastic-convert-to-use-elastic-tools.md).
 * O usuário deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS.

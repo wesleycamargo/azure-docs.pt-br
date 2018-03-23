@@ -1,8 +1,8 @@
 ---
 title: 'Azure Databricks: ajuda e perguntas comuns | Microsoft Docs'
-description: "Obtenha respostas a perguntas comuns e informações de solução de problemas sobre o Azure Databricks."
+description: Obtenha respostas a perguntas comuns e informações de solução de problemas sobre o Azure Databricks.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas frequentes a respeito do Azure Databricks
 
@@ -101,7 +101,7 @@ Os clusters do Azure Databricks usam um endereço IP público por nó. Caso sua 
 #### <a name="error-message"></a>Mensagem de erro
 
 "Falha ao iniciar o provedor de nuvem: Foi encontrado um erro do provedor de nuvem durante a configuração do cluster. Para obter mais informações, consulte o guia do Databricks.
-Código de erro do Azure: mensagem de erro do Azure MissingSubscriptionRegistration: a assinatura não está registrada para usar o namespace 'Microsoft.Compute'. Consulte https://aka.ms/rps-not-found para saber como registrar assinaturas."
+Código de erro do Azure: mensagem de erro do Azure MissingSubscriptionRegistration: a assinatura não está registrada para usar o namespace 'Microsoft.Compute'. Consulte https://aka.ms/rps-not-found para saber como registrar assinaturas.
 
 #### <a name="solution"></a>Solução
 

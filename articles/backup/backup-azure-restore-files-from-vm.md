@@ -1,11 +1,11 @@
 ---
 title: 'Backup do Azure: Recuperar arquivos e pastas de um backup de VM do Azure | Microsoft Docs'
-description: "Recuperar arquivos de um ponto de recuperação de uma máquina virtual do Azure"
+description: Recuperar arquivos de um ponto de recuperação de uma máquina virtual do Azure
 services: backup
 documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
-keywords: "recuperação a nível de item; recuperação de arquivos de backup da VM do Azure; restaurar arquivos de uma VM do Azure"
+keywords: recuperação a nível de item; recuperação de arquivos de backup da VM do Azure; restaurar arquivos de uma VM do Azure
 ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
 ms.devlang: na
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
 O Backup do Azure fornece a capacidade de restaurar [VMs (máquinas virtuais) do Azure e discos](./backup-azure-arm-restore-vms.md) dos backups de VM do Azure, também conhecido como pontos de restauração. Este artigo explica como recuperar arquivos e pastas de um backup de VM do Azure. A restauração de arquivos e pastas está disponível somente para VMs do Azure implantadas usando o modelo Gerenciador de Recursos e protegidas para um cofre de serviços de Recuperação.
 
 > [!Note]
+> Esse recurso está disponível para máquinas virtuais do Azure implantadas usando o modelo do Resource Manager e protegidas em um cofre dos Serviços de Recuperação.
 > Não há suporte para a recuperação de arquivos de um backup criptografado de VM.
 >
 

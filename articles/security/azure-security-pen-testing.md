@@ -1,6 +1,6 @@
 ---
 title: Teste de Caneta | Microsoft Docs
-description: "O artigo fornece uma visão geral do processo (teste) dos testes de penetração e de como executar o teste de caneta em seus aplicativos em execução na infraestrutura do Azure."
+description: O artigo fornece uma visão geral do processo (teste) dos testes de penetração e de como executar o teste de caneta em seus aplicativos em execução na infraestrutura do Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/08/2017
-ms.author: yurid
-ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.date: 03/13/2018
+ms.author: barclayn
+ms.openlocfilehash: 5f2a72d133218e72d1db86b787c998cc50269d3a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="pen-testing"></a>Teste de Caneta
 Um dos benefícios do uso do Azure para implantação e testes de aplicativos é que você pode criar rapidamente ambientes.  Você não precisa se preocupar sobre requisição, aquisição e "posicionamento no rack e empilhamento" do seu próprio hardware local.
@@ -31,7 +31,7 @@ Nós não fazemos teste de caneta em seu aplicativo para você, mas entendemos q
 
 O que fazer?
 
-Desde 15 de junho de 2017, a Microsoft não exige aprovação prévia para realizar testes de penetração com base nos recursos do Azure. Os clientes que desejam documentar formalmente futuros testes de penetração no Microsoft Azure são incentivados a preencher o [formulário Notificação de teste de penetração do Azure Service](https://portal.msrc.microsoft.com/engage/pentest). Esse processo só está relacionado ao Microsoft Azure e não se aplica a outro serviço do Microsoft Cloud. 
+Desde 15 de junho de 2017, a Microsoft não exige aprovação prévia para realizar testes de penetração com base nos recursos do Azure. Os clientes que desejam documentar formalmente futuros testes de penetração no Microsoft Azure são incentivados a preencher o [formulário Notificação de teste de penetração do Azure Service](https://portal.msrc.microsoft.com/en-us/engage/pentest). Esse processo só está relacionado ao Microsoft Azure e não se aplica a outro serviço do Microsoft Cloud. 
 
 >[!IMPORTANT] 
 >Embora a notificação da Microsoft da caneta as atividades de teste não é mais necessário clientes ainda devem estar de acordo com o [Microsoft nuvem unificado penetração teste regras](https://technet.microsoft.com/en-us/mt784683). 

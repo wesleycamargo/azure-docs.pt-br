@@ -1,11 +1,11 @@
 ---
-title: "Backup do Azure - backup offline ou propagação inicial usando o serviço de Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure."
+title: Backup do Azure - backup offline ou propagação inicial usando o serviço de Importação/Exportação do Azure | Microsoft Docs
+description: Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
+editor: ''
 ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/6/2018
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 306c4c7498601cf3ab7e918ba6ce6bfef173236a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7af2623a25f73f6d9062d476309ecd53da542f70
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. O Backup do Azure compacta os backups inicias. O processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup iniciais compactados de forma offline no Azure.  
@@ -46,6 +46,8 @@ Há suporte para o Backup Offline para todos os modelos de implantação de Back
 
    > [!NOTE]
    > Não há suporte para Backup Offline para backups de Estado do Sistema realizados usando o agente de Backup do Azure. 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="prerequisites"></a>pré-requisitos
 Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o fluxo de trabalho de Backup Offline

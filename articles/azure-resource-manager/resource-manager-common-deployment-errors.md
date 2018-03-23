@@ -1,25 +1,25 @@
 ---
-title: "Solução de erros comuns de implantação do Azure | Microsoft Docs"
+title: Solução de erros comuns de implantação do Azure | Microsoft Docs
 description: Descreve como resolver erros comuns ao implantar recursos no Azure usando o Azure Resource Manager.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-keywords: "erro de implantação, implantação do azure, implante no azure"
+keywords: erro de implantação, implantação do azure, implante no azure
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -37,6 +37,7 @@ Este tópico descreve alguns erros comuns de implantação do Azure que você po
 | BadRequest | Você enviou valores de implantação que não coincidem com o que é esperado pelo Resource Manager. Verifique a mensagem de status interna para obter ajuda com a solução de problemas. | [Referência de modelos](/azure/templates/) e [Locais com suporte](resource-manager-templates-resources.md#location) |
 | Conflito | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento do disco é permitido apenas ao criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde a conclusão da implantação simultânea nesse grupo de recursos. | |
+| DeploymentFailed | O erro DeploymentFailed é um erro geral que não fornece os detalhes necessários para resolver o erro. Examine os detalhes do erro em busca de um código de erro que fornece mais informações. | [Encontrar código do erro](#find-error-code) |
 | DnsRecordInUse | O nome do registro DNS deve ser exclusivo. Forneça um nome diferente ou modifique o registro existente. | |
 | ImageNotFound | Verifique as configurações de imagem da VM. |  |
 | InUseSubnetCannotBeDeleted | Você pode encontrar este erro quando tenta atualizar um recurso, mas a solicitação é processada excluindo e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -44,7 +45,7 @@ Este tópico descreve alguns erros comuns de implantação do Azure que você po
 | InvalidContentLink | Provavelmente você tentou vincular a um modelo aninhado que não está disponível. Verifique uma segunda vez o URI que você forneceu para o modelo aninhado. Caso o modelo exista em uma conta de armazenamento, verifique se o URI está acessível. Pode ser necessário passar um token SAS. | [Modelos vinculados](resource-group-linked-templates.md) |
 | InvalidParameter | Um dos valores que você forneceu para um recurso não corresponde ao valor esperado. Esse erro pode ser decorrente de várias condições diferentes. Por exemplo, uma senha pode ser insuficiente ou um nome de blob pode estar incorreto. Verifique a mensagem de erro para determinar qual valor precisa ser corrigido. | |
 | InvalidRequestContent | Os valores da implantação incluem valores que não são esperados ou valores necessários estão ausentes. Confirme se os valores para seu tipo de recurso. | [Referência de modelo](/azure/templates/) |
-| InvalidRequestFormat | Habilitar o log da depuração ao executar a implantação e verifique o conteúdo da solicitação. | [Log de depuração](resource-manager-troubleshoot-tips.md#enable-debug-logging) |
+| InvalidRequestFormat | Habilitar o log da depuração ao executar a implantação e verifique o conteúdo da solicitação. | [Log de depuração](#enable-debug-logging) |
 | InvalidResourceNamespace | Verifique o namespace do recurso especificado na propriedade **type**. | [Referência de modelo](/azure/templates/) |
 | InvalidResourceReference | O recurso ainda não existe ou foi referenciado incorretamente. Verifique se você precisa adicionar uma dependência. Verifique se o uso da função **referência** inclui os parâmetros necessários para seu cenário. | [Resolver dependências](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Verifique o tipo de recurso do recurso especificado na propriedade **type**. | [Referência de modelo](/azure/templates/) |
@@ -75,7 +76,124 @@ Este tópico descreve alguns erros comuns de implantação do Azure que você po
 
 ## <a name="find-error-code"></a>Encontrar código do erro
 
-Quando você encontra um erro durante a implantação, o Resource Manager retorna um código de erro. Você pode ver a mensagem de erro por meio do portal, do PowerShell ou da CLI do Azure. A mensagem de erro externa pode ser muito geral para fins de solução de problemas. Procure a mensagem interna que contém informações detalhadas sobre o erro. Para obter mais informações, consulte [Determinar código de erro](resource-manager-troubleshoot-tips.md#determine-error-code).
+Há dois tipos de erros que você pode receber:
+
+* erros de validação
+* erros de implantação
+
+Erros de validação ocorrem em cenários que podem ser determinados antes da implantação. Eles incluem erros de sintaxe no modelo ou a tentativa de implantar recursos que excederão suas cotas de assinatura. Os erros de implantação surgem de condições que ocorrem durante o processo de implantação. Eles incluem a tentativa de acessar um recurso que está sendo implantado em paralelo.
+
+Ambos os tipos de erro retornam um código de erro que você pode usar para solucionar os problemas de implantação. Os dois tipos de erro aparecem no [log de atividades](resource-group-audit.md). No entanto, os erros de validação não aparecem no seu histórico de implantação porque a implantação nunca foi iniciada.
+
+### <a name="validation-errors"></a>Erros de validação
+
+Durante a implantação por meio do portal, você vê um erro de validação depois de enviar os valores.
+
+![mostrar erro de validação no portal](./media/resource-manager-common-deployment-errors/validation-error.png)
+
+Selecione a mensagem para obter mais detalhes. Na imagem a seguir, você vê um erro **InvalidTemplateDeployment** e uma mensagem que indica uma implantação bloqueada por política.
+
+![mostrar detalhes da validação](./media/resource-manager-common-deployment-errors/validation-details.png)
+
+### <a name="deployment-errors"></a>Erros de implantação
+
+Quando a operação for aprovada na validação, mas falhar durante a implantação, você verá o erro nas notificações. Selecione a notificação.
+
+![erro de notificação](./media/resource-manager-common-deployment-errors/notification.png)
+
+Você verá mais detalhes sobre a implantação. Selecione a opção para obter mais informações sobre o erro.
+
+![falha na implantação](./media/resource-manager-common-deployment-errors/deployment-failed.png)
+
+Você verá a mensagem de erro e os códigos de erro. Observe que há dois códigos de erro. O primeiro código de erro (**DeploymentFailed**) é um erro geral que não fornece os detalhes necessários para resolver o erro. O segundo código de erro (**StorageAccountNotFound**) fornece os detalhes necessários. 
+
+![detalhes do erro](./media/resource-manager-common-deployment-errors/error-details.png)
+
+## <a name="enable-debug-logging"></a>Habilitar o log de depuração
+
+Às vezes, você precisa obter mais informações sobre a solicitação e a resposta para descobrir o que deu errado. Usando o PowerShell ou a CLI do Azure, você pode solicitar que informações adicionais sejam registradas durante a implantação.
+
+- PowerShell
+
+   No PowerShell, defina o parâmetro **DeploymentDebugLogLevel** como All, ResponseContent ou RequestContent.
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
+
+   Examine o conteúdo da solicitação com o seguinte cmdlet:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
+
+   Ou o conteúdo da resposta com:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
+
+   Essas informações podem ajudá-lo a determinar se um valor no modelo está sendo definido incorretamente.
+
+- CLI do Azure
+
+   Examine as operações de implantação, com o comando a seguir:
+
+  ```azurecli
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
+  ```
+
+- Modelo aninhado
+
+   Para registrar informações de depuração de um modelo aninhado, use o elemento **debugSetting**.
+
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
+
+## <a name="create-a-troubleshooting-template"></a>Criar um modelo de solução de problemas
+
+Em alguns casos, a maneira mais fácil de solucionar problemas do seu modelo é testar partes dele. Você pode criar um modelo simplificado que permite a você se concentrar na parte que acredita estar causando o erro. Por exemplo, suponha que você esteja recebendo um erro ao fazer referência a um recurso. Em vez de lidar com um modelo inteiro, crie um modelo que retorne a parte que pode estar causando o problema. Ele pode ajudá-lo a determinar se você está sendo aprovado nos parâmetros certos, usando funções de modelo corretamente e obtendo os recursos desejados.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
+
+Ou, vamos supor que você esteja enfrentando erros de implantação, os quais você acredita terem relação com as dependências definidas incorretamente. Teste seu modelo dividindo-o em modelos simplificados. Primeiro, crie um modelo que implanta um único recurso (como um SQL Server). Quando você tiver certeza de que esse recurso foi definido corretamente, adicione um recurso depende dele (como um Banco de Dados SQL). Quando esses dois recursos estiverem definidos corretamente, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implantação de teste, exclua o grupo de recursos para garantir o teste adequado das dependências.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](resource-group-audit.md).

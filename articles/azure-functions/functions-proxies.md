@@ -1,12 +1,12 @@
 ---
 title: Trabalhar com proxies no Azure Functions | Microsoft Docs
-description: "Visão geral de como usar Proxies do Azure Functions"
+description: Visão geral de como usar Proxies do Azure Functions
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
@@ -106,7 +106,7 @@ Por exemplo, em uma URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders*
 
 ## <a name="debugProxies"></a>Solucionar problemas de Proxies
 
-Ao adicionar o sinalizador `"debug":true` em qualquer proxy em seu `proxy.json`, você habilitará o log de depuração. Os logs são armazenados em `D:\home\LogFiles\Application\Proxies\DetailedTrace` e ficam acessíveis pelas ferramentas avançadas (kudu). As respostas HTTP também conterão um cabeçalho `Proxy-Trace-Location` com uma URL para acessar o arquivo de log.
+Ao adicionar o sinalizador `"debug":true` em qualquer proxy em seu `proxies.json`, você habilitará o log de depuração. Os logs são armazenados em `D:\home\LogFiles\Application\Proxies\DetailedTrace` e ficam acessíveis pelas ferramentas avançadas (kudu). As respostas HTTP também conterão um cabeçalho `Proxy-Trace-Location` com uma URL para acessar o arquivo de log.
 
 Você pode depurar um proxy do lado do cliente adicionando um cabeçalho `Proxy-Trace-Enabled` definido como `true`. Isso também registrará um rastreamento no sistema de arquivos e retornará a URL de rastreamento como um cabeçalho na resposta.
 
@@ -114,7 +114,7 @@ Você pode depurar um proxy do lado do cliente adicionando um cabeçalho `Proxy-
 
 Por motivos de segurança, você pode não desejar permitir que qualquer pessoa chame o seu serviço para gerar um rastreamento. Essas pessoas não poderão acessar o conteúdo de rastreamento sem suas credenciais de logon, mas gerar o rastreamento consome recursos e expõe o seu uso dos Proxies de Função.
 
-Desabilite totalmente os rastreamentos adicionando `"debug":false` a qualquer proxy específico em `proxy.json`.
+Desabilite totalmente os rastreamentos adicionando `"debug":false` a qualquer proxy específico em `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 

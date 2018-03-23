@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7edc73f337a72c24fd24d94468ee590b75dfa7df
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
-O Azure roteia o tráfego automaticamente entre redes virtuais, redes locais e sub-redes do Azure. Se você desejar alterar qualquer roteamento padrão do Azure, poderá criar uma tabela de rotas para fazer isso. Se você não está familiarizado com o roteamento do Azure, leia a [Visão geral do roteamento](virtual-networks-udr-overview.md) e conclua o tutorial [Rotear o tráfego de rede com uma tabela de roteamentos](create-user-defined-route-portal.md) antes de concluir as tarefas neste artigo.
+O Azure roteia o tráfego automaticamente entre redes virtuais, redes locais e sub-redes do Azure. Se você desejar alterar qualquer roteamento padrão do Azure, poderá criar uma tabela de rotas para fazer isso. Se você não está familiarizado com o roteamento do Azure, leia a [Visão geral do roteamento](virtual-networks-udr-overview.md) e conclua o tutorial [Rotear o tráfego de rede com uma tabela de roteamentos](tutorial-create-route-table-portal.md) antes de concluir as tarefas neste artigo.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -38,7 +38,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 Há um limite para o número de tabelas de rotas que você pode criar por assinatura e local do Azure. Para obter detalhes, confira [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. No canto superior esquerdo do Portal, selecione **+ Novo**.
+1. No canto superior esquerdo do Portal, selecione **+ Criar um recurso**.
 2. Selecione **Rede** e, em seguida, selecione **Tabela de rotas**.
 3. Insira um **Nome** para a tabela de rotas, selecione sua **Assinatura**, crie um novo **Grupo de recursos** ou selecione um grupo de recursos existente, selecione um **Local** e, em seguida, selecione **Criar**. A opção **Desabilitar propagação de rotas BGP** evita que rotas locais sejam propagadas para uma rede virtual do Azure por meio de BGP. Se sua rede virtual não está conectada a um gateway de rede do Azure (ExpressRoute ou VPN), deixe a opção *Desabilitada*. 
 

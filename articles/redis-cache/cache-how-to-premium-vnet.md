@@ -1,11 +1,11 @@
 ---
 title: Configurar a Rede Virtual para um Cache Redis do Azure Premium | Microsoft Docs
-description: "Saiba como criar e gerenciar o suporte de Rede Virtual para as instâncias da camada Premium do Cache Redis do Azure"
+description: Saiba como criar e gerenciar o suporte de Rede Virtual para as instâncias da camada Premium do Cache Redis do Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium
 O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos do nível Premium, como clustering, persistência e suporte à rede virtual. Uma VNet é uma rede privada na nuvem. Quando uma instância do Cache Redis do Azure é configurada com uma Vnet, ela não é publicamente endereçável e pode ser acessada apenas de máquinas virtuais e aplicativos na VNet. Este artigo descreve como configurar o suporte de rede virtual para uma instância Premium do Cache Redis do Azure.
@@ -38,7 +38,7 @@ O suporte da VNet (Rede Virtual) é configurado na folha **Novo Cache Redis** du
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Depois de selecionar um tipo de preço Premium, você pode configurar a integração VNet do Redis selecionando uma VNet que está na mesma assinatura e localização que seu cache. Para usar uma nova VNet, crie-a primeiro seguindo as etapas em [Criar uma Rede Virtual usando o portal do Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou [Criar uma rede virtual (clássica) usando o portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e volte para a folha **Novo Cache Redis** para criar e configurar seu cache Premium.
+Depois de selecionar um tipo de preço Premium, você pode configurar a integração VNet do Redis selecionando uma VNet que está na mesma assinatura e localização que seu cache. Para usar uma nova VNet, crie-a primeiro seguindo as etapas em [Criar uma Rede Virtual usando o portal do Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ou [Criar uma rede virtual (clássica) usando o portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e volte para a folha **Novo Cache Redis** para criar e configurar seu cache Premium.
 
 Para configurar a VNet para seu novo cache, clique em **Rede Virtual** na folha **Novo Cache Redis** e selecione a VNet desejada na lista suspensa.
 
@@ -147,7 +147,7 @@ Há requisitos de conectividade de rede para o Cache Redis do Azure que podem n�
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Como verificar se o cache está funcionando em uma VNET?
 
 >[!IMPORTANT]
->Ao se conectar a uma instância de Cache Redis do Azure que é hospedada em uma VNET, os clientes de cache devem estar na mesma VNET ou em uma VNET com emparelhamento privado. Isso inclui todos os aplicativos de teste ou ferramentas de diagnóstico do ping. Independentemente de onde o aplicativo cliente está hospedado, os grupos de segurança de rede devem ser configurados de forma que o tráfego de rede do cliente tenha permissão para acessar a instância do Redis.
+>Ao se conectar a uma instância de Cache Redis do Azure que é hospedada em uma VNET, os clientes de cache devem estar na mesma VNET ou em uma VNET com emparelhamento privado. Isso inclui todos os aplicativos de teste ou ferramentas de diagnóstico do ping. Seja qual for o local em que o aplicativo cliente está hospedado, os Grupos de segurança de rede devem ser configurados de modo que o tráfego de rede do cliente tenha permissão para acessar a instância do Redis.
 >
 >
 

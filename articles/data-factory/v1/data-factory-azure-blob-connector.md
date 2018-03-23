@@ -2,7 +2,7 @@
 title: Copiar dados de/para o Armazenamento de Blobs do Azure | Microsoft Docs
 description: Saiba como copiar dados de blob no Azure Data Factory. O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Armazenamento de Blobs do Azure e o Banco de Dados SQL do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: monicar
@@ -184,7 +184,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     ```
 ### <a name="create-the-data-factory"></a>Criar o data factory
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Criar um recurso** no canto superior esquerdo, clique em **	Inteligência + análise** e clique em **Data Factory**.
+2. Clique em **Criar um recurso** no canto superior esquerdo, clique em **Inteligência + análise** e clique em **Data Factory**.
 3. No painel **Novo data factory**:   
     1. Insira **ADFBlobConnectorDF** para o **nome**. O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro `*Data factory name “ADFBlobConnectorDF” is not available`, altere o nome do data factory (por exemplo, yournameADFBlobConnectorDF) e tente criá-lo novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
     2. Selecione sua **assinatura**do Azure.

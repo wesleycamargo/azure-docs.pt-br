@@ -1,25 +1,24 @@
 ---
-title: "Melhorar o desempenho do índice columnstore – SQL Data Warehouse do Azure | Microsoft Docs"
-description: "Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que um índice columnstore compacta em cada rowgroup."
+title: Melhorar o desempenho do índice columnstore – SQL Data Warehouse do Azure | Microsoft Docs
+description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de linhas para o columnstore
 
@@ -140,9 +139,9 @@ OPTION (MAXDOP 1);
 O tamanho da DWU e a classe de recurso de usuário em conjunto determinam a quantidade de memória disponível para uma consulta de usuário. Para aumentar a concessão de memória para uma consulta de carga, você pode aumentar o número de DWUs ou aumentar a classe de recurso.
 
 - Para aumentar as DWUs, consulte [Como faço para escalar o desempenho?](quickstart-scale-compute-portal.md)
-- Para alterar a classe de recurso de uma consulta, consulte [Alterar um exemplo de classe de recurso de usuário](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+- Para alterar a classe de recurso de uma consulta, consulte [Alterar um exemplo de classe de recurso de usuário](resource-classes-for-workload-management.md#assigning-resource-classes).
 
-Por exemplo, em 100 DWUs, um usuário na classe de recurso smallrc pode usar 100 MB de memória para cada distribuição. Para obter detalhes, consulte [Simultaneidade no SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
+Por exemplo, em 100 DWUs, um usuário na classe de recurso smallrc pode usar 100 MB de memória para cada distribuição. Para obter detalhes, consulte [Simultaneidade no SQL Data Warehouse](resource-classes-for-workload-management.md).
 
 Suponha que você determina que precisa de 700 MB de memória para obter tamanhos de rowgroup de alta qualidade. Esses exemplos mostram como você pode executar a consulta de carga com memória suficiente.
 

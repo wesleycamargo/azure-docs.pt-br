@@ -1,9 +1,9 @@
 ---
-title: "Exemplos de início rápido do PowerShell do Azure Monitor. | Microsoft Docs"
-description: "Use o PowerShell para acessar os recursos do Azure Monitor, como o dimensionamento automático, alertas, webhooks e pesquisa de logs de atividade."
+title: Exemplos de início rápido do PowerShell do Azure Monitor. | Microsoft Docs
+description: Use o PowerShell para acessar os recursos do Azure Monitor, como o dimensionamento automático, alertas, webhooks e pesquisa de logs de atividade.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c0761814-7148-4ab5-8c27-a2c9fa4cfef5
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5a08fd7d20dc78512315ab5d154ba95bd8e8494b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor
 Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor.
 
 > [!NOTE]
-> O Azure Monitor é o novo nome do que era chamado "Azure Insights" até 25 de setembro de 2016. No entanto, os namespaces e, portanto, os comandos a seguir, ainda contêm a palavra “insights”.
+> O Azure Monitor é o novo nome do que era chamado "Azure Insights" até 25 de setembro de 2016. No entanto, os namespaces e, portanto, os comandos, a seguir, ainda contêm a palavra "insights".
 > 
 > 
 

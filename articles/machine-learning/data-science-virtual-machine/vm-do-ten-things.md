@@ -1,8 +1,8 @@
 ---
-title: "Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados no Azure | Microsoft Docs"
-description: "Execute várias tarefas de exploração e modelagem de dados na Máquina Virtual de Ciência de Dados."
+title: Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados no Azure | Microsoft Docs
+description: Execute várias tarefas de exploração e modelagem de dados na Máquina Virtual de Ciência de Dados.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 622bb5971a6ad774e770f00d2d9f44999b844d12
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 71745260f45c5a5c150fdd3eac4e9a8221b8bce4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados
 
-A Máquina Virtual de Ciência de Dados da Microsoft (DSVM) é um poderoso ambiente de desenvolvimento de ciência de dados que permite executar várias tarefas de exploração e modelagem de dados. O ambiente já vem compilado e agrupado com várias ferramentas populares de análise de dados que facilitam o início rápido de sua análise para implantações locais, na nuvem ou híbridas. A DSVM trabalha de forma muito próxima com muitos serviços do Azure e pode ler e processar dados que já estão armazenados no Azure, SQL Data Warehouse do Azure, Azure Data Lake, Armazenamento do Azure ou Azure Cosmos DB. Ela também aproveita outras ferramentas de análise, como o Machine Learning do Azure e o Azure Data Factory.
+A Máquina Virtual de Ciência de Dados da Microsoft (DSVM) é um poderoso ambiente de desenvolvimento de ciência de dados que permite executar várias tarefas de exploração e modelagem de dados. O ambiente já vem compilado e agrupado com várias ferramentas populares de análise de dados que facilitam o início rápido de sua análise para implantações locais, na nuvem ou híbridas. A DSVM trabalha de forma muito próxima com muitos serviços do Azure e pode ler e processar dados que já estão armazenados no Azure, SQL Data Warehouse do Azure, Azure Data Lake, Armazenamento do Azure ou Azure Cosmos DB. Ela também utiliza outras ferramentas de análise, como o Azure Machine Learning e o Azure Data Factory.
 
-Neste artigo, mostrarei detalhadamente como usar sua DSVM para executar várias tarefas de ciência de dados e interagir com outros serviços do Azure. Veja algumas tarefas que você pode realizar na DSVM:
+Neste artigo, você aprenderá a usar sua DSVM para executar várias tarefas de ciência de dados e interagir com outros serviços do Azure. Veja algumas tarefas que você pode realizar na DSVM:
 
-1. Explorar dados e desenvolver modelos localmente na DSVM usando o Microsoft R Server, Python
-2. Usar um notebook Jupyter para experimentar com seus dados em um navegador usando Python 2, Python 3, Microsoft R, uma versão de R pronta para empresas desenvolvida para escalabilidade e desempenho
-3. Operacionalizar modelos criados usando R e Python no Machine Learning do Azure para que os aplicativos cliente possam acessar seus modelos usando uma interface simples de serviços Web
+1. Explorar dados e desenvolver modelos localmente na DSVM usando o Microsoft Machine Learning Server, Python
+2. Usar um notebook Jupyter para experimentar com seus dados em um navegador usando Python 2, Python 3, Microsoft R, uma versão de R pronta para empresas desenvolvida para desempenho
+3. Implantar modelos criados usando R e Python no Azure Machine Learning para que os aplicativos cliente possam acessar seus modelos usando uma interface simples de serviços Web
 4. Administrar os recursos do Azure usando o portal do Azure ou o Powershell
 5. Estender o espaço de armazenamento e compartilhar conjuntos de dados/códigos em grande escala com toda sua equipe criando um armazenamento de Arquivos do Azure como uma unidade montável na DSVM
 6. Compartilhar código com sua equipe usando o GitHub e acessar o repositório usando os clientes Git pré-instalados — Git Bash, Git GUI.
@@ -47,15 +47,15 @@ Neste artigo, mostrarei detalhadamente como usar sua DSVM para executar várias 
 * É necessária uma assinatura do Azure. Você pode se inscrever para uma avaliação gratuita [aqui](https://azure.microsoft.com/free/).
 * As instruções para o provisionamento de uma Máquina Virtual de Ciência de Dados no portal do Azure estão disponíveis em [Criação de uma máquina virtual](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
-## <a name="1-explore-data-and-develop-models-using-microsoft-r-server-or-python"></a>1. Explorar dados e desenvolver modelos usando o Microsoft R Server ou Python
+## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Explorar dados e desenvolver modelos usando o Microsoft Machine Learning Server ou Python
 Você pode usar linguagens como R e Python para fazer a análise de dados diretamente na DSVM.
 
-Para R, você pode usar um IDE chamado "Revolution R Enterprise 8.0", que pode ser encontrado no menu Iniciar ou na área de trabalho. A Microsoft forneceu bibliotecas adicionais sobre o Open Source/CRAN-R para permitir a análise escalonável e a capacidade de analisar dados maiores que o tamanho da memória permitido fazendo análise paralela em partes. Você também pode instalar um IDE do R que quiser, por exemplo, [RStudio](https://www.rstudio.com/products/rstudio-desktop/).
+Para R, você pode usar um IDE como o RStudio que pode ser encontrado no menu Iniciar ou na área de trabalho ou Ferramentas do R para Visual Studio. A Microsoft forneceu bibliotecas adicionais sobre o Open Source/CRAN-R para permitir a análise escalonável e a capacidade de analisar dados maiores que o tamanho da memória permitido fazendo análise paralela em partes. 
 
-Para Python, você pode usar um IDE como o Visual Studio Community Edition, que tem a extensão PTVS (Ferramentas Python para o Visual Studio) pré-instalada. Por padrão, somente um Python 2.7 básico está configurado no PTVS (sem nenhuma biblioteca de análise como SciKit, Pandas). Para habilitar o Anaconda Python 2.7 e 3.5, é preciso fazer o seguinte:
+Para Python, você pode usar um IDE como o Visual Studio Community Edition, que tem a extensão PTVS (Ferramentas Python para Visual Studio) pré-instalada. Por padrão, somente o Python 3.6, o ambiente de conda raiz é configurado em PTVS. Para habilitar o Anaconda Python 2.7, é preciso fazer o seguinte:
 
 * Criar ambientes personalizados para cada versão navegando até **Ferramentas** -> **Ferramentas Python** -> **Ambientes Python** e clicando em "**+ Personalizado**" no Visual Studio 2015 Community Edition
-* Forneça uma descrição e defina os caminhos de prefixo do ambiente como *c:\anaconda* para o Anaconda Python 2.7 OU *c:\anaconda\envs\py35* para o Anaconda Python 3.5
+* Forneça uma descrição e defina o caminho de prefixo do ambiente como *c:\anaconda\envs\python2* para o Anaconda Python 2.7
 * Clique em **Detecção Automática** e em **Aplicar** para salvar o ambiente.
 
 Veja a aparência do ambiente personalizado configurado no Visual Studio.
@@ -64,22 +64,22 @@ Veja a aparência do ambiente personalizado configurado no Visual Studio.
 
 Confira a [documentação do PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para obter mais detalhes sobre como criar os Ambientes Python.
 
-Agora você está pronto para criar um novo projeto em Python. Navegue até **Arquivo** -> **Novo** -> **Projeto** -> **Python** e selecione o tipo de aplicativo Python que você está criando. Você pode definir o ambiente do Python para o projeto atual como a versão que quiser (Anaconda 2.7 ou 3.5): clique com botão direito do mouse no **Ambiente Python**, escolha **Adicionar/Remover Ambientes Python** e, em seguida, selecione o ambiente desejado para associar ao projeto. Saiba mais sobre como trabalhar com o PTVS na página de [documentação](https://github.com/Microsoft/PTVS/wiki) do produto.
+Agora você está pronto para criar um novo projeto em Python. Navegue até **Arquivo** -> **Novo** -> **Projeto** -> **Python** e selecione o tipo de aplicativo Python que você está criando. Você pode definir o ambiente do Python para o projeto atual como a versão que quiser (Anaconda 2.7 ou 3.6): clique com botão direito do mouse no **Ambiente Python**, selecione **Adicionar/Remover Ambientes Python** e, em seguida, selecione o ambiente desejado. Saiba mais sobre como trabalhar com o PTVS na página de [documentação](https://github.com/Microsoft/PTVS/wiki) do produto.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Usando um Notebook Jupyter para explorar e modelar seus dados com o Python ou R
 O Notebook Jupyter é um poderoso ambiente que fornece um "IDE" baseado em navegador para exploração e modelagem de dados. É possível usar Python 2, Python 3 ou R (ambos software livre e Microsoft R Server) em um Notebook Jupyter.
 
-Para iniciar o Notebook Jupyter, clique no ícone do menu Iniciar/ícone da área de trabalho chamado **Notebook Jupyter**. Na DSVM, também é possível navegar até "https://localhost:9999/" para acessar o Notebook Jupyter. Se ele solicitar uma senha, use as instruções fornecidas na seção ***Como criar uma senha forte no servidor de notebook Jupyter*** do tópico [Provisionar a Máquina Virtual do Microsoft Data Science](provision-vm.md) para criar uma senha forte para acessar o notebook do Jupyter. 
+Para iniciar o Notebook Jupyter, clique no ícone do menu Iniciar/ícone da área de trabalho chamado **Notebook Jupyter**. No prompt de comando DSVM, você também pode executar o comando ```jupyter notebook``` pelo diretório em que tiver blocos de anotações existentes ou onde quiser criar novos blocos de anotações.  
 
-Assim que abrir o notebook, você verá um diretório que contém alguns notebooks de exemplo pré-empacotados com a DSVM. Agora você pode:
+Assim que iniciar o Jupyter, você verá um diretório que contém alguns notebooks de exemplo pré-empacotados com a DSVM. Agora você pode:
 
 * clicar no notebook e ver o código.
-* executar cada célula pressionando **SHIFT-ENTER**.
-* Executar o notebook inteiro clicando em **Célula** -> **Executar**
+* Executar cada célula pressionando **SHIFT-ENTER**.
+* executar o notebook inteiro clicando em **Célula** -> **Executar**
 * criar um novo notebook clicando no ícone Jupyter (canto superior esquerdo), clicando no botão **Novo** à direita e escolhendo a linguagem do notebook (também conhecida como kernels).   
 
 > [!NOTE]
-> Atualmente, oferecemos suporte ao Python 2.7, Python 3.5 e R. O kernel do R permite programação no Open Source R, bem como no Microsoft R Server escalonável corporativo.   
+> Atualmente há suporte para kernels Python 2.7, Python 3.6, R, Julia e PySpark no Jupyter. O kernel R dá suporte à programação no R de software livre, bem como o Microsoft R de alto desempenho.   
 > 
 > 
 
@@ -88,10 +88,10 @@ Uma vez no notebook, você pode explorar seus dados, criar o modelo e testar o m
 ## <a name="3-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning"></a>3. Compilar os modelos usando R e Python e operacionalizá-los usando o Machine Learning do Azure
 Depois de criar e validar o modelo, a próxima etapa geralmente é implantá-lo na produção. Isso permite aos aplicativos cliente invocar as previsões do modelo em tempo real ou em m modo de lote. O Machine Learning do Azure fornece um mecanismo para operacionalizar um modelo compilado em R ou Python.
 
-Quando você operacionaliza seu modelo no Machine Learning do Azure, um serviço Web é exposto, o que permite aos clientes fazer chamadas REST que são passadas nos parâmetros de entrada e recebem previsões do modelo como saídas.   
+Quando você operacionaliza seu modelo no Azure Machine Learning, um serviço Web é exposto, o que permite aos clientes fazer chamadas REST que são passadas nos parâmetros de entrada e recebem previsões do modelo como saídas.   
 
 > [!NOTE]
-> Se ainda não tiver se inscrito no Azure Machine Learning, você poderá obter um espaço de trabalho Gratuito ou Standard visitando a página inicial do [Azure Machine Learning Studio](https://studio.azureml.net/) e clicando em “Introdução”.   
+> Se ainda não tiver se inscrito no Azure Machine Learning, você poderá obter um espaço de trabalho Gratuito ou Standard visitando a página inicial do [Azure Machine Learning Studio](https://studio.azureml.net/) e clicando em "Introdução".   
 > 
 > 
 
@@ -135,18 +135,17 @@ Agora, um cliente pode fazer chamadas ao serviço Web. Há wrappers de conveniê
 > 
 
 ### <a name="build-and-operationalize-r-models"></a>Criar e operacionalizar modelos R
-Você pode implantar modelos R criados na Máquina Virtual de Ciência de Dados ou em algum lugar do Machine Learning do Azure, de uma maneira semelhante à realizada para o Python. Execute estas etapas:
+Você pode implantar modelos R criados na Máquina Virtual de Ciência de Dados ou em algum lugar do Machine Learning do Azure, de uma maneira semelhante à realizada para o Python. Siga estas etapas:
 
-* crie um arquivo settings.json para fornecer a ID do espaço de trabalho e o token de autenticação conforme mostrado no exemplo de código a seguir.
+* crie um arquivo settings.json para fornecer sua ID de espaço de trabalho e o token de autenticação 
 * escreva um wrapper para a função de previsão do modelo.
 * chame ```publishWebService``` na biblioteca de Azure Machine Learning para transmitir o wrapper da função.  
 
 Estes são o procedimento e os trechos de código que podem ser usados para configurar, compilar, publicar e consumir um modelo como um serviço Web no Azure Machine Learning.
 
 #### <a name="setup"></a>Configuração
-1. Instale o pacote do Machine Learning R digitando ```install.packages("AzureML")``` no IDE do Revolution R Enterprise 8.0 ou seu IDE R.
-2. Baixe o RTools [daqui](https://cran.r-project.org/bin/windows/Rtools/). Você precisará do utilitário zip no caminho (e do zip.exe nomeado) para operacionalizar o pacote R no Machine Learning.
-3. Crie um arquivo settings.json em um diretório chamado ```.azureml``` em seu diretório base e insira os parâmetros de seu Espaço de Trabalho do Azure Machine Learning:
+
+* Crie um arquivo settings.json em um diretório chamado ```.azureml``` em seu diretório base e insira os parâmetros de seu Espaço de Trabalho do Azure Machine Learning:
 
 Estrutura do arquivo settings.json:
 
@@ -198,10 +197,10 @@ Para administrar os recursos de nuvem e a assinatura do Azure, você pode usar o
 Você pode executar o Azure PowerShell de um atalho na área de trabalho ou clicar em "Microsoft Azure Powershell" no menu Iniciar. Consulte a [documentação do Microsoft Azure Powershell](../../powershell-azure-resource-manager.md) para obter mais informações sobre como você pode administrar seus recursos e assinatura do Azure usando os scripts do Windows Powershell.
 
 ## <a name="5-extend-your-storage-space-with-a-shared-file-system"></a>5. Estender o espaço de armazenamento com um sistema de arquivos compartilhado
-Os cientistas de dados podem compartilhar grandes conjuntos de dados, códigos ou outros recursos dentro da equipe. O DSVM em si tem cerca de 70 GB de espaço disponível. Para estender o armazenamento, você pode usar o Serviço de Arquivos do Azure e montá-lo no DSVM ou acessá-lo por meio da API REST.   
+Os cientistas de dados podem compartilhar grandes conjuntos de dados, códigos ou outros recursos dentro da equipe. O DSVM em si tem cerca de 45 GB de espaço disponível. Para estender o armazenamento, você pode usar o Serviço de Arquivos do Azure e montá-lo em uma ou mais instâncias do DSVM ou acessá-lo por meio da API REST.  Você também pode usar [Portal do Azure](../../virtual-machines/windows/attach-managed-disk-portal.md) ou usar o [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) para adicionar discos de dados extras dedicados. 
 
 > [!NOTE]
-> O espaço máximo do compartilhamento do Serviço de Arquivos do Azure é de 5 TB e o limite do tamanho de arquivo individual é 1 TB.   
+> O espaço máximo do compartilhamento do Serviço de Arquivos do Azure é de 5 TB e o limite do tamanho de arquivo individual é 1 TB. 
 > 
 > 
 
@@ -244,7 +243,7 @@ O DSVM já vem carregado com ferramentas cliente na linha de comando e na GUI pa
 
 Para baixar o código de um repositório GitHub, você usa o comando ```git clone```. Por exemplo, para baixar o repositório de ciência de dados publicado pela Microsoft no diretório atual, você pode executar o comando a seguir quando estiver no ```git-bash```.
 
-    git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
+    git clone https://github.com/Azure/DataScienceVM.git
 
 No Visual Studio, você pode fazer a mesma operação de clonagem. A captura de tela a seguir mostra como acessar as ferramentas Git e GitHub no Visual Studio.
 
@@ -254,7 +253,7 @@ Encontre mais informações sobre como usar Git para trabalhar com o repositóri
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Acessar vários serviços de análise e dados do Azure
 ### <a name="azure-blob"></a>Blob do Azure
-O blob do Azure é um armazenamento em nuvem confiável e econômico para pequenos e grandes volumes de dados. Vamos analisar como você pode mover os dados para o Blob do Azure e acessar os dados armazenados em um Blob do Azure.
+O blob do Azure é um armazenamento em nuvem confiável e econômico para pequenos e grandes volumes de dados. Essa seção descreve como você pode mover os dados para o Blob do Azure e acessar os dados armazenados em um Blob do Azure.
 
 **Pré-requisito**
 
@@ -262,7 +261,7 @@ O blob do Azure é um armazenamento em nuvem confiável e econômico para pequen
 
 ![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* Confirme se a ferramenta de linha de comando pré-instalada AzCopy encontra-se em ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Você pode adicionar o diretório que contém o azcopy.exe à sua variável de ambiente PATH para evitar ter que digitar o caminho completo do comando ao executar essa ferramenta. Para saber mais sobre a ferramenta AzCopy, consulte a [documentação do AzCopy](../../storage/common/storage-use-azcopy.md)
+* Confirme se a ferramenta de linha de comando pré-instalada AzCopy encontra-se em ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. O diretório que contém o azcopy.exe já está na sua variável de ambiente PATH para evitar ter que digitar o caminho completo do comando ao executar essa ferramenta. Para saber mais sobre a ferramenta AzCopy, veja a [documentação do AzCopy](../../storage/common/storage-use-azcopy.md)
 * Inicie o Gerenciador de Armazenamento do Azure. Ele pode ser baixado em [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/). 
 
 ![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -288,7 +287,7 @@ Execute o comando AzCopy no PowerShell ou em um prompt de comando. Veja um exemp
 
 
 
-Depois de executar o comando AzCopy para copiar um blob do Azure, seu arquivo será mostrado resumidamente no Gerenciador de Armazenamento do Azure.
+Depois de executar o comando AzCopy para copiar um blob do Azure, seu arquivo será mostrado resumidamente no Gerenciador de Armazenamento do Microsoft Azure.
 
 ![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
@@ -354,7 +353,7 @@ Os dados são lidos como em um quadro de dados:
 ![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
-O Armazenamento do Azure Data Lake é um repositório de grande escala para cargas de trabalho de análise de big data e é compatível com HDFS (Hadoop Distributed File System). Ele funciona com o ecossistema do Hadoop e do Azure Data Lake Analytics. Vamos mostrar como você pode mover os dados para o Armazenamento do Azure Data Lake e executar análises usando a Análise Azure Data Lake.
+O Armazenamento do Azure Data Lake é um repositório de grande escala para cargas de trabalho de análise de big data e é compatível com HDFS (Hadoop Distributed File System). Ele funciona com Hadoop, Spark e Azure Data Lake Analytics. Nessa seção, você aprenderá a mover os dados para o Azure Data Lake Store e executar análises usando o Azure Data Lake Analytics.
 
 **Pré-requisito**
 
@@ -372,7 +371,7 @@ Você pode usar o **Gerenciador do Azure Data Lake** para carregar dados dos arq
 
 ![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
-Você também pode compilar um pipeline de dados para direcionar para produção o movimento de dados, de ou para o Azure Data Lake, usando o [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Indicamos este [artigo](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) a fim de orientá-lo pelas etapas de criação dos pipelines de dados.
+Você também pode compilar um pipeline de dados para operacionalizar para produção o movimento de dados, de ou para o Azure Data Lake, usando o [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Veja este [artigo](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) que vai orientá-lo pelas etapas de criação dos pipelines de dados.
 
 **Ler dados no Blob do Azure para Data Lake: U-SQL**
 
@@ -453,11 +452,11 @@ O Azure HDInsight é um serviço gerenciado do Apache Hadoop, Spark, HBase e Sto
 
 * Personalize os Clusters do Azure HDInsight Hadoop no [portal do Azure](../team-data-science-process/customize-hadoop-cluster.md)
   
-  * É preciso vincular a conta de armazenamento criada com o cluster HDInsight quando ele é criado. Essa conta de armazenamento é usada para acessar dados que podem ser processados dentro do cluster.
+  * Vincule a conta de armazenamento criada com o cluster HDInsight quando ele é criado. Essa conta de armazenamento é usada para acessar dados que podem ser processados dentro do cluster.
 
 ![Vincular a conta de armazenamento criada ao cluster HDInsight](./media/vm-do-ten-things/Create_HDI_v4.PNG)
 
-* Você deve habilitar o **Acesso Remoto** ao nó principal do cluster após sua criação. Lembre-se das credenciais de acesso remoto especificadas aqui (diferentes daquelas especificadas para o cluster durante sua criação): você precisará delas no próximo procedimento.
+* Habilite o **Acesso Remoto** ao nó principal do cluster após sua criação. Lembre-se das credenciais de acesso remoto que você especificar aqui, porque você precisará delas no procedimento subsequente.
 
 ![Habilitar o acesso remoto](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
@@ -616,7 +615,7 @@ Vamos examinar o número de registros em cada mês e as frequências de gorjetas
 
 ![Gráfico das frequências de dicas](./media/vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
 
-Também podemos computar a distância entre o local de captura e o destino do passageiro e compará-la com a distância da corrida.
+Você também pode computar a distância entre o local de captura e o destino do passageiro e compará-la com a distância da corrida.
 
     queryString = """
                     select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
@@ -648,7 +647,7 @@ Também podemos computar a distância entre o local de captura e o destino do pa
 
 ![Gráfico da distância de coleta/entrega em relação à distância de viagem](./media/vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
 
-Agora, vamos preparar uma conjunto reduzido de dados (1%) para modelagem. Podemos usar esses dados no módulo de leitor do Machine Learning.
+Agora, vamos preparar uma conjunto reduzido de dados (1%) para modelagem. Você pode usar esses dados no módulo de leitor do Machine Learning.
 
         queryString = """
         create  table if not exists nyctaxi_downsampled_dataset_testNEW (
@@ -785,7 +784,7 @@ Após alguns instantes, você pode ver que os dados foram carregados nos cluster
 
 **Ler dados do HDI usando o Machine Learning: módulo de leitor**
 
-Você também pode usar o módulo de **leitor** no Machine Learning Studio para acessar o banco de dados no cluster Hadoop. Insira as credenciais dos clusters HDI e da Conta de Armazenamento do Azure para habilitar o build de modelos de aprendizado de máquina usando o banco de dados nos clusters HDI.
+Você também pode usar o módulo de **leitor** no Machine Learning Studio para acessar o banco de dados no cluster Hadoop. Insira as credenciais dos clusters HDI e da Conta de Armazenamento do Microsoft Azure para habilitar o build de modelos de aprendizado de máquina usando o banco de dados nos clusters HDI.
 
 ![Propriedades do módulo de leitor](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
 
@@ -801,19 +800,19 @@ Você pode provisionar o SQL Data Warehouse do Azure seguindo as instruções fo
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 O Azure Cosmos DB é um banco de dados NoSQL na nuvem. Ele permite trabalhar com documentos como JSON, bem como armazenar e consultar os documentos.
 
-Você precisa realizar as etapas de pré-requisitos a seguir para acessar o Azure Cosmos DB na DSVM.
+Veja a seguir as etapas de pré-requisitos a seguir para acessar o Azure Cosmos DB na DSVM:
 
-1. Instalar o SDK do Azure Cosmos DB Python (Execute ```pip install pydocumentdb``` no prompt de comando)
+1. O SDK de Python do Azure Cosmos DB já está instalado no DSVM (execute ```pip install pydocumentdb --upgrade``` pelo prompt de comando para atualizar)
 2. Criar uma conta do Azure Cosmos DB e um banco de dados no [Portal do Azure](https://portal.azure.com)
 3. Baixar a “Ferramenta de Migração do Azure Cosmos DB” [aqui](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) e extrai-la em um diretório de sua escolha
 4. Importar dados JSON (dados de vulcão) armazenados em um [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) no Cosmos DB com os parâmetros de comando a seguir para a ferramenta de migração (dtui.exe no diretório no qual você instalou a Ferramenta de Migração do Cosmos DB). Insira os locais de origem e destino com estes parâmetros:
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
-Depois de importar os dados, você pode acessar o Jupyter e abrir o notebook chamado *DocumentDBSample* , que contém o código python para acessar o Azure Cosmos DB e fazer algumas consultas básicas. Você pode aprender mais sobre o Cosmos DB visitando a [página de documentação](https://docs.microsoft.com/azure/cosmos-db/) do serviço.
+Depois de importar os dados, você pode acessar o Jupyter e abrir o notebook chamado *DocumentDBSample*, que contém o código python para acessar o Azure Cosmos DB e fazer algumas consultas básicas. Você pode aprender mais sobre o Cosmos DB visitando a [página de documentação](https://docs.microsoft.com/azure/cosmos-db/) do serviço.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Criar relatórios e painel usando o Power BI Desktop
-Vamos visualizar o arquivo JSON Volcano que vimos no exemplo anterior do Cosmos DB no Power BI para obter informações visuais dos dados. As etapas detalhadas estão disponíveis no [artigo sobre o Power BI](../../cosmos-db/powerbi-visualize.md). Aqui estão as etapas de alto nível:
+Você pode visualizar o arquivo JSON Volcano exemplo anterior do Cosmos DB no Power BI para obter informações visuais dos dados. As etapas detalhadas estão disponíveis no [artigo sobre o Power BI](../../cosmos-db/powerbi-visualize.md). Aqui estão as etapas de alto nível:
 
 1. Abra o Power BI Desktop e execute "Obter Dados". Especifique a URL como: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. Você deverá ver os registros JSON importados como uma lista
@@ -853,16 +852,16 @@ Você pode escalar verticalmente a DSVM para atender às necessidades do seu pro
 > 
 > 
 
-Se precisar lidar com análise em larga escala e precisar de mais capacidade de CPU e/ou memória e/ou disco, você poderá encontrar uma ampla opção de tamanhos de VM em termos de núcleos de CPU, capacidade de memória e tipos de disco (incluindo unidades de estado sólido) que atendam às suas necessidades de computação e orçamento. A lista completa de VMs e seus preços de computação por hora estão disponíveis na página [Preço de Máquinas Virtuais do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/) .
+Se precisar lidar com análise em larga escala e precisar de mais capacidade de CPU e/ou memória e/ou disco, você poderá encontrar uma ampla opção de tamanhos de VM em termos de núcleos de CPU, instâncias baseadas em GPU aprendizado profundo, capacidade de memória e tipos de disco (incluindo unidades de estado sólido) que atendam às suas necessidades de computação e orçamento. A lista completa de VMs e seus preços de computação por hora estão disponíveis na página [Preço de Máquinas Virtuais do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/) .
 
 Da mesma forma, se sua necessidade de capacidade de processamento de VM for reduzida (por exemplo: você moveu uma grande carga de trabalho para um cluster Hadoop ou um Spark), você poderá reduzir verticalmente o cluster no [portal do Azure](https://portal.azure.com) e acessar as configurações da sua instância VM. Veja uma captura de tela.
 
 ![Configurações da instância VM](./media/vm-do-ten-things/VMScaling.PNG)
 
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. Instalar ferramentas adicionais na sua máquina virtual
-Agrupamos várias ferramentas que acreditamos que atendam a muitas das necessidades de análise comum de dados e que devem poupar seu tempo, ao evitar a instalação e a configuração de cada ambiente e seu dinheiro, ao pagar apenas pelos recursos que você usa.
+Há várias ferramentas internas previamente compiladas no DSVM que podem resolver muitas das necessidades comuns de análise de dados. Isso economiza tempo ao evitar ter que instalar e configurar seus ambientes um por um e economiza dinheiro porque você paga apenas os recursos que usar.
 
-Você pode aproveitar outros serviços de análise e dados do Azure listados neste artigo para aprimorar seu ambiente de análise. Entendemos que, em alguns casos, suas necessidades podem exigir ferramentas adicionais, incluindo algumas ferramentas de terceiros. Você tem acesso administrativo completo na máquina virtual para instalar novas ferramentas necessárias. Também é possível instalar pacotes adicionais no Python e no R que não foram pré-instalados. Para Python, você pode usar ```conda``` ou ```pip```. Para R, você pode usar o ```install.packages()``` no console do R ou usar o IDE e escolher "**Pacotes** -> **Instalar Pacotes...**".
+Você pode utilizar outros serviços de análise e dados do Azure listados neste artigo para aprimorar seu ambiente de análise. Em alguns casos, suas necessidades podem exigir ferramentas adicionais, incluindo algumas ferramentas de terceiros. Você tem acesso administrativo completo na máquina virtual para instalar novas ferramentas necessárias. Também é possível instalar pacotes adicionais no Python e no R que não foram pré-instalados. Para Python, você pode usar ```conda``` ou ```pip```. Para R, você pode usar o ```install.packages()``` no console do R ou usar o IDE e escolher "**Pacotes** -> **Instalar Pacotes...**".
 
 ## <a name="summary"></a>Resumo
 Essas são apenas algumas das coisas que você pode fazer na Máquina Virtual de Ciência de Dados da Microsoft. Há muito mais coisas que você fazer para torná-la um ambiente eficaz de análise.

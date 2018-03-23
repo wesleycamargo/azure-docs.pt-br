@@ -1,11 +1,11 @@
 ---
 title: Solucionar problemas do Azure Backup Agent | Microsoft Docs
-description: "Solucionar problemas de instalação e registro do Azure Backup Agent"
+description: Solucionar problemas de instalação e registro do Azure Backup Agent
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: saurse;markgal;
-ms.openlocfilehash: 52a32d61dd69110ace560fd1e52389140f322678
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Solucionar problemas de configuração e registro do Azure Backup Agent
 ## <a name="recommended-steps"></a>Etapas recomendadas
 Consulte as ações recomendadas nas tabelas a seguir para resolver os erros que podem ocorrer durante a configuração ou o registro do Azure Backup Agent.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>Credenciais do cofre fornecidas inválidas. O arquivo está corrompido ou não possui as credenciais mais recentes associadas ao serviço de recuperação.
 | Detalhes do erro | Possíveis causas | Ações recomendadas |

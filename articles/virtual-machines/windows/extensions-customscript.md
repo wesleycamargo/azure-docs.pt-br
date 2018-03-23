@@ -1,11 +1,11 @@
 ---
-title: "Extensão de script personalizado do Azure para Windows | Microsoft Docs"
-description: "Automatizar tarefas de configuração de VM do Windows usando a Extensão de Script Personalizado"
+title: Extensão de script personalizado do Azure para Windows | Microsoft Docs
+description: Automatizar tarefas de configuração de VM do Windows usando a Extensão de Script Personalizado
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f4181fee-7a9d-4a1c-b517-52956f5b7fa1
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 454bfde69248538a92d2fc447c54509afb08129a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5b5556ae2c7ea748e7b6158718f2dfa0b7f1b4ef
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -154,4 +154,4 @@ As informações de caminho após o primeiro segmento do URI são retidas para o
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN] (https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
+Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).

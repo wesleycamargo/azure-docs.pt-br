@@ -1,25 +1,19 @@
 ---
 title: Perguntas frequentes do Banco de dados SQL do Azure | Microsoft Docs
-description: "Respostas a perguntas comuns feitas por clientes sobre bancos de dados de nuvem e o Banco de Dados SQL do Azure, o sistema de gerenciamento de bancos de dados relacionais da Microsoft (RDBMS) e o banco de dados como um serviço na nuvem."
+description: Respostas a perguntas comuns feitas por clientes sobre bancos de dados de nuvem e o Banco de Dados SQL do Azure, o sistema de gerenciamento de bancos de dados relacionais da Microsoft (RDBMS) e o banco de dados como um serviço na nuvem.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 1da12abc-0646-43ba-b564-e3b049a6487f
+manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 4efa053afd26bde208441c4b841c5d02142a2d18
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 59058b3445fdaf75df331d771afd28599491c52e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-faq"></a>Perguntas frequentes sobre o Banco de Dados SQL
 

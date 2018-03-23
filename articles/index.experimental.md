@@ -1,13 +1,13 @@
 ---
 layout: HubPage
-hide_bc: True
-title: "Documentação do Microsoft Azure"
-description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
-ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+hide_bc: ''
+title: Documentação do Microsoft Azure
+description: Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.
+ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -134,6 +134,11 @@ ms.lasthandoff: 12/11/2017
                                                         <span>Python</span>
                                                     </a>
                                                 </div>
+                                                <div class="ico48Link">
+                                                    <a href="/go/azure/">
+                                                        <span>Go</span>
+                                                    </a>
+                                                </div>
                                                 <div>
                                                     <h4>Modelos de Aplicativo</h4>
                                                     <ul class="noBullet">
@@ -160,7 +165,7 @@ ms.lasthandoff: 12/11/2017
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">Banco de dados do Azure Cosmos</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>AI e Serviços Cognitivos</h4>
                                                 <ul class="noBullet">
@@ -179,7 +184,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>Ferramentas da linha de comando</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
+                                                    <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>CLI<br />do Azure</span>
                                                     </a>
@@ -376,7 +381,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gerenciamento de API</p>
+                                                <p>Gerenciamento da API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -400,7 +405,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/biztalk-services/">
                                                 <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Serviços Biztalk</p>
+                                                <p>Serviços BizTalk</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -682,7 +687,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Repositório Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -721,7 +726,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Stream Analytics</p>
+                                                <p>Análise de fluxo</p>
                                             </a>
                                         </li>
                                         <li>
@@ -739,7 +744,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Repositório Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -790,7 +795,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gerenciamento de API</p>
+                                                <p>Gerenciamento da API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -823,7 +828,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/EventHubs.svg" alt="" />
-                                                <p>Hubs de Eventos</p>
+                                                <p>Hubs de evento</p>
                                             </a>
                                         </li>
                                         <li>
@@ -835,7 +840,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Stream Analytics</p>
+                                                <p>Análise de fluxo</p>
                                             </a>
                                         </li>
                                         <li>
@@ -894,7 +899,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Pesquisar</p>
+                                                <p>Search</p>
                                             </a>
                                         </li>
                                         <li>
@@ -921,7 +926,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Cofre de Chaves</p>
+                                                <p>Cofre da Chave</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1431,7 +1436,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Repositório Data Lake</h3>
                                                     <p>Repositório em hiperescala para cargas de trabalho de análise de Big Data</p>
                                                 </div>
                                             </div>
@@ -1626,7 +1631,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Pesquisar</h3>
+                                                    <h3>Search</h3>
                                                     <p>Pesquisa como serviço totalmente gerenciada</p>
                                                 </div>
                                             </div>
@@ -2140,7 +2145,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Stream Analytics</h3>
+                                                    <h3>Análise de fluxo</h3>
                                                     <p>Processamento de fluxo de dados em tempo real de milhões de dispositivos IoT</p>
                                                 </div>
                                             </div>
@@ -2197,7 +2202,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Repositório Data Lake</h3>
                                                     <p>Repositório em hiperescala para cargas de trabalho de análise de Big Data</p>
                                                 </div>
                                             </div>
@@ -2354,7 +2359,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Hubs de Eventos</h3>
+                                                    <h3>Hubs de evento</h3>
                                                     <p>Receber telemetria de milhões de dispositivos</p>
                                                 </div>
                                             </div>
@@ -2373,7 +2378,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Stream Analytics</h3>
+                                                    <h3>Análise de fluxo</h3>
                                                     <p>Processamento de fluxo de dados em tempo real de milhões de dispositivos IoT</p>
                                                 </div>
                                             </div>
@@ -2492,7 +2497,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gerenciamento de API</h3>
+                                                    <h3>Gerenciamento da API</h3>
                                                     <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
                                                 </div>
                                             </div>
@@ -2568,7 +2573,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviços Biztalk</h3>
+                                                    <h3>Serviços BizTalk</h3>
                                                     <p>Integrar a empresa e a nuvem diretamente</p>
                                                 </div>
                                             </div>
@@ -2611,7 +2616,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cofre de Chaves</h3>
+                                                    <h3>Cofre da Chave</h3>
                                                     <p>Saiba como gerenciar chaves criptográficas e segredos</p>
                                                 </div>
                                             </div>
@@ -2787,7 +2792,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gerenciamento de API</h3>
+                                                    <h3>Gerenciamento da API</h3>
                                                     <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
                                                 </div>
                                             </div>
@@ -3249,6 +3254,29 @@ ms.lasthandoff: 12/11/2017
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">Obtenha o SDK móvel</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Introdução</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Referência</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
@@ -3284,7 +3312,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>CLI do Azure 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">Introdução</a>
+                                                    <a href="/cli/azure">Introdução</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Baixar a CLI do Azure 2.0</a>

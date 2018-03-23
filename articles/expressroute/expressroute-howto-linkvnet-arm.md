@@ -1,11 +1,11 @@
 ---
 title: 'Vincular uma rede virtual a um circuito ExpressRoute: PowerShell: Azure| Microsoft Docs'
-description: "Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de ExpressRoute usando o modelo de implantação do Gerenciador de Recursos e do PowerShell."
+description: Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de ExpressRoute usando o modelo de implantação do Gerenciador de Recursos e do PowerShell.
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 03/08/2018
 ms.author: ganesr
-ms.openlocfilehash: 8c2f3036f754a98090ab860f95900416690ebf83
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 354f7c455e1a2846bbdd63fa12b1cc01e2a1b9c5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conectar uma rede virtual a um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -33,8 +33,10 @@ ms.lasthandoff: 12/21/2017
 Este artigo ajuda a vincular as VNets (redes virtuais) aos circuitos do Azure ExpressRoute usando o modelo de implantação do Resource Manager e PowerShell. As redes virtuais podem estar na mesma assinatura ou fazer parte de outra assinatura. Este artigo mostra como atualizar um link de rede virtual. 
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Instale a versão mais recente dos módulos do Azure PowerShell. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
+* Instale a versão mais recente dos módulos do Azure PowerShell. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+
 * Analise os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+
 * Você deve ter um circuito do ExpressRoute ativo. 
   * Siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md) e para que o circuito seja habilitado pelo provedor de conectividade. 
   * Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Veja o artigo [Configurar roteamento](expressroute-howto-routing-arm.md) para obter instruções sobre roteamento. 
@@ -42,6 +44,8 @@ Este artigo ajuda a vincular as VNets (redes virtuais) aos circuitos do Azure Ex
   * Verifique se tem uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para [criar um gateway de rede virtual para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Um gateway de rede virtual para ExpressRoute usa o GatewayType “ExpressRoute”, não VPN.
 
 * Você pode vincular até 10 redes virtuais a um circuito de ExpressRoute padrão. Todas as redes virtuais deverão estar na mesma região geopolítica ao usar um circuito de ExpressRoute padrão. 
+
+* Uma única rede virtual pode ser vinculada a até quatro circuitos de ExpressRoute. Use as etapas a seguir para criar uma nova conexão para cada circuito de ExpressRoute ao qual você está se conectando. Os circuitos de ExpressRoute podem estar na mesma assinatura, assinaturas diferentes ou uma mistura de ambos.
 
 * Você poderá vincular uma rede virtual fora da região geopolítica do circuito do ExpressRoute ou conectar um grande número de redes virtuais ao circuito de ExpressRoute, se tiver habilitado o complemento premium do ExpressRoute. Confira as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
 

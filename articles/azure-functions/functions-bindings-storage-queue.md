@@ -1,13 +1,13 @@
 ---
-title: "Associações de armazenamento de filas do Azure Functions"
-description: "Entenda como usar o gatilho do armazenamento de fila do Azure e a associação de saída no Azure Functions."
+title: Associações de armazenamento de filas do Azure Functions
+description: Entenda como usar o gatilho do armazenamento de fila do Azure e a associação de saída no Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Gatilho - exemplo de script C#
 
-O exemplo a seguir mostra uma associação de gatilho de blob em um arquivo *function.json* e código [script C# (.csx)](functions-reference-csharp.md) que usa a associação. A função controla a `myqueue-items` fila e grava um log cada vez que um item de fila é processado.
+O exemplo a seguir mostra uma associação de gatilho de fila em um arquivo *function.json* e código [script C# (.csx)](functions-reference-csharp.md) que usa a associação. A função controla a `myqueue-items` fila e grava um log cada vez que um item de fila é processado.
 
 Aqui está o arquivo *function.json*:
 
@@ -112,7 +112,7 @@ A seção [uso](#trigger---usage) explica `myQueueItem`, que é chamado pela `na
 
 ### <a name="trigger---javascript-example"></a>Gatilho - exemplo de JavaScript
 
-O exemplo a seguir mostra uma associação de gatilho de blob em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função controla a `myqueue-items` fila e grava um log cada vez que um item de fila é processado.
+O exemplo a seguir mostra uma associação de gatilho de fila em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função controla a `myqueue-items` fila e grava um log cada vez que um item de fila é processado.
 
 Aqui está o arquivo *function.json*:
 
@@ -223,9 +223,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="trigger---usage"></a>Gatilho - uso
  
-Em C# e script C#, acesse os dados de blob usando um parâmetro de método, como `Stream paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. É possível associar a qualquer um dos seguintes tipos:
+Em C# e script C#, acesse os dados da mensagem usando um parâmetro de método, como `string paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. É possível associar a qualquer um dos seguintes tipos:
 
-* Objeto POCO - O tempo de execução do Functions desserializa um conteúdo JSON no objeto POCO. 
+* Objeto - o tempo de execução do Functions desserializa um conteúdo JSON em uma instância de uma classe arbitrária definida em seu código. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -302,7 +302,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Saída - exemplo de script C#
 
-O exemplo a seguir mostra uma associação de gatilho de blob em um arquivo *function.json* e código [script C# (.csx)](functions-reference-csharp.md) que usa a associação. A função cria um item da fila com uma carga POCO para cada solicitação HTTP recebida.
+O exemplo a seguir mostra uma associação de gatilho de HTTP em um arquivo *function.json* e código [script C# (.csx)](functions-reference-csharp.md) que usa a associação. A função cria um item de fila com um conteúdo de objeto **CustomQueueMessage** para cada solicitação HTTP recebida.
 
 Aqui está o arquivo *function.json*:
 
@@ -353,17 +353,17 @@ Você pode enviar várias mensagens ao mesmo tempo usando um parâmetro `ICollec
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### <a name="output---javascript-example"></a>Saída - exemplo JavaScript
 
-O exemplo a seguir mostra uma associação de gatilho de blob em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função cria um item da fila para cada solicitação HTTP recebida.
+O exemplo a seguir mostra uma associação de gatilho HTTP em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função cria um item da fila para cada solicitação HTTP recebida.
 
 Aqui está o arquivo *function.json*:
 
@@ -459,7 +459,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
  
 Em C# e script C#, grave uma mensagem de fila única usando um parâmetro de método como o `out T paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. Você pode usar o tipo de retorno de método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
 
-* Um POCO serializado como JSON
+* Um objeto serializado como JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 

@@ -1,11 +1,11 @@
 ---
 title: Limites de recursos do Banco de Dados SQL do Azure | Microsoft Docs
-description: "Esta página descreve alguns limites de recurso comuns para o Banco de Dados SQL do Azure."
+description: Esta página descreve alguns limites de recurso comuns para o Banco de Dados SQL do Azure.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
 ms.custom: DBs & servers
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos do Banco de Dados SQL do Azure
+
+> [!IMPORTANT]
+> Para obter os limites de recursos com a Instância Gerenciada do Banco de Dados SQL do Azure, consulte [Instância Gerenciada do Banco de Dados SQL](sql-database-managed-instance.md#managed-instance-service-tier).
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Banco de dados individual: níveis de tamanhos e desempenho de armazenamento
 
@@ -79,7 +82,6 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 
 > [!NOTE]
 > Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço. Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 

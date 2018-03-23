@@ -1,23 +1,23 @@
 ---
-title: "Como agendar o tempo de execução de integração do Azure-SSIS | Microsoft Docs"
-description: "Este artigo descreve como agendar o início e a parada de um tempo de execução de integração do Azure-SSIS usando a Automação do Azure e o Data Factory."
+title: Como agendar o tempo de execução de integração do Azure-SSIS | Microsoft Docs
+description: Este artigo descreve como agendar o início e a parada de um tempo de execução de integração do Azure-SSIS usando a Automação do Azure e o Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Como agendar o início e a parada de um tempo de execução de integração do Azure-SSIS 
 A execução de um IR (tempo de execução de integração) do Azure-SSIS (SQL Server Integration Services) tem uma carga associada a ele. Portanto, convém executar o IR somente quando você precisar executar pacotes SSIS no Azure e parar quando não for mais necessário. Você poderá usar a interface do usuário do Data Factory ou do Azure PowerShell para [iniciar ou parar manualmente um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md)). Este artigo descreve como agendar o início e a parada de um IR (tempo de execução de integração) do Azure-SSIS usando a Automação do Azure e o Azure Data Factory. A seguir, são apresentadas as etapas de alto nível descritas neste artigo:
@@ -25,7 +25,7 @@ A execução de um IR (tempo de execução de integração) do Azure-SSIS (SQL S
 1. **Criar e testar um runbook de Automação do Azure.** Nesta etapa, você cria um runbook do PowerShell com o script que inicia ou para um IR do Azure-SSIS. Em seguida, você testa o runbook nos cenários INICIAR e PARAR e confirma se o IR inicia ou para. 
 2. **Criar dois agendamentos para o runbook.** Para o primeiro agendamento, você configura o runbook com INICIAR como a operação. Para o segundo agendamento, configura o runbook com PARAR como a operação. Para ambos os agendamentos é necessário especificar a cadência na qual o runbook executa. Por exemplo, você pode querer agendar o primeiro para ser executado às 8h00 todos os dias e o segundo para ser executado às 23h00 todos os dias. Quando o primeiro runbook é executado, ele inicia o IR do Azure-SSIS. Quando o segundo runbook é executado, ele para o IR do Azure-SSIS. 
 3. **Crie dois webhooks para o runbook**, um para a operação INICIAR e o outro para a operação PARAR. Use as URLs desses webhooks ao configurar atividades da Web em um pipeline do Data Factory. 
-4. **Criar um pipeline do Data Factory**. O pipeline que você criar consistirá em quatro atividades. A primeira atividade da **Web** invoca o primeiro webhook para iniciar o IR do Azure-SSIS. A atividade de **Espera** aguarda 30 minutos (1800 segundos) para que o IR do Azure-SSIS inicie. A atividade de **Procedimento Armazenado** executa um script SQL que executa o pacote SSIS. A segunda atividade da **Web** para o IR do Azure-SSIS. Para obter mais informações sobre como invocar um pacote SSIS de um pipeline do Data Factory usando a atividade de Procedimento Armazenado, consulte [Invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Em seguida, você cria um gatilho de agendamento para agendar o pipeline a executar na cadência que você especificar.
+4. **Criar um pipeline do Data Factory**. O pipeline que você criar consiste em três atividades. A primeira atividade da **Web** invoca o primeiro webhook para iniciar o IR do Azure-SSIS. A atividade de **Procedimento Armazenado** executa um script SQL que executa o pacote SSIS. A segunda atividade da **Web** para o IR do Azure-SSIS. Para obter mais informações sobre como invocar um pacote SSIS de um pipeline do Data Factory usando a atividade de Procedimento Armazenado, consulte [Invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Em seguida, você cria um gatilho de agendamento para agendar o pipeline a executar na cadência que você especificar.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço do Data Factory, que está disponível, consulte [Chamar pacotes do SSIS usando atividade de procedimento armazenado na versão 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -223,12 +223,11 @@ Você deverá ter duas URLs, uma para o webhook **StartAzureSsisIR** e outra par
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Cria e agendar um pipeline do Data Factory que inicia/para o IR
 Esta seção mostra como usar uma atividade da Web para invocar os webhooks criados na seção anterior.
 
-O pipeline que você criar consistirá em quatro atividades. 
+O pipeline que você criar consiste em três atividades. 
 
 1. A primeira atividade da **Web** invoca o primeiro webhook para iniciar o IR do Azure-SSIS. 
-2. A atividade de **Espera** aguarda 30 minutos (1800 segundos) para que o IR do Azure-SSIS inicie. 
-3. A atividade de **Procedimento Armazenado** executa um script SQL que executa o pacote SSIS. A segunda atividade da **Web** para o IR do Azure-SSIS. Para obter mais informações sobre como invocar um pacote SSIS de um pipeline do Data Factory usando a atividade de Procedimento Armazenado, consulte [Invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. A segunda atividade da **Web** invoca o webhook para parar o IR do Azure-SSIS. 
+2. A atividade de **Procedimento Armazenado** executa um script SQL que executa o pacote SSIS. A segunda atividade da **Web** para o IR do Azure-SSIS. Para obter mais informações sobre como invocar um pacote SSIS de um pipeline do Data Factory usando a atividade de Procedimento Armazenado, consulte [Invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. A segunda atividade da **Web** invoca o webhook para parar o IR do Azure-SSIS. 
 
 Após criar e testar o pipeline, você cria um gatilho de agendamento e associa-se ao pipeline. O gatilho de agendamento define um agendamento para o pipeline. Suponha que você crie um gatilho programado para ser executado diariamente às 11 horas. O gatilho executa no pipeline às 11 horas diariamente. O pipeline inicia o IR do Azure-SSIS, executa o pacote SSIS e, em seguida, para o IR do Azure-SSIS. 
 
@@ -279,11 +278,6 @@ Após criar e testar o pipeline, você cria um gatilho de agendamento e associa-
     3. Para **Corpo**, insira `{"message":"hello world"}`. 
    
         ![Primeira atividade da Web - guia de configurações](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-4. Na caixa de ferramentas **Atividades**, expanda **Iteração e condições** e arraste e solte a atividade de **Espera** para a superfície de designer do pipeline. Na guia **Geral**, altere o nome da atividade para **WaitFor30Minutes**. 
-5. Alterne para a guia **Configurações** na janela **Propriedades**. Para **Tempo de espera em segundos**, digite **1800**. 
-6. Conecte a atividade da **Web** e a atividade de **Espera**. Para conectá-los, comece a arrastar na caixa quadrada verde anexada à atividade da Web para a atividade de Espera. 
-
-    ![Conectar Web e Espera](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
 5. Arraste e solte a atividade de Procedimento Armazenado da seção **Geral** da caixa de ferramentas **Atividades**. Defina o nome da atividade para **RunSSISPackage**. 
 6. Alterne para a guia **SQL Account** na janela **Propriedades**. 
 7. Para **Serviço vinculado**, clique em **+ Novo**.
@@ -296,7 +290,7 @@ Após criar e testar o pipeline, você cria um gatilho de agendamento e associa-
     5. Para **Senha**, insira a senha do usuário. 
     6. Teste a conexão com o banco de dados, clicando no botão **Testar conexão**.
     7. Salve o serviço vinculado. clicando no botão **Salvar**.
-1. Na janela **Propriedades**, alterne para a guia **Procedimento Armazenado** da guia **Conta SQL** e execute as seguintes etapas: 
+9. Na janela **Propriedades**, alterne para a guia **Procedimento Armazenado** da guia **Conta SQL** e execute as seguintes etapas: 
 
     1. Para **Nome do procedimento armazenado**, selecione a opção **Editar** e digite **sp_executesql**. 
     2. Clique em **+ Novo** na seção **Parâmetros do procedimento armazenado**. 
@@ -307,12 +301,37 @@ Após criar e testar o pipeline, você cria um gatilho de agendamento e associa-
         Na consulta SQL, especifique os valores certos para os parâmetros **nom_da_pasta**, **nome_do_projeto** e **nome_do_pacote**. 
 
         ```sql
-        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END   
-        ```
-10. Conecte a atividade de **Espera** à atividade de **Procedimento Armazenado**. 
+        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-    ![Conecte as atividades de Espera e Procedimento Armazenado](./media/how-to-schedule-azure-ssis-integration-runtime/connect-wait-sproc.png)
-11. Arraste e solte a atividade da **Web** à direita da atividade de **Procedimento Armazenado**. Defina o nome da atividade para **StopIR**. 
+        -- Wait until Azure-SSIS IR is started
+        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+        BEGIN
+            WAITFOR DELAY '00:00:01';
+        END
+
+        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+            @project_name=N'YourProject', @package_name=N'YourPackage',
+            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+            @execution_id=@exe_id OUTPUT 
+
+        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+
+        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+
+        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
+        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+        BEGIN
+            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+            RAISERROR(@err_msg, 15, 1)
+        END
+
+        ```
+10. Conecte a atividade da **Web** à atividade de **Procedimento Armazenado**. 
+
+    ![Conectar as atividades da Web e de Procedimento Armazenado](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
+
+11. Arraste e solte outra atividade da **Web** à direita da atividade de **Procedimento Armazenado**. Defina o nome da atividade para **StopIR**. 
 12. Alterne para a guia **Configurações** na janela **Propriedades** e execute as seguintes ações: 
 
     1. Para a **URL**, cole a URL para o webhook que para o IR do Azure-SSIS. 
@@ -372,7 +391,7 @@ Como agora o pipeline está funcionando conforme o esperado, você poderá criar
 6. Para monitorar execuções do gatilho e execuções do pipeline, use a guia **Monitor** à esquerda. Para obter etapas detalhadas, consulte [Monitorar o pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Execuções de pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Para visualizar as atividades executadas associadas a uma execução do pipeline, selecione o primeiro link (**Exibir as Execuções da atividade**) na coluna **Ações**. É possível visualizar as quatro atividades executadas associadas a cada atividade no pipeline (a primeira atividade da Web, atividade de Espera, atividade de Procedimento Armazenado e a segunda atividade da Web). Para alternar de volta para a exibição das execuções do pipeline, selecione o link **Pipelines** na parte superior.
+7. Para visualizar as atividades executadas associadas a uma execução do pipeline, selecione o primeiro link (**Exibir as Execuções da atividade**) na coluna **Ações**. Você vê as três execuções de atividade associadas a cada atividade no pipeline (a primeira atividade da Web, atividade de Procedimento Armazenado e a segunda atividade da Web). Para alternar de volta para a exibição das execuções do pipeline, selecione o link **Pipelines** na parte superior.
 
     ![Execuções de atividade](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. Também é possível visualizar as execuções do gatilho, selecionando **Execuções do gatilho** na lista suspensa próxima às **Execuções do pipeline** na parte superior. 

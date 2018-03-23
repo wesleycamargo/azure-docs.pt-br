@@ -1,26 +1,26 @@
 ---
-title: "Referência do desenvolvedor de JavaScript do Azure Functions | Microsoft Docs"
-description: "Entenda como desenvolver funções usando JavaScript."
+title: Referência do desenvolvedor de JavaScript do Azure Functions | Microsoft Docs
+description: Entenda como desenvolver funções usando JavaScript.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -116,7 +116,7 @@ context.log(message)
 Permite que você grave nos logs do console de streaming no nível de rastreamento padrão. Há métodos adicionais de registro em log disponíveis no `context.log` que permitem a gravação no log de console em outros níveis de rastreamento:
 
 
-| Método                 | Descrição                                |
+| Método                 | DESCRIÇÃO                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | Grava no registro em log no nível do erro, ou em um nível inferior.   |
 | **warn(_message_)**    | Grava no registro em log no nível do aviso, ou em um nível inferior. |
@@ -206,7 +206,7 @@ HTTP e gatilhos de webhook e associações de saída HTTP usam objetos de solici
 
 O objeto `request` tem as seguintes propriedades:
 
-| Propriedade      | Descrição                                                    |
+| Propriedade      | DESCRIÇÃO                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Um objeto que contém o corpo da solicitação.               |
 | _headers_     | Um objeto que contém os cabeçalhos da solicitação.                   |
@@ -221,7 +221,7 @@ O objeto `request` tem as seguintes propriedades:
 
 O objeto `response` tem as seguintes propriedades:
 
-| Propriedade  | Descrição                                               |
+| Propriedade  | DESCRIÇÃO                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Um objeto que contém o corpo da resposta.         |
 | _headers_ | Um objeto que contém os cabeçalhos da resposta.             |
@@ -265,7 +265,15 @@ Ao trabalhar com gatilhos HTTP, há três maneiras de acessar os objetos de soli
     ```  
 
 ## <a name="node-version-and-package-management"></a>Versão do Node e gerenciamento de pacote
-A versão do Node está bloqueada em `6.5.0`no momento. Estamos investigando a adição de suporte para mais versões e para torná-las configuráveis.
+
+A tabela a seguir mostra a versão do Node.js usada por cada versão principal do tempo de execução do Functions:
+
+| Versão do Functions | Versão do Node.js | 
+|---|---|
+| 1.x | 6.11.2 (bloqueada pelo tempo de execução) |
+| 2. x  |Recomenda-se >=8.4.0 com LTS 8.9.4 atual. Defina a versão usando a [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
+
+Você pode ver a versão atual usada pelo tempo de execução imprimindo `process.version` de qualquer função.
 
 As etapas a seguir permitem que você inclua pacotes em seu aplicativo de função: 
 
@@ -329,5 +337,5 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
+* [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
 

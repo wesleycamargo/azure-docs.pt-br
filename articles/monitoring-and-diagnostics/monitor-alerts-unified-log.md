@@ -1,9 +1,9 @@
 ---
-title: "Alertas de log no Azure Monitor - Alertas (visualização) | Microsoft Docs"
-description: "Dispare emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições de consulta complexa especificadas forem atendidas para os Alertas do Azure (visualização)."
+title: Alertas de log no Azure Monitor - Alertas (visualização) | Microsoft Docs
+description: Dispare emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições de consulta complexa especificadas forem atendidas para os Alertas do Azure (visualização).
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertas de log no Azure Monitor - Alertas (visualização)
-Este artigo fornece detalhes de como regras de alerta nas consultas de análise funcionam nos Alertas do Azure (visualização) e descreve as diferenças entre os diversos tipos de regras de alerta de log.
+Este artigo fornece detalhes de como regras de alerta nas consultas de análise funcionam nos Alertas do Azure (visualização) e descreve as diferenças entre os diversos tipos de regras de alerta de log. Para obter detalhes de Alertas de Métrica usando Logs, veja [Alertas de métrica quase em tempo real](monitoring-near-real-time-metric-alerts.md)
 
 No momento, Alertas do Azure (Visualização) dá suporte a alertas de log em consultas do [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) e do [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -40,7 +40,7 @@ Ao [criar um alerta de log no Alertas (visualização)](monitor-alerts-unified-u
 
 ## <a name="log-alert-rules"></a>Regras de alerta de log
 
-Os alertas são criados por Alertas do Azure (visualização) que executam consultas de log automaticamente em intervalos regulares.  Se os resultados da consulta de log corresponderem a critérios específicos, um registro de alerta será criado. A regra poderá, em seguida, executar automaticamente uma ou mais ações para notificá-lo proativamente do alerta ou invocar outro processo como enviar dados para aplicação externa usando [json baseado em webhook](monitor-alerts-unified-log-webhook.md), usando [Grupos de ação](monitoring-action-groups.md). Diferentes tipos de regras de alerta usam lógicas diferentes para realizar essa análise.
+Os alertas são criados pelos Alertas do Azure (Versão Prévia) para executar consultas de log automaticamente em intervalos regulares.  Se os resultados da consulta de log corresponderem a critérios específicos, um registro de alerta será criado. A regra poderá, em seguida, executar automaticamente uma ou mais ações para notificá-lo proativamente do alerta ou invocar outro processo como enviar dados para aplicação externa usando [json baseado em webhook](monitor-alerts-unified-log-webhook.md), usando [Grupos de ação](monitoring-action-groups.md). Diferentes tipos de regras de alerta usam lógicas diferentes para realizar essa análise.
 
 Regras de Alerta são definidas pelos detalhes a seguir:
 
@@ -75,7 +75,7 @@ Considere um cenário onde você deseja saber quando seu aplicativo baseado na w
 **Frequência de alerta:** cinco minutos<br>
 **Valor de limite:** maior que 0<br>
 
-Alerta deve executar a consulta a cada 5 minutos, com 30 minutos de dados - procurar qualquer registro onde o código de resultado foi 500. Se for encontrado um registro existente, ele aciona o alerta e o gatilho de ação configurada.
+Alerta deve executar a consulta a cada 5 minutos, com 30 minutos de dados - procurar qualquer registro onde o código de resultado foi 500. Se mesmo um registro desse tipo é encontrado, ele aciona o alerta e dispara a ação configurada.
 
 ## <a name="metric-measurement-alert-rules"></a>Regras de alerta com medição métrica
 
@@ -96,7 +96,7 @@ Regras de alerta de **Medição métrica** criam um alerta para cada objeto em u
 
 **Intervalo**: Define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se você especificasse **cinco minutos**, um registro seria criado para cada instância do campo de grupo agregada em intervalos de 5 minutos durante a janela de tempo especificada para o alerta.
 > [!NOTE]
-> Função bin deve ser usada na consulta. Também se os intervalos de tempo diferentes são produzidos para janela de tempo pelo uso da função Bin - Alerta, em vez disso use a função bin_at para garantir que há um ponto fixo
+> Função bin deve ser usada na consulta. Como bin() pode resultar em intervalos de tempo diferentes, o Alerta usará a função bin_at com o tempo apropriado em tempo de execução, para garantir resultados com um ponto fixo
 
 **Limite**: O limite para regras de alerta de Medição métrica é definido por um valor de agregação e algumas violações.  Se qualquer ponto de dados na pesquisa de logs exceder esse valor, ele será considerado uma violação.  Se o número de violações de qualquer objeto nos resultados exceder o valor especificado, um alerta será criado para esse objeto.
 

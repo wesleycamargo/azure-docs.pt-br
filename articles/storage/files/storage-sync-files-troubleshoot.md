@@ -1,8 +1,8 @@
 ---
-title: "Solucionar problemas da Sincronização de Arquivo do Azure (versão prévia) | Microsoft Docs"
-description: "Solucionar problemas comuns com a Sincronização de arquivos do Azure."
+title: Solucionar problemas da Sincronização de Arquivo do Azure (versão prévia) | Microsoft Docs
+description: Solucionar problemas comuns com a Sincronização de arquivos do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solucionar problemas da Sincronização de Arquivos do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -51,7 +51,7 @@ Examine o installer.log para determinar a causa da falha de instalação.
 Para resolver, transfira a função de PDC para outro controlador de domínio em execução no Windows Server 2012R2 ou mais recente e, em seguida, instale a sincronização.
 
 <a id="agent-installation-websitename-failure"></a>**Falha na instalação do agente com esse erro: "O assistente do agente de sincronização de armazenamento foi encerrado prematuramente"**  
-Esse problema pode ocorrer se o nome padrão do site do ISS for alterado. Para contornar esse problema, renomeie o site padrão do IIS como "Default Web Site" e tente novamente a instalação. O problema será corrigido em uma futura atualização do agente. 
+Esse problema pode ocorrer com o agente da versão 1.x e se o nome padrão do site do IIS é alterado. Para resolver esse problema, use nosso agente 2.0.11+.
 
 <a id="server-registration-missing"></a>**O servidor não está listado em servidores registrados no portal do Azure**  
 Se algum servidor não estiver listado em **Servidores registrados** de um Serviço de Sincronização de Armazenamento:

@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: java
 author: rmcmurray
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
 Este guia mostrará como usar o ACS (Serviço de Controle de Acesso) do Azure dentro do Kit de Ferramentas do Azure para Eclipse. Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps) .
@@ -74,13 +74,13 @@ A figura a seguir mostra como a autenticação do ACS funciona com um aplicativo
 6. O ACS valida o token de segurança emitido por IP, insere a declaração de identidade nesse token para o mecanismo de regras do ACS, calcula as declarações de identidade de saída e emite um novo token de segurança que contém essas declarações de saída.
 7. O ACS redireciona o cliente para o RP. O cliente envia o novo token de segurança emitido pelo ACS ao RP. O RP valida a assinatura no token de segurança emitido pelo ACS, valida as declarações nesse token e retorna a página que foi solicitada originalmente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir as tarefas deste guia, você precisará do seguinte:
 
 * Um JDK (Java Developer Kit) versão 1.6 ou posterior.
 * Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. 
 * Uma distribuição de um servidor web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o Servidor de Aplicativo JBoss ou o Jetty.
-* Uma assinatura do Azure, que pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
+* uma assinatura do Azure, que pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
 * O Kit de Ferramentas do Azure para Eclipse, versão de abril de 2014 ou posterior. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 * Um certificado X.509 para uso com o aplicativo. Você precisará desse certificado no certificado público (.cer) e no formato Troca de Informações Pessoais (.PFX). (As opções para criação desse certificado serão descritas posteriormente neste tutorial).
 * Familiaridade com emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
@@ -169,7 +169,7 @@ Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL 
    
     ![Adicionar um arquivo JSP para exemplo do ACS][add_jsp_file_acs]
    
-    Clique em **Avançar**.
+    Clique em **Próximo**.
 4. Na caixa de diálogo **Selecionar Modelo JSP**, selecione **Novo Arquivo JSP (html)** e clique em **Concluir**.
 5. Quando o arquivo index.jsp for aberto no Eclipse, adicione texto para exibir **Hello ACS World!** dentro do elemento existente `<body>`. Seu conteúdo `<body>` atualizado deve ser semelhante ao seguinte:
    
@@ -205,7 +205,7 @@ Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL 
 4. Clique em **Concluir**.
 5. Clique no botão **Executar no emulador do Azure** .
 6. Depois de iniciar seu aplicativo web Java no emulador de computação, feche todas as instâncias do seu navegador (para que nenhuma sessão atual do navegador interfira em seu teste de logon do ACS).
-7. Execute seu aplicativo ao abrir <http://localhost:8080/MyACSHelloWorld/> em seu navegador (ou <https://localhost:8080/MyACSHelloWorld/> se tiver selecionado **Requer conexões HTTPS**). Um logon do Windows Live ID deve ser solicitado e você deverá ser levado à URL de retorno especificada para seu aplicativo de terceira parte confiável.
+7. Execute seu aplicativo abrindo <http://localhost:8080/MyACSHelloWorld/> em seu navegador (ou <https://localhost:8080/MyACSHelloWorld/> se você tiver marcado **Exigir conexões HTTPS**). Um logon do Windows Live ID deve ser solicitado e você deverá ser levado à URL de retorno especificada para seu aplicativo de terceira parte confiável.
 8. Ao concluir a exibição do aplicativo, clique no botão **Redefinir Emulador do Azure** .
 
 ## <a name="deploy-to-azure"></a>Implantar no Azure

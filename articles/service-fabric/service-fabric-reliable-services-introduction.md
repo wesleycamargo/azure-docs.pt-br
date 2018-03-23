@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do modelo de programação de Reliable Service do Service Fabric | Microsoft Docs"
-description: "Saiba mais sobre o modelo de programação dos Serviços Confiáveis da Malha de Serviços e comece a desenvolver seus próprios serviços."
+title: Visão geral do modelo de programação de Reliable Service do Service Fabric | Microsoft Docs
+description: Saiba mais sobre o modelo de programação dos Serviços Confiáveis da Malha de Serviços e comece a desenvolver seus próprios serviços.
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>Visão geral dos Reliable Services
 O Azure Service Fabric simplifica o desenvolvimento e o gerenciamento de Reliable Services com e sem estado. Este tópico aborda:
@@ -34,7 +34,7 @@ O Service Fabric gerencia a vida útil dos serviços, desde o provisionamento e 
 ## <a name="what-are-reliable-services"></a>O que são os Reliable Services?
 Os Reliable Services fornecem um modelo de programação simples, potente e de nível superior que ajuda você a demonstrar o que é importante para seu aplicativo. Com o modelo de programação dos Reliable Services, você obtém:
 
-* Acesso ao restante das APIs de programação do Service Fabric. Ao contrário dos serviços do Service Fabric modelados como [Executáveis de Convidado](service-fabric-deploy-existing-app.md), os Reliable Services usam o restante das APIs do Service Fabric diretamente. Isso permite que os serviços:
+* Acesso ao restante das APIs de programação do Service Fabric. Ao contrário dos serviços do Service Fabric modelados como [Executáveis de Convidado](service-fabric-guest-executables-introduction.md), os Reliable Services usam o restante das APIs do Service Fabric diretamente. Isso permite que os serviços:
   * consultar o sistema
   * relatar integridade de entidades no cluster
   * receber notificações sobre alterações de configuração e código

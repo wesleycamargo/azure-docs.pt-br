@@ -1,12 +1,12 @@
 ---
-title: "Serviço do Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba mais sobre as camadas de serviço para bancos de dados únicos e em pool para fornecer níveis de desempenho e tamanhos de armazenamento."
-keywords: 
+title: Serviço do Banco de Dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre as camadas de serviço para bancos de dados únicos e em pool para fornecer níveis de desempenho e tamanhos de armazenamento.
+keywords: ''
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: DBs & servers
@@ -14,17 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ebfd44098a81b4a9d8863623458460ceb25f0d5d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são as camadas de serviço do Banco de Dados SQL do Azure?
 
-[Banco de Dados SQL](sql-database-technical-overview.md) do Azure oferece as camadas de serviço **Basic**, **Standard**, e  **Premium** para ambos [os bancos de dados únicos ](sql-database-single-database-resources.md) e [pools elásticos](sql-database-elastic-pool.md). As camadas de serviço são diferenciadas principalmente por uma gama de níveis de desempenho e opções de tamanho de armazenamento, além do preço.  Todas as camadas de serviço fornecem flexibilidade na alteração do tamanho de armazenamento e no nível de desempenho.  Bancos de dados individuais e pools elásticos são cobrados por hora com base na camada de serviço, nível de desempenho e tamanho de armazenamento.   
+[Banco de Dados SQL](sql-database-technical-overview.md) do Azure oferece as camadas de serviço **Basic**, **Standard**, e  **Premium** para ambos [os bancos de dados únicos ](sql-database-single-database-resources.md) e [pools elásticos](sql-database-elastic-pool.md). O Banco de Dados SQL oferece uma camada de serviço de Uso Geral para a [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md#managed-instance-service-tier). As camadas de serviço são diferenciadas principalmente por uma gama de níveis de desempenho e opções de tamanho de armazenamento, além do preço.  Todas as camadas de serviço fornecem flexibilidade na alteração do tamanho de armazenamento e no nível de desempenho.  Bancos de dados individuais e pools elásticos são cobrados por hora com base na camada de serviço, nível de desempenho e tamanho de armazenamento.   
+
+> [!IMPORTANT]
+> A Instância Gerenciada do Banco de Dados SQL, atualmente em visualização pública, oferece uma única camada de serviço de uso geral. Para obter mais informações, consulte [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md). O restante deste artigo não se aplica à Instância Gerenciada.
 
 ## <a name="choosing-a-service-tier"></a>Como escolher uma camada de serviço
 

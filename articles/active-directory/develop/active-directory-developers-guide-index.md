@@ -1,25 +1,25 @@
 ---
 title: Azure Active Directory para desenvolvedores | Microsoft Docs
-description: "Uma lista de todos os guias e artigos de referência no guia do desenvolvedor do Azure Active Directory."
+description: Uma lista de todos os guias e artigos de referência no guia do desenvolvedor do Azure Active Directory.
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artigos no guia do desenvolvedor do Azure AD
 Veja a seguir uma lista de todos os tópicos abordados no guia do desenvolvedor do Azure Active Directory.
@@ -43,6 +43,7 @@ Estes artigos descrevem conceitos e recursos específicos do Azure Active Direct
 | [Painel do vendedor do Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Como publicar um aplicativo no painel do vendedor O365 |
 | [Serviços conectados do Visual Studio](vs-active-directory-dotnet-getting-started.md)                                               | Como usar a integração do Azure AD a projetos MVC no Visual Studio |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Como integrar-se ao Active Directory local usando o ADFS |
+| [Práticas recomendadas para o tratamento de erro do ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Como criar um tratamento de erros resiliente e habilitar o registro em log |
 
 ## <a name="reference"></a>Referência
 Esses artigos fornecem uma base para APIs REST e de biblioteca de autenticação, protocolos, erros, exemplos de código e pontos de extremidade.

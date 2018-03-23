@@ -1,11 +1,11 @@
 ---
 title: Planejamento da capacidade de cluster do Service Fabric | Microsoft Docs
-description: "Considerações de planejamento de capacidade de cluster do Service Fabric. Camadas de nodetypes, operações, durabilidade e confiabilidade"
+description: Considerações de planejamento de capacidade de cluster do Service Fabric. Camadas de nodetypes, operações, durabilidade e confiabilidade
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -88,10 +88,11 @@ Esse privilégio é expresso nos seguintes valores:
  
 1. As implantações no Conjunto de Dimensionamento de Máquinas Virtuais e nos outros recursos do Azure relacionados podem ser atrasadas, podem atingir o tempo limite ou podem ser bloqueadas inteiramente por problemas no cluster ou no nível de infraestrutura. 
 2. Aumenta o número de [eventos de ciclo de vida de réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (por exemplo, trocas primárias) devido às desativações de nós automatizadas durante as operações de infraestrutura do Azure.
+3. Coloca os nós fora de serviço por períodos durante as atividades de manutenção de hardware ou atualizações de software da plataforma Azure. Você poderá ver os nós o com o status Desabilitando/Desabilitado durante essas atividades. Isso reduz a capacidade do cluster temporariamente, mas não deve afetar a disponibilidade do cluster ou dos aplicativos.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recomendações de quando usar os níveis de durabilidade Prata ou Ouro
 
-Use a durabilidade Prata ou Ouro para todos os tipos de nós que hospedam serviços com estado que você pretende reduzir horizontalmente (reduzir a contagem de instâncias de VM) com frequência, mas prefere que as operações de implantação sejam atrasadas para simplificar essas operações de redução horizontal. Os cenários de escalabilidade horizontal (adicionar instâncias de VMs) não fazem parte das opções da camada de durabilidade, somente os de redução horizontal.
+Use a durabilidade Prata ou Gold para todos os tipos de nós que hospedam serviços com estado que você pretende reduzir horizontalmente (reduzir a contagem de instâncias VM) com frequência, mas prefere que as operações de implantação sejam atrasadas e que a capacidade seja reduzida para simplificar essas operações de redução horizontal. Os cenários de escalabilidade horizontal (adicionar instâncias de VMs) não fazem parte das opções da camada de durabilidade, somente os de redução horizontal.
 
 ### <a name="changing-durability-levels"></a>Alterar os níveis de durabilidade
 - Os tipos de nós com níveis de durabilidade Prata ou Ouro não podem ser rebaixados para Bronze.

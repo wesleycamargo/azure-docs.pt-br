@@ -1,25 +1,19 @@
 ---
 title: Auditoria de tabela, redirecionamento TDS e pontos de extremidade IP para Banco de Dados SQL do Azure | Microsoft Docs
-description: "Saiba mais sobre alterações de auditoria, redirecionamento TDS e ponto de extremidade IP ao implementar a auditoria de tabela no Banco de Dados SQL do Azure."
+description: Saiba mais sobre alterações de auditoria, redirecionamento TDS e ponto de extremidade IP ao implementar a auditoria de tabela no Banco de Dados SQL do Azure.
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: jhubbard
-editor: 
-ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: giladm
-ms.openlocfilehash: 42c89f09eee4394fec7d2f33f51ddc5875587530
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1053869ed26739463ab6035692052d7b6b34bff0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Banco de Dados SQL – Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria de tabela
 

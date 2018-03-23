@@ -1,31 +1,31 @@
 ---
-title: "Acesso just in time à máquina virtual na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento demonstra como o acesso just in time à VM, na Central de Segurança do Azure, ajuda você a controlar o acesso às suas máquinas virtuais do Azure."
+title: Acesso just in time à máquina virtual na Central de Segurança do Azure | Microsoft Docs
+description: Este documento demonstra como o acesso just in time à VM, na Central de Segurança do Azure, ajuda você a controlar o acesso às suas máquinas virtuais do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Gerenciar o acesso à máquina virtual usando o just in time (versão prévia)
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando o just in time
 
 O acesso just in time à VM (máquina virtual) pode ser usado para bloquear o tráfego de entrada às suas VMs do Azure, reduzindo a exposição aos ataques, fornecendo acesso fácil para conectar às VMs quando necessário.
 
 > [!NOTE]
-> O recurso just in time está em versão prévia e está disponível na camada Standard da Central de Segurança.  Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
+> O recurso Just-In-Time está disponível na camada Standard da Central de Segurança.  Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
 >
 >
 

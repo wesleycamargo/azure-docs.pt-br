@@ -1,6 +1,6 @@
 ---
-title: "Controlar máquinas virtuais do Azure com a CLI do Azure | Microsoft Docs"
-description: "Tutorial – Gerenciar máquinas virtuais do Azure aplicando RBAC, políticas, bloqueios e marcas com CLI do Azure"
+title: Controlar máquinas virtuais do Azure com a CLI do Azure | Microsoft Docs
+description: Tutorial – Gerenciar máquinas virtuais do Azure aplicando RBAC, políticas, bloqueios e marcas com CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 86ac3ec390c7aa9bc24a90ef2ee582f97f8b5407
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ac6f7b0d32479e9e7e9945f83dc63a5847cba6a4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Governança de máquina virtual com a CLI do Azure
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -29,7 +29,7 @@ Para instalar e usar a CLI localmente, consulte [Instalar a CLI do Azure 2.0](/c
 
 ## <a name="understand-scope"></a>Compreender o escopo
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 Neste tutorial, você aplica todas as configurações de gerenciamento a um grupo de recursos, de modo que seja possível remover facilmente essas configurações quando terminar.
 
@@ -71,7 +71,7 @@ Normalmente, você repete o processo para *Colaborador de Rede* e *Colaborador d
 
 ## <a name="azure-policies"></a>Políticas do Azure
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Aplicar políticas
 
@@ -179,7 +179,7 @@ Você vê um erro informando que a operação de exclusão não pode ser executa
 
 Você pode aplicar [marcas](../../azure-resource-manager/resource-group-using-tags.md) para os recursos do Azure para organizá-los logicamente por categorias. Cada marca consiste em um nome e em um valor. Por exemplo, você pode aplicar o nome "Ambiente" e o valor "Produção" a todos os recursos na produção.
 
-[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
+[!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
 Para aplicar marcas a uma máquina virtual, use o comando [az resource tag](/cli/azure/resource#az_resource_tag). Nenhuma marca existente no recurso é mantida.
 
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ### <a name="view-costs-by-tag-values"></a>Exibir custos por valores de marca
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

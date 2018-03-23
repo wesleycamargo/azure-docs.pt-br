@@ -1,31 +1,29 @@
 ---
-title: "Proteger dados pessoais em trânsito com a criptografia no Azure | Microsoft Docs"
-description: Usando a criptografia no Azure para proteger dados pessoais
+title: Proteger dados pessoais em trânsito com a criptografia no Azure | Microsoft Docs
+description: informações sobre a criptografia do Azure para proteger dados pessoais podem ser úteis em esforços de conformidade com o GDPR (Regulamento Geral sobre a Proteção de Dados).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Tecnologias de criptografia do Azure: proteger dados pessoais em trânsito com criptografia
 
-Este artigo ajudará você a entender e usar as tecnologias de criptografia do Azure para proteger dados em trânsito. 
-
-A proteção da privacidade de dados pessoais durante seu tráfego pela rede é uma parte essencial de uma estratégia de segurança de proteção avançada de várias camadas. A criptografia em trânsito foi projetada para impedir que um invasor que intercepta as transmissões consiga exibir ou usar os dados.
+Este artigo ajudará você a entender e usar as tecnologias de criptografia do Azure para proteger dados em trânsito. A proteção da privacidade de dados pessoais durante seu tráfego pela rede é uma parte essencial de uma estratégia de segurança de proteção avançada de várias camadas. A criptografia em trânsito foi projetada para impedir que um invasor que intercepta as transmissões consiga exibir ou usar os dados. As informações contidas neste artigo podem ser úteis nos esforços de uma organização para conformidade com o GDPR (Regulamento Geral sobre a Proteção de Dados).
 
 ## <a name="scenario"></a>Cenário
 

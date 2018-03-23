@@ -1,25 +1,24 @@
 ---
-title: "O que são unidades do Data Wharehouse (DWUs, cDWUs) no SQL Data Warehouse do Azure? | Microsoft Docs"
-description: "Funcionalidades de escala horizontal de desempenho no SQL Data Warehouse do Azure. Expanda por meio de ajuste de DWUs, cDWUs ou, para economizar custos, pause e retome os recursos de computação."
+title: O que são unidades do Data Wharehouse (DWUs, cDWUs) no SQL Data Warehouse do Azure? | Microsoft Docs
+description: Funcionalidades de escala horizontal de desempenho no SQL Data Warehouse do Azure. Expanda por meio de ajuste de DWUs, cDWUs ou, para economizar custos, pause e retome os recursos de computação.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 11/10/2017
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWUs (Unidades do Data Warehouse) cDWUs (Unidades do Data Warehouse de computação)
 Explica as DWUs e cDWUS para o SQL Data Warehouse do Azure. Inclua recomendações sobre como escolher o número ideal de unidades do data warehouse e como alterar o número delas. 
@@ -81,7 +80,7 @@ Para exibir a configuração atual de DWU:
 
 1. Abra o Pesquisador de Objetos do SQL Server no Visual Studio.
 2. Conecte-se ao banco de dados mestre associado ao servidor lógico do Banco de Dados SQL.
-3. Selecione do modo de exibição de gerenciamento dinâmico sys.database_service_objectives. Aqui está um exemplo: 
+3. Selecione do modo de exibição de gerenciamento dinâmico sys.database_service_objectives. Veja um exemplo: 
 
 ```sql
 SELECT  db.name [Database]
@@ -201,7 +200,7 @@ Consulte os artigos a seguir para ajudar a entender alguns dos principais concei
 [Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
 [Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload and concurrency management]: ./resource-classes-for-workload-management.md
 [Table design overview]: ./sql-data-warehouse-tables-overview.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexing]: ./sql-data-warehouse-tables-index.md

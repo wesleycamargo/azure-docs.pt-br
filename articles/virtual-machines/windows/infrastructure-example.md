@@ -1,11 +1,11 @@
 ---
 title: Passo a passo da infraestrutura do Azure de exemplo | Microsoft Docs
-description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de uma infraestrutura de exemplo no Azure."
-documentationcenter: 
+description: Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de uma infraestrutura de exemplo no Azure.
+documentationcenter: ''
 services: virtual-machines-windows
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Passo a passo da infraestrutura do Azure de exemplo para VMs Windows
 Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Fornecemos detalhes de como projetar uma infraestrutura para um repositório online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, bem como a implantação de fato das VMs (máquinas virtuais).
@@ -61,7 +61,7 @@ Todos os itens acima seguem estas convenções de nomenclatura:
 A Adventure Works Cycles usa sua assinatura Enterprise, chamada Adventure Works Enterprise Subscription, para fornecer cobrança para essa carga de trabalho de TI.
 
 ## <a name="storage"></a>Armazenamento
-A Adventure Works Cycles determinou que deverá usar o Azure Managed Disks. Ao criar VMs, ambas as camadas de armazenamento disponíveis para o armazenamento são usadas:
+A Adventure Works Cycles determinou que deverá usar o Azure Managed Disks. Durante a criação de VMs, ambas as camadas de armazenamento disponíveis são usadas:
 
 * **Armazenamento padrão** para os servidores Web, servidores de aplicativos, controladores de domínio e seus discos de dados.
 * **Armazenamento premium** para VMs do SQL Server e seus discos de dados.

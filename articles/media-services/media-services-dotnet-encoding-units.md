@@ -1,11 +1,11 @@
 ---
-title: "Dimensionar o processamento de mídia adicionando unidades de codificação - Azure | Microsoft Docs"
-description: "Saiba como adicionar unidades de codificação com o .NET"
+title: Dimensionar o processamento de mídia adicionando unidades de codificação - Azure | Microsoft Docs
+description: Saiba como adicionar unidades de codificação com o .NET
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 89203a9499b3624faf41b63f4ea6e7bd29f3f0c9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o SDK do .NET
 > [!div class="op_single_selector"]
@@ -53,7 +53,8 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas para
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>Abrindo um tíquete de suporte
-Por padrão, todas as contas dos Serviços de Mídia podem ser dimensionadas para até 25 Unidades Reservadas para Codificação e cinco para Streaming por Demanda. Você pode solicitar um limite mais alto abrindo um tíquete de suporte.
+
+Por padrão, todas as contas de Serviços de Mídia podem ser escaladas para até 10 S2 ou S3 Unidades Reservadas de Mídia (MRUs) ou 25 S1 MRUs e cinco Unidades Reservadas de Streaming sob demanda. Você pode solicitar um limite mais alto abrindo um tíquete de suporte.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

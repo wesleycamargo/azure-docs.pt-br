@@ -1,25 +1,20 @@
 ---
-title: "Transações distribuídas entre bancos de dados na nuvem"
-description: "Visão Geral das Transações de Banco de Dados Elástico com o Banco de Dados SQL do Azure"
+title: Transações distribuídas entre bancos de dados na nuvem
+description: Visão Geral das Transações de Banco de Dados Elástico com o Banco de Dados SQL do Azure
 services: sql-database
-documentationcenter: 
-author: torsteng
-manager: jhubbard
-editor: torsteng
-ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
+author: stevestein
+manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.custom: scale out apps
 ms.workload: On Demand
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 012fc38075285b898599517f3e6ed5a3c9eb854d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 65657a4813467edd45a6eee4fa98964b4a781663
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bancos de dados na nuvem
 As transações de banco de dados elástico para Banco de dados SQL (BD SQL) do Azure permitem que você execute transações que abranjam vários bancos de dados no BD SQL. As transações de banco de dados elástico do BD SQL estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -133,9 +128,9 @@ Use as DMVs (Exibições de Gerenciamento Dinâmico) no BD SQL para monitorar o 
 
 Estas DMVs são especialmente úteis:
 
-* **sys.dm\_tran\_active\_transactions**: lista as transações atualmente ativas e seu status. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações filho que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída carregam o mesmo valor UOW. Consulte a [documentação da DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obter mais detalhes.
-* **sys.dm\_tran\_database\_transactions**: fornece informações adicionais sobre as transações, como a colocação da transação no log. Consulte a [documentação da DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obter mais detalhes.
-* **sys.dm\_tran\_locks**: fornece informações sobre os bloqueios que são atualmente mantidos por transações em andamento. Consulte a [documentação da DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obter mais detalhes.
+* **sys.dm\_tran\_active\_transactions**: lista as transações atualmente ativas e seu status. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações filho que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída carregam o mesmo valor UOW. Para saber mais, confira a [documentação do DMV](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.dm\_tran\_database\_transactions**: fornece informações adicionais sobre as transações, como a colocação da transação no log. Para saber mais, confira a [documentação do DMV](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.dm\_tran\_locks**: fornece informações sobre os bloqueios que são atualmente mantidos por transações em andamento. Para saber mais, confira a [documentação do DMV](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ## <a name="limitations"></a>Limitações
 As seguintes limitações se aplicam atualmente para as transações de banco de dados elástico no BD SQL:

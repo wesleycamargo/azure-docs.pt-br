@@ -1,25 +1,25 @@
 ---
 title: Regras no Azure AD Privileged Identity Management | Microsoft Docs
-description: "Aprenda quais funções são usadas para identidades com privilégios com a extensão de Privileged Identity Management do Azure."
+description: Aprenda quais funções são usadas para identidades com privilégios com a extensão de Privileged Identity Management do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/31/2017
+ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Função administrativa diferente no PIM do Azure Active Directory
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -50,7 +50,7 @@ O Privileged Identity Management permite que você atribua usuários às funçõ
   > 
 * **Administrador de gerenciamento de usuários** redefine as senhas, monitora a integridade do serviço e gerencia contas de usuário, grupos de usuários e solicitações de serviço. O administrador de gerenciamento de usuários não pode excluir um administrador global, criar outras funções de administrador ou redefinir senhas para administradores de cobrança, globais e de serviço.
 * **Administrador do Exchange** tem acesso administrativo ao Exchange Online por meio do EAC (Centro de Administração do Exchange) e pode executar quase qualquer tarefa no Exchange Online.
-* **Administrador do SharePoint** tem acesso administrativo ao SharePoint Online por meio do Centro de Administração do SharePoint Online e pode executar quase qualquer tarefa no SharePoint Online.
+* **Administrador do SharePoint (visualização)** tem acesso administrativo ao SharePoint Online por meio do Centro de Administração do SharePoint Online e pode executar quase qualquer tarefa no SharePoint Online. Esta função está atualmente em visualização. Os usuários qualificados podem enfrentar atrasos usando essa função no SharePoint depois de ativar o PIM.
 * **Administrador do Skype for Business** tem acesso administrativo ao Skype for Business por meio do Centro de Administração do Skype for Business e pode executar quase qualquer tarefa no Skype for Business Online.
 
 Leia estes artigos para obter mais detalhes sobre como [atribuir funções de administrador no Azure AD](active-directory-assign-admin-roles-azure-portal.md) e [atribuir funções de administrador no Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).

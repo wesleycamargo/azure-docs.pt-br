@@ -1,8 +1,8 @@
 ---
-title: "Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como usar a publicação em estágios para aplicativos Web no Serviço de Aplicativo do Azure."
+title: Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure | Microsoft Docs
+description: Saiba como usar a publicação em estágios para aplicativos Web no Serviço de Aplicativo do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 18f6ef3997ba60f588040f641ebe9e9aca8d091a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
 
-Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel e aplicativo de API no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), você pode implantar em um slot de implantação separado em vez de no slot de produção padrão quando estiver executando no modo do plano do Serviço de Aplicativo **Standard** ou **Premium**. Os slots de implantação são, na verdade, aplicativos online com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. Implantar o seu aplicativo em um slot de implantação tem os seguintes benefícios:
+Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel e aplicativo de API no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), você pode implantar em um slot de implantação separado em vez de no slot de produção padrão quando estiver executando no tipo do plano do Serviço de Aplicativo **Standard** ou **Premium**. Os slots de implantação são, na verdade, aplicativos online com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. Implantar o seu aplicativo em um slot de implantação tem os seguintes benefícios:
 
 * É possível validar as alterações no aplicativo em um slot de implantação de preparo antes de permutá-lo pelo slot de produção.
 * Implantar um aplicativo em um slot inicial e depois permutá-lo, enviando-o para produção, garante que todas as instâncias do slot estejam prontas antes dessa troca. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo. O redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada como resultado de operações de permuta. Todo esse fluxo de trabalho pode ser automatizado por meio da configuração de [Permuta Automática](#Auto-Swap) quando a validação de pré-permuta não é necessária.
 * Após a troca, o slot com o aplicativo de preparo anterior terá o aplicativo de produção anterior. Se as alterações permutadas no slot de produção não forem o que você esperava, é possível fazer a mesma permuta imediatamente para ter o "último site bom" de volta.
 
-Cada modo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Para descobrir o número de slots ao qual seu aplicativo dá suporte, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
+Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Para descobrir o número de slots ao qual o tipo do seu aplicativo dá suporte, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Quando seu aplicativo tem vários slots, você não pode alterar o modo.
+* Quando seu aplicativo tem vários slots, você não pode alterar o tipo.
 * O dimensionamento não está disponível para slots de não produção.
-* O gerenciamento de recurso vinculado não tem suporte para slots de não produção. Somente no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) você pode evitar esse impacto potencial em um slot de produção, mudando temporariamente o slot de não produção para um modo de plano do Serviço de Aplicativo diferente. Observe que o slot de não produção deve uma vez mais compartilhar o mesmo modo com o slot de produção antes que você possa alternar os dois slots.
+* O gerenciamento de recurso vinculado não tem suporte para slots de não produção. Somente no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) você pode evitar esse impacto potencial em um slot de produção, mudando temporariamente o slot de não produção para um tipo de plano do Serviço de Aplicativo diferente. Observe que o slot de não produção deve uma vez mais compartilhar o mesmo tipo com o slot de produção antes que você possa alternar os dois slots.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Adicionar um slot de implantação
-O aplicativo deve estar em execução no modo **Standard** ou **Premium** para que você habilite vários slots de implantação.
+O aplicativo deve estar em execução no tipo **Standard** ou **Premium** para que você habilite vários slots de implantação.
 
 1. No [Portal do Azure](https://portal.azure.com/), abra a [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de seu aplicativo.
 2. Escolha a opção **Slots de implantação** e clique em **Adicionar Slot**.
@@ -47,7 +47,7 @@ O aplicativo deve estar em execução no modo **Standard** ou **Premium** para q
     ![Adicionar um novo slot de implantação][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Se o aplicativo ainda não estiver no modo **Standard** ou **Premium**, você receberá uma mensagem indicando os modos compatíveis para habilitar a publicação em etapas. Neste momento, você tem a opção de selecionar **Atualizar** e navegar para a guia **Escala** do aplicativo antes de continuar.
+   > Se o aplicativo ainda não estiver no tipo **Standard** ou **Premium**, você receberá uma mensagem indicando os tipos compatíveis para habilitar a publicação em etapas. Neste momento, você tem a opção de selecionar **Atualizar** e navegar para a guia **Escala** do aplicativo antes de continuar.
    > 
    > 
 3. Na folha **Adicionar um slot**, nomeie o slot e opte por clonar a configuração de aplicativo por meio de outro slot de implantação existente. Clique na marca de seleção para continuar.

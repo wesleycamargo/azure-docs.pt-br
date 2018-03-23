@@ -1,17 +1,17 @@
 ---
 title: " Gerenciar o servidor de configuração para a recuperação após desastres do servidor físico com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como gerenciar um servidor de configuração existente para recuperação após desastres do servidor físico no Azure, com o serviço do Azure Site Recovery."
+description: Este artigo descreve como gerenciar um servidor de configuração existente para recuperação após desastres do servidor físico no Azure, com o serviço do Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 7fe68f072ef438e21f3e6d3d52aee9e86e537687
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -36,7 +36,7 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | IIS | – Nenhum site da Web padrão já existente <br> - Habilitar [Autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
 | Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware) |
 | Tipo de endereço IP | estático |
-| Acesso à Internet | O servidor precisa de acesso a estas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (não é necessário para Servidores de Processo de Expansão) <br> - time.nist.gov <br> - time.windows.com |
+| Acesso à Internet | O servidor precisa de acesso a estas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (não é necessário para Servidores de Processo de Expansão) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (orquestração do canal de controle)<br>9443 (transporte de dados)|
 
 ## <a name="download-the-latest-installation-file"></a>Baixe o arquivo de instalação mais recente
@@ -164,7 +164,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
   ```
 
   >[!WARNING]
-  Se você tiver servidores de processo adicionais anexados a este servidor de configuração, você precisará [corrigir as configurações de proxy em todos os servidores de processo de expansão](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) em sua implantação.
+  Se você tiver servidores de processo adicionais anexados a este servidor de configuração, você precisará [corrigir as configurações de proxy em todos os servidores de processo de expansão](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) em sua implantação.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Registrar um servidor de configuração com o mesmo cofre
   1. Faça logon no Servidor de Configuração.
@@ -184,7 +184,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
       ```
 
   >[!WARNING]
-  Se você tiver vários servidores de processo, você precisará [registrá-los novamente](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server).
+  Se você tiver vários servidores de processo, você precisará [registrá-los novamente](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrar um servidor de configuração com um cofre diferente
 
@@ -233,8 +233,8 @@ Atualize o servidor da seguinte maneira:
 > [!WARNING]
 > Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
 > 1. [Desabilitar a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as máquinas virtuais nesse Servidor de Configuração.
-> 2. [Desassociar](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) e [Excluir](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) todas as políticas de Replicação do Servidor de Configuração.
-> 3. [Excluir](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) todos os servidores vCenters/hosts vSphere associados ao Servidor de Configuração.
+> 2. [Desassociar](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) e [Excluir](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) todas as políticas de Replicação do Servidor de Configuração.
+> 3. [Excluir](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) todos os servidores vCenters/hosts vSphere associados ao Servidor de Configuração.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Excluir o servidor de configuração do portal do Azure

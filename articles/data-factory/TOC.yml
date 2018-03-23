@@ -76,10 +76,16 @@
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 – Transformar dados na nuvem usando o Spark
       items:
-        - name: Interface do usuário (IU)
-          href: tutorial-transform-data-spark-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-spark-powershell.md
+        - name: HDInsight Spark
+          items:
+            - name: Interface do usuário (IU)
+              href: tutorial-transform-data-spark-portal.md
+            - name: Azure PowerShell
+              href: tutorial-transform-data-spark-powershell.md
+        - name: Databricks Notebook
+          items:
+            - name: Interface do usuário (IU)
+              href: transform-data-using-databricks-notebook.md
     - name: 7 – Transformar dados na rede virtual
       items:
         - name: Interface do usuário (IU)
@@ -92,8 +98,6 @@
           href: tutorial-control-flow-portal.md
         - name: .NET
           href: tutorial-control-flow.md
-    - name: 9 - Transformar dados com o Azure Databricks
-      href: transform-data-using-databricks-notebook.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -292,6 +296,8 @@
           href: transform-data-using-stored-procedure.md
         - name: Atividade de U-SQL do Data Lake
           href: transform-data-using-data-lake-analytics.md
+        - name: Atividade do Databricks Notebook
+          href: transform-data-databricks-notebook.md
         - name: Atividade personalizada
           href: transform-data-using-dotnet-custom-activity.md
         - name: Serviços vinculados de computação

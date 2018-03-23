@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C: Referência: Como personalizar a IU de um percurso do usuário com políticas personalizadas | Microsoft Docs"
-description: "Um tópico sobre as políticas personalizadas do Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: Referência: Como personalizar a IU de um percurso do usuário com políticas personalizadas | Microsoft Docs'
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: rojasja
 manager: mtillman
 editor: rojasja
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalize a IU de um percurso do usuário com políticas personalizadas
 
@@ -72,7 +72,7 @@ Para garantir que tudo funcione conforme o esperado, é necessário que você:
 - Use URLS absolutas como https://yourdomain/content para todos os links e conteúdo CSS.
 
 > [!TIP]
-> Para verificar se o site que você está hospedando o conteúdo possui CORS habilitado e testar solicitações CORS, use o site http://test-cors.org/. Graças a esse site, você pode enviar a solicitação CORS para um servidor remoto (para testar se há suporte para CORS), ou enviar a solicitação CORS para um servidor de teste (para explorar alguns recursos do CORS).
+> Para verificar se o site em que você está hospedando o conteúdo possui CORS habilitado e testar solicitações CORS, use o site http://test-cors.org/. Graças a esse site, você pode enviar a solicitação CORS para um servidor remoto (para testar se há suporte para CORS), ou enviar a solicitação CORS para um servidor de teste (para explorar alguns recursos do CORS).
 
 > [!TIP]
 > O site http://enable-cors.org/ também apresenta mais recursos úteis no CORS.

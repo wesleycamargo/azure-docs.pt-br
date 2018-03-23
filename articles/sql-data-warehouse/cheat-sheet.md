@@ -1,11 +1,11 @@
 ---
-title: "Folha de referências para SQL Data Warehouse do Azure | Microsoft Docs"
-description: "Localize links e melhores práticas para compilar rapidamente suas soluções do SQL Data Warehouse do Azure."
+title: Folha de referências para SQL Data Warehouse do Azure | Microsoft Docs
+description: Localize links e melhores práticas para compilar rapidamente suas soluções do SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 documentationcenter: NA
 author: acomet
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c67d56ff63f70baa052be17c119d943c558d398f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Roteiro do SQL Data Warehouse do Azure
 Esta folha de referências fornece dicas úteis e melhores práticas para a compilação de suas soluções do SQL Data Warehouse do Azure. Antes da introdução, saiba mais sobre cada etapa detalhadamente, lendo os [Padrões de Carga de Trabalho do SQL Data Warehouse do Azure e Anti-Padrões](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), que explica o que é SQL Data Warehouse e o que não é.
@@ -146,12 +146,12 @@ Implante com um clique seus spokes nos Bancos de Dados SQL do SQL Data Warehouse
 [Esboço]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[carregamento de dados]:./design-elt-data-loading.md
-[deeper guidance]: ./guidance-for-loading-data.md
-[Índices]:./sql-data-warehouse-tables-index.md
-[partições]:./sql-data-warehouse-tables-partition.md
-[estatísticas]:./sql-data-warehouse-tables-statistics.md
-[classes de recursos e simultaneidade]:./sql-data-warehouse-develop-concurrency.md
+[carregamento de dados]:design-elt-data-loading.md
+[deeper guidance]:guidance-for-loading-data.md
+[Índices]:sql-data-warehouse-tables-index.md
+[partições]:sql-data-warehouse-tables-partition.md
+[estatísticas]:sql-data-warehouse-tables-statistics.md
+[classes de recursos e simultaneidade]:resource-classes-for-workload-management.md
 
 <!--MSDN references-->
 

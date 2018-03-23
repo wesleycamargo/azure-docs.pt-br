@@ -1,25 +1,19 @@
 ---
-title: "Análise de desempenho de consultas para o Banco de dados SQL do Azure | Microsoft Docs"
+title: Análise de desempenho de consultas para o Banco de dados SQL do Azure | Microsoft Docs
 description: O monitoramento do desempenho de consulta identifica as consultas que consumem mais CPU de um Banco de Dados SQL do Azure.
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 015f3255d0ff9691168899df1e983e70f35215b1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Visão do desempenho de consulta de Banco de Dados SQL do Azure
 Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tarefa desafiadora que requer conhecimento significativo e investimento de tempo. A Análise de Desempenho de Consultas permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
@@ -31,7 +25,7 @@ Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tar
 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * A Análise de Desempenho de Consultas exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. Se o Repositório de Consultas não estiver em execução, o portal solicitará que você o ative.
 
 ## <a name="permissions"></a>Permissões
@@ -62,7 +56,7 @@ No [portal](http://portal.azure.com) , faça o descrito a seguir:
 
 1. Navegue até um banco de dados SQL e clique em **Todas as configurações** > **Suporte + Solução de problemas** > **Análise de desempenho de consultas**. 
    
-    ![Análise de desempenho de consultas][1]
+    ![Análise de Desempenho de Consultas][1]
    
     A exibição das principais consultas é aberta e as consultas que consomem mais CPU são listadas.
 2. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a % de DTU geral do banco de dados, enquanto as barras mostram a % de CPU consumida pelas consultas selecionadas durante o intervalo escolhido (por exemplo, se **Semana passada** for escolhida, cada barra representará um dia).
@@ -86,7 +80,7 @@ No [portal](http://portal.azure.com) , faça o descrito a seguir:
    * Número de consultas.
    * Função de agregação.
      
-     ![Configurações](./media/sql-database-query-performance/custom-tab.png)
+     ![configurações](./media/sql-database-query-performance/custom-tab.png)
 
 ## <a name="viewing-individual-query-details"></a>Exibindo detalhes de uma consulta individual
 Para exibir detalhes da consulta:
@@ -105,7 +99,7 @@ Para exibir detalhes da consulta:
 4. Opcionalmente, use os controles deslizantes, os botões de zoom ou clique em **Configurações** para personalizar a exibição dos dados de consumo de CPU ou escolher um período de tempo diferente.
 
 ## <a name="review-top-queries-per-duration"></a>Analise as principais consultas por duração
-Na atualização recente da Análise de Desempenho de Consultas, apresentamos duas novas métricas que podem ajudar a identificar possíveis afunilamentos: duração e contagem de execução.<br>
+Na atualização recente da Análise de Desempenho de Consultas, apresentamos duas novas métricas que podem ajudar a identificar possíveis gargalos: duração e contagem de execução.<br>
 
 Consultas de longa execução tem o maior potencial para bloquear recursos por mais tempo, bloqueando outros usuários e limitando a escalabilidade. Elas também são as melhores candidatas para otimização.<br>
 

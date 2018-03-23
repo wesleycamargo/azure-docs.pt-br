@@ -1,11 +1,11 @@
 ---
-title: "Considerações de segurança para o SQL Server no Azure | Microsoft Docs"
-description: "Este tópico fornece diretrizes gerais para proteger o SQL Server em execução em uma Máquina Virtual do Azure."
+title: Considerações de segurança para o SQL Server no Azure | Microsoft Docs
+description: Este tópico fornece diretrizes gerais para proteger o SQL Server em execução em uma Máquina Virtual do Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2017
 ms.author: jroth
-ms.openlocfilehash: fa6568d33e86c055c12eb748eb67c8a2e7cc0f93
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 609e18cf2bdfdd84c71b67e31b66cd0ca7d47577
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações sobre Segurança para SQL Server em Máquinas Virtuais do Azure
 
@@ -98,5 +98,5 @@ Além das práticas descritas neste tópico, recomendamos examinar e implementar
 
 Se você também estiver interessado em práticas recomendadas sobre desempenho, veja [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md).
 
-Para ver outros tópicos relacionados à execução do SQL Server em VMs do Azure, confira [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Para ver outros tópicos relacionados à execução do SQL Server em VMs do Azure, confira [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md). Em caso de dúvidas sobre máquinas virtuais do SQL Server, consulte as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 

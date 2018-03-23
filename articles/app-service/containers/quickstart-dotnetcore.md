@@ -1,12 +1,12 @@
 ---
-title: "Criar um aplicativo Web .NET Core e implantá-lo no Serviço de Aplicativo no Linux | Microsoft Docs"
-description: "Implante seu primeiro aplicativo .NET Core Olá, Mundo no Serviço de Aplicativo no Linux em alguns minutos."
-keywords: "serviço de aplicativo do azure, aplicativo web, dotnet, core, linux, oss"
+title: Criar um aplicativo Web .NET Core e implantá-lo no Serviço de Aplicativo no Linux | Microsoft Docs
+description: Implante seu primeiro aplicativo .NET Core Olá, Mundo no Serviço de Aplicativo no Linux em alguns minutos.
+keywords: serviço de aplicativo do azure, aplicativo web, dotnet, core, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
 ms.workload: web
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 9fc7f2e05d0f02081dd438c515a201025ccb8a4f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0f40d2d953f028f2014c88a22f9ad31fed705b76
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Criar um aplicativo Web .NET Core no Serviço de Aplicativo no Linux
 
@@ -85,13 +85,13 @@ git commit -m "first commit"
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
 Navegue até o aplicativo Web recém-criado. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo web.
 
