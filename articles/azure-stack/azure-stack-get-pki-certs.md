@@ -1,25 +1,25 @@
 ---
-title: "Gerar certificados de infraestrutura de chave pública do Azure pilha para implantação de sistemas de pilha do Azure integradas | Microsoft Docs"
-description: "Descreve os sistemas de pilha do Azure integradas processfor implantação do Azure pilha PKI certificado."
+title: Gerar certificados de infraestrutura de chave pública do Azure pilha para implantação de sistemas de pilha do Azure integradas | Microsoft Docs
+description: Descreve os sistemas de pilha do Azure integradas processfor implantação do Azure pilha PKI certificado.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Gerar certificados PKI para implantação de pilha do Azure
 Agora que você sabe [os requisitos de certificado PKI](azure-stack-pki-certs.md) para implantações de pilha do Azure, você precisa obter os certificados da autoridade de certificação (CA) de sua escolha. 
@@ -30,7 +30,7 @@ Uma maneira para solicitar certificados de uma autoridade de certificação púb
 ### <a name="sample-inf-file"></a>Exemplo de arquivo INF 
 O arquivo INF de solicitação de certificado de exemplo pode ser usado para criar um arquivo de solicitação de certificado offline para envio a uma autoridade de certificação (interno ou público). O arquivo INF abrange todos os pontos de extremidade necessários (inclusive os serviços de PaaS opcionais) um certificado curinga. 
 
-O exemplo de arquivo INF assume essa região é igual a **sea** e o valor FQDN externo é **sea &46;contoso 46; & com**. Alterar esses valores para coincidir com seu ambiente antes de gerar um. Arquivo INF para sua implantação. 
+O exemplo de arquivo INF assume essa região é igual a **sea** e o valor FQDN externo é **sea&#46;contoso&#46;com**. Alterar esses valores para coincidir com seu ambiente antes de gerar um. Arquivo INF para sua implantação. 
 
     
     [Version] 
