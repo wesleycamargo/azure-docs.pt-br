@@ -28,7 +28,7 @@
 - name: Conceitos
   items:
     - name: Compreendendo os relatórios de custos
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: Guias de instruções
   items:
     - name: Ativar assinaturas e contas do Azure

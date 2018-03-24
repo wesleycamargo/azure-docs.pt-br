@@ -1,24 +1,24 @@
 ---
-title: "Documentação do Cache Redis do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como usar o Cache Redis do Azure, um cache de dados seguro e o agente de mensagens que dá aos aplicativos acesso rápido aos dados. Tutoriais, referências de API e muito mais."
+title: Documentação do Cache Redis do Azure - Tutoriais, Referência de API | Microsoft Docs
+description: Saiba como usar o Cache Redis do Azure, um cache de dados seguro e o agente de mensagens que dá aos aplicativos acesso rápido aos dados. Tutoriais, referências de API e muito mais.
 services: redis-cache
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: redis-cache
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 6528d900ba3641189f8000db8d2535c9b215d148
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b772df55f8862330da9e557b9bf2ed11b9e2347
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="redis-cache-documentation"></a>Documentação do Cache Redis
+# <a name="redis-cache-documentation"></a>Documentação do Cache Redis
 
 Saiba como usar o Cache Redis do Azure, um cache de dados seguro e o agente de mensagens que fornece alta taxa de transferência e acesso de baixa latência a dados para aplicativos. Os tutoriais, as referências de API e outras documentações mostram como usar o Cache Redis de qualquer aplicativo no Azure.
 

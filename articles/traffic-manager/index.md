@@ -1,24 +1,24 @@
 ---
-title: "Documentação do Gerenciador de Tráfego do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como gerenciar o tráfego de entrada para desempenho ideal do aplicativo. A Documentação mostra como distribuir o tráfego para pontos de extremidade de serviço do Azure ou externo."
+title: Documentação do Gerenciador de Tráfego do Azure - Tutoriais, Referência de API | Microsoft Docs
+description: Saiba como gerenciar o tráfego de entrada para desempenho ideal do aplicativo. A Documentação mostra como distribuir o tráfego para pontos de extremidade de serviço do Azure ou externo.
 services: traffic-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce3699f4838c30eaaa0ab2938190c05de1feb781
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="traffic-manager-documentation"></a>Documentação do Gerenciador de Tráfego
+# <a name="traffic-manager-documentation"></a>Documentação do Gerenciador de Tráfego
 
 Saiba como usar o Gerenciador de Tráfego para rotear o tráfego de entrada para confiabilidade e melhor desempenho dos aplicativos. Tutoriais, referências de API e outras documentações mostram como gerenciar o tráfego para pontos de extremidade de serviço do Azure ou externo.
 

@@ -6,8 +6,6 @@
       href: apache-domain-joined-introduction.md
     - name: Planejar para clusters ingressados no domínio
       href: apache-domain-joined-architecture.md
-    - name: Configurar ambiente de área restrita ingressado no domínio
-      href: apache-domain-joined-configure.md
     - name: Configurar clusters ingressados no domínio usando Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Sincronizar usuários do Azure AD com um cluster HDInsight

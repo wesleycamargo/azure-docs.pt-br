@@ -1,24 +1,24 @@
 ---
-title: "Documentação do Azure SQL Server Stretch Database - Tutoriais | Microsoft Azure"
-description: "Aprenda a usar o SQL Server Stretch Database para migrar os dados frios com segurança para o Azure sem alterar as consultas ou os aplicativos. Tutoriais e outra documentação."
+title: Documentação do Azure SQL Server Stretch Database - Tutoriais | Microsoft Azure
+description: Aprenda a usar o SQL Server Stretch Database para migrar os dados frios com segurança para o Azure sem alterar as consultas ou os aplicativos. Tutoriais e outra documentação.
 services: sql-server-stretch-database
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-server-stretch-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: cbdd210f2fe46228daa8c138815826df2b3b0fd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d40cd906abbee8b1d33f9e67c1940918ba4acb28
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="sql-server-stretch-database-documentation"></a>Documentação do SQL Server Stretch Database
+# <a name="sql-server-stretch-database-documentation"></a>Documentação do SQL Server Stretch Database
 
 Saiba como usar o SQL Server Stretch Database para migrar os dados frios de forma transparente e segura para a nuvem do Azure. Os tutoriais e outra documentação ajudam a configurar uma disponibilidade econômica para os bancos de dados com dados pouco usados sem exigir alterações nas consultas ou aplicativos existentes.
 
