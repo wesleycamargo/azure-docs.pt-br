@@ -18,6 +18,7 @@
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
+## [Catálogo de alerta de integridade do Azure AD Connect Health](active-directory-aadconnect-health-alert-catalog.md)
 ## [Conformidade GDPR e Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # Relacionados

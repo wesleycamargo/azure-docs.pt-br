@@ -103,6 +103,8 @@
               href: hyper-v-vmm-architecture.md
     - name: Recuperação de desastre para aplicativos
       href: site-recovery-workload.md
+    - name: Sobre planos de recuperação
+      href: recovery-plan-overview.md
     - name: Sobre a migração
       href: migrate-overview.md
     - name: Sobre o controle de acesso baseado em função com o Site Recovery
@@ -273,6 +275,12 @@
           items:
             - name: Realizar uma análise detalhada da recuperação de desastre para o Azure
               href: site-recovery-test-failover-to-azure.md
+            - name: Configurar planos de recuperação
+              href: site-recovery-create-recovery-plans.md
+            - name: Adicionar scripts VMM aos planos de recuperação
+              href: hyper-v-vmm-recovery-script.md
+            - name: Adicionar runbooks do Azure aos planos de recuperação
+              href: site-recovery-runbook-automation.md
             - name: Executar um failover para o Azure
               href: site-recovery-failover.md
             - name: Failback do Azure para Hyper-V

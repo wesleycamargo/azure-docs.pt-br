@@ -56,7 +56,10 @@
 #### [Modelos de implantação diferentes - mesma assinatura](create-peering-different-deployment-models.md)
 #### [Modelos de implantação diferentes - assinaturas diferentes](create-peering-different-deployment-models-subscriptions.md)
 
-### [Pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-configure.md)
+### Pontos de extremidade de serviço de rede virtual
+#### [Portal do Azure](tutorial-restrict-network-access-to-resources.md)
+#### [PowerShell do Azure](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [CLI do Azure](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### Máquinas virtuais
 #### [Interfaces de rede de máquina virtual](virtual-machine-network-throughput.md)
@@ -176,8 +179,12 @@
 ### [Problemas de conectividade entre VMs](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Configurar PTR para Seleção de Faixa de SMTP](create-ptr-for-smtp-service.md)
 
+## Exemplos de scripts
+### [CLI do Azure](cli-samples.md)
+### [PowerShell do Azure](powershell-samples.md)
+
 # Referência
-## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (Clássico)](/powershell/module/azure/)
 ## [CLI do Azure](/cli/azure/network)

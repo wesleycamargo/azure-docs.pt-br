@@ -19,6 +19,8 @@
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md
+        - name: Studio de operações SQL
+          href: 'https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
         - name: Portal do Azure
           href: sql-database-connect-query-portal.md
         - name: Código VS
@@ -101,8 +103,10 @@
           href: sql-database-manage-logins.md
         - name: Autenticação multifator
           href: sql-database-ssms-mfa-authentication.md
-        - name: Auditoria
+        - name: Auditoria - banco de dados SQL
           href: sql-database-auditing.md
+        - name: Auditoria - instância gerenciada
+          href: sql-database-managed-instance-auditing.md
         - name: Detecção de ameaças - Banco de Dados SQL
           href: sql-database-threat-detection.md
         - name: Detecção de ameaças - Instância Gerenciada
