@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: fa9c27457b1da4d233aaea2a6621af9f5d01149d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/23/2018
+---
 |  | **Ponto a Site** | **Site a site** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Serviços com Suporte no Azure** |Serviços de Nuvem e Máquinas Virtuais |Serviços de Nuvem e Máquinas Virtuais |[Lista de serviços](../articles/expressroute/expressroute-faqs.md#supported-services) |
@@ -6,8 +22,7 @@
 | **Roteamento** |RouteBased (dinâmico) |Damos suporte a PolicyBased (roteamento estático) e RouteBased (VPN de roteamento dinâmico) |BGP |
 | **Resiliência de conexão** |ativo-passivo |ativo-passivo ou ativo-ativo |ativo-ativo |
 | **Caso de uso típico** |Criação de protótipos, cenários de desenvolvimento / teste / laboratório para serviços de nuvem e máquinas virtuais |Cenários de desenvolvimento / teste / laboratório e de cargas de trabalho de produção em pequena escala para serviços de nuvem e máquinas virtuais |Acesso a todos os serviços do Azure (lista validada), cargas de trabalho essenciais e em nível Empresarial, Backup, Big Data e Azure como um site de DR |
-| **CONTRATO DE NÍVEL DE SERVIÇO** |[CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) |[CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) |[CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) |
+| **CONTRATO DE NÍVEL DE SERVIÇO** |[CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) |[CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |
 | **Preços** |[Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Preços](https://azure.microsoft.com/pricing/details/expressroute/) |
 | **Documentação Técnica** |[Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentação do ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
 | **PERGUNTAS FREQUENTES** |[Perguntas frequentes de gateway de VPN](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[Perguntas frequentes de gateway de VPN](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[Perguntas Frequentes sobre o ExpressRoute](../articles/expressroute/expressroute-faqs.md) |
-

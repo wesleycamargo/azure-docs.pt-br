@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: d8091fdade9cd417af58755d8245c2fb091b86b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/23/2018
+---
 A tabela a seguir lista os requisitos para gateways de VPN PolicyBased e RouteBased. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico. Para o modelo clássico, os gateways de VPN PolicyBased são iguais aos gateways Estáticos, e os gateways Baseados em rota são iguais aos gateways Dinâmicos.
 
 |  | **Gateway Básico de VPN PolicyBased** | **Gateway Básico de VPN RouteBased** | **Gateway Padrão de VPN RouteBased** | **Gateway de Alto Desempenho de VPN RouteBased** |
@@ -7,5 +23,4 @@ A tabela a seguir lista os requisitos para gateways de VPN PolicyBased e RouteBa
 | **Método de autenticação** |Chave pré-compartilhada |Chave pré-compartilhada para conectividade S2S, Certificados para conectividade P2S |Chave pré-compartilhada para conectividade S2S, Certificados para conectividade P2S |Chave pré-compartilhada para conectividade S2S, Certificados para conectividade P2S |
 | **Número máximo de conexões S2S** |1 |10 |10 |30 |
 | **Número máximo de conexões P2S** |Sem suporte |128 |128 |128 |
-| **Suporte ao roteamento ativo (BGP)** |Sem suporte |Sem suporte |Suportado |Suportado |
-
+| **Suporte ao roteamento ativo (BGP)** |Sem suporte |Sem suporte |Com suporte |Com suporte |
