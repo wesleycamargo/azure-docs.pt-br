@@ -28,9 +28,9 @@
     - name: 1 – Implantar pacotes do SSIS para o Azure
       items:
         - name: Interface do usuário (IU)
-          href: tutorial-create-azure-ssis-runtime-portal.md
-        - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure.md
+        - name: Azure PowerShell
+          href: tutorial-deploy-ssis-packages-azure-powershell.md
     - name: 2 – Copiar dados na nuvem
       items:
         - name: Ferramenta Copiar Dados
@@ -161,6 +161,8 @@
               href: connector-azure-table-storage.md
             - name: Cassandra
               href: connector-cassandra.md
+            - name: Serviço de dados comum para aplicativos
+              href: connector-dynamics-crm-office-365.md
             - name: Concur
               href: connector-concur.md
             - name: Couchbase

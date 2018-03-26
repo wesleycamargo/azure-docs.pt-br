@@ -77,7 +77,8 @@
 ## [Gerenciar grupos e membros](active-directory-manage-groups.md)
 ### Gerenciar grupos
 #### [Portal do Azure](active-directory-groups-create-azure-portal.md)
-#### [PowerShell do Azure](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Modelo do Azure Resource Manager do Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Modelo de implantação clássico do Azure PowerShell](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Gerenciar membros do grupo](active-directory-groups-members-azure-portal.md)
 ### [Gerenciar proprietários do grupo](active-directory-accessmanagement-managing-group-owners.md)
 ### [Gerenciar associação ao grupo](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [Exibir todos os grupos](active-directory-groups-view-azure-portal.md)
 ### [Adicionar grupo de acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Restaurar um grupo excluído do Office 365](active-directory-groups-restore-azure-portal.md)
-### Gerenciar configurações de grupo
-#### [Portal do Azure](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Gerenciar configurações de grupo](active-directory-groups-settings-azure-portal.md)
+
 ### Criar regras avançadas
 #### [Portal do Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Configurar grupos de autoatendimento](active-directory-accessmanagement-self-service-group-management.md)
@@ -215,12 +215,12 @@
 ##### [Home page personalizada](application-proxy-office365-app-launcher.md)
 ##### [Converter links embutidos](application-proxy-link-translation.md)
 ##### [Aplicativos curinga](active-directory-application-proxy-wildcard.md)
-
+##### [Proxy de aplicativo do AD do Azure e Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### Orientações de publicação
 ##### [Área de Trabalho Remota](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Equipes da Microsoft](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Solucionar problemas](active-directory-application-proxy-troubleshoot.md)
 
 

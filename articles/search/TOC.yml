@@ -77,11 +77,15 @@
           href: search-performance-optimization.md
     - name: Segurança
       items:
-        - name: Segurança de dados e operacional
+        - name: Visão geral da segurança
           href: search-security-overview.md
-        - name: Proteger usando filtros de identidade
+        - name: Serviço de gerenciamento de chaves
+          href: search-security-api-keys.md
+        - name: Acesso de administrador baseado em função
+          href: search-security-rbac.md
+        - name: Filtros de segurança
           href: search-security-trimming-for-azure-search.md
-        - name: Proteger usando o Active Directory
+        - name: Filtrar identidades do AAD
           href: search-security-trimming-for-azure-search-with-aad.md
     - name: Desenvolvimento
       items:

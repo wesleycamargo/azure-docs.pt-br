@@ -1,0 +1,27 @@
+- name: Documentação do Cloud Foundry
+  href: index.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Modelo do Marketplace
+      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
+- name: Tutoriais
+  items:
+    - name: Implantar o aplicativo CF no Azure
+      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+    - name: CloudFoundry no Azure
+      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+    - name: Implantar bocal CF OMS
+      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Site do Cloud Foundry
+      href: 'https://docs.cloudfoundry.org/'
+    - name: Instalando CF no Azure
+      href: 'https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html'
+    - name: Pivotal e o Azure
+      href: 'https://pivotal.io/partners/microsoft'
+    - name: Plug-in do VSTS para CF
+      href: 'https://github.com/Microsoft/vsts-cloudfoundry'

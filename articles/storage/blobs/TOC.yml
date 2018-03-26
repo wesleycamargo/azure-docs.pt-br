@@ -208,9 +208,11 @@
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Rotear eventos para um ponto de extremidade personalizado
       href: storage-blob-event-quickstart.md
-    - name: Domínios personalizados
+    - name: Recuperar blobs excluídos
+      href: storage-blob-soft-delete.md
+    - name: Configurar um domínio personalizado
       href: storage-custom-domain-name.md
-    - name: Pesquisando no Armazenamento de Blobs com o Azure Search
+    - name: Pesquisar o armazenamento de blob com o Azure Search
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Transferir dados
       items:
