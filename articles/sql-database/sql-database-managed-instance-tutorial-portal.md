@@ -7,18 +7,15 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: ''
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Criar uma Instância Gerenciada do Banco de Dados SQL no portal do Azure
 
@@ -26,6 +23,9 @@ Este tutorial demonstra como criar uma Instância Gerenciada do Banco de Dados S
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
+> [!IMPORTANT]
+> Para obter uma lista de regiões nas quais a Instância Gerenciada está disponível no momento, consulte [Migrar os bancos de dados para um serviço totalmente gerenciado com a Instância Gerenciada do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
 Faça logon no [Portal do Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
@@ -56,7 +56,7 @@ A Instância Gerenciada está sendo lançada inicialmente como uma versão prév
 As etapas a seguir mostram como criar uma nova VNet (rede virtual) do [ Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) para uso pela Instância Gerenciada. Para saber mais sobre a configuração de rede virtual, confira [Configuração de VNet de Instância Gerenciada](sql-database-managed-instance-vnet-configuration.md).
 
 1. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
-2. Localize e clique em **Rede Virtual**, verifique se o **Gerenciador de Recursos de** está selecionado como o modo de implantação e clique em **Criar**.
+2. Localize e, em seguida, clique em **Rede Virtual**, verifique se o **Gerenciador de Recursos** está selecionado como o modo de implantação e, em seguida, clique em **Criar**.
 
    ![virtual network create](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
@@ -74,7 +74,7 @@ As etapas a seguir mostram como criar uma nova VNet (rede virtual) do [ Azure Re
    |**Pontos de extremidade de serviço**|Desabilitado|Habilitar um ou mais pontos de extremidade de serviço para a sub-rede|
    ||||
 
-   ![virtual network create form](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
+   ![formulário de criação de rede virtual](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
 4. Clique em **Criar**.
 
@@ -83,7 +83,7 @@ As etapas a seguir mostram como criar uma nova VNet (rede virtual) do [ Azure Re
 As etapas a seguir mostram como criar uma rota de Internet de Próximo Salto 0.0.0.0/0.
 
 1. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
-2. Localize e clique em **Tabela de rotas**e, em seguida, clique em **Criar** na página Tabela de rotas. 
+2. Localize e clique em **Tabela de rotas** e, em seguida, clique em **Criar** na página Tabela de rotas. 
 
    ![route table create](./media/sql-database-managed-instance-tutorial/route-table-create.png)
 
@@ -98,7 +98,7 @@ As etapas a seguir mostram como criar uma rota de Internet de Próximo Salto 0.0
    |**Desabilitar a propagação de rotas BCP**|Desabilitado||
    ||||
 
-   ![route table create form](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
+   ![formulário de criação da tabela de rotas](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
 4. Clique em **Criar**.
 5. Abra a tabela de rotas quando terminar de ser criada.
@@ -118,7 +118,7 @@ As etapas a seguir mostram como criar uma rota de Internet de Próximo Salto 0.0
     |**Tipo do próximo salto**|Internet|O próximo salto lida com os pacotes correspondentes para essa rota|
     |||
 
-    ![route](./media/sql-database-managed-instance-tutorial/route.png)
+    ![rota](./media/sql-database-managed-instance-tutorial/route.png)
 
 8. Clique em **OK**.
 
@@ -133,11 +133,11 @@ As etapas a seguir mostram como definir a nova tabela de rotas na sub-rede da In
 
 11. Clique em **Tabela de rotas** e selecione **myMI_route_table**.
 
-    ![set route table](./media/sql-database-managed-instance-tutorial/set-route-table.png)
+    ![definir tabela de rotas](./media/sql-database-managed-instance-tutorial/set-route-table.png)
 
 12. Clique em **Salvar**
 
-    ![set route table-save](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
+    ![definir tabela de rotas - salvar](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
 ## <a name="create-a-managed-instance"></a>Criar uma Instância Gerenciada
 
@@ -284,7 +284,7 @@ As etapas a seguir mostram como baixar e instalar o SSMS e conectar-se à sua In
     ![internet explorer enhanced security configuration](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 4. Abra o **Internet Explorer** na barra de tarefas.
 5. Selecione **Usar as configurações de segurança e compatibilidade recomendadas** e clique em **OK** para concluir a configuração do Internet Explorer 11.
-6. Digite https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms na caixa de endereço URL e clique em **Enter**. 
+6. Insira https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms na caixa de endereço de URL e clique em **Enter**. 
 7. Baixe a versão mais recente do SQL Server Management Studio e clique em **Executar** quando solicitado.
 8. Quando solicitado, clique em **Instalar** para começar.
 9. Quando a instalação for concluída, clique em **Fechar**.
@@ -299,7 +299,7 @@ Depois de se conectar, você pode exibir seus bancos de dados do sistema e do us
 
 Use as etapas a seguir para baixar o arquivo Wide World Importers - backup padrão.
 
-Usando o Internet Explorer, digite https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak na caixa de endereço URL e, quando solicitado, clique em **Salvar**para salvar o arquivo na pasta **Downloads**.
+Usando o Internet Explorer, insira https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak na caixa de endereço de URL e, ao receber a solicitação, clique em **Salvar** para salvar esse arquivo na pasta **Downloads**.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Criar conta de armazenamento do Azure e carregar o arquivo de backup
 

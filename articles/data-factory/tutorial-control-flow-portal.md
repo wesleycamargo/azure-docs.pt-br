@@ -1,8 +1,8 @@
 ---
-title: "Ramificação no pipeline do Azure Data Factory | Microsoft Docs"
-description: "Aprenda a controlar o fluxo de dados no Azure Data Factory por ramificação e encadeamento de atividades."
+title: Ramificação no pipeline do Azure Data Factory | Microsoft Docs
+description: Aprenda a controlar o fluxo de dados no Azure Data Factory por ramificação e encadeamento de atividades.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 00b377b8ed7454c64d146a2de1867eca8ab1fb67
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 Neste tutorial, você deve criar um pipeline de Data Factory que apresente alguns dos recursos de fluxo de controle. Esse pipeline faz uma cópia simples de um contêiner no Armazenamento de Blobs do Azure para outro contêiner na mesma conta de armazenamento. Se a atividade de cópia for bem-sucedida, o pipeline enviará detalhes da operação de cópia bem-sucedida (tais como a quantidade de dados gravados) em um email de êxito. Se a atividade de cópia falhar, o pipeline enviará detalhes da falha de cópia (por exemplo, a mensagem de erro) em um email de falha. Ao longo do tutorial, você verá como passar parâmetros.
@@ -27,7 +27,7 @@ Neste tutorial, você deve criar um pipeline de Data Factory que apresente algun
 
 Uma visão geral de alto nível do cenário: ![Visão geral](media/tutorial-control-flow-portal/overview.png)
 
-Neste tutorial, você executa as seguintes etapas:
+Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
@@ -309,7 +309,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
 3. Na janela **Execução de Pipeline**, siga estas etapas: 
 
     1. Insira **adftutorial/dummy/inputt** no parâmetro **sourceBlobContainer**. Certifique-se de que a pasta fictícia não existe no contêiner adftutorial. 
-    2. Insira **adftutorial/dummy/inputt** no parâmetro **sinkBlobContainer**. 
+    2. Insira **adftutorial/dummy/output** no parâmetro **sinkBlobContainer**. 
     3. Insira um **endereço de email** do **receptor**. 
     4. Clique em **Concluir**.
 
@@ -329,7 +329,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
     ![Erro de execução da atividade](./media/tutorial-control-flow-portal/activity-run-error.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você realizou as seguintes etapas: 
+Neste tutorial, você realizará os seguintes procedimentos: 
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.

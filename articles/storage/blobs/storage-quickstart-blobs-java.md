@@ -1,19 +1,19 @@
 ---
-title: "Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando Java | Microsoft Docs"
-description: "Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para Java a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner."
+title: Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando Java | Microsoft Docs
+description: Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para Java a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Início rápido: Carregar, baixar e listar blobs usando Java
 
@@ -202,6 +202,19 @@ downloadedFile.deleteOnExit();
 if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
+
+## <a name="resources-for-developing-java-applications-with-blobs"></a>Recursos para desenvolvimento de aplicativos Java com blobs
+
+Consulte estes recursos adicionais para o desenvolvimento em Java com armazenamento de blobs:
+
+### <a name="binaries-and-source-code"></a>Binários e código-fonte
+
+- Exiba e baixe o [código-fonte da biblioteca do cliente Java](https://github.com/Azure/azure-storage-java) para o Armazenamento do Azure no GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Exemplos e referência da biblioteca de clientes
+
+- Confira a [referência da API Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage) para saber mais sobre a biblioteca de clientes Java.
+- Explore [exemplos de armazenamento de Blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) gravados usando a biblioteca de clientes de Java.
 
 ## <a name="next-steps"></a>Próximas etapas
 

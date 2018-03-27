@@ -1,10 +1,14 @@
-**Confira os links a seguir para obter informações de configuração:**
+**Para fazer o download de scripts de configuração do dispositivo VPN**
+
+Dependendo do seu dispositivo VPN, será possível baixar um script de configuração do dispositivo VPN. Para saber mais, confira [Fazer download dos scripts de configuração de dispositivo de VPN](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
+
+**Confira os links a seguir para obter outras informações de configuração:**
 
 - Para obter informações sobre os dispositivos VPN compatíveis, consulte [Dispositivos VPN](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 - Antes de configurar seu dispositivo VPN, verifique se há [Problemas de compatibilidade de dispositivo conhecidos](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) em relação ao dispositivo VPN que você deseja usar.
 
-- Para obter links para as configurações do dispositivo, consulte [Dispositivos VPN Validados](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Os links de configuração do dispositivo são fornecidos em uma base de melhor esforço. Sempre é melhor verificar com o fabricante do dispositivo para obter as últimas informações de configuração. A lista que fornecemos mostra as versões que testamos. Se seu sistema operacional não estiver na lista, ainda é possível que a versão seja compatível. Verifique com o fabricante do seu dispositivo se a versão do sistema operacional do seu dispositivo VPN é compatível.
+- Para obter links para as configurações do dispositivo, consulte [Dispositivos VPN Validados](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Os links de configuração do dispositivo são fornecidos em uma base de melhor esforço. Sempre é melhor verificar com o fabricante do dispositivo para obter as últimas informações de configuração. A lista mostra as versões que testamos. Se seu sistema operacional não estiver na lista, ainda é possível que a versão seja compatível. Verifique com o fabricante do seu dispositivo se a versão do sistema operacional do seu dispositivo VPN é compatível.
 
 - Para obter uma visão geral da configuração de dispositivo VPN, consulte [Visão geral das configurações de dispositivo VPN de terceiros](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 

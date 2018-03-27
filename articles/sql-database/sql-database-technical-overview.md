@@ -1,27 +1,19 @@
 ---
-title: "O que é o serviço do Banco de Dados SQL do Azure? | Microsoft Docs"
-description: "Obtenha uma introdução ao Banco de Dados SQL: detalhes e recursos técnicos do RDBMS (sistema de gerenciamento de banco de dado relacional) da Microsoft na nuvem."
-keywords: "introdução ao sql, introdução ao sql, o que é o banco de dados sql"
+title: O que é o serviço do Banco de Dados SQL do Azure? | Microsoft Docs
+description: 'Obtenha uma introdução ao Banco de Dados SQL: detalhes e recursos técnicos do RDBMS (sistema de gerenciamento de banco de dado relacional) da Microsoft na nuvem.'
+keywords: introdução ao sql, introdução ao sql, o que é o banco de dados sql
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
+manager: craigg
 ms.service: sql-database
-ms.custom: overview
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.date: 03/07/2018
-ms.workload: Active
 ms.author: carlrab
-ms.reviewer: carlrab
-ms.openlocfilehash: a1c4426acec8e9e006c2349b886297f45cc8ecb2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a06ed8433ebcf728c7b090f5e984d4e3ebeb846
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure? 
 
@@ -37,7 +29,8 @@ O Banco de Dados SQL compartilha a sua base de código com o [mecanismo de banco
 
 O Banco de Dados SQL oferece um desempenho previsível em vários níveis de serviço que fornece escalabilidade dinâmica sem tempo de inatividade, otimização inteligente interna, escalabilidade e disponibilidade globais e opções avançadas de segurança, tudo com quase nenhuma administração. Esses recursos permitem que você se concentre no desenvolvimento rápido de aplicativos e acelere seu tempo de colocação no mercado, em vez de alocar tempo e recursos preciosos para gerenciamento de máquinas virtuais e infraestrutura. O serviço Banco de Dados SQL está atualmente 38 data centers ao redor do mundo, e mais data centers ficam online regularmente, o que permite a execução do banco de dados em um data center próximo.
 
-> [IMPORATNTE]A Instância Gerenciada do Banco de Dados SQL está atualmente em versão prévia e só está disponível em um único nível de serviço. Para saber mais, confira [Instância Gerenciada do Banco de Dados SQL](sql-database-managed-instance.md).
+> [!IMPORTANT]
+> A Instância Gerenciada do Banco de Dados SQL está atualmente em versão prévia e só está disponível em um único nível de serviço. Para saber mais, confira [Instância Gerenciada do Banco de Dados SQL](sql-database-managed-instance.md).
 >
 
 ## <a name="scalable-performance-and-pools"></a>Pools e desempenho dimensionável

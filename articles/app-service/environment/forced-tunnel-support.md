@@ -1,6 +1,6 @@
 ---
-title: "Configurar seu Ambiente do Serviço de Aplicativo do Azure para ser forçado em túnel"
-description: "Habilitar o Ambiente do Serviço de Aplicativo para trabalhar quando é realizado o túnel forçado do tráfego de saída"
+title: Configure seu Ambiente do Serviço de Aplicativo do Azure para ser forçado em túnel
+description: Habilite o Ambiente do Serviço de Aplicativo para trabalhar quando é realizado o túnel forçado do tráfego de saída
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/10/2017
+ms.date: 3/6/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 4caaf0df3f1dd4b2cb9b76283a6beed897531c1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar seu Ambiente de Serviço de Aplicativo com tunelamento forçado
 
-O Ambiente do Serviço de Aplicativo é uma implantação do Serviço de Aplicativo do Azure em uma instância de Rede Virtual do Azure do cliente. Muitos clientes configuram suas redes virtuais para extensões de suas redes locais com VPNs ou conexões ExpressRoute do Azure. Devido a políticas corporativas ou outras restrições de segurança, eles configuraram rotas para enviar todo o tráfego de saída no local para poder entrar com a internet. Alterar o roteamento da rede virtual para que o tráfego de saída da rede virtual flua por meio da conexão VPN ou ExpressRoute para o local é chamado de túnel forçado. 
+Um Ambiente do Serviço de Aplicativo (ASE) é uma implantação do Serviço de Aplicativo do Azure na Rede Virtual do Azure de um cliente. Muitos clientes configuram suas redes virtuais do Azure para extensões de suas redes locais com VPNs ou conexões ExpressRoute do Azure. O túnel forçado é quando você redireciona o tráfego associado de Internet para a VPN ou uma solução de virtualização. Isso geralmente é feito como parte dos requisitos de segurança para inspecionar e auditar todo o tráfego de saída. 
 
-O túnel forçado pode causar problemas para um Ambiente do Serviço de Aplicativo. O Ambiente do Serviço de Aplicativo tem inúmeras dependências externas, enumeradas no documento [arquitetura de rede do Ambiente do Serviço de Aplicativo][network]. O Ambiente do Serviço de Aplicativo, por padrão, requer que todas as comunicações de saída atravessem o VIP provisionado com o Ambiente do Serviço de Aplicativo.
+O Ambiente do Serviço de Aplicativo tem inúmeras dependências externas, que são descritas no documento [Arquitetura de rede do Ambiente do Serviço de Aplicativo][network]. Normalmente, todo o tráfego de dependência de saída do ASE deve percorrer o VIP que está provisionado com o ASE. Se você alterar o roteamento de tráfego de ou para o ASE sem seguir as informações a seguir, o ASE irá parar de funcionar.
 
-As rotas são um aspecto importante do que o túnel forçado é e como lidar com ele. Em uma rede virtual do Azure, o roteamento é feito com base na LPM (correspondência de prefixo mais longo). Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
+Em uma rede virtual do Azure, o roteamento é feito com base na LPM (correspondência de prefixo mais longo). Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
 
 * UDR (rota definida pelo usuário)
 * Rota BGP (quando o ExpressRoute é usado)
@@ -34,80 +34,105 @@ As rotas são um aspecto importante do que o túnel forçado é e como lidar com
 
 Para saber mais sobre como rotear em uma rede virtual, leia [User-defined routes and IP forwarding][routes] (Rotas definidas pelo usuário e encaminhamento de IP). 
 
-Se você desejar que o Ambiente do Serviço de Aplicativo opere em uma rede virtual de túnel forçado, você terá duas opções:
+Se quiser encaminhar seu tráfego de saída do ASE para algum lugar sem ser diretamente para a Internet, você tem as seguintes opções:
 
-* Habilitar o Ambiente do Serviço de Aplicativo para ter acesso direto à Internet.
-* Alterar o ponto de extremidade de saída para o Ambiente do Serviço de Aplicativo.
+* Habilitar seu ASE para ter acesso direto à internet
+* Configurar sua sub-rede do ASE para usar Pontos de Extremidade de Serviço para o SQL do Azure e o Armazenamento do Azure
+* Adicione seus próprios IPs para o firewall do SQL do Azure ASE
 
 ## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Habilitar o Ambiente do Serviço de Aplicativo para ter acesso direto à Internet
 
-Para o Ambiente do Serviço de Aplicativo funcionar enquanto sua rede virtual é configurada com uma conexão ExpressRoute, é possível:
+Para habilitar o ASE para ir diretamente para a Internet, mesmo se sua rede virtual do Azure estiver configurada com o ExpressRoute, você pode:
 
-* Configurar o ExpressRoute para anunciar 0.0.0.0/0. Por padrão, ele forçar túneis para todo o tráfego de saída local.
-* Crie um UDR. Aplicá-lo à sub-rede que contém o Ambiente do Serviço de Aplicativo com um prefixo de endereço 0.0.0.0/0 e um tipo do próximo salto como Internet.
+* Configurar o ExpressRoute para anunciar 0.0.0.0/0. Por padrão, ele encaminha todo o tráfego de saída local.
+* Crie um UDR com um prefixo de endereço 0.0.0.0/0 e um tipo de próximo salto de Internet e aplique-o à sub-rede do ASE.
 
-Se você fizer essas duas alterações, o tráfego destinado à Internet proveniente da sub-rede do Ambiente do Serviço de Aplicativo não será forçado a ir para a conexão ExpressRoute, e o Ambiente do Serviço de Aplicativo funcionará.
+Se você fizer essas duas alterações, o tráfego destinado à Internet proveniente da sub-rede do Ambiente do Serviço de Aplicativo não será forçado a ir para a conexão ExpressRoute.
 
 > [!IMPORTANT]
 > As rotas definidas em uma UDR devem ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração do ExpressRoute. O exemplo anterior usa o intervalo de endereços amplo 0.0.0.0/0. É possível que ele seja acidentalmente substituído pelos anúncios de rota que usam intervalos de endereços mais específicos.
 >
-> Os Ambientes do Serviço de Aplicativo não são compatíveis com configurações do ExpressRoute que façam anúncios de modo cruzado de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado. Configurações do ExpressRoute com emparelhamento público configurado recebem anúncios de rota da Microsoft. Os anúncios contêm um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se os intervalos de endereços forem anunciados de modo cruzado no caminho de emparelhamento privado, o túnel forçado de todos os pacotes de rede de saída da sub-rede do Ambiente do Serviço de Aplicativo será realizado para uma infraestrutura de rede local do cliente. Esse fluxo de rede não é compatível no momento com os Ambientes do Serviço de Aplicativo. Uma solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento privado. Outra solução é habilitar o Ambiente do Serviço de Aplicativo para trabalhar em uma configuração de túnel forçado.
+> Os Ambientes do Serviço de Aplicativo não são compatíveis com configurações do ExpressRoute que façam anúncios de modo cruzado de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado. Configurações do ExpressRoute com emparelhamento público configurado recebem anúncios de rota da Microsoft. Os anúncios contêm um grande conjunto de intervalos de endereços do Microsoft Azure. Se os intervalos de endereços forem anunciados de modo cruzado no caminho de emparelhamento privado, todos os pacotes de rede de saída da sub-rede do Ambiente do Serviço de Aplicativo serão encaminhados para uma infraestrutura de rede local do cliente. Por padrão, esse fluxo de rede não é compatível com os Ambientes do Serviço de Aplicativo. Uma solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento privado. Outra solução é habilitar o Ambiente do Serviço de Aplicativo para trabalhar em uma configuração de túnel forçado.
 
-## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>Alterar o ponto de extremidade de saída para o Ambiente do Serviço de Aplicativo ##
+![Acesso direto à Internet][1]
 
-Esta seção descreve como habilitar um Ambiente do Serviço de Aplicativo para operar em uma configuração de túnel forçado alterando o ponto de extremidade de saída usado pelo Ambiente do Serviço de Aplicativo. Se o túnel forçado do tráfego de saída do Ambiente do Serviço de Aplicativo for realizado para uma rede local, será necessário permitir que esse tráfego tenha como origem endereços IP diferentes do endereço VIP do Ambiente do Serviço de Aplicativo.
+## <a name="configure-your-ase-with-service-endpoints"></a>Configure seu ASE com Pontos de Extremidade de Serviço
 
-Um Ambiente do Serviço de Aplicativo não tem apenas dependências externas, mas também deve ser escutado para tráfego de entrada e responder a esse tráfego. As respostas não podem ser enviadas de volta de outro endereço, porque isso interrompe o TCP. Há três etapas necessárias para alterar o ponto de extremidade de saída para o Ambiente do Serviço de Aplicativo:
+Para encaminhar todo o tráfego de saída de seu ASE, exceto o que vai para o SQL Azure e o Armazenamento do Azure, execute as etapas a seguir:
 
-1. Definir uma tabela de rotas para garantir que o tráfego de gerenciamento de entrada possa voltar do mesmo endereço IP.
+1. Crie uma tabela de rota e atribua-a à sua sub-rede do ASE. Encontre os endereços que correspondem à sua região aqui: [Endereços de gerenciamento de Ambiente do Serviço de Aplicativo][management]. Crie rotas para esses endereços com um próximo salto da Internet. Isso é necessário porque o tráfego do gerenciamento de entrada do Ambiente do Serviço de Aplicativo deve responder do mesmo endereço do qual ele foi enviado.   
 
-2. Adicionar seus endereços IP que devem ser usados para a saída para o firewall do Ambiente do Serviço de Aplicativo.
+2. Habilite os Pontos de Extremidade de Serviço com o SQL do Azure e o Armazenamento do Azure com sua sub-rede do ASE
 
-3. Definir as rotas para o tráfego de saída do Ambiente do Serviço de Aplicativo a ter o túnel forçado realizado.
+Os Pontos de Extremidade de Serviço permitem restringir o acesso aos serviços de vários locatários para um conjunto de sub-redes e redes virtuais do Azure. Você pode saber mais sobre os Pontos de Extremidade de Serviço na documentação [Pontos de Extremidade de Serviço de Rede Virtual][serviceendpoints]. 
 
-   ![Fluxo de rede de túnel forçado][1]
+Quando você habilita Pontos de Extremidade de Serviço em um recurso, existem rotas criadas com prioridade mais alta que todas as outras rotas. Se você usar Pontos de Extremidade de Serviço com um ASE em túnel forçado, o SQL do Azure e o tráfego de gerenciamento do Armazenamento do Azure não é forçado em túnel. O outro tráfego de dependência do ASE é forçado em túnel e não pode ser perdido senão o ASE não funcionará corretamente.
 
-Será possível configurar o Ambiente do Serviço de Aplicativo com diferentes endereços de saída depois que o Ambiente do Serviço de Aplicativo já estiver em funcionamento ou eles poderão ser definidos durante a implantação do Ambiente do Serviço de Aplicativo.
+Quando os Pontos de Extremidade de Serviço estão habilitados em uma sub-rede com uma instância do SQL do Azure, todas as instâncias do SQL do Azure conectadas à sub-rede devem ter os Pontos de Extremidade de Serviço habilitados. Se quiser acessar várias instâncias do SQL do Azure da mesma sub-rede, você não pode habilitar os Pontos de Extremidade de Serviço em uma instância do SQL do Azure e não em outra.  O Armazenamento do Azure não possuem o mesmo comportamento do SQL do Azure.  Ao habilitar os Pontos de Extremidade de Serviço com o Armazenamento do Azure, você bloqueia o acesso a esse recurso de sua sub-rede, mas ainda pode acessar outras contas de Armazenamento do Azure, mesmo se elas não tiverem os Pontos de Extremidade de Serviço habilitados.  
 
-### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>Alterar o endereço de saída depois que o Ambiente do Serviço de Aplicativo estiver em funcionamento ###
-1. Obtenha os endereços IP que você deseja usar como IPs de saída para o Ambiente do Serviço de Aplicativo. Se você estiver realizando túnel forçado, estes endereços virão dos das NATs ou dos IPs do gateway. Se desejar rotear o tráfego de saída do Ambiente do Serviço de Aplicativo por meio de uma NVA, o endereço de saída será o IP público da NVA.
+Se você configurar o túnel forçado com um dispositivo de filtro de rede, lembre-se de que o ASE tem um número de dependências, além do SQL do Azure e do Armazenamento do Azure. Você deve permitir esse tráfego senão o ASE não funcionará corretamente.
 
-2. Defina os endereços de saída em suas informações de configuração do Ambiente do Serviço de Aplicativo. Acesse resource.azure.com e vá para Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Em seguida, será possível ver o JSON que descreve o Ambiente do Serviço de Aplicativo. Certifique-se de que consta **leitura/gravação** na parte superior. Selecione **Editar**. Role até a parte inferior e altere o valor **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Use os endereços que você deseja definir como o intervalo de endereços de saída. 
+![Túnel forçado com pontos de extremidade de serviço][2]
+
+## <a name="add-your-own-ips-to-the-ase-azure-sql-firewall"></a>Adicione seus próprios IPs para o firewall do SQL do Azure ASE ##
+
+Para encapsular todo o tráfego de saída de seu ASE, exceto o que vai para o Armazenamento do Azure, execute as etapas a seguir:
+
+1. Crie uma tabela de rota e atribua-a à sua sub-rede do ASE. Encontre os endereços que correspondem à sua região aqui: [Endereços de gerenciamento de Ambiente do Serviço de Aplicativo][management]. Crie rotas para esses endereços com um próximo salto da Internet. Isso é necessário porque o tráfego do gerenciamento de entrada do Ambiente do Serviço de Aplicativo deve responder do mesmo endereço do qual ele foi enviado. 
+
+2. Habilite os Pontos de Extremidade de Serviço com o Armazenamento do Azure com sua sub-rede do ASE
+
+3. Obtenha os endereços que serão usados para todo o tráfego de saída do seu Ambiente de Serviço de Aplicativo com a Internet. Se você estiver roteando o tráfego no local, esses endereços serão seus IPs de gateway ou NATs. Se desejar rotear o tráfego de saída do Ambiente do Serviço de Aplicativo por meio de uma NVA, o endereço de saída será o IP público da NVA.
+
+4. _Para definir os endereços de saída em um Ambiente de Serviço de Aplicativo existente:_ Vá para resource.azure.com e acesse Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Em seguida, será possível ver o JSON que descreve o Ambiente do Serviço de Aplicativo. Certifique-se de que consta **leitura/gravação** na parte superior. Selecione **Editar**. Role até a parte inferior. Altere o valor **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Use os endereços que você deseja definir como o intervalo de endereços de saída. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    Selecione **PUT** na parte superior. Essa opção dispara uma operação de dimensionamento no Ambiente do Serviço de Aplicativo e ajusta o firewall.
- 
-3. Crie ou edite uma tabela de rota e preencha as regras para permitir o acesso de/para os endereços de gerenciamento mapeados para o local do Ambiente do Serviço de Aplicativo. Para localizar os endereços de gerenciamento, consulte [Endereços de gerenciamento de Ambiente de Serviço de Aplicativo][management].
 
-4. Ajuste as rotas aplicadas à sub-rede do Ambiente do Serviço de Aplicativo com uma tabela de rotas ou com rotas BGP. 
+_Para criar seu ASE com os endereços de saída_: siga as instruções em [Criar um Ambiente de Serviço de Aplicativo com um modelo][template] e baixe o modelo apropriado.  Edite a seção "recursos" no arquivo azuredeploy.json, mas não no bloco "propriedades" e inclua uma linha para **userWhitelistedIpRanges** com seus valores.
 
-Se o Ambiente do Serviço de Aplicativo ficar sem resposta no Portal, haverá um problema com as suas alterações. Talvez o problema seja que a sua lista de endereços de saída estava incompleta, o tráfego foi perdido ou bloqueado. 
+    "resources": [
+      {
+        "apiVersion": "2015-08-01",
+        "type": "Microsoft.Web/hostingEnvironments",
+        "name": "[parameters('aseName')]",
+        "kind": "ASEV2",
+        "location": "[parameters('aseLocation')]",
+        "properties": {
+          "name": "[parameters('aseName')]",
+          "location": "[parameters('aseLocation')]",
+          "ipSslAddressCount": 0,
+          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+          "dnsSuffix" : "[parameters('dnsSuffix')]",
+          "virtualNetwork": {
+            "Id": "[parameters('existingVnetResourceId')]",
+            "Subnet": "[parameters('subnetName')]"
+          },
+        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+        }
+      }
+    ]
 
-### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Criar um novo Ambiente do Serviço de Aplicativo com um endereço de saída diferente ###
+Essas alterações enviam tráfego para o Armazenamento do Azure diretamente a partir do ASE e permitem o acesso para o SQL do Azure de endereços adicionais que não sejam o VIP do ASE.
 
-Se sua rede virtual já estiver configurada para realizar túnel forçado de todo o tráfego, será necessário executar algumas etapas adicionais para criar o Ambiente do Serviço de Aplicativo para que ele possa ser criado com sucesso. É necessário habilitar o uso de outro ponto de extremidade de saída durante a criação de Ambiente do Serviço de Aplicativo. Para fazer isso, é necessário criar o Ambiente do Serviço de Aplicativo com um modelo que especifica os endereços de saída permitidos.
+   ![Túnel forçado com lista de permissões do SQL][3]
 
-1. Obtenha os endereços IP a serem usados como os endereços de saída para o Ambiente do Serviço de Aplicativo.
+## <a name="preventing-issues"></a>Como evitar problemas ##
 
-2. Crie previamente a sub-rede a ser usada pelo Ambiente do Serviço de Aplicativo. Ela é necessária, para poder definir rotas e também porque o modelo precisa dela.
+Se a comunicação entre o ASE e suas dependências for interrompida, o ASE ficará não íntegro.  Se ele permanecer não íntegro por muito tempo, o ASE ficará suspenso. Para cancelar a suspensão do ASE, siga as instruções em seu portal do ASE.
 
-3. Crie uma tabela de rotas com IPs de gerenciamento que mapeie para seu local do Ambiente do Serviço de Aplicativo. Atribua-o a seu Ambiente do Serviço de Aplicativo.
-
-4. Siga as instruções em [Criar um Ambiente do Serviço de Aplicativo com um modelo][template]. Obtenha o modelo apropriado.
-
-5. Edite a seção "recursos" do arquivo azuredeploy.json. Inclua uma linha para **userWhitelistedIpRanges** com seus valores como esta:
-
-       "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
-
-Se esta seção estiver configurada corretamente, o Ambiente do Serviço de Aplicativo deverá ser iniciado sem problemas. 
+Além de simplesmente interromper a comunicação, você pode afetar adversamente o ASE introduzindo muita latência. Muito latência pode ocorrer se o ASE estiver muito longe de sua rede local.  Exemplos de muito longe incluiriam atravessar um oceano ou continente para acessar sua rede local. A latência também pode ser apresentada devido a congestionamento da intranet ou restrições de largura de banda de saída.
 
 
 <!--IMAGES-->
-[1]: ./media/forced-tunnel-support/forced-tunnel-flow.png
+[1]: ./media/forced-tunnel-support/asedependencies.png
+[2]: ./media/forced-tunnel-support/forcedtunnelserviceendpoint.png
+[3]: ./media/forced-tunnel-support/forcedtunnelexceptstorage.png
 
 <!--Links-->
 [management]: ./management-addresses.md
 [network]: ./network-info.md
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Kubernetes no Azure – Preparar o ACR"
-description: "Tutorial do AKS – preparar o ACR"
+title: Tutorial do Kubernetes no Azure – Preparar o ACR
+description: Tutorial do AKS – preparar o ACR
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b676898cca7e5c80d6ba872e76a9effdb852bfff
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5a900e19bf589732d0cc652e4c32f118dc1964b3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implantar e usar o Registro de Contêiner do Azure
 
@@ -79,7 +79,7 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ag
 
 Cada imagem de contêiner precisa ser marcada com o nome do registro loginServer. Essa marca é usada para roteamento ao enviar imagens de contêiner por push a um registro da imagem.
 
-Para obter o nome de loginServer, execute o comando a seguir.
+Use o comando [az acr list][az-acr-list] para obter o nome do loginServer.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -170,7 +170,9 @@ Avance para o próximo tutorial para saber mais sobre a implantação de um clus
 
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#create
+[az-acr-list]: /cli/azure/acr#list
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az_acr_list
 [az-acr-repository-list]: /cli/azure/acr/repository#list
 [az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
 [az-group-create]: /cli/azure/group#az_group_create

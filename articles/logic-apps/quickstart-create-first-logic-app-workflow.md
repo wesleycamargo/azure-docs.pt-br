@@ -1,12 +1,12 @@
 ---
-title: "Criar seu primeiro fluxo de trabalho automatizado - Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Este guia de início rápido mostra como automatizar o seu primeiro fluxo de trabalho com o Aplicativo Lógico do Azure para cenários de integração do sistema e integração de aplicativos empresariais (EAI) que integram sistemas e serviços de nuvem"
+title: Criar seu primeiro fluxo de trabalho automatizado - Aplicativo Lógico do Azure | Microsoft Docs
+description: Este guia de início rápido mostra como automatizar o seu primeiro fluxo de trabalho com o Aplicativo Lógico do Azure para cenários de integração do sistema e integração de aplicativos empresariais (EAI) que integram sistemas e serviços de nuvem
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-keywords: "fluxos de trabalho, serviços de nuvem, integração do sistema, integração de aplicativos empresariais, EAI"
-documentationcenter: 
+keywords: fluxos de trabalho, serviços de nuvem, integração do sistema, integração de aplicativos empresariais, EAI
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Início rápido: Criar seu fluxo de trabalho de aplicativo lógico - portal do Azure
 
@@ -38,7 +38,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
 
 ## <a name="create-your-logic-app"></a>Criar seu aplicativo lógico 
 
-1. No portal principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
+1. No menu principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
 
    ![Criar aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
@@ -60,6 +60,8 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
    ![Escolha o modelo de aplicativo lógico em branco](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) que é acionado quando um novo item de RSS feed aparece. Cada aplicativo lógico deve começar com um gatilho, que é disparado quando um evento específico ocorre ou quando uma condição específica é atendida. Cada vez que o disparador é acionado, o mecanismo de Aplicativos Lógicos cria uma instância de aplicativo lógico que inicia e executa o fluxo de trabalho.
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Verifique o RSS feed com um gatilho
 
@@ -144,7 +146,7 @@ Agora adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
       ![Adicionar conteúdos no corpo do email](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Configuração | DESCRIÇÃO | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **Título do feed** | O título do item | 
       | **Feed publicado em** | A data e a hora de publicação do item | 
       | **Link principal do feed** | A URL para o item | 
@@ -156,15 +158,16 @@ Em seguida, teste o seu aplicativo lógico.
 
 ## <a name="run-your-logic-app"></a>Executar seu aplicativo lógico
 
-Para executar manualmente o aplicativo lógico, escolha **Executar** na barra de ferramentas do designer. Ou então, aguarde até que seu aplicativo lógico seja executado conforme o agendamento especificado (cada minuto). Se o RSS feed possuir novos itens, o seu aplicativo lógico enviará um email para cada novo item. Se o seu feed não possuir novos itens, o aplicativo lógico ignora o acionamento do gatilho e aguarda o próximo intervalo antes de verificar novamente. 
+Para executar manualmente o aplicativo lógico, escolha **Executar** na barra de ferramentas do designer. Ou então, aguarde até que seu aplicativo lógico verifique o feed RSS com base em seu agendamento especificado (cada minuto). Se o RSS feed possuir novos itens, o seu aplicativo lógico enviará um email para cada novo item. Caso contrário, o aplicativo lógico aguarda até o próximo intervalo antes de verificar novamente. 
 
-Por exemplo, aqui está um email de exemplo enviado por esse aplicativo lógico:
+Por exemplo, aqui está um email de exemplo enviado por esse aplicativo lógico. Se você não receber nenhum email, verifique a sua pasta de Lixo eletrônico.
 
 ![Email enviado para o novo item do feed RSS](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Se você não receber nenhum email, verifique a pasta de Lixo eletrônico. O filtro de lixo de email pode redirecionar esses tipos de mensagens. 
+Tecnicamente, quando o gatilho verifica o RSS feed e localiza novos itens, o gatilho é acionado e o mecanismo de Aplicativos Lógicos cria uma instância do seu fluxo de trabalho de aplicativo lógico que executa as ações no fluxo de trabalho.
+Se o gatilho não localizar novos itens, ele não é acionado e "ignora" instanciando o fluxo de trabalho.
 
-Parabéns! Você criou e executou seu primeiro aplicativo lógico.
+Parabéns, você compilou e executou seu primeiro aplicativo lógico com o Portal do Azure!
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

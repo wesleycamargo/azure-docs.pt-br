@@ -7,13 +7,13 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Início rápido: Carregar, baixar e listar blobs usando .NET
 
@@ -253,13 +253,13 @@ Consulte estes recursos adicionais para o desenvolvimento em .NET com armazename
 
 ### <a name="binaries-and-source-code"></a>Binários e código-fonte
 
-- Baixe o pacote NuGet para a versão mais recente da [biblioteca de clientes .NET de armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/). 
-- Exiba o [código-fonte da biblioteca de clientes .NET de armazenamento](https://github.com/Azure/azure-storage-net) no GitHub.
+- Baixe o pacote NuGet para a versão mais recente da [biblioteca de clientes .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) para Armazenamento do Azure. 
+- Exiba o [código-fonte da biblioteca de clientes .NET](https://github.com/Azure/azure-storage-net) no GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Exemplos e referência da biblioteca de clientes
 
-- Confira a [referência da API .NET de armazenamento](https://docs.microsoft.com/dotnet/api/overview/azure/storage) para saber mais sobre a biblioteca de clientes.
-- Explore [exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) codificados usando a biblioteca de clientes .NET de armazenamento.
+- Confira a [referência da API .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) para saber mais sobre a biblioteca de clientes .NET.
+- Explore [exemplos de armazenamento de Blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) gravados usando a biblioteca de clientes de .NET.
 
 ## <a name="next-steps"></a>Próximas etapas
 

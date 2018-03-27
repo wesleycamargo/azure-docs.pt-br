@@ -1,29 +1,29 @@
 ---
-title: "Visão geral do ExpressRoute: estenda suas redes locais para o Azure por meio de uma conexão privada | Microsoft Docs"
-description: "Esta visão geral técnica do ExpressRoute explica como uma conexão do ExpressRoute funciona para estender sua rede local para o Azure por meio de uma conexão privada."
+title: 'Visão geral do ExpressRoute: estenda suas redes locais para o Azure por meio de uma conexão privada | Microsoft Docs'
+description: Esta visão geral técnica do ExpressRoute explica como uma conexão do ExpressRoute funciona para estender sua rede local para o Azure por meio de uma conexão privada.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: e5584eee07121fa4644e09e23e3ba6b59fdd5a6e
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 75d69669945d31fbc9876d0c1e709b37f96aee6d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-overview"></a>Visão geral do ExpressRoute
 O Microsoft Azure ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada, facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o Dynamic 365.
 
-A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização. As conexões do ExpressRoute não passam pela Internet pública. Isso permite que as conexões do ExpressRoute ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet. Para saber mais sobre como conectar sua rede à Microsoft usando ExpressRoute, veja [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
+A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização. As conexões de ExpressRoute não passam pela Internet pública. Isso permite que as conexões de ExpressRoute ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet. Para saber mais sobre como conectar sua rede à Microsoft usando ExpressRoute, veja [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
 
 ![](./media/expressroute-introduction/expressroute-connection-overview.png)
 
@@ -48,7 +48,6 @@ A Microsoft usa o protocolo padrão do setor para roteamento dinâmico (BGP) a f
 Cada circuito do ExpressRoute é formado por duas conexões com dois roteadores de borda do Microsoft Enterprise (MSEEs) do provedor de conectividade/borda de sua rede. A Microsoft exige uma conexão BGP dupla do provedor de conectividade/seu lado – uma para cada MSEE. Você pode optar por não implantar dispositivos redundantes/circuitos de Ethernet em seu lado. No entanto, os provedores de conectividade usam dispositivos redundantes para garantir que as conexões sejam entregues à Microsoft de forma redundante. É obrigatório ter uma configuração de conectividade de Camada 3 redundante para que nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Conectividade com serviços de nuvem da Microsoft
-[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 As conexões do ExpressRoute permitem o acesso aos seguintes serviços:
 
@@ -56,18 +55,22 @@ As conexões do ExpressRoute permitem o acesso aos seguintes serviços:
 * Serviços do Microsoft Office 365
 * Microsoft Dynamics 365
 
-Visite a página de [Perguntas frequentes sobre o ExpressRoute](expressroute-faqs.md) para obter uma lista detalhada dos serviços com suporte por meio do ExpressRoute.
+> [!NOTE]
+> [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+> 
+
+Para obter uma lista detalhada dos serviços com suporte por meio do ExpressRoute, visite a página de [Perguntas frequentes sobre o ExpressRoute](expressroute-faqs.md) 
 
 ### <a name="connectivity-to-all-regions-within-a-geopolitical-region"></a>Conectividade com todas as regiões em uma região geopolítica
 Você pode se conectar à Microsoft em um dos nossos [locais de emparelhamento](expressroute-locations.md) e ter acesso a todas as regiões dentro da região geopolítica. 
 
-Por exemplo, se você conectou a Microsoft em Amsterdã por meio do ExpressRoute, terá acesso a todos os serviços de nuvem da Microsoft hospedados no Norte da Europa e na Europa Ocidental. Veja o artigo [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md) para obter uma visão geral das regiões geopolíticas, regiões associadas da nuvem da Microsoft e locais de emparelhamento correspondentes do ExpressRoute.
+Por exemplo, se você conectou a Microsoft em Amsterdã por meio do ExpressRoute, terá acesso a todos os serviços de nuvem da Microsoft hospedados no Norte da Europa e na Europa Ocidental. Para obter uma visão geral das regiões geopolíticas, das regiões associadas da nuvem da Microsoft e de locais de emparelhamento correspondentes do ExpressRoute, confira o artigo [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md).
 
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Conectividade global com o complemento premium do ExpressRoute
 Você pode habilitar o complemento do ExpressRoute premium a fim de estender a conectividade pelas fronteiras geopolíticas. Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio do ExpressRoute, terá acesso a todos os serviços de nuvem da Microsoft hospedados em todas as regiões do mundo (nuvens nacionais são excluídas). Você pode acessar serviços implantados na América do Sul ou na Austrália da mesma maneira que acessa as regiões do Norte da Europa e da Europa Ocidental.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Ecossistema abundante de parceiros de conectividade
-O ExpressRoute tem um ecossistema de provedores de conectividade e parceiros de SI em constante crescimento. Consulte o artigo [Provedores e locais do ExpressRoute](expressroute-locations.md) para obter as informações mais recentes.
+O ExpressRoute tem um ecossistema de provedores de conectividade e parceiros de SI em constante crescimento. Para obter as informações mais recentes, confira o artigo [Provedores e locais do ExpressRoute](expressroute-locations.md).
 
 ### <a name="connectivity-to-national-clouds"></a>Conectividade com nuvens nacionais
 A Microsoft opera ambientes de nuvem isolados para regiões geopolíticas e segmentos de clientes especiais. Consulte a página [Provedores e locais de ExpressRoute](expressroute-locations.md) para obter uma lista de nuvens e provedores nacionais.

@@ -1,23 +1,23 @@
 ---
-title: "Implantar um tutorial de modelo para os serviços do Azure Machine Learning (versão prévia) | Microsoft Docs"
-description: "Este tutorial completo mostra como usar os serviços do Azure Machine Learning (versão prévia) de ponta a ponta. Essa é a parte três e discute o modelo de implantação."
+title: Implantar um tutorial de modelo para os serviços do Azure Machine Learning
+description: Este tutorial completo mostra como usar os serviços do Azure Machine Learning de ponta a ponta. Essa é a parte três e discute o modelo de implantação.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/13/2018
+ms.openlocfilehash: 87d1e605bfd7603e4e07f6b427033fe2c1d2b83e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Tutorial: Parte 3 de Classificação da Íris: Implantar um modelo
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Classificar Iris – implantar um modelo
 O Azure Machine Learning (versão prévia) é uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais. Os cientistas de dados podem usá-los para preparar dados, desenvolver experimentos e implantar modelos em escala de nuvem.
 
 Este tutorial é a **terceira e última parte de uma série**. Nessa parte do tutorial, você usará o Azure Machine Learning (versão prévia) para:
@@ -30,17 +30,15 @@ Este tutorial é a **terceira e última parte de uma série**. Nessa parte do tu
 > * Executar o serviço Web em tempo real.
 > * Examinar os dados de blob de saída. 
 
-Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/iris_flower_data_set) atemporal. As capturas de tela são específicas do Windows, mas a experiência no macOS é quase idêntica.
-
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. 
 
 ## <a name="prerequisites"></a>pré-requisitos
-Conclua as primeiras duas partes desta série de tutoriais:
 
-   * Siga o [tutorial Preparar dados](tutorial-classifying-iris-part-1.md) para criar recursos do Machine Learning e instalar o aplicativo Azure Machine Learning Workbench.
-   * Siga o [tutorial Criar um modelo](tutorial-classifying-iris-part-2.md) para criar um modelo de regressão logística no Machine Learning.
-
-Você precisa de um mecanismo do Docker instalado e em execução localmente. Como alternativa, você pode implantar em um cluster do Serviço de Contêiner do Azure no Azure.
+Para concluir este tutorial, você precisará:
+- Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+- Uma conta de experimentação e o Azure Machine Learning Workbench instalado, conforme descrito neste [início rápido](quickstart-installation.md)
+- O modelo de classificação de [Tutorial parte 2](tutorial-classifying-iris-part-2.md)
+- Um mecanismo do Docker instalado e em execução localmente
 
 ## <a name="download-the-model-pickle-file"></a>Baixe o arquivo de pickle do modelo
 Na parte anterior do tutorial, o script **iris_sklearn.py** foi executado localmente no Machine Learning Workbench. Essa ação serializou o modelo de regressão logística usando o popular pacote de serialização de objeto do Python [pickle](https://docs.python.org/3/library/pickle.html). 
@@ -91,7 +89,7 @@ Para implantar o serviço Web junto com o arquivo de modelo, você também preci
 
 4. Para obter o arquivo de esquema, execute o script. Selecione o ambiente **local** e o script **score_iris.py** na barra de comandos e, em seguida, selecione **Executar**. 
 
-5. Esse script cria um arquivo JSON na seção **Saídas**, que captura o esquema de dados de entrada exigido pelo modelo.
+   Esse script cria um arquivo JSON na seção **Saídas**, que captura o esquema de dados de entrada exigido pelo modelo.
 
 6. Observe o painel **Trabalhos** no lado direito do **Painel do Projeto**. Aguarde que a versão mais recente do trabalho **score_iris.py** exiba o status verde **Concluído**. Em seguida, selecione o hiperlink **score_iris.py** da execução de trabalho mais recente para ver os detalhes da execução. 
 
@@ -128,7 +126,10 @@ Use a implantação de _modo local_ para executar em contêineres do Docker no c
 Você pode usar o _modo local_ para desenvolvimento e teste. O mecanismo do Docker deve ser executado localmente para concluir as etapas a seguir para operacionalizar o modelo. Você pode usar o sinalizador `-h` no final de cada comando para mostrar a mensagem de ajuda correspondente.
 
 >[!NOTE]
->Se você não tem um mecanismo do Docker local, você ainda pode prosseguir criando um cluster no Azure para implantação. Apenas certifique-se de excluir o cluster após o tutorial, para que você não incorra em encargos contínuos.
+>Se você não tem o mecanismo do Docker localmente, você ainda pode prosseguir criando um cluster no Azure para implantação. Mantenha o cluster para reutilização, ou exclua-o após o tutorial, para que você não incorra em encargos contínuos.
+
+>[!NOTE]
+>Serviços Web implantados localmente não aparecem na lista do Portal do Azure de serviços. Eles serão executados no Docker no computador local.
 
 1. Abra a interface de linha de comando (CLI) do Azure.
    No aplicativo Machine Learning Workbench, no menu **Arquivo**, selecione **Abrir o prompt de comando**.

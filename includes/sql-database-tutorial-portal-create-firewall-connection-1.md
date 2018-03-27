@@ -47,7 +47,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
    > [!IMPORTANT]
    > \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Central do Canadá, Leste do Canadá, França Central, Centro da Alemanha, Leste do Japão, Coreia Central, Centro-Sul dos EUA, Sudeste Asiático, Leste dos EUA 2, Oeste dos EUA, US Gov – Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Central do Canadá, Leste do Canadá, França Central, Centro da Alemanha, Leste do Japão, Coreia Central, Centro-Sul dos EUA, Sudeste Asiático, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Depois de selecionar a camada de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  

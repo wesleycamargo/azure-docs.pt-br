@@ -1,5 +1,5 @@
 ---
-title: Projetar seu primeiro Banco de Dados do Azure para MySQL - Portal do Azure
+title: 'Tutorial: Criar um Banco de Dados do Azure para MySQL usando o Portal do Azure'
 description: Este tutorial explica como criar e gerenciar o Banco de Dados do Azure para o servidor e banco de dados MySQL usando o Portal do Azure.
 services: mysql
 author: ajlam
@@ -10,13 +10,13 @@ ms.service: mysql-database
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 272c1ba67fb1a907d739d23ce1d965f57c3a1074
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 67f1a1ced8e36adf5d391415aae9b16df43950bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>Projetar seu primeiro Banco de Dados do Azure para o banco de dados MySQL
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para banco de dados MySQL usando o Portal do Azure
 O Banco de Dados do Azure para MySQL é um serviço gerenciado que permite executar, gerenciar e dimensionar bancos de dados altamente disponíveis do MySQL na nuvem. Usando o Portal do Azure, você pode gerenciar facilmente seu servidor e projetar um banco de dados.
 
 Neste tutorial, você usará o Portal do Azure para aprender a:
@@ -81,7 +81,7 @@ Obtenha o **Nome do servidor** e o **Nome de logon do administrador do servidor*
 2. Na página **Visão geral**, anote o **Nome do Servidor** e o **Nome de logon do administrador do servidor**. Clique no botão Copiar ao lado de cada campo para copiar para a área de transferência.
    ![4-2 Propriedades do servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-Neste exemplo, o nome do servidor é *mydemoserver.mysql.database.azure.com* e o logon de administrador do servidor é  *myadmin@mydemoserver* .
+Neste exemplo, o nome do servidor é *mydemoserver.mysql.database.azure.com* e o logon de administrador do servidor é *myadmin@mydemoserver*.
 
 ## <a name="connect-to-the-server-using-mysql"></a>Conectar-se ao servidor usando mysql
 Use a [ferramenta de linha de comando do mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para estabelecer uma conexão com seu Banco de Dados do Azure para servidor MySQL. Execute a ferramenta de linha de comando do MySQL no Azure Cloud Shell no navegador ou no próprio computador usando as ferramentas do MySQL instaladas localmente. Para iniciar o Azure Cloud Shell, clique no botão `Try It` em um bloco de código deste artigo ou visite o portal do Azure e clique no ícone `>_` na barra de ferramentas superior direita. 
