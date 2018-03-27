@@ -1,8 +1,8 @@
 ---
 title: Transformar dados usando o Hive na Rede Virtual do Azure | Microsoft Docs
-description: "Este tutorial fornece instruções passo a passo para transformar dados usando a Atividade Hive no Azure Data Factory."
+description: Este tutorial fornece instruções passo a passo para transformar dados usando a Atividade Hive no Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: a7575549225d47e5266ca7e1778c3e61835de1cc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8711d7ed1d02f0960ef00c1cf5053e97aa00ad5c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure usando a Atividade Hive no Azure Data Factory
-Neste tutorial, você pode usar o portal do Azure para criar um pipeline do Data Factory que transforma dados usando a atividade Hive em um cluster HDInsight que está em uma Rede Virtual (VNet) do Azure. Neste tutorial, você executa as seguintes etapas:
+Neste tutorial, você pode usar o portal do Azure para criar um pipeline do Data Factory que transforma dados usando a atividade Hive em um cluster HDInsight que está em uma Rede Virtual (VNet) do Azure. Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados. 
@@ -114,7 +114,7 @@ Como o cluster Hadoop está em uma rede virtual, você precisa instalar um tempo
 2. Na janela **Instalação do Integration Runtime**, selecione a opção **Executar atividades de movimentação e distribuição de dados para cálculos externos** e clique em **Avançar**. 
 
    ![Selecione executar a opção de atividades de movimentação e a distribuição de dados](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. Selecione **Rede Pública** e clique em **Avançar**.
+3. Selecione **Rede Privada** e clique em **Avançar**.
     
    ![Selecionar rede privada](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Insira **MySelfHostedIR** como **Nome** e clique em **Avançar**. 
@@ -260,7 +260,7 @@ Observe os seguintes pontos:
     ![Arquivo de saída](./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você realizou as seguintes etapas: 
+Neste tutorial, você realizará os seguintes procedimentos: 
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados. 

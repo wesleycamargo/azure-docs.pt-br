@@ -1,5 +1,5 @@
 ---
-title: Projetar seu primeiro Banco de Dados do Azure para MySQL - CLI do Azure
+title: 'Tutorial: Criar um Banco de Dados do Azure para MySQL usando a CLI do Azure'
 description: Este tutorial explica como criar e gerenciar o Banco de Dados do Azure para o servidor e banco de dados MySQL usando a CLI 2.0 do Azure da linha de comando.
 services: mysql
 author: ajlam
@@ -11,13 +11,13 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: a609bbdf70599d0cceaf988a9a0bef51bc28716d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6f77b24092a80708ba82c6d42b947c00d6a69b6d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>Projetar seu primeiro Banco de Dados do Azure para o banco de dados MySQL
+# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Criar um Banco de Dados do Azure para MySQL usando a CLI do Azure
 
 O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional na nuvem da Microsoft, baseado no mecanismo de banco de dados MySQL Community Edition. Neste tutorial, você usará a CLI (interface de linha de comando) do Azure e outros utilitários para aprender a:
 

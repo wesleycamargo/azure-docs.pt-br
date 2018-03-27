@@ -1,11 +1,11 @@
 ---
-title: "Como adicionar uma assinatura do Azure existente ao diretório do Azure AD | Microsoft Docs"
-description: "Como adicionar uma assinatura existente ao seu diretório do Azure AD"
+title: Como adicionar uma assinatura do Azure existente ao diretório do Azure AD | Microsoft Docs
+description: Como adicionar uma assinatura existente ao seu diretório do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory
 
@@ -34,6 +34,7 @@ Todos os usuários têm um único diretório inicial que os autentica, mas eles 
 
 * Você deve entrar com a conta que tenha acesso de RBAC Proprietário para a assinatura.
 * Você deve entrar com uma conta existente tanto no diretório atual ao qual a assinatura está associada quanto no diretório ao qual deseja adicioná-la. Para saber mais sobre como obter acesso a outro diretório, consulte [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
+* Este recurso não está disponível para assinaturas do CSP (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) e Microsoft Imagine (MS-AZR-0144P).
 
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Para associar uma assinatura existente ao seu diretório do Azure AD
 

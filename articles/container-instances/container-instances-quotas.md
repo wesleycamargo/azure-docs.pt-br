@@ -1,6 +1,6 @@
 ---
-title: "Cotas para Instâncias de Contêiner do Azure e disponibilidade de região"
-description: "As cotas padrão e a disponibilidade de região do serviço de Instâncias de Contêiner do Azure."
+title: Cotas para Instâncias de Contêiner do Azure e disponibilidade de região
+description: As cotas padrão e a disponibilidade de região do serviço de Instâncias de Contêiner do Azure.
 services: container-instances
 author: mmacy
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 008b07402cb0b937174488982cac64811baa5d5d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 28177e17a15c5e3b92b9af52e05fa2f8e95db95f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Cotas e disponibilidade de região para Instâncias de Contêiner do Azure
 
@@ -29,9 +29,9 @@ As Instâncias de Contêiner do Azure estão disponíveis nas seguintes regiões
 | Local padrão | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
 | Europa Ocidental, Oeste dos EUA, Leste dos EUA | Linux | 4 | 14 |
-| Sudeste Asiático  | Linux | 1 | 1.5 |
+| Oeste dos EUA 2, Sudeste Asiático | Linux | 2 | 7 |
 | Europa Ocidental, Oeste dos EUA, Leste dos EUA | Windows | 4 | 14 |
-| Sudeste Asiático  | Windows | 2 | 3,5 |
+| Oeste dos EUA 2, Sudeste Asiático | Windows | 2 | 3,5 |
 
 As instâncias de contêiner criadas dentro desses limites de recursos estão sujeitas à disponibilidade dentro da região de implantação. Quando uma região está sob carga pesada, você pode enfrentar uma falha durante a implantação de instâncias. Para atenuar essa falha de implantação, tente implantar instâncias com configurações de memória e CPU inferiores ou tente implantar em um momento posterior.
 

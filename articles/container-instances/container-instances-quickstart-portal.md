@@ -1,21 +1,21 @@
 ---
-title: "Início Rápido – Criar o primeiro contêiner de Instâncias de Contêiner do Azure com o Portal do Azure"
-description: "Implantar e começar a trabalhar com as Instâncias de Contêiner do Azure"
+title: Início Rápido – Criar o primeiro contêiner de Instâncias de Contêiner do Azure com o Portal do Azure
+description: Neste guia de início rápido, você usa o Portal do Azure para implantar um contêiner em Instâncias de Contêiner do Azure
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
 
 As Instâncias de Contêiner do Azure facilitam a criação e o gerenciamento de contêineres no Azure. Neste início rápido, você cria um contêiner no Azure e o expõe à Internet com um endereço IP público. Esta operação é concluída usando o Portal do Azure. Com apenas alguns cliques, você verá o seguinte no seu navegador:
 

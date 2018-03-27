@@ -1,11 +1,11 @@
 ---
-title: "Barramento de Serviço do Azure para a visão geral da integração da Grade de Eventos | Microsoft Docs"
-description: "Descrição do sistema de mensagens do Barramento de Serviço e integração da Grade de Eventos"
+title: Barramento de Serviço do Azure para a visão geral da integração da Grade de Eventos | Microsoft Docs
+description: Descrição do sistema de mensagens do Barramento de Serviço e integração da Grade de Eventos
 services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,44 +14,46 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: bf771428505081cb60ca4417f87a4f6c2afbd25d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8bd1c431788d78ae937cc047e82cb41504a19075
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-service-bus-to-azure-event-grid-integration-overview"></a>Barramento de Serviço do Azure para a visão geral da integração da Grade de Eventos do Azure
+# <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
-O Barramento de Serviço do Azure iniciou uma nova integração à Grade de Eventos do Azure. O cenário-chave que esse recurso permite é que filas ou assinaturas do Barramento de Serviço que têm um baixo volume de mensagens não precisa ter um receptor de sondagem para mensagens em todos os momentos. Agora o Barramento de Serviço pode emitir eventos à Grade de Eventos do Azure quando há mensagens em uma fila ou assinatura quando nenhum receptor estiver presente. É possível criar assinaturas da Grade de Eventos do Azure para seus namespaces do Barramento de Serviço, escutar esses eventos e reagir aos eventos iniciando um receptor. Com esse recurso, o Barramento de Serviço pode ser usado em modelos de programação reativos.
+O Barramento de Serviço do Azure lançou uma nova integração à Grade de Eventos do Azure. O principal cenário que esse recurso permite é que as filas ou assinaturas do Barramento de Serviço que têm um baixo volume de mensagens não precisam ter um receptor que verifica continuamente a existência de mensagens. 
 
-Para habilitar o recurso, você precisa do seguinte:
+Agora, o Barramento de Serviço pode emitir eventos para a Grade de Eventos quando houver mensagens em uma fila ou assinatura, quando nenhum receptor estiver presente. É possível criar assinaturas da Grade de Eventos para seus namespaces do Barramento de Serviço, escutar esses eventos e reagir aos eventos iniciando um receptor. Com esse recurso, você pode usar o Barramento de Serviço em modelos de programação reativos.
 
-* Um namespace Premium de Barramento de Serviço do Azure com pelo menos uma fila do Barramento de Serviço ou um tópico do Barramento de Serviço com pelo menos uma assinatura.
-* Acesso de colaborador ao Namespace do Barramento de Serviço do Azure.
-* Além disso, você precisa de uma assinatura da Grade de Eventos do Azure para o Namespace de Barramento de Serviço. Essa assinatura está recebendo a notificação da Grade de Eventos do Azure sobre haver mensagens a serem coletadas. Assinantes típicos podem ser Aplicativos Lógicos, Azure Functions ou um Gancho da Web em contato com um Aplicativo Web, o qual, então, processa as mensagens. 
+Para habilitar o recurso, você precisa dos itens a seguir:
+
+* Um namespace Premium de Barramento de Serviço com pelo menos uma fila ou um tópico do Barramento de Serviço com pelo menos uma assinatura.
+* Acesso de colaborador para o namespace do Barramento de Serviço.
+* Além disso, você precisa de uma assinatura da Grade de Eventos para o namespace do Barramento de Serviço. Essa assinatura recebe uma notificação da Grade de Eventos sobre mensagens a serem coletadas. Os assinantes típicos podem ser o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure, o Azure Functions ou um webhook em contato com um aplicativo Web. Em seguida, o assinante processa as mensagens. 
 
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se você tem acesso de colaborador
 
-Navegue até seu Namespace do Barramento de Serviço e selecione "Controle de acesso (IAM)", conforme mostrado abaixo:
+Navegue até seu namespace do Barramento de Serviço e selecione **Controle de acesso (IAM)**, conforme mostrado abaixo:
 
 ![1][]
 
 ### <a name="events-and-event-schemas"></a>Eventos e esquemas de evento
 
-Hoje o Barramento de Serviço do Azure envia eventos para dois cenários.
+Hoje, o Barramento de Serviço envia eventos para dois cenários:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Além disso, ele usa a Segurança padrão da Grade de Eventos do Azure e [mecanismos de autenticação](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
+Além disso, o Barramento de Serviço usa a segurança padrão da Grade de Eventos e [mecanismos de autenticação](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
 
-Para obter mais detalhes sobre Esquemas de Evento da Grade de Eventos, siga [este](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) link.
+Para saber mais, confira [Esquemas de evento da Grade de Eventos do Azure](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
 
-#### <a name="active-messages-available-event"></a>Evento disponível de mensagens ativas
+#### <a name="active-messages-available-event"></a>Evento Mensagens Ativas Disponíveis
 
-Esse evento é gerado se você tiver mensagens ativas em uma fila ou assinatura e nenhum receptor escutando.
+Esse evento é gerado se houver mensagens ativas em uma fila ou assinatura, e nenhum receptor escutando.
 
 O esquema desse evento é este:
 
@@ -75,7 +77,7 @@ O esquema desse evento é este:
 }
 ```
 
-#### <a name="dead-lettered-messages-available-event"></a>Evento disponível de mensagens mortas
+#### <a name="dead-letter-messages-available-event"></a>Evento Mensagens Mortas Disponíveis
 
 Você tem pelo menos um evento por fila de mensagens mortas, que tem mensagens e receptores não ativos.
 
@@ -101,44 +103,49 @@ O esquema desse evento é este:
 }]
 ```
 
-### <a name="how-often-and-how-many-events-are-emitted"></a>Quantos eventos são emitidos e com que frequência?
+### <a name="how-many-events-are-emitted-and-how-often"></a>Quantos eventos são emitidos e com que frequência?
 
-Caso tenha várias filas e tópicos/assinaturas no namespace, você obtém pelo menos um evento por fila e um por assinatura. Os eventos são emitidos imediatamente se não houver nenhuma mensagem na entidade de Barramento de Serviço, e uma nova mensagem chega ou a cada dois minutos, a menos que o Barramento de Serviço do Azure detecte um receptor ativo. A procura de mensagens não interrompe os eventos.
+Se você tiver várias filas e tópicos ou assinaturas no namespace, terá pelo menos um evento por fila e um por assinatura. Os eventos serão emitidos imediatamente se não houver mensagens na entidade do Barramento de Serviço e uma nova mensagem chegar. Ou, os eventos serão emitidos a cada dois minutos, a menos que o Barramento de Serviço detecte um receptor ativo. A procura de mensagens não interrompe os eventos.
 
-Por padrão, o Barramento de Serviço do Azure emite eventos para todas as entidades no namespace. Caso queira obter eventos somente para entidades específicas, consulte a seção de filtragem a seguir.
+Por padrão, o Barramento de Serviço emite eventos para todas as entidades no namespace. Se você quiser obter eventos somente para entidades específicas, consulte a próxima seção.
 
-### <a name="filtering-limiting-from-where-you-get-events"></a>Filtrando, limitando de onde obter eventos
+### <a name="use-filters-to-limit-where-you-get-events-from"></a>Use filtros para limitar de onde obter eventos
 
-Caso queira obter apenas eventos, como uma fila ou uma assinatura em seu namespace, é possível usar filtros do tipo "Começa com" ou "Termina com" fornecidos pela Grade de Eventos do Azure. Em algumas interfaces, os filtros são chamados de filtros "Pré" e "Sufixo". Caso deseje obter eventos de várias, mas nem todas as filas e assinaturas, é possível criar várias assinaturas diferentes da Grade de Eventos do Azure e fornecer um filtro para cada uma.
+Caso queira obter apenas eventos, por exemplo, de uma fila ou assinatura em seu namespace, use filtros *Começa com* ou *Termina com* fornecidos pela Grade de Eventos. Em algumas interfaces, os filtros são chamados de filtros *Pré* e *Sufixo*. Caso você queira obter eventos de várias, mas não todas, filas e assinaturas, é possível criar várias assinaturas diferentes da Grade de Eventos e fornecer um filtro para cada uma.
 
-## <a name="how-to-create-azure-event-grid-subscriptions-for-service-bus-namespaces"></a>Como criar assinaturas da Grade de Eventos do Azure para Namespaces de Barramento de Serviço
+## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Criar assinaturas da Grade de Eventos para namespaces do Barramento de Serviço
 
-Há três maneiras de criar assinaturas da Grade de Eventos para Namespaces de Barramento de Serviço.
+Há três maneiras de criar assinaturas da Grade de Eventos para namespaces do Barramento de Serviço:
 
-* [O portal do Azure](#portal-instructions)
-* [CLI do Azure](#azure-cli-instructions)
-* [PowerShell](#powershell-instructions)
+* No [Portal do Azure](#portal-instructions)
+* Na [CLI do Azure](#azure-cli-instructions)
+* No [PowerShell](#powershell-instructions)
 
-## <a name="portal-instructions"></a>Instruções do portal
+## <a name="azure-portal-instructions"></a>Instruções do Portal do Azure
 
-Para criar uma nova assinatura da Grade de Eventos do Azure, navegue até o namespace no portal do Azure e selecione a folha da Grade de Eventos. Clique em "+ Assinatura do Evento". Abaixo, é mostrado um namespace que já tem algumas assinaturas da Grade de Eventos.
+Para criar uma nova assinatura da Grade de Eventos, faça o seguinte:
+1. No Portal do Azure, acesse suas mensagens.
+2. No painel esquerdo, selecione a **Grade de Eventos**. 
+3. Selecione **Assinatura do Evento**.  
 
-![20][]
+   A imagem a seguir exibe um namespace que tem algumas assinaturas da Grade de Eventos:
 
-A captura de tela a seguir mostra um exemplo de como assinar um Azure Function ou um Gancho da Web sem qualquer filtragem específica:
+   ![20][]
 
-![21][]
+   A imagem a seguir mostra como assinar uma função ou um webhook sem qualquer filtro específico:
+
+   ![21][]
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, verifique se você tem pelo menos a CLI do Azure versão 2.0 instalada. É possível baixar o instalador aqui. Em seguida, pressione "Windows + X" e abra um novo console do PowerShell com permissões de Administrador. Como alternativa, também é possível usar um shell de comando dentro do portal do Azure.
+Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
 Execute o seguinte código:
 
-```PowerShell
+```PowerShell-interactive
 Az login
 
-Aa account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+Az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
 
 $namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
 
@@ -147,9 +154,9 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
-Verifique se o Azure PowerShell está instalado. Você pode encontrá-lo aqui. Em seguida, pressione "Windows + X" e abra um novo console do PowerShell com permissões de Administrador. Como alternativa, também é possível usar um shell de comando dentro do portal do Azure.
+Verifique se o Azure PowerShell está instalado. [Baixe o instalador](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de Administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
-```PowerShell
+```PowerShell-interactive
 Login-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
@@ -167,11 +174,11 @@ A partir daqui, é possível explorar as outras opções de instalação ou [tes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Exemplos](service-bus-to-event-grid-integration-example.md) de Barramento de Serviço e da Grade de Eventos.
-* Saiba mais sobre a [Grade de Eventos do Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Obter [exemplos](service-bus-to-event-grid-integration-example.md) de Barramento de Serviço e da Grade de Eventos.
+* Saiba mais sobre a [Grade de Eventos](https://docs.microsoft.com/en-us/azure/azure-functions/).
 * Saiba mais sobre o [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Saiba mais sobre [Aplicativos Lógicos do Azure](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Saiba mais sobre o [Barramento de Serviço do Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Saiba mais sobre o [Aplicativos Lógicos](https://docs.microsoft.com/en-us/azure/logic-apps/).
+* Saiba mais sobre o [Barramento de Serviço](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

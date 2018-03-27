@@ -1,31 +1,34 @@
 ---
-title: "Azure Cosmos DB: compilar um aplicativo Web com autenticação do Xamarin e do Facebook | Microsoft Docs"
-description: "Apresenta um exemplo de código .NET que pode ser usado para conectar e consultar o Azure Cosmos DB"
+title: 'Azure Cosmos DB: compilar um aplicativo Web com autenticação do Xamarin e do Facebook | Microsoft Docs'
+description: Apresenta um exemplo de código .NET que pode ser usado para conectar e consultar o Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: mimig
-ms.openlocfilehash: dfaa8d05d999f5528daff875d89e38d4fc442992
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5074034b18bdf842c34b1208e6cc6312d7a3e6b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: compilar um aplicativo Web com autenticação do Xamarin, do Facebook e do .NET
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-O Azure Cosmos DB é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O Azure Cosmos DB é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.
+
+> [!NOTE]
+> Encontre um exemplo de código de um aplicativo Xamarin de exemplo totalmente canônico mostrando várias ofertas do Azure, incluindo o CosmosDB, no GitHub clicando [aqui](https://github.com/xamarinhq/app-geocontacts). Esse aplicativo demonstra a exibição de contatos geograficamente disperso, e permite que os contatos atualizem sua localização.
 
 Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você compilará e implantará um aplicativo Web de lista de tarefas pendentes com base na [API do .NET do SQL](sql-api-sdk-dotnet.md), no [Xamarin](https://www.xamarin.com/) e no mecanismo de autorização do Azure Cosmos DB. O aplicativo Web da lista de tarefas pendentes implementa um padrão de dados por usuário que permite que usuários façam o logon usando a Autenticação do Facebook e gerenciem seus próprios itens pendentes.
 
@@ -48,7 +51,7 @@ Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o 
 
 Agora vamos clonar um aplicativo de API do SQL do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
 
-1. Abra uma janela de terminal do Git, como git bash, e `cd` para um diretório de trabalho.  
+1. Abra uma janela de terminal do Git, como git bash, e `cd` para um diretório de trabalho.
 
 2. Execute o comando a seguir para clonar o repositório de exemplo. 
 
@@ -56,7 +59,7 @@ Agora vamos clonar um aplicativo de API do SQL do GitHub, definir a cadeia de co
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Em seguida, abra o arquivo DocumentDBTodo.sln na pasta samples/xamarin/UserItems/xamarin.forms no Visual Studio. 
+3. Em seguida, abra o arquivo DocumentDBTodo.sln na pasta samples/xamarin/UserItems/xamarin.forms no Visual Studio.
 
 ## <a name="review-the-code"></a>Examine o código
 
@@ -65,7 +68,7 @@ O código na pasta Xamarin contém:
 * aplicativo Xamarin. O aplicativo armazena itens pendentes do usuário em uma coleção particionada chamada UserItems.
 * API do agente de token de recurso. Uma API Web ASP.NET simples para tokens de recurso do Azure Cosmos DB do agente para os usuários conectados do aplicativo. Os tokens de recurso são tokens de acesso de curta duração que fornecem o aplicativo com acesso aos dados do usuário conectado.
 
-O fluxo de dados e de autenticação está ilustrado no diagrama abaixo.
+O fluxo de dados e de autenticação está ilustrado no diagrama a seguir.
 
 * A coleção UserItems foi criada com a chave de partição '/userid'. Especificar uma chave de partição para uma coleção permite que o Azure Cosmos DB dimensione infinitamente conforme o número de usuários e itens aumenta.
 * O aplicativo Xamarin permite que os usuários façam logon com as credenciais do Facebook.
@@ -75,7 +78,7 @@ O fluxo de dados e de autenticação está ilustrado no diagrama abaixo.
 * O aplicativo acessa os itens pendentes do usuário por meio do token de recurso.
 
 ![Aplicativo de tarefas pendentes com os dados de exemplo](./media/create-sql-api-xamarin-dotnet/tokenbroker.png)
-    
+
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
@@ -90,7 +93,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     `<add key="accountUrl" value="{Azure Cosmos DB account URL}"/>`
 
-4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e torne-o o valor de accountKey no Web.congif. 
+4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e torne-o o valor de accountKey no Web.config.
 
     `<add key="accountKey" value="{Azure Cosmos DB secret}"/>`
 
@@ -119,14 +122,14 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas: 
+Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas:
 
-1. No menu à esquerda no portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso que acabou de criar. 
+1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu a criar uma conta do Azure Cosmos DB, criar uma coleção usando o Data Explorer e compilar e implantar um aplicativo Xamarin. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
+Neste início rápido, você aprendeu a criar uma conta do Azure Cosmos DB, criar uma coleção usando o Data Explorer e compilar e implantar um aplicativo Xamarin. Agora, é possível importar outros dados para sua conta do Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Importar dados no Azure Cosmos DB](import-data.md)

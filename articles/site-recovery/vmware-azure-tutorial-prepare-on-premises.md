@@ -1,19 +1,19 @@
 ---
-title: "Preparar os servidores VMware locais para recuperação de desastre das VMs VMware para o Azure | Microsoft Docs"
-description: "Saiba como preparar os servidores VMware locais para recuperação de desastre para o Azure usando o serviço Azure Site Recovery."
+title: Preparar os servidores VMware locais para recuperação de desastre das VMs VMware para o Azure | Microsoft Docs
+description: Saiba como preparar os servidores VMware locais para recuperação de desastre para o Azure usando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware locais para recuperação de desastre para o Azure
 
@@ -59,34 +59,16 @@ O serviço de Mobilidade deve ser instalado na VM que você deseja replicar. O S
 3. Para instalar em VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
 
 
-## <a name="check-vmware-server-requirements"></a>Verificar os requisitos do servidor VMware
+## <a name="check-vmware-requirements"></a>Verificar requisitos de VMware
 
-Verifique se os servidores VMware atendem aos seguintes requisitos.
+Certifique-se de que os servidores e VMs de VMware estejam em conformidade com os requisitos.
 
-**Componente** | **Requisito**
---- | ---
-**vCenter Server** | vCenter 6.5, 6.0 ou 5.5
-**Host do vSphere** | vSphere 6.5, 6.0, 5.5
+1. [Verifique](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) os requisitos do servidor VMware.
+2. Para o Linux, [verifique](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) requisitos de armazenamento e sistema de arquivos. 
+3. Verifique o suporte a [rede](vmware-physical-azure-support-matrix.md#network) local e [armazenamento](vmware-physical-azure-support-matrix.md#storage). 
+4. Verifique o que há de suporte para [rede do Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [armazenamento](vmware-physical-azure-support-matrix.md#azure-storage) e [computação](vmware-physical-azure-support-matrix.md#azure-compute) após o failover.
+5. Suas VMs locais replicadas no Azure devem atender aos [requisitos de VM do Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 
-## <a name="check-vmware-vm-requirements"></a>Verificar os requisitos de VM VMware
-
-Verifique se a VM está em conformidade com os requisitos do Azure resumidos na tabela a seguir.
-
-**Requisitos de VM** | **Detalhes**
---- | ---
-**Tamanho de disco do sistema operacional** | Até 2048 GB.
-**Contagem de discos do sistema operacional** | 1
-**Contagem de discos de dados** | 64 ou menos
-**Tamanho do VHD do disco de dados** | Até 4.095 GB
-**Adaptadores de rede** | Há suporte para vários adaptadores
-**VHD compartilhado** | Sem suporte
-**Disco FC** | Sem suporte
-**Formato de disco rígido** | VHD ou VHDX.<br/><br/> Apesar de atualmente o VHDX não ter suporte no Azure, a Recuperação de Site converterá automaticamente o VHDX em VHD ao realizar o failover para o Azure. Quando você executa failback para o local, as VMs continuam a usar o formato VHDX.
-**Bitlocker** | Sem suporte. Desabilite antes de habilitar a replicação para uma VM.
-**Nome da VM** | Entre 1 e 63 caracteres.<br/><br/> Restrito a letras, números e hifens. O nome da VM deve começar e terminar com uma letra ou um número.
-**Tipo de VM** | Geração 1 – Linux ou Windows<br/><br/>Geração 2 – somente Windows
-
-A VM também deve estar executando um sistema operacional com suporte. Consulte a [matriz de suporte de VMware e servidores físicos](vmware-physical-azure-support-matrix.md#replicated-machines) para obter uma lista completa de versões com suporte.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar para conectar VMs do Azure após o failover
 

@@ -1,12 +1,12 @@
 ---
-title: "Roteamento de tráfego de rede virtual do Azure | Microsoft Docs"
-description: "Saiba como o Azure roteia o tráfego de rede virtual e como você pode personalizar o roteamento do Azure."
+title: Roteamento de tráfego de rede virtual do Azure | Microsoft Docs
+description: Saiba como o Azure roteia o tráfego de rede virtual e como você pode personalizar o roteamento do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 9afaa7d34665f5c8ef4c4c819fe3b7e995bd71d3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -132,6 +132,9 @@ Se várias rotas contêm o mesmo prefixo de endereço, o Azure seleciona o tipo 
 1. Rota definida pelo usuário
 2. Rota BGP
 3. Rota de sistema
+
+> [!NOTE]
+> Rotas de sistema para o tráfego relacionadas à rede virtual, emparelhamentos de rede virtual ou pontos de extremidade de serviço de rede virtual, são rotas preferenciais, mesmo que as rotas BGP sejam mais específicas.
 
 Por exemplo, uma tabela de rotas contém as seguintes rotas:
 

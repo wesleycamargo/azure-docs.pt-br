@@ -1,6 +1,6 @@
 ---
-title: "Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo do Azure"
-description: "Detalhes sobre como criar e usar um ambiente do Serviço de Aplicativo do Azure isolado da Internet"
+title: Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo do Azure
+description: Detalhes sobre como criar e usar um ambiente do Serviço de Aplicativo do Azure isolado da Internet
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
@@ -139,7 +139,7 @@ Converta ou salve o certificado SSL como um arquivo .pfx. O arquivo .pfx deve in
 
 Se você quiser criar um certificado auto-assinado, pode usar os comandos do PowerShell aqui. Lembre-se de usar o nome de domínio do ASE ILB em vez de *internal.contoso.com*: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
     
     $certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText

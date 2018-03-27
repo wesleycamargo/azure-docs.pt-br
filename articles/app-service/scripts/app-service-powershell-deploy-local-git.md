@@ -1,11 +1,11 @@
 ---
-title: "Exemplo de Script do Azure PowerShell - criar um aplicativo Web e implantar o código de um repositório Git local | Microsoft Docs"
-description: "Exemplo de Script do Azure PowerShell - criar um aplicativo Web e implantar o código de um repositório Git local"
+title: Exemplo de Script do Azure PowerShell - criar um aplicativo Web e implantar o código de um repositório Git local | Microsoft Docs
+description: Exemplo de Script do Azure PowerShell - criar um aplicativo Web e implantar o código de um repositório Git local
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c54dcd1869af0c5f3aac69bbd20d23b79ca669cf
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6846d9d25fb4b6b884e39676f8dbaa6c2899436b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Criar um aplicativo Web e implantar o código de um repositório local Git
 
 Este script de exemplo cria um aplicativo Web no Serviço de Aplicativo com seus recursos relacionados e, em seguida, implanta seu código de aplicativo da Web em um repositório Git local.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure. Além disso, o código do aplicativo precisa ser confirmado em um repositório Git local.
+Se for necessário, atualize para o Azure PowerShell mais recente usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure. Além disso, o código do aplicativo precisa ser confirmado em um repositório Git local.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -36,20 +36,16 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 Após a execução da amostra de script, o comando a seguir pode ser usado para remover o grupo de recursos, o aplicativo Web e todos os recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzureRmResourceGroup -Name $webappname -Force
 ```
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
 Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Command | Observações |
+| Get-Help | Observações |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Cria um Plano do Serviço de Aplicativo. |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria um aplicativo web. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifica um recurso em um grupo de recursos. |
-| [Get-AzureRmWebAppPublishingProfile](/powershell/module/azurerm.websites/get-azurermwebapppublishingprofile) | Obtenha perfis de publicação do aplicativo Web. |
+| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria um aplicativo Web com o grupo de recursos e o grupo do Serviço de Aplicativo necessários. Quando o diretório atual contiver um repositório Git, adicione também um `azure` remoto. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

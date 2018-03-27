@@ -2,7 +2,7 @@
 title: Diagnosticar problemas de desempenho usando o Azure Application Insights | Microsoft Docs
 description: Tutorial para localizar e diagnosticar problemas de desempenho no seu aplicativo usando o Azure Application Insights.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -38,10 +38,10 @@ Para concluir este tutorial:
 - [Habilitar o Application Insights Profiler](app-insights-profiler.md#installation) para seu aplicativo.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="identify-slow-server-operations"></a>Identificar operações lentas do servidor
-O Application Insights coleta detalhes de desempenho para as diferentes operações em seu aplicativo.  Ao identificar as operações de maior duração, você pode diagnosticar problemas em potencial ou direcionar melhor seu desenvolvimento contínuo para aprimorar o desempenho geral do aplicativo.
+O Application Insights coleta detalhes de desempenho para as diferentes operações em seu aplicativo. Ao identificar as operações de maior duração, você pode diagnosticar problemas em potencial ou direcionar melhor seu desenvolvimento contínuo para aprimorar o desempenho geral do aplicativo.
 
 1. Selecione **Application Insights** e, em seguida, selecione sua assinatura.  
 1. Para abrir o painel **Desempenho**, selecione **Desempenho** no menu **Investigar** ou clique no grafo **Tempo de Resposta do Servidor**.
