@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas de pilha do Microsoft Azure | Microsoft Docs"
-description: "Solução de pilha do Azure."
+title: Solução de problemas de pilha do Microsoft Azure | Microsoft Docs
+description: Solução de pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 799a7f7ed7e2373e4cf819a34d5deb362c9e6a3f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b63fdd630647cc970a2d935619b4d3f16b8c0375
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Solução de problemas de pilha do Microsoft Azure
 
@@ -44,7 +44,7 @@ Esse comportamento provavelmente é apenas o resultado do comportamento padrão 
 Um item de imagem e a Galeria do Windows Server deve ser adicionado antes de implantar VMs na pilha do Azure.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Depois de reiniciar meu host de pilha do Azure, algumas VMs podem não iniciar automaticamente.
-Depois de reinicializar o host, você pode notar serviços do Azure pilha não estão imediatamente disponíveis.  Isso ocorre porque a pilha do Azure [infraestrutura VMs](azure-stack-architecture.md#virtual-machine-roles) e RPs demorar um pouco para verificar a consistência, mas eventualmente será iniciado automaticamente.
+Depois de reinicializar o host, você pode notar serviços do Azure pilha não estão imediatamente disponíveis.  Isso ocorre porque a pilha do Azure [infraestrutura VMs](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) e RPs demorar um pouco para verificar a consistência, mas eventualmente será iniciado automaticamente.
 
 Você também pode observar esse locatário que VMs não iniciam automaticamente após a reinicialização do host do kit de desenvolvimento pilha do Azure. Este é um problema conhecido e requer apenas algumas etapas manuais para colocá-los online:
 

@@ -1,23 +1,23 @@
 ---
 title: Entender mensagens de nuvem para o dispositivo Hub IoT do Azure| Microsoft Docs
-description: "Guia do desenvolvedor - como usar mensagens de nuvem para o dispositivo com o Hub IoT. Inclui informações sobre o ciclo de vida da mensagem e as opções de configuração."
+description: Guia do desenvolvedor - como usar mensagens de nuvem para o dispositivo com o Hub IoT. Inclui informações sobre o ciclo de vida da mensagem e as opções de configuração.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Enviar mensagens de nuvem para o dispositivo do Hub IoT
 
@@ -81,11 +81,11 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 
 Se **Ack** estiver definida como **total** e você não receber uma mensagem de comentários, isso significará que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo de expiração máximo é de dois dias, tempo suficiente para restabelecer a execução do serviço caso ocorra uma falha.
 
-Como explicado em [Pontos de extremidade][lnk-endpoints], o Hub IoT fornece comentários por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [Ciclo de vida da mensagem][lnk-lifecycle]. Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato:
+Como explicado em [Pontos de extremidade][lnk-endpoints], o Hub IoT fornece comentários por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato:
 
 | Propriedade     | DESCRIÇÃO |
 | ------------ | ----------- |
-| EnqueuedTime | Carimbo de data/hora que indica quando a mensagem foi criada. |
+| EnqueuedTime | O carimbo de hora que indica quando a mensagem de comentários foi recebida pelo hub. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -93,7 +93,7 @@ O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes
 
 | Propriedade           | DESCRIÇÃO |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | Carimbo de data e hora que indica quando ocorreu a saída da mensagem. Por exemplo, o dispositivo foi concluído ou a mensagem expirou. |
+| EnqueuedTimeUtc    | Carimbo de data e hora que indica quando ocorreu a saída da mensagem. Por exemplo, o hub recebeu a mensagem de comentários ou a mensagem original expirou. |
 | OriginalMessageId  | **MessageId** da mensagem de nuvem para o dispositivo para qual essa informação de comentários se relaciona. |
 | StatusCode         | Cadeia de caracteres obrigatória. Usado em mensagens de comentários geradas pelo Hub IoT. <br/> 'Êxito' <br/> 'Expirado' <br/> 'DeliveryCountExceeded' <br/> 'Rejeitado' <br/> 'Limpo' |
 | DESCRIÇÃO        | Valores de cadeia de caracteres para **StatusCode**. |

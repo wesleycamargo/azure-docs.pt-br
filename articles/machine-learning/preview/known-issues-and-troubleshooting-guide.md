@@ -1,6 +1,6 @@
 ---
-title: "Problemas conhecidos e Guia de solução de problemas | Microsoft Docs"
-description: "Lista de problemas conhecidos e um guia para ajudar a solucioná-los"
+title: Problemas conhecidos e Guia de solução de problemas | Microsoft Docs
+description: Lista de problemas conhecidos e um guia para ajudar a solucioná-los
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – problemas conhecidos e Guia de solução de problemas 
 Este artigo ajuda a localizar e corrigir os erros ou falhas encontrados como parte do uso do aplicativo Azure Machine Learning Workbench. 
@@ -102,7 +102,7 @@ Infelizmente, não há nenhuma correção fácil para esse. Você deve executar 
    - remover a pasta `C:\Users\<Username>\AppData\Local\amlworkbench`
    - remover o script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - remover o atalho da área de trabalho que inicia o script acima
-   - baixe o instalador https://aka.ms/azureml-wb-msi e reinstale.
+   - faça o download do instalador https://aka.ms/azureml-wb-msi e reinstale.
 
 ## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Preso na tela "Verificando conta de experimentação" depois de fazer logon
 Depois de fazer o logon, o aplicativo Workbench pode ficar preso em uma tela em branco com a mensagem "Verificando conta de experimentação" com uma roda girando. Para resolver esse problema, siga estas etapas:
@@ -203,11 +203,14 @@ Também é possível adicionar um disco de dados e configurar o mecanismo do Doc
 Outra opção é expandir o disco do sistema operacional, sem precisar mexer na configuração do mecanismo do Docker. Veja aqui [como expandir o disco do sistema operacional](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM

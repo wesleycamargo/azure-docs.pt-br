@@ -1,6 +1,6 @@
 ---
-title: "Habilitar o SSL em um cluster MLC (Computação do Machine Learning) do Azure | Microsoft Docs"
-description: "Obter instruções para configurar o SSL para chamadas de pontuação em um cluster MLC (Computação do Azure Machine Learning)"
+title: Habilitar o SSL em um cluster MLC (Computação do Machine Learning) do Azure | Microsoft Docs
+description: Obter instruções para configurar o SSL para chamadas de pontuação em um cluster MLC (Computação do Azure Machine Learning)
 services: machine-learning
 author: SerinaKaye
 ms.author: serinak
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Habilitar o SSL em um cluster MLC (Computação do Machine Learning) do Azure 
 
@@ -31,7 +31,7 @@ Essas instruções permitem que você configure o SSL para chamadas de pontuaç�
 
 Você terá dois arquivos depois de concluir os pré-requisitos:
 
-* Um arquivo para o certificado, por exemplo, `cert.pem`
+* Um arquivo para o certificado, por exemplo, `cert.pem`. Verifique se o arquivo tem a cadeia de certificados completa.
 * Um arquivo para a chave, por exemplo, `key.pem`
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>Mapear o CNAME e o Endereço IP
 
-Crie um mapeamento entre o CNAME selecionado nos pré-requisitos e o endereço IP do FE (front-end) em tempo real. Para descobrir o endereço IP do FE, execute o comando a abaixo. A saída exibe um campo chamado “publicIpAddress”, que contém o endereço IP do front-end do cluster em tempo real. Veja as instruções de seu provedor DNS para configurar um registro CNAME.
+Crie um mapeamento entre o CNAME selecionado nos pré-requisitos e o endereço IP do FE (front-end) em tempo real. Para descobrir o endereço IP do FE, execute o comando a abaixo. A saída exibe um campo chamado “publicIpAddress”, que contém o endereço IP do front-end do cluster em tempo real. Consulte as instruções de seu provedor DNS para configurar um registro de FQDN usado em CNAME para o endereço IP público.
 
 
 

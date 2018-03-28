@@ -3,17 +3,17 @@ title: Configurar Autenticação do Azure Active Directory – SQL| Microsoft Do
 description: Saiba como se conectar ao Banco de Dados SQL, à Instância Gerenciada e ao SQL Data Warehouse usando a Autenticação do Azure Active Directory – após a configuração do Azure AD.
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configurar e gerenciar a autenticação do Azure Active Directory com o Banco de Dados SQL, a Instância Gerenciada ou o SQL Data Warehouse
 

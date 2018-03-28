@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights 
 
@@ -238,11 +238,11 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
     >
     >Se a opção de duração **/d** não for especificada, o PerfInsights solicitará que você reproduza o problema durante a execução dos cenários de vmslow, azurefiles e personalizados. 
 
-Quando os rastreamentos e as operações forem concluídos, um novo arquivo aparecerá na unidade D: \\log\_coleção (ou na unidade temporária). O nome do arquivo é **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip.** Envie esse arquivo para o agente de suporte para análise ou abra o relatório no arquivo zip para examinar as conclusões e recomendações.
+Quando os rastreamentos e as operações forem concluídos, um novo arquivo aparecerá na mesma pasta do PerfInsights. O nome do arquivo é **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip.** Envie esse arquivo para o agente de suporte para análise ou abra o relatório no arquivo zip para examinar as conclusões e recomendações.
 
 ## <a name="review-the-diagnostics-report"></a>Examine o relatório de diagnóstico
 
-No arquivo **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip,**, você pode localizar um relatório HTML com detalhes sobre as descobertas do PerfInsights. Para examinar o relatório, expanda o arquivo **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** e, em seguida, abra o arquivo **PerfInsights Report.html**.
+No arquivo **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip**, você pode localizar um relatório HTML com detalhes sobre as descobertas do PerfInsights. Para examinar o relatório, expanda o arquivo **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** e, em seguida, abra o arquivo **PerfInsights Report.html**.
 
 Selecione a guia **Descobertas**.
 
@@ -307,4 +307,4 @@ A captura de tela a seguir mostra uma mensagem semelhante à qual você poderá 
 
 Siga as instruções na mensagem para acessar o espaço de trabalho de transferência de arquivo. Para mais segurança, você deve alterar sua senha no primeiro uso.
 
-Após entrar, você encontrará uma caixa de diálogo para carregar o arquivo **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** coletado por PerfInsights.
+Após entrar, você encontrará uma caixa de diálogo para carregar o arquivo **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** coletado por PerfInsights.

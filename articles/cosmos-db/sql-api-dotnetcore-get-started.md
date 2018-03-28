@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos DB: tutorial de introdução à API do SQL em .NET Core | Microsoft Docs"
+title: 'Azure Cosmos DB: tutorial de introdução à API do SQL em .NET Core | Microsoft Docs'
 description: Um tutorial que cria um banco de dados online e um aplicativo de console C# usando o SDK do .NET Core da API do SQL do Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 0b19071bf871029b488b26d3f125d08d7d2a2dd4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Introdução à API do SQL e ao .NET Core
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Agora vamos começar!
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
+* Se ainda não tiver o Visual Studio 2017 instalado, é possível baixar e usar o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gratuito. Se você estiver desenvolvendo um aplicativo de UWP (Plataforma Universal do Windows), utilize o  **Visual Studio 2017 com a versão 15.4** ou superior. Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
     * Se estiver trabalhando no MacOS ou Linux, você poderá desenvolver aplicativos .NET Core na linha de comando instalando o [SDK .NET Core](https://www.microsoft.com/net/core#macos) para a plataforma de sua escolha. 
     * Se estiver trabalhando no Windows, você poderá desenvolver aplicativos .NET Core na linha de comando instalando o [SDK .NET Core](https://www.microsoft.com/net/core#windows). 
     * Você pode usar seu próprio editor ou fazer o download do [Visual Studio Code](https://code.visualstudio.com/), que é gratuito e funciona no Windows, Linux e MacOS. 
@@ -218,7 +218,7 @@ Copie e cole o código a seguir no seu método **GetStartedDemo** sob a criaçã
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-    await this.client.CreateDatabaseIfNotExists("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
     // ADD THIS PART TO YOUR CODE
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
@@ -318,7 +318,7 @@ Insira dois documentos, um para a Família Martins e um para a Família Barros.
 Copie e cole o código a seguir `// ADD THIS PART TO YOUR CODE` em seu método **GetStartedDemo** embaixo da criação da coleção de documentos.
 
 ```csharp
-await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
 await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
@@ -464,15 +464,8 @@ Copie e cole o método **ReplaceFamilyDocument** sob seu método **ExecuteSimple
 // ADD THIS PART TO YOUR CODE
 private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
 {
-    try
-    {
-        await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-        this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-    }
-    catch (DocumentClientException de)
-    {
-        throw;
-    }
+    await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+    this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
 }
 ```
 
@@ -505,15 +498,8 @@ Copie e cole o método **DeleteFamilyDocument** sob seu método **ReplaceFamilyD
 // ADD THIS PART TO YOUR CODE
 private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
 {
-    try
-    {
-        await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-        Console.WriteLine("Deleted Family {0}", documentName);
-    }
-    catch (DocumentClientException de)
-    {
-        throw;
-    }
+    await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+    Console.WriteLine("Deleted Family {0}", documentName);
 }
 ```
 

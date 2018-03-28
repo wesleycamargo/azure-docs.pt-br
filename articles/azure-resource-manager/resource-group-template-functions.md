@@ -1,6 +1,6 @@
 ---
-title: "Funções do modelo do Resource Manager | Microsoft Docs"
-description: "Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação."
+title: Funções do modelo do Resource Manager | Microsoft Docs
+description: Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 725f12a6b5dcf4b66109512336e8a617013c5974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54580abdca8b6be10576cf74ad23e8ff2665341c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções do modelo do Gerenciador de Recursos do Azure
-Este tópico descreve todas as funções que você pode usar em um modelo do Azure Resource Manager.
+Este artigo descreve todas as funções que você pode usar em um modelo do Azure Resource Manager.
 
 Você adiciona funções aos seus modelos colocando-as entre colchetes: `[` e `]`, respectivamente. A expressão é avaliada durante a implantação. Embora escrito como um literal de cadeia de caracteres, o resultado da avaliação da expressão pode ser de um tipo JSON diferente, como uma matriz, um objeto ou um inteiro. Assim como no JavaScript, as chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. Você faz referência às propriedades usando os operadores dot e [index].
 
@@ -37,6 +37,7 @@ As funções do modelo e seus parâmetros não diferenciam maiúsculas de minús
 <a id="empty" />
 <a id="first" />
 <a id="intersection" />
+<a id="json" />
 <a id="last" />
 <a id="length" />
 <a id="min" />
@@ -93,6 +94,21 @@ O Gerenciador de Recursos fornece as seguintes funções para obter os valores d
 * [parâmetros](resource-group-template-functions-deployment.md#parameters)
 * [variáveis](resource-group-template-functions-deployment.md#variables)
 
+<a id="and" />
+<a id="bool" />
+<a id="if" />
+<a id="not" />
+<a id="or" />
+
+## <a name="logical-functions"></a>Funções lógicas
+O Gerenciador de Recursos fornece as seguintes funções para trabalhar com condições lógicas:
+
+* [e](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
+* [ou](resource-group-template-functions-logical.md#or)
+
 <a id="add" />
 <a id="copyindex" />
 <a id="div" />
@@ -103,15 +119,6 @@ O Gerenciador de Recursos fornece as seguintes funções para obter os valores d
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
-
-## <a name="logical-functions"></a>Funções lógicas
-O Gerenciador de Recursos fornece as seguintes funções para trabalhar com condições lógicas:
-
-* [e](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
-* [if](resource-group-template-functions-logical.md#if)
-* [not](resource-group-template-functions-logical.md#not)
-* [ou](resource-group-template-functions-logical.md#or)
 
 ## <a name="numeric-functions"></a>Funções numéricas
 O Gerenciador de Recursos fornece as seguintes funções para trabalhar com números inteiros:
@@ -155,6 +162,7 @@ O Gerenciador de Recursos fornece as seguintes funções para obter valores de r
 <a id="emptystring" />
 <a id="endswith" />
 <a id="firststring" />
+<a id="guid" />
 <a id="indexof" />
 <a id="laststring" />
 <a id="lastindexof" />

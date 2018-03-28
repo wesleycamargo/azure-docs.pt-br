@@ -1,11 +1,11 @@
 ---
 title: Atividade da Web no Azure Data Factory | Microsoft Docs
-description: "Saiba como você pode usar a atividade da Web, uma das atividades de fluxo de controle com suporte pelo Data Factory, para invocar um ponto de extremidade REST de um pipeline."
+description: Saiba como você pode usar a atividade da Web, uma das atividades de fluxo de controle com suporte pelo Data Factory, para invocar um ponto de extremidade REST de um pipeline.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 510f9ac95245580cb7f2f51487b5aeacc2a4825c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade. 
@@ -69,7 +69,7 @@ Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 Nome | Nome da atividade da Web | Cadeia de caracteres | sim
 Tipo | Deve ser definido como **WebActivity**. | Cadeia de caracteres | sim
 estático | Método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. <br/><br/>Tipos com suporte: "GET", "POST", "PUT" | sim
-url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | sim
+url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade. | sim
 headers | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
 body | Representa o conteúdo enviado para o ponto de extremidade. Necessário para os métodos PUT/POST.  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](#request-payload-schema). | Não 
 Autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate." Para obter mais informações, consulte a seção [Autenticação](#authentication). Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não 
@@ -77,7 +77,7 @@ conjuntos de dados | Lista de conjuntos de dados passados para o ponto de extrem
 linkedServices | Lista de serviços vinculados passado ao ponto de extremidade. | Matriz de referências de serviço vinculado. Pode ser uma matriz vazia. | sim
 
 > [!NOTE]
-> Os pontos de extremidade REST que invoca a atividade da Web invoca devem retornar para uma resposta do JSON de tipo.
+> Os pontos de extremidade REST que invoca a atividade da Web invoca devem retornar para uma resposta do JSON de tipo. A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade.
 
 ## <a name="authentication"></a>Autenticação
 

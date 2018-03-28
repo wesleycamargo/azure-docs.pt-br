@@ -1,12 +1,12 @@
 ---
-title: "Visão Geral das Funções Duráveis – Azure (versão prévia)"
-description: "Introdução à extensão de Funções Duráveis do Azure Functions."
+title: Visão Geral das Funções Duráveis – Azure (versão prévia)
+description: Introdução à extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Visão Geral das Funções Duráveis (versão prévia)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 O parâmetro de `starter` [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) é um valor da associação de saída `orchestrationClient`, que faz parte da extensão de Funções Duráveis. Ele fornece métodos para iniciar, enviar eventos, encerrar e consultar instâncias novas ou existentes da função de orquestrador. No exemplo acima, uma função disparada por HTTP assume um valor de `functionName` da URL de entrada e passa esse valor para [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Em seguida, essa associação de API retorna uma resposta que contém um cabeçalho `Location` e informações adicionais sobre a instância, que posteriormente podem ser usadas para pesquisar o status da instância iniciada ou encerrá-la.
 
-## <a name="pattern-4-stateful-singletons"></a>Padrão 4: singletons com de estado
+## <a name="pattern-4-monitoring"></a>Padrão 4: Monitoramento
 
-A maioria das funções têm um início e um final explícito e não interagem diretamente com fontes de eventos externos. No entanto, as orquestrações dão suporte a um [singleton com estado](durable-functions-singletons.md) que lhes permite se comportar como [Reliable Actors](https://en.wikipedia.org/wiki/Actor_model) na computação distribuída.
+O padrão de monitoramento refere-se a um processo *recorrente* flexível em um fluxo de trabalho - por exemplo, sondagem até que determinadas condições sejam atendidas. Um disparador com timer regular pode endereçar um cenário simples, como um trabalho de limpeza periódico, mas seu intervalo é estático e o gerenciamento do tempo de vida da instância torna-se complexo. As Funções Duráveis permitem intervalos de recorrência flexíveis, gerenciamento de tempo de vida da tarefa e a capacidade de criar vários processos de monitoramento a partir de uma única orquestração.
 
-O diagrama a seguir ilustra uma função que é executada em um loop infinito durante o processamento de eventos recebidos de fontes externas.
+Um exemplo seria reverter o cenário anterior da API HTTP assíncrona. Em vez de expor um ponto de extremidade para um cliente externo monitorar uma operação de execução longa, o monitor de execução longa consome um ponto de extremidade externo, aguardando alguma alteração de estado.
 
-![Diagrama de singleton com estado](media/durable-functions-overview/stateful-singleton.png)
+![Diagrama de monitoramento](media/durable-functions-overview/monitor.png)
 
-Embora as Funções Duráveis não sejam uma implementação do modelo de ator, as funções de orquestrador têm muitas das mesmas características de tempo de execução. Por exemplo, elas são de longa execução (possivelmente infinita), com estado, confiáveis, de thread único, com transparência de local e endereçáveis globalmente. Isso torna as funções orquestradoras úteis para cenários semelhantes aos de "ator", sem a necessidade de uma estrutura separada.
-
-Funções comuns não têm monitoração de estado e, portanto, não são adequadas para implementar um padrão de singleton com estado. No entanto, a extensão de Funções Duráveis faz com que o padrão singleton com estado seja relativamente simples de implementar. O código a seguir é uma função de orquestrador simples que implementa um contador.
+Usando Funções Duráveis, vários monitores que observam pontos de extremidade arbitrários podem ser criados em poucas linhas de código. Os monitores podem encerrar a execução quando alguma condição for atendida ou serem terminados pelo [DurableOrchestrationClient](durable-functions-instance-management.md) e o intervalo de espera pode ser alterado com base em alguma condição (por exemplo, retirada exponencial.) O código a seguir implementa um monitor básico.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-Esse código é o que você poderia descrever como uma "orquestração eterna" &mdash;, ou seja, aquela que começa e nunca termina. Ele executa as seguintes etapas:
-
-* Começa com um valor de entrada em `counterState`.
-* Aguarda indefinidamente por uma mensagem chamada `operation`.
-* Executa alguma lógica para atualizar seu estado local.
-* "Reinicia" a si mesmo chamando `ctx.ContinueAsNew`.
-* Aguarda indefinidamente, mais uma vez, pela próxima operação.
+Quando uma solicitação é recebida, uma nova instância de orquestração é criada para essa ID do trabalho. A instância sonda um status até que uma condição seja atendida e o loop seja encerrado. Um temporizador durável é usado para controlar o intervalo de sondagem. Trabalho adicional pode ser realizado, ou a orquestração pode encerrar. Quando `ctx.CurrentUtcDateTime` excede `expiryTime`, o monitor encerra.
 
 ## <a name="pattern-5-human-interaction"></a>Padrão 5: interação humana
 
@@ -229,7 +228,7 @@ O temporizador durável é criado chamando `ctx.CreateTimer`. A notificação é
 
 ## <a name="the-technology"></a>A tecnologia
 
-Nos bastidores, a extensão de Funções Duráveis é baseada no [Framework de Tarefa Durável](https://github.com/Azure/durabletask), uma biblioteca de software livre no GitHub para a criação de orquestrações de tarefa durável. Assim como o Azure Functions é a evolução sem servidor do Azure WebJobs, as Funções Duráveis são a evolução sem servidor do Framework de Tarefa Durável. O Framework de Tarefa Durável é muito usado dentro e fora da Microsoft para automatizar processos essenciais. Ele é uma opção natural para o ambiente sem servidor do Azure Functions.
+Nos cenários, a extensão Funções Duráveis é compilada no [Framework de Tarefa Durável](https://github.com/Azure/durabletask), uma biblioteca de software livre no GitHub para compilar orquestrações de tarefas duráveis. Assim como o Azure Functions é a evolução sem servidor do Azure WebJobs, as Funções Duráveis são a evolução sem servidor do Framework de Tarefa Durável. O Framework de Tarefa Durável é muito usado dentro e fora da Microsoft para automatizar processos essenciais. Ele é uma opção natural para o ambiente sem servidor do Azure Functions.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Fornecimento de eventos, ponto de verificação e reprodução
 

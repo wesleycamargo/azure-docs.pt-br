@@ -1,5 +1,5 @@
 ---
-title: "Visão geral conceitual Gerenciamento de Modelos do Azure Machine Learning | Microsoft Docs"
+title: Visão geral conceitual Gerenciamento de Modelos do Azure Machine Learning | Microsoft Docs
 description: Este documento explica os conceitos de Gerenciamento de Modelos do Azure Machine Learning.
 services: machine-learning
 author: nk773
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Gerenciamento de Modelos do Azure Machine Learning
 
@@ -99,27 +99,27 @@ O fluxo de trabalho completo que descreve esses conceitos é capturado na figura
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) 
-- Há suporte para quais tipos de dados? Pode passar matrizes NumPy diretamente como entrada para o serviço Web?
+- **Há suporte para quais tipos de dados? Pode passar matrizes NumPy diretamente como entrada para o serviço Web?**
 
    Se estiver fornecendo o arquivo de esquema que foi criado usando o SDK generate_schema, você poderá passar o NumPy e/ou o Pandas DF. Você também pode passar qualquer entrada serializável JSON. Você também pode passar a imagem como cadeia de caracteres codificada como binária.
 
-- O serviço Web dá suporte a várias entradas ou analisa entradas diferentes? 
+- **O serviço Web dá suporte a várias entradas ou analisa entradas diferentes?**
 
    Sim, você pode tomar várias entradas empacotadas na solicitação JSON como um dicionário. Cada entrada corresponde a uma chave única de dicionário exclusiva.
 
-- A chamada é ativada por uma solicitação para o serviço Web, uma chamada de bloqueio ou uma chamada assíncrona?
+- **A chamada é ativada por uma solicitação para o serviço Web, uma chamada de bloqueio ou uma chamada assíncrona?**
 
    Se o serviço foi criado usando a opção de tempo real como parte da CLI ou API, então ele é uma chamada síncrona/de bloqueio. Espera-se que seja rápido e em tempo real. No entanto, no lado do cliente, você pode chamá-lo usando a biblioteca HTTP assíncrona para evitar o bloqueio de thread de cliente.
 
-- Quantas solicitações o serviço Web pode manipular simultaneamente?
+- **Quantas solicitações o serviço Web pode manipular simultaneamente?**
 
    Depende da escala do serviço Web e do cluster. Você pode expandir seu serviço para 100x de réplicas e, em seguida, ele pode lidar com muitas solicitações simultaneamente. Você também pode configurar um máximo de solicitações simultâneas por réplica para aumentar a taxa de transferência do serviço.
 
-- Quantas solicitações o serviço Web pode colocar na fila?
+- **Quantas solicitações o serviço Web pode colocar na fila?**
 
    É configurável. Por padrão, ele é definido para cerca de 10 por réplica única, mas você pode aumentar/diminuir de acordo com os requisitos do aplicativo. Normalmente, aumentar o número de solicitações em fila aumenta a taxa de transferência do serviço, mas torna as latências piores em percentuais mais altos. Para manter as latências consistentes, você pode definir o enfileiramento para um valor baixo (1-5) e aumentar o número de réplicas para lidar com a taxa de transferência. Você também pode ativar o dimensionamento automático para fazer com que o número de réplicas seja ajustado automaticamente com base no carregamento. 
 
-- O mesmo computador ou cluster pode ser usado para vários pontos de extremidade de serviço Web?
+- **O mesmo computador ou cluster pode ser usado para vários pontos de extremidade de serviço Web?**
 
    Com certeza. Você pode executar 100x de pontos de extremidade/serviços no mesmo cluster. 
 

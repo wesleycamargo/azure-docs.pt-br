@@ -1,6 +1,6 @@
 ---
-title: "Visão geral da comunicação dos Reliable Services | Microsoft Docs"
-description: "Visão geral do modelo de comunicação dos Reliable Services, incluindo a abertura de ouvintes, a resolução de pontos de extremidade e a comunicação entre serviços."
+title: Visão geral da comunicação dos Reliable Services | Microsoft Docs
+description: Visão geral do modelo de comunicação dos Reliable Services, incluindo a abertura de ouvintes, a resolução de pontos de extremidade e a comunicação entre serviços.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eacb4b7d0e33768e0da6ecd43ce1458a4a3bfaa8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como usar as APIs de comunicação dos Reliable Services
 O Service Fabric do Azure como uma plataforma é totalmente independente quanto às comunicações entre serviços. Todos os protocolos e pilhas são aceitáveis, de UDP a HTTP. Cabe ao desenvolvedor determinar a forma de comunicação entre os serviços. A estrutura de aplicativo dos Reliable Services fornece algumas pilhas de comunicação internas, bem como APIs que você pode usar para criar componentes de comunicação personalizados.
@@ -54,7 +54,7 @@ Você pode adicionar a implementação do ouvinte de comunicação, retornando-a
 Para serviços sem estado:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -85,7 +85,7 @@ Para serviços com estado:
 ```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -196,7 +196,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 O Service Fabric fornece uma API que permite aos clientes e outros serviços perguntarem esse endereço pelo nome do serviço. Isso é importante porque o endereço do serviço não é estático. Os serviços são movimentados no cluster para fins de disponibilidade e balanceamento de recursos. Esse é o mecanismo que permite aos clientes resolver o endereço de escuta de um serviço.
 
 > [!NOTE]
-> Para obter uma explicação completa de como escrever um ouvinte de comunicação, consulte [Serviços de API Web do Service Fabric com auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md) para C#, enquanto para Java você pode escrever sua própria implementação do servidor HTTP; consulte o exemplo de aplicativo EchoServer em https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> Para obter uma explicação completa de como gravar um ouvinte de comunicação, consulte [Serviços de API WEB do Service Fabric com auto-hospedagem OWIN ](service-fabric-reliable-services-communication-webapi.md) para C#, enquanto que para Java é possível gravar a própria implementação do servidor HTTP; consulte o exemplo de aplicativo EchoServer em https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
@@ -275,7 +275,7 @@ A biblioteca de fábrica de comunicação implementa um padrão típico de repet
 O cliente de comunicação apenas recebe um endereço e o utiliza para se conectar a um serviço. O cliente pode usar qualquer protocolo que desejar.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 

@@ -1,11 +1,11 @@
 ---
-title: "Criar uma imagem de máquina virtual para o Azure Marketplace | Microsoft Docs"
-description: "Instruções detalhadas sobre como criar uma imagem de máquina virtual para o Azure Marketplace para outras pessoas comprarem."
+title: Criar uma imagem de máquina virtual para o Azure Marketplace | Microsoft Docs
+description: Instruções detalhadas sobre como criar uma imagem de máquina virtual para o Azure Marketplace para outras pessoas comprarem.
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Este artigo, **Etapa 2**, mostra a preparação dos VHDs (discos rígidos virtuais) que você implantará no Azure Marketplace. Seus VHDs são a base de sua SKU. O processo é diferente dependendo se você está fornecendo uma SKU baseada em Linux ou em Windows. Este artigo aborda ambos os cenários. Esse processo pode ser executado em paralelo com [Criação e registro de conta][link-acct-creation].
@@ -372,7 +372,7 @@ A seguir são mostradas as etapas para gerar a URL SAS usando o Gerenciador de A
 
 A seguir são mostradas as etapas para gerar a URL SAS usando o Gerenciador de Armazenamento do Microsoft Azure
 
-1.  Baixe o formulário do Gerenciador de Armazenamento do Microsoft Azure no site [http://storageexplorer.com/](http://storageexplorer.com/). Acesse o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/releasenotes.html) e clique em **“Baixar para Windows”**.
+1.  Baixe o formulário do Gerenciador de Armazenamento do Microsoft Azure [http://storageexplorer.com/](http://storageexplorer.com/)do site. Acesse o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/releasenotes.html) e clique em **“Baixar para Windows”**.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 

@@ -1,24 +1,20 @@
 ---
-title: "Ativos de conexão na Automação do Azure | Microsoft Docs"
-description: "Os ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou uma configuração DSC. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica."
+title: Ativos de conexão na Automação do Azure
+description: Os ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou uma configuração DSC. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/13/2017
-ms.author: magoedte; bwren
-ms.openlocfilehash: c1e56f00e46dc3d04f6ac3bb42df6c1935c5c8b0
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 547ec5a7de7a58e591a2ea44b8e54804ca41974c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de conexão na Automação do Azure
 
@@ -26,8 +22,8 @@ Um ativo de conexão da Automação contém as informações necessárias para s
 
 Ao criar uma conexão, você deve especificar um *tipo de conexão*. O tipo de conexão é um modelo que define um conjunto de propriedades. A conexão define valores para cada propriedade definida em seu tipo de conexão. Tipos de conexão são adicionados à automação do Azure nos módulos de integração ou criados com a [API de automação do Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx) se o módulo de integração inclui um tipo de conexão e é importado para sua conta de automação. Caso contrário, você precisará criar um arquivo de metadados para especificar um tipo de conexão de automação.  Para saber mais sobre isso, veja [Módulos de integração](automation-integration-modules.md).  
 
->[!NOTE] 
->Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
+>[!NOTE]
+>Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é armazenada no Key Vault. Antes de armazenar um ativo seguro, a chave é carregada do Key Vault e usada para criptografar o ativo.
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
 

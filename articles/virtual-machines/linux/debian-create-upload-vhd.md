@@ -1,11 +1,11 @@
 ---
 title: Preparar um VHD do Debian Linux no Azure | Microsoft Docs
-description: "Aprenda a criar arquivos VHD no Debian 7 e 8 para implantação no Azure."
+description: Aprenda a criar arquivos VHD no Debian 7 e 8 para implantação no Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: a6de7a7c-cc70-44e7-aed0-2ae6884d401a
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 7802ac701dfb865186beac3889ea2a5b4d0c4770
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 9b32b298f141e9ee54b4c42d3ee9c15174daf8b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Preparar um VHD do Debian para o Azure
 ## <a name="prerequisites"></a>pré-requisitos
@@ -30,7 +30,7 @@ Esta seção pressupõe que você já instalou um sistema operacional Linux Debi
 * Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet **convert-vhd** .
 * Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) em discos de dados.
 * Não configure uma partição de permuta no disco do SO. O agente Linux do Azure pode ser configurado para criar um arquivo de permuta no disco de recursos temporários. Verifique as etapas a seguir para obter mais informações a esse respeito.
-* Todos os VHDs devem ter tamanhos que sejam múltiplos de 1 MB.
+* Todos os VHDs no Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco não processado para VHD, certifique-se de que o tamanho do disco não processado seja um múltiplo de 1 MB antes da conversão. Consulte [Notas de Instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Usar o gerenciamento do Azure para criar VHDs Debian
 Existem ferramentas disponíveis para gerar VHDs Debian para o Azure, como os scripts [azure-manage](https://github.com/credativ/azure-manage) do [credativ](http://www.credativ.com/). Essa é a abordagem recomendada em vez de criar uma imagem do zero. Por exemplo, para criar um VHD no Debian 8, execute os seguintes comandos para baixar o gerenciamento do Azure (e dependências) e execute o script azure_build_image:

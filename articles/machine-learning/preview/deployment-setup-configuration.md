@@ -1,20 +1,20 @@
 ---
-title: "Instalação e configuração do Gerenciamento de Modelos do Azure Machine Learning | Microsoft Docs"
-description: "Este documento descreve as etapas e os conceitos envolvidos na instalação e na configuração do Gerenciamento de Modelos no Azure Machine Learning."
+title: Instalação e configuração do Gerenciamento de Modelos do Azure Machine Learning | Microsoft Docs
+description: Este documento descreve as etapas e os conceitos envolvidos na instalação e na configuração do Gerenciamento de Modelos no Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
-ms.reviewer: jmartens,jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: 4e2ac548ee08f1a20cf2c1744242ee13535e55cc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d231fd525d310d2496c9ace40808b7deab0dd48f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-setup"></a>Configuração do gerenciamento de modelos
 
@@ -37,7 +37,7 @@ Em todos os outros sistemas, você precisa instalar as CLIs.
 
 ### <a name="installing-or-updating-on-windows"></a>Instalando (ou atualizando) no Windows
 
-Instale o Python de https://www.python.org/. Verifique se você selecionou a instalação do pip.
+Instale o Python a partir de https://www.python.org/. Verifique se você selecionou a instalação do pip.
 
 Abra um prompt de comando usando Executar como administrador e execute os seguintes comandos:
 
@@ -70,7 +70,7 @@ Comece com uma implantação local, valide que o modelo e o código funcionam e,
 Para começar, você precisa configurar seu ambiente de implantação. A configuração do ambiente é uma tarefa de ocorrência única. Quando a instalação estiver concluída, você poderá reutilizar o ambiente para as próximas implantações. Consulte a seção a seguir para obter mais detalhes.
 
 Ao concluir a configuração do ambiente:
-- Será solicitado que você entre no Azure. Para entrar, use um navegador da Web para abrir a página https://aka.ms/devicelogin e insira o código fornecido para autenticar.
+- Será solicitado que você entre no Azure. Para entrar, utilize um navegador da Web para abrir a página https://aka.ms/devicelogin e insira o código fornecido para autenticar.
 - Durante o processo de autenticação, será solicitado que você se autentique com uma conta. Importante: Selecione uma conta que tenha uma assinatura do Azure válida e permissões suficientes para criar recursos na conta. Quando o log-in é concluído, as suas informações de assinatura são apresentadas e você é perguntado se deseja continuar com a conta selecionada.
 
 ### <a name="environment-setup"></a>Configuração do ambiente

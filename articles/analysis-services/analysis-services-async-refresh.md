@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao usar qualquer linguagem de programação que seja compatível com chamadas REST, você pode executar operações de atualização de dados assíncronas em seus modelos de tabela do Azure Analysis Services. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
@@ -36,7 +36,7 @@ A URL base segue este formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Por exemplo, considerando um modelo chamado AdventureWorks, em um servidor chamado myserver, localizado na região do Azure Oeste dos EUA, o nome do servidor será:
+Por exemplo, considerando um modelo chamado AdventureWorks, em um servidor chamado myserver, localizado na região do Azure Oeste dos EUA. O nome do servidor é:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ A URL base para esse nome do servidor será:
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Ao usar a URL base, os recursos e as operações poderão ser acrescentados com base no seguinte: 
+Ao usar a URL base, os recursos e as operações poderão ser acrescentados com base nos seguintes parâmetros: 
 
 ![Atualização assíncrona](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ Ao usar a URL base, os recursos e as operações poderão ser acrescentados com 
 - Qualquer coisa que termine com **()** é uma função.
 - Qualquer outra coisa será um recurso/objeto.
 
-Por exemplo, você pode usar o verbo POST na coleção Refreshes para executar uma operação de atualização, dessa forma:
+Por exemplo, você pode usar o verbo POST na coleção Refreshes para executar uma operação de atualização:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -106,7 +106,7 @@ Não é necessário especificar parâmetros. O padrão será aplicado.
 |---------|---------|---------|---------|
 |type     |  Enum       |  O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comandos de atualização](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) da TMSL: full, clearValues, calculate, dataOnly, automatic, add e defragment.       |   automático      |
 |CommitMode     |  Enum       |  Determina se os objetos serão confirmados em lotes ou somente na conclusão. Os modos incluem: default, transactional, partialBatch.  |  transacional       |
-|MaxParallelism     |   int      |  Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Isso é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
+|MaxParallelism     |   int      |  Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
 |RetryCount    |    int     |   Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
 |Objetos     |   Matriz      |   Uma matriz de objetos a serem processados. Cada objeto inclui: "table" ao processar a tabela inteira ou "table" e "partition" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
 
@@ -188,7 +188,7 @@ Para verificar o status de uma operação de sincronização, use o verbo GET pa
 }
 ```
 
-Valores de syncstate:
+Os valores para `syncstate`:
 
 - 0: replicando. Os arquivos do banco de dados estão sendo replicados para uma pasta de destino.
 - 1: reidratação. O banco de dados está sendo reidratado em instâncias de servidor somente leitura.
@@ -228,7 +228,7 @@ Essa forma de autenticação exige que um aplicativo do Azure seja criado com as
 
     ![Adicionar acesso à API](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  Em **Selecionar uma API**, digite **SQL Server Analysis Services** na caixa de pesquisa e, em seguida, selecione **Azure Analysis Services (Azure SQL Server Analysis Services)**.
+5.  Em **Selecionar uma API**, digite **Azure Analysis Services** na caixa de pesquisa e, em seguida, selecione-o.
 
     ![Selecionar API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ Essa forma de autenticação exige que um aplicativo do Azure seja criado com as
 
 #### <a name="service-principal"></a>Entidade de serviço
 
-Consulte a postagem de blog [Automação do Azure Analysis Services com entidades de serviço e o PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) para saber como configurar uma entidade de serviço e atribuir as permissões necessárias no Azure Analysis Services. Ao concluir as etapas detalhadas na postagem do blog, execute mais essas etapas:
+Consulte [Criar entidade de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [Adicionar uma entidade de serviço à função de administrador de servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar uma entidade de serviço e atribuir as permissões necessárias no Azure AS. Ao concluir as etapas, execute as seguintes etapas adicionais:
 
 1.  No exemplo de código, localize **string authority = …**, substitua **common** pela ID de locatário da sua organização.
 2.  Comente/remova a marca de comentário para que a classe ClientCredential seja usada para instanciar o objeto de credencial. Verifique se os valores \<App ID> e \<App Key> podem ser acessados de forma segura ou use autenticação baseada em certificado para as entidades de serviço.

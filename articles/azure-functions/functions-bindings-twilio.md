@@ -1,13 +1,13 @@
 ---
-title: "Associação do Twilio e Azure Functions"
-description: "Entenda como usar associações Twilio com Azure Functions."
+title: Associação do Twilio e Azure Functions
+description: Entenda como usar associações Twilio com Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,17 +16,23 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associação de Twilio para o Azure Functions
 
 Este artigo explica como enviar mensagens de texto usando-se as associações de [Twilio](https://www.twilio.com/) no Azure Functions. O Azure Functions oferece suporte a uma associação de saída para o Twilio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pacotes
+
+As associações de Twilio são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -195,7 +201,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs).
 
 Para obter informações sobre as propriedades de atributo que você pode configurar, consulte [Configuração](#configuration). Aqui está um exemplo de atributo `TwilioSms` em uma assinatura de método:
 

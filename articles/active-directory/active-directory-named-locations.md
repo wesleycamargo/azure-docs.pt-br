@@ -1,8 +1,8 @@
 ---
-title: "Localizações nomeadas no Azure Active Directory | Microsoft Docs"
-description: "Saiba o que são localizações nomeadas e como configurá-las."
+title: Configurar locais nomeados no Azure Active Directory | Microsoft Docs
+description: Saiba como configurar locais nomeados.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Localizações nomeadas no Azure Active Directory
+# <a name="configure-named-locations-in-azure-active-directory"></a>Configurar locais nomeados no Azure Active Directory
 
 Com locais nomeados, você pode rotular os intervalos de endereços IP confiáveis em sua organização. O Azure Active Directory usa localizações nomeadas nos seguintes contextos:
 
@@ -89,22 +89,14 @@ Você pode acessar a página de configuração da localização nomeada na seç�
 
 
 
-## <a name="what-you-should-know"></a>O que você deve saber
-
-**Atualizações em massa**: quando você cria ou atualiza localizações nomeadas, para atualizações em massa, você pode carregar ou baixar um arquivo CSV com os intervalos de IP. Um carregamento adiciona os intervalos de IP no arquivo à lista em vez de substituir a lista.
-
-![Os links para carregar e baixar arquivos](./media/active-directory-named-locations/09.png)
-
-
-**Limitações**: você pode definir um máximo de 60 localizações nomeadas com um intervalo de IP atribuído a cada uma delas. Se você tiver apenas uma localização nomeada configurada, poderá definir até 500 intervalos de IP para ela.
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre:
+Para obter mais informações, consulte:
 
-- **Eventos de risco**, consulte [Eventos de risco do Active Directory do Azure](active-directory-reporting-risk-events.md).
+- [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- **Acesso condicional**, consulte [Acesso condicional no Active Directory do Azure](active-directory-conditional-access-azure-portal.md).
+- [Condições de local no acesso condicional do Azure Active Directory](active-directory-conditional-access-locations.md)
 
-- **Relatório de entradas de risco**, consulte [Relatório de entrada de risco no portal do Active Directory do Azure](active-directory-reporting-security-risky-sign-ins.md).  
+- [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+
+- [Relatório de entradas arriscadas no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  

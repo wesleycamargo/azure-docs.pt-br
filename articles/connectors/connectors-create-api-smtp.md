@@ -1,11 +1,11 @@
 ---
-title: "Conector SMTP no Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Crie aplicativos lógicos com o serviço de Aplicativo do Azure. Conecte-se ao SMTP para enviar email."
+title: Conector SMTP no Aplicativo Lógico do Azure | Microsoft Docs
+description: Crie aplicativos lógicos com o serviço de Aplicativo do Azure. Conecte-se ao SMTP para enviar email.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9bf7c9b7c3e775ab03b071d13d792f4b2d8fb3e3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Introdução ao conector do SMTP
 Conecte-se ao SMTP para enviar email.
@@ -37,13 +37,13 @@ Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma
 ## <a name="use-an-smtp-trigger"></a>Usar um gatilho de SMTP
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Neste exemplo, como o SMTP não tem seu próprio gatilho, usaremos o gatilho **Salesforce – quando um objeto é criado**. Esse gatilho é ativado quando um novo objeto é criado no Salesforce. Em nosso exemplo, nós o configuraremos de modo que toda vez que um novo cliente potencial for criado no Salesforce, uma ação *enviar email* ocorrerá por meio do conector de SMTP com uma notificação do novo cliente potencial que está sendo criado.
+Neste exemplo, o SMTP não tem um gatilho próprio. Portanto, use o gatilho **Quando um objeto é criado** do Salesforce. Esse gatilho é ativado quando um novo objeto é criado no Salesforce. Para esse exemplo, ele é configurado de modo que toda vez que um novo cliente potencial for criado no Salesforce, uma ação *enviar email* ocorrerá usando o conector de SMTP com uma notificação do novo cliente potencial que está sendo criado.
 
 1. Digite *salesforce* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **Salesforce — Quando um objeto é criado** .  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 2. O controle **Quando um objeto é criado** é exibido.
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Escolha o **Tipo de Objeto** e selecione *Cliente Potencial* na lista de objetos. Nessa etapa, instruímos sobre a criação de um gatilho que notificará seu aplicativo lógico sempre que um novo cliente potencial for criado no Salesforce.  
+3. Escolha o **Tipo de Objeto** e selecione *Cliente Potencial* na lista de objetos. Nessa etapa, você está criando um gatilho que notifica seu aplicativo lógico sempre que um novo cliente potencial for criado no Salesforce.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. O gatilho foi criado.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
@@ -51,7 +51,7 @@ Neste exemplo, como o SMTP não tem seu próprio gatilho, usaremos o gatilho **S
 ## <a name="use-an-smtp-action"></a>Usar uma ação de SMTP
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação de SMTP que ocorrerá quando um novo cliente potencial for criado no Salesforce.
+Agora que o gatilho foi adicionado, use as etapas a seguir para adicionar uma ação de SMTP que ocorrerá quando um novo cliente potencial for criado no Salesforce.
 
 1. Escolha **+ Nova etapa** para adicionar a ação que deseja executar quando um novo cliente potencial é criado.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  

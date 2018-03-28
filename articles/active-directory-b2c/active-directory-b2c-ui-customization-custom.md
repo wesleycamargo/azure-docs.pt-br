@@ -1,8 +1,8 @@
 ---
-title: "Personalizar uma interface do usuário usando políticas personalizadas – Azure AD B2C | Microsoft Docs"
-description: "Saiba mais sobre como personalizar uma interface do usuário (UI) ao usar políticas personalizadas no Azure AD B2C."
+title: Personalizar uma interface do usuário usando políticas personalizadas – Azure AD B2C | Microsoft Docs
+description: Saiba mais sobre como personalizar uma interface do usuário (UI) ao usar políticas personalizadas no Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: Configurar a personalização da interface do usuário em uma política personalizada
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Depois de concluir este artigo, você terá uma política personalizada de inscrição e entrada com sua marca e aparência. Com o Azure Active Directory B2C (Azure AD B2C), você obtém controle quase total do conteúdo HTML e CSS apresentado aos usuários. Ao usar uma política personalizada, a personalização da interface do usuário é configurada em XML em vez de usar controles no portal do Azure. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, conclua as etapas em [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). Você deve ter uma política personalizada funcional para inscrição e conexão com contas locais.
 
@@ -118,7 +118,7 @@ Configure o Armazenamento de nlobs para o Compartilhamento de Recursos entre Ori
 
 Verifique se você está pronto fazendo o seguinte:
 
-1. Acesse o site [teste-cors.org](http://test-cors.org/) e cole a URL na caixa **URL Remota**.
+1. Acesse o site [www.test-cors.org](http://www.test-cors.org/) e cole a URL na caixa **URL Remota**.
 2. Clique em **Enviar Solicitação**.  
     Se você receber um erro, verifique se as [Configurações do CORS](#configure-cors) estão corretas. Você também pode precisar limpar o cache do navegador ou abrir uma sessão de navegação particular pressionando Ctrl+Shift+P.
 
@@ -159,7 +159,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 A pasta sample_templates/wingtip contém os seguintes arquivos HTML:
 
-| Modelo do HTML5 | Descrição |
+| Modelo do HTML5 | DESCRIÇÃO |
 |----------------|-------------|
 | *phonefactor.html* | Use esse arquivo como modelo para uma página de autenticação multifator. |
 | *resetpassword.html* | Use esse arquivo como modelo para uma página de esquecimento de senha. |
@@ -169,7 +169,7 @@ A pasta sample_templates/wingtip contém os seguintes arquivos HTML:
 
 Na seção [Modificar sua política personalizada de inscrição ou entrada](#modify-your-sign-up-or-sign-in-custom-policy), você configurou a definição de conteúdo para `api.idpselections`. O conjunto completo de IDs de definição de conteúdo reconhecidas pelo framework de experiência de identidade do Azure AD B2C e suas descrições estão na tabela a seguir:
 
-| ID de definição de conteúdo | Descrição | 
+| ID de definição de conteúdo | DESCRIÇÃO | 
 |-----------------------|-------------|
 | *api.error* | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. |
 | *api.idpselections* | **Página de seleção de provedor de identidade**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição. Essas opções são os provedores de identidade empresarial, provedores de identidade social, como Facebook e Google+, ou contas locais. |

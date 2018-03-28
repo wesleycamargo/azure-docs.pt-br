@@ -1,31 +1,30 @@
 ---
 title: Recursos para o desenvolvimento de um data warehouse no Azure | Microsoft Docs
-description: "Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse."
+description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
-editor: 
-ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisões de design e técnicas de codificação para o SQL Data Warehouse
-Dê uma olhada nesses artigos sobre desenvolvimento para entender melhor as principais decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
+Leia estes artigos sobre desenvolvimento para reconhecer melhor as principais decisões de design, recomendações e técnicas de codificação para SQL Data Warehouse.
 
 ## <a name="key-design-decisions"></a>Principais decisões de design
-Os artigos a seguir destacam alguns dos principais conceitos e as decisões de design que você precisará entender para desenvolver seu data warehouse distribuído usando o SQL Data Warehouse:
+Os artigos a seguir destacam conceitos e decisões de design para desenvolver um data warehouse distribuído utilizando o SQL Data Warehouse:
 
 * [conexões][connections]
 * [simultaneidade][concurrency]
@@ -38,7 +37,7 @@ Os artigos a seguir destacam alguns dos principais conceitos e as decisões de d
 * [estatísticas][statistics]
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recomendações para o desenvolvimento e técnicas de codificação
-Esses artigos realçam as técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de seu SQL Data Warehouse:
+Esses artigos destacam recomendações, dicas e técnicas de codificação específicas para o desenvolvimento do SQL Data Warehouse:
 
 * [procedimentos armazenados][stored procedures]
 * [rótulos][labels]
@@ -50,12 +49,12 @@ Esses artigos realçam as técnicas de codificação específicas, dicas e recom
 * [atribuição de variável][variable assignment]
 
 ## <a name="next-steps"></a>Próximas etapas
-Após a leitura dos artigos de desenvolvimento, confira a página [Referência a Transact-SQL][Transact-SQL reference] para obter mais detalhes sobre a sintaxe com suporte para o SQL Data Warehouse.
+Para obter mais informações de referência, consulte a página de [referência Transact-SQL][Transact-SQL reference] para SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[concurrency]: ./resource-classes-for-workload-management.md
 [connections]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md

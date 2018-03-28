@@ -1,5 +1,20 @@
-
-A família de VMs da série B permite que você escolha o tamanho de VM que oferece o nível necessário da linha de base de desempenho para sua carga de trabalho, com a capacidade de aumentar o desempenho da CPU em até 100% de um Intel® Broadwell E5-2673 v4 2.3GHz ou vCPU do processador do Intel® Haswell 2.4 GHz E5-2673 v3.
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/16/2018
+---
+A família de VMs da série B permite que você escolha o tamanho de VM que oferece o nível necessário da linha de base de desempenho para sua carga de trabalho, com a capacidade de aumentar o desempenho da CPU em até 100% de um Intel® Broadwell E5-2673 v4 2.3 GHz ou vCPU do processador do Intel® Haswell 2.4 GHz E5-2673 v3.
 
 As VMs da série B são ideais para cargas de trabalho que não precisam ter o desempenho total da CPU continuamente, como servidores Web, bancos de dados pequenos e ambientes de desenvolvimento e teste. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. A série B permite a compra de um tamanho de VM com a linha de base de desempenho, e a instância da VM criará créditos quando estiver usando menos que a linha de base. Quando a VM acumular crédito, ela poderá ultrapassar a linha de base usando até 100% da vCPU quando seu aplicativo exigir um melhor desempenho de CPU.
 

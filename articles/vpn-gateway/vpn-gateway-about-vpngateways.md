@@ -1,11 +1,11 @@
 ---
-title: "Visão geral do Gateway de VPN: criar conexões de VPN entre locais para redes virtuais do Azure | Microsoft Docs"
-description: "Este artigo explica o que é um Gateway de VPN e mostra as maneiras que você pode se conectar a redes virtuais do Azure usando uma conexão VPN na Internet. Diagramas de configurações de conexão básica estão incluídos."
+title: 'Visão geral do Gateway de VPN: criar conexões de VPN entre locais para redes virtuais do Azure | Microsoft Docs'
+description: Este artigo explica o que é um Gateway de VPN e mostra as maneiras que você pode se conectar a redes virtuais do Azure usando uma conexão VPN na Internet. Diagramas de configurações de conexão básica estão incluídos.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway"></a>Sobre o Gateway de VPN
 
@@ -53,12 +53,15 @@ Quando você configura um gateway de VPN, as etapas efetuadas dependem do modelo
 
 A tabela a seguir pode ajudá-lo a decidir a melhor opção de conectividade para sua solução.
 
-[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
-
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gwsku"></a>SKUs do Gateway
 
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+Ao criar um gateway de rede virtual, especifique a SKU do gateway que você deseja usar. Selecione as SKUs que atendem às suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, recursos e SLAs. Para mais informações sobre as SKUs de gateway, incluindo suporte para recursos, produção e teste de desenvolvimento e etapas de configuração, consulte [SKUs de Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
+### <a name="benchmark"></a>SKUs de gateway pelo túnel, a conexão e a taxa de transferência
+
+[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="diagrams"></a>Diagramas de topologia de conexão
 
@@ -86,7 +89,7 @@ Esse tipo de conexão é uma variação da conexão Site a Site. Você pode cria
 
 ### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Modelos de implantação e métodos para Site a Site e Vários Sites
 
-[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+[!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 ## <a name="P2S"></a>Ponto a Site (VPN sobre IKEv2 ou SSTP)
 

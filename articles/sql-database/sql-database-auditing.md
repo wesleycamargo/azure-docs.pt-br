@@ -1,25 +1,19 @@
 ---
-title: "Introdução à auditoria do banco de dados SQL do Azure | Microsoft Docs"
+title: Introdução à auditoria do banco de dados SQL do Azure | Microsoft Docs
 description: Use a auditoria de banco de dados SQL Azure para rastrear eventos de banco de dados para um log de auditoria.
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: jhubbard
-editor: giladm
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 A auditoria do banco de dados SQL do Azure acompanha eventos do banco de dados e grava-os em um log de auditoria em sua conta de armazenamento do Azure. A auditoria também:

@@ -1,11 +1,11 @@
 ---
-title: "Adicionar o conector do OneDrive em seus Aplicativos Lógicos | Microsoft Docs"
-description: "Visão geral do conector do OneDrive com os parâmetros da API REST"
+title: Adicionar o conector do OneDrive em seus Aplicativos Lógicos | Microsoft Docs
+description: Visão geral do conector do OneDrive com os parâmetros da API REST
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 47a8582a-1b1a-4fc3-beb5-97c60c4306fe
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 15b88baf21ead5a6b9506c47ca9930d5088b8787
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Introdução ao conector do OneDrive
 Conecte-se ao OneDrive para gerenciar seus arquivos, incluindo carregar, obter, excluir arquivos e muito mais. 
@@ -30,7 +30,7 @@ Com o OneDrive, você:
 * Use gatilhos para iniciar o fluxo de trabalho quando um arquivo é criado ou atualizado em seu OneDrive.
 * Usar ações para criar um arquivo, excluir um arquivo e muito mais. Por exemplo, quando um novo email do Office 365 for recebido com um anexo (um gatilho), crie um novo arquivo no OneDrive (uma ação).
 
-Este tópico mostra como usar o conector do OneDrive em um aplicativo lógico, além de listar os gatilhos e as ações.
+Este artigo mostra como usar o conector do OneDrive em um aplicativo lógico, além de listar os gatilhos e as ações.
 
 Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../logic-apps/logic-apps-overview.md) e [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -52,7 +52,7 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    Se você for solicitado a entrar, insira os detalhes do logon para criar a conexão. [Criar a conexão](connectors-create-api-onedrive.md#create-the-connection) neste tópico lista as etapas. 
+    Se você for solicitado a entrar, insira os detalhes do logon para criar a conexão. [Criar a conexão](connectors-create-api-onedrive.md#create-the-connection) neste artigo lista as etapas. 
    
    > [!NOTE]
    > Neste exemplo, o aplicativo lógico é executado quando um arquivo na pasta escolhida é atualizado. Para ver os resultados deste gatilho, adicione outra ação que envia um email. Por exemplo, adicione a ação *Enviar um email* do Outlook do Office 365 que envia um email para você quando um arquivo é atualizado. 
@@ -76,7 +76,7 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-onedrive.md#create-the-connection) neste tópico descreve estas propriedades. 
+    Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-onedrive.md#create-the-connection) neste artigo descreve estas propriedades. 
    
    > [!NOTE]
    > Neste exemplo, podemos criar um novo arquivo em uma pasta do OneDrive. Você pode usar a saída de outro gatilho para criar o arquivo do OneDrive. Por exemplo, adicione o gatilho *Quando um novo email chegar* do Outlook do Office 365. Em seguida, adicione a ação *Criar arquivo* do OneDrive, que usa os campos Anexos e Tipo de Conteúdo em um ForEach para criar o novo arquivo no OneDrive. 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -34,8 +34,9 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 - O SSO Contínuo não funciona no modo de navegação particular no Firefox.
 - O SSO contínuo não funciona no Internet Explorer quando o modo de Proteção Avançada está ativado.
 - O SSO contínuo não funciona em navegadores de dispositivos móveis no iOS e no Android.
+- Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 16 KB; os tíquetes Kerberos precisam ser muito menores do que esse número para acomodar outros artefatos do Azure AD como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) o recurso em seu locatário.
-- Adicionar a URL do serviço Azure AD (https://autologon.microsoftazuread-sso.com) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
+- Adicionar a URL do serviço Azure AD (https://autologon.microsoftazuread-sso.com)) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
 - Desabilitar o uso do tipo de criptografia **RC4_HMAC_MD5** para Kerberos em suas configurações do Active Directory irá interromper o SSO Contínuo. Na ferramenta do Editor de Gerenciamento de Política de Grupo, verifique se o valor da política para **RC4_HMAC_MD5** em **Configuração do Computador -> Configurações do Windows -> Configurações de Segurança -> Políticas Locais -> Opções de Segurança -> "Segurança de Rede: Configurar tipos de criptografia permitidos para Kerberos"** é" Habilitado ".
 
 ## <a name="check-status-of-feature"></a>Verificar o status do recurso
@@ -75,7 +76,7 @@ Use a lista de verificação a seguir para solucionar problemas de SSO Contínuo
 
 - Verifique se o recurso de SSO Contínuo está habilitado no Azure AD Connect. Se você não puder habilitar o recurso (por exemplo, devido a uma porta bloqueada), verifique se você cumpriu com todos os [pré-requisitos](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites).
 - Se você habilitou o [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) e o SSO Contínuo em seu locatário, verifique se o problema não está com o Ingresso no Azure AD. O SSO por meio do Ingresso no Azure AD terá precedência sobre SSO Contínuo se o dispositivo estiver registrado no Azure AD e ingressado no domínio. Com o SSO por meio do Ingresso no Azure AD, o usuário verá um bloco de entrada com a informação "Conectado ao Windows".
-- Certifique-se de que o URL do Azure AD (https://autologon.microsoftazuread-sso.com) faz parte das configurações de zona da Intranet do usuário.
+- Certifique-se de que o URL do Azure AD (https://autologon.microsoftazuread-sso.com)) faz parte das configurações de zona da Intranet do usuário.
 - Certifique-se de que o dispositivo corporativo tenha ingressado no domínio do Active Directory.
 - Certifique-se de que o usuário esteja conectado ao dispositivo por meio de uma conta de domínio do Active Directory.
 - Verifique se a conta do usuário é de uma floresta do Active Directory na qual o SSO Contínuo foi configurado.

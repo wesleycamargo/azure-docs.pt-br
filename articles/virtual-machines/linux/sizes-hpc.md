@@ -1,25 +1,25 @@
 ---
-title: "Tamanhos de VM Linux do Azure — HPC | Microsoft Docs"
-description: "Lista os diferentes tamanhos disponíveis para máquinas virtuais de computação de alto desempenho Linux no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série."
+title: Tamanhos de VM Linux do Azure — HPC | Microsoft Docs
+description: Lista os diferentes tamanhos disponíveis para máquinas virtuais de computação de alto desempenho Linux no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5f867140981649b73bf6d0bc13eca539c7dc2209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamanhos de máquina virtual de computação de alto desempenho
 
@@ -29,12 +29,11 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>Instâncias compatíveis com RDMA
-Um subconjunto das instâncias de computação intensiva (H16r, H16mr, NC24r, A8 e A9) apresenta um adaptador de rede para conectividade RDMA (acesso remoto direto à memória). Essa interface é além do adaptador de rede do Azure padrão disponível para outros tamanhos de VM. 
-  
-Essa interface permite que instâncias compatíveis com RDMA se comuniquem em uma rede InfiniBand, operando em taxas FDR para máquinas virtuais H16r, H16mr NC24r e taxas QDR para máquinas virtuais A8 e A9. Esses recursos RDMA podem melhorar a escalabilidade e o desempenho de aplicativos de Interface de Transmissão de Mensagens (MPI) que são executados apenas no Intel MPI 5.x. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do Intel MPI não são compatíveis com os drivers RDMA do Azure.
 
-Implante as VMs compatíveis com RDMA no mesmo conjunto de disponibilidade (se usar o modelo de implantação do Azure Resource Manager) ou no mesmo serviço de nuvem (se usar o modelo de implantação clássica). A seguir estão os requisitos adicionais para VMs Linux compatíveis com RDMA acessarem a rede RDMA do Azure.
+### <a name="mpi"></a>MPI 
+
+Há suporte para apenas as versões 5.x do Intel MPI. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do Intel MPI não são compatíveis com os drivers RDMA do Azure para Linux.
+
 
 ### <a name="distributions"></a>Distribuições
  
@@ -50,7 +49,7 @@ Implante uma VM de computação intensiva de uma das imagens no Azure Marketplac
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
     
-* **HPC baseado em CentOS** - HPC baseado em CentOS 7.3, HPC baseado em CentOS 7.1, HPC baseado em CentOS 6.8, ou HPC baseado em CentOS 6.5 (para a série H, recomenda-se a versão 7.1 ou posterior). OS drivers RDMA e o Intel MPI 5.1 são instalados na VM.  
+* **HPC baseado em HPC** - HPC baseado em CentOS 6.5 ou versão superior (para série H, recomenda-se a versão 7.1 ou posterior). OS drivers RDMA e o Intel MPI 5.1 são instalados na VM.  
  
   > [!NOTE]
   > Nas imagens do HPC baseado em CentOS, as atualizações de kernel estão desabilitadas no arquivo de configuração **yum** . Isso ocorre porque os drivers RDMA do Linux são distribuídos como um pacote RPM, e as atualizações de driver poderão não funcionar caso o kernel seja atualizado.
@@ -63,7 +62,8 @@ Configurações adicionais do sistema são necessárias para executar trabalhos 
 ### <a name="network-topology-considerations"></a>Considerações de topologia de rede
 * Em VMs Linux habilitadas para RDMA no Azure, Eth1 é reservado para o tráfego de rede RDMA. Não altere as configurações de Eth1 ou as informações no arquivo de configuração que se refere a essa rede. Eth0 é reservado para o tráfego de rede regular do Azure.
 
-* IP sobre InfiniBand (IB) não tem suporte no Azure. Apenas RDMA sobre IB é compatível.
+* A rede RDMA no Azure reserva o espaço de endereço 172.16.0.0/16. 
+
 
 ## <a name="using-hpc-pack"></a>Usando o HPC Pack
 [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), a solução de gerenciamento de trabalho e cluster HPC gratuita da Microsoft, é uma opção para usar as instâncias de computação intensiva com o Linux. As últimas versões do HPC Pack dão suporte a várias distribuições Linux para execução em nós de computação implantados nas VMs do Azure, gerenciados por um nó de cabeçalho do Windows Server. Com os nós de computação Linux compatíveis com RDMA executando o Intel MPI, o HPC Pack pode agendar e executar os aplicativos Linux MPI que acessam a rede RDMA. Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).

@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implantar o Azure Machine Learning como um módulo do IoT Edge – versão prévia
 
@@ -41,12 +41,16 @@ Nesta seção, você pode fazer o download dos arquivos de modelo treinado e con
 
 No computador executando o módulo de gerenciamento do Azure ML, faça o download e salve [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) e [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) do Kit de ferramentas IoT do Azure ML no GitHub. Esses arquivos definem o modelo de machine learning treinado que você implantará em seu dispositivo IoT Edge. 
 
-Use o modelo treinado para criar um contêiner que pode ser implantado em dispositivos IoT Edge.
+Use o modelo treinado para criar um contêiner que pode ser implantado em dispositivos IoT Edge. Use o seguinte comando para:
+
+   * Registrar seu modelo.
+   * Criar um manafest.
+   * Criar uma imagem de contêiner do Docker chamada *machinelearningmodule*.
+   * Implantar a imagem ao seu cluster do AKS (Serviço de Contêiner do Azure).
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-O nome do serviço, *machinelearningmodule* neste exemplo, se torna o nome da imagem de contêiner do docker.
 
 ### <a name="view-the-container-repository"></a>Exibição do repositório de contêiner
 

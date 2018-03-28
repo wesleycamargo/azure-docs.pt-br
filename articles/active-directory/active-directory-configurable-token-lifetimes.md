@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (Visualização Pública)
 Especifique o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
@@ -276,7 +276,7 @@ Neste exemplo, crie uma política que exige dos usuários a autenticação mais 
 
 2.  Atribuir a política à entidade de serviço. Você também precisará da **ObjectId** de sua entidade de serviço. 
 
-    1.  Para ver todas as entidades de serviço de sua organização, consulte o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, no [Graph Explorer do Azure AD](https://graphexplorer.cloudapp.net/), entre em sua conta do Azure AD.
+    1.  Para ver todas as entidades de serviço de sua organização, consulte o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, você pode testar isso no [Explorer do Azure AD Graph](https://graphexplorer.cloudapp.net/)e no [Explorer do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) usando sua conta do Azure AD.
 
     2.  Quando você tiver a **ObjectId** de sua entidade de serviço, execute o seguinte comando:
 
@@ -332,7 +332,7 @@ Nesse exemplo, crie algumas políticas para saber como funciona o sistema de pri
 
     Agora, você tem uma política que se aplica a toda a organização. Convém preservar essa política de 30 dias para uma entidade de serviço específica, mas altere a política padrão de organização para o limite superior de "until-revoked".
 
-    1.  Para ver todas as entidades de serviço de sua organização, consulte o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, no [Graph Explorer do Azure AD](https://graphexplorer.cloudapp.net/), entre usando sua conta do Azure AD.
+    1.  Para ver todas as entidades de serviço de sua organização, consulte o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, você pode testar isso no [Explorer do Azure AD Graph](https://graphexplorer.cloudapp.net/)e no [Explorer do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) usando sua conta do Azure AD.
 
     2.  Quando você tiver a **ObjectId** de sua entidade de serviço, execute o seguinte comando:
 

@@ -1,11 +1,11 @@
 ---
 title: Script do PowerShell para implantar o cluster HPC do Windows | Microsoft Docs
-description: "Executar um script do PowerShell para implantar um cluster Windows HPC Pack 2012 R2 nas máquinas virtuais do Azure"
+description: Executar um script do PowerShell para implantar um cluster Windows HPC Pack 2012 R2 nas máquinas virtuais do Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 286b2be8-2533-40df-b02a-26156b1f1133
 ms.service: virtual-machines-windows
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82aa2942a6a4fe6a3ac1c3ec2c0710e39f4282b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Criar um cluster HPC (computação de alto desempenho) do Windows usando o script de implantação IaaS do HPC Pack
-Execute o script do PowerShell de implantação do HPC Pack IaaS para implantar um cluster HPC Pack 2012 R2 completo para cargas de trabalho do Windows nas máquinas virtuais do Azure. O cluster consiste em um nó principal associado do Active Directory que executa o Windows Server e o Pacote HPC da Microsoft, e os recursos de computação especificados. Se você desejar implantar um cluster de HPC Pack no Azure para cargas de trabalho do Linux, consulte [Criar um cluster de HPC Linux com o script de implantação do HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). Você também pode usar um modelo do Gerenciador de Recursos do Azure para implantar um cluster Pacote HPC. Para obter exemplos, confira [Criar um cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) e [Criar um cluster HPC com uma imagem do nó de computação personalizada](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+Execute o script do PowerShell de implantação do HPC Pack IaaS para implantar um cluster HPC Pack 2012 R2 completo para cargas de trabalho do Windows nas máquinas virtuais do Azure. O cluster consiste em um nó principal associado do Active Directory que executa o Windows Server e o Pacote HPC da Microsoft, e os recursos de computação especificados. Se você desejar implantar um cluster de HPC Pack no Azure para cargas de trabalho do Linux, consulte [Criar um cluster de HPC Linux com o script de implantação do HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). 
 
 > [!IMPORTANT] 
 > O script do PowerShell descrito neste artigo cria um cluster Microsoft HPC Pack 2012 R2 no Azure usando o modelo de implantação clássico. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
-> Além disso, o script descrito neste artigo não é compatível com HPC Pack 2016.
+> Além disso, o script descrito neste artigo não é compatível com HPC Pack 2016. Para obter informações sobre modelos do Resource Manager para HPC Pack 2012 R2 e HPC Pack 2016, consulte as [Opções de implantação de cluster do HPC Pack no Azure](../hpcpack-cluster-options.md).
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -256,7 +256,7 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 </IaaSClusterConfig>
 ```
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 * **Erro "VNet não existe"**: se você executar o script para implantar vários clusters no Azure simultaneamente em uma assinatura, uma ou mais implantações poderão falhar com o erro *"VNet \_Nome*VNet não existe".
   Se esse erro ocorrer, execute novamente o script para a implantação com falha.
 * **Problema ao acessar a Internet na rede virtual do Azure** – Se você criar um cluster com um novo controlador de domínio usando o script de implantação ou se promover manualmente uma VM do nó de cabeçalho ao controlador de domínio, poderá ter problemas ao conectar as VMs à Internet. Esse problema poderá ocorrer se um servidor DNS encaminhador for configurado automaticamente no controlador de domínio e não resolver corretamente.

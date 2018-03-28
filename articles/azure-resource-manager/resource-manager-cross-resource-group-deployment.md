@@ -1,34 +1,36 @@
 ---
-title: "Implantar recursos do Azure para várias assinaturas e grupos de recursos | Microsoft Docs"
-description: "Mostra como usar mais de um destino de assinatura e de grupo de recursos do Azure durante a implantação."
+title: Implantar recursos do Azure para várias assinaturas e grupos de recursos | Microsoft Docs
+description: Mostra como usar mais de um destino de assinatura e de grupo de recursos do Azure durante a implantação.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2018
+ms.date: 03/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90cb87b3fe94b7b3b0eba1b261d29a1c8f4348d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos
 
 Normalmente, você deve implantar todos os recursos em seu modelo em um único [grupo de recursos](resource-group-overview.md). No entanto, há cenários em que você deseja implantar um conjunto de recursos de uma vez, mas colocá-los em diferentes grupos de recursos ou assinaturas. Por exemplo, você talvez queira implantar a máquina virtual de backup do Azure Site Recovery para um local e um grupo de recursos separados. O Resource Manager permite usar modelos aninhados com assinaturas e grupos de recursos de destino diferentes do que os usados para o modelo pai.
 
 > [!NOTE]
-> Você pode implantar em apenas cinco grupos de recursos em uma única implantação.
+> Você pode implantar em apenas cinco grupos de recursos em uma única implantação. Normalmente, essa limitação significa que você pode implantar em um grupo de recursos especificado para o modelo pai e até quatro grupos de recursos em implantações aninhadas ou vinculadas. No entanto, se o modelo pai contém apenas os modelos aninhados ou vinculados e não em si implanta todos os recursos, você pode incluir até cinco grupos de recursos em implantações aninhadas ou vinculadas.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Especifique uma assinatura e um grupo de recursos
 
 Para buscar um recurso diferente, use um modelo aninhado ou vinculado. O tipo de recurso `Microsoft.Resources/deployments` fornece parâmetros para `subscriptionId` e `resourceGroup`. Essas propriedades permitem que você especifique uma assinatura e um grupo de recursos diferentes para a implantação aninhada. Todos os grupos de recursos devem existir antes da execução da implantação. Se você não especificar a ID da assinatura nem o grupo de recursos, serão usados a assinatura e o grupo de recursos do modelo pai.
+
+A conta usada para implantar o modelo deve ter permissões para implantar a ID da assinatura especificada. Se a assinatura especificada existe em um locatário diferente do Azure Active Directory, você deve [adicionar usuários convidados em outro diretório](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
 Para especificar um grupo de recursos e assinatura diferentes, use:
 
@@ -175,7 +177,7 @@ Os modelos a seguir demonstram várias implantações de grupo de recursos. Scri
 
 No PowerShell, para implantar duas contas de armazenamento em dois grupos de recursos na **mesma assinatura**, use:
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -192,7 +194,7 @@ New-AzureRmResourceGroupDeployment `
 
 No PowerShell, para implantar duas contas de armazenamento em **duas assinaturas**, use:
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -216,7 +218,7 @@ New-AzureRmResourceGroupDeployment `
 
 Para o PowerShell, para testar como o **objeto do grupo de recursos** resolve para o modelo pai, o modelo embutido e o modelo vinculado, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
 New-AzureRmResourceGroup -Name inlineGroup -Location southcentralus
 New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
@@ -224,6 +226,37 @@ New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName parentGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
+```
+
+No exemplo anterior, ambos **parentRG** e **inlineRG** resolvem para **parentGroup**. **linkedRG** resolve para **linkedGroup**. O resultado do exemplo anterior é:
+
+```powershell
+ Name             Type                       Value
+ ===============  =========================  ==========
+ parentRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ inlineRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ linkedRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+                                               "name": "linkedGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
 ```
 
 ### <a name="azure-cli"></a>CLI do Azure
@@ -276,6 +309,48 @@ az group deployment create \
   --name ExampleDeployment \
   --resource-group parentGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
+```
+
+No exemplo anterior, ambos **parentRG** e **inlineRG** resolvem para **parentGroup**. **linkedRG** resolve para **linkedGroup**. O resultado do exemplo anterior é:
+
+```azurecli
+...
+"outputs": {
+  "inlineRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "linkedRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+      "location": "southcentralus",
+      "name": "linkedGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "parentRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  }
+},
+...
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

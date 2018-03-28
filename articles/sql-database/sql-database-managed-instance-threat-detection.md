@@ -3,18 +3,18 @@ title: Detecção de Ameaças – Instância Gerenciada do Banco de Dados SQL do
 description: A Detecção de Ameaças detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
 services: sql-database
 author: rmatchoro
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: security, managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: ronmat
 ms.reviewer: carlrab
-ms.openlocfilehash: f8c08bc16d622516958b8bd182179d07edfa4891
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2112a0a3997af478de6b8c80abcf7924a66302f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Detecção de Ameaças da Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -29,7 +29,7 @@ A Detecção de Ameaças fornece uma nova camada de segurança que permite aos c
 A Detecção de Ameaças do SQL integra alertas com a [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) e, cada Instância Gerenciada protegida é cobrada no mesmo preço que a camada Standard da Central de Segurança do Azure, que é US$ 15/nó/mês, onde cada Instância Gerenciada protegida é contada como um nó.  
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configurar a Detecção de Ameaças para a Instância Gerenciada no Portal do Azure
-1. Inicie o Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue até a página de configuração da Instância Gerenciada que você quer proteger. Na página **Configurações**, selecione **Detecção de Ameaças**. 
 3. Na página de configurações de Detecção de Ameaças 
    - **ATIVE** a Detecção de ameaças.

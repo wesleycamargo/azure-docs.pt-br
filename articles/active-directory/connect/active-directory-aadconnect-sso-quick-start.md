@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 67f6ca36c334a60b634094f07e5d9696a6961eb8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -134,7 +134,7 @@ O Mozilla Firefox não usa a autenticação Kerberos automaticamente. Cada usuá
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
 
-Verifique se o computador que está executando o Mac OS está associado ao Azure AD. Para obter instruções sobre como associar o Azure AD, veja [Práticas recomendadas para integrar o OS X ao Active Directory](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
+Certifique-se de que o computador executando o Mac OS é associado ao AD. Para obter instruções sobre como associar o Azure AD, veja [Práticas recomendadas para integrar o OS X ao Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 

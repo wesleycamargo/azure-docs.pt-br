@@ -1,24 +1,24 @@
 ---
-title: "Práticas recomendadas para o StorSimple Virtual Array | Microsoft Docs"
-description: "Descreve as práticas recomendadas para implantar e gerenciar o StorSimple Virtual Array."
+title: Práticas recomendadas para o StorSimple Virtual Array | Microsoft Docs
+description: Descreve as práticas recomendadas para implantar e gerenciar o StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2017
+ms.date: 03/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
@@ -38,7 +38,7 @@ Implemente as seguintes práticas recomendadas ao provisionar a matriz virtual:
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Tipo de máquina virtual** |**geração 2** a ser usada com o Windows Server 2012 ou posterior e uma imagem *.vhdx* . <br></br> **geração 1** a ser usada com um Windows Server 2008 ou posterior e uma imagem *.vhd* . |Use a máquina virtual versão 8 a 11 ao usar a imagem *.vmdk* . |
+| **Tipo de máquina virtual** |**geração 2** a ser usada com o Windows Server 2012 ou posterior e uma imagem *.vhdx* . <br></br> **geração 1** a ser usada com um Windows Server 2008 ou posterior e uma imagem *.vhd* . |Utilize a máquina virtual versão 8 ao usar a imagem *.vmdk*. |
 | **Tipo de memória** |Configurar como **memória estática**. <br></br> Não use a opção **memória dinâmica** . | |
 | **Tipo de disco de dados** |Provisione como **expandindo dinamicamente**.<br></br> **tamanho fixo** leva muito tempo. <br></br> Não use a opção de **diferenciação** . |Use a opção **provisionamento dinâmico** . |
 | **Modificação de disco de dados** |A expansão ou a redução não é permitida. Uma tentativa de fazer isso resulta na perda de todos os dados locais no dispositivo. |A expansão ou a redução não é permitida. Uma tentativa de fazer isso resulta na perda de todos os dados locais no dispositivo. |
@@ -210,7 +210,7 @@ A frequência e a retenção associadas aos backups padrão não podem ser alter
 * Agende os backups fora dos horários de pico. A hora de início de backup não deve coincidir com várias E/S do host.
 * Inicie um backup manual sob demanda ao planejar a execução de um failover de dispositivo ou antes da janela de manutenção para proteger os dados em sua matriz virtual.
 
-### <a name="restore"></a>Restaurar
+### <a name="restore"></a>Restore
 Você pode restaurar de um conjunto de backup de duas maneiras: restaure para outro volume ou compartilhamento ou realize uma recuperação no nível de item (disponível apenas em uma matriz virtual configurada como um servidor de arquivos). A recuperação no nível do item permite fazer uma recuperação granular de arquivos e pastas de um backup de nuvem de todos os compartilhamentos no dispositivo StorSimple. Para saber mais, vá para [restaurar de um backup](storsimple-virtual-array-clone.md).
 
 Ao realizar uma restauração, lembre-se das seguintes diretrizes:
@@ -282,6 +282,6 @@ Talvez seja necessário implantar várias matrizes virtuais para responder por u
 * Se você estiver implantando várias matrizes, recomendamos que, da perspectiva do balanceamento de carga, distribua a matriz por vários hosts de hipervisor diferentes.
 * Várias matrizes virtuais (quando configuradas como um servidor de arquivos ou como um servidor iSCSI) podem ser implantadas em um Namespace de Sistema de Arquivos Distribuído . Para ver as etapas detalhadas, acesse [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide (Guia de solução de namespace de sistema de arquivos distribuído com armazenamento em nuvem híbrida)](https://www.microsoft.com/download/details.aspx?id=45507). Atualmente, a replicação DFS não é recomendada para uso com a matriz virtual. 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 Saiba como [administrar o StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) por meio do serviço StorSimple Manager.
 

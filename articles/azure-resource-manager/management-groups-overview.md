@@ -1,9 +1,9 @@
 ---
 title: Organizar seus recursos com Grupos de Gerenciamento do Azure | Microsoft Docs
-description: "Saiba mais sobre os grupos de gerenciamento e como usá-los."
+description: Saiba mais sobre os grupos de gerenciamento e como usá-los.
 author: rthorn17
 manager: rithorn
-editor: 
+editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure 
 
-Se você tiver várias assinaturas, poderá organizá-las em contêineres chamados "grupos de gerenciamento" para ajudá-lo a gerenciar o acesso, a política e a conformidade em suas assinaturas. Os grupos de gerenciamento fornecem gerenciamento de nível empresarial em larga escala, independentemente do tipo de assinaturas que você possa ter.  
+Se sua organização tiver muitas assinaturas, talvez seja necessária uma maneira de gerenciar com eficiência o acesso, as políticas e a conformidade dessas assinaturas. Os Grupos de Gerenciamento do Azure fornecem um nível de escopo sobre assinaturas. Você organiza assinaturas em contêineres chamados "grupos de gerenciamento" e aplica as condições de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as condições aplicadas ao grupo de gerenciamento. Os grupos de gerenciamento fornecem gerenciamento de nível empresarial em larga escala, independentemente do tipo de assinaturas que você possa ter.
 
 O recurso do grupo de gerenciamento está disponível em uma visualização pública. Para começar a usar os grupos de gerenciamento, faça logo no [Portal do Azure](https://portal.azure.com) e procure **Grupos de Gerenciamento** na seção **Todos os serviços**. 
 

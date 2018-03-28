@@ -1,6 +1,6 @@
 ---
-title: "Como colocar em contêineres os microsserviços do Azure Service Fabric (versão prévia)"
-description: "O Azure Service Fabric adicionou novas funcionalidades para colocar em contêineres seus microsserviços do Service Fabric. Esse recurso está atualmente na visualização."
+title: Como colocar em contêineres os microsserviços do Azure Service Fabric (versão prévia)
+description: O Azure Service Fabric adicionou novas funcionalidades para colocar em contêineres seus microsserviços do Service Fabric. Esse recurso está atualmente na visualização.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e66e488d8e547e828c014b105a816a14726e5005
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Como colocar em contêineres seus Reliable Services e Reliable Actors do Service Fabric (versão prévia)
 
 O Service Fabric oferece suporte a colocação em contêineres de microsserviços do Service Fabric (serviços baseados em Reliable Services e Reliable Actors). Para saber mais, confira [contêineres do Service Fabric](service-fabric-containers-overview.md).
 
-
- Este recurso está em versão prévia, e este artigo fornece as várias etapas para executar seu serviço dentro de um contêiner.  
+Este recurso está em versão prévia, e este artigo fornece as várias etapas para executar seu serviço dentro de um contêiner.  
 
 > [!NOTE]
-> Esse recurso está na versão prévia e não tem suporte. Atualmente, esse recurso só funciona para Windows.
+> Esse recurso está na versão prévia e não tem suporte. Atualmente, esse recurso só funciona para Windows. Para executar contêineres, o cluster deve estar em execução no Windows Server 2016 com Contêineres.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Etapas para colocar seu aplicativo do Service Fabric em contêineres
 

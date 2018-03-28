@@ -1,24 +1,24 @@
 ---
-title: "Expanda seus negócios com o Microsoft Azure Marketplace"
-description: "Guia passo a passo e listas de verificação de publicação para novos editores no Microsoft Azure Marketplace"
+title: Expanda seus negócios com o Microsoft Azure Marketplace
+description: Guia passo a passo e listas de verificação de publicação para novos editores no Microsoft Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Expanda seus negócios com o Microsoft Azure Marketplace
 
@@ -129,7 +129,8 @@ Para maximizar o impacto dessas atividades, recomendamos que você tenha seu pla
 >[!NOTE]
 >O Catálogo One Commercial Partner (Catálogo OCP) é um benefício dos membros na Microsoft Partner Network. 
 
-![Benefícios do GTM do Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Benefícios do GTM do Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 Para obter suporte, visite [Microsoft Go To Market](https://www.microsoftgotomarket.com). Lá, você pode encontrar modelos, conteúdo da web, treinamento e ferramentas para promover o seu negócio.
 

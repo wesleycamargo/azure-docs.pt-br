@@ -1,10 +1,10 @@
 ---
-title: "Variáveis de ambiente do Azure Service Fabric | Microsoft Docs"
-description: "Documentação de referência para as variáveis de ambiente do Service Fabric"
+title: Variáveis de ambiente do Azure Service Fabric | Microsoft Docs
+description: Documentação de referência para as variáveis de ambiente do Service Fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: a4bf082f5bd5a57bb5eb7641a25176e3a06503a3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9faefb43b9d5da81dddef8f326a3867b32842f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-environment-variables"></a>Variáveis de ambiente do Service Fabric
 
@@ -36,7 +36,7 @@ O Service Fabric tem variáveis de ambiente internas definidas para cada instân
 | Fabric_NodeId                                | A ID do nó que executa o processo                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | O IP ou FQDN do nó, conforme for especificado no arquivo de manifesto do cluster. | localhost ou 10.0.0.1                                                |
 | Fabric_NodeName                              | O nome do nó que executa o processo                          | _Node_0                                                              |
-| Fabric_ServiceName                           | O nome do serviço, se o serviço estiver hospedado no modo ExclusiveProcess  | MyService                                               |
+| Fabric_ServiceName                           | O nome do serviço, se o serviço estiver hospedado no modo ExclusiveProcess. Esse valor de variável só estará disponível se você criar o serviço com ServicePackageActivationMode ExclusiveProcess.  | MyService                                               |
 | Fabric_ServicePackageActivationId            | ServicePackageActivationId                                         | UMA GUID                                                               |
 | Fabric_ServicePackageName                    | Nome do pacote de serviço do qual o processo faz parte                     | Web1Pkg                                                              |
 

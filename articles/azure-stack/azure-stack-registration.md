@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1dc3d9a96b9b27927cc8cc66b5e80987fba4f8ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrar a pilha do Azure com o Azure
 Registrando [Azure pilha](azure-stack-poc.md) com o Azure permite que você para baixar itens do marketplace do Azure e configurar dados de comércio relatadas à Microsoft. Depois de registrar a pilha do Azure, uso é relatado para comércio do Azure e você pode vê-lo sob a assinatura usada para registro. 
@@ -58,7 +58,7 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Registrar o provedor de recursos da pilha do Azure
 Para registrar o provedor de recursos da pilha do Azure com o Azure, inicie o ISE do Powershell como administrador e use os seguintes comandos do PowerShell. Esses comandos serão:
-- Solicitar que você faça logon como proprietário da assinatura do Azure a ser usado e defina o `EnvironmentName` parâmetro **AzureCloud**.
+- Solicitar que você faça logon como proprietário da assinatura do Azure a ser usado e defina o **EnvironmentName** parâmetro **AzureCloud**.
 - Registrar o provedor de recursos do Azure **Microsoft.AzureStack**.
 
 1. Adicione a conta do Azure que você usa para registrar a pilha do Azure. Para adicionar a conta, execute o **AzureRmAccount adicionar** cmdlet. Você for solicitado a inserir suas credenciais de conta de administrador global do Azure e talvez você precise usar a autenticação de 2 fatores com base na configuração da sua conta.
@@ -95,7 +95,7 @@ PowerShell para executar:
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -104,7 +104,7 @@ Set-AzsRegistration `
 
 |Parâmetro|DESCRIÇÃO|
 |-----|-----|
-|CloudAdminCredential|Objeto do PowerShell que contém informações de credenciais (nome de usuário e senha) para o proprietário da assinatura do Azure.|
+|CloudAdminCredential|Objeto do PowerShell que contém informações de credenciais (nome de usuário e senha) usadas para acessar o ponto de extremidade com privilégios.|
 |PrivilegedEndpoint|Um pré-configurado console remoto do PowerShell que fornece recursos, como a coleta de log e outra post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint) artigo.|
 |BillingModel|O modelo de cobrança que usa sua assinatura. Valores para esse parâmetro permitidos são: capacidade, PayAsYouUse e desenvolvimento.|
 
@@ -114,7 +114,7 @@ Siga as mesmas instruções usadas para registrar usando o modelo de cobrança d
 PowerShell para executar:
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `

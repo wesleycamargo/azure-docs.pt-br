@@ -1,27 +1,20 @@
 ---
-title: "Pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure | Microsoft Docs"
-description: "Marque uma sub-rede como um ponto de extremidade de serviço de Rede virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados SQL do Azure. Seu Banco de dados SQL do Microsoft Azure então aceita a comunicação de todas as máquinas virtuais e outros nós na sub-rede."
+title: Pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure | Microsoft Docs
+description: Marque uma sub-rede como um ponto de extremidade de serviço de Rede virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados SQL do Azure. Seu Banco de dados SQL do Microsoft Azure então aceita a comunicação de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
-documentationcenter: 
+ms.service: sql-database
 author: MightyPen
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
-ms.service: sql-database
 ms.custom: VNet Service endpoints
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Use pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure
 
@@ -71,7 +64,7 @@ O painel de firewall tem um botão de **ON/OFF** que é rotulado como **Permitir
 
 #### <a name="b-ip-rules"></a>B. Regras de IP
 
-O firewall do Bnco de dados SQL do Microsoft Azure permite que você especifique os intervalos de endereços IP dos quais as comunicações são aceitas no Banco de dados SQL do Microsoft Azure. Essa abordagem é adequada para endereços IP estáveis que estão fora da rede privada do Azure. Mas muitos nós dentro da rede privada do Azure estão configurados com endereços IP *dinâmicos*. Endereços IP dinâmicos podem mudar, como quando sua VM é reiniciada. Seria ilusório especificar um endereço IP dinâmico em uma regra de firewall, em um ambiente de produção.
+O firewall do Banco de dados SQL do Microsoft Azure permite que você especifique os intervalos de endereços IP dos quais as comunicações são aceitas no Banco de dados SQL do Microsoft Azure. Essa abordagem é adequada para endereços IP estáveis que estão fora da rede privada do Azure. Mas muitos nós dentro da rede privada do Azure estão configurados com endereços IP *dinâmicos*. Endereços IP dinâmicos podem mudar, como quando sua VM é reiniciada. Seria ilusório especificar um endereço IP dinâmico em uma regra de firewall, em um ambiente de produção.
 
 Você pode recuperar a opção de IP obtendo um endereço IP *estático* para a VM. Para obter mais detalhes, consulte [Configurar endereços IP particulares para uma máquina virtual usando o Portal do Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
@@ -237,6 +230,12 @@ Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-
 
 Um script do PowerShell também pode criar regras de rede virtual. O cmdlet crucial **New-AzureRmSqlServerVirtualNetworkRule**. Se tiver interesse, consulte [PowerShell para criar uma regra e um ponto de extremidade do Serviço de rede virtual para o banco de dados SQL do Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
+#### <a name="rest-api-alternative"></a>Alternativa de API REST
+
+Internamente, os cmdlets do PowerShell para ações de VNet do SQL chamam APIs REST. É possível chamar as APIs REST diretamente.
+
+- [Regras de Rede Virtual do Microsoft Azure: Operações][rest-api-virtual-network-rules-operations-862r]
+
 #### <a name="prerequisites"></a>pré-requisitos
 
 Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de serviço de rede virtual específico *nome do tipo* relevante para o banco de dados SQL do Azure.
@@ -296,6 +295,8 @@ O recurso da regra de rede virtual para o Banco de Dados SQL do Azure se tornou 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Use o PowerShell para criar um ponto de extremidade de serviço de rede virtual e, em seguida, uma regra de rede virtual para o Banco de Dados SQL do Azure.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Regras de Rede Virtual do Microsoft Azure: Operações] [ rest-api-virtual-network-rules-operations-862r] com APIs REST
+
 
 
 <!-- Link references, to images. -->
@@ -336,6 +337,7 @@ O recurso da regra de rede virtual para o Banco de Dados SQL do Azure se tornou 
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 

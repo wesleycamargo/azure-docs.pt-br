@@ -1,24 +1,18 @@
 ---
-title: Ativos de variáveis na Automação do Azure | Microsoft Docs
+title: Ativos variáveis na Automação do Azure
 description: Ativos de variáveis são valores que estão disponíveis para todos os runbooks e configurações DSC na Automação do Azure.  Este artigo explica os detalhes das variáveis e como trabalhar com elas na criação de textos e gráficos.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/07/2018
-ms.author: magoedte;bwren
-ms.openlocfilehash: 2ed4cf16615a0ca1789b789a635de564af568eb9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: carmonm
+ms.openlocfilehash: 7c36fce380712da6572e9512a05af9c23c4152a2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ativos variáveis na Automação do Azure
 
@@ -34,8 +28,8 @@ As variáveis de automação são mantidas para que continuem disponíveis mesmo
 
 Durante a criação de uma variável, você pode especificar o armazenamento criptografado. Quando uma variável é criptografada, ela é armazenada com segurança na Automação do Azure e seu valor não pode ser recuperado do cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) enviado como parte do módulo do Azure PowerShell. A única maneira de recuperar um valor criptografado é por meio da atividade **Get-AutomationVariable** em um runbook ou configuração DSC.
 
-> [!NOTE]
-> Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
+>[!NOTE]
+>Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é armazenada no Key Vault. Antes de armazenar um ativo seguro, a chave é carregada do Key Vault e usada para criptografar o ativo.
 
 ## <a name="variable-types"></a>Tipos de variável
 

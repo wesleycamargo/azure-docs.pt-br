@@ -1,9 +1,9 @@
 ---
-title: "Como dimensionar um cluster do Serviço de Contêiner do Azure para o Machine Learning | Microsoft Docs"
-description: "Dimensionamento de um cluster ACS – dimensionamento automático e estático; dimensionamento do número de nós no cluster"
+title: Como dimensionar um cluster do Serviço de Contêiner do Azure para o Machine Learning | Microsoft Docs
+description: Dimensionamento de um cluster ACS – dimensionamento automático e estático; dimensionamento do número de nós no cluster
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 690068edf749a2c79d328337618d94936520d501
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 58709b5a5b060552e1bc349a6f720d3f45348ba0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Dimensionamento do cluster para gerenciar a taxa de transferência do serviço Web
 
@@ -59,7 +59,7 @@ Isso levará alguns minutos para ser concluído. Para obter mais informações s
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Dimensionando o número de réplicas de pod Kubernetes em um cluster
  
-Você pode dimensionar o número de réplicas de pod atribuídas ao cluster usando a CLI do Azure Machine Learning ou o [painel de Kubernetes] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+É possível dimensionar o número de réplicas de pod atribuídas ao cluster usando a CLI do Azure Machine Learning ou [Painel de Kubernetes] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 Para obter mais informações sobre pods de réplica Kubernetes, consulte a documentação de [Pods Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/).
 

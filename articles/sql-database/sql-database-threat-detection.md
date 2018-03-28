@@ -2,23 +2,18 @@
 title: Detecção de ameaças – Banco de Dados SQL do Azure | Microsoft Docs
 description: A Detecção de Ameaças detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
 services: sql-database
-documentationcenter: ''
 author: rmatchoro
-manager: shaik
-editor: v-romcal
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-threat-detection"></a>Detecção de Ameaças do Banco de Dados SQL
 
@@ -33,7 +28,7 @@ Por exemplo, a injeção de SQL é um dos problemas comuns de segurança do apli
 A Detecção de Ameaças do SQL integra alertas à [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) e, de cada servidor de Banco de Dados SQL protegido será cobrado o mesmo preço cobrado pela camada Standard da Central de Segurança do Azure, que é US$ 15 por nó ao mês, em que cada servidor de Banco de Dados SQL protegido será contado como um nó.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurar a detecção de ameaças para seu banco de dados no Portal do Azure
-1. Inicie o Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue para a página de configuração do Banco de Dados SQL que você deseja monitorar. Na página Configurações, selecione **Auditoria e Detecção de Ameaças**. 
     ![Painel de navegação][1]
 3. Na página de configuração **Auditoria e Detecção de Ameaças**, **ATIVE** a Auditoria, o que exibirá as configurações de detecção de ameaças.

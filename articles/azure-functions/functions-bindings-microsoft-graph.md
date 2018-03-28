@@ -1,21 +1,21 @@
 ---
-title: "Associações do Microsoft Graph do Azure Functions"
-description: "Entenda como usar gatilhos e associações do Microsoft Graph no Azure Functions."
+title: Associações do Microsoft Graph do Azure Functions
+description: Entenda como usar gatilhos e associações do Microsoft Graph no Azure Functions.
 services: functions
 author: mattchenderson
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d774f0ca644793235a8c423b052b559d26e289c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -33,7 +33,13 @@ A extensão do Microsoft Graph oferece as seguintes associações:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Associações do Microsoft Graph estão em versão prévia no momento.
+> As associações do Microsoft Graph estão em versão prévia no momento para Azure Functions versão 2.x. Eles não são suportados no Functions versão 1.x.
+
+## <a name="packages"></a>Pacotes
+
+A associação de entrada de token de autenticação é fornecida no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/). As outras associações do Microsoft Graph são fornecidas no pacote [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/). O código-fonte dos pacotes está no repositório GitHub [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="setting-up-the-extensions"></a>Como configurar as extensões
 
@@ -54,9 +60,7 @@ Em ambos os casos, um aviso será exibido especificando a extensão a ser instal
 > [!Note] 
 > O processo de instalação no portal pode levar até 10 minutos em um plano de consumo.
 
-Se você estiver usando o Visual Studio, poderá obter as extensões instalando estes pacotes do NuGet:
-- [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
-- [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
+Se você estiver usando o Visual Studio, poderá obter as extensões instalando [os pacotes do NuGet que estão listados neste artigo](#packages).
 
 ### <a name="configuring-authentication--authorization"></a>Configurando a Autenticação/Autorização
 
@@ -199,7 +203,7 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---attributes"></a>Token de autenticação - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs).
 
 ### <a name="auth-token---configuration"></a>Token de autenticação - configuração
 
@@ -332,7 +336,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---attributes"></a>Entrada do Excel - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs).
 
 ### <a name="excel-input---configuration"></a>Entrada do Excel - configuração
 
@@ -492,7 +496,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---attributes"></a>Saída do Excel - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs).
 
 ### <a name="excel-output---configuration"></a>Saída do Excel - configuração
 
@@ -636,7 +640,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---attributes"></a>Entrada do arquivo - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs).
 
 ### <a name="file-input---configuration"></a>Entrada do arquivo - configuração
 
@@ -781,7 +785,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---attributes"></a>Saída do arquivo - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs).
 
 ### <a name="file-output---configuration"></a>Saída do arquivo - configuração
 
@@ -930,7 +934,7 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---attributes"></a>Saída do Outlook - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs).
 
 ### <a name="outlook-output---configuration"></a>Saída do Outlook - configuração
 
@@ -1071,7 +1075,7 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Gatilho de webhook - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs).
 
 ### <a name="webhook-trigger---configuration"></a>Gatilho de webhook - configuração
 
@@ -1222,7 +1226,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Entrada de webhook - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
 
 ### <a name="webhook-input---configuration"></a>Entrada de webhook - configuração
 
@@ -1362,7 +1366,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Saída de webhook - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
 
 ### <a name="webhook-output---configuration"></a>Saída de webhook - configuração
 

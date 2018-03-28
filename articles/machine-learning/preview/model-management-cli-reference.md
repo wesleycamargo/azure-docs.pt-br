@@ -1,9 +1,9 @@
 ---
-title: "Referência da interface de linha de comando do Gerenciamento de Modelos do Azure Machine Learning | Microsoft Docs"
-description: "Referência da interface de linha de comando do Gerenciamento de Modelos do Azure Machine Learning."
+title: Referência da interface de linha de comando do Gerenciamento de Modelos do Azure Machine Learning | Microsoft Docs
+description: Referência da interface de linha de comando do Gerenciamento de Modelos do Azure Machine Learning.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 27361c5b92a8748a026d457875fadfc1f3529076
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referência de interface de linha de comando do gerenciamento de modelos
 
@@ -40,7 +40,7 @@ Uma conta de gerenciamento de modelos é necessária para usar os serviços que 
 
 **Criar Conta de Gerenciamento de Modelos**
 
-Crie uma conta de Gerenciamento de Modelos usando o comando a seguir. Essa conta será usada para cobrança.
+Crie uma conta de Gerenciamento de Modelos para cobrança usando o comando a seguir:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -76,7 +76,7 @@ Há duas opções de implantação: *local* e *cluster*. Definir o sinalizador `
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-Isso inicializa o ambiente do Azure Machine Learning com uma conta de armazenamento, o registro ACR e o serviço do Application Insights criado na sua assinatura. Por padrão, o ambiente será inicializado somente para implantações locais (sem ACS) se nenhum sinalizador for especificado. Se você precisar dimensionar o serviço, especifique o sinalizador `--cluster` (ou `-c`) para criar um cluster do ACS.
+Esse comando inicializa o ambiente do Azure Machine Learning com uma conta de armazenamento, o registro ACR e o serviço do Application Insights criado na sua assinatura. Por padrão, o ambiente será inicializado somente para implantações locais (sem ACS) se nenhum sinalizador for especificado. Se você precisar dimensionar o serviço, especifique o sinalizador `--cluster` (ou `-c`) para criar um cluster do ACS.
 
 Detalhes do comando:
 
@@ -89,12 +89,12 @@ Detalhes do comando:
     --cluster -c                   : Flag to provision ACS cluster. Off by default; specify this to force an ACS cluster deployment.
     --key-pem                      : Path to .pem file with certificate key.
     --master-count -m              : Number of master nodes to provision in the ACS cluster. Acceptable values: 1, 3, 5. Default: 1.
-    --resource-group -g            : Resource group in which to create compute resource. Will be created if it does not exist.
-                                     If not provided, resource group will be created with 'rg' appended to 'name.'.
+    --resource-group -g            : Resource group in which to create compute resource. Is created if it does not exist.
+                                     If not provided, resource group is created with 'rg' appended to 'name.'.
     --service-principal-app-id -a  : App ID of service principal to use for configuring ML compute.
     --service-principal-password -p: Password associated with service principal.
     --storage -s                   : ARM ID of storage account to associate with this environment.
-    --yes -y                       : Flag to answer 'yes' to any prompts. Command will fail if user is not logged in.
+    --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
 Argumentos globais
 ```
@@ -143,7 +143,7 @@ Argumentos globais
 
 **Criar manifesto**
 
-Cria um arquivo de manifesto para o modelo. 
+O seguinte comando cria um arquivo de manifesto para o modelo. 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -289,7 +289,7 @@ Argumentos globais
 
 Observação no sinalizador `-d` para anexar dependências: se você passar o nome de um diretório que ainda não esteja agrupado (zip, tar, etc.), esse diretório é transformado em tar automaticamente, é passado e é desagrupado automaticamente na outra extremidade. 
 
-Se você passar um diretório que já esteja agrupado, ele será tratado como um arquivo e será passado no estado em que se encontra. Ele não será desagrupado automaticamente. Você deve cuidar disso em seu código.
+Se você passar um diretório que já esteja agrupado, o diretório será tratado como arquivo e será passado no estado em que se encontra. Ele é desagrupado automaticamente. Você deve cuidar disso em seu código.
 
 **Obter detalhes do serviço**
 

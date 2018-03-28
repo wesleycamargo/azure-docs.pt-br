@@ -1,6 +1,6 @@
 ---
 title: Guia de Design de tabela de armazenamento do Azure | Microsoft Docs
-description: "Projete tabelas escalonáveis e de alto desempenho no Armazenamento de Tabelas do Azure"
+description: Projete tabelas escalonáveis e de alto desempenho no Armazenamento de Tabelas do Azure
 services: cosmos-db
 documentationcenter: na
 author: mimig1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design de tabela de armazenamento do Azure: projetando tabelas escalonáveis e de alto desempenho
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -261,7 +261,7 @@ Muitos aplicativos têm requisitos para usar dados classificados em ordens difer
 
 * [Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey (na mesma partição), para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores de RowKey diferentes.  
 * [Padrão de índice secundário entre partições](#inter-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições e tabelas separadas, para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de RowKey.
-* [Padrão da parte final do log](#log-tail-pattern) – recupere as *n* entidades adicionadas mais recentemente a uma partição usando um valor de **RowKey** que classifica em ordem de data e hora inversa.  
+* [Padrão de rastro do log](#log-tail-pattern) - Recupere as entidades *n* adicionadas recentemente em uma partição, usando um valor **RowKey** que classifica em ordem de data e hora inversa.  
 
 ## <a name="design-for-data-modification"></a>Design para modificação de dados
 Esta seção enfoca as considerações de design para otimizar inserções, atualizações e exclusões. Em alguns casos, você precisará avaliar a compensação entre designs que otimizam para consulta em relação a designs que otimizam para modificação de dados, da mesma forma que em designs de bancos de dados relacionais (embora as técnicas para gerenciar vantagens e desvantagens do design sejam diferentes em um banco de dados relacional). A seção [Padrões de design de tabela](#table-design-patterns) descreve alguns padrões de design detalhados para o serviço Tabela e destaca algumas compensações. Na prática, você descobrirá que muitos designs otimizados para entidades de consulta também funcionam bem para modificar entidades.  
@@ -296,7 +296,7 @@ Em muitos casos, um design para consultas eficientes resulta em modificações e
 Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-patterns) , abordam as compensações entre o design para consultas eficientes e o design para modificação eficiente de dados:  
 
 * [Padrão de chave composta](#compound-key-pattern) - Use valores **RowKey** compostos para permitir que um cliente pesquise dados relacionados com uma consulta de único ponto.  
-* [Padrão da parte final do log](#log-tail-pattern) – recupere as *n* entidades adicionadas mais recentemente a uma partição usando um valor de **RowKey** que classifica em ordem de data e hora inversa.  
+* [Padrão de rastro do log](#log-tail-pattern) - Recupere as entidades *n* adicionadas recentemente em uma partição, usando um valor **RowKey** que classifica em ordem de data e hora inversa.  
 
 ## <a name="encrypting-table-data"></a>Criptografando dados de tabela
 A Biblioteca de Cliente do Armazenamento do Azure para .NET dá suporte à criptografia de propriedades de entidade para as operações de inserção e substituição. As cadeias de caracteres criptografadas são armazenadas no serviço como propriedades binárias, e são convertidas novamente em cadeias de caracteres após a descriptografia.    
@@ -718,10 +718,10 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 * [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>Padrão de rastro do log
-Recupere as *n* entidades adicionadas mais recentemente a uma partição usando um valor de **RowKey** que classifica em ordem de data e hora inversa.  
+Recupere as *n* entidades adicionadas recentemente em uma partição usando um valor de **RowKey** que classifica em ordem de data e hora inversa.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Um requisito comum é ser capaz de recuperar as entidades criadas mais recentemente, por exemplo, os dez reembolsos de despesa mais recentes enviados por um funcionário. As consultas de tabela dão suporte a uma operação de consulta **$top** para retornar as primeiras *n* entidades de um conjunto: não há nenhuma operação de consulta equivalente para retornar as últimas n entidades de um conjunto.  
+Um requisito comum é ser capaz de recuperar as entidades criadas mais recentemente, por exemplo, os dez reembolsos de despesa mais recentes enviados por um funcionário. As consultas de tabela dão suporte a uma operação de consulta **$top** para retornar as primeiras *n* entidades de consulta de um conjunto: não há uma operação de consulta equivalente para retornar as últimas n entidades de um conjunto.  
 
 #### <a name="solution"></a>Solução
 Armazene as entidades usando uma **RowKey** que classifica naturalmente em ordem inversa de data/hora. Fazendo isso, a entrada mais recente será sempre a primeira na tabela.  
