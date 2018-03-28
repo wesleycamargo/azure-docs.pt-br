@@ -1,11 +1,11 @@
 ---
-title: "Criar aplicativos lógicos dos modelos do Azure Resource Manager | Microsoft Docs"
-description: "Criar e implantar fluxos de trabalho de aplicativo lógico com modelos do Azure Resource Manager"
+title: Criar aplicativos lógicos dos modelos do Azure Resource Manager | Microsoft Docs
+description: Criar e implantar fluxos de trabalho de aplicativo lógico com modelos do Azure Resource Manager
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
 ms.workload: integration
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2017
-ms.author: LADocs; mandia
-ms.openlocfilehash: e30ed8b1b8e2241bbebab1d7c5f337fabf37e1dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: LADocs; estfan
+ms.openlocfilehash: 9e696f6e4614052456cf2b55123d98d61b8b3b9c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Criar e implantar aplicativos lógicos com modelos do Azure Resource Manager
 
@@ -82,7 +82,7 @@ O modelo usa valores de parâmetro para o nome do aplicativo lógico (```logicAp
 
 Veja as descrições para os parâmetros do modelo:
 
-| Parâmetro | Descrição | Exemplo de definição JSON | 
+| Parâmetro | DESCRIÇÃO | Exemplo de definição JSON | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Define o nome do aplicativo lógico criado pelo modelo. | "nomedoAplicativoLógico": { "type": "string", "metadados": { "descrição": "nomedoMeuAplicativoLógicoDeExemplo" } } |
 | `testUri` | Define o local para executar o ping para teste. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 

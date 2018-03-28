@@ -1,24 +1,18 @@
 ---
-title: "Saída e mensagens do runbook na Automação do Azure | Microsoft Docs"
-description: "Descreve como criar e recuperar a saída e mensagens de erro de runbooks na Automação do Azure."
+title: Saída de runbook e mensagens na Automação do Azure
+description: Descreve como criar e recuperar a saída e mensagens de erro de runbooks na Automação do Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 13a414f5-0e2c-4be2-9558-a3e3ec84b6b2
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/11/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: 540dca5416367f39d6132ae306dd1e44ec0561d5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
 A maioria dos runbooks da Automação do Azure tem alguma forma de saída, como uma mensagem de erro para o usuário ou um objeto complexo destinado a ser consumido por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para o envio da saída de um script ou de um de fluxo de trabalho. A Automação do Azure funciona com cada um desses fluxos de forma diferente e você deve seguir as práticas recomendadas de como usar cada um quando estiver criando um runbook.

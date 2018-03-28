@@ -1,10 +1,25 @@
-O agente de Sincronização de arquivos do Azure é atualizado regularmente para adicionar novos recursos e resolver problemas. Recomendamos que você configure o Microsoft Update para obter atualizações para o agente de Sincronização de arquivos do Azure à medida que elas ficarem disponíveis. Entendemos que algumas organizações gostam de controlar e testar as atualizações rigidamente.
+O agente de Sincronização de arquivos do Azure é atualizado regularmente para adicionar novos recursos e resolver problemas. Recomendamos que você configure o Microsoft Update para obter atualizações para o agente de Sincronização de arquivos do Azure à medida que elas ficarem disponíveis.
 
-Para as implantações que usam versões mais antigas do agente de Sincronização de arquivos do Azure:
+#### <a name="major-vs-minor-agent-versions"></a>Versões do agente principal versus secundário
+* As versões do agente principal geralmente contêm novos recursos e têm um número crescente como a primeira parte do número da versão. Por exemplo: *2.\*.\**
+* As versões do agente secundário também são chamadas de "patches" e são lançadas com mais frequência do que as versões do principal. Geralmente contêm correções de bug e pequenas melhorias, mas sem novos recursos. Por exemplo: *\*.3.\**
 
-- Após o lançamento inicial de uma nova versão principal, o Serviço de Sincronização de Armazenamento mantém a versão principal anterior por três meses. Por exemplo, o Serviço de Sincronização de Armazenamento dá suporte à versão 1.\* por até três meses após o lançamento da versão 2\*.
-- Depois de três meses, o Serviço de Sincronização de Armazenamento começa a bloquear a sincronização dos servidores registrados com a versão expirada com seus grupos de sincronização.
-- Durante os primeiros três meses de tolerância da versão principal anterior, todas as correções de bug vão apenas para a versão principal (nova) atual.
+#### <a name="upgrade-paths"></a>Caminhos de atualização
+Há três maneiras aprovadas e testadas para instalar as atualizações do agente de Sincronização de arquivos do Azure. Esses caminhos de atualização funcionam para ambas as versões do principal e do secundário.
+1. **(Preferencial) Configure o Microsoft Update para baixar e instalar automaticamente as atualizações do agente.**  
+    É sempre recomendável executar todas as atualizações de Sincronização de arquivos do Azure para garantir que você tenha acesso às últimas correções para o Server Agent. O Microsoft Update simplifica esse processo, baixando e instalando atualizações automaticamente para você.
+2. **Corrigir um agente existente de Sincronização de arquivos do Azure utilizando um arquivo de patch do Microsoft Update ou um executável .msp. O último pacote de atualização de Sincronização de arquivos do Azure pode ser baixado no [Catálogo do Microsoft Update](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
+    Executar um executável .msp atualizará a instalação de Sincronização de arquivos do Azure com o mesmo método usado automaticamente pelo Microsoft Update no caminho de atualização anterior. A aplicação de um patch do Microsoft Update realizará uma atualização no local de uma instalação e Sincronização de arquivos do Azure.
+3. **Baixe o instalador do agente mais recente de Sincronização de arquivos do Azure no [Centro de Download da Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). O download do instalador é um pacote do Microsoft Windows Installer ou um executável .msi.**   
+    Para fazer upgrade de uma instalação existente do agente de Sincronização de arquivos do Azure, desinstale a versão mais antiga e instale a última versão do instalador baixado. O registro do servidor, os grupos de sincronização e outras configurações são mantidos pelo instalador de Sincronização de arquivos do Azure.
 
-> [!Note]  
-> Se sua versão da Sincronização de arquivos do Azure expirar dentro de três meses, você será notificado por meio de notificação do sistema no portal do Azure.
+#### <a name="agent-lifecycle-and-change-management-guarantees"></a>Garantia de gerenciamento de alterações e ciclo de vida do agente
+A Sincronização de arquivos do Azure é um serviço de nuvem que permite a introdução contínua de novos recursos e funcionalidades. Isso significa que uma versão específica do agente de Sincronização de arquivos do Azure somente poderá ter suporte por um tempo limitado. Para facilitar a implantação, as regras a seguir garantem que você tenha tempo e notificações suficientes para acomodar upgrades/atualizações do agente no processo de gerenciamento de alterações:
+
+- As versões do agente principal terão suporte por pelo menos seis meses, a partir da data da versão inicial.
+- Garantimos que há uma sobreposição de pelo menos três meses entre o suporte das versões do agente principal. 
+- Avisos para servidores registrados que utilizam um agente que expirará em breve serão emitidos pelo menos três meses antes da expiração. É possível verificar se um servidor registrado está usando uma versão mais antiga do agente na seção de servidores registrados de um Serviço de Sincronização de Armazenamento.
+- O tempo de vida de uma versão do agente secundário está associado à versão principal associada. Por exemplo, quando a versão do agente 3.0 for lançada, as versões do agente 2.\* serão todas definidas para expirar conjuntamente.
+
+> [!Note]
+> A instalação de uma versão do agente com um aviso de expiração exibirá um aviso, porém com êxito. A tentativa de instalar ou conectar uma versão do agente expirada não tem suporte e será bloqueada.

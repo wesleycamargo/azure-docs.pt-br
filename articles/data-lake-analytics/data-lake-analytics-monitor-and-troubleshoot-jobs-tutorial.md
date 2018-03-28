@@ -1,8 +1,8 @@
 ---
 title: Solucionar problemas em trabalhos do Azure Data Lake Analytics usando o Portal do Azure | Microsoft Docs
-description: "Saiba como usar o Portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake. "
+description: 'Saiba como usar o Portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure
-Saiba como usar o Portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake.
+# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Solucionar problemas em trabalhos da Análise do Azure Data Lake usando o portal do Azure
+Saiba como usar o portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake.
 
-Neste tutorial, você criará um problema de arquivo de origem ausente e usará o Portal do Azure para solucionar o problema.
+Neste tutorial, você criará um problema de arquivo de origem ausente e usará o portal do Azure para solucionar o problema.
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Enviar um trabalho da Análise Data Lake
 
@@ -62,7 +62,7 @@ O arquivo de origem definido no script é **/Samples/Data/SearchLog.tsv1**, em q
 3. Clique no bloco **Gerenciamento de Trabalhos** para ver os trabalhos. Os trabalhos são categorizados como **Em execução**, **Em fila** e **Concluído**. Você deverá ver o trabalho com falha na seção **Concluído** . Ele deve ser primeiro na lista. Quando tiver vários trabalhos, é possível clicar em **Filtrar** para ajudar a encontrar os trabalhos.
 
     ![Trabalhos de filtragem da Análise Azure Data Lake](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Clique no trabalho com falha na lista para abrir os detalhes do trabalho em uma nova folha:
+4. Clique no trabalho com falha na lista para abrir os detalhes do trabalho:
 
     ![Trabalho com falha da Análise Azure Data Lake](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
@@ -73,13 +73,13 @@ O arquivo de origem definido no script é **/Samples/Data/SearchLog.tsv1**, em q
 
     Isso indica que a pasta de origem não foi encontrada.
 6. Clique em **Duplicar Script**.
-7. Atualize o caminho **FROM** para o seguinte:
+7. Atualize o caminho **FROM** para:
 
     "/Samples/Data/SearchLog.tsv"
 8. Clique em **Enviar Trabalho**.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md)
 * [Introdução à Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introdução ao U-SQL da Análise Azure Data Lake usando o Visual Studio](data-lake-analytics-u-sql-get-started.md)
-* [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
+* [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md)

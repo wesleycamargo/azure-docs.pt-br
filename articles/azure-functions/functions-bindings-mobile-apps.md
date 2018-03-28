@@ -1,13 +1,13 @@
 ---
-title: "Associações de Aplicativos Móveis para o Azure Functions"
-description: "Entenda como usar associações dos Aplicativos Móveis do Azure no Azure Functions."
+title: Associações de Aplicativos Móveis para o Azure Functions
+description: Entenda como usar associações dos Aplicativos Móveis do Azure no Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associações de Aplicativos Móveis para o Azure Functions 
 
@@ -28,6 +28,12 @@ Este artigo explica como trabalhar com associações dos [Aplicativos Móveis do
 As associações dos Aplicativos Móveis permitem ler e atualizar tabelas de dados em aplicativos móveis.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pacotes
+
+As associações de Aplicativos Móveis são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Entrada
 
@@ -128,7 +134,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Entrada – atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), o qual é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs).
 
 Para saber informações sobre propriedades de atributo que podem ser configuradas, consulte [a seção de configuração a seguir](#input---configuration).
 
@@ -274,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), o qual é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs).
 
 Para saber informações sobre propriedades de atributo que podem ser configuradas, consulte [Saída - configuração](#output---configuration). Aqui está um exemplo de atributo `MobileTable` em uma assinatura de método:
 

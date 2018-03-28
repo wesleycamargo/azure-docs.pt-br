@@ -1,11 +1,11 @@
 ---
-title: "Usar o Conector do Slack em seus Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Conectar-se ao Slack em seus aplicativos lógicos"
+title: Usar o Conector do Slack em seus Aplicativos Lógicos do Azure | Microsoft Docs
+description: Conectar-se ao Slack em seus aplicativos lógicos
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Introdução ao conector do Slack
 O Slack é uma ferramenta de comunicação da equipe que reúne todas as comunicações de equipe em um só lugar, que pode ser pesquisado instantaneamente e está disponível onde você estiver. 
@@ -33,7 +33,7 @@ Para usar o conector do Slack, crie primeiro uma **conexão** e forneça os deta
 | --- | --- | --- |
 | A criptografia do token |sim |Fornecer credenciais do Slack |
 
-Execute estas etapas para entrar no Slack e concluir a configuração da **conexão** do Slack em seu aplicativo lógico:
+Entre no Slack usando as seguintes etapas e conclua a configuração da **conexão** do Slack em seu aplicativo lógico:
 
 1. Selecione **Recorrência**
 2. Selecione uma **Frequência** e insira um **Intervalo**
@@ -47,9 +47,9 @@ Execute estas etapas para entrar no Slack e concluir a configuração da **conex
    ![Configurar a Margem de atraso][3]  
 8. Você será redirecionado à página de logon de sua organização. **Autorize** o Slack a interagir com seu aplicativo lógico:      
    ![Configurar a Margem de atraso][5] 
-9. Após o término da autorização, você será redirecionado para seu aplicativo lógico para concluí-lo configurando a seção **Slack - Obter todas as mensagens**. Adicione outros gatilhos e outras ações necessárias.  
+9. Após o término da autorização, você sé redirecionado para seu aplicativo lógico para concluí-lo configurando a seção **Slack - Obter todas as mensagens**. Adicione outros gatilhos e outras ações necessárias.  
    ![Configurar a Margem de atraso][6]
-10. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
+10. Salve seu trabalho selecionando **Salvar** no menu (na parte superior).
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 

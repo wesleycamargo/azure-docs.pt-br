@@ -1,11 +1,11 @@
 ---
-title: "Criação e registro da conta do editor | Microsoft Docs"
-description: "Instruções para criar uma conta de Desenvolvedor da Microsoft para que, mediante aprovação, seja possível vender vários tipos de ofertas no Azure Marketplace."
+title: Criação e registro da conta do editor | Microsoft Docs
+description: Instruções para criar uma conta de Desenvolvedor da Microsoft para que, mediante aprovação, seja possível vender vários tipos de ofertas no Azure Marketplace.
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Criar uma conta de Desenvolvedor da Microsoft
 Este artigo fornece uma orientação sobre o processo necessário de criação e registro de uma conta para se tornar um Desenvolvedor da Microsoft aprovado para o Azure Marketplace.
@@ -81,7 +81,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 
 ### <a name="register-your-company-account"></a>Registrar sua conta da empresa
 1. Abra uma nova sessão de Janela anônima do Chrome ou InPrivate do Internet Explorer para garantir que você não esteja conectado a uma conta pessoal.
-2. Acesse [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) para registrar-se como um vendedor no Centro de Desenvolvimento. Leia a observação importante a seguir antes de continuar.
+2. Vá para [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) para registrar-se como vendedor no Centro de Desenvolvimento. Leia a observação importante a seguir antes de continuar.
 
    > [!IMPORTANT]
    > Não deixe de registrar como uma conta da Microsoft a identificação de email ou a lista de distribuição (uma lista de distribuição é recomendável para remover a dependência de indivíduos) que você usará para registrar-se no Centro de Desenvolvimento. Caso contrário, faça esse registro usando este [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Além disso, **não é permitido o uso de qualquer identificação de email do domínio da empresa Microsoft, isto é, @microsoft.com**, para o registro no Centro de Desenvolvimento.
@@ -159,13 +159,13 @@ Se você preferir atualizar posteriormente suas informações fiscais e bancári
    > Se você precisar atualizar ou alterar sua conta de pagamento, execute as mesmas etapas acima, substituindo as informações atuais por novas informações. A alteração da conta de pagamento pode atrasar os pagamentos em até um ciclo de pagamento. Esse atraso ocorre porque precisamos confirmar a alteração da conta, como fizemos na primeira configuração da conta de pagamento. Você ainda receberá o valor total após a verificação de sua conta; os pagamentos atrasados do ciclo de pagamento atual serão adicionados ao próximo.
    >
    >
-4. Clique em **Avançar**.
+4. Clique em **Próximo**.
 
 **Informações fiscais**
 
 1. Entre no [Centro de Desenvolvimento da Microsoft](http://dev.windows.com/registration?accountprogram=azure) com sua conta da Microsoft (se for necessário).
 2. Clique em **Perfil fiscal** no menu à esquerda.
-3. Na página **Configure seu formulário de imposto** , selecione o país ou região onde reside de forma permanente e, em seguida, selecione o país ou região onde você mantém cidadania principal. Clique em **Avançar**.
+3. Na página **Configure seu formulário de imposto** , selecione o país ou região onde reside de forma permanente e, em seguida, selecione o país ou região onde você mantém cidadania principal. Clique em **Próximo**.
 4. Insira seus detalhes fiscais e, em seguida, clique em **Próximo**.
 
 > [!WARNING]
@@ -175,7 +175,7 @@ Se você preferir atualizar posteriormente suas informações fiscais e bancári
 
 Se você tiver problemas com o registro no Centro de Desenvolvedores, registre um tíquete de suporte como mostrado abaixo
 
-1. Acesse o link de suporte [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
+1. Vá para o link de suporte [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
 2. Na seção **Fale Conosco**, clique no botão **Enviar um incidente** (como é mostrado na captura de tela abaixo)
 
     ![desenho](media/marketplace-publishing-accounts-creation-registration/imgAddTax_02.png)
@@ -191,7 +191,7 @@ Se você tiver problemas com o registro no Centro de Desenvolvedores, registre u
 O [portal de Publicação](http://publish.windowsazure.com) é usado para publicar e gerenciar suas ofertas.
 
 1. Abra uma nova sessão de Janela anônima do Chrome ou navegação InPrivate do Internet Explorer para garantir que você não esteja conectado a uma conta pessoal.
-2. Acesse [http://publish.windowsazure.com](http://publish.windowsazure.com).
+2. Vá para [http://publish.windowsazure.com](http://publish.windowsazure.com).
 3. Se você for um novo usuário e estiver entrando no portal de Publicação pela primeira vez, entre com a mesma identificação de email com o qual sua conta do Centro de Desenvolvimento foi registrada. Dessa forma, sua conta do Centro de Desenvolvimento e sua conta do portal de Publicação serão vinculadas. Posteriormente, você poderá adicionar os outros membros da empresa que estão trabalhando no aplicativo como coadministradores no portal de Publicação seguindo as etapas abaixo.
 
 Se você for adicionado como coadministrador ao portal de Publicação, será possível entrar com sua conta de coadministrador.

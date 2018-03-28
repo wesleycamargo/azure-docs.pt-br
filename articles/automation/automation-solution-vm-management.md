@@ -1,24 +1,18 @@
 ---
-title: "Solução Iniciar/Parar VMs fora do horário comercial (versão prévia)| Microsoft Docs"
-description: "Essa solução de gerenciamento de VM inicia e para suas máquinas virtuais do Azure Resource Manager de acordo com um agendamento, e faz o monitoramento delas proativamente no Log Analytics."
+title: Solução Iniciar/Parar VMs fora do horário comercial (versão prévia)
+description: Essa solução de gerenciamento de VM inicia e para suas máquinas virtuais do Azure Resource Manager de acordo com um agendamento, e faz o monitoramento delas proativamente no Log Analytics.
 services: automation
-documentationCenter: 
-authors: eslesar
-manager: carmonm
-editor: 
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: ec15859a92527c4e084075b40d3439d7a19fea1a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial (versão prévia) na Automação do Azure
 
@@ -129,7 +123,7 @@ Você não deve habilitar todas os agendamentos, porque isso poderá criar açõ
 
 Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do horário comercial à sua conta de Automação e, em seguida, configure as variáveis para personalizar a solução.
 
-1. No portal do Azure, clique em **Criar um recurso**.<br> ![portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. No portal do Azure, clique em **Criar um recurso**.<br> ![Portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. No painel Marketplace, digite uma palavra-chave como **Iniciar** ou **Iniciar/Parar**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Como alternativa, você pode digitar uma ou mais palavras-chave do nome completo da solução e, em seguida, pressionar Enter.  Selecione **Iniciar/Parar VMs fora do horário comercial [Visualização]** nos resultados da pesquisa.  
 3. No painel **Iniciar/Parar VMs fora do horário comercial [Visualização]** da solução selecionada, analise as informações de resumo e clique em **Criar**.  
 4. O painel **Adicionar Solução** é exibido. Você será solicitado a configurar a solução antes de importá-la na sua assinatura da Automação.<br><br> ![Folha Adicionar Solução do Gerenciamento de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>

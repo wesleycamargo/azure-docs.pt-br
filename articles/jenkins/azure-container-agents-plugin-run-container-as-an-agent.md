@@ -1,24 +1,20 @@
 ---
-title: "Compilar um projeto no Azure usando Jenkins e Instâncias de Contêiner do Azure"
-description: "Saiba como usar o plug-in do Agente de Contêiner do Azure para Jenkins para compilar um projeto no Azure com Instâncias de Contêiner do Azure"
-services: multiple
-documentationcenter: 
+title: Compilar um projeto no Azure usando Jenkins e Instâncias de Contêiner do Azure
+description: Saiba como usar o plug-in do Agente de Contêiner do Azure para Jenkins para compilar um projeto no Azure com Instâncias de Contêiner do Azure
 author: tomarcher
 manager: rloutlaw
-editor: 
 ms.service: multiple
+ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: tarcher
-ms.custom: jenkins
-ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: Jenkins
+ms.openlocfilehash: a18136afc096f8315310fae134d3f683994b6d0a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Compilar um projeto no Azure usando Jenkins e Instâncias de Contêiner do Azure
 
@@ -72,6 +68,11 @@ Esta seção orienta a definir a URL Jenkins.
 1. Selecione **Salvar**.
 
 ## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>Atualizar Jenkins para permitir o protocolo de inicialização de rede de Java (JNLP)
+
+> [!NOTE]
+> Este tutorial ilustra como configurar um agente JNLP. A partir da versão 0.4.x em diante, o [Plug-in de Agentes Jenkins do Contêiner do Azure](https://plugins.jenkins.io/azure-container-agents) também fornece suporte a SSH.
+>
+>
 
 O agente Jenkins conecta-se com o servidor Jenkins via protocolo de inicialização de rede de Java (JNLP). Esta seção explica como especificar uma porta para agentes JNLP usar ao se comunicar com o servidor Jenkins.
 

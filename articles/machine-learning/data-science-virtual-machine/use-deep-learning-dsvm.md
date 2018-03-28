@@ -1,8 +1,8 @@
 ---
-title: "Ciência de dados com a máquina virtual de ciência de dados de Deep Learning no Azure | Microsoft Docs"
-description: "Como executar várias tarefas comuns da ciência de dados com a VM de ciência de dados de Deep Learning."
+title: Ciência de dados com a máquina virtual de ciência de dados de Deep Learning no Azure | Microsoft Docs
+description: Como executar várias tarefas comuns da ciência de dados com a VM de ciência de dados de Deep Learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,29 +12,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9bc56d242abde919f6150b88c81921d409e1d94c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab955edec61799495e877943237236fb7fc82cb8
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Usando a máquina virtual de Deep Learning
 
-Depois de provisionar sua DLVM (máquina virtual de Deep Learning), você pode começar a criar modelos de rede neural profunda para criar aplicativos de IA em domínios como pesquisa visual do computador e reconhecimento vocal. 
+Após provisionar a DLVM (máquina virtual de Deep Learning), você poderá começar a construir modelos de rede neural profunda para compilar aplicativos de IA em domínios como pesquisa visual computacional e reconhecimento vocal. 
 
-Há inúmeras ferramentas fornecidas na DLVM para IA. A [página de estruturas de Deep Learning e IA](dsvm-deep-learning-ai-frameworks.md) contém detalhes sobre como usar essas ferramentas. A [página de exemplos](dsvm-samples-and-walkthroughs.md) fornece indicadores para os exemplos de código previamente carregados na VM para cada uma das estruturas, a fim de ajudá-lo a começar rapidamente. 
+Há várias ferramentas fornecidas na VM de Deep Learning para AI. A [página de estruturas de Deep Learning e IA](dsvm-deep-learning-ai-frameworks.md) contém detalhes sobre como usar essas ferramentas. 
 
-# <a name="deep-learning-tutorials-and-walkthroughs"></a>Tutoriais e passo a passo sobre Deep Learning
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>Tutoriais e passo a passo sobre Deep Learning
 
-Além dos exemplos baseados na estrutura, nós também fornecemos um conjunto de orientações passo a passo abrangentes que foram validados na DLVM. Eles ajudam a impulsionar o desenvolvimento de aplicativos de aprendizagem profunda em domínios como reconhecimento vocal de texto e imagem. Continuamos a adicionar mais tutoriais completos sobre os diferentes domínios e tecnologias.   
-
-1. [Executando redes neurais em estruturas diferentes](https://github.com/ilkarman/DeepLearningFrameworks): este é um passo a passo completo que mostra como migrar o código de uma estrutura para outra. Ele também demonstra como comparar o desempenho do modelo e do tempo de execução entre estruturas. 
-
-2. [Um guia de instruções para criar uma solução de ponta a ponta para detectar produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): a detecção de imagem é uma técnica que pode localizar e classificar objetos em imagens. Essa tecnologia tem o potencial de trazer grande recompensa em vários domínios de negócios da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar qual produto um cliente retirou da prateleira. Por sua vez, essas informações ajudam as lojas a gerenciar o estoque do produtos. 
-
-3. [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): este passo a passo demonstra como criar e treinar duas arquiteturas de rede neural diferentes (Rede de atenção hierárquica e rede LSTM (Memória longa de curto prazo)) para classificação de documentos de texto usando a API Keras para a aprendizagem profunda. Keras é um front-end para três dentre as estruturas mais populares de aprendizagem profunda: Kit de Ferramentas Cognitivas da Microsoft, TensorFlow e Theano.
+Além dos exemplos baseados em framework, também é fornecido um conjunto abrangente de orientações passo a passo que foram validadas no DLVM. Essas orientações passo a passo ajudam a iniciar o desenvolvimento de aplicativos de aprendizagem profunda em domínios como reconhecimento vocal/texto e imagem. Mais tutoriais de ponta a ponta em diferentes domínios e tecnologias continuarão a ser adicionados.   
 
 
+- [Executando redes neurais em estruturas diferentes](https://github.com/ilkarman/DeepLearningFrameworks): um passo a passo completo que mostra como migrar o código de uma estrutura para outra. Ele também demonstra como comparar o desempenho do modelo e do tempo de execução entre estruturas. 
+
+- [Um guia de instruções para criar uma solução de ponta a ponta para detectar produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): a detecção de imagem é uma técnica que pode localizar e classificar objetos em imagens. Essa tecnologia tem o potencial de trazer grande recompensa em vários domínios de negócios da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar qual produto um cliente retirou da prateleira. Por sua vez, essas informações ajudam as lojas a gerenciar o estoque do produtos. 
+
+- [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): esse passo a passo demonstra como compilar e treinar duas arquiteturas de redes neurais diferentes: Rede de Atenção Hierárquica e rede LSTM (Memória Longa de Curto Prazo). Essas redes neurais usam a API Keras para aprendizagem profunda para classificar documentos de texto. Keras é um front-end para três dentre as estruturas mais populares de aprendizagem profunda: Microsoft Cognitive Toolkit, TensorFlow e Theano.
+
+## <a name="next-steps"></a>Próximas etapas
+
+A [página de exemplos](dsvm-samples-and-walkthroughs.md) fornece indicadores para os exemplos de código previamente carregados na VM para cada uma das estruturas, a fim de ajudá-lo a começar rapidamente. 
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: limitações atuais
 
@@ -29,24 +29,25 @@ ms.lasthandoff: 03/08/2018
 
 Os cenários a seguir têm suporte total:
 
-- Entradas de usuário em todos os aplicativos baseados em navegador da Web
-- Entradas de usuário em aplicativos Office com suporte para [autenticação moderna](https://aka.ms/modernauthga): Office 2016 e Office 2013 _com_ autenticação moderna
+- Entradas de usuário em todos os aplicativos com base em navegador da Web.
+- Entradas de usuário em aplicativos Office com suporte para [autenticação moderna](https://aka.ms/modernauthga): Office 2016 e Office 2013 _com_ autenticação moderna.
 - Entradas do usuário para clientes do Outlook usando protocolos herdados, como Exchange ActiveSync, SMTP, POP e IMAP.
-- Entradas do usuário para o Skype for Business que suportam autenticação moderna, incluindo topologias online e híbrida. Saiba mais sobre topologias com suporte [aqui](https://technet.microsoft.com/library/mt803262.aspx).
-- Ingressos em domínio do Azure AD para dispositivos com Windows 10
+- Entradas do usuário para o Skype for Business que suportam autenticação moderna, incluindo topologias online e híbridas. Saiba mais sobre topologias com suporte [aqui](https://technet.microsoft.com/library/mt803262.aspx).
+- Ingressos no domínio do Azure AD para dispositivos do Windows 10.
 - Senhas de aplicativo para Autenticação Multifator.
 
 ## <a name="unsupported-scenarios"></a>Cenários sem suporte
 
 Os cenários a seguir _não_ têm suporte:
 
-- Entradas do usuário em aplicativos de cliente do Office herdados, com exceção do Outlook: Office 2010 e Office 2013 _sem_ autenticação moderna. As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna possibilita o suporte à Autenticação de Passagem. Também ajuda a proteger suas contas de usuário usando recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md), como Autenticação Multifator do Azure.
+- Entradas do usuário para aplicativos de cliente do Office herdados, com exceção do Outlook (consulte **Cenários com suporte** acima): Office 2010 e Office 2013 _sem_ autenticação moderna. As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna possibilita o suporte à Autenticação de Passagem. Também ajuda a proteger suas contas de usuário usando recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md), como Autenticação Multifator do Azure.
+- Acesso ao compartilhamento de calendário e informações livres/ocupadas nos ambientes híbridos do Exchange somente no Office 2010.
 - O usuário entra em aplicativos cliente do Skype for Business, _sem_ autenticação moderna.
 - Entradas de usuário no PowerShell versão 1.0. Recomendamos usar o PowerShell versão 2.0.
 - Detecção de usuários com [credenciais vazadas](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services precisa de sincronização de Hash de senha para ser habilitado no locatário. Portanto, os locatários que _somente_ usam a autenticação de passagem não funcionam para cenários que precisam de Azure AD Domain Services.
 - A Autenticação de passagem não está integrada com [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
-- O Programa de registro de dispositivos (DEP da Apple) Apple não é compatível com a autenticação moderna.  Dispositivos de DEP da Apple falharão ao ser registrados no Intune para domínios usando a Autenticação de Passagem.
+- O Programa de Registro de Dispositivos da Apple (DEP da Apple) usando o Assistente de Configuração do iOS não é compatível com a autenticação moderna. Isso fará com que dispositivos do DEP da Apple não consigam ser registrados no Intune para domínios gerenciados usando a Autenticação de Passagem. Considere o uso do [aplicativo Portal da Empresa](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) como uma alternativa.
 
 >[!IMPORTANT]
 >Como alternativa para cenários sem suporte _apenas_, habilite a sincronização de hash de senha na página [Recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) do assistente do Azure AD Connect.

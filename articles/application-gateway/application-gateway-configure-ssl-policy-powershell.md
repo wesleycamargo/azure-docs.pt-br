@@ -1,6 +1,6 @@
 ---
-title: "Configurar política SSL no Gateway de Aplicativo do Azure PowerShell | Microsoft Docs"
-description: "Esta página fornece instruções para configurar a política de SSL no Gateway de aplicativo do Azure"
+title: Configurar política SSL no Gateway de Aplicativo do Azure PowerShell | Microsoft Docs
+description: Esta página fornece instruções para configurar a política de SSL no Gateway de aplicativo do Azure
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e conjuntos de codificação no Gateway de Aplicativo
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Lista de políticas predefinidas de SSL
 
-O gateway de aplicativo vem com três políticas predefinidas que podem ser usadas. O cmdlet `Get-AzureRmApplicationGatewaySslPredefinedPolicy` recupera essas políticas. Cada política tem versões de protocolo diferente e conjuntos de codificação habilitados. Essas políticas predefinidas podem ser usadas para configurar rapidamente uma política SSL no seu gateway de aplicativo. Por padrão **AppGwSslPolicy20170401** será selecionada se nenhuma política SSL específica é definida.
+O gateway de aplicativo vem com três políticas predefinidas que podem ser usadas. O cmdlet `Get-AzureRmApplicationGatewaySslPredefinedPolicy` recupera essas políticas. Cada política tem versões de protocolo diferente e conjuntos de codificação habilitados. Essas políticas predefinidas podem ser usadas para configurar rapidamente uma política SSL no seu gateway de aplicativo. Por padrão, **AppGwSslPolicy20150501** será selecionada se nenhuma política SSL específica for definida.
 
 Veja a seguir um exemplo do `Get-AzureRmApplicationGatewaySslPredefinedPolicy` em execução.
 

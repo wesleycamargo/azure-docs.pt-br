@@ -6,13 +6,13 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 6b56cbb4220ce1c8767724938dd531b8ae5c3920
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
 
@@ -62,17 +62,13 @@ R: A Criptografia do Serviço de Armazenamento está habilitada por padrão no m
 
 R: Não há qualquer custo adicional.
 
-**P: Quem gerencia as chaves de criptografia?**
-
-R: A Microsoft gerencia as chaves.
-
 **P: Posso usar minhas próprias chaves de criptografia?**
 
-R: Não no momento.
+A: Sim, você pode usar suas próprias chaves de criptografia. Para obter mais informações, consulte [Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **P: Posso revogar o acesso às chaves de criptografia?**
 
-R: Não no momento. A Microsoft gerencia totalmente as chaves.
+R: Sim, se você [usar suas próprias chaves de criptografia](storage-service-encryption-customer-managed-keys.md) no Azure Key Vault.
 
 **P: A Criptografia do Serviço de Armazenamento está habilitada por padrão quando crio uma conta de armazenamento?**
 

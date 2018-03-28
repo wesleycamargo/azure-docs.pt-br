@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
@@ -227,9 +227,7 @@ A ferramenta PerfInsights coleta vários logs, configurações, dados de diagnó
 
 ## <a name="view-and-share-the-results"></a>Exibir e compartilhar os resultados
 
-A saída da extensão é armazenada em uma pasta. A pasta é denominada log_collection e via de regra está na unidade Temp (geralmente D:\log_collection). Nesta pasta, você pode ver os arquivos .zip que contém os logs de diagnóstico e um relatório com as descobertas e recomendações.
-
-Você também pode localizar o arquivo .zip na conta de armazenamento fornecida durante a instalação. Ele é compartilhado por 30 dias usando as [SAS (Assinaturas de Acesso Compartilhado)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Um arquivo de texto chamado *zipfilename*_saslink.txt também é criado na pasta log_collection. Esse arquivo contém o link SAS criado para baixar o arquivo zip. Qualquer pessoa que tenha esse link pode baixar o arquivo zip.
+A saída da extensão pode ser encontrada em um arquivo zip carregado na conta de armazenamento especificada durante a instalação e é compartilhada por 30 dias usando [Assinaturas de Acesso Compartilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Este arquivo zip contém logs de diagnóstico e de um relatório com os resultados e recomendações. Um link SAS para o arquivo zip de saída pode ser encontrado em um arquivo de texto chamado *zipfilename*_saslink.txt na pasta **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>**. Qualquer pessoa que tenha esse link pode baixar o arquivo zip.
 
 Para ajudar o engenheiro de suporte que está trabalhando no seu tíquete de suporte, a Microsoft pode usar esse link das SAS para baixar os dados de diagnóstico.
 
@@ -240,7 +238,7 @@ Você também poderá baixar o arquivo zip diretamente no portal, selecionando a
 ![Captura de tela do status detalhado do diagnóstico de desempenho](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> O link das SAS exibido no portal do podem não funcionar. Isso pode ser causado por uma URL malformada durante as operações de codificação e decodificação. A solução alternativa é obter o link diretamente do arquivo *_saslink.txt da VM.
+> O link das SAS exibido no portal do pode não funcionar às vezes. Isso pode ser causado por uma URL malformada durante as operações de codificação e decodificação. A solução alternativa é obter o link diretamente do arquivo *_saslink.txt da VM.
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
@@ -249,6 +247,6 @@ Você também poderá baixar o arquivo zip diretamente no portal, selecionando a
     Esse problema pode ser ignorado com segurança enquanto o status da extensão indicar que a extensão está provisionada com êxito.
 - Você pode abordar alguns problemas durante a instalação usando os logs de extensão. A saída de execução da extensão é registrada nos arquivos localizados no seguinte diretório:
 
-        C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
+        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
 Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -123,7 +123,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Clusters HDInsight – veja [Limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
 * Cofre da Chave
-* Balanceadores de Carga
+* Load Balancers - consulte [Limitações do Load Balancer](#lb-limitations)
 * Aplicativos Lógicos
 * Machine Learning
 * Serviços de mídia
@@ -132,6 +132,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Insights Operacionais
 * Gerenciamento de Operações
 * Power BI
+* IP público - consulte [Limitações de IP público](#pip-limitations)
 * Cache Redis
 * Agendador
 * Search
@@ -161,8 +162,10 @@ Os serviços que atualmente não permitem mover um recurso são:
 * ExpressRoute
 * Laboratórios DevTest – mover para um novo grupo de recursos na mesma assinatura está habilitado, mas a troca entre assinaturas está desabilitado.
 * Dynamics LCS
+* Load Balancers - consulte [Limitações do Load Balancer](#lb-limitations)
 * Aplicativos gerenciados
 * Managed Disks – veja [Limitações das máquinas virtuais](#virtual-machines-limitations)
+* IP público - consulte [Limitações de IP público](#pip-limitations)
 * Cofre de Serviços de Recuperação – não mova os recursos de Computação, Rede e Armazenamento associados ao cofre dos Serviços de Recuperação. Consulte [Limitações dos Serviços de Recuperação](#recovery-services-limitations).
 * Segurança
 * Gerenciador de Dispositivos StorSimple
@@ -320,6 +323,16 @@ Ao mover um cluster HDInsight para uma nova assinatura, mova primeiro os outros 
 
 Não é possível mover simultaneamente vários recursos de pesquisa colocados em regiões diferentes.
 Nesse caso, você precisa movê-los separadamente.
+
+## <a name="lb-limitations"></a> Limitações do Load Balancer
+
+O Load Balancer de SKU básica pode ser movido.
+O Load Balancer de SKU Standard não pode ser movido.
+
+## <a name="pip-limitations"></a> Limitações de IP públicos
+
+O IP público de SKU básica pode ser movido.
+O IP público de SKU Standard não pode ser movido.
 
 ## <a name="use-portal"></a>Usar o portal
 

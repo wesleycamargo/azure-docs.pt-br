@@ -1,12 +1,12 @@
 ---
-title: "Reconhecimento de entidade biomédica – Processo de ciência de dados de equipe – Azure Machine Learning | Microsoft Docs"
-description: "Um guia de início rápido do projeto do Processo de Ciência de Dados de Equipe que usa aprendizado profundo para reconhecimento de entidade biomédica no Azure Machine Learning Workbench."
+title: Reconhecimento de entidade biomédica – Processo de ciência de dados de equipe – Azure Machine Learning | Microsoft Docs
+description: Um guia de início rápido do projeto do Processo de Ciência de Dados de Equipe que usa aprendizado profundo para reconhecimento de entidade biomédica no Azure Machine Learning Workbench.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconhecimento de entidade biomédica usando o Modelo TDSP (Processo de Ciência de Dados de Equipe)
 
@@ -32,13 +32,13 @@ A extração de entidade é uma subtarefa da extração de informações (també
 
 4. Demonstre os seguintes recursos dentro do Azure Machine Learning Workbench:
 
-    * Criação de instâncias dos [modelos e da estrutura TDSP (Processo de Ciência de Dados de Equipe)](how-to-use-tdsp-in-azure-ml.md).
+    * Criação de instâncias dos [modelos e da estrutura TDSP (Processo de Ciência de Dados de Equipe)](how-to-use-tdsp-in-azure-ml.md)
     * O gerenciamento automatizado das dependências do seu projeto, incluindo o download e a instalação
-    * A execução de scripts Python em ambientes de computação diferentes.
-    * Acompanhamento do histórico de execuções para scripts Python.
-    * Execução de trabalhos no contexto de computação remoto do Spark usando clusters Spark 2.1 do HDInsight.
-    * Execução de trabalhos em VMs GPU remotas no Azure.
-    * Fácil operacionalização de modelos de aprendizado profundo como serviços Web nos Serviços de Contêiner do Azure (ACS).
+    * A execução de scripts Python em ambientes de computação diferentes
+    * Acompanhamento do histórico de execuções para scripts Python
+    * Execução de trabalhos no contexto de computação remoto do Spark usando clusters Spark 2.1 do HDInsight
+    * Execução de trabalhos em VMs GPU remotas no Azure
+    * Fácil operacionalização de modelos de aprendizado profundo como serviços Web nos Serviços de Contêiner do Azure (ACS)
 
 ## <a name="use-case-overview"></a>Visão geral de casos de uso
 O reconhecimento de entidades nomeadas biomédicas é uma etapa essencial para tarefas NLP biomédicas complexas como: 
@@ -106,7 +106,7 @@ A seguir está o link para o repositório público do GitHub do cenário do mund
 
 ### <a name="python-packages"></a>Pacotes Python
 
-Todas as dependências necessárias são definidas no arquivo aml_config/conda_dependencies.yml na pasta de projeto do cenário. As dependências definidas neste arquivo serão provisionadas automaticamente para execuções com relação ao Docker, VM e destinos de cluster HDI. Para obter detalhes sobre o formato do arquivo de ambiente Conda, consulte [aqui](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
+Todas as dependências necessárias são definidas no arquivo aml_config/conda_dependencies.yml na pasta de projeto do cenário. As dependências definidas neste arquivo são provisionadas automaticamente para execuções com relação ao Docker, VM e destinos de cluster HDI. Para obter detalhes sobre o formato do arquivo de ambiente Conda, consulte [aqui](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
 * [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
@@ -139,7 +139,7 @@ O corpus bruto da MEDLINE tem um total de 27 milhões de resumos em que cerca de
 * pré-processar o texto do resumo incluindo divisão de frase, geração de tokens e normalização de maiúsculas.
 * excluir artigos em que o campo do resumo está vazio ou contém texto curto 
 * criar o vocabulário de palavras de resumos de treinamento
-* treinar o modelo neural de incorporação de palavras. Para obter mais detalhes, consulte o [link do código do GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) para começar.
+* treinar o modelo neural de incorporação de palavras. Para obter mais informações, consulte o [link do código do GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) para começar.
 
 
 Após analisar os arquivos XML, os dados têm o seguinte formato: 
@@ -167,7 +167,7 @@ O Word2Vec é o algoritmo de aprendizado sem supervisão de incorporação de pa
 
 ![Modelo Skip Gram](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-O modelo usa amostragem Softmax hierárquico e negativa para otimizar o desempenho. O H-SoftMax (SoftMax hierárquico) é uma aproximação inspirada por árvores binárias. O H-SoftMax substitui essencialmente a camada SoftMax simples por uma camada hierárquica que tem as palavras como folhas. Isso nos permite decompor o cálculo da probabilidade de uma palavra em uma sequência de cálculos de probabilidade, o que nos poupa de precisar calcular a normalização cara em todas as palavras. Como uma árvore binária balanceada tem uma profundidade de log2(|V|) (V é o vocabulário), só é necessário avaliar no máximo log2(|V|) nós para obter a probabilidade final de uma palavra. A probabilidade de uma palavra w dado seu contexto c é, então, simplesmente o produto das probabilidades das viradas à direita e à esquerda, respectivamente, que levam ao seu nó folha. É possível criar uma árvore de Huffmann com base na frequência das palavras no conjunto de dados para garantir que palavras mais frequentes obtenham representações mais curtas. Para obter mais informações, consulte [este link](http://sebastianruder.com/word-embeddings-softmax/).
+O modelo usa amostragem Softmax hierárquico e negativa para otimizar o desempenho. O H-SoftMax (SoftMax hierárquico) é uma aproximação inspirada por árvores binárias. O H-SoftMax substitui essencialmente a camada SoftMax simples por uma camada hierárquica que tem as palavras como folhas. Isso nos permite decompor o cálculo da probabilidade de uma palavra em uma sequência de cálculos de probabilidade, o que nos poupa de precisar calcular a normalização cara em todas as palavras. Como uma árvore binária balanceada tem uma profundidade de log2(|V|) (V é o vocabulário), só é necessário avaliar no máximo log2(|V|) nós para obter a probabilidade final de uma palavra. A probabilidade de uma palavra w dado seu contexto c é, então, simplesmente o produto das probabilidades das viradas à direita e à esquerda, respectivamente, que levam ao seu nó folha. É possível criar uma árvore de Huffmann com base na frequência das palavras no conjunto de dados para garantir que palavras mais frequentes obtenham representações mais curtas. Para saber mais, confira [este link](http://sebastianruder.com/word-embeddings-softmax/).
 Imagem extraída [daqui](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Visualização
@@ -266,7 +266,7 @@ Fomos além dos detalhes de como você poderia treinar um modelo de incorporaç�
 
 * Tomas Mikolov, Kai Chen, Greg Corrado e Jeffrey Dean. 2013a. Estimativa eficiente de representações de palavras no espaço de vetor. Em Trabalhos de ICLR.
 * Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado e Jeff Dean. 2013b. Representações distribuídas de palavras e frases e sua composição. Em Trabalhos de NIPS páginas 3111–3119.
-* Billy Chiu, Gamal Crichton, Anna Korhonen e Sampo Pyysalo. 2016. [How to Train Good Word Embeddings for Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf) (Como treinar boas incorporações de palavras para NLP biomédico), Em Trabalhos do 15º Workshop sobre Processamento de Linguagem Natural Biomédica, páginas 166–174.
+* Billy Chiu, Gamal Crichton, Anna Korhonen e Sampo Pyysalo. 2016. [How to Train Good Word Embeddings for Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf) (Como treinar boas incorporações de palavras para NLP biomédico), em Trabalhos do Décimo Quinto Workshop sobre Processamento de Linguagem Natural Biomédica, páginas 166–174.
 * [Representações de vetor de palavras](https://www.tensorflow.org/tutorials/word2vec)
 * [Redes neurais recorrentes](https://www.tensorflow.org/tutorials/recurrent)
 * [Problemas encontrados com o Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)

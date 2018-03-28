@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Como configurar o Cache Redis do Azure
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache Redis do Azure. Este tópico também aborda a configuração padrão do servidor Redis para instâncias de Cache Redis do Azure.
@@ -280,8 +280,6 @@ Clique em **Firewall** para exibir e configurar regras de firewall para o cache.
 > [!IMPORTANT]
 > Conexões dos sistemas de monitoramento do Cache Redis do Azure serão sempre permitidas, mesmo se regras de firewall forem configuradas.
 > 
-> As regras de firewall estão disponíveis apenas para os caches da camada Premium.
-> 
 > 
 
 ### <a name="properties"></a>propriedades
@@ -404,7 +402,7 @@ Novas instâncias de Cache Redis do Azure são configuradas com os seguintes val
 | `maxmemory-samples` |3 |Para economizar memória, LRU e algoritmos TTL mínimos são algoritmos aproximados, em vez de algoritmos precisos. Por padrão, o Redis verificará três chaves e escolherá aquela que foi usada há mais tempo. |
 | `lua-time-limit` |5.000 |Tempo máximo de execução de um script Lua em milissegundos. Se o tempo de execução máximo for atingido, o Redis registrará em log que um script ainda está em execução depois do tempo máximo permitido e começará a responder a consultas com um erro. |
 | `lua-event-limit` |500 |O tamanho máximo da fila de eventos de script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de buffer de saída do cliente podem ser usados para impor a desconexão de clientes que não estão lendo dados do servidor de forma rápida o suficiente, por algum motivo (uma razão comum é que um cliente Pub/Sub não consegue consumir mensagens de forma tão rápida quanto o editor consegue produzi-las). Para obter mais informações, veja [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de buffer de saída do cliente podem ser usados para impor a desconexão de clientes que não estão lendo dados do servidor de forma rápida o suficiente, por algum motivo (uma razão comum é que um cliente Pub/Sub não consegue consumir mensagens de forma tão rápida quanto o editor consegue produzi-las). Para obter mais informações, consulte [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
 <a name="databases"></a> 
 <sup>1</sup>O limite para `databases` é diferente para cada tipo de preço do Cache Redis do Azure e pode ser definido na criação do cache. Se nenhuma configuração `databases` for especificada durante a criação do cache, o padrão será 16.

@@ -1,11 +1,11 @@
 ---
-title: "Guia para a criação de um modelo de solução para o Marketplace | Microsoft Docs"
-description: "Instruções detalhadas sobre como criar, certificar e implantar um Modelo de Solução de imagem com múltiplas VMs para compra no Azure Marketplace."
+title: Guia para a criação de um modelo de solução para o Marketplace | Microsoft Docs
+description: Instruções detalhadas sobre como criar, certificar e implantar um Modelo de Solução de imagem com múltiplas VMs para compra no Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
 ms.devlang: na
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.author: mbaldwin
+ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guia para criar um modelo de solução para o Azure Marketplace
 Após concluir a etapa 1, [Criação da conta e registro][link-acct-creation], falamos sobre a criação de um modelo de solução compatível com o Azure em [Pré-requisitos técnicos para criar um modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md). Agora, orientaremos você pelas etapas de criação de um modelo de solução para várias VMs no [Portal de Publicação][link-pubportal] para o Azure Marketplace.
 
 ## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>Criar sua oferta de modelo de solução no Portal de Publicação
-Acesse [https://publish.windowsazure.com](http://publish.windowsazure.com). Ao fazer logon pela primeira vez no [Portal de Publicação](https://publish.windowsazure.com/), use a mesma conta utilizada para o registro de perfil de vendedor de sua empresa. Posteriormente, você poderá adicionar qualquer funcionário de sua empresa como um coadministrador no Portal de Publicação.
+Vá para [https://publish.windowsazure.com](http://publish.windowsazure.com). Ao fazer logon pela primeira vez no [Portal de Publicação](https://publish.windowsazure.com/), use a mesma conta utilizada para o registro de perfil de vendedor de sua empresa. Posteriormente, você poderá adicionar qualquer funcionário de sua empresa como um coadministrador no Portal de Publicação.
 
 ### <a name="1-select-solution-templates"></a>1. Selecione "Modelos de solução"
   ![desenho][img-pubportal-menu-sol-templ]

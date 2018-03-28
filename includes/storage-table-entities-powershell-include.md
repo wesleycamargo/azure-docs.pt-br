@@ -90,7 +90,7 @@ Get-AzureStorageTableRowByColumnName -table $storageTable `
 
 Essa consulta recupera um registro.
 
-|field|valor|
+|field|value|
 |----|----|
 | userid | 1 |
 | Nome de Usuário | Chris |
@@ -104,12 +104,12 @@ Para recuperar entidades usando um filtro personalizado, use **Get-AzureStorageT
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 Essa consulta recupera um registro.
 
-|field|valor|
+|field|value|
 |----|----|
 | userid | 1 |
 | Nome de Usuário | Chris |
@@ -118,7 +118,7 @@ Essa consulta recupera um registro.
 
 ### <a name="updating-entities"></a>Atualizando entidades 
 
-Há três etapas para a atualização de entidades. Primeiro, recupere a entidade a ser alterada. Em segundo lugar, faça a alteração. Em terceiro lugar, confirme a alteração usando **Update-AzureStorageTableRow**.
+Há três etapas para a atualização de entidades. Primeiro, recupere a entidade para alterar. Em segundo lugar, faça a alteração. Em terceiro lugar, confirme a alteração usando **Update-AzureStorageTableRow**.
 
 Atualize a entidade com o nome de usuário = “Jessie” para ter o nome de usuário = “Jessie2”. Este exemplo também mostra outra maneira de criar um filtro personalizado usando tipos .NET. 
 
@@ -144,7 +144,7 @@ Get-AzureStorageTableRowByCustomFilter -table $storageTable `
 
 Os resultados mostram o registro Jessie2.
 
-|field|valor|
+|field|value|
 |----|----|
 | userid | 2 |
 | Nome de Usuário | Jessie2 |
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Excluir todas as entidades da tabela 
 
-Para excluir todas as entidades da tabela, recupere-as e redirecione os resultados para o cmdlet remove. 
+Para excluir todas as entidades na tabela, você as recupera e redireciona os resultados para o cmdlet de remoção. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

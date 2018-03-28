@@ -1,25 +1,25 @@
 ---
 title: Perguntas frequentes sobre o Azure Cosmos DB| Microsoft Docs
-description: "Obtenha respostas para perguntas frequentes sobre o Azure Cosmos DB, um serviço de multimodelo de banco de dados distribuído globalmente. Aprenda sobre capacidade, níveis de desempenho e dimensionamento."
+description: Obtenha respostas para perguntas frequentes sobre o Azure Cosmos DB, um serviço de multimodelo de banco de dados distribuído globalmente. Aprenda sobre capacidade, níveis de desempenho e dimensionamento.
 keywords: Perguntas de banco de dados, perguntas frequentes, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Perguntas frequentes do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceitos básicos do Azure Cosmos DB
@@ -211,6 +211,7 @@ Há algumas diferenças de comportamento de que os usuários provenientes do arm
 * Não há suporte para o CORS atualmente
 * Nomes de tabela no armazenamento de Tabela do Azure não diferenciam maiúsculas de minúsculas, mas estão na API de Tabela do Azure Cosmos DB
 * Alguns dos formatos internos do Azure Cosmos DB para a codificação de informações, como campos binários, atualmente não são tão eficientes quanto se desejaria. Portanto, isso pode causar limitações inesperadas no tamanho dos dados. Por exemplo, no momento você não poderia usar todo o 1 MB de uma entidade de tabela para armazenar dados binários, pois a codificação aumenta o tamanho dos dados.
+* “Id” do nome da propriedade de entidade sem suporte no momento
 
 Em termos da API REST, há várias opções de pontos de extremidade/consulta que não são suportados pela API de Tabela do Azure Cosmos DB:
 | Métodos de REST | Opção de consulta/ponto de extremidade de REST | URLs de documento | Explicação |

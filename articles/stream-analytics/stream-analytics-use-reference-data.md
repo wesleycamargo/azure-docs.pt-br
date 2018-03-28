@@ -1,10 +1,10 @@
 ---
-title: "Usar tabelas de pesquisa e dados de referência no Stream Analytics | Microsoft Docs"
-description: "Usar dados de referência em uma consulta do Stream Analytics"
-keywords: "tabela de pesquisa, dados de referência"
+title: Usar tabelas de pesquisa e dados de referência no Stream Analytics | Microsoft Docs
+description: Usar dados de referência em uma consulta do Stream Analytics
+keywords: tabela de pesquisa, dados de referência
 services: stream-analytics
-documentationcenter: 
-author: samacha
+documentationcenter: ''
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 438ec565f3c6e06ab7ec92cf1bbfbdde88f99b6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Usando dados de referência e tabelas de pesquisa em um fluxo de entrada do Stream Analytics
 Dados de referência (também conhecidos como tabela de pesquisa) são um conjunto finito de dados estáticos ou com alteração lenta por natureza, usados para executar uma pesquisa ou para correlacionar com seu fluxo de dados. Para usar dados de referência no seu trabalho do Stream Analytics do Azure geralmente é preciso usar uma [União de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) em sua Consulta. O Stream Analytics usa o armazenamento de Blobs do Azure como a camada de armazenamento para dados de referência e com os dados de referência do Azure Data Factory podem ser transformados e/ou copiados para o armazenamento de Blobs do Azure, para uso como dados de referência de [qualquer número armazenamentos de dados de nuvem e locais](../data-factory/copy-activity-overview.md). Dados de referência são modelados como uma sequência de blobs (definidos na configuração de entrada) em ordem crescente segundo a data/hora especificada no nome do blob. Ele **somente** dá suporte à adição ao final da sequência usando um valor de data/hora **maior** que aquele especificado pelo último blob na sequência.
@@ -35,7 +35,7 @@ Para configurar os dados de referência, você primeiro precisa criar uma entrad
 <tbody>
 <tr>
 <td>Nome da Propriedade</td>
-<td>Descrição</td>
+<td>DESCRIÇÃO</td>
 </tr>
 <tr>
 <td>Alias de entrada</td>
@@ -95,7 +95,7 @@ Se os seus dados de referência são um conjunto de dados de alteração lenta, 
 ## <a name="tips-on-refreshing-your-reference-data"></a>Dicas sobre como atualizar seus dados de referência
 1. Substituir blobs de dados de referência não fará com que o Stream Analytics recarregue o blob e, em alguns casos, isso pode fazer com que o trabalho falhe. A maneira recomendada de alterar os dados de referência é adicionar um novo blob usando o mesmo padrão de caminho e contêiner definidos na entrada de trabalho e usar um valor de data/hora **maior** que o especificado pelo último blob na sequência.
 2. Blobs de dados de referência **não** são ordenados pela hora da "Última modificação" do blob, mas apenas pela hora e data especificadas no nome do blob usando as substituições {date} e {time}.
-3. Em algumas ocasiões um trabalho deve voltar no tempo, portanto, blobs de dados de referência não devem ser alterados ou excluídos.
+3. Para evitar a necessidade de listar um grande número de blobs, considere excluir blobs muito antigos para os quais o processamento não será mais feito. Observe que o ASA talvez tenha que reprocessar uma pequena quantidade em alguns cenários, como um reinício.
 
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

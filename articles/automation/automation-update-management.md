@@ -1,24 +1,18 @@
 ---
-title: "Atualizar uma solução de gerenciamento no Azure | Microsoft Docs"
-description: "Este artigo destina-se a ajudá-lo a entender como usar essa solução para gerenciar atualizações para os computadores Windows e Linux."
+title: Solução Gerenciamento de Atualizações no Azure
+description: Este artigo destina-se a ajudá-lo a entender como usar essa solução para gerenciar atualizações para os computadores Windows e Linux.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -160,7 +154,7 @@ Clique no **Gerenciamento de Atualizações** na sua conta de automação para e
 
 Essa exibição fornece informações sobre os computadores, atualizações ausentes, implantações de atualização e implementações de atualização agendada.
 
-É possível executar uma pesquisa de logs que retorna as informações do computador, atualização ou implantação, selecionando o item na lista. Isso abre a página **Pesquisa de Logs** com uma consulta para o item selecionado.
+É possível executar uma pesquisa de logs que retorna informações no computador, atualização ou implantação, selecionando o item na lista. Isso abre a página **Pesquisa de Logs** com uma consulta para o item selecionado.
 
 ## <a name="installing-updates"></a>Instalação de atualizações
 

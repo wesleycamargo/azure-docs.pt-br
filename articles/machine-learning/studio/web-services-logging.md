@@ -1,10 +1,11 @@
 ---
-title: "Registro em log de serviços Web do Machine Learning | Microsoft Azure"
-description: "Saiba como habilitar o registro em log de serviços Web de Machine Learning. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs."
+title: Registro em log de serviços Web do Machine Learning | Microsoft Azure
+description: Saiba como habilitar o registro em log de serviços Web de Machine Learning. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs.
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -13,21 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar o log de serviços Web de Machine Learning
 Este documento fornece informações sobre o recurso de logs de serviços Web do Machine Learning. Os logs fornecem informações adicionais, além de apenas um número de erro e uma mensagem, o que pode ajudar a solucionar suas chamadas para as APIs de Machine Learning.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Como habilitar o registro em log para um serviço Web
 
-Você hara habilita os logs no portal de [serviços Web do Azure Machine Learning](https://services.azureml.net). 
+Você habilita o registro em log a partir do portal de [serviços Web do Azure Machine Learning](https://services.azureml.net). 
 
-1. Entre no portal de Serviços Web do Azure Machine Learning em [https://services.azureml.net](https://services.azureml.net). Para um serviço Web Clássico, você também pode acessar o portal clicando em **Nova Experiência de Serviços Web** na página de Serviços Web do Machine Learning no Machine Learning Studio.
+1. Entre no portal de Serviços Web do Azure Machine Learning [https://services.azureml.net](https://services.azureml.net). Para um serviço Web Clássico, você também pode acessar o portal clicando em **Nova Experiência de Serviços Web** na página de Serviços Web do Machine Learning no Machine Learning Studio.
 
    ![Novo link de Experiência dos Serviços Web](./media/web-services-logging/new-web-services-experience-link.png)
 

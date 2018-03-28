@@ -1,8 +1,8 @@
 ---
-title: "Conjuntos de dados e serviços vinculados no Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre conjuntos de dados e serviços vinculados no Data Factory. Os serviços vinculados vinculam computação/armazenamentos de dados a um data factory. Os conjuntos de dados representam os dados de entrada/saída."
+title: Conjuntos de dados e serviços vinculados no Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre conjuntos de dados e serviços vinculados no Data Factory. Os serviços vinculados vinculam computação/armazenamentos de dados a um data factory. Os conjuntos de dados representam os dados de entrada/saída.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços vinculados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,31 +184,37 @@ No exemplo na seção anterior, o tipo do conjunto de dados é definido como **A
 }
 ```
 ## <a name="dataset-structure"></a>Estrutura do conjunto de dados
-A seção **estrutura** é opcional. Ela define o esquema do conjunto de dados contendo uma coleção de nomes e tipos de dados de colunas. Use a seção de estrutura para fornecer informações de tipo que são usadas para converter tipos e mapear colunas da origem para o destino. No seguinte exemplo, o conjunto de dados tem três colunas: timestamp, projectname e pageviews. Elas são do tipo String, String e Decimal, respectivamente.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+A seção **estrutura** é opcional. Ela define o esquema do conjunto de dados contendo uma coleção de nomes e tipos de dados de colunas. Use a seção de estrutura para fornecer informações de tipo que são usadas para converter tipos e mapear colunas da origem para o destino.
 
 Cada coluna da seção Estrutura contém as seguintes propriedades:
 
 Propriedade | DESCRIÇÃO | Obrigatório
 -------- | ----------- | --------
 Nome | Nome da coluna. | sim
-Tipo | Tipo de dados da coluna. | Não 
+Tipo | Tipo de dados da coluna. O Data Factory dá suporte aos seguintes tipos de dados intermediários como os valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset e Timespan** | Não 
 culture | Cultura baseada em .NET a ser usada quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. O padrão é `en-us`. | Não 
-formato | O formato de cadeia de caracteres a ser usado quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. | Não 
+formato | O formato de cadeia de caracteres a ser usado quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. Consulte [Data personalizada e cadeias de caracteres de formato de hora](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data e hora. | Não 
 
-As diretrizes a seguir ajudam você a determinar quando incluir informações de estrutura e o que incluir na seção **estrutura**.
+### <a name="example"></a>Exemplo
+No exemplo a seguir, suponha que os dados de Blob de origem estão em formato CSV e contém três colunas: ID do usuário, nome e data do último logon. Eles são do tipo Int64, cadeia de caracteres e data e hora com um formato de data e hora personalizado usando nomes abreviados em francês para o dia da semana.
 
-- **Para fontes de dados estruturadas**, especifique a seção de estrutura somente se desejar mapear colunas de origem para colunas do coletor; além disso, seus nomes não são os mesmos. Esse tipo de fonte de dados estruturada armazena informações de esquema de dados e de tipo juntamente com os próprios dados. Exemplos de fontes de dados estruturadas incluem SQL Server, Oracle e Banco de Dados SQL do Azure.<br/><br/>Como as informações de tipo já estão disponíveis para fontes de dados estruturadas, não inclua informações de tipo quando incluir a seção de estrutura.
-- **Para o esquema em fontes de dados de leitura (especificamente o armazenamento de Blobs)**, você pode optar por armazenar os dados sem armazenar nenhuma informação de tipo ou de esquema juntamente com os dados. Para esses tipos de fontes de dados, inclua a estrutura quando desejar mapear as colunas de origem para as colunas do coletor. Também inclua a estrutura quando o conjunto de dados for uma entrada para uma atividade de cópia e os tipos de dados do conjunto de dados de origem precisarem ser convertidos em tipos nativos para o coletor.<br/><br/> O Data Factory dá suporte aos seguintes valores para fornecer informações de tipo na estrutura: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+Defina a estrutura do conjunto de dados de Blob conforme demonstrado a seguir, juntamente com definições de tipo para as colunas:
 
-Saiba mais sobre como o data factory mapeia dados de origem até o coletor e quando especificar informações de estrutura em [Esquema e mapeamento de tipo]( copy-activity-schema-and-type-mapping.md).
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>Diretrizes
+
+As diretrizes a seguir ajudam você a compreender quando incluir informações de estrutura e o que incluir na seção **estrutura**. Saiba mais sobre como o data factory mapeia dados de origem até o coletor e quando especificar informações de estrutura do [Esquema e mapeamento de tipo](copy-activity-schema-and-type-mapping.md).
+
+- **Para fontes de dados esquema forte**, especifique a seção de estrutura somente se desejar mapear colunas de origem para colunas do coletor; além disso, seus nomes não são os mesmos. Esse tipo de fonte de dados estruturada armazena informações de esquema de dados e de tipo juntamente com os próprios dados. Exemplos de fontes de dados estruturadas incluem SQL Server, Oracle e Banco de Dados SQL do Azure.<br/><br/>Como as informações de tipo já estão disponíveis para fontes de dados estruturadas, não inclua informações de tipo quando incluir a seção de estrutura.
+- **Para origens de dados sem esquema/esquema fraco, por exemplo, arquivo de texto no armazenamento de blob**, inclua a estrutura quando o conjunto de dados for uma entrada para uma atividade de cópia e os tipos de dados do conjunto de dados de origem precisarem ser convertidos em tipos nativos para o coletor. E também inclua a estrutura quando desejar mapear as colunas de origem para as colunas do coletor.
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Você pode criar conjuntos de dados usando uma dessas ferramentas ou SDKs: [API do .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), modelo do Azure Resource Manager e Portal do Azure

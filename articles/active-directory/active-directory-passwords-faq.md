@@ -1,13 +1,13 @@
 ---
-title: "Perguntas frequentes de redefinição de senha – Azure Active Directory"
-description: "Perguntas frequentes sobre o autoatendimento de redefinição de senha do Azure AD"
+title: Perguntas frequentes de redefinição de senha – Azure Active Directory
+description: Perguntas frequentes sobre o autoatendimento de redefinição de senha do Azure AD
 services: active-directory
-keywords: "Gerenciamento de senhas do Active Directory, gerenciamento de senhas, autoatendimento de redefinição de senha do Azure AD"
-documentationcenter: 
+keywords: Gerenciamento de senhas do Active Directory, gerenciamento de senhas, autoatendimento de redefinição de senha do Azure AD
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -40,7 +40,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 * **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
 
-  > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (http://myapps.microsoft.com). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
+  > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup)) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (http://myapps.microsoft.com)). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
   >
   >
 * **P: se habilitar a redefinição de senha para um grupo e, em seguida, optar por habilitá-la para todos, meu usuários deverão se registrar novamente?**
@@ -269,7 +269,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: o write-back de senha funciona com quais tipos de conta?**
 
-  > **R:** o write-back de senha funciona com usuários federados e sincronizados com hash de senha.
+  > **R:** O write-back de senha funciona para contas de usuário que são sincronizadas do Active Directory no local ao Azure AD, incluindo federado, o hash de senha sincronizado e os usuários de autenticação de passagem.
   >
   >
 * **P: o write-back de senha impõe as políticas de senha do meu domínio?**

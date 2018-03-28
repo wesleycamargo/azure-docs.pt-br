@@ -1,27 +1,88 @@
 ---
-title: "Solução de problemas de Instâncias de Contêiner do Azure"
-description: "Saiba como solucionar problemas com as Instâncias de Contêiner do Azure"
+title: Solução de problemas de Instâncias de Contêiner do Azure
+description: Saiba como solucionar problemas com as Instâncias de Contêiner do Azure
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Solucionar problemas de implantação com as Instâncias de Contêiner do Azure
 
 Este artigo mostra como solucionar problemas ao implantar contêineres para Instâncias de Contêiner do Azure. Ele também descreve alguns dos problemas comuns que você pode encontrar.
 
+## <a name="view-logs-and-stream-output"></a>Exibir os logs e o fluxo de saída
+
+Quando você tiver um contêiner com comportamento inadequado, inicie exibindo logs com [az container logs][az-container-logs]e transmita sua saída padrão e erro padrão com [az container attach][az-container-attach].
+
+### <a name="view-logs"></a>Exibir logs
+
+Para exibir logs do seu código de aplicativo em um contêiner, você pode usar o comando [az container logs][az-container-logs].
+
+A seguir está a saída do log do contêiner de exemplo baseado em tarefa em [Executar uma tarefa em contêineres em ACI](container-instances-restart-policy.md), depois de ter alimentado-o uma URL inválida para processar:
+
+```console
+$ az container logs --resource-group myResourceGroup --name mycontainer
+Traceback (most recent call last):
+  File "wordcount.py", line 11, in <module>
+    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
+  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
+    response = meth(req, response)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
+    return self._call_chain(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+```
+
+### <a name="attach-output-streams"></a>Anexar fluxos de saída
+
+O comando [az container attach][az-container-attach] fornece informações de diagnóstico durante a inicialização do contêiner. Depois que o contêiner for iniciado, ele transmite STDOUT e STDERR para o console local.
+
+Por exemplo, aqui está a saída do contêiner com base em tarefa na [Executar uma tarefa em contêineres em ACI](container-instances-restart-policy.md), depois de ter fornecido a uma URL válida para processar um arquivo de texto grande:
+
+```console
+$ az container attach --resource-group myResourceGroup --name mycontainer
+Container 'mycontainer' is in state 'Unknown'...
+Container 'mycontainer' is in state 'Waiting'...
+Container 'mycontainer' is in state 'Running'...
+(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+
+Start streaming logs:
+[('the', 22979),
+ ('I', 20003),
+ ('and', 18373),
+ ('to', 15651),
+ ('of', 15558),
+ ('a', 12500),
+ ('you', 11818),
+ ('my', 10651),
+ ('in', 9707),
+ ('is', 8195)]
+```
+
 ## <a name="get-diagnostic-events"></a>Obtendo eventos de diagnóstico
 
-Para exibir logs do seu código de aplicativo em um contêiner, você pode usar o comando [az container logs][az-container-logs]. Mas, se o contêiner não implantar com êxito, você deve examinar as informações de diagnóstico fornecidas pelo provedor de recursos das Instâncias de Contêiner do Azure. Para exibir os eventos para o contêiner, execute o comando [az container show][az-container-show]:
+Se o contêiner não implantar com êxito, você deve examinar as informações de diagnóstico fornecidas pelo provedor de recursos das Instâncias de Contêiner do Azure. Para exibir os eventos para o contêiner, execute o comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -90,11 +151,17 @@ A saída inclui as propriedades principais do contêiner, juntamente com eventos
 
 ## <a name="common-deployment-issues"></a>Tarefas de implantação comuns
 
-Há alguns problemas comuns responsáveis pela maioria dos erros na implantação.
+As seções a seguir descrevem problemas comuns que representam a maioria dos erros na implantação de contêiner:
+
+* [Não há suporte para versão da imagem](#image-version-not-supported)
+* [Não é possível efetuar pull da imagem](#unable-to-pull-image)
+* [Contêiner sai e reinicia continuamente](#container-continually-exits-and-restarts)
+* [Contêiner leva muito tempo para iniciar](#container-takes-a-long-time-to-start)
+* [Erro de “Recurso não disponível”](#resource-not-available-error)
 
 ## <a name="image-version-not-supported"></a>Não há suporte para versão da imagem
 
-Se uma imagem for especificada, cujas Instâncias de Contêiner do Azure não poderá dar suporte, um erro será retornado do formulário `ImageVersionNotSupported`. O valor do erro mostrará `The version of image '{0}' is not supported.`. Esse erro atualmente aplica-se às imagens do Windows 1709, para mitigar o uso de uma imagem LTS do Windows. O suporte para imagens do Windows 1709 está em andamento.
+Se você especificar uma imagem, cujas Instâncias de Contêiner do Azure não poderá dar suporte, um erro `ImageVersionNotSupported` será retornado. O valor do erro é `The version of image '{0}' is not supported.` e atualmente se aplica às imagens do Windows 1709. Para atenuar esse problema, use uma imagem do Windows LTS. O suporte para imagens do Windows 1709 está em andamento.
 
 ## <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
 
@@ -180,24 +247,39 @@ A API de Instâncias de Contêiner inclui uma propriedade `restartCount`. Para v
 
 ## <a name="container-takes-a-long-time-to-start"></a>Contêiner leva muito tempo para iniciar
 
+Os dois principais fatores que contribuem para o tempo de inicialização do contêiner em Instâncias de Contêiner do Azure são:
+
+* [Tamanho da imagem](#image-size)
+* [Local da imagem](#image-location)
+
+Imagens do Windows têm [considerações adicionais](#use-recent-windows-images).
+
+### <a name="image-size"></a>Tamanho da imagem
+
 Se o contêiner leva muito tempo para iniciar mas eventualmente tem êxito, comece observando o tamanho da sua imagem de contêiner. Já que o Instâncias de Contêiner do Azure efetua pull de sua imagem de contêiner sob demanda, o tempo de inicialização que você experiencia está diretamente relacionado ao tamanho dela.
 
-Você pode exibir o tamanho da sua imagem de contêiner usando a CLI do Docker:
+Você pode exibir o tamanho da sua imagem de contêiner usando o comando `docker images` na CLI do Docker:
 
-```bash
-docker images
-```
-
-Saída:
-
-```bash
-REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
+```console
+$ docker images
+REPOSITORY                  TAG       IMAGE ID        CREATED        SIZE
+microsoft/aci-helloworld    latest    7f78509b568e    13 days ago    68.1MB
 ```
 
 A chave para manter os tamanhos de imagem pequenos é garantir que sua imagem final não contenha nada que não deja necessário no tempo de execução. Uma forma de fazer isso é com [builds de vários estágios][docker-multi-stage-builds]. Builds de vários estágios tornam fácil assegurar que a imagem final contenha somente os artefatos necessários para seu aplicativo, sem nenhum conteúdo extra que foi necessário no momento do build.
 
-A outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização do contêiner é hospedar a imagem de contêiner usando o Registro de Contêiner do Azure na mesma região em que você pretende usar Instâncias de Contêiner do Azure. Isso reduz o caminho de rede que a imagem de contêiner precisa percorrer, reduzindo significativamente o tempo de download.
+### <a name="image-location"></a>Local da imagem
+
+Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização do contêiner é hospedar a imagem de contêiner no [Registro de Contêiner do Azure](/azure/container-registry/) na mesma região em que você pretende implantar as instâncias de contêiner. Isso reduz o caminho de rede que a imagem de contêiner precisa percorrer, reduzindo significativamente o tempo de download.
+
+### <a name="use-recent-windows-images"></a>Usar imagens recentes do Windows
+
+Instâncias de Contêiner do Azure usa um mecanismo de cache para ajudar a acelerar o tempo de inicialização de contêiner para imagens com base em determinadas imagens do Windows.
+
+Para garantir o menor tempo de inicialização do contêiner do Windows, use uma da **três versões mais recentes** das **duas imagens** seguintes como a imagem base:
+
+* [Windows Server 2016][docker-hub-windows-core] (somente LTS)
+* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ## <a name="resource-not-available-error"></a>Erro de recurso não disponível
 
@@ -214,7 +296,10 @@ Esse erro indica que devido à carga pesada na região em que você está tentan
 
 <!-- LINKS - External -->
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+[docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
+[docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
+[az-container-attach]: /cli/azure/container#az_container_attach
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show

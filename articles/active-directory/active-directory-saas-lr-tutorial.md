@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com lr | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory do Azure e lr."
+title: 'Tutorial: Integração do Azure Active Directory ao LoginRadius | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o LoginRadius.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: f7728c37db286b130a79db1353ee40825e8a4336
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 22f937a2ae9a2c715ce0866c2db0ac17769f0399
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lr"></a>Tutorial: Integração do Azure Active Directory com lr
+# <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Tutorial: Integração do Azure Active Directory ao LoginRadius
 
-Neste tutorial, você aprenderá como integrar o lr com o Azure Active Directory (Azure AD).
+Neste tutorial, você aprenderá a integrar o LoginRadius ao Azure AD (Azure Active Directory).
 
-Integrar o lr ao AD do Azure fornece os seguintes benefícios:
+A integração do LoginRadius ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem tem acesso ao lr.
-- Você pode habilitar os usuários a serem conectados do Azure AD.
+- No Azure AD, você pode controlar quem tem acesso ao LoginRadius.
+- Você pode permitir que usuários façam logon automaticamente no LoginRadius (Logon Único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para configurar a integração do Azure AD com o lr, você precisa dos seguintes itens:
+Para configurar a integração do Azure AD ao LoginRadius, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do IR
+- Uma assinatura habilitada para logon único do LoginRadius
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -50,13 +50,13 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar lr a partir da galeria
+1. Adicionar o LoginRadius da galeria
 2. configurar e testar o logon único do AD do Azure
 
-## <a name="adding-lr-from-the-gallery"></a>Adicionar lr a partir da galeria
-Para configurar a integração de lr no Azure AD, você precisa adicionar lr a partir da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-loginradius-from-the-gallery"></a>Adicionar o LoginRadius da galeria
+Para configurar a integração do LoginRadius ao Azure AD, você precisará adicionar o LoginRadius da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar lr a partir da galeria, execute as seguintes etapas:**
+**Para adicionar o LoginRadius da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
@@ -70,58 +70,58 @@ Para configurar a integração de lr no Azure AD, você precisa adicionar lr a p
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **lr**, selecione **lr** no painel de resultados e clique no botão **Adicionar** botão para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **LoginRadius**, selecione **LoginRadius** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Ir na lista de resultados](./media/active-directory-saas-lr-tutorial/tutorial_lr_addfromgallery.png)
+    ![LoginRadius na lista de resultados](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você irá configurar e testar o logon único do Azure AD com o lr com base em um usuário de teste chamado "Britta Simon".
+Nesta seção, você configurará e testará o logon único do Azure AD com o LoginRadius, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual é o usuário correspondente no lr a um usuário no Azure AD. Em outras palavras, uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no lr precisa ser estabelecida.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do LoginRadius é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do LoginRadius.
 
-Para configurar e testar o logon único do Azure AD com lr, você precisa concluir os blocos de construção a seguir:
+Para configurar e testar o logon único do Azure AD com o LoginRadius, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste lr](#create-a-lr-test-user)**  - ter uma duplicata de Britta Simon em lr vinculada à representação do usuário no Azure AD.
+3. **[Criar um usuário de teste do LoginRadius](#create-a-loginradius-test-user)** - para ter um equivalente de Brenda Fernandes no LoginRadius que esteja vinculado à representação de usuário do Azure AD.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e irá configurar o logon único no aplicativo lr.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e configurará o logon único no seu aplicativo LoginRadius.
 
-**Para configurar o logon único do Azure AD com lr, execute as seguintes etapas:**
+**Para configurar o logon único do Azure AD com o LoginRadius, execute as seguintes etapas:**
 
-1. No portal do Azure, na página de integração de aplicativos do **lr**, clique em **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **LoginRadius**, clique em **Logon único**.
 
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Caixa de diálogo Logon único](./media/active-directory-saas-lr-tutorial/tutorial_lr_samlbase.png)
+    ![Caixa de diálogo Logon único](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_samlbase.png)
 
-3. Na seção **URLs e domínio de Ir**, execute as seguintes etapas:
+3. Na seção **Domínio e URLs do LoginRadius**, execute as seguintes etapas:
 
-    ![Informações sobre o logon único do domínio e URLs do Ir](./media/active-directory-saas-lr-tutorial/tutorial_lr_url.png)
+    ![Informações de logon único de Domínio e URLs do LoginRadius](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_url.png)
 
     a.  Na caixa de texto **URL de Logon**, digite uma URL: `https://secure.loginradius.com/login`
 
-    b. Na caixa de texto **Identificador**, digite uma URL: `https://lr.hub.loginradius.com/`
+    b. Na caixa de texto **Identificador**, digite uma URL: `https://LoginRadius.hub.loginradius.com/`
      
     > [!NOTE] 
-    > Abra a página da URL do logon. Clique na guia **Logon Único** e digite o **nome do plug-in** fornecido pela [equipe de suporte do Ir](mailto:support@loginradius.com) e, em seguida, clique no botão **Entrar** e você será redirecionado para a página do Azure AD para logon. 
+    > Abra a página da URL do logon. Clique na guia **Logon Único** e digite o **nome do plug-in** fornecido pela [equipe de suporte do LoginRadius](mailto:support@loginradius.com) e, em seguida, clique no botão **Entrar** para ser redirecionado para a página do Azure AD para o logon. 
 
 5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
-    ![O link de download do Certificado](./media/active-directory-saas-lr-tutorial/tutorial_lr_certificate.png) 
+    ![O link de download do Certificado](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_certificate.png) 
 
 6. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-lr-tutorial/tutorial_general_400.png)
     
-7. Para configurar o logon único no lado do **lr**, você precisa enviar o **XML de metadados** baixado para a [equipe de suporte do Ir](mailto:support@loginradius.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+7. Para configurar o logon único no lado do **LoginRadius**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do LoginRadius](mailto:support@loginradius.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,25 +158,25 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Clique em **Criar**.
  
-### <a name="create-a-lr-test-user"></a>Criar um usuário de teste lr
+### <a name="create-a-loginradius-test-user"></a>Criar um usuário de teste do LoginRadius
 
-Nesta seção, você criará um usuário chamado Britta Simon no lr. Trabalhe junto com a [equipe de suporte do Ir](mailto:support@loginradius.com) para adicionar os usuários na plataforma lr. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no LoginRadius. Trabalhe com a [equipe de suporte do LoginRadius](mailto:support@loginradius.com) para adicionar usuários à plataforma LoginRadius. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você habilitar Britta Simon a usar o logon único do Azure, concedendo acesso ao lr.
+Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao LoginRadius.
 
 ![Atribuir a função de usuário][200] 
 
-**Para atribuir Britta Simon ao lr, execute as seguintes etapas:**
+**Para atribuir Brenda Fernandes ao LoginRadius, execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **lr**.
+2. Na lista de aplicativos, selecione **LoginRadius**.
 
-    ![O link lr na lista de aplicativos](./media/active-directory-saas-lr-tutorial/tutorial_lr_app.png)  
+    ![O link do LoginRadius na lista de Aplicativos](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_app.png)  
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -196,7 +196,7 @@ Nesta seção, você habilitar Britta Simon a usar o logon único do Azure, conc
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar no bloco de lr no painel de acesso, você deverá ser automaticamente conectado ao seu aplicativo lr.
+Ao clicar no bloco do LoginRadius no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo LoginRadius.
 Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais

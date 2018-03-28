@@ -13,45 +13,57 @@ ms.devlang: azurecli
 ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: ac0c1033546758a77b43298a5fa8cba5f5204650
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0962a917186277a34abbda17b8fea87bcf4ad1e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Conectar redes virtuais ao emparelhamento de rede virtual usando o portal do Azure
 
-Você pode conectar redes virtuais entre si ao emparelhamento de rede virtual. Depois que as redes virtuais são emparelhadas, os recursos de ambas as redes virtuais podem se comunicar entre si, com a mesma latência e largura de banda como se os recursos estivessem na mesma rede virtual. Este artigo aborda a criação e o emparelhamento de duas redes virtuais. Você aprenderá como:
+Você pode conectar redes virtuais entre si ao emparelhamento de rede virtual. Depois que as redes virtuais são emparelhadas, os recursos de ambas as redes virtuais podem se comunicar entre si, com a mesma latência e largura de banda como se os recursos estivessem na mesma rede virtual. Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
 > * Criar duas redes virtuais
-> * Criar um emparelhamento entre redes virtuais
-> * Testar o emparelhamento
+> * Conectar duas redes virtuais a um emparelhamento de rede virtual
+> * Implementar uma máquina virtual (VM) em cada rede virtual
+> * Comunicação entre VMs
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure 
 
-Faça logon no Portal do Azure em http://portal.azure.com.
+Faça logon no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-virtual-networks"></a>Criar redes virtuais
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 2. Selecione **Rede** e, sem seguida, selecione **Rede Virtual**.
-3. Conforme mostrado na imagem a seguir, insira *myVirtualNetwork1* para **Nome**, *10.0.0.0/16* para **Espaço de endereço**, **myResourceGroup** para **Grupo de recursos**, *Sub-rede 1* para **Nome** da Sub-rede, 10.0.0.0/24 para **Intervalo de endereços** da Sub-rede, selecione um **Local** e a **Assinatura**, aceite os padrões restantes e selecione **Criar**:
+3. Insira, ou selecione, as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **Criar**:
 
-    ![Criar uma rede virtual](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
+    |Configuração|Valor|
+    |---|---|
+    |NOME|myVirtualNetwork1|
+    |Espaço de endereço|10.0.0.0/16|
+    |Assinatura| Selecione sua assinatura.|
+    |Grupo de recursos| Selecione **Criar novo** e insira *myResourceGroup*.|
+    |Local padrão| Selecione **Leste dos EUA**.|
+    |Nome da sub-rede|Subnet1|
+    |Intervalo de endereços da sub-rede|10.0.0.0/24|
+
+      ![Criar uma rede virtual](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
 
 4. Conclua as etapas 1 a 3 novamente, com as seguintes alterações:
-    - **Nome**: *myVirtualNetwork2*
-    - **Grupo de recursos**: selecione **Usar existente** e, em seguida, selecione **myResourceGroup**.
-    - **Espaço de endereço**: *10.1.0.0/16*
-    - **Intervalo de endereços da sub-rede**: *10.1.0.0/24*
 
-    O prefixo de endereço para a rede virtual *myVirtualNetwork2* não sobrepõe se sobrepõe ao espaço de endereço da rede virtual *myVirtualNetwork1*. Não é possível emparelhar redes virtuais aos espaços de endereço sobrepostos.
+    |Configuração|Valor|
+    |---|---|
+    |NOME|myVirtualNetwork2|
+    |Espaço de endereço|10.1.0.0/16|
+    |Grupo de recursos| Clique em **Usar existente** e selecione **myResourceGroup**.|
+    |Intervalo de endereços da sub-rede|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Emparelhar redes virtuais
 
@@ -60,7 +72,13 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
     ![Criar emparelhamento](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
-3. Insira ou selecione as informações mostradas na imagem a seguir, em seguida selecione **OK**. Para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual**, em seguida, selecione *myVirtualNetwork2*.
+3. Insira, ou selecione, as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **OK**.
+
+    |Configuração|Valor|
+    |---|---|
+    |NOME|myVirtualNetwork1-myVirtualNetwork2|
+    |Assinatura| Selecione sua assinatura.|
+    |Rede virtual|myVirtualNetwork2 - Para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual**, em seguida, selecione **myVirtualNetwork2**.|
 
     ![Configurações de emparelhamento](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -70,68 +88,74 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
     Se você não vir o status, atualize seu navegador.
 
-4. Pesquise a rede virtual *myVirtualNetwork2*. Quando você a encontrar nos resultados da pesquisa, selecione-a.
-5. Conclua as etapas 1 a 3 novamente, com as seguintes alterações, e em seguida, selecione **OK**:
-    - **Nome**: *myVirtualNetwork2-myVirtualNetwork1*
-    - **Rede virtual**: *myVirtualNetwork1*
+4. Nas caixa **Pesquisar** na parte superior do portal, comece digitando *MyVirtualNetwork2*. Quando **myVirtualNetwork2** aparecer nos resultados da pesquisa, selecione-o.
+5. Conclua as etapas 2 a 3 novamente, com as seguintes alterações, e em seguida, selecione **OK**:
+
+    |Configuração|Valor|
+    |---|---|
+    |NOME|myVirtualNetwork2-myVirtualNetwork1|
+    |Rede virtual|myVirtualNetwork1|
 
     O **ESTADO DE EMPARELHAMENTO** é *Conectado*. O Azure também alterou o estado de emparelhamento do emparelhamento *myVirtualNetwork2-myVirtualNetwork1* de *Iniciado* para *Conectado.* O emparelhamento de rede virtual não é estabelecido com êxito até que o status de emparelhamento para ambas as redes virtuais seja *Conectado.* 
 
-Os emparelhamentos são feitos entre duas redes virtuais, mas não são transitivos. Assim, por exemplo, se você desejar emparelhar *myVirtualNetwork2* com *myVirtualNetwork3*, precisará criar um emparelhamento adicional entre as redes virtuais *myVirtualNetwork2* e *myVirtualNetwork3*. Embora *myVirtualNetwork1* esteja emparelhada com *myVirtualNetwork2*, os recursos de *myVirtualNetwork1* só podem acessar os recursos de *myVirtualNetwork3* se *myVirtualNetwork1* também foi emparelhada com *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Antes de emparelhar redes virtuais de produção, é recomendável que você se familiarize por completo com a [visão geral do emparelhamento](virtual-network-peering-overview.md), o [gerenciamento do emparelhamento](virtual-network-manage-peering.md) e os [limites da rede virtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Embora este artigo ilustre um emparelhamento entre duas redes virtuais na mesma assinatura e no mesmo local, você também pode emparelhar redes virtuais em [regiões diferentes](#register) e [assinaturas diferentes do Azure](create-peering-different-subscriptions.md#portal). Você também pode criar [designs de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com o emparelhamento.
+Crie uma máquina virtual em cada rede virtual para que você possa comunicar entre eles em uma etapa posterior.
 
-## <a name="test-peering"></a>Testar o emparelhamento
-
-Para testar a comunicação de rede entre máquinas virtuais em diferentes redes virtuais por meio de um emparelhamento, implante uma máquina virtual em cada sub-rede e, em seguida, estabeleça a comunicação entre as máquinas virtuais. 
-
-### <a name="create-virtual-machines"></a>Criar máquinas virtuais
-
-Crie uma máquina virtual em cada rede virtual para que você possa validar a comunicação entre elas em uma etapa posterior.
-
-### <a name="create-virtual-machines"></a>Criar máquinas virtuais
+### <a name="create-the-first-vm"></a>Criar a primeira VM
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. É possível selecionar um sistema operacional diferente, mas as etapas restantes assumirão que está selecionado o **Windows Server 2016 Datacenter**. 
-3. Selecione ou insira as informações a seguir para **Básico** e, em seguida, selecione **OK**:
-    - **Nome**: *myVm1*
-    - **Grupo de recursos**: selecione **Usar existente** e, em seguida, selecione *myResourceGroup*.
-    - **Localização**: selecione *Leste dos EUA*.
+3. Insira, ou selecione, as informações a seguir para **Princípios básicos**, aceite os padrões para as configurações restantes e, em seguida, selecione **Criar**:
 
-    O **Nome de usuário** e **Senha** inseridos serão utilizados em uma etapa posterior. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). A **Localização** e **Assinatura** selecionadas deverão ser iguais à localização e assinatura da rede virtual onde estão. Não é necessário selecionar o mesmo grupo de recursos em que a rede virtual foi criada, porém, o mesmo grupo de recursos foi selecionado para este artigo.
+    |Configuração|Valor|
+    |---|---|
+    |NOME|myVm1|
+    |Nome de usuário| Insira um nome de usuário de sua escolha.|
+    |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Grupo de recursos| Clique em **Usar existente** e selecione **myResourceGroup**.|
+    |Local padrão| Selecione **Leste dos EUA**.|
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
-5. Selecione ou insira as informações a seguir para **Configurações** e, em seguida, selecione **OK**:
-    - **Rede virtual**: certifique-se de que **myVirtualNetwork1** está selecionada. Se não, selecione a **Rede Virtual** e, em seguida, selecione **myVirtualNetwork1** em **Escolher rede virtual**.
-    - **Sub-rede**: certifique-se de que está selecionado **Sub-rede1**. Caso contrário, selecione **Sub-rede** e, em seguida, selecione **Sub-rede1** em **Escolher sub-rede**, conforme mostrado na imagem a seguir:
+5. Selecione os seguintes valores para **Configurações** e selecione **OK**:
+    |Configuração|Valor|
+    |---|---|
+    |Rede virtual| myVirtualNetwork1 - Se ainda não estiver selecionada, selecione a **Rede Virtual** e, em seguida, selecione **myVirtualNetwork1** em **Escolher rede virtual**.|
+    |Sub-rede| Subnet1 - Se ainda não estiver selecionada, selecione **Sub-rede** e, em seguida, selecione **Subnet1** em **Escolher sub-rede**.|
     
-        ![Configurações da máquina virtual](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
+    ![Configurações da máquina virtual](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
  
-6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implantação da máquina virtual.
-7. Complete as etapas 1 a 6 novamente, mas insira*myVm2* para o **Nome** da máquina virtual e selecione *myVirtualNetwork2* para a **Rede Virtual**.
+6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implantação da VM.
 
-O Azure atribuiu *10.0.0.4* como o endereço de IP privado à máquina virtual *myVm1* e 10.1.0.4 à máquina virtual *myVm2*, porque foram os primeiros endereços de IP disponíveis na *Sub-rede 1* das redes virtuais *myVirtualNetwork1* e *myVirtualNetwork2*, respectivamente.
+### <a name="create-the-second-vm"></a>Criar a segunda VM
 
-A criação das máquinas virtuais demora alguns minutos. Não continue com as etapas restantes até que ambas as máquinas virtuais sejam criadas.
+Conclua as etapas 1 a 6 novamente, com as seguintes alterações:
 
-### <a name="test-virtual-machine-communication"></a>Testar a comunicação entre máquinas virtuais
+|Configuração|Valor|
+|---|---|
+|NOME | myVm2|
+|Rede virtual | myVirtualNetwork2|
+
+As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
+
+## <a name="communicate-between-vms"></a>Comunicação entre VMs
 
 1. Na caixa *Pesquisar* na parte superior do portal, comece digitando *myVm1*. Selecione **myVm1** quando aparecer nos resultados da pesquisa.
-2. Crie uma conexão de área de trabalho remota para a máquina virtual *myVm1*, selecionando **Conectar**, conforme mostrado na imagem a seguir:
+2. Crie uma conexão de área de trabalho remota para a VM *myVm1*, selecionando **Conectar**, conforme mostrado na imagem a seguir:
 
     ![Conectar-se à máquina virtual](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
 3. Para conectar-se à VM, abra o arquivo RDP baixado. Se solicitado, selecione **Conectar**.
-4. Insira o nome de usuário e senha especificados ao criar a máquina virtual (talvez seja necessário selecionar **Mais escolhas**, em seguida, **Usar uma conta diferente**, para especificar as credenciais inseridas ao criar a máquina virtual) e selecione **OK**.
+4. Insira o nome de usuário e senha especificados ao criar a VM (talvez seja necessário selecionar **Mais escolhas**, em seguida, **Usar uma conta diferente**, para especificar as credenciais inseridas ao criar a VM) e selecione **OK**.
 5. Você pode receber um aviso do certificado durante o processo de logon. Selecione **Sim** para prosseguir com a conexão.
-6. Em uma etapa posterior, o ping será usado para comunicar-se com a máquina virtual *myVm2* da máquina virtual *myVmWeb*. O ping usa ICMP, que é negado através do Firewall do Windows, por padrão. Habilite o ICMP através do firewall do Windows, inserindo o seguinte comando a partir do prompt de comando:
+6. Em uma etapa posterior, o ping será usado para comunicar-se com a VM *myVm2* da VM *myVm1*. O ping usa o protocolo ICMP que, por padrão, não é permitido através do Firewall do Windows. Sobre a VM *myVm1*, habilite o ICMP por meio do Firewall do Windows para que você possa executar ping nessa VM pela *myVm2* em uma etapa posterior, usando o PowerShell:
 
+    ```powershell
+    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
-    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-    ```
+    
+    Embora o ping seja usado para realizar a comunicação entre VMs neste artigo, não é recomendável ICMP através do Firewall do Windows para implantações de produção.
 
-    Embora o ping seja usado neste artigo para testes, não é recomendável ICMP através do Firewall do Windows para implantações de produção.
-
-7. Para conectar a máquina virtual *myVm2*, insira o seguinte comando a partir de um prompt de comando na máquina virtual *myVm1*:
+7. Para conectar a VM *myVm2*, insira o seguinte comando a partir de um prompt de comando na VM *myVm1*:
 
     ```
     mstsc /v:10.1.0.4
@@ -143,8 +167,6 @@ A criação das máquinas virtuais demora alguns minutos. Não continue com as e
     ping 10.0.0.4
     ```
     
-    Você receberá quatro respostas. Se você executar ping pelo nome da máquina virtual (*myVm1*) em vez de pelo endereço IP, o ping falhará, porque *myVm1* é um nome de host desconhecido. A resolução de nomes padrão do Azure funciona entre máquinas virtuais na mesma rede virtual, mas não entre máquinas virtuais em redes virtuais diferentes. Para resolver nomes entre redes virtuais, você precisa [implantar seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) ou usar [domínios privados do DNS do Azure](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
 9. Desconecte as sessões RDP para ambas *myVm1* e *myVm2*.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -161,7 +183,7 @@ O emparelhamento de redes virtuais na mesma região está disponível ao públic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a conectar duas redes com o emparelhamento de rede virtual.
+Neste artigo, você aprendeu a conectar duas redes, no mesmo local do Azure, com o emparelhamento de rede virtual. Você também pode emparelhar redes virtuais em [diferentes regiões](#register), em [diferentes assinaturas do Azure](create-peering-different-subscriptions.md#portal) e você pode criar [designs de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com emparelhamento. Antes de emparelhar redes virtuais de produção, é recomendável que você se familiarize por completo com a [visão geral do emparelhamento](virtual-network-peering-overview.md), o [gerenciar emparelhamento](virtual-network-manage-peering.md) e os [limites da rede virtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 Continue a conectar seu próprio computador a uma rede virtual por meio de um VPN e intereja com os recursos de uma rede virtual ou de redes virtuais emparelhadas.
 

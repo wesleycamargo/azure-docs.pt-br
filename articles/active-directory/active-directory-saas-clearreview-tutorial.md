@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Clear Review | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Clear Review."
+title: 'Tutorial: Integração do Azure Active Directory ao Clear Review | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Clear Review.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: integração do Azure Active Directory ao Clear Review
 
@@ -32,7 +32,7 @@ A integração do Clear Review ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o Clear Review, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Clear Review da Galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-clear-review-from-the-gallery"></a>Adicionando Clear Review da Galeria
 Para configurar a integração do Clear Review com o Azure AD, você precisará adicionar o Clear Review à sua lista de aplicativos SaaS gerenciados da galeria.
@@ -108,9 +108,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único em Domínio e URLs do Clear Review](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<customer name>.clearreview.com/sso/metadata`
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<customer>.clearreview.com/sso/acs/`
+    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<customer name>.clearreview.com/sso/acs/`
 
 4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
@@ -119,31 +119,36 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Clear Review](https://clearreview.com/contact/) para obter valores.
+    > Esses valores não são reais. Atualize esses valores com o URL de Logon real, o Identificador e a URL de Resposta. Entre em contato com a [equipe de suporte do Clear Review](https://clearreview.com/contact/) para obter valores.
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+5. O aplicativo Clear Review espera o valor exclusivo do identificador de usuário na declaração do Identificador de Nome. Você deve mapear o valor do identificador de usuário para **user.mail**.
+
+    ![A Seção de Atributo](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![O link de download do Certificado](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. Clique no botão **Salvar** .
+7. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. Na seção **Configuração do Clear Review**, clique em **Configurar o Clear Review** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+8. Na seção **Configuração do Clear Review**, clique em **Configurar o Clear Review** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Configuração do Clear Review](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. Para configurar o logon único no **Clear Review**, abra o portal **Clear Review** com credenciais de administrador.
+9. Para configurar o logon único no **Clear Review**, abra o portal **Clear Review** com credenciais de administrador.
 
-9. Selecione **Admin** do painel de navegação esquerdo.
+10. Selecione **Admin** do painel de navegação esquerdo.
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. Na parte inferior da página, selecione **Mudar**.
+11. Na parte inferior da página, selecione **Mudar**.
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. Na página **Configurações de Logon Único**, realize as seguintes etapas
+12. Na página **Configurações de Logon Único**, realize as seguintes etapas
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
@@ -155,7 +160,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     d. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado x.509**.   
 
-12. Clique em **Salvar**.
+13. Clique em **Salvar**.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -253,4 +258,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

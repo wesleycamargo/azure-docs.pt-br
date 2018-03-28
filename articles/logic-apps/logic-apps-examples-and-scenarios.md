@@ -1,11 +1,11 @@
 ---
-title: "Exemplos e cenários comuns – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Saiba mais sobre os aplicativos lógicos com tutoriais, exemplos, cenários e instruções passo a passo"
+title: Exemplos e cenários comuns – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Saiba mais sobre os aplicativos lógicos com tutoriais, exemplos, cenários e instruções passo a passo
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e instruções passo a passo para os Aplicativos Lógicos do Azure
 
@@ -81,7 +81,7 @@ Os aplicativos lógicos incluem recursos avançados para o fluxo de controle ava
 
 Você pode desenvolver e implantar totalmente aplicativos lógicos com o Visual Studio, o Visual Studio Team Services ou qualquer outra ferramenta de controle do código-fonte e compilação automatizada. Para dar suporte à implantação de fluxos de trabalho e conexões dependentes em um modelo de recurso, os aplicativos lógicos usam modelos de implantação de recursos do Azure. As ferramentas do Visual Studio geram automaticamente esses modelos, que você pode conferir para controlar o código-fonte a fim de controlar a versão.
 
-* [Compilar e implantar aplicativos lógicos do Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Criar e implantar aplicativos lógicos no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Ativar o monitoramento, o registro em log e alertas para aplicativos lógicos existentes](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Criar modelos um modelo de implantação automatizado](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Você pode acessar, converter e transformar vários tipos de conteúdo usando di
 
 * [Como funcionam as expressões de fluxo de trabalho em aplicativos lógicos](../logic-apps/logic-apps-author-definitions.md)
 * [Lidar com tipos de conteúdo não JSON](../logic-apps/logic-apps-content-type.md), como `application/xml`, `application/octet-stream` e `multipart/formdata`
-* [Referência: Linguagem de definição de fluxo de trabalho do Aplicativo Lógico do Azure](http://aka.ms/logicappsdocs)
+* [Esquema de linguagem de definição de fluxo de trabalho para Aplicativo Lógico do Azure](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Outros recursos e integrações
 

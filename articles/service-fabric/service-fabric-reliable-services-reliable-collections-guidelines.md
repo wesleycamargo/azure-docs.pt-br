@@ -1,6 +1,6 @@
 ---
-title: "Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric | Microsoft Docs"
-description: "Diretrizes e recomendações para usar as Coleções Confiáveis do Service Fabric"
+title: Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric | Microsoft Docs
+description: Diretrizes e recomendações para usar as Coleções Confiáveis do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e Coleções Confiáveis. A meta é ajudar os usuários a evitar armadilhas comuns.
@@ -26,7 +26,7 @@ Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e C
 As diretrizes são organizadas como recomendações simples prefixadas com *uma ação a ser realizada* e os termos *Considere*, *Evite* e *Não*.
 
 * Não modifique um objeto de tipo personalizado retornado por operações de leitura (por exemplo, `TryPeekAsync` ou `TryGetValueAsync`). As Coleções Confiáveis, como as Coleções Simultâneas, retornam uma referência aos objetos e não uma cópia.
-* Faça uma cópia em profundidade do objeto de tipo personalizado retornado antes de modificá-lo. Como structs e tipos internos são pass-by-value, você não precisa fazer uma cópia em profundidade neles.
+* Faça uma cópia em profundidade do objeto de tipo personalizado retornado antes de modificá-lo. Como estruturas e tipos internos são passagem-por-valor, você não precisa fazer uma cópia em profundidade deles, a menos que eles contenham campos de tipo de referência ou propriedades que você pretende modificar.
 * Não use `TimeSpan.MaxValue` para tempos limites. Tempos limite devem ser usados para detectar deadlocks.
 * Não use uma transação depois que ela tiver sido confirmada, anulada ou descartada.
 * Não use uma enumeração fora do escopo da transação que em foi criado.

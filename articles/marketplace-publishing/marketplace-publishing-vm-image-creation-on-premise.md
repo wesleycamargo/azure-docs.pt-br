@@ -1,11 +1,11 @@
 ---
-title: "Criar uma imagem de máquina virtual local para o Azure Marketplace | Microsoft Docs"
+title: Criar uma imagem de máquina virtual local para o Azure Marketplace | Microsoft Docs
 description: Entenda e execute as etapas para criar uma imagem de VM local e implantar no Azure Marketplace para outras pessoas comprarem.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desenvolver uma imagem de máquina virtual local para o Azure Marketplace
 É altamente recomendável que você desenvolva discos rígidos virtuais (VHDs) do Azure diretamente na nuvem usando o protocolo RDP. No entanto, se for necessário, é possível baixar um VHD e desenvolvê-lo usando a infraestrutura local.  
@@ -75,7 +75,7 @@ Além de usar o Portal do Azure, você pode usar o cmdlet [Save-AzureVhd](http:/
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-Por exemplo, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
+Por exemplo, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” - LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd2" -StorageKey <String>
 
 > [!NOTE]
 > O **Save-AzureVhd** também tem uma opção de **NumberOfThreads** que pode ser usada para aumentar o paralelismo para fazer o melhor uso da largura de banda disponível para download.

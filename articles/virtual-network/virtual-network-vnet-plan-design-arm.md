@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planejar e projetar redes virtuais do Azure
 Criar uma rede virtual para fazer experiências com ela é bastante simples, mas as chances são: você implantará múltiplas redes virtuais ao longo do tempo para dar suporte às necessidades de produção da sua organização. Com algum planejamento e design, você poderá implantar redes virtuais e conectar-se aos recursos de que precisa com mais eficiência. Se você não estiver familiarizado com redes virtuais, recomenda-se que você [saiba mais sobre redes virtuais](virtual-networks-overview.md) e [como implantar](quick-create-portal.md) uma antes de continuar.
@@ -248,7 +248,7 @@ Os requisitos a seguir estão relacionados ao controle de acesso:
 Com base nesses requisitos, você pode adicionar usuários da equipe de rede para a função interna de **Colaborador de rede** em cada assinatura; e criar uma função personalizada para os desenvolvedores de aplicativos em cada assinatura, dando-lhes direitos para adicionar máquinas virtuais a sub-redes existentes.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Implantar uma rede virtual](virtual-networks-create-vnet-arm-template-click.md) com base em um cenário.
+* [Implantar uma rede virtual](quick-create-portal.md).
 * Entender como [balancear a carga](../load-balancer/load-balancer-overview.md) de VMs de IaaS e [gerenciar o roteamento por meio de várias regiões do Azure](../traffic-manager/traffic-manager-overview.md).
-* Saiba mais sobre [NSGs e como planejar e projetar](virtual-networks-nsg.md) uma solução NSG.
+* Saiba mais sobre os [grupos de segurança de rede](security-overview.md) de uma solução NSG.
 * Saiba mais sobre os [Locais cruzados e opções de conectividade de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

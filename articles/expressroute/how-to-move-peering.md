@@ -1,25 +1,25 @@
 ---
-title: "Mover um emparelhamento público no Azure ExpressRoute para o emparelhamento da Microsoft | Microsoft Docs"
-description: "Este artigo mostra as etapas para mover o emparelhamento público para o emparelhamento da Microsoft no ExpressRoute."
+title: Mover um emparelhamento público no Azure ExpressRoute para o emparelhamento da Microsoft | Microsoft Docs
+description: Este artigo mostra as etapas para mover o emparelhamento público para o emparelhamento da Microsoft no ExpressRoute.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Mover um emparelhamento público para o emparelhamento da Microsoft
 
@@ -73,6 +73,10 @@ Depois de verificar se o emparelhamento da Microsoft está configurado e se os p
   * [Excluir o emparelhamento público do Azure usando o portal do Azure](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Excluir o emparelhamento público do Azure usando o Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Excluir o emparelhamento público do Azure usando a CLI](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. Emparelhamentos de exibição
+  
+Você pode ver uma lista de todos os circuitos ExpressRoute e emparelhamentos no portal do Azure. Para obter mais informações, consulte [detalhes de emparelhamento do modo de exibição da Microsoft](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
 ## <a name="next-steps"></a>Próximas etapas
 

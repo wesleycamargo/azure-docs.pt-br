@@ -1,9 +1,9 @@
 ---
-title: "Visão geral do modelo de programação do Service Fabric | Microsoft Docs"
-description: "A Service Fabric oferece duas estruturas para criação de serviços: a estrutura de atores e a estrutura de serviços. Elas oferecem vantagens e desvantagens distintas com relação à simplicidade e ao controle."
+title: Visão geral do modelo de programação do Service Fabric | Microsoft Docs
+description: 'A Service Fabric oferece duas estruturas para criação de serviços: a estrutura de atores e a estrutura de serviços. Elas oferecem vantagens e desvantagens distintas com relação à simplicidade e ao controle.'
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Visão geral do modelo de programação do Service Fabric
-O Service Fabric oferece várias maneiras de escrever e gerenciar seus serviços. Os serviços podem escolher usar as APIs do Service Fabric para se beneficiarem dos recursos e estruturas de aplicativo da plataforma. Os serviços também podem ser um programa executável compilado, escrito em qualquer linguagem ou código executado em um contêiner simplesmente hospedado em um cluster do Service Fabric.
+O Service Fabric oferece várias maneiras de escrever e gerenciar seus serviços. Os serviços podem escolher usar as APIs do Service Fabric para se beneficiarem dos recursos e estruturas de aplicativo da plataforma. Os serviços também podem ser um programa executável compilado, escrito em qualquer linguagem ou código executado em um contêiner hospedado em um cluster do Service Fabric.
 
 ## <a name="guest-executables"></a>Executáveis de convidado
-Um [executável do convidado](service-fabric-deploy-existing-app.md) é um executável arbitrário existente (escrito em qualquer linguagem) que pode ser executado como um serviço em seu aplicativo. Os executáveis do convidado não chamam diretamente as APIs do SDK do Service Fabric. No entanto, eles ainda se beneficiam dos recursos que a plataforma oferece, como a descoberta de serviço, os relatórios personalizados de integridade e carregamento por meio da chamada às APIs REST expostas pelo Service Fabric. Eles também têm suporte completo do ciclo de vida do aplicativo.
+Um [executável do convidado](service-fabric-guest-executables-introduction.md) é um executável arbitrário existente (escrito em qualquer linguagem) que pode ser executado como um serviço em seu aplicativo. Os executáveis do convidado não chamam diretamente as APIs do SDK do Service Fabric. No entanto, eles ainda se beneficiam dos recursos que a plataforma oferece, como a descoberta de serviço, os relatórios personalizados de integridade e carregamento por meio da chamada às APIs REST expostas pelo Service Fabric. Eles também têm suporte completo do ciclo de vida do aplicativo.
 
 Comece a usar executáveis convidados implantando seu primeiro [aplicativo executável convidado](service-fabric-deploy-existing-app.md).
 
@@ -50,7 +50,7 @@ O Núcleo do ASP.NET é uma nova estrutura de software livre e plataforma cruzad
 ## <a name="reliable-actors"></a>Reliable Actors
 Criada com base no Reliable Services, a estrutura Reliable Actor é uma estrutura de aplicativo que implementa o padrão Ator Virtual baseado no padrão de design de ator. A estrutura Reliable Actor usa unidades independentes de computação e de estado com execução single-threaded chamadas atores. A estrutura Reliable Actor fornece comunicação interna para atores e configurações de expansão e persistência de estado predefinido.
 
-Como o Reliable Actors em si é uma estrutura de aplicativo baseada no Reliable Services, ele é totalmente integrado com a plataforma Service Fabric e se beneficia do conjunto completo de recursos oferecidos pela plataforma.
+Como o Reliable Actors é uma estrutura de aplicativo baseada no Reliable Services, ele é totalmente integrado com a plataforma Service Fabric e se beneficia do conjunto completo de recursos oferecidos pela plataforma.
 
 [Saiba mais sobre os Reliable Actors](service-fabric-reliable-actors-introduction.md) ou comece escrevendo [o seu primeiro serviço do Reliable Actor](service-fabric-reliable-actors-get-started.md)
 

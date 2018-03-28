@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric – Configurar o monitoramento com o Log Analytics do OMS | Microsoft Docs"
+title: Azure Service Fabric – Configurar o monitoramento com o Log Analytics do OMS | Microsoft Docs
 description: Saiba como configurar o Operations Management Suite para visualizar e analisar eventos para monitorar os clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurar o Log Analytics do Operations Management Suite para um cluster
 
@@ -48,7 +48,7 @@ Se estiver usando o Windows, continue com as seguintes etapas para conectar o OM
 >[!NOTE]
 >A habilitação dessa experiência para clusters do Linux ainda não está disponível. 
 
-### <a name="add-the-oms-agent-to-your-cluster"></a>Adicionar o Agente do OMS a um cluster 
+### <a name="connect-the-oms-workspace-to-your-cluster"></a>Conecte-se o espaço de trabalho do OMS para o cluster 
 
 1. O espaço de trabalho precisa estar conectado aos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione **ServiceFabric\<nomeDoEspaçodeTrabalhoOMS\>**  e vá para a página de visão geral. A partir daí, você pode alterar as configurações da solução,as configurações do espaço de trabalho e acessar o portal do OMS.
 

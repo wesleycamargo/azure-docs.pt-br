@@ -1,26 +1,26 @@
 ---
-title: Guia do Azure Marketplace e do AppSource Publisher
-description: "Guia passo a passo e listas de verificação de publicação para novos editores no Azure Marketplace"
+title: Guia do Editor do Azure Marketplace e do AppSource
+description: Guia passo a passo e listas de verificação de publicação para novos editores no Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia do Azure Marketplace e do AppSource Publisher
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia do Editor do Azure Marketplace e do AppSource
 
 Bem-vindo ao Guia do [Azure Marketplace](https://azuremarketplace.microsoft.com) e do [AppSource Publisher](https://appsource.microsoft.com). Este guia foi projetado para ajudar os editores novos e existentes a entender como aproveitar as vitrines do Microsoft Azure Marketplace e do Microsoft AppSource, as etapas necessárias para publicar os aplicativos e serviços e como expandir seus negócios em parceria com a Microsoft. Ao final deste guia, você aprenderá mais sobre cada um desses tópicos e saberá onde localizar informações mais detalhadas:
 
@@ -260,7 +260,7 @@ Qualquer cliente do Enterprise Agreement pode adicionar o Azure ao contrato, faz
 |**Requisito**  |**Detalhes** |**Opção de publicação**  |
 |---------|---------|---------|
 |**Cobrança e Medição**    |  A sua Máquina Virtual deve dar suporte para Traga Sua Própria Licença ou cobrança mensal baseado no uso.       |    Transação    |
-|**Disco rígido virtual compatível com Azure**     |   As Máquinas Virtuais devem ser compiladas em [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) ou [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transação      |
+|**Disco rígido virtual compatível com Azure**     |   As máquinas virtuais devem ser criadas em [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) ou [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transação      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Pré-requisitos específicos para publicação de Serviços de Consultoria
 
@@ -268,7 +268,7 @@ Qualquer cliente do Enterprise Agreement pode adicionar o Azure ao contrato, faz
 |**Requisitos** |**Detalhes**  |**Opção de publicação**  |
 |---------|---------|---------|
 |**Características de oferta dos serviços**     | O seu Serviço de Consultoria deve ser entregue como um escopo fixo, duração fixa, compromisso de preço fixo (ou gratuito), principalmente orientado para pré-vendas, limitado a um único cliente e realizado no local        |    Listar     |
-|**Requisitos do parceiro para Serviços de Consultoria**    |   **Somente AppSource.**  Dynamics 365 para Compromisso com o Cliente [Competência Gold ou Silver de Gerenciamento de Relacionamento com o Cliente na Nuvem](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 para Finanças e Operações do Enterprise Edition: competência Silver ou Gold [Enterprise Resource Planning] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) e uma receita mínima de $ 25K em Operações em Nuvem nos próximos 12 meses. Dynamics 365 para Finanças e Operações do Business Edition: atender como [CSP (Provedor de Serviços de Nuvem)](https://partner.microsoft.com/en-us/cloud-solution-provider) ou [DPOR (Parceiro de Registro Digital)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) para pelo menos um cliente. Power BI: atender aos critérios [Solution Partner](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf). PowerApps: ter uma solução [Partner Showcase] (https://powerapps.microsoft.com/en-us/partner-showcase/) |    Listar     |
+|**Requisitos do parceiro para Serviços de Consultoria**    |   **Somente AppSource.**  Dynamics 365 para Compromisso com o Cliente [Competência Gold ou Silver de Gerenciamento de Relacionamento com o Cliente na Nuvem](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 para Finanças e Operações do Enterprise Edition: competência Silver ou Gold [Enterprise Resource Planning] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) e uma receita mínima de $ 25K em Operações em Nuvem nos próximos 12 meses. Dynamics 365 para Finanças e Operações do Business Edition: atender como [CSP (Provedor de Serviços de Nuvem)](https://partner.microsoft.com/en-us/cloud-solution-provider) ou [DPOR (Parceiro de Registro Digital)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) para pelo menos um cliente. Power BI: atender aos critérios [Solution Partner](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf). PowerApps: Tenha uma solução [Demonstração de Parceiro] (https://powerapps.microsoft.com/en-us/partner-showcase/) |    Listar     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Usar o Azure Active Directory para habilitar Avaliações
 O AAD (Azure Active Directory) é um serviço de identidade de nuvem que permite a autenticação com uma 	conta corporativa ou de estudante da Microsoft usando os protocolos padrão do setor: OAuth e OpenID Connect. Saiba mais sobre o AAD [aqui](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
@@ -295,7 +295,7 @@ Se você fornecer suporte AAD hoje
 Se você é novo no SSO Federado AAD
 
 - Registre seu aplicativo no Portal do Azure
-- Desenvolver SSO com AAD usando [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
+- Desenvolver SSO com o AAD usando [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
 - Habilite o recurso de suporte multilocatário no AAD para obter uma experiência de avaliação com 'um clique'
 - [Saiba mais aqui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
 
@@ -303,7 +303,7 @@ Para aplicativos de locatário único:
 
 Há várias opções para aplicativos de locatário único:
 
-- Adicione usuários ao seu diretório como usuários convidados usando [Azure B2B] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- Adicionar usuários ao seu diretório como usuários convidados usando [B2B do Azure] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 - Provisione manualmente avaliações para clientes por meio do "Entre em Contato"
 - Desenvolva um 'Test Drive' por cliente
 - Compile um aplicativo de demonstração de amostra multilocatário com SSO
@@ -422,7 +422,7 @@ O endereço de email selecionado deve estar preferencialmente no seu domínio co
 Como parte do processo de integração do Marketplace, será necessário enviar um formulário de nominação, enviando informações sobre o aplicativo ou oferta de serviços, as informações da sua empresa e o nível de suporte que você fornecerá.  
 Quando o formulário for enviado, a equipe do Marketplace analisará o aplicativo e validará a solicitação. Após a análise da solicitação, você será notificado por email com as próximas etapas que precisarão ser concluídas para se torna um Parceiro aprovado no Portal do Cloud Partner. Envie sua nominação em:
 
-Nominação do Azure Marketplace: http://aka.ms/listonazuremarketplace   
+Nominação do Microsoft Azure Marketplace: http://aka.ms/listonazuremarketplace   
 Nominação do AppSource: http://aka.ms/listonappsource
 
 #### <a name="register-in-the-developer-center"></a>Registrar-se no Centro de Desenvolvimento
@@ -521,7 +521,7 @@ Sua conta corporativa poderá ser federada usando o [Azure Active Directory](htt
 
 É recomendável que você crie um novo endereço de email no domínio **@outlook.com**. Siga estas etapas:
 
-1. Acesse [https://signup.live.com/signup](https://signup.live.com/signup) e selecione **Obter um novo endereço de email**
+1. Vá para [https://signup.live.com/signup](https://signup.live.com/signup) e selecione **Obter um novo endereço de email**
 
 
 2. Crie o novo endereço de email e insira uma senha. Isso criará uma nova ID da Microsoft e uma caixa de correio no serviço outlook.com. Continue o processo de registro até a conta ser criada.
@@ -538,7 +538,7 @@ Depois que essa última etapa for concluída, você terá todos os emails/comuni
 ### <a name="instructions-on-how-to-register-in-the-development-center"></a>Instruções sobre como registrar-se no Centro de Desenvolvimento
 
 1. Abra uma nova sessão de navegação do Internet Explorer InPrivate ou Chrome Incognito para garantir que você não tenha conectado a sessão em uma conta pessoal.
-2. Acesse [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) para registrar-se como um vendedor no Centro de Desenvolvimento. Leia a observação importante a seguir antes de continuar.
+2. Vá para [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) para registrar-se como vendedor no Centro de Desenvolvimento. Leia a observação importante a seguir antes de continuar.
 
    ![Email do Centro de Desenvolvimento](./media/marketplace-publishers-guide/registerdevcenteremail.png)
 
@@ -548,7 +548,7 @@ Depois que essa última etapa for concluída, você terá todos os emails/comuni
    ![Informações da conta](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
    
    >[!WARNING]
-   >Países para “Origem de venda”: para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Para obter mais informações, consulte as [políticas de participação do Marketplace]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
+   >Países para “Origem de venda”: para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Para saber mais, confira as [Políticas de participação no Marketplace]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
 
 5. Selecione o "Tipo de Conta" como **Empresa** e clique no botão **Avançar**.
 
@@ -614,7 +614,7 @@ Se você quiser publicar ofertas comerciais para compra, também será preciso a
 
 Se você tiver problemas com o registro no 	Centro de Desenvolvimento, registre um tíquete de suporte como mostrado abaixo:
 
-1. Acesse o link de suporte https://developer.microsoft.com/windows/support
+1. Vá para o link de suporte https://developer.microsoft.com/windows/support
 2. Na seção **Fale Conosco**, clique no botão **Enviar um incidente**, como mostrado na captura de tela abaixo.
 3. Escolha "Ajuda com o Centro de Desenvolvimento" como **Tipo de problema** e "Publicar e gerenciar aplicativos" como **Categoria**. Depois disso, clique no botão "Iniciar email."
 

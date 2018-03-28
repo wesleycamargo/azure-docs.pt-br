@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Palo Alto Networks – Admin UI | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Palo Alto Networks – Admin UI."
+title: 'Tutorial: Integrar o Azure Active Directory ao Palo Alto Networks - Admin UI | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Palo Alto Networks – Admin UI.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 60430f08f54232db619efd054ca3a7d9a44f4cdc
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: c5be53f06e009cb2d5180e43318c8670139a68db
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: integração do Azure Active Directory com o Palo Alto Networks – Admin UI
+# <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Integrar o Azure Active Directory ao Palo Alto Networks - Admin UI
 
-Neste tutorial, você aprenderá a integrar o Palo Alto Networks – Admin UI ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como integrar o Azure AD (Azure Active Directory) ao Palo Alto Networks – Admin UI.
 
-A integração do Palo Alto Networks – Admin UI ao Azure AD lhe oferece os seguintes benefícios:
+Ao integrar o Azure AD ao Palo Alto Networks - Admin UI, você obtém os seguintes benefícios:
 
 - No Azure AD, é possível controlar quem tem acesso ao Palo Alto Networks – Admin UI.
-- Você pode permitir que os usuários façam logon automaticamente no Palo Alto Networks – Admin UI (logon único) com as respectivas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+- Você pode permitir que os usuários façam logon automaticamente no Palo Alto Networks – Admin UI (logon único, ou SSO) com as respectivas contas do Azure AD.
+- Você pode gerenciar suas contas em um único local, o portal clássico do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -40,225 +40,226 @@ Para configurar a integração do Azure AD com o Palo Alto Networks – Admin UI
 - Um Firewall de última geração de redes Palo Alto ou Panorama (sistema de gerenciamento centralizado de firewalls)
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Ao testar as etapas deste tutorial, recomendamos que você *não* use um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas neste tutorial, siga estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. 
 
-1. Adicionando o Palo Alto Networks – Admin UI da Galeria
-2. configurar e testar o logon único do AD do Azure
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>Adicionando o Palo Alto Networks – Admin UI da Galeria
-Para configurar a integração do Palo Alto Networks – Admin UI com o Azure AD, você precisará adicionar o Palo Alto Networks – Admin UI da galeria à sua lista de aplicativos SaaS gerenciados.
+* Adicionando o Palo Alto Networks – Admin UI da Galeria
+* configurar e testar o logon único do AD do Azure
 
-**Para adicionar o Palo Alto Networks – Admin UI da galeria, execute as seguintes etapas:**
+## <a name="add-palo-alto-networks---admin-ui-from-the-gallery"></a>Adicionar o Palo Alto Networks - Admin UI da galeria
+Para configurar a integração do Azure AD ao Palo Alto Networks - Admin UI, adicione o Palo Alto Networks - Admin UI da galeria à sua lista de aplicativos SaaS gerenciados, da seguinte maneira:
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![A janela “Aplicativos empresariais”][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior da janela.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão “Novo aplicativo”][3]
 
-4. Na caixa de pesquisa, digite **Palo Alto Networks – Admin UI**, selecione **Palo Alto Networks – Admin UI** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Palo Alto Networks - Admin UI**, selecione **Palo Alto Networks - Admin UI** no painel de resultados e, em seguida, selecione **Adicionar**.
 
     ![Palo Alto Networks – Admin UI na lista de resultados](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Palo Alto Networks – Admin UI, com base em uma usuária de teste chamada "Brenda Fernandes".
+Nesta seção, você configurará e testará o logon único do Azure AD com o Palo Alto Networks - Admin UI, com base em uma usuária de teste chamada "Brenda Fernandes."
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário no Palo Alto Networks – Admin UI é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Palo Alto Networks – Admin UI.
+Para que o logon único funcione, o Azure AD precisa identificar o usuário do Palo Alto Networks - Admin UI e sua contraparte do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Palo Alto Networks - Admin UI.
 
-No Palo Alto Networks – Admin UI, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Para estabelecer a relação de vínculo, atribua como o *Nome de usuário* do Palo Alto Networks - Admin UI o valor do *nome de usuário* no Azure AD.
 
-Para configurar e testar o logon único do Azure AD com o Palo Alto Networks – Admin UI, você precisará concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Palo Alto Networks – Admin UI](#create-a-palo-alto-networks---admin-ui-test-user)** – para ter um equivalente de Brenda Fernandes no Palo Alto Networks – Admin UI vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+Para configurar e testar o logon único do Azure AD com o Palo Alto Networks - Admin UI, complete os blocos de construção nas próximas cinco seções.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo Palo Alto Networks – Admin UI.
+Habilite o logon único do Azure AD no portal do Azure e configure o logon único no seu aplicativo Palo Alto Networks – Admin UI da seguinte maneira:
 
-**Para configurar o logon único do Azure AD com o Palo Alto Networks – Admin UI, execute as seguintes etapas:**
+1. No portal do Azure, na página de integração de aplicativo **Palo Alto Networks – Admin UI**, selecione **Logon Único**.
 
-1. No Portal do Azure, na página de integração de aplicativo **Palo Alto Networks – Admin UI**, clique em **Logon Único**.
+    ![O link “Logon único”][4]
 
-    ![Link Configurar logon único][4]
-
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Na janela **Logon único**, na caixa **Modo Logon único**, selecione **Logon baseado em SAML**.
  
-    ![Caixa de diálogo Logon único](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_samlbase.png)
+    ![A janela “Logon único”](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_samlbase.png)
 
-3. Na seção **Domínio e URLs do Palo Alto Networks – Admin UI**, execute as seguintes etapas:
+3. Em **Domínio e URLs do Palo Alto Networks - Admin UI**, faça o seguinte:
 
-    ![Informações de logon único de Domínio e URLs do Palo Alto Networks – Admin UI](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
+    ![Informações de logon único de "Domínio e URLs do Palo Alto Networks - Admin UI"](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
     
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<Customer Firewall FQDN>/php/login.php`
+    a. Na caixa **URL de logon**, digite uma URL no seguinte formato: *https://\<Customer Firewall FQDN>/php/login.php*.
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<Customer Firewall FQDN>:443/SAML20/SP`
+    b. Na caixa **Identificador**, digite uma URL no seguinte formato: *https://\<Customer Firewall FQDN>:443/SAML20/SP*.
     
-    c. Na caixa de texto **URL de Resposta**, digite a URL de Serviço do Consumidor de Declaração (ACS) usando o seguinte padrão: `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
+    c. Na caixa **URL de Resposta**, digite a URL do Serviço do Consumidor de Declaração (ACS) no seguinte formato: *https://\<Customer Firewall FQDN>:443/SAML20/SP/ACS*.
     
-
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte ao cliente do Palo Alto Networks – Admin UI](https://support.paloaltonetworks.com/support) para obter esses valores. 
+    > Os valores anteriores não são reais. Atualize-os com a URL de logon e o identificador reais. Para obter esses valores, entre em contato com a [Equipe de suporte ao cliente do Palo Alto Networks - Admin UI](https://support.paloaltonetworks.com/support). 
  
-4. O aplicativo Palo Alto Networks – Admin UI espera que as declarações SAML estejam em um formato específico. Configure as seguintes declarações para o aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
+4. Como os aplicativos do Palo Alto - Admin UI esperam as instruções de declaração SAML em um formato específico, configure as declarações conforme mostrado na imagem a seguir. Gerencie os valores desses atributos na seção **Atributos de Usuário** da página **Integração de Aplicação** da seguinte maneira:
     
-    ![Configurar o logon único](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
+    ![A lista de Atributos de Token SAML](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
     
-5. Na seção **Atributos de Usuário** da caixa de diálogo **Logon Único**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas: observe que os valores de atributo são apenas de exemplo e mapeie os valores apropriados para username e adminrole. Há outro atributo opcional "accessdomain", que é usado para restringir o acesso de administrador para sistemas virtuais específicos no firewall.
+   > [!NOTE]
+   > Como os valores de atributo são apenas exemplos, mapeie os valores apropriados para *username* e *adminrole*. Há outro atributo opcional, *accessdomain*, que é usado para restringir o acesso de administrador para sistemas virtuais específicos no firewall.
+   >
         
     | Nome do atributo | Valor do atributo |
     | --- | --- |    
     | Nome de Usuário | user.userprincipalname |
     | adminrole | customadmin |
 
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+    a. Selecione **Adicionar Atributo**.  
+    
+    ![O botão "Adicionar atributo"](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_04.png)
 
-    ![Configurar o logon único](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_04.png)
+    A janela **Adicionar atributo** será aberta.
 
-    ![Configurar o logon único](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_05.png)
+    ![A janela de "Adicionar atributo"](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_05.png)
     
-    b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
+    b. Na caixa **Nome**, digite o nome do atributo mostrado para essa linha.
     
-    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+    c. Na caixa **Valor**, digite o valor de atributo mostrado para aquela linha.
     
-    d. Clique em **Ok**
+    d. Selecione **OK**.
 
     > [!NOTE]
-    > Você pode consultar os artigos a seguir para obter mais detalhes sobre os atributos.
-    > 1. Perfil de função administrativa para o Admin UI (adminrole): https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile
-    > 2. Domínio de acesso a dispositivo para Admin UI (accessdomain): https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain
+    > Para obter mais informações sobre os atributos, consulte os seguintes artigos:
+    > * [Perfil de função administrativa para Interface do Usuário de Administrador (adminrole)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
+    > * [Domínio de dispositivo de acesso para Interface do Usuário de Administrador (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
+    >
 
-6. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+5. Em **Certificado de Autenticação SAML**, selecione **XML de Metadados** e, em seguida, selecione **Salvar**.
 
-    ![O link de download do Certificado](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
+    ![O link de download do XML de Metadados](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
 
-7. Clique no botão **Salvar** .
+    ![O botão Salvar](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-    ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
+6. Abra a Interface do Usuário do Administrador do Firewall do Palo Alto Networks como um administrador em outra janela do navegador.
 
-8. Abra a interface do usuário administrador de firewall de redes da Palo Alto como um administrador em outra janela do navegador.
+7. Selecione a guia **Dispositivo**.
 
-9. Clique em **Dispositivo**.
+    ![A guia Dispositivo](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-    ![Configurar o logon único da Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
+8. No painel esquerdo, selecione **Provedor de Identidade SAML** e, em seguida, selecione **Importar** para importar o arquivo de metadados.
 
-10. Selecione **Provedor de Identidade SAML** na barra de navegação à esquerda e clique em "Importar" para importar o arquivo de metadados.
+    ![O botão Importar arquivo de metadados](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-    ![Configurar o logon único da Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
+9. Na janela do **Perfil do Servidor de Provedor de Identidade SAML**, faça o seguinte:
 
-11. Execute as ações a seguir na janela de importação
+    ![A janela "Perfil do Servidor de Provedor de Identidade SAML"](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-    ![Configurar o logon único da Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
-
-    a. Na caixa de texto **Nome do Perfil**, forneça um nome, por exemplo, AzureAD Admin UI.
+    a. Na caixa **Nome do Perfil**, forneça um nome (por exemplo, **AzureAD Admin UI**).
     
-    b. Em **Metadados do Provedor de Identidade**, clique em **Procurar** e selecione o arquivo metadata.xml que você baixou do Portal do Azure
+    b. Em **Metadados do Provedor de Identidade**, selecione **Procurar** e selecione o arquivo metadata.xml que você baixou anteriormente no portal do Azure.
     
-    c. Desmarque "**Validar Certificado do Provedor de Identidade**"
+    c. Limpe a caixa de seleção **Validar Certificado do Provedor de Identidade**.
     
-    d. Clique em **OK**
+    d. Selecione **OK**.
     
-    e. Confirmar as configurações de firewall selecionando o botão **Confirmar**
+    e. Para confirmar as configurações de firewall, selecione **Confirmar**.
 
-12. Selecione **Provedor de Identidade SAML** na barra de navegação à esquerda e clique no Perfil do Provedor de Identidade SAML (por exemplo, Interface de Usuário do Administrador do AzureAD) criado na etapa anterior. 
-    
-  ![Configurar o Logon Único de Redes Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+10. No painel esquerdo, selecione **Provedor de Identidade SAML**e, em seguida, selecione o perfil do Provedor de Identidade SAML (por exemplo, **AzureAD Admin UI**) que você criou na etapa anterior. 
 
-13. Execute as seguintes ações na janela **Perfil do Servidor do Provedor de Identidade SAML**
+    ![O Perfil de Provedor de Identidade do SAML](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
 
-  ![Configurar o Logoff Único de Redes Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+11. Na janela do **Perfil do Servidor de Provedor de Identidade SAML**, faça o seguinte:
+
+    ![A janela "Perfil do Servidor de Provedor de Identidade do SAML"](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
-  a. Na caixa de texto **URL do SLO do Provedor de Identidade** , remova a URL do SLO importada anteriormente e adicione a seguinte URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
+    a. Na caixa **URL de SLO do Provedor de Identidade** , remova a URL de SLO importada anteriormente e adicione a seguinte URL: **https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0**.
   
-  b. Clique em **OK**
+    b. Selecione **OK**.
 
+12. Na Interface do Usuário do Administrador do Firewall do Palo Alto Networks, selecione **Dispositivo**e, em seguida, selecione **Funções do Administrador**.
 
-14. Na Interface do Usuário do Adminsitrador do Firewall de Redes Palo Alto, clique em **Dispositivo** e selecione **Funções do Administrador**
+13. Selecione o botão **Adicionar**. 
 
-15. Clique no botão **Adicionar** . Na janela Perfil da Função do Administrador, forneça um nome para a Função de Administrador (por exemplo, fwadmin). O nome da Função do Administrador deve corresponder ao nome de atributo da Função do Administrador de SAML enviado pelo Provedor de Identidade. Na Etapa 5, o nome e o valor da Função do Administrador foram criados. 
+14. Na janela **Perfil da Função de Administrador**, na caixa **Nome**, forneça um nome para a função de administrador (por exemplo, **fwadmin**).  
+    O nome da função de administrador deve corresponder ao nome de atributo da Função de Administrador de SAML enviado pelo Provedor de Identidade. O nome e valor da função de administrador foram criados na etapa 4.
 
-  ![Configurar Função do Administrador de Redes Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+    ![Configurar Função do Administrador de Redes Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
   
-16. Na Interface do Usuário do Administrador do Firewall, clique em **Dispositivo** e selecione **Perfil de Autenticação**
+15. Na Interface do Usuário do Administrador do Firewall, selecione **Dispositivo** e em seguida, selecione **Perfil de Autenticação**.
 
-17. Clique no botão **Adicionar** . Na janela Perfil de Autenticação, execute as seguintes ações: 
+16. Selecione o botão **Adicionar**. 
 
- ![Configurar o Perfil de Autenticação de Redes Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+17. Na janela **Perfil de Autenticação**, faça o seguinte: 
 
-   a. Na caixa de texto **Nome**, forneça um nome, por exemplo, AzureSAML_Admin_AuthProfile
+    ![A janela "Perfil de Autenticação"](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+
+    a. Na caixa de texto **Nome**, forneça um nome (por exemplo, **AzureSAML_Admin_AuthProfile**).
     
-   b. No menu suspenso **Tipo**, selecione **SAML** 
+    b. Na lista suspensa **Tipo**, escolha **SAML**. 
    
-   c. No menu suspenso Perfil do Servidor IdP, selecione o perfil do Servidor do Provedor de Identidade SAML adequado (por exemplo, Interface do Usuário do Administrador do AzureAD)
+    c. Na lista suspensa **Perfil do Servidor de Provedor de Identidade**, selecione o perfil do Servidor de Provedor de Identidade SAML apropriado (por exemplo, **AzureAD Admin UI**).
    
-   c. Marque a caixa de seleção "**Habilitar Logoff Único**"
+    c. Selecione a caixa de seleção **Ativar o Logout Único**.
     
-   d. Insira o Nome do Atributo (por exemplo, adminrole) na caixa de texto Atributo da Função do Administrador. 
-   
-   e. Selecione a guia Avançado e clique no botão **Adicionar** no painel Lista de permissões. Selecione todos os usuários e grupos ou os usuários e os grupos específicos que podem ser autenticados com esse perfil. Quando um usuário é autenticado, o firewall faz a correspondência do nome de usuário ou do grupo associado com base nas entradas dessa lista. Se você não adicionar entradas, nenhum usuário poder autenticar.
-   
-   ![Configurar o Perfil de Autenticação de Redes Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
-   
-   f. Clique em **OK**
+    d. Na caixa **Atributo da Função de Administrador**, digite o nome do atributo (por exemplo, **adminrole**). 
+    
+    e. Selecione a guia **Avançado** e, em seguida, na **Lista de Permissões**, selecione **Adicionar**. 
+    
+    ![Botão Adicionar na guia Avançado](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+    
+    f. Selecione a caixa de seleção **Todos**, ou selecione os usuários e grupos que podem se autenticar com esse perfil.  
+    Quando um usuário é autenticado, o firewall faz a correspondência do nome de usuário ou do grupo associado com base nas entradas dessa lista. Se você não adicionar entradas, nenhum usuário poder autenticar.
 
-18. Para permitir que Administradores usem o SSO do SAML usando o Azure, clique em **Dispositivo** e selecione **Configuração**. No painel Configuração, selecione a guia **Gerenciamento** e clique no ícone de engrenagem em **Configurações de Autenticação**. 
+    g. Selecione **OK**.
 
- ![Definir as Configurações de Autenticação de Redes Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+18. Para habilitar os administradores a usarem o SSO do SAML usando o Azure, selecione **Dispositivo** > **Instalação**. No painel **Instalação**, selecione a guia **Gerenciamento** e, em seguida, em **Configurações de Autenticação**, selecione o botão **Configurações** ("engrenagem"). 
 
-19. Selecione o perfil de Autenticação do SAML criado na etapa 17 (por exemplo, AzureSAML_Admin_AuthProfile).
+ ![O botão Configurações](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 
- ![Definir as Configurações de Autenticação de Redes Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+19. Selecione o perfil de Autenticação SAML que você criou na etapa 17 (por exemplo, **AzureSAML_Admin_AuthProfile**).
 
-20. Clique em **OK**
+ ![O campo Perfil de Autenticação](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
 
-21. Confirme a configuração selecionando o botão **Confirmar**.
+20. Selecione **OK**.
+
+21. Para confirmar a configuração, selecione **Confirmar**.
 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ao configurar o aplicativo, você pode ler as instruções anteriores em uma versão concisa no [portal do Azure](https://portal.azure.com). Depois de adicionar esse aplicativo na seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único** e, em seguida, acesse a documentação inserida na seção **Configuração**, na parte inferior. Para saber mais informações sobre o recurso de documentação inserida, consulte [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azure fazendo o seguinte:
 
-   ![Criar um usuário de teste do Azure AD][100]
+![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**.
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+    ![O link do Azure Active Directory](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_01.png)
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_01.png)
-
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+2. Para exibir uma lista de usuários atuais, selecione **Usuários e grupos** > **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+3. Na parte superior da janela **Todos os usuários**, selecione **Adicionar**.
 
     ![O botão Adicionar](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_03.png)
+    
+    A janela **Usuário** abre.
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+4. Na janela **Usuário**, faça o seguinte:
 
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_04.png)
+    ![A janela de usuário](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_04.png)
 
     a. Na caixa **Nome**, digite **BrendaFernandes**.
 
@@ -266,52 +267,51 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Clique em **Criar**.
+    d. Selecione **Criar**.
  
 ### <a name="create-a-palo-alto-networks---admin-ui-test-user"></a>Criar um usuário de teste do Palo Alto Networks – Admin UI
 
-O Palo Alto Networks – Admin UI dá suporte a provisionamento de usuário Just-In-Time, de modo que um usuário será criado automaticamente no sistema após a autenticação bem-sucedida se ele ainda não existir. Você não precisa realizar nenhuma ação aqui.
+O Palo Alto Networks - Admin UI dá suporte ao provisionamento de usuário just-in-time. Se um usuário ainda não existir, ele é automaticamente criado no sistema após uma autenticação bem-sucedida. Nenhuma ação é requerida para criar o usuário.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Palo Alto Networks – Admin UI.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Palo Alto Networks - Admin UI. Para fazer isso, faça o seguinte:
 
 ![Atribuir a função de usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Palo Alto Networks – Admin UI, execute as seguintes etapas:**
+1. No portal do Azure, abra a exibição de **Aplicativos**, acesse a exibição de **Diretório** e, em seguida, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+    ![Os links “Aplicativos empresariais” e “Todos os aplicativos”][201] 
 
-    ![Atribuir usuário][201] 
+2. Na lista de **Aplicativos**, selecione **Palo Alto Networks - Admin UI**.
 
-2. Na lista de aplicativos, selecione **Palo Alto Networks – Admin UI**.
+    ![O link Palo Alto Networks - Admin UI](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_app.png)  
 
-    ![O link Palo Alto Networks – Admin UI na lista de Aplicativos](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_app.png)  
-
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No painel esquerdo, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Selecione **Adicionar** e, em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na janela **Usuários e grupos**, na lista **Usuários**, selecione **Britta Simon**.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Escolha o botão **Selecionar**.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+7. Na janela **Adicionar Atribuição**, selecione **Atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco Palo Alto Networks – Admin UI no painel de acesso, seu logon deve ser realizado automaticamente no seu aplicativo Palo Alto Networks – Admin UI.
+Quando você clicar no bloco Palo Alto Networks - Admin UI no painel de acesso, seu logon deve ser realizado automaticamente no seu aplicativo Palo Alto Networks - Admin UI.
+
 Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

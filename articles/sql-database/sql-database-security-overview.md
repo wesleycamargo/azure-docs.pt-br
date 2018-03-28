@@ -2,25 +2,19 @@
 title: Visão geral de segurança do Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba mais sobre a segurança do SQL Server e Banco de Dados SQL do Azure, incluindo as diferenças entre a nuvem e o SQL Server local.
 services: sql-database
-documentationcenter: ''
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: ''
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Protegendo o Banco de Dados SQL
 
@@ -62,7 +56,6 @@ Para ajudar a proteger seus dados, os firewalls impedem todo acesso ao seu servi
 
 ### <a name="authentication"></a>Autenticação
 A autenticação do banco de dados SQL refere-se a como você comprova sua identidade durante a conexão com o banco de dados. O Banco de Dados SQL dá suporte a dois tipos de autenticação:
-
 * **Autenticação do SQL**, que usa um nome de usuário e senha. Quando você criou o servidor lógico do banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo". 
 * **Autenticação do Azure Active Directory**, que usa identidades gerenciadas pelo Azure Active Directory e que tem suporte para domínios gerenciados e integrados. Use autenticação do Active Directory (segurança integrada) [sempre que possível](https://msdn.microsoft.com/library/ms144284.aspx). Se desejar usar a Autenticação do Active Directory do Azure, você deve criar outro administrador de servidor chamado “admin do AD do Azure”, que tenha permissão para administrar usuários e grupos do AD do Azure. Este administrador também pode executar todas as operações executadas por um administrador de servidor comum. Veja [Conectando-se ao Banco de Dados SQL usando a Autenticação do Active Directory do Azure](sql-database-aad-authentication.md) para ver um passo a passo de como criar um administrador do Azure AD para habilitar a Autenticação do Active Directory do Azure.
 
@@ -86,6 +79,21 @@ A Detecção de Ameaças complementa a auditoria, fornecendo uma camada adiciona
  
 ## <a name="compliance"></a>Conformidade
 Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a atender a vários requisitos de segurança, o Banco de Dados SQL do Azure também participa de auditorias regulares e foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](https://azure.microsoft.com/support/trust-center/services/).
+
+
+## <a name="security-management"></a>Gerenciamento de segurança
+
+O Banco de Dados SQL ajuda você a gerenciar a segurança dos dados, fornecendo verificações de banco de dados e um painel de segurança centralizada usando [Avaliação de Vulnerabilidade de SQL](sql-vulnerability-assessment.md).
+
+**Avaliação de Vulnerabilidade**: A [Avaliação de Vulnerabilidade de SQL](sql-vulnerability-assessment.md) (atualmente na versão prévia) é uma forma fácil de configurar a ferramenta incorporada ao Azure SQL Database que pode ajudar você a descobrir, controlar e corrigir possíveis vulnerabilidades de banco de dados. A avaliação executa uma verificação de vulnerabilidade no seu banco de dados e gera um relatório que fornece visibilidade sobre o estado de segurança, incluindo etapas acionáveis para resolver problemas de segurança e aperfeiçoar a segurança do banco de dados. O relatório de avaliação pode ser personalizado para seu ambiente definindo uma linha de base aceitável para as configurações de permissão, configurações de recurso e configurações de banco de dados. Isso pode ajudá-lo a:
+
+- Atender aos requisitos de conformidade que exigem relatórios de verificação de banco de dados. 
+
+- Atender a padrões de privacidade de dados. 
+
+- Monitorar um ambiente de banco de dados dinâmico, no qual as alterações são difíceis de rastrear.
+
+Para obter mais informações, consulte [Avaliação de Vulnerabilidade de SQL](sql-vulnerability-assessment.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

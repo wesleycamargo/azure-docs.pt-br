@@ -1,13 +1,13 @@
 ---
-title: "Associações de Hubs de Notificação para o Azure Functions"
-description: "Entenda como usar a associação de Hub de Notificação do Azure no Azure Functions."
+title: Associações de Hubs de Notificação para o Azure Functions
+description: Entenda como usar a associação de Hub de Notificação do Azure no Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 6be75035247f05995949734cd4f4f0d934e30685
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 292c8295cbc2705c12365a20cee0e80b6da639a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Associação de saída dos Hubs de Notificação para Azure Functions
 
@@ -28,6 +28,12 @@ Este artigo explica como enviar notificações por push usando associações de 
 Os Hubs de Notificação do Azure devem ser configurados para os PNS (Serviços de Notificações de Plataforma) que você deseja usar. Para saber como obter notificações por push em seu aplicativo cliente desde Hubs de Notificação, veja [Introdução aos Hubs de Notificação](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) e selecione a plataforma de cliente de destino na lista suspensa na parte superior da página.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pacotes
+
+As associações de Hubs de Notificações são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example---template"></a>Exemplo - modelo
 
@@ -266,7 +272,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="attributes"></a>Atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs), que é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
+Em [bibliotecas de classes de C#](functions-dotnet-class-library.md), utilize o atributo [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs).
 
 Os parâmetros e as propriedades do construtor do atributo são descritos na seção [Configuração](#configuration).
 
@@ -325,7 +331,7 @@ O nome dessa configuração de aplicativo é o que está na configuração de co
 
 | Associação | Referência |
 |---|---|
-| Hub de notificação | [Log de operações](https://docs.microsoft.com/rest/api/notificationhubs/) |
+| Hub de notificação | [Guia de Operações](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

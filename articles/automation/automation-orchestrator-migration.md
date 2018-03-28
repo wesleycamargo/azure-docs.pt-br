@@ -1,26 +1,22 @@
 ---
-title: "Migrando do Orchestrator para a Automação do Azure | Microsoft Docs"
-description: "Descreve como migrar runbooks e pacotes de integração do System Center Orchestrator para a Automação do Azure."
+title: Migrar do Orchestrator para Automação do Azure
+description: Descreve como migrar runbooks e pacotes de integração do System Center Orchestrator para a Automação do Azure.
 services: automation
-documentationcenter: 
-author: bwren
-manager: stevenka
-editor: tysonn
-ms.assetid: 1a7da58c-7a98-49b5-9d9d-001a9f6e631a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/09/2016
-ms.author: bwren
-ms.openlocfilehash: 457888b4d38875b912ad87d44e96ab727e3ee3ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b50f9973ef7ea5f884930d4f1ee67f886cc36ad0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrando do Orchestrator para a Automação do Azure (Beta)
+# <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrar do Orchestrator para Automação do Azure
 Os runbooks no [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) são baseados nas atividades de pacotes de integração que são escritos especificamente para o Orchestrator, enquanto os runbooks na Automação do Azure são baseados no Windows PowerShell.  [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na Automação do Azure têm uma aparência semelhante aos runbooks do Orchestrator, com suas atividades representando cmdlets do PowerShell, runbooks filhos e ativos.
 
 O [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) inclui ferramentas para ajudá-lo na conversão de runbooks do Orchestrator para a Automação do Azure.  Além de converter os próprios runbooks, você deve converter os pacotes de integração com as atividades que os runbooks usam para os módulos de integração com os cmdlets do Windows PowerShell.  
@@ -46,7 +42,7 @@ O Conversor de Pacote de Integração converte pacotes de integração criados u
 
 Quando você executa o Conversor de Pacote de Integração, aparece um assistente que permite que você selecione um arquivo de pacote de integração (.oip).  Em seguida, o assistente lista as atividades incluídas no pacote de integração e permite que você selecione quais serão migrados.  Quando você conclui o assistente, ele cria um módulo de integração que inclui um cmdlet correspondente para cada uma das atividades no pacote de integração original.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 Todas as propriedades de uma atividade no pacote de integração são convertidas em parâmetros do cmdlet correspondente no módulo de integração.  Os cmdlets do Windows PowerShell têm um conjunto de [parâmetros comuns](http://technet.microsoft.com/library/hh847884.aspx) que podem ser usados com todos os cmdlets.  Por exemplo, o parâmetro -Verbose faz com que um cmdlet produza informações detalhadas sobre a sua operação.  Nenhum cmdlet pode ter um parâmetro com o mesmo nome de um parâmetro comum.  Se uma atividade possui uma propriedade com o mesmo nome de um parâmetro comum, o assistente solicitará que você forneça outro nome para o parâmetro.
 
 ### <a name="monitor-activities"></a>Monitorar atividades
@@ -66,7 +62,7 @@ A Microsoft fornece [pacotes de integração](http://technet.microsoft.com/libra
 Até o momento em que a versão RTM dessa ferramenta for lançada, versões atualizadas dos pacotes de integração baseados em OIT que possam ser convertidos com o Conversor de Pacote de Integração serão publicadas.  Também serão fornecidas diretrizes para ajudar você a converter runbooks usando atividades de pacotes de integração não baseados em OIT.
 
 ## <a name="runbook-converter"></a>Runbook Converter
-O Runbook Converter converte os runbooks do Orchestrator em [runbooks gráficos](automation-runbook-types.md#graphical-runbooks), que podem ser importados para a Automação do Azure.  
+O Runbook Converter converte runbooks do Orchestrator em [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) que podem ser importados para a Automação do Azure.  
 
 O Runbook Converter é implementado como um módulo do PowerShell com um cmdlet chamado **ConvertFrom SCORunbook** , que executa a conversão.  Quando você instala a ferramenta, ela criará um atalho para uma sessão do PowerShell que carrega o cmdlet.   
 

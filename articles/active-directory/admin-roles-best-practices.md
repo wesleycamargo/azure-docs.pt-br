@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 0231dc8336bb2442099984947897e5005767a8f5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -178,7 +178,7 @@ O Azure AD Identity Protection é um algoritmo de monitoramento baseado e relat�
 
 Proteger a pontuação mostra quais serviços do Office 365, você está usando (como OneDrive, SharePoint e Exchange) examina as configurações e as atividades e compara-as com à uma linha de base estabelecida pela Microsoft. Você obterá uma pontuação com base em como está alinhado às práticas recomendadas de segurança. Qualquer pessoa que tenha permissões de administrador (administrador global ou uma função de administrador personalizada) para uma assinatura do Office 365 Business Premium ou Enterprise pode acessar a Pontuação Segura em [https://securescore.office.com](https://securescore.office.com/).
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office365"></a>Verifique as diretrizes de segurança e conformidade do Office 365 (se estiver usando o Office 365)
+#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Verifique as diretrizes de segurança e conformidade do Office 365 (se estiver usando o Office 365)
 
 O [plano de segurança e conformidade](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) descreve a abordagem sobre como um cliente do Office 365 deve configurar o Office 365 e utilizar outros recursos do EMS. Em seguida, analise as etapas de 3 a 6 de como [proteger o acesso a dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) e o guia de como [monitorar segurança e conformidade no Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
@@ -201,7 +201,7 @@ Se o seu locatário do Active Directory do Azure estiver sincronizado ao Active 
 
 Use o portal da Enterprise e o portal do Azure para identificar as assinaturas em sua organização que hospedam aplicativos de produção. 
 
-#### <a name="remove-microsoft-ccounts-from-admin-roles"></a>Remover as contas da Microsoft de funções de administrador
+#### <a name="remove-microsoft-accounts-from-admin-roles"></a>Remover as contas da Microsoft de funções de administrador
 
 As contas da Microsoft de outros programas, como o Xbox Live e Outlook não devem ser usadas como contas de administrador para assinaturas organizacionais. Remova o status administrativo de todas as contas da Microsoft e substitua pelo o Active Directory (por exemplo, chris@contoso.com) contas de trabalho ou escolares.
 
@@ -227,7 +227,7 @@ A Etapa 3 amplia as atenuações da Etapa 2 e foi projetada para ser implementad
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>Concluir uma análise de acesso de usuários em funções de administrador
 
-Mais usuários corporativos estão obtendo acesso privilegiado por meio de serviços de nuvem, que pode levar a uma plataforma não gerenciada cada vez maior. Isso pode incluir os usuários que se tornaram administradores globais do Office365, administradores de assinatura do Azure e os usuários que têm acesso administrativo nas VMs ou em aplicativos SaaS. Como alternativa, as organizações fazer com que todos os funcionários, principalmente a administradores, lidem com transações de negócios diárias como usuários sem privilégios e só terem direitos de administrador conforme necessário. Uma vez que o número de usuários em funções de administrador pode crescer desde a adoção inicial, o acesso completo analisa para identificar e confirmar se cada usuário que é elegível para ativar os privilégios de administrador. 
+Mais usuários corporativos estão obtendo acesso privilegiado por meio de serviços de nuvem, que pode levar a uma plataforma não gerenciada cada vez maior. Isso pode incluir os usuários que se tornaram administradores globais do Office365, administradores de assinatura do Azure e os usuários que têm acesso administrativo para VMs ou via aplicativos SaaS. Como alternativa, as organizações fazer com que todos os funcionários, principalmente a administradores, lidem com transações de negócios diárias como usuários sem privilégios e só terem direitos de administrador conforme necessário. Uma vez que o número de usuários em funções de administrador pode crescer desde a adoção inicial, o acesso completo analisa para identificar e confirmar se cada usuário que é elegível para ativar os privilégios de administrador. 
 
 Faça o seguinte:
 
@@ -318,7 +318,6 @@ Para garantir que o acesso dos usuários está protegido nos aplicativos conecta
 * Minimizar o risco e prevenção de ameaças automatizado e aplicação de políticas
 
 O agente Cloud App Security SIEM integra Cloud App Security integra o Cloud App Security ao seu servidor SIEM para habilitar o monitoramento centralizado de atividades e alertas do Office 365. Ele é executado no servidor e recebe alertas e atividades de segurança do aplicativo de nuvem e transmite-as no servidor SIEM. Para obter mais informações, consulte [Integração SIEM](https://docs.microsoft.com/cloud-app-security/siem).
-
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Etapa 4: Continue criando defesas para uma postura de segurança mais proativa
 
@@ -438,16 +437,16 @@ Para obter mais informações sobre como o Microsoft Office 365 trata os inciden
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) - Produtos e serviços de nuvem de recursos de segurança da Microsoft
+* [Microsoft Trust Center for Product Security](https://www.microsoft.com/en-us/trustcenter/security) - Produtos e serviços de nuvem de recursos de segurança da Microsoft
 
-* [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – conjunto abrangente da Microsoft de ofertas de conformidade para serviços de nuvem
+* [Microsoft Trust Center - Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – conjunto abrangente da Microsoft de ofertas de conformidade para serviços de nuvem
 
-* [Orientação sobre como realizar uma avaliação de risco](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - gerenciar requisitos de conformidade e segurança para serviços de nuvem da Microsoft
+* [Orientação sobre como realizar uma avaliação de risco](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - gerenciar requisitos de conformidade e segurança para serviços de nuvem da Microsoft
 
 ### <a name="other-ms-online-services"></a>Outros serviços MS Online 
 
-* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security) - O Microsoft Intune oferece recursos de gerenciamento de dispositivo móvel, gerenciamento de aplicativo móvel e gerenciamento de PC na nuvem.
+* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security) - O Microsoft Intune oferece recursos de gerenciamento de dispositivo móvel, gerenciamento de aplicativo móvel e gerenciamento de PC na nuvem.
 
-* [Microsoft Dynamics 365 security](https://www.microsoft.com/trustcenter/security/dynamics365-security) – O Dynamics 365 é a solução baseada em nuvem da Microsoft que unifica o gerenciamento de relacionamento com clientes (CRM) e recursos de planejamento de recursos empresariais (ERP).
+* [Microsoft Dynamics 365 security](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – O Dynamics 365 é a solução baseada em nuvem da Microsoft que unifica o gerenciamento de relacionamento com clientes (CRM) e recursos de planejamento de recursos empresariais (ERP).
 
  

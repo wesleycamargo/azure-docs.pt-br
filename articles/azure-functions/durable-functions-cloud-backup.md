@@ -1,12 +1,12 @@
 ---
-title: "Cenários de fan-out/fan-in nas Funções Duráveis – Azure"
-description: "Saiba como implementar um cenário de fan-out/fan-in na extensão de Funções Duráveis do Azure Functions."
+title: Cenários de fan-out/fan-in nas Funções Duráveis – Azure
+description: Saiba como implementar um cenário de fan-out/fan-in na extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-in nas Funções Duráveis – Exemplo de backup em nuvem
 
 *Fan-out/fan-in* é o padrão de executar várias funções simultaneamente e, em seguida, executar alguma agregação dos resultados. Este artigo descreve um exemplo que usa as [Funções Duráveis](durable-functions-overview.md) para implementar um cenário de fan-out/fan-in. O exemplo é uma função durável que faz o backup de todo ou de parte do conteúdo do site de um aplicativo no Armazenamento do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Siga as instruções em [Instalar Funções Duráveis](durable-functions-install.md) para configurar o exemplo.
 * Este artigo pressupõe que você já tenha passado pelo passo a passo do exemplo [Sequência Hello](durable-functions-sequence.md).
@@ -158,7 +158,7 @@ Esta é a orquestração como um único arquivo em C# em um projeto do Visual St
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este exemplo mostra como implementar o padrão de fan-out/fan-in. O próximo exemplo mostra como implementar um padrão de [singleton com estado](durable-functions-singletons.md) em uma [orquestração eterna](durable-functions-eternal-orchestrations.md).
+Este exemplo mostra como implementar o padrão de fan-out/fan-in. O próximo exemplo mostra como implementar o padrão de monitor usando [temporizadores variáveis](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Executar o exemplo de singleton com estado](durable-functions-counter.md)
+> [Executar o exemplo de monitor](durable-functions-monitor.md)

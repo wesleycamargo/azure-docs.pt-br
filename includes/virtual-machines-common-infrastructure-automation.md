@@ -14,7 +14,7 @@ Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é i
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) é um mecanismo de automação para gerenciamento de configurações, criação de VMs ou implantação de aplicativos. O Ansible usa um modelo sem agente, normalmente com as chaves SSH para autenticar e gerenciar computadores de destino. As tarefas de configuração são definidas em runbooks, com uma quantidade de módulos do Ansible para executar tarefas específicas. Para saber mais, confira [Como o Ansible funciona](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) é um mecanismo de automação para gerenciamento de configurações, criação de VMs ou implantação de aplicativos. O Ansible usa um modelo sem agente, normalmente com as chaves SSH para autenticar e gerenciar computadores de destino. As tarefas de configuração são definidas em playbooks, com uma quantidade de módulos do Ansible para executar tarefas específicas. Para saber mais, confira [Como o Ansible funciona](https://www.ansible.com/how-ansible-works).
 
 Saiba como:
 
@@ -47,11 +47,11 @@ A inicialização de nuvem também funciona em distribuições. Por exemplo, voc
 
  Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens fazem com que as suas configurações e implantações de cloud-init funcionem perfeitamente com VMs e conjuntos de dimensionamento de máquina virtual. A tabela a seguir descreve a disponibilidade de imagens habilitadas de cloud-init na plataforma do Azure:
 
-| Editor | Oferta | SKU | Versão | Cloud-init pronto
+| Publicador | Oferta | SKU | Versão | Cloud-init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canônico |UbuntuServer |16.04-LTS |mais recente |sim | 
-|Canônico |UbuntuServer |14.04.5-LTS |mais recente |sim |
-|CoreOS |CoreOS |Estável |mais recente |sim |
+|Canônico |UbuntuServer |16.04-LTS |mais recente |Sim | 
+|Canônico |UbuntuServer |14.04.5-LTS |mais recente |Sim |
+|CoreOS |CoreOS |Estável |mais recente |Sim |
 |OpenLogic |CentOS |7-CI |mais recente |preview |
 |RedHat |RHEL |7-RAW-CI |mais recente |preview |
 

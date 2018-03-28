@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos adicionados ao Azure Active Directory híbrido
 
@@ -62,7 +62,13 @@ Para melhorar a legibilidade das descrições, este tópico usa o termo a seguir
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Antes de começar a habilitar dispositivos adicionados ao Azure AD híbrido em sua organização, você precisa se certificar de que esteja executando uma versão atualizada do Azure AD Connect.
+Antes de começar a habilitar dispositivos adicionados ao Azure AD híbrido em sua organização, você precisa se certificar de que:
+
+- Você está executando uma versão atualizada do Azure AD Connect.
+
+- O Azure AD Connect sincronizou os objetos de computador dos dispositivos que você deseja que sejam híbridos do Azure AD associado ao Azure AD. Se os objetos de computador pertencem a unidades organizacionais (OU) específicas, essas OUs precisam ser configuradas para sincronização no Azure AD Connect também.
+
+  
 
 Azure AD Connect:
 
@@ -145,7 +151,7 @@ O script a seguir mostra um exemplo de uso do cmdlet. Nesse script, `$aadAdminCr
 O cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
 - Usa o módulo do Active Directory PowerShell e Ferramentas do AD DS, que se baseiam nos Serviços Web do Active Directory em execução em um controlador de domínio. Os Serviços Web do Active Directory têm suporte em controladores de domínio executando o Windows Server 2008 R2 e posterior.
-- Há suporte somente para a **versão do módulo 1.1.166.0 do MSOnline PowerShell**. Para baixar este módulo, use este [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Há suporte somente para a **versão do módulo 1.1.166.0 do MSOnline PowerShell**. Para baixar este módulo, use este [link](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).   
 - Se as ferramentas do AD DS não estiverem instaladas, o `Initialize-ADSyncDomainJoinedComputerSync` falhará.  As ferramentas do AD DS podem ser instaladas pelo Gerenciador do Servidor em Recursos – Ferramentas de Administração de Servidor Remoto – Ferramentas de Administração de Função.
 
 Para controladores de domínio executando o Windows Server 2008 ou versões anteriores, use o script abaixo para criar o ponto de conexão de serviço.
@@ -306,7 +312,7 @@ A definição ajuda você a verificar se os valores estão presentes ou se você
 
 Na declaração acima,
 
-- `<verified-domain-name>` é um espaço reservado que você precisa substituir por um de seus nomes de domínio verificado no Azure AD. Por exemplo, valor = "http://contoso.com/adfs/services/trust/"
+- `<verified-domain-name>` é um espaço reservado que você precisa substituir por um de seus nomes de domínio verificado no Azure AD. Por exemplo, Valor = “http://contoso.com/adfs/services/trust/”
 
 
 
@@ -520,7 +526,7 @@ No AD FS, você precisa adicionar uma regra de transformação de emissão que p
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. No servidor de federação, digite o comando do PowerShell abaixo após substituir  **\<RPObjectName\>**  pelo nome do objeto da terceira parte confiável para o seu objeto de terceira parte confiável do Azure AD. Geralmente, este objeto é nomeado como **Plataforma de Identidade do Microsoft Office 365**.
+8. No servidor de federação, digite o comando do PowerShell abaixo após substituir **\<RPObjectName\>** pelo nome do objeto da terceira parte confiável para o seu objeto de terceira parte confiável do Azure AD. Geralmente, este objeto é nomeado como **Plataforma de Identidade do Microsoft Office 365**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
