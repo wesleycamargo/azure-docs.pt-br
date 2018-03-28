@@ -1,12 +1,12 @@
 ---
-title: "Interação humana e tempos limite nas Funções Duráveis – Azure"
-description: "Saiba como lidar com interação humana e tempos limite na extensão de Funções Duráveis do Azure Functions."
+title: Interação humana e tempos limite nas Funções Duráveis – Azure
+description: Saiba como lidar com interação humana e tempos limite na extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana nas Funções Duráveis – exemplo de verificação por telefone
 
@@ -26,7 +26,7 @@ Este exemplo demonstra como criar uma orquestração de [Funções Duráveis](du
 
 Este exemplo implementa um sistema de verificação por telefone baseado em SMS. Esses tipos de fluxo costumam ser usados para verificar o número de telefone de um cliente ou para MFA (autenticação multifator). Este é um exemplo poderoso, porque toda a implementação é feita usando duas funções pequenas. Não é necessário um armazenamento de dados externo, como um banco de dados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Siga as instruções em [Instalar Funções Duráveis](durable-functions-install.md) para configurar o exemplo.
 * Este artigo pressupõe que você já tenha passado pelo passo a passo do exemplo [Sequência Hello](durable-functions-sequence.md).
@@ -35,21 +35,13 @@ Este exemplo implementa um sistema de verificação por telefone baseado em SMS.
 
 A verificação por telefone é usada para confirmar a identidade dos usuários finais de seu aplicativo e que eles não são remetentes de spam. A autenticação multifator é um caso de uso comum para proteger contas de usuário contra hackers. O desafio ao implementar sua própria verificação por telefone é que ela requer uma **interação com estado** com uma pessoa. Normalmente, um usuário final recebe um código (por exemplo, um número de 4 dígitos) e deve responder **dentro de um período razoável**.
 
-As funções comuns do Azure são sem monitoração de estado (assim como muitos outros pontos de extremidade de nuvem em outras plataformas), de modo que esses tipos de interações envolverão gerenciar de forma explícita o estado externamente, em um banco de dados ou em algum outro armazenamento persistente. Além disso, a interação deve ser dividida em várias funções que possam ser coordenadas juntas. Por exemplo, você precisa de pelo menos uma função para decidir sobre um código, persisti-lo em algum lugar e enviá-lo para o telefone do usuário. Além disso, você precisa de pelo menos uma outra função para receber uma resposta do usuário e, de alguma forma, mapeá-la de volta para a chamada de função original para fazer a validação do código. O tempo limite também é um aspecto importante para garantir a segurança. Isso pode ficar bastante complexo muito rapidamente.
+O Azure Functions comum é sem estado (assim como muitos outros pontos de extremidade de nuvem em outras plataformas), portanto, esses tipos de interações envolvem explicitamente o gerenciamento de estado externamente em um banco de dados ou algum outro armazenamento persistente. Além disso, a interação deve ser dividida em várias funções que possam ser coordenadas juntas. Por exemplo, você precisa de pelo menos uma função para decidir sobre um código, persisti-lo em algum lugar e enviá-lo para o telefone do usuário. Além disso, você precisa de pelo menos uma outra função para receber uma resposta do usuário e, de alguma forma, mapeá-la de volta para a chamada de função original para fazer a validação do código. O tempo limite também é um aspecto importante para garantir a segurança. Isso pode ficar bastante complexo rapidamente.
 
-A complexidade desse cenário é bastante reduzida quando você usa as Funções Duráveis. Como você verá neste exemplo, uma função de orquestrador pode gerenciar a interação com estado muito facilmente, sem envolver nenhum armazenamento de dados externo. Como as funções de orquestrador são *duráveis*, esses fluxos interativos também são altamente confiáveis.
+A complexidade desse cenário é bastante reduzida quando você usa as Funções Duráveis. Como você verá neste exemplo, uma função de orquestrador pode gerenciar a interação com estado facilmente e sem envolver nenhum armazenamento de dados externo. Como as funções de orquestrador são *duráveis*, esses fluxos interativos também são altamente confiáveis.
 
 ## <a name="configuring-twilio-integration"></a>Configurando a integração com o Twilio
 
-Este exemplo envolve o uso do serviço [Twilio](https://www.twilio.com/) para enviar mensagens SMS a um telefone celular. O Azure Functions já tem suporte para Twilio por meio da [Associação com o Twilio](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio) e o exemplo usa esse recurso.
-
-A primeira coisa de que você precisa é uma conta do Twilio. É possível criar uma gratuitamente em https://www.twilio.com/try-twilio. Quando tiver uma conta, adicione as três seguintes **configurações de aplicativo** ao seu aplicativo de função.
-
-| Nome da configuração do aplicativo | Descrição do valor |
-| - | - |
-| **TwilioAccountSid**  | A SID de sua conta do Twilio |
-| **TwilioAuthToken**   | O token de autenticação de sua conta do Twilio |
-| **TwilioPhoneNumber** | O número de telefone associado à sua conta do Twilio. Ele é usado para enviar mensagens SMS. |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>As funções
 
@@ -99,7 +91,7 @@ Essa função **E4_SendSmsChallenge** é chamada apenas uma vez, mesmo que o pro
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 
-Usando as funções disparadas por HTTP incluídas no exemplo, você pode iniciar a orquestração enviando a seguinte solicitação HTTP POST.
+Usando as funções disparadas por HTTP incluídas no exemplo, você pode iniciar a orquestração enviando a seguinte solicitação HTTP POST:
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification

@@ -1,11 +1,11 @@
 ---
-title: "Preparar e testar sua oferta para implantação no Azure Marketplace | Microsoft Docs"
-description: "Instruções detalhadas sobre como fornecer conteúdo de marketing, configurar planos de preços e testar sua oferta antes de implantar o Azure Marketplace."
+title: Preparar e testar sua oferta para implantação no Azure Marketplace | Microsoft Docs
+description: Instruções detalhadas sobre como fornecer conteúdo de marketing, configurar planos de preços e testar sua oferta antes de implantar o Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Concluir a criação de oferta com conteúdo de marketing
 Nesta etapa do processo de publicação, você precisará de fornecer determinados conteúdos de marketing e detalhes sobre a sua oferta e/ou SKUs no Azure Marketplace. Por exemplo, você irá fornecer uma descrição do seu produto, logotipos da empresa, planos de preços, detalhes de planos e outras informações necessárias para enviar sua oferta de e/ou SKU para preparação. Essas informações são usadas como conteúdo de marketing no portal do Azure. Você começará esse processo no [portal de publicação][link-pubportal].
@@ -26,7 +26,7 @@ Nesta etapa do processo de publicação, você precisará de fornecer determinad
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Passo 1: fornecer conteúdo de marketing do Marketplace
 **O inglês é o idioma padrão e o único suportado.** Verifique se todas as informações fornecidas nos campos se encontram em inglês. Todas as informações podem ser editadas em qualquer momento até você enviar por push para o preparo.
 
-1. Acesse o portal de publicação, [https://publish.windowsazure.com](https://publish.windowsazure.com).
+1. Vá para o portal de publicação, [https://publish.windowsazure.com](https://publish.windowsazure.com).
 2. No menu à esquerda, clique na guia **Marketing** .
 3. No painel principal, clique no botão **Inglês (EUA)** .
    
@@ -122,7 +122,7 @@ Para ofertas de Máquina Virtual, depois que uma oferta/SKU é listada no Azure 
 
 ## <a name="step-2-set-your-prices"></a>Etapa 2: Definir seus preços
 ### <a name="pricing-models"></a>Modelos de preços
-| Modelo de preços | Descrição |
+| Modelo de preços | DESCRIÇÃO |
 | --- | --- |
 | Base |Taxa mensal fixa paga no momento da compra, por exemplo, US$10/mês. |
 | Consumo (também chamado de uso, medidor) |Pagamento por uso, que é definido pelo editor da oferta. O excedente não pode ser definido por estação, por usuário, etc., pois não há nenhuma definição que estabelece uma fração de um usuário ou capacidade de cálculo pro rata. O uso é relatado pelo parceiro, por hora. O cliente paga no final do ciclo de cobrança mensal em vez de antecipadamente como é normalmente em planos mensais. |
@@ -139,8 +139,8 @@ Para ofertas de Máquina Virtual, depois que uma oferta/SKU é listada no Azure 
 
 |  | Apenas base | Apenas consumo | Base + Consumo |
 | --- | --- | --- | --- |
-| Imagem de máquina virtual |Não |Sim |Não |
-| Serviço do desenvolvedor |Sim |Sim |Sim |
+| Imagem de máquina virtual |Não  |Sim |Não  |
+| Serviço do desenvolvedor |sim |Sim |sim |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Definir seus preços da VM
 No momento, para as máquinas virtuais, temos os **três tipos de modelos de cobrança a seguir:**
@@ -205,7 +205,7 @@ Siga as etapas abaixo para configurar o modelo de preços por hora para uma SKU:
 ### <a name="212-how-to-setup-byol-pricing-model-for-a-sku"></a>2.1.2 Como configurar o modelo de preços BYOL para uma SKU
 Siga as etapas abaixo para configurar o modelo de preços BYOL para uma SKU:
 
-1. Faça logon no [Portal de publicação](https://publish.windowsazure.com).
+1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
 2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
 3. No menu do lado esquerdo, clique na guia **SKUs** .
 4. Certifique-se de que a SKU esteja marcada como "SKU Traga sua própria licença". Se não estiver, clique no botão EDITAR para reverter o modelo de cobrança. Uma janela será aberta. Marque a caixa de seleção "A cobrança e o licenciamento são realizados fora do Azure (também conhecido como Traga sua própria licença)" e salve as alterações.

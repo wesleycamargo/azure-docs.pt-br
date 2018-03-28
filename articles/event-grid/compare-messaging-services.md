@@ -1,18 +1,18 @@
 ---
-title: "Comparação de serviços de mensagens do Azure"
-description: "Compara o Hubs de Eventos, o Barramento de Serviço e a Grade de Eventos do Azure. Recomenda que serviço usar para cenários diferentes."
+title: Comparação de serviços de mensagens do Azure
+description: Compara o Hubs de Eventos, o Barramento de Serviço e a Grade de Eventos do Azure. Recomenda que serviço usar para cenários diferentes.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre serviços do Azure que entregam mensagens
 
@@ -30,18 +30,22 @@ Há uma distinção importante a observar entre serviços que entregam um evento
 
 ### <a name="event"></a>Evento
 
-Um evento é uma notificação leve de uma ação ou de uma alteração de estado. Os dados do evento contêm informações sobre o que aconteceu, mas não contêm os dados que dispararam o evento. Por exemplo, um evento notifica os assinantes de que um arquivo foi criado. Ele pode conter informações gerais sobre o arquivo, mas não contém o arquivo propriamente dito. Em geral, eventos disparam manipuladores de eventos para atuar em tempo real.
+Um evento é uma notificação leve de uma condição ou de uma alteração de estado. O editor do evento não tem expectativa sobre como o evento é manipulado. O consumidor do evento decide o que fazer com a notificação. Os eventos podem ser unidades discretas ou parte de uma série.
+
+Eventos discretos relatam alterações de estado e são acionáveis. Para dar continuidade, o consumidor apenas precisa saber o que ocorreu. Os dados do evento contêm informações sobre o que aconteceu, mas não contêm os dados que dispararam o evento. Por exemplo, um evento notifica os consumidores que um arquivo foi criado. Ele pode conter informações gerais sobre o arquivo, mas não contém o arquivo propriamente dito. Eventos discretos são ideais para soluções sem servidor que precisam ser dimensionadas.
+
+Eventos de série relatam uma condição e são analisáveis. Os eventos são ordenados por tempo e inter-relacionados. O consumidor precisa da série sequenciada de eventos para analisar o que ocorreu.
 
 ### <a name="message"></a>Mensagem
 
-Uma mensagem é composta de dados brutos produzidos por um serviço para serem consumidos ou armazenados em outro lugar. A mensagem contém os dados que dispararam o pipeline de mensagem. Essa mensagem pode ser qualquer coisa, desde um pedido de comércio eletrônico até telemetria do usuário. Ao contrário do que ocorre em uma notificação de evento, o editor de uma mensagem pode esperar uma resposta. Por exemplo, uma mensagem contém os dados brutos, mas espera a próxima parte do sistema crie um arquivo com base nesses dados.
+Uma mensagem é composta de dados brutos produzidos por um serviço para serem consumidos ou armazenados em outro lugar. A mensagem contém os dados que dispararam o pipeline de mensagem. O editor da mensagem tem uma expectativa sobre como o consumidor manipula a mensagem. Há um contrato entre os dois lados. Por exemplo, o editor envia uma mensagem com os dados brutos e espera que o consumidor crie um arquivo a partir desses dados e envie uma resposta quando o trabalho for concluído.
 
 ## <a name="comparison-of-services"></a>Comparação de serviços
 
 | Serviço | Finalidade | type | Quando usar |
 | ------- | ------- | ---- | ----------- |
-| Grade de Eventos | Programação reativa | Distribuição de eventos | Reagir a alterações de status |
-| Hubs de evento | Pipeline de Big Data | Streaming de Eventos | Telemetria e streaming de dados distribuídos |
+| Grade de Eventos | Programação reativa | Distribuição de eventos (discreto) | Reagir a alterações de status |
+| Hubs de evento | Pipeline de Big Data | Streaming de evento (série) | Telemetria e streaming de dados distribuídos |
 | Barramento de Serviço | Mensagens corporativas de alto valor | Mensagem | Processamento de pedidos e transações financeiras |
 
 ### <a name="event-grid"></a>Grade de Eventos

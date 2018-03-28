@@ -2,24 +2,18 @@
 title: Criar e gerenciar servidores e bancos de dados SQL do Azure | Microsoft Docs
 description: Saiba mais sobre conceitos de banco de dados e servidor de Banco de Dados SQL do Azure e sobre como criar e gerenciar servidores e bancos dados.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: ''
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerenciar servidores e bancos de dados do Banco de Dados SQL
 
@@ -27,7 +21,7 @@ O Banco de Dados SQL oferece três tipos de bancos de dados:
 
 - Um banco de dados individual criado em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de [recursos de computação e armazenamento para cargas de trabalho diferentes](sql-database-service-tiers.md). Um banco de dados SQL do Azure está associado a um servidor lógico de Banco de Dados SQL, que é criado dentro de uma região do Azure específica.
 - Um banco de dados criado como parte de um [pool de bancos de dados](sql-database-elastic-pool.md) em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de [recursos de computação e armazenamento para cargas de trabalho diferentes](sql-database-service-tiers.md) que são compartilhados entre todos os bancos de dados no pool. Um banco de dados SQL do Azure está associado a um servidor lógico de Banco de Dados SQL, que é criado dentro de uma região do Azure específica.
-- Uma [instância de um SQL Server](sql-database-managed-instance.md) criada em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de recursos de computação e armazenamento para todos os bancos de dados nessa instância de servidor. Uma instância gerenciada contém bancos de dados do sistema e de usuário. A Instância Gerenciada foi criada para habilitar o lift-and-shift do banco de dados para um PaaS totalmente gerenciado, sem a necessidade de projetar o aplicativo novamente. A Instância Gerenciada fornece alta compatibilidade com o modelo de programação local do SQL Server e dá suporte à grande maioria dos recursos do SQL Server e a ferramentas e serviços complementares.  
+- Uma [instância de um SQL Server](sql-database-managed-instance.md) (uma Instância Gerenciada) criada em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de recursos de computação e armazenamento para todos os bancos de dados nessa instância de servidor. Uma instância gerenciada contém bancos de dados do sistema e de usuário. A Instância Gerenciada foi criada para habilitar o lift-and-shift do banco de dados para um PaaS totalmente gerenciado, sem a necessidade de projetar o aplicativo novamente. A Instância Gerenciada fornece alta compatibilidade com o modelo de programação local do SQL Server e dá suporte à grande maioria dos recursos do SQL Server e a ferramentas e serviços complementares.  
 
 O Banco de Dados SQL do Microsoft Azure dá suporte ao cliente de protocolo TDS versão 7.3 ou posterior e permite apenas conexões TCP/IP criptografadas.
 
@@ -146,7 +140,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Azure com 
 |[az group create](/cli/azure/group#az_group_create)|Cria um grupos de recursos|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Cria um servidor|
 |[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Lista servidores|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Retorna os usos do servidor|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Retorna os usos do servidor|
 |[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Obtém um servidor|
 |[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Atualiza um servidor|
 |[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Exclui um servidor|
@@ -202,7 +196,6 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Server do 
 |[Servidores - Listar](/rest/api/sql/servers/list)|Retorna uma lista de servidores.|
 |[Servidores - Listar por Grupo de Recursos](/rest/api/sql/servers/listbyresourcegroup)|Retorna uma lista de servidores em um grupo de recursos.|
 |[Servidores - Atualizar](/rest/api/sql/servers/update)|Atualiza um servidor existente.|
-|[Servidores - SQL](/rest/api/sql/servers%20-%20sql)|Determina se um recurso pode ser criado com o nome especificado.|
 |[Banco de Dados – Criar ou Atualizar](/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
 |[Bancos de Dados – Obter](/rest/api/sql/databases/get)|Obtém um banco de dados.|
 |[Bancos de Dados – Obter por Pool Elástico](/rest/api/sql/databases/getbyelasticpool)|Obtém um banco de dados dentro de um pool elástico.|

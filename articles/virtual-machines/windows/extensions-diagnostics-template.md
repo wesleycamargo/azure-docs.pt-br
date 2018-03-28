@@ -1,11 +1,11 @@
 ---
-title: "Adicionar monitoramento e diagnóstico a uma máquina virtual do Azure | Microsoft Docs"
-description: "Use um modelo do Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure."
+title: Adicionar monitoramento e diagnóstico a uma máquina virtual do Azure | Microsoft Docs
+description: Use um modelo do Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: sbtron
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3ea1687e7fb6cc7af00e03b85fb48b0d7911275
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager
 A Extensão Diagnóstico do Azure fornece funcionalidades de monitoramento e diagnóstico em uma máquina virtual do Azure baseada no Windows. É possível habilitar esses recursos na máquina virtual incluindo a extensão como parte do modelo do Azure Resource Manager. Para saber mais sobre como incluir extensões como parte de um modelo de máquina virtual, confira [Criando modelos do Gerenciador de Recursos do Azure com extensões de VM](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) . Este artigo descreve como adicionar a extensão de diagnóstico do Microsoft Azure para a um modelo de máquina virtual do Windows.  
@@ -152,7 +152,7 @@ Se estiver criando várias máquinas virtuais em um loop, você deverá preenche
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-O valor MetricAggregation de *PT1H* e *PT1M* significa uma agregação durante uma hora e uma agregação durante um minuto.
+O valor MetricAggregation de *PT1M* e *PT1H* significa uma agregação ao longo de um minuto e uma agregação ao longo de uma hora, respectivamente.
 
 ## <a name="wadmetrics-tables-in-storage"></a>Tabelas WADMetrics no armazenamento
 A configuração de métricas acima vai gerar tabelas na conta de armazenamento de diagnóstico com as seguintes convenções de nomenclatura:

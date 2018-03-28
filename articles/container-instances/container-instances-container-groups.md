@@ -1,19 +1,19 @@
 ---
-title: "Grupos de contêineres das Instâncias de Contêiner do Azure"
-description: "Entenda como funcionam os grupos de contêineres em Instâncias de Contêiner do Azure"
+title: Grupos de contêineres das Instâncias de Contêiner do Azure
+description: Entenda como funcionam os grupos de contêineres em Instâncias de Contêiner do Azure
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contêineres em Instâncias de Contêiner do Azure
 
@@ -23,19 +23,24 @@ O recurso de nível superior em Instâncias de Contêiner do Azure é um *grupo 
 
 Um grupo de contêineres é uma coleção de contêineres que são agendados no mesmo computador host. Os contêineres de um grupo de contêineres compartilham um ciclo de vida, uma rede local e volumes de armazenamento. Ele é semelhante ao conceito de um *pod* no [Kubernetes][kubernetes-pod] e [DC/SO][dcos-pod].
 
-O diagrama a seguir mostra um exemplo de um grupo de contêineres que inclui vários contêineres.
+O diagrama a seguir mostra um exemplo de um grupo de contêineres que inclui vários contêineres:
 
 ![Diagrama de grupos de contêineres][container-groups-example]
 
 Este grupo de contêineres de exemplo:
 
 * Está agendado em um único computador host.
+* É atribuído um rótulo de nome DNS.
 * Expõe um único endereço IP público, com uma porta exposta.
 * Consiste em dois contêineres. Um contêiner escuta na porta 80, enquanto o outro escuta na porta 5000.
 * Inclui dois compartilhamentos de arquivos do Azure como montagens de volume e cada contêiner monta um dos compartilhamentos localmente.
 
 > [!NOTE]
 > Grupos com vários contêineres são atualmente restritos a contêineres do Linux. Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças atuais de plataforma em [Cotas e disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-quotas.md).
+
+### <a name="deployment"></a>Implantação
+
+**Grupos de contêineres** têm uma alocação de recursos mínima de 1 vCPU e 1 GB de memória. **Contêineres** individuais podem ser provisionados usando menos de 1 vCPU e 1 GB de memória. Dentro de um grupo de contêineres, a distribuição de recursos pode ser personalizada para vários contêineres dentro dos limites estabelecidos no nível de grupo de contêineres. Por exemplo, dois contêineres cada um com 0,5 vCPU dentro de um grupo de contêineres com 1 vCPU alocado.
 
 ### <a name="networking"></a>Rede
 
@@ -47,7 +52,7 @@ Você pode especificar volumes externos para montar dentro de um grupo de contê
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
-Grupos de vários contêineres são úteis em casos nos quais você deseja dividir uma única tarefa funcional em um pequeno número de imagens de contêiner, que podem ser entregues por equipes diferentes e têm requisitos de recursos separados.
+Grupos de vários contêineres são úteis quando você deseja dividir uma única tarefa funcional em um pequeno número de imagens de contêiner. Essas imagens podem, então, ser fornecidas por equipes diferentes e têm requisitos de recursos separados.
 
 Os exemplos de uso podem incluir:
 

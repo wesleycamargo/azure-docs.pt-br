@@ -57,10 +57,12 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
     Uma conta de armazenamento premium dá suporte a armazenamento com redundância local somente como a opção de replicação. O armazenamento com redundância local mantém três cópias dos dados em uma única região. Para recuperação de desastres regionais, você deve fazer backup os discos VM em uma região diferente usando o [Backup do Azure](../articles/backup/backup-introduction-to-azure-backup.md). Você também deve usar uma conta de armazenamento com redundância geográfica (GRS) como o cofre de backup. 
 
-    O Azure usa a conta de armazenamento como contêiner para seus discos não gerenciados. Quando você cria uma VM do Azure da série DS, série DSv2, série GS, ou série Fs com discos não gerenciados e seleciona uma conta de armazenamento premium, o sistema operacional e discos de dados são armazenados na conta de armazenamento.
+    O Azure usa a conta de armazenamento como contêiner para seus discos não gerenciados. Quando você cria uma VM do Azure que fornece suporte ao Armazenamento Premium com discos não gerenciados e seleciona uma conta de Armazenamento Premium, o sistema operacional e os discos de dados são armazenados nessa conta de armazenamento.
 
 ## <a name="supported-vms"></a>VMs com suporte
-O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS, Ls, Fs e B. Você pode usar os discos do Armazenamento Standard e Premium com esses tipos de VM. Não é possível usar discos de Armazenamento Premium com séries de VM que não são compatíveis com o Armazenamento Premium.
+
+O Armazenamento Premium fornece suporte para as VMs das séries B, DS, DSv2, DSv3, GS, Ls, M e Fs. Você pode usar os discos do Armazenamento Standard e Premium com esses tipos de VM. Não é possível usar discos de Armazenamento Premium com séries de VM que não são compatíveis com o Armazenamento Premium.
+
 
 Para obter informações sobre tipos de VM e tamanhos no Azure para Windows, confira [Tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md). Para obter informações sobre tipos de VM e tamanhos no Azure para Linux, confira [Tamanhos de VM Linux](../articles/virtual-machines/linux/sizes.md).
 

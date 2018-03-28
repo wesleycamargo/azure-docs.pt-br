@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: b40858640d10e5661be420976520774bd50837cb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault
 
@@ -28,7 +28,7 @@ Por que criar suas próprias chaves? Chaves personalizadas oferecem mais flexibi
 
 Para usar chaves gerenciadas pelo cliente com SSE, crie um novo cofre de chaves e uma nova chave ou use um cofre de chaves e uma chave existentes. A conta de armazenamento e o cofre de chaves devem estar na mesma região, mas podem estar em assinaturas diferentes. 
 
-### <a name="step-1-create-a-storage-account"></a>Etapa 1: criar uma conta de armazenamento
+### <a name="step-1-create-a-storage-account"></a>Etapa 1: Criar uma conta de armazenamento
 
 Se você não tiver uma, crie uma conta de armazenamento. Para saber mais sobre como [Criar uma nova conta de armazenamento](storage-quickstart-create-account.md).
 
@@ -81,6 +81,7 @@ Para especificar a chave de um URI, siga estas etapas:
 
     ![Captura de tela do portal mostrando a opção Inserir URI da chave da Criptografia](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+
 #### <a name="specify-a-key-from-a-key-vault"></a>Especificar uma chave de um cofre de chaves 
 
 Para especificar a chave de um cofre de chaves, siga estas etapas:
@@ -96,6 +97,17 @@ Se a conta de armazenamento não tiver acesso ao cofre de chaves, execute o coma
 ![Captura de tela do portal mostrando o acesso negado ao cofre de chaves](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 Você também pode conceder acesso por meio do Portal do Azure indo até o Azure Key Vault no Portal do Azure e concedendo acesso à conta de armazenamento.
+
+
+Você pode associar a chave acima a uma conta de armazenamento existente usando os seguintes comandos do PowerShell:
+```powershell
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+```
+
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Etapa 5: Copiar dados para a conta de armazenamento
 
@@ -129,13 +141,13 @@ R: Não, a conta de armazenamento assim como a chave e o Azure Key Vault precisa
 
 **P: Posso habilitar as chaves gerenciadas pelo cliente com a SSE durante a criação da conta de armazenamento?**
 
-R: Não. Quando você cria a conta de armazenamento, somente as chaves gerenciadas pela Microsoft estão disponíveis para SSE. Para usar chaves gerenciadas pelo cliente, precisará atualizar as propriedades da conta de armazenamento. Use a REST ou uma das bibliotecas de clientes do armazenamento para atualizar de forma programática a conta de armazenamento ou atualizar as propriedades da conta de armazenamento usando o Portal do Azure após a criação da conta.
+R: não. Quando você cria a conta de armazenamento, somente as chaves gerenciadas pela Microsoft estão disponíveis para SSE. Para usar chaves gerenciadas pelo cliente, precisará atualizar as propriedades da conta de armazenamento. Use a REST ou uma das bibliotecas de clientes do armazenamento para atualizar de forma programática a conta de armazenamento ou atualizar as propriedades da conta de armazenamento usando o Portal do Azure após a criação da conta.
 
 **P: Posso desabilitar a criptografia durante o uso da chaves gerenciadas pelo cliente com SSE?**
 
 R: Não, não é possível desabilitar a criptografia. Por padrão, a criptografia é habilitada para todos os serviços, armazenamento de Blobs, de arquivos, tabelas e filas. Como alternativa, você pode alternar o uso das chaves gerenciadas pela Microsoft pelo das chaves gerenciadas pelo cliente e vice-versa.
 
-**P: A SSE é habilitado por padrão quando eu crio uma nova conta de armazenamento?**
+**P: O SSE é habilitado por padrão quando eu crio uma nova conta de armazenamento?**
 
 R: A SSE é habilitada por padrão para todas as contas de armazenamento e para todos os serviços de armazenamento de Blobs, de arquivos, tabelas e filas.
 

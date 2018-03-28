@@ -1,12 +1,12 @@
 ---
-title: "Configurar clusters HDInsight ingressados no domínio usando o Azure Active Directory Domain Services – Azure | Microsoft Docs"
-description: "Saiba como instalar e configurar clusters HDInsight ingressados no domínio usando o Azure Active Directory Domain Services"
+title: Configurar clusters HDInsight ingressados no domínio usando o Azure Active Directory Domain Services – Azure | Microsoft Docs
+description: Saiba como instalar e configurar clusters HDInsight ingressados no domínio usando o Azure Active Directory Domain Services
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clusters HDInsight ingressados no domínio usando o Azure Active Directory Domain Services
 
@@ -56,6 +56,9 @@ Quando você cria um cluster HDInsight ingressado no domínio, você deve fornec
 - **Unidade Organizacional**: Insira o nome diferenciado da UO que você deseja usar com o cluster HDInsight. Por exemplo: OU = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Se essa UO não existir, o cluster HDInsight tentará criá-la. 
 - **URL LDAPS**: Por exemplo, ldaps://contoso.onmicrosoft.com:636
 - **Acessar grupo de usuários**: Especifique o grupo de segurança cujos usuários você deseja sincronizar com o cluster. Por exemplo, HiveUsers. Se você quiser especificar vários grupos de usuários, separe-os por vírgula ','.
+ 
+> [!NOTE]
+> Como o Apache Zeppelin usa o nome de domínio para autenticar a conta de serviço administrativo, a conta de serviço DEVE ter o mesmo nome de domínio que o sufixo UPN para que o Apache Zeppelin funcione corretamente.
  
 A seguinte captura de tela mostra a configuração no Portal do Azure:
 

@@ -1,12 +1,12 @@
 ---
 title: Usar o DPM para fazer backup de cargas de trabalho no Portal do Azure | Microsoft Docs
-description: "Uma introdução ao backup de servidores de DPM usando o serviço de Backup do Azure"
+description: Uma introdução ao backup de servidores de DPM usando o serviço de Backup do Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: 
-keywords: "Gerenciador de proteção de dados do System Center, gerenciador de proteção de dados, backup do dpm"
+editor: ''
+keywords: Gerenciador de proteção de dados do System Center, gerenciador de proteção de dados, backup do dpm
 ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparando-se para fazer backup de cargas de trabalho no Azure com o DPM
 > [!div class="op_single_selector"]
@@ -43,27 +43,29 @@ Este artigo fornece uma introdução ao uso do Backup do Microsoft Azure para pr
 O [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) faz backup dos dados de arquivos e aplicativos. Mais informações sobre as cargas de trabalho compatíveis podem ser encontradas [aqui](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). O backup dos dados no DPM pode ser feito em fita, em disco, ou no Azure com o Backup do Microsoft Azure. O DPM interage com o Backup do Azure da seguinte maneira:
 
 * **DPM implantado como servidor físico ou máquina virtual local** – se o DPM for implantado como servidor físico ou máquina virtual local Hyper-V, é possível fazer backup dos dados em um cofre dos Serviços de Recuperação além do backup em disco e em fita.
-* **DPM implantado como máquina virtual do Azure** — No System Center 2012 R2 com atualização 3, o DPM pode ser implantado como máquina virtual do Azure. Se o DPM for implantado como uma máquina virtual do Azure, você pode fazer backup de dados em discos do Azure anexados à máquina virtual do DPM Azure, ou você pode descarregar o armazenamento de dados fazendo o backup em um cofre dos Serviços de Recuperação.
+* **DPM implantado como uma máquina virtual do Azure** — A partir do System Center 2012 R2 com a Atualização 3 ativada, você pode implantar o DPM em uma máquina virtual do Azure. Se o DPM for implantado como uma máquina virtual do Azure, você poderá fazer backup de dados em discos do Azure anexados à VM ou descarregar o armazenamento de dados fazendo backup em uma área segura dos Serviços de Recuperação.
 
-## <a name="why-backup-from-dpm-to-azure"></a>Por que fazer backup do DPM no Azure?
-Os benefícios comerciais do uso do Backup do Azure para backup de servidores DPM são:
+## <a name="why-back-up-dpm-to-azure"></a>Por que fazer backup do DPM no Azure?
+Os benefícios comerciais do backup de servidores DPM para o Azure incluem:
 
-* Para implantação do DPM no local, você pode usar o Azure como uma alternativa para implantação de longo prazo em fita.
-* Para implantações do DPM no Azure, o Azure Backup permite descarregar armazenamento do disco do Azure, permitindo escalar verticalmente armazenando dados mais antigos no cofre dos Serviços de Recuperação e novos dados no disco.
+* Para implantação do DPM no local, utilize o Azure como uma alternativa à implantação de longo prazo em fita.
+* Para implantar o DPM em uma VM no Azure, descarregue o armazenamento do disco do Azure. O armazenamento de dados mais antigos no cofre dos Serviços de Recuperação permite escalar verticalmente os negócios, armazenando novos dados no disco.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Prepare o Backup do Azure para fazer backup dos dados do DPM da seguinte maneira:
 
 1. **Criar um cofre dos Serviços de Recuperação** – crie um cofre no portal do Azure.
-2. **Baixar credenciais do cofre** – baixe as credenciais que você usa para registrar o servidor DPM no cofre dos Serviços de Recuperação.
-3. **Instalar o Agente de Backup do Azure** — no Backup do Azure, instale o agente em cada servidor DPM.
-4. **Registrar o servidor** — registre o servidor DPM no cofre de Serviços de Recuperação.
+2. **Baixar credenciais do cofre** – baixe as credenciais que você usa para registrar o servidor DPM com a área segura dos Serviços de Recuperação.
+3. **Instalar o Agente de Backup do Azure** — Instale o agente em cada servidor DPM.
+4. **Registrar o servidor** — Registre o servidor DPM com o cofre dos Serviços de Recuperação.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="key-definitions"></a>Definições importantes
 Aqui estão algumas definições importantes do backup para Azure for DPM:
 
-1. **Credencial do Cofre** — As Credenciais do Cofre são necessárias para autenticar o computador para enviar os dados de backup para um cofre identificado no serviço de Backup do Azure. Ela pode ser baixada do cofre e é válida por 48 horas.
-2. **Senha** — A Senha é usada para criptografar os backups para a nuvem. Salve o arquivo em um local seguro, pois ela é obrigatória durante uma operação de recuperação.
+1. **Credencial do Cofre** — As Credenciais do Cofre são necessárias para autenticar o computador para enviar os dados de backup para um cofre identificado no serviço de Backup do Azure. Pode ser baixado do cofre e é válido por 48 horas.
+2. **Senha** — A Senha é usada para criptografar os backups para a nuvem. Salve o arquivo em um local seguro, ele será obrigatório durante uma operação de recuperação.
 3. **PIN de Segurança** — Se você tiver habilitado as [Configurações de Segurança](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) do cofre, o PIN de Segurança será necessário para executar operações de backup essenciais. Essa autenticação multifator adiciona outra camada de segurança. 
 4. **Pasta de recuperação** — é a frase para a qual os backups da nuvem são temporariamente baixados durante recuperações de nuvem. Seu tamanho deve ser aproximadamente igual ao tamanho dos itens de backup que você deseja recuperar em paralelo.
 
@@ -71,7 +73,7 @@ Aqui estão algumas definições importantes do backup para Azure for DPM:
 ### <a name="1-create-a-recovery-services-vault"></a>1. Criar um cofre dos Serviços de Recuperação
 Para criar um cofre dos Serviços de Recuperação:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)
@@ -81,7 +83,7 @@ Para criar um cofre dos Serviços de Recuperação:
 
     ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    A folha do cofre dos Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
+    O menu do cofre dos Serviços de Recuperação será aberto, solicitando que você forneça um **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 5](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
 4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
@@ -96,8 +98,8 @@ A opção de replicação de armazenamento permite que você escolha entre o arm
 
 Para editar a configuração de replicação de armazenamento:
 
-1. Selecione seu cofre para abrir o painel do cofre e a folha Configurações. Se a folha **Configurações** não abrir, clique em **Todas as configurações** no painel do cofre.
-2. Na folha **Configurações**, clique em Infraestrutura de **Backup** > **Configuração de Backup** para abrir a folha **Configuração de Backup**. Na folha **Configuração de Backup** , escolha a opção de replicação de armazenamento para seu cofre.
+1. Selecione o cofre para abrir o painel do cofre e o menu Configurações. Se o menu **Configurações** não abrir, clique em **Todas as configurações** no painel do cofre.
+2. No menu **Configurações**, clique em Infraestrutura de **Backup** > **Configuração de Backup** para abrir o menu **Configuração de Backup**. No menu **Configuração de Backup**, escolha a opção de replicação de armazenamento para o cofre.
 
     ![Lista de cofres de backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -110,11 +112,11 @@ As credenciais do cofre são usadas somente durante o fluxo de trabalho de regis
 
 O arquivo de credencial do cofre é baixado por meio de um canal seguro no Portal do Azure. O serviço de Backup do Azure não tem conhecimento da chave privada do certificado e a chave privada não é mantida no portal nem no serviço. Use as etapas a seguir para baixar o arquivo de credenciais do cofre para um computador local.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Abra o cofre dos Serviços de Recuperação no qual você deseja registrar o computador do DPM.
-3. A folha de configurações abre por padrão. Se estiver fechada, clique em **Configurações** no painel do cofre para abrir a folha de configurações. Na folha Configurações, clique em **Propriedades**.
+3. O menu de configurações abre por padrão. Se estiver fechado, clique em **Configurações** no painel do cofre para abrir o menu de configurações. No menu Configurações, clique em **Propriedades**.
 
-    ![Abrir a folha do cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Menu Abrir Cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. Na página Propriedades, clique em **Baixar** em **Credenciais de Backup**. O portal gera o arquivo de credencial de cofre, que fica disponível para download.
 
     ![Baixar](./media/backup-azure-dpm-introduction/vault-credentials.png)
@@ -130,9 +132,9 @@ O portal gerará uma credencial de cofre usando uma combinação do nome do cofr
 Após a criação do cofre de Backup do Azure, um agente deverá ser instalado em cada um dos computadores com o Windows (o Windows Server, o cliente do Windows, o servidor do System Center Data Protection Manager ou o computador do Azure Backup Server), o que permitirá o backup de dados e de aplicativos no Azure.
 
 1. Abra o cofre dos Serviços de Recuperação no qual você deseja registrar o computador do DPM.
-2. A folha de configurações abre por padrão. Se ela estiver fechada, clique em **Configurações** para abrir a folha de configurações. Na folha Configurações, clique em **Propriedades**.
+2. O menu de configurações abre por padrão. Se estiver fechado, clique em **Configurações** para abrir o menu de configurações. No menu Configurações, clique em **Propriedades**.
 
-    ![Abrir a folha do cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Menu Abrir Cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Na página de Configurações, clique em **Baixar** no **Agente de Backup do Azure**.
 
     ![Baixar](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
@@ -179,7 +181,7 @@ Após a criação do cofre de Backup do Azure, um agente deverá ser instalado e
 * O servidor DPM deve ter o Windows PowerShell e o .net Framework 4.5 instalados.
 * O DPM pode fazer backup da maioria das cargas de trabalho no Backup do Azure. Para obter uma lista completa do que tem suporte, consulte os itens de suporte do Backup do Azure abaixo.
 * Os dados armazenados no Backup do Azure não podem ser recuperados com a opção "copiar em fita".
-* Você precisará de uma conta Azure com o recurso de Backup do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
+* Você precisará de uma conta Azure com o recurso de Backup do Azure habilitado. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
 * O uso o Backup do Azure requer que o Agente de Backup do Azure esteja instalado nos servidores onde você deseja fazer backup. Cada servidor deve ter pelo menos 5% do tamanho dos dados de que está sendo feito backup, disponível como armazenamento local livre. Por exemplo, um backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização temporária.
 * Os dados serão armazenados no armazenamento do cofre do Azure. Não há nenhum limite para a quantidade de dados de backup em um cofre de Backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, máquina virtual ou banco de dados) não deve ultrapassar 54400 GB.
 

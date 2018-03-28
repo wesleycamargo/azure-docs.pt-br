@@ -1,18 +1,18 @@
 ---
-title: "Segurança e autenticação da Grade de Eventos do Azure"
+title: Segurança e autenticação da Grade de Eventos do Azure
 description: Descreve a Grade de Eventos do Azure e seus conceitos.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -24,9 +24,9 @@ A Grade de Eventos do Azure tem três tipos de autenticação:
 
 ## <a name="webhook-event-delivery"></a>Entrega de eventos do WebHook
 
-Webhooks são uma dentre várias maneiras de receber eventos em tempo real da Grade de Eventos do Azure. Sempre que houver um novo evento pronto para ser entregue, o Webhook da Grade de Eventos enviará uma solicitação HTTP para o ponto de extremidade HTTP configurado com o evento no corpo.
+Webhooks são uma dentre várias maneiras de receber eventos da Grade de Eventos do Azure. Quando um novo evento estiver pronto, o Webhook da Grade de Eventos enviará uma solicitação HTTP para o ponto de extremidade HTTP configurado com o evento no corpo.
 
-Quando você registra seu próprio ponto de extremidade de WebHook com a Grade de Eventos, ele envia uma solicitação POST com um código de validação simples para comprovar a propriedade do ponto de extremidade. Seu aplicativo precisa responder retornando o código de validação como eco. A Grade de Eventos não fornece eventos para pontos de extremidade do WebHook que não foram aprovados na validação.
+Quando você registra seu próprio ponto de extremidade de WebHook com a Grade de Eventos, ele envia uma solicitação POST com um código de validação simples para comprovar a propriedade do ponto de extremidade. Seu aplicativo precisa responder retornando o código de validação como eco. A Grade de Eventos não entrega eventos para pontos de extremidade do WebHook que não passaram na validação.
 
 ### <a name="validation-details"></a>Detalhes da validação
 
@@ -34,6 +34,7 @@ Quando você registra seu próprio ponto de extremidade de WebHook com a Grade d
 * O evento contém um valor de cabeçalho "Aeg-Event-Type: SubscriptionValidation".
 * O corpo do evento tem o mesmo esquema que outros eventos da Grade de Eventos.
 * Os dados do evento incluem uma propriedade "validationCode" com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13…".
+* A matriz contém apenas o evento de validação. Outros eventos serão enviados em uma solicitação separada, após retornar o código de validação.
 
 Um SubscriptionValidationEvent de exemplo é mostrado no exemplo a seguir:
 
@@ -52,7 +53,7 @@ Um SubscriptionValidationEvent de exemplo é mostrado no exemplo a seguir:
 }]
 ```
 
-Para provar a propriedade do ponto de extremidade, retorne o código de validação na propriedade validationResponse como eco, como mostrado no exemplo a seguir:
+Para provar a propriedade do pronto de extremidade, retorne o código de validação na propriedade validationResponse, conforme mostrado no exemplo a seguir:
 
 ```json
 {
@@ -65,11 +66,11 @@ Para provar a propriedade do ponto de extremidade, retorne o código de validaç
 
 Ao editar a Assinatura de Evento, os parâmetros de consulta não serão exibidos nem retornados, a menos que o parâmetro [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) seja usado na [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) do Azure.
 
-Por fim, é importante observar que a Grade de Eventos do Azure oferece suporte apenas a pontos de extremidade HTTPS do webhook.
+Por fim, é importante observar que a Grade de Eventos do Azure oferece suporte apenas a ponto de extremidade do webhook HTTPS.
 
 ## <a name="event-subscription"></a>Assinatura do evento
 
-Para assinar um evento, você deve ter a permissão **Microsoft.EventGrid/EventSubscriptions/Write** no recurso exigido. Essa permissão é necessária porque você está escrevendo uma nova assinatura no escopo do recurso. O recurso necessário varia de acordo com se você estiver assinando um tópico de sistema ou um tópico personalizado. Ambos os tipos são descritos nesta seção.
+Para assinar um evento, você deve ter a permissão **Microsoft.EventGrid/EventSubscriptions/Write** no recurso exigido. Essa permissão é necessária porque está gravando uma nova assinatura no escopo do recurso. O recurso necessário varia de acordo com se você estiver assinando um tópico de sistema ou um tópico personalizado. Ambos os tipos são descritos nesta seção.
 
 ### <a name="system-topics-azure-service-publishers"></a>Tópicos do sistema (publicadores de serviço do Azure)
 
@@ -79,7 +80,7 @@ Por exemplo, para assinar um evento em uma conta de armazenamento chamada **myac
 
 ### <a name="custom-topics"></a>Tópicos personalizados
 
-Para tópicos personalizados, você precisa de permissão para gravar uma nova assinatura de evento no escopo do tópico da Grade de Evento. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Para tópicos personalizados, você precisa de permissão para gravar uma nova assinatura de evento no escopo do tópico da grade de eventos. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
 Por exemplo, para assinar um tópico personalizado chamado **mytopic**, você precisa da permissão Microsoft.EventGrid/EventSubscriptions/Write em: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Os tokens SAS para a Grade de Eventos incluem o recurso, um tempo de expiração e uma assinatura. O formato do token SAS é: `r={resource}&e={expiration}&s={signature}`.
 
-O recurso é o caminho para o tópico ao qual você está enviando eventos. Por exemplo, um caminho de recurso válido é:`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+O recurso é o caminho para o tópico da grade de eventos para o qual você está enviando eventos. Por exemplo, um caminho de recurso válido é:`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Você gera a assinatura de uma chave.
 
@@ -140,7 +141,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Controle de acesso de gerenciamento
 
-A Grade de Eventos do Azure permite que você controle o nível de acesso concedido a usuários diferentes para execução de várias operações de gerenciamento, como listar assinaturas de evento, criar novos e gerar chaves. A Grade de Eventos utiliza a verificação RBAC (Verificação de acesso com base em função) do Azure.
+A Grade de Eventos do Azure permite que você controle o nível de acesso concedido a usuários diferentes para execução de várias operações de gerenciamento, como listar assinaturas de evento, criar novos e gerar chaves. A Grade de Eventos usa o RBAC (Controle de Acesso Baseado em Função) do Azure.
 
 ### <a name="operation-types"></a>Tipos de operação
 

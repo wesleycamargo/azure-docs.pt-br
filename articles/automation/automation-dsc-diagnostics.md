@@ -1,23 +1,20 @@
 ---
-title: "Encaminhar dados de relatório DSC de Automação do Azure para o OMS Log Analytics | Microsoft Docs"
-description: "Este artigo demonstra como enviar dados de relatório de DSC (Configuração de Estado Desejado) para Gerenciamento e Log Analytics do Microsoft Operations Management Suite para fornecer informações adicionais."
+title: Encaminhar dados de relatório DSC de Automação do Azure para o Log Analytics
+description: Este artigo demonstra como enviar dados de relatório DSC (Desired State Configuration) ao Log Analytics para fornecer informações e gerenciamento adicionais.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Encaminhar dados de relatório DSC de Automação do Azure para o OMS Log Analytics
 
@@ -30,7 +27,7 @@ O status de conformidade é visível no Portal do Azure, ou com o PowerShell, pa
 * Correlacionar o status de conformidade em contas de Automação
 * Visualizar o histórico de conformidade do nó ao longo do tempo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para começar a enviar seus relatórios de DSC de Automação para Log Analytics, você precisará do seguinte:
 
@@ -121,7 +118,7 @@ O diagnóstico da Automação do Azure cria duas categorias de registros no Log 
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | TimeGenerated |Data e hora quando a verificação de conformidade foi executada. |
 | OperationName |DscNodeStatusData |
@@ -152,7 +149,7 @@ O diagnóstico da Automação do Azure cria duas categorias de registros no Log 
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | TimeGenerated |Data e hora quando a verificação de conformidade foi executada. |
 | OperationName |DscResourceStatusData|

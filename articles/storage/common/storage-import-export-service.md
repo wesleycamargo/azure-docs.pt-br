@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento do Azure
 Neste artigo, apresentamos instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para transferir com segurança grandes quantidades de dados para o armazenamento de Blobs e do Azure e Arquivos do Azure enviando unidades de disco para um data center do Azure. Este serviço também pode ser usado para transferir dados do armazenamento do Azure para as discos rígidos e enviá-los aos seu site local. Os dados de uma única unidade de disco SATA interna podem ser importados para o armazenamento de Blobs do Azure ou para o os Arquivos do Azure. 
@@ -31,13 +31,13 @@ Siga as etapas abaixo caso os dados no disco tenham de ser importados para o Arm
 1.  Crie um único volume NTFS em cada disco rígido e atribua uma letra de unidade ao volume. Não há pontos de montagem.
 2.  Para habilitar a criptografia no computador com Windows, habilite a criptografia BitLocker no volume NTFS. Use as instruções em https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
 3.  Copie completamente os dados para estes volumes NTFS criptografados únicos em discos usando copiar e colar ou arrastar e colar ou Robocopy ou qualquer uma dessas ferramentas.
-7.  Baixar WAImportExport V1 de https://www.microsoft.com/en-us/download/details.aspx?id=42659
+7.  Baixar WAImportExport V1 a partir de https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Descompacte para a pasta padrão waimportexportv1. Por exemplo, C:\WaImportExportV1  
 9.  Execute como Administrador e abra um PowerShell ou uma Linha de Comando e altere o diretório para a pasta descompactada. Por exemplo, cd C:\WaImportExportV1
 10. Copie a linha de comando a seguir em um editor de texto e edite-a para criar uma linha de comando:
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     As opções de linha de comando estão descritas na tabela a seguir:
@@ -47,16 +47,16 @@ Siga as etapas abaixo caso os dados no disco tenham de ser importados para o Arm
     |/j:     |O nome do arquivo de diário, com a extensão .jrn. Um arquivo de diário é gerado por unidade. É recomendável usar o número de série do disco como o nome de arquivo de diário.         |
     |/sk:     |A chave de conta de Armazenamento do Microsoft Azure.         |
     |/t:     |A letra da unidade do disco a ser enviado. Por exemplo, unidade `D`.         |
-    |/bk:     |A chave do BitLocker para a unidade.         |
+    |/bk:     |A chave do BitLocker para a unidade. O código de acesso da saída de ` manage-bde -protectors -get D: `      |
     |/srcdir:     |A letra da unidade do disco a ser enviado seguida por `:\`. Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contêiner de destino no Armazenamento do Microsoft Azure         |
-
+    |/skipwrite:     |A opção que especifica que não há novos dados necessários a serem copiados e que os dados existentes no disco devem ser preparados         |
 1. Repita a etapa 10 para cada disco que precisa ser enviado.
 2. Um arquivo de diário com o nome fornecido com o parâmetro /j: é criado para cada execução da linha de comando.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Etapa 2: Criar um trabalho de importação no Portal do Azure.
 
-1. Faça logon em https://portal.azure.com/ e em Mais serviços -> ARMAZENAMENTO -> "Importar/exportar trabalhos" Clique em **Criar Trabalho de Importação/Exportação**.
+1. Faça logon em https://portal.azure.com/ e em Mais serviços -> ARMAZENAMENTO -> "Trabalhos de importação/exportação" Clique em **Criar trabalho de importação/exportação**.
 
 2. Na seção Básico, selecione "Importar para o Azure", digite uma cadeia de caracteres para nome do trabalho, selecione uma assinatura, insira ou selecione um grupo de recursos. Digite um nome descritivo para o trabalho de importação. Observe que o nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar com letra e não pode conter espaços. Você usará o nome escolhido para acompanhar os trabalhos enquanto eles estiverem em andamento e quando eles estiverem concluídos.
 

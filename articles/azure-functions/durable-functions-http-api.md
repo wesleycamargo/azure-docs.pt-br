@@ -1,12 +1,12 @@
 ---
-title: "APIs HTTP nas Funções Duráveis – Azure"
-description: "Saiba como implementar APIs HTTP na extensão de Funções Duráveis do Azure Functions."
+title: APIs HTTP nas Funções Duráveis – Azure
+description: Saiba como implementar APIs HTTP na extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: bb5361022e4c9693812753ae33df5aeb037b5aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa5d9e66912bdeffdf553ddc0cb7d3feb0a5b77
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs HTTP nas Funções Duráveis (Azure Functions)
 
@@ -28,7 +28,8 @@ A extensão de Tarefa Durável expõe um conjunto de APIs HTTP que podem ser usa
 * Enviar um evento a uma instância de orquestração em espera.
 * Encerrar uma instância de orquestração em execução.
 
-Cada uma dessas APIs HTTP é uma operação de webhook tratada diretamente pela extensão de Tarefa Durável. Eles não são específicas a nenhuma função do aplicativo de funções.
+
+Cada uma dessas APIs HTTP é uma operação de webhook manipulada diretamente pela extensão de Tarefa Durável. Eles não são específicas a nenhuma função do aplicativo de funções.
 
 > [!NOTE]
 > Essas operações também podem ser invocadas diretamente usando as APIs de gerenciamento de instância na classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Para obter mais informações, consulte [Gerenciamento de Instâncias](durable-functions-instance-management.md).
@@ -41,7 +42,7 @@ A classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-du
 
 Esta função de exemplo produz os seguintes dados de resposta JSON. O tipo de dados de todos os campos é `string`.
 
-| Campo             |Descrição                           |
+| Campo             |DESCRIÇÃO                           |
 |-------------------|--------------------------------------|
 | ID                |A ID da instância de orquestração. |
 | statusQueryGetUri |A URL de status da instância de orquestração. |
@@ -78,18 +79,20 @@ A resposta HTTP mencionada anteriormente foi criada para ajudar a implementar AP
 Este protocolo permite coordenar processos de execução longa com clientes ou serviços externos que dão suporte a sondar um ponto de extremidade HTTP e a seguir o cabeçalho `Location`. As partes fundamentais já fazem parte das APIs HTTP das Funções Duráveis.
 
 > [!NOTE]
-> Todas as ações baseadas em HTTP fornecidas pelos [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/) dão suporte ao padrão de operação assíncrona padrão. Isso possibilita inserir uma função durável de execução longa como parte de um fluxo de trabalho dos Aplicativos Lógicos. Mais detalhes sobre o suporte dos Aplicativos Lógicos a padrões de HTTP assíncronos podem ser encontrados na [Documentação de ações e gatilhos de fluxo de trabalho dos Aplicativos Lógicos do Azure](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> Todas as ações baseadas em HTTP fornecidas pelos [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/) dão suporte ao padrão de operação assíncrona padrão. Essa capacidade possibilita inserir uma função durável de execução longa como parte de um fluxo de trabalho dos Aplicativos Lógicos. Mais detalhes sobre o suporte dos Aplicativos Lógicos a padrões de HTTP assíncronos podem ser encontrados na [Documentação de ações e gatilhos de fluxo de trabalho dos Aplicativos Lógicos do Azure](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## <a name="http-api-reference"></a>Referência de API HTTP
 
 Todas as APIs HTTP implementadas pela extensão têm os seguintes parâmetros. O tipo de dados de todos os parâmetros é `string`.
 
-| Parâmetro  | Tipo de Parâmetro  | Descrição |
+| Parâmetro  | Tipo de Parâmetro  | DESCRIÇÃO |
 |------------|-----------------|-------------|
 | instanceId | URL             | A ID da instância de orquestração. |
 | taskHub    | Cadeia de consulta    | O nome do [hub de tarefas](durable-functions-task-hubs.md). Se não for especificado, o nome do hub de tarefas do aplicativo de funções será presumido. |
 | connection | Cadeia de consulta    | O **nome** da cadeia de conexão para a conta de armazenamento. Se não for especificada, a cadeia de conexão padrão do aplicativo de funções será presumida. |
 | systemKey  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
+| showHistory| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído na carga da resposta.| 
+| showHistoryOutput| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, as saídas da atividade serão incluídas no histórico de execução da orquestração.| 
 
 `systemKey` é uma chave de autorização gerada automaticamente pelo host do Azure Functions. Ela concede acesso especificamente às APIs da extensão de Tarefas Duráveis e pode ser gerenciada da mesma maneira que as [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). A maneira mais simples de descobrir o valor de `systemKey` é usar a API `CreateCheckStatusResponse` mencionada anteriormente.
 
@@ -110,10 +113,10 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 O formato do Functions 2.0 tem os mesmos parâmetros, mas tem um prefixo de URL ligeiramente diferente:
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-#### <a name="response"></a>Resposta
+#### <a name="response"></a>Response
 
 Vários valores de código de status possíveis podem ser retornados.
 
@@ -122,29 +125,68 @@ Vários valores de código de status possíveis podem ser retornados.
 * **HTTP 400 (Solicitação incorreta)**: a instância especificada falhou ou foi encerrada.
 * **HTTP 404 (Não encontrado)**: a instância especificada não existe ou não começou a ser executada.
 
-A carga de resposta para os casos de **HTTP 200** e **HTTP 202** é um objeto JSON com os campos a seguir.
+A carga de resposta para os casos de **HTTP 200** e **HTTP 202** é um objeto JSON com os campos a seguir:
 
-| Campo           | Tipo de dados | Descrição |
+| Campo           | Tipo de dados | DESCRIÇÃO |
 |-----------------|-----------|-------------|
 | runtimeStatus   | string    | O status de tempo de execução da instância. Os valores incluem *Em execução*, *Pendente*, *Falha*, *Cancelado*, *Encerrado*, *Concluído*. |
 | input           | JSON      | Os dados JSON usados para inicializar a instância. |
 | output          | JSON      | A saída JSON da instância. Este campo será `null` se a instância não estiver no estado concluído. |
 | createdTime     | string    | A hora em que a instância foi criada. Usa a notação estendida ISO 8601. |
 | lastUpdatedTime | string    | A hora em que a instância foi persistida pela última vez. Usa a notação estendida ISO 8601. |
+| historyEvents   | JSON      | Uma matriz JSON contendo o histórico de execução da orquestração. Esse campo é `null`, exceto se o parâmetro da cadeia de caracteres de consulta `showHistory` estiver definido como `true`.  | 
 
-Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
+Aqui está um exemplo de carga de resposta, incluindo o histórico de execução de orquestração e saídas de atividades (formatado para legibilidade):
 
 ```json
 {
-  "runtimeStatus": "Completed",
-  "input": null,
-  "output": [
-    "Hello Tokyo!",
-    "Hello Seattle!",
-    "Hello London!"
+  "createdTime": "2018-02-28T05:18:49Z",
+  "historyEvents": [
+      {
+          "EventType": "ExecutionStarted",
+          "FunctionName": "E1_HelloSequence",
+          "Timestamp": "2018-02-28T05:18:49.3452372Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Tokyo!",
+          "ScheduledTime": "2018-02-28T05:18:51.3939873Z",
+          "Timestamp": "2018-02-28T05:18:52.2895622Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Seattle!",
+          "ScheduledTime": "2018-02-28T05:18:52.8755705Z",
+          "Timestamp": "2018-02-28T05:18:53.1765771Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello London!",
+          "ScheduledTime": "2018-02-28T05:18:53.5170791Z",
+          "Timestamp": "2018-02-28T05:18:53.891081Z"
+      },
+      {
+          "EventType": "ExecutionCompleted",
+          "OrchestrationStatus": "Completed",
+          "Result": [
+              "Hello Tokyo!",
+              "Hello Seattle!",
+              "Hello London!"
+          ],
+          "Timestamp": "2018-02-28T05:18:54.3660895Z"
+      }
   ],
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T18:30:30Z"
+  "input": null,
+  "lastUpdatedTime": "2018-02-28T05:18:54Z",
+  "output": [
+      "Hello Tokyo!",
+      "Hello Seattle!",
+      "Hello London!"
+  ],
+  "runtimeStatus": "Completed"
 }
 ```
 
@@ -168,14 +210,14 @@ O formato do Functions 2.0 tem os mesmos parâmetros, mas tem um prefixo de URL 
 POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como os seguintes parâmetros exclusivos.
+Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o parâmetro exclusivo a seguir:
 
-| Campo       | Tipo de parâmetro  | Tipo de dados | Descrição |
+| Campo       | Tipo de parâmetro  | Tipo de dados | DESCRIÇÃO |
 |-------------|-----------------|-----------|-------------|
 | eventName   | URL             | string    | O nome do evento que a instância de orquestração de destino está esperando. |
 | {content}   | Conteúdo da solicitação | JSON      | A carga do evento em formato JSON. |
 
-#### <a name="response"></a>Resposta
+#### <a name="response"></a>Response
 
 Vários valores de código de status possíveis podem ser retornados.
 
@@ -184,7 +226,7 @@ Vários valores de código de status possíveis podem ser retornados.
 * **HTTP 404 (Não encontrado)**: a instância especificada não foi encontrada.
 * **HTTP 410 (Não existe mais)**: a instância especificada foi concluída ou falhou e não pode processar os eventos gerados.
 
-Veja um exemplo de solicitação que envia a cadeia de caracteres JSON `"incr"` para uma instância que aguarda um evento chamado **operation** (obtido do exemplo de [Contador](durable-functions-counter.md)):
+Veja um exemplo de solicitação que envia a cadeia de caracteres JSON `"incr"` para uma instância que aguarda um evento nomeado **operation**:
 
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
@@ -216,11 +258,11 @@ DELETE /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/te
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o seguinte parâmetro exclusivo.
 
-| Campo       | Tipo de Parâmetro  | Tipo de Dados | Descrição |
+| Campo       | Tipo de Parâmetro  | Tipo de Dados | DESCRIÇÃO |
 |-------------|-----------------|-----------|-------------|
 | reason      | Cadeia de consulta    | string    | Opcional. O motivo para encerrar a instância de orquestração. |
 
-#### <a name="response"></a>Resposta
+#### <a name="response"></a>Response
 
 Vários valores de código de status possíveis podem ser retornados.
 

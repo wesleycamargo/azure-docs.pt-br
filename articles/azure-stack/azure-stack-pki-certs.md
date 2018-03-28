@@ -1,25 +1,25 @@
 ---
-title: "Requisitos de certificado de infraestrutura de chave pública da pilha do Azure para pilha Azure integrado sistemas | Microsoft Docs"
-description: "Descreve os requisitos de implantação de certificado PKI de pilha do Azure para sistemas de pilha do Azure integradas."
+title: Requisitos de certificado de infraestrutura de chave pública da pilha do Azure para pilha Azure integrado sistemas | Microsoft Docs
+description: Descreve os requisitos de implantação de certificado PKI de pilha do Azure para sistemas de pilha do Azure integradas.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mabriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública da pilha do Azure
 A pilha do Azure tem uma rede de infraestrutura pública usando externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, máquinas virtuais do locatário. Certificados PKI com os nomes DNS apropriados para esses pontos de extremidade do Azure pilha infraestrutura pública são necessários durante a implantação da pilha do Azure. Este artigo fornece informações sobre:
@@ -39,6 +39,7 @@ A lista a seguir descreve os requisitos de certificado que são necessários par
 - O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação da pilha do Azure. 
 - O arquivo pfx de certificado deve ter um valor de "Assinatura Digital" e "KeyEncipherment" em seu campo "Key Usage".
 - O arquivo pfx de certificado deve ter os valores "Autenticação do servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação de cliente (1.3.6.1.5.5.7.3.2)" no campo "Uso avançado de chave".
+- O certificado "emitido para:" campo não deve ser o mesmo que seu "emitido por:" campo.
 - As senhas para todos os arquivos pfx de certificado devem ser o mesmo no momento da implantação
 - Certifique-se de que os nomes de entidade e entidade alternativa nomes de todos os certificados correspondem as especificações descritas neste artigo para evitar falhas de implantação.
 
@@ -50,7 +51,7 @@ A tabela nesta seção descreve os certificados PKI de ponto de extremidade púb
 
 São necessários certificados com os nomes DNS apropriados para cada ponto de extremidade de infraestrutura pública de pilha do Azure. Nome DNS de cada ponto de extremidade é expresso no formato:  *&lt;prefixo >.&lt; região >. &lt;fqdn >*. 
 
-Para sua implantação, [Região] e [externalfqdn] valores devem corresponder a região e nomes de domínio externo que você escolheu para o seu sistema de pilha do Azure. Por exemplo, se o nome da região foi *Redmond* e o nome de domínio externo foi *contoso.com*, os nomes DNS deve ter o formato  *&lt;prefixo >. redmond.contoso.com* . O  *&lt;prefixo >* valores são predesignated pela Microsoft para descrever o ponto de extremidade protegido pelo certificado. Além disso, o  *&lt;prefixo >* valores dos pontos de extremidade externos infraestrutura dependem do serviço de pilha do Azure que usa o ponto de extremidade específico. 
+Para sua implantação, [Região] e [externalfqdn] valores devem corresponder a região e nomes de domínio externo que você escolheu para o seu sistema de pilha do Azure. Por exemplo, se o nome da região foi *Redmond* e o nome de domínio externo foi *contoso.com*, os nomes DNS deve ter o formato *&lt;prefixo >. redmond.contoso.com*. O  *&lt;prefixo >* valores são predesignated pela Microsoft para descrever o ponto de extremidade protegido pelo certificado. Além disso, o  *&lt;prefixo >* valores dos pontos de extremidade externos infraestrutura dependem do serviço de pilha do Azure que usa o ponto de extremidade específico. 
 
 |Pasta de implantação|Entidade do certificado necessária e nomes alternativos da entidade (SAN)|Escopo (por região)|Namespace de subdomínio|
 |-----|-----|-----|-----|
@@ -93,7 +94,7 @@ A tabela a seguir descreve os pontos de extremidade e os certificados necessári
 
 <sup>1</sup> requer um certificado com vários nomes alternativos de entidade de caractere curinga. Curinga várias SANs em um único certificado pode não ter suporte de todas as autoridades de certificação pública 
 
-<sup>2</sup> A &#42;. serviço de aplicativo.  *&lt;região >.&lt; FQDN >* certificado curinga não pode ser usado no lugar desses três certificados (api.appservice. *&lt;região >. &lt;fqdn >*, ftp.appservice. *&lt;região >. &lt;fqdn >*e sso.appservice. *&lt;região >. &lt;fqdn >*. Serviço de aplicativo explicitamente requer o uso de certificados separados para esses pontos de extremidade. 
+<sup>2</sup> um &#42;.appservice. *&lt;região >. &lt;fqdn >* certificado curinga não pode ser usado no lugar desses três certificados (api.appservice. *&lt;região >. &lt;fqdn >*, ftp.appservice. *&lt;região >. &lt;fqdn >*e sso.appservice. *&lt;região >. &lt;fqdn >*. Serviço de aplicativo explicitamente requer o uso de certificados separados para esses pontos de extremidade. 
 
 ## <a name="learn-more"></a>Saiba mais
 Saiba como [gerar certificados PKI para implantação do Azure pilha](azure-stack-get-pki-certs.md). 

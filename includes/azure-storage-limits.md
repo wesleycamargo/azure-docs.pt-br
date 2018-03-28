@@ -11,7 +11,7 @@
 
 <sup>1</sup>Inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento. 
 
-<sup>2</sup> Para que suas contas de armazenamento padrão cresçam além dos limites anunciados na taxa de capacidade, entrada/saída e solicitação, faça uma solicitação através do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará a solicitação e poderá aprovar limites maiores caso a caso.
+<sup>2</sup> Se você precisar de limites expandidos para a conta de armazenamento, contate o [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará a solicitação e poderá aprovar limites maiores caso a caso. Ambas as contas de armazenamento de Blobs e de uso geral dão suporte para o aumento de capacidade, ingresso/saída e taxa de solicitações por solicitação. Para os novos máximos de contas de armazenamento de Blobs, consulte [Anunciando contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 <sup>3</sup> Limitado somente pelos limites de entrada/saída da conta. A *entrada* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. *Saída* refere-se a todos os dados (respostas) recebidos de uma conta de armazenamento.  
 

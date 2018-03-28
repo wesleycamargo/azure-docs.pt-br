@@ -1,25 +1,21 @@
 ---
-title: "Meu primeiro runbook do PowerShell na Automação do Azure | Microsoft Docs"
-description: "Tutorial que orienta você pela criação, pelos testes e pela publicação de um runbook simples do PowerShell."
+title: Meu primeiro runbook do PowerShell na Automação do Azure
+description: Tutorial que orienta você pela criação, pelos testes e pela publicação de um runbook simples do PowerShell.
+keywords: azure powershell, tutorial de script do powershell, automação do powershell
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "azure powershell, tutorial de script do powershell, automação do powershell"
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte;sngun
-ms.openlocfilehash: 8db2cc1c8759fd08129f7794a8675d006998cc55
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 5b5f6571400815cd97d2cde8c0e287d6910de2b3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="my-first-powershell-runbook"></a>Meu primeiro runbook do PowerShell
 
@@ -103,7 +99,7 @@ Você testou e publicou seu runbook, mas, até o momento, ele não faz nada úti
 5. Clique em **Iniciar** para iniciar o teste. Quando ele for concluído, você deverá receber uma saída semelhante ao exemplo a seguir, que exibe informações básicas de sua conta. Isso confirma que a credencial é válida.<br><br> ![Autenticar](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Etapa 6: adicionar código para iniciar uma máquina virtual
-Agora que o seu runbook está se autenticando na sua assinatura do Azure, você pode os gerenciar recursos. Você adiciona um comando para iniciar uma máquina virtual. Você pode escolher qualquer máquina virtual em sua assinatura do Azure e, por enquanto, você codifica esse nome no runbook.
+Agora que o seu runbook está se autenticando na sua assinatura do Azure, você pode gerenciar os recursos. Você adiciona um comando para iniciar uma máquina virtual. Você pode escolher qualquer máquina virtual em sua assinatura do Azure e, por enquanto, você codifica esse nome no runbook.
 
 1. Depois de *Add-AzureRmAccount*, digite *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'*, fornecendo o nome da máquina virtual a iniciar e o nome do Grupo de Recursos dessa máquina virtual.  
    

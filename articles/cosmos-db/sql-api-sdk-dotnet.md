@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET API, SDK e recursos| Microsoft Docs'
-description: "Saiba tudo sobre o SDK e a API do .NET do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do .NET do Azure Cosmos DB."
+description: Saiba tudo sobre o SDK e a API do .NET do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do .NET do Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd2fb353246120f58840914e8a4e5527d7a4486
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB para a API do SQL: download e notas de versão
 > [!div class="op_single_selector"]
@@ -54,6 +54,11 @@ ms.lasthandoff: 03/12/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
+
+* Corrigido KeyNotFoundException para consultas order by entre partições em situações extremas.
+* Correção do bug no qual o atributo JsonPropery na cláusula select para consultas LINQ não estava sendo cumprido.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Correção do bug que é acessado em determinadas condições de corrida, que resulta em erros intermitentes "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" ao usar o nível de consistência de sessão.
@@ -290,6 +295,8 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.21.1](#1.20.1) |09 de março de 2018 |--- |
+| [1.20.2](#1.20.1) |21 de fevereiro de 2018 |--- |
 | [1.20.1](#1.20.1) |5 de fevereiro de 2018 |--- |
 | [1.19.1](#1.19.1) |16 de novembro de 2017 |--- |
 | [1.19.0](#1.19.0) |10 de novembro, 2017 |--- |

@@ -1,25 +1,21 @@
 ---
-title: "Meu primeiro runbook gráfico na Automação do Azure | Microsoft Docs"
-description: "Tutorial que orienta você pela criação, teste e publicação de um runbook gráfico simples."
+title: Meu primeiro runbook gráfico na Automação do Azure
+description: Tutorial que orienta você pela criação, teste e publicação de um runbook gráfico simples.
+keywords: runbook, modelo de runbook, automação de runbook, runbook do azure
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "runbook, modelo de runbook, automação de runbook, runbook do azure"
-ms.assetid: dcb88f19-ed2b-4372-9724-6625cd287c8a
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 948510eaaf55854bbc14d49bf78a8584c43f182d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 85902975d6871eccc69ffd441aec509f9f63ec2f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
 
@@ -32,7 +28,7 @@ ms.lasthandoff: 01/10/2018
 
 Este tutorial orienta você durante a criação de um [runbook gráfico](automation-runbook-types.md#graphical-runbooks) na Automação do Azure. Você começa com um runbook simples, que é testado e publicado enquanto aprende como acompanhar o status do trabalho do runbook. Em seguida, você modifica o runbook para gerenciar os recursos do Azure, neste caso, iniciando uma máquina virtual do Azure. Depois, você conclui o tutorial, tornando o runbook mais robusto adicionando parâmetros de runbook e links condicionais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, você precisará do seguinte:
 

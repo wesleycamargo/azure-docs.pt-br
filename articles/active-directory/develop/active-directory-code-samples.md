@@ -1,11 +1,11 @@
 ---
-title: "Exemplos de código do Azure Active Directory | Microsoft Docs"
-description: "Um índice de exemplos de código do Active Directory do Azure, organizados por cenário."
+title: Exemplos de código do Azure Active Directory | Microsoft Docs
+description: Um índice de exemplos de código do Active Directory do Azure, organizados por cenário.
 services: active-directory
 documentationcenter: dev-center-name
 author: msmbaldwin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 130d26828acd5394756c47f22217272338cc33e6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Exemplos de código do Active Directory do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -38,6 +38,7 @@ Estes exemplos mostram como escrever um aplicativo Web que direciona o navegador
 | C# / .NET |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |Use o OpenID Connect (middleware ASP.Net OpenID Connect OWIN) para autenticar usuários de um locatário do Azure AD. |
 | C# / .NET |[WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |Um aplicativo Web .NET MVC multilocatário que usa o OpenID Connect (middleware ASP.Net OpenID Connect OWIN) para autenticar usuários de vários locatários do Azure AD. |
 | C# / .NET |[WebApp-WSFederation-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) |Use o WS-Federation (middleware ASP.Net WS-Federation OWIN) para autenticar usuários de um locatário do Azure AD. |
+| C#/.NET Core |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) |Um aplicativo Web MVC .NET que usa o OpenID Connect para conectar usuários de um único locatário do Microsoft Azure AD (Azure Active Directory) usando o middleware ASP.NET Core do OpenID Connect. |
 
 ## <a name="single-page-application-spa"></a>SPA (Aplicativo de Página Única)
 Este exemplo mostra como escrever um aplicativo de página única protegido com o AD do Azure.  

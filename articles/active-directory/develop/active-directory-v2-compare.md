@@ -1,11 +1,11 @@
 ---
-title: "O que é diferente no ponto de extremidade v2.0 do Azure AD? | Microsoft Docs"
-description: "Uma comparação entre o Azure AD original e os pontos de extremidade v2.0."
+title: O que é diferente no ponto de extremidade v2.0 do Azure AD? | Microsoft Docs
+description: Uma comparação entre o Azure AD original e os pontos de extremidade v2.0.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>O que há de diferente no ponto de extremidade v2.0?
 Se você estiver familiarizado com o Azure Active Directory ou se tiver integrado aplicativos com o Azure AD anteriormente, poderá encontrar algumas diferenças inesperadas ponto de extremidade v2.0.  Este documento chama a atenção para essas diferenças para sua compreensão.
@@ -59,7 +59,7 @@ No Azure Active Directory, um aplicativo pode se comportar como um **recurso** o
 * Identificador de recurso, ou `AppID URI`: `https://graph.windows.net/`
 * Escopos, ou `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
 
-Tudo isso se aplica para o ponto de extremidade v2.0.  Um aplicativo ainda pode se comportar como recurso, definir escopos e ser identificado por um URI.  Aplicativos cliente ainda podem solicitar acesso a esses escopos.  No entanto, a maneira na qual um cliente solicita essas permissões foi alterada.  No passado, uma solicitação de autorização de OAuth 2.0 ao AD do Azure teria esta aparência:
+Tudo isso é válido para o ponto de extremidade v2.0.  Um aplicativo ainda pode se comportar como recurso, definir escopos e ser identificado por um URI.  Aplicativos cliente ainda podem solicitar acesso a esses escopos.  No entanto, a maneira na qual um cliente solicita essas permissões foi alterada.  No passado, uma solicitação de autorização de OAuth 2.0 ao AD do Azure teria esta aparência:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?
