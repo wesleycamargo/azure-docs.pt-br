@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2018
+ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2d7fcb3ee066fa768615fbf643a0c2e1c1d28498
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Visão geral do Azure Load Balancer Standard (versão prévia)
 
@@ -466,7 +466,7 @@ As seguintes limitações se aplicam no momento da versão prévia e estão suje
 - No contexto das Zonas de disponibilidade, um endereço IP Público zonal não pode ser movido de uma zona para outra.
 - [Alertas do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são compatíveis no momento.
 - O Portal ainda não dá suporte para as regiões de visualização expandida.  Use as ferramentas de cliente como modelos, Azure CLI 2.0 ou PowerShell como solução alternativa.
-- Não há suporte para operações de movimentação de assinatura.
+- [Mover as operações de assinatura](../azure-resource-manager/resource-group-move-resources.md) não têm suporte para recursos de PIP e LB SKU Standard.
 - Não disponível no Oeste dos EUA.
 
 

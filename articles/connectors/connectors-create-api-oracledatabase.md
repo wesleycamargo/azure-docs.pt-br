@@ -1,25 +1,25 @@
 ---
-title: "Adicionar o conector do Banco de Dados Oracle em seus Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Usar o conector do Banco de Dados Oracle em um aplicativo lógico"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Adicionar o conector do Banco de Dados Oracle em seus Aplicativos Lógicos do Azure | Microsoft Docs
+description: Usar o conector do Banco de Dados Oracle em um aplicativo lógico
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
 
@@ -28,7 +28,7 @@ Com o conector do Banco de Dados Oracle, você cria fluxos de trabalho organizac
 * Compile o fluxo de trabalho adicionando um novo cliente a um banco de dados de clientes ou atualizando um pedido em um banco de dados de pedidos.
 * Use as ações para obter uma linha de dados, inserir uma nova linha e até mesmo excluir. Por exemplo, quando um registro é criado no Dynamics CRM Online (um gatilho), insira uma linha em um Banco de Dados Oracle (uma ação). 
 
-Este tópico mostra como usar o conector do Banco de Dados Oracle um aplicativo lógico.
+Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo lógico.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -46,7 +46,7 @@ Este tópico mostra como usar o conector do Banco de Dados Oracle um aplicativo 
   [ODAC 12c Release 4 (12.1.0.2.4) de 64 bits para Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Se o cliente Oracle não estiver instalado, ocorrerá um erro ao tentar criar ou usar a conexão. Consulte os erros comuns neste tópico.
+    > Se o cliente Oracle não estiver instalado, ocorrerá um erro ao tentar criar ou usar a conexão. Consulte os erros comuns neste artigo.
 
 
 ## <a name="add-the-connector"></a>Adicione o conector
@@ -104,7 +104,7 @@ Este tópico mostra como usar o conector do Banco de Dados Oracle um aplicativo 
 
 **Atenuação**: verifique se o gateway está em execução no computador local onde ele foi instalado e se ele pode se conectar à internet.  Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Visite [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
 
 **Causa**: o SDK do cliente da Oracle não está instalado no computador onde o gateway de dados local está em execução.  
 

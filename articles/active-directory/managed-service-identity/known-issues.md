@@ -1,24 +1,24 @@
 ---
-title: "Problemas conhecidos e perguntas frequentes com Identidade do Serviço Gerenciado (MSI) para o Azure Active Directory"
-description: "Problemas conhecidos com a Identidade de Serviço Gerenciado do Azure Active Directory."
+title: Problemas conhecidos e perguntas frequentes com Identidade do Serviço Gerenciado (MSI) para o Azure Active Directory
+description: Problemas conhecidos com a Identidade de Serviço Gerenciado do Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: bd931b220c417f91b47278c82707d38de5c7f65e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Problemas conhecidos e perguntas frequentes com Identidade do Serviço Gerenciado (MSI) para o Azure Active Directory
 
@@ -37,6 +37,10 @@ Não, nem há previsão de compatibilidade para o MSI com os Serviços de Nuvem 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>A MSI funciona com ADAL (Biblioteca de Autenticação do Active Directory) ou com a MSAL (Biblioteca de Autenticação da Microsoft)?
 
 Não, a MSI ainda não está integrada à ADAL ou à MSAL. Para obter detalhes sobre a aquisição de um token MSI usando o ponto de extremidade REST do MSI, consulte [Como usar uma MSI (Identidade de Serviço Gerenciado) da VM do Azure para aquisição de token](how-to-use-vm-token.md).
+
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>O que é o limite de segurança de uma Identidade de Serviço Gerenciado?
+
+O limite de segurança da identidade é o recurso ao qual ele está anexado. Por exemplo, o limite de segurança para a MSI de uma Máquina Virtual, é a Máquina Virtual. Qualquer código em execução na VM, é capaz de chamar o ponto de extremidade do MSI e solicitar tokens. É a experiência semelhante com outros recursos que oferecem suporte a MSI.
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quais são as distribuições Linux com suporte?
 

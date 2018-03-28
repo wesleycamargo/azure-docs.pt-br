@@ -1,8 +1,8 @@
 ---
-title: "Notas de versão dos componentes do Hadoop no Azure HDInsight | Microsoft Docs"
-description: "Últimas notas de versão e versões de componentes do Hadoop para Azure HDInsight. Obtenha detalhes e dicas de desenvolvimento para Spark, Servidor R, Hive e muito mais."
+title: Notas de versão dos componentes do Hadoop no Azure HDInsight | Microsoft Docs
+description: Últimas notas de versão e versões de componentes do Hadoop para Azure HDInsight. Obtenha detalhes e dicas de desenvolvimento para Spark, Servidor R, Hive e muito mais.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 editor: cgronlun
 manager: jhubbard
 author: nitinme
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/08/2018
 ms.author: nitinme
-ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de versão dos componentes do Hadoop no Azure HDInsight
 
@@ -29,17 +29,20 @@ Este artigo fornece informações sobre as atualizações de versão **mais rece
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, confira o [artigo sobre controle de versão do HDInsight](hdinsight-component-versioning.md).
 
+## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>Notas da versão de 08/03/2018 do Spark 2.2 no HDInsight 3.6
+
+- O Spark 2.2.0 melhora a estabilidade entre Spark Core, SQL, ML e coloca o fluxo estruturado para o status GA. Spark 2.2.0 agora está disponível no HDInsight 3.6.
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Notas da versão de 01/08/2017 do HDInsight
 
-| Title | Descrição | Área Afetada  | Tipo de cluster  | 
+| Title | DESCRIÇÃO | Área Afetada  | Tipo de cluster  | 
 | --- | --- | --- | --- | --- |
-| Lançamento do Microsoft R Server 9.1 no HDInsight |O HDInsight agora dá suporte ao provisionamento de clusters do R Server 9.1 no HDInsight. Para obter mais informações sobre a versão do Microsoft R Server 9.1, consulte [este blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |O Barramento de |Servidor R |
-| O HDInsight 3.6 agora inclui versões mais recentes da pilha do Hadoop|<ul><li>Para obter uma lista detalhada de versões atualizadas, consulte [Versões dos componentes do Hadoop disponíveis no HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>Para obter uma lista de bugs corrigidos nas versões mais recentes da pilha do Hadoop, consulte [Informações de Patch do Apache](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Para obter uma lista das últimas alterações entre HDP 2.6.1 (que agora está disponível no HDInsight 3.6), consulte [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Para obter uma lista dos problemas conhecidos no HDP 2.6.1, consulte [Problemas conhecidos](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |O Barramento de |Todos |N/D |
-| Atualizações para os clusters de Hive Interativo (versão prévia) |<ul><li><b>Aperfeiçoamento de recurso.</b> Implementação de metastore em cache que reduz a carga no SQL de back-end armazenando em cache os metadados e que melhora o desempenho de todas as operações de metadados.  Essa melhoria agora é um padrão em todos os clusters do Hive Interativo. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Aperfeiçoamento de recurso.</b> O carregamento dinâmico de partição é otimizado. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Aperfeiçoamento de recurso.</b> Otimizações de configuração para HDInsight no Linux.</li><li><b>Correção de bug.</b> `CredentialProviderFactory$getProviders` não é thread-safe. Esse problema está corrigido. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Correção de bug.</b> Alto uso da CPU com API `liststatus` de driver WASB resultando em um desempenho de ATS ruim. Esse problema está corrigido. Para obter mais informações, consulte [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |O Barramento de |Hive Interativo (versão prévia) |
-| Atualiza para clusters Hadoop |A confiabilidade da operação de trabalho do Templeton foi aprimorada. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |O Barramento de |O Hadoop |
-| Atualizações do YARN | Agora, o HDInsight cria um banco de dados do Ambari de 250 GB (sem aumentar os custos), o que resulta em uma melhor experiência para os clientes. Essa alteração deverá impedir que ATS seja preenchido e provavelmente terá um desempenho melhor. |O Barramento de |Todos |
-| Atualizações do Spark | Versão do Spark 2.1.1. Para obter mais informações, confira [Spark Versão 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | O Barramento de | Spark |
+| Lançamento do Microsoft R Server 9.1 no HDInsight |O HDInsight agora dá suporte ao provisionamento de clusters do R Server 9.1 no HDInsight. Para obter mais informações sobre a versão do Microsoft R Server 9.1, consulte [este blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Serviço |Servidor R |
+| O HDInsight 3.6 agora inclui versões mais recentes da pilha do Hadoop|<ul><li>Para obter uma lista detalhada de versões atualizadas, consulte [Versões dos componentes do Hadoop disponíveis no HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>Para obter uma lista de bugs corrigidos nas versões mais recentes da pilha do Hadoop, consulte [Informações de Patch do Apache](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Para obter uma lista das últimas alterações entre HDP 2.6.1 (que agora está disponível no HDInsight 3.6), consulte [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Para obter uma lista dos problemas conhecidos no HDP 2.6.1, consulte [Problemas conhecidos](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Serviço |Todos |N/D |
+| Atualizações para os clusters de Hive Interativo (versão prévia) |<ul><li><b>Aperfeiçoamento de recurso.</b> Implementação de metastore em cache que reduz a carga no SQL de back-end armazenando em cache os metadados e que melhora o desempenho de todas as operações de metadados.  Essa melhoria agora é um padrão em todos os clusters do Hive Interativo. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Aperfeiçoamento de recurso.</b> O carregamento dinâmico de partição é otimizado. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Aperfeiçoamento de recurso.</b> Otimizações de configuração para HDInsight no Linux.</li><li><b>Correção de bug.</b> `CredentialProviderFactory$getProviders` não é thread-safe. Esse problema está corrigido. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Correção de bug.</b> Alto uso da CPU com API `liststatus` de driver WASB resultando em um desempenho de ATS ruim. Esse problema está corrigido. Para obter mais informações, consulte [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Serviço |Hive Interativo (versão prévia) |
+| Atualiza para clusters Hadoop |A confiabilidade da operação de trabalho do Templeton foi aprimorada. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Serviço |O Hadoop |
+| Atualizações do YARN | Agora, o HDInsight cria um banco de dados do Ambari de 250 GB (sem aumentar os custos), o que resulta em uma melhor experiência para os clientes. Essa alteração deverá impedir que ATS seja preenchido e provavelmente terá um desempenho melhor. |Serviço |Todos |
+| Atualizações do Spark | Versão do Spark 2.1.1. Para obter mais informações, confira [Spark Versão 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | Serviço | Spark |
 
   
 

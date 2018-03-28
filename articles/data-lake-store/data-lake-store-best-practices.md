@@ -1,8 +1,8 @@
 ---
-title: "Melhores práticas para utilizar o Microsoft Azure Data Lake Store | Microsoft Docs"
-description: "Aprenda as melhores práticas sobre ingestão de dados, segurança de data e desempenho relacionadas ao uso do Azure Data Lake Store"
+title: Melhores práticas para utilizar o Microsoft Azure Data Lake Store | Microsoft Docs
+description: Aprenda as melhores práticas sobre ingestão de dados, segurança de data e desempenho relacionadas ao uso do Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Visão geral do Repositório Azure Data Lake
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Práticas recomendadas para usar o Azure Data Lake Store
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Store. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Store. Antes do Data Lake Store, trabalhar com big data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Store, a maioria dos limites rígidos para tamanho e desempenho foram removidos. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Store. 
 
 ## <a name="security-considerations"></a>Considerações de segurança
@@ -139,7 +139,7 @@ Se o envio de logs do Data Lake Store não estiver ativado, o Azure HDInsight ta
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Quando estiver configurado e os nós forem reiniciados, o diagnóstico do Data Lake Store será gravado nos logs YARN nos nós (/tmp/<user>/yarn.log) e detalhes importantes como erros ou limitação (código de erro HTTP 429) poderão ser monitorados. Esta mesma informação também pode ser monitorada no OMS ou onde os logs são enviados para a folha [Diagnóstico](data-lake-store-diagnostic-logs.md) da conta do Data Lake Store. É recomendável, pelo menos, ter o log do lado do cliente ativado ou utilizar a opção de envio de logs com o Data Lake Store para visibilidade operacional e depuração mais fácil.
+Quando a propriedade estiver configurada e os nós forem reiniciados, o diagnóstico do Data Lake Store será gravado nos logs YARN nos nós (/tmp/<user>/yarn.log) e detalhes importantes como erros ou limitação (código de erro HTTP 429) poderão ser monitorados. Esta mesma informação também pode ser monitorada no OMS ou onde os logs são enviados para a folha [Diagnóstico](data-lake-store-diagnostic-logs.md) da conta do Data Lake Store. É recomendável, pelo menos, ter o log do lado do cliente ativado ou utilizar a opção de envio de logs com o Data Lake Store para visibilidade operacional e depuração mais fácil.
 
 ### <a name="run-synthetic-transactions"></a>Executar transações sintéticas 
 
@@ -155,7 +155,7 @@ Nas cargas de trabalho de IoT, pode haver uma grande quantidade de dados sendo d
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Por exemplo, a telemetria de descarregamento para um motor de avião no Reino Unido pode ser assim: 
+Por exemplo, a telemetria de descarregamento para um motor de avião no Reino Unido pode parecer com a seguinte estrutura: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ Há uma razão importante para colocar a data no final da estrutura de pastas. S
 
 ### <a name="batch-jobs-structure"></a>Estrutura de trabalhos em lotes 
 
-De um alto nível, uma abordagem comumente usada no processamento em lotes é descarregar dados em uma pasta "in". Então, quando os dados forem processados, coloque os novos dados em uma pasta "out" para processos downstream consumir. Isso é visto às vezes para trabalhos que requerem processamento em arquivos individuais e talvez não exigiam um processamento massivamente paralelo em conjuntos de dados grandes. Como a estrutura de IoT recomendada acima, uma boa estrutura de diretório tem as pastas de nível pai para elementos como região e assuntos (por exemplo, organização, produto/produtor). Isso ajuda a proteger os dados em sua organização e um melhor gerenciamento dos dados em suas cargas de trabalho. Além disso, considere a data e hora na estrutura para permitir uma melhor organização, pesquisas filtradas, segurança e automação no processamento. O nível de granularidade para a estrutura da data é determinado pelo intervalo, no qual os dados são carregados ou processados, como por hora, diariamente ou mesmo mensalmente. 
+De um alto nível, uma abordagem comumente usada no processamento em lotes é descarregar dados em uma pasta "in". Então, quando os dados forem processados, coloque os novos dados em uma pasta "out" para processos downstream consumir. Essa estrutura de diretório é visto às vezes para trabalhos que requerem processamento em arquivos individuais e talvez não exigiam um processamento massivamente paralelo em conjuntos de dados grandes. Como a estrutura de IoT recomendada acima, uma boa estrutura de diretório tem as pastas de nível pai para elementos como região e assuntos (por exemplo, organização, produto/produtor). Essa estrutura ajuda a proteger os dados em sua organização e um melhor gerenciamento dos dados em suas cargas de trabalho. Além disso, considere a data e hora na estrutura para permitir uma melhor organização, pesquisas filtradas, segurança e automação no processamento. O nível de granularidade para a estrutura da data é determinado pelo intervalo, no qual os dados são carregados ou processados, como por hora, diariamente ou mesmo mensalmente. 
 
 Às vezes, o processamento de arquivos não tem êxito devido dados corrompidos ou formatos inesperados. Nesses casos, a estrutura de diretório pode beneficiar-se de uma pasta **/bad** para mover os arquivos para uma inspeção adicional. O trabalho em lotes também pode manipular o relatório ou a notificação desses arquivos *incorretos* para intervenção manual. Considere a estrutura de modelo a seguir: 
 
@@ -171,7 +171,7 @@ De um alto nível, uma abordagem comumente usada no processamento em lotes é de
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Por exemplo, uma empresa de marketing que recebe extratos de dados diários de atualizações de cliente dos seus clientes na América do Norte poderá parecer dessa maneira, antes e depois do processamento: 
+Por exemplo, uma empresa de marketing que recebe extratos de dados diários de atualizações de cliente dos seus clientes na América do Norte. Ele pode parecer com o seguinte trecho de código antes e depois de ser processado: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

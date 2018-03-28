@@ -1,11 +1,11 @@
 ---
-title: "Adicionar o conector Outlook do Office 365 em seus Aplicativos Lógicos | Microsoft Docs"
-description: "Crie aplicativos lógicos com o conector do Office 365 para permitir a interação com o Office 365. Por exemplo: criação, edição e atualização de itens de calendário e contatos."
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Adicionar o conector Outlook do Office 365 em seus Aplicativos Lógicos | Microsoft Docs
+description: 'Crie aplicativos lógicos com o conector do Office 365 para permitir a interação com o Office 365. Por exemplo: criação, edição e atualização de itens de calendário e contatos.'
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Introdução ao conector do Outlook do Office 365
 O conector do Outlook do Office 365 permite interação com o Outlook no Office 365. Use esse conector para criar, editar e atualizar contatos e itens de calendário, bem como para obter, enviar e responder a emails.
@@ -30,7 +30,7 @@ Com o Outlook do Office 365, você pode:
 * Usar gatilhos para iniciar o fluxo de trabalho quando houver um novo email, quando um item de calendário for atualizado e muito mais.
 * Usar ações que enviem um email, criem um novo evento de calendário e muito mais. Por exemplo, quando houver um novo objeto em Salesforce (um gatilho), envie um email ao seu Outlook do Office 365 (uma ação). 
 
-Este tópico mostra como usar o conector do Outlook do Office 365 em um aplicativo lógico, além de listar os gatilhos e as ações.
+Este artigo mostra como usar o conector do Office 365 Outlook em um aplicativo lógico e também lista os gatilhos e ações.
 
 > [!NOTE]
 > Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA).

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: API, SDK e recursos do .NET Core do SQL | Microsoft Docs'
-description: "Saiba tudo sobre o SDK e a API do .NET Core do SQL, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do .NET Core para Azure Cosmos DB."
+description: Saiba tudo sobre o SDK e a API do .NET Core do SQL, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do .NET Core para Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55946915573f53bb7e1917d4705e6d8e74abf448
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7c7981bc0388fee763396e68d6de3375a01178a7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais
 
 > [!NOTE] 
 > O SDK do .NET Core do Azure Cosmos DB não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
+
+* Corrigido KeyNotFoundException para consultas order by entre partições em situações extremas.
+* Correção do bug no qual o atributo JsonPropery na cláusula select para consultas LINQ não estava sendo cumprido.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
@@ -170,6 +175,7 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.9.1](#1.9.1) |09 de março de 2018 |--- |
 | [1.8.2](#1.8.2) |21 de fevereiro de 2018 |--- |
 | [1.8.1](#1.8.1) |5 de fevereiro de 2018 |--- |
 | [1.7.1](#1.7.1) |16 de novembro de 2017 |--- |

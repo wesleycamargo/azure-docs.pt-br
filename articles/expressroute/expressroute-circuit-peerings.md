@@ -1,24 +1,24 @@
 ---
-title: "Circuitos do Azure ExpressRoute e domínios de roteamento | Microsoft Docs"
-description: "Esta página apresenta uma visão geral dos circuitos do ExpressRoute e dos domínios de roteamento."
+title: Circuitos do Azure ExpressRoute e domínios de roteamento | Microsoft Docs
+description: Esta página apresenta uma visão geral dos circuitos do ExpressRoute e dos domínios de roteamento.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: c8f3c0e87a052b327e9949acd3e7db1d28c1eb46
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos do ExpressRoute e domínios de roteamento
  Você deve solicitar um *circuito do ExpressRoute* para conectar sua infraestrutura local à Microsoft por meio de um provedor de conectividade. A figura abaixo mostra uma representação lógica de conectividade entre sua WAN e a Microsoft.
@@ -60,12 +60,12 @@ A conectividade é sempre iniciada por meio de sua WAN para serviços do Microso
 
 Você pode definir filtros de rota personalizados dentro da sua rede para consumir apenas as rotas que você precisa. Consulte a página [Roteamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração de roteamento. 
 
-Consulte a [página de perguntas frequentes](expressroute-faqs.md) para saber mais sobre serviços com suporte por meio do domínio de roteamento de emparelhamento público. 
+Para saber mais sobre serviços com suporte por meio do domínio de roteamento de emparelhamento público, consulte as [perguntas frequentes](expressroute-faqs.md).
 
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-A conectividade com todos os outros serviços online da Microsoft (serviços do Office 365, do Dynamics 365 e de PaaS do Azure) ocorre por meio do emparelhamento da Microsoft. Habilitamos a conectividade bidirecional entre sua WAN e os serviços de nuvem da Microsoft por meio do domínio de roteamento de emparelhamento da Microsoft. Você deve se conectar aos serviços de nuvem da Microsoft somente por endereços IP públicos que pertençam a você ou ao seu provedor de conectividade e deve seguir todas as regras definidas. Consulte a página [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md) para obter mais informações.
+A conectividade com os serviços online da Microsoft (serviços do Office 365, do Dynamics 365 e de PaaS do Azure) ocorre por meio do emparelhamento da Microsoft. Habilitamos a conectividade bidirecional entre sua WAN e os serviços de nuvem da Microsoft por meio do domínio de roteamento de emparelhamento da Microsoft. Você deve se conectar aos serviços de nuvem da Microsoft somente por endereços IP públicos que pertençam a você ou ao seu provedor de conectividade e deve seguir todas as regras definidas. Para saber mais, veja a página [pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 
 Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter mais informações sobre serviços com suporte, custos e detalhes de configuração. Consulte a página [Locais do ExpressRoute](expressroute-locations.md) para saber mais sobre a lista de provedores de conectividade que dão suporte ao emparelhamento da Microsoft.
 
@@ -79,7 +79,7 @@ A tabela a seguir compara os três domínios de roteamento:
 | **Requisitos do número do AS** |Números públicos e privados do AS. Você deve possuir número público do AS, se você optar por usar um. |Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos. |Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos. |
 | **Protocolos IP com suporte**| IPv4 | IPv4 | IPv4, IPv6 |
 | **Roteando endereços IP de interface** |RFC1918 e endereços IP públicos |Endereços IP públicos registrados para você em registros de roteamento. |Endereços IP públicos registrados para você em registros de roteamento. |
-| **Suporte a Hash MD5** |Sim |Sim |Sim |
+| **Suporte a Hash MD5** |sim |Sim |sim |
 
 (*) Requer a camada de SKU de complemento Premium
 
@@ -89,7 +89,7 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 
 ## <a name="next-steps"></a>Próximas etapas
 * Encontrar um provedor de serviços. Consulte [Locais e provedores de serviços do ExpressRoute](expressroute-locations.md).
-* Verifique se todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
+* Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 * Configurar sua conexão do ExpressRoute.
   * [Criar e gerenciar circuitos de ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurar o roteamento (emparelhamento) para circuitos ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)

@@ -1,12 +1,12 @@
 ---
-title: "Análise de Sentimento usando Aprendizado profundo com o Azure Machine Learning | Microsoft Docs"
-description: "Como realizar a análise de sentimento usando o aprendizado profundo com o Azure ML Workbench."
+title: Análise de Sentimento usando Aprendizado profundo com o Azure Machine Learning | Microsoft Docs
+description: Como realizar a análise de sentimento usando o aprendizado profundo com o Azure ML Workbench.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: miprasad
 manager: kristin.tolle
 editor: miprasad
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análise de Sentimento usando Aprendizado profundo com o Azure Machine Learning
 
@@ -37,7 +37,7 @@ Siga este link para o repositório GitHub público:
 
 A explosão de dados e a proliferação de dispositivos móveis criou muitas oportunidades para os clientes expressarem seus sentimentos e atitudes sobre tudo a qualquer momento. Esse "sentimento" ou opinião geralmente é gerado por meio de canais sociais na forma de revisões, bate-papos, compartilhamentos, curtidas, tweets etc. O sentimento pode ser inestimável para empresas que desejam aprimorar produtos e serviços, tomar decisões mais fundamentadas e promover melhor suas marcas.
 
-Para obter o valor da análise de sentimento, as empresas devem ter a capacidade de explorar grandes repositórios de dados sociais não estruturados com relação a ideias acionáveis. Neste exemplo, desenvolveremos modelos de aprendizado profundo para realizar análises de sentimento de revisões de filme usando o AMLWorkbench
+Para obter o valor da análise de sentimento, as empresas devem ter a capacidade de explorar grandes repositórios de dados sociais não estruturados com relação a ideias acionáveis. Neste exemplo, desenvolvemos modelos de aprendizado profundo para realizar análises de sentimento de revisões de filme usando o AMLWorkbench
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -69,7 +69,7 @@ A ordem dos Laboratórios práticos para executar a solução é a seguinte:
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>Conclusão
 

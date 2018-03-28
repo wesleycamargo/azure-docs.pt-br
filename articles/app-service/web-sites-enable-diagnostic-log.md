@@ -1,6 +1,6 @@
 ---
-title: "Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure"
-description: "Saiba como habilitar o log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure."
+title: Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
+description: Saiba como habilitar o log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -38,8 +38,8 @@ Você pode habilitar ou desabilitar os seguintes tipos de logs:
 * **Falha no Rastreamento de Solicitação** - informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. É útil se você está tentando melhorar o desempenho do site ou isolar o que está causando o retorno de um erro específico de HTTP.
 * **Registro em Log de Servidor Web** - informações sobre transações HTTP usando o [formato de arquivo de log estendido W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil para determinar as métricas gerais do site, como o número de solicitações manipuladas e quantas solicitações existem vindas de um endereço IP específico.
 
-### <a name="application-diagnostics"></a>diagnóstico de aplicativos
-O diagnóstico de aplicativo permite que você capture informações produzidas por um aplicativo da Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
+### <a name="application-diagnostics"></a>Diagnóstico de aplicativo
+O diagnóstico de aplicativo permite que você capture informações produzidas por um aplicativo da Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo: 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ A estrutura de diretórios onde os logs estão armazenados é a seguinte:
 * **Rastreamento de Solicitação Falha** - /LogFiles/W3SVC#########/. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Baixe o arquivo XSL no mesmo diretório que o(s) arquivo(s) XML, pois o arquivo XSL fornece funcionalidade para formatar e filtrar o conteúdo do(s) arquivo(s) XML quando visualizado(s) no Internet Explorer.
 * **Logs de erro do aplicativo** - /LogFiles/DetailedErrors/. Esta pasta contém um ou mais arquivos .htm que fornecem informações exaustivas para quaisquer erros de HTTP.
 * **Logs do Web Server** - /LogFiles/http/RawLogs. Esta pasta contém um ou mais arquivos de texto que foram formatados usando o [formato W3C estendido de arquivo de log](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Logs de implantação** - /LogFiles/Git. Esta pasta contém logs gerados pelo processo interno de implantação usado pelos aplicativos Web do Azure, assim como logs para implantações do Git.
+* **Logs de implantação** - /LogFiles/Git. Esta pasta contém logs gerados pelo processo interno de implantação usado pelos aplicativos Web do Azure, assim como logs para implantações do Git. Você também pode encontrar os logs de implantação em D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
 
@@ -159,11 +159,11 @@ Para transmitir informações de log, inicie uma nova instância do Azure PowerS
 
 Isto faz a conexão ao aplicativo Web especificado pelo parâmetro **-Name** e inicia o streaming de informações para a janela do PowerShell, enquanto eventos de log ocorrem no aplicativo Web. Qualquer informação escrita para os arquivos com terminação .txt ou .htm que sejam armazenadas no diretório /LogFiles (d:/home/LogFiles) será transmitida à console local.
 
-Para filtrar eventos específicos como erros, use o parâmetro **-Mensagem** . Por exemplo:
+Para filtrar eventos específicos como erros, use o parâmetro **-Mensagem** . Por exemplo: 
 
     Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
-Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo:
+Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo: 
 
     Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
@@ -181,11 +181,11 @@ Para transmitir informações de log, abra uma nova sessão de prompt de comando
 
 Isto realiza a conexão ao aplicativo Web chamado 'webappname' e inicia o streaming de informações para a janela, enquanto eventos de log ocorrem no aplicativo Web. Qualquer informação escrita para os arquivos com terminação .txt ou .htm que sejam armazenadas no diretório /LogFiles (d:/home/LogFiles) será transmitida à console local.
 
-Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo:
+Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo: 
 
     az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
-Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo:
+Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo: 
 
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
@@ -276,6 +276,6 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 * [Analisar logs de aplicativos Web no HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 >
 >

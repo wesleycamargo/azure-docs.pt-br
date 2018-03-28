@@ -1,6 +1,6 @@
 ---
-title: "Configurar a atualização de um aplicativo do Service Fabric | Microsoft Docs"
-description: "Saiba como definir as configurações para atualizar um aplicativo do Service Fabric usando o Microsoft Visual Studio."
+title: Configurar a atualização de um aplicativo do Service Fabric | Microsoft Docs
+description: Saiba como definir as configurações para atualizar um aplicativo do Service Fabric usando o Microsoft Visual Studio.
 services: service-fabric
 documentationcenter: na
 author: mikkelhegn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ff85991e87a4996890520a566b3909d331ed27f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurar a atualização de um aplicativo do Service Fabric no Visual Studio
 As ferramentas do Visual Studio para o Service Fabric do Azure dão suporte à atualização da publicação em clusters locais ou remotos. Há três cenários onde você deseja atualizar seu aplicativo para uma versão mais recente em vez de substituir o aplicativo durante o teste e a depuração:
@@ -86,4 +86,4 @@ O exemplo a seguir mostra como aplicar uma política de verificação de integri
 </Policies>
 ```
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como implantar um aplicativo, confira [Implantar um aplicativo existente no Service Fabric do Azure](service-fabric-deploy-existing-app.md).
+Para obter mais informações sobre como atualizar um aplicativo, consulte [Atualizar um aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md).
