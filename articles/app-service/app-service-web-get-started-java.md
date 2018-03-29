@@ -1,11 +1,11 @@
 ---
 title: Criar seu primeiro aplicativo Web Java no Azure
-description: "Saiba como executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo Java básico."
+description: Saiba como executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo Java básico.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: rmcmurray
 manager: routlaw
-editor: 
+editor: ''
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
@@ -15,15 +15,15 @@ ms.topic: quickstart
 ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: de72b97051daef675ceae7c7af08fb04e21cf849
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e63f8706e28a5d34cc9774cbaecde31415a4b48e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar seu primeiro aplicativo Web Java no Azure
 
-Os [aplicativos Web](app-service-web-overview.md) do Azure fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este guia de início rápido mostra como implantar um aplicativo Web Java no Serviço de Aplicativo usando o [IDE do Eclipse para desenvolvedores Java EE](http://www.eclipse.org/).
+Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este guia de início rápido mostra como implantar um aplicativo Web Java no Serviço de Aplicativo usando o [IDE do Eclipse para desenvolvedores Java EE](http://www.eclipse.org/).
 
 Após a conclusão deste guia de início rápido, seu aplicativo será semelhante à ilustração a seguir quando exibido em um navegador da Web:
 

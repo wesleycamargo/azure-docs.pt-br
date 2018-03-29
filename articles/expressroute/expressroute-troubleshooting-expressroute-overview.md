@@ -1,12 +1,12 @@
 ---
-title: "Verificando a conectividade: Guia de Solução de Problemas do Azure ExpressRoute | Microsoft Docs"
-description: "Esta página fornece instruções sobre solução de problemas e validação de conectividade de ponta a ponta de um circuito ExpressRoute."
+title: 'Verificando a conectividade: Guia de Solução de Problemas do Azure ExpressRoute | Microsoft Docs'
+description: Esta página fornece instruções sobre solução de problemas e validação de conectividade de ponta a ponta de um circuito ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
 O ExpressRoute, que estende uma rede local para a Microsoft Cloud por uma conexão privada que é facilitada por um provedor de conectividade, envolve as três seguintes zonas da rede distintas:
@@ -68,7 +68,7 @@ Para validar um circuito ExpressRoute, as etapas a seguir são abordadas (com o 
 
 Mais verificações e validações serão adicionadas no futuro, retorne e verifique mensalmente!
 
-##<a name="validate-circuit-provisioning-and-state"></a>Validar o estado e o provisionamento do circuito
+## <a name="validate-circuit-provisioning-and-state"></a>Validar o estado e o provisionamento do circuito
 Independentemente do modelo de conectividade, um circuito do ExpressRoute deve ser criado e, portanto, uma chave de serviço gerada para o provisionamento do circuito. O provisionamento de um circuito do ExpressRoute estabelece uma conexão de Camada 2 redundante entre PE-MSEEs (4) e MSEEs (5). Para obter mais informações sobre como criar, modificar, provisionar e verificar um circuito do ExpressRoute, consulte o artigo [Create and modify an ExpressRoute circuit][CreateCircuit] (Criar e modificar um circuito do ExpressRoute).
 
 >[!TIP]
@@ -76,7 +76,7 @@ Independentemente do modelo de conectividade, um circuito do ExpressRoute deve s
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Verificação por meio do Portal do Azure
+### <a name="verification-via-the-azure-portal"></a>Verificação por meio do Portal do Azure
 No Portal do Azure, o status de um circuito do ExpressRoute pode ser verificado selecionando ![2][2] na barra de menu do lado esquerdo e selecionando o circuito do ExpressRoute. Selecionar um circuito do ExpressRoute listado em "Todos os recursos" abrirá a folha do circuito do ExpressRoute. Na seção ![3][3] da folha, as informações gerais sobre o ExpressRoute são listadas conforme mostrado na seguinte captura de tela:
 
 ![4][4]    
@@ -90,7 +90,7 @@ Para que um circuito do ExpressRoute esteja operacional, o *Status do circuito* 
 >
 >
 
-###<a name="verification-via-powershell"></a>Verificação por meio do PowerShell
+### <a name="verification-via-powershell"></a>Verificação por meio do PowerShell
 Para listar todos os circuitos do ExpressRoute em um grupo de recursos, use o seguinte comando:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -139,7 +139,7 @@ Para confirmar se um circuito do ExpressRoute está funcionando, preste atençã
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>Verificação por meio do PowerShell (Clássico)
+### <a name="verification-via-powershell-classic"></a>Verificação por meio do PowerShell (Clássico)
 Para listar todos os circuitos do ExpressRoute em uma assinatura, use o seguinte comando:
 
     Get-AzureDedicatedCircuit
@@ -167,10 +167,10 @@ Para confirmar se um circuito do ExpressRoute está funcionando, preste atençã
 >
 >
 
-##<a name="validate-peering-configuration"></a>Validar Configuração de Emparelhamento
+## <a name="validate-peering-configuration"></a>Validar Configuração de Emparelhamento
 Depois que o provedor de serviços concluir o provisionamento do circuito do ExpressRoute, uma configuração de roteamento poderá ser criada no circuito do ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito do ExpressRoute pode ter um, dois ou três contextos de roteamento habilitados: emparelhamento privado do Azure (tráfego para redes virtuais privadas no Azure), emparelhamento público do Azure (tráfego para endereços IP públicos no Azure) e emparelhamento da Microsoft (tráfego para Office 365 e Dynamic 365). Para obter mais informações sobre como criar e modificar a configuração de roteamento, consulte o artigo [Create and modify routing for an ExpressRoute circuit][CreatePeering] (Criar e modificar o roteamento para um circuito do ExpressRoute).
 
-###<a name="verification-via-the-azure-portal"></a>Verificação por meio do Portal do Azure
+### <a name="verification-via-the-azure-portal"></a>Verificação por meio do Portal do Azure
 
 >[!NOTE]
 >Se a camada 3 for fornecida pelo provedor de serviços e os emparelhamentos estiverem em branco no portal, atualize a configuração Circuito usando o botão Atualizar no portal. Essa operação aplicará a configuração de roteamento correta em seu circuito. 
@@ -188,7 +188,7 @@ No exemplo anterior, conforme observado, o contexto de roteamento de emparelhame
 >
 >
 
-###<a name="verification-via-powershell"></a>Verificação por meio do PowerShell
+### <a name="verification-via-powershell"></a>Verificação por meio do PowerShell
 Para obter os detalhes de configuração de emparelhamento privado do Azure, use os seguintes comandos:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -364,7 +364,7 @@ O exemplo a seguir mostra que a resposta do comando para um emparelhamento não 
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>Verifique as Estatísticas de Tráfego
+## <a name="check-the-traffic-statistics"></a>Verifique as Estatísticas de Tráfego
 Para obter as estatísticas de tráfego combinadas dos caminhos primário e secundário – bytes em entrada e em saída – de um contexto de emparelhamento, use o seguinte comando:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

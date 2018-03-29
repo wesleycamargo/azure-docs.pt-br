@@ -2,10 +2,10 @@
 title: Copiar dados de/para um sistema de arquivos usando o Azure Data Factory | Microsoft Docs
 description: Saiba como copiar dados do sistema de arquivos para armazenamentos de dados de coletor (ou) de armazenamentos de dados de origem com suporte para o sistema de arquivos usando o Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ff8fb061a5a5108e574860fa26d0d983ef5ffe99
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e765c5b0240eb1b0311210dc466d1bc0a43ae58f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de arquivos usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ As propriedades a seguir têm suporte no serviço vinculado do sistema de arquiv
 
 | Cenário | "host" em definição de serviço vinculado | "folderPath" em definição de conjunto de dados |
 |:--- |:--- |:--- |
-| Pasta local no computador do Integration Runtime: <br/><br/>Exemplos: D:\\\* ou D:\pasta\subpasta\\* |D:\\\\ |.\\\\ ou pasta\\\\subpasta |
+| Pasta local no computador do Integration Runtime: <br/><br/>Exemplos: D:\\\* ou D:\pasta\subpasta\\\* |D:\\\\ |.\\\\ ou pasta\\\\subpasta |
 | Pasta compartilhada remota:  <br/><br/>Exemplos: \\\\meuservidor\\compartilhar\\\* ou \\\\meuservidor\\compartilhar\\pasta\\subpasta\\* |\\\\\\\\meuservidor\\\\compartilhar |.\\\\ ou pasta\\\\subpasta |
 
 **Exemplo:**

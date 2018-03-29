@@ -1,12 +1,12 @@
 ---
-title: "Recomendações de custo do Azure Advisor | Microsoft Docs"
-description: "Use o Azure Advisor para otimizar o custo de suas implantações do Azure."
+title: Recomendações de custo do Azure Advisor | Microsoft Docs
+description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7b9c7037271fabd67c1ada80420ad72c340e46bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="advisor-cost-recommendations"></a>Recomendações de custo do Advisor
 
@@ -30,9 +30,6 @@ Embora alguns cenários de aplicativos possam resultar na baixa utilização por
 O Assistente mostra o custo estimado da continuação da execução da máquina virtual, de forma que você possa optar por desligá-la ou redimensioná-la.
 
 Se você deseja ser mais agressivo na identificação de máquinas virtuais subutilizadas, você pode ajustar a regra de média de utilização da CPU para cálculo por assinatura.
-
-## <a name="use-a-cost-effective-solution-to-manage-performance-goals-of-multiple-sql-databases"></a>Usar uma solução econômica para gerenciar as metas de desempenho de vários bancos de dados SQL
-O Advisor identifica as instâncias do SQL Server que podem se beneficiar da criação de pools de banco de dados elástico. Pools de banco de dados elástico fornecem uma solução simples e econômica para gerenciar as metas de desempenho de vários bancos de dados que têm padrões de uso variáveis. Para obter mais informações sobre os pools elásticos do Azure, consulte [O que é um pool elástico do Azure?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/).
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Reduzir os custos eliminando circuitos do ExpressRoute não provisionados
 O Assistente identifica circuitos do ExpressRoute que estão no status de provedor *Não Provisionado* por mais de um mês e recomenda excluir o circuito se você não estiver planejando provisioná-lo com o seu provedor de conectividade.

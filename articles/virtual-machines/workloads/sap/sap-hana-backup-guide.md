@@ -1,11 +1,11 @@
 ---
-title: "Guia de backup para SAP HANA em Máquinas Virtuais do Azure | Microsoft Azure"
-description: "O guia de backup do SAP HANA oferece duas possibilidades principais de backup para SAP HANA em máquinas virtuais do Azure"
+title: Guia de backup para SAP HANA em Máquinas Virtuais do Azure | Microsoft Azure
+description: O guia de backup do SAP HANA oferece duas possibilidades principais de backup para SAP HANA em máquinas virtuais do Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de backup para SAP HANA em Máquinas Virtuais do Azure
 

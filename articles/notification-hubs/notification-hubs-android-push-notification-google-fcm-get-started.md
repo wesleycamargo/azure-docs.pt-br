@@ -1,12 +1,12 @@
 ---
-title: "Introdução aos hubs de notificação do Azure para aplicativos Android e Firebase Cloud Messaging | Microsoft Docs"
-description: "Neste tutorial, você aprende a usar os Hubs de Notificação do Azure e o Firebase Cloud Messaging para enviar notificações por push a dispositivos Android."
+title: Introdução aos hubs de notificação do Azure para aplicativos Android e Firebase Cloud Messaging | Microsoft Docs
+description: Neste tutorial, você aprende a usar os Hubs de Notificação do Azure e o Firebase Cloud Messaging para enviar notificações por push a dispositivos Android.
 services: notification-hubs
 documentationcenter: android
-keywords: "notificações por push, notificação por push, notificação por push do android, fcm, firebase cloud messaging"
+keywords: notificações por push, notificação por push, notificação por push do android, fcm, firebase cloud messaging
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 2cac554be145c3bb9ec2c71ef893bba947104a2d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 0f4c766bd68227a85e2438bc68b2d61c69ce706c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-android-apps-and-firebase-cloud-messaging"></a>Introdução aos hubs de notificação do Azure para aplicativos Android e Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -285,9 +285,8 @@ Agora, o hub de notificação está configurado para funcionar com o Firebase Cl
         import android.util.Log;
         import android.widget.TextView;
         import android.widget.Toast;
-    ```
 
-3. Adicione os seguintes membros privados na parte superior da classe. Use isso para [verificar a disponibilidade do Google Play Services, conforme recomendado pelo Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+3. Add the following private members at the top of the class. You use these to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
    
     ```java
         public static MainActivity mainActivity;

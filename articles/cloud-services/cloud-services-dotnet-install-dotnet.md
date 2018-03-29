@@ -1,11 +1,11 @@
 ---
-title: "Instalar o .NET em funções dos Serviços de Nuvem do Azure | Microsoft Docs"
-description: "Este artigo descreve como instalar manualmente o .NET Framework em funções de trabalho e web de seu serviço de nuvem"
+title: Instalar o .NET em funções dos Serviços de Nuvem do Azure | Microsoft Docs
+description: Este artigo descreve como instalar manualmente o .NET Framework em funções de trabalho e web de seu serviço de nuvem
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
 ms.service: cloud-services
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2017
 ms.author: adegeo
-ms.openlocfilehash: cc4b62bc554757e6e394b78334f52f45aa08efe8
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: fa41a18b31a255fa7cda90e33a948f5c6c65434f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalar o .NET em funções dos Serviços de Nuvem do Azure
 Este artigo descreve como instalar versões do .NET Framework que não são fornecidas com o SO convidado do Azure. Você pode usar o .NET no SO convidado para configurar as funções Web e de trabalho de seu serviço de nuvem.
@@ -98,7 +98,7 @@ Você pode usar as tarefas de inicialização para executar operações antes do
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP47" *****
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" *****
     set netfx="NDP471"
     
     REM ***** Set script start timestamp *****
