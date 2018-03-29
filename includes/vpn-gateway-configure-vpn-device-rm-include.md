@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/23/2018
+---
 **Para fazer o download de scripts de configuração do dispositivo VPN**
 
 Dependendo do seu dispositivo VPN, será possível baixar um script de configuração do dispositivo VPN. Para saber mais, confira [Fazer download dos scripts de configuração de dispositivo de VPN](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).

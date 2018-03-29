@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: abordagens de migração do usuário"
-description: "Discuta conceitos centrais e avançados sobre a migração do usuário usando a API do Graph e, opcionalmente, políticas personalizadas do Azure AD B2C."
+title: 'Azure Active Directory B2C: abordagens de migração do usuário'
+description: Discuta conceitos centrais e avançados sobre a migração do usuário usando a API do Graph e, opcionalmente, políticas personalizadas do Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: migração do usuário
 Quando você planeja migrar seu provedor de identidade para o Azure Active Directory B2C (Azure AD B2C), também é necessário migrar a conta de usuário. Este artigo explica como migrar as contas de usuário existentes de qualquer provedor de identidade para o Azure AD B2C. Este artigo não se destina a ser prescritivo, mas a descrever dois entre vários métodos. O desenvolvedor é responsável por escolher o mais adequado.
@@ -28,7 +25,7 @@ Com o Azure AD B2C, você pode migrar usuários por meio da [API do Graph](https
 
 * **Pré-migração**: este fluxo se aplica quando você precisar limpar o acesso às credenciais do usuário (nome de usuário e senha) ou quando as credenciais forem criptografadas, mas você pode descriptografá-las. O processo de pré-migração envolve a leitura dos usuários do provedor de identidade antigo e a criação de novas contas no diretório do Azure AD B2C.
 
-* **Pré-migração e redefinição de senha**: esse fluxo se aplica quando a senha do usuário não está acessível. Por exemplo:
+* **Pré-migração e redefinição de senha**: esse fluxo se aplica quando a senha do usuário não está acessível. Por exemplo: 
     * A senha é armazenada no formato HASH.
     * A senha é armazenada em um provedor de identidade que você não pode acessar. Seu provedor de identidade antigo valida a credencial do usuário chamando um serviço Web.
 
@@ -51,7 +48,7 @@ Para se comunicar com a API do Graph, primeiro, você precisa ter uma conta de s
 
 Primeiro, registre seu aplicativo de migração no Azure AD. Em seguida, crie uma chave de aplicativo (segredo do aplicativo) e defina o aplicativo com os privilégios de gravação.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Escolha seu locatário do Azure AD **B2C** selecionando sua conta no canto superior direito da janela.
 
@@ -250,7 +247,7 @@ Para obter o link para sua política de redefinição de senha, faça o seguinte
 > Para verificar e alterar o status de migração do usuário, você deve usar uma política personalizada. Para obter mais informações, consulte [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 >
 
-Quando os usuários tentarem entrar sem redefinir a senha primeiro, sua política deve retornar uma mensagem de erro amigável. Por exemplo: 
+Quando os usuários tentarem entrar sem redefinir a senha primeiro, sua política deve retornar uma mensagem de erro amigável. Por exemplo:  
 >*Sua senha expirou. Para redefini-la, selecione o link Redefinir Senha.* 
 
 Esta etapa opcional requer o uso d e políticas personalizadas do Azure AD B2C conforme descrito no artigo [Introdução a políticas personalizadas](active-directory-b2c-get-started-custom.md).

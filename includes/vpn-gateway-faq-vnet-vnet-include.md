@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: d562e58b86a6d5c18b10683dc4c14cf9c28c809b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/23/2018
+---
 As perguntas frequentes sobre redes virtuais para redes virtuais se aplicam a conexões de Gateway de VPN. Se você estiver procurando o Emparelhamento de Rede Virtual, confira [Emparelhamento de Rede Virtual](../articles/virtual-network/virtual-network-peering-overview.md)
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>O Azure cobra pelo tráfego entre VNets?
@@ -6,7 +22,7 @@ O tráfego de VNet para VNet na mesma região é gratuito para ambas as direçõ
 
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>O tráfego de Rede Virtual para Rede Virtual viaja pela Internet?
 
-Não. O tráfego de rede virtual com rede virtual viaja pelo backbone do Microsoft Azure, não pela Internet.
+Nº O tráfego de rede virtual com rede virtual viaja pelo backbone do Microsoft Azure, não pela Internet.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>O tráfego de VNet para VNet é seguro?
 
@@ -14,19 +30,19 @@ Sim, ele é protegido por criptografia IPsec/IKE.
 
 ### <a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>É necessário um dispositivo VPN para conectar redes virtuais?
 
-Não. A conexão de várias redes virtuais do Azure entre si não exige um dispositivo VPN, a menos que a conectividade entre locais seja necessária.
+Nº A conexão de várias redes virtuais do Azure entre si não exige um dispositivo VPN, a menos que a conectividade entre locais seja necessária.
 
 ### <a name="do-my-vnets-need-to-be-in-the-same-region"></a>Minhas redes virtuais precisam estar na mesma região?
 
-Não. As redes virtuais podem estar na mesma região ou em regiões diferentes do Azure (locais).
+Nº As redes virtuais podem estar na mesma região ou em regiões diferentes do Azure (locais).
 
 ### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>Se as Redes Virtuais não estiverem na mesma assinatura, as assinaturas precisam ser associadas ao mesmo locatário do AD?
 
-Não.
+Nº
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Posso usar VNet para VNet a fim de conectar a redes virtuais em instâncias separadas do Azure? 
 
-Não. VNet para VNet dá suporte à conexão de redes virtuais na mesma instância do Azure. Por exemplo, você não pode criar uma conexão entre a instância do Azure pública e a instância do Azure chinesa/alemã/do Governo dos EUA. Para esses cenários, considere o uso de uma conexão VPN Site a Site.
+Nº VNet para VNet dá suporte à conexão de redes virtuais na mesma instância do Azure. Por exemplo, você não pode criar uma conexão entre a instância do Azure pública e a instância do Azure chinesa/alemã/do Governo dos EUA. Para esses cenários, considere o uso de uma conexão VPN Site a Site.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Posso usar Rede Virtual para Rede Virtual com conexões multissite?
 
@@ -38,15 +54,15 @@ Veja a tabela [Requisitos de gateway](../articles/vpn-gateway/vpn-gateway-about-
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Posso usar Rede Virtual para Rede Virtual para me conectar a máquinas virtuais ou serviços de nuvem fora de uma rede virtual?
 
-Não. A rede virtual com rede virtual dá suporte à conexão de redes virtuais. Ele não dá suporte à conexão de máquinas virtuais ou serviços de nuvem que não estão em uma rede virtual.
+Nº A rede virtual com rede virtual dá suporte à conexão de redes virtuais. Ele não dá suporte à conexão de máquinas virtuais ou serviços de nuvem que não estão em uma rede virtual.
 
 ### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga pode abranger redes virtuais?
 
-Não. Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga não pode abranger redes virtuais, mesmo que elas estejam conectadas entre si.
+Nº Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga não pode abranger redes virtuais, mesmo que elas estejam conectadas entre si.
 
 ### <a name="can-i-used-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Posso usar um tipo de VPN PolicyBased para conexões de Rede Virtual para Rede Virtual ou Multissite?
 
-Não. As conexões de rede virtual para rede virtual e de vários sites exigem gateways de VPN com tipos de VPN RouteBased (anteriormente chamado de Roteamento Dinâmico).
+Nº As conexões de rede virtual para rede virtual e de vários sites exigem gateways de VPN com tipos de VPN RouteBased (anteriormente chamado de Roteamento Dinâmico).
 
 ### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>Posso conectar uma rede virtual a um tipo de VPN RouteBased para outra rede virtual com um tipo de VPN PolicyBased?
 
@@ -62,11 +78,11 @@ Os túneis redundantes entre um par de redes virtuais terão suporte quando um g
 
 ### <a name="can-i-have-overlapping-address-spaces-for-vnet-to-vnet-configurations"></a>Posso ter espaços de endereço sobrepostos para configurações de Rede Virtual para Rede Virtual?
 
-Não. Você não pode ter intervalos de endereços IP sobrepostos.
+Nº Você não pode ter intervalos de endereços IP sobrepostos.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-connected-virtual-networks-and-on-premises-local-sites"></a>Pode haver sobreposição de espaços de endereço entre as redes virtuais conectadas e sites local locais?
 
-Não. Você não pode ter intervalos de endereços IP sobrepostos.
+Nº Você não pode ter intervalos de endereços IP sobrepostos.
 
 
 
