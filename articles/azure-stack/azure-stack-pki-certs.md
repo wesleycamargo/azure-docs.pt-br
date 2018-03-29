@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública da pilha do Azure
 A pilha do Azure tem uma rede de infraestrutura pública usando externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, máquinas virtuais do locatário. Certificados PKI com os nomes DNS apropriados para esses pontos de extremidade do Azure pilha infraestrutura pública são necessários durante a implantação da pilha do Azure. Este artigo fornece informações sobre:
@@ -34,6 +34,9 @@ A pilha do Azure tem uma rede de infraestrutura pública usando externamente ace
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 A lista a seguir descreve os requisitos de certificado que são necessários para implantar o Azure pilha: 
 - Certificados devem ser emitidos por uma autoridade de certificação interna ou uma autoridade de certificação pública. Se uma autoridade de certificação pública for usada, ela deve ser incluída na imagem base do sistema operacional como parte do programa de autoridade de raiz confiável do Microsoft. Você pode encontrar a lista completa aqui: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
+- Sua infraestrutura de pilha do Azure deve ter acesso à rede para a autoridade de certificação usado para assinar os certificados
+- Quando a rotação de certificados, certificados devem ser emitidos por qualquer uma da mesma autoridade de certificado interno usada para assinar certificados fornecidos na implantação ou qualquer autoridade de certificação pública acima
+- Não há suporte para o uso de certificados autoassinados
 - O certificado pode ser um certificado curinga único que abrangem todos os espaços de nome no campo nome alternativo da entidade (SAN). Como alternativa, você pode usar certificados individuais usando caracteres curinga para pontos de extremidade como o acs e o Cofre de chaves em que eles são necessários. 
 - O algoritmo de assinatura de certificado não pode ser SHA1, ele deve ser mais forte. 
 - O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação da pilha do Azure. 
@@ -42,6 +45,9 @@ A lista a seguir descreve os requisitos de certificado que são necessários par
 - O certificado "emitido para:" campo não deve ser o mesmo que seu "emitido por:" campo.
 - As senhas para todos os arquivos pfx de certificado devem ser o mesmo no momento da implantação
 - Certifique-se de que os nomes de entidade e entidade alternativa nomes de todos os certificados correspondem as especificações descritas neste artigo para evitar falhas de implantação.
+
+> [!NOTE]
+> Não há suporte para certificados de autoatendimento assinado.
 
 > [!NOTE]
 > Suporte para a presença de autoridades de certificação intermediária no IS de cadeia de relações de confiança do certificado. 
