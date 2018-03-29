@@ -2,18 +2,18 @@
 title: Copiar dados para ou do Armazenamento de Blobs do Azure usando o Data Factory.| Microsoft Docs
 description: Saiba como copiar dados de armazenamentos de dados de origem com suporte para o Armazenamento de Blobs do Azure ou do Armazenamento de Blobs para armazenamentos de dados de coletor com suporte, usando o Data Factory.
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d492147b8855d8f1ef64d3421c62e11a1951eadd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b0eca20a801bbe431eff8ed0accffe2705d6c41c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

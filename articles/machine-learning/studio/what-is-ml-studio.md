@@ -1,11 +1,12 @@
 ---
-title: "O que é o Azure Machine Learning Studio? | Microsoft Docs"
-description: "Visão geral do Azure ML Studio, uma ferramenta do tipo \"arrastar e soltar\" para criar rapidamente modelos em de uma biblioteca de algoritmos e módulos pronta para uso."
-keywords: "aprendizado de máquina do azure, azure ml, ml studio"
+title: O que é o Azure Machine Learning Studio? | Microsoft Docs
+description: Visão geral do Azure ML Studio, uma ferramenta do tipo "arrastar e soltar" para criar rapidamente modelos em de uma biblioteca de algoritmos e módulos pronta para uso.
+keywords: aprendizado de máquina do azure, azure ml, ml studio
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: a96e80fa3ece14c40159c6937a0e34c1ebc634ff
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 17a95ab00ed7bbda85a8fba5456c758f3ee9f116
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. O Machine Learning Studio publica modelos como serviços Web que podem ser facilmente consumidos por aplicativos personalizados ou ferramentas de BI como o Excel.

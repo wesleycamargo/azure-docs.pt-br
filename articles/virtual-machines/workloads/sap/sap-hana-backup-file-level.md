@@ -1,11 +1,11 @@
 ---
-title: "Backup do Azure do SAP HANA no nível do arquivo | Microsoft Docs"
-description: "Há duas possibilidades principais de backup para SAP HANA em máquinas virtuais do Azure, e este artigo aborda o Backup do Azure do SAP HANA no nível do arquivo"
+title: Backup do Azure do SAP HANA no nível do arquivo | Microsoft Docs
+description: Há duas possibilidades principais de backup para SAP HANA em máquinas virtuais do Azure, e este artigo aborda o Backup do Azure do SAP HANA no nível do arquivo
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup do Azure do SAP HANA no nível do arquivo
 
@@ -95,7 +95,7 @@ Definir o limite de tamanho do arquivo de backup no lado do HANA não melhora o 
 
 Para testar o paralelismo da ferramenta blobxfer, o tamanho máximo dos backups do HANA foi definido como 15 GB, o que resultou em19 arquivos de backup. Essa configuração reduziu o tempo usado pelo blobxfer para copiar os 230 GB para o Armazenamento de Blobs do Azure de 3000 segundos até 875 segundos.
 
-Esse resultado é possível devido ao limite de 60 MB/s para gravar em um blob do Azure. O paralelismo por meio de vários blobs resolve o afunilamento, mas há uma desvantagem: aumentar o desempenho da ferramenta blobxfer para copiar todos esses arquivos de backup do HANA para o Armazenamento de Blobs do Azure coloca carga na VM do HANA e na rede. Operação do sistema HANA fica afetada.
+Esse resultado é possível devido ao limite de 60 MB/s para gravar em um blob do Azure. O paralelismo por meio de vários blobs resolve o gargalo, mas há uma desvantagem: aumentar o desempenho da ferramenta blobxfer para copiar todos esses arquivos de backup do HANA para o Armazenamento de Blobs do Azure coloca carga na VM do HANA e na rede. Operação do sistema HANA fica afetada.
 
 ## <a name="blob-copy-of-dedicated-azure-data-disks-in-backup-software-raid"></a>Cópia de blob de discos de dados do Azure dedicados no RAID do software de backup
 

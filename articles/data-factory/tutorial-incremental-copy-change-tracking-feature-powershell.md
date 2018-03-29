@@ -1,11 +1,11 @@
 ---
-title: "Copiar dados de maneira incremental usando o Controle de Alterações e o Azure Data Factory | Microsoft Docs"
-description: "Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure. "
+title: Copiar dados de maneira incremental usando o Controle de Alterações e o Azure Data Factory | Microsoft Docs
+description: 'Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure. '
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 69a2967be1709c3b3e3bd9fa5854482ecc5e3aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d8299778ce5b713f4275a28c7f174a300197a6a2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
 
-Neste tutorial, você executa as seguintes etapas:
+Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
 > * Prepare o armazenamento de dados de origem
@@ -76,7 +76,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 * **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar uma. Crie um contêiner denominado **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de fonte de dados no Banco de Dados SQL do Azure
-1. Inicie o **SQL Server Management Studio** e conecte-se à réplica principal. 
+1. Inicie o **SQL Server Management Studio** e conecte-se ao SQL Server do Azure. 
 2. No **Gerenciador de Servidores**, clique com o botão direito do mouse no **banco de dados** e escolha **Nova Consulta**.
 3. Execute o comando SQL a seguir no Banco de Dados SQL do Azure para criar uma tabela chamada `data_source_table` como o repositório de fonte de dados.  
     
@@ -267,7 +267,7 @@ Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory.
     ```
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
-Nesta etapa, você cria conjuntos de dados para representar a fonte de dados, o destino de dados. e o local para armazenar o SYS_CHANGE_VERSION.
+Nesta etapa, você criará conjuntos de dados para representar a origem dos dados, o destino dos dados. e o local para armazenar o SYS_CHANGE_VERSION.
 
 ### <a name="create-a-source-dataset"></a>Criar um conjunto de dados de origem
 Nesta etapa, você cria conjuntos de dados para representar os dados de origem. 
@@ -454,7 +454,7 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 4. Na página Data factory, clique no bloco **Monitorar e Gerenciar**. 
 
     ![Bloco Monitorar e Gerenciar](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-monitor-manage-tile-3.png)    
-5. O **Aplicativo de Integração de Dados** inicia em uma guia separada. Você pode ver todas as **execuções de pipeline** e seus status. Observe que, no exemplo a seguir, o status do pipeline de execução é **Com Êxito**. Você pode verificar os parâmetros passados para o pipeline ao clicar no link da coluna **Parâmetros**. Se houver um erro, você verá um link na coluna **Erro**. Clique no link na coluna **Ações**. 
+5. O **Aplicativo de Integração de Dados** é iniciado em uma guia separada. Você pode ver todas as **execuções de pipeline** e seus status. Observe que, no exemplo a seguir, o status da execução de pipeline é **Com Êxito**. Você pode verificar os parâmetros passados para o pipeline ao clicar no link da coluna **Parâmetros**. Se houver um erro, você verá um link na coluna **Erro**. Clique no link na coluna **Ações**. 
 
     ![Execuções de pipeline](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-4.png)    
 6. Quando você clicar no link na coluna **Ações**, verá a página a seguir, que mostra todas as **execuções de atividade** para o pipeline. 

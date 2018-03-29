@@ -1,13 +1,13 @@
 ---
-title: "Criar um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um rapidamente uma escala de máquina virtual com o Azure PowerShell"
+title: Criar um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell | Microsoft Docs
+description: Saiba como criar um rapidamente uma escala de máquina virtual com o Azure PowerShell
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.openlocfilehash: c5ca90ae303d62c4ad453971f84da78866b0c599
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais usando o Azure PowerShell
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Dimensione o número de VMs no conjunto de dimensionamento manualmente ou defina regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Neste artigo de introdução, você cria um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell. Também é possível criar um conjunto de dimensionamento com a [CLI do Azure 2.0](virtual-machine-scale-sets-create-cli.md), ou o [Portal do Azure](virtual-machine-scale-sets-create-portal.md).

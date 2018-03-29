@@ -4,8 +4,8 @@ description: Descreve a infraestrutura básica de segurança usada pelos serviç
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c8215ab4a1759efef3c2c13a5ac44f6944b53d7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,9 +49,10 @@ Neste artigo, examinamos as considerações sobre segurança nestes dois cenári
 - **Cenário híbrido**: nesse cenário, sua origem ou destino está atrás de um firewall ou dentro de uma rede corporativa local. Ou, o armazenamento de dados está em uma particular ou rede virtual (geralmente a origem) e não está acessível publicamente. Os servidores de banco de dados hospedados em máquinas virtuais também se enquadram nesse cenário.
 
 ## <a name="cloud-scenarios"></a>Cenários de nuvem
-### <a name="secure-data-store-credentials"></a>Credenciais do armazenamento de dados seguros
-- **Armazene credenciais criptografadas em um armazenamento gerenciado do Azure Data Factory**. O Data Factory ajuda a proteger suas credenciais de armazenamento de dados criptografando-as com certificados gerenciados pela Microsoft. Esses certificados são trocados a cada dois anos (que inclui a renovação do certificado e a migração de credenciais). As credenciais criptografadas são armazenadas com segurança em uma conta de armazenamento do Azure gerenciado pelos serviços de gerenciamento do Azure Data Factory. Para obter mais informações sobre a segurança do Armazenamento do Azure, consulte [Visão geral de segurança do Armazenamento do Azure](../security/security-storage-overview.md).
 
+### <a name="securing-data-store-credentials"></a>Protegendo as credenciais do armazenamento de dados
+
+- **Armazene credenciais criptografadas em um armazenamento gerenciado do Azure Data Factory**. O Data Factory ajuda a proteger suas credenciais de armazenamento de dados criptografando-as com certificados gerenciados pela Microsoft. Esses certificados são trocados a cada dois anos (que inclui a renovação do certificado e a migração de credenciais). As credenciais criptografadas são armazenadas com segurança em uma conta de armazenamento do Azure gerenciado pelos serviços de gerenciamento do Azure Data Factory. Para obter mais informações sobre a segurança do Armazenamento do Azure, consulte [Visão geral de segurança do Armazenamento do Azure](../security/security-storage-overview.md).
 - **Armazenar credenciais no Azure Key Vault**. Você também pode armazenar credenciais do repositório de dados em [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). O Data Factory recupera as credenciais durante a execução de uma atividade. Para obter mais informações, consulte [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Criptografia de dados em trânsito
@@ -144,7 +145,7 @@ A tabela a seguir fornece os requisitos de porta de saída e de domínio dos fir
 
 | Nomes de domínio                  | Portas de saída | DESCRIÇÃO                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443, 80        | Necessárias para que o tempo de execução de integração auto-hospedado se conecte aos serviços de movimentação de dados no Data Factory. |
+| `*.servicebus.windows.net`    | 443            | Necessárias para que o tempo de execução de integração auto-hospedado se conecte aos serviços de movimentação de dados no Data Factory. |
 | `*.core.windows.net`          | 443            | Usada pelo tempo de execução de integração auto-hospedado para se conectar à conta de armazenamento do Azure ao usar o recurso [cópia em etapas](copy-activity-performance.md#staged-copy). |
 | `*.frontend.clouddatahub.net` | 443            | Necessárias para que o tempo de execução de integração auto-hospedado se conecte ao serviço do Data Factory. |
 | `*.database.windows.net`      | 1433           | (Opcional) Necessária ao copiar de ou para o Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure. Use o recurso de cópia em etapas para copiar dados para o Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure sem abrir a porta 1433. |

@@ -1,11 +1,11 @@
 ---
-title: "Gerenciamento de logon único para aplicativos empresariais no Azure Active Directory | Microsoft Docs"
-description: "Gerenciar configurações de logon único para aplicativos empresariais em sua organização da Galeria de Aplicativos do Azure Active Directory"
+title: Gerenciamento de logon único para aplicativos empresariais no Azure Active Directory | Microsoft Docs
+description: Gerenciar configurações de logon único para aplicativos empresariais em sua organização da Galeria de Aplicativos do Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: markvi
 ms.reviewer: asmalser
-ms.openlocfilehash: bb9c2e1fdf392e234e6c72e0728ab04d2fd88a81
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerenciar o logon único para aplicativos empresariais
 
@@ -88,7 +88,7 @@ Se houver suporte para o aplicativo, selecionar o modo de SSO vinculado permite 
 
 ![Logon vinculado][5]
 
-##<a name="feedback"></a>Comentários
+## <a name="feedback"></a>Comentários
 
 Esperamos que você goste de usar a experiência aprimorada do Azure AD. Continue a fazer seus comentários! Poste seus comentários e suas ideias para aprimoramento na seção **Portal de Administração** do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nós estamos empolgados para criar algo novo e interessante diariamente e usar suas diretrizes para formar e definir o que devemos criar a seguir.
 

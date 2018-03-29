@@ -1,11 +1,11 @@
 ---
-title: "Criar, alterar ou excluir um endereço IP público do Azure | Microsoft Docs"
-description: "Aprenda a criar, alterar ou excluir um endereço IP público."
+title: Criar, alterar ou excluir um endereço IP público do Azure | Microsoft Docs
+description: Aprenda a criar, alterar ou excluir um endereço IP público.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou excluir um endereço IP público
 
@@ -46,7 +46,7 @@ Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse 
 
     |Configuração|Obrigatório?|Detalhes|
     |---|---|---|
-    |SKU|sim|Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU **Básico**.  Você não pode alterar a SKU depois que o endereço IP público é criado. Uma máquina virtual autônoma, máquinas virtuais em um conjunto de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais podem usar SKUs Básicos ou Standard.  Não é permitido misturar SKUs entre máquinas virtuais em conjuntos de disponibilidade e aquelas em conjuntos de dimensionamento. SKU **Básico**: se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Nenhuma* por padrão. Você pode optar por selecionar uma zona de disponibilidade para assegurar uma zona específica para seu endereço IP público. SKU **Standard**: um IP público de SKU Standard pode ser associado a uma máquina virtual ou a um front-end de balanceador de carga. Se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Com redundância de zona* por padrão. Para obter informações sobre zonas de disponibilidade, consulte configuração **Zona de disponibilidade**. O SKU padrão será necessário se você associar o endereço a um Load Balancer Standard. Para saber mais sobre os Load Balancers Standard, consulte [SKU Standard do Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). O SKU Standard está em versão prévia. Antes de criar um endereço IP público do SKU Standard, você deve primeiro concluir as etapas em [Registrar-se para a versão prévia do SKU Standard](#register-for-the-standard-sku-preview) e criar o endereço IP público em uma localização (região) com suporte. Para obter uma lista de localizações com suporte, consulte [Disponibilidade da região](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) e monitore a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network) para obter suporte de região adicional. Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.|
+    |SKU|sim|Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU **Básico**.  Você não pode alterar a SKU depois que o endereço IP público é criado. Uma máquina virtual autônoma, máquinas virtuais em um conjunto de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais podem usar SKUs Básicos ou Standard.  Não é permitido misturar SKUs entre máquinas virtuais em conjuntos de disponibilidade e aquelas em conjuntos de dimensionamento. SKU **Básico**: se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Nenhuma* por padrão. Você pode optar por selecionar uma zona de disponibilidade para assegurar uma zona específica para seu endereço IP público. SKU **Standard**: um IP público de SKU Standard pode ser associado a uma máquina virtual ou a um front-end de balanceador de carga. Se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Com redundância de zona* por padrão. Para obter informações sobre zonas de disponibilidade, consulte configuração **Zona de disponibilidade**. O SKU padrão será necessário se você associar o endereço a um Load Balancer Standard. Para saber mais sobre os Load Balancers Standard, consulte [SKU Standard do Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.|
     |NOME|sim|O nome deve ser exclusivo no grupo de recursos selecionado.|
     |Versão IP|sim| Selecione IPv4 ou IPv6. Embora endereços IPv4 públicos possam ser atribuídos a vários recursos do Azure, um endereço IP público IPv6 só pode ser atribuído a um balanceador de carga voltado para a Internet. O balanceador de carga pode balancear o tráfego IPv6 para máquinas virtuais do Azure. Saiba mais sobre [balanceamento de carga de tráfego IPv6 para máquinas virtuais](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você tiver selecionado o **SKU Standard**, você não terá a opção de selecionar *IPv6*. Você só pode criar um endereço IPv4 ao usar o **SKU Standard**.|
     |Atribuição de endereço IP|sim|**Dinâmico:** endereços dinâmicos são atribuídos somente depois que o endereço IP público é associado a um adaptador de rede conectado a uma máquina virtual e essa máquina virtual é iniciada pela primeira vez. Os endereços dinâmicos poderão ser alterados se a máquina virtual à qual o adaptador de rede está conectado for interrompida (desalocada). O endereço permanecerá o mesmo se a máquina virtual for reinicializada ou interrompida (mas não desalocada). **Estático:** endereços estáticos são atribuídos quando o endereço IP público é criado. Os endereços estáticos não serão alterados mesmo se a máquina virtual for colocada no estado interrompido (desalocado). O endereço só é liberado quando o adaptador de rede é excluído. Você pode alterar o método de atribuição após a criação do adaptador de rede. Se você selecionar *IPv6* para a **Versão do IP**, o método de atribuição será *Dinâmico*. Se você selecionar *Standard* para **SKU**, o método de atribuição será *Estático*.|
@@ -65,7 +65,7 @@ Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse 
 
 Embora o portal forneça a opção de criar dois recursos de endereço IP públicos (um IPv4 e um IPv6), os comandos da CLI e do PowerShell a seguir criam um recurso com um endereço para uma versão IP ou o outro. Se você quiser dois recursos de endereço IP público, uma para cada versão IP, deverá executar o comando duas vezes, especificando nomes e versões diferentes para os recursos de endereço IP público. 
 
-|Ferramenta|Get-Help|
+|Ferramenta|Comando|
 |---|---|
 |CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
@@ -84,28 +84,10 @@ Embora o portal forneça a opção de criar dois recursos de endereço IP públi
 
 **Comandos**
 
-|Ferramenta|Get-Help|
+|Ferramenta|Comando|
 |---|---|
 |CLI|[az network public-ip-list](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) para listar endereços IP públicos; [az network public-ip-show](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) para mostrar as configurações; [az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) para atualizar e [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) para excluir|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para recuperar um objeto de endereço IP público e exibir suas configurações; [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para atualizar as configurações e [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) para excluir|
-
-## <a name="register-for-the-standard-sku-preview"></a>Registrar-se para a versão prévia do SKU Standard
-
-> [!NOTE]
-> Os recursos na versão prévia podem não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Não há suporte para os recursos na versão prévia, eles podem ter funcionalidades restritas e podem não estar disponíveis em todas as localizações do Azure. 
-
-Antes que você possa criar um endereço IP público do SKU Standard, você deve primeiro registrar-se para a versão prévia. Para se registrar para a versão prévia, conclua as seguintes etapas:
-
-1. No PowerShell, insira o comando a seguir para registrar-se para a versão prévia:
-   
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-2. Digite o seguinte comando para confirmar que você está registrado para a versão prévia:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 Atribua endereços IP públicos ao criar os seguintes recursos do Azure:

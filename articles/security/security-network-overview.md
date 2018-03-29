@@ -1,5 +1,5 @@
 ---
-title: "Requisitos e conceitos de segurança de rede no Azure | Microsoft Docs"
+title: Requisitos e conceitos de segurança de rede no Azure | Microsoft Docs
 description: " Este artigo facilita o entendimento do que o Microsoft Azure tem a oferecer na área de segurança de rede. Fornecemos explicações básicas sobre os principais requisitos e conceitos de segurança de rede, além de informações sobre o que o Azure tem a oferecer em cada uma dessas áreas. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e32cd1f4267b9ae0825fbb34ed00e25dd1b63b5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-network-security-overview"></a>Azure Network Security Overview (Visão geral da segurança de rede do Azure)
 O Microsoft Azure inclui uma infraestrutura de rede robusta para dar suporte a seus requisitos de conectividade de aplicativo e de serviço. A conectividade de rede é possível entre os recursos localizados no Azure, entre os recursos locais e aqueles hospedados no Azure e de origem e destino à Internet e ao Azure.
@@ -252,11 +252,11 @@ O Azure fornece recursos para ajudar você nessa área-chave com detecção ante
 ### <a name="azure-network-watcher"></a>Observador de Rede do Azure
 O Observador de Rede do Azure inclui vários recursos que ajudam na solução de problemas, além de fornecerem um novo conjunto de ferramentas que auxiliam na identificação de problemas de segurança.
 
-A [Exibição do Grupo de Segurança](/network-watcher/network-watcher-security-group-view-overview.md) ajuda com a conformidade de segurança e auditoria de Máquinas Virtuais e pode ser usada para a realização de auditorias programáticas comparando as políticas de linhas de base definida pela organização com as regras efetivas de cada uma das VMs. Isso pode ajudar a identificar qualquer descompasso de configuração.
+A [Exibição do Grupo de Segurança](../network-watcher/network-watcher-security-group-view-overview.md) ajuda com a conformidade de segurança e auditoria de Máquinas Virtuais e pode ser usada para a realização de auditorias programáticas comparando as políticas de linhas de base definida pela organização com as regras efetivas de cada uma das VMs. Isso pode ajudar a identificar qualquer descompasso de configuração.
 
-A [captura de pacote](/network-watcher/network-watcher-packet-capture-overview.md) permite que você capture o tráfego de rede que entra e sai da máquina virtual. Além de ajudar permitindo que você colete estatísticas de rede e com a solução de problemas de aplicativo, a captura de pacote pode ser extraordinária na investigação das intrusões de rede. Você também pode usar essa funcionalidade em conjunto com o Azure Functions para iniciar capturas de rede em resposta a alertas específicos do Azure.
+A [captura de pacote](../network-watcher/network-watcher-packet-capture-overview.md) permite que você capture o tráfego de rede que entra e sai da máquina virtual. Além de ajudar permitindo que você colete estatísticas de rede e com a solução de problemas de aplicativo, a captura de pacote pode ser extraordinária na investigação das intrusões de rede. Você também pode usar essa funcionalidade em conjunto com o Azure Functions para iniciar capturas de rede em resposta a alertas específicos do Azure.
 
-Para saber mais sobre o Observador de Rede do Azure e como começar a testar algumas das funcionalidades nos laboratórios, leia a [visão geral do monitoramento do Observador de Rede do Azure](/network-watcher/network-watcher-monitoring-overview.md)
+Para saber mais sobre o Observador de Rede do Azure e como começar a testar algumas das funcionalidades nos laboratórios, leia a [visão geral do monitoramento do Observador de Rede do Azure](../network-watcher/network-watcher-monitoring-overview.md)
 
 >[!NOTE]
 O Observador de Rede do Azure ainda está no modo preview público, de modo que ele pode não ter o mesmo nível de disponibilidade e confiabilidade que os serviços que estão na versão de disponibilidade geral. Determinados recursos podem não ter suporte, podem ter restrição e podem não estar disponíveis em todos os locais do Azure. Para ver as notificações mais recentes sobre disponibilidade e status desse serviço, verifique a [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=network-watcher)

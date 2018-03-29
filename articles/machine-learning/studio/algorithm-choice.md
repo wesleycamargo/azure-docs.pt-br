@@ -1,12 +1,13 @@
 ---
-title: "Como escolher algoritmos de aprendizado de máquina | Microsoft Docs"
-description: "Como escolher algoritmos de Aprendizado de Máquina do Azure para aprendizado supervisionado e não supervisionado nos experimentos de agrupamento, classificação ou regressão."
+title: Como escolher algoritmos de aprendizado de máquina | Microsoft Docs
+description: Como escolher algoritmos de Aprendizado de Máquina do Azure para aprendizado supervisionado e não supervisionado nos experimentos de agrupamento, classificação ou regressão.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure
 A resposta à pergunta "Qual algoritmo de aprendizado de máquina devo usar?" sempre será "Depende". Depende do tamanho, da qualidade e da natureza dos dados. Depende do que você deseja fazer com a resposta. Depende de como o cálculo do algoritmo foi traduzido em instruções para o computador que você está usando. E depende de quanto tempo você tem. Até mesmo os cientistas de dados mais experientes não podem determinar qual algoritmo terá o melhor desempenho antes de experimentá-lo.
@@ -187,7 +187,7 @@ As máquinas de vetor de suporte (SVMs) encontram o limite que separa as classes
 
 ***Um limite de classe de computador de vetor de suporte típico maximiza a margem que separa duas classes***
 
-Outro produto da Microsoft Research, a [SVM localmente profunda de duas classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) é uma variante não linear de SVM que mantém a maior parte da eficiência de velocidade e de memória da versão linear. Ela é ideal para casos em que a abordagem linear não oferece respostas exatas o suficiente. Os desenvolvedores a mantiveram rápida ao dividir o problema em pequenos problemas lineares da SVM. Leia a [descrição completa](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) para obter detalhes sobre como eles realizaram esse truque.
+Outro produto da Microsoft Research, a [SVM localmente profunda de duas classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) é uma variante não linear de SVM que mantém a maior parte da eficiência de velocidade e de memória da versão linear. Ela é ideal para casos em que a abordagem linear não oferece respostas exatas o suficiente. Os desenvolvedores a mantiveram rápida ao dividir o problema em pequenos problemas lineares da SVM. Leia a [descrição completa](http://proceedings.mlr.press/v28/jose13.html) para obter detalhes sobre como eles realizaram esse truque.
 
 Usando uma extensão inteligente de SVMs não lineares, a [SVM de uma classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) cria um limite que descreve totalmente o conjunto de dados inteiro. Ela é útil para a detecção de anomalias. Qualquer ponto de dados que ficar de fora desse limite será incomum o suficiente para ser notado.
 

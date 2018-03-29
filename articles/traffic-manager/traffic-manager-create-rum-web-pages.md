@@ -1,31 +1,28 @@
 ---
-title: "Medidas Reais de Usuário para o Gerenciador de Tráfego do Azure com páginas da Web | Microsoft Docs"
-description: "Configurar suas páginas da Web para enviar as Medidas Reais de Usuário para o Gerenciador de Tráfego"
+title: Medidas Reais de Usuário para o Gerenciador de Tráfego do Azure com páginas da Web | Microsoft Docs
+description: Configurar suas páginas da Web para enviar as Medidas Reais de Usuário para o Gerenciador de Tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 71661d8640dbe14082292cb9637964adac9fa803
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar as Medidas Reais de Usuário para o Gerenciador de Tráfego do Azure usando páginas da Web
-
->[!NOTE]
->O recurso de Medidas Reais de Usuário no Gerenciador de Tráfego está na visualização pública e pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que já estão disponíveis. Não há suporte para o recurso, o recurso pode ter funcionalidades restritas e ele pode não estar disponível em todas as localizações do Azure. Para receber as notificações mais recentes sobre a disponibilidade e o status desse recurso, confira a página [Atualizações do Gerenciador de Tráfego do Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 Você pode configurar suas páginas da Web para enviar as Medidas Reais de Usuário para o Gerenciador de Tráfego obtendo uma chave de RUM (Medidas Reais de Usuário) e inserindo o código gerado na página da Web.
 

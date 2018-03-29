@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o ADP | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o ADP."
+title: 'Tutorial: integração do Azure Active Directory com o ADP | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o ADP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 038b2337ea49b769c6b19e9d50a5f0f2edd13d56
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutorial: Integração do Active Directory do Azure ao ADP
 
@@ -122,7 +122,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure Active Directory
 
     ![Informações de logon único de Domínio e URLs do ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
-    Na caixa de texto **Identificador**, digite uma URL: `https://fed.adp.com/` 
+    Na caixa de texto **Identificador**, digite uma URL: `https://fed.adp.com` 
     
 5. O ADP espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. O nome de declaração sempre será **"PersonImmutableID"** e o valor que mapeamos para **employeeid**. 
 
@@ -238,10 +238,6 @@ Após o recebimento da confirmação de seu representante da ADP, configure os s
  
 11. Após a confirmação de um teste bem-sucedido, atribua o serviço ADP federado a usuários individuais ou grupos de usuários, que é explicado mais adiante no tutorial, e distribua-o a seus funcionários. 
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -319,6 +315,8 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 

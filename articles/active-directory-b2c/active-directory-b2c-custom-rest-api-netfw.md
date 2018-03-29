@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário"
-description: "Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário."
+title: 'Azure Active Directory B2C: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário'
+description: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/30/2017
-ms.author: yoelh
-ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário
 Com a Estrutura de Experiência de Identidade subjacente ao Azure AD B2C (Azure Active Directory B2C), é possível integrar-se a uma API RESTful em um percurso do usuário. Neste passo a passo, você aprenderá como o Azure AD B2C interage com serviços RESTful do .NET Framework (API Web).

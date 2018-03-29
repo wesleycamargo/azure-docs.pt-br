@@ -1,25 +1,25 @@
 ---
-title: "Guia de introdução para operadores de TI do Azure | Microsoft Docs"
-description: "Guia de introdução para operadores de TI do Azure"
-services: 
-documentationcenter: 
+title: Guia de introdução para operadores de TI do Azure | Microsoft Docs
+description: Guia de introdução para operadores de TI do Azure
+services: ''
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang: ''
+ms.topic: ''
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à computação em nuvem e ao Microsoft Azure
 
@@ -148,7 +148,7 @@ Um dos benefícios de utilizar o Azure é que você pode implantar seus aplicati
 ### <a name="azure-portal"></a>Portal do Azure
 
 
-O portal do Azure é um aplicativo baseado na Web que você pode utilizar para criar, gerenciar e remover recursos e serviços do Azure. O Portal do Azure está localizado em https://portal.azure.com. Ele inclui um painel personalizável e ferramentas para gerenciar recursos do Azure. Ele também fornece informações de cobrança e de assinatura. Para obter mais informações, consulte [Visão geral do portal do Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gerenciar Recursos do Azure por meio do Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+O portal do Azure é um aplicativo baseado na Web que você pode utilizar para criar, gerenciar e remover recursos e serviços do Azure. O portal do Azure está localizado em https://portal.azure.com. Ele inclui um painel personalizável e ferramentas para gerenciar recursos do Azure. Ele também fornece informações de cobrança e de assinatura. Para obter mais informações, consulte [Visão geral do portal do Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gerenciar Recursos do Azure por meio do Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Recursos
 
@@ -485,7 +485,7 @@ Você pode conectar uma rede local a uma rede virtual do Azure pelo uso de uma c
 
 Já que a rede virtual do Azure é conectada à sua rede local, as redes virtuais entre instalações devem usar uma parte exclusiva do espaço de endereço usado por sua organização. Da mesma forma que diferentes localizações da empresa serão atribuídas a uma sub-rede IP específica, o Azure torna-se outra localização à medida que você estende sua rede.
 
-###<a name="deploying-a-virtual-network"></a>Implantar uma rede virtual
+### <a name="deploying-a-virtual-network"></a>Implantar uma rede virtual
 
 Há várias opções para a implantação de uma rede virtual.
 

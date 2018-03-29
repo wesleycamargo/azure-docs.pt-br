@@ -1,10 +1,10 @@
 ---
-title: "Script do PowerShell – implantar Integration Runtime do Azure-SSIS | Microsoft Docs"
+title: Script do PowerShell – implantar Integration Runtime do Azure-SSIS | Microsoft Docs
 description: Este script do PowerShell cria um Integration Runtime do Azure-SSIS que pode executar pacotes SSIS na nuvem.
 services: data-factory
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: douglasl
-ms.openlocfilehash: 959432378d49e18fbb567ea164c2608bfa02956d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6b1ef4ab14cbcb4e91ad023f9fdda5c2c2e71260
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Script do PowerShell – implantar Integration Runtime do Azure-SSIS
 
@@ -28,7 +28,7 @@ Este exemplo de script do PowerShell cria um Integration Runtime do Azure-SSIS q
 
 [!code-powershell[main](../../../powershell_scripts/data-factory/deploy-azure-ssis-integration-runtime/deploy-azure-ssis-integration-runtime.ps1 "Deploy Azure-SSIS Integration Runtime")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Depois de executar o exemplo de script, use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele:
 
@@ -45,7 +45,7 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 Este script usa os seguintes comandos:
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Criar uma fábrica de dados. |
@@ -58,6 +58,6 @@ Este script usa os seguintes comandos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
 Exemplos adicionais de scripts do Azure Data Factory PowerShell podem ser encontrados nos [Exemplos do Azure Data Factory PowerShell](../samples-powershell.md).

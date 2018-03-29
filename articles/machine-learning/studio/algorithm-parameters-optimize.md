@@ -1,10 +1,11 @@
 ---
 title: Otimizar seus algoritmos no Azure Machine Learning | Microsoft Docs
-description: "Explica como escolher o parâmetro ideal definido por um algoritmo no Azure Machine Learning."
+description: Explica como escolher o parâmetro ideal definido por um algoritmo no Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 664ab97cdfb663d9c8a4cc6c7b748eebfbdf580c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 3e4423f0a92b08ff7fa7dd8edf430f27ff2d464e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Escolher parâmetros para otimizar seus algoritmos do Azure Machine Learning
 Este tópico descreve como escolher o hiperparâmetro correto definido por um algoritmo no Azure Machine Learning. A maioria dos algoritmos de Machine Learning tem parâmetros para serem definidos. Ao treinar um modelo, você precisa fornecer valores para esses parâmetros. A eficácia do modelo treinado depende dos parâmetros do modelo que você escolhe. O processo de localizar o melhor conjunto de parâmetros é conhecido como *seleção de modelo*.

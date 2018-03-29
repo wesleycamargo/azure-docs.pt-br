@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: como modificar a inscrição em políticas personalizadas e configurar um provedor autodeclarado"
-description: "Um passo a passo sobre como adicionar declarações para inscrição e configurar a entrada do usuário"
+title: 'Azure Active Directory B2C: como modificar a inscrição em políticas personalizadas e configurar um provedor autodeclarado'
+description: Um passo a passo sobre como adicionar declarações para inscrição e configurar a entrada do usuário
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: tbd
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/29/2017
-ms.author: joroja
-ms.openlocfilehash: e9eb9fa941569c508c4dddc6b85786537a5a0fac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: b9ea48f0700509194602dd15ff42c7c689685a53
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: como modificar a inscrição para adicionar novas declarações e configurar a entrada do usuário.
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 Neste artigo, você adicionará uma nova entrada de usuário fornecido (uma declaração) para seu percurso do usuário para inscrição.  Você configurará a entrada como uma lista suspensa e a definirá se for necessário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).  Teste o percurso do usuário para entrada/inscrição para fazer uma inscrição e uma conta local nova antes de continuar.
 

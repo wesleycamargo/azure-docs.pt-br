@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Trocas de declarações da API REST como validação | Microsoft Docs"
-description: "Um tópico sobre as políticas personalizadas do Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: Trocas de declarações da API REST como validação | Microsoft Docs'
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/24/2017
-ms.author: joroja
-ms.openlocfilehash: dfd33a9ecdce7b21f58660fb39a5f2d7b4ce6f43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 50968cb96a5ef2cf8fe450899e04d7856e8d4dcc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário
 
@@ -37,7 +34,7 @@ No exemplo de perfil de validação, usaremos o percurso do usuário de edição
 
 Podemos verificar que o nome fornecido pelo usuário na edição de perfil não faz parte de uma lista de exclusões.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
 - Um ponto de extremidade de API REST com o qual se irá interagir. Para este passo a passo, criamos um site de demonstração chamado [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) com um serviço de API REST.

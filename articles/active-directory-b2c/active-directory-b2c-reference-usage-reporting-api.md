@@ -1,22 +1,21 @@
 ---
-title: "Azure Active Directory B2C: definições e exemplos de API de relatório de uso | Microsoft Docs"
-description: "Guia e exemplos de como obter relatórios sobre usuários de locatário, autenticações e autenticações multifator do Azure AD B2C"
+title: 'Azure Active Directory B2C: definições e exemplos de API de relatório de uso | Microsoft Docs'
+description: Guia e exemplos de como obter relatórios sobre usuários de locatário, autenticações e autenticações multifator do Azure AD B2C
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 3470f45683ea508dfe338c313a5307eb6c1164d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Acessando os relatórios de uso do Azure AD B2C por meio da API de geração de relatórios
 
@@ -29,7 +28,7 @@ O Azure AD B2C (Azure Active Directory B2C) fornece autenticação com base na e
 Este artigo se concentra em relatórios ligados à atividade de cobrança, que é baseada no número de usuários, nas autenticações faturáveis baseadas em início de sessão e nas autenticações multifator.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar, você precisa concluir as etapas em [Pré-requisitos para acessar as APIs de relatório do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Criar um aplicativo, obter um segredo para ele e conceder acesso direitos para relatórios do locatário B2C do AD do Azure. Também são fornecidos aqui os exemplos de *script Bash* e de *script Python*. 
 
 ## <a name="powershell-script"></a>Script do PowerShell

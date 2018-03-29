@@ -1,24 +1,21 @@
 ---
-title: "Fluxo de código de autorização – Azure AD B2C | Microsoft Docs"
-description: "Saiba como compilar aplicativos Web usando o Azure AD B2C e o protocolo de autenticação OpenID Connect."
+title: Fluxo de código de autorização – Azure AD B2C | Microsoft Docs
+description: Saiba como compilar aplicativos Web usando o Azure AD B2C e o protocolo de autenticação OpenID Connect.
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: 99a292c6be66016264e528525a5920667207b605
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: d49a1c97a578726c26f8533476042646b0b302d3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: fluxo de código de autorização OAuth 2.0
 Você pode usar a concessão de código de autorização OAuth 2.0 em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Usando a implementação do Azure AD B2C (Azure Active Directory B2C) do OAuth 2.0, você pode adicionar tarefas de inscrição, entrada e outras de gerenciamento de identidade aos seus aplicativos móveis e da área de trabalho. Este artigo é independente de linguagem. No artigo, descreveremos como enviar e receber mensagens HTTP sem usar nenhuma biblioteca de software livre.
@@ -76,7 +73,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parâmetro | Obrigatório? | Descrição |
+| Parâmetro | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | client_id |Obrigatório |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
 | response_type |Obrigatório |O tipo de resposta, que deve incluir `code` para o fluxo do código de autorização. |
@@ -99,7 +96,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 &state=arbitrary_data_you_can_receive_in_the_response                // the value provided in the request
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | código |O código de autorização que o aplicativo solicitou. O aplicativo pode usar o código de autorização para solicitar um token de acesso para um recurso de destino. Os códigos de autorização têm uma duração muito curta. Normalmente, eles expiram depois de cerca de 10 minutos. |
 | state |Consulte a descrição completa na tabela na seção anterior. Se um parâmetro `state` estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos. |
@@ -113,7 +110,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | error |Uma cadeia de caracteres de código de erro que você pode usar para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |
@@ -131,7 +128,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parâmetro | Obrigatório? | Descrição |
+| Parâmetro | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | p |Obrigatório |A política que foi usada para adquirir o código de autorização. Você não poderá usar uma política diferente nessa solicitação. Observe que esse parâmetro é adicionado à *cadeia de caracteres de consulta*e não ao corpo do POST. |
 | client_id |Obrigatório |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
@@ -152,7 +149,7 @@ Uma resposta de token bem-sucedido tem esta aparência:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | not_before |A hora em que o token é considerado válido, nos valores de hora da época. |
 | token_type |O valor do tipo de token. O único tipo com suporte do Azure AD é Portador |
@@ -170,7 +167,7 @@ As respostas de erro tem esta aparência:
 }
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | error |Uma cadeia de caracteres de código de erro que você pode usar para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |
@@ -195,7 +192,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parâmetro | Obrigatório? | Descrição |
+| Parâmetro | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | p |Obrigatório |A política que foi usada para adquirir o token de atualização original. Você não poderá usar uma política diferente nessa solicitação. Observe que esse parâmetro é adicionado à *cadeia de caracteres de consulta*e não ao corpo do POST. |
 | client_id |Recomendadas |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
@@ -216,7 +213,7 @@ Uma resposta de token bem-sucedido tem esta aparência:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | not_before |A hora em que o token é considerado válido, nos valores de hora da época. |
 | token_type |O valor do tipo de token. O único tipo com suporte do Azure AD é Portador |
@@ -234,7 +231,7 @@ As respostas de erro tem esta aparência:
 }
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | error |Uma cadeia de caracteres de código de erro que você pode usar para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |

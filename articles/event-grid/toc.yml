@@ -27,6 +27,10 @@
       href: resize-images-on-storage-blob-upload-event.md
     - name: Acionar Runbook de Automação
       href: ensure-tags-exists-on-new-virtual-machines.md
+- name: Exemplos
+  items:
+    - name: Modelos do Gerenciador de Recursos
+      href: template-samples.md
 - name: Conceitos
   items:
     - name: Conceitos da Grade de Eventos
@@ -47,8 +51,6 @@
       href: publish-iot-hub-events-to-logic-apps.md
     - name: Escutar eventos do Barramento de Serviço com Funções e Aplicativos Lógicos
       href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Modelos para assinaturas de evento
-      href: event-subscription-template.md
     - name: Monitorize as entregas de eventos
       href: monitor-event-delivery.md
 - name: Referência

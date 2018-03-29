@@ -1,12 +1,12 @@
 ---
 title: Instalar o Servidor de Backup do Azure v2 | Microsoft Docs
-description: "O Servidor de Backup do Azure v2 oferece recursos aprimorados de backup para proteção de VMs, arquivos e pastas, cargas de trabalho e muito mais. Saiba como instalar ou atualizar para o Servidor de Backup do Azure v2."
+description: O Servidor de Backup do Azure v2 oferece recursos aprimorados de backup para proteção de VMs, arquivos e pastas, cargas de trabalho e muito mais. Saiba como instalar ou atualizar para o Servidor de Backup do Azure v2.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>Instalar o Servidor de Backup do Azure v2
 
@@ -36,7 +36,7 @@ Você pode instalar o Servidor de Backup v2 no Windows Server 2012 R2 ou Windows
 ## <a name="upgrade-backup-server-to-v2"></a>Atualizar Servidor de Backup para v2
 Para atualizar do Servidor de Backup v1 para o Servidor de Backup v2, verifique se a instalação tem as atualizações necessárias:
 
-- [Atualização dos agentes de proteção](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) nos servidores protegidos.
+- [Atualização dos agentes de proteção](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) nos servidores protegidos.
 - Atualização do Windows Server 2012 R2 para o Windows Server 2016.
 - Atualização do administrador remoto do Servidor de Backup do Azure em todos os servidores de produção.
 - Certifique-se de que os backups estão definidos para continuar sem reiniciar o servidor de produção.

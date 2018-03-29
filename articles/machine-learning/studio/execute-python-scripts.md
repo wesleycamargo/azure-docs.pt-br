@@ -1,11 +1,12 @@
 ---
-title: "Executar scripts de aprendizado de máquina do Python | Microsoft Docs"
-description: "Descreve princípios de design subjacentes ao suporte a Python no Azure Machine Learning e seus cenários de uso básico, recursos e limitações."
-keywords: "aprendizado de máquina em python, pandas, python pandas, scripts python, executar scripts python"
+title: Executar scripts de aprendizado de máquina do Python | Microsoft Docs
+description: Descreve princípios de design subjacentes ao suporte a Python no Azure Machine Learning e seus cenários de uso básico, recursos e limitações.
+keywords: aprendizado de máquina em python, pandas, python pandas, scripts python, executar scripts python
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: c25f31ca72417672298657c4585184ad72db6c99
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0efa2a7604b41b791ed3717b7f2b667b7181085d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Executar scripts Python de aprendizado de máquina no Azure Machine Learning Studio
 
@@ -209,7 +209,7 @@ O módulo [Executar Script Python][execute-python-script] permite a um cientista
 Esperamos fornecer funcionalidades adicionais para o módulo [Executar Script Python][execute-python-script], como a capacidade de treinar e operacionalizar modelos em Python e acrescentar um suporte aprimorado para o desenvolvimento e depuração de código no Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, consulte o [Centro de Desenvolvedores do Python](https://azure.microsoft.com/develop/python/).
+Para saber mais, confira o [Centro de Desenvolvedores do Python](https://azure.microsoft.com/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/

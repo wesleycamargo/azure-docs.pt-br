@@ -1,5 +1,5 @@
 ---
-title: "Executar cargas de trabalho do Lote do Azure em VMs econômicas de baixa prioridade | Microsoft Docs"
+title: Executar cargas de trabalho do Lote do Azure em VMs econômicas de baixa prioridade | Microsoft Docs
 description: Saiba como provisionar VMs de baixa prioridade para reduzir o custo das cargas de trabalho do Lote do Azure.
 services: batch
 author: mscurrell
@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68240e29429b4c6321e8627b62ad65ce7ecb468e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usar VMs de baixa prioridade com o Lote
 
@@ -26,12 +26,6 @@ VMs de baixa prioridade tiram proveito da capacidade excedente do Azure. Quando 
 A desvantagem do uso de VMs de prioridade baixa é que elas podem não estar disponíveis para serem alocadas ou podem admitir preempção a qualquer momento, dependendo da capacidade disponível. Por esse motivo, as VMs de baixa prioridade são mais adequadas para determinados tipos de cargas de trabalho. Use VMs de baixa prioridade para cargas de trabalho de processamento assíncronas e em lote, em que o tempo para conclusão do trabalho é flexível e o trabalho é distribuído entre várias VMs.
  
 VMs de prioridade baixa são oferecidas a um preço consideravelmente menor em comparação com VMs dedicadas. Para ver detalhes dos preços, consulte [Preços do Lote](https://azure.microsoft.com/pricing/details/batch/).
-
-
-> [!IMPORTANT]
-> Atualmente, as VMs de baixa prioridade estão disponíveis apenas para cargas de trabalho em execução no Lote. 
->
->
 
 ## <a name="use-cases-for-low-priority-vms"></a>Casos de uso para VMs de baixa prioridade
 

@@ -1,11 +1,11 @@
 ---
-title: "Perguntas Frequentes sobre máquinas virtuais do Windows no Azure | Microsoft Docs"
-description: "Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais do Windows criadas com o modelo do Resource Manager."
+title: Perguntas Frequentes sobre máquinas virtuais do Windows no Azure | Microsoft Docs
+description: Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais do Windows criadas com o modelo do Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: e440385ca0f22dce8668fe73b91efe14e0c8a9b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre as Máquinas Virtuais do Windows
 Este artigo trata de algumas das perguntas mais comuns sobre as máquinas virtuais do Windows criadas no Azure com o modelo de implantação do Gerenciador de Recursos. Para a versão deste tópico relativa ao Linux, veja [Perguntas frequentes sobre as Máquinas Virtuais Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -75,7 +75,7 @@ Sim. Para criar rapidamente uma VM Linux para experimentá-la, veja [Criar uma V
 Sim, agora isso é possível. Primeiro, a VM precisa ser parada e desalocada. Em seguida, é possível adicionar ou remover uma NIC (a menos que ela seja a última NIC na VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome do computador?
-Sim. O nome do computador pode ter, no máximo, 15 caracteres. Confira [Regras e restrições de convenções de nomenclatura](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais informações sobre como nomear recursos.
+Sim. O nome do computador pode ter, no máximo, 15 caracteres. Confira [Regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions#compute) para obter mais informações sobre como nomear recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Há algum requisito de nome de grupo de recursos?
 Sim. O nome do grupo de recursos pode ter, no máximo, 90 caracteres. Confira [Regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) para obter mais informações sobre grupos de recursos.

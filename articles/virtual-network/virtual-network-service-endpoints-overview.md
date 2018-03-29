@@ -1,12 +1,12 @@
 ---
-title: "Pontos de extremidade de serviço de rede virtual do Azure | Microsoft Docs"
-description: "Saiba como habilitar o acesso direto aos recursos do Azure de uma rede virtual usando pontos de extremidade de serviço."
+title: Pontos de extremidade de serviço de rede virtual do Azure | Microsoft Docs
+description: Saiba como habilitar o acesso direto aos recursos do Azure de uma rede virtual usando pontos de extremidade de serviço.
 services: virtual-network
 documentationcenter: na
 author: anithaa
 manager: narayan
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
-ms.custom: 
-ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -119,7 +119,7 @@ Para um recurso de serviço do Azure (por exemplo, uma conta de Armazenamento do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [configurar pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-configure.md)
+- Saiba como [configurar pontos de extremidade de serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
 - Saiba como [proteger uma conta de Armazenamento do Azure em uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba como [proteger um Banco de Dados SQL do Azure em uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba mais sobre a [integração do serviço do Azure em redes virtuais](virtual-network-for-azure-services.md)

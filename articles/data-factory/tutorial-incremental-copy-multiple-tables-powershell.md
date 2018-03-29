@@ -1,11 +1,11 @@
 ---
-title: "Copiar várias tabelas incrementalmente usando o Azure Data Factory | Microsoft Docs"
-description: "Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure."
+title: Copiar várias tabelas incrementalmente usando o Azure Data Factory | Microsoft Docs
+description: Neste tutorial, você criará um pipeline do Azure Data Factory copiando de maneira incremental dados delta de várias tabelas de um banco de dados do SQL Server local em um banco de dados SQL do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0a6bcf78561ef4f57d788ef19e132d1a855b8c2a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8f59ffb2011ad43173881d4ced231e4820fcf5f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
 
-Neste tutorial, você executa as seguintes etapas:
+Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
-> * Prepare os armazenamentos de dados de origem e de destino.
+> * Preparará os armazenamentos de dados de origem e destino.
 > * Criar uma fábrica de dados.
 > * Crie um Integration Runtime auto-hospedado.
 > * Instalar o Integration Runtime. 
@@ -44,14 +44,14 @@ Neste tutorial, você executa as seguintes etapas:
 Aqui estão as etapas importantes ao criar essa solução: 
 
 1. **Selecione a coluna de marca-d'água**.
-    Selecione uma coluna para cada tabela no armazenamento de dados de origem, que pode ser usada para identificar os registros novos ou atualizados para cada execução. Normalmente, os dados nessa coluna selecionada (por exemplo, ID ou last_modify_time) seguem crescendo quando linhas são criadas ou atualizadas. O valor máximo dessa coluna é usado como uma marca-d'água.
+    Selecione uma coluna para cada tabela no armazenamento de dados de origem. Posteriormente, essa coluna pode ser usada para identificar os registros novos ou atualizados de cada execução. Normalmente, os dados nessa coluna selecionada (por exemplo, ID ou last_modify_time) seguem crescendo quando linhas são criadas ou atualizadas. O valor máximo dessa coluna é usado como uma marca-d'água.
 
 2. **Prepare um armazenamento de dados para armazenar o valor de marca-d'água**.   
     Neste tutorial, você deve armazenar o valor de marca-d'água em um banco de dados SQL.
 
 3. **Crie um pipeline com as seguintes atividades**: 
     
-    a. Crie uma atividade ForEach que itere em uma lista de nomes de tabela de origem passada como um parâmetro para o pipeline. Para cada tabela de origem, ele chama as seguintes atividades para executar o carregamento delta para essa tabela.
+    a. Crie uma atividade ForEach que itere em uma lista de nomes de tabela de origem passada como um parâmetro para o pipeline. Para cada tabela de origem, são chamadas as próximas atividades necessárias para o carregamento delta.
 
     b. Crie duas atividades de pesquisa. Use a primeira atividade de Pesquisa para recuperar o último valor de marca-d'água. Use a segunda atividade de Pesquisa para recuperar o novo valor de marca-d'água. Esses valores de marca-d'água são passados para a atividade de Cópia.
 
@@ -66,7 +66,7 @@ Aqui estão as etapas importantes ao criar essa solução:
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **SQL Server**. Neste tutorial, você utiliza um banco de dados do SQL Server local como o armazenamento de dados de origem. 
 * **Banco de dados SQL do Azure**. Use um banco de dados SQL do Azure como o armazenamento de dados do coletor. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL](../sql-database/sql-database-get-started-portal.md) para saber as etapas para criar um. 
 
@@ -716,7 +716,7 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A atividade ForE
 
     ![Bloco Monitorar e Gerenciar](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
 
-5. O **Aplicativo de integração de dados** abre em uma guia separada. Você pode ver todas as execuções de pipeline e seus status. Observe que, no exemplo a seguir, o status do pipeline de execução é **Com Êxito**. Para verificar os parâmetros passados para o pipeline, selecione o link da coluna **Parâmetros**. Se houver um erro, você verá um link na coluna **Erro**. Selecione o link na coluna **Ações**. 
+5. O **Aplicativo de integração de dados** abre em uma guia separada. Você pode ver todas as execuções de pipeline e seus status. Observe que, no exemplo a seguir, o status da execução de pipeline é **Com Êxito**. Para verificar os parâmetros passados para o pipeline, selecione o link da coluna **Parâmetros**. Se houver um erro, você verá um link na coluna **Erro**. Selecione o link na coluna **Ações**. 
 
     ![Execuções de pipeline](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
 6. Quando você selecionar o link na coluna **Ações**, você verá a página a seguir, que mostra todas as execuções de atividade para o pipeline: 
@@ -872,10 +872,10 @@ project_table   2017-10-01 00:00:00.000
 Observe que os valores de marca d'água para ambas as tabelas foram atualizados.
      
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você realizou as seguintes etapas: 
+Neste tutorial, você realizará os seguintes procedimentos: 
 
 > [!div class="checklist"]
-> * Prepare os armazenamentos de dados de origem e de destino.
+> * Preparará os armazenamentos de dados de origem e destino.
 > * Criar uma fábrica de dados.
 > * Criar um Integration Runtime (IR) auto-hospedado.
 > * Instalar o Integration Runtime.

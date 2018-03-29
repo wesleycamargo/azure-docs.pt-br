@@ -1,10 +1,10 @@
 ---
 title: 'Azure Cosmos DB: artigos da API do SQL | Microsoft Docs'
-description: "Uma lista de todos os artigos específicos para criar bancos de dados de documento com a API do SQL no Azure Cosmos DB."
+description: Uma lista de todos os artigos específicos para criar bancos de dados de documento com a API do SQL no Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 0ad80ce15769cfe823925cf36bbd47f2ddadec21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: documentação da API do SQL
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Este artigo fornece links para todo o conteúdo do Azure Cosmos DB específico para a API do SQL.
 
@@ -34,7 +32,7 @@ A leitura destes tópicos e recursos é indispensável para você começar a apr
 - [Introdução à API do SQL](sql-api-introduction.md)
 - [Modelo de recursos do banco de dados](sql-api-resources.md)
 - Site da web: [Consultar Playground](https://www.documentdb.com/sql/demo)
-- Roteiro: [Gramática SQL](sql-api-sql-query-cheat-sheet.md)
+- Roteiro: [Gramática SQL](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>Guia de início rápido
 
