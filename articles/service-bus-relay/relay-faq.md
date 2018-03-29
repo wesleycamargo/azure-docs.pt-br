@@ -1,11 +1,11 @@
 ---
-title: "Perguntas frequentes de retransmissão do Azure | Microsoft Docs"
-description: "Obtenha respostas a algumas perguntas frequentes sobre Retransmissão do Azure."
+title: Perguntas frequentes de retransmissão do Azure | Microsoft Docs
+description: Obtenha respostas a algumas perguntas frequentes sobre Retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
-Este artigo responde a algumas perguntas frequentes sobre a [Retransmissão do Azure](https://azure.microsoft.com/services/service-bus/). Para informações gerais sobre preço e suporte do Azure, consulte [Perguntas frequentes sobre suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083).
+Este artigo responde a algumas perguntas frequentes sobre a [Retransmissão do Azure](https://azure.microsoft.com/services/service-bus/). Para informações gerais sobre preço e suporte do Azure, consulte [Perguntas frequentes sobre suporte do Azure](https://azure.microsoft.com/en-in/support/faq/).
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?

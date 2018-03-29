@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>VMs de baixa prioridade em conjuntos de dimensionamento (versão prévia)
 
@@ -48,7 +48,7 @@ Para implantar VMs de baixa prioridade em conjuntos de dimensionamento, você po
 
 ## <a name="use-the-azure-cli-20"></a>Usar a CLI 2.0 do Azure
 
-O processo para criar um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](virtual-machine-scale-sets-create-cli.md). Basta adicionar o parâmetro '--Priority' à chamada da CLI e defini-lo como *Baixa* conforme mostrado no exemplo a seguir:
+O processo para criar um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Basta adicionar o parâmetro '--Priority' à chamada da CLI e defini-lo como *Baixa* conforme mostrado no exemplo a seguir:
 
 ```azurecli
 az vmss create \
@@ -63,7 +63,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
-O processo para criar um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](virtual-machine-scale-sets-create-powershell.md).
+O processo para criar um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](quick-create-powershell.md).
 Basta adicionar o parâmetro '-Priority' a [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) e defini-lo como *Baixa* conforme mostrado no exemplo a seguir:
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Usar Modelos do Azure Resource Manager
 
-O processo para criar um conjunto de dimensionamento que use VMs de baixa prioridade é o mesmo detalhado no artigo de introdução para [Linux](virtual-machine-scale-sets-create-template-linux.md) ou [Windows](virtual-machine-scale-sets-create-template-windows.md). Adicione a propriedade ‘priority’ ao tipo de recurso *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* em seu modelo e especifique *Baixa* como valor. Certifique-se de usar a versão *2017-10-30-preview* da API ou superior. 
+O processo para criar um conjunto de dimensionamento que use VMs de baixa prioridade é o mesmo detalhado no artigo de introdução para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Adicione a propriedade ‘priority’ ao tipo de recurso *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* em seu modelo e especifique *Baixa* como valor. Certifique-se de usar a versão *2017-10-30-preview* da API ou superior. 
 
 Para definir a política de remoção para excluir, adicione o parâmetro 'evictionPolicy' e defina-o como *excluir*.
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Services: adicionar uma VM Ubuntu a um domínio gerenciado | Microsoft Docs"
-description: "Adicionar uma máquina virtual Ubuntu Linux aos Azure AD Domain Services"
+title: 'Azure Active Directory Domain Services: adicionar uma VM Ubuntu a um domínio gerenciado | Microsoft Docs'
+description: Adicionar uma máquina virtual Ubuntu Linux aos Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: a8a3610707ca7d00694779c4b3631e1483d6bbdd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Adicionar uma máquina virtual Ubuntu no Azure a um domínio gerenciado
 Este artigo mostra como adicionar uma máquina virtual Ubuntu Linux a um domínio gerenciado do Azure AD Domain Services.
@@ -217,7 +217,7 @@ Você pode conceder aos membros do grupo 'Administradores de controlador de dom�
 
 
 ## <a name="troubleshooting-domain-join"></a>Solucionando problemas de ingresso no domínio
-Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) (Solucionando problemas de ingresso no domínio).
+Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) (Solucionando problemas de ingresso no domínio).
 
 
 ## <a name="related-content"></a>Conteúdo relacionado

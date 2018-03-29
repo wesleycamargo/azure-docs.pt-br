@@ -1,19 +1,19 @@
 ---
-title: "Início rápido do Azure IoT Edge + Linux | Microsoft Docs"
-description: "Experimente o Azure IoT Edge executando a análise em um dispositivo de borda simulado"
+title: Início rápido do Azure IoT Edge + Linux | Microsoft Docs
+description: Experimente o Azure IoT Edge executando a análise em um dispositivo de borda simulado
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Início rápido: implantar seu primeiro módulo IoT Edge em um dispositivo Linux ou Mac – versão prévia
 
@@ -76,7 +76,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Configure o tempo de execução com a cadeia de conexão do dispositivo IoT Edge da seção anterior:
 ```bash
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Inicie o tempo de execução:

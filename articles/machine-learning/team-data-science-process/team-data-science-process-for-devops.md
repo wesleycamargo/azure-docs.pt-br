@@ -1,28 +1,28 @@
 ---
-title: "Processo de ciência de dados de equipe para DevOps | Microsoft Docs"
-description: "Fornece orientação para entender uma carga de trabalho de análise usando o Processo de Ciência de Dados de Equipe e o Azure Machine Learning."
+title: Processo de ciência de dados de equipe para DevOps | Microsoft Docs
+description: Fornece orientação para entender uma carga de trabalho de análise usando o Processo de Ciência de Dados de Equipe e o Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;BuckWoody
-ms.openlocfilehash: 2ab36da70e2c08b770973f4c4d33eddfdebed9e1
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: 3f9197ff93fe348057294ec15439a4f96bfa2969
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Processo de ciência de dados de equipe para operações de desenvolvedor
 
-Este artigo explora as funções de DevOps (operações de desenvolvedor) que são específicas de uma implementação de solução de Análise Avançada e de Serviços Cognitivos. Esses materiais de treinamento estão relacionados ao Processo de ciência de Dados de Equipe (TDSP) e a kits de ferramentas e a softwares livres ou da Microsoft, que são úteis para prever, executar e fornecer soluções de ciência de dados. Ele faz referência a tópicos que abordam a DevOps Toolchain específica a projetos e soluções de Ciência de Dados e AI.
+Este artigo explora as funções de DevOps (operações de desenvolvedor) que são específicas de uma implementação de solução de Análise Avançada e de Serviços Cognitivos. Esses materiais de treinamento estão relacionados ao Processo de Ciência de Dados da Equipe (TDSP) e a kits de ferramentas e a softwares livres ou da Microsoft, que são úteis para prever, executar e fornecer soluções de ciência de dados. Ele faz referência a tópicos que abordam a DevOps Toolchain específica a projetos e soluções de Ciência de Dados e AI.
 
 ## <a name="lesson-path"></a>Caminho da lição
 A tabela a seguir fornece orientação em níveis especificados para ajudar a concluir os objetivos de DevOps necessários para implementar soluções de ciência de dados com as tecnologias do Azure.

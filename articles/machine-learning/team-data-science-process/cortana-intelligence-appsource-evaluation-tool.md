@@ -1,8 +1,8 @@
 ---
-title: "Ferramenta de avaliação da solução do Cortana Intelligence | Microsoft Docs"
-description: "Como parceiro da Microsoft, aqui estão todas as etapas que você precisa seguir para publicar sua Cortana Intelligence para o AppSource."
+title: Ferramenta de avaliação da solução do Cortana Intelligence | Microsoft Docs
+description: Como parceiro da Microsoft, aqui estão todas as etapas que você precisa seguir para publicar sua Cortana Intelligence para o AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: anupams
+ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Ferramenta de avaliação da solução do Cortana Intelligence
 ## <a name="overview"></a>Visão geral
@@ -54,7 +54,7 @@ Usamos essas informações para entender melhor como sua solução utiliza vári
 A ingestão neste caso significa quaisquer fontes de dados que são usadas para efetuar pull de dados de fora da solução ou quaisquer serviços fora da solução usados para enviar dados por push para ela.
 
 ### <a name="consumption"></a>Consumo
-O consumo neste caso significa qualquer conjunto de dados que são utilizados para enviar dados por push aos usuários finais, direta ou indiretamente. Por exemplo:
+O consumo neste caso significa qualquer conjunto de dados que são utilizados para enviar dados por push aos usuários finais, direta ou indiretamente. Por exemplo: 
 - Conjuntos de dados usados em consultas diretas da PowerBI.
 - Conjuntos de dados consultados em um aplicativo Web.
 

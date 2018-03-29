@@ -1,11 +1,11 @@
 ---
-title: "Diagnóstico de proxy reverso do Azure Service Fabric | Microsoft Docs"
-description: "Saiba como monitorar e diagnosticar o processamento de solicitação no proxy reverso."
+title: Diagnóstico de proxy reverso do Azure Service Fabric | Microsoft Docs
+description: Saiba como monitorar e diagnosticar o processamento de solicitação no proxy reverso.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorar e diagnosticar o processamento de solicitação no proxy reverso
 
 A partir da versão 5.7 do Service Fabric, os eventos de métrica de carga e integridade estão disponíveis para coleta. Os eventos estão disponíveis em dois canais, um somente com eventos de erro relacionados à falha no processamento da solicitação no proxy reverso e outro contendo eventos detalhados com entradas de solicitações bem-sucedidas e com falha.
 
-Confira [Coletar eventos de proxy reverso](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) para habilitar a coleta de eventos desses canais nos clusters locais e do Azure Service Fabric.
+Confira [Coletar eventos de proxy reverso](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) para habilitar a coleta de eventos desses canais nos clusters locais e do Azure Service Fabric.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Solucionar problemas usando logs de diagnóstico
 Aqui estão alguns exemplos de como interpretar os logs de falha comuns que podem ser encontrados:

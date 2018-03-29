@@ -1,6 +1,6 @@
 ---
-title: "Classificação de imagem aérea | Microsoft Docs"
-description: "Fornece instruções para cenário do mundo real sobre a classificação de imagem área"
+title: Classificação de imagem aérea | Microsoft Docs
+description: Fornece instruções para cenário do mundo real sobre a classificação de imagem área
 author: mawah
 ms.author: mawah
 manager: mwinkle
@@ -10,11 +10,11 @@ ms.service: machine-learning
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 42ebb7dc3abf8fdb6049f1114dc8604a7b810a7e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagem aérea
 
@@ -222,7 +222,7 @@ Seu cluster do Batch AI acessa seus dados de treinamento em um Servidor de Arqui
 1. Use o comando a seguir para criar um Servidor de Arquivos de Rede:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p "Dem0Pa$$w0rd" --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Verifique o status de provisionamento do Servidor de Arquivos de Rede usando o seguinte comando:
@@ -253,7 +253,7 @@ Se desejar, você poderá confirmar que a transferência de dados ocorreu como p
 1. Crie o cluster emitindo o seguinte comando:
 
     ```
-    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p "Dem0Pa$$w0rd" --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Use o seguinte comando para verificar o status de provisionamento do seu cluster:

@@ -1,11 +1,11 @@
 ---
 title: Mapeamentos de campo em indexadores do Azure Search
-description: "Configurar mapeamentos de campo de indexador de Pesquisa do Azure para obter as diferenças nos nomes de campo e representações de dados"
+description: Configurar mapeamentos de campo de indexador de Azure Search para obter as diferenças nos nomes de campo e representações de dados
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
 ms.service: search
 ms.devlang: rest-api
@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapeamentos de campo em indexadores do Azure Search
-Ao usar indexadores de Pesquisa do Azure, ocasionalmente você pode se encontrar em situações em que seus dados de entrada não correspondem ao esquema de seu índice de destino. Nesses casos, você pode usar **mapeamentos de campo** para transformar seus dados na forma desejada.
+Ao usar indexadores de Azure Search, ocasionalmente você pode se encontrar em situações em que seus dados de entrada não correspondem ao esquema de seu índice de destino. Nesses casos, você pode usar **mapeamentos de campo** para transformar seus dados na forma desejada.
 
 Algumas situações em que os mapeamentos de campo são úteis:
 
-* A fonte de dados tem um campo `_id`, mas a Pesquisa do Azure não permite nomes de campo iniciados com um sublinhado. Um mapeamento de campo permite um campo "rename".
+* A fonte de dados tem um campo `_id`, mas o Azure Search não permite nomes de campo iniciados com um sublinhado. Um mapeamento de campo permite um campo "rename".
 * Você deseja preencher vários campos no índice com os mesmos dados da fonte de dados, por exemplo, porque você deseja aplicar diferentes analisadores a esses campos. Mapeamentos de campo permitem a “bifurcação” de um campo de fonte de dados.
 * Você precisa codificar ou decodificar Base64 seus dados. Mapeamentos de campo dão suporte a diversas **funções de mapeamento**, incluindo funções para codificação e decodificação Base64.   
 
@@ -60,12 +60,12 @@ Um indexador pode ter vários mapeamentos de campo. Por exemplo, aqui está como
 
 "fieldMappings" : [
     { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
 
 > [!NOTE]
-> A Pesquisa do Azure usa a comparação que não diferencia maiúsculas de minúsculas para resolver os nomes de campo e a função em mapeamentos de campo. Isso é conveniente (você não precisa obter todas as maiúsculas e minúsculas corretas), mas isso significa que a fonte de dados ou o índice não pode ter campos que diferem somente maiúsculas e minúsculas.  
+> O Azure Search usa a comparação que não diferencia maiúsculas de minúsculas para resolver os nomes de campo e a função em mapeamentos de campo. Isso é conveniente (você não precisa obter todas as maiúsculas e minúsculas corretas), mas isso significa que a fonte de dados ou o índice não pode ter campos que diferem somente maiúsculas e minúsculas.  
 >
 >
 
@@ -191,7 +191,7 @@ Transforma uma cadeia de caracteres formatada como uma matriz JSON de cadeias de
 Por exemplo, se a cadeia de caracteres de entrada for `["red", "white", "blue"]`, o campo de destino do tipo `Collection(Edm.String)` será preenchido com os três valores `red`, `white` e `blue`. Para valores de entrada que não podem ser analisados como matrizes de cadeia de caracteres JSON, um erro retornará.
 
 ### <a name="sample-use-case"></a>Casos de uso de exemplo
-O banco de dados SQL do Azure não tem um tipo de dados interno que é mapeado naturalmente para campos `Collection(Edm.String)` na Pesquisa do Azure. Para preencher os campos da coleção de cadeia de caracteres, formate seus dados de origem como uma matriz de cadeia de caracteres JSON e usar essa função.
+O banco de dados SQL do Azure não tem um tipo de dados interno que é mapeado naturalmente para campos `Collection(Edm.String)` no Azure Search. Para preencher os campos da coleção de cadeia de caracteres, formate seus dados de origem como uma matriz de cadeia de caracteres JSON e usar essa função.
 
 ### <a name="example"></a>Exemplo
 ```JSON
@@ -202,5 +202,5 @@ O banco de dados SQL do Azure não tem um tipo de dados interno que é mapeado n
 ```
 
 
-## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
+## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar o Azure Search
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
