@@ -1,11 +1,11 @@
 ---
-title: "Solução de Cofre de Chaves do Azure no Log Analytics | Microsoft Docs"
-description: "Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs do Cofre de Chaves do Azure."
+title: Solução de Cofre de Chaves do Azure no Log Analytics | Microsoft Docs
+description: Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs do Cofre de Chaves do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solução do Azure Key Vault Analytics no Log Analytics
 
@@ -101,9 +101,9 @@ Depois de clicar no bloco **Visão Geral**, você pode exibir resumos dos seus l
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 A solução de Cofre de Chaves do Azure analisa os registros que têm um tipo de **KeyVaults** que são coletados de [logs de AuditEvent](../key-vault/key-vault-logging.md) no Diagnóstico do Azure.  As propriedades desses registros são descritas na tabela a seguir:  
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Tipo |*AzureDiagnostics* |
+| type |*AzureDiagnostics* |
 | SourceSystem |*As tabelas* |
 | CallerIpAddress |Endereço IP do cliente que fez a solicitação |
 | Categoria | *AuditEvent* |
@@ -137,7 +137,7 @@ Para usar a solução atualizada:
 2. Habilite a solução de Azure Key Vault usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md)
 3. Atualizar todas as consultas salvas, painéis ou alertas para usar o novo tipo de dados
   + O tipo mudou de KeyVaults para AzureDiagnostics. Use ResourceType para filtrar os registros do Key Vault.
-  - Em vez de: `Type=KeyVaults`, use`Type=AzureDiagnostics ResourceType=VAULTS`
+  - Em vez de: `KeyVaults`, use`AzureDiagnostics | where ResourceType'=="VAULTS"`
   + Campos: (os nomes de campo diferenciam maiúsculas de minúsculas)
   - Para qualquer campo que tenha um sufixo de \_s, \_d ou \_g no nome, altere o primeiro caractere para minúsculo
   - Para qualquer campo que tenha um sufixo de \_o no nome, os dados são divididos em campos individuais com base nos nomes de campos aninhados. Por exemplo, o UPN do chamador é armazenado em um campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
@@ -147,7 +147,7 @@ Para usar a solução atualizada:
 
 Os dados coletados antes da alteração não estão visíveis na nova solução. Você pode continuar a consultar esses dados usando os nomes de campo e tipo antigos.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
