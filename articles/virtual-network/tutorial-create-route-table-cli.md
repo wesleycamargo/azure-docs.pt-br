@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 67bfc8ee677a14735174e9501fa5e10a69bd1ec7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Rotear tráfego com uma tabela de rotas utilizando a CLI do Azure
 
-Por padrão, o Azure roteia automaticamente o tráfego entre todas as sub-redes dentro de uma rede virtual. É possível criar as próprias rotas para substituir o roteamento padrão do Azure. A capacidade de criar rotas personalizadas será útil, por exemplo, se você quiser rotear o tráfego entre sub-redes por meio de um solução de virtualização de rede (NVA). Neste artigo, você aprenderá a:
+Por padrão, o Azure roteia automaticamente o tráfego entre todas as sub-redes dentro de uma rede virtual. É possível criar as próprias rotas para substituir o roteamento padrão do Azure. A capacidade de criar rotas personalizadas será útil, por exemplo, se você quiser rotear o tráfego entre sub-redes por meio de uma NVA (solução de virtualização de rede). Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
 > * Criar uma tabela de rotas
@@ -32,7 +32,7 @@ Por padrão, o Azure roteia automaticamente o tráfego entre todas as sub-redes 
 > * Criar uma rede virtual com várias sub-redes
 > * Associar uma tabela de rotas a uma sub-rede
 > * Criar uma NVA que roteia o tráfego
-> * Implantar máquinas virtuais (VM) em diferentes sub-redes
+> * Implantar VMs (máquinas virtuais) em diferentes sub-redes
 > * Rotear o tráfego de uma sub-rede para outra por meio de uma NVA
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -176,7 +176,7 @@ az vm create \
   --no-wait
 ```
 
-Criar uma VM na sub-rede *Privada*.
+Crie uma VM na sub-rede *Privada*.
 
 ```azurecli-interactive
 az vm create \
@@ -280,4 +280,4 @@ Neste artigo, você criou uma tabela de rotas e associou-a a uma sub-rede. Você
 Embora seja possível implantar muitos recursos do Azure dentro de uma rede virtual, os recursos para alguns serviços PaaS do Azure não podem ser implantados em uma rede virtual. Ainda assim, é possível restringir acesso aos recursos de alguns serviços PaaS do Azure somente para tráfego de uma sub-rede de rede virtual. Avance para o próximo tutorial para aprender como restringir o acesso à rede para recursos PaaS do Azure.
 
 > [!div class="nextstepaction"]
-> [Restringir o acesso à rede para recursos PaaS](virtual-network-service-endpoints-configure.md#azure-cli)
+> [Restringir o acesso à rede para recursos PaaS](tutorial-restrict-network-access-to-resources-cli.md)

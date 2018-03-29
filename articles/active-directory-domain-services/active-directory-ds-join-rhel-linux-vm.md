@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Service: ingressar uma VM RHEL em um domínio gerenciado | Microsoft Docs"
-description: "Ingresse uma máquina virtual do Red Hat Enterprise Linux nos Serviços de Domínio do Azure AD"
+title: 'Azure Active Directory Domain Service: ingressar uma VM RHEL em um domínio gerenciado | Microsoft Docs'
+description: Ingresse uma máquina virtual do Red Hat Enterprise Linux nos Serviços de Domínio do Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b278f5c4c8c87590205aca13a50a82fe8712d909
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do Red Hat Enterprise Linux 7 em um domínio gerenciado
 Este artigo mostra como ingressar em uma máquina virtual do RHEL (Red Hat Enterprise Linux) 7 em um domínio gerenciado dos Serviços de Domínio do Azure AD.
@@ -34,7 +34,7 @@ Para executar as tarefas listadas neste artigo, você precisa do seguinte:
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Provisionar uma máquina virtual do Red Hat Enterprise Linux
 Provisione uma máquina virtual RHEL 7 no Azure usando qualquer um dos seguintes métodos:
-* [portal do Azure](../virtual-machines/linux/quick-create-portal.md)
+* [Portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 * [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -133,7 +133,7 @@ Verifique se o computador ingressou com êxito no domínio gerenciado. Conecte-s
 
 
 ## <a name="troubleshooting-domain-join"></a>Solucionando problemas de ingresso no domínio
-Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) (Solucionando problemas de ingresso no domínio).
+Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) (Solucionando problemas de ingresso no domínio).
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Serviços de Domínio do Azure AD - Guia de Introdução](active-directory-ds-getting-started.md)

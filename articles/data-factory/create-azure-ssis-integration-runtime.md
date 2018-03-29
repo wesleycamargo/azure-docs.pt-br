@@ -1,11 +1,10 @@
 ---
-title: "Criar tempo de execução de integração do Azure-SSIS no Azure Data Factory | Microsoft Docs"
-description: "Saiba como criar um tempo de execução de integração do Azure-SSIS para poder executar o pacote SSIS na nuvem do Azure."
+title: Criar tempo de execução de integração do Azure-SSIS no Azure Data Factory | Microsoft Docs
+description: Saiba como criar um tempo de execução de integração do Azure-SSIS para poder executar o pacote SSIS na nuvem do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um Integration Runtime do Azure-SSIS no Azure Data Factory
 Este artigo fornece etapas para o provisionamento de um tempo de execução de integração do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SSDT (SQL Server Data Tools) ou o SSMS (SQL Server Management Studio) para implantar pacotes do SSIS (SQL Server Integration Services) para esse tempo de execução no Azure.
@@ -34,7 +33,7 @@ O tutorial: [Tutorial: implantar pacotes do SQL Server Integration Services (SSI
 ## <a name="overview"></a>Visão geral
 Este artigo mostra diferentes maneiras de provisionar um IR do Azure-SSIS:
 
-- [portal do Azure](#azure-portal)
+- [Portal do Azure](#azure-portal)
 - [PowerShell do Azure](#azure-powershell)
 - [Modelo do Azure Resource Manager](#azure-resource-manager-template)
 

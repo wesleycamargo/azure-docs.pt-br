@@ -1,31 +1,28 @@
 ---
-title: "Medidas Reais de Usuário no Gerenciador de Tráfego do Azure | Microsoft Docs"
-description: "Introdução às Medidas Reais de Usuário do Gerenciador de Tráfego"
+title: Medidas Reais de Usuário no Gerenciador de Tráfego do Azure | Microsoft Docs
+description: Introdução às Medidas Reais de Usuário do Gerenciador de Tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Visão geral das Medidas Reais de Usuário do Gerenciador de Tráfego
-
->[!NOTE]
->O recurso de Medidas Reais de Usuário no Gerenciador de Tráfego está na visualização pública e pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que já estão disponíveis. Não há suporte para o recurso, o recurso pode ter funcionalidades restritas e ele pode não estar disponível em todas as localizações do Azure. Para receber as notificações mais recentes sobre a disponibilidade e o status desse recurso, confira a página [Atualizações do Gerenciador de Tráfego do Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 Quando você configurar um perfil do Gerenciador de Tráfego para usar o método de roteamento de desempenho, o serviço analisará de onde as solicitações de consulta DNS estão chegando e tomará decisões de roteamento para direcionar esses solicitantes para a região do Azure que oferece a latência mais baixa. Isso é feito utilizando a inteligência de latência de rede que o Gerenciador de Tráfego mantém para diferentes redes de usuário final.
 

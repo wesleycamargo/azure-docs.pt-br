@@ -1,25 +1,25 @@
 ---
-title: "Exemplo de script do Azure PowerShell – criar um cluster do Service Fabric | Microsoft Docs"
-description: "Exemplo de script do Azure PowerShell – criar um cluster de teste do Service Fabric de três nós."
+title: Exemplo de script do Azure PowerShell – criar um cluster do Service Fabric | Microsoft Docs
+description: Exemplo de script do Azure PowerShell – criar um cluster de teste do Service Fabric de três nós.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: fd94a5dd9630cc65dedc180cdfd7aafea83c4866
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a03362ebd4b8502f12b7c7bb9aadc558f6a073d2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-three-node-test-service-fabric-cluster"></a>Cria um cluster de teste do Service Fabric de três nós no Azure
 
@@ -33,7 +33,7 @@ Se necessário, instale o Azure PowerShell usando as instruções encontradas no
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/create-test-cluster/create-test-cluster.ps1 "Create a test Service Fabric cluster")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Após a execução do exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos, o cluster e todos os recursos relacionados.
 
@@ -44,9 +44,9 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Cria um novo cluster do Service Fabric. |
 

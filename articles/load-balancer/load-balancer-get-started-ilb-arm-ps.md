@@ -1,6 +1,6 @@
 ---
 title: Criar um balanceador de carga interno do Azure usando PowerShell | Microsoft Docs
-description: "Saiba como criar um balanceador de carga interno usando o módulo do Azure PowerShell com o Azure Resource Manager"
+description: Saiba como criar um balanceador de carga interno usando o módulo do Azure PowerShell com o Azure Resource Manager
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 6eea6c9bc7f686096c3cf0c97bfbe65a5507de2a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 54846ddc142a5bf7cd37c03fd9c069dd0c94897f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno usando o módulo do Azure Powershell
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -90,7 +89,7 @@ Crie um novo grupo de recursos para o balanceador de carga. Ignore esta etapa se
 New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o padrão para todos os recursos do grupo de recursos em questão. Use sempre o mesmo grupo de recursos para todos os comandos relacionados à criação do balanceador de carga.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o padrão para todos os recursos do grupo de recursos em questão. Use sempre o mesmo grupo de recursos para todos os comandos relacionados à criação do balanceador de carga.
 
 No exemplo anterior, criamos um grupo de recursos chamado **NRP-RG** com o local Oeste dos EUA.
 

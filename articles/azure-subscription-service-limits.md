@@ -1,11 +1,11 @@
 ---
 title: Limites e cotas de assinatura do Azure | Microsoft Docs
-description: "Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como aumentar os limites junto com os valores máximos."
-services: 
-documentationcenter: 
+description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como aumentar os limites junto com os valores máximos.
+services: ''
+documentationcenter: ''
 author: rothja
 manager: jeffreyg
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/27/2018
 ms.author: byvinyal
-ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3218778640acc5d08cef94849e25323650c42c6c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
@@ -52,7 +52,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 ](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automação](#automation-limits)
-* [Banco de dados do Azure Cosmos](#azure-cosmos-db-limits)
+* [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Grade de Eventos do Azure](#azure-event-grid-limits)
 * [Cache Redis do Azure](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
@@ -64,14 +64,14 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Registro de Contêiner](#container-registry-limits)
 * [Serviço de Contêiner (AKS)](#container-service-aks-limits)
 * [Fábrica de dados](#data-factory-limits)
-* [Análises Data Lake](#data-lake-analytics-limits)
+* [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Serviço de Migração do Banco de Dados](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Hubs de Evento](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Serviço de Provisionamento de Dispositivos no Hub IoT](#iot-hub-device-provisioning-service-limits)
-* [Cofre de Chaves](#key-vault-limits)
+* [Key Vault](#key-vault-limits)
 * [Log Analytics/Insights Operacionais](#log-analytics-limits)
 * [Serviços de Mídia](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)

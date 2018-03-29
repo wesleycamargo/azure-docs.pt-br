@@ -1,6 +1,6 @@
 ---
 title: Configurar o Load Balancer para o Always On do Microsoft SQL Server | Microsoft Docs
-description: "Configurar o Load Balancer para trabalhar com o Always On do SQL Server, e aprender a usar o PowerShell para criar um balanceador de carga para a implementação do SQL Server"
+description: Configurar o Load Balancer para trabalhar com o Always On do SQL Server, e aprender a usar o PowerShell para criar um balanceador de carga para a implementação do SQL Server
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5e890f8314c8f191dbfa6c6818d810b91d0e829d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0c2345b47b9103ac6a7ae998f13a12332e3907e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>Configurar o Load Balancer para o Always On do Microsoft SQL Server
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Grupos de disponibilidade do Always On do Microsoft SQL Server agora podem funcionar com um balanceador de carga interno. O grupo de disponibilidade é uma solução fundamental do Microsoft SQL Server para alta disponibilidade e recuperação de desastre. O ouvinte do grupo de disponibilidade permite que os aplicativos do cliente se conectem continuamente com a réplica primária, independentemente do número de réplicas na configuração.
 

@@ -41,8 +41,8 @@
           href: what-is-a-data-warehouse-unit-dwu-cdwu.md
         - name: 'Expansão, pausar, retomar'
           href: sql-data-warehouse-manage-compute-overview.md
-        - name: Backups do data warehouse
-          href: sql-data-warehouse-backups.md
+        - name: Backup e restauração
+          href: backup-and-restore.md
         - name: Auditoria
           href: sql-data-warehouse-auditing-overview.md
         - name: Limites de capacidade
