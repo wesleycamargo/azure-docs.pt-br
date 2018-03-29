@@ -93,7 +93,7 @@
       href: service-fabric-architecture.md
     - name: Terminologia
       href: service-fabric-technical-overview.md
-    - name: Modelos de programação com suporte
+    - name: Criando aplicativos
       href: service-fabric-choose-framework.md
       items:
         - name: Contêineres
@@ -106,10 +106,14 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Particionamento do serviço
+              href: service-fabric-concepts-partitioning.md
             - name: 'Ciclo de vida dos Reliable Services - C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Ciclo de vida dos Reliable Services - Java
               href: service-fabric-reliable-services-lifecycle-java.md
+            - name: Réplica e ciclo de vida da instância
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: Coleções Confiáveis
               href: service-fabric-reliable-services-reliable-collections.md
             - name: Recomendações e diretrizes da Coleção Confiável
@@ -122,10 +126,6 @@
               href: service-fabric-reliable-services-reliable-concurrent-queue.md
             - name: Serialização da Coleção Confiável
               href: service-fabric-reliable-services-reliable-collections-serialization.md
-            - name: Aspectos internos do Gerenciador de Estado Confiável e da Coleção Confiável
-              href: service-fabric-reliable-services-reliable-collections-internals.md
-            - name: Uso avançado
-              href: service-fabric-reliable-services-advanced-usage.md
         - name: Reliable Actors
           href: service-fabric-reliable-actors-introduction.md
           items:
@@ -153,18 +153,14 @@
           href: service-fabric-application-and-service-manifests.md
         - name: Modelo de hospedagem
           href: service-fabric-hosting-model.md
+        - name: Segurança de aplicativo
+          href: service-fabric-application-and-service-security.md
         - name: Estado do serviço
           href: service-fabric-concepts-state.md
-        - name: Particionamento do serviço
-          href: service-fabric-concepts-partitioning.md
         - name: Escalabilidade dos aplicativos
           href: service-fabric-concepts-scalability.md
         - name: Disponibilidade de serviços
           href: service-fabric-availability-services.md
-        - name: Réplica e ciclo de vida da instância
-          href: service-fabric-concepts-replica-lifecycle.md
-        - name: Reconfiguração
-          href: service-fabric-concepts-reconfiguration.md
         - name: Comunicação de serviço
           href: service-fabric-connect-and-communicate-with-services.md
           items:
@@ -242,55 +238,29 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
     - name: Monitoramento e diagnóstico
       items:
-        - name: Monitorar e diagnosticar aplicativos
+        - name: Visão geral de monitoramento
           href: service-fabric-diagnostics-overview.md
-        - name: Gerar eventos
+        - name: Registro em log do cluster
+          href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: Gerar eventos no nível da plataforma
-              href: service-fabric-diagnostics-event-generation-infra.md
-              items:
-                - name: Canal operacional
-                  href: service-fabric-diagnostics-event-generation-operational.md
-                - name: Eventos de Reliable Services
-                  href: service-fabric-reliable-services-diagnostics.md
-                - name: Eventos de Reliable Actors
-                  href: service-fabric-reliable-actors-diagnostics.md
-                - name: Métricas de desempenho
-                  href: service-fabric-diagnostics-event-generation-perf.md
-                - name: Monitorando Serviço Remoto
-                  href: service-fabric-reliable-serviceremoting-diagnostics.md
-            - name: Gerar eventos no nível do aplicativo
-              href: service-fabric-diagnostics-event-generation-app.md
-        - name: Inspecionar a integridade do aplicativo e do cluster
-          items:
-            - name: Monitorar a integridade do Service Fabric
-              href: service-fabric-health-introduction.md
-            - name: Relatar e verificar a integridade de serviço
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Adicionar relatórios de integridade personalizados
-              href: service-fabric-report-health.md
-            - name: Solucionar problemas com relatórios de integridade do sistema
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Exibir relatórios de integridade
-              href: service-fabric-view-entities-aggregated-health.md
-        - name: Eventos de agregação
-          items:
-            - name: Eventos de agregação com EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Eventos de agregação com o Diagnóstico do Azure
-              items:
-                - name: Windows
-                  href: service-fabric-diagnostics-event-aggregation-wad.md
-                - name: Linux
-                  href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: Analisar eventos
-          items:
-            - name: Analisar eventos com Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Analisar eventos com OMS
-              href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: Solucionar problemas do seu cluster local
-          href: service-fabric-troubleshoot-local-cluster-setup.md
+            - name: Canal operacional
+              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Eventos de Reliable Services
+              href: service-fabric-reliable-services-diagnostics.md
+            - name: Eventos de Reliable Actors
+              href: service-fabric-reliable-actors-diagnostics.md
+            - name: Métricas de desempenho
+              href: service-fabric-diagnostics-event-generation-perf.md
+            - name: Monitorando Serviço Remoto
+              href: service-fabric-reliable-serviceremoting-diagnostics.md
+        - name: Registro em log do aplicativo
+          href: service-fabric-diagnostics-event-generation-app.md
+        - name: Visão geral do modelo de integridade
+          href: service-fabric-health-introduction.md
+        - name: Relatar eventos de integridade
+          href: service-fabric-report-health.md
+        - name: Monitorar com o OMS
+          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Integração com o Gerenciamento de API
       href: service-fabric-api-management-overview.md
 - name: Guias de instruções
@@ -347,8 +317,10 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: Compilar um serviço de contêiner
           items:
-            - name: Segurança do contêiner
+            - name: Usar um certificado em um contêiner
               href: service-fabric-securing-containers.md
+            - name: Configurar o gMSA para contêineres do Windows
+              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker compose (visualização)
               href: service-fabric-docker-compose.md
             - name: Governança de recursos para contêineres e serviços
@@ -383,6 +355,8 @@
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: Comunicações seguras - Java
                   href: service-fabric-reliable-services-secure-communication-java.md
+                - name: Comunicações seguras WCF
+                  href: service-fabric-reliable-services-secure-communication-wcf.md
             - name: Configurar
               href: service-fabric-reliable-services-configuration.md
             - name: Enviar notificações
@@ -419,8 +393,12 @@
           items:
             - name: Gerenciar segredos do aplicativo
               href: service-fabric-application-secret-management.md
-            - name: Configurar políticas de segurança para seu aplicativo
+            - name: Executar um script de inicialização do serviço como uma conta de usuário ou sistema local
+              href: service-fabric-run-script-at-service-startup.md
+            - name: Executar um serviço como uma conta de usuário ou sistema local
               href: service-fabric-application-runas-security.md
+            - name: Atribuir uma política de acesso de segurança a pontos de extremidade
+              href: service-fabric-assign-policy-to-endpoint.md
     - name: Trabalhar em um ambiente de desenvolvimento do Windows/VS
       items:
         - name: Gerenciar aplicativos no Visual Studio
@@ -531,6 +509,8 @@
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: Excluir
               href: service-fabric-cluster-delete.md
+            - name: Conexão remota para a VM do nó de cluster
+              href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
         - name: Clusters independentes
           items:
             - name: Criar
@@ -545,8 +525,14 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Escala
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Definir controle de acesso
-              href: service-fabric-cluster-security-roles.md
+            - name: Configurar a segurança
+              items:
+                - name: Definir controle de acesso
+                  href: service-fabric-cluster-security-roles.md
+                - name: Executar um serviço como um grupo ou usuário do AD
+                  href: service-fabric-run-service-as-ad-user-or-group.md
+                - name: Executar um serviço como uma Conta de Serviço Gerenciado de grupo
+                  href: service-fabric-run-service-as-gmsa.md
             - name: Configurar
               href: service-fabric-cluster-manifest.md
             - name: Atualizar
@@ -559,7 +545,7 @@
           href: service-fabric-patch-orchestration-application.md
     - name: Monitorar e diagnosticar
       items:
-        - name: OMS
+        - name: Analisar com o OMS
           items:
             - name: Configurar o Log Analytics do OMS
               href: service-fabric-diagnostics-oms-setup.md
@@ -567,10 +553,26 @@
               href: service-fabric-diagnostics-oms-agent.md
             - name: Monitorar contêineres
               href: service-fabric-diagnostics-oms-containers.md
-        - name: Monitoramento de desempenho
+        - name: Analisar com o Application Insights
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: Eventos agregados - EventFlow
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: Eventos agregados - Diagnóstico do Azure
           items:
-            - name: Monitoramento do desempenho com WAD
-              href: service-fabric-diagnostics-perf-wad.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Monitoramento do desempenho com WAD
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: Relatar e verificar a integridade
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Solucionar problemas com relatórios de integridade do sistema
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: Exibir relatórios de integridade
+          href: service-fabric-view-entities-aggregated-health.md
+        - name: Solucionar problemas do seu cluster local
+          href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Referência
   items:
     - name: Azure PowerShell

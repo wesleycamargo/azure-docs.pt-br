@@ -3,10 +3,14 @@
 - name: Visão geral
   expanded: true
   items:
-    - name: O que é o Azure Machine Learning?
+    - name: Sobre o Azure Machine Learning
       href: overview-what-is-azure-ml.md
     - name: Visão geral de Gerenciamento de Modelos
       href: model-management-overview.md
+    - name: Outros produtos ML
+      href: overview-more-machine-learning.md
+    - name: Novidades
+      href: azure-machine-learning-release-notes.md
 - name: Guia de início rápido
   items:
     - name: Instalar e iniciar
@@ -98,6 +102,8 @@
           href: how-to-setup-ssl-on-mlc.md
         - name: Implantar um serviço Web
           href: model-management-service-deploy.md
+        - name: Personalizar um contêiner
+          href: model-management-custom-container.md
         - name: Implantar em um dispositivo do IoT Edge
           href: deploy-to-iot-edge-device.md
         - name: Consumir um serviço Web
@@ -180,18 +186,6 @@
           href: model-management-cli-reference.md
         - name: API da coleta de dados de modelo
           href: model-data-collection-api-reference.md
-    - name: Notas de versão
-      items:
-        - name: Sprint 0 - Outubro 2017
-          href: release-notes-sprint-0.md
-        - name: Sprint 1 – novembro de 2017
-          href: release-notes-sprint-1.md
-        - name: Sprint 2 - Dezembro de 2017
-          href: release-notes-sprint-2.md
-        - name: Sprint 2 QFE - Dezembro de 2017
-          href: release-notes-sprint-2.1.md
-        - name: Sprint 3 - Janeiro 2018
-          href: release-notes-sprint-3.md
 - name: Recursos
   items:
     - name: Perguntas frequentes

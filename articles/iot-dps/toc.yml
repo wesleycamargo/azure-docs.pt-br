@@ -13,9 +13,9 @@
       href: quick-setup-auto-provision.md
     - name: Configurar provisionamento automático - Modelo
       href: quick-setup-auto-provision-rm.md
-    - name: Criar dispositivo simulado
+    - name: Provisionamento automático de um dispositivo simulado
       items:
-        - name: TPM
+        - name: Atestado de TPM
           items:
             - name: C
               href: quick-create-simulated-device.md
@@ -27,7 +27,7 @@
               href: quick-create-simulated-device-tpm-node.md
             - name: Python
               href: quick-create-simulated-device-tpm-python.md
-        - name: X.509
+        - name: Atestado de X.509
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,9 +39,9 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-    - name: Registrar o dispositivo
+    - name: Registro de dispositivo usando APIs do serviço de provisionamento
       items:
-        - name: TPM
+        - name: Atestado de TPM
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
@@ -51,7 +51,7 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-        - name: X.509
+        - name: Atestado de X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -79,12 +79,14 @@
       href: tutorial-group-enrollments.md
 - name: Conceitos
   items:
-    - name: Conceitos do dispositivo
+    - name: Provisionamento automático
+      href: concepts-auto-provisioning.md
+    - name: Dispositivos
       href: concepts-device.md
-    - name: Conceitos do serviço
-      href: concepts-service.md
-    - name: Conceitos da segurança
+    - name: Segurança
       href: concepts-security.md
+    - name: Serviço
+      href: concepts-service.md
 - name: Guias de instruções
   items:
     - name: Gerenciar registros do dispositivo

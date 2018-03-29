@@ -26,14 +26,20 @@
       items:
         - name: Opções da conta de armazenamento
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Planejando uma implantação de Arquivos do Azure
-          href: storage-files-planning.md
-        - name: Como implantar Arquivos do Azure
-          href: storage-files-deployment-guide.md
-        - name: Planejando uma implantação da Sincronização de Arquivos do Azure
-          href: storage-sync-files-planning.md
-        - name: Como implantar a Sincronização de Arquivos do Azure
-          href: storage-sync-files-deployment-guide.md
+        - name: Implantar os Arquivos do Azure
+          items:
+            - name: Planejando uma implantação de Arquivos do Azure
+              href: storage-files-planning.md
+            - name: Como implantar Arquivos do Azure
+              href: storage-files-deployment-guide.md
+        - name: Implantar a Sincronização de Arquivos do Azure
+          items:
+            - name: Planejando uma implantação da Sincronização de Arquivos do Azure
+              href: storage-sync-files-planning.md
+            - name: Como implantar a Sincronização de Arquivos do Azure
+              href: storage-sync-files-deployment-guide.md
+            - name: Configurações de proxy e firewall da Sincronização de arquivos do Azure
+              href: storage-sync-files-firewall-and-proxy.md
         - name: Sobre instantâneos de compartilhamento de arquivos
           href: storage-snapshots-files.md
         - name: Como trabalhar com instantâneos de compartilhamento de arquivos

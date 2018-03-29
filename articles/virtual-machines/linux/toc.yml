@@ -419,6 +419,8 @@
           href: extensions-nwa.md
         - name: Extensão do VMAccess
           href: using-vmaccess-extension.md
+        - name: Instalação da extensão restrita
+          href: extensions-rmpolicy-howto-cli.md
     - name: Migrar VMs
       items:
         - name: Como migrar AWS e VMs locais
@@ -458,6 +460,8 @@
           href: understand-vm-reboot.md
         - name: Diagnóstico de inicialização
           href: boot-diagnostics.md
+        - name: Console serial
+          href: serial-console.md
         - name: Acesso a aplicativos
           href: troubleshoot-app-connection.md
         - name: Falhas na alocação

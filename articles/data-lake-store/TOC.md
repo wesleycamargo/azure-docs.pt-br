@@ -8,8 +8,7 @@
 ## [Práticas recomendadas para usar o Data Lake Store](data-lake-store-best-practices.md)
 
 # Introdução
-## [Usando o Portal](data-lake-store-get-started-portal.md)
-## [Usando o Data Lake Store no Gerenciador de Armazenamento](data-lake-store-in-storage-explorer.md)
+## [Usar o Portal](data-lake-store-get-started-portal.md)
 ## [Usando o PowerShell](data-lake-store-get-started-powershell.md)
 ## [Usando a CLI 2.0 do Azure](data-lake-store-get-started-cli-2.0.md)
 
@@ -17,7 +16,7 @@
 # Como
 ## Carregar e mover dados
 ### [Usar o Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
-### [Usando o Data Lake Store no Gerenciador de Armazenamento](data-lake-store-in-storage-explorer.md)
+### [Como usar o Gerenciador de Armazenamento](data-lake-store-in-storage-explorer.md)
 ### [Como usar AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Como usar DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Como usar o Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
