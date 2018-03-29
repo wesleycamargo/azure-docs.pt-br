@@ -1,11 +1,11 @@
 ---
-title: "Tipos de endereços IP no Azure | Microsoft Docs"
-description: "Saiba mais sobre endereços IP públicos e privados no Azure."
+title: Tipos de endereços IP no Azure | Microsoft Docs
+description: Saiba mais sobre endereços IP públicos e privados no Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereço IP e métodos de alocação no Azure
 
@@ -68,13 +68,10 @@ Endereços IP públicos do SKU Padrão são:
 
 - Atribuídos somente com o método de alocação estática.
 - Atribuídos a adaptadores de rede ou balanceadores de carga padrão voltados para a Internet. Para saber mais sobre os SKUs do balanceador de carga do Azure, confira [SKU padrão do balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Com redundância de zona por padrão. Podem ser criados como zonal e com presença garantida em uma zona de disponibilidade específica.  Para saber mais sobre as zonas de disponibilidade, confira [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Com redundância de zona por padrão. Podem ser criados como zonal e com presença garantida em uma zona de disponibilidade específica. Para saber mais sobre as zonas de disponibilidade, confira [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups).  A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.
-
-O SKU padrão está em versão prévia. Antes de criar um endereço IP público do SKU padrão, você deve primeiro se registrar para a versão prévia e criar o endereço em um local com suporte. Para se registrar para a versão prévia, confira [Registrar-se para a versão prévia do SKU padrão](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview). Para obter uma lista de localizações com suporte (regiões), confira [Disponibilidade da região](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) e monitore a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network) para obter suporte de região adicional.
-
+> Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.
 
 ### <a name="allocation-method"></a>Método de alocação
 
@@ -123,12 +120,12 @@ Você pode associar um endereço IP público do Azure [Application Gateway](../a
 ### <a name="at-a-glance"></a>Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP público pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.
 
-| Recurso de nível superior | Associação de Endereço IP | dinâmico | estático |
+| Recurso de nível superior | Associação de Endereço IP | Dinâmico | estático |
 | --- | --- | --- | --- |
-| Máquina virtual |interface de rede |Sim |Sim |
-| Balanceador de carga voltado para a Internet |Configuração de front-end |Sim |Sim |
-| Gateway de VPN |Configuração de IP do gateway |Sim |Não |
-| Gateway de Aplicativo |Configuração de front-end |Sim |Não |
+| Máquina virtual |interface de rede |sim |sim |
+| Balanceador de carga voltado para a Internet |Configuração de front-end |sim |sim |
+| gateway de VPN |Configuração de IP do gateway |sim |Não  |
+| Gateway de Aplicativo |Configuração de front-end |sim |Não  |
 
 ## <a name="private-ip-addresses"></a>Endereços IP privados
 Endereços IP privados permitem que os recursos do Azure comuniquem-se com outros recursos de uma [rede virtual](virtual-networks-overview.md) , ou na rede local por meio de um gateway de VPN ou circuito de ExpressRoute, sem usar um endereço IP acessível pela Internet.
@@ -173,11 +170,11 @@ A tabela a seguir mostra a propriedade específica por meio da qual um endereço
 
 | Recurso de nível superior | Associação de Endereço IP | dinâmico | estático |
 | --- | --- | --- | --- |
-| Máquina virtual |interface de rede |Sim |Sim |
-| Balanceador de carga |Configuração de front-end |Sim |Sim |
-| Gateway de Aplicativo |Configuração de front-end |Sim |Sim |
+| Máquina virtual |interface de rede |sim |sim |
+| Balanceador de carga |Configuração de front-end |sim |sim |
+| Gateway de Aplicativo |Configuração de front-end |sim |sim |
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 Os limites impostos sobre o endereçamento IP são indicados em todo o conjunto de [limites de rede](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. Os limites são por região e por assinatura. Você pode [entrar em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
 
 ## <a name="pricing"></a>Preços

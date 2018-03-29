@@ -1,11 +1,11 @@
 ---
-title: "O que há de novo no gerenciamento de aplicativos empresariais no Azure Active Directory | Microsoft Docs"
-description: "Saiba o que há de novo no gerenciamento de aplicativos empresariais no Azure Active Directory."
+title: O que há de novo no gerenciamento de aplicativos empresariais no Azure Active Directory | Microsoft Docs
+description: Saiba o que há de novo no gerenciamento de aplicativos empresariais no Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>O que há de novo no gerenciamento de aplicativos empresariais no Azure Active Directory 
 
@@ -147,7 +147,7 @@ Depois de adicionar muitos aplicativos novos, talvez você queira permitir que o
 1. Para começar, você pode selecionar a opção **Autoatendimento** no menu de navegação à esquerda do aplicativo e definir a opção **Permitir que os usuários solicitem acesso a este aplicativo?** como '**Sim**'. 
 2. Isso permitirá que você configure quem tem permissão para aprovar o acesso ao aplicativo e quais usuários de autoatendimento de grupo serão adicionados. Além disso, se o aplicativo estiver configurado para a senha de logon único, você também verá outra opção para permitir que os aprovadores gerenciem as senhas atribuídas ao aplicativo.
 
-##<a name="feedback"></a>Comentários
+## <a name="feedback"></a>Comentários
 
 Esperamos que você goste de usar a experiência aprimorada do Azure AD. Continue a fazer seus comentários! Poste seus comentários e suas ideias para aprimoramento na seção **Portal de Administração** do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nós estamos empolgados para criar algo novo e interessante diariamente e usar suas diretrizes para formar e definir o que devemos criar a seguir.
 

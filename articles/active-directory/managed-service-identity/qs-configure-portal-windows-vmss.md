@@ -1,11 +1,11 @@
 ---
-title: "Configurar MSI em um conjunto de dimensionamento de máquinas virtuais do Azure usando o Portal do Azure"
-description: "Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciada) em VMSS do Azure, usando o Portal do Azure."
+title: Configurar MSI em um conjunto de dimensionamento de máquinas virtuais do Azure usando o Portal do Azure
+description: Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciada) em VMSS do Azure, usando o Portal do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4d308d9cdc0405ee0041c877f5678647343631ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurar uma MSI (Identidade de Serviço Gerenciada) do conjunto de dimensionamento de máquinas virtuais usando o Portal do Azure
 
@@ -35,7 +35,7 @@ Neste artigo, você aprenderá como habilitar e remover MSI para um conjunto de 
 
 No momento da redação deste artigo, habilitar MSI durante a criação de um conjunto de dimensionamento de máquinas virtuais no Portal do Azure não tem suporte. Em vez disso, consulte o artigo de Início Rápido da criação do conjunto de dimensionamento de máquinas virtuais do Azure para primeiro criar um conjunto de dimensionamento de máquinas virtuais do Azure:
 
-- [Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md)  
+- [Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 Em seguida, avance para a próxima seção para obter detalhes sobre como habilitar MSI no conjunto de dimensionamento de máquinas virtuais.
 

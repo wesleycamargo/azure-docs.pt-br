@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: noções básicas sobre políticas personalizadas do pacote starter | Microsoft Docs"
-description: "Um tópico sobre as políticas personalizadas do Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: noções básicas sobre políticas personalizadas do pacote starter | Microsoft Docs'
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
-ms.openlocfilehash: fccb6cfddc8629de7db0310340f07bffd1ff8a65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Noções básicas sobre as políticas personalizadas do pacote starter de política personalizada do Azure AD B2C
 
@@ -50,7 +47,7 @@ Os tipos de declaração disponíveis estão listados abaixo.
 
 As declarações a seguir são necessárias para que os percursos do usuário funcionem corretamente:
 
-| Tipo de declarações | Descrição |
+| Tipo de declarações | DESCRIÇÃO |
 |-------------|-------------|
 | *UserId* | Nome de Usuário |
 | *signInName* | Nome de entrada |
@@ -81,7 +78,7 @@ As declarações a seguir são necessárias para que os percursos do usuário fu
 
 As seguintes declarações são necessárias para passar parâmetros especiais (incluindo alguns parâmetros de cadeia de caracteres de consulta) para outros provedores de declarações:
 
-| Tipo de declarações | Descrição |
+| Tipo de declarações | DESCRIÇÃO |
 |-------------|-------------|
 | *nux* | O parâmetro especial é passado para a autenticação de conta local para login.microsoftonline.com |
 | *nca* | O parâmetro especial é passado para a autenticação de conta local para login.microsoftonline.com |
@@ -98,7 +95,7 @@ As seguintes declarações são necessárias para passar parâmetros especiais (
 
 As seguintes declarações são declarações adicionais que podem ser coletadas dos usuários, armazenadas no diretório e enviadas no token. Como descrito antes, declarações adicionais podem ser adicionadas a essa lista.
 
-| Tipo de declarações | Descrição |
+| Tipo de declarações | DESCRIÇÃO |
 |-------------|-------------|
 | *givenName* | Nome do usuário (também conhecido como primeiro nome) |
 | *surname* | Sobrenome do usuário (também conhecido como nome de família ou último nome) |
@@ -108,7 +105,7 @@ As seguintes declarações são declarações adicionais que podem ser coletadas
 
 As transformações de declaração disponíveis estão listadas abaixo.
 
-| Transformação de declaração | Descrição |
+| Transformação de declaração | DESCRIÇÃO |
 |----------------------|-------------|
 | *CreateOtherMailsFromEmail* | |
 | *CreateRandomUPNUserName* | |
@@ -121,12 +118,12 @@ As transformações de declaração disponíveis estão listadas abaixo.
 
 Esta seção descreve as definições de conteúdo já declaradas na política *B2C_1A_base*. Essas definições de conteúdo são suscetíveis a serem referenciadas, substituídas e/ou estendidas conforme necessário nas suas próprias políticas, bem como na política *B2C_1A_base_extensions*.
 
-| Provedor de declarações | Descrição |
+| Provedor de declarações | DESCRIÇÃO |
 |-----------------|-------------|
 | *Facebook* | |
 | *Local Account SignIn* | |
 | *PhoneFactor* | |
-| *Active Directory do Azure* | |
+| *Azure Active Directory* | |
 | *Autodeclarado* | |
 | *Conta local* | |
 | *Gerenciamento da Sessão* | |
@@ -140,19 +137,19 @@ Esta seção descreve os perfis técnicos já declarados por provedor de declara
 
 ### <a name="technical-profiles-for-facebook"></a>Perfis técnicos para o Facebook
 
-| Perfil técnico | Descrição |
+| Perfil técnico | DESCRIÇÃO |
 |-------------------|-------------|
 | *OAUTH do Facebook* | |
 
 ### <a name="technical-profiles-for-local-account-signin"></a>Perfis técnicos para entrada de conta Local
 
-| Perfil técnico | Descrição |
+| Perfil técnico | DESCRIÇÃO |
 |-------------------|-------------|
 | *Login-NonInteractive* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Perfis técnicos de Phone Factor
 
-| Perfil técnico | Descrição |
+| Perfil técnico | DESCRIÇÃO |
 |-------------------|-------------|
 | *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
@@ -160,7 +157,7 @@ Esta seção descreve os perfis técnicos já declarados por provedor de declara
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Perfis técnicos para Azure Active Directory
 
-| Perfil técnico | Descrição |
+| Perfil técnico | DESCRIÇÃO |
 |-------------------|-------------|
 | *AAD-Common* | Perfil técnico incluído por outros perfis técnicos AAD-xxx |
 | *AAD-UserWriteUsingAlternativeSecurityId* | Perfil técnico para logons sociais |
@@ -175,20 +172,20 @@ Esta seção descreve os perfis técnicos já declarados por provedor de declara
 
 ### <a name="technical-profiles-for-self-asserted"></a>Perfis técnicos para autodeclarados
 
-| Perfil técnico | Descrição |
+| Perfil técnico | DESCRIÇÃO |
 |-------------------|-------------|
 | *SelfAsserted-Social* | |
 | *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Perfis técnicos para conta local
 
-| Perfil técnico | Descrição |
+| Perfil técnico | DESCRIÇÃO |
 |-------------------|-------------|
 | *LocalAccountSignUpWithLogonEmail* | |
 
 ### <a name="technical-profiles-for-session-management"></a>Perfis técnicos de gerenciamento de sessão
 
-| Perfil técnico | Descrição |
+| Perfil técnico | DESCRIÇÃO |
 |-------------------|-------------|
 | *SM-Noop* | |
 | *SM-AAD* | |
@@ -202,7 +199,7 @@ Atualmente, nenhum perfil técnico está definido para o provedor de declaraçõ
 
 ### <a name="technical-profiles-for-token-issuer"></a>Perfis técnicos de emissor do Token
 
-| Perfil técnico | Descrição |
+| Perfil técnico | DESCRIÇÃO |
 |-------------------|-------------|
 | *JwtIssuer* | |
 
@@ -210,7 +207,7 @@ Atualmente, nenhum perfil técnico está definido para o provedor de declaraçõ
 
 Esta seção descreve os percursos do usuário já declarados na política *B2C_1A_base*. Esses percursos do usuário são suscetíveis a serem referenciados, substituídos e/ou estendidos conforme necessário nas suas próprias políticas, bem como na política *B2C_1A_base_extensions*.
 
-| Percurso do usuário | Descrição |
+| Percurso do usuário | DESCRIÇÃO |
 |--------------|-------------|
 | *SignUp* | |
 | *SignIn* | |

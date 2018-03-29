@@ -1,11 +1,11 @@
 ---
-title: "Passo a passo de edição facial com o Azure Media Analytics | Microsoft Docs"
-description: "Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho de edição completo usando o AMSE (Explorador dos Serviços de Mídia do Azure) e o Azure Media Redactor Visualizer (ferramenta de código-fonte aberto)."
+title: Passo a passo de edição facial com o Azure Media Analytics | Microsoft Docs
+description: Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho de edição completo usando o AMSE (Explorador dos Serviços de Mídia do Azure) e o Azure Media Redactor Visualizer (ferramenta de código-fonte aberto).
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Passo a passo de edição facial com o Azure Media Analytics
 
@@ -59,7 +59,7 @@ A saída incluirá um arquivo json de anotações com dados de localização de 
 
 ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>Segunda aprovação – modo de edição
+### <a name="second-pass--redact-mode"></a>Segunda aprovação – modo de edição
 
 1. Carregue seu ativo de vídeo original na saída da primeira aprovação e o defina como um ativo primário. 
 
@@ -78,7 +78,7 @@ A saída incluirá um arquivo json de anotações com dados de localização de 
 
     ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Ferramenta de código-fonte aberto Azure Media Redactor Visualizador
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Ferramenta de código-fonte aberto Azure Media Redactor Visualizador
 
 Uma [ferramenta visualizadora](https://github.com/Microsoft/azure-media-redactor-visualizer) de código-fonte aberto que foi projetada para ajudar os desenvolvedores novatos no formato de anotações com análise e uso da saída.
 

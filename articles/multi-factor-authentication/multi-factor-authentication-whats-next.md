@@ -1,8 +1,8 @@
 ---
-title: "Configurar a Autenticação Multifator do Azure | Microsoft Docs"
-description: "Este artigo descreve como definir as configurações da Autenticação Multifator do Azure para relatórios, alertas de fraude, bypasses avulsos, mensagens de voz personalizadas, cache, IPs confiáveis e senhas de aplicativo."
+title: Configurar a Autenticação Multifator do Azure | Microsoft Docs
+description: Este artigo descreve como definir as configurações da Autenticação Multifator do Azure para relatórios, alertas de fraude, bypasses avulsos, mensagens de voz personalizadas, cache, IPs confiáveis e senhas de aplicativo.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
-Este artigo ajuda você a gerenciar a Autenticação Multifator do Azure, agora que tudo está funcionando. Ele aborda diversos tópicos que ajudarão você a aproveitar ao máximo a Autenticação Multifator do Azure. Nem todas as funcionalidades estão disponíveis em todas as [versões da Autenticação Multifator do Azure](/multi-factor-authentication-get-started.md#what-features-do-i-need).
+Este artigo ajuda você a gerenciar a Autenticação Multifator do Azure, agora que tudo está funcionando. Ele aborda diversos tópicos que ajudarão você a aproveitar ao máximo a Autenticação Multifator do Azure. Nem todas as funcionalidades estão disponíveis em todas as [versões da Autenticação Multifator do Azure](multi-factor-authentication-get-started.md#what-features-do-i-need).
 
 | Recurso | DESCRIÇÃO | 
 |:--- |:--- |

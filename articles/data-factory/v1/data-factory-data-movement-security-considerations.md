@@ -1,11 +1,10 @@
 ---
-title: "Considerações sobre segurança para movimentação de dados no Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre como proteger a movimentação de dados no Azure Data Factory."
+title: Considerações sobre segurança para movimentação de dados no Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre como proteger a movimentação de dados no Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 
@@ -48,7 +47,7 @@ Neste artigo, examinamos as considerações sobre segurança nestes dois cenári
 - **Cenário híbrido** – neste cenário, a origem ou o destino está atrás de um firewall ou dentro de uma rede corporativa local, ou o armazenamento de dados está em uma rede privada/virtual (geralmente, a origem) e não é acessível publicamente. Os servidores de banco de dados hospedados em máquinas virtuais também se enquadram nesse cenário.
 
 ## <a name="cloud-scenarios"></a>Cenários de nuvem
-###<a name="securing-data-store-credentials"></a>Protegendo as credenciais do armazenamento de dados
+### <a name="securing-data-store-credentials"></a>Protegendo as credenciais do armazenamento de dados
 O Azure Data Factory protege suas credenciais do armazenamento de dados **criptografando-as** usando **certificados gerenciados pela Microsoft**. Esses certificados são trocados a cada **dois anos** (que inclui a renovação do certificado e a migração de credenciais). Essas credenciais criptografadas são armazenadas com segurança em um **Armazenamento do Azure gerenciado pelos serviços de gerenciamento do Azure Data Factory**. Para obter mais informações sobre a segurança do Armazenamento do Azure, consulte [Visão geral de segurança do Armazenamento do Azure](../../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Criptografia de dados em trânsito
@@ -176,7 +175,7 @@ Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP
 - [Banco de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
 - [SQL Data Warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Repositório Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Banco de dados do Azure Cosmos](../../cosmos-db/firewall-support.md)
+- [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes

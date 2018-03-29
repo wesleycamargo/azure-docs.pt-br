@@ -1,11 +1,11 @@
 ---
 title: 'Criptografia de banco de dados em repouso: Azure Cosmos DB | Microsoft Docs'
-description: "Saiba como o Azure Cosmos DB fornece criptografia padrão de todos os dados."
+description: Saiba como o Azure Cosmos DB fornece criptografia padrão de todos os dados.
 services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Criptografia de banco de dados em repouso do Azure Cosmos DB
 
@@ -53,7 +53,6 @@ R: A Microsoft tem um conjunto de diretrizes internas para rotação de chave de
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Posso usar minhas próprias chaves de criptografia?
 R: O Cosmos DB é um serviço PaaS e trabalhamos intensamente para manter o serviço fácil de usar. Observamos que essa pergunta geralmente é feita como uma pergunta substituta para o cumprimento de um requisito de conformidade, como as normas PCI-DSS. Como parte da criação desse recurso, trabalhamos com auditores de conformidade para garantir que os clientes que usam o Cosmos DB atendam a seus requisitos sem a necessidade de gerenciar as próprias chaves.
-Como resultado, atualmente não oferecemos aos usuários a opção de se sobrecarregarem com o gerenciamento de chaves.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>P: Em quais regiões a criptografia está ativada?
 R: A criptografia está ativada para todos os dados do usuário em todas as regiões do Azure Cosmos DB.

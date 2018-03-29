@@ -1,11 +1,11 @@
 ---
-title: "Instalar SAP HANA em SAP HANA no Azure (Instâncias Grandes) | Microsoft Docs"
-description: "Como instalar SAP HANA em um SAP HANA no Azure (Instância Grande)."
+title: Instalar SAP HANA em SAP HANA no Azure (Instâncias Grandes) | Microsoft Docs
+description: Como instalar SAP HANA em um SAP HANA no Azure (Instância Grande).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar SAP HANA (instâncias grandes) no Azure
 

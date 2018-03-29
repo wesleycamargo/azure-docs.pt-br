@@ -1,24 +1,24 @@
 ---
 title: Grupos de computadores em pesquisas de log do Azure Log Analytics | Microsoft Docs
-description: "Os grupos de computadores no Log Analytics permitem analisar pesquisas de log para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que você pode usar para criar grupos de computadores e como usá-los em uma pesquisa de log."
+description: Os grupos de computadores no Log Analytics permitem analisar pesquisas de log para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que você pode usar para criar grupos de computadores e como usá-los em uma pesquisa de log.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de computadores em pesquisas de log do Log Analytics
 
@@ -66,12 +66,6 @@ Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa 
 5. Forneça valores para cada propriedade para o grupo de computadores. 
 
 
->[!NOTE]
-> Se o seu espaço de trabalho ainda estiver usando a [linguagem de consulta de do Log Analytics herdada](log-analytics-log-search-upgrade.md), use o mesmo procedimento para criar um grupo de computadores, mas você deve usar a sintaxe da linguagem de consulta herdada.
-
-
-### <a name="log-search-api"></a>API da Pesquisa de Log
-Grupos de computadores criados com a API da Pesquisa de Log são iguais a pesquisas criadas com uma Pesquisa de Log.  Para obter detalhes sobre como criar um grupo de computadores usando a API da Pesquisa de Log, consulte [Grupos de computadores na API REST de pesquisa de log do Log Analytics](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
 Ao configurar o Log Analytics para importar associações de grupo do Active Directory, ele analisa a associação de grupo de todos os computadores associados ao domínio com o agente do OMS.  Um grupo de computadores é criado no Log Analytics para cada grupo de segurança no Active Directory, e cada computador é adicionado aos grupos de computadores que correspondem aos grupos de segurança de que são membros.  Essa associação é atualizada continuamente a cada 4 horas.  
@@ -129,18 +123,6 @@ A consulta a seguir retornaria registros UpdateSummary apenas para computadores 
   UpdateSummary | where Computer in (ADComputers)
   ```
 
-
-
-  
-
->[!NOTE]
-> Se o seu espaço de trabalho ainda estiver usando a [linguagem de consulta do Log Analytics herdada](log-analytics-log-search-upgrade.md)>, use a seguinte sintaxe para se referir a um grupo de computadores em uma pesquisa de logs.  Especificar a **Categoria** >é opcional e necessário somente se você tiver grupos de computadores com o mesmo nome em diferentes categorias. 
->
->    `$ComputerGroups[Category: Name]`
->
->Grupos de computadores normalmente são usados com a cláusula **IN** na pesquisa de logs, como no exemplo a seguir:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
 
 
 
