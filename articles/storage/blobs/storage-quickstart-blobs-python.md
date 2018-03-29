@@ -2,18 +2,18 @@
 title: Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando Python | Microsoft Docs
 description: Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para Python a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
-ms.author: tamram
-ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: cshoe
+ms.openlocfilehash: 9ea8fdcd2d21729117101748e20e52029c315e15
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Início rápido: Carregar, baixar e listar blobs usando Python
 
@@ -23,7 +23,7 @@ Neste guia de início rápido, você aprenderá como usar Python para carregar, 
 
 Para concluir este guia de início rápido: 
 * Instalar o [Python](https://www.python.org/downloads/)
-* Baixar e instalar o [SDK do Armazenamento do Azure para Python](storage-python-how-to-use-blob-storage.md). 
+* Baixar e instalar o [SDK do Armazenamento do Azure para Python](https://github.com/Azure/azure-sdk-for-python). 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

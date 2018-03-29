@@ -1,9 +1,9 @@
 ---
-title: "Artigo de tutorial para recursos de versão prévia do Azure Machine Learning – interface de linha de comando | Microsoft Docs"
-description: "Este tutorial percorre todas as etapas necessárias para concluir uma classificação de íris de ponta a ponta usando a interface de linha de comando."
+title: Artigo de tutorial para recursos de versão prévia do Azure Machine Learning – interface de linha de comando | Microsoft Docs
+description: Este tutorial percorre todas as etapas necessárias para concluir uma classificação de íris de ponta a ponta usando a interface de linha de comando.
 services: machine-learning
 author: ahgyger
-ms.author: ahgyger, ritbhat
+ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2d7965c0028e8f2e82db2e3ddd4eed6e20f4f443
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: classificando a íris usando a interface de linha de comando
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.

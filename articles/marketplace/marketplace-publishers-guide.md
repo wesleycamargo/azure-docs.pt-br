@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia do Editor do Azure Marketplace e do AppSource
 
@@ -308,7 +308,7 @@ Há várias opções para aplicativos de locatário único:
 - Desenvolva um 'Test Drive' por cliente
 - Compile um aplicativo de demonstração de amostra multilocatário com SSO
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Processos de publicação por produto para Office, Dynamics e Power BI
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Processos de publicação por produto para Office, Dynamics e Power BI
 Para aplicativos AppSource que estendem Office, Dynamics e Power BI, você pode saber mais sobre os requisitos específicos na documentação específica do produto nesta seção. 
 
 

@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Armazenamento de Tabelas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET) | Microsoft Docs"
-description: "Como começar a usar o Armazenamento de Tabelas do Azure em um projeto do ASP.NET no Visual Studio após a conexão a uma conta de armazenamento usando os Serviços Conectados do Visual Studio"
+title: Introdução ao Armazenamento de Tabelas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET) | Microsoft Docs
+description: Como começar a usar o Armazenamento de Tabelas do Azure em um projeto do ASP.NET no Visual Studio após a conexão a uma conta de armazenamento usando os Serviços Conectados do Visual Studio
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646ff3a12d1b28f99376ea67af25f1b6858d675a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Tabelas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,7 +29,7 @@ O serviço de armazenamento de Tabela do Azure permite que você armazene grande
 
 Este tutorial mostra como gravar código ASP.NET para alguns cenários comuns usando entidades do Armazenamento de Tabelas do Azure. Os cenários abordados incluem a criação de tabela e a adição, consulta e exclusão de entidades de tabela. 
 
-##<a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -115,7 +115,7 @@ As etapas a seguir ilustram como criar uma tabela:
     }
     ```
 
-1. Dentro do método **CreateTable**, obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **CreateTable**, obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e da conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -204,7 +204,7 @@ A classe da entidade *deve* declarar um construtor público sem parâmetros.
     }
     ```
 
-1. Dentro do método **AddEntity**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **AddEntity**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e da conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -299,7 +299,7 @@ Além de poder [adicionar uma entidade por vez a uma tabela](#add-an-entity-to-a
     }
     ```
 
-1. Dentro do método **AddEntities**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **AddEntities**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e da conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -419,7 +419,7 @@ Esta seção mostra como obter uma única entidade de uma tabela usando a chave 
     }
     ```
 
-1. Dentro do método **GetSingle**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **GetSingle**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e da conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -519,7 +519,7 @@ Conforme mencionado na seção [Adicionar uma entidade a uma tabela](#add-an-ent
     }
     ```
 
-1. Dentro do método **GetPartition**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **GetPartition**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e da conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -629,7 +629,7 @@ Esta seção ilustra como excluir uma entidade de uma tabela.
     }
     ```
 
-1. Dentro do método **DeleteEntity**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **DeleteEntity**, obtenha um objeto **CloudStorageAccount** que representa as informações de sua conta de armazenamento. Use o seguinte código para obter as informações da cadeia de conexão e da conta de armazenamento da configuração de serviço do Azure: (Altere *&lt;nome-da-conta-de-armazenamento>* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

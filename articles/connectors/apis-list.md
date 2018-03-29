@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: estfan; ladocs
-ms.openlocfilehash: f140f1a3d751b5d83b139edde931a6193334b6ee
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a17d887e829252231e0f2e0bac137bd63a24e0d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="connectors-list"></a>Lista de conectores
 Para localizar os gatilhos e as ações definidos por descrição do Swagger de cada conector além de todos os limites de conector, veja [Detalhes do conector](/connectors/).
@@ -233,7 +233,6 @@ Falta um tópico do conector ou algum detalhe que você acha importante? Se sim,
 [Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
 [Azure-Data-Lake-icon]: ./media/apis-list/azure-data-lake.png
-[Azure-DocumentDBicon]: ./media/apis-list/azure-documentdb.png
 [Azure-MLicon]: ./media/apis-list/azureml.png
 [Azure-Resource-Manager-icon]: ./media/apis-list/azure-resource-manager.png
 [Azure-Queues-icon]: ./media/apis-list/azure-queues.png
