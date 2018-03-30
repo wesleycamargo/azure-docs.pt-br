@@ -197,7 +197,7 @@
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preços
-      href: aml-services-pricing.md
+      href: aml-pricing.md
     - name: Disponibilidade de região
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Processo de ciência de dados de equipe
