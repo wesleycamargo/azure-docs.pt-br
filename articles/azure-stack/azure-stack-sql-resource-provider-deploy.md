@@ -1,11 +1,11 @@
 ---
 title: Bancos de dados SQL na pilha do Azure | Microsoft Docs
-description: "Saiba como você pode implantar bancos de dados SQL como um serviço na pilha do Azure e as etapas rápidas para implantar o adaptador de provedor de recursos do SQL Server."
+description: Saiba como você pode implantar bancos de dados SQL como um serviço na pilha do Azure e as etapas rápidas para implantar o adaptador de provedor de recursos do SQL Server.
 services: azure-stack
-documentationCenter: 
+documentationCenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1754d4b121fdaf4f7b8e4c1954dfd4202ba344b1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados SQL na pilha do Microsoft Azure
 
@@ -71,7 +71,7 @@ Você deve criar uma (ou mais) de instâncias do SQL Server e/ou fornecer acesso
     | 1710: 1.0.171028.1 | [SQL RP versão 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. O certificado de raiz de pilha do Azure é recuperado do ponto de extremidade com privilégios. Para o SDK de pilha do Azure, um certificado autoassinado é criado como parte desse processo. Para sistemas integrados, você deve fornecer um certificado apropriado.
+4. Forneça o certificado necessário. Para o SDK de pilha do Azure, um certificado autoassinado é criado como parte desse processo, nenhum certificado adicional é necessário. Para sistemas integrados, você deve fornecer um certificado apropriado.
 
    Para fornecer seu próprio certificado, coloque um arquivo. pfx no **DependencyFilesLocalPath** da seguinte maneira:
 
