@@ -45,7 +45,7 @@
 ### [Depurar o SSO baseado em SAML](active-directory-saml-debugging.md)
 ### [Protocolo SAML de logon único](active-directory-single-sign-on-protocol-reference.md)
 ### [Protocolo SAML de logout único](active-directory-single-sign-out-protocol-reference.md)
-### [Criar um locatário](active-directory-howto-tenant.md)
+## [Criar um locatário](active-directory-howto-tenant.md)
 ## [Diretrizes de identidade Visual](active-directory-branding-guidelines.md)
 ## SSO móvel e da área de trabalho
 ### [Habilitar SSO em Android](active-directory-sso-android.md)
