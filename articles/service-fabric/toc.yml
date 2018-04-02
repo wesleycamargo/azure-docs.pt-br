@@ -240,7 +240,7 @@
       items:
         - name: Visão geral de monitoramento
           href: service-fabric-diagnostics-overview.md
-        - name: Registro em log do cluster
+        - name: Eventos do cluster
           href: service-fabric-diagnostics-event-generation-infra.md
           items:
             - name: Canal operacional
@@ -567,6 +567,8 @@
           href: service-fabric-diagnostics-perf-wad.md
         - name: Relatar e verificar a integridade
           href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Adicionar registro em log ao seu serviço
+          href: service-fabric-how-to-diagnostics-log.md
         - name: Solucionar problemas com relatórios de integridade do sistema
           href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
         - name: Exibir relatórios de integridade
