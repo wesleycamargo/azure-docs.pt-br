@@ -37,8 +37,6 @@
           href: log-analytics-log-search-faq.md
     - name: Perguntas frequentes do Log Analytics
       href: log-analytics-faq.md
-    - name: Consumo de dados
-      href: log-analytics-usage.md
     - name: Segurança de dados
       href: log-analytics-data-security.md
     - name: Gerenciar acesso
@@ -156,7 +154,11 @@
         - name: Gerenciamento de agentes
           href: log-analytics-agent-manage.md
         - name: Gerenciar o custo do espaço de trabalho
-          href: log-analytics-manage-cost-storage.md
+          items:
+            - name: Retenção e volume de dados
+              href: log-analytics-manage-cost-storage.md
+            - name: Monitorar o uso
+              href: log-analytics-usage.md
         - name: Excluir um espaço de trabalho
           href: log-analytics-manage-del-workspace.md
     - name: Solucionar problemas
