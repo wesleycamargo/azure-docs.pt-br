@@ -1,11 +1,11 @@
 ---
-title: "Atualização da pilha do Azure 1712 | Microsoft Docs"
-description: "Saiba mais sobre o que é a atualização 1712 pilha do Azure integradas de sistemas, os problemas conhecidos e onde baixar a atualização."
+title: Atualização da pilha do Azure 1712 | Microsoft Docs
+description: Saiba mais sobre o que é a atualização 1712 pilha do Azure integradas de sistemas, os problemas conhecidos e onde baixar a atualização.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: brenduns
-ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1712-update"></a>Atualização de 1712 de pilha do Azure
 
@@ -109,6 +109,7 @@ Esta seção contém os problemas conhecidos de pós-instalação com compilaç�
 
 - Excluir resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos do usuário ou o grupo de recursos inteiro e exclua assinaturas de usuário.
 - Não é possível exibir as permissões para sua assinatura usando os portais de pilha do Azure. Como alternativa, você pode verificar permissões usando o PowerShell.
+- O **a integridade do serviço** folha Falha ao carregar. Quando você abre a folha de integridade do serviço no portal do administrador ou o usuário, Azure pilha exibirá um erro e não carregar as informações. Este comportamento é esperado. Embora você possa selecionar e abrir o serviço de integridade, esse recurso não está disponível, mas será implementado em uma versão futura da pilha do Azure.
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
 

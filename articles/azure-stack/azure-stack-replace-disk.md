@@ -1,24 +1,24 @@
 ---
-title: "Substituir um disco físico na pilha do Azure | Microsoft Docs"
-description: "Descreve o processo de como substituir um disco físico na pilha do Azure."
+title: Substituir um disco físico na pilha do Azure | Microsoft Docs
+description: Descreve o processo de como substituir um disco físico na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: a95617a8dd2a8f296164c672e2b4b2628574ce5a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Substituir um disco físico na pilha do Azure
 
@@ -40,6 +40,9 @@ Se você abrir o alerta, a descrição do alerta contém o nó de unidade de esc
  ## <a name="replace-the-disk"></a>Substituir o disco
 
 Siga as instruções de FRU de seu fornecedor hardware de OEM para substituição do disco atual.
+
+> [!note]
+> Substitua discos para um nó de unidade de escala por vez. Aguarde até que os trabalhos de reparo de disco virtual concluir antes de passar para o próximo nó de unidade de escala
 
 Para evitar o uso de um disco sem suporte em um sistema integrado, o sistema bloqueia os discos que não são suportados pelo seu fornecedor. Se você tentar usar um disco sem suporte, um novo alerta informa que um disco tem sido colocado em quarentena devido a um modelo sem suporte ou o firmware.
 

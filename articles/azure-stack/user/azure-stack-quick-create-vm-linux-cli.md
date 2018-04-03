@@ -1,11 +1,11 @@
 ---
-title: "Criar uma máquina virtual Linux usando a CLI do Azure na pilha do Azure | Microsoft Docs"
-description: "Crie uma máquina virtual Linux com CLI na pilha do Azure."
+title: Criar uma máquina virtual Linux usando a CLI do Azure na pilha do Azure | Microsoft Docs
+description: Crie uma máquina virtual Linux com CLI na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 21F7D599-1FEC-4827-A5C3-06495C5F53A4
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 160893f5b2e9c78bd62355782c279fb08f7f6b48
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 69036b522b375eced604256340b532ad14a8708e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Criar uma máquina virtual Linux usando a CLI do Azure na pilha do Azure
 
@@ -31,7 +31,7 @@ CLI do Azure é usado para criar e gerenciar recursos de pilha do Azure a partir
 
 * Certifique-se de que seu operador de pilha do Azure adicionou a imagem "Ubuntu Server 16.04 LTS" para o marketplace de pilha do Azure. 
 
-* A pilha do Azure requer uma versão específica de CLI do Azure para criar e gerenciar os recursos. Se você não tiver a CLI do Azure configurada para a pilha do Azure, entrar para o [kit de desenvolvimento](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou um cliente com Windows externo se você estiver [conectado por meio de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) e siga as etapas para [instalar e configurar a CLI do Azure](azure-stack-connect-cli.md).
+* A pilha do Azure requer uma versão específica de CLI do Azure para criar e gerenciar os recursos. Se você não tiver a CLI do Azure configurada para a pilha do Azure, entrar para o [kit de desenvolvimento](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou um cliente com Windows externo se você estiver [conectado por meio de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) e siga as etapas para [instalar e configurar a CLI do Azure](azure-stack-version-profiles-azurecli2.md).
 
 * Uma chave SSH pública com o nome id_rsa.pub deve ser criada no diretório .ssh do seu perfil de usuário do Windows. Para obter informações detalhadas sobre a criação de chaves SSH, consulte [chaves Criando SSH no Windows](../../virtual-machines/linux/ssh-from-windows.md). 
 
