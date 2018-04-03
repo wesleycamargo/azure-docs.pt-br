@@ -1,24 +1,24 @@
 ---
 title: Ferramentas para o armazenamento do Azure pilha
-description: "Saiba mais sobre os dados de armazenamento do Azure pilha ferramentas de transferência"
+description: Saiba mais sobre os dados de armazenamento do Azure pilha ferramentas de transferência
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e26a38b8fd7d008a46eba2c41075c5af09a6616a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Ferramentas para o armazenamento do Azure de pilha
 
@@ -181,7 +181,7 @@ A CLI do Azure é a experiência de linha de comando do Azure para gerenciar rec
 
 CLI do Azure é otimizado para gerenciar e administrar os recursos do Azure da linha de comando e para a criação de scripts de automação que funcionam com o Gerenciador de recursos do Azure. Ele fornece muitas das mesmas funções encontradas no portal do Azure pilha, incluindo o acesso de dados avançados.
 
-A pilha do Azure requer CLI do Azure versão 2.0. Para obter mais informações sobre como instalar e configurar CLI do Azure com a pilha do Azure, consulte [instalar e configurar o Azure pilha CLI](azure-stack-connect-cli.md). Para obter mais informações sobre como usar o 2.0 do CLI do Azure para executar várias tarefas de trabalhar com recursos em sua conta de armazenamento de pilha do Azure, consulte [usando o Azure CLI2.0 com armazenamento do Azure](../../storage/storage-azure-cli.md)
+A pilha do Azure requer CLI do Azure versão 2.0. Para obter mais informações sobre como instalar e configurar CLI do Azure com a pilha do Azure, consulte [instalar e configurar o Azure pilha CLI](azure-stack-version-profiles-azurecli2.md). Para obter mais informações sobre como usar o 2.0 do CLI do Azure para executar várias tarefas de trabalhar com recursos em sua conta de armazenamento de pilha do Azure, consulte [usando o Azure CLI2.0 com armazenamento do Azure](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Script de exemplo CLI do Azure para a pilha do Azure 
 Depois de concluir a instalação de CLI e configuração, você pode tentar as etapas a seguir para trabalhar com um exemplo de script de shell pequeno para interagir com os recursos de armazenamento do Azure pilha. O script primeiro cria um novo contêiner na sua conta de armazenamento, em seguida, carrega um arquivo existente (como um blob) para esse contêiner, lista todos os blobs no contêiner e por fim, baixa o arquivo para um destino no computador local que você especificar. Antes de executar este script, verifique se você se conectar com êxito e o logon para o destino de pilha do Azure. 

@@ -3,7 +3,7 @@ title: Requisitos de certificado de infraestrutura de chave pública da pilha do
 description: Descreve os requisitos de implantação de certificado PKI de pilha do Azure para sistemas de pilha do Azure integradas.
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: mabrigg
+ms.date: 03/29/2018
+ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública da pilha do Azure
+
 A pilha do Azure tem uma rede de infraestrutura pública usando externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, máquinas virtuais do locatário. Certificados PKI com os nomes DNS apropriados para esses pontos de extremidade do Azure pilha infraestrutura pública são necessários durante a implantação da pilha do Azure. Este artigo fornece informações sobre:
 
 - Quais certificados são necessários para implantar a pilha do Azure
@@ -37,7 +38,7 @@ A lista a seguir descreve os requisitos de certificado que são necessários par
 - Sua infraestrutura de pilha do Azure deve ter acesso à rede para a autoridade de certificação usado para assinar os certificados
 - Quando a rotação de certificados, certificados devem ser emitidos por qualquer uma da mesma autoridade de certificado interno usada para assinar certificados fornecidos na implantação ou qualquer autoridade de certificação pública acima
 - Não há suporte para o uso de certificados autoassinados
-- O certificado pode ser um certificado curinga único que abrangem todos os espaços de nome no campo nome alternativo da entidade (SAN). Como alternativa, você pode usar certificados individuais usando caracteres curinga para pontos de extremidade como o acs e o Cofre de chaves em que eles são necessários. 
+- O certificado pode ser um certificado curinga único que abrangem todos os espaços de nome no campo nome alternativo da entidade (SAN). Como alternativa, você pode usar certificados individuais usando caracteres curinga para pontos de extremidade como **acs** e chave de cofre onde eles são necessários. 
 - O algoritmo de assinatura de certificado não pode ser SHA1, ele deve ser mais forte. 
 - O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação da pilha do Azure. 
 - O arquivo pfx de certificado deve ter um valor de "Assinatura Digital" e "KeyEncipherment" em seu campo "Key Usage".
@@ -58,6 +59,23 @@ A tabela nesta seção descreve os certificados PKI de ponto de extremidade púb
 São necessários certificados com os nomes DNS apropriados para cada ponto de extremidade de infraestrutura pública de pilha do Azure. Nome DNS de cada ponto de extremidade é expresso no formato:  *&lt;prefixo >.&lt; região >. &lt;fqdn >*. 
 
 Para sua implantação, [Região] e [externalfqdn] valores devem corresponder a região e nomes de domínio externo que você escolheu para o seu sistema de pilha do Azure. Por exemplo, se o nome da região foi *Redmond* e o nome de domínio externo foi *contoso.com*, os nomes DNS deve ter o formato *&lt;prefixo >. redmond.contoso.com*. O  *&lt;prefixo >* valores são predesignated pela Microsoft para descrever o ponto de extremidade protegido pelo certificado. Além disso, o  *&lt;prefixo >* valores dos pontos de extremidade externos infraestrutura dependem do serviço de pilha do Azure que usa o ponto de extremidade específico. 
+
+> [!note]  
+> Certificados podem ser fornecidos como um certificado curinga único que abrangem todos os namespaces nos campos de assunto e nome alternativo da entidade (SAN) copiados em todos os diretórios ou certificados individuais para cada ponto de extremidade copiado para o diretório correspondente. Lembre-se de que ambas as opções exigem que você usar certificados com caracteres curinga para pontos de extremidade como **acs** e chave de cofre onde eles são necessários. 
+
+| Pasta de implantação | Entidade do certificado necessária e nomes alternativos da entidade (SAN) | Escopo (por região) | Namespace de subdomínio |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| Portal público | portal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
+| Portal de administração | adminportal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
+| Público do Gerenciador de recursos do Azure | management.&lt;region>.&lt;fqdn> | Gerenciador de Recursos do Azure | &lt;region>.&lt;fqdn> |
+| Administração do Gerenciador de recursos do Azure | adminmanagement.&lt;region>.&lt;fqdn> | Gerenciador de Recursos do Azure | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Blob | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de tabela | table.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Filas | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Cofre da Chave | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) |  Keyvault interno |  adminvault.&lt;region>.&lt;fqdn> |
+
+### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Para o ambiente de pilha do Azure em versões anteriores 1803
 
 |Pasta de implantação|Entidade do certificado necessária e nomes alternativos da entidade (SAN)|Escopo (por região)|Namespace de subdomínio|
 |-----|-----|-----|-----|
@@ -93,7 +111,7 @@ A tabela a seguir descreve os pontos de extremidade e os certificados necessári
 |Escopo (por região)|Certificado|Entidade do certificado necessária e nomes de alternativo da entidade (SANs)|Namespace de subdomínio|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL e MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL curinga)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|Serviço de Aplicativo|Certificado SSL de padrão de tráfego da Web|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL curinga do domínio de várias<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|Serviço de Aplicativo|Certificado SSL de padrão de tráfego da Web|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL curinga do domínio de várias<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |Serviço de Aplicativo|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |Serviço de Aplicativo|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |Serviço de Aplicativo|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|

@@ -1,32 +1,30 @@
 ---
 title: Criar uma oferta na pilha do Azure | Microsoft Docs
-description: "Como um administrador de nuvem, saiba como criar uma oferta para os usuários na pilha do Azure."
+description: Como um administrador de nuvem, saiba como criar uma oferta para os usuários na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2018
+ms.date: 03/27/2018
 ms.author: brenduns
-ms.openlocfilehash: 2666aacbbaf44ae9b3bcf2df480e835457e6f449
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6a59d0c8144492ef907e5c395f05e4e8a16678a5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Criar uma oferta no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
-
 [Oferece](azure-stack-key-features.md) são grupos de um ou mais planos provedores apresentam aos usuários para comprar ou assinar. Este documento mostra como criar uma oferta que inclui o [plano que você criou](azure-stack-create-plan.md) na última etapa. Esta oferta fornece a capacidade de provisionar máquinas virtuais de assinantes.
 
-1. Entrar no portal do administrador do Azure pilha (https://adminportal.local.azurestack.external) > clique **novo** > **locatário oferece + planos**  >   **Oferecer**.
+1. Entrar no portal do administrador do Azure pilha (https://adminportal.local.azurestack.external) > clique **novo** > **locatário oferece + planos** > **oferecem**.
 
    ![](media/azure-stack-create-offer/image01.png)
 2. No **oferecem nova** painel, preencha **nome de exibição** e **nome do recurso**e, em seguida, selecione um novo ou existente **grupo de recursos**. O nome de exibição é o nome amigável da oferta. Esse nome amigável é a única informação sobre a oferta que os usuários veem ao inscrever-se. Portanto, certifique-se de usar um nome intuitivo que ajuda o usuário a entender o que vem com a oferta. Somente o administrador pode ver o Nome do Recurso. Esse é o nome que os administradores usam para trabalhar com a oferta como um recurso do Gerenciador de Recursos do Azure.
@@ -35,21 +33,30 @@ ms.lasthandoff: 02/09/2018
 3. Clique em **Base planos** para abrir o **planejar** painel, selecione os planos que você deseja incluir na oferta e, em seguida, clique em **selecione**. Clique em **Criar** para criar a oferta.
 
    ![](media/azure-stack-create-offer/image02.png)
-4. Clique em **todos os recursos**, procure sua nova oferta, clique em nova oferta, clique em **alterar estado**e, em seguida, clique em **público**.
+4. Depois de criar a oferta, você pode alterar seu estado. Ofertas devem ser feitas *pública* para os usuários a obter o modo de exibição completo quando eles se inscrever. Ofertas podem ser:
+   - **Público**: visível para os usuários.
+   - **Privada**: visível somente para administradores de nuvem. Útil ao projeto o plano ou a oferta, ou se o administrador de nuvem deseja [criar cada assinatura para usuários](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+   - **Desativados**: fechados para novos assinantes. O administrador de nuvem pode usar encerrado para evitar futuras assinaturas, mas deixe os assinantes atuais inalterados.
 
-   ![](media/azure-stack-create-offer/image03.png)
+   > [!TIP]  
+   > As alterações para a oferta não ficam imediatamente visíveis para o usuário. Para ver as alterações, os usuários podem ter logoff e logon novamente para o portal do usuário para ver a nova oferta. 
 
-Ofertas devem ser feitas públicas para os usuários a obter o modo de exibição completo ao inscrever-se. Ofertas podem ser:
+   Para alterar o estado da oferta: 
 
-* **Público**: visível para os usuários.
-* **Privada**: só é visível para os administradores de nuvem. Útil ao projeto o plano ou a oferta, ou se o administrador de nuvem deseja [criar cada assinatura para usuários](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-* **Desativados**: fechados para novos assinantes. O administrador de nuvem pode usar encerrado para evitar futuras assinaturas, mas deixe os assinantes atuais inalterados.
+   - **Versão mais recente e 1803**:  
+     Na folha de visão geral da oferta, clique em **estado acessibilidade**, selecione o estado que você deseja usar, como *pública*e, em seguida, clique em **salvar**. 
+ 
+     ![Selecione o estado de acessibilidade](media/azure-stack-create-offer/change-state.png) 
 
-As alterações para a oferta não ficam imediatamente visíveis para o usuário. Para ver as alterações, talvez você precise logoff/logon para ver a nova assinatura no "seletor de assinatura" durante a criação de grupos de recursos/recursos.
+     Como alternativa, depois de acessar uma oferta pode ir para **oferecem configurações**e, em seguida, selecione **estado acessibilidade** para alterar o estado. 
 
-> [!NOTE]
->Você também pode criar cotas, planos e ofertas de padrão por meio do PowerShell, conforme explicado no [Leiame do administrador de serviço do Azure pilha](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
->
+   - **Antes da versão 1803**:  
+     Clique em **todos os recursos**, procure sua nova oferta, clique em nova oferta, clique em **alterar estado**e, em seguida, clique em **público**.
+
+  
+   > [!NOTE] 
+   > Você também pode usar o PowerShell para criar cotas, planos e ofertas de padrão. Para obter mais informações, consulte [Leiame do administrador de serviço do Azure pilha](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
+   >
 
 
 ### <a name="next-steps"></a>Próximas etapas

@@ -1,6 +1,6 @@
 ---
-title: Usando perfis de versão de API na pilha do Azure | Microsoft Docs
-description: Saiba mais sobre perfis de versão de API na pilha do Azure.
+title: Usando perfis de versão de API com o PowerShell na pilha do Azure | Microsoft Docs
+description: Saiba mais sobre como usar perfis de versão de API com o PowerShell na pilha do Azure.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 68f4250c2a2a6bed1a1e21dc444e93cc87b6f59b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.reviewer: sijuman
+ms.openlocfilehash: 890237ff40f9c9893c57f49c96e6ddc99849c2bd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/03/2018
 ---
-# <a name="manage-api-version-profiles-in-azure-stack"></a>Gerenciar perfis de versão de API na pilha do Azure
+# <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Use perfis de versão de API do PowerShell na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
@@ -114,4 +115,4 @@ Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md)
-* [Configurar o ambiente do PowerShell do usuário a pilha do Azure](user/azure-stack-powershell-configure-user.md)  
+* [Configurar o ambiente do PowerShell do usuário a pilha do Azure](azure-stack-powershell-configure-user.md)  

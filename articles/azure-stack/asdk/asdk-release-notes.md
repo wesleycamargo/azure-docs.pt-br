@@ -11,19 +11,122 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1a8cbdef8f3d8a5aa4aeab0e51275933160360c2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure
 Essas notas de versão fornecem informações sobre problemas conhecidos no Kit de desenvolvimento de pilha do Azure, correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
 
-> Fique atualizado com o que há de novo no ASDK assinando o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+> Mantenha-se atualizado com o que há de novo no ASDK assinando o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-201803291"></a>Criar 20180329.1
+
+### <a name="new-features-and-fixes"></a>Novos recursos e correções
+Os novos recursos e correções lançadas para a pilha do Azure versão sistemas integrados 1803 aplicar o Kit de desenvolvimento de pilha do Azure. Consulte o [novos recursos](.\.\azure-stack-update-1803.md#new-features) e [problemas foram corrigidos](.\.\azure-stack-update-1803.md#fixed-issues) seções do Azure pilha 1803 atualizar as notas de versão para obter detalhes.  
+> [!IMPORTANT]    
+> Alguns dos itens listados no **novos recursos** e **problemas foram corrigidos** seções são relevantes apenas para sistemas de pilha do Azure integradas.
+
+### <a name="changes"></a>Alterações
+- A maneira de alterar o estado de uma oferta recém-criado de *privada* para *pública* ou *encerrado* foi alterado. Para obter mais informações, consulte [criar uma oferta](.\.\azure-stack-create-offer.md). 
+
+
+### <a name="known-issues"></a>Problemas conhecidos
+ 
+#### <a name="portal"></a>Portal
+- A capacidade de [para abrir uma nova solicitação de suporte na lista suspensa](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, use o seguinte link:     
+    - Para o Kit de desenvolvimento de pilha do Azure, use https://aka.ms/azurestackforum.    
+
+- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.  
+
+- Quando você exibir as propriedades de um recurso ou grupo de recursos, o **mover** botão será desabilitado. Esse comportamento é esperado. Atualmente não há suporte para a movimentação ou grupos de recursos entre grupos de recursos ou assinaturas.
+ 
+- Você verá um **ativação necessária** alerta de aviso que o aconselha a registrar seu Kit de desenvolvimento de pilha do Azure. Esse comportamento é esperado.
+
+- Excluir resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos do usuário ou o grupo de recursos inteiro e exclua assinaturas de usuário.
+
+- Você não pode exibir as permissões para sua assinatura usando os portais de pilha do Azure. Como alternativa, use o PowerShell para verificar as permissões.
+
+- No painel do portal de administração, o bloco de atualização não pode exibir informações sobre atualizações. Para resolver esse problema, clique no bloco para atualizá-lo.
+
+-   No portal de administração, você poderá ver um alerta crítico para o componente Microsoft.Update.Admin. O nome do alerta, descrição e correção toda a exibição como:  
+    - *Erro - o modelo para o FaultType ResourceProviderTimeout está ausente.*
+
+    Esse alerta pode ser ignorado. 
+
+
+
+#### <a name="marketplace"></a>Marketplace
+- Os usuários podem procurar o marketplace completo sem uma assinatura e podem ver os itens administrativos como planos e ofertas. Esses itens não estão funcionando para os usuários.
+ 
+#### <a name="compute"></a>Computação
+- As configurações de escala para conjuntos de escala de máquinas virtuais não estão disponíveis no portal. Como alternativa, você pode usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Por causa das diferenças de versão do PowerShell, você deve usar o `-Name` parâmetro em vez de `-VMScaleSetName`.
+
+- Ao criar máquinas virtuais no portal do usuário de pilha do Azure, o portal exibe um número incorreto de discos de dados que podem ser anexados a uma VM da série DS. As VMs da série DS podem acomodar quantos discos de dados como a configuração do Azure.
+
+- Quando uma imagem de VM Falha ao ser criado, um item com falha que você não pode excluir pode ser adicionado para a folha de computação de imagens VM.
+
+  Como alternativa, crie uma nova imagem VM com um VHD fictício que pode ser criado pelo Hyper-V (New-VHD-caminho C:\dummy.vhd-fixa - SizeBytes 1 GB). Esse processo deve corrigir o problema que impede a exclusão do item com falha. Em seguida, 15 minutos depois de criar a imagem fictícia, você poderá com êxito excluí-la.
+
+  Você pode tentar, em seguida, faça download novamente a imagem VM que falhou anteriormente.
+
+-  Se uma extensão em uma implantação de VM de provisionamento leva muito tempo, os usuários devem permitir que o tempo limite de provisionamento em vez de tentar parar o processo para desalocar ou exclua a máquina virtual.  
+
+- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
+
+
+#### <a name="networking"></a>Rede
+- Em **rede**, se você clicar em **Conexão** para configurar uma conexão VPN, **VNet para VNet** está listado como um tipo de conexão possíveis. Não selecione essa opção. Atualmente, apenas o **Site a site (IPsec)** opção tem suporte.
+
+- Depois que uma máquina virtual é criada e associada a um endereço IP público, não é possível desassociar essa VM de endereço IP. Dissociação parece estar funcionando, mas o endereço IP público atribuído anteriormente permanecerá associado à VM original.
+
+  No momento, você deve usar apenas novos endereços IP públicos para novas VMs que você criar.
+
+  Esse comportamento ocorre mesmo se você reatribuir o endereço IP para uma nova VM (conhecido como um *permuta de VIP*). Todas as futuras tentativas de conexão por esse resultado do endereço IP em uma conexão à VM originalmente associado e não para o novo.
+
+
+
+- A pilha do Azure oferece suporte a um único *gateway de rede local* por endereço IP. Isso é verdadeiro em todas as assinaturas de locatários. Após a criação da primeira conexão de gateway local de rede, subsequente tenta criar um recurso de gateway de rede local com o mesmo endereço IP são bloqueados.
+
+- Em uma rede Virtual que foi criado com uma configuração de servidor DNS de *automáticas*, alteração de uma falha de servidor DNS personalizado. As configurações atualizadas não são propagadas para as VMs nessa rede virtual.
+ 
+- Pilha do Azure não oferece suporte à adição de interfaces de rede adicionais para uma instância de VM depois que a VM for implantada. Se a VM requer mais de uma interface de rede, eles devem ser definidos no momento da implantação.
+
+
+
+#### <a name="sql-and-mysql"></a>SQL e MySQL 
+- Pode levar até uma hora antes dos usuários podem criar bancos de dados em um novo SQL ou MySQL SKU.
+
+- O banco de dados de servidores de hospedagem deve ser dedicado para uso pelas cargas de trabalho de usuário e provedor de recursos. Você não pode usar uma instância que está sendo usada por outro consumidor, incluindo serviços de aplicativos.
+
+#### <a name="app-service"></a>Serviço de Aplicativo
+- Os usuários devem registrar o provedor de recursos de armazenamento antes de criar sua primeira função do Azure na assinatura.
+
+- Para expandir a infraestrutura (os operadores, gerenciamento, funções de front-end), você deve usar o PowerShell conforme descrito nas notas de versão para a computação.
+ 
+#### <a name="usage"></a>Uso  
+- Dados de medição de uso do endereço de IP público uso mostram a mesma *EventDateTime* valor para cada registro em vez do *TimeDate* carimbo que mostra quando o registro foi criado. No momento, você não pode usar esses dados para realizar as estatísticas precisas de uso de endereço IP público.
+<!--
+#### Identity
+-->
+
+#### <a name="downloading-azure-stack-tools-from-github"></a>Baixar ferramentas de pilha do Azure do GitHub
+- Ao usar o *invoke-webrequest* das ferramentas de cmdlet do PowerShell para baixar a pilha do Azure do Github, você receberá um erro:     
+    -  *Invoke-webrequest: A solicitação foi anulada: não foi possível criar o canal seguro de SSL/TLS.*     
+
+  Esse erro ocorre devido a uma substituição de suporte do GitHub recente das Tlsv1 e Tlsv1.1 padrões de criptografia (o padrão para o PowerShell). Para obter mais informações, consulte [aviso de remoção de padrões de criptografia fraca](https://githubengineering.com/crypto-removal-notice/).
+
+  Para resolver esse problema, adicione `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` para o início do script para forçar o console do PowerShell para usar TLSv1.2 durante o download de repositórios GitHub.
+
+
+
+
+
 
 ## <a name="build-201803021"></a>Criar 20180302.1
 
@@ -61,6 +164,7 @@ Consulte o [novos recursos e correções](.\.\azure-stack-update-1802.md#new-fea
 
   Como alternativa, use o PowerShell para executar o **ResourceSynchronization.ps1 início** script para restaurar o acesso para os detalhes da conta de armazenamento. [O script está disponível no GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)e deve ser executada com as credenciais de administrador de serviço no host do kit de desenvolvimento se você usar o ASDK.  
 
+- O **a integridade do serviço** folha Falha ao carregar. Quando você abre a folha de integridade do serviço no portal do administrador ou o usuário, Azure pilha exibirá um erro e não carregar as informações. Este comportamento é esperado. Embora você possa selecionar e abrir o serviço de integridade, esse recurso não está disponível, mas será implementado em uma versão futura da pilha do Azure.
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
 No portal de administração de pilha do Azure, você poderá ver um alerta crítico com o nome **pendentes expiração do certificado externo**.  Esse alerta pode ser ignorado e afetar as operações do Kit de desenvolvimento de pilha do Azure. 
@@ -98,8 +202,6 @@ No portal de administração de pilha do Azure, você poderá ver um alerta crí
 
   Esse comportamento ocorre mesmo se você reatribuir o endereço IP para uma nova VM (conhecido como um *permuta de VIP*). Todas as futuras tentativas de conexão por esse resultado do endereço IP em uma conexão à VM originalmente associado e não para o novo.
 
-- O balanceamento de carga interno (ILB) incorretamente lida com endereços MAC para VMs de back-end, que faz com que o ILB interromper quando usar instâncias Linux na rede Back-End.  ILB funciona bem com instâncias do Windows na rede de Back-End.
-
 -   O recurso de encaminhamento de IP é visível no portal, no entanto, habilitar o encaminhamento IP não tem nenhum efeito. Ainda não há suporte para esse recurso.
 
 - A pilha do Azure oferece suporte a um único *gateway de rede local* por endereço IP. Isso é verdadeiro em todas as assinaturas de locatários. Após a criação da primeira conexão de gateway local de rede, subsequente tenta criar um recurso de gateway de rede local com o mesmo endereço IP são bloqueados.
@@ -108,68 +210,6 @@ No portal de administração de pilha do Azure, você poderá ver um alerta crí
  
 - Pilha do Azure não oferece suporte à adição de interfaces de rede adicionais para uma instância de VM depois que a VM for implantada. Se a VM requer mais de uma interface de rede, eles devem ser definidos no momento da implantação.
 
--   <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
-
-    Solução alternativa para o serviço de aplicativo: se você precisar de área de trabalho remota para as instâncias de controlador, você modificar as regras de segurança dentro dos grupos de segurança de rede com o PowerShell.  A seguir estão exemplos de como *permitir*e, em seguida, restaurar a configuração para *negar*: 
-    
-    - *Permita:*
- 
-      ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
-      
-      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-      
-      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-      
-      ##This doesn’t work. Need to set properties again even in case of edit
-      
-      #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-      
-      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-        -Name $RuleConfig_Inbound_Rdp_3389.Name `
-        -Description "Inbound_Rdp_3389" `
-        -Access Allow `
-        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
-        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
-        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
-        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
-        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
-        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
-        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-      
-      # Commit the changes back to NSG
-      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
-
-    - *Nega:*
-
-        ```powershell
-        
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
-        
-        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-        
-        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-        
-        ##This doesn’t work. Need to set properties again even in case of edit
-    
-        #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-    
-        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-          -Name $RuleConfig_Inbound_Rdp_3389.Name `
-          -Description "Inbound_Rdp_3389" `
-          -Access Deny `
-          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
-          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
-          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
-          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
-          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
-          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
-          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-          
-        # Commit the changes back to NSG
-        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg 
-        ```
 
 
 #### <a name="sql-and-mysql"></a>SQL e MySQL 
@@ -182,9 +222,8 @@ No portal de administração de pilha do Azure, você poderá ver um alerta crí
 
 - Para expandir a infraestrutura (os operadores, gerenciamento, funções de front-end), você deve usar o PowerShell conforme descrito nas notas de versão para a computação.
  
-#### <a name="usage-and-billing"></a>Uso e cobrança
-- Medidor dados de uso de endereço IP públicos mostram a mesma *EventDateTime* valor para cada registro em vez do *TimeDate* carimbo que mostra quando o registro foi criado. No momento, você não pode usar esses dados para realizar as estatísticas precisas de uso de endereço IP público.
-
+#### <a name="usage"></a>Uso  
+- Dados de medição de uso do endereço de IP público uso mostram a mesma *EventDateTime* valor para cada registro em vez do *TimeDate* carimbo que mostra quando o registro foi criado. No momento, você não pode usar esses dados para realizar as estatísticas precisas de uso de endereço IP público.
 <!--
 #### Identity
 -->
@@ -196,6 +235,8 @@ No portal de administração de pilha do Azure, você poderá ver um alerta crí
   Esse erro ocorre devido a uma substituição de suporte do GitHub recente das Tlsv1 e Tlsv1.1 padrões de criptografia (o padrão para o PowerShell). Para obter mais informações, consulte [aviso de remoção de padrões de criptografia fraca](https://githubengineering.com/crypto-removal-notice/).
 
   Para resolver esse problema, adicione `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` para o início do script para forçar o console do PowerShell para usar TLSv1.2 durante o download de repositórios GitHub.
+
+
 
 
 ## <a name="build-201801032"></a>Criar 20180103.2
@@ -231,7 +272,7 @@ No portal de administração de pilha do Azure, você poderá ver um alerta crí
 - Se o **componente** link é clicado em qualquer **função infraestrutura** de alerta, resultante **visão geral** folha tenta carregar e falhar. Além do * * visão geral do * * folha não expira.
 - Excluir resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos do usuário ou o grupo de recursos inteiro e exclua assinaturas de usuário.
 - Não é possível exibir as permissões para sua assinatura usando os portais de pilha do Azure. Como alternativa, você pode verificar permissões usando o PowerShell.
- 
+- O **a integridade do serviço** folha Falha ao carregar. Quando você abre a folha de integridade do serviço no portal do administrador ou o usuário, Azure pilha exibirá um erro e não carregar as informações. Este comportamento é esperado. Embora você possa selecionar e abrir o serviço de integridade, esse recurso não está disponível, mas será implementado em uma versão futura da pilha do Azure.
 #### <a name="marketplace"></a>Marketplace
 - Alguns itens do marketplace estão sendo removidos nesta versão devido a questões de compatibilidade. Esses serão habilitados novamente após a validação adicional.
 - Os usuários podem procurar o marketplace completo sem uma assinatura e podem ver os itens administrativos como planos e ofertas. Esses itens não estão funcionando para os usuários.
@@ -248,7 +289,7 @@ No portal de administração de pilha do Azure, você poderá ver um alerta crí
 - Em **rede**, se você clicar em **Conexão** para configurar uma conexão VPN, **VNet para VNet** está listado como um tipo de conexão possíveis. Não selecione essa opção. Atualmente, apenas o **Site a site (IPsec)** opção tem suporte.
 - Não é possível desassociar um endereço IP público de uma máquina virtual (VM), depois que a máquina virtual foi criada e associada com o endereço IP. Dissociação parece funcionar, mas o endereço IP público atribuído anteriormente permanecerá associado à VM original. Esse comportamento ocorre mesmo se você reatribuir o endereço IP para uma nova VM (conhecido como um *permuta de VIP*). Todas as futuras tentativas de conexão por esse resultado do endereço IP em uma conexão à VM originalmente associado e não para o novo. No momento, você só deve usar os novos endereços IP públicos para criação de uma nova VM.
 - Operadores de pilha do Azure podem ser impossível implantar, excluir, modificar VNETs ou grupos de segurança de rede. Esse problema é visto principalmente nas tentativas de atualização subsequentes do mesmo pacote. Isso é causado por um problema de empacotamento com uma atualização que está sendo investigado.
-- O balanceamento de carga interno (ILB) incorretamente lida com endereços MAC para VMs de back-end que interrompe a instâncias do Linux.
+- O balanceamento de carga interno (ILB) incorretamente lida com endereços MAC para VMs de back-end que descartar pacotes para a rede de back-end ao usar instâncias do Linux.
  
 #### <a name="sqlmysql"></a>SQL/MySQL 
 - Pode demorar até uma hora para que os locatários podem criar bancos de dados em um novo SQL ou MySQL SKU. 
@@ -257,8 +298,8 @@ No portal de administração de pilha do Azure, você poderá ver um alerta crí
 #### <a name="app-service"></a>Serviço de Aplicativo
 - Um usuário deve registrar o provedor de recursos de armazenamento antes de criar sua primeira função do Azure na assinatura.
  
-#### <a name="usage-and-billing"></a>Uso e cobrança
-- Medidor dados de uso de endereço IP públicos mostram a mesma *EventDateTime* valor para cada registro em vez do *TimeDate* carimbo que mostra quando o registro foi criado. No momento, você não pode usar esses dados para realizar as estatísticas precisas de uso de endereço IP público.
+#### <a name="usage"></a>Uso  
+- Dados de medição de uso do endereço de IP público uso mostram a mesma *EventDateTime* valor para cada registro em vez do *TimeDate* carimbo que mostra quando o registro foi criado. No momento, você não pode usar esses dados para realizar as estatísticas precisas de uso de endereço IP público.
 
 #### <a name="identity"></a>Identidade
 
@@ -266,6 +307,8 @@ No Azure Active Directory Federation Services (ADFS) implantado a ambientes, o *
 
 > [!IMPORTANT]
 > Até mesmo o **azurestack\cloudadmin** conta é o proprietário da assinatura do provedor padrão em ambientes do AD FS implantado, ele não tem permissões para RDP para o host. Continuar a usar o **azurestack\azurestackadmin** conta ou a conta de administrador local para fazer logon, acessar e gerenciar o host, conforme necessário.
+
+
 
 
 ## <a name="build-201711221"></a>Criar 20171122.1
@@ -303,7 +346,8 @@ No Azure Active Directory Federation Services (ADFS) implantado a ambientes, o *
 - Se o **componente** link é clicado em qualquer **função infraestrutura** de alerta, resultante **visão geral** folha tenta carregar e falhar. Além do **visão geral** folha não expira.
 - Excluir resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos do usuário ou o grupo de recursos inteiro e exclua assinaturas de usuário.
 - Não é possível exibir as permissões para sua assinatura usando os portais de pilha do Azure. Como alternativa, você pode verificar permissões usando o PowerShell.
- 
+- O **a integridade do serviço** folha Falha ao carregar. Quando você abre a folha de integridade do serviço no portal do administrador ou o usuário, Azure pilha exibirá um erro e não carregar as informações. Este comportamento é esperado. Embora você possa selecionar e abrir o serviço de integridade, esse recurso não está disponível, mas será implementado em uma versão futura da pilha do Azure.
+
 #### <a name="marketplace"></a>Marketplace
 - Quando você tentar adicionar itens para o marketplace de pilha do Azure usando o **adicionar do Azure** opção, nem todos os itens podem estar visíveis para download.
 - Os usuários podem procurar o marketplace completo sem uma assinatura e podem ver os itens administrativos como planos e ofertas. Esses itens não estão funcionando para os usuários.
@@ -320,7 +364,7 @@ No Azure Active Directory Federation Services (ADFS) implantado a ambientes, o *
 - Em **rede**, se você clicar em **Conexão** para configurar uma conexão VPN, **VNet para VNet** está listado como um tipo de conexão possíveis. Não selecione essa opção. Atualmente, apenas o **Site a site (IPsec)** opção tem suporte.
 - Não é possível desassociar um endereço IP público de uma máquina virtual (VM), depois que a máquina virtual foi criada e associada com o endereço IP. Dissociação parece funcionar, mas o endereço IP público atribuído anteriormente permanecerá associado à VM original. Esse comportamento ocorre mesmo se você reatribuir o endereço IP para uma nova VM (conhecido como um *permuta de VIP*). Todas as futuras tentativas de conexão por esse resultado do endereço IP em uma conexão à VM originalmente associado e não para o novo. No momento, você só deve usar os novos endereços IP públicos para criação de uma nova VM.
 - Operadores de pilha do Azure podem ser impossível implantar, excluir, modificar VNETs ou grupos de segurança de rede. Esse problema é visto principalmente nas tentativas de atualização subsequentes do mesmo pacote. Isso é causado por um problema de empacotamento com uma atualização que está sendo investigado.
-- O balanceamento de carga interno (ILB) incorretamente lida com endereços MAC para VMs de back-end que interrompe a instâncias do Linux.
+- O balanceamento de carga interno (ILB) incorretamente lida com endereços MAC para VMs de back-end que descartar pacotes para a rede de back-end ao usar instâncias do Linux.
  
 #### <a name="sqlmysql"></a>SQL/MySQL 
 - Pode demorar até uma hora para que os locatários podem criar bancos de dados em um novo SQL ou MySQL SKU. 
@@ -331,9 +375,9 @@ No Azure Active Directory Federation Services (ADFS) implantado a ambientes, o *
 
 #### <a name="app-service"></a>Serviço de Aplicativo
 - Um usuário deve registrar o provedor de recursos de armazenamento antes de criar sua primeira função do Azure na assinatura.
- 
-#### <a name="usage-and-billing"></a>Uso e cobrança
-- Medidor dados de uso de endereço IP públicos mostram a mesma *EventDateTime* valor para cada registro em vez do *TimeDate* carimbo que mostra quando o registro foi criado. No momento, você não pode usar esses dados para realizar as estatísticas precisas de uso de endereço IP público.
+
+#### <a name="usage"></a>Uso  
+- Dados de medição de uso do endereço de IP público uso mostram a mesma *EventDateTime* valor para cada registro em vez do *TimeDate* carimbo que mostra quando o registro foi criado. No momento, você não pode usar esses dados para realizar as estatísticas precisas de uso de endereço IP público.
 
 #### <a name="identity"></a>Identidade
 
