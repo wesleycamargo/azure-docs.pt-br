@@ -8,6 +8,7 @@
 # Introdução
 ## [Criar um gateway VPN baseado em rotas: portal do Azure](create-routebased-vpn-gateway-portal.md)
 ## [Criar um gateway VPN baseado em rotas: PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [Criar um gateway VPN baseado em rotas: CLI](create-routebased-vpn-gateway-cli.md)
 
 # Conceitos
 ## [Planejamento e design do Gateway de VPN](vpn-gateway-plan-design.md)
@@ -103,7 +104,8 @@
 
 # Relacionados
 ## [Rede Virtual](/azure/virtual-network/)
-## [Gateway de Aplicativo](/azure/application-gateway/)
+## [Gateway de Aplicativo
+](/azure/application-gateway/)
 ## [DNS do Azure](/azure/dns/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 ## [Balanceador de Carga](/azure/load-balancer/)

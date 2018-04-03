@@ -1,11 +1,11 @@
 ---
-title: "Criar uma máquina virtual do Windows na pilha do Azure usando a CLI do Azure | Microsoft Docs"
+title: Criar uma máquina virtual do Windows na pilha do Azure usando a CLI do Azure | Microsoft Docs
 description: Saiba como criar uma VM do Windows na pilha do Azure usando a CLI do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: E26B246E-811D-44C9-9BA6-2B3CE5B62E83
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: ea972db9ce3488d9a46a7d059714c8bbe820d47d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2a4eb909c39051ce9fa2efd7e7997644d9b8b1b1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Criar uma máquina virtual do Windows na pilha do Azure usando a CLI do Azure
 
@@ -29,7 +29,7 @@ CLI do Azure é usado para criar e gerenciar recursos de pilha do Azure a partir
 
 * Certifique-se de que seu operador de pilha do Azure adicionou a imagem de "Windows Server 2016" para o marketplace de pilha do Azure.  
 
-* A pilha do Azure requer uma versão específica de CLI do Azure para criar e gerenciar os recursos. Se você não tiver a CLI do Azure configurada para a pilha do Azure, siga as etapas para [instalar e configurar a CLI do Azure](azure-stack-connect-cli.md).
+* A pilha do Azure requer uma versão específica de CLI do Azure para criar e gerenciar os recursos. Se você não tiver a CLI do Azure configurada para a pilha do Azure, siga as etapas para [instalar e configurar a CLI do Azure](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
