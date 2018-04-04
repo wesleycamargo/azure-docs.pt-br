@@ -1,12 +1,12 @@
 ---
-title: "Extensão 1.3 do Diagnóstico do Azure e esquema de configuração mais recente | Microsoft Docs"
-description: "A versão de esquema 1.3 e posterior do Diagnóstico do Azure é fornecida como parte do SDK 2.4 e posteriores do Microsoft Azure."
+title: Extensão 1.3 do Diagnóstico do Azure e esquema de configuração mais recente | Microsoft Docs
+description: A versão de esquema 1.3 e posterior do Diagnóstico do Azure é fornecida como parte do SDK 2.4 e posteriores do Microsoft Azure.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na

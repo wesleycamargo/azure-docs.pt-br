@@ -4,7 +4,7 @@ description: Saiba como criar um Gateway de Aplicativo usando o portal do Azure.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article

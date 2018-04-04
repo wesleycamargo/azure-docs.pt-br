@@ -2,10 +2,10 @@
 title: Obter ajuda para acessar e usar o portal Meus aplicativos no Azure Active Directory | Microsoft Docs
 description: Obter ajuda para entrar e executar tarefas comuns no painel de acesso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity

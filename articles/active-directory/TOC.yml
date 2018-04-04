@@ -5,12 +5,18 @@
 - name: RBAC (Controle de Acesso Baseado em Função)
   href: role-based-access-control-what-is.md
   items:
-    - name: Gerenciar atribuições de acesso
+    - name: Gerenciar atribuições de função
       items:
         - name: Por usuário
           href: role-based-access-control-manage-assignments.md
         - name: Por recurso
           href: role-based-access-control-configure.md
+        - name: Com a CLI do Azure
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Com o PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Com REST
+          href: role-based-access-control-manage-access-rest.md
     - name: Funções internas
       href: role-based-access-built-in-roles.md
     - name: Funções personalizadas
@@ -19,14 +25,6 @@
       href: role-based-access-control-create-custom-roles-for-internal-external-users.md
     - name: Relatórios
       href: role-based-access-control-access-change-history-report.md
-    - name: Mais maneiras de gerenciar funções
-      items:
-        - name: Com a CLI do Azure
-          href: role-based-access-control-manage-access-azure-cli.md
-        - name: Com o PowerShell
-          href: role-based-access-control-manage-access-powershell.md
-        - name: Com REST
-          href: role-based-access-control-manage-access-rest.md
     - name: Elevar o acesso de administrador de locatário
       href: role-based-access-control-tenant-admin-access.md
     - name: Solucionar problemas

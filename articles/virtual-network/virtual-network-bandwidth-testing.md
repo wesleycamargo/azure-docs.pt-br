@@ -1,12 +1,12 @@
 ---
-title: "Testando a taxa de transferência de rede da VM do Azure | Microsoft Docs"
-description: "Saiba como testar a taxa de transferência de rede da máquina virtual do Azure."
+title: Testando a taxa de transferência de rede da VM do Azure | Microsoft Docs
+description: Saiba como testar a taxa de transferência de rede da máquina virtual do Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

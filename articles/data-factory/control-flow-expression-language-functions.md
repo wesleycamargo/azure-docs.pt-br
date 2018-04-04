@@ -51,7 +51,7 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 |----------------|------------|  
 |"parameters"|Os “parâmetros” dos caracteres são retornados.|  
 |"parameters[1]"|Os “parâmetros[1]” dos caracteres são retornados.|  
-|"@@"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
+|\"\@\@\"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
 |\" \@\"|Uma cadeia de caracteres de 2 caracteres que contém \' \@\' será retornada.|  
   
  As expressões também podem aparecer dentro de cadeias de caracteres usando um recurso chamado *interpolação de cadeia de caracteres* em que as expressões estão encapsuladas em `@{ ... }`. Por exemplo: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  

@@ -2,12 +2,12 @@
 title: Instalar aplicativo publicado - Coletor de dados dos conjuntos de fluxos - HDInsight do Azure | Microsoft Docs
 description: Instalar e usar o aplicativo de Hadoop de terceiros do Coletor de Dados dos Conjuntos de Fluxos.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na

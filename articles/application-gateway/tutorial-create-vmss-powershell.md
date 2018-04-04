@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicativo com um conjunto de dimensionamento de máquinas virtuais – Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo com um conjunto de dimensionamento de máquinas virtuais usando o Azure PowerShell."
+title: Criar um gateway de aplicativo com um conjunto de dimensionamento de máquinas virtuais – Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo com um conjunto de dimensionamento de máquinas virtuais usando o Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt

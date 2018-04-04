@@ -1,13 +1,13 @@
 ---
-title: "Instalar aplicativo publicado – Datameer – HDInsight do Azure | Microsoft Docs"
+title: Instalar aplicativo publicado – Datameer – HDInsight do Azure | Microsoft Docs
 description: Instale e use o aplicativo de Hadoop de terceiros da Datameer.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na

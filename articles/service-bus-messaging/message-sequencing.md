@@ -1,11 +1,11 @@
 ---
-title: "Carimbos de data/hora e sequenciamento de mensagem do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Preservar a ordem e a sequência de mensagem do Barramento de Serviço com carimbos de data/hora"
+title: Carimbos de data/hora e sequenciamento de mensagem do Barramento de Serviço do Azure | Microsoft Docs
+description: Preservar a ordem e a sequência de mensagem do Barramento de Serviço com carimbos de data/hora
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na

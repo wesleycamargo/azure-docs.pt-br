@@ -1,13 +1,13 @@
 ---
-title: "Instalar aplicativo publicado – Dataiku DDS – HDInsight do Azure | Microsoft Docs"
+title: Instalar aplicativo publicado – Dataiku DDS – HDInsight do Azure | Microsoft Docs
 description: Instale e use o aplicativo de Hadoop de terceiros do Dataiku DDS.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
