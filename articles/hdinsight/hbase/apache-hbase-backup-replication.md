@@ -1,13 +1,13 @@
 ---
-title: "Configurar a replicação e backup HBase e Phoenix - HDInsight do Azure | Microsoft Docs"
-description: "Configurar backup e replicação para HBase e Phoenix."
+title: Configurar a replicação e backup HBase e Phoenix - HDInsight do Azure | Microsoft Docs
+description: Configurar backup e replicação para HBase e Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

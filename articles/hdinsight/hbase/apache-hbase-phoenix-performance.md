@@ -1,13 +1,13 @@
 ---
 title: Desempenho do Phoenix no Azure HDInsight | Microsoft Docs
-description: "Práticas recomendadas para otimizar o desempenho do Phoenix."
+description: Práticas recomendadas para otimizar o desempenho do Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

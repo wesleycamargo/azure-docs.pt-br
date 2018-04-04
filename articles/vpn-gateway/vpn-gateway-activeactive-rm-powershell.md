@@ -1,11 +1,11 @@
 ---
-title: "Configurar conexões VPN S2S ativa-ativa para Gateways de VPN: Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "Este artigo mostra como configurar conexões ativo-ativo com gateways de VPN do Azure usando o Azure Resource Manager e o PowerShell."
+title: 'Configurar conexões VPN S2S ativa-ativa para Gateways de VPN: Azure Resource Manager: PowerShell | Microsoft Docs'
+description: Este artigo mostra como configurar conexões ativo-ativo com gateways de VPN do Azure usando o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway

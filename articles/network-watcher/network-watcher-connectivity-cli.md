@@ -1,11 +1,11 @@
 ---
-title: "Solucionar problemas de conexões com o Observador de Rede do Azure – CLI do Azure 2.0 | Microsoft Docs"
-description: "Saiba como usar o recurso de resolução de problemas de conexão do Observador de Rede do Azure usando a CLI do Azure 2.0."
+title: Solucionar problemas de conexões com o Observador de Rede do Azure – CLI do Azure 2.0 | Microsoft Docs
+description: Saiba como usar o recurso de resolução de problemas de conexão do Observador de Rede do Azure usando a CLI do Azure 2.0.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article

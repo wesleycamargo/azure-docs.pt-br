@@ -1,13 +1,13 @@
 ---
-title: "Monitorar HBase com o Conjunto de Gerenciamento de Operações (OMS) - Microsoft Azure HDInsight | Microsoft Docs"
+title: Monitorar HBase com o Conjunto de Gerenciamento de Operações (OMS) - Microsoft Azure HDInsight | Microsoft Docs
 description: Use o OMS com o Azure Log Analytics para monitorar clusters do HBase no HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
