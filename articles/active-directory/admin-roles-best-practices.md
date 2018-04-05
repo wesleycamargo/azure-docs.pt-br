@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -156,7 +156,7 @@ Certifique-se de que todos os usuários entraram em suas contas administrativas 
 
 #### <a name="turn-on-password-synchronization"></a>Ative a sincronização de senha
 
-A sincronização de senha é um recurso usado para sincronizar senhas de usuário hashes de uma instância do Active Directory local para uma instância do Active Directory local baseada em nuvem. Mesmo que se você decida usar a federação com os serviços de Federação do Active Directory (AD FS) ou outros provedores de identidade, você também pode configurar a sincronização de senha como um backup caso sua infraestrutura local como o AD ou servidores ADFS falham ou ficam temporariamente indisponíveis. Isso possibilita que usuários entrar no serviço usando a mesma senha que usam para entrar em sua instância do AD local. Além disso, permite a proteção de identidade para detectar credenciais comprometidas, comparando os hashes de senha com senhas conhecidas como compormetidas, se um usuário tiver utilizado o mesmo endereço de email e senha em outros serviços não estiverem conectados ao Azure AD.  Para obter mais informações, consulte [Implementar a sincronização de senha com a sincronização do Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).
+A sincronização de senha é um recurso usado para sincronizar senhas de usuário hashes de uma instância do Active Directory local para uma instância do Active Directory local baseada em nuvem. Mesmo que se você decida usar a federação com os serviços de Federação do Active Directory (AD FS) ou outros provedores de identidade, você também pode configurar a sincronização de senha como um backup caso sua infraestrutura local como o AD ou servidores ADFS falham ou ficam temporariamente indisponíveis. Isso possibilita que usuários entrar no serviço usando a mesma senha que usam para entrar em sua instância do AD local. Além disso, permite a proteção de identidade para detectar credenciais comprometidas, comparando os hashes de senha com senhas conhecidas como compormetidas, se um usuário tiver utilizado o mesmo endereço de email e senha em outros serviços não estiverem conectados ao Azure AD.  Para obter mais informações, consulte [Implementar a sincronização de senha com a sincronização do Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Exigir autenticação multifator (MFA) para usuários em todas as funções privilegiadas, bem como os usuários expostos
 

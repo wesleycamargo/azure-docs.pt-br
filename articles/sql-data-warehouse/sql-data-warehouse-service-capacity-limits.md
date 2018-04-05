@@ -3,7 +3,7 @@ title: Limites de capacidade do SQL Data Warehouse | Microsoft Docs
 description: Valores máximos para conexões, bancos de dados, tabelas e consultas para o SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: ''
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 03/15/2018
+ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 As tabelas a seguir contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
@@ -39,13 +39,13 @@ As tabelas a seguir contêm os valores máximos permitidos para vários componen
 |:--- |:--- |:--- |
 | Banco de dados |Tamanho máx. |240 TB compactados em disco<br/><br/>Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes.  A compactação do columnstore clusterizado é estimada em cinco vezes.  Essa compactação permite que o banco de dados aumente até aproximadamente 1 PB quando todas as tabelas são de columnstore clusterizado (o tipo de tabela padrão). |
 | Tabela |Tamanho máx. |60 TB compactados em disco |
-| Tabela |Tabelas por banco de dados |2 bilhões |
+| Tabela |Tabelas por banco de dados |10.000 |
 | Tabela |Colunas por tabela |1024 colunas |
 | Tabela |Bytes por coluna |Dependente do [tipo de dados][data type] da coluna.  O limite é de 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados MAX. |
 | Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página. Assim como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha, que permite que as **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são colocadas para fora da linha, apenas a raiz de 24 bytes é armazenada no registro principal. Para obter mais informações, consulte [Dados de estouro de linha que excedem 8 KB][Row-Overflow Data Exceeding 8 KB]. |
 | Tabela |Partições por tabela |15.000<br/><br/>Para alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento. |
 | Tabela |Caracteres por valor de limite de partição. |4000 |
-| Índice |Índices não clusterizados por tabela. |999<br/><br/>Aplica-se somente a tabelas rowstore. |
+| Índice |Índices não clusterizados por tabela. |50<br/><br/>Aplica-se somente a tabelas rowstore. |
 | Índice |Índices clusterizados por tabela. |1<br><br/>Aplica-se a tabelas rowstore e columnstore. |
 | Índice |Tamanho da chave de índice. |900 bytes.<br/><br/>Aplica-se somente a índices rowstore.<br/><br/>Poderão ser criados índices em colunas varchar com um tamanho máximo de mais de 900 bytes se os dados existentes nas colunas não excederem 900 bytes durante a criação do índice. No entanto, as ações INSERT ou UPDATE posteriores nas colunas que excederem os 900 bytes de tamanho total falharão. |
 | Índice |Colunas de chave por índice. |16<br/><br/>Aplica-se somente a índices rowstore. Os índices columnstore clusterizados incluem todas as colunas. |
@@ -72,8 +72,9 @@ As tabelas a seguir contêm os valores máximos permitidos para vários componen
 | SELECIONAR |Subconsultas aninhadas |32<br/><br/>Nunca será possível ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há garantia de que você sempre terá 32. Por exemplo, JOIN pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
 | SELECIONAR |Colunas por JOIN |1024 colunas<br/><br/>Nunca será possível ter mais de 1.024 colunas em JOIN. Não há garantia de que você sempre terá 1024. Se o plano JOIN exigir uma tabela temporária com mais colunas do que o resultado de JOIN, o limite de 1024 se aplicará à tabela temporária. |
 | SELECIONAR |Bytes por colunas GROUP BY. |8.060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes. |
-| SELECIONAR |Bytes por colunas ORDER BY |8.060 bytes.<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8.060 bytes. |
-| Identificadores e constantes por instrução |O número de identificadores referenciados e constantes. |65.535<br/><br/>O SQL Data Warehouse limita o número de identificadores e de constantes que podem ser contidos em uma única expressão de uma consulta. Esse limite é de 65.535. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão][Internal error: An expression services limit has been reached]. |
+| SELECIONAR |Bytes por colunas ORDER BY |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8060 bytes |
+| Identificadores por instrução |Número de identificadores referenciados |65.535<br/><br/>O SQL Data Warehouse do Azure limita o número de identificadores que podem estar contidos em uma única expressão de uma consulta. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão][Internal error: An expression services limit has been reached]. |
+| Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20.000 <br/><br/>O SQL Data Warehouse do Azure limite o número de constantes da cadeias de caracteres que podem estar contidas em uma única expressão de uma consulta. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão][Internal error: An expression services limit has been reached]. |
 
 ## <a name="metadata"></a>Metadados
 | Exibição do sistema | Máximo de linhas |

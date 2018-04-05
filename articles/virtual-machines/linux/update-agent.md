@@ -2,10 +2,10 @@
 title: Atualizar o Agente Linux do Azure por meio do GitHub | Microsoft Docs
 description: Saiba como atualizar o Agente Linux do Microsoft Azure para sua VM do Linux no Azure
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: danielsollondon
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: mingzhan
-ms.openlocfilehash: 62e365c46d48285b2c03493debff86508b94348a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: danis
+ms.openlocfilehash: ed5bea98bc9b4849436ff5fafc90f85c99d582aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Como atualizar o Agente Linux do Azure em uma VM
 
@@ -120,7 +120,7 @@ Esta versão do Debian não tem uma versão maior ou igual à 2.0.16, portanto, 
 #### <a name="check-your-current-package-version"></a>Verificar a versão atual do pacote
 
 ```bash
-apt list --installed | grep walinuxagent
+apt list --installed | grep waagent
 ```
 
 #### <a name="update-package-cache"></a>Cache do pacote de atualização

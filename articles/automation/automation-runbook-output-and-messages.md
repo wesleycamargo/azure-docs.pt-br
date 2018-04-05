@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
 A maioria dos runbooks da Automação do Azure tem alguma forma de saída, como uma mensagem de erro para o usuário ou um objeto complexo destinado a ser consumido por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para o envio da saída de um script ou de um de fluxo de trabalho. A Automação do Azure funciona com cada um desses fluxos de forma diferente e você deve seguir as práticas recomendadas de como usar cada um quando estiver criando um runbook.
@@ -204,8 +204,8 @@ Na captura de tela anterior, é possível ver que, ao habilitar o log Detalhado 
    
    ![Folha Log e Rastreamento da criação gráfica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Log Analytics do OMS (Microsoft Operations Management Suite)
-A Automação pode enviar o status do trabalho de runbook e fluxos de trabalho para seu espaço de trabalho de Log Analytics do Microsoft Operations Management Suite (OMS). Com o Log Analytics, você pode
+### <a name="microsoft-azure-log-analytics"></a>Log Analytics do Microsoft Azure
+A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o espaço de trabalho do Log Analytics. Com o Log Analytics, você pode
 
 * Obter informações sobre os trabalhos de Automação 
 * Disparar um email ou um alerta com base no status do trabalho de runbook (por exemplo, com falha ou suspenso) 
@@ -213,7 +213,7 @@ A Automação pode enviar o status do trabalho de runbook e fluxos de trabalho p
 * Correlacionar trabalhos em contas de Automação 
 * Visualizar o histórico de trabalho ao longo do tempo    
 
-Para saber mais sobre como configurar a integração com o Log Analytics para coletar, correlacionar e agir sobre dados de trabalho, confira [Encaminhar fluxos de trabalho e status do trabalho da Automação para o Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
+Para saber mais sobre como configurar a integração com o Log Analytics para coletar, correlacionar e agir sobre dados de trabalho, confira [Encaminhar fluxos de trabalho e status do trabalho da Automação para o Log Analytics](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)

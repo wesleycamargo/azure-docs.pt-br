@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b68e8f7e67f767cff19e57f5864db89d6f059316
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b4559afa9294111eaa1f20fdf295d1fb26dcc994
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Como implantar o Hybrid Runbook Worker do Linux
 
@@ -32,13 +30,13 @@ Cada Runbook Worker Híbrido é membro de um grupo de Runbook Worker Híbrido qu
 Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o grupo no qual ele será executado. Os membros do grupo determinarão qual trabalhador atenderá a solicitação. Você não pode especificar um trabalhador específico.
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Instalação do Hybrid Runbook Worker do Linux
-Para instalar e configurar um Hybrid Runbook Worker no seu computador Linux, você segue um processo simples para instalar e configurar manualmente a função. Requer a habilitação da solução **Hybrid Worker de Automação** em seu espaço de trabalho do OMS e, em seguida, a execução de um conjunto de comandos para registrar o computador como um trabalhador e adicioná-lo a um grupo novo ou existente. 
+Para instalar e configurar um Hybrid Runbook Worker no seu computador Linux, você segue um processo simples para instalar e configurar manualmente a função. Requer a habilitação da solução **Hybrid Worker de Automação** em seu espaço de trabalho do Log Analytics e, em seguida, a execução de um conjunto de comandos para registrar o computador como um trabalhador e adicioná-lo a um grupo novo ou existente. 
 
 Antes de continuar, é necessário anotar o espaço de trabalho do Log Analytics ao qual sua conta de Automação está vinculada e também a chave primária para a conta de Automação. É possível encontrar os dois no portal selecionando sua conta de Automação do Azure, **Espaço de trabalho** para a ID do Espaço de Trabalho e **Chaves** para a chave primária.  
 
-1.  Habilite a solução "Hybrid Worker de Automação" no OMS. Isso pode ser feito das seguintes maneiras:
+1.  Habilite a solução "Hybrid Worker de Automação" no Azure. Isso pode ser feito das seguintes maneiras:
 
-   1. Na Galeria de Soluções no [Portal do OMS](https://mms.microsoft.com), habilite a solução **Hybrid Worker de Automação**
+   1. Adicione a solução **Hybrid Worker de Automação** à sua assinatura usando o procedimento em [Adicionar soluções de gerenciamento do Log Analytics ao espaço de trabalho](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
    2. Execute o cmdlet a seguir:
 
         ```powershell
@@ -47,18 +45,18 @@ Antes de continuar, é necessário anotar o espaço de trabalho do Log Analytics
 
 2.  Execute o seguinte comando, alterando os valores dos parâmetros *-w*, *-k*, *-g* e *-e*. Para o parâmetro *-g*, substitua o valor pelo nome do grupo do Hybrid Runbook Worker ao qual o novo Linux Hybrid Runbook Worker deve ingressar. Se o nome ainda não existir em sua conta de Automação do Azure, um novo grupo do Hybrid Runbook Worker é criado com esse nome.
     
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+    ```python
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. Depois que o comando for concluído, a folha dos Grupos do Hybrid Worker no Portal do Azure mostrará o novo grupo e o número de membros ou, se for um grupo existente, o número de membros será aumentado. Você pode selecionar o grupo da lista na folha **Grupos do Hybrid Worker** e no bloco **Hybrid Workers**. Na folha **Hybrid Workers**, você verá cada membro do grupo listado.  
 
 
 ## <a name="turning-off-signature-validation"></a>Desativar a validação de assinatura 
-Por padrão, o Linux Hybrid Runbook Workers exige validação de assinatura. Se você executar um runbook sem sinal em relação a um trabalho, um erro contendo "Falha na validação de assinatura" é exibido. Para desligar a validação de assinatura, execute o seguinte comando, substituindo o segundo parâmetro por sua ID de espaço de trabalho do OMS:
+Por padrão, o Linux Hybrid Runbook Workers exige validação de assinatura. Se você executar um runbook sem sinal em relação a um trabalho, um erro contendo "Falha na validação de assinatura" é exibido. Para desligar a validação de assinatura, execute o seguinte comando, substituindo o segundo parâmetro por sua ID de espaço de trabalho do Log Analytics:
 
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
-    ```
+ ```python
+ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
+ ```
 
 ## <a name="supported-runbook-types"></a>Tipos de runbook com suporte
 

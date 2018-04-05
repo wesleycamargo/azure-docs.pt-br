@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Adquirir um token de acesso para uma MSI (Identidade de Serviço Gerenciado) de VM atribuída pelo usuário
 
@@ -42,7 +42,9 @@ Um aplicativo cliente pode solicitar um [token de acesso somente de aplicativo](
 | [Obter um token usando CURL](#get-a-token-using-curl) | Exemplo de como usar o ponto de extremidade REST da MSI de um cliente Bash/CURL |
 | [Manipulando a expiração do token](#handling-token-expiration) | Diretrizes para manipular tokens de acesso expirados |
 | [Tratamento de erros](#error-handling) | Diretrizes para tratamento de erros HTTP retornados do ponto de extremidade do token da MSI |
+| [Diretrizes de limitação](#throttling-guidance) | Diretrizes para manipular a limitação do ponto de extremidade do token da MSI |
 | [IDs de recurso para serviços do Azure](#resource-ids-for-azure-services) | Onde obter IDs de recurso para os serviços do Azure compatíveis |
+
 
 ## <a name="get-a-token-using-http"></a>Obter um token usando HTTP 
 
@@ -54,7 +56,7 @@ Amostra de solicitação usando o Ponto de Extremidade do Serviço de Metadados 
 GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
-Amostra de solicitação usando o Ponto de Extremidade do MSI da VM (substituição futura):
+Amostra de solicitação usando o Ponto de Extremidade da MSI da VM (substituição futura):
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
@@ -164,6 +166,16 @@ Esta seção documenta as possíveis respostas de erro. Um status "200 OK" é um
 |           | unsupported_response_type | O servidor de autorização não dá suporte à obtenção de um token de acesso usando este método. |  |
 |           | invalid_scope | O escopo solicitado é inválido, desconhecido ou malformado. |  |
 | Erro interno do servidor 500 | unknown | Falha ao recuperar o token do Active Directory. Para obter detalhes, consulte os logs no *\<caminho do arquivo\>* | Verifique se a MSI foi habilitada na VM. Consulte [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) (Configurar uma MSI [Identidade de Serviço Gerenciado] da VM usando o Portal do Azure) se precisar de ajuda com a configuração da VM.<br><br>Verifique também se seu URI de solicitação GET HTTP foi formatado corretamente, principalmente o URI do recurso especificado na cadeia de caracteres de consulta. Consulte a "Solicitação de exemplo" na seção [Obter um token usando HTTP](#get-a-token-using-http) para obter um exemplo ou [Serviços do Azure que são compatíveis com a autenticação do Azure AD](msi-overview.md#azure-services-that-support-azure-ad-authentication) para obter uma lista de serviços e suas respectivas IDs de recurso.
+
+## <a name="throttling-guidance"></a>Diretrizes de limitação 
+
+Os limites de limitação aplicam-se ao número de chamadas feitas ao ponto de extremidade de IMDS da MSI. Quando o limite de limitação for excedido, o ponto de extremidade de IMDS da MSI limitará quaisquer solicitações adicionais enquanto o acelerador estiver em vigor. Durante esse período, o ponto de extremidade de IMDS da MSI retornará o código de status HTTP 429 ("Muitas solicitações") e as solicitações falharão. 
+
+Para tentar novamente, é recomendável a estratégia a seguir: 
+
+| **Estratégia de repetição** | **Configurações** | **Valores** | **Como funciona** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Contagem de repetição<br />Retirada mín.<br />Retirada máx.<br />Retirada delta<br />Primeira repetição rápida |5<br />0 s<br />60 s<br />2 s<br />falso |1ª tentativa — intervalo de 0 s<br />2ª tentativa — intervalo de ~2 s<br />3ª tentativa — intervalo de ~6 s<br />4ª tentativa — intervalo de ~14 s<br />5ª tentativa — intervalo de ~30 s |
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 

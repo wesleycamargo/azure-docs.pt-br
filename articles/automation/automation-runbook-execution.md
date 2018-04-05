@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 Quando você inicia um runbook na Automação do Azure, um trabalho é criado. Um trabalho é uma instância única de execução de um runbook. Um trabalhador da Automação do Azure é atribuído para executar cada tarefa. Enquanto os trabalhadores são compartilhados por várias contas do Azure, os trabalhos de diferentes contas de automação ficam isolados uns dos outros. Você não tem controle sobre qual trabalhador atende a solicitação do seu trabalho. Um único runbook pode ter vários trabalhos em execução ao mesmo tempo.  O ambiente de execução para trabalhos da mesma conta de Automação do Azure pode ser reutilizado. Quando você exibe a lista de runbooks no Portal do Azure, ela lista o status de todos os trabalhos iniciados para cada runbook. Você pode exibir a lista de trabalhos para cada runbook a fim de acompanhar o status de cada um. Para obter uma descrição das diferentes opções de status de trabalho, confira [Status de trabalho](#job-statuses).
@@ -46,7 +46,7 @@ A tabela a seguir descreve os diferentes status possíveis para um trabalho.
 | Suspensão |O sistema está tentando suspender o trabalho por solicitação do usuário. O runbook precisa atingir seu próximo ponto de verificação antes de poder ser suspenso. Se já passou de seu último ponto de verificação, ele será concluído antes de ser suspenso.  Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md). |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Exibindo o status do trabalho no portal do Azure
-Você pode exibir um status resumido de todos os trabalhos de runbook ou analisar os detalhes de um trabalho específico de runbook no portal do Azure ou configurando a integração com seu espaço de trabalho de análise do Log Analytics do OMS (Microsoft Operations Management Suite) para encaminhar fluxos e status do trabalho do runbook.  Para saber mais sobre a integração com o Log Analytics do OMS, confira [Encaminhar status e fluxos de trabalho da Automação para o Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+É possível exibir um status resumido de todos os trabalhos do runbook, analisar os detalhes de um trabalho do runbook específico no Portal do Azure ou configurar a integração com o espaço de trabalho do Log Analytics para encaminhar fluxos de trabalho e status do trabalho do runbook.  Para saber mais sobre a integração com o Log Analytics, consulte [Encaminhar status do trabalho e fluxos de trabalho de Automação para Log Analytics](automation-manage-send-joblogs-log-analytics.md).  
 
 ### <a name="automation-runbook-jobs-summary"></a>Resumo dos trabalhos de runbook da Automação
 À direita da Conta de automação selecionada, você pode ver um resumo de todos os trabalhos de runbook para uma Conta de automação selecionada no bloco **Estatísticas de Trabalho**.<br><br> ![Bloco Estatísticas de Trabalho](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Esse bloco exibe a contagem e a representação gráfica do status do trabalho para todos os trabalhos executados.  

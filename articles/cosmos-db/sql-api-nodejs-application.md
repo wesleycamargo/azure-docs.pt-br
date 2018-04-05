@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ad6e335c562e52d7e2336dd1f29e5c159fe46589
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395783175"></a>Compilar um aplicativo Web Node.js usando o Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/14/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Este tutorial do Node.js mostra como usar o Azure Cosmos DB e a API do SQL para armazenar e acessar dados de um aplicativo Express do Node.js hospedado nos Sites do Azure. Você cria um aplicativo simples de gerenciamento de tarefas baseado na Web, um aplicativo ToDo, que permite criar, recuperar e concluir tarefas. As tarefas são armazenadas como documentos JSON no Azure Cosmos DB. Este tutorial o orienta durante a criação e a implantação do aplicativo e explica o que está acontecendo em cada trecho de código.
 
@@ -76,7 +74,7 @@ Agora vamos aprender a criar um projeto Hello World Node.js básico usando a est
 5. Execute seu novo aplicativo.
    
         npm start
-6. Veja seu novo aplicativo navegando em seu navegador até [http://localhost:3000/](http://localhost:3000).
+6. Veja seu novo aplicativo navegando em seu navegador até [http://localhost:3000](http://localhost:3000).
    
     ![Saiba mais sobre o Node.js — captura de tela do aplicativo Hello World em uma janela do navegador](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -154,7 +152,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./docdbUtils');
+    let docdbUtils = require('./cosmosdb-manager.js');
     ```
 7. Em seguida, você adicionará o código para definir e exportar o objeto da tarefa. Ele é responsável pela inicialização do nosso objeto de Tarefa e por configurar o Banco de Dados e o Conjunto de Documentos que usaremos.  
 
@@ -411,7 +409,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 6. Por fim, salve e feche o arquivo **app.js** ; está praticamente pronto.
 
 ## <a name="_Toc395783181"></a>Etapa 5: Criar uma interface do usuário
-Agora vamos voltar a atenção para criar a interface do usuário, desse modo, um usuário pode realmente interagir com nosso aplicativo. O aplicativo Express que criamos usa **Jade** como mecanismo de exibição. Para obter mais informações sobre o Jade, consulte [http://jade-lang.com/](http://jade-lang.com/).
+Agora vamos voltar a atenção para criar a interface do usuário, desse modo, um usuário pode realmente interagir com nosso aplicativo. O aplicativo Express que criamos usa **Jade** como mecanismo de exibição. Para obter mais informações sobre Jade, consulte [http://jade-lang.com/](http://jade-lang.com/).
 
 1. O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar a [Twitter Bootstrap](https://github.com/twbs/bootstrap), que é um kit de ferramentas que facilita a criação de um site com uma aparência interessante. 
 2. Abra o arquivo **layout.jade** encontrado na pasta **views** e substitua o conteúdo pelo seguinte:

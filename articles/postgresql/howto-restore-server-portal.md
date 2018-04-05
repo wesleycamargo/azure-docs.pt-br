@@ -8,14 +8,14 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 7607a3e60eec39de61c785b8ff75a9f11fa02d0c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 04/01/2018
+ms.openlocfilehash: 0d67bf5625ee9037c5ec152c8ce8564235018e8e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o portal do Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure
 
 ## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
 O backup do Banco de Dados do Azure para servidores PostgreSQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
@@ -45,7 +45,7 @@ Na captura de tela abaixo, ele foi aumentado para 34 dias.
 
 O período de retenção de backup determina até quando a restauração de pontos anteriores pode ser feita, já que ele se baseia em backups disponíveis. A Restauração pontual é descrita mais detalhadamente na seção a seguir. 
 
-## <a name="point-in-time-restore-in-the-azure-portal"></a>Restauração pontual no portal do Azure
+## <a name="point-in-time-restore"></a>Restauração pontual
 O Banco de Dados do Azure para PostgreSQL permite a restauração do servidor em um ponto anterior no tempo e em uma nova cópia do servidor. Você pode usar esse novo servidor para recuperar seus dados ou fazer seu aplicativo cliente apontar para esse novo servidor.
 
 Por exemplo, se uma tabela for acidentalmente descartada ao meio-dia de hoje, você poderá restaurar em um momento logo antes do meio-dia e recuperar a tabela e os dados dessa nova cópia do servidor. A restauração pontual está no nível do servidor, não no nível do banco de dados.
@@ -71,6 +71,22 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 
 >[!Note]
 >O novo servidor criado pela restauração pontual tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no ponto escolhido. Você pode alterar a senha na página **Visão geral** do novo servidor.
+
+## <a name="geo-restore"></a>Restauração geográfica
+Se você configurou seu servidor para backups com redundância geográfica, um novo servidor pode ser criado do backup do servidor existente. Esse novo servidor pode ser criado em qualquer região em que o Banco de Dados do Azure para PostgreSQL esteja disponível.  
+
+1. Selecione o botão **Criar um recurso** (+) no canto superior esquerdo do portal. Selecione **Bancos de Dados** > **Banco de Dados do Azure para PostgreSQL**.
+
+   ![A opção “Banco de Dados do Azure para PostgreSQL”](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
+
+2. Na lista suspensa **Selecionar origem** do formulário, escolha **Backup**. Essa ação carrega uma lista de servidores que têm backups com redundância geográfica habilitados. Selecione um desses backups para ser a origem do novo servidor.
+   ![Selecionar origem: backup e lista de backups com redundância geográfica](./media/howto-restore-server-portal/2-georestore.png)
+
+3. Preencha o restante do formulário com suas preferências. Você pode selecionar qualquer **Local**. Depois de selecionar o local, você pode selecionar o **Tipo de Preço**. Por padrão, os parâmetros do servidor existente de onde você está restaurando são exibidos. Você pode clicar em **OK** sem fazer nenhuma alteração para herdar as configurações. Ou pode alterar **Geração de Computação** (se disponível na região escolhida), número de **vCores**, **Período de Retenção de Backup** e **Opção de Redundância de Backup**. Não há suporte para a alteração do **Tipo de Preço** (Básico, Uso Geral ou Otimizado para Memória) ou do tamanho de **Armazenamento** durante a restauração.
+
+>[!Note]
+>O novo servidor criado pela restauração geográfica tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [backups](concepts-backup.md) do serviço.

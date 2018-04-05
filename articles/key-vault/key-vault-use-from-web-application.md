@@ -1,6 +1,6 @@
 ---
 title: Usar o Cofre de Chaves do Azure de um aplicativo Web | Microsoft Docs
-description: "Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web."
+description: Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Usar cofre da chave do Azure em um aplicativo Web
 
@@ -27,7 +27,7 @@ Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por
 
 Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -151,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Anote a data de término e a senha para o .pfx (neste exemplo: 31/07/2017 e test123). Você precisará delas mais tarde.
+Anote a data de término e a senha para o .pfx (neste exemplo: 31/07/2018 e test123). Você precisará delas mais tarde.
 
 Para saber mais sobre a criação de um certificado de teste, confira [Como criar seu próprio certificado de teste](https://msdn.microsoft.com/library/ff699202.aspx)
 

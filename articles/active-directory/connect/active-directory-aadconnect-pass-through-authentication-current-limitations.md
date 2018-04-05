@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 680e9967010771b8e3651c6f4eed81237f8fb4c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: limitações atuais
 
@@ -50,7 +50,7 @@ Os cenários a seguir _não_ têm suporte:
 - O Programa de Registro de Dispositivos da Apple (DEP da Apple) usando o Assistente de Configuração do iOS não é compatível com a autenticação moderna. Isso fará com que dispositivos do DEP da Apple não consigam ser registrados no Intune para domínios gerenciados usando a Autenticação de Passagem. Considere o uso do [aplicativo Portal da Empresa](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) como uma alternativa.
 
 >[!IMPORTANT]
->Como alternativa para cenários sem suporte _apenas_, habilite a sincronização de hash de senha na página [Recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) do assistente do Azure AD Connect.
+>Como alternativa para cenários sem suporte _apenas_, habilite a sincronização de hash de senha na página [Recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) do assistente do Azure AD Connect. Quando os usuários entram nos aplicativos listados na seção "cenários sem suporte", essas solicitações de entrada específicas _não_ são tratadas por Agentes de autenticação de passagem e, portanto, não serão registradas no [Logs de autenticação de passagem](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Habilitar a sincronização de hash de senha oferece a opção de fazer failover da autenticação se sua infraestrutura local sofrer uma interrupção. Esse failover da Autenticação de Passagem para a sincronização de hash de senha do Active Directory não é automático. Você precisará alterar manualmente o método de entrada usando o Azure AD Connect. Se o servidor que está executando o Azure AD Connect ficar inativo, será preciso a ajuda do Suporte da Microsoft para desativar a Autenticação de passagem.

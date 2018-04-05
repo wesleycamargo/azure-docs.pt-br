@@ -42,7 +42,7 @@ Nº
 
 **Existem limitações de escala para clientes que usam discos gerenciados?**
 
-O Managed Disks elimina os limites associados a contas de armazenamento. No entanto, o número de discos gerenciados por assinatura é limitado a 2.000 por padrão. Você pode chamar o suporte para aumentar esse número.
+O Managed Disks elimina os limites associados a contas de armazenamento. Porém, o limite máximo, e também limi padrão, é de 10.000 discos gerenciados por região e por tipo de disco para uma assinatura.
 
 **Posso fazer um instantâneo incremental de um disco gerenciado?**
 

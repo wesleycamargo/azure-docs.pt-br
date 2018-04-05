@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 Você pode usar a atividade de pesquisa para ler ou procurar um registro, nome de tabela ou valor de qualquer fonte externa. Essa saída pode referenciada pelas atividades com êxito. 
@@ -30,12 +30,23 @@ A atividade de pesquisa é útil quando você deseja recuperar dinamicamente uma
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
 Atualmente, há suporte para as seguintes fontes de dados para a pesquisa:
-- Arquivo JSON no armazenamento de Blob do Azure
-- Arquivo JSON no sistema de arquivos
-- Banco de Dados SQL do Azure (dados JSON convertidos da consulta)
-- SQL Data Warehouse do Microsoft Azure (dados JSON convertidos da consulta)
-- SQL Server (dados JSON convertidos da consulta)
-- Armazenamento de Tabelas do Azure (dados JSON convertidos da consulta)
+
+- Amazon Redshift
+- Armazenamento de Blobs do Azure
+- Azure Cosmos DB
+- Repositório Azure Data Lake
+- Armazenamento de arquivos do Azure
+- Banco de Dados SQL do Azure
+- SQL Data Warehouse do Azure
+- Armazenamento da tabela do Azure
+- Dynamics 365
+- Dynamics CRM
+- Sistema de Arquivos
+- PostgreSQL
+- Salesforce
+- Salesforce Service Cloud
+- SFTP
+- SQL Server
 
 O número máximo de linhas retornadas pela atividade de pesquisa é **5000**e até **10MB** em tamanho.
 
@@ -62,9 +73,14 @@ O número máximo de linhas retornadas pela atividade de pesquisa é **5000**e a
 ## <a name="type-properties"></a>Propriedades de tipo
 NOME | DESCRIÇÃO | type | Obrigatório?
 ---- | ----------- | ---- | --------
-dataset | Fornece a referência de conjunto de dados para a pesquisa. Atualmente, os tipos de conjunto de dados com suporte são:<ul><li>`AzureBlobDataset` para [armazenamento de Blob do Azure](connector-azure-blob-storage.md#dataset-properties) como fonte</li><li>`FileShareDataset` para [Sistema de Arquivos](connector-file-system.md#dataset-properties) como fonte</li><li>`AzureSqlTableDataset` para [Banco de Dados SQL do Azure](connector-azure-sql-database.md#dataset-properties) ou [SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md#dataset-properties) como fonte</li><li>`SqlServerTable` para [SQL Server](connector-sql-server.md#dataset-properties) coo fonte</li><li>`AzureTableDataset` para [armazenamento de Tabela do Azure](connector-azure-table-storage.md#dataset-properties) como fonte</li> | Pares chave/valor | sim
+dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes da seção "propriedades do conjunto de dados" em cada artigo de conector correspondente. | Pares chave/valor | sim
 fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade de cópia. Obtenha detalhes da seção "Copiar as propriedades da atividade" em cada artigo de conector correspondente. | Pares chave/valor | sim
 firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | BOOLEAN | Nº O padrão é `true`.
+
+Observe os seguintes pontos:
+
+1. Não há suporte para a coluna de origem com o tipo de ByteArray.
+2. Não há suporte para a estrutura do Conjunto de Dados. Para arquivos de formato de texto especificamente, você pode usar a linha de cabeçalho para fornecer o nome da coluna.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Usar o resultado da atividade de pesquisa em uma atividade subsequente
 

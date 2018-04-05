@@ -1,11 +1,11 @@
 ---
-title: "Procedimentos de atualização de aplicativos do Windows Universal"
-description: "Procedimentos de atualização do SDK do Windows Universal para o Azure Mobile Engagement"
+title: Procedimentos de atualização de aplicativos do Windows Universal
+description: Procedimentos de atualização do SDK do Windows Universal para o Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a9d6cbcdf353f7eea991c344c3efe65378abe336
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Procedimentos de atualização de aplicativos do Windows Universal
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Se você já tiver integrado uma versão anterior do Engagement no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
 
 Você precisará seguir vários procedimentos se perdeu várias versões do SDK. Por exemplo, se você migrar do 0.10.1 para 0.11.0 você tem que primeiro seguir o procedimento "de 0.9.0 a 0.10.1” e depois o procedimento "de 0.10.1 a 0.11.0".

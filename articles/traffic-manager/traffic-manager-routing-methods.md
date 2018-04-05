@@ -1,11 +1,11 @@
 ---
-title: "Gerenciador de Tráfego do Azure – métodos de roteamento de tráfego | Microsoft Docs"
-description: "Estes artigos o ajudam a entender os diferentes métodos de roteamento de tráfego usados pelo Gerenciador de Tráfego"
+title: Gerenciador de Tráfego do Azure – métodos de roteamento de tráfego | Microsoft Docs
+description: Estes artigos o ajudam a entender os diferentes métodos de roteamento de tráfego usados pelo Gerenciador de Tráfego
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de roteamento do Gerenciador de Tráfego
 
@@ -50,7 +50,7 @@ O método de roteamento de tráfego “Ponderado” permite que você distribua 
 
 ![Método de roteamento de tráfego “Ponderado” do Gerenciador de Tráfego do Azure][2]
 
-No método de roteamento de tráfego Ponderado, você atribui um peso a cada ponto de extremidade na configuração do perfil do Gerenciador de Tráfego. Cada peso é um inteiro de 1 a 1000. Esse parâmetro é opcional. Se ele for omitido, os Gerenciadores de Tráfego usarão um peso padrão de “1”.
+No método de roteamento de tráfego Ponderado, você atribui um peso a cada ponto de extremidade na configuração do perfil do Gerenciador de Tráfego. Cada peso é um inteiro de 1 a 1000. Esse parâmetro é opcional. Se ele for omitido, os Gerenciadores de Tráfego usarão um peso padrão de “1”. Quanto maior o peso, maior a prioridade.
 
 Para cada consulta DNS recebida, o Gerenciador de Tráfego escolhe aleatoriamente um ponto de extremidade disponível. A probabilidade de escolher um ponto de extremidade baseia-se nos pesos atribuídos a todos os pontos de extremidade disponíveis. Usar o mesmo peso em todos os pontos de extremidade resulta em uma distribuição uniforme do tráfego. Usar pesos maiores ou menores em pontos de extremidade específicos faz com que esses pontos de extremidade sejam retornados com maior ou menor frequência nas respostas DNS.
 

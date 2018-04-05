@@ -1,8 +1,8 @@
 ---
-title: "Diretrizes de recuperação de desastre para o Azure Data Lake Store | Microsoft Docs"
-description: "Diretrizes sobre recuperação de desastre para o Azure Data Lake Store"
+title: Diretrizes de recuperação de desastre para o Azure Data Lake Store | Microsoft Docs
+description: Diretrizes sobre recuperação de desastre para o Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d76f756e7a6fe77886f0d4e00ab8b23273b4e09d
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9a2705a2372ea4f2fbea1e27bf675679dfda28f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Diretrizes de recuperação de desastre para dados no Azure Data Lake Store
 
-Os dados em sua conta do Azure Data Lake Store são resistentes a falhas transitórias de hardware dentro de uma região por meio de réplicas automatizadas. Isso garante a durabilidade e a alta disponibilidade, atendendo ao SLA do Azure Data Lake Store. Este artigo fornece diretrizes de como proteger ainda mais seus dados contra as raras interrupções de toda a região ou contra exclusões acidentais.
+O Azure Data Lake Store fornece armazenamento com redundância local (LRS). Consequentemente, os dados em sua conta do Azure Data Lake Store são resistentes a falhas transitórias de hardware dentro de uma região por meio de réplicas automatizadas. Isso garante a durabilidade e a alta disponibilidade, atendendo ao SLA do Azure Data Lake Store. Este artigo fornece diretrizes de como proteger ainda mais seus dados contra as raras interrupções de toda a região ou contra exclusões acidentais.
 
 ## <a name="disaster-recovery-guidance"></a>Guia de recuperação de desastres
-É essencial para todos os clientes preparar seu próprio plano de recuperação de desastre. Consulte a documentação do Azure abaixo para compilar seu plano de recuperação de desastre. Aqui estão alguns recursos que podem ajudar você a criar seu próprio plano.
+É essencial para todos os clientes preparar seu próprio plano de recuperação de desastre. Leia as informações neste artigo para criar seu plano de recuperação de desastres. Aqui estão alguns recursos que podem ajudar você a criar seu próprio plano.
 
 * [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Orientações técnicas de resiliência do Azure](../resiliency/resiliency-technical-guidance.md)

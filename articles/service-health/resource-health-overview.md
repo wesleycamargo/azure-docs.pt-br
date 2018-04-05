@@ -1,11 +1,11 @@
 ---
-title: "Visão geral do Azure Resource Health | Microsoft Docs"
-description: "Visão geral do Azure Resource Health"
+title: Visão geral do Azure Resource Health | Microsoft Docs
+description: Visão geral do Azure Resource Health
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: shawntabrizi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
 ms.author: shawn.tabrizi
-ms.openlocfilehash: 50a173a3d3a10ed59492b4a1d64173913f331639
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 661faf8560295dd037364f9509d21719362ae727
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-overview"></a>Visão geral do Azure Resource Health
  
@@ -41,7 +41,7 @@ Um status de **Disponível** significa que o serviço não detectou nenhum event
 
 ![Status de "Disponível" para uma máquina virtual com uma notificação "Recentemente Resolvidos"](./media/resource-health-overview/Available.png)
 
-### <a name="unavailable"></a>Não disponível
+### <a name="unavailable"></a>Indisponível
 Um status de **Não disponível** significa que o serviço detectou uma plataforma em andamento ou evento de não plataforma que afeta a integridade do recurso.
 
 #### <a name="platform-events"></a>Eventos de plataforma
@@ -77,7 +77,7 @@ Se você acredita que o status de integridade atual está incorreto, você poder
 ![Caixa para enviar informações sobre um status incorreto](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>Informações de histórico
-É possível acessar até 14 dias de histórico de integridade, selecionando **Exibir Histórico** no Resource Health. 
+É possível acessar até 14 dias de histórico de integridade, na seção **Histórico de integridade** do Resource Health. 
 
 ![Lista de eventos do Resource Health nas últimas duas semanas](./media/resource-health-overview/history-blade.png)
 

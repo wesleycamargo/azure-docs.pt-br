@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e82b1364593ff70ed87efcaa24c135277002904
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para saber mais sobre como monitorar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
@@ -117,7 +117,7 @@ O relatório fornece as seguintes informações:
 >
 
 ## <a name="risky-ip-report"></a>Relatório IP arriscado 
-Os clientes do AD FS podem expor pontos de extremidade de autenticação de senha para a Internet a fim de fornecer serviços de autenticação para os usuários finais acessarem aplicativos SaaS como o Office 365. Nesse caso, é possível que alguém mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
+Os clientes do AD FS podem expor pontos de extremidade de autenticação de senha para a Internet a fim de fornecer serviços de autenticação para os usuários finais acessarem aplicativos SaaS como o Office 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
 Além disso, é possível que um único endereço IP tente vários logons em relação a vários usuários. Nesses casos, o número de tentativas por usuário pode estar abaixo do limite para a proteção de bloqueio de conta no AD FS. O Azure AD Connect Health agora fornece o "Relatório IP arriscado", que detecta essa condição e notifica os administradores quando isso ocorre. Estes são os principais benefícios do relatório: 
 - Detecção de endereços IP que excedem um limite de logons com falha com base em senha
 - Dá suporte a logons com falha devido a senha incorreta ou a estado de bloqueio de extranet
@@ -126,9 +126,9 @@ Além disso, é possível que um único endereço IP tente vários logons em rel
 - Relatórios que podem ser baixados para análise offline e integração com outros sistemas por meio de automação
 
 > [!NOTE]
-> Para usar esse relatório, você deve habilitar a auditoria do AD FS. Para obter mais informações, consulte [Habilitar a auditoria do AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
->
->
+> Para usar esse relatório, você deve habilitar a auditoria do AD FS. Para obter mais informações, consulte [Habilitar a auditoria do AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
+> Para acessar a versão prévia, uma permissão de Administrador Global ou [Leitor de segurança](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader) é necessária.  
+> 
 
 ### <a name="what-is-in-the-report"></a>O que o relatório exibe
 Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4a.png)

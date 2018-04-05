@@ -1,9 +1,9 @@
 ---
-title: "Criar alertas para os serviços do Azure – PowerShell | Microsoft Docs"
-description: "Disparar emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições especificadas forem atendidas."
+title: Criar alertas para os serviços do Azure – PowerShell | Microsoft Docs
+description: Disparar emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições especificadas forem atendidas.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Criar alertas de métrica no Azure Monitor para serviços do Azure – PowerShell
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Criar alertas de métrica clássicos no Azure Monitor para serviços do Azure – PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,12 +29,18 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Visão geral
+
+> [!NOTE]
+> Este artigo descreve como criar alertas de métrica antigos. O Azure Monitor agora dá suporte a [alertas de métrica mais novos e melhores](monitoring-near-real-time-metric-alerts.md). Esses alertas podem monitorar várias métricas e permitir alertas em métricas dimensionais. O suporte ao PowerShell para alertas de métrica mais novos estará disponível em breve.
+>
+>
+
 Este artigo mostra como configurar alertas de métrica do Azure usando PowerShell.  
 
 Você pode receber um alerta com base em métricas de monitoramento ou em eventos nos serviços do Azure.
 
 * **Valores da métrica** - o alerta dispara quando o valor de uma métrica especificada ultrapassa um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.    
-* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinados eventos ocorrem. Para saber mais sobre alertas de log de atividades, [clique aqui](monitoring-activity-log-alerts.md)
+* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinado evento ocorre. Para saber mais sobre alertas de log de atividades, [clique aqui](monitoring-activity-log-alerts.md)
 
 Você pode configurar um alerta de métrica para fazer o seguinte quando ele dispara:
 
@@ -76,7 +82,7 @@ Para saber mais, digite ```Get-Help``` e depois o comando do PowerShell sobre o 
   * A **ID de recurso** para o recurso que deve ter um alerta
   * As **definições de métricas** disponíveis para esse recurso
 
-     Uma maneira de obter a ID de recurso é usar o portal do Azure. Supondo que o recurso já foi criado, selecione-o no portal. Na próxima folha, selecione *Propriedades* na seção *Configurações*. A **ID DE RECURSO** é um campo na folha seguinte. Outra maneira é usar o [Azure Resource Explorer](https://resources.azure.com/).
+     Uma maneira de obter a ID de recurso é usar o portal do Azure. Supondo que o recurso já foi criado, selecione-o no portal. Na próxima folha, selecione *Propriedades* na seção *Configurações*. A **ID DE RECURSO** é um campo na folha seguinte. Outra maneira é usar o [Azure Resource Manager](https://resources.azure.com/).
 
      Um exemplo de ID de Recurso para um aplicativo Web é
 

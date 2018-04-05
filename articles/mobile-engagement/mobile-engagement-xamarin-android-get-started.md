@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Azure Mobile Engagement para Xamarin.Android"
-description: "Saiba como usar o Azure Mobile Engagement com análises e notificações por push para aplicativos Xamarin.Android."
+title: Introdução ao Azure Mobile Engagement para Xamarin.Android
+description: Saiba como usar o Azure Mobile Engagement com análises e notificações por push para aplicativos Xamarin.Android.
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fb68cf98-08a2-41b5-8e59-757469de3fe7
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7b3d01b32c2d5a40448fc22861cd45f612238f2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ac6e85a0143fc083c22a92e99503689f463d813
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Introdução ao Azure Mobile Engagement para aplicativos Xamarin.Android
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do aplicativo e como enviar notificações por push para usuários segmentados de um aplicativo Xamarin.Android.
@@ -35,7 +39,7 @@ Este tutorial exige o seguinte:
 * [SDK do Xamarin do Mobile Engagement](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
+> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
 > 
 > 
 

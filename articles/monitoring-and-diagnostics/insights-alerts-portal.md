@@ -1,9 +1,9 @@
 ---
-title: "Criar alertas para serviços do Azure – Portal do Azure | Microsoft Docs"
-description: "Disparar emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições especificadas forem atendidas."
+title: Criar alertas para serviços do Azure – Portal do Azure | Microsoft Docs
+description: Disparar emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições especificadas forem atendidas.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Criar alertas de métrica no Azure Monitor para serviços do Azure – Portal do Azure
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Criar alertas de métrica clássicos no Azure Monitor para serviços do Azure – Portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,6 +29,12 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Visão geral
+
+> [!NOTE]
+> Este artigo descreve como criar alertas de métrica antigos. O Azure Monitor agora dá suporte a alertas de métrica mais novos e melhores. Esses alertas podem monitorar várias métricas e permitir alertas em métricas dimensionais. Saiba mais sobre [Alertas de Métrica Quase em Tempo Real](monitoring-near-real-time-metric-alerts.md).
+>
+>
+
 Este artigo mostra como configurar alertas de métrica do Azure usando o Portal do Azure. 
 
 Você pode receber um alerta com base em métricas de monitoramento ou em eventos nos serviços do Azure.
@@ -43,11 +49,6 @@ Você pode configurar um alerta de métrica para fazer o seguinte quando ele dis
 * chamar um webhook
 * iniciar a execução de um runbook do Azure (apenas no Portal do Azure)
 
-> [!NOTE]
-> O Azure Monitor agora dá suporte a Alertas de Métrica Quase em Tempo Real em visualização pública. Esses alertas usam Grupos de Ações. Saiba mais sobre [Alertas de Métrica Quase em Tempo Real](monitoring-near-real-time-metric-alerts.md).
->
->
-
 Você pode configurar e obter informações sobre regras de alerta de métrica usando
 
 * [Portal do Azure](insights-alerts-portal.md)
@@ -58,11 +59,11 @@ Você pode configurar e obter informações sobre regras de alerta de métrica u
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta em uma métrica com o Portal do Azure
 1. No [Portal](https://portal.azure.com/), localize o recurso no qual você está interessado em monitor e selecione-o.
 
-2. Selecione **Alertas** ou **Regras de alerta** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes.  
+2. Selecione **Alertas (Clássicos)** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes. Se você não encontrar **Alertas (Clássicos)**, poderá encontrá-los em **Alertas** ou **Regras de alerta**
 
     ![Monitoramento](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Selecione o comando **Adicionar alerta** e preencha os campos.
+3. Selecione o comando **Adicionar alerta de métrica** e preencha os campos.
 
     ![Adicionar alerta](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
@@ -91,7 +92,7 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Obter uma visão geral do monitoramento do Azure](monitoring-overview.md) , incluindo os tipos de informações que você pode coletar e monitorar.
-* Saiba mais sobre os novos [alertas de métrica quase em tempo real (versão prévia)](monitoring-near-real-time-metric-alerts.md)
+* Saiba mais sobre os [alertas mais recentes de métrica](monitoring-near-real-time-metric-alerts.md)
 * Saiba mais sobre como [configurar webhooks em alertas](insights-webhooks-alerts.md).
 * Saiba mais sobre [Configurar alertas em eventos de Log de Atividades](monitoring-activity-log-alerts.md).
 * Saiba mais sobre [Runbooks da Automação do Azure](../automation/automation-starting-a-runbook.md).

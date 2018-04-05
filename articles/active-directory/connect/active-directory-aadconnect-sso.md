@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -28,7 +28,7 @@ O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) c
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md).
+O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md).
 
 ![Logon Único Contínuo](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +42,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
   - Os usuários não precisam digitar suas senhas repetidamente.
 - *Fácil de implantar e administrar*
   - Não há necessidade de nenhum componente adicional local para fazer com que ele funcione.
-  - Funciona com qualquer método de autenticação de nuvem – [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-synchronization.md) ou [Autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md).
+  - Funciona com qualquer método de autenticação de nuvem – [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou [Autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md).
   - Pode ser distribuído a alguns ou todos os seus usuários usando a Política de Grupo.
   - Registre dispositivos não Windows 10 no Azure AD sem a necessidade de nenhuma infraestrutura do AD FS. Esse recurso deve usar a versão 2.1 ou posterior do [cliente workplace-join](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -50,7 +50,8 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 
 - O nome de usuário de conexão pode ser o nome de usuário local padrão (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (`Alternate ID`). Ambos casos de uso funcionam porque o SSO Contínuo usa a declaração `securityIdentifier` no tíquete do Kerberos para pesquisar o objeto de usuário correspondente no Azure AD.
 - O SSO Contínuo é um recurso oportunista. Se ele falhar por qualquer motivo, a experiência de entrada do usuário retornará ao comportamento normal, ou seja, o usuário precisará digitar sua senha na página de entrada.
-- Se um aplicativo encaminhar um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML) - identificando seu locatário, ou um parâmetro `login_hint` - identificando o usuário, na solicitação de entrada do Azure AD, os usuários serão automaticamente conectados sem inserirem nomes de usuário ou senhas.
+- Se um aplicativo (por exemplo, https://myapps.microsoft.com/contoso.com) encaminhar um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML) - identificando seu locatário, ou um parâmetro `login_hint` - identificando o usuário, na solicitação de entrada do Microsoft Azure AD, os usuários serão automaticamente conectados sem inserir nomes de usuário ou senhas.
+- Os usuários também terão uma experiência de logon silenciosa se um aplicativo (por exemplo, https://contoso.sharepoint.com)) enviar solicitações de entrada para pontos de extremidade com locatários do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez do ponto de extremidade comum do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/common/<...>.
 - Há suporte para saída. Isso permite que os usuários escolham outra conta do Azure AD para conectar, em vez de conectar automaticamente usando o SSO contínuo automaticamente.
 - Os clientes do Office 365 (16.0.8730.xxxx e acima) têm suporte usando um fluxo não interativo.
 - Isso pode ser habilitado por meio do Azure AD Connect.

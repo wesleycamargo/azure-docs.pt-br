@@ -1,5 +1,5 @@
 ---
-title: Rotear tráfego de rede - PowerShell | Microsoft Docs
+title: Rotear tráfego de rede - Azure PowerShell | Microsoft Docs
 description: Saiba como rotear tráfego com uma tabela de rotas utilizando o PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Rotear tráfego com uma tabela de rotas utilizando o PowerShell
 
@@ -185,7 +185,7 @@ $vmNva = New-AzureRmVM `
   -AsJob
 ```
 
-O `-AsJob` cria a VM em segundo plano, para que você possa continuar na próxima etapa.
+A opção `-AsJob` cria a VM em segundo plano, para que você possa prosseguir para a próxima etapa.
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
@@ -242,7 +242,7 @@ Insira o nome de usuário e senha especificados ao criar a VM (talvez seja neces
 Em uma etapa posterior, o comando tracert.exe será utilizado para testar o roteamento. O Tracert usa o protocolo ICMP, que é negado por meio do Firewall do Windows. Habilite o ICMP através do firewall do Windows, inserindo o comando do PowerShell a seguir:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Embora o Tracert seja utilizado para testar o roteamento neste artigo, não é recomendável o ICMP através do Firewall do Windows para implantações de produção.
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 Habilite o ICMP através do firewall do Windows, inserindo o comando do PowerShell a seguir:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Para testar o roteamento do tráfego para a VM *myVmPrivate* da VM *myVmPublic*, insira o comando do PowerShell a seguir:
@@ -327,9 +327,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou uma tabela de rotas e associou-a a uma sub-rede. Você criou uma solução de virtualização de rede simples que roteou o tráfego de uma sub-rede pública para uma sub-rede privada. Implante uma variedade de soluções de virtualização de rede pré-configurados que executam funções de rede, como firewall e otimização de WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Antes de implantar tabelas de rotas para uso em produção, é recomendável familiarizar-se completamente com [Roteamento no Azure](virtual-networks-udr-overview.md), [Gerenciar tabelas de rotas](manage-route-table.md) e [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Neste artigo, você criou uma tabela de rotas e associou-a a uma sub-rede. Você criou uma solução de virtualização de rede simples que roteou o tráfego de uma sub-rede pública para uma sub-rede privada. Implante uma variedade de soluções de virtualização de rede pré-configurados que executam funções de rede, como firewall e otimização de WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Antes de implantar as tabelas de rotas para uso em produção, é recomendável que você cuidadosamente se familiarizar com o [Roteamento no Azure](virtual-networks-udr-overview.md), [Gerenciar tabelas de rotas](manage-route-table.md) e [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 Embora seja possível implantar muitos recursos do Azure dentro de uma rede virtual, os recursos para alguns serviços PaaS do Azure não podem ser implantados em uma rede virtual. Ainda assim, é possível restringir acesso aos recursos de alguns serviços PaaS do Azure somente para tráfego de uma sub-rede de rede virtual. Avance para o próximo tutorial para aprender como restringir o acesso à rede para recursos PaaS do Azure.
 
 > [!div class="nextstepaction"]
-> [Restringir o acesso à rede para recursos PaaS](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [Restringir o acesso à rede para recursos PaaS](tutorial-restrict-network-access-to-resources-powershell.md)

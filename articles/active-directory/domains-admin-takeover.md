@@ -1,11 +1,11 @@
 ---
-title: "Controle do administrador sobre um diretório não gerenciado ou locatário de sombra no Azure Active Directory | Microsoft Docs"
-description: "Como controlar um nome de domínio DNS em um diretório não gerenciado (locatário de sombra) no Azure Active Directory."
+title: Controle do administrador sobre um diretório não gerenciado ou locatário de sombra no Azure Active Directory | Microsoft Docs
+description: Como controlar um nome de domínio DNS em um diretório não gerenciado (locatário de sombra) no Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 Este artigo descreve duas maneiras de controlar um nome de domínio DNS em um diretório não gerenciado no Azure AD (Azure Active Directory). Quando um usuário de autoatendimento se inscreve em um serviço de nuvem que usa o Azure AD, eles são adicionados a um diretório do Azure AD não gerenciado com base em seu domínio de email. Para obter mais informações sobre o autoatendimento ou inscrição “viral” em um serviço, consulte [O que é a inscrição de autoatendimento do Azure Active Directory?]()
@@ -143,7 +143,7 @@ cmdlet | Uso
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
   ````
 
-4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo:
+4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo: 
   ````
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
   ````
@@ -154,7 +154,7 @@ cmdlet | Uso
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
   ````
   
-  Por exemplo:
+  Por exemplo: 
   
   ````
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
@@ -164,7 +164,7 @@ Um desafio bem-sucedido fará com que você retorne ao prompt sem erros.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar um nome de domínio personalizado ao Azure AD](add-custom-domain.md)
-* [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
+* [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
 * [PowerShell do Azure](/powershell/azure/overview)
 * [Referência de Cmdlets do Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)

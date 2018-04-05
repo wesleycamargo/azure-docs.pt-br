@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Registro de Contêiner do Azure - Implantar o aplicativo Web do Registro de Contêiner do Azure"
-description: "Implante um aplicativo Web baseado em Linux usando uma imagem de contêiner de um registro de contêiner do Azure replicado geograficamente. Parte dois de uma série de três partes."
+title: Tutorial do Registro de Contêiner do Azure - Implantar o aplicativo Web do Registro de Contêiner do Azure
+description: Implante um aplicativo Web baseado em Linux usando uma imagem de contêiner de um registro de contêiner do Azure replicado geograficamente. Parte dois de uma série de três partes.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="deploy-web-app-from-azure-container-registry"></a>Implantar aplicativo Web do Registro de Contêiner do Azure
+# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: implantar aplicativo Web do Registro de Contêiner do Azure
 
 Esta é a parte três de uma série de tutoriais de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registro de contêiner replicado geograficamente privado, e uma imagem de contêiner foi criada da origem e enviado por push para o registro. Neste artigo, você pode implantar o contêiner em duas instâncias de Aplicativo Web em duas regiões diferentes do Azure para aproveitar o aspecto de fechamento de rede do registro replicado geograficamente.
 

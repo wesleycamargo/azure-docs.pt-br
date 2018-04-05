@@ -1,6 +1,6 @@
 ---
-title: "Limitações no Banco de Dados do Azure para MySQL"
-description: "Este artigo descreve limitações no Banco de Dados do Azure para MySQL, como número de opções de mecanismo de armazenamento e conexão."
+title: Limitações no Banco de Dados do Azure para MySQL
+description: Este artigo descreve limitações no Banco de Dados do Azure para MySQL, como número de opções de mecanismo de armazenamento e conexão.
 services: mysql
 author: kamathsun
 ms.author: sukamat
@@ -8,20 +8,20 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
-O Banco de Dados do Azure para o serviço do MySQL está em visualização pública. As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
+As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
 
 ## <a name="service-tier-maximums"></a>Limites máximos da camada de serviço
 O Banco de Dados do Azure para MySQL tem vários níveis de serviço que podem ser escolhidos durante a criação de um servidor. Para saber mais, confira [Tipos de preço do Banco de Dados do Azure para MySQL](concepts-pricing-tiers.md).  
 
-Há um número máximo de conexões, unidades de computação e armazenamento em cada camada de serviço durante a versão prévia, conforme a seguir: 
+Há um número máximo de conexões, Unidades de Computação e armazenamento em cada camada de serviço, conforme a seguir: 
 
 |**Tipo de preço**| **Geração de computação**|**vCore(s)**| **Máximo de conexões**|
 |---|---|---|---|
@@ -29,21 +29,20 @@ Há um número máximo de conexões, unidades de computação e armazenamento em
 |Basic| Gen 4| 2| 100|
 |Basic| Gen 5| 1| 50|
 |Basic| Gen 5| 2| 100|
-|Uso geral| Gen 4| 2| 200|
-|Uso geral| Gen 4| 4| 400|
-|Uso geral| Gen 4| 8| 800|
-|Uso geral| Gen 4| 16| 1600|
-|Uso geral| Gen 4| 32| 3200|
-|Uso geral| Gen 5| 2| 200|
-|Uso geral| Gen 5| 4| 400|
-|Uso geral| Gen 5| 8| 800|
-|Uso geral| Gen 5| 16| 1600|
-|Uso geral| Gen 5| 32| 3200|
+|Uso geral| Gen 4| 2| 300|
+|Uso geral| Gen 4| 4| 625|
+|Uso geral| Gen 4| 8| 1250|
+|Uso geral| Gen 4| 16| 2500|
+|Uso geral| Gen 4| 32| 5.000|
+|Uso geral| Gen 5| 2| 300|
+|Uso geral| Gen 5| 4| 625|
+|Uso geral| Gen 5| 8| 1250|
+|Uso geral| Gen 5| 16| 2500|
+|Uso geral| Gen 5| 32| 5.000|
 |Otimizado para memória| Gen 5| 2| 600|
 |Otimizado para memória| Gen 5| 4| 1250|
 |Otimizado para memória| Gen 5| 8| 2500|
 |Otimizado para memória| Gen 5| 16| 5.000|
-|Otimizado para memória| Gen 5| 32| 10000| 
 
 Quando um número excessivo de conexões for atingido, você receberá o seguinte erro:
 > ERRO 1040 (08004): número excessivo de conexões
@@ -74,7 +73,7 @@ Quando um número excessivo de conexões for atingido, você receberá o seguint
 ### <a name="unsupported"></a>Sem suporte
 - SELECT ... INTO OUTFILE
 
-## <a name="preview-functional-limitations"></a>Limitações funcionais da versão prévia
+## <a name="functional-limitations"></a>Limitações funcionais
 
 ### <a name="scale-operations"></a>Operações de dimensionamento
 - Atualmente, não há suporte para o dimensionamento dos servidores em tipos de preço. Ou seja, alternando entre os tipos de preço Básico, Uso Geral e Otimizado para Memória.

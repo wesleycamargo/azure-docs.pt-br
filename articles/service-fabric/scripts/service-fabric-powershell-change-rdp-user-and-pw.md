@@ -1,29 +1,29 @@
 ---
-title: "Exemplo de script do Azure PowerShell - Atualizar o nome de usuário e senha do RDP | Microsoft Docs"
-description: "Exemplo de script do Azure PowerShell - Atualize o nome de usuário e a senha de RDP de todos os nós de cluster de Service Fabric de um tipo de nó específico."
+title: Exemplo de script do Azure PowerShell - Atualizar o nome de usuário e senha do RDP | Microsoft Docs
+description: Exemplo de script do Azure PowerShell - Atualize o nome de usuário e a senha de RDP de todos os nós de cluster de Service Fabric de um tipo de nó específico.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 11/17/2017
+ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3b97cee11c9a85cbd60a05bdbdcd010a0f0a106f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ff9cfabc4ac7b759a916ddaaeb3f4c95ceecd452
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Atualize o nome de usuário e a senha de administrador das máquinas virtuais em um cluster
 
-Cada tipo de nó em um cluster do Service Fabric é um conjunto de escala de máquina virtual. Esse exemplo de script atualiza o nome de usuário e a senha de administrador para as máquinas virtuais de cluster em um tipo de nó específico.  Adicione a extensão de VMAccessAgent ao conjunto de dimensionamento, porque a senha do administrador não é uma propriedade de conjunto de dimensionamento modificada.  As alterações de nome de usuário e senha se aplicam a todos os nós no conjunto de dimensionamento. Personalize os parâmetros conforme necessário.
+Cada [tipo de nó](../service-fabric-cluster-nodetypes.md) em um cluster do Service Fabric é um conjunto de dimensionamento de máquinas virtuais. Esse exemplo de script atualiza o nome de usuário e a senha de administrador para as máquinas virtuais de cluster em um tipo de nó específico.  Adicione a extensão de VMAccessAgent ao conjunto de dimensionamento, porque a senha do administrador não é uma propriedade de conjunto de dimensionamento modificada.  As alterações de nome de usuário e senha se aplicam a todos os nós no conjunto de dimensionamento. Personalize os parâmetros conforme necessário.
 
 Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview). 
 
@@ -35,7 +35,7 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 
 Esse script usa os seguintes comandos: cada comando na tabela contém links para a respectiva documentação específica.
 
-| Command | Observações |
+| Comando | Observações |
 |---|---|
 | [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | Obtém as propriedades de um tipo de nó de cluster (um conjunto de dimensionamento de máquinas virtuais).   |
 | [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension)| Adiciona uma extensão ao conjunto de dimensionamento de máquinas virtuais.|

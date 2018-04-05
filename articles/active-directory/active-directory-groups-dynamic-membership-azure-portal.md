@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/23/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 8a52d80f32f822691be862d566c17c84efc73c26
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributo para associação dinâmica de grupo no Azure Active Directory
 No Azure AD (Azure Active Directory), você pode criar regras avançadas para habilitar associações dinâmicas baseadas em atributos complexas para grupos. Este artigo detalha os atributos e a sintaxe para criar regras de associação dinâmica para usuários ou dispositivos.
@@ -74,7 +74,7 @@ Para a lista completa de parâmetros com suporte e operadores de regra de expres
 O comprimento total do corpo da sua regra avançada não pode exceder 2048 caracteres.
 
 > [!NOTE]
-> Operações de cadeia de caracteres e regex não diferenciam maiúsculas de minúsculas. Você também pode executar verificações de Null, usando *null* como uma constante, por exemplo, user.department - eq *null*.
+> Operações de cadeia de caracteres e regex não diferenciam maiúsculas de minúsculas. Você também pode executar verificações de null, usando *null* como uma constante, por exemplo, user.department - eq *$null*.
 > As cadeias de caracteres que contém aspas " devem ser ignoradas usando caracteres ', por exemplo, user.department -eq \`"Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regra de expressão com suporte
@@ -106,11 +106,11 @@ Todos os operadores estão listados segundo sua precedência, de baixa para alta
 Todos os operadores podem ser usados com ou sem o prefixo de hífen. Parênteses são necessários somente quando a precedência não atender às suas necessidades.
 Por exemplo: 
 ```
-   user.department –eq "Marketing" –and user.country –eq "US"
+   user.department -eq "Marketing" -and user.country -eq "US"
 ```
 é equivalente a:
 ```
-   (user.department –eq "Marketing") –and (user.country –eq "US")
+   (user.department -eq "Marketing") -and (user.country -eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>Usando os operadores -In e -notIn
 
@@ -160,32 +160,32 @@ Operadores permitidos
 
 | propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
-| city |Qualquer valor de cadeia de caracteres ou *null* |(user.city -eq "valor") |
-| country |Qualquer valor de cadeia de caracteres ou *null* |(user.country -eq "valor") |
-| companyName | Qualquer valor de cadeia de caracteres ou *null* | (user.companyName -eq "value") |
-| department |Qualquer valor de cadeia de caracteres ou *null* |(user.department -eq "value") A propriedade  |
+| city |Qualquer valor de cadeia de caracteres ou *$null* |(user.city -eq "valor") |
+| country |Qualquer valor de cadeia de caracteres ou *$null* |(user.country -eq "valor") |
+| companyName | Qualquer valor de cadeia de caracteres ou *$null* | (user.companyName -eq "value") |
+| department |Qualquer valor de cadeia de caracteres ou *$null* |(user.department -eq "value") A propriedade  |
 | displayName |Um valor de cadeia de caracteres. |(user. DisplayName -eq "valor") |
-| employeeId |Um valor de cadeia de caracteres. |(user.employeeId -eq "valor")<br>(user.employeeId -ne *null*) |
-| facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *null* |user.facsimileTelephoneNumber -eq ("valor") |
-| givenName |Qualquer valor de cadeia de caracteres ou *null* |user.givenName -eq ("valor") |
-| jobTitle |Qualquer valor de cadeia de caracteres ou *null* |(user.jobTitle - eq "valor") |
-| mail |Qualquer valor de cadeia de caracteres ou *null* (endereço SMTP do usuário) |(user.mail - eq "valor") |
+| employeeId |Um valor de cadeia de caracteres. |(user.employeeId -eq "valor")<br>(user.employeeId -ne *$null*) |
+| facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *$null* |user.facsimileTelephoneNumber -eq ("valor") |
+| givenName |Qualquer valor de cadeia de caracteres ou *$null* |user.givenName -eq ("valor") |
+| jobTitle |Qualquer valor de cadeia de caracteres ou *$null* |(user.jobTitle - eq "valor") |
+| mail |Qualquer valor de cadeia de caracteres ou *$null* (endereço SMTP do usuário) |(user.mail - eq "valor") |
 | mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(user.mailNickName - eq "valor") |
-| Serviço Móvel |Qualquer valor de cadeia de caracteres ou *null* |(user.mobile -eq "valor") |
+| Serviço Móvel |Qualquer valor de cadeia de caracteres ou *$null* |(user.mobile -eq "valor") |
 | ID do objeto |GUID do objeto de usuário |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | SID (ID de segurança) local para usuários que foram sincronizados do local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *null* |(user.physicalDeliveryOfficeName -eq "valor") |
-| postalCode |Qualquer valor de cadeia de caracteres ou *null* |(user.postalCode - eq "valor") |
+| physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *$null* |(user.physicalDeliveryOfficeName -eq "valor") |
+| postalCode |Qualquer valor de cadeia de caracteres ou *$null* |(user.postalCode - eq "valor") |
 | preferredLanguage |ISO 639-1 code |(user.preferredLanguage - eq "en-US") |
-| sipProxyAddress |Qualquer valor de cadeia de caracteres ou *null* |(user.sipProxyAddress -eq "valor") |
-| state |Qualquer valor de cadeia de caracteres ou *null* |(user.state -eq "valor") |
-| streetAddress |Qualquer valor de cadeia de caracteres ou *null* |(user.streetAddress -eq "valor") |
-| sobrenome |Qualquer valor de cadeia de caracteres ou *null* |(user.surname -eq "valor") |
-| telephoneNumber |Qualquer valor de cadeia de caracteres ou *null* |(user.telephoneNumber -eq "valor") |
+| sipProxyAddress |Qualquer valor de cadeia de caracteres ou *$null* |(user.sipProxyAddress -eq "valor") |
+| state |Qualquer valor de cadeia de caracteres ou *$null* |(user.state -eq "valor") |
+| streetAddress |Qualquer valor de cadeia de caracteres ou *$null* |(user.streetAddress -eq "valor") |
+| sobrenome |Qualquer valor de cadeia de caracteres ou *$null* |(user.surname -eq "valor") |
+| telephoneNumber |Qualquer valor de cadeia de caracteres ou *$null* |(user.telephoneNumber -eq "valor") |
 | usageLocation |Código do país indicados dois |(user.usageLocation -eq "EUA") |
 | userPrincipalName |Um valor de cadeia de caracteres. |(user.userPrincipalName -eq "alias@domain") |
-| userType |member guest *null* |(ser.userType -eq "Membro") |
+| userType |member guest *$null* |(ser.userType -eq "Membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeias de caracteres de tipo
 Operadores permitidos
@@ -230,7 +230,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 Para especificar um valor nulo em uma regra, você pode usar o valor *null*. Tenha cuidado para não usar a palavra aspas em *null* -nesse caso, ele será interpretado como um valor de cadeia de caracteres literal. A maneira correta para referenciar o valor nulo é da seguinte maneira:
 ```
-   user.mail –ne null
+   user.mail –ne $null
 ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Atributos de extensão e atributos personalizados

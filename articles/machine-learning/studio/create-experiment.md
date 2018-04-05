@@ -1,11 +1,12 @@
 ---
 title: Um teste simples no Machine Learning Studio | Microsoft Docs
-description: "Este tutorial de aprendizado de máquina percorre um teste de ciência de dados. Vamos prever o preço de um carro usando um algoritmo de regressão."
-keywords: "teste,regressão linear,algoritmos de aprendizado de máquina,tutorial de aprendizado de máquina,técnicas de modelos de previsão, teste de ciência de dados"
+description: Este tutorial de aprendizado de máquina percorre um teste de ciência de dados. Vamos prever o preço de um carro usando um algoritmo de regressão.
+keywords: teste,regressão linear,algoritmos de aprendizado de máquina,tutorial de aprendizado de máquina,técnicas de modelos de previsão, teste de ciência de dados
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 3cc4278ca7d4603f4bfb916885d44e6a85864b25
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 57461cf94898012619b865c455955f511e978995
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de aprendizado de máquina: Crie sua primeira experiência no Azure Machine Learning Studio
 
@@ -55,7 +55,7 @@ Você pode iterar seu design de modelo, editando o teste e executando-o até que
 
 ## <a name="open-machine-learning-studio"></a>Abrir o Machine Learning Studio
 
-Para começar com o Estúdio, vá para [https://studio.azureml.net](https://studio.azureml.net). Se você já entrou no Machine Learning Studio antes, clique em **Entrar**. Caso contrário, clique em **Inscrever-se aqui** e escolha entre as opções gratuitas e pagas.
+Para uma introdução ao Studio, vá para [https://studio.azureml.net](https://studio.azureml.net). Se você já entrou no Machine Learning Studio antes, clique em **Entrar**. Caso contrário, clique em **Inscrever-se aqui** e escolha entre as opções gratuitas e pagas.
 
 ![Entrar no Machine Learning Studio][sign-in-to-studio]
 <br/>

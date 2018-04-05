@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 67f6ca36c334a60b634094f07e5d9696a6961eb8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -32,7 +32,7 @@ Para implantar o SSO Contínuo, siga estas etapas.
 
 Verifique se os seguintes pré-requisitos estão em vigor:
 
-* **Configurar seu servidor do Azure AD Connect**: se você usa a [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md) como seu método de entrada, não é necessária nenhuma verificação de pré-requisitos adicional. Se você usa a [sincronização de hash de senha](active-directory-aadconnectsync-implement-password-synchronization.md) como seu método de entrada e se há um firewall entre o Azure AD Connect e Azure AD, verifique se:
+* **Configurar seu servidor do Azure AD Connect**: se você usa a [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md) como seu método de entrada, não é necessária nenhuma verificação de pré-requisitos adicional. Se você usa a [sincronização de hash de senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md) como seu método de entrada e se há um firewall entre o Azure AD Connect e Azure AD, verifique se:
    - Está usando a versão 1.1.644.0 ou superior do Azure AD Connect. 
    - Se o seu firewall ou proxy permite a lista de permissões de DNS, adicione as conexões às URLs **\*.msappproxy.net** pela porta 443 à lista de permissões. Caso contrário, permita acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
 

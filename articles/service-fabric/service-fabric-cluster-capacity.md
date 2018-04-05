@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b39c22fb45b0e20a3aa7a6dcf59619a87df32ca1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -87,7 +87,7 @@ Esse privilégio é expresso nos seguintes valores:
 **Desvantagens de usar os níveis de durabilidade Ouro ou Prata**
  
 1. As implantações no Conjunto de Dimensionamento de Máquinas Virtuais e nos outros recursos do Azure relacionados podem ser atrasadas, podem atingir o tempo limite ou podem ser bloqueadas inteiramente por problemas no cluster ou no nível de infraestrutura. 
-2. Aumenta o número de [eventos de ciclo de vida de réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (por exemplo, trocas primárias) devido às desativações de nós automatizadas durante as operações de infraestrutura do Azure.
+2. Aumenta o número de [eventos de ciclo de vida de réplica](service-fabric-reliable-services-lifecycle.md) (por exemplo, trocas primárias) devido às desativações de nós automatizadas durante as operações de infraestrutura do Azure.
 3. Coloca os nós fora de serviço por períodos durante as atividades de manutenção de hardware ou atualizações de software da plataforma Azure. Você poderá ver os nós o com o status Desabilitando/Desabilitado durante essas atividades. Isso reduz a capacidade do cluster temporariamente, mas não deve afetar a disponibilidade do cluster ou dos aplicativos.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recomendações de quando usar os níveis de durabilidade Prata ou Ouro
@@ -101,10 +101,10 @@ Use a durabilidade Prata ou Gold para todos os tipos de nós que hospedam servi�
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recomendações operacionais para o tipo de nó configurado para o nível de durabilidade Prata ou Ouro.
 
-1. Mantenha sempre a integridade do cluster e dos aplicativos e verifique se os aplicativos respondem a todos os [eventos de ciclo de vida de réplica do Serviço](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como quando a réplica sendo compilada está paralisada) de maneira oportuna.
+1. Mantenha sempre a integridade do cluster e dos aplicativos e verifique se os aplicativos respondem a todos os [eventos de ciclo de vida de réplica do Serviço](service-fabric-reliable-services-lifecycle.md) (como quando a réplica sendo compilada está paralisada) de maneira oportuna.
 2. Adotar modos mais seguros de fazer uma alteração de SKU de VM (escalar verticalmente/horizontalmente): a alteração da SKU de VM de um Conjunto de Dimensionamento de Máquinas Virtuais é inerentemente uma operação não segura e portanto deve ser evitada, se possível. Veja o processo que você pode seguir para evitar problemas comuns.
     - **Para tipos de nós não primários:** é recomendado criar um novo Conjunto de Dimensionamento de Máquinas Virtuais, modificar a restrição de posicionamento do serviço para incluir o novo Conjunto de Dimensionamento de Máquinas Virtuais/tipo de nó e, em seguida, reduzir a contagem antiga de instâncias do Conjunto de Dimensionamento de Máquinas Virtuais para 0, um nó de cada vez (isso deve ser feito para garantir que a remoção dos nós não afete a confiabilidade do cluster).
-    - **Para o tipo de nó primário**: recomendamos não alterar a SKU de VM do tipo de nó primário. Não há suporte para a alteração do SKU do tipo de nó primário. Se o motivo para o novo SKU é a capacidade, recomendamos adicionar mais instâncias. Se isso não for possível, crie um novo cluster e [restaure o estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) por meio do cluster antigo. Você não precisa restaurar qualquer estado do serviço do sistema; ele é recriado quando você implanta os aplicativos no novo cluster. Se você estiver apenas executando aplicativos sem monitoração de estado no cluster, basta implantar os aplicativos no novo cluster; não há nada para restaurar. Se você decidir ir para a rota sem suporte e desejar alterar o SKU de VM, faça modificações na definição do Modelo do Conjunto de Dimensionamento de Máquinas Virtuais para refletir o novo SKU. Se o seu cluster tiver apenas um tipo de nó, verifique se todos os aplicativos com estado respondem a todos os [eventos de ciclo de vida de réplica do Serviço](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como quando a réplica sendo compilada está paralisada) de maneira oportuna e se a duração da recompilação da réplica do serviço dura menos de cinco minutos (para o nível de durabilidade Prata). 
+    - **Para o tipo de nó primário**: recomendamos não alterar a SKU de VM do tipo de nó primário. Não há suporte para a alteração do SKU do tipo de nó primário. Se o motivo para o novo SKU é a capacidade, recomendamos adicionar mais instâncias. Se isso não for possível, crie um novo cluster e [restaure o estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) por meio do cluster antigo. Você não precisa restaurar qualquer estado do serviço do sistema; ele é recriado quando você implanta os aplicativos no novo cluster. Se você estiver apenas executando aplicativos sem monitoração de estado no cluster, basta implantar os aplicativos no novo cluster; não há nada para restaurar. Se você decidir ir para a rota sem suporte e desejar alterar o SKU de VM, faça modificações na definição do Modelo do Conjunto de Dimensionamento de Máquinas Virtuais para refletir o novo SKU. Se o seu cluster tiver apenas um tipo de nó, verifique se todos os aplicativos com estado respondem a todos os [eventos de ciclo de vida de réplica do Serviço](service-fabric-reliable-services-lifecycle.md) (como quando a réplica sendo compilada está paralisada) de maneira oportuna e se a duração da recompilação da réplica do serviço dura menos de cinco minutos (para o nível de durabilidade Prata). 
 
 
 > [!WARNING]

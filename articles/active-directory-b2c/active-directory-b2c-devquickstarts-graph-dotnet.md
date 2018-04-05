@@ -1,24 +1,21 @@
 ---
 title: Usar a API do Graph - Azure AD B2C | Microsoft Docs
-description: "Como chamar a API do Graph para um locatário B2C usando uma identidade de aplicativo para automatizar o processo."
+description: Como chamar a API do Graph para um locatário B2C usando uma identidade de aplicativo para automatizar o processo.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: parakhj
-ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: davidmu
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar a API do Graph do Azure AD
 
@@ -48,7 +45,7 @@ Quando você tiver um locatário B2C, será necessário registrar seu aplicativo
 3. No painel de navegação esquerdo, escolha **Todos os Serviços**, clique em **Registros de Aplicativo** e clique em **Adicionar**.
 4. Siga os avisos e crie um novo aplicativo. 
     1. Selecione **Aplicativo Web/API** como o Tipo de Aplicativo.    
-    2. Forneça **qualquer URI de redirecionamento** (por exemplo, https://B2CGraphAPI), pois isso não é relevante para este exemplo.  
+    2. Forneça **qualquer URL de logon** (por exemplo, https://B2CGraphAPI), visto que não é relevante para esse exemplo.  
 5. Agora, o aplicativo aparecerá na lista de aplicativos. Clique nele para obter a **ID do Aplicativo** (também conhecida como ID do Cliente). Copie-a, pois precisará dela em uma seção posterior.
 6. No menu Configurações, clique em **Chaves** e adicione uma nova chave (também conhecida como o segredo do cliente). Copie-a também para uso em uma seção posterior.
 

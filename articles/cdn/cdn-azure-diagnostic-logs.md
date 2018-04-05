@@ -1,12 +1,12 @@
 ---
-title: "Logs de diagnóstico do Azure | Microsoft Docs"
-description: "O cliente pode habilitar a análise de log para a CDN do Azure."
+title: Logs de diagnóstico do Azure | Microsoft Docs
+description: O cliente pode habilitar a análise de log para a CDN do Azure.
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Logs de diagnóstico do Azure
 
@@ -109,7 +109,7 @@ Para obter mais informações sobre atrasos em dados de log, consulte [Log data 
 
 O exemplo a seguir mostra como habilitar os Logs de Diagnóstico por meio dos Cmdlets do Azure PowerShell.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Habilitando os Logs de Diagnóstico em uma conta de armazenamento
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Habilitando os Logs de Diagnóstico em uma conta de armazenamento
 
 Primeiro, faça logon e selecione uma assinatura:
 
@@ -173,7 +173,7 @@ Para facilitar o acesso à análise de núcleo, o exemplo de código de uma ferr
 
 Aqui está como você pode usar a ferramenta:
 
-1.  Visite o link do GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+1.  Visite o link do github: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
 2.  Baixe o código.
 3.  Siga as instruções a serem compiladas e configuradas.
 4.  Execute a ferramenta.
@@ -288,35 +288,35 @@ No momento, oferecemos somente logs de análise de núcleo, que contêm métrica
 A tabela a seguir mostra uma lista de métricas disponíveis nos logs de análise de núcleo. Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. A tabela a seguir também mostra se uma determinada métrica está disponível de um provedor. Observe que as métricas estão disponíveis apenas para os pontos de extremidade da CDN que têm tráfego neles.
 
 
-|Métrica                     | Descrição   | Verizon  | Akamai 
+|Métrica                     | DESCRIÇÃO   | Verizon  | Akamai 
 |---------------------------|---------------|---|---|
-| RequestCountTotal         |Número total de ocorrências de solicitação durante esse período| Sim  |Sim   |
-| RequestCountHttpStatus2xx |Contagem de todas as solicitações que resultaram em um código HTTP 2xx (por exemplo, 200, 202)              | Sim  |Sim   |
-| RequestCountHttpStatus3xx | Contagem de todas as solicitações que resultaram em um código HTTP 3xx (por exemplo, 300, 302)              | Sim  |Sim   |
-| RequestCountHttpStatus4xx |Contagem de todas as solicitações que resultaram em um código HTTP 4xx (por exemplo, 400, 404)               | Sim   |Sim   |
-| RequestCountHttpStatus5xx | Contagem de todas as solicitações que resultaram em um código HTTP 5xx (por exemplo, 500, 504)              | Sim  |Sim   |
-| RequestCountHttpStatusOthers |  Contagem de todos os outros códigos HTTP (fora de 2xx a 5xx) | Sim  |Sim   |
-| RequestCountHttpStatus200 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 200              |Não   |Sim   |
-| RequestCountHttpStatus206 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 206              |Não   |Sim   |
-| RequestCountHttpStatus302 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 302              |Não   |Sim   |
-| RequestCountHttpStatus304 |  Contagem de todas as solicitações que resultaram em um código de resposta HTTP 304             |Não   |Sim   |
-| RequestCountHttpStatus404 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 404              |Não   |Sim   |
-| RequestCountCacheHit |Contagem de todas as solicitações que resultaram em uma Ocorrência no Cache. O ativo foi servido diretamente do POP para o cliente.               | Sim  |Não   |
-| RequestCountCacheMiss | Contagem de todas as solicitações que resultaram em uma Perda do Cache. Isso significa que o ativo não foi encontrado no POP mais próximo ao cliente e, portanto, foi recuperado da Origem.              |Sim   | Não  |
-| RequestCountCacheNoCache | Contagem de todas as solicitações para um ativo que são impedidas de serem armazenadas em cache devido a uma configuração do usuário na borda.              |Sim   | Não  |
-| RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos Cache-Control e Expires do ativo, que indicam que não devem ser armazenadas em cache em um POP ou pelo cliente HTTP                |Sim   |Não   |
-| RequestCountCacheOthers | Contagem de todas as solicitações com o status de cache não cobertas pelos itens acima.              |Sim   | Não  |
-| EgressTotal | Transferência de dados de saída em GB              |Sim   |Sim   |
-| EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de status HTTP 2xx em GB            |Sim   |Não   |
-| EgressHttpStatus3xx | Transferência de dados de saída para respostas com códigos de status HTTP 3xx em GB              |Sim   |Não   |
-| EgressHttpStatus4xx | Transferência de dados de saída para respostas com códigos de status HTTP 4xx em GB               |Sim   | Não  |
-| EgressHttpStatus5xx | Transferência de dados de saída para respostas com códigos de status HTTP 5xx em GB               |Sim   |  Não |
-| EgressHttpStatusOthers | Transferência de dados de saída para respostas com outros códigos de status HTTP em GB                |Sim   |Não   |
-| EgressCacheHit |  Transferência de dados de saída para respostas que foram entregues diretamente do cache da CDN nos POPs/Bordas da CDN  |Sim   |  Não |
-| EgressCacheMiss | Transferência de dados de saída de respostas que não foram encontradas no servidor POP mais próximo e foram recuperadas do servidor de origem              |Sim   |  Não |
-| EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache devido a uma configuração do usuário na borda.                |Sim   |Não   |
-| EgressCacheUncacheable | Transferência de dados de saída para ativos impedidos de serem armazenados em cache pelos cabeçalhos Cache-Control e/ou Expires do ativo. Indica que não deve ser armazenado em cache em um POP ou pelo cliente HTTP.                   |Sim   | Não  |
-| EgressCacheOthers |  Transferências de dados de saída para outros cenários de cache.             |Sim   | Não  |
+| RequestCountTotal         |Número total de ocorrências de solicitação durante esse período| sim  |sim   |
+| RequestCountHttpStatus2xx |Contagem de todas as solicitações que resultaram em um código HTTP 2xx (por exemplo, 200, 202)              | sim  |sim   |
+| RequestCountHttpStatus3xx | Contagem de todas as solicitações que resultaram em um código HTTP 3xx (por exemplo, 300, 302)              | sim  |sim   |
+| RequestCountHttpStatus4xx |Contagem de todas as solicitações que resultaram em um código HTTP 4xx (por exemplo, 400, 404)               | sim   |sim   |
+| RequestCountHttpStatus5xx | Contagem de todas as solicitações que resultaram em um código HTTP 5xx (por exemplo, 500, 504)              | sim  |sim   |
+| RequestCountHttpStatusOthers |  Contagem de todos os outros códigos HTTP (fora de 2xx a 5xx) | sim  |sim   |
+| RequestCountHttpStatus200 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 200              |Não    |sim   |
+| RequestCountHttpStatus206 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 206              |Não    |sim   |
+| RequestCountHttpStatus302 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 302              |Não    |sim   |
+| RequestCountHttpStatus304 |  Contagem de todas as solicitações que resultaram em um código de resposta HTTP 304             |Não    |sim   |
+| RequestCountHttpStatus404 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 404              |Não    |sim   |
+| RequestCountCacheHit |Contagem de todas as solicitações que resultaram em uma Ocorrência no Cache. O ativo foi servido diretamente do POP para o cliente.               | sim  |Não    |
+| RequestCountCacheMiss | Contagem de todas as solicitações que resultaram em uma Perda do Cache. Isso significa que o ativo não foi encontrado no POP mais próximo ao cliente e, portanto, foi recuperado da Origem.              |sim   | Não   |
+| RequestCountCacheNoCache | Contagem de todas as solicitações para um ativo que são impedidas de serem armazenadas em cache devido a uma configuração do usuário na borda.              |sim   | Não   |
+| RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos Cache-Control e Expires do ativo, que indicam que não devem ser armazenadas em cache em um POP ou pelo cliente HTTP                |sim   |Não    |
+| RequestCountCacheOthers | Contagem de todas as solicitações com o status de cache não cobertas pelos itens acima.              |sim   | Não   |
+| EgressTotal | Transferência de dados de saída em GB              |sim   |sim   |
+| EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de status HTTP 2xx em GB            |sim   |Não    |
+| EgressHttpStatus3xx | Transferência de dados de saída para respostas com códigos de status HTTP 3xx em GB              |sim   |Não    |
+| EgressHttpStatus4xx | Transferência de dados de saída para respostas com códigos de status HTTP 4xx em GB               |sim   | Não   |
+| EgressHttpStatus5xx | Transferência de dados de saída para respostas com códigos de status HTTP 5xx em GB               |sim   |  Não  |
+| EgressHttpStatusOthers | Transferência de dados de saída para respostas com outros códigos de status HTTP em GB                |sim   |Não    |
+| EgressCacheHit |  Transferência de dados de saída para respostas que foram entregues diretamente do cache da CDN nos POPs/Bordas da CDN  |sim   |  Não  |
+| EgressCacheMiss | Transferência de dados de saída de respostas que não foram encontradas no servidor POP mais próximo e foram recuperadas do servidor de origem              |sim   |  Não  |
+| EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache devido a uma configuração do usuário na borda.                |sim   |Não    |
+| EgressCacheUncacheable | Transferência de dados de saída para ativos impedidos de serem armazenados em cache pelos cabeçalhos Cache-Control e/ou Expires do ativo. Indica que não deve ser armazenado em cache em um POP ou pelo cliente HTTP.                   |sim   | Não   |
+| EgressCacheOthers |  Transferências de dados de saída para outros cenários de cache.             |sim   | Não   |
 
 * Transferência de dados de saída refere-se ao tráfego entregue de servidores POP da CDN para o cliente.
 

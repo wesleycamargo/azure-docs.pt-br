@@ -1,16 +1,16 @@
 ---
-title: "Arquitetura de replicação do VMware para o Azure no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece uma visão geral dos componentes e da arquitetura utilizados durante a replicação de VMs de VMware locais para o Azure com o Azure Site Recovery"
+title: Arquitetura de replicação do VMware para o Azure no Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizados durante a replicação de VMs de VMware locais para o Azure com o Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: 3d20ce1da2ed9b6e3213c9689b49cc2d759e5376
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c1aa89f14edab7d0e560c20d6bc48480aff1631f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Arquitetura de replicação de VMware para o Azure
 
@@ -32,25 +32,35 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 ![Componentes](./media/vmware-azure-architecture/arch-enhanced.png)
 
+## <a name="configuration-steps"></a>Etapas da configuração
+
+As etapas amplas para configurar o VMware para a recuperação de desastres ou migração do Azure são as seguintes:
+
+1. **Configurar os componentes do Azure**. Você precisa de uma conta do Azure com as permissões corretas, uma conta de armazenamento do Azure, uma rede virtual do Azure e um cofre de Serviços de Recuperação. [Saiba mais](tutorial-prepare-azure.md).
+2. **Configurar no local**. Isso inclui configurar uma conta no servidor do VMware para que o Site Recovery possa descobrir automaticamente VMs para replicar, configurar uma conta que possa ser usada para instalar o componente de serviço de Mobilidade nas VMs que você deseja replicar e verificar se os servidores VMware e as VMs estão em conformidade com os pré-requisitos. Você também pode se preparar para se conectar a essas VMs do Azure após o failover. O Site Recovery replica os dados da VM para uma conta de armazenamento do Azure e cria VMs do Azure usando os dados quando você executa um failover para o Azure. [Saiba mais](vmware-azure-tutorial-prepare-on-premises.md).
+3. **Configurar a replicação**. Escolha para onde você deseja replicar. Configure o ambiente de replicação de origem pela configuração de uma única VM local do VMware (o servidor de configuração) que executa todos os componentes do Site Recovery locais que você precisa. Após a configuração, registre o computador de servidor de configuração no cofre dos Serviços de Recuperação. Em seguida, selecione as configurações de destino. [Saiba mais](vmware-azure-tutorial.md).
+4. **Criar uma política de replicação**. Crie uma política de replicação que especifique como a replicação deve ocorrer. 
+    - **Limite de RPO**: essa configuração de monitoramento define que se a replicação não ocorrer dentro do tempo especificado, um alerta (e opcionalmente um email) é emitido. Por exemplo, se você definir o limite RPO para 30 minutos e um problema impedir que a replicação aconteça por 30 minutos, um evento será gerado. Essa configuração não afeta a replicação. A replicação é contínua e os pontos de recuperação são criados a cada poucos minutos
+    - **Retenção**: a retenção de ponto de recuperação especifica por quanto tempo os pontos de recuperação devme ser mantidos no Azure. Você pode especificar um valor entre 0 e 24 horas para o armazenamento premium ou até 72 horas para o armazenamento padrão. Você pode realizar failover para o ponto de recuperação mais recente ou para um ponto armazenado se você definir o valor como maior que zero. Após a janela de retenção, os pontos de recuperação são limpos.
+    - **Instantâneos consistentes em relação a falhas**: por padrão, o Site Recovery usa instantâneos consistentes em relação a falhas e cria pontos de recuperação com eles com uma frequência de poucos minutos. Um ponto de recuperação será consistente em relação a falhas se todos os componentes de dados inter-relacionados forem consistentes em relação à ordem de gravação, como estavam no momento em que o ponto de recuperação foi criado. Para entender melhor, imagine o status dos dados no disco rígido do computador após uma queda de energia ou um evento semelhante. Um ponto de recuperação consistente em relação a falhas geralmente é suficiente se o seu aplicativo for projetado para recuperar de uma falha sem nenhuma inconsistência de dados.
+    - **Instantâneos consistentes com o aplicativo**: se esse valor não for zero, o serviço de mobilidade em execução na VM tentará gerar instantâneos consistentes com o sistema de arquivo e pontos de recuperação. O primeiro instantâneo é feito após a conclusão da replicação inicial. Em seguida, os instantâneos são criados com a frequência que você especificar. Um ponto de recuperação será consistente com o aplicativo se, além de ser consistente em relação à ordem de gravação, os aplicativos em execução concluírem todas as operações e liberarem seus buffers para o disco (fechando o aplicativo). Pontos de recuperação consistentes com o aplicativo são recomendados para aplicativos de banco de dados, como SQL, Oracle e Exchange. Se um instantâneo consistente em relação a falhas for suficiente, esse valor pode ser definido como 0.  
+    - **Consistência de várias VMs**: opcionalmente, você pode criar um grupo de replicação. Em seguida, quando você habilitar a replicação, você pode reunir as VMs no grupo. As VMs em um grupo de replicação são replicados em conjunto e têm pontos de recuperação consistentes compartilhados com o aplicativo e com falhas quando passam por failover. Você deve usar essa opção com cuidado, pois ela pode afetar o desempenho da carga de trabalho, já que instantâneos precisam ser coletados de várias máquinas. Faça isso apenas se as VMs executam a mesma carga de trabalho e precisam ser consistentes e se as VMs têm churns semelhantes. Você pode adicionar até 8 VMs a um grupo. 
+5. **Habilitar a replicação de VM**. Por fim, habilite a replicação para as VMs do VMware no local. Se você criou uma conta para instalar o serviço de Mobilidade e especificou que o Site Recovery deve fazer uma instalação por push, o serviço de Mobilidade será instalado em cada VM para a qual você habilitar a replicação. [Saiba mais](vmware-azure-tutorial.md#enable-replication). Se você tiver criado um grupo de replicação para consistência de várias VMs, você pode adicionar VMs a esse grupo.
+6. **Failover de teste**. Depois que tudo estiver configurado, você poderá fazer um failover de teste para verificar se as VMs realizam failover para o Azure conforme o esperado. [Saiba mais](tutorial-dr-drill-azure.md).
+7. **Failover**. Se você estiver migrando apenas as VMs para o Azure, execute um failover completo para fazer isso. Se você estiver configurando a recuperação de desastres, você poderá executar um failover completo conforme necessário. Para recuperação de desastres completa, após o failover ao Azure, você pode fazer failback para seu site local à medida que e quando ele estiver disponível. [Saiba mais](vmware-azure-tutorial-failover-failback.md).
+
 ## <a name="replication-process"></a>Processo de replicação
 
-1. Prepare os recursos do Azure e componentes locais.
-2. No cofre dos Serviços de Recuperação, especifique as configurações de replicação de origem. Como parte desse processo, configure o servidor de configuração local. Para implantar esse servidor como uma VM do VMware, baixe um modelo de OVF preparado e importe-o no VMware para criar a VM.
-3. Especifique as configurações de replicação de destino, crie uma política de replicação e habilite a replicação de suas VMs de VMware.
-4. Os computadores replicam de acordo com a política de replicação e uma cópia inicial dos dados de VM é replicada para o Armazenamento do Microsoft Azure.
-5. Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
+1. Quando você habilitar a replicação para uma VM, ela começará a replicar de acordo com a política de replicação. 
+2. O tráfego é replicado para pontos de extremidade públicos do Armazenamento do Microsoft Azure pela Internet. Como alternativa, você pode usar o Azure ExpressRoute com [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Não há suporte para replicação de tráfego através de uma VPN (rede virtual privada) site a site de um site local para o Azure.
+3. Uma cópia inicial dos dados da VM é replicada para o armazenamento do Azure.
+4. Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
+5. A comunicação ocorre da seguinte maneira:
 
-    * As máquinas virtuais se comunicam com o servidor de configuração na porta HTTPS 443 de entrada para o gerenciamento de replicação.
-
-    * As máquinas virtuais enviam dados de replicação para o servidor em processo na porta HTTPS 9443 de entrada (pode ser modificada).
-
-    * O servidor de configuração coordena o gerenciamento de replicação com o Azure pela porta HTTPS 443 de saída.
-
-    * O servidor em processo recebe os dados dos computadores de origem, otimiza-os, criptografa-os e envia-os para o Armazenamento do Microsoft Azure pela porta 443 de saída.
-
-    * Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Esse método será útil, se os computadores estiverem em execução na mesma carga de trabalho e, além disso, precisam ser consistentes.
-
-6. O tráfego é replicado para pontos de extremidade públicos do Armazenamento do Microsoft Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) do Azure ExpressRoute. Não há suporte para replicação de tráfego através de uma VPN (rede virtual privada) site a site de um site local para o Azure.
+    - As VMs se comunicam com o servidor de configuração local na porta HTTPS 443 de entrada para o gerenciamento de replicação.
+    - O servidor de configuração coordena a replicação com o Azure pela porta HTTPS 443 de saída.
+    - As VMs que estão sendo replicadas enviam dados de replicação para o servidor de processo (em execução no computador do servidor de configuração) na porta 9443 HTTPS de entrada. Essa porta pode ser modificada.
+    - O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e os envia para o armazenamento do Microsoft Azure pela porta 443 de saída.
 
 
 **Processo de replicação do VMware para o Azure**
@@ -61,30 +71,23 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 Depois que a replicação é configurada e você executou uma simulação de recuperação de desastre (failover de teste) para verificar se tudo está funcionando conforme o esperado, você poderá executar failover e failback conforme necessário.
 
-1. É possível fazer failover de uma única máquina ou criar planos de recuperação para fazer failover de várias VMs.
-
-2. Ao executar um failover, as VMs do Azure são criadas com base nos dados replicados no Armazenamento do Azure.
-
-3. Depois de disparar o failover inicial, você confirma-o para começar a acessar a carga de trabalho da VM do Azure.
-
-Quando o site primário local estiver disponível novamente, você poderá executar o failback.
-1. Você precisa configurar uma infraestrutura de failback, incluindo:
+1. É possível fazer failover de uma única máquina ou criar planos de recuperação para fazer failover de várias VMs ao mesmo tempo. As vantagens de um plano de recuperação em vez de failover de única máquina incluem:
+    - Você pode modelar dependências do aplicativo, incluindo todas as VMs entre o aplicativo em um único plano de recuperação.
+    - Você pode adicionar scripts, runbooks do Azure e pausar para ações manuais.
+2. Depois de disparar o failover inicial, você confirma-o para começar a acessar a carga de trabalho da VM do Azure.
+3. Quando o site primário local estiver disponível novamente, você poderá se preparar executar o failback. Para executar o failback, você precisa configurar uma infraestrutura de failback, incluindo:
 
     * **Servidor em processo temporário no Azure**: para fazer failback do Azure, você configura uma VM do Azure para atuar como um servidor em processo, a fim de manipular a replicação do Azure. Você pode excluir a VM após a conclusão do failback.
-
     * **Conexão VPN**: para fazer failback, você precisa de uma conexão VPN (ou ExpressRoute) da rede do Azure para o site local.
-
     * **Servidor de destino mestre separado**: por padrão, o servidor de destino mestre que foi instalado com o servidor de configuração na VM do VMware local manipula o failback. Se for necessário fazer failback de grandes volumes de tráfego, configure um servidor de destino mestre local separado para essa finalidade.
-
     * **Política de failback**: para replicar volta para seu site local, você precisa de uma política de failback. Essa política foi criada automaticamente quando você criou sua política de replicação do local para o Azure.
-2. Depois que os componentes estão em vigor, o failback ocorre em três estágios:
+4. Depois que os componentes estão em vigor, o failback ocorre em três ações:
 
-    a. Estágio 1: proteja novamente as VMs do Azure para que elas comecem a replicação para as VMs de VMware locais.
-
-    b. Estágio 2: execute um failover para o site local.
-
-    c. Etapa 3: depois que as cargas de trabalho fizeram failback, você reabilitará a replicação para as VMs locais.
-
+    - Estágio 1: proteja novamente as VMs do Azure para que elas comecem a replicação para as VMs de VMware locais.
+    -  Estágio 2: execute um failover para o site local.
+    - Etapa 3: depois que as cargas de trabalho fizeram failback, você reabilitará a replicação para as VMs locais.
+    
+ 
 **Failback de VMware do Azure**
 
 ![Failback](./media/vmware-azure-architecture/enhanced-failback.png)

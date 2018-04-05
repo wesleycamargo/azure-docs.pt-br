@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ec13109173f89b53e32f903febcec13c7f38c574
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-classic"></a>Conexões de saída (Clássico)
 
@@ -60,7 +60,7 @@ O algoritmo utilizado para [pré-alocação de portas efêmeras](#ephemeralports
 
 Nesse cenário, a VM tem um ILPIP (IP Público em Nível de Instância) atribuído a ela. No que diz respeito às conexões de saída, não importa se a VM tem ponto de extremidade com balanceamento de carga ou não. Esse cenário tem precedência sobre os outros. Quando um ILPIP é usado, a VM usa o ILPIP para todos os fluxos de saída.  
 
-A PAT (disfarce de porta) não é usada e a VM tem todas as portas efêmeras disponíveis para uso.
+Um IP público atribuído a uma VM é uma relação 1:1 (em vez de 1:muitos) e implementado como sem estado 1:1 NAT.  A PAT (disfarce de porta) não é usada e a VM tem todas as portas efêmeras disponíveis para uso.
 
 Se o aplicativo iniciar muitos fluxos de saída e for observado um esgotamento da porta SNAT, considere atribuir um [ILPIP para mitigar as restrições SNAT](#assignilpip). Revise [Gerenciar esgotamento de SNAT](#snatexhaust) completamente.
 
@@ -123,6 +123,18 @@ Alterar o tamanho da implantação pode afetar alguns dos fluxos estabelecidos. 
 
 Se o tamanho da implantação diminuir e fizer transição para uma camada mais baixa, o número de portas SNAT disponíveis aumentará. Nesse caso, as portas SNAT alocadas existentes e seus respectivos fluxos não são afetados.
 
+As alocações de portas SNAT são o protocolo de transporte IP específico (TCP e UDP são mantidas separadamente) e são liberadas sob as seguintes condições:
+
+### <a name="tcp-snat-port-release"></a>Liberação da porta TCP SNAT
+
+- Se tanto o servidor/cliente enviar a porta FIN/ACK, SNAT, será liberado após 240 segundos.
+- Se um RST for visto, a porta SNAT será liberada após 15 segundos.
+- o tempo limite de ociosidade foi atingido
+
+### <a name="udp-snat-port-release"></a>Liberação da porta UDP SNAT
+
+- o tempo limite de ociosidade foi atingido
+
 ## <a name="problemsolving"></a> Solução de problemas 
 
 Esta seção destina-se a ajudar a atenuar o esgotamento de SNAT e outros cenários que podem ocorrer com conexões de saída no Azure.
@@ -170,3 +182,4 @@ Usando o comando nslookup, você pode enviar uma consulta DNS para o nome myip.o
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Load Balancer](load-balancer-overview.md) usado nas implantações do Gerenciador de Recursos.
+- Saiba mais sobre os cenários de [conexão saída](load-balancer-outbound-connections.md) disponíveis em implantações do Gerenciador de Recursos.

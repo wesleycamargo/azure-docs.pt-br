@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Serviço de Contêiner do Azure para Kubernetes"
-description: "O Serviço de Contêiner do Azure para Kubernetes simplifica a implantação e o gerenciamento de aplicativos baseados em contêiner no Azure."
+title: Introdução ao Serviço de Contêiner do Azure para Kubernetes
+description: O Serviço de Contêiner do Azure para Kubernetes simplifica a implantação e o gerenciamento de aplicativos baseados em contêiner no Azure.
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,17 +9,21 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 2980d4733dcf138c3a9aa1713cff994bbf5a296c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bfa445eb11ed8be608278d0b95249372f9976ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="introduction-to-azure-container-service-aks"></a>Introdução ao Serviço de Contêiner do Azure (AKS)
+# <a name="introduction-to-azure-container-service-aks-preview"></a>Introdução à versão prévia do Serviço de Contêiner do Azure (AKS)
 
 O Serviço de Contêiner do Azure (AKS) simplifica a criação, a configuração e o gerenciamento de um cluster de máquinas virtuais pré-configuradas para executar os aplicativos em contêineres. Isso permite que você use suas habilidades existentes ou explore uma experiência cada vez maior da comunidade para implantar e gerenciar aplicativos baseados em contêiner no Microsoft Azure.
 
 Usando o AKS, você pode aproveitar as vantagens dos recursos de nível empresarial do Azure e ainda manter a portabilidade do aplicativo pelo formato de imagem do Docker e Kubernetes.
+
+> [!IMPORTANT]
+> O Serviço de Contêiner do Azure (AKS) está atualmente em **versão prévia**. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+>
 
 ## <a name="managed-kubernetes-in-azure"></a>Kubernetes Gerenciado no Azure
 
@@ -50,7 +54,7 @@ O Kubernetes automatiza a implantação, o dimensionamento e o gerenciamento de 
 * Orquestração de armazenamento
 * Execução do Lote
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
 
 AKS (Serviço de Contêiner do Azure) – Azure Friday, outubro de 2017:
 

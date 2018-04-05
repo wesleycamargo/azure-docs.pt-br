@@ -1,6 +1,6 @@
 ---
-title: Ofertas de Consultoria do Microsoft Azure Marketplace
-description: Critérios de qualificação e requisitos de publicação para o novo tipo de oferta no Azure Marketplace
+title: Serviços de consultoria do Azure Marketplace
+description: Este artigo descreve os critérios de qualificação e os requisitos de publicação para novas ofertas de serviços de consultoria no Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -14,22 +14,22 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: dd00711a9be208ddf635c998a77935ed63fcf996
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
-#<a name="azure-marketplace-consulting-services"></a>Serviços de Consultoria do Microsoft Azure Marketplace
-Com a meta de conectar clientes com serviços para fornecer suporte e estender o uso do Microsoft Azure, o Microsoft Azure Marketplace fornece suporte à listagem de ofertas de serviços de consultoria de parceiros do SI (Integrador de Sistemas) da Microsoft. 
+# <a name="azure-marketplace-consulting-services"></a>Serviços de consultoria do Azure Marketplace
+Com a meta de conectar clientes com serviços para fornecer suporte e estender o uso do Azure, o Azure Marketplace fornece suporte à listagem de ofertas de serviços de consultoria de parceiros do SI (Integrador de Sistemas) da Microsoft. 
 
-Essas ofertas de serviços de consultoria são compromissos específicos do cliente, determinados em escopo e duração, podem ser com preço fixo ou gratuitos e têm um resultado definido. Clientes potenciais podem facilmente solicitar que sejam contatados pelos parceiros de maneira descomplicada. Os parceiros recebem uma notificação em seu sistema de CRM e visam responder aos usuários em até 48 horas.
+Essas ofertas de serviços de consultoria são os compromissos específicos do cliente. Elas têm escopo e duração fixos, podem ter preço fixo ou ser gratuitas e ter um resultado definido. Clientes potenciais podem facilmente solicitar que sejam contatados pelos parceiros. Os parceiros recebem uma notificação em seu sistema de CRM e visam responder às solicitações em até 48 horas.
 
-As ofertas de serviço baseadas no Microsoft Dynamics 365, Microsoft Office 365 e Microsoft Power BI são qualificadas para serem listadas no AppSource. Analise as diretrizes [detalhadas para esses serviços aqui](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+As ofertas de serviço baseadas no Microsoft Dynamics 365, Office 365 e Power BI são qualificadas para serem listadas no AppSource. Para obter mais informações, consulte [diretrizes da lista de serviços de consultoria do Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
-##<a name="eligible-services-and-partners"></a>Parceiros e serviços qualificados
+## <a name="eligible-services-and-partners"></a>Parceiros e serviços qualificados
 
-Também é exigido aos parceiros que tenham uma Competência Gold ou Silver na área relevante para o serviço. Veja abaixo para as Competências qualificadas:
+Também é exigido aos parceiros que tenham uma Competência Gold ou Silver na área relevante para o serviço. As competências qualificadas estão listadas na tabela a seguir:
 
 |Competência  |Área da solução  |
 |---------|---------|
@@ -37,22 +37,21 @@ Também é exigido aos parceiros que tenham uma Competência Gold ou Silver na �
 |ISV e Desenvolvimento de Aplicativo     |  Desenvolvimento de Aplicativo, 	Integração do Aplicativo, DevOps       |
 |Análise e Gerenciamento de Dados    |  Análise de Dados, Data Platform       |
 
-As ofertas devem ser um dos cinco tipos de serviços a seguir. Observe que é possível listar mais de uma oferta: 
+As ofertas devem ser um dos cinco tipos de serviços a seguir (você pode listar mais de um): 
 
-1. **Avaliação:** uma avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa de custo e tempo. 
-2. Resumo: uma introdução a uma solução ou um serviço de consultoria para atrair o interesse do cliente utilizando estruturas, demonstrações e exemplos de clientes. 
-3. **Implementação:** uma instalação completa que resulta em uma solução totalmente funcional. É recomendável limitar para soluções que possam ser implementadas em 2 semanas ou menos. 
-4. **Prova de conceito:**uma implementação de escopo limitado para determinar se uma solução atenderá aos requisitos de um cliente. 
-5. **Workshop:** um engajamento interativo realizado nas instalações de um cliente que pode envolver treinamento, instruções, avaliações ou demonstrações com base nos dados ou no ambiente do cliente. 
+* **Avaliação**: uma avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa de custo e tempo. 
+* **Resumo**: uma introdução a uma solução ou um serviço de consultoria para atrair o interesse do cliente utilizando estruturas, demonstrações e exemplos de clientes. 
+* **Implementação**: uma instalação completa que resulta em uma solução totalmente funcional. É recomendável limitá-la para soluções que possam ser implementadas em duas semanas ou menos. 
+* **Prova de conceito:**uma implementação de escopo limitado para determinar se uma solução atende aos requisitos do cliente. 
+* **Workshop**: um engajamento interativo realizado nas instalações do cliente. Pode envolver o treinamento, resumos, avaliações ou demonstrações criados no ambiente ou nos dados do cliente. 
 
-Exceto para Resumos, os serviços de consultoria podem ser oferecidos pessoalmente (ou seja, no local do cliente ou nas instalações de um parceiro) ou virtualmente (ou seja, via teleconferência, webconferência, implementação remota e etc.). Os Resumos devem ser oferecidos pessoalmente.
+Exceto para o tipo de serviço *Resumo*, os serviços de consultoria podem ser oferecidos pessoalmente (ou seja, localmente no local do cliente ou na instalação de um parceiro) ou virtualmente (isto é, por meio de teleconferência, webconferência ou implementação remota). Os Resumos devem ser oferecidos pessoalmente.
 
-Leia mais sobre [competências por meio do Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
+Para obter mais informações, consulte [competências por meio do Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
 
-##<a name="countries-supported"></a>Países com suporte
+## <a name="supported-countries"></a>Países com suporte
 
 Os parceiros do SI podem enviar ofertas de serviços de consultoria para os 18 países a seguir. 
-
 
 |Países qualificados |  |  |
 |---------|---------|---------|
@@ -63,37 +62,36 @@ Os parceiros do SI podem enviar ofertas de serviços de consultoria para os 18 p
 |Finlândia     |México         |Reino Unido         |
 |França     |Países Baixos         |Estados Unidos         |
 
-A inicialização dos Serviços de Consultoria do Azure Marketplace entrará em vigor primeiro na Austrália, Canadá, Reino Unido e nos Estados Unidos. Os catálogos para outros países entrarão em vigor assim que um número significativo e uma seleção atraente de ofertas de serviços tiverem sido enviadas por parceiros e aprovadas pela Microsoft.
+A inicialização dos serviços de consultoria do Azure Marketplace entrará em vigor primeiro na Austrália, no Canadá, no Reino Unido e nos Estados Unidos. Os catálogos para outros países entrarão em vigor após o envio de um número significativo e uma seleção atraente de ofertas de serviços por parceiros e a aprovação pela Microsoft.
 
-##<a name="prepare-your-publishing-artifacts"></a>Preparar os artefatos de publicação
+## <a name="prepare-your-publishing-artifacts"></a>Preparar os artefatos de publicação
 Mesmo antes de nomear o serviço, é possível iniciar a coleta e preparação do conteúdo que ajudará sua listagem a articular o valor do serviço e a solução para seu cliente-alvo. 
-
 
 |Configurar para novos publicadores  |
 |---------|
 |ID MPN     |
-|Logotipos da empresa (48x48, 216x216)     |
+|Logotipos da empresa (48 &#215; 48, 216 &#215; 216)     |
 |Destino do cliente potencial     |
 
 
 |Configurar para novas ofertas  |
 |---------|
-|Nome da oferta (200 caracteres) e Descrição (2000 caracteres)    |
+|Nome da oferta (200 caracteres) e descrição (2000 caracteres)    |
 |Competências     |
-|Disponibilidade para país/região     |
+|Disponibilidade por país/região     |
 |Duração do compromisso     |
 |Setores aplicáveis, categorias e palavras-chave de pesquisa     |
 |Vídeo da visão geral do produto    |
-|Capturas de tela (máximo 5, 1280x720)     |
-|Documentos de marketing (máximo 3)     |
+|Capturas de tela (máximo de 5, 1280 &#215; 720)     |
+|Documentos de marketing (máximo de 3)     |
 
 
-##<a name="publishing-process"></a>Processo de publicação
-A listagem da sua oferta de serviço de consultoria no Azure Marketplace envolve o seguinte:
+## <a name="publishing-process"></a>Processo de publicação
+A listagem da sua oferta de serviço de consultoria no Azure Marketplace envolve os seguintes estágios:
 
-1. **Solicitação:** envie sua solicitação [aqui](https://azuremarketplace.microsoft.com/en-us/sell/nominate) e conte-nos mais sobre sua organização. 
-2. **Validação:**sua solicitação será analisada para confirmar se seus critérios de qualificação são atendidos. Em seguida, enviaremos instruções para listar sua oferta de serviços de consultoria. 
-3. **Enviar:** forneça as informações exigidas nas instruções. Todo conteúdo e material de apoio devem ser enviados em inglês. 
-4. **Análise:** nossa equipe editorial e de marketing analisará seu envio e fará alterações para otimizá-lo em relação à legibilidade, gramática e eficácia. 
-5. **Preparação:** seu envio será, em seguida, preparado para ser revisado por você. 
-6. **Publicação:** quando você e a Microsoft estiverem satisfeitos com o conteúdo preparado, sua listagem estará pronta para entrar no ar no Azure Marketplace. A data em que sua listagem entrará no ar dependerá do país especificado na oferta. Se o catálogo do país selecionado já estiver no Azure Marketplace, sua listagem será aparecerá em algumas horas. Caso contrário, sua listagem aparecerá logo que o catálogo do país selecionado for publicado.
+1. **Solicitação**: para enviar sua solicitação, use o [Formulário de Nominação do Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/nominate) e informe-nos mais sobre a sua organização. 
+2. **Validação**: sua solicitação é revisada para garantir que você atenda aos critérios de qualificação. Em seguida, enviamos instruções para listar sua oferta de serviços de consultoria. 
+3. **Enviar:** forneça as informações exigidas listadas nas instruções. Todo o conteúdo e o material de apoio deverão ser enviados em inglês. 
+4. **Revisão:** nossa equipe editorial e de marketing revisa seu envio e otimiza-o em relação à legibilidade, à gramática e à eficácia. 
+5. **Preparo**: o envio é preparado para sua revisão. 
+6. **Publicação:** quando você e a Microsoft estiverem satisfeitos com o conteúdo preparado, sua listagem estará pronta para entrar no ar no Azure Marketplace. A data de entrada no ar de sua listagem depende do país especificado na oferta. Se o catálogo do país selecionado já estiver no Azure Marketplace, sua listagem aparecerá em algumas horas. Caso contrário, a listagem será exibida assim que o catálogo ficar ativo.

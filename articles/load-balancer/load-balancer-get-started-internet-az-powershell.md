@@ -1,25 +1,25 @@
 ---
-title: "Criar um Load Balancer Standard público com frontend de endereço IP público com redundância de zona usando o PowerShell | Microsoft Docs"
-description: "Saiba como criar um Load Balancer Standard público com um frontend de endereço IP público com redundância de zona usando o PowerShell"
+title: Criar um Load Balancer Standard público com frontend de endereço IP público com redundância de zona usando o PowerShell | Microsoft Docs
+description: Saiba como criar um Load Balancer Standard público com um frontend de endereço IP público com redundância de zona usando o PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: abe970eb72be5ea6944acc253c2c3d9008b20c56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2849ef9b862b4471f348ac83a4a18eb9a3a4d42a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>Criar um Load Balancer Standard público com frontend de endereço IP Público com redundância de zona usando o PowerShell
 
@@ -27,17 +27,12 @@ Este artigo segue as etapas para a criação de um [Load Balancer Standard](http
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>Registrar-se para a versão prévia das Zonas de Disponibilidade, do Load Balancer Standard e do IP Público Standard
+## <a name="register-for-availability-zones-preview"></a>Registrar para a Versão Prévia das Zonas de Disponibilidade
 
 Este artigo requer que você tenha a versão 4.4.0 ou superior do módulo AzureRM instalada. Para saber qual é a versão, execute `Get-Module -ListAvailable AzureRM`. Se você precisar instalar ou atualizar, instale a versão mais recente do módulo AzureRM por meio da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
->[!NOTE]
-[O SKU do Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) está atualmente em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use o [SKU do Load Balancer Básico](load-balancer-overview.md) geralmente disponível para os serviços de produção. 
-
 > [!NOTE]
 > As zonas de disponibilidade estão em versão prévia e prontas para seus cenários de desenvolvimento e teste. O suporte está disponível para famílias de tamanhos de VM, regiões e recursos do Azure selecionados. Para obter mais informações sobre como começar e com quais recursos, regiões e famílias de tamanhos de VM do Azure você pode experimentar as zonas de disponibilidade, confira [Visão geral das Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, entre em contato em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abra um tíquete de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-
-Antes de selecionar uma opção de zona ou com redundância de zona para Endereço IP Público de front-end para o Load Balancer, você deve concluir as etapas em [Registrar-se para a versão prévia de zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 

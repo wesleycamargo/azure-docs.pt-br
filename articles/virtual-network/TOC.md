@@ -29,11 +29,11 @@
 ## Implantar
 
 ### Grupos de segurança de rede
-#### [Portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
-#### [PowerShell do Azure](virtual-networks-create-nsg-arm-ps.md)
-#### [CLI do Azure](virtual-networks-create-nsg-arm-cli.md)
-#### [Modelo](virtual-networks-create-nsg-arm-template.md)
-#### [Grupos de segurança do aplicativo](create-network-security-group-preview.md)
+#### [PowerShell do Azure](tutorial-filter-network-traffic.md)
+#### [CLI do Azure](tutorial-filter-network-traffic-cli.md)
+#### Sem grupos de segurança do aplicativo
+##### [Portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
+##### [Modelo](virtual-networks-create-nsg-arm-template.md)
 #### Clássico
 ##### [PowerShell do Azure](virtual-networks-create-nsg-classic-ps.md)
 ##### [CLI 1.0 do Azure](virtual-networks-create-nsg-classic-cli.md)
@@ -179,7 +179,7 @@
 ### [Problemas de conectividade entre VMs](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Configurar PTR para Seleção de Faixa de SMTP](create-ptr-for-smtp-service.md)
 
-## Exemplos de scripts
+## Scripts de exemplo
 ### [CLI do Azure](cli-samples.md)
 ### [PowerShell do Azure](powershell-samples.md)
 

@@ -1,29 +1,29 @@
 ---
-title: "Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET | Microsoft Docs"
-description: "Este tópico mostra como usar a autenticação do Azure AD (Azure Active Directory) para acessar a API do AMS (Serviços de Mídia do Azure) com o .NET."
+title: Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET | Microsoft Docs
+description: Este tópico mostra como usar a autenticação do Azure AD (Azure Active Directory) para acessar a API do AMS (Serviços de Mídia do Azure) com o .NET.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET
 
 A partir do windowsazure.mediaservices 4.0.0.4, os Serviços de Mídia do Azure dão suporte à autenticação baseada no Azure AD (Azure Active Directory). Este tópico mostra como usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o Microsoft .NET.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Uma conta do Azure. Para obter detalhes, confira [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Uma conta dos Serviços de Mídia. Para obter mais informações, consulte [Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure](media-services-portal-create-account.md).
@@ -36,7 +36,7 @@ Ao usar a autenticação do Azure AD com os Serviços de Mídia do Azure, você 
 - A **autenticação de entidade de serviço** autentica um serviço. Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados, como aplicativos Web, aplicativos de funções, aplicativos lógicos, APIs ou microsserviços.
 
 >[!IMPORTANT]
->Atualmente, os Serviços de Mídia do Azure dão suporte a um modelo de autenticação do Serviço de Controle de Acesso do Azure. No entanto, a autorização de Controle de Acesso será preterida em 1º de junho de 2018. Recomendamos que você migre para o modelo de autenticação do Azure Active Directory assim que possível.
+>Atualmente, os Serviços de Mídia do Azure dão suporte a um modelo de autenticação do Serviço de Controle de Acesso do Azure. No entanto, a autorização de Controle de Acesso será preterida em 22 de junho de 2018. Recomendamos que você migre para o modelo de autenticação do Azure Active Directory assim que possível.
 
 ## <a name="get-an-azure-ad-access-token"></a>Obter um token de acesso do Azure AD
 

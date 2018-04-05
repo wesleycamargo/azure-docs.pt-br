@@ -1,6 +1,6 @@
 ---
-title: "Guia de início rápido – criar um registro particular do Docker no Azure com a CLI do Azure"
-description: "Aprenda rapidamente a criar um registro de contêiner particular do Docker com a CLI do Azure."
+title: Guia de início rápido – criar um registro particular do Docker no Azure com a CLI do Azure
+description: Aprenda rapidamente a criar um registro de contêiner particular do Docker com a CLI do Azure.
 services: container-registry
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: db1fb3deec4b70a9341753a59910aeb0e002bca0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8426d395d294144135c1c11593ecaf7fdc5bee69
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-a-container-registry-using-the-azure-cli"></a>Criar um registro de contêiner usando a CLI do Azure
+# <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Início Rápido: criar um registro de contêiner usando a CLI do Azure
 
 O Registro de Contêiner do Azure é um serviço de registro de contêiner Docker gerenciado usado para armazenar imagens de contêiner de Docker particulares. Este guia detalha a criação de uma instância do Registro de Contêiner do Azure usando a CLI do Azure, o envio por push de uma imagem de contêiner para o registro e, por fim, a implantação do contêiner a partir do registro nas ACI (Instâncias de Contêiner do Azure).
 

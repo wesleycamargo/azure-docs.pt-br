@@ -7,4 +7,4 @@
 | Tempo de execução do trabalho - camada gratuita |500 minutos por assinatura por mês |
 | Quantidade máxima de memória fornecida a um trabalho |400 MB |
 | Número máximo de soquetes de rede permitido por trabalho |1000 |
-
+| Número máximo de Contas de Automação em uma assinatura |Sem limite |

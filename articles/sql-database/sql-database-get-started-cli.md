@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 10/11/2017
+ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 73639d59d047fbf1e07b242e21605a83e3c4b837
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 509cff23609896a019c110d8046935dfbce793f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Criar um único banco de dados SQL do Azure usando a CLI do Azure
 
@@ -99,14 +99,9 @@ az group delete --name $resourcegroupname
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você tem um banco de dados, você pode se conectar e consultar usando suas ferramentas favoritas. Saiba mais escolhendo sua ferramenta abaixo:
+- Agora que você tem um banco de dados, é possível [se conectar e consultar](sql-database-connect-query.md) usando uma das suas ferramentas ou linguagens favoritas. 
+- Para saber como projetar seu primeiro banco de dados, criar tabelas e inserir dados, consulte um destes tutoriais:
+ - [Projetar seu primeiro banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md)
+  - [Criar um banco de dados SQL do Azure e conectar-se com C# e o ADO.NET](sql-database-design-first-database-csharp.md)
 
-- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [.NET](sql-database-connect-query-dotnet.md)
-- [PHP](sql-database-connect-query-php.md)
-- [Node.js](sql-database-connect-query-nodejs.md)
-- [Java](sql-database-connect-query-java.md)
-- [Python](sql-database-connect-query-python.md)
-- [Ruby](sql-database-connect-query-ruby.md)
 

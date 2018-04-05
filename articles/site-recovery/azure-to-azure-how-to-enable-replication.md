@@ -1,6 +1,6 @@
 ---
-title: "Configurar replicação para VMs do Azure no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como configurar a replicação para VMs do Azure, de uma região do Azure para outra, usando o Site Recovery."
+title: Configurar replicação para VMs do Azure no Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como configurar a replicação para VMs do Azure, de uma região do Azure para outra, usando o Site Recovery.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 39d81ed6408e5f2c434a4fbaa681efc4c0b19a63
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5947242295a9c57b1c73e202c061d222cd0842f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicação de máquinas virtuais do Azure para outra região do Azure
 
@@ -50,7 +50,8 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
     - **Local de destino**: o local onde seus dados de máquina virtual de origem serão replicados. Dependendo de seu local de máquinas selecionadas, a recuperação de Site fornece a lista de regiões de destino adequado. É recomendável que você mantenha o local de destino o mesmo do local do cofre dos Serviços de Recuperação.
     - **Grupo de recursos de destino**: o grupo de recursos ao qual pertencem todas as máquinas virtuais replicadas. Por padrão, o Azure Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". Caso o grupo de recursos criado pelo Azure Site Recovery já exista, ele é reutilizado. Você também poderá escolher personalizá-lo conforme mostrado na seção abaixo.
     - **Rede Virtual de Destino**: por padrão, o Site Recovery cria uma nova rede virtual na região de destino com o nome com um sufixo "asr". Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre o mapeamento de rede.
-    - **Contas de armazenamento de destino**: por padrão, o Site Recovery cria uma nova conta de armazenamento de destino imitando sua configuração de armazenamento da VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
+    - **Contas de armazenamento de destino (se a VM de origem não usar discos gerenciados)**: por padrão, o Site Recovery cria uma nova conta de armazenamento de destino imitando sua configuração de armazenamento da VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
+    - **Discos gerenciados de réplica (se a VM de origem usar discos gerenciados)**: o Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) do disco gerenciado da VM de origem.
     - **Contas de armazenamento em cache**: o Site Recovery precisa de uma conta de armazenamento extra, chamada armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino.
     - **Conjunto de disponibilidade**: por padrão, o Azure Site Recovery cria uma nova configuração de disponibilidade na região de destino com o sufixo "asr". Caso o conjunto de disponibilidade criado pelo Azure Site Recovery já exista, ele é reutilizado.
     - **Política de replicação**: define as configurações para histórico de retenção de ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de “24 horas” para retenção de pontos de recuperação e “60 minutos” para a frequência de instantâneo consistente do aplicativo.

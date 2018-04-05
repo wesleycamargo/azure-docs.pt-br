@@ -1,24 +1,24 @@
 ---
-title: Implantar um aplicativo Node.js que usa MongoDB | Microsoft Docs
-description: "Instruções passo a passo sobre como empacotar executáveis convidados para implantar em um cluster do Service Fabric do Azure"
+title: Implantar um aplicativo Node.js que usa MongoDB para o Azure Service Fabric | Microsoft Docs
+description: Instruções passo a passo sobre como empacotar executáveis convidados para implantar em um cluster do Service Fabric do Azure
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: msfussell;mikhegn
-ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 4987cc271a3e3d8a1a69c4c7fbd213d73ca2eb96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implantar vários executáveis de convidado
 Este artigo mostra como empacotar e implantar vários executáveis de convidado no Azure Service Fabric. Para criar e implantar um pacote de Service Fabric único, leia como [implantar um executável de convidado no Service Fabric](service-fabric-deploy-existing-app.md).

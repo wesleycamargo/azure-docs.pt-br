@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 O Azure realiza atualizações periodicamente para aumentar a confiabilidade, o desempenho e a segurança da infraestrutura de host para máquinas virtuais. Essas atualizações vão desde a aplicação de patch de componentes de software no ambiente de hospedagem (como sistema operacional, hipervisor e vários agentes implantados no host), a atualização de componentes de rede até o encerramento de hardware. A maioria dessas atualizações é realizada sem nenhum impacto nas máquinas virtuais hospedadas. No entanto, há casos em que as atualizações possuem um impacto:
 
-- Se a manutenção não exigir uma reinicialização, o Azure usa migração in-loco para pausar a máquina virtual enquanto o host está atualizado.
+- Se uma atualização sem reinicialização for possível, o Azure usará a memória preservação de manutenção para pausar a máquina virtual enquanto o host é atualizado ou a VM é movida para um host já atualizada completamente.
 
 - Se a manutenção requer uma reinicialização, você receberá um aviso informando para quando a manutenção está planejada. Nesses casos, você também terá uma janela de tempo, onde você pode iniciar a manutenção, em um momento que mais oportuno para você.
 
@@ -26,13 +26,13 @@ Aplicativos em execução em uma máquina virtual podem coletar informações so
 
 Para obter instruções sobre como gerenciar a manutenção planejada, consulte “Administrando notificações de manutenção planejada” para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>Migração de VM local
+## <a name="memory-preserving-maintenance"></a>Preservação da manutenção da memória
 
-Quando as atualizações não exigem uma reinicialização completa, uma migração ao vivo local é usada. Durante a atualização a máquina virtual será pausada por aproximadamente 30 segundos, preservando a memória RAM, enquanto o ambiente de hospedagem aplica os patches e as atualizações necessárias. A máquina virtual é reiniciada e o relógio da máquina virtual é sincronizado automaticamente.
+Quando as atualizações não exigirem uma reinicialização completa, preservar os mecanismos de manutenção de memória e usado para limitar o impacto à máquina virtual. A máquina virtual será pausada por aproximadamente 30 segundos, preservando a memória RAM, enquanto o ambiente de hospedagem aplica os patches e as atualizações necessárias, ou moverá a VM para um host já atualizado. A máquina virtual é reiniciada e o relógio da máquina virtual é sincronizado automaticamente. 
 
 Para VMs em conjuntos de disponibilidade, os domínios de atualização são atualizados um de cada vez. Todas as VMs em um domínio de atualização (UD) são pausadas, atualizadas e, em seguida, reiniciadas antes da manutenção planejada passar para o próximo UD.
 
-Alguns aplicativos podem ser afetados por esses tipos de atualizações. Os aplicativos que executam processamento de eventos em tempo real, transmissão de mídia ou transcodificação, ou cenários de rede de alta produtividade, podem não ser projetados para tolerar uma pausa de 30 segundos. <!-- sooooo, what should they do? --> 
+Alguns aplicativos podem ser afetados por esses tipos de atualizações. Os aplicativos que executam processamento de eventos em tempo real, transmissão de mídia ou transcodificação, ou cenários de rede de alta produtividade, podem não ser projetados para tolerar uma pausa de 30 segundos. <!-- sooooo, what should they do? --> No caso da VM estar sendo movida para um host diferente, algumas cargas de trabalho confidenciais poderão notar uma ligeira degradação do desempenho em alguns minutos que levam a pausar a máquina Virtual. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Manutenção que exige uma reinicialização
@@ -46,6 +46,8 @@ Quando você inicia a manutenção de autoatendimento, a VM é movida para um n�
 Se você iniciar a manutenção de autoatendimento e ocorrer um erro durante o processo, a operação é interrompida, a VM não é atualizada e ela também é removida da iteração da manutenção planejada. Você será contatado em um momento posterior com um novo agendamento e receberá uma nova oportunidade para realizar a manutenção de autoatendimento. 
 
 Quando a janela de autoatendimento tiver passado, a **janela de manutenção agendada** começa. Durante essa janela de tempo você ainda pode consultar a janela de manutenção, mas não será mais possível iniciar a manutenção por conta própria.
+
+Para obter informações sobre como gerenciar a manutenção que exige reinicialização, consulte “Notificações de manutenção planejada” para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
 ## <a name="availability-considerations-during-planned-maintenance"></a>Considerações sobre disponibilidade durante a manutenção planejada 
 

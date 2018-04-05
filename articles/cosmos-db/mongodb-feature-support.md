@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 470ad2fe458c47392b8f55a8f46c75e54ccf87a3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Suporte da API MongoDB para recursos e sintaxe do MongoDB
 
@@ -92,6 +92,7 @@ O Azure Cosmos DB oferece suporte ao pipeline de agregação em visualização p
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### <a name="aggregation-expressions"></a>Expressões de agregação
 

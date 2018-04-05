@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar conjuntos de dimensionamento de máquina virtual com o Azure PowerShell | Microsoft Docs"
-description: "Cmdlets do Azure PowerShell comuns para gerenciar conjuntos de dimensionamento de máquina virtual, tais como, iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento."
+title: Gerenciar conjuntos de dimensionamento de máquina virtual com o Azure PowerShell | Microsoft Docs
+description: Cmdlets do Azure PowerShell comuns para gerenciar conjuntos de dimensionamento de máquina virtual, tais como, iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gerenciar um conjunto de dimensionamento da máquina virtual usando o Azure PowerShell
 Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Além disso, talvez você deseje criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos cmdlets comuns do Azure PowerShell que permitem executar essas tarefas.
 
-Para concluir essas tarefas de gerenciamento, é necessário o último módulo do Azure PowerShell. Para obter informações sobre como instalar e usar a versão mais recente, consulte [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps). Se for preciso criar um conjunto de dimensionamento de máquinas virtuais, você pode [criar um conjunto de dimensionamento no portal do Azure](virtual-machine-scale-sets-create-portal.md).
+Para concluir essas tarefas de gerenciamento, é necessário o último módulo do Azure PowerShell. Para saber mais, consulte [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps). Se for preciso criar um conjunto de dimensionamento de máquinas virtuais, você pode [criar um conjunto de dimensionamento com o Azure PowerShell](quick-create-powershell.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Exibir informações sobre um conjunto de dimensionamento

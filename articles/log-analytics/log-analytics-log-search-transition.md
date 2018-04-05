@@ -1,8 +1,8 @@
 ---
 title: Roteiro da linguagem de consulta do Azure Log Analytics | Microsoft Docs
-description: "Este artigo fornece assistência na transição para a nova linguagem de consulta do Log Analytics, caso você já esteja familiarizado com a linguagem herdada."
+description: Este artigo fornece assistência na transição para a nova linguagem de consulta do Log Analytics, caso você já esteja familiarizado com a linguagem herdada.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
 ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transição para a nova linguagem de consulta do Azure Log Analytics
 O Log Analytics implementou recentemente uma nova linguagem de consulta.  Este artigo fornece assistência na transição para a linguagem para o Log Analytics, caso você já esteja familiarizado com a linguagem herdada e ainda precise de assistência.
@@ -40,7 +40,7 @@ O [site com a documentação sobre a Linguagem de Consulta do Log Analytics](htt
 
 A tabela a seguir fornece uma comparação entre uma variedade de consultas comuns para comandos equivalentes entre a linguagem de consulta herdada e a nova no Azure Log Analytics.
 
-| Descrição | Herdada | novo |
+| DESCRIÇÃO | Herdada | novo |
 |:--|:--|:--|
 | Pesquisar todas as tabelas      | error | Pesquisar “erro” (não diferencia maiúsculas de minúsculas) |
 | Selecione os dados da tabela | Type=Event |  Evento |
@@ -50,11 +50,11 @@ A tabela a seguir fornece uma comparação entre uma variedade de consultas comu
 |                        | Type=Event Computer=contains("contoso") | Evento &#124; em que o Computador contém “contoso” (não diferencia maiúsculas de minúsculas)<br>Evento &#124; em que o Computador contains_cs “Contoso” (diferencia maiúsculas de minúsculas) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Comparação de datas        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
-|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
-| Comparação de boolianos     | Type=Heartbeat IsGatewayInstalled=false  | Pulsação \| where IsGatewayInstalled == false |
+|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
+| Comparação de boolianos     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| onde IsGatewayInstalled == false |
 | Classificar                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Distinct               | Type=Event &#124; dedup Computer \| select Computer | Event &#124; summarize by Computer, EventLog |
-| Estender colunas         | Type=Perf CounterName="% Processor Time" &#124; EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf &#124; where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |
+| Estender colunas         | Type=Perf CounterName="% Processor Time" &#124; EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf &#124; onde CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |
 | Agregação            | Type=Event &#124; measure count() as Count by Computer | Event &#124; summarize Count = count() by Computer |
 |                                | Type=Perf ObjectName=Processor CounterName="% Processor Time" &#124; measure avg(CounterValue) by Computer interval 5minute | Perf &#124; where ObjectName=="Processor" and CounterName=="% Processor Time" &#124; summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min) |
 | Agregação com limite | Type=Event &#124; measure count() by Computer &#124; top 10 | Event &#124; summarize AggregatedValue = count() by Computer &#124; limit 10 |

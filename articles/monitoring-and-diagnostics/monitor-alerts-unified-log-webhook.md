@@ -1,12 +1,12 @@
 ---
-title: "Ações de webhook para alertas do log nos Alertas do Azure (versão prévia) | Microsoft Docs"
-description: "Este artigo descreve como uma regra de alerta do log utilizando o Log Analytics ou Application Insights efetuará push de dados como o webhook HTTP e fornece detalhes das diferentes personalizações possíveis."
+title: Ações de webhook para alertas do log nos Alertas do Azure | Microsoft Docs
+description: Este artigo descreve como uma regra de alerta do log utilizando o Log Analytics ou Application Insights efetuará push de dados como o webhook HTTP e fornece detalhes das diferentes personalizações possíveis.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta do log
-Quando um alerta [é criado no Azure (versão prévia)](monitor-alerts-unified-usage.md), você tem a opção de [configurar usando grupos de ações](monitoring-action-groups.md) para executar uma ou mais ações.  Este artigo descreve as diferentes ações do webhook que estão disponíveis e os detalhes sobre a configuração do webhook baseado em JSON personalizado.
+Quando um alerta [é criado no Azure ](monitor-alerts-unified-usage.md), você tem a opção de [configurar usando grupos de ações](monitoring-action-groups.md) para executar uma ou mais ações.  Este artigo descreve as diferentes ações do webhook que estão disponíveis e os detalhes sobre a configuração do webhook baseado em JSON personalizado.
 
 
 ## <a name="webhook-actions"></a>Ações de Webhook
@@ -33,7 +33,7 @@ As ações de webhook exigem as propriedades indicadas na tabela a seguir:
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | URL de Webhook |A URL do webhook. |
-| Carga JSON personalizada |Carga personalizada para enviar com o webhook quando esta opção for escolhida durante a criação do alerta. Detalhes disponíveis em [Gerenciar alertas usando Alertas do Azure (versão prévia)](monitor-alerts-unified-usage.md) |
+| Carga JSON personalizada |Carga personalizada para enviar com o webhook quando esta opção for escolhida durante a criação do alerta. Detalhes disponíveis em [Gerenciar alertas usando Alertas do Azure](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > Botão Testar o Webhook junto com a opção *Incluir conteúdo JSON personalizado para webhook* para Alerta do Log disparará chamada fictícia para testar a URL do webhook. Não contém dados reais e representativos do esquema JSON usado para Alertas do Log. 
@@ -157,6 +157,8 @@ A seguir, é apresentado uma carga de amostra para um padrão do webhook *sem a 
     }
     }
 
+> [!NOTE]
+> Os alertas de registro para o Application Insights estão atualmente em versão prévia pública - a funcionalidade e a experiência do usuário estão sujeitas a alterações.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Alerta do Log com conteúdo JSON personalizado
 Por exemplo, para criar uma carga personalizada que inclui apenas o nome do alerta e os resultados da pesquisa, você poderia usar o seguinte: 
@@ -194,7 +196,7 @@ A seguir, é apresentado um conteúdo de amostra para uma ação do webhook pers
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre os [Alertas de Log no Alertas do Azure (versão prévia)](monitor-alerts-unified-log.md)
+- Saiba mais sobre os [Alertas de log nos Alertas do Azure](monitor-alerts-unified-log.md)
 - Criar e gerenciar [grupos de ações no Azure](monitoring-action-groups.md)
 - Saiba mais sobre o [Application Insights](../application-insights/app-insights-analytics.md)
 - Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md). 

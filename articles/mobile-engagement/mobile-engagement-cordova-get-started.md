@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Azure Mobile Engagement para Cordova/Phonegap"
-description: "Aprenda a usar o Azure Mobile Engagement com Análises e Notificações por Push para Aplicativos Cordova/Phonegap."
+title: Introdução ao Azure Mobile Engagement para Cordova/Phonegap
+description: Aprenda a usar o Azure Mobile Engagement com Análises e Notificações por Push para Aplicativos Cordova/Phonegap.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abe0ad6117cc2feb72ebe788d07b50e8f145174c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Introdução ao Azure Mobile Engagement para Cordova/Phonegap
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do aplicativo e enviar notificações por push para usuários segmentados para um aplicativo móvel desenvolvido com Cordova.
@@ -28,7 +32,7 @@ Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do a
 Neste tutorial, criamos um aplicativo do Cordova em branco usando o Mac e integramos o SDK do Mobile Engagement. Ele coleta dados de análise básica e recebe notificações por push usando o sistema de notificações de Push da Apple (APNS) para iOS e Google Cloud Messaging (GCM) para o Android. Nós implantaremos em um dispositivo iOS ou Android para teste. 
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
+> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 > 
 > 
 

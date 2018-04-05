@@ -1,11 +1,11 @@
 ---
-title: "Introdução aos Hubs de Notificação do Azure para aplicativos da Plataforma Universal do Windows | Microsoft Docs"
-description: "Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo da Plataforma Universal do Windows."
+title: Introdução aos Hubs de Notificação do Azure para aplicativos da Plataforma Universal do Windows | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo da Plataforma Universal do Windows.
 services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Introdução aos Hubs de Notificação para aplicativos da Plataforma Universal do Windows
 
@@ -94,11 +94,11 @@ O hub de notificação agora está configurado para trabalhar com WNS. Você tem
 1. No Visual Studio, clique com o botão direito do mouse na solução e selecione **Gerenciar Pacotes NuGet**.  
     A janela **Gerenciar Pacotes NuGet** é aberta.
 
-2. Na caixa de pesquisa, digite **WindowsAzure.Messaging.Managed**, selecione **Instalar**e aceite os termos de uso.
+2. Na caixa de pesquisa, digite **Microsoft.Azure.NotificationHubs**, selecione **Instalar**e aceite os termos de uso.
    
     ![A janela Gerenciar Pacotes NuGet][20]
    
-    Essa ação baixa, instala e adiciona uma referência à biblioteca de mensagens do Azure para Windows usando o [pacote NuGet WindowsAzure.Messaging.Managed](http://nuget.org/packages/WindowsAzure.Messaging).
+    Essa ação baixa, instala e adiciona uma referência à biblioteca dos Hubs de Notificação do Azure para Windows usando o [pacote NuGet Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Abra o arquivo de projeto App.xaml.cs e adicione as seguintes instruções `using`: 
    

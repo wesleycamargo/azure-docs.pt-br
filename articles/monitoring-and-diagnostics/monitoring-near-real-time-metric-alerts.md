@@ -15,58 +15,67 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 88995b1f3350fe485e28efccc93779ae0a42eb97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="near-real-time-metric-alerts-preview"></a>Alertas de métrica quase em tempo real (versão prévia)
-O Azure Monitor é compatível com um novo tipo de alerta chamado alertas de métrica quase em tempo real (versão prévia). Atualmente, esse recurso está em visualização pública.
+# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>Use os alertas de métrica mais novos para serviços do Azure no portal do Azure
+O Azure Monitor é compatível com um novo tipo de alerta chamado alertas de métrica quase em tempo real. 
 
-Os alertas em tempo real diferem dos alertas de métrica comuns de algumas maneiras:
+Os alertas em tempo real diferem dos [alertas de métrica clássicos](insights-alerts-portal.md) de algumas maneiras:
 
-- **Melhor latência**: os alertas de métrica quase em tempo real podem monitorar alterações nos valores de métrica com uma frequência de até um minuto.
+- **Latência melhorada**: alertas de métrica quase em tempo real podem ser executados com uma frequência mínima de a cada um minuto. Os alertas de métrica antigos são sempre executados em uma frequência de 5 minutos.
+- **Suporte para métricas multidimensionais**: você pode alertar sobre métricas dimensionais, permitindo que você monitore um segmento interessante da métrica.
 - **Mais controle sobre as condições de métrica**: é possível definir regras de alerta mais avançadas em alertas de métrica quase em tempo real. Os alertas dão suporte ao monitoramento dos valores máximo, mínimo, média e total das métricas.
-- **Métricas de logs**: as métricas podem ser extraídas dos dados de log populares que chegam ao [Log Analytics](../log-analytics/log-analytics-overview.md) para o Azure Monitor e ser gerado um alerta quase em tempo real
 - **Monitoramento combinado de várias métricas**: os alertas de métrica quase em tempo real podem monitorar várias métricas (atualmente, até duas) com uma única regra. Um alerta é disparado quando ambas as métricas violam seus respectivos limites para o período especificado.
 - **Sistema de notificação modular**: os alertas de métrica quase em tempo real usam [grupos de ação](monitoring-action-groups.md). É possível usar grupos de ação para criar ações modulares. É possível reutilizar grupos de ação para várias regras de alerta.
+- **Métricas de logs**: as métricas podem ser extraídas dos dados de log populares que chegam ao [Log Analytics](../log-analytics/log-analytics-overview.md) para o Azure Monitor e ser gerado um alerta quase em tempo real.
 
-> [!NOTE]
-> Atualmente, o alerta de métrica quase em tempo real está em visualização pública. As métricas dos recursos de logs estão em visualização pública *limitada*. A funcionalidade e a experiência do usuário está sujeita a alterações.
->
 
 ## <a name="metrics-and-dimensions-supported"></a>Medidas e dimensões com suporte
 Alertas de métrica quase em tempo real dão suporte a métricas que usam dimensões. É possível usar dimensões para filtrar sua métrica para o nível certo. Todas as métricas compatíveis, juntamente com as dimensões aplicáveis, podem ser exploradas e visualizadas do [Azure Monitor – Metrics Explorer (versão prévia)](monitoring-metric-charts.md).
 
 Eis a lista completa dos tipos de recursos do Azure Monitor compatíveis com alertas de métrica quase em tempo real:
 
-|Nome/detalhes das métricas  |Dimensões compatíveis  |
-|---------|---------|
-|Microsoft.ApiManagement/service     | sim        |
-|Microsoft.Automation/automationAccounts     |     N/D    |
-|Microsoft.Automation/automationAccounts     |   N/D      |
-|Microsoft.Cache/Redis     |    N/D     |
-|Microsoft.Compute/virtualMachines     |    N/D     |
-|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |
-|Microsoft.DataFactory/factories     |   N/D      |
-|Microsoft.DBforMySQL/servers     |   N/D      |
-|Microsoft.DBforPostgreSQL/servers     |    N/D     |
-|Microsoft.EventHub/namespaces     |   N/D      |
-|Microsoft.Logic/workflows     |     N/D    |
-|Microsoft.Network/applicationGateways     |    N/D     |
-|Microsoft.Network/publicipaddresses     |  N/D       |
-|Microsoft.Search/searchServices     |   N/D      |
-|Microsoft.ServiceBus/namespaces     |  N/D       |
-|Microsoft.Storage/storageAccounts     |    sim     |
-|Microsoft.Storage/storageAccounts/services     |     sim    |
-|Microsoft.StreamAnalytics/streamingjobs     |  N/D       |
-|Microsoft.CognitiveServices/accounts     |    N/D     |
+|Tipo de recurso  |Dimensões compatíveis  | Métricas disponíveis|
+|---------|---------|----------------|
+|Microsoft.ApiManagement/service     | sim        | [Gerenciamento da API](monitoring-supported-metrics.md#microsoftapimanagementservice)|
+|Microsoft.Automation/automationAccounts     |     sim   | [Contas de Automação](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
+|Microsoft.Batch/batchAccounts | N/D| [Contas do Lote](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
+|Microsoft.Cache/Redis     |    N/D     |[Cache Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Compute/virtualMachines     |    N/D     | [Máquinas virtuais](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
+|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |[Conjuntos de escala de Máquina Virtual](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.DataFactory/factories     |   sim     |[Data Factories V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
+|Microsoft.DBforMySQL/servers     |   N/D      |[Banco de dados para MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers     |    N/D     | [Banco de dados para PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
+|Microsoft.EventHub/namespaces     |  sim      |[Hubs de Evento](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.Logic/workflows     |     N/D    |[Aplicativos Lógicos](monitoring-supported-metrics.md#microsoftlogicworkflows) |
+|Microsoft.Network/applicationGateways     |    N/D     | [Gateways do Aplicativo](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/publicipaddresses     |  N/D       |[Endereços IP públicos.](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Search/searchServices     |   N/D      |[Serviços de pesquisa](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
+|Microsoft.ServiceBus/namespaces     |  sim       |[Barramento de Serviço](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
+|Microsoft.Storage/storageAccounts     |    sim     | [Contas de Armazenamento](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAccounts/services     |     sim    | [Serviços de blob](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Serviços de arquivo](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Serviços de fila](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de tabela](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.StreamAnalytics/streamingjobs     |  N/D       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
+|Microsoft.CognitiveServices/accounts     |    N/D     | [Serviços Cognitivos](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
+|Microsoft.OperationalInsights/workspaces (Versão prévia) | sim|[Espaços de trabalho do Log Analytics](#support-for-oms-logs-as-metrics-for-alerting)|
 
 
-Atualmente, as métricas de logs são compatíveis com os seguintes logs populares do OMS:
+## <a name="create-a-newer-metric-alert"></a>Criar um alerta de métrica novo
+Atualmente, é possível criar alertas de métrica novos apenas no portal do Azure ou API REST. O suporte para a configuração de alertas de métrica quase em tempo real usando PowerShell, a CLI (interface de linha de comando) do Azure estará disponível em breve.
+
+Para saber como criar um alerta de métrica novo no portal do Azure, consulte [Criar uma regra de alerta no portal do Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+
+## <a name="manage-newer-metric-alerts"></a>Gerenciar alertas de métrica novos
+Depois de criar um alerta de métrica quase em tempo real, você pode gerenciá-lo usando as etapas descritas em [Gerenciar seus alertas no portal do Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+
+## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>Suporte para logs do OMS como métricas para alertas
+
+Você também pode usar alertas de métrica quase em tempo real nos logs do OMS populares extraídos como métricas como parte da versão prévia de Métricas de Logs.  
 - [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) para computadores Windows e Linux
-- Registros de pulsação para computadores
+- [Registros de pulsação para Integridade do Agente](../operations-management-suite/oms-solution-agenthealth.md)
 - Registros de [gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
 
 Eis a lista completa dos tipos de recursos do OMS compatíveis com alertas de métrica quase em tempo real:
@@ -143,17 +152,8 @@ Nome/detalhes das métricas  |Dimensões compatíveis  | Tipo de log  |
 |    Atualizar |     Sim – Computer, Product, Classification, UpdateState, Optional & Approved    |   Gerenciamento de atualizações |
 
 > [!NOTE]
-> A métrica e/ou dimensão específica só será exibida se os respectivos dados existirem no período escolhido
+> A métrica e/ou dimensão específica só será exibida se os respectivos dados existirem no período escolhido. Essas métricas estão disponíveis para os clientes com espaços de trabalho no Leste dos EUA, Centro-Oeste dos EUA e Europa Ocidental que aceitaram a versão prévia. Se você gostaria de fazer parte dessa versão prévia, inscreva-se pela [pesquisa](https://aka.ms/MetricLogPreview).
 
-## <a name="create-a-near-real-time-metric-alert"></a>Criar um alerta de métrica quase em tempo real
-Atualmente, é possível criar alertas de métrica quase em tempo real apenas no portal do Azure. O suporte para a configuração de alertas de métrica quase em tempo real usando PowerShell, a CLI (interface de linha de comando) do Azure e APIs REST do Azure Monitor estará disponível em breve.
-
-A experiência de criação de alertas quase em tempo real mudou para a nova página de **Alertas (versão prévia)**. Embora a página de alertas atual mostre **Adicionar Alerta de Métrica Quase em Tempo Real**, você é redirecionado para a página **Alertas (versão prévia)**.
-
-Para saber como criar um alerta quase em tempo real, consulte [Criar uma regra de alerta no portal do Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="manage-near-real-time-metric-alerts"></a>Gerenciar alertas de métrica quase em tempo real
-Depois de criar um alerta de métrica quase em tempo real, você pode gerenciá-lo usando as etapas descritas em [Gerenciar seus alertas no portal do Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## <a name="payload-schema"></a>Esquema de conteúdo
 
@@ -209,6 +209,6 @@ A operação POST contém a carga JSON e esquema a seguir para todos os alertas 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre a nova experiência de Alertas (versão prévia)](monitoring-overview-unified-alerts.md).
-* Saiba mais sobre os [Alertas de log nos Alertas do Azure (versão prévia)](monitor-alerts-unified-log.md).
+* Saiba mais sobre a nova [Experiência de alertas](monitoring-overview-unified-alerts.md).
+* Saiba mais sobre os [alertas de log no Azure](monitor-alerts-unified-log.md).
 * Saiba mais sobre os [Alertas no Azure](monitoring-overview-alerts.md).

@@ -1,29 +1,27 @@
 ---
 title: Eventos personalizados para a Grade de Eventos do Azure com o PowerShell | Microsoft Docs
-description: "Use a Grade de Eventos do Azure e o PowerShell para publicar um tópico e assinar esse evento."
+description: Use a Grade de Eventos do Azure e o PowerShell para publicar um tópico e assinar esse evento.
 services: event-grid
-keywords: 
+keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 01/30/2018
+ms.date: 03/20/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 24366df54fa4fc32ebbff7c1303183707dea17c6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 183bafad9b38ccb0e7eaae222c5569e45b15ac21
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Criar e encaminhar eventos personalizados com o Azure PowerShell e a Grade de Eventos do Azure
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o Azure PowerShell para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. No entanto, para simplificar este artigo, você envia os eventos para uma URL que apenas coleta as mensagens. Você cria essa URL usando ferramentas de terceiros do [RequestBin](https://requestb.in/) ou [Hookbin](https://hookbin.com/).
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o Azure PowerShell para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. No entanto, para simplificar este artigo, você envia os eventos para uma URL que apenas coleta as mensagens. Essa URL é criada usando a ferramenta de terceiros [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** e **Hookbin** não servem para um uso de alta taxa de transferência. O uso dessas ferramentas é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
+>O **Hookbin** não se destina ao uso em alta taxa de transferência. O uso dessa ferramenta é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
 
-Quando tiver concluído, você verá que os dados do evento foram enviados para um ponto de extremidade.
-
-![Dados de evento](./media/custom-event-quickstart-powershell/request-result.png)
+Ao concluir, você verá que os dados do evento foram enviados para um ponto de extremidade.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +41,7 @@ New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico fornece um ponto de extremidade definido pelo usuário aonde você posta seus eventos. O exemplo a seguir o tópico no seu grupo de recursos. Substitua `<topic_name>` por um nome exclusivo para o tópico. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS.
+Um tópico de grade de evento fornece um ponto de extremidade definido pelo usuário no qual você posta seus eventos. O exemplo a seguir cria o tópico personalizado no seu grupo de recursos. Substitua `<topic_name>` por um nome exclusivo para o tópico. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS.
 
 ```powershell
 New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name <topic_name>
@@ -51,11 +49,11 @@ New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 
-Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. RequestBin e Hookbin são ferramentas de terceiros que permitem criar um ponto de extremidade e exibir solicitações que são enviadas a ele. Acesse [RequestBin](https://requestb.in/) e clique em **Criar um RequestBin** ou acesse [Hookbin](https://hookbin.com/) e clique em **Cria novo ponto de extremidade**.  Copie a URL do compartimento, pois você precisará dela para assinar o tópico.
+Antes de assinar o tópico personalizado, vamos criar o ponto de extremidade para a mensagem do evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. O Hookbin é uma ferramenta de terceiros que permite criar um ponto de extremidade e exibir as solicitações enviadas a ele. Vá até [Hookbin](https://hookbin.com/) e clique em **Criar Novo Ponto de Extremidade**.  Copie a URL do compartimento, pois você precisará dela para assinar o tópico.
 
 ## <a name="subscribe-to-a-topic"></a>Assinar um tópico
 
-Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina o tópico que você criou e transmite a URL do RequestBin ou Hookbin como o ponto de extremidade para notificação de eventos. Substitua `<event_subscription_name>` por um nome exclusivo para a sua assinatura e `<endpoint_URL>` pelo valor da seção anterior. A especificação de um ponto de extremidade durante a assinatura faz com que a Grade de Eventos manipule o roteamento de eventos para esse ponto de extremidade. Em `<topic_name>`, use o valor que você criou anteriormente.
+Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina o tópico personalizado que você criou e transmite a URL do Hookbin como o ponto de extremidade para a notificação de eventos. Substitua `<event_subscription_name>` por um nome exclusivo para a sua assinatura e `<endpoint_URL>` pelo valor da seção anterior. A especificação de um ponto de extremidade durante a assinatura faz com que a Grade de Eventos manipule o roteamento de eventos para esse ponto de extremidade. Em `<topic_name>`, use o valor que você criou anteriormente.
 
 ```powershell
 New-AzureRmEventGridSubscription -EventSubscriptionName <event_subscription_name> -Endpoint <endpoint_URL> -ResourceGroupName gridResourceGroup -TopicName <topic_name>
@@ -63,14 +61,14 @@ New-AzureRmEventGridSubscription -EventSubscriptionName <event_subscription_name
 
 ## <a name="send-an-event-to-your-topic"></a>Enviar um evento para o tópico
 
-Agora, vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Primeiro, vamos obter a URL e a chave para o tópico. Novamente, use o nome do tópico em `<topic_name>`.
+Vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Primeiro, vamos obter a URL e a chave para o tópico. Novamente, use o nome do tópico em `<topic_name>`.
 
 ```powershell
 $endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
 $keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 ```
 
-Para simplificar este artigo, vamos configurar dados de evento de exemplo para enviar ao tópico. Normalmente, um aplicativo ou serviço do Azure enviaria os dados de evento. O exemplo a seguir usa a tabela de hash para construir os dados do evento `htbody` e, em seguida, converte-os para o objeto de carga JSON bem formado `$body`:
+Para simplificar este artigo, vamos configurar dados de evento de exemplo para enviar ao tópico personalizado. Normalmente, um aplicativo ou serviço do Azure enviaria os dados de evento. O exemplo a seguir usa a tabela de hash para construir os dados do evento `htbody` e, em seguida, converte-os para o objeto de carga JSON bem formado `$body`:
 
 ```powershell
 $eventID = Get-Random 99999
@@ -104,7 +102,7 @@ Agora, envie o evento para o tópico.
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Navegue até a URL do ponto de extremidade que você criou anteriormente. Ou clique em Atualizar no navegador. Você verá o evento que acabou de ser enviado.
+Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Navegue até a URL do ponto de extremidade que você criou anteriormente. Ou clique em Atualizar no navegador. Você verá o evento que acabou de ser enviado.
 
 ```json
 [{
@@ -124,7 +122,7 @@ Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de e
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você planeja continuar a trabalhar com esse evento, não limpe os recursos criados neste artigo. Caso contrário, use os comandos a seguir para excluir os recursos criados por você neste artigo.
+Caso planeje continuar a trabalhar com esse evento, não limpe os recursos criados neste artigo. Caso contrário, use os comandos a seguir para excluir os recursos criados por você neste artigo.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name gridResourceGroup

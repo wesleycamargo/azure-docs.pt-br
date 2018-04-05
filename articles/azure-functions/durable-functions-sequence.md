@@ -1,32 +1,32 @@
 ---
-title: "Encadeamento de funções nas Funções Duráveis – Azure"
-description: "Saiba como executar um exemplo de Funções Duráveis que executa uma sequência de funções."
+title: Encadeamento de funções nas Funções Duráveis – Azure
+description: Saiba como executar um exemplo de Funções Duráveis que executa uma sequência de funções.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento de funções nas Funções Duráveis – Exemplo se sequência Hello
 
 Encadeamento de funções é o padrão de executar uma sequência de funções em uma ordem específica. Frequentemente, a saída de uma função precisa ser aplicada à entrada de outra função. Este artigo descreve um exemplo que usa as [Funções Duráveis](durable-functions-overview.md) para implementar o encadeamento de funções.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-* Siga as instruções em [Instalar Funções Duráveis](durable-functions-install.md) para configurar o exemplo.
+* [Instalar Funções Duráveis](durable-functions-install.md).
 
 ## <a name="the-functions"></a>As funções
 
@@ -35,7 +35,7 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 * `E1_HelloSequence`: uma função de orquestrador que chama `E1_SayHello` várias vezes em uma sequência. Ela armazena as saídas das chamadas `E1_SayHello` e registra os resultados.
 * `E1_SayHello`: uma função de atividade que precede uma cadeia de caracteres com "Hello".
 
-As seções a seguir explicam a configuração e o código que são usados para desenvolvimento no portal do Azure. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
+As seções a seguir explicam a configuração e o código utilizados para o script C#. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
  
 ## <a name="functionjson-file"></a>Arquivo function.json
 

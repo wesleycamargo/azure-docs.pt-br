@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 03/27/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/29/2018
+---
 O Data factory é um serviço multilocatário que tem os seguintes limites padrão em vigor para certificar-se de que as assinaturas de clientes são protegidas das cargas de trabalho umas das outras. Entrando em contato com o suporte, é possível aumentar muitos dos limites facilmente em sua assinatura até o limite máximo.
 
 ### <a name="version-2"></a>Versão 2
@@ -15,7 +31,7 @@ O Data factory é um serviço multilocatário que tem os seguintes limites padr�
 | Máximo de parâmetros por pipeline | 20 | 30 |
 | Bytes por objeto para objetos do pipeline <sup>1</sup> | 200 KB | 200 KB |
 | Bytes por objeto para objetos de conjunto de dados e serviço vinculado <sup>1</sup> | 100 KB | 2000 KB |
-| Unidades de movimentação de dados de nuvem <sup>3</sup> | 32 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unidades de movimentação de dados de nuvem <sup>3</sup> | 256 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Contagem novas tentativas de execução de atividade do pipeline | 1 dia (tempo limite) | 1 dia (tempo limite) |
 | Gravar chamadas à API | 2500/hr<br/><br/> Esse limite é imposto pelo Azure Resource Manager, não pelo Azure Data Factory. | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Ler chamadas à API | 12.500/hr<br/><br/> Esse limite é imposto pelo Azure Resource Manager, não pelo Azure Data Factory. | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -39,7 +55,7 @@ O Data factory é um serviço multilocatário que tem os seguintes limites padr�
 
 <sup>2</sup> Os núcleos sob demanda HDInsight são alocados da assinatura que contém o data factory. Como resultado, o limite acima é o limite de núcleo imposto pelo Data Factory para núcleos HDInsight sob demanda e é diferente do limite de núcleo associado à assinatura do Azure.
 
-<sup>3</sup> A DMU (unidade de movimentação de dados de nuvem) está sendo usada em uma operação de cópia de nuvem para nuvem. É uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos da rede) de uma unidade única no Data Factory. Você pode obter uma taxa de transferência de cópia mais alta usando mais DMUs em alguns cenários. Veja a seção [Unidades de movimentação de dados em nuvem](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) para exibir os detalhes.
+<sup>3</sup> A DMU (unidade de movimentação de dados de nuvem) está sendo usada em uma operação de cópia de nuvem para nuvem. É uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos da rede) de uma unidade única no Data Factory. Você pode obter uma taxa de transferência de cópia mais alta usando mais DMUs em alguns cenários. Consulte a seção [unidades de movimentação de dados (V2) de nuvem](../articles/data-factory/copy-activity-performance.md#cloud-data-movement-units) e [unidades de movimentação de dados (V1) de nuvem](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) em detalhes.
 
 <sup>4</sup> O IR (tempo de execução de integração) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede: movimentação de dados, atividades de expedição para serviços de computação, execução de pacotes de SSIS. Para obter mais informações, consulte [Visão geral do Integration Runtime](../articles/data-factory/concepts-integration-runtime.md).
 

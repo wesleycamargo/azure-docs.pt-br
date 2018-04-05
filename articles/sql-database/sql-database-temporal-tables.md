@@ -3,17 +3,17 @@ title: Introdução às Tabelas Temporais no Banco de Dados SQL do Azure | Micro
 description: Saiba como começar a usar as Tabelas Temporais no Banco de Dados SQL do Azure.
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introdução às Tabelas Temporais no Banco de Dados SQL do Azure
 As Tabelas Temporais são um novo recurso de programação do Banco de Dados SQL do Azure que permite controlar e analisar o histórico completo de alterações em seus dados, sem a necessidade de codificação personalizada. As Tabelas Temporais mantêm os dados relacionados ao contexto de tempo, de forma que os fatos armazenados possam ser interpretados como válidos apenas no período específico. Essa propriedade das Tabelas Temporais permite uma análise eficiente baseada em tempo e a obtenção de informações da evolução dos dados.
@@ -64,7 +64,7 @@ Quando você cria a tabela temporal versionada pelo sistema, a tabela de histór
 Neste caso em particular, temos o objetivo de realizar análises de tendências baseadas em tempo ao longo de um histórico de dados maior e com conjuntos de dados maiores, de forma que a opção de armazenamento para a tabela de histórico seja um índice columnstore clusterizado. Um columnstore clusterizado oferece compactação e desempenho ótimos para consultas analíticas. As Tabelas Temporais oferecem a flexibilidade de configurar os índices nas tabelas atuais e temporais de forma totalmente independente. 
 
 > [!NOTE]
-> Os índices columnstore só estão disponíveis na camada de serviço premium.
+> Índices ColumnStore estão disponíveis na camada Premium e na camada Standard, S3 e posteriores.
 >
 
 O script a seguir mostra como o índice padrão na tabela de histórico pode ser alterado para o columnstore clusterizado:

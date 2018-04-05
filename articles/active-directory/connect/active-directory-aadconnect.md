@@ -1,33 +1,35 @@
 ---
 title: Conectar o Active Directory com o Azure Active Directory. | Microsoft Docs
-description: "O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você forneça uma identidade comum para os aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure."
-keywords: "introdução ao Azure AD Connect, visão geral do Azure AD Connect, o que é o Azure AD Connect, instalar o active directory"
+description: O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você forneça uma identidade comum para os aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure.
+keywords: introdução ao Azure AD Connect, visão geral do Azure AD Connect, o que é o Azure AD Connect, instalar o active directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 83654a406019c4ac3837a3e961a6de640c98f31c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6f0b5cd7b981cddeda7e5630967f5f8dba18bb98
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrar seus diretórios locais no Azure Active Directory
 O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Este tópico guiará você nas etapas de planejamento, implantação e operação. É uma coleção de links para os tópicos relacionados a essa área.
 
 > [!IMPORTANT]
-> [O Azure AD Connect é a melhor maneira de conectar seu diretório local ao Azure AD e ao Office 365. Esse é um ótimo momento para atualizar para o Azure Active Directory Connect do Windows Azure Active Directory Sync (DirSync) ou do Azure Active Directory Sync, pois essas ferramentas foram preteridas e não terão mais suporte a partir de 13 de abril de 2017.](active-directory-aadconnect-dirsync-deprecated.md)
+> [O Azure AD Connect é a melhor maneira de conectar seu diretório local ao Azure AD e ao Office 365. Esse é um ótimo momento para atualizar para o Azure Active Directory Connect do Windows Azure Active Directory Sync (DirSync) ou do Azure Active Directory Sync, pois essas ferramentas foram preteridas e não terão mais suporte a partir de 13 de abril de 2017.](active-directory-aadconnect-dirsync-deprecated.md)  Além disso:
 > 
-> 
+> - Sincronizar usuários ao Azure Active Directory é um **recurso gratuito** e não requer que os clientes possuam uma assinatura paga.
+>- **Não é concedida automaticamente** *nenhuma* licença aos usuários sincronizados. Os administradores ainda têm controle total sobre a atribuição de licenças. 
+> - A Microsoft recomenda que os administradores de TI sincronizem todos os seus usuários. Isso não apenas desbloqueia o acesso dos usuários a qualquer recurso integrado do Azure Active Directory, como também oferece uma exibição muito mais ampla para que administradores de TI vejam quais aplicativos estão sendo acessados pelos usuários. 
 
 ![O que é o Azure AD Connect](media/active-directory-aadconnect/arch.png)
 

@@ -1,11 +1,11 @@
 ---
 title: Entender a linguagem de consulta do Hub IoT do Azure | Microsoft Azure
-description: "Guia do desenvolvedor – descrição da linguagem de consulta do Hub IoT semelhante a SQL, usada para recuperar informações sobre dispositivos gêmeos e trabalhos do seu Hub IoT."
+description: Guia do desenvolvedor – descrição da linguagem de consulta do Hub IoT semelhante a SQL, usada para recuperar informações sobre dispositivos gêmeos e trabalhos do seu Hub IoT.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens
 
@@ -26,6 +26,8 @@ O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação d
 
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
 * Uma descrição mais detalhada da linguagem.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-twin-queries"></a>Consultas de dispositivo gêmeo
 Os [dispositivos gêmeos][lnk-twins] podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos gêmeos como um único documento JSON que contém todas as informações do dispositivo gêmeo.

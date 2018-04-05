@@ -1,10 +1,11 @@
 ---
 title: Usar os conjuntos de dados de exemplo no Machine Learning Studio | Microsoft Docs
-description: "Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Machine Learning Studio. É possível usar esses conjuntos de dados de exemplo para seus testes."
+description: Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Machine Learning Studio. É possível usar esses conjuntos de dados de exemplo para seus testes.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: garye
-ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usar os conjuntos de dados de amostra no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -190,7 +190,7 @@ Registros de pousos e decolagens nos Estados Unidos desde outubro de 2011.
 <p></p>
 <b>Uso:</b> prever atrasos nos voos. 
 <p></p>
-<b>Pesquisa relacionada:</b> do Departamento de Transportes dos EUA <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>Pesquisa relacionada:</b> do Departamento de Transporte dos EUA <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 

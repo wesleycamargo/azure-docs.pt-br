@@ -1,10 +1,10 @@
 ---
-title: "Políticas de indexação do Azure Cosmos DB | Microsoft Docs"
-description: "Entenda como funciona a indexação no Azure Cosmos DB. Saiba como configurar e alterar a política de indexação para indexação automática e um melhor desempenho."
-keywords: "como funciona a indexação, indexação automática, banco de dados de indexação"
+title: Políticas de indexação do Azure Cosmos DB | Microsoft Docs
+description: Entenda como funciona a indexação no Azure Cosmos DB. Saiba como configurar e alterar a política de indexação para indexação automática e um melhor desempenho.
+keywords: como funciona a indexação, indexação automática, banco de dados de indexação
 services: cosmos-db
-documentationcenter: 
-author: arramac
+documentationcenter: ''
+author: rafats
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 5610c5fdc6a04f9ef13d2e4592f0d7e5d8eba30c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
 
 Por padrão, todos os dados do Azure Cosmos DB são indexados. Embora muitos clientes estejam satisfeitos em permitir que o Azure Cosmos DB identifique automaticamente todos os aspectos da indexação, é possível especificar uma *política de indexação* personalizada para coleções durante a criação no Azure Cosmos DB. As políticas de indexação no Azure Cosmos DB são mais flexíveis e mais eficientes que os índices secundários oferecidos em outras plataformas de banco de dados. No Azure Cosmos DB, é possível projetar e personalizar a forma do índice sem sacrificar a flexibilidade do esquema. 
 
 Para saber como a indexação funciona no Azure Cosmos DB, é importante entender que ao gerenciar a política de indexação será possível uma compensação refinada entre sobrecarga de armazenamento de índice, taxa de transferência de consulta e gravação e consistência de consultas.  
+
+No vídeo a seguir, o gerente de programa do Azure Cosmos DB, Andrew Liu, demonstra os recursos de indexação automática do Azure Cosmos DB e como ajustar e configurar a política de indexação em seu contêiner do Azure Cosmos DB. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 Nesse artigo, examinamos de detalhadamente as políticas de indexação do Azure Cosmos DB, como personalizar a política de indexação e as compensações associadas. 
 

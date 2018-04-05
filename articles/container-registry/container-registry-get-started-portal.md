@@ -1,6 +1,6 @@
 ---
-title: "Guia de início rápido – criar um registro particular do Docker no Azure com o Portal do Azure"
-description: "Aprenda rapidamente a criar um registro de contêiner particular do Docker com o Portal do Azure."
+title: Guia de início rápido – criar um registro particular do Docker no Azure com o Portal do Azure
+description: Aprenda rapidamente a criar um registro de contêiner particular do Docker com o Portal do Azure.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7ea0ae9c0c071a08c9ff99587cd8c5dc8034fe69
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Criar um registro de contêiner usando o portal do Azure
+# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Início Rápido: criar um registro de contêiner usando o Portal do Azure
 
 Um registro de contêiner do Azure é um registro particular do Docker no Azure no qual você pode armazenar e gerenciar suas imagens de contêiner particulares do Docker. Neste início rápido, você cria um registro de contêiner com o portal do Azure, envia por push uma imagem de contêiner para o registro e, por fim, implanta o contêiner do registro nas ACI (Instâncias de Contêiner do Azure ).
 
@@ -23,7 +23,7 @@ Para concluir este guia de início rápido, você deve ter o Docker instalado lo
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em https://portal.azure.com.
+Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 

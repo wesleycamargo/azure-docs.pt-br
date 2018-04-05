@@ -1,11 +1,11 @@
 ---
 title: Use emoticons Emoji com o Azure Mobile Engagement
-description: "Como usar emoticons Emoji dentro de suas notificações de push"
+description: Como usar emoticons Emoji dentro de suas notificações de push
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 663317d7-3c93-4e8f-b13d-c6fb342124ee
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: bbb7ce5e95b229a7505c5e97b6866d5a302a1d27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b5b0e7bfe07054d093dc164cb5f72bde4ba28170
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-emoji-emoticon-within-push-notifications"></a>Use o emoticon Emoji em notificações por Push
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Você pode incluir emoticons Emoji em notificações por push em algumas etapas fáceis: 
 
 1. Em primeiro lugar, que você precisa encontrar o Emoji que quer enviar na mensagem. Verifique se o Emoji que você está selecionando será compatível com o dispositivo de destino, já que os fabricantes de dispositivos levam algum tempo para adicionar Emojis recém-aprovados às plataformas de dispositivo. 

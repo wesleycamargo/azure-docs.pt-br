@@ -1,9 +1,25 @@
-1. Navegue até a folha do seu gateway de rede virtual e a abra. Há várias maneiras de navegar. Em nosso exemplo, podemos navegar para o gateway 'VNet1GW' acessando **TestVNet1 -> Visão geral -> Dispositivos conectados -> VNet1GW**.
-2. Na folha do VNet1GW, clique em **Conexões**. Na parte superior da folha Conexões, clique em **+ Adicionar** para abrir a folha **Adicionar conexão**.
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: ea616786d69d41435be2a46e90d4973b21270935
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/23/2018
+---
+1. Navegue até a página do seu gateway de rede virtual e a abra. Há várias maneiras de navegar. Em nosso exemplo, podemos navegar para o gateway 'VNet1GW' acessando **TestVNet1 -> Visão geral -> Dispositivos conectados -> VNet1GW**.
+2. Na página do VNet1GW, clique em **Conexões**. Na parte superior da página Conexões, clique em **+ Adicionar** para abrir a página **Adicionar conexão**.
 
     ![Criar uma conexão site a site](./media/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include/connection1.png)
 
-3. Na folha **Adicionar conexão**, preencha os valores para criar a conexão.
+3. Na página **Adicionar conexão**, preencha os valores para criar a conexão.
 
   - **Nome:** nomeie sua conexão. Nós usamos **VNet1toSite2** em nosso exemplo.
   - **Tipo de conexão:** selecione **Site a site (IPSec)**.
@@ -13,4 +29,4 @@
   - Os valores restantes para **Assinatura**, **Grupo de Recursos** e **Local** são corrigidos.
 
 4. Clique em **OK** para criar sua conexão. Você verá *Criar Conexão* piscar na tela.
-5. Você pode exibir a conexão na folha **Conexões** do seu gateway de rede virtual. O Status será alterado de *Desconhecido* para *Conectando* e então para *Êxito*.
+5. Você pode exibir a conexão na página **Conexões** do seu gateway de rede virtual. O Status será alterado de *Desconhecido* para *Conectando* e então para *Êxito*.

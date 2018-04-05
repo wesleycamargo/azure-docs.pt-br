@@ -1,5 +1,5 @@
 ---
-title: "Monitorar logs de acesso, logs de desempenho, integridade do back-end e métricas do Gateway de Aplicativo | Microsoft Docs"
+title: Monitorar logs de acesso, logs de desempenho, integridade do back-end e métricas do Gateway de Aplicativo | Microsoft Docs
 description: Saiba como habilitar e gerenciar logs de acesso e de desempenho do Gateway de Aplicativo
 services: application-gateway
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integridade do back-end, logs de diagnóstico e métricas do Gateway de Aplicativo
 
@@ -27,7 +27,7 @@ Com o Gateway de Aplicativo do Azure, você pode monitorar os recursos das segui
 
 * [Integridade do back-end](#back-end-health): o Gateway de Aplicativo fornece a capacidade de monitorar a integridade dos servidores nos pools de back-end por meio do portal do Azure e do PowerShell. Também é possível encontrar a integridade dos pools de back-end por meio dos logs de diagnóstico de desempenho.
 
-* [Logs](#diagnostic-logs): os logs permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
+* [Logs](#diagnostic-logging): os logs permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
 
 * [Métricas](#metrics): atualmente, o Gateway de Aplicativo tem uma métrica. Essa métrica mede a vazão de dados do gateway de aplicativo em bytes por segundo.
 
@@ -152,9 +152,9 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
 
    ![Iniciando o processo de configuração][2]
 
-4. Escolha um espaço de trabalho do OMS (Operations Management Suite) existente ou crie um novo. Este exemplo usa um existente.
+4. Escolha um espaço de trabalho existente do Log Analytics ou crie um novo. Este exemplo usa um existente.
 
-   ![Opções de espaços de trabalho do OMS][3]
+   ![Opções para espaços de trabalho do Log Analytics][3]
 
 5. Confirme as configurações e clique em **Salvar**.
 
@@ -169,14 +169,14 @@ O Azure gera o log de atividades por padrão. Os logs são preservados por 90 di
 O log de acesso é gerado apenas se você o habilitou em cada instância do Gateway de Aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Cada acesso do Gateway de Aplicativo é registrado no formato JSON, conforme mostrado no seguinte exemplo:
 
 
-|Valor  |Descrição  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     | Instância do Gateway de Aplicativo que atendeu à solicitação.        |
 |clientIP     | IP de origem da solicitação.        |
 |clientPort     | Porta de origem da solicitação.       |
 |httpMethod     | Método HTTP usado pela solicitação.       |
 |requestUri     | URI da solicitação recebida.        |
-|RequestQuery     | **Server-Routed**: instância do pool de back-end que recebeu a solicitação. </br> **X-AzureApplicationGateway-LOG-ID**: ID de Correlação usada para a solicitação. Ela pode ser usada para solucionar problemas de tráfego nos servidores back-end. </br>**SERVER-STATUS**: código de resposta HTTP que o Gateway de Aplicativo recebeu do back-end.       |
+|RequestQuery     | **Server-Routed**: instância do pool de back-end que recebeu a solicitação.</br>**X-AzureApplicationGateway-LOG-ID**: ID de Correlação usada para a solicitação. Ela pode ser usada para solucionar problemas de tráfego nos servidores back-end. </br>**SERVER-STATUS**: código de resposta HTTP que o Gateway de Aplicativo recebeu do back-end.       |
 |UserAgent     | Agente do usuário do cabeçalho da solicitação HTTP.        |
 |httpStatus     | Código de status HTTP retornado ao cliente do Gateway de Aplicativo.       |
 |httpVersion     | Versão HTTP da solicitação.        |
@@ -213,7 +213,7 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
 O log de desempenho é gerado apenas se você o habilitou em cada instância do Gateway de Aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Os dados do log de desempenho são gerados em intervalos de 1 minuto. Os seguintes dados são registrados em log:
 
 
-|Valor  |Descrição  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     |  Instância do Gateway de Aplicativo para a qual os dados de desempenho estão sendo gerados. Para um gateway de aplicativo de várias instâncias, há uma linha por instância.        |
 |healthyHostCount     | Número de hosts íntegros no pool de back-end.        |
@@ -250,7 +250,7 @@ O log de desempenho é gerado apenas se você o habilitou em cada instância do 
 O log de firewall é gerado apenas se você o habilitou em cada gateway de aplicativo, conforme detalhado nas etapas anteriores. Esse log também exige a configuração de um firewall de aplicativo Web em um gateway de aplicativo. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Os seguintes dados são registrados em log:
 
 
-|Valor  |Descrição  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     | Instância do Gateway de Aplicativo para a qual os dados de firewall estão sendo gerados. Para um gateway de aplicativo de várias instâncias, há uma linha por instância.         |
 |clientIp     |   IP de origem da solicitação.      |
@@ -316,9 +316,21 @@ Você também pode se conectar à sua conta de armazenamento e recuperar as entr
 
 ## <a name="metrics"></a>Métricas
 
-Métricas são um recurso para alguns recursos do Azure, nas quais você pode exibir os contadores de desempenho no portal. Para o Gateway de Aplicativo, uma única métrica está disponível no momento. Essa métrica é a vazão de dados e você pode vê-la no portal. Procure um gateway de aplicativo e clique em **Métricas**. Para exibir os valores, selecione a taxa de transferência na seção **Métricas disponíveis**. Na imagem a seguir, você pode ver um exemplo com os filtros que podem ser usados para exibir os dados em intervalos de tempo diferentes.
+Métricas são um recurso para alguns recursos do Azure, nas quais você pode exibir os contadores de desempenho no portal. Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
-![Exibição da métrica com filtros][5]
+- Conexões atuais
+- Solicitações com falha
+- Contagem de hosts íntegros
+- Status da Resposta
+- Throughput
+- Total de Solicitações
+- Contagem de Hosts Não Íntegros
+
+Procure um gateway de aplicativo, e em **Monitoramento**, clique em **Métricas**. Para exibir os valores disponíveis, selecione a lista suspensa **MÉTRICA**.
+
+Na imagem a seguir, você pode ver um exemplo com três métricas exibidas para os últimos 30 minutos:
+
+[![](media/application-gateway-diagnostics/figure5.png "Exibição de métrica")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Para ver uma lista atual de métricas, consulte [Métricas com suporte no Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -336,7 +348,7 @@ O seguinte exemplo orientará você pela criação de uma regra de alerta que en
 
    * No seletor **Condição**, selecione um dos quatro valores: **Maior que**, **Maior ou igual a**, **Menor que** ou **Menor ou igual a**.
 
-   * No seletor **Período**, selecione um período de 5 minutos a 6 horas.
+   * No seletor **Período**, selecione um período de cinco minutos a seis horas.
 
    * Se você selecionar **Proprietários, colaboradores e leitores de email**, o email poderá ser dinâmico com base nos usuários que têm acesso a esse recurso. Caso contrário, você poderá fornecer uma lista separada por vírgula de usuários na caixa **Emails de administrador adicionais**.
 

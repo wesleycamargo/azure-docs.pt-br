@@ -1,9 +1,9 @@
 ---
-title: "Instalação personalizada do Azure AD Connect | Microsoft Docs"
-description: "Este documento fornece detalhes sobre as opções de instalação personalizada para o Azure AD Connect. Use estas instruções para instalar o Active Directory por meio do Azure AD Connect."
+title: Instalação personalizada do Azure AD Connect | Microsoft Docs
+description: Este documento fornece detalhes sobre as opções de instalação personalizada para o Azure AD Connect. Use estas instruções para instalar o Active Directory por meio do Azure AD Connect.
 services: active-directory
-keywords: "o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do AD do Azure"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do AD do Azure
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ee16fe9e15e52fea482e0db34857780449c2ccb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 680e70ce572e182aa35c736f61036415d8714ea0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](active-directory-aadconnect-get-started-express.md) não satisfaz à sua implantação ou a topologia.
@@ -49,7 +49,7 @@ Depois de instalar os componentes necessários, será solicitado que você selec
 
 | Opção de logon único | DESCRIÇÃO |
 | --- | --- |
-| Sincronização de hash de senha |Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles. As senhas dos usuários são sincronizadas com o AD do Azure por meio de um hash de senha, e a autenticação ocorre na nuvem. Para obter mais informações, consulte [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-synchronization.md). |
+| Sincronização de hash de senha |Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles. As senhas dos usuários são sincronizadas com o AD do Azure por meio de um hash de senha, e a autenticação ocorre na nuvem. Para obter mais informações, consulte [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md). |
 |Autenticação de Passagem|Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles.  A senha dos usuários é passada para o controlador de domínio do Active Directory local a ser validado.
 | Federação com o AD FS |Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles.  Os usuários são redirecionados para a instância local do AD FS para entrar e a autenticação ocorre no local. |
 | Não configurar |Nenhum recurso de entrada do usuário está instalado e configurado. Escolha essa opção se você já tiver um servidor de federação de terceiros ou outra solução existente em vigor. |
@@ -165,7 +165,7 @@ Essa tela permite que você selecione os recursos opcionais para seus cenários 
 | Implantação híbrida do Exchange  |O recurso de implantação híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Office 365. O Azure AD Connect está sincronizando um conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) do Azure AD em seu diretório local. |
 | Pastas públicas do Exchange Mail | O recurso Pastas públicas do Exchange Mail permite sincronizar objetos de pasta pública habilitada para email do seu Active Directory local com o Azure AD. |
 | Aplicativo AD do Azure e filtragem de atributos |Ao habilitar o aplicativo AD do Azure e filtragem de atributo, o conjunto de atributos sincronizados pode ser adaptado. Essa opção adiciona mais duas páginas de configuração ao assistente. Para saber mais, confira [Aplicativo e filtragem de atributos do Azure AD](#azure-ad-app-and-attribute-filtering). |
-| Sincronização de senha |Se você tiver selecionado a federação como a solução de entrada, então poderá habilitar essa opção. Em seguida, a sincronização de senha pode ser usada como uma opção de backup. Para saber mais, confira [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Se você selecionou Autenticação de Passagem, essa opção também poderá ser habilitada para garantir suporte para clientes herdados e como uma opção de backup. Para saber mais, confira [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md).|
+| Sincronização de hash de senha |Se você tiver selecionado a federação como a solução de entrada, então poderá habilitar essa opção. A sincronização de hash de senha pode, então, ser usada como uma opção de backup. Para obter mais informações, consulte [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md). </br></br>Se você selecionou Autenticação de Passagem, essa opção também poderá ser habilitada para garantir suporte para clientes herdados e como uma opção de backup. Para obter mais informações, consulte [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md).|
 | write-back de senha |Ao habilitar o write-back de senha, as alterações de senha que se originam no AD do Azure serão gravadas no diretório local. Para saber mais, confira [Introdução ao gerenciamento de senhas](../active-directory-passwords-getting-started.md). |
 | Write-back de grupo |Se usar o recurso **Grupos do Office 365** , você poderá ter esses grupos representados no Active Directory local. Essa opção só estará disponível se você tiver o Exchange presente no seu Active Directory local. Para saber mais, confira [Write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Write-back de dispositivo |Permite o write-back de objetos de dispositivo no AD do Azure para seu Active Directory local para cenários de acesso condicional. Para saber mais, confira [Habilitar o write-back de dispositivo no Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
@@ -338,7 +338,7 @@ O Azure AD Connect verificará as configurações de DNS para você quando você
 
 Além disso, execute as seguintes etapas de verificação:
 
-* Valide que você pode entrar de um navegador de um computador adicionado ao domínio na intranet: conecte-se a https://myapps.microsoft.com e verifique a entrada com sua conta conectada. A conta interna de administrador do AD DS não está sincronizada e não pode ser usada para a verificação.
+* Valide que você pode entrar a partir de um navegador de um computador de ingresso no domínio na intranet: conecte-se a https://myapps.microsoft.com e verifique a entrada com sua conta conectada. A conta interna de administrador do AD DS não está sincronizada e não pode ser usada para a verificação.
 * Valide que você pode entrar em um dispositivo da extranet. Em um computador doméstico ou em um dispositivo móvel, conecte-se a https://myapps.microsoft.com e forneça suas credenciais.
 * Valide a entrada do cliente avançado. Conecte-se a https://testconnectivity.microsoft.com, escolha a guia **Office 365** e escolha o **Teste de Logon Único do Office 365**.
 

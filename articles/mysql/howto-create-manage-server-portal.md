@@ -1,19 +1,19 @@
 ---
 title: Criar e gerenciar um servidor de Banco de Dados do Azure para MySQL usando o Portal do Azure
-description: "Este artigo descreve como você pode criar rapidamente um novo servidor de Banco de Dados do Azure para MySQL e gerenciar o servidor usando o Portal do Azure."
+description: Este artigo descreve como você pode criar rapidamente um novo servidor de Banco de Dados do Azure para MySQL e gerenciar o servidor usando o Portal do Azure.
 services: mysql
 author: ajlam
-ms.author: nolanwu
+ms.author: andrela
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0e274c0ada3de5e9000ae41516e5b9b67ef1490b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Criar e gerenciar um servidor de Banco de Dados do Azure para MySQL usando o Portal do Azure
 Este tópico descreve como criar rapidamente um novo servidor de Banco de Dados do Azure para MySQL. Também inclui informações sobre como gerenciar o servidor usando o Portal do Azure. O gerenciamento do servidor inclui exibir detalhes do servidor e banco de dados, redefinir a senha, dimensionar recursos e excluir o servidor.
@@ -46,7 +46,7 @@ Execute essas etapas para criar um Banco de Dados do Azure para MySQL nomeado �
     | *Localidade* | Sudeste Asiático (selecione entre a Europa Setentrional e o Oeste dos EUA) |
     | *Versão* | 5.7 (escolha uma versão do servidor de Banco de Dados do Azure para MySQL) |
 
-4. Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo servidor. Selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB* e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como está. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**.
+4. Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo servidor. Selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB* e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 

@@ -1,9 +1,9 @@
 ---
-title: "Criar alertas para os serviços do Azure - CLI entre plataformas | Microsoft Docs"
-description: "Disparar emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições especificadas forem atendidas."
+title: Criar alertas para os serviços do Azure - CLI entre plataformas | Microsoft Docs
+description: Disparar emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições especificadas forem atendidas.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Criar alertas de métricas no Azure Monitor para Serviços do Azure – CLI de plataforma cruzada
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Criar alertas de métricas clássicos no Azure Monitor para Serviços do Azure – CLI de plataforma cruzada
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,6 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Visão geral
+> [!NOTE]
+> Este artigo descreve como criar alertas de métrica antigos. O Azure Monitor agora dá suporte a [alertas de métrica mais novos e melhores](monitoring-near-real-time-metric-alerts.md). Esses alertas podem monitorar várias métricas e permitir alertas em métricas dimensionais. O suporte à CLI para alertas de métrica mais novos estará disponível em breve.
+>
+>
+
 Este artigo mostra como configurar alertas do Azure usando a CLI (Interface de linha de comando) de plataforma cruzada.
 
 > [!NOTE]
@@ -39,7 +44,7 @@ Este artigo mostra como configurar alertas do Azure usando a CLI (Interface de l
 Você pode receber um alerta com base em métricas de monitoramento ou em eventos nos serviços do Azure.
 
 * **Valores da métrica** - o alerta dispara quando o valor de uma métrica especificada ultrapassa um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.    
-* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinados eventos ocorrem. Para saber mais sobre alertas de log de atividades, [clique aqui](monitoring-activity-log-alerts.md)
+* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinado evento ocorre. Para saber mais sobre alertas de log de atividades, [clique aqui](monitoring-activity-log-alerts.md)
 
 Você pode configurar um alerta de métrica para fazer o seguinte quando ele dispara:
 
@@ -55,7 +60,7 @@ Você pode configurar e obter informações sobre regras de alerta de métrica u
 * [CLI (Interface de linha de comando)](insights-alerts-command-line-interface.md)
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-Você sempre pode receber ajuda sobre os comandos digitando um comando e colocando -help no final. Por exemplo:
+Você sempre pode receber ajuda sobre os comandos digitando um comando e colocando -help no final. Por exemplo: 
 
     ```console
     azure insights alerts -help

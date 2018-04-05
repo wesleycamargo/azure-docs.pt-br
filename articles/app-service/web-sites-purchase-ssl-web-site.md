@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e configurar um certificado SSL para seu Serviço de Aplicativo do Azure
 
@@ -42,8 +42,8 @@ Insira um amigável **nome** para o SSL de certificado e insira o **nome de dom�
 
 Selecione seu **assinatura**, **grupo de recursos**, e **SKU de certificado**
 
-> [!WARNING]
-> Certificados de serviço de aplicativo só podem ser usados por outros serviços de aplicativo dentro da mesma assinatura.  
+> [!TIP]
+> Certificados do Serviço de Aplicativo podem ser usados para qualquer Serviço Azure ou não Azure e não se limitam aos Serviços de Aplicativos. Para fazer isso, você precisa criar uma cópia local do PFX de um certificado do Serviço de Aplicativo para que você possa usá-lo onde quiser. Para obter mais informações, leia [Criando uma cópia local do PFX de um Certificado do Serviço de Aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Etapa 3: Armazenar o certificado no Cofre da Chave do Azure

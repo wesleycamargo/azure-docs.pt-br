@@ -4,7 +4,7 @@ description: Ferramentas de desenvolvimento de Máquina Virtual de Ciência de D
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 0d7ee9a54c2c11f814ce041c5c7e5bd9f2e605e5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: 6f141fc03b64d0ca922d003f6352b7751ab9967d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na Máquina Virtual de Ciência de Dados
 
@@ -59,7 +59,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo par
 | O que é?   | IDE baseado na Web para R    |
 | Versões do DSVM com suporte      | Linux      |
 | Usos típicos      |  Desenvolvimento em R     |
-| Como usar/executar?      | Habilite o serviço com _systemctl enable rstudio-server_ e inicie o serviço com _systemctl start rstudio-server_. Você pode então fazer logon no RStudio Server em http://your-vm-ip:8787.       |
+| Como usar/executar?      | Habilite o serviço com _systemctl enable rstudio-server_ e inicie o serviço com _systemctl start rstudio-server_. Você pode fazer logon no RStudio Server em http://your-vm-ip:8787.       |
 | Ferramentas relacionadas ao DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 

@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: ferramenta auxiliar de personalização da IU da página | Microsoft Docs"
-description: "Uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface do usuário da página no Active Directory B2C do Azure"
+title: 'Azure Active Directory B2C: ferramenta auxiliar de personalização da IU da página | Microsoft Docs'
+description: Uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface do usuário da página no Active Directory B2C do Azure
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
-ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página
 Este artigo é um complemento do [artigo principal sobre a personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md) no Active Directory B2C do Azure (AD do Azure). As etapas a seguir descrevem como usufruir do recurso de personalização da interface do usuário da página usando conteúdo de exemplo HTML e CSS que fornecemos.
@@ -56,7 +53,7 @@ Agora, você pode testar a política personalizada. Você pode usar seu próprio
 Se quiser usar o Armazenamento de Blobs do Azure para hospedar o conteúdo da página, você poderá criar sua própria conta de armazenamento e usar nossa ferramenta auxiliar do B2C para carregar os arquivos.
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Clique em **+ Novo** > **Dados + armazenamento** > **Conta de armazenamento**. Você precisará de uma assinatura do Azure para criar uma conta de Armazenamento de Blobs do Azure. Você pode se inscrever para uma avaliação gratuita no [site do Azure](https://azure.microsoft.com/pricing/free-trial/).
 3. Forneça um **Nome** para o armazenamento de conta (por exemplo, "contoso") e selecione as seleções apropriadas para **Tipo de preço**, **Grupo de recursos** e **Assinatura**. Verifique se a opção **Fixar no Quadro Inicial** está marcada. Clique em **Criar**.
 4. Volte para o quadro inicial e clique na conta de armazenamento que você acabou de criar.
@@ -80,7 +77,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 Esse repositório contém um diretório `sample_templates\wingtip` , que inclui o exemplo HTML, CSS e as imagens. Para que esses modelos façam referência à sua própria conta de Armazenamento de Blobs do Azure, será necessário editar os arquivos HTML. Abra `unified.html` e `selfasserted.html` e substitua todas as instâncias de `https://localhost` pela URL do seu próprio contêiner que você anotou nas etapas anteriores. É necessário usar o caminho absoluto dos arquivos HTML pois, nesse caso, o HTML será atendido pelo Azure AD, sob o domínio `https://login.microsoftonline.com`.
 
 ### <a name="upload-the-sample-files"></a>Carregar os arquivos de exemplo
-No mesmo repositório, descompacte `B2CAzureStorageClient.zip` e execute o arquivo `B2CAzureStorageClient.exe`. Esse programa simplesmente carregará todos os arquivos no diretório que você especifica para sua conta de armazenamento e habilita o acesso CORS para esses arquivos. Se você seguiu as etapas acima, os arquivos HTML e CSS agora estarão apontando para a conta de armazenamento. Observe que o nome da sua conta de armazenamento é a parte que precede `blob.core.windows.net` por exemplo, `contoso`. Você pode verificar se o conteúdo foi carregado corretamente, tentando acessar `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` em um navegador. Use também [http://test-cors.org/](http://test-cors.org/) para certificar-se de que o conteúdo agora está habilitado para CORS. (Procure por "XHR status: 200" no resultado.)
+No mesmo repositório, descompacte `B2CAzureStorageClient.zip` e execute o arquivo `B2CAzureStorageClient.exe`. Esse programa simplesmente carregará todos os arquivos no diretório que você especifica para sua conta de armazenamento e habilita o acesso CORS para esses arquivos. Se você seguiu as etapas acima, os arquivos HTML e CSS agora estarão apontando para a conta de armazenamento. Observe que o nome da sua conta de armazenamento é a parte que precede `blob.core.windows.net` por exemplo, `contoso`. Você pode verificar se o conteúdo foi carregado corretamente, tentando acessar `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` em um navegador. Utilize também [http://test-cors.org/](http://test-cors.org/) para certificar-se de que o conteúdo agora esteja habilitado para CORS. (Procure por "XHR status: 200" no resultado.)
 
 ### <a name="customize-your-policy-again"></a>Personalizar a política, novamente
 Agora que você carregou o conteúdo de exemplo em sua própria conta de armazenamento, é preciso editar a política de inscrição para fazer referência a ela. Repita as etapas da seção acima ["Personalizar a política"](#customize-your-policy) , desta vez usando as URLs da sua própria conta de armazenamento. Por exemplo, o local do arquivo `unified.html` será `<url-of-your-container>/wingtip/unified.html`.

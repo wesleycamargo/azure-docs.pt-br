@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: perguntas frequentes
 
@@ -38,16 +38,23 @@ Nº O SSO Contínuo está disponível apenas na instância mundial do Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quais aplicativos tiram proveito da capacidade de parâmetro `domain_hint` ou `login_hint` do SSO Contínuo?
 
-Veja abaixo uma lista parcial de aplicativos que enviam esses parâmetros para o Azure AD e, portanto, fornecem aos usuários uma experiência de logon silenciosa usando o SSO contínuo:
+Veja abaixo uma lista parcial de aplicativos que enviam esses parâmetros para o Azure AD e, portanto, fornecem aos usuários uma experiência de logon silenciosa usando o SSO contínuo (isto é, os usuários não precisam inserir seus nomes de usuário):
 
 | Nome do aplicativo | URL do aplicativo a ser usada |
 | -- | -- |
 | Painel de acesso | myapps.microsoft.com/contoso.com |
 | Outlook na Web | outlook.office365.com/contoso.com |
 
-Na tabela acima, substitua "contoso.com" por seu nome de domínio para obter as URLs do aplicativo certo para o seu locatário.
+Além disso, os usuários também terão uma experiência de logon silenciosa se um aplicativo enviar solicitações de entrada para pontos de extremidade com locatários do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez do ponto de extremidade comum do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo está uma lista parcial de aplicativos que fazem esses tipos de solicitações de entrada.
 
-Se houver outros aplicativos nos quais você tenha interesse, avise-nos na seção de comentários.
+| Nome do aplicativo | URL do aplicativo a ser usada |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Portal do Azure | portal.azure.com/contoso.com |
+
+Nas tabelas acima, substitua "contoso.com" por seu nome de domínio para obter as URLs do aplicativo certo para o seu locatário.
+
+Se desejar que outros aplicativos usem nossa experiência de logon silenciosa, informe isso na seção de comentários.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>O SSO Contínuo dá suporte ao `Alternate ID` como o nome de usuário, em vez de `userPrincipalName`?
 

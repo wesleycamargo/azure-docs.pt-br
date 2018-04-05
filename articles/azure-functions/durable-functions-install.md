@@ -1,24 +1,24 @@
 ---
-title: "Instalar a extensão de Funções Duráveis e exemplos – Azure"
-description: "Saiba como instalar a extensão de Funções Duráveis do Azure Functions, para desenvolvimento no portal ou desenvolvimento no Visual Studio."
+title: Instalar a extensão de Funções Duráveis e exemplos – Azure
+description: Saiba como instalar a extensão de Funções Duráveis do Azure Functions, para desenvolvimento no portal ou desenvolvimento no Visual Studio.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Instalar a extensão de Funções Duráveis e exemplos (Azure Functions)
 
@@ -77,12 +77,17 @@ O Visual Studio Code oferece uma experiência de desenvolvimento local abrangend
 3. Instale a Extensão Durável do Azure Functions executando o seguinte em uma janela/um terminal de comando:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. Execute o Emulador do Armazenamento do Azure ou atualize o arquivo *local.appsettings.json* com cadeias de conexão reais do Armazenamento do Azure.
-3. Abra o projeto no Visual Studio Code. 
-5. Para obter instruções de como executar o exemplo, comece com [Encadeamento de funções – Sequência de exemplo Hello](durable-functions-sequence.md). O exemplo pode ser executado localmente ou publicado no Azure.
-6. Inicie o projeto executando o seguinte comando no prompt/terminal de comando:
+4. Instale a Extensão Twilio do Azure Functions executando o seguinte em uma janela do terminal/prompt de comando:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. Execute o Emulador do Armazenamento do Azure ou atualize o arquivo *local.appsettings.json* com cadeias de conexão reais do Armazenamento do Azure.
+6. Abra o projeto no Visual Studio Code. 
+7. Para obter instruções de como executar o exemplo, comece com [Encadeamento de funções – Sequência de exemplo Hello](durable-functions-sequence.md). O exemplo pode ser executado localmente ou publicado no Azure.
+8. Inicie o projeto executando o seguinte comando no prompt/terminal de comando:
     ```bash
     func host start
     ```

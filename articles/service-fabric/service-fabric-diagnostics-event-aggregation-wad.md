@@ -1,24 +1,24 @@
 ---
-title: "Agregação de Eventos do Azure Service Fabric com Diagnóstico do Windows Azure | Microsoft Docs"
-description: "Saiba mais sobre a agregação e coleta de eventos utilizando o WAD para monitoramento e diagnóstico de clusters do Azure Service Fabric."
+title: Agregação de Eventos do Azure Service Fabric com Diagnóstico do Windows Azure | Microsoft Docs
+description: Saiba mais sobre a agregação e coleta de eventos utilizando o WAD para monitoramento e diagnóstico de clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 03/19/2018
+ms.author: dekapur;srrengar
+ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
@@ -31,11 +31,11 @@ Quando você estiver executando um cluster de Service Fabric do Azure, é uma bo
 
 Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnóstico do Windows Azure) que faz upload dos logs no Armazenamento do Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Também é possível utilizar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de logs.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Essas ferramentas são usadas para executar algumas das operações neste documento:
 
 * [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (relacionado aos Serviços de Nuvem do Azure, mas tem boas informações e exemplos)
-* [Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [PowerShell do Azure](/powershell/azure/overview)
 * [Cliente do Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -170,67 +170,87 @@ Em seguida, atualize a seção `VirtualMachineProfile` do arquivo template.json 
 
 Após modificar o arquivo template.json conforme descrito, republique o modelo do Resource Manager. Se o modelo tiver sido exportado, a execução do arquivo deploy.ps1 republicará o modelo. Após implantar, verifique se o status de **ProvisioningState** é **Com êxito**.
 
-## <a name="collect-health-and-load-events"></a>Coletar eventos de integridade e de carga
+> [!TIP]
+> Se você pretende implantar contêineres para seu cluster, habilite o WAD para acompanhar as estatísticas do docker adicionando eles à sua seção **"WadCfg > DiagnosticMonitorConfiguration"**.
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
 
-Começando com a versão 5.4 do Service Fabric, eventos de métrica de carga e integridade estão disponíveis para coleta. Esses eventos refletir os eventos gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Isso permite agregar e exibir a integridade do sistema ao longo do tempo e para alertas com base em eventos de integridade ou de carga. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
+## <a name="log-collection-configurations"></a>Configurações de coleção de log
+Logs de canais adicionais também estão disponíveis para coleção, aqui estão algumas das configurações mais comuns que você pode fazer no modelo para clusters em execução no Azure.
 
-Para coletar os eventos em seu cluster, modifique o `scheduledTransferKeywordFilter` no WadCfg do seu modelo do Resource Manager para `4611686018427387912`.
+* Canal Operacional - Base: Habilitadas por padrão, operações de alto nível executadas pelo Service Fabric e pelo cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de upgrade, etc. Para obter uma relação de eventos, consulte [Eventos Operacionais do Canal](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* Canal operacional - Detalhado: Inclui relatórios de integridade e balanceamento de cargo, além de tudo no canal operacional de base. Esses eventos são gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-## <a name="collect-reverse-proxy-events"></a>Coletar eventos de proxy reverso
-
-Da versão 5.7 do Service Fabric em diante, os eventos de [proxy reverso](service-fabric-reverseproxy.md) estão disponíveis para coleta pelos canais de mensagens e dados. 
-
-O proxy inverso envia por push somente eventos de erro por meio do canal de dados e mensagens principal – refletindo falhas de processamento de solicitação e problemas críticos. O canal detalhado contém eventos detalhados sobre todas as solicitações processadas pelo proxy inverso. 
-
-Para exibir os eventos de erro no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de provedores de ETW. Para toda a telemetria de solicitação, atualize a entrada Microsoft-ServiceFabric na lista de provedores do ETW para "Microsoft-ServiceFabric:4:0x4000000000000020".
-
-Para clusters em execução no Azure:
-
-Para obter os rastreamentos no canal principal de dados e mensagens, modifique o valor `scheduledTransferKeywordFilter` no WadCfg do seu modelo do Resource Manager para `4611686018427387920`.
+* Canal de Dados e Mensagens- Base: logs e eventos críticos gerados no sistema de mensagens (atualmente, apenas o ReverseProxy) e o caminho de dados, além dos logs do canal operacional detalhado. Esses eventos são falhas de processamento de solicitação e outros problemas críticos no ReverseProxy e nas solicitações processadas. **Essa é a nossa recomendação para o registro em log abrangente**. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de provedores de ETW.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
 
-Para coletar todos os eventos de processamento de solicitação, ative o canal detalhado de dados e mensagens alterando o valor `scheduledTransferKeywordFilter` no WadCfg do seu modelo do Resource Manager para `4611686018427387936`.
+* Canal de Dados e Mensagens – Detalhado: canal detalhado que contém todos os logs não críticos dos dados e das mensagens no cluster e o canal operacional detalhado. Para obter a solução de problemas de todos eventos de proxy reverso, veja o [guia de diagnóstico de proxy reverso](service-fabric-reverse-proxy-diagnostics.md).  Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000020" à lista de provedores de ETW.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
 
-Habilitar a coleta de eventos neste canal detalhado resulta na rápida geração de uma grande quantidade de rastreamentos e pode consumir capacidade de armazenamento. Ative esta opção somente quando absolutamente necessário.
-Para obter a solução de problemas dos eventos de proxy reverso, veja o [guia de diagnóstico de proxy reverso](service-fabric-reverse-proxy-diagnostics.md).
+>[!NOTE]
+>Este canal tem um volume muito alto de eventos, habilitando a coleção de eventos neste canal detalhado resulta na rápida geração de uma grande quantidade de rastreamentos e pode consumir a capacidade de armazenamento. Ative esta opção somente quando absolutamente necessário.
+
+
+Para habilitar os **Dados Base e o Canal de Mensagens** nossa recomendação para o log abrangente, o `EtwManifestProviderConfiguration` no `WadCfg` do modelo seria semelhante a:
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>Coletar a partir de novos canais EventSource
 

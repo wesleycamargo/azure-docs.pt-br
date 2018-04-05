@@ -1,24 +1,19 @@
 ---
-title: "Configurar o endereçamento IP para se conectar após o failover para o Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Descreve como configurar o endereçamento IP para se conectar a VMs do Azure após o failover do local com o Azure Site Recovery"
+title: Configurar o endereçamento IP para se conectar após o failover para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Descreve como configurar o endereçamento IP para se conectar a VMs do Azure após o failover do local com o Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: carmonm
-editor: 
-ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: manayar
-ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: e74ad30ea8c4be994c1c67735ee91ef8c033b9b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurar o endereçamento IP para se conectar após o failover para o Azure
 
@@ -49,9 +44,9 @@ O Site Recovery fornece a capacidade de manter endereços IP fixos durante o fai
 
 ### <a name="failover-example"></a>Exemplo de failover
 
-Vejamos um exemplo para o failover para o Azure usando uma organização fictícia, chamada Woodgrove Bank.
+Vejamos um exemplo de failover para o Azure usando uma empresa fictícia, a Woodgrove Bank.
 
-- O Woodgrove Bank hospeda seus aplicativos de negócios em um site local. Eles hospedam seus aplicativos móveis no Azure.
+- A Woodgrove Bank hospeda os aplicativos de negócios em um site local. Eles hospedam seus aplicativos móveis no Azure.
 - Há conectividade VPN site a site entre a rede de borda local deles e a rede virtual do Azure. Devido a essa conexão VPN, a rede virtual no Azure aparece como uma extensão da rede local.
 - O Woodgrove deseja replicar as cargas de trabalho locais para o Azure com o Site Recovery.
  - O Woodgrove tem aplicativos que dependem de endereços IP embutidos em código, então eles precisam manter endereços IP para seus aplicativos após o failover para o Azure.

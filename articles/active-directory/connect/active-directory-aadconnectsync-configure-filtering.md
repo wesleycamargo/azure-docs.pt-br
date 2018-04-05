@@ -1,11 +1,11 @@
 ---
-title: "Configurar a sincronização do Azure AD Connect: configurar a filtragem | Microsoft Docs"
+title: 'Configurar a sincronização do Azure AD Connect: configurar a filtragem | Microsoft Docs'
 description: Explica como configurar a filtragem no Azure AD Connect Sync.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que utilizarem cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, receberão uma Lista de Endereços Global completa para poderem enviar emails e fazer chamadas para todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -44,7 +44,7 @@ Como a filtragem pode remover muitos objetos ao mesmo tempo, certifique-se de qu
 
 Para que você não exclua muitos objetos por acidente, o recurso “[impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)” está ativado por padrão. Se você excluir muitos objetos devido à filtragem (500, por padrão), precisará seguir as etapas deste artigo para permitir que as exclusões passem para o Azure AD.
 
-Se você usar uma versão anterior à de novembro de 2015([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), alterar a configuração de filtro e usar a sincronização de senha, precisará disparar uma sincronização completa de todas as senhas depois de concluir a configuração. Para obter as etapas para disparar uma sincronização de senhas completa, consulte [Disparar uma sincronização completa de todas as senhas](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Se você estiver usando a versão 1.0.9125 ou uma versão posterior, a ação da **sincronização completa** normal, também avalia se as senhas precisam ser sincronizadas e esta etapa adicional não será mais necessária.
+Se você usar uma build anterior à de novembro de 2015([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), alterar a configuração de filtro e usar a sincronização de senha, precisará disparar uma sincronização completa de todas as senhas depois de concluir a configuração. Para obter as etapas para disparar uma sincronização de senhas completa, consulte [Disparar uma sincronização completa de todas as senhas](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Se você estiver usando a versão 1.0.9125 ou uma versão posterior, a ação da **sincronização completa** normal, também avalia se as senhas precisam ser sincronizadas e esta etapa adicional não será mais necessária.
 
 Se objetos de **usuário** tiverem sido excluídos acidentalmente do Azure AD devido a um erro de filtragem, você pode recriar os objetos de usuário no Azure AD, removendo as configurações de filtragem. Em seguida, você pode sincronizar os diretórios novamente. Essa ação restaura os usuários da lixeira no Azure AD. Contudo, não é possível cancelar a exclusão de outros tipos de objeto. Por exemplo, se você excluir acidentalmente um grupo de segurança usado para criar a ACL de um recurso, o grupo e suas ACLs não poderão ser recuperados.
 

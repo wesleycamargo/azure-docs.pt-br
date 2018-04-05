@@ -1,11 +1,10 @@
 ---
-title: "Comparar versões 1 e 2 do Azure Data Factory | Microsoft Docs"
+title: Comparar versões 1 e 2 do Azure Data Factory | Microsoft Docs
 description: Este artigo compara o Azure Data Factory V1 com o Azure Data Factory V2.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparar as versões 1 e 2 do Azure Data Factory
 Este artigo compara a versão 2 (V2) com a versão 1 (V1) do Azure Data Factory. Para obter uma introdução à versão 1, confira [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). Para obter uma introdução à versão 2, confira [Introdução ao Azure Data Factory (V2 - versão prévia)](introduction.md).
@@ -112,7 +111,7 @@ Na versão 1, o código da atividade DotNet (personalizada) é implementado por 
 
 Para uma atividade personalizada da versão 2, não é necessário implementar uma interface .NET. É possível executar diretamente comandos, scripts e seu próprio código personalizado compilado como um executável. 
 
-Para saber mais, consulte [Diferença entre a atividade personalizada na V1 e na V2](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+Para saber mais, consulte [Diferença entre a atividade personalizada na V1 e na V2](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## <a name="sdks"></a>SDKs
  O Data Factory V2 fornece um conjunto mais completo de SDKs que podem ser usados para criar, gerenciar e monitorar pipelines.
@@ -138,6 +137,13 @@ Os SDKs que foram atualizados para a versão 2 não são retrocompatíveis com c
 | SDK do Python | [Sim](quickstart-create-data-factory-python.md) | Não  |
 | Modelo do Resource Manager | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## <a name="roles-and-permissions"></a>Funções e permissões
+
+Para criar e gerenciar recursos filho para um Data Factory v2:
+
+-   A função de Colaborador de Data Factory versão 1 não pode ser usada para criar e gerenciar recursos v2.
+-   A função de Colaborador de ARM padrão, criada no recurso do Data Factory, é suficiente para criar e gerenciar recursos filho para um Data Factory v2 implantado com o PowerShell ou os SDKs. Não é suficiente criar e gerenciar recursos filho para um Data Factory v2 implantado no portal do Azure ou com a implantação de modelo de ARM.
+-   Para criar e gerenciar recursos filho para um Data Factory v2 implantado no portal do Azure ou com implantação de modelo de ARM, você precisa ser um membro da função “Operator do trabalho de automação” no nível do grupo de recursos ou no nível de assinatura. Sua organização também pode criar uma função personalizada que contenha “Microsoft.Resources/deployments/*” na lista de “Ações”, conforme descrito em [Criar funções personalizadas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-custom-roles.md).
 
 ## <a name="monitoring-experience"></a>Experiência de monitoramento
 Na V2, você também pode monitorar os data factories usando o [Azure Monitor](monitor-using-azure-monitor.md). Os novos cmdlets do PowerShell dão suporte ao monitoramento de [tempos de execução de integração](monitor-integration-runtime.md). A versão 1 e a versão 2 oferecem suporte ao monitoramento visual por meio do aplicativo de monitoramento, que pode ser iniciado no Portal do Azure.

@@ -1,19 +1,19 @@
 ---
-title: "Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure"
-description: "Saiba como implantar um grupo de contêiner com vários contêineres em Instâncias de Contêiner do Azure."
+title: Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure
+description: Saiba como implantar um grupo de contêiner com vários contêineres em Instâncias de Contêiner do Azure.
 services: container-instances
 author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-a-container-group"></a>Implantar um grupo de contêineres
 
@@ -45,7 +45,7 @@ Neste exemplo, é definido um grupo de contêineres com dois contêineres, um en
     {
       "name": "myContainerGroup",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2017-10-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [

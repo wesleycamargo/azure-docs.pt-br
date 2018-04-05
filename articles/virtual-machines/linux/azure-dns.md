@@ -1,6 +1,6 @@
 ---
-title: "Opções de resolução de nomes DNS para máquinas virtuais Linux no Azure"
-description: "Cenários de resolução de nomes para máquinas virtuais Linux no Azure IaaS, incluindo serviços DNS fornecidos, o servidor traga seu próprio DNS e DNS externo híbrido."
+title: Opções de resolução de nomes DNS para máquinas virtuais Linux no Azure
+description: Cenários de resolução de nomes para máquinas virtuais Linux no Azure IaaS, incluindo serviços DNS fornecidos, o servidor traga seu próprio DNS e DNS externo híbrido.
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a445de3e1bfbeb2cd2e5674418688d6bb610a3c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux no Azure
 O Azure fornece resolução de nomes DNS por padrão para todas as máquinas virtuais que estão em uma única rede virtual. Você pode implementar sua própria solução de resolução de nomes DNS configurando seus próprios serviços DNS em suas máquinas virtuais que o Azure hospeda. Os cenários a seguir devem ajudá-lo a escolher a que funciona para sua situação.
@@ -112,7 +112,7 @@ O arquivo resolv.conf é gerado automaticamente e não deve ser editado. As etap
 2. Execute 'netconfig update' para atualizar.
 
 **CentOS por Rogue Wave Software (anteriormente OpenLogic)** (usa o NetworkManager)
-1. Adicione 'echo "options timeout:1 attempts:5"' em '/etc/NetworkManager/dispatcher.d/11-dhclient'.
+1. Adicione 'RES_OPTIONS="timeout:1 attempts:5"' to '/etc/sysconfig/network'.
 2. Execute 'service network restart' para atualizar.
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Resolução de nome usando o seu próprio servidor DNS

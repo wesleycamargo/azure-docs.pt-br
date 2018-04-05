@@ -1,25 +1,25 @@
 ---
 title: Failover regional no Azure Cosmos DB | Microsoft Docs
-description: "Saiba mais sobre como o failover manual e automáticos funcionam com o Azure Cosmos DB."
+description: Saiba mais sobre como o failover manual e automáticos funcionam com o Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5a4bdc49c5ab36a5026095b5d7b6f9856b020e1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Failover regional automático para a continuidade dos negócios no Azure Cosmos DB
 O Azure Cosmos DB simplifica a distribuição global de dados oferecendo [contas de banco de dados em várias regiões](distribute-data-globally.md) totalmente gerenciadas que fornecem claras compensações entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. As contas do Cosmos DB oferecem alta disponibilidade, latências de milissegundos de digito único, [níveis bem definidos de consistência](consistency-levels.md), failover regional transparente com APIs de hospedagem múltipla e a capacidade de dimensionar de forma elástica a produtividade e o armazenamento no mundo todo. 
@@ -30,9 +30,10 @@ O Cosmos DB dá suporte tanto a failovers explícitos quanto àqueles controlado
 * Como funcionam os failovers automáticos no Cosmos DB e o que acontece quando um data center fica indisponível?
 * Como você pode usar failovers manuais em arquiteturas de aplicativo?
 
-Saiba mais sobre failovers regionais nesse vídeo do Azure Friday com Scott Hanselman e o gerente de engenharia Karthik Raman.
+Você também pode saber mais sobre failovers regionais neste vídeo do gerente de programa do Azure Cosmos DB, Andrew Liu, que demonstra os recursos de distribuição global, incluindo failover regional.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configurando aplicativos de várias regiões
 Antes de nos aprofundarmos nos modos de failover, examinaremos como você pode configurar um aplicativo para aproveitar a disponibilidade de várias regiões e ser resiliente diante de failovers regionais.
@@ -85,7 +86,7 @@ Depois que a região afetada se recupera da interrupção, todas as contas do Co
 
 **O que acontece se uma região de gravação sofre uma interrupção?**
 
-Se a região afetada for a região de gravação atual e um failover automático estiver habilitado na conta do Azure Cosmos DB, essa região será marcada automaticamente como offline. Em seguida, uma região alternativa será promovida como a região de gravação da conta afetada do Azure Cosmos DB. É possível habilitar o failover automático e controlar por completo a ordem de seleção de região das contas do Azure Cosmos DB por meio do portal do Azure ou de [forma programática](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Se a região afetada for a região de gravação atual e um failover automático estiver habilitado na conta do Azure Cosmos DB, essa região será marcada automaticamente como offline. Em seguida, uma região alternativa será promovida como a região de gravação da conta afetada do Azure Cosmos DB. É possível habilitar o failover automático e controlar por completo a ordem de seleção de região das contas do Azure Cosmos DB por meio do portal do Azure ou de [forma programática](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Prioridades de failover para o Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
@@ -97,7 +98,7 @@ Depois que a região afetada se recupera da interrupção, todas as contas do Co
 
 * Dados presentes na região de gravação anterior que não foram replicados para regiões de leitura durante a interrupção são publicados como um feed de conflito. Aplicativos podem ler o feed de conflito, resolvê-los com base na lógica específica do aplicativo e gravar os dados atualizados de volta na conta do Azure Cosmos DB, conforme apropriado. 
 * A região de gravação anterior é recriada como uma região de leitura e volta a ficar online automaticamente. 
-* É possível configurar novamente a região de leitura que voltou a ficar online automaticamente como a região de gravação, executando um failover manual por meio do Portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* É possível configurar novamente a região de leitura que voltou a ficar online automaticamente como a região de gravação, executando um failover manual por meio do Portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 O trecho de código a seguir ilustra como processar conflitos depois que a região afetada se recupera da interrupção.
 
@@ -122,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a>Failovers Manuais
 
-Além de failovers automáticos, a região de gravação atual de determinada conta do Cosmos DB pode ser alterada manualmente de modo dinâmico para uma das regiões de leitura existentes. Failovers manuais podem ser iniciados por meio do Portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
+Além de failovers automáticos, a região de gravação atual de determinada conta do Cosmos DB pode ser alterada manualmente de modo dinâmico para uma das regiões de leitura existentes. Failovers manuais podem ser iniciados por meio do Portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
 Os failovers manuais garantem **zero perda de dados** e **zero perda de disponibilidade** e, na conta do Cosmos DB especificada, transferem normalmente o status de gravação da região de gravação antiga para a nova. Assim como ocorre em failovers automáticos, o SDK do Cosmos DB manipula automaticamente as alterações de região de gravação durante failovers manuais e garante que as chamadas são redirecionadas automaticamente para a nova região de gravação. Nenhuma alteração de configuração ou código é necessária em seu aplicativo para gerenciar failovers. 
 

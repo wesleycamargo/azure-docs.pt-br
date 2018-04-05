@@ -1,8 +1,8 @@
 ---
-title: "Depurar código C# definido pelo usuário para trabalhos com falha do U-SQL no Azure Data Lake | Microsoft Docs"
-description: "Saiba como depurar um vértice com falha do U-SQL usando as Ferramentas do Azure Data Lake para Visual Studio."
+title: Depurar código C# definido pelo usuário para trabalhos com falha do U-SQL no Azure Data Lake | Microsoft Docs
+description: Saiba como depurar um vértice com falha do U-SQL usando as Ferramentas do Azure Data Lake para Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar um código C# definido pelo usuário em trabalhos com falha do U-SQL
 
@@ -41,7 +41,7 @@ Ao abrir um trabalho com falha nas Ferramentas do Azure Data Lake para Visual St
 
 1. Clique em **Download** para baixar todos os recursos e fluxos de entrada necessários. Se o download não for concluído, clique em **Tentar Novamente**.
 
-2. Clique em **Abrir** após a conclusão do download para gerar um ambiente de depuração local. Uma nova instância do Visual Studio com uma solução de depuração é criada e aberta automaticamente.
+2. Clique em **Abrir** após a conclusão do download para gerar um ambiente de depuração local. Uma nova solução de depuração será aberta e, se você tiver uma solução já existente aberta no Visual Studio, não deixe de salvá-la e fechá-la antes de depurar.
 
 ![Vértice para download do visual studio para depuração do U-SQL no Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

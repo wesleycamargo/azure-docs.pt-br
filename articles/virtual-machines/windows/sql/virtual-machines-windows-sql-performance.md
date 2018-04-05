@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3458e2f1a09b597c50c01d59eb6522b3fa521310
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2aa066caf6239f29038228c3c91607d913e70682
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
 
@@ -41,8 +41,8 @@ Veja a seguir uma lista de verificação rápida para obter o melhor desempenho 
 | --- | --- |
 | [Tamanho da VM](#vm-size-guidance) |[DS3](../sizes-memory.md) ou superior para o SQL Enterprise Edition.<br/><br/>[DS2](../sizes-memory.md) ou superior para os SQL Standard e Web Editions. |
 | [Armazenamento](#storage-guidance) |Use o [Armazenamento Premium](../premium-storage.md). O armazenamento padrão é recomendado somente para desenvolvimento/teste.<br/><br/>Mantenha a [conta de armazenamento](../../../storage/common/storage-create-storage-account.md) e a VM do SQL Server na mesma região.<br/><br/>Desabilite o [armazenamento com redundância geográfica](../../../storage/common/storage-redundancy.md) (replicação geográfica) do Azure na conta de armazenamento. |
-| [Discos](#disks-guidance) |Usar no mínimo dois [discos P30](../premium-storage.md#scalability-and-performance-targets) (um para arquivos de log; um para arquivos de dados e o TempDB).<br/><br/>Evite usar o sistema operacional ou discos temporários para armazenamento de banco de dados ou registro em log.<br/><br/>Habilite o caching nos discos que hospedam os arquivos de dados e o TempDB.<br/><br/>Não habilite o caching em discos que hospedam o arquivo de log.<br/><br/>Importante: interrompa o serviço do SQL Server ao alterar as configurações de cache para um disco de VM do Azure.<br/><br/>Particione vários discos de dados do Azure para obter maior taxa de transferência de E/S.<br/><br/>Formate com os tamanhos de alocação documentados. |
-| [E/S](#io-guidance) |Habilite a compactação de página do banco de dados.<br/><br/>Habilite a inicialização instantânea de arquivos para arquivos de dados.<br/><br/>Limite ou desabilite o crescimento automático no banco de dados.<br/><br/>Desabilite a redução automática no banco de dados.<br/><br/>Mova todos os bancos de dados para discos de dados, incluindo bancos de dados do sistema.<br/><br/>Mova o log de erros do SQL Server e os diretórios de arquivos de rastreamento para discos de dados<br/><br/>Configure os locais do arquivo de banco de dados e backup padrão.<br/><br/>Habilite as páginas bloqueadas.<br/><br/>Aplique correções de desempenho do SQL Server. |
+| [Discos](#disks-guidance) |Usar no mínimo dois [discos P30](../premium-storage.md#scalability-and-performance-targets) (um para arquivos de log; um para arquivos de dados e o TempDB).<br/><br/>Evite usar o sistema operacional ou discos temporários para armazenamento de banco de dados ou registro em log.<br/><br/>Habilite o caching nos discos que hospedam os arquivos de dados e os arquivos de dados TempDB.<br/><br/>Não habilite o caching em discos que hospedam o arquivo de log.<br/><br/>Importante: interrompa o serviço do SQL Server ao alterar as configurações de cache para um disco de VM do Azure.<br/><br/>Particione vários discos de dados do Azure para obter maior taxa de transferência de E/S.<br/><br/>Formate com os tamanhos de alocação documentados. |
+| [E/S](#io-guidance) |Habilite a compactação de página do banco de dados.<br/><br/>Habilite a inicialização instantânea de arquivos para arquivos de dados.<br/><br/>Limite o crescimento automático no banco de dados.<br/><br/>Desabilite a redução automática no banco de dados.<br/><br/>Mova todos os bancos de dados para discos de dados, incluindo bancos de dados do sistema.<br/><br/>Mova o log de erros do SQL Server e os diretórios de arquivos de rastreamento para discos de dados<br/><br/>Configure os locais do arquivo de banco de dados e backup padrão.<br/><br/>Habilite as páginas bloqueadas.<br/><br/>Aplique correções de desempenho do SQL Server. |
 | [Recursos específicos](#feature-specific-guidance) |Faça backup diretamente no armazenamento de blob. |
 
 Para saber mais sobre *como* e *por que* fazer essas otimizações, examine os detalhes e diretrizes fornecidos nas seções a seguir.
@@ -118,7 +118,7 @@ Para VMs que têm suporte para Armazenamento Premium (séries DS, DSv2 e GS), é
 
   * Se você não estiver usando o Armazenamento Premium (cenários de desenvolvimento/teste), a recomendação será adicionar o número máximo de discos de dados com suporte pelo [Tamanho da VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e usar a Distribuição de Discos.
 
-* **Política de cache**: para discos de dados de Armazenamento Premium, habilite o cache de leitura nos discos de dados que hospedam os arquivos de dados e o TempDB. Se você não estiver usando o Armazenamento Premium, não habilite o caching em discos de dados. Para obter instruções sobre como configurar o cache de disco, consulte os artigos a seguir. Para o modelo de implantação clássico (ASM), consulte: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para o modelo de implantação do Azure Resource Manager, consulte: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) e [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+* **Política de cache**: para discos de dados de Armazenamento Premium, habilite o cache de leitura apenas nos discos de dados que hospedam os arquivos de dados e os arquivos de dados TempDB. Se você não estiver usando o Armazenamento Premium, não habilite o caching em discos de dados. Para obter instruções sobre como configurar o cache de disco, consulte os artigos a seguir. Para o modelo de implantação clássico (ASM), consulte: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para o modelo de implantação do Azure Resource Manager, consulte: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) e [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
   > [!WARNING]
   > Interrompa o serviço SQL Server ao alterar a configuração do cache dos discos da VM do Azure a fim de evitar a possibilidade de corrupção do banco de dados.

@@ -1,8 +1,8 @@
 ---
-title: "Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior | Microsoft Docs"
-description: "Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior."
+title: Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior | Microsoft Docs
+description: Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
@@ -88,10 +88,10 @@ Se o ingresso no Azure AD híbrido não tiver sido bem-sucedido, a caixa de diá
     
     2. Se, por qualquer motivo, o Autoworkplace.exe não puder autenticar silenciosamente com o Azure Active Directory ou o AD FS. Algumas razões possíveis podem ser problemas de conectividade de rede de saída para URLs do Azure Active Directory (verifique os pré-requisitos) ou se a MFA está habilitada/configurada para o usuário, mas WIAORMUTLIAUTHN não está configurado no servidor de federação (verifique as etapas de configuração). Outra possibilidade é que a página de HRD (descoberta de realm inicial) esteja aguardando interação do usuário, impedindo o Autoworkplace.exe obter silenciosamente um token.
     
-    3. Se a organização estiver usando Logon Único Contínuo do Azure Active Directory, as URLs a seguir não estarão presentes nas configurações de intranet do IE do dispositivo:
+    3. Se a organização estiver usando Logon Único Contínuo do Azure Active Directory, a URL a seguir não estará presente nas configurações de intranet do IE do dispositivo:
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        e a configuração "Permitir atualizações da barra de status via script" deve estar habilitada para a zona da Intranet.
 

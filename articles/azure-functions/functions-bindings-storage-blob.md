@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -233,12 +233,12 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para o blob 
 * `string`
 * `Byte[]`
 * Um POCO serializado como JSON
-* `ICloudBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudBlockBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudPageBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudAppendBlob` (exige a direção de associação "inout" em *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
+<sup>1</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 
 Associação para `string`, `Byte[]`, ou POCO só é recomendada se o tamanho do blob for pequeno, pois o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
 
@@ -364,7 +364,7 @@ Consulte o exemplo específico a um idioma:
 
 ### <a name="input---c-example"></a>Entrada – exemplo de C#
 
-O exemplo a seguir é uma [função C#](functions-dotnet-class-library.md) que usa um gatilho de fila e uma associação de blob de entrada. A mensagem de fila contém o nome do blob e a função faz o tamanho do blob.
+O exemplo a seguir é uma [função C#](functions-dotnet-class-library.md) que usa um gatilho de fila e uma associação de blob de entrada. A mensagem da fila contém o nome do blob e a função registra o tamanho do blob.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a assoc
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudBlockBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudPageBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudAppendBlob` (exige a direção de associação "inout" em *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
+<sup>1</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 
 Associação para `string` ou `Byte[]` só é recomendada se o tamanho do blob for pequeno, pois o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
 
@@ -737,21 +736,23 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="output---usage"></a>Saída - uso
 
-Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a associação de saída de blob:
+Em script C# e C#, é possível associar os tipos a seguir para gravar blobs:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudBlockBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudPageBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudAppendBlob` (exige a direção de associação "inout" em *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
+<sup>1</sup> Requer associação "in" `direction` em *function.json* ou `FileAccess.Read` em uma biblioteca de classes C#.
+
+<sup>2</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 
 Em funções assíncronas, use o valor de retorno ou `IAsyncCollector` em vez de um parâmetro `out`.
 

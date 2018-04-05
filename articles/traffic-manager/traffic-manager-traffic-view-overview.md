@@ -1,31 +1,28 @@
 ---
-title: "Exibição do Tráfego no Gerenciador de Tráfego do Azure | Microsoft Docs"
-description: "Introdução à Exibição do Tráfego do Gerenciador de Tráfego"
+title: Exibição do Tráfego no Gerenciador de Tráfego do Azure | Microsoft Docs
+description: Introdução à Exibição do Tráfego do Gerenciador de Tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 11/11/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 6b4378cb293824702dd52dcdeb86619f957b83ea
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.custom: ''
+ms.openlocfilehash: 7ce51017fdee92e5589c06b398c9650930d5436d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-traffic-view"></a>Exibição do Tráfego do Gerenciador de Tráfego
-
->[!NOTE]
->O recurso de Exibição do Tráfego no Gerenciador de Tráfego está na visualização pública e pode não ter o mesmo nível de disponibilidade e confiabilidade do que os recursos que estão na versão já disponível. Não há suporte para o recurso, o recurso pode ter funcionalidades restritas e ele pode não estar disponível em todas as localizações do Azure. Para receber as notificações mais recentes sobre a disponibilidade e o status desse recurso, confira a página [Atualizações do Gerenciador de Tráfego do Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 O Gerenciador de Tráfego fornece roteamento no nível do DNS para que os usuários finais sejam direcionados aos pontos de extremidade íntegros, com base no método de roteamento especificado quando o perfil foi criado. A Exibição de Tráfego fornece ao Gerenciador de Tráfego uma exibição das bases de usuários (em um nível de granularidade do resolvedor de DNS) e seu padrão de tráfego. Quando você habilita a Exibição do Tráfego, essas informações são processadas para fornecer ideias acionáveis. 
 
@@ -43,7 +40,7 @@ A Exibição do Tráfego funciona com o Gerenciador de Tráfego examinando as co
 Na próxima etapa, o Gerenciador de Tráfego correlaciona o mapeamento da região da base de usuários à região do Azure com as tabelas de latência de inteligência de rede que ele mantém para diferentes redes de usuários finais, a fim de entender a latência média experimentada pelos usuários nessas regiões durante a conexão com as regiões do Azure. Em seguida, todos esses cálculos são combinados no nível do IP do resolvedor de DNS local antes de serem apresentados. Você pode consumir as informações de várias maneiras.
 
 >[!NOTE]
->A latência descrita na Exibição de Tráfego é uma latência representativa entre o usuário final e as regiões do Azure às quais ele se conectou e não é a latência de pesquisa de DNS.
+>A latência descrita na Exibição de Tráfego é uma latência representativa entre o usuário final e as regiões do Azure às quais ele se conectou e não é a latência de pesquisa de DNS. A Exibição de Tráfego faz a melhor estimativa possível da latência entre o resolvedor de DNS local e a região do Azure para a qual a consulta foi roteada. Se houver dados insuficientes disponíveis, a latência retornada será nula. 
 
 ## <a name="visual-overview"></a>Visão geral do visual
 
@@ -61,12 +58,12 @@ Se você focalizar uma localização do resolvedor de DNS no mapa, ele mostrará
 
 ### <a name="endpoint-information"></a>Informações do ponto de extremidade
 
-As regiões do Azure em que residem os pontos de extremidade são mostradas como pontos azuis no mapa. Clique em qualquer ponto de extremidade para ver as diferentes localizações (com base no resolvedor DNS usado) de onde o tráfego foi direcionado para esse ponto de extremidade. As conexões são mostradas como uma linha entre o ponto de extremidade e a localização do resolvedor DNS e são coloridas de acordo com a latência representativa entre esse par. Além disso, você pode ver o nome do ponto de extremidade, a região do Azure em que ele é executado e o volume total de solicitações que foram direcionadas para ele por este perfil do Gerenciador de Tráfego.
+As regiões do Azure em que residem os pontos de extremidade são mostradas como pontos azuis no mapa. Se o ponto de extremidade for externo e não tiver uma região do Azure mapeada para ele, ele será mostrado na parte superior do mapa. Clique em qualquer ponto de extremidade para ver as diferentes localizações (com base no resolvedor DNS usado) de onde o tráfego foi direcionado para esse ponto de extremidade. As conexões são mostradas como uma linha entre o ponto de extremidade e a localização do resolvedor DNS e são coloridas de acordo com a latência representativa entre esse par. Além disso, você pode ver o nome do ponto de extremidade, a região do Azure em que ele é executado e o volume total de solicitações que foram direcionadas para ele por este perfil do Gerenciador de Tráfego.
 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>Download de listagem de tabela e de dados brutos
 
-Exiba os dados da Exibição de Tráfego em um formato de tabela no portal do Azure. Há uma entrada para cada par de IP de resolvedor de DNS/ponto de extremidade que mostra a localização geográfica do resolvedor de DNS (se disponível), o nome da região do Azure em que o ponto de extremidade está localizado, o volume de solicitações associadas ao resolvedor de DNS e a latência representativa associada aos usuários finais que usam esse DNS (quando disponível). Também baixe os dados da Exibição de Tráfego como um arquivo CSV que pode ser usado como parte de um fluxo de trabalho de análise de sua escolha.
+Exiba os dados da Exibição de Tráfego em um formato de tabela no portal do Azure. Há uma entrada para cada par de IP de resolvedor de DNS/ponto de extremidade que mostra o endereço IP do resolvedor de DNS, o nome e o local geográfico da região do Azure em que o ponto de extremidade está localizado (se disponível), o volume de solicitações associadas ao resolvedor de DNS para esse o ponto de extremidade e a latência representativa associada aos usuários finais que usam esse DNS (quando disponível). Também baixe os dados da Exibição de Tráfego como um arquivo CSV que pode ser usado como parte de um fluxo de trabalho de análise de sua escolha.
 
 ## <a name="billing"></a>Cobrança
 

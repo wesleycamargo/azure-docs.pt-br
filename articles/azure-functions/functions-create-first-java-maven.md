@@ -1,11 +1,11 @@
 ---
-title: "Criar sua primeira função no Azure com Java e Maven | Microsoft Docs"
-description: "Criar e publicar uma função simples disparada por HTTP no Azure com Java e Maven."
+title: Criar sua primeira função no Azure com Java e Maven | Microsoft Docs
+description: Criar e publicar uma função simples disparada por HTTP no Azure com Java e Maven.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "azure functions, funções, processamento de eventos, computação, arquitetura sem servidor"
+keywords: azure functions, funções, processamento de eventos, computação, arquitetura sem servidor
 ms.service: functions
 ms.devlang: java
 ms.topic: quickstart
@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Criar sua primeira função com Java e Maven (versão prévia)
 
@@ -34,18 +34,25 @@ Este guia de início rápido fornece orientação para a criação de um projeto
 ## <a name="prerequisites"></a>pré-requisitos
 Para desenvolver aplicativos de funções com Java, você deve ter o seguinte instalado:
 
--  [.NET core](https://www.microsoft.com/net/core), a versão mais recente.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), versão 8.
--  [CLI do Azure](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), versão 3.0 ou posterior.
--  [Node.js](https://nodejs.org/download/), versão 8.6 ou superior.
+-  [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > A variável de ambiente JAVA_HOME deve ser definida como o local de instalação do JDK para concluir este guia de início rápido.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalação das ferramentas básicas do Azure Functions
 
-As [Ferramentas Básicas do Azure Functions 2.0](https://www.npmjs.com/package/azure-functions-core-tools) fornecem um ambiente de desenvolvimento local para gravar, executar e depurar funções do Azure. Instale as ferramentas com [npm](https://www.npmjs.com/), incluído com [Node.js](https://nodejs.org/).
+As [Ferramentas Básicas do Azure Functions 2.0](https://www.npmjs.com/package/azure-functions-core-tools) fornecem um ambiente de desenvolvimento local para gravar, executar e depurar funções do Azure. 
+
+Para fazer a instalação, visite a seção [Instalação](https://github.com/azure/azure-functions-core-tools#installing) e encontre as instruções específicas para seu sistema operacional de preferência (Windows, Linux, Mac).
+
+Também é possível fazer a instalação manualmente com [npm](https://www.npmjs.com/), incluído com o [Node.js](https://nodejs.org/), depois de instalar os seguintes requisitos:
+
+-  [.NET core](https://www.microsoft.com/net/core), a versão mais recente.
+-  [Node.js](https://nodejs.org/download/), versão 8.6 ou superior.
+
+Para continuar com uma instalação baseada em npm, execute:
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +192,4 @@ Você criou um aplicativo de funções Java com um gatilho HTTP simples e o impl
 - Examine o [Guia do desenvolvedor de funções Java](functions-reference-java.md) para saber mais sobre o desenvolvimento de funções Java.
 - Adicione outras funções com gatilhos diferentes ao seu projeto usando o destino Maven `azure-functions:add`.
 - Depure funções localmente com o Visual Studio Code. Com o [pacote de extensão Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) instalado, e com o seu projeto do Functions aberto no Visual Studio Code, [anexe o depurador](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) à porta 5005. Em seguida, defina um ponto de interrupção no editor e dispare sua função enquanto ela está em execução localmente: ![Depurar funções no Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- Depure funções remotamente com o Visual Studio Code. Verifique a documentação de [Gravação de aplicativos Java sem servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) para obter instruções.

@@ -1,11 +1,11 @@
 ---
-title: "Relatórios avançados do Windows Universal com o Engagement para Aplicativos Móveis"
+title: Relatórios avançados do Windows Universal com o Engagement para Aplicativos Móveis
 description: Como integrar o Azure Mobile Engagement com aplicativos do Windows Universal
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ea5030bf-73ac-49b7-bc3e-c25fc10e945a
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 88d28bbc32179698147ab7516cc414fd23ed4bd6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Relatórios avançados com o SDK do Engagement para Aplicativos Universais do Windows
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universal do Windows](mobile-engagement-windows-store-advanced-reporting.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 
 Este tópico descreve cenários de relatório adicionais em seu aplicativo universal do Windows. Estes cenários incluem opções que você pode optar para aplicar ao aplicativo criado no tutorial [Introdução](mobile-engagement-windows-store-dotnet-get-started.md) .
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução](mobile-engagement-windows-store-dotnet-get-started.md) , que é deliberadamente direto e simples. Este tutorial aborda as opções adicionais que você pode escolher.

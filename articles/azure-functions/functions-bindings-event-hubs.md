@@ -3,7 +3,7 @@ title: Associações de Hubs de Eventos do Azure para o Azure Functions
 description: Entenda como usar associações dos Hubs de Eventos do Azure no Azure Functions.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: wesmc
-ms.openlocfilehash: 87a7d25e1095fe1511c86dc56375c02f06f51b73
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associações de Hubs de Eventos do Azure para o Azure Functions
 
@@ -30,7 +30,7 @@ Este artigo explica como trabalhar com associações de [Hubs de Eventos do Azur
 
 ## <a name="packages"></a>Pacotes
 
-As associações de Hubs de Eventos são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/).
+Para Azure Functions versão 1.x, as associações de Hubs de Eventos são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). Para Functions 2.x, use o pacote [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -203,6 +203,34 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
+Para receber eventos em um lote, defina `cardinality` como `many` no arquivo *function.json*:
+
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+Aqui está o código JavaScript:
+
+```javascript
+module.exports = function (context, eventHubMessages) {
+    context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
+    
+    eventHubMessages.forEach(message => {
+        context.log(`Processed message ${message}`);
+    });
+
+    context.done();
+};
+```
+
 ## <a name="trigger---attributes"></a>Gatilho – atributos
 
 Em [bibliotecas de classes de C#](functions-dotnet-class-library.md), utilize o atributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs).
@@ -230,6 +258,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**name** | n/d | O nome da variável que representa o item de evento no código de função. | 
 |**path** |**EventHubName** | O nome do hub de eventos. | 
 |**consumerGroup** |**ConsumerGroup** | É uma propriedade opcional que define o [grupo de consumidores ](../event-hubs/event-hubs-features.md#event-consumers) usado para assinar eventos no hub. Se omitido, o grupo de consumidores `$Default` será usado. | 
+|**cardinalidade** | n/d | Para JavaScript. Definido como `many` para habilitar o envio em lote.  Se omitido ou definido como `one`, uma única mensagem será passada para a função. | 
 |**conexão** |**Conexão** | É o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do [namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não no próprio hub de eventos. Essa cadeia de conexão deve ter, pelo menos, permissões de leitura para ativar o gatilho.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

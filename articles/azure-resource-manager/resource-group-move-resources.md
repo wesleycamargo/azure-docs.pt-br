@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -87,6 +87,11 @@ Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao 
   az provider register --namespace Microsoft.Batch
   ```
 
+4. A conta de movimentação de recursos deve ter pelo menos as seguintes permissões:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** no grupo de recursos de origem.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** no grupo de recursos de destino.
+
 ## <a name="when-to-call-support"></a>Quando telefonar para o suporte
 
 Você pode mover a maioria dos recursos por meio de operações de autoatendimento mostradas neste artigo. Use as operações de autoatendimento para:
@@ -105,6 +110,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 
 * Gerenciamento da API
 * Aplicativos do Serviço de Aplicativo (aplicativos Web) - consulte [Limitações do Serviço de Aplicativo](#app-service-limitations)
+* Certificados do Serviço de Aplicativo
 * Application Insights
 * Automação
 * Azure Cosmos DB
@@ -193,7 +199,9 @@ Você não pode mover uma rede virtual para uma assinatura diferente caso a rede
 
 ## <a name="app-service-limitations"></a>Limitações do Serviço de Aplicativo
 
-As limitações para mover recursos do Serviço de Aplicativo diferem se você está movendo os recursos dentro de uma assinatura ou para uma nova assinatura.
+As limitações para mover recursos do Serviço de Aplicativo diferem se você está movendo os recursos dentro de uma assinatura ou para uma nova assinatura. 
+
+As limitações descritas nesta seção se aplicam a certificados carregados, não a Certificados do Serviço de Aplicativo. Você pode mover Certificados do Serviço de Aplicativo para um novo grupo de recursos ou assinatura sem limitações. Se você tiver vários aplicativos Web que usam o mesmo Certificado do Serviço de Aplicativo, primeiro mova todos os aplicativos Web e depois mova o certificado.
 
 ### <a name="moving-within-the-same-subscription"></a>Movendo dentro da mesma assinatura
 

@@ -1,11 +1,11 @@
 ---
-title: "Compreender dispositivos gêmeos no Hub IoT do Azure| Microsoft Docs"
-description: "Guia de desenvolvedor ‑ use dispositivos gêmeos para sincronizar os dados de estado e de configuração entre os dispositivos e o Hub IoT"
+title: Compreender dispositivos gêmeos no Hub IoT do Azure| Microsoft Docs
+description: Guia de desenvolvedor ‑ use dispositivos gêmeos para sincronizar os dados de estado e de configuração entre os dispositivos e o Hub IoT
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,16 +15,19 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
-*Dispositivos gêmeos* são documentos JSON que armazenam informações do estado do dispositivo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT. Este artigo descreve:
+*Dispositivos gêmeos* são documentos JSON que armazenam informações do estado do dispositivo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT. 
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+Este artigo descreve:
 
 * A estrutura do dispositivo gêmeo: *marcas*, *propriedades desejadas* e *relatadas*.
 * As operações que os aplicativos e back-ends de dispositivo podem executar em dispositivos gêmeos.

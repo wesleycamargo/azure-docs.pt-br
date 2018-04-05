@@ -1,22 +1,22 @@
 ---
-title: "Conceitos de segurança no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs"
-description: "Descreve conceitos de provisionamento de segurança específicos para dispositivos com o Serviço de Provisionamento de Dispositivos e o Hub IoT"
+title: Conceitos de segurança no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
+description: Descreve conceitos de provisionamento de segurança específicos para dispositivos com o Serviço de Provisionamento de Dispositivos e o Hub IoT
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do Serviço de Provisionamento de Dispositivos no Hub IoT 
 
@@ -31,7 +31,7 @@ O mecanismo de atestado é o método usado para confirmar a identidade de um dis
 
 O Serviço de Provisionamento de Dispositivos dá suporte a duas formas de atestado:
 * **Certificados X.509** com base no fluxo de autenticação do certificado X.509 padrão.
-* **Tokens SAS** com base em um desafio de nonce usando o padrão TPM para chaves. Isso não requer um TPM físico no dispositivo, mas o serviço espera atestar usando a chave de endosso de acordo com a [especificação TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** com base em um desafio nonce, usando o padrão TPM para chaves para apresentar um token de Assinatura de Acesso Compartilhado (SAS) assinado. Isso não requer um TPM físico no dispositivo, mas o serviço espera atestar usando a chave de endosso de acordo com a [especificação TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Módulo de segurança de hardware
 
@@ -42,7 +42,7 @@ O módulo de segurança de hardware, ou HSM, é usado para armazenamento seguro,
 
 Os segredos de dispositivo também podem ser armazenados em software (memória), mas é uma forma menos segura de armazenamento que um HSM.
 
-## <a name="trusted-platform-module-tpm"></a>TPM (Trusted Platform Module)
+## <a name="trusted-platform-module"></a>Trusted Platform Module
 
 O TPM pode se referir a um padrão para armazenar com segurança as chaves usadas para autenticar a plataforma ou pode se referir à interface de E/S usada para interagir com os módulos que implementam o padrão. Os TPMs podem existir como hardware discreto, hardware integrado, com base no firmware ou com base em software. Saiba mais sobre [TPMs e atestado de TPM](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). O Serviço de Provisionamento de Dispositivos somente dá suporte ao TPM 2.0.
 
@@ -76,8 +76,8 @@ O certificado de folha, ou certificado de entidade final, identifica o propriet�
 
 O serviço de provisionamento expõe dois tipos de entrada de registro que você pode usar para controlar o acesso de dispositivos que usam o mecanismo de atestado X.509:  
 
-- As entradas de [registro individual](./concepts-service.md#individual-enrollment) são configuradas com o certificado do dispositivo associado a um dispositivo específico. Essas entradas controlam o registro de dispositivos específicos.
-- As entradas de [grupo de registros](./concepts-service.md#enrollment-group) são associadas a um certificado de AC intermediário ou raiz. Essas entradas controlam o registro de todos os dispositivos que têm esse certificado raiz ou intermediário em sua cadeia de certificados. 
+- As entradas de [registro individual](./concepts-service.md#individual-enrollment) são configuradas com o certificado do dispositivo associado a um dispositivo específico. Essas entradas controlam os registros de dispositivos específicos.
+- As entradas de [grupo de registros](./concepts-service.md#enrollment-group) são associadas a um certificado de AC intermediário ou raiz. Essas entradas controlam os registros de todos os dispositivos que têm esse certificado raiz ou intermediário em sua cadeia de certificados. 
 
 Quando um dispositivo se conecta ao serviço de provisionamento, o serviço prioriza entradas de registro mais específicas em relação a entradas de registro menos específicas. Ou seja, se existir um registro individual para o dispositivo, o serviço de provisionamento aplicará essa entrada. Se não houver nenhum registro individual para o dispositivo e existir um grupo de registro para o primeiro certificado intermediário na cadeia de certificados do dispositivo, o serviço aplicará essa entrada, e assim por diante para cima na cadeia até a raiz. O serviço aplica a primeira entrada aplicável que encontrar, como:
 

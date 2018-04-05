@@ -1,17 +1,17 @@
 ---
-title: "Solicitações de aumento de cota de vCPU do Azure Resource Manager | Microsoft Docs"
-description: "Solicitações de aumento de cota de vCPU do Azure Resource Manager"
+title: Solicitações de aumento de cota de vCPU do Azure Resource Manager | Microsoft Docs
+description: Solicitações de aumento de cota de vCPU do Azure Resource Manager
 author: ganganarayanan
 ms.author: gangan
-ms.date: 1/18/2017
+ms.date: 3/15/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: a42fa8e4e8dae140db4fcc8977bda335455b97a1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Solicitações de aumento de cota de vCPU do Resource Manager
 
@@ -24,21 +24,22 @@ Para solicitar um aumento, crie um caso de suporte de Cota para vCPUs no Portal 
 > [!NOTE]
 > Saiba como [criar uma solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) no Portal do Azure
 
-1. Na página de nova solicitação de suporte, selecione o Tipo de problema como "Cota" e o Tipo de cota como "Núcleos".
+1. Selecione **Assinaturas**.
 
-    ![Folha de Noções Básicas de Cota](./media/resource-manager-core-quotas-request/Basics-blade.png)
+   ![Assinaturas](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. Selecione o Modelo de implantação como "Resource Manager" e selecione um local.
+2. Selecione a assinatura que precisa de uma cota maior.
 
-    ![Folha Problema de Cota](./media/resource-manager-core-quotas-request/Problem-step.png)
+   ![Escolha a assinatura](./media/resource-manager-core-quotas-request/select-subscription.png)
 
-3. Selecione as Famílias de SKU que exigem um aumento.
+3. Selecione **Uso + cotas**
 
-    ![Série de SKU selecionada](./media/resource-manager-core-quotas-request/SKU-selected.png)
+   ![Selecione uso e cotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
 
-4. Insira os novos limites desejados na assinatura.
+4. No canto superior direito, selecione **Solicitar Aumento**.
 
-    ![Nova solicitação de cota do SKU](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
+   ![Solicitar Aumento](./media/resource-manager-core-quotas-request/request-increase.png)
 
-- Para remover uma linha, desmarque o SKU no menu suspenso de família de SKU ou clique no ícone "x" de descarte.
-Depois de inserir a cota desejada para cada família de SKU, clique em "Avançar" na página Etapa do problema para continuar com a criação da solicitação de suporte.
+5. Selecione **Núcleos** como o tipo de cotação. 
+
+   ![Preencher o formulário](./media/resource-manager-core-quotas-request/forms.png)

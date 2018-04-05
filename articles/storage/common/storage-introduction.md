@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Armazenamento do Azure | Microsoft Docs"
-description: "Introdução ao Armazenamento do Azure, armazenamento de dados da Microsoft na nuvem."
+title: Introdução ao Armazenamento do Azure | Microsoft Docs
+description: Introdução ao Armazenamento do Azure, armazenamento de dados da Microsoft na nuvem.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introdução ao Armazenamento do Microsoft Azure
 
@@ -131,7 +131,7 @@ Há dois tipos básicos de criptografia disponíveis para os serviços de Armaze
 
 A SSE (Criptografia do Serviço de Armazenamento) do Azure em repouso ajuda a proteger seus dados para atender aos compromissos de conformidade e segurança de sua organização. Com esse recurso, o Armazenamento do Azure criptografa automaticamente seus dados antes de persistir no armazenamento e os descriptografa antes da recuperação. A criptografia, a descriptografia e o gerenciamento de chaves são totalmente transparentes para os usuários.
 
-O SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Azure (Blobs, Filas, Tabelas e Arquivos). A SSE não afeta o desempenho do Armazenamento do Microsoft Azure.
+A SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Microsoft Azure (Blobs, Filas, Tabelas e Arquivos). A SSE não afeta o desempenho do Armazenamento do Microsoft Azure.
 
 Para saber mais sobre a criptografia de SSE em repouso, consulte [Criptografia de serviço do Armazenamento do Azure para dados em repouso](storage-service-encryption.md).
 

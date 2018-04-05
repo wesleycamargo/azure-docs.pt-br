@@ -1,22 +1,21 @@
 ---
-title: "Fazer test drive de um aplicativo de área de trabalho habilitado para o Azure AD B2C"
-description: "Guia de início rápido para testar um aplicativo de área de trabalho ASP.NET de exemplo que usa o Azure Active Directory B2C para fornecer o logon do usuário."
+title: Fazer test drive de um aplicativo de área de trabalho habilitado para o Azure AD B2C
+description: Guia de início rápido para testar um aplicativo de área de trabalho ASP.NET de exemplo que usa o Azure Active Directory B2C para fornecer o logon do usuário.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 18c378f82255df3a999703bc319d551af4b2705c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: 8726a5816623d42deb495aa062ef82f1f95b76b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Início Rápido: testar um aplicativo de área de trabalho habilitado para o Azure AD B2C
 
@@ -91,7 +90,7 @@ O Azure Active Directory B2C fornece funcionalidade para permitir que usuários 
 
 ## <a name="access-a-protected-web-api-resource"></a>Acessar um recurso protegido da API Web
 
-Clique em **Chamar API** para fazer uma solicitação para o recurso protegido do Azure AD B2C https://fabrikamb2chello.azurewebsites.net/hello. 
+Clique em **Chamar API** para fazer uma solicitação para o recurso protegido do B2C do Azure Active Directory https://fabrikamb2chello.azurewebsites.net/hello. 
 
 ![Chamar API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 

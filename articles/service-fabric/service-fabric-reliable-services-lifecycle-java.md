@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: ad4228ade68f4494e5be0454643752e742c1cc81
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 4270bf0b8002b5328241c6d31f399511fc38274e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]
@@ -65,11 +65,11 @@ Ao desligar um serviço sem estado, o mesmo padrão é seguido, porém na ordem 
 1. Esses eventos ocorrem em paralelo:
     - Todos os ouvintes abertos são fechados. `CommunicationListener.closeAsync()` é chamado em cada ouvinte.
     - O token de cancelamento passado para `runAsync()` é cancelado. A verificação da propriedade `isCancelled` do token de cancelamento retorna `true` e, se chamado, o método `throwIfCancellationRequested` do token vai lançar `CancellationException`.
-2. Depois que `closeAsync()` termina em cada ouvinte e `runAsync()` também é concluído, o método `StatelessService.onCloseAsync()` do serviço é chamado, se estiver presente. Novamente, isso não é uma substituição comum.
+2. Depois que `closeAsync()` termina em cada ouvinte e `runAsync()` também é concluído, o método `StatelessService.onCloseAsync()` do serviço é chamado, se estiver presente. Novamente, não é uma substituição comum, mas pode ser usada para fechar todos os recursos com segurança, interromper todos os processamentos em segundo plano, terminar de salvar o estado externo ou fechar conexões existentes.
 3. Depois que `StatelessService.onCloseAsync()` for concluído, o objeto de serviço será destruído.
 
 ## <a name="stateful-service-startup"></a>Inicialização de serviço com estado
-Os serviços com estado têm um padrão semelhante aos serviços sem estado, com algumas alterações. Veja a ordem de eventos para iniciar um serviço com estado:
+Os serviços com estado têm um padrão semelhante aos serviços sem estado, com algumas alterações.  Veja a ordem de eventos para iniciar um serviço com estado:
 
 1. O Serviço foi construído.
 2. `StatefulServiceBase.onOpenAsync()` é chamado. Essa chamada não costuma ser substituída no serviço.
@@ -127,15 +127,14 @@ Exceções geradas pelo Service Fabric são permanentes [(`FabricException`)](ht
 Uma parte importante de testar e validar os Reliable Services é manipular as exceções que vêm do uso de `ReliableCollections` em conjunto com eventos de ciclo de vida do serviço. É recomendável que você sempre execute seu serviço sob carga. Você também deve executar atualizações e [teste de caos](service-fabric-controlled-chaos.md) antes de implantar para produção. Essas etapas básicas ajudam a garantir que o serviço seja implementado corretamente,e que ele trate os eventos do ciclo de vida corretamente.
 
 ## <a name="notes-on-service-lifecycle"></a>Observações sobre o ciclo de vida do serviço
-* Tanto o método `runAsync()` quanto as chamadas `createServiceInstanceListeners/createServiceReplicaListeners` são opcionais. Um serviço pode ter um, ambos ou nenhum. Por exemplo, se o serviço fizer todo seu trabalho em resposta a chamadas do usuário, não será necessário implementar `runAsync()`. Apenas os ouvintes de comunicação e seu código associado são necessários. 
-
-  Da mesma forma, criar e retornar ouvintes de comunicação é opcional. O serviço pode ter somente trabalho em segundo plano para fazer, e portanto precisa implementar `runAsync()`.
+* Tanto o método `runAsync()` quanto as chamadas `createServiceInstanceListeners/createServiceReplicaListeners` são opcionais. Um serviço pode ter um, ambos ou nenhum. Por exemplo, se o serviço fizer todo seu trabalho em resposta a chamadas do usuário, não será necessário implementar `runAsync()`. Apenas os ouvintes de comunicação e seu código associado são necessários.  Da mesma forma, criar e retornar ouvintes de comunicação é opcional. O serviço pode ter somente trabalho em segundo plano para fazer, e portanto precisa implementar `runAsync()`.
 * Isso é válido para um serviço concluir `runAsync()` com êxito e retornar dele. Isso não é considerado uma condição de falha. Representa o trabalho em segundo plano da finalização do serviço. Para serviço confiável com estado, `runAsync()` seria chamado novamente se o serviço tiver sido rebaixado de primário e promovido novamente para primário.
 * Se um serviço sair de `runAsync()`, lançando uma exceção inesperada, isso constituirá uma falha. O objeto de serviço é desligado e um erro de integridade é reportado.
 * Embora não haja um limite de tempo para o retorno desses métodos, você perde imediatamente a capacidade de gravar. Portanto, não pode concluir nenhum trabalho real. Recomendamos que você retorne o mais rápido possível após o recebimento da solicitação de cancelamento. Se o serviço não responder a essas chamadas à API dentro de um período razoável, o Service Fabric poderá forçar o encerramento do serviço. Geralmente isso ocorre apenas durante atualizações de aplicativo ou quando um serviço está sendo excluído. Esse tempo limite é de 15 minutos por padrão.
-* Falhas no caminho `onCloseAsync()` faz com que `onAbort()` seja chamado. Essa chamada é uma oportunidade de melhor esforço de última chance para o serviço ser limpo e liberar quaisquer recursos ocupados.
+* Falhas no caminho `onCloseAsync()` faz com que `onAbort()` seja chamado. Essa chamada é uma oportunidade de melhor esforço de última chance para o serviço ser limpo e liberar quaisquer recursos ocupados. Ele geralmente é chamado quando é detectada uma falha permanente no nó ou quando a malha de serviço não pode gerenciar confiavelmente o ciclo de vida da instância do serviço devido a falhas internas.
+* `OnChangeRoleAsync()` é chamado quando a réplica de serviço com estado está alterando funções, por exemplo para primário ou secundário. Réplicas primárias recebem status de gravação (têm permissão para criar as Coleções Confiáveis e gravar nelas). Réplicas secundárias recebem status de leitura (podem somente ler das coleções confiáveis existentes). A maior parte do trabalho em um serviço com estado é executado na réplica primária. Réplicas secundárias podem realizar validação somente leitura, geração de relatórios, mineração de dados ou outros trabalhos somente leitura.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Início Rápido dos Reliable Services](service-fabric-reliable-services-quick-start-java.md)
-* [Uso avançado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
+

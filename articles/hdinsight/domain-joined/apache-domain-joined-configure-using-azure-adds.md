@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clusters HDInsight ingressados no domínio usando o Azure Active Directory Domain Services
 
 Clusters de domínio ingressado fornecem à empresa multiusuário recursos de segurança no HDInsight. Clusters de HDInsight ingressados no domínio são conectados aos domínios do active directory, para que os usuários do domínio possam usar suas credenciais de domínio para autenticar com os clusters e executar trabalhos de grandes dados. 
 
-Há duas maneiras de configurar um controlador de domínio para que um cluster HDInsight ingressado no domínio possa se conectar a:
-
-- Azure Active Directory Domain Services (Azure AD DS)
-- Controlador de Domínio do Active Directory no Azure IaaS VMs
-
 Neste artigo, você aprenderá como instalar e configurar clusters HDInsight ingressados no domínio usando o Azure Active Directory Domain Services.
+
+> [!NOTE]
+> Não há suporte para o Active Directory em VMs de IaaS do Azure.
 
 ## <a name="create-azure-adds"></a>Criar Azure ADDS
 

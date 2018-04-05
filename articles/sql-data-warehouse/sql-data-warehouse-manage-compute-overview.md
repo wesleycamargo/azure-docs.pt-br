@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar recursos de computação no SQL Data Warehouse do Microsoft Azure | Microsoft Docs"
+title: Gerenciar recursos de computação no SQL Data Warehouse do Microsoft Azure | Microsoft Docs
 description: Saiba mais sobre os recursos de escala horizontal de desempenho no SQL Data Warehouse do Azure. Escalar horizontalmente ajustando DWUs, ou reduzir os custos pausando o data warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerenciar computação no SQL Data Warehouse do Azure
 Saiba mais sobre como gerenciar recursos de computação no SQL Data Warehouse do Azure. Reduzir os custos pausando o data warehouse, ou dimensionar o data warehouse para atender às demandas de desempenho. 
@@ -110,7 +110,7 @@ Para automatizar as operações de gerenciamento de computação, consulte [Gere
 
 Cada operação de escala horizontal, pausa e retomada pode demorar vários minutos para ser concluída. Se você está escalando, pausando ou retomando automaticamente, é recomendável implementar a lógica para assegurar que determinadas operações tenham sido concluídas antes de prosseguir com outra ação. Verificar o estado do data warehouse através de vários pontos de extremidades permite que você implemente corretamente a automação dessas operações. 
 
-Para verificar o estado do data warehouse, consulte o início rápido do [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-database-state). Você também pode verificar o estado do data warehouse com uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Para verificar o estado do data warehouse, consulte o início rápido do [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). Você também pode verificar o estado do data warehouse com uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Permissões

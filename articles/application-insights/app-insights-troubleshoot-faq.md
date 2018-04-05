@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas Frequentes
 
@@ -121,7 +121,7 @@ A partir de outras fontes, se você configurá-las:
 * [Diagnóstico do Azure](app-insights-azure-diagnostics.md)
 * [Contêineres de Docker](app-insights-docker.md)
 * [Importação de tabelas para Analytics](app-insights-analytics-import.md)
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Eu posso filtrar ou modificar alguma telemetria?
@@ -250,7 +250,7 @@ Aqui estão dois métodos:
 
 ### <a name="firewall-door"></a>Porta de firewall
 
-Permitir que seu servidor Web envie telemetria para nossos pontos de extremidade https://dc.services.visualstudio.com:443 e https://rt.services.visualstudio.com:443. 
+Permita que o servidor Web envie telemetria para os pontos de extremidade https://dc.services.visualstudio.com:443 e https://rt.services.visualstudio.com:443. 
 
 ### <a name="proxy"></a>Proxy
 
@@ -262,7 +262,7 @@ Encaminhar o tráfego de seu servidor para um gateway na sua intranet, configura
 </TelemetryChannel>
 ```
 
-Seu gateway deve direcionar o tráfego para https://dc.services.visualstudio.com:443/v2/track
+O gateway deve rotear o tráfego para https://dc.services.visualstudio.com:443/v2/track
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>É possível executar testes na Web de Disponibilidade em um servidor de intranet?
 

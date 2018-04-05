@@ -1,6 +1,6 @@
 ---
-title: "Monitorar o cluster Kubernetes do Azure - Gerenciamento de Operações"
-description: "Monitoramento do cluster Kubernetes no serviço de contêiner do Azure usando o Microsoft Operations Management Suite"
+title: Monitorar o cluster Kubernetes do Azure - Gerenciamento de Operações
+description: Monitorando o cluster Kubernetes no Serviço de Contêiner do Azure usando o Log Analytics
 services: container-service
 author: bburns
 manager: timlt
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: e8a68896c923d785fea84cef60f8d2015906f342
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Monitorar um cluster do Serviço de Contêiner do Azure com o Microsoft Operations Management Suite (OMS)
+# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Monitorar um cluster do Serviço de Contêiner do Azure com Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este passo a passo presume que você tenha [criado um cluster Kubernetes usando o Serviço de contêiner do Azure](container-service-kubernetes-walkthrough.md).
 
 Isso também pressupõe que você tenha as ferramentas `az` cli e `kubectl` do Azure instaladas.
@@ -56,18 +56,19 @@ CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## <a name="monitoring-containers-with-operations-management-suite-oms"></a>Contêineres de monitoramentos no Operations Management Suite (OMS)
+## <a name="monitoring-containers-with-log-analytics"></a>Monitorar contêineres como Log Analytics
 
-O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e em nuvem. A Solução de Contêiner é uma solução do OMS Log Analytics, que ajuda você a exibir o inventário, o desempenho e os logs de contêineres em um único local. É possível realizar auditoria e solucionar problemas de contêineres vendo os logs em um local centralizado, e localizar contêineres com ruídos e excesso de consumo em um host.
+O Log Analytics é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem. A Solução de Contêiner é uma solução do Log Analytics, que ajuda você a exibir o inventário, o desempenho e os logs de contêineres em um único local. É possível realizar auditoria e solucionar problemas de contêineres vendo os logs em um local centralizado, e localizar contêineres com ruídos e excesso de consumo em um host.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Para saber mais sobre a Solução de Contêiner, veja [Solução de Contêiner do Log Analytics](../../log-analytics/log-analytics-containers.md).
 
-## <a name="installing-oms-on-kubernetes"></a>Instalando o OMS em Kubernetes
+## <a name="installing-log-analytics-on-kubernetes"></a>Instalando o Log Analytics em Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Obter sua ID do espaço de trabalho e a chave
-Para o OMS agente para conversar com o serviço deve ser configurado com uma id do espaço de trabalho e uma chave do espaço de trabalho. Para obter a id do espaço de trabalho e você precisa criar uma conta do OMS no <https://mms.microsoft.com>. Execute as etapas a seguir para criar uma conta. Depois de criar a conta, você precisará obter sua id e chave clicando em **Configurações** e em **Fontes Conectadas**; depois em **Servidores Linux**, conforme mostrado abaixo.
+Para o OMS agente para conversar com o serviço deve ser configurado com uma id do espaço de trabalho e uma chave do espaço de trabalho. Para obter a chave e a id do espaço de trabalho, você precisa criar uma conta em <https://mms.microsoft.com>.
+Execute as etapas a seguir para criar uma conta. Depois de criar a conta, você precisará obter sua id e chave clicando em **Configurações** e em **Fontes Conectadas**; depois em **Servidores Linux**, conforme mostrado abaixo.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -84,13 +85,13 @@ $ kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Instalando o agente do OMS usando um segredo do Kubernetes
-Para proteger a ID e a chave de espaço de trabalho do OMS, você pode usar o segredo do Kubernetes como parte do arquivo YAML do DaemonSet.
+Para proteger a ID e a chave de espaço de trabalho do Log Analytics, você pode usar o segredo do Kubernetes como parte do arquivo YAML do DaemonSet.
 
  - Copie o script, o arquivo de modelo de segredo e o arquivo de YAML do DaemonSet (do [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e verifique se eles estão no mesmo diretório. 
       - script de geração de segredo – secret-gen.sh
       - modelo de segredo – secret-template.yaml
    - Arquivo YAML do DaemonSet – omsagent-ds-secrets.yaml
- - Execute o script. O script solicitará a ID e a chave primária do espaço de trabalho do OMS. Insira-as e o script criará um arquivo yaml de segredo para que você possa executá-lo.   
+ - Execute o script. O script solicitará a ID e a chave primária do espaço de trabalho do Log Analytics. Insira-as e o script criará um arquivo yaml de segredo para que você possa executá-lo.   
    ```
    #> sudo bash ./secret-gen.sh 
    ```

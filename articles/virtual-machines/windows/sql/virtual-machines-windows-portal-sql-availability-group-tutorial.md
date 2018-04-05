@@ -1,6 +1,6 @@
 ---
-title: "Grupos de Disponibilidade do SQL Server - máquinas virtuais do Azure - tutorial | Microsoft Docs"
-description: "Este tutorial mostra como criar um grupo de disponibilidade Always On do SQL Server em Máquinas Virtuais do Azure."
+title: Grupos de Disponibilidade do SQL Server - máquinas virtuais do Azure - tutorial | Microsoft Docs
+description: Este tutorial mostra como criar um grupo de disponibilidade Always On do SQL Server em Máquinas Virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupos de disponibilidade Sempre ativo na VM do Azure manualmente
 
@@ -356,7 +356,7 @@ Nas máquinas virtuais do Azure, um Grupo de Disponibilidade do SQL Server preci
    | **Rede virtual** |Use o nome da rede virtual do Azure. |
    | **Sub-rede** |Use o nome da sub-rede em que a máquina virtual está.  |
    | **Atribuição de endereço IP** |estático |
-   | **Endereço IP** |Use um endereço disponível da sub-rede. |
+   | **Endereço IP** |Use um endereço disponível da sub-rede. Observe que isso é diferente do endereço IP do cluster |
    | **Assinatura** |Use a mesma assinatura da máquina virtual. |
    | **Localidade** |Use o mesmo local da máquina virtual. |
 

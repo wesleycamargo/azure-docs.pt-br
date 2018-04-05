@@ -1,11 +1,11 @@
 ---
 title: Monitorar data factories usando o Azure Monitor | Microsoft Docs
-description: "Saiba como usar o Azure Monitor para monitorar os pipelines do Data Factory, permitindo logs de diagnóstico com informações do Azure Data Factory."
+description: Saiba como usar o Azure Monitor para monitorar os pipelines do Data Factory, permitindo logs de diagnóstico com informações do Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorar data factories usando o Azure Monitor  
 Os aplicativos em nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça ativo e em execução em um estado íntegro. Ele também ajuda a afastar os problemas potenciais ou solucionar problemas antigos. Além disso, você pode usar os dados de monitoramento para obter mais informações sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que normalmente exigiriam intervenção manual.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Mais informações aqui] (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+Saiba mais aqui](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Esquema de eventos e logs
 
@@ -381,7 +381,7 @@ Mais informações aqui] (https://msdn.microsoft.com/en-us/library/azure/dn93193
 |iniciar| Cadeia de caracteres | Início do acionamento do gatilho no período de tempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| Cadeia de caracteres | Status final se o gatilho foi acionado com êxito (Bem-sucedido ou Falha) | `Succeeded`|
 
-### <a name="metrics"></a>Métricas
+## <a name="metrics"></a>Métricas
 
 O Azure Monitor permite consumir a telemetria para ter visibilidade do desempenho e da integridade de suas cargas de trabalho no Azure. Os tipos de dados de telemetria do Azure mais importantes são as métricas (também chamadas de contadores de desempenho) emitidas pela maioria dos recursos do Azure. O Azure Monitor fornece várias maneiras de configurar e consumir essas métricas para monitorar e solucionar problemas.
 
@@ -396,7 +396,52 @@ O ADFV2 emite as seguintes métricas
 | TriggerSucceededRuns | Métricas de execuções do gatilho bem-sucedidas  | Contagem    | Total                | Execuções totais do gatilho bem-sucedidas em uma janela de um minuto   |
 | TriggerFailedRuns    | Métricas de execuções do gatilho com falha     | Contagem    | Total                | Execuções totais do gatilho com falha em uma janela de um minuto      |
 
-Para acessar as métricas, siga as instruções no artigo – https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Para acessar as métricas, siga as instruções no artigo- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="alerts"></a>Alertas
+
+Você pode gerar alertas em métricas com suporte no Data Factory. Clique no botão **alertas** na página **Monitor** do Data Factory.
+
+![Opção de alertas](media/monitor-using-azure-monitor/alerts_image1.png)
+
+Isso leva você para a página **Alertas**.
+
+![Página de alertas](media/monitor-using-azure-monitor/alerts_image2.png)
+
+Você também pode fazer logon no Portal do Azure e clicar em **Monitorar -&gt; Alertas** para alcançar a página **Alertas** diretamente.
+
+![Alertas no menu do portal](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>Criar alertas
+
+1.  Clique em **+ Nova regra de alerta** para criar um novo alerta.
+
+    ![Nova regra de alerta](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Definir a **Condição de alerta**.
+
+    > [!NOTE]
+    > Certifique-se de selecionar **Todos** em **Filtrar por tipo de recurso**.
+
+    ![Condição do alerta, tela 1 de 3](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Condição do alerta, tela 2 de 3](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Condição do alerta, tela 3 de 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Defina os **detalhes do Alerta**.
+
+    ![Detalhes do Alerta](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Defina o **Grupo de Ação**.
+
+    ![Grupo de ação, tela de 1 de 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Grupo de ação, tela de 2 de 4](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Grupo de ação, tela de 3 de 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Grupo de ação, tela de 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o artigo [Monitorar e gerenciar os pipelines programaticamente](monitor-programmatically.md) para saber mais sobre o monitoramento e o gerenciamento de pipelines ao executar. 

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
@@ -104,7 +104,7 @@ Quando você usa os índices columnstore não clusterizado, a tabela base ainda 
 
 Nunca há incompatibilidades ou outros problemas quando você atualiza para um preço mais alto, por exemplo, do Standard para Premium. Os recursos e funcionalidades disponíveis só aumentam.
 
-Mas o downgrade do tipo de preço pode afetar negativamente seu banco de dados. O impacto é especialmente aparente quando você faz o downgrade de Premium para Básico ou Standard quando o banco de dados contém objetos OLTP in-memory. As tabelas otimizadas para memória e índices columnstore não ficam disponíveis após o downgrade (mesmo se permanecerem visíveis). As mesmas considerações se aplicam ao reduzir o tipo de preço de um pool elástico ou ao mover um banco de dados com tecnologias In-Memory para um pool elástico Standard ou Básico.
+Mas o downgrade do tipo de preço pode afetar negativamente seu banco de dados. O impacto é especialmente aparente quando você faz o downgrade de Premium para Básico ou Standard quando o banco de dados contém objetos OLTP in-memory. As tabelas otimizadas para memória não ficam disponíveis após o downgrade (mesmo se permanecerem visíveis). As mesmas considerações se aplicam ao reduzir o tipo de preço de um pool elástico ou ao mover um banco de dados com tecnologias In-Memory para um pool elástico Standard ou Básico.
 
 ### <a name="in-memory-oltp"></a>OLTP Na Memória
 
@@ -130,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Índices ColumnStore
 
-*Downgrade para Básico ou Standard*: os índices columnstore só têm suporte no tipo de preço Premium, e não nos tipos Standard ou Básico. Ao fazer o downgrade de seu banco de dados para Básico ou Standard, seu índice columnstore fica indisponível. O sistema mantém seu índice columnstore, mas nunca utiliza o índice. Se, mais tarde, você atualizar para Premium, o índice columnstore será imediatamente disponibilizado para uso novamente.
+*Downgrade para Básico ou Standard*: os índices columnstore só têm suporte no tipo de preço Premium e Standard, S3 e superior, e não no tipo Básico. Ao fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte, seu índice columnstore fica indisponível. O sistema mantém seu índice columnstore, mas nunca utiliza o índice. Se, mais tarde, você atualizar de volta para um tipo ou nível com suporte, o índice columnstore será imediatamente disponibilizado para uso novamente.
 
-Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará indisponível após o downgrade do tipo. Portanto, recomendamos que você remova todos os índices columnstore *clusterizado* antes de fazer o downgrade de seu banco de dados abaixo do tipo Premium.
+Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará indisponível após o downgrade. Portanto, recomendamos que você remova todos os índices columnstore *clusterizado* antes de fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte.
 
-*Fazer downgrade para um tipo Premium mais baixo*: esse downgrade terá êxito se todo o banco de dados couber dentro do tamanho máximo de banco de dados para o tipo de preço de destino, ou dentro do armazenamento disponível no pool elástico. Não há nenhum impacto específico nos índices columnstore.
+*Fazer downgrade para um tipo ou nível inferior sem suporte*: esse downgrade terá êxito se todo o banco de dados couber dentro do tamanho máximo de banco de dados para o tipo de preço de destino, ou dentro do armazenamento disponível no pool elástico. Não há nenhum impacto específico nos índices columnstore.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

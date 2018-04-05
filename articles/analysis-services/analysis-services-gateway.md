@@ -1,25 +1,25 @@
 ---
 title: Gateway de dados local | Microsoft Docs
-description: "Um gateway local será necessário se o servidor do Analysis Services no Azure for se conectar a fontes de dados locais."
+description: Um gateway local será necessário se o servidor do Analysis Services no Azure for se conectar a fontes de dados locais.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/19/2018
 ms.author: owend
-ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local do Azure
 O gateway de dados local atua como uma ponte, fornecendo transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. Você pode associar vários serviços na mesma região a um único gateway. 
@@ -61,7 +61,7 @@ O gateway cria uma conexão de saída para o Barramento de Serviço do Azure. El
 Recomendamos a inclusão dos endereços IP em uma lista de permissões para a região de dados em seu firewall. Baixe a [lista de IPs de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). A lista é atualizada semanalmente.
 
 > [!NOTE]
-> Os Endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Por exemplo, 10.0.0.0/24 significa 10.0.0.0 a 10.0.0.24. Saiba mais sobre a [notação CIDR ](http://whatismyipaddress.com/cidr).
+> Os Endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Para saber mais, consulte [Roteamento entre Domínios sem Classificação](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 

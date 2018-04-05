@@ -1,12 +1,12 @@
 ---
-title: "Solucionar problemas de um objeto que não está sincronizando com o Azure AD | Microsoft Docs"
-description: "Solucione problemas de um objeto que não está sincronizando com o Azure AD."
+title: Solucionar problemas de um objeto que não está sincronizando com o Azure AD | Microsoft Docs
+description: Solucione problemas de um objeto que não está sincronizando com o Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure AD
 
@@ -110,7 +110,7 @@ A página de visualização é usada para sincronizar um único objeto. Isso ser
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>Registro
-A página de Registro é usada para verificar o status de sincronização da senha e o histórico. Para obter mais informações, consulte [Solucionar problemas de sincronização de senha](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+A página de Registro é usada para verificar o status de sincronização da senha e o histórico. Para obter mais informações, consulte [Solucionar problemas de sincronização de senha hash](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Propriedades do objeto do metaverso
 Em geral, é melhor começar a pesquisa no [espaço conector](#connector-space) de origem do Active Directory. Mas também é possível começar a pesquisa no metaverso.

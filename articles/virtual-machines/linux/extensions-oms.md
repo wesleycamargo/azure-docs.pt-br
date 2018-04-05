@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/27/2018
 ms.author: danis
-ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c0b7224d0f534661950117813e1a4f348810853
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do OMS para Linux
 
@@ -195,10 +195,11 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 
 | Código do Erro | Significado | Ação possível |
 | :---: | --- | --- |
+| 9 | Habilitar chamado prematuramente | [Atualize o Agente Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
 | 10 | A VM já está conectada a um espaço de trabalho do Log Analytics | Para conectar a VM ao espaço de trabalho especificado no esquema de extensão, defina stopOnMultipleConnections como falso nas configurações públicas ou remova esta propriedade. Essa VM é cobrada uma vez para cada espaço de trabalho ao qual está conectada. |
 | 11 | Configuração inválida fornecida para a extensão | Siga os exemplos anteriores para definir todos os valores de propriedade necessários para a implantação. |
 | 12 | O gerenciador de pacotes dpkg está bloqueado | Verifique se todas as operações de atualização de dpkg no computador foram concluídas e tente novamente. |
-| 20 | Habilitar chamado prematuramente | [Atualize o Agente Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
+| 20 | Falha da instalação do pacote SCX |
 | 51 | Não há suporte para essa extensão no sistema operacional da VM | |
 | 55 | Não é possível conectar ao serviço do Microsoft Operations Management Suite | Verifique se o sistema tem acesso à Internet ou que um proxy HTTP válido foi fornecido. Além disso, verifique a exatidão da ID do espaço de trabalho. |
 

@@ -1,6 +1,6 @@
 ---
-title: "Solucionar problemas no controle de acesso baseado em função (RBAC) do Azure | Microsoft Docs"
-description: "Obtenha ajuda para problemas ou dúvidas sobre recursos do Controle de Acesso Baseado em Função."
+title: Solucionar problemas no controle de acesso baseado em função (RBAC) do Azure | Microsoft Docs
+description: Obtenha ajuda para problemas ou dúvidas sobre recursos do Controle de Acesso Baseado em Função.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766ff118638538520c8f17694b32f35dbe6d1025
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Solução de problemas no controle de acesso baseado em função do Azure 
 
-Este artigo responde a perguntas comuns sobre os direitos de acesso específicos concedidos com as funções, para que você saiba o que esperar ao usar as funções no portal do Azure e possa solucionar problemas de acesso. Estas três funções abrangem todos os tipos de recurso:
+Este artigo responde a perguntas comuns sobre os direitos de acesso específicos concedidos com as funções, para que você saiba o que esperar ao usar as funções no Portal do Azure e possa solucionar problemas de acesso. Estas três funções abrangem todos os tipos de recurso:
 
 * Proprietário  
 * Colaborador  
@@ -31,7 +31,7 @@ Este artigo responde a perguntas comuns sobre os direitos de acesso específicos
 
 Os proprietários e colaboradores têm acesso completo a experiência de gerenciamento, mas um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas ficam um pouco mais interessantes com a função de leitor e é para ela que vamos dedicar algum tempo. Consulte o [Artigo de introdução ao Controle de Acesso Baseado em Função](role-based-access-control-configure.md) para obter detalhes sobre como conceder acesso.
 
-## <a name="app-service-workloads"></a>Cargas de trabalho do serviço de aplicativo
+## <a name="app-service"></a>Serviço de Aplicativo
 ### <a name="write-access-capabilities"></a>Recursos do acesso de gravação
 Se você conceder a um usuário o acesso somente leitura a um aplicativo Web, para sua surpresa, alguns recursos estarão desabilitados. As funcionalidades de gerenciamento a seguir exigem o acesso de **gravação** para um aplicativo Web (Colaborador ou Proprietário) e não estarão disponíveis em um cenário somente leitura.
 
@@ -69,7 +69,14 @@ Estes itens exigem acesso para **gravação** no **Grupo de recursos** inteiro q
 * Componentes do Application insights  
 * Testes da Web  
 
-## <a name="virtual-machine-workloads"></a>Cargas de trabalho da máquina virtual
+## <a name="azure-functions"></a>Funções do Azure
+Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) exigem acesso de gravação. Por exemplo, se um usuário receber a função Leitor, ele não poderá exibir as funções em um aplicativo de funções. O portal exibirá **(Sem acesso)**.
+
+![Aplicativos de funções sem acesso](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+Um leitor pode clicar na guia **	Recursos da plataforma** e, em seguida, clicar em **Todas as configurações** para exibir algumas configurações relacionadas a um aplicativo de funções (semelhante a um aplicativo Web), mas não é possível modificar nenhuma dessas configurações.
+
+## <a name="virtual-machine"></a>Máquina virtual
 Como muitos aplicativos Web, alguns recursos na folha da máquina virtual requerem o acesso de gravação para a máquina virtual ou a outros recursos no grupo de recursos.
 
 As máquinas virtuais são relacionadas a nomes de domínio, redes virtuais, contas de armazenamento e regras de alerta.

@@ -91,7 +91,7 @@
           href: app-insights-how-do-i.md
     - name: Configurar
       items:
-        - name: As tabelas
+        - name: Azure
           items:
             - name: Adicionar monitoramento contínuo
               href: app-insights-vsts-continuous-monitoring.md
@@ -238,6 +238,9 @@
       items:
         - name: Gerenciar preços e volume de dados
           href: app-insights-pricing.md
+          items:
+            - name: Detalhes do plano Enterprise
+              href: app-insights-pricing-enterprise-details.md
         - name: Monitoramento de desempenho de aplicativos usando o Application Insights para SCOM
           href: app-insights-scom.md
     - name: Exportação

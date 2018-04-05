@@ -7,6 +7,8 @@
 
 Dispositivos gêmeos são documentos JSON que armazenam informações do estado do dispositivo (metadados, configurações e condições). O Hub IoT persiste um dispositivo gêmeo para cada dispositivo que você conecta a ele.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Use os dispositivos gêmeos para:
 
 * Armazene os metadados de dispositivo de seu back-end da solução.
@@ -14,8 +16,7 @@ Use os dispositivos gêmeos para:
 * Sincronize o estado dos fluxos de trabalho de longa duração (como atualizações de firmware e configuração) entre o aplicativo do dispositivo e o aplicativo back-end.
 * Consultar os metadados, a configuração ou o estado do seu dispositivo.
 
-> [!NOTE]
-> Dispositivos gêmeos são projetados para sincronização e para consultar condições e configurações de dispositivos. Mais informações sobre quando usar dispositivos gêmeos podem ser localizadas em [Entender dispositivos gêmeos][lnk-twins].
+Dispositivos gêmeos são projetados para sincronização e para consultar condições e configurações de dispositivos. Mais informações sobre quando usar dispositivos gêmeos podem ser localizadas em [Entender dispositivos gêmeos][lnk-twins].
 
 Dispositivos gêmeos são armazenados em um hub IoT e contêm:
 

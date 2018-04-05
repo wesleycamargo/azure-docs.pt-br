@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Diretrizes de preços para VMs do Azure do SQL Server
 
@@ -63,7 +63,7 @@ Você tem duas opções de pagamento para licenciamento dessas edições do SQL 
 
 ### <a name="pay-per-usage"></a>Pagamento por uso
 
-**Pagar a licença do SQL Server por uso** significa que o custo por minuto da execução da VM do Azure inclui o custo da licença do SQL Server. Você pode ver os preços para as diferentes edições do SQL Server (Web, Standard e Enterprise) na [página de preços de VMs do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). O custo é o mesmo para todas as versões do SQL Server (2012 SP3 a 2017). Assim como o licenciamento geral do SQL Server, o custo do licenciamento por minuto depende do número de núcleos da VM.
+**Pagar a licença do SQL Server por uso** significa que o custo por segundo da execução da VM do Azure inclui o custo da licença do SQL Server. Você pode ver os preços para as diferentes edições do SQL Server (Web, Standard e Enterprise) na [página de preços de VMs do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). O custo é o mesmo para todas as versões do SQL Server (2012 SP3 a 2017). Assim como o licenciamento geral do SQL Server, o custo do licenciamento por segundo depende do número de núcleos da VM.
 
 O pagamento do licenciamento do SQL Server por uso é recomendável para:
 
@@ -113,7 +113,7 @@ Para criar uma VM do Azure do SQL Server 2016 com uma dessas imagens traga sua p
 > Informe-nos em até 10 dias quantas licenças do SQL Server você usará no Azure. Os links para as imagens anteriores têm instruções de como fazer isso.
 
 > [!NOTE]
-> Não é possível alterar o modelo de licenciamento de uma VM do SQL Server paga por minuto para usar sua própria licença. Nesse caso, você deve criar uma nova VM BYOL e migrar seus bancos de dados para a nova VM. 
+> Não é possível alterar o modelo de licenciamento de uma VM do SQL Server paga por segundo para usar sua própria licença. Nesse caso, você deve criar uma nova VM BYOL e migrar seus bancos de dados para a nova VM. 
 
 ## <a name="avoid-unnecessary-costs"></a>Evitar custos desnecessários
 

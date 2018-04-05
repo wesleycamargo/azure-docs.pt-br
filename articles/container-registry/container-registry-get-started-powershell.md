@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Criar um Registro de Contêiner do Azure usando o PowerShell
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Início Rápido: criar um Registro de Contêiner do Azure usando o PowerShell
 
 O Registro de Contêiner do Azure é um serviço de registro de contêiner Docker gerenciado usado para armazenar imagens de contêiner de Docker particulares. Este guia detalha a criação de uma instância do Registro de Contêiner do Azure usando o PowerShell, o envio por push de uma imagem de contêiner para o registro e, por fim, a implantação do contêiner a partir do registro nas ACI (Instâncias de Contêiner do Azure).
 
@@ -73,7 +73,7 @@ Para enviar por push uma imagem para um Registro de Contêiner do Azure, primeir
 docker pull microsoft/aci-helloworld
 ```
 
-A imagem precisa ser marcada com o nome do servidor de logon do ACR. Use o comando [docker tag] [ docker-tag] para fazer isso. 
+A imagem precisa ser marcada com o nome do servidor de logon do ACR. Use o comando [docker tag] [ docker-tag] para fazer isso.
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"

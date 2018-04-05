@@ -13,15 +13,15 @@ ms.topic: get-started-article
 ms.date: 3/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: d1dcec26529c747a209dd10fcefbbadaa40365a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7a90906f0bb41b0ced368e9010e0c8a4981f038c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a atividade Databricks Notebook no Azure Data Factory
 
-Neste tutorial, você usa o portal do Azure para criar um pipeline do Azure Data Factory que executa um Databricks Notebook em cluster de trabalhos databricks. Ele também passa parâmetros do Azure Data Factory para o notebook Databricks durante a execução.
+Neste tutorial, você usa o portal do Azure para criar um pipeline do Azure Data Factory que executa um Databricks Notebook em cluster de trabalhos Databricks. Ele também passa parâmetros do Azure Data Factory para o Databricks Notebook durante a execução.
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-  - **Espaço de trabalho do Azure Databricks**. [Criar um espaço de trabalho no Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou usar um existente. Você pode criar um Python Notebook no espaço de trabalho do Azure Databricks. Em seguida, execute o Notebook e passe parâmetros para ele usando o Azure Data Factory.
+  - **Espaço de trabalho do Azure Databricks**. [Criar um espaço de trabalho no Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou usar um existente. Você pode criar um notebook do Python no espaço de trabalho do Azure Databricks. Em seguida, execute o notebook e passe parâmetros para ele usando o Azure Data Factory.
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
@@ -149,13 +149,13 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
 
           ![Criar uma nova pasta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python); vamos chamá-lo de **mynotebook** na pasta **adftutorial****.**  Clique em **Criar.**
+       3. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), vamos chamá-lo de **mynotebook** na pasta **adftutorial****,** e clique em **Criar.**
 
-          ![Criar um novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          ![Criar um novo notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
-          ![Definir as propriedades do novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          ![Definir as propriedades do novo notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       4. No Notebook recém-criado, "mynotebook'", adicione o seguinte código:
+       4. No notebook recém-criado, “mynotebook”, adicione o seguinte código:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters

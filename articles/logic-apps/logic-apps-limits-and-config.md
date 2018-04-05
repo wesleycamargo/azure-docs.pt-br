@@ -1,11 +1,11 @@
 ---
-title: "Limites e configuração – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Valores de limites e de configuração do serviço para os Aplicativos Lógicos do Azure"
+title: Limites e configuração – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Valores de limites e de configuração do serviço para os Aplicativos Lógicos do Azure
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 740a31f4b5e0ffe9fe2ae04d3dac51cf25ab3055
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limites e configuração de Aplicativos Lógicos
 
@@ -86,7 +86,7 @@ Estes são os limites de instância de um único aplicativo lógico:
 
 | NOME | Limite | Observações | 
 | ----- | ----- | ----- | 
-| Execuções de ações a cada cinco minutos | 100.000 | Para aumentar o limite para 300.000, você pode executar um aplicativo lógico no modo `High Througput`. Para configurar o modo de taxa de transferência no `runtimeConfiguration` do recurso de fluxo de trabalho, defina a propriedade `operationOptions` como `OptimizedForHighThroughput`. <p>**Nota**: O modo de alta taxa de transferência está em versão prévia. Você também pode distribuir uma carga de trabalho entre vários aplicativos conforme necessário. | 
+| Execuções de ações a cada cinco minutos | 100.000 | Para aumentar o limite para 300.000, você pode executar um aplicativo lógico no modo `High Throughput`. Para configurar o modo de taxa de transferência no `runtimeConfiguration` do recurso de fluxo de trabalho, defina a propriedade `operationOptions` como `OptimizedForHighThroughput`. <p>**Nota**: O modo de alta taxa de transferência está em versão prévia. Você também pode distribuir uma carga de trabalho entre vários aplicativos conforme necessário. | 
 | Chamadas de saída simultâneas a ações | ~2.500 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
 | Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas |~1,000 | Diminua o número de solicitações simultâneas ou reduza a duração conforme necessário. | 
 | Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos  | 60.000 | Pode distribuir carga de trabalho entre vários aplicativos conforme necessário. | 

@@ -1,11 +1,12 @@
 ---
-title: "Tutorial de início rápido para a linguagem R para Machine Learning | Microsoft Docs"
-description: "Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Azure Machine Learning para criar uma solução de previsão."
-keywords: "guia de início rápido, linguagem r, linguagem de programação r, tutorial de programação r"
+title: Tutorial de início rápido para a linguagem R para Machine Learning | Microsoft Docs
+description: Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Azure Machine Learning para criar uma solução de previsão.
+keywords: guia de início rápido, linguagem r, linguagem de programação r, tutorial de programação r
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial de início rápido para a linguagem de programação R para o Azure Machine Learning
 
@@ -127,7 +127,7 @@ Se você não tiver a linguagem de programação R instalada em seu computador d
 
 Se você for novo no RStudio, você deve baixar e instalar a versão para desktop. Você pode encontrar os downloads do RStudio para Windows, Mac OS e Linux/UNIX em http://www.rstudio.com/products/RStudio/. Siga as instruções fornecidas para instalar o RStudio em seu computador desktop.  
 
-Uma tutorial de introdução no RStudio está disponível em https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
+Um tutorial de introdução ao RStudio está disponível em https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
 Forneço algumas informações adicionais sobre como usar o RStudio no [Apêndice A][appendixa].  
 
@@ -224,7 +224,7 @@ Já discutimos o carregamento de conjuntos de dados em [Carregando o conjunto de
         maml.mapOutputPort('cadairydata')
 2. Crie um arquivo zip e copie o script no arquivo zip. No Windows, clique com o botão direito do mouse no arquivo e selecione **Enviar para** e em **Pasta compactada**. Isso criará um novo arquivo zip contendo o arquivo "simpleplot.R".
 3. Adicione o arquivo aos **conjuntos de dados** no Machine Learning Studio, especificando o tipo como **zip**. Agora você deve ver o arquivo zip em seus conjuntos de dados.
-4. Arraste e solte o arquivo zip dos **conjuntos de dados** para as **telas do Estúdio AM**.
+4. Arraste e solte o arquivo zip dos **conjuntos de dados** para as **telas do ML Studio**.
 5. Conecte a saída do ícone **dados de zip** à entrada do **Pacote de Scripts** do módulo [Executar Script R][execute-r-script].
 6. Digite a função `source()` com o nome do arquivo zip na janela de código do módulo [Executar Script R][execute-r-script]. No meu caso, digitei `source("src/simpleplot.R")`.  
 7. Lembre-se de clicar em **Salvar**.
@@ -603,7 +603,7 @@ Nesta seção vamos explorar alguns objetos básicos de série de tempo de R e v
 O código R completo para esta seção está disponível no arquivo zip baixado anteriormente.
 
 ### <a name="time-series-objects-in-r"></a>Objetos de série temporal em R
-Como já mencionado, as série de tempo são uma série de valores de dados indexados por tempo. Objetos de série de tempo R são usados para criar e gerenciar o índice de tempo. Há diversas vantagens em usar objetos de série de tempo. Os objetos de série temporal evitam que você tenha que lidar com os vários detalhes do gerenciamento dos valores de índice da série temporal que são encapsulados no objeto. Além disso, os objetos de série de tempo permitem que você use vários métodos de série de tempo para plotar, imprimir, modelar etc.
+Como já mencionado, as série de tempo são uma série de valores de dados indexados por tempo. Objetos de série de tempo R são usados para criar e gerenciar o índice de tempo. Há diversas vantagens em usar objetos de série de tempo. Os objetos de série temporal evitam que você tenha que lidar com os vários detalhes do gerenciamento dos valores de índice da série temporal que são encapsulados no objeto. Além disso, os objetos de série de tempo permitem que você use vários métodos de série de tempo para criar gráficos, imprimir, modelar etc.
 
 A classe de série de tempo POSIXct é comumente usada e é relativamente simples. Essa classe de série de tempo mede o tempo a partir do início da época, 1º de janeiro de 1970. Vamos usar objetos de série de tempo POSIXct neste exemplo. Outras classes de objeto de série de tempo amplamente utilizados em R incluem zoo e xts, série temporal extensível.
 <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
@@ -691,7 +691,7 @@ Vamos explorar algumas das variáveis deste conjunto de dados. Uma matriz de sca
 
     pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata, main = "Pairwise Scatterplots of dairy time series")
 
-Execute esse código e veja o que acontece. A plotagem produzida na porta do dispositivo R deve parecer com a Figura 16.
+Execute esse código e veja o que acontece. O gráfico produzido na porta do dispositivo R deve parecer com a Figura 16.
 
 ![Matriz de dispersão de variáveis selecionadas][17]
 
@@ -932,7 +932,7 @@ Execute esse código e examine o log. O resultado deve ser semelhante a Figura 2
 Com esse resultado, você está pronto para iniciar nossa análise.
 
 ### <a name="create-a-training-dataset"></a>Criar um conjunto de dados de treinamento
-Com o dataframe construído, precisamos criar um conjunto de dados de treinamento. Esses dados incluirão todas as observações exceto as últimas 12, do ano de 2013, as quais são o nosso conjunto de dados de teste. O seguinte código subagrupa o dataframe e cria plotagens de produção de derivados de leite e de as variáveis de preço. Então, eu crio plotagens das quatro produções e variáveis de preços. Uma função anônima é usada para definir alguns argumentos para a plotagem e, em seguida, para iterar a lista dos outros dois argumentos com `Map()`. Se você estiver pensando que um loop funcionaria bem aqui, você está certo. Mas, como R é uma linguagem funcional, estou lhe mostrando uma abordagem funcional.
+Com o dataframe construído, precisamos criar um conjunto de dados de treinamento. Esses dados incluirão todas as observações exceto as últimas 12, do ano de 2013, as quais são o nosso conjunto de dados de teste. O seguinte código subagrupa o dataframe e cria gráficos de produção de derivados de leite e de as variáveis de preço. Então, eu crio gráficos das quatro produções e variáveis de preços. Uma função anônima é usada para definir alguns argumentos para a criação de gráficos e, em seguida, para iterar a lista dos outros dois argumentos com `Map()`. Se você estiver pensando que um loop funcionaria bem aqui, você está certo. Mas, como R é uma linguagem funcional, estou lhe mostrando uma abordagem funcional.
 
     cadairytrain <- cadairydata[1:216, ]
 
@@ -943,20 +943,20 @@ Com o dataframe construído, precisamos criar um conjunto de dados de treinament
 
     Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, type = "l")}, cadairytrain[, 4:7], Ylabs)
 
-Executar o código produz séries de plotagens de série de tempo da saída do dispositivo R mostrada na Figura 22. Observe que o eixo de tempo é em unidades de datas, uma bela vantagem do método de plotagem de série de tempo.
+Executar o código produz séries de gráficos de série de tempo da saída do dispositivo R mostrada na Figura 22. Observe que o eixo de tempo é em unidades de datas, uma bela vantagem do método de gráfico de série de tempo.
 
-![Primeira das plotagens de série temporal dos dados de produção e preço de derivados de leite da Califórnia](./media/r-quickstart/unnamed-chunk-161.png)
+![Primeira das gráficos de série temporal dos dados de produção e preço de derivados de leite da Califórnia](./media/r-quickstart/unnamed-chunk-161.png)
 
-![Segunda das plotagens de série temporal dos dados de produção e preço de derivados de leite da Califórnia](./media/r-quickstart/unnamed-chunk-162.png)
+![Segunda das gráficos de série temporal dos dados de produção e preço de derivados de leite da Califórnia](./media/r-quickstart/unnamed-chunk-162.png)
 
-![Terceira das plotagens de série temporal dos dados de produção e preço de derivados de leite da Califórnia](./media/r-quickstart/unnamed-chunk-163.png)
+![Terceira das gráficos de série temporal dos dados de produção e preço de derivados de leite da Califórnia](./media/r-quickstart/unnamed-chunk-163.png)
 
-![Quarta das plotagens de série temporal dos dados de produção e preço de derivados de leite da Califórnia](./media/r-quickstart/unnamed-chunk-164.png)
+![Quarta das gráficos de série temporal dos dados de produção e preço de derivados de leite da Califórnia](./media/r-quickstart/unnamed-chunk-164.png)
 
-*Figura 22. Plotagens de série temporal dos dados de produção e preço de derivados do leite da Califórnia.*
+*Figura 22. Gráficos de série temporal dos dados de produção e preço de derivados do leite da Califórnia.*
 
 ### <a name="a-trend-model"></a>Um modelo de tendência
-Depois de criar um objeto de série de tempo e de ter examinado os dados, vamos começar a construir um modelo de tendência para os dados de produção leite da Califórnia. Podemos fazer isso com uma regressão da série de tempo. No entanto, fica claro na plotagem que é necessário mais do que uma inclinação e uma interceptação para modelar com precisão a tendência observada nos dados de treinamento.
+Depois de criar um objeto de série de tempo e de ter examinado os dados, vamos começar a construir um modelo de tendência para os dados de produção leite da Califórnia. Podemos fazer isso com uma regressão da série de tempo. No entanto, fica claro no gráfico que é necessário mais do que uma inclinação e uma interceptação para modelar com precisão a tendência observada nos dados de treinamento.
 
 Dada uma pequena escala de dados, vou criar o modelo para a tendência no RStudio e, em seguida, vou recortar e colar o modelo resultante no Azure Machine Learning. O RStudio fornece um ambiente adequado para esse tipo de análise interativa.
 
@@ -1018,7 +1018,7 @@ Isso gera o resultado a seguir.
 
 Assim parece melhor. Todos os termos são significativos. No entanto, o valor de 2e-16 é um valor padrão e não deve ser levado muito a sério.  
 
-Para teste de sensatez, vamos criar uma plotagem de série de tempo dos dados da produção de derivados de leite da Califórnia com a curva de tendência mostrada. Adicionei o código a seguir ao modelo [Executar Script R][execute-r-script] do Azure Machine Learning (não o RStudio) para criar o modelo e fazer uma plotagem. O resultado é mostrado na Figura 23.
+Para teste de sensatez, vamos criar um gráfico de série de tempo dos dados da produção de derivados de leite da Califórnia com a curva de tendência mostrada. Adicionei o código a seguir ao modelo [Executar Script R][execute-r-script] do Azure Machine Learning (não o RStudio) para criar o modelo e fazer um gráfico. O resultado é mostrado na Figura 23.
 
     milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
@@ -1075,7 +1075,7 @@ Isso gera o resultado a seguir.
 
 Vemos que o modelo não tem um termo de interceptação e tem 12 fatores mês significativos. Isso é exatamente o que queremos.
 
-Vamos fazer outra plotagem de série de tempo dos dados de produção de derivados de leite da Califórnia para ver até que ponto o modelo sazonal está funcionando. Adicionei o seguinte código ao modelo [Executar Script R][execute-r-script] Azure Machine Learning para criar o modelo e fazer uma plotagem.
+Vamos fazer outro gráfico de série de tempo dos dados de produção de derivados de leite da Califórnia para ver até que ponto o modelo sazonal está funcionando. Adicionei o seguinte código ao modelo [Executar Script R][execute-r-script] Azure Machine Learning para criar o modelo e fazer um gráfico.
 
     milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
@@ -1090,7 +1090,7 @@ Executar esse código no Azure Machine Learning produz a plotagem mostrada na Fi
 
 O ajuste para os dados mostrados na Figura 24 é bastante encorajador. A tendência e o efeito sazonal (variação mensal) parecem razoáveis.
 
-Como outra verificação em nosso modelo, vamos dar uma olhada nos resíduos. O código a seguir calcula os valores previstos de nossos dois modelos, calcula os resíduos para o modelo sazonal e, então, plota esses resíduos nos dados de treinamento.
+Como outra verificação em nosso modelo, vamos dar uma olhada nos resíduos. O código a seguir calcula os valores previstos de nossos dois modelos, calcula os resíduos para o modelo sazonal e, então, cria gráficos com esses resíduos nos dados de treinamento.
 
     ## Compute predictions from our models
     predict1  <- predict(milk.lm, cadairydata)
@@ -1100,7 +1100,7 @@ Como outra verificação em nosso modelo, vamos dar uma olhada nos resíduos. O 
     residuals <- cadairydata$Milk.Prod - predict2
     plot(cadairytrain$Time, residuals[1:216], xlab = "Time", ylab ="Residuals of Seasonal Model")
 
-A plotagem restante é mostrada na Figura 25.
+O gráfico restante é mostrado na Figura 25.
 
 ![Resíduos do modelo sazonal para os dados de treinamento](./media/r-quickstart/unnamed-chunk-21.png)
 
@@ -1108,7 +1108,7 @@ A plotagem restante é mostrada na Figura 25.
 
 Esses resíduos parecem razoáveis. Não há nenhuma estrutura em particular, exceto o efeito da recessão de 2008 e 2009, que nosso modelo não leva em conta bem.
 
-A plotagem mostrada na Figura 25 é útil para detectar qualquer padrão dependente de tempo nos resíduos. A abordagem explícita de computação e plotagem residual que eu sei coloca os resíduos na ordem de tempo no gráfico. Se, por outro lado, eu tivesse plotado `milk.lm$residuals`, a plotagem não estaria em ordem de tempo.
+O gráfico mostrado na Figura 25 é útil para detectar qualquer padrão dependente de tempo nos resíduos. A abordagem explícita de computação e plotagem residual que eu sei coloca os resíduos na ordem de tempo no gráfico. Se, por outro lado, eu tivesse plotado `milk.lm$residuals`, o gráfico não estaria em ordem de tempo.
 
 Também é possível usar `plot.lm()` para produzir uma série de gráficos de diagnóstico:
 
@@ -1117,17 +1117,17 @@ Também é possível usar `plot.lm()` para produzir uma série de gráficos de d
 
 Esse código gera uma série de gráficos de diagnóstico mostrados na Figura 26.
 
-![Primeira das plotagens de diagnóstico do modelo sazonal](./media/r-quickstart/unnamed-chunk-221.png)
+![Primeira das gráficos de diagnóstico do modelo sazonal](./media/r-quickstart/unnamed-chunk-221.png)
 
-![Segunda das plotagens de diagnóstico do modelo sazonal](./media/r-quickstart/unnamed-chunk-222.png)
+![Segunda das gráficos de diagnóstico do modelo sazonal](./media/r-quickstart/unnamed-chunk-222.png)
 
-![Terceira das plotagens de diagnóstico do modelo sazonal](./media/r-quickstart/unnamed-chunk-223.png)
+![Terceira das gráficos de diagnóstico do modelo sazonal](./media/r-quickstart/unnamed-chunk-223.png)
 
-![Quarta das plotagens de diagnóstico do modelo sazonal](./media/r-quickstart/unnamed-chunk-224.png)
+![Quarta das gráficos de diagnóstico do modelo sazonal](./media/r-quickstart/unnamed-chunk-224.png)
 
 *Figura 26. Gráficos de diagnóstico de gráficos para o modelo sazonal.*
 
-Há alguns pontos de grande influencia identificados nessas representações gráficas, mas eles não causam muita preocupação. Além disso, podemos ver pela plotagem Q-Q Normal que os resíduos são próximos ao normalmente distribuídos, uma suposição importante para os modelos lineares.
+Há alguns pontos de grande influencia identificados nessas representações gráficas, mas eles não causam muita preocupação. Além disso, podemos ver pelo gráfico Q-Q Normal que os resíduos são próximos ao normalmente distribuídos, uma suposição importante para os modelos lineares.
 
 ### <a name="forecasting-and-model-evaluation"></a>Avaliação de previsão e modelo
 Tem só mais uma coisa para concluir o nosso exemplo. Precisamos calcular as previsões e medir o erro em relação aos dados reais. Nossa previsão será para os 12 meses de 2013. Podemos calcular uma medida de erro para essa previsão para os dados reais que não fazem parte de nosso conjunto de dados de treinamento. Além disso, podemos comparar o desempenho em 18 anos de dados de treinamento com os 12 meses de dados de teste.  
@@ -1221,15 +1221,15 @@ O RStudio é muito bem documentado, portanto neste apêndice fornecerei alguns l
    O RStudio fornece um ambiente integrado para editar e executar código R. A documentação pode ser encontrada em https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
 3. Depurando
    
-   O RStudio inclui recursos avançados de depuração. A documentação para esses recursos estão em https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
+   O RStudio inclui recursos avançados de depuração. A documentação desses recursos está em https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
    
-   Os recursos de solução de problemas do ponto de interrupção estão em https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
+   Os recursos de solução de problemas do ponto de interrupção estão documentados em https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
 ## <a id="appendixb"></a>APÊNDICE B: Leitura adicional
 Este tutorial de programação R aborda os conceitos básicos de que você precisa para usar a linguagem R com o Studio de Azure Machine Learning. Se você não estiver familiarizado com R, duas introduções estão disponíveis no CRAN:
 
-* R para iniciantes de Emmanuel Paradis é um bom ponto de partida em http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
-* An Introduction to R, por W. N. Venables et. al. se aprofunda um pouco mais em http://cran.r-project.org/doc/manuals/R-intro.html.
+* R para Iniciantes por Emmanuel Paradis é um bom lugar para começar, em http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
+* An Introduction to R, por W. N. Venables et. al. detalha um pouco mais, em http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Existem muitos livros sobre R que podem ajudá-lo a começar. Aqui estão alguns que considero úteis:
 
@@ -1245,8 +1245,8 @@ O livro Introductory Time Series with R, de Paul Cowpertwait e Andrew Metcalfe, 
 
 Alguns ótimos recursos na Internet:
 
-* DataCamp: DataCamp ensina R no conforto de seu navegador, com lições em vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R e os pacotes mais recentes. Obtenha o tutorial de R interativo gratuitamente em https://www.datacamp.com/courses/introduction-to-r
-* Um guia de Introdução ao R de Programiz https://www.programiz.com/r-programming
+* DataCamp: DataCamp ensina R no conforto de seu navegador, com lições em vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R e os pacotes mais recentes. Faça o tutorial interativo grátis de R em https://www.datacamp.com/courses/introduction-to-r
+* Guia de Introdução ao R do Programiz https://www.programiz.com/r-programming
 * A quick R tutorial, por Kelly Black, da Clarkson University, http://www.cyclismo.org/tutorial/R/
 * Mais de 60 recursos de R listados em http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 

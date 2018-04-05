@@ -1,11 +1,11 @@
 ---
-title: "Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs"
-description: "Saiba mais sobre as diferentes maneiras para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais do Azure com base no desempenho ou em uma agenda fixa"
+title: Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+description: Saiba mais sobre as diferentes maneiras para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais do Azure com base no desempenho ou em uma agenda fixa
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 868523a3aca441a47218297be2ce9f9e46dd84a1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure
 Um conjunto de dimensionamento de máquinas virtuais do Azure pode aumentar ou diminuir automaticamente o número de instâncias de VM que executam o aplicativo. Esse comportamento automatizado e elástico reduz a sobrecarga de gerenciamento para monitorar e otimizar o desempenho do aplicativo. Você cria regras que definem o desempenho mínimo aceitável para uma experiência de cliente positiva. Quando esses limites definidos são atendidos, as regras de dimensionamento automático atuam para ajustar a capacidade do seu conjunto de dimensionamento. Você também pode agendar eventos para aumentar ou diminuir a capacidade do conjunto de dimensionamento automaticamente em horas fixas. Este artigo fornece uma visão geral das métricas disponíveis e de quais ações o dimensionamento automático pode executar.
@@ -40,8 +40,9 @@ Você pode criar regras de dimensionamento automático que incorporam métricas 
 As regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas a seguir:
 
 - [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [CLI 2.0 do Azure](virtual-machine-scale-sets-autoscale-cli.md)
+- [PowerShell do Azure](tutorial-autoscale-powershell.md)
+- [CLI 2.0 do Azure](tutorial-autoscale-cli.md)
+- [Modelo do Azure](tutorial-autoscale-template.md)
 
 Para criar regras de dimensionamento automático que usam métricas de desempenho mais detalhadas, você pode [instalar e configurar a extensão de diagnóstico do Azure](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) em instâncias de VM ou [configurar seu aplicativo usando o Application Insights](#application-level-metrics-with-app-insights).
 
@@ -86,7 +87,7 @@ Quando você cria regras de dimensionamento automático para monitorar determina
 
 As regras de dimensionamento automático são acionadas quando as métricas são comparadas com o limite definido com um dos operadores abaixo:
 
-| operador                 |
+| Operador                 |
 |--------------------------|
 | Maior que             |
 | Maior ou igual a |
@@ -136,9 +137,9 @@ Os exemplos a seguir são cenários que podem se beneficiar com o uso de regras 
 ## <a name="next-steps"></a>Próximas etapas
 Você pode criar regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas abaixo:
 
-- [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [CLI 2.0 do Azure](virtual-machine-scale-sets-autoscale-cli.md)
+- [PowerShell do Azure](tutorial-autoscale-powershell.md)
+- [CLI 2.0 do Azure](tutorial-autoscale-cli.md)
+- [Modelo do Azure](tutorial-autoscale-template.md)
 
 Esta visão geral detalhou como usar as regras de dimensionamento automático para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 

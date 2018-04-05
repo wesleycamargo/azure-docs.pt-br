@@ -1,12 +1,12 @@
 ---
-title: "Solucionar problemas de conexão de ponto a site do Azure | Microsoft Docs"
-description: "Saiba como solucionar problemas de conexão de ponto a site."
+title: Solucionar problemas de conexão de ponto a site do Azure | Microsoft Docs
+description: Saiba como solucionar problemas de conexão de ponto a site.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
 
@@ -289,7 +289,7 @@ O cliente VPN ponto a site usa os servidores DNS do Azure configurados na rede v
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, verifique se os servidores DNS do Azure que são usados em uma rede virtual do Azure podem resolver os registros DNS para recursos locais. Para fazer isso, você pode usar encaminhadores DNS ou encaminhadores condicionais. Para obter mais informações, consulte [Resolução de nome usando seu próprio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+Para resolver o problema, verifique se os servidores DNS do Azure que são usados em uma rede virtual do Azure podem resolver os registros DNS para recursos locais. Para fazer isso, você pode usar encaminhadores DNS ou encaminhadores condicionais. Para obter mais informações, consulte [Resolução de nome usando seu próprio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>A conexão VPN ponto a site é estabelecida, mas ainda não é possível se conectar aos recursos do Azure 
 
@@ -304,11 +304,11 @@ Para resolver esse problema, [redefina o gateway de VPN do Azure](vpn-gateway-re
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erro: "A função de revogação não pôde verificar a revogação porque o servidor de revogação estava offline. (Erro 0x80092013)"
 
 ### <a name="causes"></a>Causas
-Essa mensagem de erro ocorre quando o cliente não pode acessar http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.  A verificação de revogação requer acesso a esses dois sites.  Esse problema geralmente acontece em clientes que têm o servidor proxy configurado. Em alguns ambientes, se as solicitações não forem realizadas por meio do servidor proxy, elas serão negadas no Firewall do Edge.
+Essa mensagem de erro ocorre se o cliente não puder acessar http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.  A verificação de revogação requer acesso a esses dois sites.  Esse problema geralmente acontece em clientes que têm o servidor proxy configurado. Em alguns ambientes, se as solicitações não forem realizadas por meio do servidor proxy, elas serão negadas no Firewall do Edge.
 
 ### <a name="solution"></a>Solução
 
-Verifique as configurações do servidor proxy e confira se o cliente pode acessar http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.
+Verifique as configurações do servidor proxy, certifique-se de que o cliente pode acessar http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Erro de cliente VPN: A conexão foi impedida devido a uma política configurada no servidor RAS/VPN. (Erro 812)
 

@@ -1,10 +1,10 @@
 ---
-title: "Notas de versão do SDK do Azure para .NET 2.9"
-description: "Notas de versão do SDK do Azure para .NET 2.9"
+title: Notas de versão do SDK do Azure para .NET 2.9
+description: Notas de versão do SDK do Azure para .NET 2.9
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notas de versão do SDK do Azure para .NET 2.9
 
 Este tópico inclui as notas de versão para as versões 2.9 e 2.9.6 do SDK do Azure para .NET.
 
-##<a name="azure-sdk-for-net-296-release-summary"></a>Resumo da versão do SDK do Azure para .NET 2.9.6
+## <a name="azure-sdk-for-net-296-release-summary"></a>Resumo da versão do SDK do Azure para .NET 2.9.6
 
 Data do lançamento: 16/11/2016
  
@@ -31,7 +31,7 @@ Nenhuma alteração significativa do Azure SDK 2.9 foi introduzida nesta versão
 
 ### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 versão Release Candidate
 
-- No Visual Studio 2017 RC, esta versão do SDK do Azure para .NET é integrada à Carga de Trabalho do Azure. Todas as ferramentas que você precisa para fazer o desenvolvimento do Azure farão parte do Visual Studio 2017 RC no futuro. Para o Visual Studio 2015 e o Visual Studio 2013, o SDK ainda estará disponível por meio do WebPI. Suspenderemos o SDK do Azure para versões .NET para o Visual Studio 2013, quando o Visual Studio 2017 for lançado como um produto final. Siga este link para baixar o RC do Visual Studio 2017: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- No Visual Studio 2017 RC, esta versão do SDK do Azure para .NET é integrada à Carga de Trabalho do Azure. Todas as ferramentas que você precisa para fazer o desenvolvimento do Azure farão parte do Visual Studio 2017 RC no futuro. Para o Visual Studio 2015 e o Visual Studio 2013, o SDK ainda estará disponível por meio do WebPI. Suspenderemos o SDK do Azure para versões .NET para o Visual Studio 2013, quando o Visual Studio 2017 for lançado como um produto final. Siga este link para download do Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
@@ -83,7 +83,7 @@ Essa atualização inclui o seguinte:
 * **Gerenciador de Servidores** agora permite exibir tudo e criar algumas entidades de metadados U-SQL. Para saber mais, confira [este](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blog.
 
 ## <a name="hdinsight-tools"></a>Ferramentas do HDInsight
-**Ferramentas do HDInsight** para Visual Studio agora dão suporte ao HDInsight versão 3.3, incluindo a exibição de gráficos Tez e outras correções de linguagem.
+**Ferramentas do HDInsight** para Visual Studio agora dão suporte ao HDInsight versão 3.3, incluindo a exibição de grafos Tez e outras correções de linguagem.
 
 ## <a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure
 Essa versão adiciona o suporte para [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) para modelos do Resource Manager.

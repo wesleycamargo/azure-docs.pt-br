@@ -1,24 +1,24 @@
 ---
-title: "Início rápido: escalar horizontalmente a computação no SQL Data Warehouse do Azure – T-SQL | Microsoft Docs"
-description: "Comandos do T-SQL para dimensionar recursos de computação ajustando as DWUs."
+title: 'Início rápido: escalar horizontalmente a computação no SQL Data Warehouse do Azure – T-SQL | Microsoft Docs'
+description: Comandos do T-SQL para dimensionar recursos de computação ajustando as DWUs.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1591192c72f5bf201dbbef80acc5895c8324fca4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início Rápido: dimensionar a computação no SQL Data Warehouse do Azure usando T-SQL
 
@@ -101,18 +101,9 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 ;
 ```
 
-## <a name="check-database-state"></a>Verificar estado do banco de dados
+## <a name="check-data-warehouse-state"></a>Verifique o estado do data warehouse
 
-Para verificar o estado do banco de dados, execute a seguinte consulta no banco de dados **mestre**.
-
-```sql
-SELECT name AS "Database Name", state_desc AS "Status" 
-FROM sys.databases db
-WHERE db.name = 'mySampleDataWarehouse'
-;
-```
-
-Ao executar esse comando, você deverá receber um valor de Status Online, Pausando, Retomando, Dimensionando ou Em pausa.
+Quando um data warehouse é pausado, você não pode se conectar a ele com T-SQL. Para ver o estado atual do data warehouse, você pode usar um cmdlet do PowerShell. Para obter um exemplo, consulte [Verificar o estado do data warehouse - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state). 
 
 ## <a name="check-operation-status"></a>Verificar o status da operação
 

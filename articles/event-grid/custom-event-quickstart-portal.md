@@ -1,85 +1,118 @@
 ---
 title: Eventos personalizados para a Grade de Eventos do Azure com o portal do Azure | Microsoft Docs
-description: "Use a Grade de Eventos do Azure e o PowerShell para publicar um tópico e assinar esse evento."
+description: Use a Grade de Eventos do Azure e o PowerShell para publicar um tópico e assinar esse evento.
 services: event-grid
-keywords: 
+keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f1185c0b2d5d320cd712642f422408348bee7a37
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e rotear eventos personalizados com o portal do Azure e a Grade de Eventos
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o portal do Azure para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. No entanto, para simplificar este artigo, você envia os eventos para uma URL que apenas coleta as mensagens. Você cria essa URL usando ferramentas de terceiros do [RequestBin](https://requestb.in/) ou [Hookbin](https://hookbin.com/).
-
->[!NOTE]
->**RequestBin** e **Hookbin** não servem para um uso de alta taxa de transferência. O uso dessas ferramentas é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
-
-Quando tiver concluído, você verá que os dados do evento foram enviados para um ponto de extremidade.
-
-![Dados de evento](./media/custom-event-quickstart-portal/request-result.png)
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o portal do Azure para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Você pode enviar o evento para uma Função do Azure que registra os dados do evento. Ao concluir, você verá que os dados do evento foram enviados e registrados para um ponto de extremidade.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-
-Os tópicos de Grade de Eventos são recursos do Azure e devem ser colocados em um grupo de recursos do Azure. O grupo de recursos do Azure é uma coleção lógica na qual os recursos do Azure são implantados e gerenciados.
-
-1. No painel de navegação esquerdo, selecione **Grupos de Recursos**. Em seguida, selecione **Adicionar**.
-
-   ![Criar grupo de recursos](./media/custom-event-quickstart-portal/create-resource-group.png)
-
-1. Defina o nome do grupo de recursos como *gridResourceGroup* e o local como *westus2*. Selecione **Criar**.
-
-   ![Fornecer valores de grupo de recursos](./media/custom-event-quickstart-portal/provide-resource-group-values.png)
-
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico fornece um ponto de extremidade definido pelo usuário aonde você posta seus eventos. 
+Um tópico de grade de evento fornece um ponto de extremidade definido pelo usuário no qual você posta seus eventos. 
 
-1. Para criar um tópico em seu grupo de recursos, selecione **Todos os serviços** e procure *grade de eventos*. Selecione **Tópicos de Grade de Eventos** entre as opções disponíveis.
+1. Faça logon no [portal do Azure](https://portal.azure.com/).
 
-   ![Criar tópico de grade de eventos](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
+1. Para criar um tópico personalizado, selecione **Criar um recurso**. 
 
-1. Selecione **Adicionar**.
+   ![Criar um recurso](./media/custom-event-quickstart-portal/create-resource.png)
 
-   ![Adicionar tópico de grade de eventos](./media/custom-event-quickstart-portal/add-topic.png)
+1. Pesquise *Tópico de Grade de Eventos* e selecione a partir das opções disponíveis.
 
-1. Forneça um nome para o tópico. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Selecione uma das [regiões com suporte](overview.md). Selecione o grupo de recursos criado anteriormente. Selecione **Criar**.
+   ![Pesquisar tópico de grade de eventos](./media/custom-event-quickstart-portal/search-event-grid.png)
 
-   ![Fornecer valores de tópico de grade de eventos](./media/custom-event-quickstart-portal/provide-topic-values.png)
+1. Selecione **Criar**.
 
-1. Depois que o tópico tiver sido criado, selecione **Atualizar** para ver o tópico.
+   ![Etapas de início](./media/custom-event-quickstart-portal/select-create.png)
 
-   ![Veja o tópico de grade de eventos](./media/custom-event-quickstart-portal/see-topic.png)
+1. Forneça um nome exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome. Selecione uma das [regiões com suporte](overview.md). Forneça um nome para um novo grupo de recursos. Selecione **Criar**.
 
-## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
+   ![Fornecer valores de tópico de grade de eventos](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
-Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. RequestBin e Hookbin são ferramentas de terceiros que permitem criar um ponto de extremidade e exibir solicitações que são enviadas a ele. Acesse [RequestBin](https://requestb.in/) e clique em **Criar um RequestBin** ou acesse [Hookbin](https://hookbin.com/) e clique em **Cria novo ponto de extremidade**.  Copie a URL do compartimento, pois você precisará dela para assinar o tópico.
+1. Depois que o tópico personalizado tiver sido criado, você verá a notificação de êxito.
+
+   ![Confira a notificação de êxito](./media/custom-event-quickstart-portal/success-notification.png)
+
+   Se a implantação não obteve êxito, descubra o que causou o erro. Selecione a **Implantação com falha**.
+
+   ![Selecione a implantação com falha](./media/custom-event-quickstart-portal/select-failed.png)
+
+   Selecione a mensagem de erro.
+
+   ![Selecione a implantação com falha](./media/custom-event-quickstart-portal/failed-details.png)
+
+   A imagem a seguir mostra uma implantação que falhou porque o nome do tópico personalizado já está em uso. Se você vir esse erro, repita a implantação com um nome diferente.
+
+   ![Conflito de nome](./media/custom-event-quickstart-portal/name-conflict.png)
+
+## <a name="create-an-azure-function"></a>Criar uma Função do Azure
+
+Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Neste artigo, você pode usar o Azure Functions para criar um aplicativo de função para o ponto de extremidade.
+
+1. Para criar uma função, selecione **Criar um recurso**.
+
+   ![Criar um recurso](./media/custom-event-quickstart-portal/create-resource-small.png)
+
+1. Selecione **Computação** e **Aplicativo de funções**.
+
+   ![Criar função](./media/custom-event-quickstart-portal/create-function.png)
+
+1. Forneça um nome exclusivo para o Azure Functions. Não use o nome mostrado na imagem. Selecione o grupo de recursos criado neste artigo. Para o plano de hospedagem, use **Plano de Consumo**. Use a nova conta de armazenamento sugerida. Depois de definir os valores, selecione **Criar**.
+
+   ![Fornecer os valores de função](./media/custom-event-quickstart-portal/provide-function-values.png)
+
+1. Quando a implantação for concluída, selecione **Ir para o recurso**.
+
+   ![Ir para o recurso](./media/custom-event-quickstart-portal/go-to-resource.png)
+
+1. Ao lado de **Funções**, selecione **+**.
+
+   ![Adicionar função](./media/custom-event-quickstart-portal/add-function.png)
+
+1. Entre as opções disponíveis, selecione **Função personalizada**.
+
+   ![Função personalizada](./media/custom-event-quickstart-portal/select-custom-function.png)
+
+1. Role para baixo até encontrar **Gatilho de Grade de Eventos**. Selecione **C#**.
+
+   ![Selecione o gatilho de grade de eventos](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+
+1. Aceite os valores padrão e selecione **Criar**.
+
+   ![Nova função](./media/custom-event-quickstart-portal/new-function.png)
+
+Sua função agora está pronta para receber eventos.
 
 ## <a name="subscribe-to-a-topic"></a>Assinar um tópico
 
-Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. 
+Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar e para onde enviar os eventos.
 
-1. Para criar uma assinatura da Grade de Eventos, selecione novamente **Todos os serviços** e procure *grade de eventos*. Selecione **Assinaturas de Grade de Eventos** entre as opções disponíveis.
+1. Em sua função do Azure, selecione **Adicionar Assinatura de Grade de Eventos**.
 
-   ![Criar assinatura de grade de eventos](./media/custom-event-quickstart-portal/create-subscription.png)
+   ![Adicionar assinatura de grade de eventos](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
 
-1. Selecione **+ Assinatura de Evento**.
+1. Forneça valores para a assinatura. Selecione **Tópicos de Grade de Eventos** para o tipo de tópico. Para assinatura e grupo de recursos, selecione a assinatura e o grupo de recursos em que você criou seu tópico personalizado. Por exemplo, selecione o nome do seu tópico personalizado. O ponto de extremidade do assinante será preenchido previamente com a URL para a função.
 
-   ![Adicionar assinatura de grade de eventos](./media/custom-event-quickstart-portal/add-subscription.png)
+   ![Fornecer valores de assinatura](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-1. Forneça um nome exclusivo para a assinatura de evento. Como o tipo de tópico, selecione **Tópicos de Grade de Eventos**. Para a instância, selecione o tópico personalizado que você criou. Forneça a URL de RequestBin ou Hookbin como o ponto de extremidade para notificação de eventos. Ao terminar de fornecer valores, selecione **Criar**.
+1. Antes de acionar o evento, abra os logs para a função para poder ver os dados do evento quando ele é enviado. Na parte inferior da sua função do Azure, selecione **Logs**.
 
-   ![Forneça um valor de assinatura de grade de eventos](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+   ![Selecione os logs](./media/custom-event-quickstart-portal/select-logs.png)
 
-Agora, vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Para simplificar este artigo, use o Cloud Shell para enviar dados de evento de exemplo para o tópico. Normalmente, um aplicativo ou serviço do Azure enviaria os dados de evento.
+Agora, vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Para simplificar este artigo, use o Cloud Shell para enviar dados de evento de exemplo para o tópico personalizado. Normalmente, um aplicativo ou serviço do Azure enviaria os dados de evento.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -88,8 +121,8 @@ Agora, vamos disparar um evento para ver como a Grade de Eventos distribui a men
 Primeiro, vamos obter a URL e a chave para o tópico. Use o nome do tópico em `<topic_name>`.
 
 ```azurecli-interactive
-endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
+endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 ```
 
 O exemplo a seguir obtém os dados de exemplo de evento:
@@ -98,41 +131,27 @@ O exemplo a seguir obtém os dados de exemplo de evento:
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
 ```
 
-Se você `echo "$body"`, pode ver o evento completo. O elemento `data` do JSON é a carga do evento. Qualquer JSON bem formado pode ficar nesse campo. Você também pode usar o campo de assunto para roteamento e filtragem avançados.
+Para ver o evento completo, use `echo "$body"`. O elemento `data` do JSON é a carga do evento. Qualquer JSON bem formado pode ficar nesse campo. Você também pode usar o campo de assunto para roteamento e filtragem avançados.
 
-CURL é um utilitário que executa solicitações HTTP. Neste artigo, usamos o CURL para enviar um evento ao tópico. 
+CURL é um utilitário que envia solicitações HTTP. Neste artigo, usamos o CURL para enviar um evento ao tópico personalizado. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Navegue até a URL do ponto de extremidade que você criou anteriormente. Ou clique em Atualizar no navegador. Você verá o evento que acabou de ser enviado.
+Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Examine os logs para ver os dados do evento.
 
-```json
-[{
-  "id": "1807",
-  "eventType": "recordInserted",
-  "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
-  "data": {
-    "make": "Ducati",
-    "model": "Monster"
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
-}]
-```
+![Exibir logs](./media/custom-event-quickstart-portal/view-log-entry.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você planeja continuar a trabalhar com esse evento, não limpe os recursos criados neste artigo. Se você não planeja continuar, exclua os recursos criados neste artigo.
+Caso planeje continuar a trabalhar com esse evento, não limpe os recursos criados neste artigo. Caso contrário, exclua os recursos criados neste artigo.
 
 Selecione o grupo de recursos e selecione **Excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você sabe como criar tópicos e assinaturas de evento, saiba mais sobre como a Grade de Eventos pode ajudá-lo:
+Agora que você sabe como criar tópicos e assinaturas de evento personalizados, saiba mais sobre como a Grade de Eventos pode ajudá-lo:
 
 - [Sobre a Grade de Eventos](overview.md)
 - [Rotear eventos do Armazenamento de Blobs para um ponto de extremidade da Web personalizado](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)

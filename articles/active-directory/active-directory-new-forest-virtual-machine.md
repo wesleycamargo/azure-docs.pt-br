@@ -1,12 +1,12 @@
 ---
 title: Instalar uma floresta do Active Directory em uma rede virtual do Azure | Microsoft Docs
-description: "Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure."
+description: Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure.
 services: active-directory, virtual-network
-keywords: "máquina virtual do active directory, instalar floresta do active directory, vídeos do active directory do azure  "
-documentationcenter: 
+keywords: 'máquina virtual do active directory, instalar floresta do active directory, vídeos do active directory do azure  '
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalar uma nova floresta do Active Directory em uma rede virtual do Azure
 Este artigo mostra como criar um novo ambiente do Active Directory do Windows Server em uma máquina virtual (VM) em uma [Rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Nesse caso, a rede virtual do Azure não está conectada a uma rede local.

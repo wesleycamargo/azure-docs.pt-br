@@ -1,14 +1,14 @@
 ---
-title: "Ferramentas do Azure HDInsight – use o Visual Studio Code para o Hive, o LLAP ou pySpark | Microsoft Docs"
+title: Ferramentas do Azure HDInsight – use o Visual Studio Code para o Hive, o LLAP ou pySpark | Microsoft Docs
 description: Saiba como usar as Ferramentas do Azure HDInsight para Visual Studio Code para criar e enviar consultas e scripts.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -69,9 +69,9 @@ Crie um espaço de trabalho no VSCode para poder se conectar ao Azure.
 
 4. Abra **XXXX_hdi_settings.json** do **EXPLORER** ou clique com o botão direito do mouse no editor de scripts para selecionar **Definir Configuração**. Você pode configurar a entrada de logon, o cluster padrão e os parâmetros de envio do trabalho, conforme visto na amostra no arquivo. Você também pode deixar os parâmetros restantes vazios.
 
-## <a name="connect-to-azure"></a>Conecte-se ao Azure
+## <a name="connect-to-hdinsight-cluster"></a>Conectar ao Cluster HDInsight
 
-Para enviar scripts a clusters do HDInsight do VS Code, você precisará se conectar à sua conta do Azure.
+Antes de enviar scripts para clusters HDInsight a partir do VS Code, você precisa se conectar à sua conta do Azure ou vincular um cluster (usando o nome de usuário, senha ou conta de domínio associado).
 
 **Para se conectar ao Azure**
 

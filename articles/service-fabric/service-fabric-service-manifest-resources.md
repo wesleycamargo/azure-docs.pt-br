@@ -1,11 +1,11 @@
 ---
-title: "Especificando pontos de extremidade de serviço do Service Fabric | Microsoft Docs"
-description: "Como descrever os recursos de ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidade HTTPS"
+title: Especificando pontos de extremidade de serviço do Service Fabric | Microsoft Docs
+description: Como descrever os recursos de ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidade HTTPS
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6fa425829e8da294c8db3d64c3d8fd202c74375a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
@@ -154,7 +154,7 @@ Para clusters do Linux, o **MEU** armazenar padroniza para a pasta **/var/lib/sf
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Substituição dos pontos de extremidade em ServiceManifest.xml
 
-No ApplicationManifest, adicione uma seção ResourceOverrides que será uma irmã da seção ConfigOverrides. Nessa seção, você pode especificar a substituição da seção Pontos de extremidade na seção de recursos especificada no Manifesto do serviço.
+No ApplicationManifest, adicione uma seção ResourceOverrides que será uma irmã da seção ConfigOverrides. Nessa seção, você pode especificar a substituição da seção Pontos de extremidade na seção de recursos especificada no Manifesto do serviço. A substituição de pontos de extremidade é compatível com o tempo de execução 5.7.217/SDK 2.7.217 e superior.
 
 Para substituir o Ponto de extremidade no ServiceManifest usando ApplicationParameters, altere o ApplicationManifest da seguinte forma:
 

@@ -1,8 +1,8 @@
 ---
 title: 'Kit de Ferramentas do Azure para Eclipse: criar aplicativos Scala para HDInsight Spark | Microsoft Docs'
-description: "Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para desenvolver aplicativos do Spark escritos em Scala e enviá-los para um cluster do HDInsight Spark, diretamente do IDE Eclipse."
+description: Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para desenvolver aplicativos do Spark escritos em Scala e enviá-los para um cluster do HDInsight Spark, diretamente do IDE Eclipse.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac118593ecc93a2dd9e53ff7ad9ecf13daef017
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ff67ebcbac5b1b85345421b16036c96f8e807cc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de ferramentas do Azure para Eclipse a fim de criar aplicativos Spark para cluster HDInsight
 
@@ -51,6 +51,8 @@ Quando você abre o Eclipse, a Ferramenta do HDInsight detecta automaticamente s
 
 ![Instalação automática do plug-in Scala](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
+O usuário pode [entrar a assinatura do Azure](#Sign-in-to-your-Azure-subscription), ou [vincular um cluster HDInsight](#Link-a-cluster) usando a credencial de usuário/senha ou domínio unido do Ambari para iniciar. 
+
 ## <a name="sign-in-to-your-azure-subscription"></a>Entre em sua assinatura do Azure
 1. Inicie o IDE Eclipse e abra o Azure Explorer. No menu **Janela**, selecione **Mostrar Exibição** e selecione **Outros**. Na caixa de diálogo que é aberta, expanda **Azure**, selecione **Azure Explorer** e selecione **OK**.
 
@@ -75,12 +77,13 @@ Quando você abre o Eclipse, a Ferramenta do HDInsight detecta automaticamente s
 
    ![menu de contexto para vincular cluster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Insira o **Nome do Cluster**, **Conta de Armazenamento**, **Chave de Armazenamento**e, em seguida, selecione um contêiner do **Contêiner de Armazenamento**, finalmente, insira o nome de usuário e senha. Clique no botão OK para vincular um cluster.
+2. Digite **Nome do Cluster**, **Nome de usuário** e **Senha**, clique no botão OK para vincular o cluster. Opcionalmente, insira a Conta de Armazenamento, Chave de Armazenamento e, em seguida, selecione o Contêiner de Armazenamento para o Gerenciador de armazenamento trabalhar no modo de exibição de árvore à esquerda
    
    ![caixa de diálogo para vincular cluster](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
    > [!NOTE]
    > Usamos a chave de armazenamento vinculada, nome de usuário e senha, se o cluster registrou na assinatura do Azure e vinculou um cluster.
+   > ![gerenciador de armazenamento no Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 3. Se as informações estiverem corretas, será possível ver um cluster vinculado no nó **HDInsight**, após clicar no botão OK. Agora, você pode enviar um aplicativo para esse cluster vinculado.
 

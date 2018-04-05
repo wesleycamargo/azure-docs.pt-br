@@ -1,11 +1,11 @@
 ---
 title: Redefinir o acesso a uma VM do Linux do Azure | Microsoft Docs
-description: "Como gerenciar usuários administrativos e redefinir o acesso em VMs Linux usando a extensão VMAccess e a CLI do Azure 2.0"
+description: Como gerenciar usuários administrativos e redefinir o acesso em VMs Linux usando a extensão VMAccess e a CLI do Azure 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 235a6367ad317945cfeaaa6aae4e060208fb8e8e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a5467722b347e68693b335da6b3ac3c5d1a3a441
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gerenciar usuários administrativos, SSH e verificar ou reparar discos em VMs Linux do usando a extensão VMAccess com a CLI do Azure 2.0
 O disco em sua VM do Linux está mostrando erros. De alguma forma, você redefiniu a senha raiz para sua VM do Linux ou excluiu acidentalmente sua chave privada SSH. Se isso tiver ocorrido na época do datacenter, você precisará ir até lá e abrir o KVM para acessar o console do servidor. Considere a Extensão VMAccess do Azure como o comutador KVM que permite que você acesse o console para redefinir o acesso para o Linux ou para realizar a manutenção no nível de disco.
 
-Este artigo mostra como usar a extensão VMAccess do Azure para verificar ou reparar um disco, redefinir o acesso do usuário, gerenciar contas de usuário administrativo ou redefinir a configuração do SSH no Linux. Você também pode executar essas etapas com a [CLI do Azure 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Este artigo mostra como usar a extensão VMAccess do Azure para verificar ou reparar um disco, redefinir o acesso do usuário, gerenciar contas de usuário administrativo ou atualizar a configuração do SSH no Linux. Você também pode executar essas etapas com a [CLI do Azure 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Modos de usar a extensão VMAccess
@@ -35,8 +35,8 @@ Há duas maneiras de usar a extensão VMAccess em VMs Linux:
 
 Os exemplos seguintes usam comandos [az vm user](/cli/azure/vm/user). Para realizar essas etapas, é preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando o [logon az](/cli/azure/reference-index#az_login).
 
-## <a name="reset-ssh-key"></a>Redefinir chave SSH
-O exemplo a seguir redefine a chave SSH para o usuário `azureuser` na VM denominada `myVM`:
+## <a name="update-ssh-key"></a>Atualizar chave SSH
+O exemplo a seguir atualiza a chave SSH para o usuário `azureuser` na VM denominada `myVM`:
 
 ```azurecli
 az vm user update \
@@ -45,6 +45,8 @@ az vm user update \
   --username azureuser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
+
+> **OBSERVAÇÃO:** O comando `az vm user update` acrescenta o novo texto de chave pública ao arquivo `~/.ssh/authorized_keys` para o usuário administrador na VM. Isso não substitui ou remove quaisquer chaves SSH existentes. Isso não removerá as chaves anteriores definidas no momento da implantação ou atualizações subsequentes através da extensão VMAccess.
 
 ## <a name="reset-password"></a>Redefinir senha
 O exemplo a seguir redefine a senha para o usuário `azureuser` na VM denominada `myVM`:
@@ -94,9 +96,9 @@ az vm user delete \
 Os exemplos a seguir usam arquivos JSON brutos. Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) para chamar seus arquivos JSON. Esses arquivos JSON também podem ser chamados dos modelos do Azure. 
 
 ### <a name="reset-user-access"></a>Redefinir o acesso do usuário
-Se você tiver perdido o acesso à raiz em sua VM do Linux, poderá iniciar um script da VMAccess para redefinir a senha ou a chave SSH de um usuário.
+Se você tiver perdido o acesso à raiz em sua VM do Linux, poderá iniciar um script da VMAccess para atualizar a senha ou a chave SSH de um usuário.
 
-Para redefinir a chave pública SSH de um usuário, crie um arquivo chamado `reset_ssh_key.json` e adicione as configurações no seguinte formato. Substitua seus próprios valores para os parâmetros `username` e `ssh_key`:
+Para atualizar a chave pública SSH de um usuário, crie um arquivo chamado `update_ssh_key.json` e adicione as configurações no seguinte formato. Substitua seus próprios valores para os parâmetros `username` e `ssh_key`:
 
 ```json
 {
@@ -114,7 +116,7 @@ az vm extension set \
   --name VMAccessForLinux \
   --publisher Microsoft.OSTCExtensions \
   --version 1.4 \
-  --protected-settings reset_ssh_key.json
+  --protected-settings update_ssh_key.json
 ```
 
 Para redefinir uma senha de usuário, crie um arquivo chamado `reset_user_password.json` e adicione configurações no formato a seguir. Substitua seus próprios valores para os parâmetros `username` e `password`:

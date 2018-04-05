@@ -1,18 +1,18 @@
 ---
-title: "SKUs do Registro de Contêiner do Azure"
-description: "Compare as diferentes camadas de serviço disponíveis no Registro de Contêiner do Azure."
+title: SKUs do Registro de Contêiner do Azure
+description: Compare as diferentes camadas de serviço disponíveis no Registro de Contêiner do Azure.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>SKUs do Registro de Contêiner do Azure
 
@@ -37,7 +37,7 @@ Os SKUs básicos, padrão e premium são coletivamente conhecidos como registros
 
 ### <a name="managed-basic-standard-premium"></a>Gerenciado (básico, padrão e premium)
 
-Os registros gerenciados têm o suporte de uma conta de Armazenamento do Microsoft Azure gerenciada pelo Azure. Ou seja, a conta de armazenamento que armazena as imagens não apareça na assinatura do Azure. O uso dos SKUs de registro gerenciado oferece vários benefícios, discutidos mais detalhadamente em [Atualizar um registro clássico][container-registry-upgrade]. Este artigo enfoca os SKUs de registro gerenciado e seus recursos.
+Os registros gerenciados se beneficiam de armazenamento de imagens totalmente gerenciado pelo Azure. Ou seja, uma conta de armazenamento que armazena as imagens não apareça na assinatura do Azure. O uso dos SKUs de registro gerenciado oferece vários benefícios, discutidos mais detalhadamente em [Armazenamento de imagens de contêiner no Registro de Contêiner do Azure][container-registry-storage]. Este artigo enfoca os SKUs de registro gerenciado e seus recursos.
 
 ### <a name="unmanaged-classic"></a>Não gerenciado (clássico)
 
@@ -103,4 +103,5 @@ Envie e vote em sugestões de novos recursos no [UserVoice do ACR][container-reg
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

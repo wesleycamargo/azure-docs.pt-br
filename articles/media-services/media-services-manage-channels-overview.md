@@ -1,26 +1,30 @@
 ---
-title: "Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure | Microsoft Docs"
-description: "Este tópico fornece uma visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure."
+title: Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure | Microsoft Docs
+description: Este tópico fornece uma visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 451513c364978348eba922f5cf42b6e6c79f8700
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure
+
+> [!NOTE]
+> A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
+
 ## <a name="overview"></a>Visão geral
 Ao distribuir eventos de transmissão ao vivo com os Serviços de Mídia do Azure, normalmente, os seguintes componentes estão envolvidos:
 
@@ -62,18 +66,18 @@ A tabela a seguir fornece um guia de comparação dos dois tipos de Canal com su
 
 | Recurso | Canal de passagem | Canal padrão |
 | --- | --- | --- |
-| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não |Sim |
+| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |sim |
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60+fps |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming e RTP |
 | Preço |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo” |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo de execução máximo |24x7 |8 horas |
-| Suporte para inserção de imagens fixas |Não |Sim |
-| Suporte para sinalização de anúncios |Não |Sim |
-| Legendas CEA 608/708 de passagem |Sim |Sim |
-| Capacidade de recuperação de interrupções breves no feed de contribuição |Sim |Não (O canal começará a exibir imagens fixas após um período superior a 6 segundos sem dados de entrada) |
-| Suporte para GOPs de entrada não uniforme |Sim |Não – a entrada deve ser GOPs de 2 s fixos |
-| Suporte para entrada de taxa de quadros variável |Sim |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
-| Desligamento automático de Canais quando há perda do feed de entrada |Não |Após 12 horas, se não houver nenhum Programa em execução |
+| Suporte para inserção de imagens fixas |Não  |sim |
+| Suporte para sinalização de anúncios |Não  |sim |
+| Legendas CEA 608/708 de passagem |sim |sim |
+| Capacidade de recuperação de interrupções breves no feed de contribuição |sim |Não (O canal começará a exibir imagens fixas após um período superior a 6 segundos sem dados de entrada) |
+| Suporte para GOPs de entrada não uniforme |sim |Não – a entrada deve ser GOPs de 2 s fixos |
+| Suporte para entrada de taxa de quadros variável |sim |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
+| Desligamento automático de Canais quando há perda do feed de entrada |Não  |Após 12 horas, se não houver nenhum Programa em execução |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhando com canais que recebem a transmissão ao vivo de taxa de bits múltipla de codificadores locais (passagem)
 O diagrama a seguir mostra as partes principais da plataforma AMS que estão envolvidas no fluxo de trabalho de **passagem** .
@@ -87,7 +91,7 @@ O diagrama a seguir mostra as partes principais da plataforma AMS envolvidas no 
 
 ![Fluxo de trabalho ao vivo](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
 
-Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Descrição de um Canal e seus componentes relacionados
 ### <a name="channel"></a>Canal
@@ -134,9 +138,9 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado de canal | Indicadores da interface do usuário do portal | Trata-se de cobrança? |
 | --- | --- | --- |
 | Iniciando |Iniciando |Nenhum (estado transitório) |
-| Executando |Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (pelo menos um programa em execução) |SIM |
+| Executando |Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (há pelo menos um programa em execução) |SIM |
 | Parando |Parando |Nenhum (estado transitório) |
-| Parado |Parado |Não |
+| Parado |Parado |Não  |
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

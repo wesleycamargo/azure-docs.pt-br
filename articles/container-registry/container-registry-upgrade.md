@@ -1,18 +1,18 @@
 ---
-title: "Atualizar um registro de contêiner do Azure Clássico"
-description: "Aproveite o conjunto expandido de recursos dos registros de contêiner gerenciados Básico, Standard e Premium atualizando seu registro de contêiner Clássico não gerenciado."
+title: Atualizar um registro de contêiner do Azure Clássico
+description: Aproveite o conjunto expandido de recursos dos registros de contêiner gerenciados Básico, Standard e Premium atualizando seu registro de contêiner Clássico não gerenciado.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registro de contêiner Clássico
 
@@ -29,14 +29,16 @@ Os registros gerenciados fornecem:
 * [Replicação geográfica](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Acima de tudo, um registro Clássico depende da conta de armazenamento que o Azure provisionou automaticamente na sua assinatura do Azure quando você criou o registro. Por outro lado, SKUs Básica, Standard e Premium SKUs se beneficiam do *armazenamento gerenciado*. Ou seja, o Azure gerencia o armazenamento das imagens para você de maneira transparente; nenhuma conta de armazenamento separada é criada na sua própria assinatura.
+Acima de tudo, um registro Clássico depende da conta de armazenamento que o Azure provisionou automaticamente na sua assinatura do Azure quando você criou o registro. Por outro lado, SKUs Básico, Standard e Premium aproveitam os [recursos de armazenamento avançados](container-registry-storage.md) do Azure, manipulando de modo transparente o armazenamento das imagens para você. Uma conta de armazenamento separada não é criada em sua própria assinatura.
 
 Um armazenamento de registro gerenciado oferece os seguintes benefícios:
 
-* As imagens de contêiner são [criptografadas em repouso](../storage/common/storage-service-encryption.md).
-* As imagens são armazenadas usando [armazenamento com redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage), garantindo o backup das imagens com a replicação em várias regiões.
+* As imagens de contêiner são [criptografadas em repouso](container-registry-storage.md#encryption-at-rest).
+* As imagens são armazenadas usando [armazenamento com redundância geográfica](container-registry-storage.md#geo-redundant-storage), garantindo o backup das imagens com a replicação em várias regiões.
 * Capacidade de [movimentação entre SKUs](container-registry-skus.md#changing-skus) de modo livre, permitindo uma maior taxa de transferência ao escolher um SKU de nível superior. Com cada SKU, o ACR pode atender a seus requisitos de taxa de transferência conforme a necessidade.
 * O modelo de segurança unificada para o registro e seu armazenamento fornece gerenciamento de direitos simplificado. Você pode gerenciar permissões apenas para o registro de contêiner, sem a necessidade de gerenciar também permissões para uma conta de armazenamento separada.
+
+Para obter detalhes adicionais sobre o armazenamento de imagens no ACR, consulte [Armazenamento de imagens de contêiner no Registro de Contêiner do Azure](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Considerações sobre a migração
 

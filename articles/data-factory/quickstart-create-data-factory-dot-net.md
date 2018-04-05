@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Criar um data factory e um pipeline usando o SDK do .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,12 +102,12 @@ Este artigo passo a passo usa o Visual Studio 2017. Você também pode usar o Vi
 Baixe e instale o [SDK .NET do Azure](http://azure.microsoft.com/downloads/) no seu computador.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Criar um aplicativo no Azure Active Directory
-Siga as instruções em [neste artigo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) para executar as seguintes tarefas: 
+Siga as instruções das seções [deste artigo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) para executar as seguintes tarefas: 
 
 1. **Criar um aplicativo do Azure Active Directory**. Criar um aplicativo no Azure Active Directory que represente o aplicativo .NET que você está criando neste tutorial. Para a URL de logon, você pode fornecer uma URL fictícia, como mostrado no artigo (`https://contoso.org/exampleapp`).
-2. Obter a **ID do aplicativo** e a **chave de autenticação**** usando as instruções da seção **Obter a ID do aplicativo e a chave de autenticação** no artigo. Anote esses valores pois serão usados posteriormente neste tutorial. 
-3. Obter a **ID do locatário** usando as instruções da seção **Obter a ID de locatário** no artigo. Anote esse valor. 
-4. Atribuir o aplicativo à função **Colaborador** no nível da assinatura para que o aplicativo possa criar os data factories na assinatura. Siga as instruções da seção **Atribuir aplicativos a função** no artigo. 
+2. Obter a **ID do aplicativo** e a **chave de autenticação** e anotar esses valores, pois serão usados posteriormente neste tutorial. 
+3. Obter a **ID do locatário** e anotar esse valor, pois será usado posteriormente neste tutorial.
+4. Atribuir o aplicativo à função **Colaborador** no nível da assinatura para que o aplicativo possa criar os data factories na assinatura.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 

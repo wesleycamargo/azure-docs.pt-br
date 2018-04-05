@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Kubernetes no Azure – Implantar aplicativo"
-description: "Tutorial de AKS – implantar aplicativo"
+title: Tutorial do Kubernetes no Azure – Implantar aplicativo
+description: Tutorial de AKS – implantar aplicativo
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Executar aplicativos no AKS (Serviço de Contêiner do Azure)
+# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Tutorial: executar aplicativos no Serviço de Contêiner do Azure (AKS)
 
 Neste tutorial, parte quatro de oito, um aplicativo de exemplo é implantado em um cluster Kubernetes. As etapas concluídas incluem:
 
@@ -24,7 +24,7 @@ Neste tutorial, parte quatro de oito, um aplicativo de exemplo é implantado em 
 > * Executar um aplicativo no Kubernetes
 > * Testar o aplicativo
 
-Nos tutoriais subsequentes, esse aplicativo é escalado horizontalmente, atualizado e o Operations Management Suite configurado para monitorar o cluster Kubernetes.
+Nos tutoriais subsequentes, o aplicativo é escalado horizontalmente, e o Log Analytics é configurado para monitorar o cluster Kubernetes.
 
 Este tutorial assume uma compreensão básica dos conceitos de Kubernetes; para obter informações detalhadas sobre Kubernetes consulte a [documentação do Kubernetes][kubernetes-documentation].
 

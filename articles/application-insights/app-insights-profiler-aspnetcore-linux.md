@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Criar o perfil de Aplicativos Web ASP.NET Core Azure Linux com o Application Insights Profiler
 
@@ -143,6 +143,18 @@ Você verá saídas semelhantes às seguintes:
 5. Navegue até o painel de desempenho do Application Insights no portal do Azure. Você verá os rastreamentos do criador de perfil no canto inferior direito.
 
     ![Exibir rastreamentos](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>Habilitar o botão no painel Configurar Application Insights Profiler não funciona
+**Se você hospedar o aplicativo utilizando os Serviços de Aplicativos do Linux, não será necessário habilitar o Criador de Perfil novamente no painel Desempenho no Portal do Application Insights. Incluir o pacote NuGet no projeto e a configuração iKey do Application Insights nas Configurações de Aplicativos é o suficiente para habilitar o Criador de Perfil**.
+
+Se você seguir o fluxo de trabalho de habilitação do [Application Insights Profiler para Windows](./app-insights-profiler.md) para clicar em **Habilitar** no painel Configurar Application Insights Profiler, você receberá um erro porque o botão tentará instalar a versão do Windows do agente do criador de perfil no ambiente Linux.
+
+Estamos trabalhando para resolver esse problema na experiência de habilitação.
+
+![Não é necessário habilitar o Profiler novamente no painel de desempenho para fazer o criador de perfil funcionar nos Serviços de Aplicativos do Linux](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você estiver usando contêineres personalizados hospedados pelos Serviços de Aplicativos, siga as instruções em [ Habilitar o Criador de Perfil de Serviço para aplicativo em contêineres do ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) para habilitar o Criador de Perfil do Aplicativo Insights

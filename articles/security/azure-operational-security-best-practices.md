@@ -1,12 +1,12 @@
 ---
-title: "Melhores práticas de Segurança Operacional do Azure | Microsoft Docs"
-description: "Este artigo fornece um conjunto de melhores práticas de Segurança Operacional do Azure."
+title: Melhores práticas de Segurança Operacional do Azure | Microsoft Docs
+description: Este artigo fornece um conjunto de melhores práticas de Segurança Operacional do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Práticas recomendadas de Segurança Operacional do Azure
 A Segurança Operacional do Azure refere-se a serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros recursos no Microsoft Azure. A Segurança Operacional do Azure baseia-se em uma estrutura que incorpora o conhecimento adquirido por meio de várias funcionalidades que são exclusivas à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e uma conscientização profunda do cenário de ameaças à segurança cibernética.
@@ -167,10 +167,10 @@ Para saber mais sobre como configurar o Observador de Rede e como habilitá-lo, 
 Estas são algumas práticas da Lista de práticas do Azure DevOps nesse espaço do Microsoft Cloud, que tornam as empresas e equipes mais produtivas e eficientes.
 
 -   **IaC (Infraestrutura como código):** infraestrutura como código é um conjunto de técnicas e práticas recomendadas que ajudam os profissionais de TI a se livrar da sobrecarga associada à compilação e o gerenciamento diários da infraestrutura modular. Ela permite que os profissionais de TI criem e mantenham seu ambiente de servidor moderno de maneira semelhante a como os desenvolvedores de software criam e mantêm o código do aplicativo. O [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) permite que você provisione seus aplicativos usando um modelo declarativo. Em um modelo único, você pode implantar vários serviços, juntamente com suas dependências. Use o mesmo modelo para implantar repetidamente seu aplicativo durante cada estágio do ciclo de vida do aplicativo.
--   **Integração e implantação contínuas:** você pode configurar seus projetos de equipe do Visual Studio Online para [compilação e implantação automática](https://www.visualstudio.com/docs/build/overview) em aplicativos Web ou serviços de nuvem do Azure. O VSO implanta os binários automaticamente depois de fazer uma compilação para o Azure após cada verificação do código. O processo de compilação do pacote descrito aqui equivale ao comando Package do Visual Studio, e as etapas de publicação equivalem ao comando Publish do Visual Studio.
+-   **Integração e implantação contínuas:** você pode configurar seus projetos de equipe do Visual Studio Team Services (VSTS) para [compilação e implantação automática](https://www.visualstudio.com/docs/build/overview) em aplicativos Web ou serviços de nuvem do Azure. O VSTS implanta os binários automaticamente depois de fazer uma compilação para o Azure após cada verificação do código. O processo de compilação do pacote descrito aqui equivale ao comando Package do Visual Studio, e as etapas de publicação equivalem ao comando Publish do Visual Studio.
 -   **Gerenciamento de versão:** o Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) é uma ótima solução para automatizar a implantação em vários estágios e gerenciar o processo de lançamento. Crie pipelines de implantação gerenciados e contínuos, a fim de lançar com rapidez, facilidade e frequência. Com o Release Management, podemos automatizar grande parte do nosso processo de lançamento e ter fluxos de trabalho de aprovação predefinidos. Implante localmente e na nuvem, estenda e personalize conforme a necessidade.
 -   **Monitoramento de desempenho do aplicativo:** detecte e resolva problemas e melhore continuamente seus aplicativos. Diagnostique problemas rapidamente em seu aplicativo em tempo real. Entenda o que os usuários fazem com ele. A configuração é somente uma questão de adicionar código JS e uma entrada de webconfig, para ver resultados em minutos no portal com todos os detalhes. O [App Insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) ajuda as empresas a detectar problemas e corrigi-los mais rapidamente.
--   **Teste de Carga e Auto-Escala:** é possível localizar problemas de desempenho no aplicativo para melhorar a qualidade de implantação e garantir que o aplicativo esteja sempre disponível ou disponível para atender às necessidades da empresa. Verifique se seu aplicativo pode lidar com o tráfego da sua próxima campanha de marketing ou de seu próximo lançamento. Inicie a execução de [testes de carga](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) baseados em nuvem sem demora com o Visual Studio Online.
+-   **Teste de Carga e Auto-Escala:** é possível localizar problemas de desempenho no aplicativo para melhorar a qualidade de implantação e garantir que o aplicativo esteja sempre disponível ou disponível para atender às necessidades da empresa. Verifique se seu aplicativo pode lidar com o tráfego da sua próxima campanha de marketing ou de seu próximo lançamento. Inicie a execução de [testes de carga](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) baseados em nuvem sem demora com o VSTS.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [Segurança Operacional Azure](https://docs.microsoft.com/azure/security/azure-operational-security).

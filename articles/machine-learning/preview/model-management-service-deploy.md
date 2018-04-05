@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5211fa29af1d8cba17049b69974189990d30f34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implantação de um modelo de Machine Learning como um serviço Web
 
@@ -22,10 +22,17 @@ O Gerenciamento de Modelos do Azure Machine Learning fornece interfaces para imp
 
 Este documento aborda as etapas para implantar seus modelos como serviços Web usando a CLI (interface de linha de comando) do Gerenciamento de Modelos do Azure Machine Learning.
 
+## <a name="what-you-need-to-get-started"></a>Para começar, você precisa do seguinte:
+
+Para aproveitar este guia ao máximo, você deve ter acesso de Colaborador a uma assinatura do Azure ou um grupo de recursos onde você possa implantar seus modelos.
+A CLI vem pré-instalada no Azure Machine Learning Workbench e nas [DSVMs do Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).  Também pode ser instalado como pacote autônomo.
+
+Além disso, um ambiente de implantação e a conta de gerenciamento do modelo já devem estar configurados.  Para obter mais informações sobre como configurar sua conta de gerenciamento de modelo e o ambiente para implantação de cluster e local, consulte [Configuração de Gerenciamento de Modelos](deployment-setup-configuration.md).
+
 ## <a name="deploying-web-services"></a>Implantação de serviços Web
 Usando as CLIs, você pode implantar os serviços Web para execução no computador local ou em um cluster.
 
-É recomendável começar com uma implantação local. Primeiramente, valide que seu modelo e código funcionam e, em seguida, implante um serviço Web a um cluster para uso em escala de produção. Para obter mais informações sobre como configurar seu ambiente para implantação de cluster, consulte [Configuração de Gerenciamento de Modelos](deployment-setup-configuration.md). 
+É recomendável começar com uma implantação local. Primeiramente, valide que seu modelo e código funcionam e, em seguida, implante um serviço Web a um cluster para uso em escala de produção.
 
 A seguir estão as etapas de implantação:
 1. Use seu modelo de Machine Learning treinado e salvo
@@ -49,7 +56,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### <a name="2-create-a-schemajson-file"></a>2. Crie um arquivo schema.json
-Esta etapa é opcional. 
+
+Embora a geração de esquema seja opcional, é altamente recomendável definir o formato de variável de solicitação e entrada para uma melhor manipulação.
 
 Crie um esquema para validar automaticamente a entrada e a saída do serviço Web. As CLIs também usam o esquema para gerar um documento de Swagger para o serviço Web.
 
@@ -77,6 +85,13 @@ O exemplo a seguir usa um dataframe do PANDAS:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+O exemplo a seguir usa um formato JSON genérico:
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -147,10 +162,13 @@ Você pode criar uma imagem com a opção de ter criado seu manifesto antes.
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-Ou você pode criar o manifesto e a imagem com um único comando. 
+>[!NOTE] 
+>Você também pode usar um único comando para executar o registro do modelo, o manifesto e a criação do modelo. Use -h com o comando de criação de serviço para obter mais detalhes.
+
+Como alternativa, há um único comando para registrar um modelo, criar um manifesto e criar uma imagem (mas não criar e implantar o serviço web, por enquanto) em uma única etapa da seguinte maneira.
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -165,7 +183,14 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->Você também pode usar um único comando para executar as quatro etapas anteriores. Use -h com o comando de criação de serviço para obter mais detalhes.
+>Você também pode usar um único comando para executar todas as quatro etapas anteriores. Use -h com o comando de criação de serviço para obter mais detalhes.
+
+Como alternativa, há um único comando para registrar um modelo, criar um manifesto, criar uma imagem e criar e implantar o serviço web em uma única etapa da seguinte maneira.
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### <a name="8-test-the-service"></a>8. Teste o serviço
 Use o comando a seguir para obter informações sobre como chamar o serviço:

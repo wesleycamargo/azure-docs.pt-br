@@ -6,11 +6,11 @@ description: Saiba como compilar e gerenciar aplicativos avançados com os servi
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: f344bf3062add621dc7d0a4cb6f7ed37e6d28d57
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c2e4559092a9269e4e640b7ed29cf3b84b9f945a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -2759,6 +2759,37 @@ Terraform </a>
                                             </div>
                                         </div>
                                     </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Laboratórios</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-gesture"><img src="media/index/labs-hand-gesture.svg" alt="" />Gesto</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-event-tracking"><img src="media/index/labs-event-tracker.svg" alt="" />Acompanhamento de Eventos</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge"><img src="media/index/API_Know_Academic.svg" alt="" />Conhecimento Acadêmico</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-local-insights"><img src="media/index/labs-local-insight.svg" alt="" />Percepções Locais</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>Serviço de Exploração de Conhecimento</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-entity-linking"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Vinculação da Identidade</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -4322,7 +4353,7 @@ O Centro de Arquitetura do Azure contém orientações para criar soluções de 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Guia de Arquitetura do Aplicativo do Azure</h3>
-                                                    <p>Este guia apresenta uma abordagem estruturada para a criação de aplicativos do Azure que são escalonáveis, flexíveis e altamente disponíveis. Ele se baseia nas práticas comprovadas aprendemos de contratos com clientes.</p>
+                                                    <p>Este guia apresenta uma abordagem estruturada para a criação de aplicativos do Azure que são escalonáveis, flexíveis e altamente disponíveis. Ele se baseia nas práticas comprovadas que aprendemos nos contratos com clientes.</p>
                                                 </div>
                                             </div>
                                         </div>

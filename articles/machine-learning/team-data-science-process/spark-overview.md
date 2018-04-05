@@ -1,8 +1,8 @@
 ---
-title: "Visão geral da Ciência de dados usando Spark no Azure HDInsight | Microsoft Docs"
-description: "O kit de ferramentas Spark MLlib traz recursos consideráveis de modelagem de aprendizado de máquina para o ambiente distribuído do HDInsight."
+title: Visão geral da Ciência de dados usando Spark no Azure HDInsight | Microsoft Docs
+description: O kit de ferramentas Spark MLlib traz recursos consideráveis de modelagem de aprendizado de máquina para o ambiente distribuído do HDInsight.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: bradsev
+ms.openlocfilehash: a12e2f1af945c8186067b791c4e96a52eb23f52f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Visão geral da ciência de dados usando Spark no Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -53,9 +53,9 @@ Esses notebooks devem ser executados no kernel pySpark3 do servidor de notebook 
 > [!NOTE]
 > O conjunto de dados da companhia aérea foi adicionado ao notebook Spark 2.0 para melhor ilustrar os algoritmos de classificação. Consulte os links a seguir para obter informações sobre um conjunto de dados de partidas no horário e de clima:
 
->- Dados de partidas no horário em aeroportos: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+>- Dados de saída no horário de companhia aérea: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
->- Dados de clima aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+>- Dados de clima de do aeroporto:[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
 > 
 
@@ -70,7 +70,7 @@ Os notebooks do Spark 2.0 dos conjuntos de dados de atrasos de voo e táxi de No
 
 Para obter orientação sobre a operacionalização de um modelo Spark 2.0 e consumo do modelo para pontuação, consulte o [documento sobre consumo do Spark 1.6](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) para obter um exemplo que descreva as etapas necessárias. Para usar no Spark 2.0, substitua o arquivo de código Python por [esse arquivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Os procedimentos a seguir são relacionados ao Spark 1.6. Para as versões do Spark 2.0, use os notebooks descritos e vinculados anteriormente. 
 
 1.Você precisa ter uma assinatura do Azure. Se ainda não tiver uma, veja [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -149,7 +149,7 @@ Pegamos uma amostra de 0,1% desses arquivos CVS trip\_data and trip\_fare e os u
 
 ![Painéis de cluster](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Você também pode navegar até ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar os Notebooks Jupyter. Substitua a parte CLUSTERNAME desta URL pelo nome do seu próprio cluster. Você precisa da senha de sua conta de administrador para acessar os notebooks.
+Você também pode navegar até ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar o Jupyter Notebooks. Substitua a parte CLUSTERNAME desta URL pelo nome do seu próprio cluster. Você precisa da senha de sua conta de administrador para acessar os notebooks.
 
 ![Procurar Notebooks Jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 

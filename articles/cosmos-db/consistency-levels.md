@@ -1,31 +1,35 @@
 ---
-title: "Níveis de consistência no Azure Cosmos DB | Microsoft Docs"
-description: "O Azure Cosmos DB tem cinco níveis de consistência que ajudam a equilibrar prós e contras de consistência eventual, disponibilidade e latência."
-keywords: "consistência eventual, azure cosmos db, Microsoft azure"
+title: Níveis de consistência no Azure Cosmos DB | Microsoft Docs
+description: O Azure Cosmos DB tem cinco níveis de consistência que ajudam a equilibrar prós e contras de consistência eventual, disponibilidade e latência.
+keywords: consistência eventual, azure cosmos db, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: cgronlun
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
 O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsíveis e vários modelos de consistência amena bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão, prefixo consistente e eventual. Desatualização limitada, sessão, prefixo consistente e eventual são chamados de "modelos de consistência amena", pois fornecem menos consistência de alta segurança, que é o modelo mais consistente disponível. 
 
 Além dos modelos de consistência **forte** e **eventual** geralmente oferecidos por bancos de dados distribuídos, o Azure Cosmos DB oferece três modelos de consistência mais cuidadosamente codificados e operacionalizados: **desatualização limitadas**, **sessão** e **prefixo consistente**. A utilidade de cada um desses níveis de consistência foi validada em relação a casos de uso reais. Coletivamente, esses cinco níveis de consistência permitem obter um equilíbrio bem pensado entre consistência, disponibilidade e latência. 
+
+No vídeo a seguir, o gerente de programa do Azure Cosmos DB, Andrew Liu, demonstra os recursos de distribuição global pronta para uso.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>Consistência e bancos de dados distribuídos
 Os bancos de dados distribuídos comercialmente se enquadram em duas categorias: bancos de dados que não oferecem opções de consistência bem definidas e comprovadas e bancos de dados que oferecem duas opções de programação extrema (consistência forte versus consistência eventual). 
@@ -60,14 +64,16 @@ A granularidade da consistência engloba uma única solicitação de usuário. U
 ## <a name="consistency-levels"></a>Níveis de consistência
 Você pode configurar um nível de consistência padrão na conta do banco de dados que se aplica a todas as coleções (e os bancos de dados) em sua conta do Cosmos DB. Por padrão, todas as leituras e consultas emitidas para os recursos definidos pelo usuário usarão o nível de consistência padrão especificado na conta do banco de dados. Você pode relaxar o nível de consistência de uma solicitação de leitura/consulta específica usado em cada uma das APIs com suporte. Há suporte para cinco tipos de nível de consistência no protocolo de replicação do Azure Cosmos DB que fornecem uma clara compensação entre garantias de consistência específica e desempenho, conforme descrito abaixo.
 
-**Strong**: 
+<a id="strong"></a>
+**Forte**: 
 
 * A coerência forte oferece uma garantia de [transação atômica](https://aphyr.com/posts/313-strong-consistency-models), assegurando que as leituras retornarão a versão mais recente de um item. 
 * a consistência Strong garante que uma gravação fique visível somente depois de confirmada permanentemente pela maioria do quorum de réplicas. Uma gravação é confirmada de modo síncrono e permanente pelo quorum primário e secundário, ou é anulada. Uma leitura sempre é confirmada pela maioria do quorum de leitura. Um cliente nunca pode ver uma gravação não confirmada ou parcial, e sempre há a garantia de leitura da última gravação confirmada. 
 * As contas do Azure Cosmos DB que são configuradas para usar coerência forte não podem associar mais de uma região do Azure à respectiva conta do Azure Cosmos DB.  
 * O custo de uma operação de leitura (em termos de [unidades de solicitação](request-units.md) consumidas) com coerência forte é maior do que com sessão e eventual, mas igual ao de obsolescência vinculada.
 
-**Bounded staleness**: 
+<a id="bounded-staleness"></a>
+**Desatualização limitada**: 
 
 * A consistência desatualização limitada garante que as leituras possam não acompanhar as gravações até, no máximo, os prefixos ou as versões *K* de um item ou intervalo de tempo *t*. 
 * Portanto, quando escolher desatualização limitada, a "desatualização" pode ser configurada de duas maneiras: número de versões *K* do item pelo qual as leituras fiquem atrás das gravações e o intervalo de tempo *t* 
@@ -76,7 +82,8 @@ Você pode configurar um nível de consistência padrão na conta do banco de da
 * As contas do Azure Cosmos DB configuradas com a consistência de desatualização limitada podem associar qualquer número de regiões do Azure à respectiva conta do Azure Cosmos DB. 
 * O custo de uma operação de leitura (em termos de RUs consumidas) com obsolescência vinculada é maior do que com sessão e eventual, mas igual ao da coerência forte.
 
-**Session**: 
+<a id="session"></a>
+**Sessão**: 
 
 * Ao contrário dos modelos globais de consistência oferecidos pelos níveis de consistência strong e bounded staleness, a consistência session engloba uma sessão de cliente. 
 * A consistência session é ideal para todos os cenários em que há o envolvimento de um dispositivo ou uma sessão de usuário, uma vez que ela garante leituras monotônicas, gravações monotônicas e RYW (leitura de suas próprias gravações). 
@@ -91,6 +98,7 @@ Você pode configurar um nível de consistência padrão na conta do banco de da
 * O prefixo consistente garante que as leituras nunca vejam gravações fora de ordem. Se as gravações tiverem sido realizadas na ordem `A, B, C`, o cliente verá `A`, `A,B` ou `A,B,C`, mas nunca fora de ordem, como `A,C` ou `B,A,C`.
 * As contas do Azure Cosmos DB configuradas com a consistência de prefixo consistente podem associar qualquer número de regiões do Azure à respectiva conta do Azure Cosmos DB. 
 
+<a id="eventual"></a>
 **Eventual**: 
 
 * A consistência eventual garante que, na ausência de qualquer gravação adicional, as réplicas no grupo acabem convergindo. 
@@ -125,19 +133,12 @@ O Azure Cosmos DB implementa o MongoDB versão 3.4, que tem duas configurações
 ## <a name="next-steps"></a>Próximas etapas
 Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamos os seguintes recursos:
 
-* Doug Terry. Replicated Data Consistency explained through baseball (vídeo).   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Doug Terry. Replicated Data Consistency explained through baseball.   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) para quóruns parciais práticos.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels. Eventual Consistent - Revisited.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Moni Naor, Avishai Wool, The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing, v.27 n.2, p.423-447, abril de 1998.
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation, 05-10 de junho de 2010, Toronto, Ontário, Canadá [doi>10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica, Probabilistically bounded staleness for practical partial quorums, Proceedings of the VLDB Endowment, v.5 n.8, p.776-787, abril de 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [Replicated Data Consistency explained through baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [Replicated Data Consistency explained through baseball (whitepaper) by Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [Session Guarantees for Weakly Consistent Replicated Data](http://dl.acm.org/citation.cfm?id=383631)
+* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (PBS (Probabilistic Bounded Staleness) para quóruns parciais práticos)
+* [Eventual Consistent - Revisited](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [Linha: um verificador completo e automático de transação atômica, procedimentos da conferência ACM SIGPLAN 2010 na implementação e no design da linguagem de programação](http://dl.acm.org/citation.cfm?id=1806634)
+* [Probabilistic Bounded Staleness (PBS) para quóruns parciais práticos](http://dl.acm.org/citation.cfm?id=2212359)

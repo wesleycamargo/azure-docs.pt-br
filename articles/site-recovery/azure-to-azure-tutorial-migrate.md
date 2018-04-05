@@ -1,18 +1,18 @@
 ---
-title: "Migrar VMs do Azure entre duas regiões do Azure no Azure Site Recovery | Microsoft Docs"
-description: "Use o Azure Site Recovery para migrar VMs IaaS do Azure de uma região do Azure para outra."
+title: Migrar VMs do Azure entre duas regiões do Azure no Azure Site Recovery | Microsoft Docs
+description: Use o Azure Site Recovery para migrar VMs IaaS do Azure de uma região do Azure para outra.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrar VMs do Azure para outra região
 
@@ -35,7 +35,15 @@ Este tutorial pressupõe que você já tem uma assinatura do Azure. Caso não te
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para finalizar este tutorial, você precisa de VMs do Azure em uma região do Azure para a qual você deseja migrar. Além disso, há uma série de configurações que devem ser verificadas antes de iniciar.
+- Verifique se que você tem VMs do Azure na região do Azure a partir da qual você deseja migrar.
+- Verifique se você entende os [componentes e a arquitetura do cenário](azure-to-azure-architecture.md).
+- Examine os [requisitos e limitações com suporte](azure-to-azure-support-matrix.md).
+
+
+
+## <a name="before-you-start"></a>Antes de começar
+
+Antes de configurar a replicação, conclua estas etapas.
 
 
 ### <a name="verify-target-resources"></a>Verifique os recursos de destino
@@ -114,9 +122,7 @@ O Site Recovery recupera uma lista das VMs associadas à assinatura e ao grupo d
 
     ![habilitar a replicação](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > No momento, não há suporte para replicação de VMs do Azure usando discos gerenciados. 
+ 
 
 ## <a name="run-a-failover"></a>Executar um failover
 

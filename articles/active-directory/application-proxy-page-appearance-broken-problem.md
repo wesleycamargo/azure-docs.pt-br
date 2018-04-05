@@ -1,23 +1,23 @@
 ---
-title: "Página de aplicativo não exibe corretamente para um aplicativo de Proxy de aplicativo | Microsoft Docs"
-description: "Diretrizes quando a página não está sendo exibida corretamente em um Aplicativo de Proxy de Aplicativo que você integrou com o Azure AD"
+title: Página de aplicativo não exibe corretamente para um aplicativo de Proxy de aplicativo | Microsoft Docs
+description: Diretrizes quando a página não está sendo exibida corretamente em um Aplicativo de Proxy de Aplicativo que você integrou com o Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 03/23/2018
 ms.author: asteen
-ms.openlocfilehash: 017267620a1bcd6242bceb395966cc4190677c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d187b545a486be28fc80e6baf8e58079ff94ec5e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Página de aplicativo não exibe corretamente para um aplicativo de Proxy de aplicativo
 
@@ -28,13 +28,13 @@ Quando você publica um aplicativo de Proxy de aplicativo, apenas as páginas em
 
 Você pode verificar se esse é o problema, abrindo o rastreador de rede (como o Fiddler ou ferramentas F12 no Internet Explorer/Edge), carregando a página e procurando por erros 404. Esses indicam as páginas que atualmente não podem ser encontradas e ainda podem ser publicadas.
 
-Como um exemplo desse caso, suponha que você tenha publicado um aplicativo de despesas usando uma URL interna de <http://myapps/expenses>, but the app uses the stylesheet <http://myapps/style.css>. Nesse caso, a folha de estilo não é publicada em seu aplicativo, portanto, carregar o aplicativo de despesas gera um erro 404 ao tentar carregar style.css. Nesse exemplo, o problema é resolvido ao publicar o aplicativo com uma URL interna de <http://myapp/>.
+Como um exemplo desse caso, suponha que você tenha publicado um aplicativo de despesas usando uma URL interna de <http://myapps/expenses>, mas o aplicativo usa a folha de estilos <http://myapps/style.css>. Nesse caso, a folha de estilo não é publicada em seu aplicativo, portanto, carregar o aplicativo de despesas gera um erro 404 ao tentar carregar style.css. Nesse exemplo, o problema é resolvido ao publicar o aplicativo com uma URL interna de <http://myapp/>.
 
 ## <a name="problems-with-publishing-as-one-application"></a>Problemas com a publicação como um aplicativo
 
 Se não for possível publicar todos os recursos dentro do mesmo aplicativo, será necessário publicar vários aplicativos e habilitar links entre eles.
 
-Para fazer isso, é recomendável usar a solução de [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains). No entanto, essa solução requer que você tenha o certificado para seu domínio e que seus aplicativos usem nomes de domínio totalmente qualificados (FQDNs). Para outras opções, consulte a [documentação solucionar problemas de links desfeitos](https://microsoft-my.sharepoint.com/personal/harshja_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=IxuG3mFVbnPWI3Yn4Qi7wCNi8VIfHS5mwPt5quh8DMw%3d&docid=2_14558cd6ddea34c1c9887dc640feb5831&rev=1).
+Para fazer isso, é recomendável usar a solução de [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains). No entanto, essa solução requer que você tenha o certificado para seu domínio e que seus aplicativos usem nomes de domínio totalmente qualificados (FQDNs). Para outras opções, consulte a [documentação solucionar problemas de links desfeitos](application-proxy-page-links-broken-problem.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure](application-proxy-publish-azure-portal.md)

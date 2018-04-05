@@ -1,24 +1,24 @@
 ---
 title: Criptografia no Azure Data Lake Store | Microsoft Docs
-description: "A criptografia no Azure Data Lake Store ajuda a proteger seus dados, implementar políticas de segurança da empresa e atender aos requisitos de conformidade normativa. Este artigo fornece uma visão geral do design e discute alguns dos aspectos técnicos de implementação."
+description: A criptografia no Azure Data Lake Store ajuda a proteger seus dados, implementar políticas de segurança da empresa e atender aos requisitos de conformidade normativa. Este artigo fornece uma visão geral do design e discute alguns dos aspectos técnicos de implementação.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: esung22
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Criptografia de dados no Azure Data Lake Store
 
@@ -106,7 +106,7 @@ O diagrama a seguir ilustra esses conceitos:
 4.  Armazene o bloco de dados criptografados no armazenamento persistente.
 
 > [!NOTE] 
-> Para fins de desempenho, a DEK criptografada é armazenada em cache na memória por um curto período e é imediatamente apagada posteriormente. Na mídia persistente, ela é sempre armazenada criptografada pela MEK.
+> A DEK sempre é armazenada criptografada pela MEK, seja na mídia persistente ou em cache na memória.
 
 ## <a name="key-rotation"></a>Alteração de chaves
 

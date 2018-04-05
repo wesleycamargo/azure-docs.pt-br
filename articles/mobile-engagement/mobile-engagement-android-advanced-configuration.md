@@ -1,11 +1,11 @@
 ---
-title: "Configuração avançada do SDK do Azure Mobile Engagement para Android"
-description: "Descreve as opções de configuração avançada, incluindo o Manifesto do Android com o SDK do Azure Mobile Engagement para Android"
+title: Configuração avançada do SDK do Azure Mobile Engagement para Android
+description: Descreve as opções de configuração avançada, incluindo o Manifesto do Android com o SDK do Azure Mobile Engagement para Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 37d2c09a-86fa-473d-8987-c7e35a0eb3e8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 29a7bb7daae59e2034504ce27c9ba66755b11e4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Configuração avançada do SDK do Azure Mobile Engagement para Android
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universal do Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 
 Este procedimento descreve como definir várias opções de configuração para aplicativos Azure Mobile Engagement do Android.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="permission-requirements"></a>Requisitos de permissão

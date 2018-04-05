@@ -2,10 +2,10 @@
 title: Copiar dados para/do SQL Data Warehouse do Azure usando o Data Factory.| Microsoft Docs
 description: Saiba como copiar dados de armazenamentos de origem com suporte para o SQL Data Warehouse do Azure ou do SQL Data Warehouse para armazenamentos de coletor com suporte, usando o Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -510,7 +510,7 @@ Caso você tenha dados de origem com linhas maiores que 1 MB, talvez você desej
 
 ### <a name="sql-data-warehouse-resource-class"></a>Classe de recursos do SQL Data Warehouse
 
-Para obter a melhor produtividade possível, considere atribuir a maior classe de recursos ao usuário que está sendo usado para carregar dados no SQL Data Warehouse por meio do PolyBase. Saiba como fazer isso seguindo [Alterar um exemplo de classe de recurso de usuário](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+Para obter a melhor taxa de transferência possível, considere atribuir uma classe de recursos maior ao usuário que está sendo usado para carregar dados no SQL Data Warehouse por meio do PolyBase.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName no Azure SQL Data Warehouse
 

@@ -1,11 +1,11 @@
 ---
 title: Configurar o ambiente de desenvolvimento no Linux | Microsoft Docs
-description: "Instale o tempo de execução, o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir a instalação, você estará pronto para criar aplicativos."
+description: Instale o tempo de execução, o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir a instalação, você estará pronto para criar aplicativos.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 02/24/2018
 >  
 
 Para implantar e executar os [aplicativos do Azure Service Fabric](service-fabric-application-model.md) em seu computador de desenvolvimento Linux, instale o tempo de execução e o SDK comum. Você também pode instalar os SDKs opcionais para desenvolvimento em Java e .NET Core.
+
+> [!NOTE]
+> Não há suporte para a instalação do tempo de execução do Service Fabric e do SDK no subsistema do Windows para Linux. No entanto, há suporte para a interface de linha de comando (CLI) do Azure Service Fabric, o que permite gerenciar entidades do Service Fabric hospedadas em outro lugar na nuvem ou no local. Para obter informações sobre como instalar a CLI, consulte [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
+>
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -107,6 +111,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
+
+O tempo de execução do Service Fabric que vem com a instalação anterior inclui os pacotes na tabela a seguir. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implícito do npm | mais recente |
 
 ## <a name="set-up-a-local-cluster"></a>Configurar um cluster local
   Quando a instalação for bem-sucedida, você poderá iniciar um cluster local.

@@ -1,24 +1,24 @@
 ---
-title: "Implantar um aplicativo .NET em um contêiner do Azure Service Fabric | Microsoft Docs"
-description: "Ensina você a empacotar um aplicativo .NET no Visual Studio em um Contêiner do Docker. Esse novo aplicativo de “contêiner” é então implantado em um cluster do Service Fabric."
+title: Implantar um aplicativo .NET em um contêiner do Azure Service Fabric | Microsoft Docs
+description: Ensina você a empacotar um aplicativo .NET no Visual Studio em um Contêiner do Docker. Esse novo aplicativo de “contêiner” é então implantado em um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
 
@@ -49,13 +49,6 @@ Aplicativos do Service Fabric são executados em um cluster, um conjunto conecta
 Agora que você tem um cluster do Service Fabric em execução no Azure, está pronto para criar e implantar um aplicativo em contêineres. Para começar a executar o aplicativo em um contêiner, precisamos adicionar o **Suporte do Docker** ao projeto no Visual Studio. Quando você adiciona o **Suporte do Docker** ao aplicativo, duas coisas acontecem. Primeiro, um _arquivo do Docker_ é adicionado ao projeto. Esse novo arquivo descreve como a imagem de contêiner deve ser criada. Em segundo lugar, um novo projeto _docker-compose_ é adicionado à solução. O novo projeto contém alguns arquivos docker-compose. Os arquivos de composição do docker podem ser usados para descrever como o contêiner é executado.
 
 Mais informações sobre como trabalhar com as [Ferramentas de Contêiner do Visual Studio][link-visualstudio-container-tools].
-
->[!NOTE]
->Se essa for a primeira vez que você estiver executando imagens de contêiner do Windows no computador, o Docker CE deverá obter as imagens base para os contêineres. As imagens usadas neste tutorial têm 14 GB. Vá em frente e execute o seguinte comando de terminal para efetuar pull das imagens base:
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Adicionar suporte ao Docker
 
@@ -205,7 +198,7 @@ Pressione **OK**.
    >A compilação das imagens de contêiner leva aproximadamente 15 minutos.
    >A primeira implantação para o cluster do Service Fabric faz com que as imagens de contêiner do Windows Server Core sejam baixadas. O download leva 5 a 10 minutos adicionais para ser concluído.
 
-Navegue até o aplicativo Fabrikam Call Center usando a url do cluster. Por exemplo, *http://mycluster.westeurope.cloudapp.azure.com*
+Navegue até o aplicativo Fabrikam Call Center usando a url do cluster, por exemplo, *http://mycluster.westeurope.cloudapp.azure.com*
 
 Agora que você colocou a solução Fabrikam Call Center em um contêiner e a implantou, poderá abrir o [portal do Azure][link-azure-portal] e ver o aplicativo em execução no Service Fabric. Para experimentar o aplicativo, abra um navegador da Web e acesse a URL do cluster do Service Fabric.
 

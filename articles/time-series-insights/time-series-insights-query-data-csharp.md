@@ -1,5 +1,5 @@
 ---
-title: "Consultar dados de um ambiente do Azure Time Series Insights usando um código C# | Microsoft Docs"
+title: Consultar dados de um ambiente do Azure Time Series Insights usando um código C# | Microsoft Docs
 description: Este artigo descreve como consultar dados de um ambiente do Azure Time Series Insights codificando um aplicativo personalizado escrito na linguagem C# (C-sharp) do .NET.
 services: time-series-insights
 ms.service: time-series-insights
@@ -7,16 +7,16 @@ author: ankryach
 ms.author: ankryach
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
+reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 561ad848e7bddc6bf9d71328db4ddbba9bc5d2b4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.date: 03/23/2018
+ms.openlocfilehash: 2cbdf4a5c7272e88430b1db7b853f8b6d441c893
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Confira dados do ambiente de Análise de Séries Temporais do Azure usando C#
 
@@ -26,6 +26,11 @@ O exemplo mostra vários exemplos básicos do uso da API de consulta:
 2. A lista de ambientes aos quais o usuário tem acesso é obtida. Um dos ambientes é escolhido como o ambiente de interesse e outros dados são consultados para esse ambiente.
 3. Como um exemplo de solicitação HTTPS, os dados de disponibilidade são solicitados para o ambiente de interesse.
 4. Como um exemplo de solicitação do soquete Web, os dados de eventos agregados são solicitados para o ambiente de interesse. Os dados são solicitados para todo o intervalo de tempo de disponibilidade.
+
+Este código de exemplo também está disponível em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## <a name="project-references"></a>Referências do Projeto
+Adicione pacotes NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` e `Newtonsoft.Json` para este exemplo. 
 
 ## <a name="c-example"></a>Exemplo de C#
 
