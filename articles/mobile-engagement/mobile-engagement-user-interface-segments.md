@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - Interface do usuário - Segmentos"
-description: "Como criar e gerenciar segmentos de usuários para identificar padrões de uso usando o Azure Mobile Engagement"
+title: Azure Mobile Engagement - Interface do usuário - Segmentos
+description: Como criar e gerenciar segmentos de usuários para identificar padrões de uso usando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6a4f2205-4a3c-406e-a04f-5e6f2a36653f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53c5b1b672a0d7212a3d298c3e411a9cc6ac0807
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Como criar e gerenciar segmentos de usuários para identificar padrões de uso
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Este artigo descreve a guia **SEGMENTOS** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis.
 
 A seção de segmentos da interface do usuário permite que você trabalhe na segmentação dos usuários com base no comportamento diferente e na análise que você pode obter do aplicativo e também pode acessar por meio da API de segmentos. Os segmentos são primeiramente calculados 24 horas após terem sido criados e serão recalculados com base nas informações de análise mais recentes a cada 24 horas. Após um segmento ter sido calculado, ele exibe um gráfico de “Histórico diário" todos os dias.

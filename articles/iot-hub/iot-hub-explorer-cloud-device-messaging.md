@@ -2,10 +2,10 @@
 title: Gerenciar sistema de mensagens de dispositivos de nuvem do Hub IoT do Azure com o iothub-explorer | Microsoft Docs
 description: Saiba como usar a ferramenta iothub-explorer da CLI para monitorar mensagens do dispositivo para a nuvem (D2C) e enviar mensagens da nuvem para o dispositivo (C2D) no Hub IoT do Azure.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
+tags: ''
 keywords: iothub explorer, sistema de mensagens de dispositivo de nuvem, nuvem ao dispositivo do Hub IoT, sistema de mensagens da nuvem para o dispositivo
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
 ms.service: iot-hub
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: 30151b7bdc544bc36e959cc3528d37897198fc7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e74c08849ae2f98d3189c0cd3d340874ea085ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Use o iothub-explorer para enviar e receber mensagens entre o dispositivo e o Hub IoT
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 O [iothub-explorer](https://github.com/azure/iothub-explorer) tem alguns comandos que facilitam o gerenciamento do Hub IoT. Este tutorial se concentra em como usar o iothub-explorer para enviar e receber mensagens entre o dispositivo e o Hub IoT.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 
@@ -43,7 +45,7 @@ Saiba como usar o iothub-explorer para monitorar mensagens do dispositivo para a
 - Tutorial [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluído que aborda os seguintes requisitos:
   - Uma assinatura ativa do Azure.
   - Um hub IoT do Azure em sua assinatura.
-  - O aplicativo cliente que envia mensagens para o Hub IoT do Azure.
+  - O aplicativo cliente que envia mensagens para o hub IoT do Azure.
 - iothub-explorer. ([Instalar o iothub-explorer](https://github.com/azure/iothub-explorer))
 
 ## <a name="monitor-device-to-cloud-messages"></a>Monitorar mensagens do dispositivo para a nuvem

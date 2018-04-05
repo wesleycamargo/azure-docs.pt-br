@@ -1,11 +1,11 @@
 ---
-title: "Implementação do Azure Mobile Engagement para Aplicativos de Mídia"
-description: "Cenário de aplicativo de mídia para implementação do Azure Mobile Engagement"
+title: Implementação do Azure Mobile Engagement para Aplicativos de Mídia
+description: Cenário de aplicativo de mídia para implementação do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e5d4585b47a4ca26b81b7168aa499f25722415a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Implementar o Mobile Engagement com os Aplicativos de Mídia
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 ## <a name="overview"></a>Visão geral
 Pedro é gerente de projetos móveis de uma grande empresa de mídia. Recentemente, ele lançou um novo aplicativo com uma contagem de downloads muito alta. Ele atingiu seus objetivos de download, mas ainda assim seu ROI (Retorno sobre o Investimento) por usuário não atendeu aos seus requisitos. 
 

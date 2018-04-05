@@ -1,25 +1,19 @@
 ---
-title: "Analisar sua carga de trabalho – SQL Data Warehouse do Azure | Microsoft Docs"
-description: "Técnicas para analisar a priorização de consulta para sua carga de trabalho no SQL Data Warehouse do Azure."
+title: Analisar sua carga de trabalho – SQL Data Warehouse do Azure | Microsoft Docs
+description: Técnicas para analisar a priorização de consulta para sua carga de trabalho no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 98617f6b8366662e52d00420adc4c81abffc598d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.topic: conceptual
+ms.component: manage
+ms.date: 03/28/2018
+ms.author: joeyong
+ms.reviewer: jrj
+ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-your-workload"></a>Analisar sua carga de trabalho
 Técnicas para analisar a priorização de consulta para sua carga de trabalho no SQL Data Warehouse do Azure.
@@ -47,7 +41,7 @@ A tabela a seguir mostra os mapeamentos de importância para cada grupo de carga
 Da tabela **Alocação e consumo de slots de simultaneidade** , podemos ver que um DW500 usa um, quatro, oito ou 16 slots de simultaneidade para smallrc, mediumrc, largerc e xlargerc, respectivamente. Você pode procurar esses valores na tabela anterior para localizar a importância de cada classe de recurso.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapeamento do DW500 para obter a importância das classes de recurso
-| classe de recurso | Grupo de carga de trabalho | Slots de simultaneidade usados | MB / Distribuição | importância |
+| classe de recurso | Grupo de carga de trabalho | Slots de simultaneidade usados | MB / Distribuição | Importância |
 |:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
 | smallrc        | SloDWGroupC00  | 1                      | 100               | Média     |
 | mediumrc       | SloDWGroupC02  | 4                      | 400               | Média     |

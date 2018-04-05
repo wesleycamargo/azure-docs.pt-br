@@ -1,6 +1,6 @@
 ---
-title: "Grupos de segurança de rede no Azure | Microsoft Docs"
-description: "Saiba como isolar e controlar o fluxo de tráfego dentro de suas redes virtuais usando o firewall distribuído no Azure com os Grupos de Segurança de Rede."
+title: Grupos de segurança de rede no Azure | Microsoft Docs
+description: Saiba como isolar e controlar o fluxo de tráfego dentro de suas redes virtuais usando o firewall distribuído no Azure com os Grupos de Segurança de Rede.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrar o tráfego de rede com grupos de segurança de rede
 
@@ -123,10 +123,10 @@ Você pode implementar NSGs no Resource Manager ou modelos de implantação clá
 
 | Ferramenta de implantação | Clássico | Gerenciador de Recursos |
 | --- | --- | --- |
-| Portal do Azure   | Não  | [Sim](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Sim](virtual-networks-create-nsg-classic-ps.md) | [Sim](virtual-networks-create-nsg-arm-ps.md) |
-| CLI do Azure **V1**   | [Sim](virtual-networks-create-nsg-classic-cli.md) | [Sim](virtual-networks-create-nsg-arm-cli.md) |
-| CLI do Azure **V2**   | Não  | [Sim](virtual-networks-create-nsg-arm-cli.md) |
+| Portal do Azure   | sim | [Sim](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Sim](virtual-networks-create-nsg-classic-ps.md) | [Sim](tutorial-filter-network-traffic.md) |
+| CLI do Azure **V1**   | [Sim](virtual-networks-create-nsg-classic-cli.md) | [Sim](tutorial-filter-network-traffic-cli.md) |
+| CLI do Azure **V2**   | Não  | [Sim](tutorial-filter-network-traffic-cli.md) |
 | Modelo do Azure Resource Manager   | Não   | [Sim](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planejamento

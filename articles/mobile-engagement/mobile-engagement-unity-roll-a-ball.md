@@ -1,11 +1,11 @@
 ---
 title: Tutorial do Roll a Ball do Unity
-description: "Etapas para criar o jogo clássico Roll a Ball do Unity que é um pré-requisito para todos os tutoriais do Unity do Mobile Engagement"
+description: Etapas para criar o jogo clássico Roll a Ball do Unity que é um pré-requisito para todos os tutoriais do Unity do Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0afd0eca-f74a-43aa-bba8-436a0265c312
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52d5962645b1408fdba61ec1bf4e4f682b80905b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a id="unity-roll-a-ball"></a>Criar um jogo Roll a Ball do Unity
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Este tutorial explica as etapas principais para um [Tutorial do Roll a Ball do Unity](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial) ligeiramente modificado. Esse jogo de exemplo consiste em um objeto 'jogador' esférico que é controlado pelo usuário do aplicativo. O objetivo do jogo é 'colecionar' objetos colecionáveis colidindo o objeto jogador contra os objetos colecionáveis. Isso pressupõe familiaridade básica com o ambiente de editor do Unity. Se tiver problemas, consulte o tutorial completo. 
 
 ### <a name="setting-up-the-game"></a>Configuração do jogo

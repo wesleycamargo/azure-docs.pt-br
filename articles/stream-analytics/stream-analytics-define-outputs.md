@@ -1,12 +1,11 @@
 ---
-title: "Saídas do Stream Analytics: opções de armazenamento e análise | Microsoft Docs"
-description: "Saiba mais sobre opções de saídas de dados do Stream Analytics, incluindo Power BI para resultados da análise."
-keywords: "transformação de dados, resultados da análise, opções de armazenamento de dados"
+title: 'Saídas do Stream Analytics: opções de armazenamento e análise | Microsoft Docs'
+description: Saiba mais sobre opções de saídas de dados do Stream Analytics, incluindo Power BI para resultados da análise.
+keywords: transformação de dados, resultados da análise, opções de armazenamento de dados
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/18/2017
 ms.author: sngun
-ms.openlocfilehash: 6df9a3fafea97638d63c0dc4601c5ced357c410d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Saídas do Stream Analytics: opções de armazenamento, análise
 Ao criar um trabalho do Stream Analytics, considere como os dados resultantes são consumidos. Como você pode exibir os resultados do trabalho do Stream Analytics e onde é possível armazená-los?

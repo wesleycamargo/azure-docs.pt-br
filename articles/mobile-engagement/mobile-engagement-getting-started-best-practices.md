@@ -1,11 +1,11 @@
 ---
-title: "Guia de introdução ao Azure Mobile Engagement com práticas recomendadas"
-description: "Guia de introdução ao Azure Mobile Engagement e práticas recomendadas para a integração"
+title: Guia de introdução ao Azure Mobile Engagement com práticas recomendadas
+description: Guia de introdução ao Azure Mobile Engagement e práticas recomendadas para a integração
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guia de introdução com práticas recomendadas
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 ## <a name="overview"></a>Visão geral
 **A tela do celular é um espaço muito concorrido:** em 2013, um estudo descobriu que o dispositivo móvel médio tinha 27 aplicativos instalados. Os usuários normalmente passam 30 horas por mês em seus aplicativos. A maior parte desse tempo foi passado em redes sociais e em jogos (cerca de 20 horas). Até 2014, o Android disponibilizava cerca de 1,5 milhão de aplicativos para os usuários. A Apple Store continha cerca de 1,2 milhão de aplicativos. O uso de aplicativos móveis não para de aumentar à medida que os desenvolvedores competem nesse mercado em expansão. 
 
@@ -248,7 +252,7 @@ Trabalhos são usados para relatar ações com uma duração. Alguns exemplos in
 * Duração do processo de compra
 * Reprodução de um vídeo
 
-###### <a name="errors"></a>Erros
+###### <a name="errors"></a>Errors
 Erros são usados para relatar problemas detectados pelo aplicativo. Por exemplo, ações incorretas do usuário ou falhas na chamada da API.
 
 ###### <a name="application-information"></a>Informações do aplicativo

@@ -1,12 +1,11 @@
 ---
 title: Painel do Power BI no Stream Analytics do Azure | Microsoft Docs
-description: "Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics."
-keywords: "painel de análise, painel em tempo real"
+description: Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics.
+keywords: painel de análise, painel em tempo real
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: b446e2296f2747012849936b994c4a4a2044869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: um painel de análise em tempo real para dados de streaming
 O Stream Analytics do Azure permite aproveitar uma das principais ferramentas de business intelligence, o [Microsoft Power BI](https://powerbi.com/). Neste artigo, você saberá como criar ferramentas de business intelligence usando o Power BI como uma saída de seus trabalhos do Stream Analytics do Azure. Você também aprenderá a criar e usar um painel em tempo real.
@@ -29,7 +28,7 @@ Este artigo continua no tutorial [Detecção de fraude em tempo real](stream-ana
 Você pode assistir a [um vídeo](https://www.youtube.com/watch?v=SGUpT-a99MA) que ilustra esse cenário.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, verifique se você tem o seguinte:
 
@@ -173,7 +172,7 @@ O trabalho do Stream Analytics começa procurando chamadas fraudulentas no fluxo
 
     ![Detalhes da visualização para o novo bloco](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
 
-7. Clique em **Avançar**.
+7. Clique em **Próximo**.
 
 8. Preencha os detalhes do bloco, tais como um título e subtítulo.
 
@@ -217,7 +216,7 @@ Você pode usar a seguinte equação para calcular o valor em segundos dar sua j
 
 ![Equação1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
-Por exemplo:
+Por exemplo: 
 
 * Você tem 1.000 dispositivos que enviam dados em intervalos de um segundo.
 * Você está usando o SKU do Power BI Pro que dá suporte a 1.000.000 linhas por hora.

@@ -1,11 +1,11 @@
 ---
-title: "Opções do dispositivo para a nuvem do Hub IoT do Azure| Microsoft Docs"
-description: "Guia do desenvolvedor ‑ diretrizes sobre quando usar mensagens do dispositivo para a nuvem, as propriedades relatadas ou upload do arquivo para comunicações da nuvem para o dispositivo."
+title: Opções do dispositivo para a nuvem do Hub IoT do Azure| Microsoft Docs
+description: Guia do desenvolvedor ‑ diretrizes sobre quando usar mensagens do dispositivo para a nuvem, as propriedades relatadas ou upload do arquivo para comunicações da nuvem para o dispositivo.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a870852d937732bb38f08420a07bfe696860e08b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Diretrizes de comunicações do dispositivo para a nuvem
 Ao enviar informações do aplicativo do dispositivo para o back-end da solução, o Hub IoT expõe três opções:
@@ -26,6 +26,8 @@ Ao enviar informações do aplicativo do dispositivo para o back-end da soluçã
 * [Mensagens do dispositivo para a nuvem ][lnk-d2c], para telemetria de série de tempo e alertas.
 * [Propriedades relatadas do dispositivo gêmeo][lnk-twins] para relatar informações de estado do dispositivo, como recursos disponíveis, condições ou o estado de fluxos de trabalho de longa duração. Por exemplo, configuração e atualizações de software.
 * [Carregar arquivos][lnk-fileupload], para arquivos de mídia e lotes grandes de telemetria carregados por dispositivos conectados de forma intermitente ou compactados para economizar largura de banda.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Aqui está uma comparação detalhada das várias opções de comunicação do dispositivo para a nuvem.
 

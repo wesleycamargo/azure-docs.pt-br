@@ -12,13 +12,13 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/16/2018
+  ms.date: 03/28/2018
   ms.author: mimig
-  ms.openlocfilehash: eea99656376f02bad79bcab4a90eb3b15c1a87da
-  ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+  ms.openlocfilehash: b0f3df9bb0209342084eb1949b865be12b428a2a
+  ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/29/2018
+  ms.lasthandoff: 04/03/2018
 abstract:
   description: O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente. Use esses guias de início rápido, tutoriais e exemplos para desenvolver documento, chave-valor, toda a coluna e bancos de dados do grafo usando APIs populares e modelos de programação. Em seguida, saiba como replicar os dados em qualquer número de regiões do Azure e dimensionar a taxa de transferência independente do armazenamento, ao mesmo tempo em que usa SLAs abrangentes.
   aside:
@@ -147,7 +147,7 @@ sections:
     className: cardsD
     items:
     - title: APIs do SQL
-      html: <p><a href="/rest/api/documentdb/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">Feed de alteração .NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/documentdbresourceprovider/">Provedor de recursos REST</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
+      html: <p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">Feed de alteração .NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">Provedor de recursos REST</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
     - title: APIs do MongoDB
       html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Protocolo Wire</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
     - title: APIs de Tabela

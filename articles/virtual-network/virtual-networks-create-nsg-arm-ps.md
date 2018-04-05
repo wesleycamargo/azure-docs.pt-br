@@ -1,6 +1,6 @@
 ---
-title: "Criar grupos de segurança de rede – Azure PowerShell | Microsoft Docs"
-description: "Aprenda a criar e implantar grupos de segurança de rede usando o PowerShell."
+title: Criar grupos de segurança de rede – Azure PowerShell | Microsoft Docs
+description: Aprenda a criar e implantar grupos de segurança de rede usando o PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 26fe67b43d63c6685d8ae7644dd7df6931a4d2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/31/2018
 ---
 # <a name="create-network-security-groups-using-powershell"></a>Criar grupos de segurança usando o PowerShell
 
@@ -37,7 +37,7 @@ O exemplo de comando PowerShell abaixo espera um ambiente simples já criado com
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Como criar o NSG para a sub-rede front-end
 Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as etapas a seguir:
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 2. Crie uma regra de segurança permitindo acesso da Internet à porta 3389.
 
     ```powershell

@@ -2,24 +2,24 @@
 title: Publicar um item do marketplace personalizado na pilha do Azure (operador de nuvem) | Microsoft Docs
 description: Como um operador de pilha do Azure, saber como publicar um item do marketplace personalizado na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 04/03/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c791708e11b7e9e8bbe046f06233d948d4632c90
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 37587cf5f99ce105413382cbd5a0de9cacc76b7d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Visão geral do Azure Marketplace de pilha
 
@@ -43,6 +43,8 @@ Cada item do Marketplace contém:
 * Informações de formatação para exibir o item no portal
 
 Cada item publicado no Marketplace usa um formato chamado Pacote da Galeria do Azure (azpkg). Adicione recursos de implantação ou tempo de execução (como código, arquivos zip com o software ou imagens da máquina virtual) com a pilha do Azure separadamente, não como parte do Item do Marketplace. 
+
+Começando com 1803, imagens são convertidas em arquivos esparsos durante o download do Azure ou durante o carregamento de imagens personalizadas. Esse processo adiciona tempo ao adicionar uma imagem, mas economiza espaço e acelerar a implantação dessas imagens. Conversão só se aplica a novas imagens. Imagens existentes não são alteradas. 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar e publicar um item do marketplace](azure-stack-create-and-publish-marketplace-item.md)

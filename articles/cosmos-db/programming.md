@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b55307c3122513b414c3f90a6a36d230f3459c2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 328cf016c98575ecd0fa7be023b48e670211babf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
 
@@ -54,7 +54,7 @@ Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores
   * Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Essa camada de abstração é vantajosa quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
   * Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
 
-Há suporte para a criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizada por meio do [portal do Azure](https://portal.azure.com), da [API REST](/rest/api/documentdb/), do [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs do cliente](sql-api-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
+Há suporte para a criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizada por meio do [portal do Azure](https://portal.azure.com), da [API REST](/rest/api/cosmos-db/), do [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs do cliente](sql-api-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
 
 Esse tutorial utiliza o [SDK do Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.   
 

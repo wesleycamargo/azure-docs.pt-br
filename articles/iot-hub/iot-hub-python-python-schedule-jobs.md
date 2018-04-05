@@ -1,11 +1,11 @@
 ---
 title: Agendar trabalhos com o Hub IoT do Azure (Python) | Microsoft Docs
-description: "Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Você pode usar os SDKs do IoT do Azure para Python para implementar os aplicativos do dispositivo simulado e um aplicativo de serviço para executar o trabalho."
+description: Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Você pode usar os SDKs do IoT do Azure para Python para implementar os aplicativos do dispositivo simulado e um aplicativo de serviço para executar o trabalho.
 services: iot-hub
 documentationcenter: .net
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2018
 ms.author: v-masebo
-ms.openlocfilehash: 3b6daf1ce1116ea3787550f9dac8d90b3751f9af
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 632e1788f614b0a57d631759d1638027e1d0118a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Agendar e difundir trabalhos (Python)
 
@@ -36,6 +36,8 @@ Saiba mais sobre cada um desses recursos nestes artigos:
 
 * Dispositivo gêmeo e propriedades: [Introdução os dispositivos gêmeos][lnk-get-started-twin] e [Tutorial: Como usar as propriedades do dispositivo gêmeo][lnk-twin-props]
 * Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos][lnk-dev-methods] e [Tutorial: métodos diretos][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostra como:
 
@@ -115,7 +117,7 @@ Nesta seção, você cria um aplicativo de console do Python que responde a um m
         print ( "payload: %s" % payload )
     ```
 
-1. Adicione o seguinte código para registrar o manipulador do método **lockDoor**. Também inclui a rotina `main`:
+1. Adicione o seguinte código para registrar o manipulador do método **lockDoor**. Também inclua a rotina `main`:
    
     ```python
     def iothub_jobs_sample_run():

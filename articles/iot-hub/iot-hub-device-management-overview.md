@@ -1,11 +1,11 @@
 ---
-title: "Visão geral do gerenciamento do Hub IoT do Azure | Microsoft Docs"
-description: "Visão geral do gerenciamento de dispositivos no Hub IoT do Azure: ciclo de vida do dispositivo de empresa e padrões de gerenciamento do dispositivo como a reinicialização, redefinição de fábrica, atualização de firmware, configuração, gêmeos de dispositivo, consultas, trabalhos."
+title: Visão geral do gerenciamento do Hub IoT do Azure | Microsoft Docs
+description: 'Visão geral do gerenciamento de dispositivos no Hub IoT do Azure: ciclo de vida do dispositivo de empresa e padrões de gerenciamento do dispositivo como a reinicialização, redefinição de fábrica, atualização de firmware, configuração, gêmeos de dispositivo, consultas, trabalhos.'
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: bzurcher
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
 ms.service: iot-hub
 ms.devlang: na
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4fe4328314e23bbd1ace13e935f82336e1e602a9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Visão geral do gerenciamento de dispositivos com o Hub IoT
-## <a name="introduction"></a>Introdução
+
 O Hub IoT do Azure fornece os recursos e um modelo de extensibilidade que habilitam desenvolvedores de dispositivos e back-end a criar soluções robustas de gerenciamento de dispositivos. Os dispositivos variam de sensores restritos e microcontroladores de finalidade única a gateways poderosos para encaminhar comunicações para grupos de dispositivos.  Além disso, os casos de uso e requisitos para operadores de IoT variam significativamente em vários setores.  Apesar dessa variação, o gerenciamento de dispositivos com o Hub IoT fornece recursos, padrões e bibliotecas de código para atender a um conjunto diversificado de dispositivos e usuários finais.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Uma parte crucial da criação de uma solução IoT empresarial bem-sucedida é fornecer uma estratégia para os operadores lidarem com o gerenciamento contínuo de sua coleção de dispositivos. Os operadores de IoT precisam de ferramentas simples e confiáveis e aplicativos que permitam focar nos aspectos mais estratégicos de seus trabalhos. Esse artigo fornece:
 

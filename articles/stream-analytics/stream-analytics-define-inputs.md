@@ -1,12 +1,11 @@
 ---
-title: "Conexão de dados: entradas de transmissão de dados de uma transmissão de eventos | Microsoft Docs"
-description: "Saiba mais sobre como configurar uma conexão de dados com o Stream Analytics chamada de “entradas”. As entradas incluem um fluxo de dados de eventos e também dados de referência."
-keywords: "fluxo de dados, conexão de dados, fluxo de eventos"
+title: 'Conexão de dados: entradas de transmissão de dados de uma transmissão de eventos | Microsoft Docs'
+description: Saiba mais sobre como configurar uma conexão de dados com o Stream Analytics chamada de “entradas”. As entradas incluem um fluxo de dados de eventos e também dados de referência.
+keywords: fluxo de dados, conexão de dados, fluxo de eventos
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexão de dados: saiba mais sobre entradas de fluxo de dados de eventos para o Stream Analytics
 A conexão de dados para um trabalho do Stream Analytics é um fluxo de eventos de uma fonte de dados, que é conhecido como a *entrada* de um trabalho. O Stream Analytics tem integração de primeira classe com fontes de fluxo de dados do Azure, incluindo [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) e [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/). Essas fontes de entrada podem ser da mesma assinatura do Azure que o trabalho de análise ou de uma assinatura diferente.
@@ -53,7 +52,7 @@ Cada entrada do trabalho do Hub de Eventos do Stream Analytics deve ser configur
 ### <a name="configure-an-event-hub-as-a-data-stream-input"></a>Configurar um Hub de Eventos como um fluxo de dados de entrada
 A tabela a seguir explica cada propriedade na folha **Nova Entrada** no Portal do Azure, quando você configura um Hub de Eventos como entrada.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | **Alias de entrada** |Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada. |
 | **Namespace do barramento de serviço** |Um namespace do Barramento de Serviço do Azure, que é um contêiner para um conjunto de entidades de mensagens. Ao criar um novo Hub de Eventos, você também cria um namespace do Barramento de Serviço. |
@@ -66,7 +65,7 @@ A tabela a seguir explica cada propriedade na folha **Nova Entrada** no Portal d
 
 Quando seus dados forem provenientes de uma fonte de Hub de Eventos, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | **EventProcessedUtcTime** |A data e a hora em que o evento foi processado pelo Stream Analytics. |
 | **EventEnqueuedUtcTime** |A data e a hora em que o evento foi recebido pelos Hubs de eventos. |
@@ -102,7 +101,7 @@ Cada entrada do trabalho do Hub IoT do Stream Analytics deve ser configurada par
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Configurar um Hub IoT como um fluxo de dados de entrada
 A tabela a seguir explica cada propriedade na folha **Nova Entrada** no Portal do Azure, quando você configura um Hub IoT como entrada.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | **Alias de entrada** |Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada.|
 | **Hub IoT** |O nome do Hub IoT para usar como entrada. |
@@ -116,7 +115,7 @@ A tabela a seguir explica cada propriedade na folha **Nova Entrada** no Portal d
 
 Quando seus dados forem provenientes de uma fonte de Hub IoT, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | **EventProcessedUtcTime** |A data e a hora em que o evento foi processado. |
 | **EventEnqueuedUtcTime** |A data e a hora em que o evento foi recebido pelo Hub IoT. |
@@ -144,7 +143,7 @@ As entradas formatadas em CSV *exigem* uma linha de cabeçalho para definir os c
 
 A tabela a seguir explica cada propriedade na folha **Nova entrada** no Portal do Azure, quando você configura o Armazenamento de Blobs como entrada.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | **Alias de entrada** | Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada. |
 | **Conta de armazenamento** | O nome da conta de armazenamento em que estão localizados os arquivos de blob. |
@@ -159,7 +158,7 @@ A tabela a seguir explica cada propriedade na folha **Nova entrada** no Portal d
 
 Quando seus dados forem provenientes de uma fonte de Armazenamento de Blobs, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | **BlobName** |O nome do blob de entrada de onde o evento veio. |
 | **EventProcessedUtcTime** |A data e a hora em que o evento foi processado pelo Stream Analytics. |

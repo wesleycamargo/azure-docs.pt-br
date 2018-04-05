@@ -1,11 +1,11 @@
 ---
-title: "Visão geral do SDK do Windows Phone Silverlight no Azure Mobile Engagement | Microsoft Docs"
-description: "Visão geral do SDK do Windows Phone Silverlight para o Azure Mobile Engagement"
+title: Visão geral do SDK do Windows Phone Silverlight no Azure Mobile Engagement | Microsoft Docs
+description: Visão geral do SDK do Windows Phone Silverlight para o Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0e3d2420-0509-4952-8891-392e3dad9aaf
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe4df1f914e7b53f24a9855d5f96ecb193986b7f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Visão geral do SDK do Windows Phone Silverlight para o Azure Mobile Engagement
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Comece aqui para obter todos os detalhes sobre como integrar o Azure Mobile Engagement em um aplicativo do Windows Phone Silverlight. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de 15 minutos](mobile-engagement-windows-phone-get-started.md).
 
 Clique para ver o [Conteúdo do SDK](mobile-engagement-windows-phone-sdk-content.md)

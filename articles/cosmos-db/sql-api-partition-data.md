@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Particionamento no Azure Cosmos DB usando a API do SQL
 
@@ -78,7 +78,7 @@ Na API do SQL, você especifica a definição da chave de partição na forma de
 Vamos analisar como a opção da chave de partição afeta o desempenho do aplicativo.
 
 ## <a name="working-with-the-azure-cosmos-db-sdks"></a>Trabalhando com SDKs do Azure Cosmos DB
-O Azure Cosmos DB adicionou suporte ao particionamento automático na [API REST versão 2015-12-16](/rest/api/documentdb/). Para criar contêineres particionados, você deve baixar versões do SDK 1.6.0 ou mais novas em uma das plataformas do SDK com suporte (.NET, Node.js, Java, Python, MongoDB). 
+O Azure Cosmos DB adicionou suporte ao particionamento automático na [API REST versão 2015-12-16](/rest/api/cosmos-db/). Para criar contêineres particionados, você deve baixar versões do SDK 1.6.0 ou mais novas em uma das plataformas do SDK com suporte (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Criando contêineres
 O exemplo a seguir mostra um trecho do .NET para criação de um contêiner para armazenar dados telemétricos do dispositivo de 20.000 unidades de solicitação por segundo de produtividade. O SDK define o valor de OfferThroughput (que por sua vez define o cabeçalho de solicitação `x-ms-offer-throughput` na API REST). Aqui, definimos `/deviceId` como a chave de partição. A opção de chave de partição é salva com o restante dos metadados do contêiner, como nome e política de indexação.
@@ -225,6 +225,6 @@ Na próxima seção, examinaremos como é possível passar de contêineres de pa
 Neste artigo, apresentamos uma visão geral de como trabalhar com o particionamento de contêineres do Azure Cosmos DB com a API do SQL. Consulte também [particionamento e escala horizontal](../cosmos-db/partition-data.md) para obter uma visão geral dos conceitos e das melhores práticas de particionamento com uma API do Azure Cosmos DB. 
 
 * Executar testes de desempenho e escala com o BD Cosmos do Azure. Consulte [Teste de desempenho e escala com o BD Cosmos do Azure](performance-testing.md) para obter um exemplo.
-* Introdução à codificação com os [SDKs](sql-api-sdk-dotnet.md) ou a [API REST](/rest/api/documentdb/)
+* Introdução à codificação com os [SDKs](sql-api-sdk-dotnet.md) ou a [API REST](/rest/api/cosmos-db/)
 * Saiba mais sobre a [produtividade provisionada no DB Cosmos do Azure](request-units.md)
 

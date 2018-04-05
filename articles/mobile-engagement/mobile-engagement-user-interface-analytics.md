@@ -1,11 +1,11 @@
 ---
-title: "Interface do usuário do Azure Mobile Engagement - Análise"
-description: "Saiba como analisar os dados históricos sobre seu aplicativo usando o Azure Mobile Engagement"
+title: Interface do usuário do Azure Mobile Engagement - Análise
+description: Saiba como analisar os dados históricos sobre seu aplicativo usando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Como analisar dados históricos sobre seu aplicativo
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Este artigo descreve a guia **ANÁLISE** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement** .
 
 A seção de análise da interface do usuário fornece informações agregadas sobre seu aplicativo com base em dados históricos que são atualizados a cada 24 horas. As informações são exibidas em diferentes painéis compostos de mapas, grades e gráficos de barra/linha/pizza. Os dados também podem ser baixados como arquivos .csv. A maioria das mesmas informações está disponível em tempo real na seção de Monitoramento da interface do usuário e também pode ser acessada da API de análise.
@@ -29,7 +33,7 @@ A seção de análise da interface do usuário fornece informações agregadas s
 > Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
 
 ## <a name="standard-and-custom-analytics"></a>Análise padrão e personalizada
-O Azure Mobile Engagement fornece um conjunto de informações analíticas padrão básicas sobre seus aplicativos que podem ser representadas graficamente assim como integrar seu aplicativo com o SDK. O Azure Mobile Engagement também fornece a capacidade de reunir informações de análises personalizadas adicionais que você deseja sobre o comportamento de seus usuários finais. Você pode fazer isso criando um plano de marca das “Marcas (informações do aplicativo)” personalizadas, criado em **Configurações** para que o Azure Mobile Engagement possa coletar esses dados adicionais para você.
+O Azure Mobile Engagement fornece um conjunto de informações analíticas padrão básicas sobre seus aplicativos que podem ser representadas em grafo assim como integrar seu aplicativo com o SDK. O Azure Mobile Engagement também fornece a capacidade de reunir informações de análises personalizadas adicionais que você deseja sobre o comportamento de seus usuários finais. Você pode fazer isso criando um plano de marca das “Marcas (informações do aplicativo)” personalizadas, criado em **Configurações** para que o Azure Mobile Engagement possa coletar esses dados adicionais para você.
 
 ## <a name="analytics"></a>Análise
 * Painel: Mostra informações gerais sobre os usuários novos e ativos e suas tendências.
@@ -41,7 +45,7 @@ O Azure Mobile Engagement fornece um conjunto de informações analíticas padr�
 * Retenção: Um usuário é considerado como retido em um determinado intervalo de tempo se ele realizou sua primeira sessão durante este intervalo de tempo. Você pode alterar os intervalos de tempo durante o qual os usuários retidos (e novos usuários) são contados para horas, dias, semanas ou meses. A análise de retenção de usuário é criada sobre coortes. Um coorte é o conjunto de todos os novos usuários detectado em um determinado período (por exemplo, o conjunto de usuários que executarão a primeira sessão durante esse período). Usamos coortes de 1 dia, 2 dias, 4 dias, 7 dias ou 1 mês. Dado um coorte, a cada 1 dia, 2, 4 ou 7 dias, ou 1 mês, o Azure Mobile Engagement calcula o conjunto de todos os usuários que pertencem ao coorte e ainda estão ativos (ou seja, o conjunto de usuários que executaram pelo menos uma sessão durante o período). Este conjunto de usuários é chamado uma versão coorte. (O Azure Mobile Engagement pode mostrar quantos de seus usuários ainda estão usando seu aplicativo, mas somente a loja específica da plataforma pode informar quantos de seus usuários desinstalaram seu aplicativo - por exemplo, GooglePlay, iTunes, Windows Store, etc.).
 * Sessões: Um uso do aplicativo por um usuário. As sessões são geradas a partir da sequência de atividades executadas pelos usuários (uma atividade geralmente está associada ao uso de uma tela do aplicativo, mas isso pode variar dependendo do modo como o SDK foi integrado no aplicativo). Um usuário pode executar apenas uma atividade por vez: uma sessão é iniciada assim que o usuário começa a sua primeira atividade e é interrompida quando ele termina sua última atividade. Se um usuário permanecer mais de alguns segundos sem executar qualquer atividade, sua sequência de atividades é dividida em duas sessões distintas.
 * Atividades: Os nomes de cada tela em seu aplicativo e quanto tempo os usuários gastam em cada tela. As atividades são uma opção analítica personalizada que corresponderão às marcas de “informações do aplicativo” que você configurar para o seu próprio aplicativo:
-* Caminho do usuário: Mostra como os usuários navegam por meio de atividades do aplicativo (telas). Você pode mover o controle deslizante para ajustar o nível de detalhes. Nós azuis representam as atividades do seu aplicativo. Seu tamanho é proporcional ao tempo gasto pelos usuários nele. Nós brancos representam o início e o final da sessão. Nós vermelhos representam falhas. Os links representam as transições entre as atividades do aplicativo (ou entre atividades e falhas). Clique em um nó ou um link para exibir uma dica de ferramenta com mais informações sobre os dados: o tempo gasto em uma determinada tela, a contagem de transições e a porcentagem de transições de atividade de origem para a atividade de destino. (Um ---60%---> B significa que os usuários que estão em uma atividade A vão para a atividade B em 60% do tempo.) Você pode reorganizar o gráfico como desejar para esclarecê-lo. Sua posição é salva toda vez que você fizer uma alteração. Você pode mostrar ou ocultar as falhas para clarear o gráfico.
+* Caminho do usuário: Mostra como os usuários navegam por meio de atividades do aplicativo (telas). Você pode mover o controle deslizante para ajustar o nível de detalhes. Nós azuis representam as atividades do seu aplicativo. Seu tamanho é proporcional ao tempo gasto pelos usuários nele. Nós brancos representam o início e o final da sessão. Nós vermelhos representam falhas. Os links representam as transições entre as atividades do aplicativo (ou entre atividades e falhas). Clique em um nó ou um link para exibir uma dica de ferramenta com mais informações sobre os dados: o tempo gasto em uma determinada tela, a contagem de transições e a porcentagem de transições de atividade de origem para a atividade de destino. (Um ---60%---> B significa que os usuários que estão em uma atividade A vão para a atividade B em 60% do tempo.) Você pode reorganizar o grafo como desejar para esclarecê-lo. Sua posição é salva toda vez que você fizer uma alteração. Você pode mostrar ou ocultar as falhas para clarear o grafo.
 * Eventos: Ações específicas executadas por um usuário no aplicativo. A distribuição de eventos é mostrada como a contagem de eventos por usuário por sessão. Um evento representa uma ação instantânea, por exemplo, um clique em um botão ou a recepção de uma notificação. (O significado de eventos depende de como o SDK foi integrado no aplicativo.) Um evento pode ocorrer durante uma sessão ou um trabalho ou pode ser autônomo.
 * Trabalhos: Semelhante aos eventos, exceto que eles se concentram na duração da ação. Por exemplo, trabalhos poderiam contar informações técnicas sobre o tempo de carregamento do conteúdo ou uma chamada ao serviço web. Ele também pode mostrar quanto tempo leva um usuário para preencher um formulário, criar uma conta ou fazer uma compra. Um trabalho representa a duração de uma tarefa, por exemplo, a duração de uma tarefa de download ou o tempo no qual um banner foi exibido na tela. (O significado dos trabalhos depende de como o SDK foi integrado no aplicativo.) Trabalhos estão geralmente associados a tarefas em segundo plano que são executadas fora do escopo de uma sessão (ou seja, sem nenhuma atividade de usuário).
 * Informações técnicas: Informações técnicas sobre os dispositivos dos usuários do seu aplicativo que você pode rastrear, como a localidade, operadora, rede, dispositivo, Firmware e tamanho da tela dos dispositivos dos usuários e a versão do seu aplicativo e a versão do SDK usado em seu aplicativo.

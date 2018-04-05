@@ -1,11 +1,11 @@
 ---
-title: "Conteúdo do SDK de aplicativos do Windows Universal"
-description: "Saiba mais sobre o conteúdo do SDK dos aplicativos do Windows Universal para o Azure Mobile Engagement"
+title: Conteúdo do SDK de aplicativos do Windows Universal
+description: Saiba mais sobre o conteúdo do SDK dos aplicativos do Windows Universal para o Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8fa1b701-1c2b-4aec-940c-06c974ef5405
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: b28d525ab16487b963772e23fdecd11f94dcabd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b520adcc6af24f7b092580ea82a787a120668bf
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-sdk-content"></a>Conteúdo do SDK de aplicativos do Windows Universal
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Este documento lista e descreve o conteúdo implantado pelo SDK em seu aplicativo.
 
 ## <a name="the-resources-folder"></a>A pasta `/Resources`

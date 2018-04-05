@@ -1,11 +1,11 @@
 ---
-title: "Implementação do Azure Mobile Engagement para Aplicativo de Jogo"
-description: "Cenário de aplicativo de jogo para implementação do Azure Mobile Engagement"
+title: Implementação do Azure Mobile Engagement para Aplicativo de Jogo
+description: Cenário de aplicativo de jogo para implementação do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e827b57e804cc91798859bc906e49046decede
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Implementar o Mobile Engagement com o Aplicativo de Jogos
 ## <a name="overview"></a>Visão geral
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Uma empresa de jogos em fase inicial lançou um novo aplicativo de jogo de pescar baseado em role-play/estratégia. O jogo está em execução por 6 meses. Este jogo é um enorme sucesso e tem milhões de downloads e a retenção é muito alta em comparação com outros aplicativos de jogos de empresas em fase inicial. Na reunião de análise trimestral, os participantes concordam que precisam aumentar a receita média por usuário (ARPU). Pacotes de jogo premium estão disponíveis como ofertas especiais. Esses pacotes de jogos permitem aos usuários atualizar a aparência e o desempenho de suas linhas e iscas ou equipamentos de pesca no jogo. No entanto, as vendas dos pacotes são muito baixas. Então, eles decidem primeiro analisar a experiência do cliente com uma ferramenta de análise e desenvolver um programa de envolvimento para aumentar as vendas usando segmentação avançada.
 
 Com base no [Azure Mobile Engagement - Guia de Introdução com Práticas Recomendadas](mobile-engagement-getting-started-best-practices.md) eles compilam uma estratégia de envolvimento.
