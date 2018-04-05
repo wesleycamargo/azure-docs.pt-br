@@ -3,7 +3,7 @@ title: Azure Service Fabric – Configurar o monitoramento com o Log Analytics d
 description: Saiba como configurar o Operations Management Suite para visualizar e analisar eventos para monitorar os clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
-ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 3/30/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurar o Log Analytics do Operations Management Suite para um cluster
 
@@ -75,7 +75,7 @@ Você adicionou a solução Análise do Service Fabric em um espaço de trabalho
 
 Ao implantar um cluster usando um modelo do Resource Manager, o modelo cria um novo espaço de trabalho de OMS, adiciona a Solução Service Fabric a ele e o configura para ler dados das tabelas de armazenamento apropriadas.
 
-Você pode usar e modificar [este modelo de exemplo](https://azure.microsoft.com/resources/templates/service-fabric-oms/) para atender às suas necessidades. Modelos que oferecem diferentes opções para configurar um espaço de trabalho do OMS podem ser encontrados em [Modelos do Service Fabric e do OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Você pode usar e modificar [este modelo de exemplo](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) para atender às suas necessidades.
 
 Faça as seguintes modificações:
 1. Adicione `omsWorkspaceName` e `omsRegion` aos seus parâmetros adicionando o trecho de código a seguir aos parâmetros definidos em seu arquivo *template.json*. Fique à vontade para modificar os valores padrão como desejar. Além disso, adicione dois novos parâmetros em seu arquivo *parameters.json* para definir os valores para a implantação de recursos:

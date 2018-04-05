@@ -1,11 +1,11 @@
 ---
-title: "Guia de solução de problemas do Azure Mobile Engagement - APIs"
-description: "Guias de solução de problemas para o Azure Mobile Engagement - APIs"
+title: Guia de solução de problemas do Azure Mobile Engagement - APIs
+description: Guias de solução de problemas para o Azure Mobile Engagement - APIs
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3efc8a52-2b74-4917-b887-815ae8277474
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cda11c8d2f1d147a807083c5479d2b2cda65462c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>Guia de solução de problemas de API
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Estes são os possíveis problemas que podem ser encontrados na maneira como administradores interagem com o Azure Mobile Engagement por meio das APIs.
 
 ## <a name="syntax-issues"></a>Problemas de sintaxe

@@ -1,19 +1,19 @@
 ---
 title: Implantar o Azure Stream Analytics com o Azure IoT Edge | Microsoft Docs
-description: "Implantar o Azure Stream Analytics como um módulo em um dispositivo de borda"
+description: Implantar o Azure Stream Analytics como um módulo em um dispositivo de borda
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implantar o Azure Stream Analytics como um módulo do IoT Edge – versão prévia
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 > * Conectar o novo trabalho do Azure Stream Analytics a outros módulos do IoT Edge.
 > * Implantar o trabalho do Azure Stream Analytics em um dispositivo do IoT Edge.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Um hub IoT. 
 * O dispositivo que você criou e configurou no guia de início rápido ou nos artigos sobre como implantar o Azure IoT Edge em um dispositivo simulado no [Windows][lnk-tutorial1-win] ou no [Linux][lnk-tutorial1-lin]. Você precisa conhecer a chave de conexão do dispositivo e a ID do dispositivo. 

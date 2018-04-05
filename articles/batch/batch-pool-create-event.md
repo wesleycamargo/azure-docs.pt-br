@@ -1,22 +1,22 @@
 ---
-title: "Pool de criação de evento Azure Batch | Microsoft Docs"
-description: "Referência para o pool do lote criar um evento."
+title: Pool de criação de evento Azure Batch | Microsoft Docs
+description: Referência para o pool do lote criar um evento.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bf7dfc2600c3d94faeb8d03561f6f2b30a0ee2d2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="pool-create-event"></a>Evento de criação de pool
 
@@ -64,14 +64,14 @@ ms.lasthandoff: 10/11/2017
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|----------|-----------|
 |osFamily|Cadeia de caracteres|A família do SO convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> Os valores possíveis são:<br /><br /> **2** – SO Família 2, equivalente ao Windows Server 2008 R2 SP1.<br /><br /> **3** – SO Família 3, equivalente ao Windows Server 2012.<br /><br /> **4** – SO Família 4, equivalente ao Windows Server 2012 R2.<br /><br /> Para obter mais informações, consulte [Lançamentos do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |targetOSVersion|Cadeia de caracteres|A versão do SO convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> O valor padrão é **\*** que especifica a última versão do sistema operacional da família especificada.<br /><br /> Para outros valores permitidos, consulte [Lançamentos do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Tipo complexo|Especifica informações sobre a plataforma ou imagem do Marketplace a ser usada.|
 |nodeAgentSKUId|Cadeia de caracteres|O SKU do agente do nó do lote provisionado em nós de computação.|
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|----------|-----------|
 |publicador|Cadeia de caracteres|Especifica o editor da imagem.|
 |oferta|Cadeia de caracteres|A oferta da imagem.|
@@ -88,12 +88,12 @@ ms.lasthandoff: 10/11/2017
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|Booliano|Indica se a máquina virtual está habilitada para atualizações automáticas. Se essa propriedade não for especificada, o valor padrão será verdadeiro.|
+|enableAutomaticUpdates|BOOLEAN|Indica se a máquina virtual está habilitada para atualizações automáticas. Se essa propriedade não for especificada, o valor padrão será verdadeiro.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|--------------|----------|
 |subnetId|Cadeia de caracteres|Especifica o identificador do recurso da sub-rede em que nós de computação do pool são criados.|

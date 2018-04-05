@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - Interface do usuário - Reach"
-description: "Como entrar em contato com os usuários do seu aplicativo com notificações por push usando o Azure Mobile Engagement"
+title: Azure Mobile Engagement - Interface do usuário - Reach
+description: Como entrar em contato com os usuários do seu aplicativo com notificações por push usando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d999b83df7d9d467f08ce8ec72468c738e8acfa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Como entrar em contato com os usuários do seu aplicativo com notificações por push
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Este artigo descreve a guia **ALCANCE** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement** . Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create.md).
 
 A seção Reach da interface do usuário é a ferramenta de gerenciamento de campanha Push onde você pode criar/editar/ativar/finalizar/monitorar e obter estatísticas sobre campanhas de notificação de envio e os recursos que também podem ser acessados via a API do Reach (e alguns elementos do nível baixo API de envio). Lembre-se de que, se você estiver usando as APIs ou a interface do usuário, você precisará integrar o Azure Mobile Engagement e o Reach em seu aplicativo em cada plataforma com o SDK antes que você possa usar as campanhas Reach.
@@ -41,7 +45,7 @@ Você pode editar, clonar, excluir ou ativar campanhas que ainda não foram ativ
 ![Reach1][18]
 
 ## <a name="reach-feedback"></a>Comentários do Reach
-Clique em **Estatísticas** para ver os detalhes de uma Campanha de alcance. O modo de exibição **Simples** fornece uma representação visual na forma de um gráfico de barras da coluna sobre o que aconteceu após a ativação de uma campanha. O modo de exibição **Avançado** fornece detalhes mais granulares sobre a campanha por push. Esses detalhes não estarão disponíveis se você estiver enviando uma campanha de teste, ou seja, um envio por push para um dispositivo de teste. Veja como você deve interpretar esses detalhes:
+Clique em **Estatísticas** para ver os detalhes de uma Campanha de alcance. O modo de exibição **Simples** fornece uma representação visual na forma de um grafo de barras da coluna sobre o que aconteceu após a ativação de uma campanha. O modo de exibição **Avançado** fornece detalhes mais granulares sobre a campanha por push. Esses detalhes não estarão disponíveis se você estiver enviando uma campanha de teste, ou seja, um envio por push para um dispositivo de teste. Veja como você deve interpretar esses detalhes:
 
 1. **Enviada por push** - Essa opção especifica o número de mensagens enviadas por push para os dispositivos. Esse número dependerá do público-alvo especificado durante a criação da campanha de push. Se você não especificar qualquer público-alvo, esse envio por push ocorrerá para todos os dispositivos registrados. Como todos os outros serviços de envio por push, não enviamos diretamente por push aos dispositivos, em vez disso, os enviamos para as respectivas plataformas específicas de Serviços de notificação por push (PNS - GCM/APNS/WNS) para que elas possam oferecer as notificações aos dispositivos. 
 2. **Entregues** - Especifica o número de mensagens que são entregues com êxito pelo PNS ao dispositivo e confirmadas como recebidas pelo SDK do Mobile Engagement. 

@@ -3,8 +3,8 @@ title: Uso do Assistente Publicar Aplicativo do Azure do Visual Studio | Microso
 description: Saiba como definir as diversas configurações no Assistente Publicar Aplicativo do Azure do Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
-ms.author: kraigb
-ms.openlocfilehash: d29cae9710cc9c01dae09e8fd8273ac30dd61827
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: ghogen
+ms.openlocfilehash: 980809bc62f7766971ea4753e1cfb165aa1cffc2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Uso do Assistente Publicar Aplicativo do Azure do Visual Studio
 
@@ -65,7 +65,7 @@ Depois de desenvolver um aplicativo Web no Visual Studio, você poderá publicá
 
 **Configuração de serviço** - selecione **Nuvem** ou **Local**.
 
-**Habilitar Área de Trabalho Remota para todas as funções** – marque essa opção se desejar se conectar remotamente ao serviço. Essa opção é usada principalmente para solução de problemas. Para obter mais informações, consulte [Habilitar Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure usando o Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
+**Habilitar Área de Trabalho Remota para todas as funções** – marque essa opção se desejar se conectar remotamente ao serviço. Essa opção é usada principalmente para solução de problemas. Para saber mais, veja [Habilitar Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure usando o Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
 
 **Habilitar Implantação da Web para todas as funções web** – marque essa opção para habilitar a implantação da Web para o serviço. Também marque a opção **Habilitar Área de Trabalho Remota para todas as funções** para usar esse recurso. Para obter mais informações, consulte [Publicando um serviço de nuvem com o Visual Studio](vs-azure-tools-publishing-a-cloud-service.md).
 

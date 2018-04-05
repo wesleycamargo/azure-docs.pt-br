@@ -1,11 +1,11 @@
 ---
 title: APIs do SDK para Web do Azure Mobile Engagement | Microsoft Docs
-description: "As atualizações e procedimentos mais recentes do SDK para Web do Azure Mobile Engagement"
+description: As atualizações e procedimentos mais recentes do SDK para Web do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8a87d5ac-d8b7-4a0d-bdee-414dbcc561b2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2ae75b384b60d0383c1682a00a4fc0d19d0f43
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Usar a API do Azure Mobile Engagement em um aplicativo Web
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 Este documento é um complemento do documento que descreve como [integrar o Mobile Engagement a um aplicativo Web](mobile-engagement-web-integrate-engagement.md). Ele fornece detalhes aprofundados sobre como usar a API do Azure Mobile Engagement para relatar as estatísticas do aplicativo.
 
 A API do Mobile Engagement é fornecida pelo objeto `engagement.agent` . O alias padrão do SDK Web do Azure Mobile Engagement é `engagement`. Você pode redefinir esse alias na configuração do SDK.
@@ -169,7 +173,7 @@ Esses dados podem ser qualquer objeto JSON (mas não uma matriz ou tipos primiti
     var extras = {"video_id": 123, "ref_click": "http://foobar.com/blog"};
     engagement.agent.sendEvent("video_clicked", extras);
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 Limites que se aplicam a parâmetros extras estão nas áreas de expressões regulares de chaves, tipos de valor e tamanho.
 
 #### <a name="keys"></a>simétricas
@@ -199,7 +203,7 @@ Aqui está um exemplo de código para enviar a data de nascimento e o sexo do us
     var appInfos = {"birthdate":"1983-12-07","gender":"female"};
     engagement.agent.sendAppInfo(appInfos);
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 Limites que se aplicam às informações do aplicativo são nas áreas de expressões regulares de chaves e tamanho.
 
 #### <a name="keys"></a>simétricas

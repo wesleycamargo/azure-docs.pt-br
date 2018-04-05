@@ -1,12 +1,12 @@
 ---
-title: "O que é o Backup do Azure? | Microsoft Docs"
-description: "Use o Backup do Azure para fazer backup e restaurar dados e cargas de trabalho de Servidores Windows, estações de trabalho Windows, servidores System Center DPM e máquinas virtuais do Azure."
+title: O que é o Backup do Azure? | Microsoft Docs
+description: Use o Backup do Azure para fazer backup e restaurar dados e cargas de trabalho de Servidores Windows, estações de trabalho Windows, servidores System Center DPM e máquinas virtuais do Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "backup e restauração; serviços de recuperação; soluções de backup"
+editor: ''
+keywords: backup e restauração; serviços de recuperação; soluções de backup
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 600c4a29d7d7daabbbf6d1825671d109ea499c4b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -34,7 +34,7 @@ As soluções tradicionais de backup evoluíram para tratar a nuvem como um pont
 
 **Dimensionamento ilimitado** - o Backup do Azure usa o poder subjacente e a escala ilimitada de nuvem do Azure para proporcionar alta disponibilidade, sem manutenção ou sobrecarga de monitoramento. Você pode configurar alertas para fornecer informações sobre eventos, mas não precisa se preocupar com a alta disponibilidade de seus dados na nuvem.
 
-**Várias opções de armazenamento** -um aspecto de alta disponibilidade é a replicação de armazenamento. O Backup do Azure oferece dois tipos de replicação: [armazenamento com redundância local](../storage/common/storage-redundancy.md#locally-redundant-storage) e [armazenamento com redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage). Escolha a opção de armazenamento de backup com base na necessidade:
+**Várias opções de armazenamento** -um aspecto de alta disponibilidade é a replicação de armazenamento. O Backup do Azure oferece dois tipos de replicação: [armazenamento com redundância local](../storage/common/storage-redundancy-lrs.md) e [armazenamento com redundância geográfica](../storage/common/storage-redundancy-grs.md). Escolha a opção de armazenamento de backup com base na necessidade:
 
 * O Armazenamento com redundância local (LRS) replica seus dados três vezes (ele cria três cópias de seus dados) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger seus dados contra falhas de hardware local.
 
@@ -121,11 +121,11 @@ As seções a seguir fornecem as tabelas que resumem a disponibilidade ou o supo
 ### <a name="storage"></a>Armazenamento
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Cofre dos Serviços de Recuperação |![sim][green] |![Sim][green] |![Sim][green] |![sim][green] |
+| Cofre dos Serviços de Recuperação |![sim][green] |![sim][green] |![sim][green] |![sim][green] |
 | Armazenamento em disco | |![sim][green] |![sim][green] | |
 | Armazenamento em fita | |![sim][green] | | |
-| Compactação <br/>(no cofre dos Serviços de Recuperação) |![sim][green] |![Sim][green] |![sim][green] | |
-| Backup incremental |![sim][green] |![Sim][green] |![Sim][green] |![sim][green] |
+| Compactação <br/>(no cofre dos Serviços de Recuperação) |![sim][green] |![sim][green] |![sim][green] | |
+| Backup incremental |![sim][green] |![sim][green] |![sim][green] |![sim][green] |
 | Eliminação de duplicação de disco | |![Parcialmente][yellow] |![Parcialmente][yellow] | | |
 
 ![chave de tabela](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -162,8 +162,8 @@ O **Backup Incremental** alcança alta eficiência de armazenamento e de rede ar
 ### <a name="security"></a>Segurança
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Segurança de rede<br/> (para o Azure) |![sim][green] |![Sim][green] |![sim][green] |![Parcialmente][yellow] |
-| Segurança de dados<br/> (no Azure) |![sim][green] |![Sim][green] |![sim][green] |![Parcialmente][yellow] |
+| Segurança de rede<br/> (para o Azure) |![sim][green] |![sim][green] |![sim][green] |![Parcialmente][yellow] |
+| Segurança de dados<br/> (no Azure) |![sim][green] |![sim][green] |![sim][green] |![Parcialmente][yellow] |
 
 ![chave de tabela](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -182,7 +182,7 @@ Fazer backup de VMs do Azure requer a configuração da criptografia *na* máqui
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
 | Compactação de rede <br/>(para **servidor de backup**) | |![sim][green] |![sim][green] | |
-| Compactação de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |![sim][green] |![Sim][green] |![sim][green] | |
+| Compactação de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |![sim][green] |![sim][green] |![sim][green] | |
 | Protocolo de rede <br/>(para **servidor de backup**) | |TCP |TCP | |
 | Protocolo de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
@@ -219,7 +219,7 @@ Alguns exemplos comuns de instâncias protegidas são máquinas virtuais, servid
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>O que é um cofre dos Serviços de Recuperação?
-Um cofre dos Serviços de Recuperação é uma entidade de armazenamento online no Azure usada para armazenar dados como cópias de backup, pontos de recuperação e políticas de backup. Você pode usar cofres dos Serviços de Recuperação para armazenar dados de backup de serviços do Azure, servidores e estações de trabalho locais. Os cofres dos Serviços de Recuperação facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento. Em cada assinatura do Azure, você pode criar até 25 cofres de Serviços de Recuperação por região do Azure. Ao considerar onde armazenar seus dados, nem todas as regiões são as mesmas. Confira [Armazenamento com redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) para obter informações sobre considerações de armazenamento adicional e emparelhamentos de regiões.
+Um cofre dos Serviços de Recuperação é uma entidade de armazenamento online no Azure usada para armazenar dados como cópias de backup, pontos de recuperação e políticas de backup. Você pode usar cofres dos Serviços de Recuperação para armazenar dados de backup de serviços do Azure, servidores e estações de trabalho locais. Os cofres dos Serviços de Recuperação facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento. Em cada assinatura do Azure, você pode criar até 25 cofres de Serviços de Recuperação por região do Azure. Ao considerar onde armazenar seus dados, nem todas as regiões são as mesmas. Confira [Armazenamento com redundância geográfica](../storage/common/storage-redundancy-grs.md) para obter informações sobre considerações de armazenamento adicional e emparelhamentos de regiões.
 
 Os cofres de backup, que foram baseados no Gerenciador de Serviços do Azure, foram a primeira versão do cofre. Os cofres dos Serviços de Recuperação, que adicionam os recursos do Azure Resource Manager, são a segunda versão do cofre. Consulte o [artigo de visão geral do cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para obter uma descrição completa das diferenças entre os recursos. Você não pode mais criar cofres de Backup, e todos os cofres de Backup existentes foram atualizados para os Cofres de Serviços de Recuperação. Você pode usar o portal do Azure para gerenciar os cofres que foram atualizados para os cofres de Serviços de Recuperação.
 

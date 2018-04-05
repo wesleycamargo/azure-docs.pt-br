@@ -1,11 +1,11 @@
 ---
-title: "Comparando o Azure Mobile Engagement a outros serviços parecidos do Azure"
-description: "Comparando o Azure Mobile Engagement a outros serviços parecidos do Azure - HockeyApp, AppInsights, Hubs de Notificação"
+title: Comparando o Azure Mobile Engagement a outros serviços parecidos do Azure
+description: Comparando o Azure Mobile Engagement a outros serviços parecidos do Azure - HockeyApp, AppInsights, Hubs de Notificação
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f114775-3a9a-4dd4-8d59-b10d1da9a68b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57be3b235c5f439741155a70df7ddbe8a80906f2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Comparando o Azure Mobile Engagement a outros serviços parecidos do Azure
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 A lista de serviços oferecidos pelo Microsoft Azure está sempre em expansão e, às vezes, você pode se perguntar qual é a diferença do Azure Mobile Engagement desse outro serviço que você acabou de ler ou sobre o qual ouvir falar. Este artigo tenta esclarecer a confusão e direciona você a escolher o Azure Mobile Engagement quando ele for mais adequado para seu uso. 
 
 O Azure Mobile Engagement é um serviço direcionado especificamente **aos comerciantes digitais/CMOs**, mas pode ser usado por qualquer **proprietário de aplicativo móvel ou editor** que quer aumentar o uso, a retenção e a monetização de seus aplicativos móveis. 

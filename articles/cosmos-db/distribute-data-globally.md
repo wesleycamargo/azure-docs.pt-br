@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 567f035bdb293353090ee107f8d24da845e15154
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir os dados globalmente com o Azure Cosmos DB
 O Azure é onipresente: ele tem uma superfície global que abrange mais de 30 regiões geográficas e aumenta continuamente. Com sua presença em todo o mundo, um dos recursos diferenciados que o Azure oferece aos desenvolvedores é a capacidade de criar, implantar e gerenciar aplicativos distribuídos globalmente com facilidade. 
@@ -36,7 +36,7 @@ Com a distribuição de global turnkey do Azure Cosmos DB, os desenvolvedores n�
 Neste artigo, apresentamos uma visão geral das funcionalidades de distribuição global do Azure Cosmos DB. Também descrevemos a abordagem exclusiva do Azure Cosmos DB para o fornecimento de SLAs abrangentes. 
 
 ## <a id="EnableGlobalDistribution"></a>Habilitando a distribuição global turnkey
-O Azure Cosmos DB fornece as funcionalidades a seguir para que você possa escrever facilmente aplicativos de escala mundial. Essas funcionalidades estão disponíveis por meio de [APIs REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) baseadas em provedores de recursos do Azure Cosmos DB, bem como no portal do Azure.
+O Azure Cosmos DB fornece as funcionalidades a seguir para que você possa escrever facilmente aplicativos de escala mundial. Essas funcionalidades estão disponíveis por meio de [APIs REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) baseadas em provedores de recursos do Azure Cosmos DB, bem como no portal do Azure.
 
 No vídeo a seguir, o gerente de programa do Azure Cosmos DB, Andrew Liu, demonstra os recursos de distribuição global pronta para uso.
 

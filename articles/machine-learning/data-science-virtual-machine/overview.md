@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows
 
@@ -29,7 +29,7 @@ Este tópico explica o que você pode fazer com a VM de Ciência de Dados, descr
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>O que é possível fazer com a Máquina Virtual de Ciência de Dados?
-O objetivo da Máquina Virtual de Ciência de Dados é fornecer aos profissionais de dados em todos os níveis de habilidade e funções um ambiente descomplicado de ciência de dados. Com essa VM, você economiza tempo considerável que gastaria se tivesse distribuído um ambiente comparável por conta própria. Em vez disso, inicie seu projeto de ciência de dados imediatamente em uma instância de VM recentemente criada. 
+O objetivo da Máquina Virtual de Ciência de Dados (DSVM) é fornecer aos profissionais de dados de todos os níveis de habilidade e funções um ambiente de ciência de dados descomplicado, pré-configurado e totalmente integrado. Em vez de distribuir um espaço de trabalho equiparável por conta própria, você pode provisionar um DSVM, poupando dias ou até mesmo _semanas_ com processos de instalação, configuração e de gerenciamento de pacotes. Depois de alocar o DSVM, você pode começar a trabalhar imediatamente no seu projeto de ciência de dados.
 
 A VM de Ciência de Dados foi desenvolvida e configurada para trabalhar com amplos cenários de uso. Você pode reduzir ou aumentar o ambiente de acordo com as necessidades do seu projeto. É possível usar seu idioma preferido para programar as tarefas de ciência de dados. Você pode instalar outras ferramentas e personalizar o sistema para suas necessidades exatas.
 

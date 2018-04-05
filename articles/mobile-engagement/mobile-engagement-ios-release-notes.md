@@ -1,11 +1,11 @@
 ---
-title: "Notas de versão do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
-description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
+title: Notas de versão do SDK para iOS do Azure Mobile Engagement | Microsoft Docs
+description: Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a43ff0f6-90d5-4b3c-8d7a-a1db21bc776b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0268d65d2c0ea3cefeb8f06793838bc263e443bd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Notas de versão do SDK do iOS no Azure Mobile Engagement
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 
 ## <a name="410-07172017"></a>4.1.0 (07/17/2017)
 * Corrigidas as notificações apagadas na tela de fundo.

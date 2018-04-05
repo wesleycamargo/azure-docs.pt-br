@@ -1,11 +1,11 @@
 ---
-title: "Opções de relatório avançado para o SDK do Azure Mobile Engagement para Android"
-description: "Descreve como fazer relatórios avançados para capturar a análise do SDK do Azure Mobile Engagement para Android"
+title: Opções de relatório avançado para o SDK do Azure Mobile Engagement para Android
+description: Descreve como fazer relatórios avançados para capturar a análise do SDK do Azure Mobile Engagement para Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7da7abd5-19d6-4892-94d8-818e5424b2cd
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 419b65250d2b65e184e6e36349b17b5ac9e7a6ba
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-reporting-with-engagement-on-android"></a>Relatório avançado com o Engagement no Android
+> [!IMPORTANT]
+> O Azure Mobile Engagement será desativado em 31/03/2018. Esta página será excluída logo em seguida.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universal do Windows](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 
 Este tópico descreve cenários de relatório adicionais em seu aplicativo Android. Você pode aplicar estas opções ao aplicativo criado no tutorial [Introdução](mobile-engagement-android-get-started.md) .
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 O tutorial que você concluiu era deliberadamente simples e direto, mas há opções avançadas dentre as quais você pode escolher.
@@ -54,7 +58,7 @@ Se você não puder ou não quiser sobrecarregar as classes `Activity`, será po
 > 
 > 
 
-Aqui está um exemplo:
+Veja um exemplo:
 
     public class MyActivity extends Some3rdPartyActivity
     {
